@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Database Syntax JTDS
+Bundle-SymbolicName: org.asup.db.syntax.jtds
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Export-Package: org.asup.db.syntax.jtds
+Require-Bundle: org.asup.db.syntax;bundle-version="0.5.0",
+ org.asup.db.syntax.mssql;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
