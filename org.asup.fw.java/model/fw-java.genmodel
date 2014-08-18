@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.fw.java/src" editDirectory="/org.asup.fw.java.edit/src"
+    editorDirectory="/org.asup.fw.java.editor/src" modelPluginID="org.asup.fw.java"
+    modelName="As.UP Framework Java" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" editPluginID="org.asup.fw.java.edit" editorPluginID="org.asup.fw.java.editor"
+    language="EN" interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>fw-java.ecore</foreignModel>
+  <genPackages prefix="FrameworkJava" basePackage="org.asup.fw" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="fw-java.ecore#/">
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaAnnotation"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaCloseable"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaDictionary">
+      <genTypeParameters ecoreTypeParameter="fw-java.ecore#//JavaDictionary/K"/>
+      <genTypeParameters ecoreTypeParameter="fw-java.ecore#//JavaDictionary/V"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaException"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaInputStream"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaIOException"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaIterable"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaIterator"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaMap">
+      <genTypeParameters ecoreTypeParameter="fw-java.ecore#//JavaMap/K"/>
+      <genTypeParameters ecoreTypeParameter="fw-java.ecore#//JavaMap/V"/>
+    </genDataTypes>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaOutputStream"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaRunnable"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaType"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaThrowable"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaURI"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaURL"/>
+    <genDataTypes ecoreDataType="fw-java.ecore#//JavaWriter"/>
+    <genClasses image="false" ecoreClass="fw-java.ecore#//JavaEnum"/>
+    <genClasses image="false" ecoreClass="fw-java.ecore#//JavaList"/>
+    <genClasses image="false" ecoreClass="fw-java.ecore#//JavaNumber"/>
+  </genPackages>
+</genmodel:GenModel>

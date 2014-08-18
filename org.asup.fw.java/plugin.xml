@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated fw-java -->
+      <package
+            uri="http://www.asup.org/fw/java"
+            class="org.asup.fw.java.QFrameworkJavaPackage"
+            genModel="model/fw-java.genmodel"/>
+   </extension>
+
+</plugin>
