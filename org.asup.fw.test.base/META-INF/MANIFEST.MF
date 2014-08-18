@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Framework Test Base
+Bundle-SymbolicName: org.asup.fw.test.base
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: javax.inject
+Require-Bundle: org.asup.fw.test;bundle-version="0.5.0";visibility:=reexport
+Export-Package: org.asup.fw.test.base,
+ org.asup.fw.test.base.test
