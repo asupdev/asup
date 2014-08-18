@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="/home/jamiro/Runtime/As.UP/0.5.0/store-cdo/plugins/org.asup.fw.core.base_0.5.0.201406140954.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/org.asup.fw.core.base/fw-core-base.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" manifestLocation="/org.asup.fw.core.base/META-INF/MANIFEST.MF" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/org.asup.fw.core.base/.classpath"/>
+        <file path="/org.asup.fw.core.base/build.properties"/>
+        <folder path="/org.asup.fw.core.base/lib"/>
+        <javaElement handleIdentifier="=org.asup.fw.core.base/src"/>
+        <file path="/org.asup.fw.core.base/.project"/>
+        <folder path="/org.asup.fw.core.base/META-INF"/>
+    </selectedElements>
+</jardesc>
