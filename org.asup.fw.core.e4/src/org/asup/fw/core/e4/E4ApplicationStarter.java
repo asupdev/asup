@@ -37,7 +37,6 @@ import org.asup.fw.core.annotation.ApplicationStarting;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.annotation.LevelStarting;
 import org.asup.fw.core.annotation.ServiceRegistration;
-import org.asup.ut.java.StringUtility;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
@@ -319,10 +318,23 @@ public class E4ApplicationStarter {
 	private void println(String message) {
 		
 		try {
-			writer.write(StringUtility.appendChars(message+"\n", "\t", messageLevel, true));
+			writer.write(appendChars(message+"\n", "\t", messageLevel, true));
 			writer.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}	
+	}
+	
+	
+	public static String appendChars(String in, String chars, int times, boolean before) {
+		StringBuffer sb = new StringBuffer();
+		if(!before)
+			sb.append(in);
+		for(int x=0; x<times; x++)
+			sb.append(chars);
+		if(before)
+			sb.append(in);
+		sb.trimToSize();
+		return sb.toString();
+	}
 }
