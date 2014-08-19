@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/co/core" nsPrefix="co-core">
+  <eClassifiers xsi:type="ecore:EClass" name="ServerSocketConfig" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServerSocket" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServerSocketManager" abstract="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="startServerSocket">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="config" lowerBound="1" eType="#//ServerSocketConfig"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

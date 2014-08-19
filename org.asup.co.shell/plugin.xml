@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated co-shell -->
+      <package
+            uri="http://www.asup.org/co/shell"
+            class="org.asup.co.shell.QShellPackage"
+            genModel="model/co-shell.genmodel"/>
+   </extension>
+
+</plugin>

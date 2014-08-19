@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.co.shell/src" modelPluginID="org.asup.co.shell" modelName="As.UP Connector Shell"
+    rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    rootImplementsInterface="" suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    interfaceNamePattern="Q{0}">
+  <foreignModel>co-shell.ecore</foreignModel>
+  <genPackages prefix="Shell" basePackage="org.asup.co" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="co-shell.ecore#/">
+    <genClasses image="false" ecoreClass="co-shell.ecore#//OutputWrapper">
+      <genOperations ecoreOperation="co-shell.ecore#//OutputWrapper/flush">
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/flush/jobID"/>
+      </genOperations>
+      <genOperations ecoreOperation="co-shell.ecore#//OutputWrapper/write">
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/write/jobID"/>
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/write/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="co-shell.ecore#//OutputWrapper/register">
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/register/jobID"/>
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/register/writer"/>
+      </genOperations>
+      <genOperations ecoreOperation="co-shell.ecore#//OutputWrapper/unregister">
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/unregister/jobID"/>
+      </genOperations>
+      <genOperations ecoreOperation="co-shell.ecore#//OutputWrapper/contains">
+        <genParameters ecoreParameter="co-shell.ecore#//OutputWrapper/contains/jobID"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
