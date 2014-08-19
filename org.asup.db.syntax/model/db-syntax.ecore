@@ -13,6 +13,10 @@
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
     </eOperations>
     <eOperations name="getSchemaSeparator" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getIndex" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Index">
+      <eParameters name="connection" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Connection"/>
+      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AliasResolverRegistry" abstract="true">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">

@@ -7,6 +7,8 @@
  */
 package org.asup.db.syntax;
 
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QIndex;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
@@ -54,5 +56,13 @@ public interface QAliasResolver extends QPlugin, QService {
 	 * @generated
 	 */
 	String getSchemaSeparator();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model indexRequired="true"
+	 * @generated
+	 */
+	QIndex getIndex(QConnection connection, String index);
 
 } // AliasResolver

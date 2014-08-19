@@ -9,7 +9,7 @@
  * Contributors: 
  *   Dario Foresti - Initial API and implementation 
  */
-package org.asup.db.core.base;
+package org.asup.db.syntax.base;
 
 import org.asup.db.syntax.impl.AliasResolverImpl;
 import org.eclipse.datatools.modelbase.sql.query.TableInDatabase;

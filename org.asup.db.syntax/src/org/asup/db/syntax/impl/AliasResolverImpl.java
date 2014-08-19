@@ -9,6 +9,8 @@ package org.asup.db.syntax.impl;
 
 import java.util.Iterator;
 
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QIndex;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.fw.core.QFrameworkCorePackage;
@@ -152,6 +154,17 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	 * @generated
 	 */
 	public String getSchemaSeparator() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QIndex getIndex(QConnection connection, String index) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

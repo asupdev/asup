@@ -14,6 +14,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.asup.fw.core;visibility:=reexport,
  org.eclipse.datatools.modelbase.sql;bundle-version="1.0.6";visibility:=reexport,
  org.eclipse.datatools.modelbase.sql.query;bundle-version="1.1.4";visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport,
  org.eclipse.datatools.sqltools.parsers.sql.query;bundle-version="1.2.1";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
