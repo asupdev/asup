@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EFactory;
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
  * @see org.asup.fw.java.QFrameworkJavaPackage
- * @generated
+ * @generated 
  */
 public interface QFrameworkJavaFactory extends EFactory {
 	/**
