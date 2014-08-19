@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.os.type.lib/src" editDirectory="/org.asup.os.type.lib.edit/src"
+    editorDirectory="/org.asup.os.type.lib.editor/src" modelPluginID="org.asup.os.type.lib"
+    modelName="As.UP Operating System Library" rootExtendsInterface="" suppressEMFTypes="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" editorPluginID="/org.asup.os.type.lib.editor"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.core/model/il-core.genmodel#//core"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>os-type-lib.ecore</foreignModel>
+  <genPackages prefix="OperatingSystemLibrary" basePackage="org.asup.os.type" disposableProviderFactory="true"
+      adapterFactory="false" fileExtensions="" ecorePackage="os-type-lib.ecore#/">
+    <genClasses image="false" ecoreClass="os-type-lib.ecore#//LibraryManager">
+      <genOperations ecoreOperation="os-type-lib.ecore#//LibraryManager/getLibraryReader">
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/getLibraryReader/job"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-lib.ecore#//LibraryManager/getLibraryWriter">
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/getLibraryWriter/job"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-lib.ecore#//LibraryManager/loadClass">
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/loadClass/job"/>
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/loadClass/library"/>
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/loadClass/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-lib.ecore#//LibraryManager/loadClass.1">
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/loadClass.1/job"/>
+        <genParameters ecoreParameter="os-type-lib.ecore#//LibraryManager/loadClass.1/address"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="os-type-lib.ecore#//Library"/>
+  </genPackages>
+</genmodel:GenModel>

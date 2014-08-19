@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lib" nsURI="http://www.asup.org/os/type/lib" nsPrefix="os-type-lib">
+  <eClassifiers xsi:type="ecore:EClass" name="LibraryManager" abstract="true">
+    <eOperations name="getLibraryReader">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceReader">
+        <eTypeArguments eClassifier="#//Library"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+    </eOperations>
+    <eOperations name="getLibraryWriter">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceWriter">
+        <eTypeArguments eClassifier="#//Library"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedManager">
+      <eTypeArguments eClassifier="#//Library"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject"/>
+</ecore:EPackage>
