@@ -14,6 +14,7 @@ import org.asup.fw.util.QFrameworkUtilPackage;
 import org.asup.fw.util.QFileUtil;
 import org.asup.fw.util.QIOUtil;
 import org.asup.fw.util.QListUtil;
+import org.asup.fw.util.QStringUtil;
 import org.asup.fw.util.QURIUtil;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -49,6 +50,13 @@ public class FrameworkUtilPackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EClass listUtilEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringUtilEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +161,15 @@ public class FrameworkUtilPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStringUtil() {
+		return stringUtilEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getURIUtil() {
 		return uriUtilEClass;
 	}
@@ -190,6 +207,8 @@ public class FrameworkUtilPackageImpl extends EPackageImpl implements QFramework
 		ioUtilEClass = createEClass(IO_UTIL);
 
 		listUtilEClass = createEClass(LIST_UTIL);
+
+		stringUtilEClass = createEClass(STRING_UTIL);
 
 		uriUtilEClass = createEClass(URI_UTIL);
 	}
@@ -229,6 +248,7 @@ public class FrameworkUtilPackageImpl extends EPackageImpl implements QFramework
 		fileUtilEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		ioUtilEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		listUtilEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
+		stringUtilEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		uriUtilEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 
 		// Initialize classes and features; add operations and parameters
@@ -256,6 +276,11 @@ public class FrameworkUtilPackageImpl extends EPackageImpl implements QFramework
 		addEParameter(op, theFrameworkJavaPackage.getJavaList(), "list", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		addEParameter(op, g1, "element", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(stringUtilEClass, QStringUtil.class, "StringUtil", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(stringUtilEClass, ecorePackage.getEString(), "firstToUpper", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "string", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(uriUtilEClass, QURIUtil.class, "URIUtil", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -145,6 +145,34 @@ public interface QFrameworkUtilPackage extends EPackage {
 	int LIST_UTIL_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.fw.util.QStringUtil <em>String Util</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.util.QStringUtil
+	 * @see org.asup.fw.util.impl.FrameworkUtilPackageImpl#getStringUtil()
+	 * @generated
+	 */
+	int STRING_UTIL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_UTIL__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
+
+	/**
+	 * The number of structural features of the '<em>String Util</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_UTIL_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.fw.util.QURIUtil <em>URI Util</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,7 +180,7 @@ public interface QFrameworkUtilPackage extends EPackage {
 	 * @see org.asup.fw.util.impl.FrameworkUtilPackageImpl#getURIUtil()
 	 * @generated
 	 */
-	int URI_UTIL = 3;
+	int URI_UTIL = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -201,6 +229,16 @@ public interface QFrameworkUtilPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getListUtil();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.fw.util.QStringUtil <em>String Util</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Util</em>'.
+	 * @see org.asup.fw.util.QStringUtil
+	 * @generated
+	 */
+	EClass getStringUtil();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.util.QURIUtil <em>URI Util</em>}'.
@@ -264,6 +302,16 @@ public interface QFrameworkUtilPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LIST_UTIL = eINSTANCE.getListUtil();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.fw.util.QStringUtil <em>String Util</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.util.QStringUtil
+		 * @see org.asup.fw.util.impl.FrameworkUtilPackageImpl#getStringUtil()
+		 * @generated
+		 */
+		EClass STRING_UTIL = eINSTANCE.getStringUtil();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.util.QURIUtil <em>URI Util</em>}' class.
