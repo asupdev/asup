@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.os.type/src" modelPluginID="org.asup.os.type" modelName="As.UP OperatingSystem Type"
+    rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" language="" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.omac/model/os-omac.genmodel#//omac"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>os-type.ecore</foreignModel>
+  <genPackages prefix="OperatingSystemType" basePackage="org.asup.os" disposableProviderFactory="true"
+      contentTypeIdentifier="" ecorePackage="os-type.ecore#/">
+    <genClasses ecoreClass="os-type.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//Type/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//Type/domain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//Type/manager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//Type/specials"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type.ecore#//TypedContainer">
+      <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedContainer/T"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type.ecore#//TypedManager">
+      <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/T"/>
+      <genOperations ecoreOperation="os-type.ecore#//TypedManager/getTypedClass"/>
+      <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceReader">
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader/job"/>
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader/container"/>
+        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/getResourceReader/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceReader.1">
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader.1/job"/>
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader.1/scope"/>
+        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/getResourceReader.1/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceWriter">
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceWriter/job"/>
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceWriter/container"/>
+        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/getResourceWriter/T"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type.ecore#//TypedObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/application"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/library"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type.ecore#//TypedObject/creationInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type.ecore#//TypedObject/memoryInfo"/>
+    </genClasses>
+    <genClasses ecoreClass="os-type.ecore#//TypedReference">
+      <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedReference/T"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedReference/library"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedReference/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type.ecore#//TypeManager">
+      <genOperations ecoreOperation="os-type.ecore#//TypeManager/lookupByDomain">
+        <genParameters ecoreParameter="os-type.ecore#//TypeManager/lookupByDomain/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type.ecore#//TypeManager/lookupByClass">
+        <genParameters ecoreParameter="os-type.ecore#//TypeManager/lookupByClass/klass"/>
+        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypeManager/lookupByClass/T"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type.ecore#//TypeRegistry">
+      <genOperations ecoreOperation="os-type.ecore#//TypeRegistry/lookup">
+        <genParameters ecoreParameter="os-type.ecore#//TypeRegistry/lookup/typedClass"/>
+        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypeRegistry/lookup/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type.ecore#//TypeRegistry/lookup.1">
+        <genParameters ecoreParameter="os-type.ecore#//TypeRegistry/lookup.1/typedObject"/>
+        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypeRegistry/lookup.1/T"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

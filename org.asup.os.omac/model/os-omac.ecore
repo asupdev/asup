@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="omac" nsURI="http://www.asup.org/os/omac" nsPrefix="os-omac">
+  <eClassifiers xsi:type="ecore:EClass" name="Adaptable" abstract="true" interface="true">
+    <eOperations name="adaptTo" lowerBound="1">
+      <eGenericType eTypeParameter="#//Adaptable/adaptTo/T"/>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="klass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Adaptable/adaptTo/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="isAdapterForType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="klass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Adaptable/isAdapterForType/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BundleManager" abstract="true" eSuperTypes="#//Manager">
+    <eOperations name="isRegisterable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="bundleName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="visit">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="bundleName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="visitor" lowerBound="1" eType="#//BundleVisitor"/>
+    </eOperations>
+    <eOperations name="register" lowerBound="1">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="bundleName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="unregister" lowerBound="1">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="symbolicName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BundleVisitor" abstract="true">
+    <eOperations name="visit">
+      <eParameters name="object" lowerBound="1" eType="#//Object"/>
+    </eOperations>
+    <eOperations name="visitEnter">
+      <eParameters name="container" lowerBound="1">
+        <eGenericType eClassifier="#//ObjectContainer">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="visitExit">
+      <eParameters name="container" lowerBound="1">
+        <eGenericType eClassifier="#//ObjectContainer">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CreationInfo" eSuperTypes="#//Object">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationSystem" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemoryInfo" eSuperTypes="#//Object">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" abstract="true" eSuperTypes="#//Adaptable">
+    <eOperations name="qClass" lowerBound="1" eType="#//Class"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectContainer" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Object"/>
+    </eTypeParameters>
+    <eOperations name="lookupByName" lowerBound="1">
+      <eGenericType eTypeParameter="#//ObjectContainer/T"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        containment="true">
+      <eGenericType eTypeParameter="#//ObjectContainer/T"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectIterator" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Object"/>
+    </eTypeParameters>
+    <eOperations name="close"/>
+    <eOperations name="hasNext" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="next" lowerBound="1">
+      <eGenericType eTypeParameter="#//ObjectIterator/T"/>
+    </eOperations>
+    <eOperations name="remove"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectNameable" abstract="true" eSuperTypes="#//Object">
+    <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
+</ecore:EPackage>

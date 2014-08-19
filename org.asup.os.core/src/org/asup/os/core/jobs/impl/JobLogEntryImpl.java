@@ -1,0 +1,224 @@
+/**
+ * Copyright (c) 2012, 2014 Sme.UP and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+package org.asup.os.core.jobs.impl;
+
+import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
+import org.asup.os.core.jobs.QJobLogEntry;
+import org.asup.os.omac.impl.ObjectImpl;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>QJob Log Entry</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.asup.os.core.jobs.impl.JobLogEntryImpl#getGravity <em>Gravity</em>}</li>
+ *   <li>{@link org.asup.os.core.jobs.impl.JobLogEntryImpl#getMessage <em>Message</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * The default value of the '{@link #getGravity() <em>Gravity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGravity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int GRAVITY_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getGravity() <em>Gravity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGravity()
+	 * @generated
+	 * @ordered
+	 */
+	protected int gravity = GRAVITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MESSAGE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMessage() <em>Message</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String message = MESSAGE_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobLogEntryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return QOperatingSystemJobsPackage.Literals.JOB_LOG_ENTRY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getGravity() {
+		return gravity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGravity(int newGravity) {
+		int oldGravity = gravity;
+		gravity = newGravity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB_LOG_ENTRY__GRAVITY, oldGravity, gravity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMessage(String newMessage) {
+		String oldMessage = message;
+		message = newMessage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE, oldMessage, message));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__GRAVITY:
+				return getGravity();
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
+				return getMessage();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__GRAVITY:
+				setGravity((Integer)newValue);
+				return;
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
+				setMessage((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__GRAVITY:
+				setGravity(GRAVITY_EDEFAULT);
+				return;
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
+				setMessage(MESSAGE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__GRAVITY:
+				return gravity != GRAVITY_EDEFAULT;
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
+				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (gravity: ");
+		result.append(gravity);
+		result.append(", message: ");
+		result.append(message);
+		result.append(')');
+		return result.toString();
+	}
+
+} //QJobLogEntryImpl
