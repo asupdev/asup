@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="msgf" nsURI="http://www.asup.org/os/type/msgf" nsPrefix="os-type-msgf">
+  <eClassifiers xsi:type="ecore:EClass" name="MessageDescription" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageHelp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageFile" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
+    <eOperations name="lookup" lowerBound="1" eType="#//MessageDescription">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="name" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+    </eOperations>
+    <eOperations name="lookup" lowerBound="1" eType="#//MessageDescription">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messages" upperBound="-1"
+        eType="#//MessageDescription" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageFileManager" abstract="true">
+    <eOperations name="prepareException" eType="#//MessageException">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="messageFile" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="messageName" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      <eParameters name="variables" lowerBound="1" eType="#//MessageVariableList"/>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedManager">
+      <eTypeArguments eClassifier="#//MessageFile"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="MessageVariableList" instanceClassName="java.lang.Object[]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="MessageException" instanceClassName="org.asup.os.type.msgf.MessageException"/>
+</ecore:EPackage>

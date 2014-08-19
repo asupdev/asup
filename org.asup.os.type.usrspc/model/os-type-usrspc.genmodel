@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.os.type.usrspc/src" editDirectory="/org.asup.os.type.usrspc.edit/src"
+    editorDirectory="/org.asup.os.type.usrspc.editor/src" modelPluginID="org.asup.os.type.usrspc"
+    modelName="As.UP OperatingSystem UserSpace" rootExtendsInterface="" suppressEMFTypes="true"
+    testsDirectory="/org.asup.os.type.usrspc.tests/src" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    editPluginID="org.asup.os.type.usrspc.edit" editorPluginID="org.asup.os.type.usrspc.editor"
+    testsPluginID="org.asup.os.type.usrspc.tests" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.core/model/il-core.genmodel#//core"
+    interfaceNamePattern="Q{0}">
+  <foreignModel>os-type-usrspc.ecore</foreignModel>
+  <genPackages prefix="OperatingSystemUserSpace" basePackage="org.asup.os.type" disposableProviderFactory="true"
+      adapterFactory="false" fileExtensions="" ecorePackage="os-type-usrspc.ecore#/">
+    <genClasses ecoreClass="os-type-usrspc.ecore#//UserSpace">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-usrspc.ecore#//UserSpace/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-usrspc.ecore#//UserSpace/content"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type-usrspc.ecore#//UserSpaceManager"/>
+  </genPackages>
+</genmodel:GenModel>

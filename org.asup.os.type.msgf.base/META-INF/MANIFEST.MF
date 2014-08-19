@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System MessageFile Base
+Bundle-SymbolicName: org.asup.os.type.msgf.base
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Require-Bundle: org.asup.os.type.msgf;bundle-version="0.5.0";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.asup.os.type.msgf.base
+Bundle-ActivationPolicy: lazy

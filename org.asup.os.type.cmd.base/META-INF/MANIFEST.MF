@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System Command Base
+Bundle-SymbolicName: org.asup.os.type.cmd.base
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Export-Package: org.asup.os.type.cmd.base,
+ org.asup.os.type.cmd.base.api
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.asup.os.type.cmd;bundle-version="0.5.0",
+ org.asup.os.type.pgm;bundle-version="0.5.0",
+ org.asup.os.data;bundle-version="0.5.0"

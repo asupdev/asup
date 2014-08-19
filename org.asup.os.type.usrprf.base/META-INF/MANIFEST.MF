@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System UserProfile Base
+Bundle-SymbolicName: org.asup.os.type.usrprf.base
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Export-Package: org.asup.os.type.usrprf.base,
+ org.asup.os.type.usrprf.base.api
+Require-Bundle: org.asup.os.type.usrprf;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System DataArea
+Bundle-SymbolicName: org.asup.os.type.dtaara;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: www.smeup.com
+Bundle-Localization: plugin
+Export-Package: org.asup.os.type.dtaara,
+ org.asup.os.type.dtaara.impl
+Require-Bundle: org.asup.os.type;bundle-version="0.5.0";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
