@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="isam" nsURI="http://www.asup.org/il/isam" nsPrefix="il-isam">
+  <eClassifiers xsi:type="ecore:EEnum" name="AccessMode">
+    <eLiterals name="Input" value="10" literal="I"/>
+    <eLiterals name="Output" value="20" literal="O"/>
+    <eLiterals name="Update" value="30" literal="U"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSet" abstract="true" interface="true">
+    <eTypeParameters name="DS">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+    </eTypeParameters>
+    <eOperations name="clear"/>
+    <eOperations name="close"/>
+    <eOperations name="delete">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Consente la cancellazione di un record dal dataset, applicabile solo alla modalita' di accesso &quot;Update&quot;.&#xA;Il record cancellato deve prima essere in stato di lock conseguente a un'operazione di lettura."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="isEndOfData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isFound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="open"/>
+    <eOperations name="read" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="read" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="endOfRecord" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="readp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="endOfRecord" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="unlock"/>
+    <eOperations name="update"/>
+    <eOperations name="write"/>
+    <eOperations name="get" lowerBound="1">
+      <eGenericType eTypeParameter="#//DataSet/DS"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSetTerm" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessMode" lowerBound="1"
+        eType="#//AccessMode" defaultValueLiteral="I">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Imposta il tipo di accesso al data set."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyedAccess" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Imposta il tipo di accesso al data set."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStructDef"
+        transient="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userOpen" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Imposta il tipo di accesso al data set."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="KeyValue" instanceClassName="java.lang.Object[]"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyList" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyListTerm" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyFields" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexDataSet" abstract="true" interface="true">
+    <eTypeParameters name="DS">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+    </eTypeParameters>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+    </eOperations>
+    <eOperations name="reade">
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+    </eOperations>
+    <eOperations name="readpe">
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="key" lowerBound="1">
+        <eGenericType eTypeParameter="#//IndexDataSet/setll.2/E"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="key" lowerBound="1">
+        <eGenericType eTypeParameter="#//IndexDataSet/setgt.2/E"/>
+      </eParameters>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="#//DataSet">
+      <eTypeArguments eTypeParameter="#//IndexDataSet/DS"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsamManager" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="createFactory" lowerBound="1" eType="#//IsamFactory">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IsamFactory" abstract="true" interface="true">
+    <eOperations name="createDataSet" lowerBound="1">
+      <eGenericType eClassifier="#//DataSet">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="dataSetTerm" lowerBound="1" eType="#//DataSetTerm"/>
+    </eOperations>
+    <eOperations name="createDataSetTerm" lowerBound="1" eType="#//DataSetTerm">
+      <eParameters name="type" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaType"/>
+      <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableDataSet" abstract="true" interface="true">
+    <eTypeParameters name="DS">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+    </eTypeParameters>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="#//DataSet">
+      <eTypeArguments eTypeParameter="#//TableDataSet/DS"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationSet">
+    <eLiterals name="Chain" value="10" literal="CHAIN"/>
+    <eLiterals name="SetLowerLimit" value="20" literal="SETLL"/>
+    <eLiterals name="SetGreaterThan" value="30" literal="SETGT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationRead">
+    <eLiterals name="Chain" value="10" literal="CHAIN"/>
+    <eLiterals name="Read" value="20" literal="READ"/>
+    <eLiterals name="ReadEqual" value="30" literal="READE"/>
+    <eLiterals name="ReadPrior" value="40" literal="READP"/>
+    <eLiterals name="ReadPriorEqual" value="50" literal="READPE"/>
+  </eClassifiers>
+</ecore:EPackage>

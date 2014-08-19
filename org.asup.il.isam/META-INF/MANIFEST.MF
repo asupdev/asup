@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Integrated Language ISAM
+Bundle-SymbolicName: org.asup.il.isam;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: www.smeup.com
+Bundle-Localization: plugin
+Export-Package: org.asup.il.isam,
+ org.asup.il.isam.impl
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.il.core;visibility:=reexport,
+ org.asup.il.data;visibility:=reexport,
+ org.asup.fw.core;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
