@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="file" nsURI="http://www.asup.org/os/type/file" nsPrefix="os-type-file">
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayFile" eSuperTypes="#//File">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="displayFormats" upperBound="-1"
+        eType="#//DisplayFormatDef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="File" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Lunghezza del tracciato record."/>
+      </eAnnotations>
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//DecimalDef">
+        <details key="precision" value="5"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waitFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tempo di attessa allocazione file."/>
+      </eAnnotations>
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//DecimalDef">
+        <details key="precision" value="3"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="waitRecord" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Tempo di attesa per allocazione record."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileManager" abstract="true">
+    <eOperations name="getDatabaseConnection" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Connection"
+        eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+    </eOperations>
+    <eOperations name="getOverridedDatabaseFile" lowerBound="1" eType="#//File" eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="fileName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="overrideDatabaseFile" lowerBound="1" eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="fileFrom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="fileTo" lowerBound="1" eType="#//File"/>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedManager">
+      <eTypeArguments eClassifier="#//File"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileMember" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="file" lowerBound="1" eType="#//FileMembered"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//FileMemberRow"
+        containment="true" eOpposite="#//FileMemberRow/fileMember"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileMemberManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="list" upperBound="-1" eType="#//FileMember">
+      <eParameters name="ContextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="file" lowerBound="1" eType="#//FileMembered"/>
+    </eOperations>
+    <eOperations name="lookup" eType="#//FileMember">
+      <eParameters name="ContextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="library" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="file" lowerBound="1" eType="#//FileMembered"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileMemberRow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileMember" lowerBound="1"
+        eType="#//FileMember" eOpposite="#//FileMember/rows"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileMembered" abstract="true" interface="true">
+    <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FileType">
+    <eLiterals name="Source" value="10" literal="*SRC"/>
+    <eLiterals name="Data" value="20" literal="*DATA"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalFile" eSuperTypes="#//File #//FileMembered">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="index" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Index"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//View"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhysicalFile" eSuperTypes="#//File #//FileMembered">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileType" lowerBound="1"
+        eType="#//FileType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Table"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tableFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrinterFile" eSuperTypes="#//File"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayFormatDef">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//UnaryCompoundDataDef">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Struct"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>
