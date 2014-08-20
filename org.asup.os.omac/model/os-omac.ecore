@@ -68,6 +68,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationSystem" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
   <eClassifiers xsi:type="ecore:EClass" name="MemoryInfo" eSuperTypes="#//Object">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -101,6 +103,4 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectNameable" abstract="true" eSuperTypes="#//Object">
     <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Manager" abstract="true" interface="true"
-      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
 </ecore:EPackage>

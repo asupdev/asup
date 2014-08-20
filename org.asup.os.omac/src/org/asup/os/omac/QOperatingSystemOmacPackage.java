@@ -88,7 +88,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObject()
 	 * @generated
 	 */
-	int OBJECT = 6;
+	int OBJECT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.impl.CreationInfoImpl <em>Creation Info</em>}' class.
@@ -108,7 +108,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getMemoryInfo()
 	 * @generated
 	 */
-	int MEMORY_INFO = 5;
+	int MEMORY_INFO = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.QObjectIterator <em>Object Iterator</em>}' class.
@@ -118,7 +118,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObjectIterator()
 	 * @generated
 	 */
-	int OBJECT_ITERATOR = 8;
+	int OBJECT_ITERATOR = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.impl.ObjectNameableImpl <em>Object Nameable</em>}' class.
@@ -128,7 +128,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObjectNameable()
 	 * @generated
 	 */
-	int OBJECT_NAMEABLE = 9;
+	int OBJECT_NAMEABLE = 10;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.omac.QBundleManager <em>Bundle Manager</em>}'.
@@ -168,7 +168,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getManager()
 	 * @generated
 	 */
-	int MANAGER = 10;
+	int MANAGER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -325,7 +325,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObjectContainer()
 	 * @generated
 	 */
-	int OBJECT_CONTAINER = 7;
+	int OBJECT_CONTAINER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.

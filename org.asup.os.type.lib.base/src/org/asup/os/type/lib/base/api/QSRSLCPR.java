@@ -9,19 +9,16 @@ http://www.eclipse.org/legal/epl-v10.html
  */
 package org.asup.os.type.lib.base.api;
 
-import org.asup.il.data.QList;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
+import org.asup.il.data.QList;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.omac.annotation.Domain;
-import org.asup.os.type.file.QFile;
-import org.asup.os.type.lib.QLibrary;
 
 @Program(name = "QSRSLCPR", messages = { "CPFB8ED", "CPF37AB", "CPF37AC",
 		"CPF37BC", "CPF37BD", "CPF37BE", "CPF37B1", "CPF37B4", "CPF37B5",
@@ -46,7 +43,7 @@ public class QSRSLCPR {
 			QEnum<FileExpirationDate, QDatetime> fileExpirationDate,
 			@DataDef(length = 1) QEnum<EndOfMediaOption, QCharacter> endOfMediaOption,
 			@DataDef(length = 10) QEnum<StartingLibrary, QCharacter> startingLibrary,
-			@Domain(name = QFile.class, restricted = false) SaveFile saveFile,
+			SaveFile saveFile,
 			MediaDefinition mediaDefinition,
 			@DataDef(length = 256) QCharacter opticalFile,
 			@DataDef(length = 1) QEnum<UseOptimumBlock, QCharacter> useOptimumBlock,
@@ -70,7 +67,7 @@ public class QSRSLCPR {
 			@DataDef(dimension = "300") QList<ObjectsToOmit> objectsToOmit,
 			@DataDef(length = 10) QEnum<ASPDevice, QCharacter> aSPDevice,
 			@DataDef(length = 1) QEnum<Output, QCharacter> output,
-			@Domain(name = QFile.class, restricted = false) FileToReceiveOutput fileToReceiveOutput,
+			FileToReceiveOutput fileToReceiveOutput,
 			OutputMemberOption outputMemberOptions,
 			@DataDef(length = 1) QEnum<TypeOfOutputInformation, QCharacter> typeOfOutputInformation,
 			CommandUserSpace commandUserSpace) {
@@ -121,8 +118,6 @@ public class QSRSLCPR {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
-		@Domain(name = QLibrary.class, restricted = false, specials = {
-				"*LIBL", "*CURLIB" })
 		@DataDef(length = 10)
 		public QCharacter library;
 	}
@@ -199,8 +194,6 @@ public class QSRSLCPR {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<Name, QCharacter> name;
-		@Domain(name = QLibrary.class, restricted = false, specials = {
-				"*LIBL", "*CURLIB" })
 		@DataDef(length = 10)
 		public QCharacter library;
 
@@ -359,8 +352,6 @@ public class QSRSLCPR {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
-		@Domain(name = QLibrary.class, restricted = false, specials = {
-				"*LIBL", "*CURLIB" })
 		@DataDef(length = 10)
 		public QCharacter library;
 	}

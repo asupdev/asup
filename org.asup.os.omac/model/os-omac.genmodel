@@ -8,7 +8,7 @@
     interfaceNamePattern="Q{0}" importOrganizing="true">
   <foreignModel>os-omac.ecore</foreignModel>
   <genPackages prefix="OperatingSystemOmac" basePackage="org.asup.os" disposableProviderFactory="true"
-      ecorePackage="os-omac.ecore#/">
+      adapterFactory="false" ecorePackage="os-omac.ecore#/">
     <genClasses image="false" ecoreClass="os-omac.ecore#//Adaptable">
       <genOperations ecoreOperation="os-omac.ecore#//Adaptable/adaptTo">
         <genParameters ecoreParameter="os-omac.ecore#//Adaptable/adaptTo/klass"/>
@@ -21,28 +21,52 @@
     </genClasses>
     <genClasses image="false" ecoreClass="os-omac.ecore#//BundleManager">
       <genOperations ecoreOperation="os-omac.ecore#//BundleManager/isRegisterable">
-        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/isRegisterable/symbolicName"/>
+        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/isRegisterable/contextID"/>
+        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/isRegisterable/bundleName"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-omac.ecore#//BundleManager/visit">
+        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/visit/contextID"/>
+        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/visit/bundleName"/>
+        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/visit/visitor"/>
       </genOperations>
       <genOperations ecoreOperation="os-omac.ecore#//BundleManager/register">
         <genParameters ecoreParameter="os-omac.ecore#//BundleManager/register/contextID"/>
-        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/register/symbolicName"/>
+        <genParameters ecoreParameter="os-omac.ecore#//BundleManager/register/bundleName"/>
       </genOperations>
       <genOperations ecoreOperation="os-omac.ecore#//BundleManager/unregister">
         <genParameters ecoreParameter="os-omac.ecore#//BundleManager/unregister/contextID"/>
         <genParameters ecoreParameter="os-omac.ecore#//BundleManager/unregister/symbolicName"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="os-omac.ecore#//Class"/>
+    <genClasses image="false" ecoreClass="os-omac.ecore#//BundleVisitor">
+      <genOperations ecoreOperation="os-omac.ecore#//BundleVisitor/visit">
+        <genParameters ecoreParameter="os-omac.ecore#//BundleVisitor/visit/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-omac.ecore#//BundleVisitor/visitEnter">
+        <genParameters ecoreParameter="os-omac.ecore#//BundleVisitor/visitEnter/container"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-omac.ecore#//BundleVisitor/visitExit">
+        <genParameters ecoreParameter="os-omac.ecore#//BundleVisitor/visitExit/container"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="os-omac.ecore#//CreationInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-omac.ecore#//CreationInfo/creationDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-omac.ecore#//CreationInfo/creationUser"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-omac.ecore#//CreationInfo/creationSystem"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="os-omac.ecore#//Manager"/>
     <genClasses ecoreClass="os-omac.ecore#//MemoryInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-omac.ecore#//MemoryInfo/dimension"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-omac.ecore#//Object">
       <genOperations ecoreOperation="os-omac.ecore#//Object/qClass"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-omac.ecore#//ObjectContainer">
+      <genTypeParameters ecoreTypeParameter="os-omac.ecore#//ObjectContainer/T"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-omac.ecore#//ObjectContainer/contents"/>
+      <genOperations ecoreOperation="os-omac.ecore#//ObjectContainer/lookupByName">
+        <genParameters ecoreParameter="os-omac.ecore#//ObjectContainer/lookupByName/name"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="os-omac.ecore#//ObjectIterator">
       <genTypeParameters ecoreTypeParameter="os-omac.ecore#//ObjectIterator/T"/>
@@ -54,6 +78,5 @@
     <genClasses image="false" ecoreClass="os-omac.ecore#//ObjectNameable">
       <genOperations ecoreOperation="os-omac.ecore#//ObjectNameable/getName"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="os-omac.ecore#//Manager"/>
   </genPackages>
 </genmodel:GenModel>

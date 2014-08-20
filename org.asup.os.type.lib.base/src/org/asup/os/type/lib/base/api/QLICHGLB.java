@@ -15,14 +15,12 @@ import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.omac.annotation.Domain;
-import org.asup.os.type.lib.QLibrary;
 
 @Program(name = "QLICHGLB")
 public class QLICHGLB {
 	@Entry
 	public void main(
-			@Domain(name = QLibrary.class, restricted = false, specials = { "*CURLIB" }) @DataDef(length = 10) QCharacter library,
+			@DataDef(length = 10) QCharacter library,
 			@DataDef(length = 7) QEnum<LibraryType, QCharacter> libraryType,
 			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
 			@DataDef(length = 10) QEnum<CreateAuthority, QCharacter> createAuthority,

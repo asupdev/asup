@@ -11,18 +11,15 @@ package org.asup.os.type.lib.base.api;
 
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QList;
 import org.asup.il.data.QStruct;
-import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.omac.annotation.Domain;
-import org.asup.os.type.file.QFile;
-import org.asup.os.type.lib.QLibrary;
 
 @Program(name = "QSRRLCPR", messages = { "CPFB8ED", "CPF37A5", "CPF37B8",
 		"CPF37C2", "CPF370C", "CPF3705", "CPF3706", "CPF3707", "CPF3709",
@@ -46,7 +43,7 @@ public class QSRRLCPR {
 			@DataDef(length = 17) QEnum<Label, QCharacter> label,
 			@DataDef(length = 1) QEnum<EndOfMediaOption, QCharacter> endOfMediaOption,
 			@DataDef(length = 10) QEnum<StartingLibrary, QCharacter> startingLibrary,
-			@Domain(name = QFile.class, restricted = false) SaveFile saveFile,
+			SaveFile saveFile,
 			MediaDefinition mediaDefinition,
 			@DataDef(length = 256) QCharacter opticalFile,
 			@DataDef(dimension = "300") QList<QEnum<?, ?>> librariesToOmit,
@@ -63,7 +60,7 @@ public class QSRRLCPR {
 			@DataDef(length = 10) QEnum<RestoreToASPDevice, QCharacter> restoreToASPDevice,
 			QEnum<RestoreToASPNumber, QBinary> restoreToASPNumber,
 			@DataDef(length = 1) QEnum<Output, QCharacter> output,
-			@Domain(name = QFile.class, restricted = false) FileToReceiveOutput fileToReceiveOutput,
+			FileToReceiveOutput fileToReceiveOutput,
 			OutputMemberOption outputMemberOptions,
 			@DataDef(length = 1) QEnum<TypeOfOutputInformation, QCharacter> typeOfOutputInformation,
 			@DataDef(dimension = "300") QList<ObjectsToOmit> objectsToOmit) {
@@ -109,8 +106,6 @@ public class QSRRLCPR {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
-		@Domain(name = QLibrary.class, restricted = false, specials = {
-				"*LIBL", "*CURLIB" })
 		@DataDef(length = 10)
 		public QCharacter library;
 	}

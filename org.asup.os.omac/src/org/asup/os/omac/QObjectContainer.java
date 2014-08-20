@@ -28,7 +28,6 @@ import java.util.List;
 public interface QObjectContainer<T extends QObject> {
 	/**
 	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
-	 * The list contents are of type {@link T}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Contents</em>' containment reference list isn't clear,

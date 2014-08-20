@@ -14,6 +14,7 @@ package org.asup.fw.core.base;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.asup.fw.core.impl.ServiceImpl;
@@ -55,4 +56,23 @@ public class BaseStringUtilImpl extends ServiceImpl implements QStringUtil {
 		return sb.toString();
 	}
 	
+	@Inject
+	public String removeFirstChar(String str) {
+		if(str.length() == 0)
+			return str;
+		if(str.length() == 1)
+			return "";
+		
+		return str.substring(1);
+	}
+	
+	@Inject
+	public String removeLastChar(String str) {
+		if(str.length() == 0)
+			return str;
+		if(str.length() == 1)
+			return "";
+		
+		return str.substring(0, str.length() - 1);
+	}
 }

@@ -26,7 +26,6 @@ import org.asup.os.core.QSystemManager;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
-import org.asup.os.omac.annotation.Domain;
 import org.asup.os.type.lib.QLibrary;
 
 @Command(name = "DLTLIB")
@@ -41,8 +40,7 @@ public class LibraryDeleter {
 	private QJob job;
 	
 	@Entry
-	public void main(
-			@Domain(name = QLibrary.class, restricted = false, specials = { "*CURLIB" }) 
+	public void main( 
 			@DataDef(length = 10) QCharacter library,
 			@DataDef(length = 10) QEnum<ASPDevice, QCharacter> aspDevice) {
 

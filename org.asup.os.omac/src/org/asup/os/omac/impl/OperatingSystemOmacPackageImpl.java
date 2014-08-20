@@ -363,6 +363,8 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		createEAttribute(creationInfoEClass, CREATION_INFO__CREATION_USER);
 		createEAttribute(creationInfoEClass, CREATION_INFO__CREATION_SYSTEM);
 
+		managerEClass = createEClass(MANAGER);
+
 		memoryInfoEClass = createEClass(MEMORY_INFO);
 		createEAttribute(memoryInfoEClass, MEMORY_INFO__DIMENSION);
 
@@ -374,8 +376,6 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		objectIteratorEClass = createEClass(OBJECT_ITERATOR);
 
 		objectNameableEClass = createEClass(OBJECT_NAMEABLE);
-
-		managerEClass = createEClass(MANAGER);
 	}
 
 	/**
@@ -417,10 +417,10 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		// Add supertypes to classes
 		bundleManagerEClass.getESuperTypes().add(this.getManager());
 		creationInfoEClass.getESuperTypes().add(this.getObject());
+		managerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		memoryInfoEClass.getESuperTypes().add(this.getObject());
 		objectEClass.getESuperTypes().add(this.getAdaptable());
 		objectNameableEClass.getESuperTypes().add(this.getObject());
-		managerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(adaptableEClass, QAdaptable.class, "Adaptable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -488,6 +488,8 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		initEAttribute(getCreationInfo_CreationUser(), ecorePackage.getEString(), "creationUser", null, 0, 1, QCreationInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCreationInfo_CreationSystem(), ecorePackage.getEString(), "creationSystem", null, 0, 1, QCreationInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(managerEClass, QManager.class, "Manager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(memoryInfoEClass, QMemoryInfo.class, "MemoryInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMemoryInfo_Dimension(), ecorePackage.getEInt(), "dimension", null, 0, 1, QMemoryInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -519,8 +521,6 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		initEClass(objectNameableEClass, QObjectNameable.class, "ObjectNameable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(objectNameableEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(managerEClass, QManager.class, "Manager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
