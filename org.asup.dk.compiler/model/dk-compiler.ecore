@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="compiler" nsURI="http://ww.asup.org/dk/compiler" nsPrefix="dk-compiler">
+  <eClassifiers xsi:type="ecore:EClass" name="CompilationContext" abstract="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context">
+    <eOperations name="getDataSet" lowerBound="1" eType="ecore:EClass ../../org.asup.il.isam/model/il-isam.ecore#//DataSetTerm">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getData" lowerBound="1">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataTerm">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getModule" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Module">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getNamedNode" lowerBound="1" eType="ecore:EClass ../../org.asup.il.core/model/il-core.ecore#//NamedNode">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getProcedure" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Procedure">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getPrototype" lowerBound="1">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Prototype">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getRoutine" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Routine">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getQualifiedName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="namedNode" lowerBound="1" eType="ecore:EClass ../../org.asup.il.core/model/il-core.ecore#//NamedNode"/>
+    </eOperations>
+    <eOperations name="getUnitContext" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//CallableUnit"/>
+    <eOperations name="linkDataSet">
+      <eParameters name="dataSet" lowerBound="1" eType="ecore:EClass ../../org.asup.il.isam/model/il-isam.ecore#//DataSetTerm"/>
+    </eOperations>
+    <eOperations name="getPhysicalFile" lowerBound="1" eType="ecore:EClass ../../org.asup.os.type.file/model/os-type-file.ecore#//PhysicalFile">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitConverter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="convertModule" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Module"
+        eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="module" lowerBound="1" eType="ecore:EClass ../../org.asup.os.type.module/model/os-type-module.ecore#//Module"/>
+    </eOperations>
+    <eOperations name="convertProgram" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Program"
+        eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="program" lowerBound="1" eType="ecore:EClass ../../org.asup.os.type.pgm/model/os-type-pgm.ecore#//Program"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitConverterRegistry" abstract="true">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
+      <eTypeArguments eClassifier="#//UnitConverter"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompilerManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="createChildContext" lowerBound="1" eType="#//CompilationContext">
+      <eParameters name="master" lowerBound="1" eType="#//CompilationContext"/>
+      <eParameters name="procedure" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Procedure"/>
+    </eOperations>
+    <eOperations name="createCompilationContext" lowerBound="1" eType="#//CompilationContext">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="module" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Module"/>
+    </eOperations>
+    <eOperations name="createCompilationContext" lowerBound="1" eType="#//CompilationContext">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="program" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Program"/>
+    </eOperations>
+    <eOperations name="prepareVisitor">
+      <eGenericType eTypeParameter="#//CompilerManager/prepareVisitor/T"/>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
+      <eParameters name="visitor" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//CompilerManager/prepareVisitor/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>
