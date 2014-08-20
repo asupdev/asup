@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System Program Base
+Bundle-SymbolicName: org.asup.os.type.pgm.base
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Export-Package: org.asup.os.type.pgm.base
+Require-Bundle: org.asup.os.type.pgm;bundle-version="0.5.0";visibility:=reexport,
+ org.asup.os.data;bundle-version="0.5.0",
+ org.asup.il.isam;bundle-version="0.5.0",
+ org.asup.fw.util;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

@@ -28,4 +28,12 @@ public interface QStringUtil extends QService {
 	 */
 	String firstToUpper(String string);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" stringRequired="true" charsRequired="true" timesRequired="true" beforeRequired="true"
+	 * @generated
+	 */
+	String appendChars(String string, String chars, int times, boolean before);
+
 } // QStringUtil
