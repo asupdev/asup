@@ -8,3 +8,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.os.type;bundle-version="0.5.0",
  org.asup.os.type.pgm;bundle-version="0.5.0",
  org.asup.os.type.cmd;bundle-version="0.5.0"
+Export-Package: org.asup.os.omac.e4

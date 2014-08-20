@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.os.type.lib.osgi;
+package org.asup.os.type.lib.e4;
 
 import java.net.URI;
 
@@ -24,7 +24,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.FrameworkUtil;
 
-public class OSGILibraryListenerImpl extends ServiceImpl implements QResourceListener<QLibrary> {
+public class E4LibraryListenerImpl extends ServiceImpl implements QResourceListener<QLibrary> {
 
 	@Override
 	public void handleEvent(QResourceEvent<QLibrary> event) {

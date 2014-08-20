@@ -6,4 +6,4 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.os.type.lib;bundle-version="0.5.0"
-Export-Package: org.asup.os.type.lib.osgi
+Export-Package: org.asup.os.type.lib.e4

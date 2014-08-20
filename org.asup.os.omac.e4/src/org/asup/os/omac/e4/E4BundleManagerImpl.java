@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.wiring.BundleWiring;
 
-public class OSGIBundleManagerImpl extends BundleManagerImpl {
+public class E4BundleManagerImpl extends BundleManagerImpl {
 
 	@Inject
 	private QSystemManager systemManager;

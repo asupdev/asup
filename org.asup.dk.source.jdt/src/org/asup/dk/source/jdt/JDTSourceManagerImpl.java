@@ -119,7 +119,7 @@ public class JDTSourceManagerImpl extends SourceManagerImpl {
 		}
 
 		try {
-			ProjectUtil.createAsupProject(project, library.getName(), library.getText());
+			JDTProjectUtil.createAsupProject(project, library.getName(), library.getText());
 		}
 		catch(CoreException e) {
 			throw new IOException(e);

@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.os.type.lib.osgi;
+package org.asup.os.type.lib.e4;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -27,7 +27,7 @@ import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QOperatingSystemLibraryFactory;
 import org.asup.os.type.lib.impl.LibraryManagerImpl;
 
-public class OSGILibraryManagerImpl extends LibraryManagerImpl {
+public class E4LibraryManagerImpl extends LibraryManagerImpl {
 
 	private QResourceFactory resourceFactory;
 
@@ -36,7 +36,7 @@ public class OSGILibraryManagerImpl extends LibraryManagerImpl {
 //	private Map<String, Long> bundleMap;
 
 	@Inject
-	public OSGILibraryManagerImpl(QSystemManager systemManager, QResourceFactory resourceFactory) {
+	public E4LibraryManagerImpl(QSystemManager systemManager, QResourceFactory resourceFactory) {
 		
 		this.systemLibrary = systemManager.getSystem().getSystemLibrary();		
 		this.resourceFactory = resourceFactory;

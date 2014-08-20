@@ -1,0 +1,44 @@
+package org.asup.os.core.jdt;
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.asup.dk.source.QSourceEntry;
+import org.asup.os.omac.QObjectNameable;
+
+public class JDTSourceIterator<T extends QObjectNameable> implements Iterator<T> {
+
+	private Iterator<QSourceEntry> entries;
+	private EMFConverter emfConverter;
+	
+	public JDTSourceIterator(EMFConverter emfConverter, Iterator<QSourceEntry> entries) {
+		this.entries = entries;
+		this.emfConverter = emfConverter;
+	}
+
+	@Override
+	public boolean hasNext() {
+		return entries.hasNext();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public T next() {
+		
+		T typedObject = null;
+		QSourceEntry entry = entries.next();
+		try {
+			typedObject = (T) emfConverter.convertToEObject(entry.getInputStream());
+		} catch (IOException e) {
+			System.err.println(e.getMessage()+" location: "+entry);
+			typedObject = next();
+		}
+		return typedObject;
+	}
+
+	@Override
+	public void remove() {
+		entries.remove();
+	}
+	
+}
