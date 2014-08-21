@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+	<extension
+	         point="org.eclipse.ui.views">   
+	      <view
+             allowMultiple="false"
+             class="org.asup.ui.pdm.e4.view.ShellCommandView"
+             icon="icons/asup_24.png"
+             id="org.asup.ui.pdm.e4.view.ShellCommandView"
+             name="ShellCommandView"/>
+	</extension>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.asup.ui.pdm.e4.perspective.Perspective"
+            icon="icons/asup_24.png"
+            id="org.asup.ui.pdm.e4.perspective"
+            name="As.UP">
+      </perspective>
+   </extension>
+   
+   
+   <extension point="org.eclipse.ui.popupMenus">
+    
+  <objectContribution
+        id="org.eclipse.ui.articles.action.contribution.popup.object"
+        objectClass="org.eclipse.core.resources.IProject">
+     <menu
+           icon="icons/asup_24.png"
+           id="org.asup.ui.pdm.e4.action.bundle"
+           label="Bundle Management"
+           path="additions">
+        <separator
+              name="management">
+        </separator>
+     </menu>
+     <action
+           class="org.asup.ui.pdm.e4.action.StopBundleAction"
+           enablesFor="1"
+           id="org.asup.ui.pdm.e4.action.StopBundle"
+           label="StopBundle"
+           menubarPath="org.asup.ui.pdm.e4.action.bundle/management">
+     </action>
+     <action
+           class="org.asup.ui.pdm.e4.action.StartBundleAction"
+           enablesFor="1"
+           id="org.asup.ui.pdm.e4.action.StartBundle"
+           label="Start Bundle"
+           menubarPath="org.asup.ui.pdm.e4.action.bundle/management">
+     </action>
+  </objectContribution>
+  
+  		<objectContribution
+        id="org.eclipse.ui.articles.action.contribution.popup.object"
+        nameFilter="*.xmi"
+        objectClass="org.eclipse.core.resources.IFile">
+         
+         
+      <menu
+            icon="icons/asup_24.png"
+            id="org.asup.ui.pdm.e4.action.system"
+            label="System Management"
+            path="additions">
+      <separator name="management"/>
+      </menu>
+      <action
+               class="org.asup.ui.pdm.e4.action.StopSystemAction"
+               id="org.asup.ui.pdm.e4.action.StopSystem"
+               label="StopSystem"
+            menubarPath="org.asup.ui.pdm.e4.action.system/management"
+            enablesFor="1">
+      </action> 
+
+      <action
+               class="org.asup.ui.pdm.e4.action.StartSystemAction"
+               id="org.asup.os.type.cmd.STRSYS?SYS=AS400A"
+               label="Start System"
+            menubarPath="org.asup.ui.pdm.e4.action.system/management"
+            enablesFor="1">
+      </action> 
+      </objectContribution>
+         
+	</extension>
+   
+
+</plugin>
