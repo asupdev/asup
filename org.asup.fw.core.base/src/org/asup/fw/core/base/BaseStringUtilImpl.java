@@ -75,4 +75,22 @@ public class BaseStringUtilImpl extends ServiceImpl implements QStringUtil {
 		
 		return str.substring(0, str.length() - 1);
 	}
+
+	@Override
+	public String trimL(String string) {
+		int i = 0;
+		while (i < string.length()
+				&& (Character.isWhitespace(string.charAt(i)) || string.charAt(i) == 0))
+			i++;
+		return string.substring(i);
+	}
+
+	@Override
+	public String trimR(String string) {
+		int i = string.length() - 1;
+		while (i >= 0
+				&& (Character.isWhitespace(string.charAt(i)) || string.charAt(i) == 0))
+			i--;
+		return string.substring(0, i + 1);
+	}
 }

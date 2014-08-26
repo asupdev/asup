@@ -47,6 +47,22 @@ public interface QStringUtil extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" stringRequired="true"
+	 * @generated
+	 */
+	String trimL(String string);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" stringRequired="true"
+	 * @generated
+	 */
+	String trimR(String string);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" stringRequired="true" charsRequired="true" timesRequired="true" beforeRequired="true"
 	 * @generated
 	 */
