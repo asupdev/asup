@@ -17,6 +17,7 @@ import java.io.OutputStreamWriter;
 
 import javax.inject.Inject;
 
+import org.asup.co.shell.QOutputWrapper;
 import org.asup.fw.core.QContextID;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.jobs.QJob;
@@ -38,6 +39,8 @@ public class ConsoleRequestHandler {
 	private QJobManager jobManager;
 	@Inject 
 	private QCommandManager commandManager;
+	@Inject
+	private QOutputWrapper outputWrapper;
 	
 	private OutputStreamWriter outputStreamWriter;
 	
@@ -76,7 +79,7 @@ public class ConsoleRequestHandler {
 				try {
 					if(contextID == null) { 							
 						connect(request);
-//						outputWrapper.register(qJob.getID(), outputStreamWriter);
+						outputWrapper.register(qJob.getID(), outputStreamWriter);
 
 						outputStreamWriter.write("\n\n");
 						outputStreamWriter.write("User logged\n");
