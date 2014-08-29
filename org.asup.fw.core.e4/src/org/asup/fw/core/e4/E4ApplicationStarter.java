@@ -189,19 +189,35 @@ public class E4ApplicationStarter {
 
 		// register on context
 		Dictionary<String, Object> dictionary = new Hashtable<String, Object>();
-		if(serviceReference.getInterfaceName() != null)
-			registerService(application, level, context, serviceReference.getInterfaceName(), service, dictionary, serviceReference.isRemoteExport());
-		else
-			registerService(application, level, context, serviceReference.getClassName(), service, dictionary, serviceReference.isRemoteExport());
 		
 		// service registry
 		if(serviceReference instanceof QServicePluginRegistry) {
+			
+			// by interface
+			if(serviceReference.getInterfaceName() != null &&
+			   bundleContext.getServiceReference(serviceReference.getInterfaceName()) == null)
+				registerService(application, level, context, serviceReference.getInterfaceName(), service, dictionary, serviceReference.isRemoteExport());
+			// by class
+			else if(serviceReference.getClassName() != null &&
+				    bundleContext.getServiceReference(serviceReference.getClassName()) == null)
+				registerService(application, level, context, serviceReference.getClassName(), service, dictionary, serviceReference.isRemoteExport());
+			// already registered
+			else
+				"".toCharArray();	
+			
 			messageLevel++;			
 			QServicePluginRegistry serviceRegistry = (QServicePluginRegistry)serviceReference;
 			registerService(application, level, context, serviceRegistry);
 			messageLevel--;
 		}
+		else {
 
+			if(serviceReference.getInterfaceName() != null)
+				registerService(application, level, context, serviceReference.getInterfaceName(), service, dictionary, serviceReference.isRemoteExport());
+			else
+				registerService(application, level, context, serviceReference.getClassName(), service, dictionary, serviceReference.isRemoteExport());
+
+		}
 	}
 	
 	public void registerService(QApplication application, QApplicationLevel level, QContext context, QServicePluginRegistry serviceRegistry) throws ClassNotFoundException {
@@ -259,6 +275,7 @@ public class E4ApplicationStarter {
 
 		// register on context
 		contextService.invoke(service, ServiceRegistration.class);
+		
 		bundleContext.registerService(name, service, properties);
 	}
 
