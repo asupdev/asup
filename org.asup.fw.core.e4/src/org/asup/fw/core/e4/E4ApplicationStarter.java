@@ -194,16 +194,20 @@ public class E4ApplicationStarter {
 		if(serviceReference instanceof QServicePluginRegistry) {
 			
 			// by interface
-			if(serviceReference.getInterfaceName() != null &&
-			   bundleContext.getServiceReference(serviceReference.getInterfaceName()) == null)
-				registerService(application, level, context, serviceReference.getInterfaceName(), service, dictionary, serviceReference.isRemoteExport());
+			if(serviceReference.getInterfaceName() != null)
+			   if(bundleContext.getServiceReference(serviceReference.getInterfaceName()) == null)
+				   registerService(application, level, context, serviceReference.getInterfaceName(), service, dictionary, serviceReference.isRemoteExport());
+				// already registered
+				else
+					"".toCharArray();	
 			// by class
-			else if(serviceReference.getClassName() != null &&
-				    bundleContext.getServiceReference(serviceReference.getClassName()) == null)
-				registerService(application, level, context, serviceReference.getClassName(), service, dictionary, serviceReference.isRemoteExport());
-			// already registered
-			else
-				"".toCharArray();	
+			else if(serviceReference.getClassName() != null)
+				if(bundleContext.getServiceReference(serviceReference.getClassName()) == null)
+					registerService(application, level, context, serviceReference.getClassName(), service, dictionary, serviceReference.isRemoteExport());
+				// already registered
+				else
+					"".toCharArray();	
+
 			
 			messageLevel++;			
 			QServicePluginRegistry serviceRegistry = (QServicePluginRegistry)serviceReference;
