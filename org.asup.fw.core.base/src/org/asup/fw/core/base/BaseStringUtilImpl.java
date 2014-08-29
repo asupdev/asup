@@ -14,13 +14,9 @@ package org.asup.fw.core.base;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.fw.util.QStringUtil;
 
-@Singleton
 public class BaseStringUtilImpl extends ServiceImpl implements QStringUtil {
 
 	@Override
@@ -56,7 +52,7 @@ public class BaseStringUtilImpl extends ServiceImpl implements QStringUtil {
 		return sb.toString();
 	}
 	
-	@Inject
+	@Override
 	public String removeFirstChar(String str) {
 		if(str.length() == 0)
 			return str;
@@ -66,7 +62,7 @@ public class BaseStringUtilImpl extends ServiceImpl implements QStringUtil {
 		return str.substring(1);
 	}
 	
-	@Inject
+	@Override
 	public String removeLastChar(String str) {
 		if(str.length() == 0)
 			return str;

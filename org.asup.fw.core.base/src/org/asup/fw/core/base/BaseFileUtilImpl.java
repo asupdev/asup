@@ -11,12 +11,9 @@
  */
 package org.asup.fw.core.base;
 
-import javax.inject.Singleton;
-
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.fw.util.QFileUtil;
 
-@Singleton
 public class BaseFileUtilImpl extends ServiceImpl implements QFileUtil {
 	
 	@Override
