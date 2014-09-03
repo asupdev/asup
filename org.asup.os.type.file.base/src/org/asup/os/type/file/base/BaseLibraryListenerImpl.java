@@ -116,7 +116,8 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 			databaseManager.dropSchema(databaseConnection, schema);
 		} catch (SQLException e) {
 			System.err.println("Schema not deleted: "+library.getName());
-			return;
+			throw new OperatingSystemRuntimeException(e);
+//			return;
 		}
 	}
 }

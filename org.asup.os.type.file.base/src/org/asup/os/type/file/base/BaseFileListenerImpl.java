@@ -120,8 +120,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			}
 		}
 		catch (Exception e) {
-			System.out.println(e.getMessage());
-//			throw new OperatingSystemRuntimeException(e.getMessage(), e);
+			throw new OperatingSystemRuntimeException(e.getMessage(), e);
 		}
 	}
 
@@ -148,8 +147,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 				databaseManager.dropTable(databaseConnection, table);
 			}
 			catch (Exception e) {
-				System.out.println(e.getMessage());
-//				e.printStackTrace();
+				throw new OperatingSystemRuntimeException(e.getMessage(), e);
 			}
 		}
 		else if(file instanceof QLogicalFile) {
@@ -162,7 +160,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 				databaseManager.dropIndex(databaseConnection, index);
 			}
 			catch (Exception e) {
-				e.printStackTrace();
+				throw new OperatingSystemRuntimeException(e.getMessage(), e);
 			}
 
 			QView view = logicalFile.getView();
@@ -172,7 +170,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 				databaseManager.dropView(databaseConnection, view);
 			}
 			catch (Exception e) {
-				e.printStackTrace();
+				throw new OperatingSystemRuntimeException(e.getMessage(), e);
 			}					
 		}
 	}
