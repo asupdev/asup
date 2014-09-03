@@ -1,6 +1,7 @@
 package org.asup.os.core.jdt;
 
 import java.io.IOException;
+import java.io.OutputStream;
 
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
@@ -71,7 +72,9 @@ public class JDTResourceWriterImpl<T extends QObjectNameable> extends JDTResourc
 			}
 			
 			QSourceEntry entry = sourceManager.createObjectEntry(getJob(), getContainer(), klass, object.getName(), replace);
-			emfConverter.writeToStream((EObject) object, entry.getOutputStream());
+			OutputStream outpuStream = entry.getOutputStream();
+			emfConverter.writeToStream((EObject) object, outpuStream);
+			outpuStream.close();
 			fireEvent(resourceEvent, ResourceEventType.POST_SAVE, object);
 		} 
 		catch (IOException e) {
