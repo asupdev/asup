@@ -64,13 +64,15 @@ public class ProgramWriter extends CallableUnitWriter {
 		
 		// modules
 		List<String> modules = new ArrayList<>();
-		for(String module: program.getSetupSection().getModules()) 
-			loadModules(modules, module);
-		
-		for(String module: modules) {
-			ImportDeclaration importDeclaration = ast.newImportDeclaration();
-			importDeclaration.setName(ast.newName(module));
-			compilationUnit.imports().add(importDeclaration);
+		if(program.getSetupSection()!=null){
+			for(String module: program.getSetupSection().getModules()) 
+				loadModules(modules, module);
+			
+			for(String module: modules) {
+				ImportDeclaration importDeclaration = ast.newImportDeclaration();
+				importDeclaration.setName(ast.newName(module));
+				compilationUnit.imports().add(importDeclaration);
+			}
 		}
 
 		
@@ -167,19 +169,22 @@ public class ProgramWriter extends CallableUnitWriter {
 		AST ast = target.getAST();
 		
 		QParameterList qEntry = QIntegratedLanguageFlowFactory.eINSTANCE.createParameterList();
-		for(String moduleName: program.getSetupSection().getModules()) {
-			QModule module = getCompilationContext().getModule(moduleName, true);
-			if(module.getFlowSection() != null) {
-				for(QParameterList parameterList: module.getFlowSection().getParameterLists()) {
-					if(parameterList.getName().equalsIgnoreCase("*ENTRY")) {
-						qEntry = parameterList;
-						break;
+		if(program.getSetupSection()!=null){
+			for(String moduleName: program.getSetupSection().getModules()) {
+				QModule module = getCompilationContext().getModule(moduleName, true);
+				if(module.getFlowSection() != null) {
+					for(QParameterList parameterList: module.getFlowSection().getParameterLists()) {
+						if(parameterList.getName().equalsIgnoreCase("*ENTRY")) {
+							qEntry = parameterList;
+							break;
+						}
 					}
 				}
+				if(!qEntry.getParameters().isEmpty())
+					break;
 			}
-			if(!qEntry.getParameters().isEmpty())
-				break;
 		}
+
 
 		MethodDeclaration methodDeclaration = ast.newMethodDeclaration();
 		target.bodyDeclarations().add(methodDeclaration);
