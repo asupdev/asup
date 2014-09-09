@@ -66,7 +66,7 @@ public class JobDescriptionCreator {
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation) {
 		
 		try {
-			createJobDescription(job, resourceFactory, jobDescription.library.trimR(),jobDescription.name.trimR(), textDescription.trimR(), initiallibrarylist);
+			createJobDescription(job, resourceFactory, jobDescription.library.asData().trimR(),jobDescription.name.trimR(), textDescription.trimR(), initiallibrarylist);
 			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " created");
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
@@ -92,8 +92,14 @@ public class JobDescriptionCreator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
-		@DataDef(length = 10)
-		public QCharacter library;
+		@DataDef(length = 10, value = "*LIBL")
+		public QEnum<Library, QCharacter> library;
+
+		public static enum Library {
+			@Special(value = "*LIBL")
+			LIBL, @Special(value = "*CURLIB")
+			CURLIB
+		}
 	}
 
 	public static class JobQueue extends QDataStructDelegator {
