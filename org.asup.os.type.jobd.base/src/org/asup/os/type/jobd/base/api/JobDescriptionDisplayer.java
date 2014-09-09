@@ -87,7 +87,8 @@ public class JobDescriptionDisplayer {
 
 		for (String library : libraries) {
 			QTypedReference<QLibrary> qLibrary = QOperatingSystemTypeFactory.eINSTANCE.createTypedReference();
-			qLibrary.setName(library);
+			qLibrary.setLibrary(library);
+//			qLibrary.setName(library);
 			try {
 				objectWriter.write(qLibrary);
 			} catch (IOException e) {

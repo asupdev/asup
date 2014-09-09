@@ -19,11 +19,10 @@ import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.jobd.QJobDescription;
-import org.asup.os.type.jobd.QOperatingSystemJobDescriptionFactory;
 
-@Command(name = "CRTJOBD")
-@Program(name = "QWDCCRG", messages = {"CPF1621"})
-public class JobDescriptionCreator {
+@Command(name = "CHGJOBD")
+@Program(name = "QWDCCHG", messages = {"CPF1618","CPF1625","CPF9872"})
+public class JobDescriptionChanger {
 
 	@Inject
 	private QResourceFactory resourceFactory;
@@ -31,12 +30,13 @@ public class JobDescriptionCreator {
 	private QJob job;
 	@Inject 
 	private QJobLogManager jobLogManager;
-
+	
+	
 	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(qualified = true) JobQueue jobQueue,
-			@DataDef(length = 1) QCharacter jobpriorityonjobq,
-			@DataDef(length = 1) QCharacter outputpriorityonoutq,
+			@DataDef(qualified = true) JobQueue jobqueue,
+			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobpriorityonjobq,
+			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputpriorityonoutq,
 			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printdevice,
 			@DataDef(qualified = true) OutputQueue outputqueue,
 			@DataDef(length = 50) QCharacter textDescription,
@@ -49,45 +49,41 @@ public class JobDescriptionCreator {
 			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialaspgroup,
 			MessageLogging messagelogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logclprogramcommands,
-			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,	
+			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,
 			QEnum<JobMessageQueueMaximumSize, QBinary> jobmessagequeuemaximumsize,
 			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobmessagequeuefullaction,
 			QEnum<CLSyntaxCheck, QBinary> clsyntaxcheck,
-			QBinary endseverity,
+			QEnum<EndSeverity, QBinary> endseverity,
 			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquirymessagereply,
 			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdonjobqueue,
 			@DataDef(length = 10) QCharacter jobdate,
-			@DataDef(length = 8) QCharacter jobswitches,
+			@DataDef(length = 8) QEnum<JobSwitches, QCharacter> jobswitches,
 			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> devicerecoveryaction,
 			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timesliceendpool,
-			@DataDef(length = 10) QEnum<Authority, QCharacter> authority,
 			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowmultiplethreads,
 			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation) {
-		
+
 		try {
-			createJobDescription(job, resourceFactory, jobDescription.library.trimR(),jobDescription.name.trimR(), textDescription.trimR(), initiallibrarylist);
-			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " created");
+			changeJobDescription(job, resourceFactory, jobDescription.library.trimR(),jobDescription.name.trimR(), textDescription.trimR(), initiallibrarylist);
+			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " changed");
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
 	}
 
-	private void createJobDescription(QJob job,QResourceFactory resourceFactory, String library, String name, String textDescription, QArray<QCharacter> initiallibrarylist) throws OperatingSystemException{
+	private void changeJobDescription(QJob job,QResourceFactory resourceFactory, String library, String name, String textDescription, QArray<QCharacter> initiallibrarylist) throws OperatingSystemException{
 		QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
 		QJobDescription jd = resource.lookup(name);	
 		if (jd == null) {
-			// Queue do not exists. Create and register.
-			jd = QOperatingSystemJobDescriptionFactory.eINSTANCE.createJobDescription();
-			jd.setLibrary(library);
-			jd.setName(name);
-			jd.setText(textDescription);
-			resource.save(jd);
+			throw new OperatingSystemException("Job Description " + name+ " not exists in library " + library);
 		} else {
-			throw new OperatingSystemException("Job Description " + name+ " already exists in library " + library);
+			// Queue do not exists. Create and register.
+			jd.setText(textDescription);
+			resource.save(jd,true);
 		}
 	}
-
+	
 	public static class JobDescription extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
@@ -98,10 +94,15 @@ public class JobDescriptionCreator {
 
 	public static class JobQueue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		@DataDef(length = 10, value = "QBATCH")
-		public QCharacter name;
+		@DataDef(length = 10)
+		public QEnum<Name, QCharacter> name;
 		@DataDef(length = 10, value = "*LIBL")
 		public QEnum<Library, QCharacter> library;
+
+		public static enum Name {
+			@Special(value = "*SAME")
+			SAME
+		}
 
 		public static enum Library {
 			@Special(value = "*LIBL")
@@ -110,8 +111,19 @@ public class JobDescriptionCreator {
 		}
 	}
 
+	public static enum JobPriorityonJOBQ {
+		@Special(value = "*")
+		SAME
+	}
+
+	public static enum OutputPriorityonOUTQ {
+		@Special(value = "*")
+		SAME
+	}
+
 	public static enum PrintDevice {
-		@Special(value = "X'40404040404040404040'")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "X'40404040404040404040'")
 		USRPRF, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*WRKSTN")
 		WRKSTN
@@ -125,7 +137,8 @@ public class JobDescriptionCreator {
 		public QEnum<Library, QCharacter> library;
 
 		public static enum Name {
-			@Special(value = "*USRPRF")
+			@Special(value = "*SAME")
+			SAME, @Special(value = "*USRPRF")
 			USRPRF, @Special(value = "*DEV")
 			DEV, @Special(value = "*WRKSTN")
 			WRKSTN
@@ -139,73 +152,94 @@ public class JobDescriptionCreator {
 	}
 
 	public static enum TextDescription {
-		@Special(value = "")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "")
 		BLANK
 	}
 
 	public static enum User {
-		@Special(value = "*RQD")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*RQD")
 		RQD
 	}
 
 	public static enum AccountingCode {
-		@Special(value = "*USRPRF")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*USRPRF")
 		USRPRF, @Special(value = "X'404040404040404040404040404040'")
 		BLANK
 	}
 
 	public static enum PrintText {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*BLANK")
 		BLANK
 	}
 
 	public static enum RoutingData {
-		@Special(value = "*RQSDTA")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*RQSDTA")
 		RQSDTA
 	}
 
 	public static enum RequestDataOrCommand {
-		@Special(value = "*NONE")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*NONE")
 		NONE, @Special(value = "*RTGDTA")
 		RTGDTA
 	}
 
 	public static enum InitialLibraryList {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*NONE")
 		NONE
 	}
 
 	public static enum InitialASPGroup {
-		@Special(value = "*NONE")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*NONE")
 		NONE
 	}
 
 	public static class MessageLogging extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		@DataDef(length = 1, value = "4")
-		public QCharacter level;
-		public @DataDef(value = "0") QBinary severity;
-		@DataDef(length = 1, value = "*NOLIST")
+		@DataDef(length = 1, value = "*SAME")
+		public QEnum<Level, QCharacter> level;
+		public @DataDef(value = "*SAME") QEnum<Severity, QBinary> severity;
+		@DataDef(length = 1, value = "*SAME")
 		public QEnum<Text, QCharacter> text;
 
+		public static enum Level {
+			@Special(value = "*")
+			SAME
+		}
+
+		public static enum Severity {
+			@Special(value = "-2")
+			SAME
+		}
+
 		public static enum Text {
-			@Special(value = "N")
-			NOLIST, @Special(value = "M")
+			@Special(value = "*")
+			SAME, @Special(value = "M")
 			MSG, @Special(value = "S")
-			SECLVL, MISSING
+			SECLVL, @Special(value = "N")
+			NOLIST, MISSING
 		}
 	}
 
 	public static enum LogCLProgramCommands {
-		@Special(value = "X'40'")
+		@Special(value = "*")
+		SAME, @Special(value = "X'40'")
 		NO, @Special(value = "Y")
 		YES, MISSING
 	}
 
 	public static enum JobLogOutput {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*JOBLOGSVR")
 		JOBLOGSVR, @Special(value = "*JOBEND")
 		JOBEND, @Special(value = "*PND")
@@ -213,12 +247,14 @@ public class JobDescriptionCreator {
 	}
 
 	public static enum JobMessageQueueMaximumSize {
-		@Special(value = "0")
+		@Special(value = "-2")
+		SAME, @Special(value = "0")
 		SYSVAL
 	}
 
 	public static enum JobMessageQueueFullAction {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*")
+		SAME, @Special(value = "")
 		SYSVAL, @Special(value = "N")
 		NOWRAP, @Special(value = "W")
 		WRAP, @Special(value = "P")
@@ -226,30 +262,45 @@ public class JobDescriptionCreator {
 	}
 
 	public static enum CLSyntaxCheck {
-		@Special(value = "-1")
+		@Special(value = "-2")
+		SAME, @Special(value = "-1")
 		NOCHK
 	}
 
+	public static enum EndSeverity {
+		@Special(value = "-2")
+		SAME
+	}
+
 	public static enum InquiryMessageReply {
-		@Special(value = "X'00'")
+		@Special(value = "*")
+		SAME, @Special(value = "X'00'")
 		RQD, @Special(value = "X'01'")
 		DFT, @Special(value = "X'02'")
 		SYSRPYL, MISSING
 	}
 
 	public static enum HoldOnJobQueue {
-		@Special(value = "N")
+		@Special(value = "*")
+		SAME, @Special(value = "N")
 		NO, @Special(value = "Y")
 		YES, MISSING
 	}
 
 	public static enum JobDate {
-		@Special(value = "0010000")
+		@Special(value = "0000000")
+		SAME, @Special(value = "0010000")
 		SYSVAL
 	}
 
+	public static enum JobSwitches {
+		@Special(value = "*SAME")
+		SAME
+	}
+
 	public static enum DeviceRecoveryAction {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*MSG")
 		MSG, @Special(value = "*DSCMSG")
 		DSCMSG, @Special(value = "*DSCENDRQS")
@@ -259,37 +310,33 @@ public class JobDescriptionCreator {
 	}
 
 	public static enum TimeSliceEndPool {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*NONE")
 		NONE, @Special(value = "*BASE")
 		BASE, MISSING
 	}
 
-	public static enum Authority {
-		@Special(value = "*LIBCRTAUT")
-		LIBCRTAUT, @Special(value = "*CHANGE")
-		CHANGE, @Special(value = "*ALL")
-		ALL, @Special(value = "*USE")
-		USE, @Special(value = "*EXCLUDE")
-		EXCLUDE
-	}
-
 	public static enum AllowMultipleThreads {
-		@Special(value = "X'00'")
+		@Special(value = "*")
+		SAME, @Special(value = "X'00'")
 		NO, @Special(value = "X'01'")
 		YES, MISSING
 	}
 
 	public static enum SpooledFileAction {
-		@Special(value = "*SYSVAL")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*KEEP")
 		KEEP, @Special(value = "*DETACH")
 		DETACH, MISSING
 	}
 
 	public static enum DDMConversation {
-		@Special(value = "*KEEP")
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*KEEP")
 		KEEP, @Special(value = "*DROP")
 		DROP, MISSING
 	}
+
 }
