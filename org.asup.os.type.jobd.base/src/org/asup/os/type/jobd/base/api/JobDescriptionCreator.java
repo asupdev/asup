@@ -68,7 +68,6 @@ public class JobDescriptionCreator {
 			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation) {
 		
-		
 			String library = jobDescription.library.asData().trimR();
 			String name = jobDescription.name.trimR();
 		try {
