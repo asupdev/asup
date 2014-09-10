@@ -10,6 +10,7 @@ package org.asup.os.type.jobd;
 import java.util.List;
 
 import org.asup.os.type.QTypedObject;
+import org.asup.os.type.QTypedReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,9 @@ import org.asup.os.type.QTypedObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.os.type.jobd.QJobDescription#getLibraries <em>Libraries</em>}</li>
- *   <li>{@link org.asup.os.type.jobd.QJobDescription#getMessageQueue <em>Message Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.QJobDescription#getJobQueue <em>Job Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.QJobDescription#getOutQueue <em>Out Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.QJobDescription#getUser <em>User</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,29 +49,81 @@ public interface QJobDescription extends QTypedObject {
 	List<String> getLibraries();
 
 	/**
-	 * Returns the value of the '<em><b>Message Queue</b></em>' attribute.
+	 * Returns the value of the '<em><b>Job Queue</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Message Queue</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Job Queue</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Message Queue</em>' attribute.
-	 * @see #setMessageQueue(String)
-	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_MessageQueue()
+	 * @return the value of the '<em>Job Queue</em>' containment reference.
+	 * @see #setJobQueue(QTypedReference)
+	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_JobQueue()
+	 * @model containment="true"
+	 * @generated
+	 */
+	QTypedReference<?> getJobQueue();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.jobd.QJobDescription#getJobQueue <em>Job Queue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Job Queue</em>' containment reference.
+	 * @see #getJobQueue()
+	 * @generated
+	 */
+	void setJobQueue(QTypedReference<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Queue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Queue</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Queue</em>' containment reference.
+	 * @see #setOutQueue(QTypedReference)
+	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_OutQueue()
+	 * @model containment="true"
+	 * @generated
+	 */
+	QTypedReference<?> getOutQueue();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.jobd.QJobDescription#getOutQueue <em>Out Queue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Queue</em>' containment reference.
+	 * @see #getOutQueue()
+	 * @generated
+	 */
+	void setOutQueue(QTypedReference<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User</em>' attribute.
+	 * @see #setUser(String)
+	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_User()
 	 * @model
 	 * @generated
 	 */
-	String getMessageQueue();
+	String getUser();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.type.jobd.QJobDescription#getMessageQueue <em>Message Queue</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.os.type.jobd.QJobDescription#getUser <em>User</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Message Queue</em>' attribute.
-	 * @see #getMessageQueue()
+	 * @param value the new value of the '<em>User</em>' attribute.
+	 * @see #getUser()
 	 * @generated
 	 */
-	void setMessageQueue(String value);
+	void setUser(String value);
 
 } // QJobDescription
