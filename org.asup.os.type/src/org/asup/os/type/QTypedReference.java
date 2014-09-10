@@ -39,6 +39,7 @@ public interface QTypedReference<T extends QTypedObject> extends QObject {
 	 * @see #setLibrary(String)
 	 * @see org.asup.os.type.QOperatingSystemTypePackage#getTypedReference_Library()
 	 * @model required="true"
+	 *        annotation="il-data length='10'"
 	 * @generated
 	 */
 	String getLibrary();
@@ -66,7 +67,7 @@ public interface QTypedReference<T extends QTypedObject> extends QObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.asup.os.type.QOperatingSystemTypePackage#getTypedReference_Name()
-	 * @model
+	 * @model annotation="il-data length='10'"
 	 * @generated
 	 */
 	String getName();
