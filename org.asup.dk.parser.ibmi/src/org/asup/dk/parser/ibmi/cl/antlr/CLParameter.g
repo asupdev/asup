@@ -22,13 +22,13 @@ tokens
 @lexer::header {
   package org.asup.dk.parser.ibmi.cl.antlr;
   
-  import org.asup.dk.parser.ibmi.cl.utils.LexerHelper;
+  import org.asup.dk.parser.ibmi.cl.util.LexerHelper;
 }
 
 @parser::header {
   package org.asup.dk.parser.ibmi.cl.antlr;
-
-  import org.asup.dk.parser.ibmi.cl.utils.CLParserHelper;
+  
+  import org.asup.dk.parser.ibmi.cl.util.CLParserHelper;
 }
 
 @parser::members {
@@ -69,14 +69,30 @@ parse
   (elem)* -> ^(PAR[$parse.text] (elem)*) 
   ;
   
-elem	:
-	value|list
+ elem	:
+	value|list|string_operator
 	;	  
   
 list
   : 
   OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST[$list.text]  (elem)*)   
   ;
+  
+string_operator
+  :
+  string
+  |
+  string CAT string_operator  -> ^(STR_OPERATOR["*CAT"] string string_operator)
+  |
+  string BCAT string_operator -> ^(STR_OPERATOR["*BCAT"] string string_operator)
+  |
+  string TCAT string_operator -> ^(STR_OPERATOR["*TCAT"] string string_operator)
+  ;	  
+  
+ string
+ 	:
+ 	VARIABLE|SPECIAL|STRING
+ 	;
   
 value
   :
@@ -86,24 +102,12 @@ value
   |
   SPECIAL
   |
-  STRING
-  |
-  function
-  |
-  string_operator
+  function  
   ;  
   
 function:
   FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
 	;
-	
-string_operator:
-  CAT -> ^(STR_OPERATOR["*CAT"])
-  |
-  BCAT -> ^(STR_OPERATOR["*BCAT"])
-  |
-  TCAT -> ^(STR_OPERATOR["*TCAT"])
-	;	
 
 CAT     :	'!!' | ('*CAT');
 BCAT    :	'!>' | ('*BCAT');
