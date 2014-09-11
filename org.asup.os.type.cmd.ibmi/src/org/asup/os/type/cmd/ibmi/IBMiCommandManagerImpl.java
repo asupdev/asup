@@ -37,6 +37,7 @@ import org.asup.il.data.QEnum;
 import org.asup.il.data.QList;
 import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
+import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -211,8 +212,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			multipleAtomicDataTerm.toString();
 
 			@SuppressWarnings("unused")
-			QMultipleAtomicDataDef<?> mulitpleAtomicDataDef = multipleAtomicDataTerm
-					.getDefinition();
+			QMultipleAtomicDataDef<?> mulitpleAtomicDataDef = multipleAtomicDataTerm.getDefinition();
 			QList<?> listAtomic = (QList<?>) data;
 
 			StringTokenizer st = new StringTokenizer(value, " ");
@@ -243,9 +243,10 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		case MULTIPLE_COMPOUND:
 			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 
-			// QMultipleCompoundDataDef<?> multipleCompoundDataDef =
-			// multipleCompoundDataTerm.getDefinition();
-			// QList<?> listCompound = (QList<?>)data;
+			QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
+			QList<?> listCompound = (QList<?>)data;
+			 
+			 
 
 			multipleCompoundDataTerm.toString();
 			break;
