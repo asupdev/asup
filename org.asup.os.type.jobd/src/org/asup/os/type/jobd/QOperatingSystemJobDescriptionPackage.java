@@ -135,22 +135,31 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	int JOB_DESCRIPTION__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
-	 * The feature id for the '<em><b>Libraries</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_DESCRIPTION__LIBRARIES = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Job Queue</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_DESCRIPTION__JOB_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+	int JOB_DESCRIPTION__JOB_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Job Priority On Jobq</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Output Priority On Outq</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Out Queue</b></em>' containment reference.
@@ -159,7 +168,7 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_DESCRIPTION__OUT_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+	int JOB_DESCRIPTION__OUT_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -168,7 +177,16 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_DESCRIPTION__USER = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
+	int JOB_DESCRIPTION__USER = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Libraries</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__LIBRARIES = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Job Description</em>' class.
@@ -177,7 +195,7 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_DESCRIPTION_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
+	int JOB_DESCRIPTION_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.jobd.impl.JobDescriptionManagerImpl <em>Job Description Manager</em>}' class.
@@ -276,6 +294,28 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	EReference getJobDescription_JobQueue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.jobd.QJobDescription#getJobPriorityOnJobq <em>Job Priority On Jobq</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Job Priority On Jobq</em>'.
+	 * @see org.asup.os.type.jobd.QJobDescription#getJobPriorityOnJobq()
+	 * @see #getJobDescription()
+	 * @generated
+	 */
+	EAttribute getJobDescription_JobPriorityOnJobq();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.jobd.QJobDescription#getOutputPriorityOnOutq <em>Output Priority On Outq</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Priority On Outq</em>'.
+	 * @see org.asup.os.type.jobd.QJobDescription#getOutputPriorityOnOutq()
+	 * @see #getJobDescription()
+	 * @generated
+	 */
+	EAttribute getJobDescription_OutputPriorityOnOutq();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.os.type.jobd.QJobDescription#getOutQueue <em>Out Queue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -354,6 +394,22 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOB_DESCRIPTION__JOB_QUEUE = eINSTANCE.getJobDescription_JobQueue();
+
+		/**
+		 * The meta object literal for the '<em><b>Job Priority On Jobq</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ = eINSTANCE.getJobDescription_JobPriorityOnJobq();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Priority On Outq</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ = eINSTANCE.getJobDescription_OutputPriorityOnOutq();
 
 		/**
 		 * The meta object literal for the '<em><b>Out Queue</b></em>' containment reference feature.

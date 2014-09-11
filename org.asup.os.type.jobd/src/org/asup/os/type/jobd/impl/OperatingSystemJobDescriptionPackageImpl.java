@@ -119,7 +119,7 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 	 * @generated
 	 */
 	public EAttribute getJobDescription_Libraries() {
-		return (EAttribute)jobDescriptionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)jobDescriptionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -128,7 +128,25 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 	 * @generated
 	 */
 	public EReference getJobDescription_JobQueue() {
-		return (EReference)jobDescriptionEClass.getEStructuralFeatures().get(1);
+		return (EReference)jobDescriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobDescription_JobPriorityOnJobq() {
+		return (EAttribute)jobDescriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobDescription_OutputPriorityOnOutq() {
+		return (EAttribute)jobDescriptionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -137,7 +155,7 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 	 * @generated
 	 */
 	public EReference getJobDescription_OutQueue() {
-		return (EReference)jobDescriptionEClass.getEStructuralFeatures().get(2);
+		return (EReference)jobDescriptionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -146,7 +164,7 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 	 * @generated
 	 */
 	public EAttribute getJobDescription_User() {
-		return (EAttribute)jobDescriptionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)jobDescriptionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -187,10 +205,12 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 
 		// Create classes and their features
 		jobDescriptionEClass = createEClass(JOB_DESCRIPTION);
-		createEAttribute(jobDescriptionEClass, JOB_DESCRIPTION__LIBRARIES);
 		createEReference(jobDescriptionEClass, JOB_DESCRIPTION__JOB_QUEUE);
+		createEAttribute(jobDescriptionEClass, JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ);
+		createEAttribute(jobDescriptionEClass, JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ);
 		createEReference(jobDescriptionEClass, JOB_DESCRIPTION__OUT_QUEUE);
 		createEAttribute(jobDescriptionEClass, JOB_DESCRIPTION__USER);
+		createEAttribute(jobDescriptionEClass, JOB_DESCRIPTION__LIBRARIES);
 
 		jobDescriptionManagerEClass = createEClass(JOB_DESCRIPTION_MANAGER);
 	}
@@ -234,16 +254,18 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(jobDescriptionEClass, QJobDescription.class, "JobDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJobDescription_Libraries(), ecorePackage.getEString(), "libraries", null, 0, -1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theOperatingSystemTypePackage.getTypedReference());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEReference(getJobDescription_JobQueue(), g1, null, "jobQueue", null, 0, 1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobDescription_JobPriorityOnJobq(), ecorePackage.getEString(), "jobPriorityOnJobq", null, 0, 1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobDescription_OutputPriorityOnOutq(), ecorePackage.getEString(), "outputPriorityOnOutq", null, 0, 1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theOperatingSystemTypePackage.getTypedReference());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEReference(getJobDescription_OutQueue(), g1, null, "outQueue", null, 0, 1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobDescription_User(), ecorePackage.getEString(), "user", null, 0, 1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobDescription_Libraries(), ecorePackage.getEString(), "libraries", null, 0, -1, QJobDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobDescriptionManagerEClass, QJobDescriptionManager.class, "JobDescriptionManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

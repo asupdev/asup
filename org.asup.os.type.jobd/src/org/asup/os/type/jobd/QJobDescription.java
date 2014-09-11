@@ -20,10 +20,12 @@ import org.asup.os.type.QTypedReference;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.os.type.jobd.QJobDescription#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link org.asup.os.type.jobd.QJobDescription#getJobQueue <em>Job Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.QJobDescription#getJobPriorityOnJobq <em>Job Priority On Jobq</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.QJobDescription#getOutputPriorityOnOutq <em>Output Priority On Outq</em>}</li>
  *   <li>{@link org.asup.os.type.jobd.QJobDescription#getOutQueue <em>Out Queue</em>}</li>
  *   <li>{@link org.asup.os.type.jobd.QJobDescription#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.QJobDescription#getLibraries <em>Libraries</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +75,58 @@ public interface QJobDescription extends QTypedObject {
 	 * @generated
 	 */
 	void setJobQueue(QTypedReference<?> value);
+
+	/**
+	 * Returns the value of the '<em><b>Job Priority On Jobq</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Job Priority On Jobq</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Job Priority On Jobq</em>' attribute.
+	 * @see #setJobPriorityOnJobq(String)
+	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_JobPriorityOnJobq()
+	 * @model
+	 * @generated
+	 */
+	String getJobPriorityOnJobq();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.jobd.QJobDescription#getJobPriorityOnJobq <em>Job Priority On Jobq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Job Priority On Jobq</em>' attribute.
+	 * @see #getJobPriorityOnJobq()
+	 * @generated
+	 */
+	void setJobPriorityOnJobq(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Priority On Outq</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Priority On Outq</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Priority On Outq</em>' attribute.
+	 * @see #setOutputPriorityOnOutq(String)
+	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_OutputPriorityOnOutq()
+	 * @model
+	 * @generated
+	 */
+	String getOutputPriorityOnOutq();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.jobd.QJobDescription#getOutputPriorityOnOutq <em>Output Priority On Outq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Priority On Outq</em>' attribute.
+	 * @see #getOutputPriorityOnOutq()
+	 * @generated
+	 */
+	void setOutputPriorityOnOutq(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Out Queue</b></em>' containment reference.

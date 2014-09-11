@@ -66,8 +66,7 @@
     <parameters
         allowVariable="true"
         name="USER"
-        position="8"
-        status="TODO">
+        position="8">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="user"
@@ -92,8 +91,7 @@
     <parameters
         allowVariable="true"
         name="JOBQ"
-        position="2"
-        status="TODO">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobQueue"
@@ -147,8 +145,7 @@
     <parameters
         allowVariable="true"
         name="JOBPTY"
-        position="3"
-        status="TODO">
+        position="3">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobPriorityonJOBQ"
@@ -171,8 +168,7 @@
     <parameters
         allowVariable="true"
         name="OUTPTY"
-        position="4"
-        status="TODO">
+        position="4">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="outputPriorityonOUTQ"
@@ -323,8 +319,7 @@
     <parameters
         allowVariable="true"
         name="INLLIBL"
-        position="13"
-        status="TODO">
+        position="13">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="initialLibraryList">
@@ -542,8 +537,7 @@
     <parameters
         allowVariable="true"
         name="OUTQ"
-        position="6"
-        status="TODO">
+        position="6">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="outputQueue"
@@ -1027,8 +1021,7 @@
     <parameters
         allowVariable="true"
         name="USER"
-        position="8"
-        status="TODO">
+        position="8">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="user"
@@ -1050,8 +1043,7 @@
     <parameters
         allowVariable="true"
         name="JOBQ"
-        position="2"
-        status="TODO">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobQueue">
@@ -1098,8 +1090,7 @@
     <parameters
         allowVariable="true"
         name="JOBPTY"
-        position="3"
-        status="TODO">
+        position="3">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobPriorityonJOBQ"
@@ -1116,8 +1107,7 @@
     <parameters
         allowVariable="true"
         name="OUTPTY"
-        position="4"
-        status="TODO">
+        position="4">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="outputPriorityonOUTQ"
@@ -1247,8 +1237,7 @@
     <parameters
         allowVariable="true"
         name="INLLIBL"
-        position="13"
-        status="TODO">
+        position="13">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="initialLibraryList">
@@ -1433,8 +1422,7 @@
     <parameters
         allowVariable="true"
         name="OUTQ"
-        position="6"
-        status="TODO">
+        position="6">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="outputQueue"
@@ -2010,7 +1998,7 @@
       name="PRTJOBDAUT"
       text="Print JOBD Authority"
       program="QSECJBD1"
-      status="POS">
+      status="UNS">
     <parameters
         allowVariable="true"
         name="LIB"

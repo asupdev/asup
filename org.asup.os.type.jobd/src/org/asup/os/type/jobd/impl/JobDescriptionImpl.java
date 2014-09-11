@@ -29,10 +29,12 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getLibraries <em>Libraries</em>}</li>
  *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getJobQueue <em>Job Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getJobPriorityOnJobq <em>Job Priority On Jobq</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getOutputPriorityOnOutq <em>Output Priority On Outq</em>}</li>
  *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getOutQueue <em>Out Queue</em>}</li>
  *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getLibraries <em>Libraries</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,16 +47,6 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLibraries()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<String> libraries;
-
-	/**
 	 * The cached value of the '{@link #getJobQueue() <em>Job Queue</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,6 +55,46 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	 * @ordered
 	 */
 	protected QTypedReference<?> jobQueue;
+
+	/**
+	 * The default value of the '{@link #getJobPriorityOnJobq() <em>Job Priority On Jobq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJobPriorityOnJobq()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JOB_PRIORITY_ON_JOBQ_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getJobPriorityOnJobq() <em>Job Priority On Jobq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJobPriorityOnJobq()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jobPriorityOnJobq = JOB_PRIORITY_ON_JOBQ_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutputPriorityOnOutq() <em>Output Priority On Outq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputPriorityOnOutq()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUTPUT_PRIORITY_ON_OUTQ_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputPriorityOnOutq() <em>Output Priority On Outq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputPriorityOnOutq()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outputPriorityOnOutq = OUTPUT_PRIORITY_ON_OUTQ_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOutQueue() <em>Out Queue</em>}' containment reference.
@@ -93,6 +125,16 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	 * @ordered
 	 */
 	protected String user = USER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLibraries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> libraries;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +208,48 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE, newJobQueue, newJobQueue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getJobPriorityOnJobq() {
+		return jobPriorityOnJobq;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJobPriorityOnJobq(String newJobPriorityOnJobq) {
+		String oldJobPriorityOnJobq = jobPriorityOnJobq;
+		jobPriorityOnJobq = newJobPriorityOnJobq;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ, oldJobPriorityOnJobq, jobPriorityOnJobq));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOutputPriorityOnOutq() {
+		return outputPriorityOnOutq;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputPriorityOnOutq(String newOutputPriorityOnOutq) {
+		String oldOutputPriorityOnOutq = outputPriorityOnOutq;
+		outputPriorityOnOutq = newOutputPriorityOnOutq;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ, oldOutputPriorityOnOutq, outputPriorityOnOutq));
 	}
 
 	/**
@@ -256,14 +340,18 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
-				return getLibraries();
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
 				return getJobQueue();
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ:
+				return getJobPriorityOnJobq();
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ:
+				return getOutputPriorityOnOutq();
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
 				return getOutQueue();
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
 				return getUser();
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
+				return getLibraries();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,18 +365,24 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
-				getLibraries().clear();
-				getLibraries().addAll((Collection<? extends String>)newValue);
-				return;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
 				setJobQueue((QTypedReference<?>)newValue);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ:
+				setJobPriorityOnJobq((String)newValue);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ:
+				setOutputPriorityOnOutq((String)newValue);
 				return;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
 				setOutQueue((QTypedReference<?>)newValue);
 				return;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
 				setUser((String)newValue);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
+				getLibraries().clear();
+				getLibraries().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -302,17 +396,23 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
-				getLibraries().clear();
-				return;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
 				setJobQueue((QTypedReference<?>)null);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ:
+				setJobPriorityOnJobq(JOB_PRIORITY_ON_JOBQ_EDEFAULT);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ:
+				setOutputPriorityOnOutq(OUTPUT_PRIORITY_ON_OUTQ_EDEFAULT);
 				return;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
 				setOutQueue((QTypedReference<?>)null);
 				return;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
 				setUser(USER_EDEFAULT);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
+				getLibraries().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -326,14 +426,18 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
-				return libraries != null && !libraries.isEmpty();
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
 				return jobQueue != null;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_PRIORITY_ON_JOBQ:
+				return JOB_PRIORITY_ON_JOBQ_EDEFAULT == null ? jobPriorityOnJobq != null : !JOB_PRIORITY_ON_JOBQ_EDEFAULT.equals(jobPriorityOnJobq);
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUTPUT_PRIORITY_ON_OUTQ:
+				return OUTPUT_PRIORITY_ON_OUTQ_EDEFAULT == null ? outputPriorityOnOutq != null : !OUTPUT_PRIORITY_ON_OUTQ_EDEFAULT.equals(outputPriorityOnOutq);
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
 				return outQueue != null;
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
 				return USER_EDEFAULT == null ? user != null : !USER_EDEFAULT.equals(user);
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
+				return libraries != null && !libraries.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -348,10 +452,14 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (libraries: ");
-		result.append(libraries);
+		result.append(" (jobPriorityOnJobq: ");
+		result.append(jobPriorityOnJobq);
+		result.append(", outputPriorityOnOutq: ");
+		result.append(outputPriorityOnOutq);
 		result.append(", user: ");
 		result.append(user);
+		result.append(", libraries: ");
+		result.append(libraries);
 		result.append(')');
 		return result.toString();
 	}
