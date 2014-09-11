@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-09-11 14:39:44
+// $ANTLR 3.5.1 CLParameter.g 2014-09-11 17:52:18
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -24,14 +24,13 @@ public class CLParameterLexer extends Lexer {
 	public static final int FUNCTION_NAME=12;
 	public static final int LIST=13;
 	public static final int OPEN_BRACE=14;
-	public static final int PAR=15;
-	public static final int SPECIAL=16;
-	public static final int STRING=17;
-	public static final int STR_OPERATOR=18;
-	public static final int TCAT=19;
-	public static final int TOKEN=20;
-	public static final int VARIABLE=21;
-	public static final int WS=22;
+	public static final int SPECIAL=15;
+	public static final int STRING=16;
+	public static final int STR_OPERATOR=17;
+	public static final int TCAT=18;
+	public static final int TOKEN=19;
+	public static final int VARIABLE=20;
+	public static final int WS=21;
 
 	// delegates
 	// delegators
@@ -53,7 +52,7 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = CAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:112:9: ( '!!' | ( '*CAT' ) )
+			// CLParameter.g:111:9: ( '!!' | ( '*CAT' ) )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='!') ) {
@@ -71,17 +70,17 @@ public class CLParameterLexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// CLParameter.g:112:11: '!!'
+					// CLParameter.g:111:11: '!!'
 					{
 					match("!!"); 
 
 					}
 					break;
 				case 2 :
-					// CLParameter.g:112:18: ( '*CAT' )
+					// CLParameter.g:111:18: ( '*CAT' )
 					{
-					// CLParameter.g:112:18: ( '*CAT' )
-					// CLParameter.g:112:19: '*CAT'
+					// CLParameter.g:111:18: ( '*CAT' )
+					// CLParameter.g:111:19: '*CAT'
 					{
 					match("*CAT"); 
 
@@ -105,7 +104,7 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = BCAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:113:9: ( '!>' | ( '*BCAT' ) )
+			// CLParameter.g:112:9: ( '!>' | ( '*BCAT' ) )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='!') ) {
@@ -123,17 +122,17 @@ public class CLParameterLexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// CLParameter.g:113:11: '!>'
+					// CLParameter.g:112:11: '!>'
 					{
 					match("!>"); 
 
 					}
 					break;
 				case 2 :
-					// CLParameter.g:113:18: ( '*BCAT' )
+					// CLParameter.g:112:18: ( '*BCAT' )
 					{
-					// CLParameter.g:113:18: ( '*BCAT' )
-					// CLParameter.g:113:19: '*BCAT'
+					// CLParameter.g:112:18: ( '*BCAT' )
+					// CLParameter.g:112:19: '*BCAT'
 					{
 					match("*BCAT"); 
 
@@ -157,7 +156,7 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = TCAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:114:9: ( '!<' | ( '*TCAT' ) )
+			// CLParameter.g:113:9: ( '!<' | ( '*TCAT' ) )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='!') ) {
@@ -175,17 +174,17 @@ public class CLParameterLexer extends Lexer {
 
 			switch (alt3) {
 				case 1 :
-					// CLParameter.g:114:11: '!<'
+					// CLParameter.g:113:11: '!<'
 					{
 					match("!<"); 
 
 					}
 					break;
 				case 2 :
-					// CLParameter.g:114:18: ( '*TCAT' )
+					// CLParameter.g:113:18: ( '*TCAT' )
 					{
-					// CLParameter.g:114:18: ( '*TCAT' )
-					// CLParameter.g:114:19: '*TCAT'
+					// CLParameter.g:113:18: ( '*TCAT' )
+					// CLParameter.g:113:19: '*TCAT'
 					{
 					match("*TCAT"); 
 
@@ -209,7 +208,7 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = FUNCTION_NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:117:14: ( '%SST' | '%SWITCH' | '%BINARY' | '%BIN' )
+			// CLParameter.g:116:14: ( '%SST' | '%SWITCH' | '%BINARY' | '%BIN' )
 			int alt4=4;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='%') ) {
@@ -308,28 +307,28 @@ public class CLParameterLexer extends Lexer {
 
 			switch (alt4) {
 				case 1 :
-					// CLParameter.g:118:2: '%SST'
+					// CLParameter.g:117:2: '%SST'
 					{
 					match("%SST"); 
 
 					}
 					break;
 				case 2 :
-					// CLParameter.g:118:11: '%SWITCH'
+					// CLParameter.g:117:11: '%SWITCH'
 					{
 					match("%SWITCH"); 
 
 					}
 					break;
 				case 3 :
-					// CLParameter.g:118:23: '%BINARY'
+					// CLParameter.g:117:23: '%BINARY'
 					{
 					match("%BINARY"); 
 
 					}
 					break;
 				case 4 :
-					// CLParameter.g:118:35: '%BIN'
+					// CLParameter.g:117:35: '%BIN'
 					{
 					match("%BIN"); 
 
@@ -351,12 +350,12 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:121:8: ( APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS )
-			// CLParameter.g:122:4: APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS
+			// CLParameter.g:120:8: ( APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS )
+			// CLParameter.g:121:4: APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS
 			{
 			mAPOS(); 
 
-			// CLParameter.g:122:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+
+			// CLParameter.g:121:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+
 			int cnt5=0;
 			loop5:
 			while (true) {
@@ -407,10 +406,10 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = TOKEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:125:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+ )
-			// CLParameter.g:126:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
+			// CLParameter.g:124:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+ )
+			// CLParameter.g:125:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
 			{
-			// CLParameter.g:126:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
+			// CLParameter.g:125:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -459,8 +458,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = VARIABLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:129:9: ( '&' TOKEN )
-			// CLParameter.g:130:4: '&' TOKEN
+			// CLParameter.g:128:9: ( '&' TOKEN )
+			// CLParameter.g:129:4: '&' TOKEN
 			{
 			match('&'); 
 			mTOKEN(); 
@@ -481,8 +480,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = SPECIAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:133:9: ( '*' TOKEN )
-			// CLParameter.g:134:4: '*' TOKEN
+			// CLParameter.g:132:9: ( '*' TOKEN )
+			// CLParameter.g:133:4: '*' TOKEN
 			{
 			match('*'); 
 			mTOKEN(); 
@@ -503,8 +502,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = OPEN_BRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:138:3: ( '(' )
-			// CLParameter.g:139:3: '('
+			// CLParameter.g:137:3: ( '(' )
+			// CLParameter.g:138:3: '('
 			{
 			match('('); 
 			}
@@ -523,8 +522,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = CLOSE_BRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:143:3: ( ')' )
-			// CLParameter.g:144:3: ')'
+			// CLParameter.g:142:3: ( ')' )
+			// CLParameter.g:143:3: ')'
 			{
 			match(')'); 
 			}
@@ -543,8 +542,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = APOS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:147:6: ( '\\'' )
-			// CLParameter.g:148:2: '\\''
+			// CLParameter.g:146:6: ( '\\'' )
+			// CLParameter.g:147:2: '\\''
 			{
 			match('\''); 
 			}
@@ -563,7 +562,7 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:152:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+			// CLParameter.g:151:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='/') ) {
@@ -597,11 +596,11 @@ public class CLParameterLexer extends Lexer {
 
 			switch (alt10) {
 				case 1 :
-					// CLParameter.g:152:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+					// CLParameter.g:151:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 					{
 					match("//"); 
 
-					// CLParameter.g:152:14: (~ ( '\\n' | '\\r' ) )*
+					// CLParameter.g:151:14: (~ ( '\\n' | '\\r' ) )*
 					loop7:
 					while (true) {
 						int alt7=2;
@@ -630,7 +629,7 @@ public class CLParameterLexer extends Lexer {
 						}
 					}
 
-					// CLParameter.g:152:28: ( '\\r' )?
+					// CLParameter.g:151:28: ( '\\r' )?
 					int alt8=2;
 					int LA8_0 = input.LA(1);
 					if ( (LA8_0=='\r') ) {
@@ -638,7 +637,7 @@ public class CLParameterLexer extends Lexer {
 					}
 					switch (alt8) {
 						case 1 :
-							// CLParameter.g:152:28: '\\r'
+							// CLParameter.g:151:28: '\\r'
 							{
 							match('\r'); 
 							}
@@ -651,11 +650,11 @@ public class CLParameterLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// CLParameter.g:153:9: '/*' ( options {greedy=false; } : . )* '*/'
+					// CLParameter.g:152:9: '/*' ( options {greedy=false; } : . )* '*/'
 					{
 					match("/*"); 
 
-					// CLParameter.g:153:14: ( options {greedy=false; } : . )*
+					// CLParameter.g:152:14: ( options {greedy=false; } : . )*
 					loop9:
 					while (true) {
 						int alt9=2;
@@ -676,7 +675,7 @@ public class CLParameterLexer extends Lexer {
 
 						switch (alt9) {
 						case 1 :
-							// CLParameter.g:153:42: .
+							// CLParameter.g:152:42: .
 							{
 							matchAny(); 
 							}
@@ -708,10 +707,10 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = CR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:156:4: ( ( '\\r' )? '\\n' )
-			// CLParameter.g:157:3: ( '\\r' )? '\\n'
+			// CLParameter.g:155:4: ( ( '\\r' )? '\\n' )
+			// CLParameter.g:156:3: ( '\\r' )? '\\n'
 			{
-			// CLParameter.g:157:3: ( '\\r' )?
+			// CLParameter.g:156:3: ( '\\r' )?
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0=='\r') ) {
@@ -719,7 +718,7 @@ public class CLParameterLexer extends Lexer {
 			}
 			switch (alt11) {
 				case 1 :
-					// CLParameter.g:157:4: '\\r'
+					// CLParameter.g:156:4: '\\r'
 					{
 					match('\r'); 
 					}
@@ -744,8 +743,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:160:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-			// CLParameter.g:160:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+			// CLParameter.g:159:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			// CLParameter.g:159:9: ( ' ' | '\\t' | '\\r' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 				input.consume();
@@ -770,7 +769,7 @@ public class CLParameterLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// CLParameter.g:171:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '!' | '=' | '>' | '<' | '+' | '-' | '/' ) )
+			// CLParameter.g:170:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '!' | '=' | '>' | '<' | '+' | '-' | '/' ) )
 			// CLParameter.g:
 			{
 			if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= '^' && input.LA(1) <= '_')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {

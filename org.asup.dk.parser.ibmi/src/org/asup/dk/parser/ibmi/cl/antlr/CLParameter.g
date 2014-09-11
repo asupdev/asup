@@ -8,8 +8,7 @@ options {
 
 
 tokens
-{
-	PAR;
+{	
 	LIST;
 	//TOKEN
 	//VARIABLE
@@ -66,7 +65,7 @@ tokens
 
 parse
   :
-  (elem)* -> ^(PAR[$parse.text] (elem)*) 
+  (elem)* -> ^(LIST[$parse.text] (elem)*) 
   ;
   
  elem	:
