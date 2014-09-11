@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CL.g 2014-09-11 12:37:03
+// $ANTLR 3.5.1 CL.g 2014-09-11 14:39:37
 
   package org.asup.dk.parser.ibmi.cl.antlr;
 
@@ -505,7 +505,7 @@ public class CLParser extends Parser {
 			stream_CR.add(CR13);
 
 			// AST REWRITE
-			// elements: command, label
+			// elements: label, command
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -801,7 +801,7 @@ public class CLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: pos_parm, parm, cmd_name
+			// elements: cmd_name, pos_parm, parm
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
