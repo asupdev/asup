@@ -11,6 +11,7 @@ import org.asup.os.type.QOperatingSystemTypePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,24 +81,6 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	int JOB_DESCRIPTION__APPLICATION = QOperatingSystemTypePackage.TYPED_OBJECT__APPLICATION;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_DESCRIPTION__ATTRIBUTE = QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_DESCRIPTION__CREATION_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO;
-
-	/**
 	 * The feature id for the '<em><b>Library</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,15 +88,6 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_DESCRIPTION__LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT__LIBRARY;
-
-	/**
-	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB_DESCRIPTION__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -125,6 +99,15 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	int JOB_DESCRIPTION__NAME = QOperatingSystemTypePackage.TYPED_OBJECT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__ATTRIBUTE = QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE;
+
+	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,6 +115,24 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_DESCRIPTION__TEXT = QOperatingSystemTypePackage.TYPED_OBJECT__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__CREATION_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Libraries</b></em>' attribute list.
@@ -143,13 +144,31 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	int JOB_DESCRIPTION__LIBRARIES = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Message Queue</b></em>' attribute.
+	 * The feature id for the '<em><b>Job Queue</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_DESCRIPTION__MESSAGE_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+	int JOB_DESCRIPTION__JOB_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Out Queue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__OUT_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_DESCRIPTION__USER = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Job Description</em>' class.
@@ -158,7 +177,7 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_DESCRIPTION_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+	int JOB_DESCRIPTION_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.jobd.impl.JobDescriptionManagerImpl <em>Job Description Manager</em>}' class.
@@ -246,15 +265,37 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 	EAttribute getJobDescription_Libraries();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.jobd.QJobDescription#getMessageQueue <em>Message Queue</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.os.type.jobd.QJobDescription#getJobQueue <em>Job Queue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Message Queue</em>'.
-	 * @see org.asup.os.type.jobd.QJobDescription#getMessageQueue()
+	 * @return the meta object for the containment reference '<em>Job Queue</em>'.
+	 * @see org.asup.os.type.jobd.QJobDescription#getJobQueue()
 	 * @see #getJobDescription()
 	 * @generated
 	 */
-	EAttribute getJobDescription_MessageQueue();
+	EReference getJobDescription_JobQueue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.os.type.jobd.QJobDescription#getOutQueue <em>Out Queue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Out Queue</em>'.
+	 * @see org.asup.os.type.jobd.QJobDescription#getOutQueue()
+	 * @see #getJobDescription()
+	 * @generated
+	 */
+	EReference getJobDescription_OutQueue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.jobd.QJobDescription#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User</em>'.
+	 * @see org.asup.os.type.jobd.QJobDescription#getUser()
+	 * @see #getJobDescription()
+	 * @generated
+	 */
+	EAttribute getJobDescription_User();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.jobd.QJobDescriptionManager <em>Job Description Manager</em>}'.
@@ -307,12 +348,28 @@ public interface QOperatingSystemJobDescriptionPackage extends EPackage {
 		EAttribute JOB_DESCRIPTION__LIBRARIES = eINSTANCE.getJobDescription_Libraries();
 
 		/**
-		 * The meta object literal for the '<em><b>Message Queue</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Job Queue</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JOB_DESCRIPTION__MESSAGE_QUEUE = eINSTANCE.getJobDescription_MessageQueue();
+		EReference JOB_DESCRIPTION__JOB_QUEUE = eINSTANCE.getJobDescription_JobQueue();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Queue</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_DESCRIPTION__OUT_QUEUE = eINSTANCE.getJobDescription_OutQueue();
+
+		/**
+		 * The meta object literal for the '<em><b>User</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_DESCRIPTION__USER = eINSTANCE.getJobDescription_User();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.jobd.impl.JobDescriptionManagerImpl <em>Job Description Manager</em>}' class.

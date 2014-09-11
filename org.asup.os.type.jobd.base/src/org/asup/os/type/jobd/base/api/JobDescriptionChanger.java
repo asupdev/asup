@@ -18,6 +18,9 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
+import org.asup.os.type.QTypedObject;
+import org.asup.os.type.QTypedReference;
+import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
 
 @Command(name = "CHGJOBD")
@@ -31,21 +34,20 @@ public class JobDescriptionChanger {
 	@Inject 
 	private QJobLogManager jobLogManager;
 	
-	
 	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(qualified = true) JobQueue jobqueue,
+			@DataDef(qualified = true) JobQueue jobQueue,
 			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobpriorityonjobq,
 			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputpriorityonoutq,
 			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printdevice,
-			@DataDef(qualified = true) OutputQueue outputqueue,
+			@DataDef(qualified = true) OutputQueue outputQueue,
 			@DataDef(length = 50) QCharacter textDescription,
 			@DataDef(length = 10) QEnum<User, QCharacter> user,
 			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingcode,
 			@DataDef(length = 30) QEnum<PrintText, QCharacter> printtext,
 			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingdata,
 			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestdataorcommand,
-			@DataDef(occurrences = "250", length = 10) QArray<QCharacter> initiallibrarylist,
+			@DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
 			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialaspgroup,
 			MessageLogging messagelogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logclprogramcommands,
@@ -64,26 +66,48 @@ public class JobDescriptionChanger {
 			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation) {
 
+		String library = jobDescription.library.asData().trimR();
+		String name = jobDescription.name.trimR();
 		try {
-			changeJobDescription(job, resourceFactory, jobDescription.library.asData().trimR(),jobDescription.name.trimR(), textDescription.trimR(), initiallibrarylist);
+			QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
+			QJobDescription jd = resource.lookup(name);	
+			if (jd == null) {
+				throw new OperatingSystemException("Job Description " + name+ " not exists in library " + library);
+			} else {
+				if(!textDescription.isEmpty()) 
+					jd.setText(textDescription.trimR());
+				if(initialLibraryList.size()>0){
+					jd.getLibraries().clear();
+					for(QCharacter initialLibrary : initialLibraryList){
+						if(initialLibrary.trimR().isEmpty())
+							continue;
+						jd.getLibraries().add(initialLibrary.trimR());				
+					}
+				}
+				if(!jobQueue.isEmpty()) {
+					QTypedReference<QTypedObject> refJobQueue = null;
+					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
+					refJobQueue.setName(jobQueue.name.asData().trimR());
+					jd.setJobQueue(refJobQueue);
+				}
+				if(!outputQueue.isEmpty()) {
+					QTypedReference<QTypedObject> refOutQueue = null;
+					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
+					refOutQueue.setName(outputQueue.name.asData().trimR());
+					jd.setOutQueue(refOutQueue);
+				}
+				if(!user.isEmpty()) 
+					jd.setUser(user.asData().trimR());
+				resource.save(jd,true);
+			}
 			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " changed");
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
 	}
 
-	private void changeJobDescription(QJob job,QResourceFactory resourceFactory, String library, String name, String textDescription, QArray<QCharacter> initiallibrarylist) throws OperatingSystemException{
-		QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
-		QJobDescription jd = resource.lookup(name);	
-		if (jd == null) {
-			throw new OperatingSystemException("Job Description " + name+ " not exists in library " + library);
-		} else {
-			// Queue do not exists. Create and register.
-			jd.setText(textDescription);
-			resource.save(jd,true);
-		}
-	}
-	
 	public static class JobDescription extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)

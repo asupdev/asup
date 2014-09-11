@@ -556,7 +556,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	protected void createIldataAnnotations() {
-		String source = "il-data";		
+		String source = "il-data";	
 		addAnnotation
 		  (getType_ClassName(), 
 		   source, 
@@ -565,7 +565,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getType_Domain(), 
 		   source, 
@@ -574,7 +574,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getType_Manager(), 
 		   source, 
@@ -583,7 +583,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getTypedObject_Application(), 
 		   source, 
@@ -592,7 +592,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getTypedObject_Library(), 
 		   source, 
@@ -601,7 +601,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getTypedObject_Name(), 
 		   source, 
@@ -610,7 +610,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getTypedObject_Attribute(), 
 		   source, 
@@ -619,7 +619,7 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getTypedObject_Text(), 
 		   source, 
@@ -629,6 +629,24 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
 		   });	
+		addAnnotation
+		  (getTypedReference_Library(), 
+		   source, 
+		   new String[] {
+			 "length", "10"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
+		  (getTypedReference_Name(), 
+		   source, 
+		   new String[] {
+			 "length", "10"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });
 	}
 
 } //OSTypePackageImpl

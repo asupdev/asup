@@ -10,12 +10,15 @@ package org.asup.os.type.jobd.impl;
 import java.util.Collection;
 import java.util.List;
 
+import org.asup.os.type.QTypedReference;
 import org.asup.os.type.impl.TypedObjectImpl;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
@@ -27,7 +30,9 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getLibraries <em>Libraries</em>}</li>
- *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getMessageQueue <em>Message Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getJobQueue <em>Job Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getOutQueue <em>Out Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.jobd.impl.JobDescriptionImpl#getUser <em>User</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,24 +55,44 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	protected EList<String> libraries;
 
 	/**
-	 * The default value of the '{@link #getMessageQueue() <em>Message Queue</em>}' attribute.
+	 * The cached value of the '{@link #getJobQueue() <em>Job Queue</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMessageQueue()
+	 * @see #getJobQueue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String MESSAGE_QUEUE_EDEFAULT = null;
+	protected QTypedReference<?> jobQueue;
 
 	/**
-	 * The cached value of the '{@link #getMessageQueue() <em>Message Queue</em>}' attribute.
+	 * The cached value of the '{@link #getOutQueue() <em>Out Queue</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMessageQueue()
+	 * @see #getOutQueue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String messageQueue = MESSAGE_QUEUE_EDEFAULT;
+	protected QTypedReference<?> outQueue;
+
+	/**
+	 * The default value of the '{@link #getUser() <em>User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUser() <em>User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected String user = USER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,8 +130,8 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMessageQueue() {
-		return messageQueue;
+	public QTypedReference<?> getJobQueue() {
+		return jobQueue;
 	}
 
 	/**
@@ -114,11 +139,113 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMessageQueue(String newMessageQueue) {
-		String oldMessageQueue = messageQueue;
-		messageQueue = newMessageQueue;
+	public NotificationChain basicSetJobQueue(QTypedReference<?> newJobQueue, NotificationChain msgs) {
+		QTypedReference<?> oldJobQueue = jobQueue;
+		jobQueue = newJobQueue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE, oldJobQueue, newJobQueue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJobQueue(QTypedReference<?> newJobQueue) {
+		if (newJobQueue != jobQueue) {
+			NotificationChain msgs = null;
+			if (jobQueue != null)
+				msgs = ((InternalEObject)jobQueue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE, null, msgs);
+			if (newJobQueue != null)
+				msgs = ((InternalEObject)newJobQueue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE, null, msgs);
+			msgs = basicSetJobQueue(newJobQueue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE, newJobQueue, newJobQueue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QTypedReference<?> getOutQueue() {
+		return outQueue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOutQueue(QTypedReference<?> newOutQueue, NotificationChain msgs) {
+		QTypedReference<?> oldOutQueue = outQueue;
+		outQueue = newOutQueue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE, oldOutQueue, newOutQueue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutQueue(QTypedReference<?> newOutQueue) {
+		if (newOutQueue != outQueue) {
+			NotificationChain msgs = null;
+			if (outQueue != null)
+				msgs = ((InternalEObject)outQueue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE, null, msgs);
+			if (newOutQueue != null)
+				msgs = ((InternalEObject)newOutQueue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE, null, msgs);
+			msgs = basicSetOutQueue(newOutQueue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE, newOutQueue, newOutQueue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUser(String newUser) {
+		String oldUser = user;
+		user = newUser;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__MESSAGE_QUEUE, oldMessageQueue, messageQueue));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER, oldUser, user));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
+				return basicSetJobQueue(null, msgs);
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
+				return basicSetOutQueue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -131,8 +258,12 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 		switch (featureID) {
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
 				return getLibraries();
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__MESSAGE_QUEUE:
-				return getMessageQueue();
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
+				return getJobQueue();
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
+				return getOutQueue();
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
+				return getUser();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -150,8 +281,14 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 				getLibraries().clear();
 				getLibraries().addAll((Collection<? extends String>)newValue);
 				return;
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__MESSAGE_QUEUE:
-				setMessageQueue((String)newValue);
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
+				setJobQueue((QTypedReference<?>)newValue);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
+				setOutQueue((QTypedReference<?>)newValue);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
+				setUser((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -168,8 +305,14 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
 				getLibraries().clear();
 				return;
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__MESSAGE_QUEUE:
-				setMessageQueue(MESSAGE_QUEUE_EDEFAULT);
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
+				setJobQueue((QTypedReference<?>)null);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
+				setOutQueue((QTypedReference<?>)null);
+				return;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
+				setUser(USER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -185,8 +328,12 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 		switch (featureID) {
 			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__LIBRARIES:
 				return libraries != null && !libraries.isEmpty();
-			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__MESSAGE_QUEUE:
-				return MESSAGE_QUEUE_EDEFAULT == null ? messageQueue != null : !MESSAGE_QUEUE_EDEFAULT.equals(messageQueue);
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__JOB_QUEUE:
+				return jobQueue != null;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__OUT_QUEUE:
+				return outQueue != null;
+			case QOperatingSystemJobDescriptionPackage.JOB_DESCRIPTION__USER:
+				return USER_EDEFAULT == null ? user != null : !USER_EDEFAULT.equals(user);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -203,8 +350,8 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (libraries: ");
 		result.append(libraries);
-		result.append(", messageQueue: ");
-		result.append(messageQueue);
+		result.append(", user: ");
+		result.append(user);
 		result.append(')');
 		return result.toString();
 	}

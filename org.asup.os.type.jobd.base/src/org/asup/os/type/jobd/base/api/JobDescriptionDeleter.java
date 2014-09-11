@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -31,10 +32,14 @@ public class JobDescriptionDeleter {
 	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription) {
 
+		String library = jobDescription.library.asData().trimR();
+		String name = jobDescription.name.trimR();
 		try {
-			deleteJobDescription(job, resourceFactory,
-					jobDescription.library.trimR(),
-					jobDescription.name.trimR());
+			QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
+			QJobDescription jd = resource.lookup(name);	
+				if (jd == null)			
+					throw new OperatingSystemRuntimeException("Job Description not found: "	+ name);
+			resource.delete(jd);
 			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " deleted");
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
@@ -42,22 +47,12 @@ public class JobDescriptionDeleter {
 
 	}
 
-	private void deleteJobDescription(QJob job,QResourceFactory resourceFactory, String library, String name) throws OperatingSystemException{
-		QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
-		QJobDescription jd = resource.lookup(name);	
-			if (jd == null)			
-				throw new OperatingSystemRuntimeException("Job Description not found: "	+ name);
-			resource.delete(jd);
-	}
-
 	public static class JobDescription extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
-		// @DataDef(length = 10, value = "*LIBL")
-		// public QEnum<Library, QCharacter> library;
-		@DataDef(length = 10)
-		public QCharacter library;
+		@DataDef(length = 10, value = "*LIBL")
+		public QEnum<Library, QCharacter> library;
 
 		public static enum Library {
 			@Special(value = "*LIBL")
