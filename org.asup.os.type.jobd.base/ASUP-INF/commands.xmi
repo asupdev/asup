@@ -2073,7 +2073,7 @@
       name="WRKJOBD"
       text="Work with Job Descriptions"
       allowBatch="false"
-      program="QMNWRKXX">
+      program="QMUWRJBD">
     <parameters
         allowVariable="true"
         name="JOBD"
