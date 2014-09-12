@@ -7,11 +7,13 @@
  */
 package org.asup.os.type.jobd.impl;
 
+import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
 import org.asup.os.type.jobd.QOperatingSystemJobDescriptionFactory;
 import org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -271,6 +273,47 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// il-data
+		createIldataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>il-data</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createIldataAnnotations() {
+		String source = "il-data";	
+		addAnnotation
+		  (getJobDescription_JobQueue(), 
+		   source, 
+		   new String[] {
+			 "length", "20"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
+		  (getJobDescription_OutQueue(), 
+		   source, 
+		   new String[] {
+			 "length", "20"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
+		  (getJobDescription_User(), 
+		   source, 
+		   new String[] {
+			 "length", "10"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });
 	}
 
 } //OSJobDescriptionCorePackageImpl

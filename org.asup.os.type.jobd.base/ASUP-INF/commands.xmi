@@ -1844,7 +1844,7 @@
       xsi:type="os-type-cmd:Command"
       name="DLTJOBD"
       text="Delete Job Description"
-      program="QMUDLJBD">
+      program="QASDLJBD">
     <parameters
         allowVariable="true"
         name="JOBD"
@@ -2073,7 +2073,7 @@
       name="WRKJOBD"
       text="Work with Job Descriptions"
       allowBatch="false"
-      program="QMUWRJBD">
+      program="QASWRJBD">
     <parameters
         allowVariable="true"
         name="JOBD"

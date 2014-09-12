@@ -62,6 +62,7 @@ public interface QJobDescription extends QTypedObject {
 	 * @see #setJobQueue(QTypedReference)
 	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_JobQueue()
 	 * @model containment="true"
+	 *        annotation="il-data length='20'"
 	 * @generated
 	 */
 	QTypedReference<?> getJobQueue();
@@ -140,6 +141,7 @@ public interface QJobDescription extends QTypedObject {
 	 * @see #setOutQueue(QTypedReference)
 	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_OutQueue()
 	 * @model containment="true"
+	 *        annotation="il-data length='20'"
 	 * @generated
 	 */
 	QTypedReference<?> getOutQueue();
@@ -165,7 +167,7 @@ public interface QJobDescription extends QTypedObject {
 	 * @return the value of the '<em>User</em>' attribute.
 	 * @see #setUser(String)
 	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_User()
-	 * @model
+	 * @model annotation="il-data length='10'"
 	 * @generated
 	 */
 	String getUser();

@@ -23,7 +23,7 @@ import org.asup.os.type.QTypedObject;
 import org.asup.os.type.jobd.QJobDescription;
 
 @Command(name = "WRKJOBD")
-@Program(name = "QMUWRJBD", messages = {"CPF9809"})
+@Program(name = "QASWRJBD", messages = {"CPF9809"})
 
 public  class JobDescriptionWorker {
 	

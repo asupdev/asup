@@ -19,7 +19,7 @@ import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.jobd.QJobDescription;
 
 @Command(name = "DLTJOBD")
-@Program(name = "QMUDLJBD", messages = { "CPF2105", "CPF2110", "CPF2114",
+@Program(name = "QASDLJBD", messages = { "CPF2105", "CPF2110", "CPF2114",
 		"CPF2117", "CPF2182", "CPF2189" })
 public class JobDescriptionDeleter {
 	@Inject
