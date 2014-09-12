@@ -8,7 +8,6 @@ import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataStructDelegator;
-import org.asup.il.data.QPointer;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -32,11 +31,11 @@ public class JobDescriptionRetriever {
 	@Inject
 	private QDataManager dataManager;
 
-	public @Entry void main(QPointer receiverVariable,
+	public @Entry void main(@DataDef(length = 100) QCharacter receiverVariable,
 			QBinary receiveVariableLength,
 			@DataDef(length = 8) QCharacter formatName,
 			@DataDef(qualified = false) JobDescription jobDescription,
-			QPointer errorCode) {
+			QCharacter errorCode) {
 
 		try {
 			String library = jobDescription.library.trimR();
