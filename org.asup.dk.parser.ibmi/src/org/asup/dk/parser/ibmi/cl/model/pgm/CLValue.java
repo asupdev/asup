@@ -8,18 +8,12 @@
  * Contributors:
  *   Dario Foresti - Initial API and implementation
  */
-package org.asup.dk.parser.ibmi.cl.model;
+package org.asup.dk.parser.ibmi.cl.model.pgm;
 
-import java.util.LinkedList;
+public class CLValue extends CLAbstractComponent {
 
-public interface Node {
-	
-	public abstract void setFather(Node father);
-
-	public abstract Node getFather();
-
-	public abstract void addChild(Node child);
-
-	public abstract LinkedList<Node> getChilds();
-
+	@Override
+	public CLComponentType getComponentType() {		
+		return CLComponentType.VALUE;
+	}
 }

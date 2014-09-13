@@ -19,11 +19,11 @@ import javax.inject.Inject;
 
 import org.asup.dk.parser.ibmi.cl.ParserFactory;
 import org.asup.dk.parser.ibmi.cl.ParserInterface;
-import org.asup.dk.parser.ibmi.cl.model.CLCommand;
-import org.asup.dk.parser.ibmi.cl.model.CLObject;
-import org.asup.dk.parser.ibmi.cl.model.CLParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLPositionalParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLRow;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLCommand;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLObject;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLRow;
 import org.asup.fw.core.QContextID;
 import org.asup.il.core.QFormat;
 import org.asup.il.core.QSpecial;
@@ -205,6 +205,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		@SuppressWarnings("unused")
 		String dbgString = null;
+		
+		
+		
 
 		switch (dataTerm.getDataType()) {
 		case MULTIPLE_ATOMIC:

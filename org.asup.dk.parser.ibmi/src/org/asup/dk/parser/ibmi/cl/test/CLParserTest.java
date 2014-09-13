@@ -15,11 +15,11 @@ import java.util.Enumeration;
 
 import org.asup.dk.parser.ibmi.cl.ParserFactory;
 import org.asup.dk.parser.ibmi.cl.ParserInterface;
-import org.asup.dk.parser.ibmi.cl.model.CLMonitorMessage;
-import org.asup.dk.parser.ibmi.cl.model.CLObject;
-import org.asup.dk.parser.ibmi.cl.model.CLParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLPositionalParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLRow;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLMonitorMessage;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLObject;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLRow;
 import org.asup.dk.parser.ibmi.cl.util.CLParserUtil;
 
 public class CLParserTest {

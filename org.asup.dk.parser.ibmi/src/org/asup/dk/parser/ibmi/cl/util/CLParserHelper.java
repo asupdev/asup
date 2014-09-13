@@ -11,14 +11,14 @@
 package org.asup.dk.parser.ibmi.cl.util;
 
 import org.antlr.runtime.Parser;
-import org.asup.dk.parser.ibmi.cl.model.CLCommand;
-import org.asup.dk.parser.ibmi.cl.model.CLLabel;
-import org.asup.dk.parser.ibmi.cl.model.CLMonitorMessage;
-import org.asup.dk.parser.ibmi.cl.model.CLObject;
-import org.asup.dk.parser.ibmi.cl.model.CLParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLPositionalParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLRow;
-import org.asup.dk.parser.ibmi.cl.model.CLValue;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLCommand;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLLabel;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLMonitorMessage;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLObject;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLRow;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLValue;
 
 
 public class CLParserHelper extends ParserHelper{

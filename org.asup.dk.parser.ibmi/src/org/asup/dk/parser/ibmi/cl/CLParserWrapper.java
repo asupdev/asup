@@ -26,7 +26,7 @@ import org.antlr.runtime.tree.CommonTree;
 import org.asup.dk.parser.ibmi.cl.antlr.CLLexer;
 import org.asup.dk.parser.ibmi.cl.antlr.CLParser;
 import org.asup.dk.parser.ibmi.cl.exceptions.CLScriptException;
-import org.asup.dk.parser.ibmi.cl.model.CLObject;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLObject;
 
 public class CLParserWrapper extends AbstractParserWrapper implements ParserInterface<CLObject> {
 

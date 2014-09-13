@@ -8,7 +8,8 @@ Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.dk.parser.ibmi.cl,
  org.asup.dk.parser.ibmi.cl.antlr,
  org.asup.dk.parser.ibmi.cl.exceptions,
- org.asup.dk.parser.ibmi.cl.model,
+ org.asup.dk.parser.ibmi.cl.model.parm,
+ org.asup.dk.parser.ibmi.cl.model.pgm,
  org.asup.dk.parser.ibmi.cl.test,
  org.asup.dk.parser.ibmi.cl.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

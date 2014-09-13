@@ -8,18 +8,14 @@
  * Contributors:
  *   Dario Foresti - Initial API and implementation
  */
-package org.asup.dk.parser.ibmi.cl.model;
+package org.asup.dk.parser.ibmi.cl.model.parm;
 
-import java.util.LinkedList;
-
-public interface Node {
-	
-	public abstract void setFather(Node father);
-
-	public abstract Node getFather();
-
-	public abstract void addChild(Node child);
-
-	public abstract LinkedList<Node> getChilds();
-
+public enum CLParmComponentType {
+	LIST,
+	TOKEN,
+	VARIABLE,
+	SPECIAL,
+	STRING,
+	FUNCTION,
+	STR_OPERATOR
 }

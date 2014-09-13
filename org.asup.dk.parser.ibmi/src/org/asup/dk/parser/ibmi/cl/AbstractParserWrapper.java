@@ -12,13 +12,13 @@ package org.asup.dk.parser.ibmi.cl;
 
 import org.antlr.runtime.tree.Tree;
 import org.asup.dk.parser.ibmi.cl.antlr.CLLexer;
-import org.asup.dk.parser.ibmi.cl.model.CLCommand;
-import org.asup.dk.parser.ibmi.cl.model.CLLabel;
-import org.asup.dk.parser.ibmi.cl.model.CLObject;
-import org.asup.dk.parser.ibmi.cl.model.CLParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLPositionalParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLRow;
-import org.asup.dk.parser.ibmi.cl.model.CLValue;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLCommand;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLLabel;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLObject;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLRow;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLValue;
 
 public abstract class AbstractParserWrapper {
 

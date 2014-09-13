@@ -8,17 +8,18 @@
  * Contributors:
  *   Dario Foresti - Initial API and implementation
  */
-package org.asup.dk.parser.ibmi.cl.model;
+package org.asup.dk.parser.ibmi.cl.model.parm;
 
 import java.util.LinkedList;
 
+import org.asup.dk.parser.ibmi.cl.model.Node;
 
-public abstract class CLAbstractComponent implements Node {
+
+public abstract class CLParmAbstractComponent implements Node {
 	
-	private String text;
-	private int line;
+	private String text;	
 	private Node father;
-	private LinkedList<CLAbstractComponent> childs = new LinkedList<CLAbstractComponent>();
+	private LinkedList<Node> childs = new LinkedList<Node>();
 	
 	public void setText(String text){
 		this.text = text;
@@ -26,21 +27,13 @@ public abstract class CLAbstractComponent implements Node {
 
 	public String getText(){
 		return text;
-	}
-	
-	public void setLine(int line){
-		this.line = line;
-	}
-
-    public int getLine(){
-    	return line;
-    }
-    
+	}	
+	    
     /* (non-Javadoc)
 	 * @see org.asup.dk.parser.ibmi.cl.model.Node#setFather(org.asup.dk.parser.ibmi.cl.model.Node)
 	 */
     @Override
-	public void setFather(CLAbstractComponent father){
+	public void setFather(Node father){
     	this.father = father;
     }
     
@@ -56,7 +49,7 @@ public abstract class CLAbstractComponent implements Node {
 	 * @see org.asup.dk.parser.ibmi.cl.model.Node#addChild(org.asup.dk.parser.ibmi.cl.model.CLAbstractComponent)
 	 */
     @Override
-	public void addChild(CLAbstractComponent child) {
+	public void addChild(Node child) {
     	childs.add(child);
     }
     
@@ -64,13 +57,11 @@ public abstract class CLAbstractComponent implements Node {
 	 * @see org.asup.dk.parser.ibmi.cl.model.Node#getChilds()
 	 */
     @Override
-	public LinkedList<CLAbstractComponent> getChilds(){
+	public LinkedList<Node> getChilds(){
     	return childs;
     }
-    
-    
 
-    public abstract CLComponentType getComponentType();
+    public abstract CLParmComponentType getComponentType();
     
 
 }

@@ -19,9 +19,9 @@ import java.util.Enumeration;
 
 import org.asup.dk.parser.ibmi.cl.ParserFactory;
 import org.asup.dk.parser.ibmi.cl.ParserInterface;
-import org.asup.dk.parser.ibmi.cl.model.CLCommand;
-import org.asup.dk.parser.ibmi.cl.model.CLParameter;
-import org.asup.dk.parser.ibmi.cl.model.CLPositionalParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLCommand;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLParameter;
+import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
 
 public class CLCommandParserTest {
 
