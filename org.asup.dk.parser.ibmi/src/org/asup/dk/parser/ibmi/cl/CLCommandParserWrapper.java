@@ -28,7 +28,7 @@ import org.asup.dk.parser.ibmi.cl.antlr.CLParser;
 import org.asup.dk.parser.ibmi.cl.exceptions.CLScriptException;
 import org.asup.dk.parser.ibmi.cl.model.pgm.CLCommand;
 
-public class CLCommandParserWrapper extends AbstractParserWrapper implements ParserInterface<CLCommand> {
+public class CLCommandParserWrapper extends CLAbstractParserWrapper implements ParserInterface<CLCommand> {
 
 	@Override
 	public CLCommand parse(InputStream in) throws CLScriptException {

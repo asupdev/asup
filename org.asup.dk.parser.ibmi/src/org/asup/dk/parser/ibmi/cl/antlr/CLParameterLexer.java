@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-09-11 17:52:18
+// $ANTLR 3.5.1 CLParameter.g 2014-09-13 12:32:25
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -47,325 +47,27 @@ public class CLParameterLexer extends Lexer {
 	}
 	@Override public String getGrammarFileName() { return "CLParameter.g"; }
 
-	// $ANTLR start "CAT"
-	public final void mCAT() throws RecognitionException {
-		try {
-			int _type = CAT;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:111:9: ( '!!' | ( '*CAT' ) )
-			int alt1=2;
-			int LA1_0 = input.LA(1);
-			if ( (LA1_0=='!') ) {
-				alt1=1;
-			}
-			else if ( (LA1_0=='*') ) {
-				alt1=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 1, 0, input);
-				throw nvae;
-			}
-
-			switch (alt1) {
-				case 1 :
-					// CLParameter.g:111:11: '!!'
-					{
-					match("!!"); 
-
-					}
-					break;
-				case 2 :
-					// CLParameter.g:111:18: ( '*CAT' )
-					{
-					// CLParameter.g:111:18: ( '*CAT' )
-					// CLParameter.g:111:19: '*CAT'
-					{
-					match("*CAT"); 
-
-					}
-
-					}
-					break;
-
-			}
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "CAT"
-
-	// $ANTLR start "BCAT"
-	public final void mBCAT() throws RecognitionException {
-		try {
-			int _type = BCAT;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:112:9: ( '!>' | ( '*BCAT' ) )
-			int alt2=2;
-			int LA2_0 = input.LA(1);
-			if ( (LA2_0=='!') ) {
-				alt2=1;
-			}
-			else if ( (LA2_0=='*') ) {
-				alt2=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 2, 0, input);
-				throw nvae;
-			}
-
-			switch (alt2) {
-				case 1 :
-					// CLParameter.g:112:11: '!>'
-					{
-					match("!>"); 
-
-					}
-					break;
-				case 2 :
-					// CLParameter.g:112:18: ( '*BCAT' )
-					{
-					// CLParameter.g:112:18: ( '*BCAT' )
-					// CLParameter.g:112:19: '*BCAT'
-					{
-					match("*BCAT"); 
-
-					}
-
-					}
-					break;
-
-			}
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "BCAT"
-
-	// $ANTLR start "TCAT"
-	public final void mTCAT() throws RecognitionException {
-		try {
-			int _type = TCAT;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:113:9: ( '!<' | ( '*TCAT' ) )
-			int alt3=2;
-			int LA3_0 = input.LA(1);
-			if ( (LA3_0=='!') ) {
-				alt3=1;
-			}
-			else if ( (LA3_0=='*') ) {
-				alt3=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 3, 0, input);
-				throw nvae;
-			}
-
-			switch (alt3) {
-				case 1 :
-					// CLParameter.g:113:11: '!<'
-					{
-					match("!<"); 
-
-					}
-					break;
-				case 2 :
-					// CLParameter.g:113:18: ( '*TCAT' )
-					{
-					// CLParameter.g:113:18: ( '*TCAT' )
-					// CLParameter.g:113:19: '*TCAT'
-					{
-					match("*TCAT"); 
-
-					}
-
-					}
-					break;
-
-			}
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "TCAT"
-
-	// $ANTLR start "FUNCTION_NAME"
-	public final void mFUNCTION_NAME() throws RecognitionException {
-		try {
-			int _type = FUNCTION_NAME;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:116:14: ( '%SST' | '%SWITCH' | '%BINARY' | '%BIN' )
-			int alt4=4;
-			int LA4_0 = input.LA(1);
-			if ( (LA4_0=='%') ) {
-				int LA4_1 = input.LA(2);
-				if ( (LA4_1=='S') ) {
-					int LA4_2 = input.LA(3);
-					if ( (LA4_2=='S') ) {
-						alt4=1;
-					}
-					else if ( (LA4_2=='W') ) {
-						alt4=2;
-					}
-
-					else {
-						int nvaeMark = input.mark();
-						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
-								input.consume();
-							}
-							NoViableAltException nvae =
-								new NoViableAltException("", 4, 2, input);
-							throw nvae;
-						} finally {
-							input.rewind(nvaeMark);
-						}
-					}
-
-				}
-				else if ( (LA4_1=='B') ) {
-					int LA4_3 = input.LA(3);
-					if ( (LA4_3=='I') ) {
-						int LA4_6 = input.LA(4);
-						if ( (LA4_6=='N') ) {
-							int LA4_7 = input.LA(5);
-							if ( (LA4_7=='A') ) {
-								alt4=3;
-							}
-
-							else {
-								alt4=4;
-							}
-
-						}
-
-						else {
-							int nvaeMark = input.mark();
-							try {
-								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
-									input.consume();
-								}
-								NoViableAltException nvae =
-									new NoViableAltException("", 4, 6, input);
-								throw nvae;
-							} finally {
-								input.rewind(nvaeMark);
-							}
-						}
-
-					}
-
-					else {
-						int nvaeMark = input.mark();
-						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
-								input.consume();
-							}
-							NoViableAltException nvae =
-								new NoViableAltException("", 4, 3, input);
-							throw nvae;
-						} finally {
-							input.rewind(nvaeMark);
-						}
-					}
-
-				}
-
-				else {
-					int nvaeMark = input.mark();
-					try {
-						input.consume();
-						NoViableAltException nvae =
-							new NoViableAltException("", 4, 1, input);
-						throw nvae;
-					} finally {
-						input.rewind(nvaeMark);
-					}
-				}
-
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 4, 0, input);
-				throw nvae;
-			}
-
-			switch (alt4) {
-				case 1 :
-					// CLParameter.g:117:2: '%SST'
-					{
-					match("%SST"); 
-
-					}
-					break;
-				case 2 :
-					// CLParameter.g:117:11: '%SWITCH'
-					{
-					match("%SWITCH"); 
-
-					}
-					break;
-				case 3 :
-					// CLParameter.g:117:23: '%BINARY'
-					{
-					match("%BINARY"); 
-
-					}
-					break;
-				case 4 :
-					// CLParameter.g:117:35: '%BIN'
-					{
-					match("%BIN"); 
-
-					}
-					break;
-
-			}
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "FUNCTION_NAME"
-
 	// $ANTLR start "STRING"
 	public final void mSTRING() throws RecognitionException {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:120:8: ( APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS )
-			// CLParameter.g:121:4: APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS
+			// CLParameter.g:112:8: ( APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS )
+			// CLParameter.g:113:4: APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+ APOS
 			{
 			mAPOS(); 
 
-			// CLParameter.g:121:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+
-			int cnt5=0;
-			loop5:
+			// CLParameter.g:113:9: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | '&' )+
+			int cnt1=0;
+			loop1:
 			while (true) {
-				int alt5=2;
-				int LA5_0 = input.LA(1);
-				if ( ((LA5_0 >= ' ' && LA5_0 <= '\"')||(LA5_0 >= '$' && LA5_0 <= '&')||(LA5_0 >= '+' && LA5_0 <= '9')||(LA5_0 >= '<' && LA5_0 <= '?')||(LA5_0 >= 'A' && LA5_0 <= 'Z')||(LA5_0 >= '^' && LA5_0 <= '_')||(LA5_0 >= 'a' && LA5_0 <= 'z')||LA5_0=='\u00A3'||LA5_0=='\u00A7'||LA5_0=='\u00E0'||(LA5_0 >= '\u00E8' && LA5_0 <= '\u00E9')||LA5_0=='\u00EC'||LA5_0=='\u00F2'||LA5_0=='\u00F9') ) {
-					alt5=1;
+				int alt1=2;
+				int LA1_0 = input.LA(1);
+				if ( ((LA1_0 >= ' ' && LA1_0 <= '\"')||(LA1_0 >= '$' && LA1_0 <= '&')||(LA1_0 >= '+' && LA1_0 <= '9')||(LA1_0 >= '<' && LA1_0 <= '?')||(LA1_0 >= 'A' && LA1_0 <= 'Z')||(LA1_0 >= '^' && LA1_0 <= '_')||(LA1_0 >= 'a' && LA1_0 <= 'z')||LA1_0=='\u00A3'||LA1_0=='\u00A7'||LA1_0=='\u00E0'||(LA1_0 >= '\u00E8' && LA1_0 <= '\u00E9')||LA1_0=='\u00EC'||LA1_0=='\u00F2'||LA1_0=='\u00F9') ) {
+					alt1=1;
 				}
 
-				switch (alt5) {
+				switch (alt1) {
 				case 1 :
 					// CLParameter.g:
 					{
@@ -381,11 +83,11 @@ public class CLParameterLexer extends Lexer {
 					break;
 
 				default :
-					if ( cnt5 >= 1 ) break loop5;
-					EarlyExitException eee = new EarlyExitException(5, input);
+					if ( cnt1 >= 1 ) break loop1;
+					EarlyExitException eee = new EarlyExitException(1, input);
 					throw eee;
 				}
-				cnt5++;
+				cnt1++;
 			}
 
 			mAPOS(); 
@@ -406,20 +108,20 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = TOKEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:124:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+ )
-			// CLParameter.g:125:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
+			// CLParameter.g:116:6: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+ )
+			// CLParameter.g:117:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
 			{
-			// CLParameter.g:125:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
-			int cnt6=0;
-			loop6:
+			// CLParameter.g:117:3: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL )+
+			int cnt2=0;
+			loop2:
 			while (true) {
-				int alt6=2;
-				int LA6_0 = input.LA(1);
-				if ( ((LA6_0 >= '!' && LA6_0 <= '\"')||LA6_0=='$'||(LA6_0 >= '+' && LA6_0 <= '9')||(LA6_0 >= '<' && LA6_0 <= '?')||(LA6_0 >= 'A' && LA6_0 <= 'Z')||(LA6_0 >= '^' && LA6_0 <= '_')||(LA6_0 >= 'a' && LA6_0 <= 'z')||LA6_0=='\u00A3'||LA6_0=='\u00A7'||LA6_0=='\u00E0'||(LA6_0 >= '\u00E8' && LA6_0 <= '\u00E9')||LA6_0=='\u00EC'||LA6_0=='\u00F2'||LA6_0=='\u00F9') ) {
-					alt6=1;
+				int alt2=2;
+				int LA2_0 = input.LA(1);
+				if ( ((LA2_0 >= '!' && LA2_0 <= '\"')||LA2_0=='$'||(LA2_0 >= '+' && LA2_0 <= '9')||(LA2_0 >= '<' && LA2_0 <= '?')||(LA2_0 >= 'A' && LA2_0 <= 'Z')||(LA2_0 >= '^' && LA2_0 <= '_')||(LA2_0 >= 'a' && LA2_0 <= 'z')||LA2_0=='\u00A3'||LA2_0=='\u00A7'||LA2_0=='\u00E0'||(LA2_0 >= '\u00E8' && LA2_0 <= '\u00E9')||LA2_0=='\u00EC'||LA2_0=='\u00F2'||LA2_0=='\u00F9') ) {
+					alt2=1;
 				}
 
-				switch (alt6) {
+				switch (alt2) {
 				case 1 :
 					// CLParameter.g:
 					{
@@ -435,11 +137,11 @@ public class CLParameterLexer extends Lexer {
 					break;
 
 				default :
-					if ( cnt6 >= 1 ) break loop6;
-					EarlyExitException eee = new EarlyExitException(6, input);
+					if ( cnt2 >= 1 ) break loop2;
+					EarlyExitException eee = new EarlyExitException(2, input);
 					throw eee;
 				}
-				cnt6++;
+				cnt2++;
 			}
 
 			}
@@ -458,8 +160,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = VARIABLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:128:9: ( '&' TOKEN )
-			// CLParameter.g:129:4: '&' TOKEN
+			// CLParameter.g:120:9: ( '&' TOKEN )
+			// CLParameter.g:121:4: '&' TOKEN
 			{
 			match('&'); 
 			mTOKEN(); 
@@ -480,8 +182,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = SPECIAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:132:9: ( '*' TOKEN )
-			// CLParameter.g:133:4: '*' TOKEN
+			// CLParameter.g:124:9: ( '*' TOKEN )
+			// CLParameter.g:125:4: '*' TOKEN
 			{
 			match('*'); 
 			mTOKEN(); 
@@ -502,8 +204,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = OPEN_BRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:137:3: ( '(' )
-			// CLParameter.g:138:3: '('
+			// CLParameter.g:129:3: ( '(' )
+			// CLParameter.g:130:3: '('
 			{
 			match('('); 
 			}
@@ -522,8 +224,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = CLOSE_BRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:142:3: ( ')' )
-			// CLParameter.g:143:3: ')'
+			// CLParameter.g:134:3: ( ')' )
+			// CLParameter.g:135:3: ')'
 			{
 			match(')'); 
 			}
@@ -542,8 +244,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = APOS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:146:6: ( '\\'' )
-			// CLParameter.g:147:2: '\\''
+			// CLParameter.g:138:6: ( '\\'' )
+			// CLParameter.g:139:2: '\\''
 			{
 			match('\''); 
 			}
@@ -562,16 +264,16 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:151:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
-			int alt10=2;
-			int LA10_0 = input.LA(1);
-			if ( (LA10_0=='/') ) {
-				int LA10_1 = input.LA(2);
-				if ( (LA10_1=='/') ) {
-					alt10=1;
+			// CLParameter.g:143:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+			int alt6=2;
+			int LA6_0 = input.LA(1);
+			if ( (LA6_0=='/') ) {
+				int LA6_1 = input.LA(2);
+				if ( (LA6_1=='/') ) {
+					alt6=1;
 				}
-				else if ( (LA10_1=='*') ) {
-					alt10=2;
+				else if ( (LA6_1=='*') ) {
+					alt6=2;
 				}
 
 				else {
@@ -579,7 +281,7 @@ public class CLParameterLexer extends Lexer {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 10, 1, input);
+							new NoViableAltException("", 6, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -590,26 +292,26 @@ public class CLParameterLexer extends Lexer {
 
 			else {
 				NoViableAltException nvae =
-					new NoViableAltException("", 10, 0, input);
+					new NoViableAltException("", 6, 0, input);
 				throw nvae;
 			}
 
-			switch (alt10) {
+			switch (alt6) {
 				case 1 :
-					// CLParameter.g:151:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+					// CLParameter.g:143:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 					{
 					match("//"); 
 
-					// CLParameter.g:151:14: (~ ( '\\n' | '\\r' ) )*
-					loop7:
+					// CLParameter.g:143:14: (~ ( '\\n' | '\\r' ) )*
+					loop3:
 					while (true) {
-						int alt7=2;
-						int LA7_0 = input.LA(1);
-						if ( ((LA7_0 >= '\u0000' && LA7_0 <= '\t')||(LA7_0 >= '\u000B' && LA7_0 <= '\f')||(LA7_0 >= '\u000E' && LA7_0 <= '\uFFFF')) ) {
-							alt7=1;
+						int alt3=2;
+						int LA3_0 = input.LA(1);
+						if ( ((LA3_0 >= '\u0000' && LA3_0 <= '\t')||(LA3_0 >= '\u000B' && LA3_0 <= '\f')||(LA3_0 >= '\u000E' && LA3_0 <= '\uFFFF')) ) {
+							alt3=1;
 						}
 
-						switch (alt7) {
+						switch (alt3) {
 						case 1 :
 							// CLParameter.g:
 							{
@@ -625,19 +327,19 @@ public class CLParameterLexer extends Lexer {
 							break;
 
 						default :
-							break loop7;
+							break loop3;
 						}
 					}
 
-					// CLParameter.g:151:28: ( '\\r' )?
-					int alt8=2;
-					int LA8_0 = input.LA(1);
-					if ( (LA8_0=='\r') ) {
-						alt8=1;
+					// CLParameter.g:143:28: ( '\\r' )?
+					int alt4=2;
+					int LA4_0 = input.LA(1);
+					if ( (LA4_0=='\r') ) {
+						alt4=1;
 					}
-					switch (alt8) {
+					switch (alt4) {
 						case 1 :
-							// CLParameter.g:151:28: '\\r'
+							// CLParameter.g:143:28: '\\r'
 							{
 							match('\r'); 
 							}
@@ -650,39 +352,39 @@ public class CLParameterLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// CLParameter.g:152:9: '/*' ( options {greedy=false; } : . )* '*/'
+					// CLParameter.g:144:9: '/*' ( options {greedy=false; } : . )* '*/'
 					{
 					match("/*"); 
 
-					// CLParameter.g:152:14: ( options {greedy=false; } : . )*
-					loop9:
+					// CLParameter.g:144:14: ( options {greedy=false; } : . )*
+					loop5:
 					while (true) {
-						int alt9=2;
-						int LA9_0 = input.LA(1);
-						if ( (LA9_0=='*') ) {
-							int LA9_1 = input.LA(2);
-							if ( (LA9_1=='/') ) {
-								alt9=2;
+						int alt5=2;
+						int LA5_0 = input.LA(1);
+						if ( (LA5_0=='*') ) {
+							int LA5_1 = input.LA(2);
+							if ( (LA5_1=='/') ) {
+								alt5=2;
 							}
-							else if ( ((LA9_1 >= '\u0000' && LA9_1 <= '.')||(LA9_1 >= '0' && LA9_1 <= '\uFFFF')) ) {
-								alt9=1;
+							else if ( ((LA5_1 >= '\u0000' && LA5_1 <= '.')||(LA5_1 >= '0' && LA5_1 <= '\uFFFF')) ) {
+								alt5=1;
 							}
 
 						}
-						else if ( ((LA9_0 >= '\u0000' && LA9_0 <= ')')||(LA9_0 >= '+' && LA9_0 <= '\uFFFF')) ) {
-							alt9=1;
+						else if ( ((LA5_0 >= '\u0000' && LA5_0 <= ')')||(LA5_0 >= '+' && LA5_0 <= '\uFFFF')) ) {
+							alt5=1;
 						}
 
-						switch (alt9) {
+						switch (alt5) {
 						case 1 :
-							// CLParameter.g:152:42: .
+							// CLParameter.g:144:42: .
 							{
 							matchAny(); 
 							}
 							break;
 
 						default :
-							break loop9;
+							break loop5;
 						}
 					}
 
@@ -707,18 +409,18 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = CR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:155:4: ( ( '\\r' )? '\\n' )
-			// CLParameter.g:156:3: ( '\\r' )? '\\n'
+			// CLParameter.g:147:4: ( ( '\\r' )? '\\n' )
+			// CLParameter.g:148:3: ( '\\r' )? '\\n'
 			{
-			// CLParameter.g:156:3: ( '\\r' )?
-			int alt11=2;
-			int LA11_0 = input.LA(1);
-			if ( (LA11_0=='\r') ) {
-				alt11=1;
+			// CLParameter.g:148:3: ( '\\r' )?
+			int alt7=2;
+			int LA7_0 = input.LA(1);
+			if ( (LA7_0=='\r') ) {
+				alt7=1;
 			}
-			switch (alt11) {
+			switch (alt7) {
 				case 1 :
-					// CLParameter.g:156:4: '\\r'
+					// CLParameter.g:148:4: '\\r'
 					{
 					match('\r'); 
 					}
@@ -743,8 +445,8 @@ public class CLParameterLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLParameter.g:159:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-			// CLParameter.g:159:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+			// CLParameter.g:151:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			// CLParameter.g:151:9: ( ' ' | '\\t' | '\\r' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 				input.consume();
@@ -765,6 +467,294 @@ public class CLParameterLexer extends Lexer {
 		}
 	}
 	// $ANTLR end "WS"
+
+	// $ANTLR start "CAT"
+	public final void mCAT() throws RecognitionException {
+		try {
+			// CLParameter.g:159:18: ( '!!' | ( '*CAT' ) )
+			int alt8=2;
+			int LA8_0 = input.LA(1);
+			if ( (LA8_0=='!') ) {
+				alt8=1;
+			}
+			else if ( (LA8_0=='*') ) {
+				alt8=2;
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 8, 0, input);
+				throw nvae;
+			}
+
+			switch (alt8) {
+				case 1 :
+					// CLParameter.g:159:20: '!!'
+					{
+					match("!!"); 
+
+					}
+					break;
+				case 2 :
+					// CLParameter.g:159:27: ( '*CAT' )
+					{
+					// CLParameter.g:159:27: ( '*CAT' )
+					// CLParameter.g:159:28: '*CAT'
+					{
+					match("*CAT"); 
+
+					}
+
+					}
+					break;
+
+			}
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "CAT"
+
+	// $ANTLR start "BCAT"
+	public final void mBCAT() throws RecognitionException {
+		try {
+			// CLParameter.g:160:18: ( '!>' | ( '*BCAT' ) )
+			int alt9=2;
+			int LA9_0 = input.LA(1);
+			if ( (LA9_0=='!') ) {
+				alt9=1;
+			}
+			else if ( (LA9_0=='*') ) {
+				alt9=2;
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 9, 0, input);
+				throw nvae;
+			}
+
+			switch (alt9) {
+				case 1 :
+					// CLParameter.g:160:20: '!>'
+					{
+					match("!>"); 
+
+					}
+					break;
+				case 2 :
+					// CLParameter.g:160:27: ( '*BCAT' )
+					{
+					// CLParameter.g:160:27: ( '*BCAT' )
+					// CLParameter.g:160:28: '*BCAT'
+					{
+					match("*BCAT"); 
+
+					}
+
+					}
+					break;
+
+			}
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "BCAT"
+
+	// $ANTLR start "TCAT"
+	public final void mTCAT() throws RecognitionException {
+		try {
+			// CLParameter.g:161:18: ( '!<' | ( '*TCAT' ) )
+			int alt10=2;
+			int LA10_0 = input.LA(1);
+			if ( (LA10_0=='!') ) {
+				alt10=1;
+			}
+			else if ( (LA10_0=='*') ) {
+				alt10=2;
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 10, 0, input);
+				throw nvae;
+			}
+
+			switch (alt10) {
+				case 1 :
+					// CLParameter.g:161:20: '!<'
+					{
+					match("!<"); 
+
+					}
+					break;
+				case 2 :
+					// CLParameter.g:161:27: ( '*TCAT' )
+					{
+					// CLParameter.g:161:27: ( '*TCAT' )
+					// CLParameter.g:161:28: '*TCAT'
+					{
+					match("*TCAT"); 
+
+					}
+
+					}
+					break;
+
+			}
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "TCAT"
+
+	// $ANTLR start "FUNCTION_NAME"
+	public final void mFUNCTION_NAME() throws RecognitionException {
+		try {
+			// CLParameter.g:163:23: ( ( '%SST' | '%SWITCH' | '%BINARY' | '%BIN' ) )
+			// CLParameter.g:164:2: ( '%SST' | '%SWITCH' | '%BINARY' | '%BIN' )
+			{
+			// CLParameter.g:164:2: ( '%SST' | '%SWITCH' | '%BINARY' | '%BIN' )
+			int alt11=4;
+			int LA11_0 = input.LA(1);
+			if ( (LA11_0=='%') ) {
+				int LA11_1 = input.LA(2);
+				if ( (LA11_1=='S') ) {
+					int LA11_2 = input.LA(3);
+					if ( (LA11_2=='S') ) {
+						alt11=1;
+					}
+					else if ( (LA11_2=='W') ) {
+						alt11=2;
+					}
+
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 11, 2, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
+				}
+				else if ( (LA11_1=='B') ) {
+					int LA11_3 = input.LA(3);
+					if ( (LA11_3=='I') ) {
+						int LA11_6 = input.LA(4);
+						if ( (LA11_6=='N') ) {
+							int LA11_7 = input.LA(5);
+							if ( (LA11_7=='A') ) {
+								alt11=3;
+							}
+
+							else {
+								alt11=4;
+							}
+
+						}
+
+						else {
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+									input.consume();
+								}
+								NoViableAltException nvae =
+									new NoViableAltException("", 11, 6, input);
+								throw nvae;
+							} finally {
+								input.rewind(nvaeMark);
+							}
+						}
+
+					}
+
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 11, 3, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 11, 1, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 11, 0, input);
+				throw nvae;
+			}
+
+			switch (alt11) {
+				case 1 :
+					// CLParameter.g:164:3: '%SST'
+					{
+					match("%SST"); 
+
+					}
+					break;
+				case 2 :
+					// CLParameter.g:164:12: '%SWITCH'
+					{
+					match("%SWITCH"); 
+
+					}
+					break;
+				case 3 :
+					// CLParameter.g:164:24: '%BINARY'
+					{
+					match("%BINARY"); 
+
+					}
+					break;
+				case 4 :
+					// CLParameter.g:164:36: '%BIN'
+					{
+					match("%BIN"); 
+
+					}
+					break;
+
+			}
+
+			}
+
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "FUNCTION_NAME"
 
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
@@ -791,103 +781,75 @@ public class CLParameterLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// CLParameter.g:1:8: ( CAT | BCAT | TCAT | FUNCTION_NAME | STRING | TOKEN | VARIABLE | SPECIAL | OPEN_BRACE | CLOSE_BRACE | APOS | COMMENT | CR | WS )
-		int alt12=14;
+		// CLParameter.g:1:8: ( STRING | TOKEN | VARIABLE | SPECIAL | OPEN_BRACE | CLOSE_BRACE | APOS | COMMENT | CR | WS )
+		int alt12=10;
 		alt12 = dfa12.predict(input);
 		switch (alt12) {
 			case 1 :
-				// CLParameter.g:1:10: CAT
-				{
-				mCAT(); 
-
-				}
-				break;
-			case 2 :
-				// CLParameter.g:1:14: BCAT
-				{
-				mBCAT(); 
-
-				}
-				break;
-			case 3 :
-				// CLParameter.g:1:19: TCAT
-				{
-				mTCAT(); 
-
-				}
-				break;
-			case 4 :
-				// CLParameter.g:1:24: FUNCTION_NAME
-				{
-				mFUNCTION_NAME(); 
-
-				}
-				break;
-			case 5 :
-				// CLParameter.g:1:38: STRING
+				// CLParameter.g:1:10: STRING
 				{
 				mSTRING(); 
 
 				}
 				break;
-			case 6 :
-				// CLParameter.g:1:45: TOKEN
+			case 2 :
+				// CLParameter.g:1:17: TOKEN
 				{
 				mTOKEN(); 
 
 				}
 				break;
-			case 7 :
-				// CLParameter.g:1:51: VARIABLE
+			case 3 :
+				// CLParameter.g:1:23: VARIABLE
 				{
 				mVARIABLE(); 
 
 				}
 				break;
-			case 8 :
-				// CLParameter.g:1:60: SPECIAL
+			case 4 :
+				// CLParameter.g:1:32: SPECIAL
 				{
 				mSPECIAL(); 
 
 				}
 				break;
-			case 9 :
-				// CLParameter.g:1:68: OPEN_BRACE
+			case 5 :
+				// CLParameter.g:1:40: OPEN_BRACE
 				{
 				mOPEN_BRACE(); 
 
 				}
 				break;
-			case 10 :
-				// CLParameter.g:1:79: CLOSE_BRACE
+			case 6 :
+				// CLParameter.g:1:51: CLOSE_BRACE
 				{
 				mCLOSE_BRACE(); 
 
 				}
 				break;
-			case 11 :
-				// CLParameter.g:1:91: APOS
+			case 7 :
+				// CLParameter.g:1:63: APOS
 				{
 				mAPOS(); 
 
 				}
 				break;
-			case 12 :
-				// CLParameter.g:1:96: COMMENT
+			case 8 :
+				// CLParameter.g:1:68: COMMENT
 				{
 				mCOMMENT(); 
 
 				}
 				break;
-			case 13 :
-				// CLParameter.g:1:104: CR
+			case 9 :
+				// CLParameter.g:1:76: CR
 				{
 				mCR(); 
 
 				}
 				break;
-			case 14 :
-				// CLParameter.g:1:107: WS
+			case 10 :
+				// CLParameter.g:1:79: WS
 				{
 				mWS(); 
 
@@ -900,83 +862,45 @@ public class CLParameterLexer extends Lexer {
 
 	protected DFA12 dfa12 = new DFA12(this);
 	static final String DFA12_eotS =
-		"\1\uffff\1\11\2\uffff\1\24\1\11\4\uffff\1\14\2\uffff\1\31\1\32\1\33\3"+
-		"\23\3\uffff\1\11\5\uffff\3\23\1\11\1\31\2\23\1\32\1\33";
+		"\1\uffff\1\13\1\7\5\uffff\1\12\4\uffff\1\7\2\uffff\1\7";
 	static final String DFA12_eofS =
-		"\45\uffff";
+		"\21\uffff";
 	static final String DFA12_minS =
-		"\1\11\2\41\1\uffff\1\40\1\52\4\uffff\1\12\2\uffff\3\41\1\101\2\103\3\uffff"+
-		"\1\0\5\uffff\1\124\2\101\1\0\1\41\2\124\2\41";
+		"\1\11\1\40\1\52\5\uffff\1\12\4\uffff\1\0\2\uffff\1\0";
 	static final String DFA12_maxS =
-		"\1\u00f9\1\76\1\u00f9\1\uffff\1\u00f9\1\57\4\uffff\1\12\2\uffff\3\u00f9"+
-		"\1\101\2\103\3\uffff\1\uffff\5\uffff\1\124\2\101\1\uffff\1\u00f9\2\124"+
-		"\2\u00f9";
+		"\2\u00f9\1\57\5\uffff\1\12\4\uffff\1\uffff\2\uffff\1\uffff";
 	static final String DFA12_acceptS =
-		"\3\uffff\1\4\2\uffff\1\7\1\11\1\12\1\6\1\uffff\1\15\1\16\6\uffff\1\10"+
-		"\1\13\1\5\1\uffff\1\14\1\15\1\1\1\2\1\3\11\uffff";
+		"\3\uffff\1\3\1\4\1\5\1\6\1\2\1\uffff\1\11\1\12\1\7\1\1\1\uffff\1\10\1"+
+		"\11\1\uffff";
 	static final String DFA12_specialS =
-		"\26\uffff\1\0\10\uffff\1\1\5\uffff}>";
+		"\15\uffff\1\1\2\uffff\1\0}>";
 	static final String[] DFA12_transitionS = {
-			"\1\14\1\13\2\uffff\1\12\22\uffff\1\14\1\1\1\11\1\uffff\1\11\1\3\1\6\1"+
-			"\4\1\7\1\10\1\2\4\11\1\5\12\11\2\uffff\4\11\1\uffff\32\11\3\uffff\2\11"+
-			"\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff\2\11"+
-			"\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
-			"\1\15\32\uffff\1\17\1\uffff\1\16",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\1\23\1\21\1\20"+
-			"\20\23\1\22\6\23\3\uffff\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23"+
-			"\70\uffff\1\23\7\uffff\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
-			"",
-			"\3\25\1\uffff\3\25\4\uffff\17\25\2\uffff\4\25\1\uffff\32\25\3\uffff"+
-			"\2\25\1\uffff\32\25\50\uffff\1\25\3\uffff\1\25\70\uffff\1\25\7\uffff"+
-			"\2\25\2\uffff\1\25\5\uffff\1\25\6\uffff\1\25",
-			"\1\27\4\uffff\1\26",
-			"",
-			"",
-			"",
-			"",
-			"\1\30",
-			"",
-			"",
-			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\3\uffff"+
-			"\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff"+
-			"\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
-			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\3\uffff"+
-			"\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff"+
-			"\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
-			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\3\uffff"+
-			"\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff"+
-			"\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
-			"\1\34",
-			"\1\35",
-			"\1\36",
-			"",
-			"",
-			"",
-			"\41\27\2\37\1\27\1\37\6\27\17\37\2\27\4\37\1\27\32\37\3\27\2\37\1\27"+
-			"\32\37\50\27\1\37\3\27\1\37\70\27\1\37\7\27\2\37\2\27\1\37\5\27\1\37"+
-			"\6\27\1\37\uff06\27",
+			"\1\12\1\11\2\uffff\1\10\22\uffff\1\12\2\7\1\uffff\1\7\1\uffff\1\3\1\1"+
+			"\1\5\1\6\1\4\4\7\1\2\12\7\2\uffff\4\7\1\uffff\32\7\3\uffff\2\7\1\uffff"+
+			"\32\7\50\uffff\1\7\3\uffff\1\7\70\uffff\1\7\7\uffff\2\7\2\uffff\1\7\5"+
+			"\uffff\1\7\6\uffff\1\7",
+			"\3\14\1\uffff\3\14\4\uffff\17\14\2\uffff\4\14\1\uffff\32\14\3\uffff"+
+			"\2\14\1\uffff\32\14\50\uffff\1\14\3\uffff\1\14\70\uffff\1\14\7\uffff"+
+			"\2\14\2\uffff\1\14\5\uffff\1\14\6\uffff\1\14",
+			"\1\16\4\uffff\1\15",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\40",
-			"\1\41",
-			"\1\42",
-			"\41\27\2\37\1\27\1\37\6\27\17\37\2\27\4\37\1\27\32\37\3\27\2\37\1\27"+
-			"\32\37\50\27\1\37\3\27\1\37\70\27\1\37\7\27\2\37\2\27\1\37\5\27\1\37"+
-			"\6\27\1\37\uff06\27",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\3\uffff"+
-			"\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff\1\23\7\uffff"+
-			"\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
-			"\1\43",
-			"\1\44",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\3\uffff"+
-			"\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff\1\23\7\uffff"+
-			"\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\3\uffff"+
-			"\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff\1\23\7\uffff"+
-			"\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23"
+			"\1\17",
+			"",
+			"",
+			"",
+			"",
+			"\41\16\2\20\1\16\1\20\6\16\17\20\2\16\4\20\1\16\32\20\3\16\2\20\1\16"+
+			"\32\20\50\16\1\20\3\16\1\20\70\16\1\20\7\16\2\20\2\16\1\20\5\16\1\20"+
+			"\6\16\1\20\uff06\16",
+			"",
+			"",
+			"\41\16\2\20\1\16\1\20\6\16\17\20\2\16\4\20\1\16\32\20\3\16\2\20\1\16"+
+			"\32\20\50\16\1\20\3\16\1\20\70\16\1\20\7\16\2\20\2\16\1\20\5\16\1\20"+
+			"\6\16\1\20\uff06\16"
 	};
 
 	static final short[] DFA12_eot = DFA.unpackEncodedString(DFA12_eotS);
@@ -1010,7 +934,7 @@ public class CLParameterLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( CAT | BCAT | TCAT | FUNCTION_NAME | STRING | TOKEN | VARIABLE | SPECIAL | OPEN_BRACE | CLOSE_BRACE | APOS | COMMENT | CR | WS );";
+			return "1:1: Tokens : ( STRING | TOKEN | VARIABLE | SPECIAL | OPEN_BRACE | CLOSE_BRACE | APOS | COMMENT | CR | WS );";
 		}
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
@@ -1018,20 +942,20 @@ public class CLParameterLexer extends Lexer {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA12_22 = input.LA(1);
+						int LA12_16 = input.LA(1);
 						s = -1;
-						if ( ((LA12_22 >= '!' && LA12_22 <= '\"')||LA12_22=='$'||(LA12_22 >= '+' && LA12_22 <= '9')||(LA12_22 >= '<' && LA12_22 <= '?')||(LA12_22 >= 'A' && LA12_22 <= 'Z')||(LA12_22 >= '^' && LA12_22 <= '_')||(LA12_22 >= 'a' && LA12_22 <= 'z')||LA12_22=='\u00A3'||LA12_22=='\u00A7'||LA12_22=='\u00E0'||(LA12_22 >= '\u00E8' && LA12_22 <= '\u00E9')||LA12_22=='\u00EC'||LA12_22=='\u00F2'||LA12_22=='\u00F9') ) {s = 31;}
-						else if ( ((LA12_22 >= '\u0000' && LA12_22 <= ' ')||LA12_22=='#'||(LA12_22 >= '%' && LA12_22 <= '*')||(LA12_22 >= ':' && LA12_22 <= ';')||LA12_22=='@'||(LA12_22 >= '[' && LA12_22 <= ']')||LA12_22=='`'||(LA12_22 >= '{' && LA12_22 <= '\u00A2')||(LA12_22 >= '\u00A4' && LA12_22 <= '\u00A6')||(LA12_22 >= '\u00A8' && LA12_22 <= '\u00DF')||(LA12_22 >= '\u00E1' && LA12_22 <= '\u00E7')||(LA12_22 >= '\u00EA' && LA12_22 <= '\u00EB')||(LA12_22 >= '\u00ED' && LA12_22 <= '\u00F1')||(LA12_22 >= '\u00F3' && LA12_22 <= '\u00F8')||(LA12_22 >= '\u00FA' && LA12_22 <= '\uFFFF')) ) {s = 23;}
-						else s = 9;
+						if ( ((LA12_16 >= '\u0000' && LA12_16 <= ' ')||LA12_16=='#'||(LA12_16 >= '%' && LA12_16 <= '*')||(LA12_16 >= ':' && LA12_16 <= ';')||LA12_16=='@'||(LA12_16 >= '[' && LA12_16 <= ']')||LA12_16=='`'||(LA12_16 >= '{' && LA12_16 <= '\u00A2')||(LA12_16 >= '\u00A4' && LA12_16 <= '\u00A6')||(LA12_16 >= '\u00A8' && LA12_16 <= '\u00DF')||(LA12_16 >= '\u00E1' && LA12_16 <= '\u00E7')||(LA12_16 >= '\u00EA' && LA12_16 <= '\u00EB')||(LA12_16 >= '\u00ED' && LA12_16 <= '\u00F1')||(LA12_16 >= '\u00F3' && LA12_16 <= '\u00F8')||(LA12_16 >= '\u00FA' && LA12_16 <= '\uFFFF')) ) {s = 14;}
+						else if ( ((LA12_16 >= '!' && LA12_16 <= '\"')||LA12_16=='$'||(LA12_16 >= '+' && LA12_16 <= '9')||(LA12_16 >= '<' && LA12_16 <= '?')||(LA12_16 >= 'A' && LA12_16 <= 'Z')||(LA12_16 >= '^' && LA12_16 <= '_')||(LA12_16 >= 'a' && LA12_16 <= 'z')||LA12_16=='\u00A3'||LA12_16=='\u00A7'||LA12_16=='\u00E0'||(LA12_16 >= '\u00E8' && LA12_16 <= '\u00E9')||LA12_16=='\u00EC'||LA12_16=='\u00F2'||LA12_16=='\u00F9') ) {s = 16;}
+						else s = 7;
 						if ( s>=0 ) return s;
 						break;
 
 					case 1 : 
-						int LA12_31 = input.LA(1);
+						int LA12_13 = input.LA(1);
 						s = -1;
-						if ( ((LA12_31 >= '\u0000' && LA12_31 <= ' ')||LA12_31=='#'||(LA12_31 >= '%' && LA12_31 <= '*')||(LA12_31 >= ':' && LA12_31 <= ';')||LA12_31=='@'||(LA12_31 >= '[' && LA12_31 <= ']')||LA12_31=='`'||(LA12_31 >= '{' && LA12_31 <= '\u00A2')||(LA12_31 >= '\u00A4' && LA12_31 <= '\u00A6')||(LA12_31 >= '\u00A8' && LA12_31 <= '\u00DF')||(LA12_31 >= '\u00E1' && LA12_31 <= '\u00E7')||(LA12_31 >= '\u00EA' && LA12_31 <= '\u00EB')||(LA12_31 >= '\u00ED' && LA12_31 <= '\u00F1')||(LA12_31 >= '\u00F3' && LA12_31 <= '\u00F8')||(LA12_31 >= '\u00FA' && LA12_31 <= '\uFFFF')) ) {s = 23;}
-						else if ( ((LA12_31 >= '!' && LA12_31 <= '\"')||LA12_31=='$'||(LA12_31 >= '+' && LA12_31 <= '9')||(LA12_31 >= '<' && LA12_31 <= '?')||(LA12_31 >= 'A' && LA12_31 <= 'Z')||(LA12_31 >= '^' && LA12_31 <= '_')||(LA12_31 >= 'a' && LA12_31 <= 'z')||LA12_31=='\u00A3'||LA12_31=='\u00A7'||LA12_31=='\u00E0'||(LA12_31 >= '\u00E8' && LA12_31 <= '\u00E9')||LA12_31=='\u00EC'||LA12_31=='\u00F2'||LA12_31=='\u00F9') ) {s = 31;}
-						else s = 9;
+						if ( ((LA12_13 >= '!' && LA12_13 <= '\"')||LA12_13=='$'||(LA12_13 >= '+' && LA12_13 <= '9')||(LA12_13 >= '<' && LA12_13 <= '?')||(LA12_13 >= 'A' && LA12_13 <= 'Z')||(LA12_13 >= '^' && LA12_13 <= '_')||(LA12_13 >= 'a' && LA12_13 <= 'z')||LA12_13=='\u00A3'||LA12_13=='\u00A7'||LA12_13=='\u00E0'||(LA12_13 >= '\u00E8' && LA12_13 <= '\u00E9')||LA12_13=='\u00EC'||LA12_13=='\u00F2'||LA12_13=='\u00F9') ) {s = 16;}
+						else if ( ((LA12_13 >= '\u0000' && LA12_13 <= ' ')||LA12_13=='#'||(LA12_13 >= '%' && LA12_13 <= '*')||(LA12_13 >= ':' && LA12_13 <= ';')||LA12_13=='@'||(LA12_13 >= '[' && LA12_13 <= ']')||LA12_13=='`'||(LA12_13 >= '{' && LA12_13 <= '\u00A2')||(LA12_13 >= '\u00A4' && LA12_13 <= '\u00A6')||(LA12_13 >= '\u00A8' && LA12_13 <= '\u00DF')||(LA12_13 >= '\u00E1' && LA12_13 <= '\u00E7')||(LA12_13 >= '\u00EA' && LA12_13 <= '\u00EB')||(LA12_13 >= '\u00ED' && LA12_13 <= '\u00F1')||(LA12_13 >= '\u00F3' && LA12_13 <= '\u00F8')||(LA12_13 >= '\u00FA' && LA12_13 <= '\uFFFF')) ) {s = 14;}
+						else s = 7;
 						if ( s>=0 ) return s;
 						break;
 			}

@@ -20,9 +20,9 @@ import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
 import org.asup.dk.parser.ibmi.cl.model.pgm.CLRow;
 import org.asup.dk.parser.ibmi.cl.model.pgm.CLValue;
 
-public abstract class AbstractParserWrapper {
+public abstract class CLAbstractParserWrapper {
 
-	public AbstractParserWrapper() {
+	public CLAbstractParserWrapper() {
 		super();
 	}
 

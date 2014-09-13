@@ -108,14 +108,6 @@ function:
   FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
 	;
 
-CAT     :	'!!' | ('*CAT');
-BCAT    :	'!>' | ('*BCAT');
-TCAT    :	'!<' | ('*TCAT');		
-	  
-  
-FUNCTION_NAME:
-	'%SST' | '%SWITCH' | '%BINARY' | '%BIN'	
-	;  
   
 STRING	:	
    APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&')+ APOS	
@@ -163,26 +155,34 @@ WS  :   ( ' '
         )
         {$channel=HIDDEN;}
     ;
+    
+fragment CAT     :	'!!' | ('*CAT');
+fragment BCAT    :	'!>' | ('*BCAT');
+fragment TCAT    :	'!<' | ('*TCAT');    
+
+fragment FUNCTION_NAME:
+	('%SST' | '%SWITCH' | '%BINARY' | '%BIN')
+	;  
 
 fragment
 CHAR_SPECIAL
   :
   (
-    '\u00A7'  //�
+    '\u00A7'  //?
     | '$'
     | '_'
     | '.'    
     | '^'
-    | '\u00e0' //�
-    | '\u00e8' //�
-    | '\u00e9' //�
-    | '\u00ec' //�
-    | '\u00f2' //�
-    | '\u00f9' //�
+    | '\u00e0' //?
+    | '\u00e8' //?
+    | '\u00e9' //?
+    | '\u00ec' //?
+    | '\u00f2' //?
+    | '\u00f9' //?
     | '"'
     | '?'    
     | ','   
-    | '\u00a3' //�	
+    | '\u00a3' //?	
     | '!'
     | '='
     | '>'
@@ -192,5 +192,3 @@ CHAR_SPECIAL
     | '/' 
   )
   ;
-
-

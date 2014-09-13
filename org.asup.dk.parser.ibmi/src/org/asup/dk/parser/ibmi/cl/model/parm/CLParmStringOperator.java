@@ -8,37 +8,19 @@ public class CLParmStringOperator extends CLParmAbstractComponent {
 		TCAT
 	}
 	
-	private CLParmStringOperator operatorType = null;
-	private CLParmAbstractComponent firstValue = null;
-	private CLParmAbstractComponent secondValue = null;
-	
+	private CLParmStringOperatorType operatorType = null;	
 
 	@Override
 	public CLParmComponentType getComponentType() {
 		return CLParmComponentType.STR_OPERATOR;
 	}
 
-	public CLParmStringOperator getOperatorType() {
+	public CLParmStringOperatorType getOperatorType() {
 		return operatorType;
 	}
 
-	public void setOperatorType(CLParmStringOperator operatorType) {
-		this.operatorType = operatorType;
+	public void setOperatorType(CLParmStringOperatorType cat) {
+		this.operatorType = cat;
 	}
 
-	public CLParmAbstractComponent getFirstValue() {
-		return firstValue;
-	}
-
-	public void setFirstValue(CLParmAbstractComponent firstValue) {
-		this.firstValue = firstValue;
-	}
-
-	public CLParmAbstractComponent getSecondValue() {
-		return secondValue;
-	}
-
-	public void setSecondValue(CLParmAbstractComponent secondValue) {
-		this.secondValue = secondValue;
-	}
 }
