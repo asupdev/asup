@@ -3,12 +3,10 @@ package org.asup.os.type.jobd.base.api;
 import javax.inject.Inject;
 
 import org.asup.il.data.QArray;
-import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataStructDelegator;
-import org.asup.il.data.QPointer;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -32,16 +30,28 @@ public class JobDescriptionRetriever {
 	@Inject
 	private QDataManager dataManager;
 
-	public @Entry void main(QPointer receiverVariable,
-			QBinary receiveVariableLength,
+	public @Entry void main(
+			@DataDef() QCharacter receiverVariable,
+			QCharacter receiveVariableLength,
 			@DataDef(length = 8) QCharacter formatName,
-			@DataDef(qualified = false) JobDescription jobDescription,
-			QPointer errorCode) {
+			@DataDef(length = 20) QCharacter jobDescription,
+			@DataDef()QCharacter errorCode
+//			@DataDef() QPointer receiverVariable,
+//			QBinary receiveVariableLength,
+//			@DataDef(length = 8) QCharacter formatName,
+//			@DataDef(length = 20) QCharacter jobDescription,
+//			@DataDef()QPointer errorCode
+			){
 
 		try {
-			String library = jobDescription.library.trimR();
-			String name = jobDescription.name.trimR();
-
+			QDataFactory dataFactory = dataManager.createFactory(job);
+//			String library = jobDescription.library.trimR();
+//			String name = jobDescription.name.trimR();
+			String library = "P_MULT";
+			String name = "GIULIANO";
+//			QCharacter formatName = dataFactory.createCharacter(8);
+			formatName.eval("JOBD0100");
+			
 			QResourceWriter<QJobDescription> resource = resourceFactory
 					.getResourceWriter(job, QJobDescription.class, library);
 			QJobDescription qJobDescription = resource.lookup(name);
@@ -51,7 +61,6 @@ public class JobDescriptionRetriever {
 						+ " not exists in library " + library);
 
 			if (formatName.eq("JOBD0100")) {
-				QDataFactory dataFactory = dataManager.createFactory(job);
 				JOBD0100 jobd0100 = dataFactory.createDataStruct(
 						JOBD0100.class, null, 0);
 
@@ -68,9 +77,10 @@ public class JobDescriptionRetriever {
 				jobd0100.outQueuePriority.eval(qJobDescription.getOutputPriorityOnOutq());
 
 				jobd0100.textDescription.eval(qJobDescription.getText());
+				
 				jobd0100.initialLibraryList.eval(qJobDescription.getLibraries());
-
-				receiverVariable.eval(jobd0100);
+				
+				System.out.println(jobd0100);
 			} else {
 				throw new OperatingSystemException("Format name not supported");
 			}
