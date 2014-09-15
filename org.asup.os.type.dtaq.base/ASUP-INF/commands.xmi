@@ -42,8 +42,8 @@
           </elements>
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
-              default="*CURLIB"
-              name="library">
+              name="library"
+              default="*CURLIB">
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
@@ -87,9 +87,9 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*NO"
           name="forceToAuxiliaryStorage"
-          restricted="true">
+          restricted="true"
+          default="*NO">
         <facets
             xsi:type="il-core:Special">
           <elements
@@ -111,9 +111,9 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*FIFO"
           name="sequence"
-          restricted="true">
+          restricted="true"
+          default="*FIFO">
         <facets
             xsi:type="il-core:Special">
           <elements
@@ -155,9 +155,9 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*NO"
           name="includeSenderID"
-          restricted="true">
+          restricted="true"
+          default="*NO">
         <facets
             xsi:type="il-core:Special">
           <elements
@@ -179,8 +179,8 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*LIBCRTAUT"
-          name="authority">
+          name="authority"
+          default="*LIBCRTAUT">
         <facets
             xsi:type="il-core:Format"
             type="NAME"/>
@@ -214,8 +214,8 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*BLANK"
-          name="textDescription">
+          name="textDescription"
+          default="*BLANK">
         <facets
             xsi:type="il-core:Special">
           <elements
@@ -234,9 +234,9 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*STD"
           name="type"
-          restricted="true">
+          restricted="true"
+          default="*STD">
         <facets
             xsi:type="il-core:Special">
           <elements
@@ -263,8 +263,8 @@
             xsi:type="il-data:DataStructDef">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
-              default="*MAX16MB"
-              name="maximumNumberOfEntries">
+              name="maximumNumberOfEntries"
+              default="*MAX16MB">
             <facets
                 xsi:type="il-core:Special">
               <elements
@@ -280,8 +280,8 @@
           </elements>
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
-              default="16"
-              name="initialNumberOfEntries">
+              name="initialNumberOfEntries"
+              default="16">
             <definition
                 xsi:type="il-data:BinaryDef"
                 type="INTEGER"/>
@@ -296,9 +296,9 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*NO"
           name="automaticReclaim"
-          restricted="true">
+          restricted="true"
+          default="*NO">
         <facets
             xsi:type="il-core:Special">
           <elements
@@ -388,8 +388,8 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*LOC"
-          name="aPPCDeviceDescription">
+          name="aPPCDeviceDescription"
+          default="*LOC">
         <facets
             xsi:type="il-core:Format"
             type="NAME"/>
@@ -411,8 +411,8 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*LOC"
-          name="localLocation">
+          name="localLocation"
+          default="*LOC">
         <facets
             xsi:type="il-core:Format"
             type="SCMD"/>
@@ -437,8 +437,8 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*NETATR"
-          name="mode">
+          name="mode"
+          default="*NETATR">
         <facets
             xsi:type="il-core:Format"
             type="SCMD"/>
@@ -460,8 +460,8 @@
         status="TODO">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          default="*LOC"
-          name="remoteNetworkIdentifier">
+          name="remoteNetworkIdentifier"
+          default="*LOC">
         <facets
             xsi:type="il-core:Format"
             type="SCMD"/>
@@ -506,13 +506,11 @@
       xsi:type="os-type-cmd:Command"
       name="DLTDTAQ"
       text="Delete Data Queue"
-      program="QLIDLOBJ"
-      status="TODO">
+      program="QLIDLOBJ">
     <parameters
         allowVariable="true"
         name="DTAQ"
-        position="1"
-        status="TODO">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="dataQueue"
@@ -536,8 +534,8 @@
           </elements>
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
-              default="*LIBL"
-              name="library">
+              name="library"
+              default="*LIBL">
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
@@ -569,6 +567,19 @@
         </definition>
       </dataTerm>
     </parameters>
+    <parameters
+        name="OBJTYPE"
+        position="2"
+        hidden="true">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="objectType"
+          default="*DTAQ">
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="7"/>
+      </dataTerm>
+    </parameters>
     <source
         type="CMD"
         content="&#xA;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?>&#xA;&lt;QcdCLCmd DTDVersion=&quot;1.0&quot;>&lt;Cmd CmdName=&quot;DLTDTAQ&quot; CmdLib=&quot;__LIBL&quot; CCSID=&quot;37&quot; HlpPnlGrp=&quot;QHMHCMD&quot; HlpPnlGrpLib=&quot;__LIBL&quot; HlpID=&quot;DLTDTAQ&quot; MaxPos=&quot;1&quot; Prompt=&quot;Delete Data Queue&quot; MsgF=&quot;QCPFMSG&quot; MsgFLib=&quot;__LIBL&quot; ExecBatch=&quot;YES&quot; ChgCmdExit=&quot;NO&quot; RtvCmdExit=&quot;NO&quot;>&lt;Parm Kwd=&quot;DTAQ&quot; PosNbr=&quot;1&quot; KeyParm=&quot;NO&quot; Type=&quot;QUAL&quot; Min=&quot;1&quot; Max=&quot;1&quot; Prompt=&quot;Data queue&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; >&lt;Qual Type=&quot;GENERIC&quot; Min=&quot;1&quot; Max=&quot;1&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Name, generic*&quot; >&lt;/Qual>&lt;Qual Type=&quot;NAME&quot; Min=&quot;0&quot; Max=&quot;1&quot; Prompt=&quot;Library&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; Dft=&quot;*LIBL&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Name&quot; >&lt;SpcVal>&lt;Value Val=&quot;*LIBL&quot; MapTo=&quot;*LIBL&quot;/>&lt;Value Val=&quot;*CURLIB&quot; MapTo=&quot;*CURLIB   &quot;/>&lt;Value Val=&quot;*USRLIBL&quot; MapTo=&quot;*USRLIBL&quot;/>&lt;Value Val=&quot;*ALL&quot; MapTo=&quot;*ALL&quot;/>&lt;Value Val=&quot;*ALLUSR&quot; MapTo=&quot;*ALLUSR&quot;/>&lt;/SpcVal>&lt;/Qual>&lt;/Parm>&lt;/Cmd>&lt;/QcdCLCmd>&#xA;"/>
@@ -578,13 +589,11 @@
       name="WRKDTAQ"
       text="Work with Data Queues"
       allowBatch="false"
-      program="QMNWRKXX"
-      status="TODO">
+      program="QMNWRKXX">
     <parameters
         allowVariable="true"
         name="DTAQ"
-        position="1"
-        status="TODO">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="dataQueue"
@@ -614,8 +623,8 @@
           </elements>
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
-              default="*LIBL"
-              name="library">
+              name="library"
+              default="*LIBL">
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
@@ -645,6 +654,19 @@
                 length="10"/>
           </elements>
         </definition>
+      </dataTerm>
+    </parameters>
+    <parameters
+        name="OBJTYPE"
+        position="2"
+        hidden="true">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="objectType"
+          default="*DTAQ">
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="7"/>
       </dataTerm>
     </parameters>
     <source

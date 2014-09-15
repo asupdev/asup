@@ -81,6 +81,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="#//CommandStatus"
         defaultValueLiteral="SUP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hidden" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommandSource" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
