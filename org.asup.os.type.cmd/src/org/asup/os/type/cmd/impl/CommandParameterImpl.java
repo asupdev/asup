@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.os.type.cmd.impl.CommandParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandParameterImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandParameterImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.impl.CommandParameterImpl#isHidden <em>Hidden</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,6 +135,26 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 	 * @ordered
 	 */
 	protected CommandStatus status = STATUS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isHidden() <em>Hidden</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHidden()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean HIDDEN_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isHidden() <em>Hidden</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isHidden()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean hidden = HIDDEN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -313,6 +334,27 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isHidden() {
+		return hidden;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHidden(boolean newHidden) {
+		boolean oldHidden = hidden;
+		hidden = newHidden;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND_PARAMETER__HIDDEN, oldHidden, hidden));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isCompound() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -348,6 +390,8 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 				return getPosition();
 			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__STATUS:
 				return getStatus();
+			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__HIDDEN:
+				return isHidden();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -374,6 +418,9 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 				return;
 			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__STATUS:
 				setStatus((CommandStatus)newValue);
+				return;
+			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__HIDDEN:
+				setHidden((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -402,6 +449,9 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__STATUS:
 				setStatus(STATUS_EDEFAULT);
 				return;
+			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__HIDDEN:
+				setHidden(HIDDEN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -424,6 +474,8 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 				return position != POSITION_EDEFAULT;
 			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__STATUS:
 				return status != STATUS_EDEFAULT;
+			case QOperatingSystemCommandPackage.COMMAND_PARAMETER__HIDDEN:
+				return hidden != HIDDEN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -446,6 +498,8 @@ public class CommandParameterImpl extends ObjectImpl implements QCommandParamete
 		result.append(position);
 		result.append(", status: ");
 		result.append(status);
+		result.append(", hidden: ");
+		result.append(hidden);
 		result.append(')');
 		return result.toString();
 	}
