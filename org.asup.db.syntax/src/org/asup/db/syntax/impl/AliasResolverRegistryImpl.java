@@ -7,6 +7,7 @@
  */
 package org.asup.db.syntax.impl;
 
+
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QAliasResolverRegistry;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;

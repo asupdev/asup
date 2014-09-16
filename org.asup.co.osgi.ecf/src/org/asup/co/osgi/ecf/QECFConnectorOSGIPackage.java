@@ -7,6 +7,7 @@
  */
 package org.asup.co.osgi.ecf;
 
+
 import org.asup.co.osgi.QConnectorOSGIPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
