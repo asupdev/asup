@@ -339,15 +339,6 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCommandParameter_Hidden() {
-		return (EAttribute)commandParameterEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCommandSource() {
 		return commandSourceEClass;
 	}
@@ -431,7 +422,6 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		createEAttribute(commandParameterEClass, COMMAND_PARAMETER__NAME);
 		createEAttribute(commandParameterEClass, COMMAND_PARAMETER__POSITION);
 		createEAttribute(commandParameterEClass, COMMAND_PARAMETER__STATUS);
-		createEAttribute(commandParameterEClass, COMMAND_PARAMETER__HIDDEN);
 
 		commandSourceEClass = createEClass(COMMAND_SOURCE);
 		createEAttribute(commandSourceEClass, COMMAND_SOURCE__TYPE);
@@ -541,7 +531,6 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getCommandParameter_Name(), ecorePackage.getEString(), "name", null, 1, 1, QCommandParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommandParameter_Position(), ecorePackage.getEInt(), "position", null, 1, 1, QCommandParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommandParameter_Status(), this.getCommandStatus(), "status", "SUP", 0, 1, QCommandParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCommandParameter_Hidden(), ecorePackage.getEBoolean(), "hidden", null, 1, 1, QCommandParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(commandParameterEClass, ecorePackage.getEBoolean(), "isCompound", 1, 1, IS_UNIQUE, IS_ORDERED);
 
