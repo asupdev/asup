@@ -16,23 +16,23 @@ import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
-import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.QTypedObject;
 import org.asup.os.type.QTypedReference;
 import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
+import org.asup.os.type.jobd.QJobDescriptionManager;
 import org.asup.os.type.jobd.QOperatingSystemJobDescriptionFactory;
 
 @Command(name = "CRTJOBD")
-@Program(name = "QWDCCRG", messages = {"CPF1621"})
+@Program(name = "QWDCCRG", messages = { "CPF1621" })
 public class JobDescriptionCreator {
 
 	@Inject
-	private QResourceFactory resourceFactory;
+	private QJobDescriptionManager jobDescriptionManager;
 	@Inject
 	private QJob job;
-	@Inject 
+	@Inject
 	private QJobLogManager jobLogManager;
 
 	public @Entry void main(
@@ -52,7 +52,7 @@ public class JobDescriptionCreator {
 			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialaspgroup,
 			MessageLogging messagelogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logclprogramcommands,
-			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,	
+			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,
 			QEnum<JobMessageQueueMaximumSize, QBinary> jobmessagequeuemaximumsize,
 			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobmessagequeuefullaction,
 			QEnum<CLSyntaxCheck, QBinary> clsyntaxcheck,
@@ -67,59 +67,58 @@ public class JobDescriptionCreator {
 			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowmultiplethreads,
 			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation) {
-		
-			String library = jobDescription.library.asData().trimR();
-			String name = jobDescription.name.trimR();
+
+		String library = jobDescription.library.asData().trimR();
+		String name = jobDescription.name.trimR();
 		try {
-			QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
-			QJobDescription qJobDescription = resource.lookup(name);	
-			if (qJobDescription == null) {
-				qJobDescription = QOperatingSystemJobDescriptionFactory.eINSTANCE.createJobDescription();
-
-				qJobDescription.setLibrary(library);
-				qJobDescription.setName(name);
-
-				if(!textDescription.isEmpty()) 
-					qJobDescription.setText(textDescription.trimR());
-
-				if(!jobQueue.isEmpty()) {
-					QTypedReference<QTypedObject> refJobQueue = null;
-					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
-					refJobQueue.setName(jobQueue.name.trimR());
-					qJobDescription.setJobQueue(refJobQueue);
-				}
-
-				if(!jobPriorityOnJobq.isEmpty())
-					qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.trimR());
-					
-				if(!outputPriorityOnOutq.isEmpty())
-					qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.trimR());
-
-				if(!outputQueue.isEmpty()) {
-					QTypedReference<QTypedObject> refOutQueue = null;
-					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
-					refOutQueue.setName(outputQueue.name.asData().trimR());
-					qJobDescription.setOutQueue(refOutQueue);
-				}
-
-				if(!user.isEmpty()) 
-					qJobDescription.setUser(user.asData().trimR());
-
-				for(QCharacter initialLibrary : initialLibraryList){
-					if(initialLibrary.trimR().isEmpty())
-						break;
-					qJobDescription.getLibraries().add(initialLibrary.trimR());				
-				}
+			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
+			QJobDescription qJobDescription = resource.lookup(name);
+			if (qJobDescription != null)
+				throw new OperatingSystemException("Job Description " + name
+						+ " already exists in library " + library);
 				
 				
-				resource.save(qJobDescription);
-			} else {
-				throw new OperatingSystemException("Job Description " + name+ " already exists in library " + library);
+			qJobDescription = QOperatingSystemJobDescriptionFactory.eINSTANCE
+					.createJobDescription();
+
+			qJobDescription.setLibrary(library);
+			qJobDescription.setName(name);
+			qJobDescription.setText(textDescription.trimR());
+
+			if (!jobQueue.isEmpty()) {
+				QTypedReference<QTypedObject> refJobQueue = null;
+				refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+				refJobQueue.setLibrary(jobQueue.library.asData().trimR());
+				refJobQueue.setName(jobQueue.name.trimR());
+				qJobDescription.setJobQueue(refJobQueue);
 			}
+
+			qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.trimR());
+
+			qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.trimR());
+
+			if (!outputQueue.isEmpty()) {
+				QTypedReference<QTypedObject> refOutQueue = null;
+				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+				refOutQueue.setLibrary(outputQueue.library.asData().trimR());
+				refOutQueue.setName(outputQueue.name.asData().trimR());
+				qJobDescription.setOutQueue(refOutQueue);
+			}
+
+			qJobDescription.setUser(user.asData().trimR());
+
+			for (QCharacter initialLibrary : initialLibraryList) {
+				if (initialLibrary.trimR().isEmpty()) {
+					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
+					break;
+				}
+				qJobDescription.getLibraries().add(initialLibrary.trimR());
+			}
+
+			resource.save(qJobDescription);
+
+			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR()+ " created");
 			
-			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " created");
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}

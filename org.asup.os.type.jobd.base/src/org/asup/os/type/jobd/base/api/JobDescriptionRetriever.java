@@ -61,8 +61,7 @@ public class JobDescriptionRetriever {
 						+ " not exists in library " + library);
 
 			if (formatName.eq("JOBD0100")) {
-				JOBD0100 jobd0100 = dataFactory.createDataStruct(
-						JOBD0100.class, null, 0);
+				JOBD0100 jobd0100 = dataFactory.createDataStruct(JOBD0100.class, null, 0);
 
 				jobd0100.jobDescriptionName.eval(qJobDescription.getName());
 				jobd0100.jobDescriptionLibrary.eval(qJobDescription.getLibrary());
@@ -78,7 +77,11 @@ public class JobDescriptionRetriever {
 
 				jobd0100.textDescription.eval(qJobDescription.getText());
 				
-				jobd0100.initialLibraryList.eval(qJobDescription.getLibraries());
+				int l = 1;
+				for(String initLibrary: qJobDescription.getLibraries()) {
+					jobd0100.initialLibraryList.get(l).eval(initLibrary);
+					l++;
+				}
 				
 				System.out.println(jobd0100);
 			} else {

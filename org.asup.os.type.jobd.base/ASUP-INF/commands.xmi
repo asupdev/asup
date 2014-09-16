@@ -242,6 +242,28 @@
     </parameters>
     <parameters
         allowVariable="true"
+        name="TEXT"
+        position="7">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="textDescription"
+          default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              value="*SAME"/>
+          <elements
+              name="*BLANK"
+              value=""/>
+        </facets>
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="50"/>
+      </dataTerm>
+    </parameters>
+    <parameters
+        allowVariable="true"
         name="RTGDTA"
         position="11"
         status="TODO">
@@ -937,28 +959,6 @@
         <definition
             xsi:type="il-data:CharacterDef"
             length="10"/>
-      </dataTerm>
-    </parameters>
-    <parameters
-        allowVariable="true"
-        name="TEXT"
-        position="7">
-      <dataTerm
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="textDescription"
-          default="*SAME">
-        <facets
-            xsi:type="il-core:Special">
-          <elements
-              name="*SAME"
-              value="*SAME"/>
-          <elements
-              name="*BLANK"
-              value=""/>
-        </facets>
-        <definition
-            xsi:type="il-data:CharacterDef"
-            length="50"/>
       </dataTerm>
     </parameters>
     <source

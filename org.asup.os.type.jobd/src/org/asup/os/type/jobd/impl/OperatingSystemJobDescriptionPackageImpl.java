@@ -288,24 +288,6 @@ public class OperatingSystemJobDescriptionPackageImpl extends EPackageImpl imple
 	protected void createIldataAnnotations() {
 		String source = "il-data";	
 		addAnnotation
-		  (getJobDescription_JobQueue(), 
-		   source, 
-		   new String[] {
-			 "length", "20"
-		   },
-		   new URI[] {
-			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });	
-		addAnnotation
-		  (getJobDescription_OutQueue(), 
-		   source, 
-		   new String[] {
-			 "length", "20"
-		   },
-		   new URI[] {
-			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });	
-		addAnnotation
 		  (getJobDescription_User(), 
 		   source, 
 		   new String[] {

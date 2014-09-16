@@ -62,7 +62,6 @@ public interface QJobDescription extends QTypedObject {
 	 * @see #setJobQueue(QTypedReference)
 	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_JobQueue()
 	 * @model containment="true"
-	 *        annotation="il-data length='20'"
 	 * @generated
 	 */
 	QTypedReference<?> getJobQueue();
@@ -141,7 +140,6 @@ public interface QJobDescription extends QTypedObject {
 	 * @see #setOutQueue(QTypedReference)
 	 * @see org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage#getJobDescription_OutQueue()
 	 * @model containment="true"
-	 *        annotation="il-data length='20'"
 	 * @generated
 	 */
 	QTypedReference<?> getOutQueue();

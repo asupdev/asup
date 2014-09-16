@@ -16,19 +16,19 @@ import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
-import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.QTypedObject;
 import org.asup.os.type.QTypedReference;
 import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
+import org.asup.os.type.jobd.QJobDescriptionManager;
 
 @Command(name = "CHGJOBD")
 @Program(name = "QWDCCHG", messages = {"CPF1618","CPF1625","CPF9872"})
 public class JobDescriptionChanger {
 
 	@Inject
-	private QResourceFactory resourceFactory;
+	private QJobDescriptionManager jobDescriptionManager;
 	@Inject
 	private QJob job;
 	@Inject 
@@ -69,54 +69,56 @@ public class JobDescriptionChanger {
 		String library = jobDescription.library.asData().trimR();
 		String name = jobDescription.name.trimR();
 		try {
-			QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, library);	
+			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
 			QJobDescription qJobDescription = resource.lookup(name);	
-			if (qJobDescription == null) {
+			if (qJobDescription == null)
 				throw new OperatingSystemException("Job Description " + name+ " not exists in library " + library);
-			} else {
 				
-				if(!textDescription.isEmpty()) 
-					qJobDescription.setText(textDescription.trimR());
+			if(!textDescription.isEmpty()) 
+				qJobDescription.setText(textDescription.trimR());
 
-				if(!jobQueue.isEmpty()) {
-					QTypedReference<QTypedObject> refJobQueue = null;
-					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
-					refJobQueue.setName(jobQueue.name.asData().trimR());
-					qJobDescription.setJobQueue(refJobQueue);
-				}
-
-				if(!jobPriorityOnJobq.isEmpty())
-					qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.asData().trimR());
-					
-				if(!outputPriorityOnOutq.isEmpty())
-					qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.asData().trimR());
-
-				if(!outputQueue.isEmpty()) {
-					QTypedReference<QTypedObject> refOutQueue = null;
-					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
-					refOutQueue.setName(outputQueue.name.asData().trimR());
-					qJobDescription.setOutQueue(refOutQueue);
-				}
-
-				if(!user.isEmpty()) 
-					qJobDescription.setUser(user.asData().trimR());
-				
-				boolean clear = true;
-				for(QCharacter initialLibrary : initialLibraryList){
-					if(initialLibrary.trimR().isEmpty())
-						break;
-					if(clear){
-						qJobDescription.getLibraries().clear();
-						clear = false;
-					}
-					qJobDescription.getLibraries().add(initialLibrary.trimR());				
-				}
-
-				resource.save(qJobDescription,true);
+			if(!jobQueue.isEmpty()) {
+				QTypedReference<QTypedObject> refJobQueue = null;
+				refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+				refJobQueue.setLibrary(jobQueue.library.asData().trimR());
+				refJobQueue.setName(jobQueue.name.asData().trimR());
+				qJobDescription.setJobQueue(refJobQueue);
 			}
+			else
+				qJobDescription.setJobQueue(null);
+
+			if(!jobPriorityOnJobq.isEmpty())
+				qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.asData().trimR());
+				
+			if(!outputPriorityOnOutq.isEmpty())
+				qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.asData().trimR());
+
+			if(!outputQueue.isEmpty()) {
+				QTypedReference<QTypedObject> refOutQueue = null;
+				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+				refOutQueue.setLibrary(outputQueue.library.asData().trimR());
+				refOutQueue.setName(outputQueue.name.asData().trimR());
+				qJobDescription.setOutQueue(refOutQueue);
+			}
+
+			if(!user.isEmpty()) 
+				qJobDescription.setUser(user.asData().trimR());
+			
+			boolean clear = true;
+			for(QCharacter initialLibrary : initialLibraryList){
+				if(initialLibrary.trimR().isEmpty())
+					break;
+				if(clear){
+					qJobDescription.getLibraries().clear();
+					clear = false;
+				}
+				qJobDescription.getLibraries().add(initialLibrary.trimR());				
+			}
+
+			resource.save(qJobDescription,true);
+
 			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " changed");
+			
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}

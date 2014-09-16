@@ -3,9 +3,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jobd" nsURI="http://www.asup.org/os/type/jobd" nsPrefix="os-type-jobd">
   <eClassifiers xsi:type="ecore:EClass" name="JobDescription" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
     <eStructuralFeatures xsi:type="ecore:EReference" name="jobQueue" containment="true">
-      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
-        <details key="length" value="20"/>
-      </eAnnotations>
       <eGenericType eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedReference">
         <eTypeArguments/>
       </eGenericType>
@@ -13,9 +10,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobPriorityOnJobq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputPriorityOnOutq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outQueue" containment="true">
-      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
-        <details key="length" value="20"/>
-      </eAnnotations>
       <eGenericType eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedReference">
         <eTypeArguments/>
       </eGenericType>

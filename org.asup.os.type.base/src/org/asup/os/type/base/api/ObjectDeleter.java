@@ -47,6 +47,7 @@ public class ObjectDeleter {
 			T qObject = resource.lookup(name);
 			if (qObject == null)			
 				throw new OperatingSystemRuntimeException("Object not found: "	+ name);
+			
 			resource.delete(qObject);
 			jobLogManager.info(job, "Object " +object.name.trimR()+ " on type " + objectType.trimR() +" deleted");
 		} catch (OperatingSystemException e) {

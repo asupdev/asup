@@ -46,13 +46,10 @@ public abstract class BaseCommandManagerImpl extends CommandManagerImpl {
 		
 		QDataContext dataContext = callableCommand.getDataContext();
 
-		QData[] parameters = new QData[callableCommand.getCommand()
-				.getParameters().size()];
-		for (QCommandParameter commandParameter : callableCommand.getCommand()
-				.getParameters()) {
+		QData[] parameters = new QData[callableCommand.getCommand().getParameters().size()];
+		for (QCommandParameter commandParameter : callableCommand.getCommand().getParameters()) {
 			int position = commandParameter.getPosition() - 1;
-			parameters[position] = dataContext.getData(dataContext.getTerms()
-					.get(position));
+			parameters[position] = dataContext.getData(dataContext.getTerms().get(position));
 		}
 
 		programManager.callProgram(contextID, null, callableCommand
