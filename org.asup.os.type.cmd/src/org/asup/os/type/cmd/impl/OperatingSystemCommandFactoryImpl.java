@@ -10,7 +10,6 @@
  */
 package org.asup.os.type.cmd.impl;
 
-import org.asup.os.type.cmd.*;
 import org.asup.os.type.cmd.CommandStatus;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommand;
