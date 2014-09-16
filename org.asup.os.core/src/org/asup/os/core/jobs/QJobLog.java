@@ -21,7 +21,7 @@ import org.asup.os.omac.QObjectNameable;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.os.core.jobs.QJobLog#getEntries <em>Entries</em>}</li>
- *   <li>{@link org.asup.os.core.jobs.QJobLog#getJob <em>Job</em>}</li>
+ *   <li>{@link org.asup.os.core.jobs.QJobLog#getJobID <em>Job ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,29 +47,29 @@ public interface QJobLog extends QObjectNameable {
 	List<QJobLogEntry> getEntries();
 
 	/**
-	 * Returns the value of the '<em><b>Job</b></em>' reference.
+	 * Returns the value of the '<em><b>Job ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Job</em>' reference isn't clear,
+	 * If the meaning of the '<em>Job ID</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Job</em>' reference.
-	 * @see #setJob(QJob)
-	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJobLog_Job()
+	 * @return the value of the '<em>Job ID</em>' attribute.
+	 * @see #setJobID(String)
+	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJobLog_JobID()
 	 * @model required="true"
 	 * @generated
 	 */
-	QJob getJob();
+	String getJobID();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.core.jobs.QJobLog#getJob <em>Job</em>}' reference.
+	 * Sets the value of the '{@link org.asup.os.core.jobs.QJobLog#getJobID <em>Job ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Job</em>' reference.
-	 * @see #getJob()
+	 * @param value the new value of the '<em>Job ID</em>' attribute.
+	 * @see #getJobID()
 	 * @generated
 	 */
-	void setJob(QJob value);
+	void setJobID(String value);
 
 } // QJobLog

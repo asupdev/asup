@@ -57,7 +57,12 @@ public class JobLogDisplayer {
 
 		QJob job = jobManager.lookup(contextID);
 
-		QJobLog jobLog = jobLogManager.lookup(job, jobRef.name.trimR(), jobRef.user.trimR(), new Integer(jobRef.number.trim()));
+		QJobLog jobLog = null;
+		
+		if(jobRef.name.trimR().equals("*"))
+			jobLog = jobLogManager.lookup(job);
+		else
+			jobLog = jobLogManager.lookup(job, jobRef.name.trimR(), jobRef.user.trimR(), new Integer(jobRef.number.trim()));
 
 		if(jobLog != null) {
 			for (QJobLogEntry jobLogEntry : jobLog.getEntries()) {

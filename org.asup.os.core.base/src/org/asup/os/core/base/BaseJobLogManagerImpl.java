@@ -53,7 +53,7 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 	    QJobLog jobLog = lookup(job);
 	    if(jobLog == null) {
 	    	jobLog = QOperatingSystemJobsFactory.eINSTANCE.createJobLog();
-	    	jobLog.setJob(job);
+	    	jobLog.setJobID(job.getID());
 	    
 	    	job.getJobContext().set(QJobLog.class, jobLog);
 	    }
