@@ -24,7 +24,6 @@ import org.asup.os.omac.QObject;
  *   <li>{@link org.asup.os.type.cmd.QCommandParameter#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommandParameter#getPosition <em>Position</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommandParameter#getStatus <em>Status</em>}</li>
- *   <li>{@link org.asup.os.type.cmd.QCommandParameter#isHidden <em>Hidden</em>}</li>
  * </ul>
  * </p>
  *
@@ -178,32 +177,6 @@ public interface QCommandParameter extends QObject {
 	 * @generated
 	 */
 	void setStatus(CommandStatus value);
-
-	/**
-	 * Returns the value of the '<em><b>Hidden</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Hidden</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hidden</em>' attribute.
-	 * @see #setHidden(boolean)
-	 * @see org.asup.os.type.cmd.QOperatingSystemCommandPackage#getCommandParameter_Hidden()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isHidden();
-
-	/**
-	 * Sets the value of the '{@link org.asup.os.type.cmd.QCommandParameter#isHidden <em>Hidden</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hidden</em>' attribute.
-	 * @see #isHidden()
-	 * @generated
-	 */
-	void setHidden(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

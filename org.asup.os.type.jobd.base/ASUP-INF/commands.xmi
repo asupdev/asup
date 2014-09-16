@@ -1907,8 +1907,7 @@
     </parameters>
     <parameters
         name="OBJTYPE"
-        position="2"
-        hidden="true">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="objectType"
@@ -2155,8 +2154,7 @@
     </parameters>
     <parameters
         name="OBJTYPE"
-        position="2"
-        hidden="true">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="objectType"

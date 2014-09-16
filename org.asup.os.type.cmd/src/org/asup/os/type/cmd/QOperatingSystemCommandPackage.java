@@ -439,22 +439,13 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	int COMMAND_PARAMETER__STATUS = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Hidden</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMAND_PARAMETER__HIDDEN = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Command Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_PARAMETER_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 6;
+	int COMMAND_PARAMETER_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.cmd.impl.CommandSourceImpl <em>Command Source</em>}' class.
@@ -720,17 +711,6 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	EAttribute getCommandParameter_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.cmd.QCommandParameter#isHidden <em>Hidden</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hidden</em>'.
-	 * @see org.asup.os.type.cmd.QCommandParameter#isHidden()
-	 * @see #getCommandParameter()
-	 * @generated
-	 */
-	EAttribute getCommandParameter_Hidden();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.cmd.QCommandSource <em>Command Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -964,14 +944,6 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMAND_PARAMETER__STATUS = eINSTANCE.getCommandParameter_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>Hidden</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMMAND_PARAMETER__HIDDEN = eINSTANCE.getCommandParameter_Hidden();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.cmd.impl.CommandSourceImpl <em>Command Source</em>}' class.
