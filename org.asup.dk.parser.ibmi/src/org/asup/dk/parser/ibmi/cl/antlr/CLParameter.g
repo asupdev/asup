@@ -92,6 +92,12 @@ string_operator
  	:
  	VARIABLE|SPECIAL|STRING
  	;
+ 	
+CAT     :	'!!' | ('*CAT');
+
+BCAT    :	'!>' | ('*BCAT');
+
+TCAT    :	'!<' | ('*TCAT');	
   
 value
   :
@@ -107,7 +113,10 @@ value
 function:
   FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
 	;
-
+	
+FUNCTION_NAME:
+	('%SST' | '%SWITCH' | '%BINARY' | '%BIN')
+	;  	
   
 STRING	:	
    APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&')+ APOS	
@@ -155,14 +164,10 @@ WS  :   ( ' '
         )
         {$channel=HIDDEN;}
     ;
+  
     
-fragment CAT     :	'!!' | ('*CAT');
-fragment BCAT    :	'!>' | ('*BCAT');
-fragment TCAT    :	'!<' | ('*TCAT');    
 
-fragment FUNCTION_NAME:
-	('%SST' | '%SWITCH' | '%BINARY' | '%BIN')
-	;  
+
 
 fragment
 CHAR_SPECIAL
