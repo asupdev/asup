@@ -8,6 +8,7 @@
 package org.asup.il.data;
 
 import java.lang.Enum;
+import java.lang.String;
 
 
 
@@ -37,5 +38,13 @@ public interface QEnum<E extends Enum<E>, D extends QBufferedData> extends QBuff
 	 * @generated
 	 */
 	E asEnum();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getSpecialText();
 
 } // QEnum

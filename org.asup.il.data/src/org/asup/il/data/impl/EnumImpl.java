@@ -9,7 +9,6 @@ package org.asup.il.data.impl;
 
 import java.lang.Enum;
 import java.lang.String;
-
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataVisitor;
@@ -70,6 +69,17 @@ public class EnumImpl<E extends Enum<E>, D extends QBufferedData> extends Minima
 	 * @generated
 	 */
 	public E asEnum() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSpecialText() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -2858,6 +2858,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(enumEClass_E);
 		initEOperation(op, g1);
 
+		addEOperation(enumEClass, ecorePackage.getEString(), "getSpecialText", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(enumDefEClass, QEnumDef.class, "EnumDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getBufferedDataDef());
 		g2 = createEGenericType(enumDefEClass_D);

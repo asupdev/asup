@@ -17,6 +17,5 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 public @interface Special {
 	
-	String text() default "";
 	String value() default "";
 }
