@@ -74,7 +74,7 @@ public class JobDescriptionCreator {
 		String library = "";
 		switch (jobDescription.library.asEnum()) {
 		case CURLIB:
-			library = jobDescription.library.asEnum().CURLIB.toString();
+			library = jobDescription.library.getSpecialName();
 			break;
 		case OTHER:
 			library = jobDescription.library.asData().trimR();
@@ -110,11 +110,11 @@ public class JobDescriptionCreator {
 				
 				switch (jobQueue.library.asEnum()) {
 				case LIBL:
-					// TODO
-					refJobQueue.setLibrary(jobQueue.library.asEnum().LIBL.name());
+					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
 					break;
 				case CURLIB:
 					// TODO
+					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
 					break;
 				case OTHER:
 					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
@@ -132,16 +132,9 @@ public class JobDescriptionCreator {
 
 				switch (outputQueue.name.asEnum()) {
 				case DEV:
-					// TODO
-					refOutQueue.setName(outputQueue.name.asEnum().DEV.name());
-					break;
 				case WRKSTN:
-					// TODO
-					refOutQueue.setName(outputQueue.name.asEnum().WRKSTN.name());
-					break;
 				case USRPRF:
-					// TODO
-					refOutQueue.setName(outputQueue.name.asEnum().USRPRF.name());
+					refOutQueue.setName(outputQueue.name.getSpecialName());
 					break;
 				case OTHER:
 					refOutQueue.setName(outputQueue.name.asData().trimR());
@@ -150,12 +143,11 @@ public class JobDescriptionCreator {
 				
 				switch (outputQueue.library.asEnum()) {
 				case LIBL:
-					// TODO
-					refOutQueue.setLibrary(outputQueue.library.asEnum().LIBL.name());
+					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
 					break;
 				case CURLIB:
 					// TODO
-					refOutQueue.setLibrary(outputQueue.library.asEnum().CURLIB.name());
+					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
 					break;
 				case OTHER:
 					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
@@ -167,8 +159,7 @@ public class JobDescriptionCreator {
 
 			switch (user.asEnum()) {
 			case RQD:
-				qJobDescription.setUser(user.asEnum().RQD.name());
-				// TODO;
+				qJobDescription.setUser(user.getSpecialName());
 				break;
 			case OTHER:
 				qJobDescription.setUser(user.asData().trimR());
