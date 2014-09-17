@@ -86,7 +86,7 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 	}
 
 	@Override
-	public String getSpecialText() {
+	public String getSpecialName() {
 		
 		return "*"+asEnum().name();
 

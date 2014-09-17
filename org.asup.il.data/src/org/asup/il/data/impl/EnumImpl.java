@@ -79,7 +79,7 @@ public class EnumImpl<E extends Enum<E>, D extends QBufferedData> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSpecialText() {
+	public String getSpecialName() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

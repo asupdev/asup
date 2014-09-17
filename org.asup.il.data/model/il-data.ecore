@@ -711,7 +711,7 @@
     <eOperations name="asEnum" lowerBound="1">
       <eGenericType eTypeParameter="#//Enum/E"/>
     </eOperations>
-    <eOperations name="getSpecialText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getSpecialName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumDef" abstract="true">
     <eTypeParameters name="E">

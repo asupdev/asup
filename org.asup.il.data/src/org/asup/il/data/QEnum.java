@@ -45,6 +45,6 @@ public interface QEnum<E extends Enum<E>, D extends QBufferedData> extends QBuff
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getSpecialText();
+	String getSpecialName();
 
 } // QEnum
