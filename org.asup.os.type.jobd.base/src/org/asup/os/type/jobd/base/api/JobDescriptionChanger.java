@@ -22,6 +22,7 @@ import org.asup.os.type.QTypedReference;
 import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
+import org.asup.os.type.jobd.base.api.JobDescriptionCreator.Authority;
 
 @Command(name = "CHGJOBD")
 @Program(name = "QWDCCHG", messages = {"CPF1618","CPF1625","CPF9872"})
@@ -35,36 +36,40 @@ public class JobDescriptionChanger {
 	private QJobLogManager jobLogManager;
 	
 	public @Entry void main(
-			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(qualified = true) JobQueue jobQueue,
-			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobPriorityOnJobq,
-			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputPriorityOnOutq,
-			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printdevice,
-			@DataDef(qualified = true) OutputQueue outputQueue,
-			@DataDef(length = 50) QCharacter textDescription,
-			@DataDef(length = 10) QEnum<User, QCharacter> user,
-			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingcode,
-			@DataDef(length = 30) QEnum<PrintText, QCharacter> printtext,
-			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingdata,
-			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestdataorcommand,
-			@DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
-			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialaspgroup,
-			MessageLogging messagelogging,
-			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logclprogramcommands,
-			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,
-			QEnum<JobMessageQueueMaximumSize, QBinary> jobmessagequeuemaximumsize,
-			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobmessagequeuefullaction,
-			QEnum<CLSyntaxCheck, QBinary> clsyntaxcheck,
-			QEnum<EndSeverity, QBinary> endseverity,
-			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquirymessagereply,
-			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdonjobqueue,
-			@DataDef(length = 10) QCharacter jobdate,
-			@DataDef(length = 8) QEnum<JobSwitches, QCharacter> jobswitches,
-			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> devicerecoveryaction,
-			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timesliceendpool,
-			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowmultiplethreads,
-			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
-			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation) {
+			  @DataDef(qualified=true) JobDescription jobDescription,
+			  @DataDef(qualified=true) JobQueue jobQueue,
+			  @DataDef(length=1) QCharacter jobPriorityOnJobq,
+			  @DataDef(length=1) QCharacter outputPriorityOnOutq,
+			  @DataDef(length=10) QEnum<PrintDevice,QCharacter> printdevice,
+			  @DataDef(qualified=true) OutputQueue outputQueue,
+			  @DataDef(length=50) QEnum<TextDescription,QCharacter> textDescription,
+			  @DataDef(length=10) QEnum<User,QCharacter> user,
+			  @DataDef(length=15) QEnum<AccountingCode,QCharacter> accountingcode,
+			  @DataDef(length=30) QEnum<PrintText,QCharacter> printtext,
+			  @DataDef(length=80) QEnum<RoutingData,QCharacter> routingdata,
+			  @DataDef(length=256) QEnum<RequestDataOrCommand,QCharacter> requestdataorcommand,
+
+//	TODO	  @DataDef(dimension = "250", length = 10) QArray<QEnum<InitialLibraryList,QCharacter>> initialLibraryList,
+			  @DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
+
+			  @DataDef(length=10) QEnum<InitialASPGroup,QCharacter> initialaspgroup,
+			  MessageLogging messagelogging,
+			  @DataDef(length=1) QEnum<LogCLProgramCommands,QCharacter> logclprogramcommands,
+			  @DataDef(length=10) QEnum<JobLogOutput,QCharacter> joblogoutput,
+			  QEnum<JobMessageQueueMaximumSize,QBinary> jobmessagequeuemaximumsize,
+			  @DataDef(length=10) QEnum<JobMessageQueueFullAction,QCharacter> jobmessagequeuefullaction,
+			  QEnum<CLSyntaxCheck,QBinary> clsyntaxcheck,
+			  QBinary endseverity,
+			  @DataDef(length=1) QEnum<InquiryMessageReply,QCharacter> inquirymessagereply,
+			  @DataDef(length=1) QEnum<HoldOnJobQueue,QCharacter> holdonjobqueue,
+			  @DataDef(length=10) QEnum<JobDate,QCharacter> jobdate,
+			  @DataDef(length=8) QCharacter jobswitches,
+			  @DataDef(length=13) QEnum<DeviceRecoveryAction,QCharacter> devicerecoveryaction,
+			  @DataDef(length=10) QEnum<TimeSliceEndPool,QCharacter> timesliceendpool,
+			  @DataDef(length=10) QEnum<Authority,QCharacter> authority,
+			  @DataDef(length=1) QEnum<AllowMultipleThreads,QCharacter> allowmultiplethreads,
+			  @DataDef(length=10) QEnum<SpooledFileAction,QCharacter> spooledfileaction,
+			  @DataDef(length=10) QEnum<DDMConversation,QCharacter> ddmconversation) {
 
 		String library = jobDescription.library.asData().trimR();
 		String name = jobDescription.name.trimR();
@@ -74,45 +79,97 @@ public class JobDescriptionChanger {
 			if (qJobDescription == null)
 				throw new OperatingSystemException("Job Description " + name+ " not exists in library " + library);
 				
-			if(!textDescription.isEmpty()) 
-				qJobDescription.setText(textDescription.trimR());
+			switch (textDescription.asEnum()) {
+			case SAME:
+				break;
+			case BLANK:
+				qJobDescription.setText("");
+				break;
+			case OTHER:
+				qJobDescription.setText(textDescription.asData().trimR());
+				break;
+			}
 
-			if(!jobQueue.isEmpty()) {
+			if (!jobQueue.name.isEmpty()) {
 				QTypedReference<QTypedObject> refJobQueue = null;
 				refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-				refJobQueue.setLibrary(jobQueue.library.asData().trimR());
-				refJobQueue.setName(jobQueue.name.asData().trimR());
+				
+				switch (jobQueue.name.asEnum()) {
+				case SAME:
+					break;
+				case OTHER:
+					refJobQueue.setName(jobQueue.name.asData().trimR());
+					break;
+				}
+				
+				switch (jobQueue.library.asEnum()) {
+				case LIBL:
+					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
+					break;
+				case CURLIB:
+					// TODO
+					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
+					break;
+				case OTHER:
+					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
+					break;
+				}
 				qJobDescription.setJobQueue(refJobQueue);
 			}
-			else
-				qJobDescription.setJobQueue(null);
 
-			if(!jobPriorityOnJobq.isEmpty())
-				qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.asData().trimR());
-				
-			if(!outputPriorityOnOutq.isEmpty())
-				qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.asData().trimR());
+			qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.trimR());
+			qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.trimR());
 
-			if(!outputQueue.isEmpty()) {
+			if (!outputQueue.name.isEmpty()) {
 				QTypedReference<QTypedObject> refOutQueue = null;
 				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-				refOutQueue.setLibrary(outputQueue.library.asData().trimR());
-				refOutQueue.setName(outputQueue.name.asData().trimR());
+
+				switch (outputQueue.name.asEnum()) {
+				case SAME:
+					break;
+				case DEV:
+				case WRKSTN:
+				case USRPRF:
+					refOutQueue.setName(outputQueue.name.getSpecialName());
+					break;
+				case OTHER:
+					refOutQueue.setName(outputQueue.name.asData().trimR());
+					break;
+				}
+				
+				switch (outputQueue.library.asEnum()) {
+				case LIBL:
+					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
+					break;
+				case CURLIB:
+					// TODO
+					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
+					break;
+				case OTHER:
+					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
+					break;
+				}
+
 				qJobDescription.setOutQueue(refOutQueue);
 			}
 
-			if(!user.isEmpty()) 
+			switch (user.asEnum()) {
+			case SAME:
+				break;
+			case RQD:
+				qJobDescription.setUser(user.getSpecialName());
+				break;
+			case OTHER:
 				qJobDescription.setUser(user.asData().trimR());
-			
-			boolean clear = true;
-			for(QCharacter initialLibrary : initialLibraryList){
-				if(initialLibrary.trimR().isEmpty())
+				break;
+			}
+
+			for (QCharacter initialLibrary : initialLibraryList) {
+				if (initialLibrary.trimR().isEmpty()) {
+					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
 					break;
-				if(clear){
-					qJobDescription.getLibraries().clear();
-					clear = false;
 				}
-				qJobDescription.getLibraries().add(initialLibrary.trimR());				
+				qJobDescription.getLibraries().add(initialLibrary.trimR());
 			}
 
 			resource.save(qJobDescription,true);
@@ -147,13 +204,13 @@ public class JobDescriptionChanger {
 
 		public static enum Name {
 			@Special(value = "*SAME")
-			SAME
+			SAME, OTHER
 		}
 
 		public static enum Library {
 			@Special(value = "*LIBL")
 			LIBL, @Special(value = "*CURLIB")
-			CURLIB
+			CURLIB, OTHER
 		}
 	}
 
@@ -187,26 +244,26 @@ public class JobDescriptionChanger {
 			SAME, @Special(value = "*USRPRF")
 			USRPRF, @Special(value = "*DEV")
 			DEV, @Special(value = "*WRKSTN")
-			WRKSTN
+			WRKSTN, OTHER
 		}
 
 		public static enum Library {
 			@Special(value = "*LIBL")
 			LIBL, @Special(value = "*CURLIB")
-			CURLIB
+			CURLIB, OTHER
 		}
 	}
 
 	public static enum TextDescription {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "")
-		BLANK
+		BLANK, OTHER
 	}
 
 	public static enum User {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*RQD")
-		RQD
+		RQD, OTHER
 	}
 
 	public static enum AccountingCode {
