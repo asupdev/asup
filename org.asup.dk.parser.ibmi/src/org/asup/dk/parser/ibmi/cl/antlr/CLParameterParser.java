@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-09-13 12:32:25
+// $ANTLR 3.5.1 CLParameter.g 2014-09-17 10:20:27
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -752,7 +752,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// CLParameter.g:96:1: value : ( TOKEN | VARIABLE | SPECIAL | function );
+	// CLParameter.g:102:1: value : ( TOKEN | VARIABLE | SPECIAL | function );
 	public final CLParameterParser.value_return value() throws RecognitionException {
 		CLParameterParser.value_return retval = new CLParameterParser.value_return();
 		retval.start = input.LT(1);
@@ -769,7 +769,7 @@ public class CLParameterParser extends Parser {
 		CommonTree SPECIAL21_tree=null;
 
 		try {
-			// CLParameter.g:97:3: ( TOKEN | VARIABLE | SPECIAL | function )
+			// CLParameter.g:103:3: ( TOKEN | VARIABLE | SPECIAL | function )
 			int alt5=4;
 			switch ( input.LA(1) ) {
 			case TOKEN:
@@ -799,48 +799,48 @@ public class CLParameterParser extends Parser {
 			}
 			switch (alt5) {
 				case 1 :
-					// CLParameter.g:98:3: TOKEN
+					// CLParameter.g:104:3: TOKEN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TOKEN19=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_value310); 
+					TOKEN19=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_value365); 
 					TOKEN19_tree = (CommonTree)adaptor.create(TOKEN19);
 					adaptor.addChild(root_0, TOKEN19_tree);
 
 					}
 					break;
 				case 2 :
-					// CLParameter.g:100:3: VARIABLE
+					// CLParameter.g:106:3: VARIABLE
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					VARIABLE20=(Token)match(input,VARIABLE,FOLLOW_VARIABLE_in_value318); 
+					VARIABLE20=(Token)match(input,VARIABLE,FOLLOW_VARIABLE_in_value373); 
 					VARIABLE20_tree = (CommonTree)adaptor.create(VARIABLE20);
 					adaptor.addChild(root_0, VARIABLE20_tree);
 
 					}
 					break;
 				case 3 :
-					// CLParameter.g:102:3: SPECIAL
+					// CLParameter.g:108:3: SPECIAL
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					SPECIAL21=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_value326); 
+					SPECIAL21=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_value381); 
 					SPECIAL21_tree = (CommonTree)adaptor.create(SPECIAL21);
 					adaptor.addChild(root_0, SPECIAL21_tree);
 
 					}
 					break;
 				case 4 :
-					// CLParameter.g:104:3: function
+					// CLParameter.g:110:3: function
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_function_in_value334);
+					pushFollow(FOLLOW_function_in_value389);
 					function22=function();
 					state._fsp--;
 
@@ -878,7 +878,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "function"
-	// CLParameter.g:107:1: function : FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) ;
+	// CLParameter.g:113:1: function : FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) ;
 	public final CLParameterParser.function_return function() throws RecognitionException {
 		CLParameterParser.function_return retval = new CLParameterParser.function_return();
 		retval.start = input.LT(1);
@@ -893,13 +893,13 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_list=new RewriteRuleSubtreeStream(adaptor,"rule list");
 
 		try {
-			// CLParameter.g:107:9: ( FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) )
-			// CLParameter.g:108:3: FUNCTION_NAME list
+			// CLParameter.g:113:9: ( FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) )
+			// CLParameter.g:114:3: FUNCTION_NAME list
 			{
-			FUNCTION_NAME23=(Token)match(input,FUNCTION_NAME,FOLLOW_FUNCTION_NAME_in_function352);  
+			FUNCTION_NAME23=(Token)match(input,FUNCTION_NAME,FOLLOW_FUNCTION_NAME_in_function407);  
 			stream_FUNCTION_NAME.add(FUNCTION_NAME23);
 
-			pushFollow(FOLLOW_list_in_function354);
+			pushFollow(FOLLOW_list_in_function409);
 			list24=list();
 			state._fsp--;
 
@@ -915,9 +915,9 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 108:22: -> ^( FUNCTION[$FUNCTION_NAME.text] list )
+			// 114:22: -> ^( FUNCTION[$FUNCTION_NAME.text] list )
 			{
-				// CLParameter.g:108:25: ^( FUNCTION[$FUNCTION_NAME.text] list )
+				// CLParameter.g:114:25: ^( FUNCTION[$FUNCTION_NAME.text] list )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, (FUNCTION_NAME23!=null?FUNCTION_NAME23.getText():null)), root_1);
@@ -972,10 +972,10 @@ public class CLParameterParser extends Parser {
 	public static final BitSet FOLLOW_string_in_string_operator253 = new BitSet(new long[]{0x0000000000040000L});
 	public static final BitSet FOLLOW_TCAT_in_string_operator255 = new BitSet(new long[]{0x0000000000118000L});
 	public static final BitSet FOLLOW_string_operator_in_string_operator257 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TOKEN_in_value310 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VARIABLE_in_value318 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SPECIAL_in_value326 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_function_in_value334 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FUNCTION_NAME_in_function352 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_list_in_function354 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TOKEN_in_value365 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VARIABLE_in_value373 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SPECIAL_in_value381 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_function_in_value389 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FUNCTION_NAME_in_function407 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_list_in_function409 = new BitSet(new long[]{0x0000000000000002L});
 }

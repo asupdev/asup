@@ -98,6 +98,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		CLRow clRow = result.getRows().iterator().next();
 		CLCommand clCommand = clRow.getCommand();
 
+		
 		// lookup command
 		QResourceSetReader<QCommand> commandResource = resourceFactory
 				.getResourceReader(job, QCommand.class, Scope.LIBRARY_LIST);
