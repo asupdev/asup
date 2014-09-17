@@ -10,6 +10,7 @@
  */
 package org.asup.os.type.cmd.impl;
 
+import org.asup.os.type.cmd.*;
 import org.asup.os.type.cmd.CommandStatus;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommand;
@@ -89,6 +90,8 @@ public class OperatingSystemCommandFactoryImpl extends EFactoryImpl implements Q
 		switch (eDataType.getClassifierID()) {
 			case QOperatingSystemCommandPackage.COMMAND_STATUS:
 				return createCommandStatusFromString(eDataType, initialValue);
+			case QOperatingSystemCommandPackage.COMMAND_PARAMETER_ORDER:
+				return createCommandParameterOrderFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -104,6 +107,8 @@ public class OperatingSystemCommandFactoryImpl extends EFactoryImpl implements Q
 		switch (eDataType.getClassifierID()) {
 			case QOperatingSystemCommandPackage.COMMAND_STATUS:
 				return convertCommandStatusToString(eDataType, instanceValue);
+			case QOperatingSystemCommandPackage.COMMAND_PARAMETER_ORDER:
+				return convertCommandParameterOrderToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -176,6 +181,26 @@ public class OperatingSystemCommandFactoryImpl extends EFactoryImpl implements Q
 	 * @generated
 	 */
 	public String convertCommandStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommandParameterOrder createCommandParameterOrderFromString(EDataType eDataType, String initialValue) {
+		CommandParameterOrder result = CommandParameterOrder.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCommandParameterOrderToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

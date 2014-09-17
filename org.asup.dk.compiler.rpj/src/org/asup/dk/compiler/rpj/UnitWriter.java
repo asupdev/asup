@@ -104,7 +104,6 @@ public abstract class UnitWriter {
 		// fields
 		for (QDataTerm<?> dataTerm : dataSection.getDatas()) {
 
-			System.out.println(dataTerm);
 			if(dataTerm.getName().equalsIgnoreCase("TSTG79"))
 				dataTerm.toString();
 			

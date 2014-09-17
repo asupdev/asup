@@ -10,9 +10,13 @@
  */
 package org.asup.os.type.cmd.impl;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import org.asup.os.type.cmd.CommandParameterOrder;
 import org.asup.os.type.cmd.CommandStatus;
 import org.asup.os.type.cmd.QCommand;
 import org.asup.os.type.cmd.QCommandParameter;
@@ -281,6 +285,37 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 		}
 		
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<QCommandParameter> getParameters(CommandParameterOrder order) {
+
+		List<QCommandParameter> parameters = new ArrayList<QCommandParameter>(getParameters());
+		
+		switch (order) {
+		case NAME:
+			Collections.sort(parameters, new Comparator<QCommandParameter>() {
+				@Override
+				public int compare(QCommandParameter param1, QCommandParameter param2) {
+					return param1.getName().compareToIgnoreCase(param2.getName());
+				}
+			});
+			break;
+		case POSITION:
+			Collections.sort(parameters, new Comparator<QCommandParameter>() {
+				@Override
+				public int compare(QCommandParameter param1, QCommandParameter param2) {
+					return Integer.compare(param1.getPosition(), param2.getPosition());
+				}
+			});
+			break;
+		}
+		
+		return parameters;
 	}
 
 	/**

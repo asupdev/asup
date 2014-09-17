@@ -505,6 +505,17 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.asup.os.type.cmd.CommandParameterOrder <em>Command Parameter Order</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.cmd.CommandParameterOrder
+	 * @see org.asup.os.type.cmd.impl.OperatingSystemCommandPackageImpl#getCommandParameterOrder()
+	 * @generated
+	 */
+	int COMMAND_PARAMETER_ORDER = 7;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.cmd.QCallableCommand <em>Callable Command</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -773,6 +784,16 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	EEnum getCommandStatus();
 
 	/**
+	 * Returns the meta object for enum '{@link org.asup.os.type.cmd.CommandParameterOrder <em>Command Parameter Order</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Command Parameter Order</em>'.
+	 * @see org.asup.os.type.cmd.CommandParameterOrder
+	 * @generated
+	 */
+	EEnum getCommandParameterOrder();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,6 +1029,16 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMMAND_STATUS = eINSTANCE.getCommandStatus();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.type.cmd.CommandParameterOrder <em>Command Parameter Order</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.type.cmd.CommandParameterOrder
+		 * @see org.asup.os.type.cmd.impl.OperatingSystemCommandPackageImpl#getCommandParameterOrder()
+		 * @generated
+		 */
+		EEnum COMMAND_PARAMETER_ORDER = eINSTANCE.getCommandParameterOrder();
 
 	}
 

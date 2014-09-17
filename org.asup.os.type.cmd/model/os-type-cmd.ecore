@@ -21,6 +21,9 @@
     <eOperations name="getParameter" lowerBound="1" eType="#//CommandParameter">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="getParameters" lowerBound="1" upperBound="-1" eType="#//CommandParameter">
+      <eParameters name="order" lowerBound="1" eType="#//CommandParameterOrder"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowBatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -94,5 +97,9 @@
     <eLiterals name="Supported" value="10" literal="SUP"/>
     <eLiterals name="Unsupported" value="20" literal="UNS"/>
     <eLiterals name="Todo" value="30" literal="TODO"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CommandParameterOrder">
+    <eLiterals name="Name" value="10" literal="NAME"/>
+    <eLiterals name="Position" value="20" literal="POS"/>
   </eClassifiers>
 </ecore:EPackage>

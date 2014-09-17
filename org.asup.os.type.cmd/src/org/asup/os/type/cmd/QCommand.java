@@ -166,4 +166,12 @@ public interface QCommand extends QTypedObject {
 	 */
 	QCommandParameter getParameter(String name);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" orderRequired="true"
+	 * @generated
+	 */
+	List<QCommandParameter> getParameters(CommandParameterOrder order);
+
 } // QCommand
