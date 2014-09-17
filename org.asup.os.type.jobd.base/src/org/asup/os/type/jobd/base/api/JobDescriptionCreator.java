@@ -48,7 +48,10 @@ public class JobDescriptionCreator {
 			  @DataDef(length=30) QEnum<PrintText,QCharacter> printtext,
 			  @DataDef(length=80) QEnum<RoutingData,QCharacter> routingdata,
 			  @DataDef(length=256) QEnum<RequestDataOrCommand,QCharacter> requestdataorcommand,
-			  @DataDef(dimension="250") QArray<QEnum<InitialLibraryList,QCharacter>> initialLibraryList,
+
+//	TODO	  @DataDef(dimension = "250", length = 10) QArray<QEnum<InitialLibraryList,QCharacter>> initialLibraryList,
+			  @DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
+
 			  @DataDef(length=10) QEnum<InitialASPGroup,QCharacter> initialaspgroup,
 			  MessageLogging messagelogging,
 			  @DataDef(length=1) QEnum<LogCLProgramCommands,QCharacter> logclprogramcommands,
@@ -68,19 +71,16 @@ public class JobDescriptionCreator {
 			  @DataDef(length=10) QEnum<SpooledFileAction,QCharacter> spooledfileaction,
 			  @DataDef(length=10) QEnum<DDMConversation,QCharacter> ddmconversation) {
 		
-		String library = jobDescription.library.asData().trimR();
-
+		String library = "";
 		switch (jobDescription.library.asEnum()) {
 		case CURLIB:
-			// TODO
+			library = jobDescription.library.asEnum().CURLIB.toString();
 			break;
 		case OTHER:
 			library = jobDescription.library.asData().trimR();
 			break;
 		}
-		
-		
-		
+
 		String name = jobDescription.name.trimR();
 		try {
 			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
@@ -107,9 +107,11 @@ public class JobDescriptionCreator {
 				QTypedReference<QTypedObject> refJobQueue = null;
 				refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
 				refJobQueue.setName(jobQueue.name.trimR());
+				
 				switch (jobQueue.library.asEnum()) {
 				case LIBL:
 					// TODO
+					refJobQueue.setLibrary(jobQueue.library.asEnum().LIBL.name());
 					break;
 				case CURLIB:
 					// TODO
@@ -131,12 +133,15 @@ public class JobDescriptionCreator {
 				switch (outputQueue.name.asEnum()) {
 				case DEV:
 					// TODO
+					refOutQueue.setName(outputQueue.name.asEnum().DEV.name());
 					break;
 				case WRKSTN:
 					// TODO
+					refOutQueue.setName(outputQueue.name.asEnum().WRKSTN.name());
 					break;
 				case USRPRF:
 					// TODO
+					refOutQueue.setName(outputQueue.name.asEnum().USRPRF.name());
 					break;
 				case OTHER:
 					refOutQueue.setName(outputQueue.name.asData().trimR());
@@ -146,9 +151,11 @@ public class JobDescriptionCreator {
 				switch (outputQueue.library.asEnum()) {
 				case LIBL:
 					// TODO
+					refOutQueue.setLibrary(outputQueue.library.asEnum().LIBL.name());
 					break;
 				case CURLIB:
 					// TODO
+					refOutQueue.setLibrary(outputQueue.library.asEnum().CURLIB.name());
 					break;
 				case OTHER:
 					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
@@ -160,13 +167,23 @@ public class JobDescriptionCreator {
 
 			switch (user.asEnum()) {
 			case RQD:
+				qJobDescription.setUser(user.asEnum().RQD.name());
 				// TODO;
 				break;
 			case OTHER:
 				qJobDescription.setUser(user.asData().trimR());
 				break;
 			}
+
+			for (QCharacter initialLibrary : initialLibraryList) {
+				if (initialLibrary.trimR().isEmpty()) {
+					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
+					break;
+				}
+				qJobDescription.getLibraries().add(initialLibrary.trimR());
+			}
 			
+/*		TODO	
 			for (QEnum<InitialLibraryList, QCharacter> initialLibrary : initialLibraryList) {
 				switch (initialLibrary.asEnum()) {
 				case SYSVAL:
@@ -182,7 +199,7 @@ public class JobDescriptionCreator {
 					qJobDescription.getLibraries().add(initialLibrary.asData().trimR());
 				}
 			}
-
+*/
 			resource.save(qJobDescription);
 
 			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR()+ " created");
@@ -252,7 +269,7 @@ public class JobDescriptionCreator {
 		BLANK, OTHER
 	}
 
-	public static enum User {
+	public enum User {
 		@Special(value = "*RQD")
 		RQD, OTHER
 	}
