@@ -8,6 +8,8 @@
 package org.asup.os.type.msgf;
 
 import org.asup.fw.core.QContextID;
+import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.QTypedManager;
 
 /**
@@ -29,4 +31,20 @@ public interface QMessageFileManager extends QTypedManager<QMessageFile> {
 	 * @generated
 	 */
 	<E extends Enum<E>> MessageException prepareException(QContextID contextID, String messageFile, Enum<E> messageName, Object[] variables);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.os.core.OperatingSystemRuntimeException" messageFileFromRequired="true" messageFileToRequired="true"
+	 * @generated
+	 */
+	void overrideMessageFile(QJob job, String messageFileFrom, QMessageFile messageFileTo) throws OperatingSystemRuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.os.core.OperatingSystemRuntimeException" messageFileNameRequired="true"
+	 * @generated
+	 */
+	QMessageFile getOverrideMessageFile(QJob job, String messageFileName) throws OperatingSystemRuntimeException;
 } // QMessageFileManager

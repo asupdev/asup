@@ -9,6 +9,8 @@ package org.asup.os.type.msgf.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
+import org.asup.os.core.QOperatingSystemCorePackage;
+import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.msgf.QMessageDescription;
@@ -295,6 +297,8 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 		QOperatingSystemTypePackage theOperatingSystemTypePackage = (QOperatingSystemTypePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemTypePackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
+		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
+		QOperatingSystemCorePackage theOperatingSystemCorePackage = (QOperatingSystemCorePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -340,6 +344,17 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 		addEParameter(op, ecorePackage.getEString(), "messageFile", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaEnum(), "messageName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMessageVariableList(), "variables", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(messageFileManagerEClass, null, "overrideMessageFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "messageFileFrom", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getMessageFile(), "messageFileTo", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theOperatingSystemCorePackage.getOperatingSystemRuntimeException());
+
+		op = addEOperation(messageFileManagerEClass, this.getMessageFile(), "getOverrideMessageFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "messageFileName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theOperatingSystemCorePackage.getOperatingSystemRuntimeException());
 
 		// Initialize data types
 		initEDataType(messageVariableListEDataType, Object[].class, "MessageVariableList", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

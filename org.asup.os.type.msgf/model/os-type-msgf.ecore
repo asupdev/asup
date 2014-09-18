@@ -33,6 +33,15 @@
       <eParameters name="messageName" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
       <eParameters name="variables" lowerBound="1" eType="#//MessageVariableList"/>
     </eOperations>
+    <eOperations name="overrideMessageFile" eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemRuntimeException">
+      <eParameters name="job" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="messageFileFrom" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="messageFileTo" lowerBound="1" eType="#//MessageFile"/>
+    </eOperations>
+    <eOperations name="getOverrideMessageFile" eType="#//MessageFile" eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemRuntimeException">
+      <eParameters name="job" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="messageFileName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedManager">
       <eTypeArguments eClassifier="#//MessageFile"/>
     </eGenericSuperTypes>

@@ -8,6 +8,8 @@
 package org.asup.os.type.msgf.impl;
 
 import org.asup.fw.core.QContextID;
+import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.impl.TypedManagerImpl;
 import org.asup.os.type.msgf.MessageException;
 import org.asup.os.type.msgf.QMessageFile;
@@ -60,6 +62,28 @@ public abstract class MessageFileManagerImpl extends TypedManagerImpl<QMessageFi
 	 * @generated
 	 */
 	public <E extends Enum<E>> MessageException prepareException(QContextID contextID, String messageFile, Enum<E> messageName, Object[] variables) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void overrideMessageFile(QJob job, String messageFileFrom, QMessageFile messageFileTo) throws OperatingSystemRuntimeException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QMessageFile getOverrideMessageFile(QJob job, String messageFileName) throws OperatingSystemRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
