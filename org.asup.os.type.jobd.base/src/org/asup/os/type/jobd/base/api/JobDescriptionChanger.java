@@ -70,6 +70,16 @@ public class JobDescriptionChanger {
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation){
 
 		String library = jobDescription.library.asData().trimR();
+		switch (jobDescription.library.asEnum()) {
+		case LIBL:
+		case CURLIB:
+			library = jobDescription.library.getSpecialName();
+			break;
+		case OTHER:
+			library = jobDescription.library.asData().trimR();
+			break;
+		}
+
 		String name = jobDescription.name.trimR();
 		try {
 			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
@@ -202,7 +212,7 @@ public class JobDescriptionChanger {
 		public static enum Library {
 			@Special(value = "*LIBL")
 			LIBL, @Special(value = "*CURLIB")
-			CURLIB
+			CURLIB, OTHER
 		}
 	}
 
