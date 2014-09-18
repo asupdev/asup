@@ -2248,13 +2248,11 @@
       xsi:type="os-type-cmd:Command"
       name="OVRMSGF"
       text="Override Message File"
-      program="QDMOVERD"
-      status="TODO">
+      program="QASMSGFOVR">
     <parameters
         allowVariable="true"
         name="MSGF"
-        position="1"
-        status="TODO">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="messageFileBeingOverridden"
@@ -2273,8 +2271,7 @@
     <parameters
         allowVariable="true"
         name="TOMSGF"
-        position="2"
-        status="TODO">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="overridingToMessageFile"
