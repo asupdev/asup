@@ -16,7 +16,9 @@ import java.util.regex.Matcher;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.QContextID;
+import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceProvider;
@@ -73,4 +75,43 @@ public class BaseMessageFileManagerImpl extends MessageFileManagerImpl {
 		return messageException;
 		
 	}
+
+	@Override
+	public void overrideMessageFile(QJob job, String fileFrom, QMessageFile fileTo) throws OperatingSystemRuntimeException {
+
+		try {			
+			BaseOverridedMessageFileMap overrideMessageFileMap = getOverridedMessageFile(job);
+			overrideMessageFileMap.registerFile(fileFrom, fileTo);
+			
+		} catch (FrameworkCoreException e) {
+			throw new OperatingSystemRuntimeException(e);
+		}
+	}
+
+	@Override
+	public QMessageFile getOverrideMessageFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
+		
+		try {
+			
+			BaseOverridedMessageFileMap overrideFileMap = getOverridedMessageFile(job);
+			
+			QMessageFile qMessageFile = overrideFileMap.getFile(fileName);
+
+			return qMessageFile;
+			
+		} catch (FrameworkCoreException e) {
+			throw new OperatingSystemRuntimeException(e);
+		}
+		
+	}
+
+	private BaseOverridedMessageFileMap getOverridedMessageFile(QJob job) throws FrameworkCoreException {
+		BaseOverridedMessageFileMap overrideMessageFileMap = job.getJobContext().get(BaseOverridedMessageFileMap.class);
+		if(overrideMessageFileMap == null) {
+			overrideMessageFileMap = new BaseOverridedMessageFileMap();
+			job.getJobContext().set(BaseOverridedMessageFileMap.class, overrideMessageFileMap);
+		}
+		return overrideMessageFileMap;
+	}
+	
 }

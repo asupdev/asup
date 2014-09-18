@@ -1446,13 +1446,11 @@
       xsi:type="os-type-cmd:Command"
       name="CHGMSGF"
       text="Change Message File"
-      program="QMHCHMSF"
-      status="TODO">
+      program="QMHCHMSF">
     <parameters
         allowVariable="true"
         name="MSGF"
-        position="1"
-        status="TODO">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
@@ -1517,6 +1515,28 @@
     </parameters>
     <parameters
         allowVariable="true"
+        name="TEXT"
+        position="2">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="textDescription"
+          default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              value="*SAME"/>
+          <elements
+              name="*BLANK"
+              value="*BLANK"/>
+        </facets>
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="50"/>
+      </dataTerm>
+    </parameters>
+    <parameters
+        allowVariable="true"
         name="CCSID"
         position="3"
         status="TODO">
@@ -1548,29 +1568,6 @@
             type="INTEGER"/>
       </dataTerm>
     </parameters>
-    <parameters
-        allowVariable="true"
-        name="TEXT"
-        position="2"
-        status="TODO">
-      <dataTerm
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="textDescription"
-          default="*SAME">
-        <facets
-            xsi:type="il-core:Special">
-          <elements
-              name="*SAME"
-              value="*SAME"/>
-          <elements
-              name="*BLANK"
-              value="*BLANK"/>
-        </facets>
-        <definition
-            xsi:type="il-data:CharacterDef"
-            length="50"/>
-      </dataTerm>
-    </parameters>
     <source
         type="CMD"
         content="&#xA;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?>&#xA;&lt;QcdCLCmd DTDVersion=&quot;1.0&quot;>&lt;Cmd CmdName=&quot;CHGMSGF&quot; CmdLib=&quot;__LIBL&quot; CCSID=&quot;37&quot; HlpPnlGrp=&quot;QHMHCMD&quot; HlpPnlGrpLib=&quot;__LIBL&quot; HlpID=&quot;CHGMSGF&quot; MaxPos=&quot;2&quot; Prompt=&quot;Change Message File&quot; PmtOvrPgm=&quot;QMHMFPOV&quot; PmtOvrLib=&quot;QSYS&quot; MsgF=&quot;QCPFMSG&quot; MsgFLib=&quot;__LIBL&quot; ExecBatch=&quot;YES&quot; ChgCmdExit=&quot;NO&quot; RtvCmdExit=&quot;NO&quot;>&lt;Parm Kwd=&quot;MSGF&quot; PosNbr=&quot;1&quot; KeyParm=&quot;YES&quot; Type=&quot;QUAL&quot; Min=&quot;1&quot; Max=&quot;1&quot; Prompt=&quot;Message file&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; >&lt;Qual Type=&quot;GENERIC&quot; Min=&quot;1&quot; Max=&quot;1&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Name, generic*&quot; >&lt;SpcVal>&lt;Value Val=&quot;*ALL&quot; MapTo=&quot;*ALL&quot;/>&lt;/SpcVal>&lt;/Qual>&lt;Qual Type=&quot;NAME&quot; Min=&quot;0&quot; Max=&quot;1&quot; Prompt=&quot;Library&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; Dft=&quot;*LIBL&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Name&quot; >&lt;SpcVal>&lt;Value Val=&quot;*LIBL&quot; MapTo=&quot;*LIBL&quot;/>&lt;Value Val=&quot;*CURLIB&quot; MapTo=&quot;*CURLIB&quot;/>&lt;Value Val=&quot;*USRLIBL&quot; MapTo=&quot;*USRLIBL&quot;/>&lt;Value Val=&quot;*ALLUSR&quot; MapTo=&quot;*ALLUSR&quot;/>&lt;Value Val=&quot;*ALL&quot; MapTo=&quot;*ALL&quot;/>&lt;/SpcVal>&lt;/Qual>&lt;/Parm>&lt;Parm Kwd=&quot;CCSID&quot; PosNbr=&quot;3&quot; KeyParm=&quot;NO&quot; PmtCtl=&quot;PMTRQS&quot; Type=&quot;INT4&quot; Min=&quot;0&quot; Max=&quot;1&quot; Prompt=&quot;Coded character set ID&quot; Rstd=&quot;NO&quot; Dft=&quot;*SAME&quot; RangeMinVal=&quot;1&quot; RangeMaxVal=&quot;65535&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;__PGM&quot; ChoicePgm=&quot;QTBCCLST&quot; ChoiceLib=&quot;QSYS&quot;>&lt;SpcVal>&lt;Value Val=&quot;*SAME&quot; MapTo=&quot;-1&quot;/>&lt;Value Val=&quot;*HEX&quot; MapTo=&quot;65535&quot;/>&lt;Value Val=&quot;*MSGD&quot; MapTo=&quot;65534&quot;/>&lt;Value Val=&quot;*JOB&quot; MapTo=&quot;0&quot;/>&lt;/SpcVal>&lt;ChoicePgmText Text= &quot;*SAME, *HEX, *MSGD, *JOB...&quot;>&lt;/ChoicePgmText>&lt;ChoicePgmValues>&lt;Value Val=&quot;*SAME&quot;/>&lt;Value Val=&quot;*MSGD&quot;/>&lt;Value Val=&quot;*JOB&quot;/>&lt;Value Val=&quot;*HEX&quot;/>&lt;Value Val=&quot;37&quot;/>&lt;Value Val=&quot;256&quot;/>&lt;Value Val=&quot;273&quot;/>&lt;Value Val=&quot;277&quot;/>&lt;Value Val=&quot;278&quot;/>&lt;Value Val=&quot;280&quot;/>&lt;Value Val=&quot;284&quot;/>&lt;Value Val=&quot;285&quot;/>&lt;Value Val=&quot;290&quot;/>&lt;Value Val=&quot;297&quot;/>&lt;Value Val=&quot;420&quot;/>&lt;Value Val=&quot;423&quot;/>&lt;Value Val=&quot;424&quot;/>&lt;Value Val=&quot;425&quot;/>&lt;Value Val=&quot;500&quot;/>&lt;Value Val=&quot;833&quot;/>&lt;Value Val=&quot;836&quot;/>&lt;Value Val=&quot;838&quot;/>&lt;Value Val=&quot;870&quot;/>&lt;Value Val=&quot;871&quot;/>&lt;Value Val=&quot;875&quot;/>&lt;Value Val=&quot;880&quot;/>&lt;Value Val=&quot;905&quot;/>&lt;Value Val=&quot;918&quot;/>&lt;Value Val=&quot;924&quot;/>&lt;Value Val=&quot;930&quot;/>&lt;Value Val=&quot;933&quot;/>&lt;Value Val=&quot;935&quot;/>&lt;Value Val=&quot;937&quot;/>&lt;Value Val=&quot;939&quot;/>&lt;Value Val=&quot;1025&quot;/>&lt;Value Val=&quot;1026&quot;/>&lt;Value Val=&quot;1027&quot;/>&lt;Value Val=&quot;1047&quot;/>&lt;Value Val=&quot;1097&quot;/>&lt;Value Val=&quot;1112&quot;/>&lt;Value Val=&quot;1122&quot;/>&lt;Value Val=&quot;1123&quot;/>&lt;Value Val=&quot;1130&quot;/>&lt;Value Val=&quot;1132&quot;/>&lt;Value Val=&quot;1137&quot;/>&lt;Value Val=&quot;1140&quot;/>&lt;Value Val=&quot;1141&quot;/>&lt;Value Val=&quot;1142&quot;/>&lt;Value Val=&quot;1143&quot;/>&lt;Value Val=&quot;1144&quot;/>&lt;Value Val=&quot;1145&quot;/>&lt;Value Val=&quot;1146&quot;/>&lt;Value Val=&quot;1147&quot;/>&lt;Value Val=&quot;1148&quot;/>&lt;Value Val=&quot;1149&quot;/>&lt;Value Val=&quot;1153&quot;/>&lt;Value Val=&quot;1154&quot;/>&lt;Value Val=&quot;1155&quot;/>&lt;Value Val=&quot;1156&quot;/>&lt;Value Val=&quot;1157&quot;/>&lt;Value Val=&quot;1158&quot;/>&lt;Value Val=&quot;1160&quot;/>&lt;Value Val=&quot;1164&quot;/>&lt;Value Val=&quot;1166&quot;/>&lt;Value Val=&quot;1364&quot;/>&lt;Value Val=&quot;1371&quot;/>&lt;Value Val=&quot;1377&quot;/>&lt;Value Val=&quot;1388&quot;/>&lt;Value Val=&quot;1399&quot;/>&lt;Value Val=&quot;4971&quot;/>&lt;Value Val=&quot;5026&quot;/>&lt;Value Val=&quot;5035&quot;/>&lt;Value Val=&quot;5123&quot;/>&lt;Value Val=&quot;8612&quot;/>&lt;Value Val=&quot;9030&quot;/>&lt;Value Val=&quot;12708&quot;/>&lt;Value Val=&quot;13121&quot;/>&lt;Value Val=&quot;13124&quot;/>&lt;Value Val=&quot;28709&quot;/>&lt;Value Val=&quot;57777&quot;/>&lt;Value Val=&quot;62211&quot;/>&lt;Value Val=&quot;62224&quot;/>&lt;Value Val=&quot;62235&quot;/>&lt;Value Val=&quot;62245&quot;/>&lt;Value Val=&quot;62251&quot;/>&lt;Value Val=&quot;65534&quot;/>&lt;Value Val=&quot;65535&quot;/>&lt;/ChoicePgmValues>&lt;/Parm>&lt;Parm Kwd=&quot;TEXT&quot; PosNbr=&quot;2&quot; KeyParm=&quot;NO&quot; Type=&quot;CHAR&quot; Min=&quot;0&quot; Max=&quot;1&quot; Prompt=&quot;Text &amp;apos;description&amp;apos;&quot; Len=&quot;50&quot; Rstd=&quot;NO&quot; Dft=&quot;*SAME&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Character value&quot; >&lt;SpcVal>&lt;Value Val=&quot;*SAME&quot; MapTo=&quot;*SAME&quot;/>&lt;Value Val=&quot;*BLANK&quot; MapTo=&quot;*BLANK&quot;/>&lt;/SpcVal>&lt;/Parm>&lt;/Cmd>&lt;/QcdCLCmd>&#xA;"/>
@@ -1579,13 +1576,11 @@
       xsi:type="os-type-cmd:Command"
       name="CRTMSGF"
       text="Create Message File"
-      program="QMHCRMSF"
-      status="TODO">
+      program="QMHCRMSF">
     <parameters
         allowVariable="true"
         name="MSGF"
-        position="1"
-        status="TODO">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
@@ -1628,6 +1623,25 @@
                 length="10"/>
           </elements>
         </definition>
+      </dataTerm>
+    </parameters>
+    <parameters
+        allowVariable="true"
+        name="TEXT"
+        position="2">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="textDescription"
+          default="*BLANK">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*BLANK"
+              value=""/>
+        </facets>
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="50"/>
       </dataTerm>
     </parameters>
     <parameters
@@ -1736,26 +1750,6 @@
         <definition
             xsi:type="il-data:BinaryDef"
             type="INTEGER"/>
-      </dataTerm>
-    </parameters>
-    <parameters
-        allowVariable="true"
-        name="TEXT"
-        position="2"
-        status="TODO">
-      <dataTerm
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="textDescription"
-          default="*BLANK">
-        <facets
-            xsi:type="il-core:Special">
-          <elements
-              name="*BLANK"
-              value=""/>
-        </facets>
-        <definition
-            xsi:type="il-data:CharacterDef"
-            length="50"/>
       </dataTerm>
     </parameters>
     <source
