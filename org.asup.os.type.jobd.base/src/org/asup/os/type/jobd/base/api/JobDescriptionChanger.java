@@ -22,7 +22,6 @@ import org.asup.os.type.QTypedReference;
 import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
-import org.asup.os.type.jobd.base.api.JobDescriptionCreator.Authority;
 
 @Command(name = "CHGJOBD")
 @Program(name = "QWDCCHG", messages = {"CPF1618","CPF1625","CPF9872"})
@@ -36,40 +35,39 @@ public class JobDescriptionChanger {
 	private QJobLogManager jobLogManager;
 	
 	public @Entry void main(
-			  @DataDef(qualified=true) JobDescription jobDescription,
-			  @DataDef(qualified=true) JobQueue jobQueue,
-			  @DataDef(length=1) QCharacter jobPriorityOnJobq,
-			  @DataDef(length=1) QCharacter outputPriorityOnOutq,
-			  @DataDef(length=10) QEnum<PrintDevice,QCharacter> printdevice,
-			  @DataDef(qualified=true) OutputQueue outputQueue,
-			  @DataDef(length=50) QEnum<TextDescription,QCharacter> textDescription,
-			  @DataDef(length=10) QEnum<User,QCharacter> user,
-			  @DataDef(length=15) QEnum<AccountingCode,QCharacter> accountingcode,
-			  @DataDef(length=30) QEnum<PrintText,QCharacter> printtext,
-			  @DataDef(length=80) QEnum<RoutingData,QCharacter> routingdata,
-			  @DataDef(length=256) QEnum<RequestDataOrCommand,QCharacter> requestdataorcommand,
+			@DataDef(qualified = true) JobDescription jobDescription,
+			@DataDef(qualified = true) JobQueue jobQueue,
+			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobPriorityOnJobq,
+			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputPriorityOnOutq,
+			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printdevice,
+			@DataDef(qualified = true) OutputQueue outputQueue,
+			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
+			@DataDef(length = 10) QEnum<User, QCharacter> user,
+			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingcode,
+			@DataDef(length = 30) QEnum<PrintText, QCharacter> printtext,
+			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingdata,
+			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestdataorcommand,
 
-//	TODO	  @DataDef(dimension = "250", length = 10) QArray<QEnum<InitialLibraryList,QCharacter>> initialLibraryList,
-			  @DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
+// TODO     @DataDef(dimension = "250", length = 10) QArray<QEnum<InitialLibraryList,QCharacter>> initialLibraryList,
+			@DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
 
-			  @DataDef(length=10) QEnum<InitialASPGroup,QCharacter> initialaspgroup,
-			  MessageLogging messagelogging,
-			  @DataDef(length=1) QEnum<LogCLProgramCommands,QCharacter> logclprogramcommands,
-			  @DataDef(length=10) QEnum<JobLogOutput,QCharacter> joblogoutput,
-			  QEnum<JobMessageQueueMaximumSize,QBinary> jobmessagequeuemaximumsize,
-			  @DataDef(length=10) QEnum<JobMessageQueueFullAction,QCharacter> jobmessagequeuefullaction,
-			  QEnum<CLSyntaxCheck,QBinary> clsyntaxcheck,
-			  QBinary endseverity,
-			  @DataDef(length=1) QEnum<InquiryMessageReply,QCharacter> inquirymessagereply,
-			  @DataDef(length=1) QEnum<HoldOnJobQueue,QCharacter> holdonjobqueue,
-			  @DataDef(length=10) QEnum<JobDate,QCharacter> jobdate,
-			  @DataDef(length=8) QCharacter jobswitches,
-			  @DataDef(length=13) QEnum<DeviceRecoveryAction,QCharacter> devicerecoveryaction,
-			  @DataDef(length=10) QEnum<TimeSliceEndPool,QCharacter> timesliceendpool,
-			  @DataDef(length=10) QEnum<Authority,QCharacter> authority,
-			  @DataDef(length=1) QEnum<AllowMultipleThreads,QCharacter> allowmultiplethreads,
-			  @DataDef(length=10) QEnum<SpooledFileAction,QCharacter> spooledfileaction,
-			  @DataDef(length=10) QEnum<DDMConversation,QCharacter> ddmconversation) {
+			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialaspgroup,
+			MessageLogging messagelogging,
+			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logclprogramcommands,
+			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,
+			@DataDef() QEnum<JobMessageQueueMaximumSize, QBinary> jobmessagequeuemaximumsize,
+			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobmessagequeuefullaction,
+			@DataDef() QEnum<CLSyntaxCheck, QBinary> clsyntaxcheck,
+			@DataDef() QEnum<EndSeverity, QBinary> endseverity,
+			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquirymessagereply,
+			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdonjobqueue,
+			@DataDef(length = 10) QEnum<JobDate, QCharacter> jobdate,
+			@DataDef(length = 8) QEnum<JobSwitches, QCharacter> jobswitches,
+			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> devicerecoveryaction,
+			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timesliceendpool,
+			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowmultiplethreads,
+			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
+			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation){
 
 		String library = jobDescription.library.asData().trimR();
 		String name = jobDescription.name.trimR();
@@ -116,9 +114,22 @@ public class JobDescriptionChanger {
 				}
 				qJobDescription.setJobQueue(refJobQueue);
 			}
-
-			qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.trimR());
-			qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.trimR());
+			
+			switch (jobPriorityOnJobq.asEnum()) {
+			case SAME:
+				break;
+			case OTHER:
+				qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.asData().trimR());
+				break;
+			}
+			
+			switch (outputPriorityOnOutq.asEnum()) {
+			case SAME:
+				break;
+			case OTHER:
+				qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.asData().trimR());
+				break;
+			}
 
 			if (!outputQueue.name.isEmpty()) {
 				QTypedReference<QTypedObject> refOutQueue = null;
@@ -216,12 +227,12 @@ public class JobDescriptionChanger {
 
 	public static enum JobPriorityonJOBQ {
 		@Special(value = "*")
-		SAME
+		SAME, OTHER
 	}
 
 	public static enum OutputPriorityonOUTQ {
 		@Special(value = "*")
-		SAME
+		SAME, OTHER
 	}
 
 	public static enum PrintDevice {

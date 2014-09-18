@@ -178,7 +178,6 @@ public class JobDescriptionCreator {
 			for (QEnum<InitialLibraryList, QCharacter> initialLibrary : initialLibraryList) {
 				switch (initialLibrary.asEnum()) {
 				case SYSVAL:
-					// TODO
 					break;
 				case NONE:
 					break;
