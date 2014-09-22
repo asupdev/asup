@@ -12,15 +12,12 @@ package org.asup.dk.parser.ibmi.cl.model.pgm;
 
 import java.util.LinkedList;
 
-import org.asup.dk.parser.ibmi.cl.model.Node;
-
-
-public abstract class CLAbstractComponent implements Node {
+public abstract class CLAbstractComponent {
 	
 	private String text;
 	private int line;
-	private Node father;
-	private LinkedList<Node> childs = new LinkedList<Node>();
+	private CLAbstractComponent father;
+	private LinkedList<CLAbstractComponent> childs = new LinkedList<CLAbstractComponent>();
 	
 	public void setText(String text){
 		this.text = text;
@@ -38,35 +35,22 @@ public abstract class CLAbstractComponent implements Node {
     	return line;
     }
     
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#setFather(org.asup.dk.parser.ibmi.cl.model.Node)
-	 */
-    @Override
-	public void setFather(Node father){
+  	public void setFather(CLAbstractComponent father){
     	this.father = father;
     }
     
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#getFather()
-	 */
-    @Override
-	public Node getFather(){
+  
+	public CLAbstractComponent getFather(){
     	return father;
     }
     
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#addChild(org.asup.dk.parser.ibmi.cl.model.CLAbstractComponent)
-	 */
-    @Override
-	public void addChild(Node child) {
+  
+	public void addChild(CLAbstractComponent child) {
     	childs.add(child);
     }
     
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#getChilds()
-	 */
-    @Override
-	public LinkedList<Node> getChilds(){
+  
+	public LinkedList<CLAbstractComponent> getChilds(){
     	return childs;
     }
     

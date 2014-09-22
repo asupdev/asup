@@ -9,4 +9,8 @@ public class CLParmSpecial extends CLParmAbstractComponent {
 		return CLParmComponentType.SPECIAL;
 	}
 
+	@Override
+	public String toString() {
+		return getText();
+	}
 }

@@ -8,15 +8,16 @@ options {
 
 
 tokens
-{	
+{
 	LIST;
 	//TOKEN
 	//VARIABLE
 	//SPECIAL
 	//STRING
-	FUNCTION;
-	STR_OPERATOR;
+	FUNCTION;	
+	VALUE;
 }
+
 
 @lexer::header {
   package org.asup.dk.parser.ibmi.cl.antlr;
@@ -62,57 +63,62 @@ tokens
     }
 }
 
-
 parse
   :
   (elem)* -> ^(LIST[$parse.text] (elem)*) 
   ;
   
- elem	:
-	value|list|string_operator
-	;	  
+elem	
+ :
+    composite|list
+ ;	 
+ 
   
+  composite
+  :      
+   value (operator value)* -> ^(VALUE[$composite.text] value (operator value)*)
+  ;	   
+   
 list
   : 
-  OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST[$list.text]  (elem)*)   
+  OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST[$list.text]  (elem)*)    
   ;
   
-string_operator
-  :
-  string
-  |
-  string CAT string_operator  -> ^(STR_OPERATOR["*CAT"] string string_operator)
-  |
-  string BCAT string_operator -> ^(STR_OPERATOR["*BCAT"] string string_operator)
-  |
-  string TCAT string_operator -> ^(STR_OPERATOR["*TCAT"] string string_operator)
-  ;	  
-  
- string
- 	:
- 	VARIABLE|SPECIAL|STRING
- 	;
- 	
-CAT     :	'!!' | ('*CAT');
 
-BCAT    :	'!>' | ('*BCAT');
-
-TCAT    :	'!<' | ('*TCAT');	
-  
 value
   :
   TOKEN
   |
   VARIABLE
   |
-  SPECIAL
+  SPECIAL  
   |
-  function  
-  ;  
+  STRING
+  |
+  function
+  ;
+
   
+operator:
+	CAT
+	|
+	BCAT
+	|
+	TCAT	
+	;
+  
+
+
+ 
 function:
   FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
 	;
+	
+CAT     : '!!' | '*CAT';
+
+BCAT    : '!>' | '*BCAT';
+
+TCAT    : '!<' | '*TCAT';	
 	
 FUNCTION_NAME:
 	('%SST' | '%SWITCH' | '%BINARY' | '%BIN')
@@ -164,10 +170,8 @@ WS  :   ( ' '
         )
         {$channel=HIDDEN;}
     ;
-  
     
-
-
+	
 
 fragment
 CHAR_SPECIAL
@@ -194,6 +198,7 @@ CHAR_SPECIAL
     | '<'	
     | '+'
     | '-'
-    | '/' 
+    | '/'	
+    | '\\'     
   )
   ;

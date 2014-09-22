@@ -6,5 +6,10 @@ public class CLParmVariable extends CLParmAbstractComponent {
 	public CLParmComponentType getComponentType() {
 		return CLParmComponentType.VARIABLE;
 	}
+	
+	@Override
+	public String toString() {
+		return getText();
+	}
 
 }

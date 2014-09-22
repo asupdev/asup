@@ -10,6 +10,10 @@
  */
 package org.asup.dk.parser.ibmi.cl;
 
+import java.util.Hashtable;
+
+
+
 public class ParserFactory {
 
     public enum ScriptType {
@@ -18,6 +22,8 @@ public class ParserFactory {
         CL_EXPRESSION,
         CL_PARAMETER
     }
+    
+    Hashtable<ScriptType, ParserInterface<?>> parserInstances = new Hashtable<ScriptType, ParserInterface<?>>();
 
     private static ParserFactory instance;
 
@@ -33,26 +39,52 @@ public class ParserFactory {
 
     @SuppressWarnings("rawtypes")
 	public ParserInterface getParser(ScriptType type) {
+    	
+    	ParserInterface<?> result = null;
+    	
         switch (type) {
             case CL: {
-                return new CLParserWrapper();
+            	
+            	if (parserInstances.containsKey(ScriptType.CL)) {
+            		result = parserInstances.get(ScriptType.CL);
+            	} else {            		
+            		result = new CLParserWrapper();
+            		parserInstances.put(ScriptType.CL, result);
+            	}
             }
+            break;
             
             case CL_COMMAND: {
-            	return new CLCommandParserWrapper();
+            	if (parserInstances.containsKey(ScriptType.CL_COMMAND)) {
+            		result = parserInstances.get(ScriptType.CL_COMMAND);
+            	} else {            		
+            		result = new CLCommandParserWrapper();
+            		parserInstances.put(ScriptType.CL_COMMAND, result);
+            	}            	
             }
+            break;
 
             case CL_EXPRESSION: {
-                return new CLExpressionParserWrapper();
+            	if (parserInstances.containsKey(ScriptType.CL_EXPRESSION)) {
+            		result = parserInstances.get(ScriptType.CL_EXPRESSION);
+            	} else {            		
+            		result = new CLExpressionParserWrapper();
+            		parserInstances.put(ScriptType.CL_EXPRESSION, result);
+            	}            	                
             }
+            break;
             
             case CL_PARAMETER: {
-                return new CLParameterParserWrapper();
+            	if (parserInstances.containsKey(ScriptType.CL_PARAMETER)) {
+            		result = parserInstances.get(ScriptType.CL_PARAMETER);
+            	} else {            		
+            		result = new CLParameterParserWrapper();
+            		parserInstances.put(ScriptType.CL_PARAMETER, result);
+            	}            	                            
             }
-
-            default: {
-                return null;
-            }
+            break;
         }
+        
+        return result;
     }
 }

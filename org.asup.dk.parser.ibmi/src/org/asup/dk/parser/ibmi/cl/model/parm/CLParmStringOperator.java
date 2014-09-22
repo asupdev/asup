@@ -22,5 +22,11 @@ public class CLParmStringOperator extends CLParmAbstractComponent {
 	public void setOperatorType(CLParmStringOperatorType cat) {
 		this.operatorType = cat;
 	}
+	
+	@Override
+	public String toString() {
+		
+		return getText();
+	}
 
 }

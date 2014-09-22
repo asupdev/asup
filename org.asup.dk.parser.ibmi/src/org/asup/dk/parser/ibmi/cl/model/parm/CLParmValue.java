@@ -4,7 +4,12 @@ public class CLParmValue extends CLParmAbstractComponent {
 
 	@Override
 	public CLParmComponentType getComponentType() {
-		return CLParmComponentType.TOKEN;
+		return CLParmComponentType.VALUE;
+	}
+	
+	@Override
+	public String toString() {
+		return getText();
 	}
 
 }

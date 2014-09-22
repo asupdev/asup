@@ -1,11 +1,10 @@
 package org.asup.dk.parser.ibmi.cl.model.parm;
 
+public class CLParmToken extends CLParmAbstractComponent {
 
-public class CLParmList extends CLParmAbstractComponent {
-		
 	@Override
 	public CLParmComponentType getComponentType() {
-		return CLParmComponentType.LIST;
+		return CLParmComponentType.TOKEN;
 	}
 	
 	@Override

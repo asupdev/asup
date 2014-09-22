@@ -53,7 +53,7 @@ public abstract class NodeImpl extends MinimalEObjectImpl.Container implements Q
 	 * @generated NOT
 	 */
 	public QNode getParent() {
-
+		
 		Object parent = ((EObject)this).eContainer();
 		
 		while(parent != null) {
