@@ -17,9 +17,13 @@ import java.util.List;
 import java.util.Map;
 
 import org.asup.fw.core.QContextID;
+import org.asup.il.core.QNode;
+import org.asup.il.data.QCompoundDataPart;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QStruct;
 import org.asup.il.data.impl.DataContextImpl;
 
 public class NIODataContextImpl extends DataContextImpl implements Serializable {
@@ -66,7 +70,20 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 
 	@Override
 	public QData getData(QDataTerm<?> dataTerm) {
-		return getData(dataTerm.getName());
+		
+		QNode parent = dataTerm.getParent();
+		if(parent == null) {
+			return getData(dataTerm.getName());
+		}
+		else {
+			if(parent instanceof QCompoundDataTerm) {
+				QCompoundDataTerm<?> compoundDataTerm = (QCompoundDataTerm<?>)parent;
+				QStruct dataParent = (QStruct) getData(compoundDataTerm);
+				return dataParent.getElement(dataTerm.getName());
+			}
+			else
+				return null;
+		}
 	}
 
 	@Override
