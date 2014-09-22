@@ -32,4 +32,9 @@ public class CLParmFunction extends CLParmAbstractComponent {
 	public CLParmComponentType getComponentType() {
 		return CLParmComponentType.FUNCTION;		
 	}
+	
+	@Override
+	public String toString() {
+		return getText() + parms.toString();
+	}
 }

@@ -12,14 +12,11 @@ package org.asup.dk.parser.ibmi.cl.model.parm;
 
 import java.util.LinkedList;
 
-import org.asup.dk.parser.ibmi.cl.model.Node;
-
-
-public abstract class CLParmAbstractComponent implements Node {
+public abstract class CLParmAbstractComponent {
 	
 	private String text;	
-	private Node father;
-	private LinkedList<Node> childs = new LinkedList<Node>();
+	private CLParmAbstractComponent father;
+	private LinkedList<CLParmAbstractComponent> childs = new LinkedList<CLParmAbstractComponent>();
 	
 	public void setText(String text){
 		this.text = text;
@@ -29,35 +26,24 @@ public abstract class CLParmAbstractComponent implements Node {
 		return text;
 	}	
 	    
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#setFather(org.asup.dk.parser.ibmi.cl.model.Node)
-	 */
-    @Override
-	public void setFather(Node father){
+    
+    
+	public void setFather(CLParmAbstractComponent father){
     	this.father = father;
     }
     
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#getFather()
-	 */
-    @Override
-	public Node getFather(){
+    
+    
+	public CLParmAbstractComponent getFather(){
     	return father;
     }
     
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#addChild(org.asup.dk.parser.ibmi.cl.model.CLAbstractComponent)
-	 */
-    @Override
-	public void addChild(Node child) {
+    
+	public void addChild(CLParmAbstractComponent child) {
     	childs.add(child);
     }
-    
-    /* (non-Javadoc)
-	 * @see org.asup.dk.parser.ibmi.cl.model.Node#getChilds()
-	 */
-    @Override
-	public LinkedList<Node> getChilds(){
+        
+	public LinkedList<CLParmAbstractComponent> getChilds(){
     	return childs;
     }
 

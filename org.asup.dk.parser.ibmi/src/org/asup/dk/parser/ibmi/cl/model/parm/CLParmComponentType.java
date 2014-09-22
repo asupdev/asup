@@ -17,5 +17,6 @@ public enum CLParmComponentType {
 	SPECIAL,
 	STRING,
 	FUNCTION,
-	STR_OPERATOR
+	VALUE,
+	STR_OPERATOR	
 }

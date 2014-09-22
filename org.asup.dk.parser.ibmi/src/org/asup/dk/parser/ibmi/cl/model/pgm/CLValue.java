@@ -11,6 +11,8 @@
 package org.asup.dk.parser.ibmi.cl.model.pgm;
 
 public class CLValue extends CLAbstractComponent {
+	
+	
 
 	@Override
 	public CLComponentType getComponentType() {		
