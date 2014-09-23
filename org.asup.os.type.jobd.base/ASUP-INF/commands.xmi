@@ -5,7 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:il-core="http://www.asup.org/il/core"
     xmlns:il-data="http://www.asup.org/il/data"
-    xmlns:os-type-cmd="http://www.asup.org/os/type/cmd">
+    xmlns:os-type-cmd="http://www.asup.org/os/type/cmd"
+    name="os-type-jobd-command">
   <contents
       xsi:type="os-type-cmd:Command"
       name="CHGJOBD"
@@ -1336,8 +1337,8 @@
               value="*NONE"/>
         </facets>
         <definition
-            xsi:type="il-data:ArrayDef"
-            dimension="250">
+            xsi:type="il-data:ScrollerDef"
+            occurrences="250">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
