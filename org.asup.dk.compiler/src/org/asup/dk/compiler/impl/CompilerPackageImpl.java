@@ -7,7 +7,10 @@
  */
 package org.asup.dk.compiler.impl;
 
+import org.asup.dk.compiler.CaseSensitiveType;
+import org.asup.dk.compiler.EntryType;
 import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.QCompilerManager;
 import org.asup.dk.compiler.QCompilerPackage;
@@ -23,11 +26,12 @@ import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.asup.os.type.module.QOperatingSystemModulePackage;
 import org.asup.os.type.pgm.QOperatingSystemProgramPackage;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -49,6 +53,13 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass compilationSetupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass unitConverterEClass = null;
 
 	/**
@@ -57,6 +68,20 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * @generated
 	 */
 	private EClass unitConverterRegistryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum entryTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum caseSensitiveTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +171,42 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCompilationSetup() {
+		return compilationSetupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompilationSetup_BasePackage() {
+		return (EAttribute)compilationSetupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompilationSetup_EntryType() {
+		return (EAttribute)compilationSetupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompilationSetup_SuperClass() {
+		return (EAttribute)compilationSetupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUnitConverter() {
 		return unitConverterEClass;
 	}
@@ -157,6 +218,24 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 */
 	public EClass getUnitConverterRegistry() {
 		return unitConverterRegistryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEntryType() {
+		return entryTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCaseSensitiveType() {
+		return caseSensitiveTypeEEnum;
 	}
 
 	/**
@@ -198,11 +277,20 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		// Create classes and their features
 		compilationContextEClass = createEClass(COMPILATION_CONTEXT);
 
+		compilationSetupEClass = createEClass(COMPILATION_SETUP);
+		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__BASE_PACKAGE);
+		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__ENTRY_TYPE);
+		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__SUPER_CLASS);
+
+		compilerManagerEClass = createEClass(COMPILER_MANAGER);
+
 		unitConverterEClass = createEClass(UNIT_CONVERTER);
 
 		unitConverterRegistryEClass = createEClass(UNIT_CONVERTER_REGISTRY);
 
-		compilerManagerEClass = createEClass(COMPILER_MANAGER);
+		// Create enums
+		entryTypeEEnum = createEEnum(ENTRY_TYPE);
+		caseSensitiveTypeEEnum = createEEnum(CASE_SENSITIVE_TYPE);
 	}
 
 	/**
@@ -236,8 +324,8 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		QIntegratedLanguageCorePackage theIntegratedLanguageCorePackage = (QIntegratedLanguageCorePackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageCorePackage.eNS_URI);
 		QOperatingSystemFilePackage theOperatingSystemFilePackage = (QOperatingSystemFilePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemFilePackage.eNS_URI);
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
-		QOperatingSystemModulePackage theOperatingSystemModulePackage = (QOperatingSystemModulePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemModulePackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
+		QOperatingSystemModulePackage theOperatingSystemModulePackage = (QOperatingSystemModulePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemModulePackage.eNS_URI);
 		QOperatingSystemProgramPackage theOperatingSystemProgramPackage = (QOperatingSystemProgramPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemProgramPackage.eNS_URI);
 
 		// Create type parameters
@@ -246,18 +334,24 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 
 		// Add supertypes to classes
 		compilationContextEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
+		compilerManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		unitConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		unitConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		EGenericType g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
 		EGenericType g2 = createEGenericType(this.getUnitConverter());
 		g1.getETypeArguments().add(g2);
 		unitConverterRegistryEClass.getEGenericSuperTypes().add(g1);
-		compilerManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(compilationContextEClass, QCompilationContext.class, "CompilationContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(compilationContextEClass, theIntegratedLanguageIsamPackage.getDataSetTerm(), "getDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(compilationContextEClass, ecorePackage.getEBoolean(), "equalsTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(compilationContextEClass, this.getCaseSensitiveType(), "getCaseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilationContextEClass, theIntegratedLanguageIsamPackage.getDataSetTerm(), "getDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -277,6 +371,9 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(compilationContextEClass, theOperatingSystemFilePackage.getPhysicalFile(), "getPhysicalFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getProcedure(), "getProcedure", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -289,20 +386,65 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "getQualifiedName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageCorePackage.getNamedNode(), "namedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(compilationContextEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getRoot", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getRoutine(), "getRoutine", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "getQualifiedName", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageCorePackage.getNamedNode(), "namedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getCallableUnit(), "getUnitContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = addEOperation(compilationContextEClass, null, "linkDataSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageIsamPackage.getDataSetTerm(), "dataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theOperatingSystemFilePackage.getPhysicalFile(), "getPhysicalFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "normalizeTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "normalizeTypeName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(compilationSetupEClass, QCompilationSetup.class, "CompilationSetup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCompilationSetup_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompilationSetup_EntryType(), this.getEntryType(), "entryType", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getCompilationSetup_SuperClass(), g1, "superClass", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compilerManagerEClass, QCompilerManager.class, "CompilerManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createChildContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationContext(), "master", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageFlowPackage.getProcedure(), "procedure", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageFlowPackage.getModule(), "module", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageFlowPackage.getProgram(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilerManagerEClass, null, "writeModule", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theFrameworkJavaPackage.getJavaIOException());
+
+		op = addEOperation(compilerManagerEClass, null, "writeProgram", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theFrameworkJavaPackage.getJavaIOException());
+
+		op = addEOperation(compilerManagerEClass, null, "writeStub", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		initEClass(unitConverterEClass, QUnitConverter.class, "UnitConverter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -318,31 +460,15 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 
 		initEClass(unitConverterRegistryEClass, QUnitConverterRegistry.class, "UnitConverterRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(compilerManagerEClass, QCompilerManager.class, "CompilerManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		// Initialize enums and add enum literals
+		initEEnum(entryTypeEEnum, EntryType.class, "EntryType");
+		addEEnumLiteral(entryTypeEEnum, EntryType.MAIN);
+		addEEnumLiteral(entryTypeEEnum, EntryType.ENTRY);
 
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createChildContext", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "master", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageFlowPackage.getProcedure(), "procedure", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageFlowPackage.getModule(), "module", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageFlowPackage.getProgram(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(compilerManagerEClass, null, "prepareVisitor", 0, 1, IS_UNIQUE, IS_ORDERED);
-		ETypeParameter t1 = addETypeParameter(op, "T");
-		g1 = createEGenericType(ecorePackage.getEJavaObject());
-		t1.getEBounds().add(g1);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType(t1);
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "visitor", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(t1);
-		initEOperation(op, g1);
+		initEEnum(caseSensitiveTypeEEnum, CaseSensitiveType.class, "CaseSensitiveType");
+		addEEnumLiteral(caseSensitiveTypeEEnum, CaseSensitiveType.LOWER);
+		addEEnumLiteral(caseSensitiveTypeEEnum, CaseSensitiveType.UPPER);
+		addEEnumLiteral(caseSensitiveTypeEEnum, CaseSensitiveType.IGNORE);
 
 		// Create resource
 		createResource(eNS_URI);

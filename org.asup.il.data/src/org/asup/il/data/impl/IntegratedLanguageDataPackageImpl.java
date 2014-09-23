@@ -1474,15 +1474,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUnaryAtomicDataDef_Default() {
-		return (EAttribute)unaryAtomicDataDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUnaryAtomicDataTerm() {
 		return unaryAtomicDataTermEClass;
 	}
@@ -1842,7 +1833,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		structEClass = createEClass(STRUCT);
 
 		unaryAtomicDataDefEClass = createEClass(UNARY_ATOMIC_DATA_DEF);
-		createEAttribute(unaryAtomicDataDefEClass, UNARY_ATOMIC_DATA_DEF__DEFAULT);
 
 		unaryAtomicDataTermEClass = createEClass(UNARY_ATOMIC_DATA_TERM);
 
@@ -3432,7 +3422,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEOperation(structEClass, this.getBufferedData(), "getElements", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(unaryAtomicDataDefEClass, QUnaryAtomicDataDef.class, "UnaryAtomicDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getUnaryAtomicDataDef_Default(), ecorePackage.getEByteArray(), "default", null, 0, 1, QUnaryAtomicDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unaryAtomicDataTermEClass, QUnaryAtomicDataTerm.class, "UnaryAtomicDataTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

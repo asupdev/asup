@@ -8,7 +8,9 @@
 package org.asup.dk.compiler;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 /**
@@ -79,6 +81,52 @@ public interface QCompilerPackage extends EPackage {
 	int COMPILATION_CONTEXT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.impl.CompilationSetupImpl
+	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilationSetup()
+	 * @generated
+	 */
+	int COMPILATION_SETUP = 1;
+
+	/**
+	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_SETUP__BASE_PACKAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Entry Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_SETUP__ENTRY_TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Super Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_SETUP__SUPER_CLASS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Compilation Setup</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_SETUP_FEATURE_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.UnitConverterImpl <em>Unit Converter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,7 +134,66 @@ public interface QCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverter()
 	 * @generated
 	 */
-	int UNIT_CONVERTER = 1;
+	int UNIT_CONVERTER = 3;
+
+	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.UnitConverterRegistryImpl <em>Unit Converter Registry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.impl.UnitConverterRegistryImpl
+	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverterRegistry()
+	 * @generated
+	 */
+	int UNIT_CONVERTER_REGISTRY = 4;
+
+	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.EntryType <em>Entry Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.EntryType
+	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getEntryType()
+	 * @generated
+	 */
+	int ENTRY_TYPE = 5;
+
+	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.CaseSensitiveType <em>Case Sensitive Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.CaseSensitiveType
+	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCaseSensitiveType()
+	 * @generated
+	 */
+	int CASE_SENSITIVE_TYPE = 6;
+
+	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.impl.CompilerManagerImpl
+	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerManager()
+	 * @generated
+	 */
+	int COMPILER_MANAGER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILER_MANAGER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
+
+	/**
+	 * The number of structural features of the '<em>Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILER_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
+
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -143,16 +250,6 @@ public interface QCompilerPackage extends EPackage {
 	int UNIT_CONVERTER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.dk.compiler.impl.UnitConverterRegistryImpl <em>Unit Converter Registry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.dk.compiler.impl.UnitConverterRegistryImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverterRegistry()
-	 * @generated
-	 */
-	int UNIT_CONVERTER_REGISTRY = 2;
-
-	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,35 +278,6 @@ public interface QCompilerPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Manager</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.dk.compiler.impl.CompilerManagerImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerManager()
-	 * @generated
-	 */
-	int COMPILER_MANAGER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILER_MANAGER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
-
-	/**
-	 * The number of structural features of the '<em>Manager</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILER_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
-
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationContext <em>Compilation Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +286,49 @@ public interface QCompilerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompilationContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationSetup <em>Compilation Setup</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compilation Setup</em>'.
+	 * @see org.asup.dk.compiler.QCompilationSetup
+	 * @generated
+	 */
+	EClass getCompilationSetup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.dk.compiler.QCompilationSetup#getBasePackage <em>Base Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Package</em>'.
+	 * @see org.asup.dk.compiler.QCompilationSetup#getBasePackage()
+	 * @see #getCompilationSetup()
+	 * @generated
+	 */
+	EAttribute getCompilationSetup_BasePackage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.dk.compiler.QCompilationSetup#getEntryType <em>Entry Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Entry Type</em>'.
+	 * @see org.asup.dk.compiler.QCompilationSetup#getEntryType()
+	 * @see #getCompilationSetup()
+	 * @generated
+	 */
+	EAttribute getCompilationSetup_EntryType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.dk.compiler.QCompilationSetup#getSuperClass <em>Super Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Super Class</em>'.
+	 * @see org.asup.dk.compiler.QCompilationSetup#getSuperClass()
+	 * @see #getCompilationSetup()
+	 * @generated
+	 */
+	EAttribute getCompilationSetup_SuperClass();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QUnitConverter <em>Unit Converter</em>}'.
@@ -238,6 +349,26 @@ public interface QCompilerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnitConverterRegistry();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.dk.compiler.EntryType <em>Entry Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Entry Type</em>'.
+	 * @see org.asup.dk.compiler.EntryType
+	 * @generated
+	 */
+	EEnum getEntryType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.dk.compiler.CaseSensitiveType <em>Case Sensitive Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Case Sensitive Type</em>'.
+	 * @see org.asup.dk.compiler.CaseSensitiveType
+	 * @generated
+	 */
+	EEnum getCaseSensitiveType();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilerManager <em>Manager</em>}'.
@@ -282,6 +413,40 @@ public interface QCompilerPackage extends EPackage {
 		EClass COMPILATION_CONTEXT = eINSTANCE.getCompilationContext();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.dk.compiler.impl.CompilationSetupImpl
+		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilationSetup()
+		 * @generated
+		 */
+		EClass COMPILATION_SETUP = eINSTANCE.getCompilationSetup();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPILATION_SETUP__BASE_PACKAGE = eINSTANCE.getCompilationSetup_BasePackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Entry Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPILATION_SETUP__ENTRY_TYPE = eINSTANCE.getCompilationSetup_EntryType();
+
+		/**
+		 * The meta object literal for the '<em><b>Super Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPILATION_SETUP__SUPER_CLASS = eINSTANCE.getCompilationSetup_SuperClass();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.UnitConverterImpl <em>Unit Converter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -300,6 +465,26 @@ public interface QCompilerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNIT_CONVERTER_REGISTRY = eINSTANCE.getUnitConverterRegistry();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.dk.compiler.EntryType <em>Entry Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.dk.compiler.EntryType
+		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getEntryType()
+		 * @generated
+		 */
+		EEnum ENTRY_TYPE = eINSTANCE.getEntryType();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.dk.compiler.CaseSensitiveType <em>Case Sensitive Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.dk.compiler.CaseSensitiveType
+		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCaseSensitiveType()
+		 * @generated
+		 */
+		EEnum CASE_SENSITIVE_TYPE = eINSTANCE.getCaseSensitiveType();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Manager</em>}' class.

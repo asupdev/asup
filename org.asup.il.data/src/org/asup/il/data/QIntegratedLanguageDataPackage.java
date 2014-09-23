@@ -803,31 +803,13 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int UNARY_DATA_DEF_FEATURE_COUNT = DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARY_ATOMIC_DATA_DEF__DEFAULT = UNARY_DATA_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Unary Atomic Data Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT = UNARY_DATA_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
+	int UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT = UNARY_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -966,15 +948,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int BUFFER_DEF = 10;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BUFFER_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
-
-	/**
 	 * The number of structural features of the '<em>Buffer Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1000,15 +973,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHARACTER_FEATURE_COUNT = STRING_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHARACTER_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
 
 	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
@@ -1805,15 +1769,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATETIME_FEATURE_COUNT = BUFFERED_DATA_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATETIME_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1848,15 +1803,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int DECIMAL_FEATURE_COUNT = NUMERIC_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECIMAL_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
 
 	/**
 	 * The feature id for the '<em><b>Precision</b></em>' attribute.
@@ -1950,15 +1896,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int FLOATING_FEATURE_COUNT = NUMERIC_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FLOATING_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1995,15 +1932,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int HEXADECIMAL_FEATURE_COUNT = BUFFERED_DATA_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HEXADECIMAL_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
-
-	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2038,15 +1966,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int INDICATOR_FEATURE_COUNT = STRING_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDICATOR_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
 
 	/**
 	 * The number of structural features of the '<em>Indicator Def</em>' class.
@@ -2347,15 +2266,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int NUMERIC_DEF = 53;
 
 	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMERIC_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
-
-	/**
 	 * The number of structural features of the '<em>Numeric Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2372,15 +2282,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINTER_FEATURE_COUNT = BUFFERED_DATA_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POINTER_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
 
 	/**
 	 * The number of structural features of the '<em>Pointer Def</em>' class.
@@ -2427,15 +2328,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	int STRING_DEF = 59;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRING_DEF__DEFAULT = UNARY_ATOMIC_DATA_DEF__DEFAULT;
 
 	/**
 	 * The number of structural features of the '<em>String Def</em>' class.
@@ -3701,17 +3593,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EClass getUnaryAtomicDataDef();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QUnaryAtomicDataDef#getDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see org.asup.il.data.QUnaryAtomicDataDef#getDefault()
-	 * @see #getUnaryAtomicDataDef()
-	 * @generated
-	 */
-	EAttribute getUnaryAtomicDataDef_Default();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QUnaryAtomicDataTerm <em>Unary Atomic Data Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4754,14 +4635,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNARY_ATOMIC_DATA_DEF = eINSTANCE.getUnaryAtomicDataDef();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNARY_ATOMIC_DATA_DEF__DEFAULT = eINSTANCE.getUnaryAtomicDataDef_Default();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.UnaryAtomicDataTermImpl <em>Unary Atomic Data Term</em>}' class.

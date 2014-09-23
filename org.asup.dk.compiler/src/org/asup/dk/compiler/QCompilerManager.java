@@ -7,6 +7,8 @@
  */
 package org.asup.dk.compiler;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import org.asup.fw.core.QService;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
@@ -35,25 +37,41 @@ public interface QCompilerManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" jobRequired="true" moduleRequired="true"
+	 * @model required="true" jobRequired="true" moduleRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createCompilationContext(QJob job, QModule module);
+	QCompilationContext createCompilationContext(QJob job, QModule module, CaseSensitiveType caseSensitive);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" jobRequired="true" programRequired="true"
+	 * @model required="true" jobRequired="true" programRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createCompilationContext(QJob job, QProgram program);
+	QCompilationContext createCompilationContext(QJob job, QProgram program, CaseSensitiveType caseSensitive);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model contextRequired="true" visitorRequired="true" TBounds="org.eclipse.emf.ecore.EJavaObject"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	<T extends Object> T prepareVisitor(QCompilationContext context, Class<T> visitor);
+	void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @generated
+	 */
+	void writeStub(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @generated
+	 */
+	void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
 
 } // QCompilerManager

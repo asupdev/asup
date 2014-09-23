@@ -17,7 +17,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.QCompilerManager;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QTermExpression;
 import org.asup.il.flow.QCall;
@@ -26,8 +25,6 @@ import org.asup.il.flow.impl.StatementVisitorImpl;
 public class StatementNormalizer extends StatementVisitorImpl {
 
 	@Inject
-	private QCompilerManager compilerManager;
-	@Inject
 	private QCompilationContext compilationContext;
 	@Inject
 	private QExpressionParser expressionParser;
@@ -35,7 +32,7 @@ public class StatementNormalizer extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QCall statement) {
 		
-		ExpressionBaseStringBuilder builder = compilerManager.prepareVisitor(compilationContext, ExpressionBaseStringBuilder.class);
+		ExpressionBaseStringBuilder builder = compilationContext.make(ExpressionBaseStringBuilder.class);
 		
 		// program
 		QTermExpression expression = expressionParser.parseTerm(statement.getProgram());

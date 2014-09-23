@@ -27,6 +27,15 @@ public interface QCompilerFactory extends EFactory {
 	QCompilerFactory eINSTANCE = org.asup.dk.compiler.impl.CompilerFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Compilation Setup</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compilation Setup</em>'.
+	 * @generated
+	 */
+	QCompilationSetup createCompilationSetup();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

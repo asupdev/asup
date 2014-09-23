@@ -10,7 +10,7 @@
  *   Giuliano Giancristofaro - Initial API and implementation 
  *   Mattia Rocchi			 - Implementation
  */
-package org.asup.dk.compiler.rpj.util;
+package org.asup.dk.compiler.rpj.helper;
 
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QSpecial;
@@ -51,10 +51,10 @@ public class EnumHelper {
 		}
 		
 		// restricted
-		if (dataTerm.isRestricted()) {
+		if (!dataTerm.isRestricted()) {
 			EnumConstantDeclaration constantDeclaration = ast.newEnumConstantDeclaration();
+			constantDeclaration.setName(ast.newSimpleName("OTHER"));
 			QSpecialElement elemDef = QIntegratedLanguageCoreFactory.eINSTANCE.createSpecialElement();
-			elemDef.setName("OTHER");
 			writeEnumField(constantDeclaration, elemDef);
 			target.enumConstants().add(num, constantDeclaration);
 		}
