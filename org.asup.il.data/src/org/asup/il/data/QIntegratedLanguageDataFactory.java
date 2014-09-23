@@ -81,15 +81,6 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	QDataStructDef createDataStructDef();
 
 	/**
-	 * Returns a new object of class '<em>Data Stroller Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Stroller Def</em>'.
-	 * @generated
-	 */
-	<D extends QDataStroller<?>> QDataStrollerDef<D> createDataStrollerDef();
-
-	/**
 	 * Returns a new object of class '<em>Datetime Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +187,15 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	 * @generated
 	 */
 	QStringDef createStringDef();
+
+	/**
+	 * Returns a new object of class '<em>Stroller Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Stroller Def</em>'.
+	 * @generated
+	 */
+	<D extends QStroller<?>> QStrollerDef<D> createStrollerDef();
 
 	/**
 	 * Returns a new object of class '<em>Unary Atomic Data Term</em>'.

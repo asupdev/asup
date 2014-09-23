@@ -123,7 +123,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getNumeric()
 	 * @generated
 	 */
-	int NUMERIC = 52;
+	int NUMERIC = 50;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QBinary <em>Binary</em>}' class.
@@ -143,7 +143,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataTerm()
 	 * @generated
 	 */
-	int DATA_TERM = 26;
+	int DATA_TERM = 24;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.BufferedDataTermImpl <em>Buffered Data Term</em>}' class.
@@ -183,7 +183,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 58;
+	int STRING = 56;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QCharacter <em>Character</em>}' class.
@@ -253,7 +253,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataTermContainer()
 	 * @generated
 	 */
-	int DATA_TERM_CONTAINER = 27;
+	int DATA_TERM_CONTAINER = 25;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QDatetime <em>Datetime</em>}' class.
@@ -263,7 +263,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDatetime()
 	 * @generated
 	 */
-	int DATETIME = 30;
+	int DATETIME = 28;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.DatetimeDefImpl <em>Datetime Def</em>}' class.
@@ -273,7 +273,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDatetimeDef()
 	 * @generated
 	 */
-	int DATETIME_DEF = 31;
+	int DATETIME_DEF = 29;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QDecimal <em>Decimal</em>}' class.
@@ -283,7 +283,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDecimal()
 	 * @generated
 	 */
-	int DECIMAL = 32;
+	int DECIMAL = 30;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.DecimalDefImpl <em>Decimal Def</em>}' class.
@@ -293,7 +293,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDecimalDef()
 	 * @generated
 	 */
-	int DECIMAL_DEF = 33;
+	int DECIMAL_DEF = 31;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.EnumImpl <em>Enum</em>}' class.
@@ -303,7 +303,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getEnum()
 	 * @generated
 	 */
-	int ENUM = 34;
+	int ENUM = 32;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QFloating <em>Floating</em>}' class.
@@ -313,7 +313,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getFloating()
 	 * @generated
 	 */
-	int FLOATING = 36;
+	int FLOATING = 34;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.FloatingDefImpl <em>Floating Def</em>}' class.
@@ -323,7 +323,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getFloatingDef()
 	 * @generated
 	 */
-	int FLOATING_DEF = 37;
+	int FLOATING_DEF = 35;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QGraphic <em>Graphic</em>}' class.
@@ -333,7 +333,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getGraphic()
 	 * @generated
 	 */
-	int GRAPHIC = 38;
+	int GRAPHIC = 36;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QHexadecimal <em>Hexadecimal</em>}' class.
@@ -343,7 +343,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getHexadecimal()
 	 * @generated
 	 */
-	int HEXADECIMAL = 39;
+	int HEXADECIMAL = 37;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.HexadecimalDefImpl <em>Hexadecimal Def</em>}' class.
@@ -353,7 +353,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getHexadecimalDef()
 	 * @generated
 	 */
-	int HEXADECIMAL_DEF = 40;
+	int HEXADECIMAL_DEF = 38;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QIdentifier <em>Identifier</em>}' class.
@@ -363,7 +363,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getIdentifier()
 	 * @generated
 	 */
-	int IDENTIFIER = 41;
+	int IDENTIFIER = 39;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QIndicator <em>Indicator</em>}' class.
@@ -373,7 +373,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getIndicator()
 	 * @generated
 	 */
-	int INDICATOR = 42;
+	int INDICATOR = 40;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.IndicatorDefImpl <em>Indicator Def</em>}' class.
@@ -383,7 +383,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getIndicatorDef()
 	 * @generated
 	 */
-	int INDICATOR_DEF = 43;
+	int INDICATOR_DEF = 41;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QMoveable <em>Moveable</em>}' class.
@@ -393,7 +393,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMoveable()
 	 * @generated
 	 */
-	int MOVEABLE = 44;
+	int MOVEABLE = 42;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QList <em>List</em>}' class.
@@ -403,7 +403,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getList()
 	 * @generated
 	 */
-	int LIST = 45;
+	int LIST = 43;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QArray <em>Array</em>}' class.
@@ -459,7 +459,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMultipleDataDef()
 	 * @generated
 	 */
-	int MULTIPLE_DATA_DEF = 50;
+	int MULTIPLE_DATA_DEF = 48;
 
 	/**
 	 * The number of structural features of the '<em>Multiple Data Def</em>' class.
@@ -478,7 +478,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMultipleAtomicDataDef()
 	 * @generated
 	 */
-	int MULTIPLE_ATOMIC_DATA_DEF = 46;
+	int MULTIPLE_ATOMIC_DATA_DEF = 44;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
@@ -552,7 +552,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getUnaryDataTerm()
 	 * @generated
 	 */
-	int UNARY_DATA_TERM = 67;
+	int UNARY_DATA_TERM = 66;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.UnaryAtomicDataTermImpl <em>Unary Atomic Data Term</em>}' class.
@@ -562,7 +562,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getUnaryAtomicDataTerm()
 	 * @generated
 	 */
-	int UNARY_ATOMIC_DATA_TERM = 63;
+	int UNARY_ATOMIC_DATA_TERM = 62;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.UnaryCompoundDataTermImpl <em>Unary Compound Data Term</em>}' class.
@@ -572,7 +572,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getUnaryCompoundDataTerm()
 	 * @generated
 	 */
-	int UNARY_COMPOUND_DATA_TERM = 65;
+	int UNARY_COMPOUND_DATA_TERM = 64;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.UnaryDataDefImpl <em>Unary Data Def</em>}' class.
@@ -582,7 +582,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getUnaryDataDef()
 	 * @generated
 	 */
-	int UNARY_DATA_DEF = 66;
+	int UNARY_DATA_DEF = 65;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.UnaryAtomicDataDefImpl <em>Unary Atomic Data Def</em>}' class.
@@ -592,7 +592,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getUnaryAtomicDataDef()
 	 * @generated
 	 */
-	int UNARY_ATOMIC_DATA_DEF = 62;
+	int UNARY_ATOMIC_DATA_DEF = 61;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1067,16 +1067,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATA_STRUCT_DEF = 23;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.data.impl.DataStrollerDefImpl <em>Data Stroller Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.data.impl.DataStrollerDefImpl
-	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataStrollerDef()
-	 * @generated
-	 */
-	int DATA_STROLLER_DEF = 25;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.data.QPointer <em>Pointer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1084,7 +1074,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getPointer()
 	 * @generated
 	 */
-	int POINTER = 54;
+	int POINTER = 52;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.PointerDefImpl <em>Pointer Def</em>}' class.
@@ -1094,7 +1084,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getPointerDef()
 	 * @generated
 	 */
-	int POINTER_DEF = 55;
+	int POINTER_DEF = 53;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QScroller <em>Scroller</em>}' class.
@@ -1104,7 +1094,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getScroller()
 	 * @generated
 	 */
-	int SCROLLER = 56;
+	int SCROLLER = 54;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.ScrollerDefImpl <em>Scroller Def</em>}' class.
@@ -1114,7 +1104,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getScrollerDef()
 	 * @generated
 	 */
-	int SCROLLER_DEF = 57;
+	int SCROLLER_DEF = 55;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QStruct <em>Struct</em>}' class.
@@ -1124,7 +1114,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getStruct()
 	 * @generated
 	 */
-	int STRUCT = 61;
+	int STRUCT = 60;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QStroller <em>Stroller</em>}' class.
@@ -1134,7 +1124,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getStroller()
 	 * @generated
 	 */
-	int STROLLER = 60;
+	int STROLLER = 58;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QDataStruct <em>Data Struct</em>}' class.
@@ -1147,16 +1137,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATA_STRUCT = 22;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.data.QDataStroller <em>Data Stroller</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.data.QDataStroller
-	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataStroller()
-	 * @generated
-	 */
-	int DATA_STROLLER = 24;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.MultipleDataTermImpl <em>Multiple Data Term</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1164,7 +1144,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMultipleDataTerm()
 	 * @generated
 	 */
-	int MULTIPLE_DATA_TERM = 51;
+	int MULTIPLE_DATA_TERM = 49;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.CompoundDataPartImpl <em>Compound Data Part</em>}' class.
@@ -1455,7 +1435,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getUnaryCompoundDataDef()
 	 * @generated
 	 */
-	int UNARY_COMPOUND_DATA_DEF = 64;
+	int UNARY_COMPOUND_DATA_DEF = 63;
 
 	/**
 	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
@@ -1557,15 +1537,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATA_STRUCT_DEF_FEATURE_COUNT = UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Scroller</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCROLLER_FEATURE_COUNT = LIST_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.MultipleCompoundDataDefImpl <em>Multiple Compound Data Def</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1573,7 +1544,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMultipleCompoundDataDef()
 	 * @generated
 	 */
-	int MULTIPLE_COMPOUND_DATA_DEF = 48;
+	int MULTIPLE_COMPOUND_DATA_DEF = 46;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.MultipleAtomicDataTermImpl <em>Multiple Atomic Data Term</em>}' class.
@@ -1583,7 +1554,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMultipleAtomicDataTerm()
 	 * @generated
 	 */
-	int MULTIPLE_ATOMIC_DATA_TERM = 47;
+	int MULTIPLE_ATOMIC_DATA_TERM = 45;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.MultipleCompoundDataTermImpl <em>Multiple Compound Data Term</em>}' class.
@@ -1593,133 +1564,17 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getMultipleCompoundDataTerm()
 	 * @generated
 	 */
-	int MULTIPLE_COMPOUND_DATA_TERM = 49;
+	int MULTIPLE_COMPOUND_DATA_TERM = 47;
 
 	/**
-	 * The number of structural features of the '<em>Stroller</em>' class.
+	 * The meta object id for the '{@link org.asup.il.data.impl.StrollerDefImpl <em>Stroller Def</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see org.asup.il.data.impl.StrollerDefImpl
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getStrollerDef()
 	 * @generated
-	 * @ordered
 	 */
-	int STROLLER_FEATURE_COUNT = SCROLLER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Data Stroller</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_FEATURE_COUNT = STROLLER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR = MULTIPLE_DATA_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS = MULTIPLE_DATA_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_COMPOUND_DATA_DEF__PREFIX = MULTIPLE_DATA_DEF_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED = MULTIPLE_DATA_DEF_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Multiple Compound Data Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT = MULTIPLE_DATA_DEF_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF__CLASS_DELEGATOR = MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF__ELEMENTS = MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF__PREFIX = MULTIPLE_COMPOUND_DATA_DEF__PREFIX;
-
-	/**
-	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF__QUALIFIED = MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED;
-
-	/**
-	 * The feature id for the '<em><b>Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF__LENGTH = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Occurrences</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF__OCCURRENCES = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Data Stroller Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_STROLLER_DEF_FEATURE_COUNT = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 2;
+	int STROLLER_DEF = 59;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.DataTermVisitorImpl <em>Data Term Visitor</em>}' class.
@@ -1729,7 +1584,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataTermVisitor()
 	 * @generated
 	 */
-	int DATA_TERM_VISITOR = 28;
+	int DATA_TERM_VISITOR = 26;
 
 	/**
 	 * The number of structural features of the '<em>Data Term Visitor</em>' class.
@@ -1748,7 +1603,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataVisitor()
 	 * @generated
 	 */
-	int DATA_VISITOR = 29;
+	int DATA_VISITOR = 27;
 
 	/**
 	 * The number of structural features of the '<em>Data Visitor</em>' class.
@@ -1857,7 +1712,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getEnumDef()
 	 * @generated
 	 */
-	int ENUM_DEF = 35;
+	int ENUM_DEF = 33;
 
 	/**
 	 * The feature id for the '<em><b>Delegate</b></em>' containment reference.
@@ -2166,6 +2021,51 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int MULTIPLE_ATOMIC_DATA_TERM_FEATURE_COUNT = MULTIPLE_DATA_TERM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR = MULTIPLE_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS = MULTIPLE_DATA_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_COMPOUND_DATA_DEF__PREFIX = MULTIPLE_DATA_DEF_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED = MULTIPLE_DATA_DEF_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Multiple Compound Data Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT = MULTIPLE_DATA_DEF_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2263,7 +2163,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getNumericDef()
 	 * @generated
 	 */
-	int NUMERIC_DEF = 53;
+	int NUMERIC_DEF = 51;
 
 	/**
 	 * The number of structural features of the '<em>Numeric Def</em>' class.
@@ -2291,6 +2191,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int POINTER_DEF_FEATURE_COUNT = UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Scroller</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCROLLER_FEATURE_COUNT = LIST_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
@@ -2327,7 +2236,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getStringDef()
 	 * @generated
 	 */
-	int STRING_DEF = 59;
+	int STRING_DEF = 57;
 
 	/**
 	 * The number of structural features of the '<em>String Def</em>' class.
@@ -2337,6 +2246,78 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int STRING_DEF_FEATURE_COUNT = UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Stroller</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_FEATURE_COUNT = SCROLLER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__CLASS_DELEGATOR = MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__ELEMENTS = MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__PREFIX = MULTIPLE_COMPOUND_DATA_DEF__PREFIX;
+
+	/**
+	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__QUALIFIED = MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED;
+
+	/**
+	 * The feature id for the '<em><b>Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__LENGTH = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Occurrences</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__OCCURRENCES = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Stroller Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF_FEATURE_COUNT = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -2643,7 +2624,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getBinaryType()
 	 * @generated
 	 */
-	int BINARY_TYPE = 68;
+	int BINARY_TYPE = 67;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.DataType <em>Data Type</em>}' enum.
@@ -2653,7 +2634,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 69;
+	int DATA_TYPE = 68;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.DatetimeType <em>Datetime Type</em>}' enum.
@@ -2663,7 +2644,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDatetimeType()
 	 * @generated
 	 */
-	int DATETIME_TYPE = 70;
+	int DATETIME_TYPE = 69;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.DecimalType <em>Decimal Type</em>}' enum.
@@ -2673,7 +2654,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDecimalType()
 	 * @generated
 	 */
-	int DECIMAL_TYPE = 71;
+	int DECIMAL_TYPE = 70;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.FloatingType <em>Floating Type</em>}' enum.
@@ -2683,7 +2664,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getFloatingType()
 	 * @generated
 	 */
-	int FLOATING_TYPE = 72;
+	int FLOATING_TYPE = 71;
 
 	/**
 	 * The meta object id for the '<em>Data Array</em>' data type.
@@ -2692,7 +2673,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataArray()
 	 * @generated
 	 */
-	int DATA_ARRAY = 73;
+	int DATA_ARRAY = 72;
 
 
 	/**
@@ -2980,48 +2961,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataStructDef_Length();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.il.data.QDataStroller <em>Data Stroller</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Stroller</em>'.
-	 * @see org.asup.il.data.QDataStroller
-	 * @generated
-	 */
-	EClass getDataStroller();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.il.data.QDataStrollerDef <em>Data Stroller Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Stroller Def</em>'.
-	 * @see org.asup.il.data.QDataStrollerDef
-	 * @generated
-	 */
-	EClass getDataStrollerDef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QDataStrollerDef#getLength <em>Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Length</em>'.
-	 * @see org.asup.il.data.QDataStrollerDef#getLength()
-	 * @see #getDataStrollerDef()
-	 * @generated
-	 */
-	EAttribute getDataStrollerDef_Length();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QDataStrollerDef#getOccurrences <em>Occurrences</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Occurrences</em>'.
-	 * @see org.asup.il.data.QDataStrollerDef#getOccurrences()
-	 * @see #getDataStrollerDef()
-	 * @generated
-	 */
-	EAttribute getDataStrollerDef_Occurrences();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QDataTerm <em>Data Term</em>}'.
@@ -3739,6 +3678,38 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EClass getStroller();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.il.data.QStrollerDef <em>Stroller Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Stroller Def</em>'.
+	 * @see org.asup.il.data.QStrollerDef
+	 * @generated
+	 */
+	EClass getStrollerDef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QStrollerDef#getLength <em>Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Length</em>'.
+	 * @see org.asup.il.data.QStrollerDef#getLength()
+	 * @see #getStrollerDef()
+	 * @generated
+	 */
+	EAttribute getStrollerDef_Length();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QStrollerDef#getOccurrences <em>Occurrences</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Occurrences</em>'.
+	 * @see org.asup.il.data.QStrollerDef#getOccurrences()
+	 * @see #getStrollerDef()
+	 * @generated
+	 */
+	EAttribute getStrollerDef_Occurrences();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.il.data.BinaryType <em>Binary Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4087,42 +4058,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_STRUCT_DEF__LENGTH = eINSTANCE.getDataStructDef_Length();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.il.data.QDataStroller <em>Data Stroller</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.il.data.QDataStroller
-		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataStroller()
-		 * @generated
-		 */
-		EClass DATA_STROLLER = eINSTANCE.getDataStroller();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.il.data.impl.DataStrollerDefImpl <em>Data Stroller Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.il.data.impl.DataStrollerDefImpl
-		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataStrollerDef()
-		 * @generated
-		 */
-		EClass DATA_STROLLER_DEF = eINSTANCE.getDataStrollerDef();
-
-		/**
-		 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_STROLLER_DEF__LENGTH = eINSTANCE.getDataStrollerDef_Length();
-
-		/**
-		 * The meta object literal for the '<em><b>Occurrences</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_STROLLER_DEF__OCCURRENCES = eINSTANCE.getDataStrollerDef_Occurrences();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.DataTermImpl <em>Data Term</em>}' class.
@@ -4763,6 +4698,32 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STROLLER = eINSTANCE.getStroller();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.data.impl.StrollerDefImpl <em>Stroller Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.data.impl.StrollerDefImpl
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getStrollerDef()
+		 * @generated
+		 */
+		EClass STROLLER_DEF = eINSTANCE.getStrollerDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STROLLER_DEF__LENGTH = eINSTANCE.getStrollerDef_Length();
+
+		/**
+		 * The meta object literal for the '<em><b>Occurrences</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STROLLER_DEF__OCCURRENCES = eINSTANCE.getStrollerDef_Occurrences();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.BinaryType <em>Binary Type</em>}' enum.

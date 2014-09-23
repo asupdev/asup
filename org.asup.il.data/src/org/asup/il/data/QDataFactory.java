@@ -86,7 +86,7 @@ public interface QDataFactory {
 	 * @model required="true" occurrencesRequired="true"
 	 * @generated
 	 */
-	<D extends QDataStruct> QDataStroller<D> createDataStroller(Class<D> classDelegator, int occurrences);
+	<D extends QDataStruct> QStroller<D> createDataStroller(Class<D> classDelegator, int occurrences);
 
 	/**
 	 * <!-- begin-user-doc -->

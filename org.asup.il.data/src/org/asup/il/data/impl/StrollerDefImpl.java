@@ -10,28 +10,28 @@ package org.asup.il.data.impl;
 import java.lang.String;
 import java.util.List;
 
-import org.asup.il.data.QDataStroller;
-import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.data.QStroller;
+import org.asup.il.data.QStrollerDef;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Data Stroller Def</b></em>'.
+ * An implementation of the model object '<em><b>Stroller Def</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.il.data.impl.DataStrollerDefImpl#getLength <em>Length</em>}</li>
- *   <li>{@link org.asup.il.data.impl.DataStrollerDefImpl#getOccurrences <em>Occurrences</em>}</li>
+ *   <li>{@link org.asup.il.data.impl.StrollerDefImpl#getLength <em>Length</em>}</li>
+ *   <li>{@link org.asup.il.data.impl.StrollerDefImpl#getOccurrences <em>Occurrences</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCompoundDataDefImpl<D> implements QDataStrollerDef<D> {
+public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDataDefImpl<D> implements QStrollerDef<D> {
 	/**
 	 * 
 	 */
@@ -82,7 +82,7 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataStrollerDefImpl() {
+	protected StrollerDefImpl() {
 		super();
 	}
 
@@ -93,7 +93,7 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QIntegratedLanguageDataPackage.Literals.DATA_STROLLER_DEF;
+		return QIntegratedLanguageDataPackage.Literals.STROLLER_DEF;
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 		int oldLength = length;
 		length = newLength;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__LENGTH, oldLength, length));
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH, oldLength, length));
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 		String oldOccurrences = occurrences;
 		occurrences = newOccurrences;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__OCCURRENCES, oldOccurrences, occurrences));
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES, oldOccurrences, occurrences));
 	}
 
 	/**
@@ -146,9 +146,9 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__LENGTH:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				return getLength();
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__OCCURRENCES:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
 				return getOccurrences();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -162,10 +162,10 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__LENGTH:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				setLength((Integer)newValue);
 				return;
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__OCCURRENCES:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
 				setOccurrences((String)newValue);
 				return;
 		}
@@ -180,10 +180,10 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__LENGTH:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				setLength(LENGTH_EDEFAULT);
 				return;
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__OCCURRENCES:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
 				setOccurrences(OCCURRENCES_EDEFAULT);
 				return;
 		}
@@ -198,9 +198,9 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__LENGTH:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				return length != LENGTH_EDEFAULT;
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF__OCCURRENCES:
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
 				return OCCURRENCES_EDEFAULT == null ? occurrences != null : !OCCURRENCES_EDEFAULT.equals(occurrences);
 		}
 		return super.eIsSet(featureID);
@@ -231,6 +231,6 @@ public class DataStrollerDefImpl<D extends QDataStroller<?>> extends MultipleCom
 
 	@Override
 	public Class<?> getDataClass() {
-		return QDataStroller.class;
+		return QStroller.class;
 	}
-} //DataStrollerDefImpl
+} //StrollerDefImpl

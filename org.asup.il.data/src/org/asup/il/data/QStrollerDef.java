@@ -9,26 +9,24 @@ package org.asup.il.data;
 
 import java.lang.String;
 
-
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Data Stroller Def</b></em>'.
+ * A representation of the model object '<em><b>Stroller Def</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.il.data.QDataStrollerDef#getLength <em>Length</em>}</li>
- *   <li>{@link org.asup.il.data.QDataStrollerDef#getOccurrences <em>Occurrences</em>}</li>
+ *   <li>{@link org.asup.il.data.QStrollerDef#getLength <em>Length</em>}</li>
+ *   <li>{@link org.asup.il.data.QStrollerDef#getOccurrences <em>Occurrences</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataStrollerDef()
+ * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStrollerDef()
  * @model
  * @generated
  */
-public interface QDataStrollerDef<D extends QDataStroller<?>> extends QMultipleCompoundDataDef<D>, QBufferedDataDef<D> {
+public interface QStrollerDef<D extends QStroller<?>> extends QMultipleCompoundDataDef<D>, QBufferedDataDef<D> {
 	/**
 	 * Returns the value of the '<em><b>Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -39,14 +37,14 @@ public interface QDataStrollerDef<D extends QDataStroller<?>> extends QMultipleC
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Length</em>' attribute.
 	 * @see #setLength(int)
-	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataStrollerDef_Length()
+	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStrollerDef_Length()
 	 * @model
 	 * @generated
 	 */
 	int getLength();
 
 	/**
-	 * Sets the value of the '{@link org.asup.il.data.QDataStrollerDef#getLength <em>Length</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.il.data.QStrollerDef#getLength <em>Length</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Length</em>' attribute.
@@ -65,14 +63,14 @@ public interface QDataStrollerDef<D extends QDataStroller<?>> extends QMultipleC
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Occurrences</em>' attribute.
 	 * @see #setOccurrences(String)
-	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataStrollerDef_Occurrences()
+	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStrollerDef_Occurrences()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getOccurrences();
 
 	/**
-	 * Sets the value of the '{@link org.asup.il.data.QDataStrollerDef#getOccurrences <em>Occurrences</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.il.data.QStrollerDef#getOccurrences <em>Occurrences</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Occurrences</em>' attribute.
@@ -81,4 +79,4 @@ public interface QDataStrollerDef<D extends QDataStroller<?>> extends QMultipleC
 	 */
 	void setOccurrences(String value);
 
-} // QDataStrollerDef
+} // QStrollerDef

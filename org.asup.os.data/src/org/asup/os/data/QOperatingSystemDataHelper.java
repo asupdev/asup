@@ -21,12 +21,12 @@ import org.asup.il.data.QAtomicDataDef;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QScrollerDef;
+import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryDataTerm;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -87,9 +87,9 @@ public class QOperatingSystemDataHelper {
 					dataTerm = (QDataTerm<DD>) QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();; 
 				}
 				else if(dataDef instanceof QCompoundDataDef) {
-					QDataStrollerDef<?> dataStrollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStrollerDef();
-					dataStrollerDef.setOccurrences(Integer.toString(cardinality.getMax()));
-					dataDef = (DD) dataStrollerDef;
+					QStrollerDef<?> strollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createStrollerDef();
+					strollerDef.setOccurrences(Integer.toString(cardinality.getMax()));
+					dataDef = (DD) strollerDef;
 					
 					dataTerm = (QDataTerm<DD>) QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();
 				}	

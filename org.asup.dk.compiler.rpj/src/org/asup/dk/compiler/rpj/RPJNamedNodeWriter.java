@@ -14,7 +14,6 @@ import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataTerm;
@@ -27,6 +26,7 @@ import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScrollerDef;
+import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
@@ -232,8 +232,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 
 			writeDataDefAnnotation(node, scrollerDef.getArgument());			
 		}
-		else if(QDataStrollerDef.class.isAssignableFrom(klassDef)) {
-			QDataStrollerDef<?> strollerDef = (QDataStrollerDef<?>) dataDef;
+		else if(QStrollerDef.class.isAssignableFrom(klassDef)) {
+			QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;
 			if (strollerDef.getOccurrences() != null) 
 				writeAnnotation(node, DataDef.class, "occurrences", strollerDef.getOccurrences());
 			

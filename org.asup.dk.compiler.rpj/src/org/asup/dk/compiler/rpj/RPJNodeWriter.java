@@ -9,10 +9,10 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.il.core.QSpecial;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QMultipleAtomicDataDef;
+import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.os.data.QExternalFileName;
 import org.eclipse.jdt.core.dom.AST;
@@ -96,10 +96,10 @@ public class RPJNodeWriter {
 	
 				break;
 			case MULTIPLE_COMPOUND:
-				QDataStrollerDef<?> dataStrollerDef = (QDataStrollerDef<?>) dataDef;				
-				writeImport(dataStrollerDef.getDataClass());
+				QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;				
+				writeImport(strollerDef.getDataClass());
 				
-				array = getAST().newSimpleType(getAST().newSimpleName(dataStrollerDef.getDataClass().getSimpleName()));
+				array = getAST().newSimpleType(getAST().newSimpleName(strollerDef.getDataClass().getSimpleName()));
 				parType = getAST().newParameterizedType(array);
 				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
 				

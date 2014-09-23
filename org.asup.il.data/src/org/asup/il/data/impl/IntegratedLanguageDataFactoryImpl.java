@@ -19,8 +19,6 @@ import org.asup.il.data.QBufferDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataDictionary;
-import org.asup.il.data.QDataStroller;
-import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
@@ -39,6 +37,8 @@ import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStringDef;
+import org.asup.il.data.QStroller;
+import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
@@ -100,7 +100,6 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageDataPackage.CHARACTER_DEF: return (EObject)createCharacterDef();
 			case QIntegratedLanguageDataPackage.DATA_DICTIONARY: return (EObject)createDataDictionary();
 			case QIntegratedLanguageDataPackage.DATA_STRUCT_DEF: return (EObject)createDataStructDef();
-			case QIntegratedLanguageDataPackage.DATA_STROLLER_DEF: return (EObject)createDataStrollerDef();
 			case QIntegratedLanguageDataPackage.DATETIME_DEF: return (EObject)createDatetimeDef();
 			case QIntegratedLanguageDataPackage.DECIMAL_DEF: return (EObject)createDecimalDef();
 			case QIntegratedLanguageDataPackage.ENUM: return (EObject)createEnum();
@@ -113,6 +112,7 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageDataPackage.POINTER_DEF: return (EObject)createPointerDef();
 			case QIntegratedLanguageDataPackage.SCROLLER_DEF: return (EObject)createScrollerDef();
 			case QIntegratedLanguageDataPackage.STRING_DEF: return (EObject)createStringDef();
+			case QIntegratedLanguageDataPackage.STROLLER_DEF: return (EObject)createStrollerDef();
 			case QIntegratedLanguageDataPackage.UNARY_ATOMIC_DATA_TERM: return (EObject)createUnaryAtomicDataTerm();
 			case QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_TERM: return (EObject)createUnaryCompoundDataTerm();
 			default:
@@ -235,16 +235,6 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <D extends QDataStroller<?>> QDataStrollerDef<D> createDataStrollerDef() {
-		DataStrollerDefImpl<D> dataStrollerDef = new DataStrollerDefImpl<D>();
-		return dataStrollerDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QDatetimeDef createDatetimeDef() {
 		DatetimeDefImpl datetimeDef = new DatetimeDefImpl();
 		return datetimeDef;
@@ -358,6 +348,16 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	public QStringDef createStringDef() {
 		StringDefImpl stringDef = new StringDefImpl();
 		return stringDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <D extends QStroller<?>> QStrollerDef<D> createStrollerDef() {
+		StrollerDefImpl<D> strollerDef = new StrollerDefImpl<D>();
+		return strollerDef;
 	}
 
 	/**

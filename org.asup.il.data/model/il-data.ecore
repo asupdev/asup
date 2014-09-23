@@ -260,7 +260,7 @@
       <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
     </eOperations>
     <eOperations name="createDataStroller" lowerBound="1">
-      <eGenericType eClassifier="#//DataStroller">
+      <eGenericType eClassifier="#//Stroller">
         <eTypeArguments eTypeParameter="#//DataFactory/createDataStroller/D"/>
       </eGenericType>
       <eTypeParameters name="D">
@@ -381,30 +381,6 @@
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//BufferedDataDef">
       <eTypeArguments eClassifier="#//DataStruct"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataStroller" abstract="true" interface="true">
-    <eTypeParameters name="D">
-      <eBounds eClassifier="#//DataStruct"/>
-    </eTypeParameters>
-    <eGenericSuperTypes eClassifier="#//Stroller">
-      <eTypeArguments eTypeParameter="#//DataStroller/D"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataStrollerDef">
-    <eTypeParameters name="D">
-      <eBounds eClassifier="#//DataStroller">
-        <eTypeArguments/>
-      </eBounds>
-    </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrences" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="#//MultipleCompoundDataDef">
-      <eTypeArguments eTypeParameter="#//DataStrollerDef/D"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
-      <eTypeArguments eTypeParameter="#//DataStrollerDef/D"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTerm" abstract="true" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
@@ -1425,6 +1401,22 @@
       <eTypeArguments eTypeParameter="#//Stroller/D"/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//Struct"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StrollerDef">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//Stroller">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrences" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="#//MultipleCompoundDataDef">
+      <eTypeArguments eTypeParameter="#//StrollerDef/D"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+      <eTypeArguments eTypeParameter="#//StrollerDef/D"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Struct" abstract="true" interface="true"
       eSuperTypes="#//String">

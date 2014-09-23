@@ -37,8 +37,6 @@ import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataDictionary;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
-import org.asup.il.data.QDataStroller;
-import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
@@ -78,6 +76,7 @@ import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QString;
 import org.asup.il.data.QStringDef;
 import org.asup.il.data.QStroller;
+import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -256,20 +255,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass dataStructDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dataStrollerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dataStrollerDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -578,6 +563,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass strollerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass strollerDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -936,42 +928,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EAttribute getDataStructDef_Length() {
 		return (EAttribute)dataStructDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDataStroller() {
-		return dataStrollerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDataStrollerDef() {
-		return dataStrollerDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDataStrollerDef_Length() {
-		return (EAttribute)dataStrollerDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDataStrollerDef_Occurrences() {
-		return (EAttribute)dataStrollerDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1600,6 +1556,33 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getStrollerDef() {
+		return strollerDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStrollerDef_Length() {
+		return (EAttribute)strollerDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStrollerDef_Occurrences() {
+		return (EAttribute)strollerDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBinaryType() {
 		return binaryTypeEEnum;
 	}
@@ -1735,12 +1718,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		dataStructDefEClass = createEClass(DATA_STRUCT_DEF);
 		createEAttribute(dataStructDefEClass, DATA_STRUCT_DEF__LENGTH);
 
-		dataStrollerEClass = createEClass(DATA_STROLLER);
-
-		dataStrollerDefEClass = createEClass(DATA_STROLLER_DEF);
-		createEAttribute(dataStrollerDefEClass, DATA_STROLLER_DEF__LENGTH);
-		createEAttribute(dataStrollerDefEClass, DATA_STROLLER_DEF__OCCURRENCES);
-
 		dataTermEClass = createEClass(DATA_TERM);
 		createEAttribute(dataTermEClass, DATA_TERM__CONSTANT);
 		createEReference(dataTermEClass, DATA_TERM__DEFINITION);
@@ -1830,6 +1807,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		strollerEClass = createEClass(STROLLER);
 
+		strollerDefEClass = createEClass(STROLLER_DEF);
+		createEAttribute(strollerDefEClass, STROLLER_DEF__LENGTH);
+		createEAttribute(strollerDefEClass, STROLLER_DEF__OCCURRENCES);
+
 		structEClass = createEClass(STRUCT);
 
 		unaryAtomicDataDefEClass = createEClass(UNARY_ATOMIC_DATA_DEF);
@@ -1895,8 +1876,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		ETypeParameter compoundDataDefEClass_D = addETypeParameter(compoundDataDefEClass, "D");
 		ETypeParameter compoundDataTermEClass_DD = addETypeParameter(compoundDataTermEClass, "DD");
 		ETypeParameter dataDefEClass_D = addETypeParameter(dataDefEClass, "D");
-		ETypeParameter dataStrollerEClass_D = addETypeParameter(dataStrollerEClass, "D");
-		ETypeParameter dataStrollerDefEClass_D = addETypeParameter(dataStrollerDefEClass, "D");
 		ETypeParameter dataTermEClass_DD = addETypeParameter(dataTermEClass, "DD");
 		ETypeParameter enumEClass_E = addETypeParameter(enumEClass, "E");
 		ETypeParameter enumEClass_D = addETypeParameter(enumEClass, "D");
@@ -1912,6 +1891,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		ETypeParameter scrollerEClass_D = addETypeParameter(scrollerEClass, "D");
 		ETypeParameter scrollerDefEClass_D = addETypeParameter(scrollerDefEClass, "D");
 		ETypeParameter strollerEClass_D = addETypeParameter(strollerEClass, "D");
+		ETypeParameter strollerDefEClass_D = addETypeParameter(strollerDefEClass, "D");
 		ETypeParameter unaryAtomicDataDefEClass_D = addETypeParameter(unaryAtomicDataDefEClass, "D");
 		ETypeParameter unaryAtomicDataTermEClass_DD = addETypeParameter(unaryAtomicDataTermEClass, "DD");
 		ETypeParameter unaryCompoundDataDefEClass_D = addETypeParameter(unaryCompoundDataDefEClass, "D");
@@ -1946,12 +1926,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		compoundDataTermEClass_DD.getEBounds().add(g1);
 		g1 = createEGenericType(this.getData());
 		dataDefEClass_D.getEBounds().add(g1);
-		g1 = createEGenericType(this.getDataStruct());
-		dataStrollerEClass_D.getEBounds().add(g1);
-		g1 = createEGenericType(this.getDataStroller());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		dataStrollerDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getDataDef());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -1998,6 +1972,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		scrollerDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getStruct());
 		strollerEClass_D.getEBounds().add(g1);
+		g1 = createEGenericType(this.getStroller());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		strollerDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getData());
 		unaryAtomicDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getUnaryAtomicDataDef());
@@ -2104,18 +2082,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(this.getDataStruct());
 		g1.getETypeArguments().add(g2);
 		dataStructDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getStroller());
-		g2 = createEGenericType(dataStrollerEClass_D);
-		g1.getETypeArguments().add(g2);
-		dataStrollerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMultipleCompoundDataDef());
-		g2 = createEGenericType(dataStrollerDefEClass_D);
-		g1.getETypeArguments().add(g2);
-		dataStrollerDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
-		g2 = createEGenericType(dataStrollerDefEClass_D);
-		g1.getETypeArguments().add(g2);
-		dataStrollerDefEClass.getEGenericSuperTypes().add(g1);
 		dataTermEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getTerm());
 		g1 = createEGenericType(theIntegratedLanguageCorePackage.getTermContainer());
 		g2 = createEGenericType(this.getDataTerm());
@@ -2263,6 +2229,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		strollerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getStruct());
 		strollerEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getMultipleCompoundDataDef());
+		g2 = createEGenericType(strollerDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		strollerDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBufferedDataDef());
+		g2 = createEGenericType(strollerDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		strollerDefEClass.getEGenericSuperTypes().add(g1);
 		structEClass.getESuperTypes().add(this.getString());
 		g1 = createEGenericType(this.getUnaryDataDef());
 		g2 = createEGenericType(unaryAtomicDataDefEClass_D);
@@ -2486,7 +2460,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "classDelegator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getDataStroller());
+		g1 = createEGenericType(this.getStroller());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
@@ -2594,12 +2568,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(dataStructDefEClass, QDataStructDef.class, "DataStructDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataStructDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QDataStructDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dataStrollerEClass, QDataStroller.class, "DataStroller", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dataStrollerDefEClass, QDataStrollerDef.class, "DataStrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataStrollerDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QDataStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataStrollerDef_Occurrences(), ecorePackage.getEString(), "occurrences", null, 1, 1, QDataStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataTermEClass, QDataTerm.class, "DataTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataTerm_Constant(), ecorePackage.getEBoolean(), "constant", null, 0, 1, QDataTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3406,6 +3374,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEClass(stringDefEClass, QStringDef.class, "StringDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(strollerEClass, QStroller.class, "Stroller", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(strollerDefEClass, QStrollerDef.class, "StrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStrollerDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrollerDef_Occurrences(), ecorePackage.getEString(), "occurrences", null, 1, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(structEClass, QStruct.class, "Struct", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -43,9 +43,6 @@ import org.asup.il.data.QCompoundDataPart;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataFactory;
-import org.asup.il.data.QDataStroller;
-import org.asup.il.data.QDataStrollerDef;
-import org.asup.il.data.QDataStrollerDelegator;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataStructDelegator;
@@ -71,6 +68,8 @@ import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QScrollerDef;
+import org.asup.il.data.QStroller;
+import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
@@ -114,8 +113,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 		D data = null;
 
 		// dataStroller
-		if(dataDef instanceof QDataStrollerDef<?>) {
-			QDataStrollerDef<?> dataStrollerDef = (QDataStrollerDef<?>)dataDef;
+		if(dataDef instanceof QStrollerDef<?>) {
+			QStrollerDef<?> dataStrollerDef = (QStrollerDef<?>)dataDef;
 			
 			Class<? extends QDataStruct> delegator = null;
 			if(dataStrollerDef.getClassDelegator() != null)
@@ -220,20 +219,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 		QDataDef<?> dataDef = null;
 
-		// dataStroller
-		if(QDataStrollerDelegator.class.isAssignableFrom(klass)) {
-			QDataStrollerDef<?> dataStrollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStrollerDef();
-			
-			// delegator
-			String address = getAddress(arguments.get(0).getClass());
-			dataStrollerDef.setClassDelegator(address);
-			
-			completeStructPart(dataStrollerDef, klass);
-			
-			dataDef = dataStrollerDef;
-		}
 		// dataStructureDelegator
-		else if (QDataStructDelegator.class.isAssignableFrom(klass)) {
+		if (QDataStructDelegator.class.isAssignableFrom(klass)) {
 			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
 			
 			// delegator			
@@ -690,7 +677,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	}
 
 	@Override
-	public <D extends QDataStruct> QDataStroller<D> createDataStroller(Class<D> classDelegator, int occurrences) {
+	public <D extends QDataStruct> QStroller<D> createDataStroller(Class<D> classDelegator, int occurrences) {
 
 		//TODO: implements dataScroller creation
 		return null;
