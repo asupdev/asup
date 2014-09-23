@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-09-19 18:15:24
+// $ANTLR 3.5.1 CLParameter.g 2014-09-23 12:34:22
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -352,7 +352,7 @@ public class CLParameterLexer extends Lexer {
 			while (true) {
 				int alt5=2;
 				int LA5_0 = input.LA(1);
-				if ( ((LA5_0 >= ' ' && LA5_0 <= '\"')||(LA5_0 >= '$' && LA5_0 <= '&')||(LA5_0 >= '+' && LA5_0 <= '9')||(LA5_0 >= '<' && LA5_0 <= '?')||(LA5_0 >= 'A' && LA5_0 <= 'Z')||(LA5_0 >= '^' && LA5_0 <= '_')||(LA5_0 >= 'a' && LA5_0 <= 'z')||LA5_0=='\u00A3'||LA5_0=='\u00A7'||LA5_0=='\u00E0'||(LA5_0 >= '\u00E8' && LA5_0 <= '\u00E9')||LA5_0=='\u00EC'||LA5_0=='\u00F2'||LA5_0=='\u00F9') ) {
+				if ( ((LA5_0 >= ' ' && LA5_0 <= '\"')||(LA5_0 >= '$' && LA5_0 <= '&')||(LA5_0 >= '+' && LA5_0 <= '9')||(LA5_0 >= '<' && LA5_0 <= '?')||(LA5_0 >= 'A' && LA5_0 <= 'Z')||LA5_0=='\\'||(LA5_0 >= '^' && LA5_0 <= '_')||(LA5_0 >= 'a' && LA5_0 <= 'z')||LA5_0=='\u00A3'||LA5_0=='\u00A7'||LA5_0=='\u00E0'||(LA5_0 >= '\u00E8' && LA5_0 <= '\u00E9')||LA5_0=='\u00EC'||LA5_0=='\u00F2'||LA5_0=='\u00F9') ) {
 					alt5=1;
 				}
 
@@ -360,7 +360,7 @@ public class CLParameterLexer extends Lexer {
 				case 1 :
 					// CLParameter.g:
 					{
-					if ( (input.LA(1) >= ' ' && input.LA(1) <= '\"')||(input.LA(1) >= '$' && input.LA(1) <= '&')||(input.LA(1) >= '+' && input.LA(1) <= '9')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= '^' && input.LA(1) <= '_')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
+					if ( (input.LA(1) >= ' ' && input.LA(1) <= '\"')||(input.LA(1) >= '$' && input.LA(1) <= '&')||(input.LA(1) >= '+' && input.LA(1) <= '9')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='\\'||(input.LA(1) >= '^' && input.LA(1) <= '_')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
 						input.consume();
 					}
 					else {
@@ -406,7 +406,7 @@ public class CLParameterLexer extends Lexer {
 			while (true) {
 				int alt6=2;
 				int LA6_0 = input.LA(1);
-				if ( ((LA6_0 >= '!' && LA6_0 <= '\"')||LA6_0=='$'||(LA6_0 >= '+' && LA6_0 <= '9')||(LA6_0 >= '<' && LA6_0 <= '?')||(LA6_0 >= 'A' && LA6_0 <= 'Z')||(LA6_0 >= '^' && LA6_0 <= '_')||(LA6_0 >= 'a' && LA6_0 <= 'z')||LA6_0=='\u00A3'||LA6_0=='\u00A7'||LA6_0=='\u00E0'||(LA6_0 >= '\u00E8' && LA6_0 <= '\u00E9')||LA6_0=='\u00EC'||LA6_0=='\u00F2'||LA6_0=='\u00F9') ) {
+				if ( ((LA6_0 >= '!' && LA6_0 <= '\"')||LA6_0=='$'||(LA6_0 >= '+' && LA6_0 <= '9')||(LA6_0 >= '<' && LA6_0 <= '?')||(LA6_0 >= 'A' && LA6_0 <= 'Z')||LA6_0=='\\'||(LA6_0 >= '^' && LA6_0 <= '_')||(LA6_0 >= 'a' && LA6_0 <= 'z')||LA6_0=='\u00A3'||LA6_0=='\u00A7'||LA6_0=='\u00E0'||(LA6_0 >= '\u00E8' && LA6_0 <= '\u00E9')||LA6_0=='\u00EC'||LA6_0=='\u00F2'||LA6_0=='\u00F9') ) {
 					alt6=1;
 				}
 
@@ -414,7 +414,7 @@ public class CLParameterLexer extends Lexer {
 				case 1 :
 					// CLParameter.g:
 					{
-					if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '9')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= '^' && input.LA(1) <= '_')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
+					if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '9')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='\\'||(input.LA(1) >= '^' && input.LA(1) <= '_')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
 						input.consume();
 					}
 					else {
@@ -760,10 +760,10 @@ public class CLParameterLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// CLParameter.g:179:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '!' | '=' | '>' | '<' | '+' | '-' | '/' ) )
+			// CLParameter.g:179:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '!' | '=' | '>' | '<' | '+' | '-' | '/' | '\\\\' ) )
 			// CLParameter.g:
 			{
-			if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= '^' && input.LA(1) <= '_')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
+			if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||(input.LA(1) >= '<' && input.LA(1) <= '?')||input.LA(1)=='\\'||(input.LA(1) >= '^' && input.LA(1) <= '_')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
 				input.consume();
 			}
 			else {
@@ -909,17 +909,18 @@ public class CLParameterLexer extends Lexer {
 		"\26\uffff\1\1\10\uffff\1\0\5\uffff}>";
 	static final String[] DFA12_transitionS = {
 			"\1\14\1\13\2\uffff\1\12\22\uffff\1\14\1\1\1\11\1\uffff\1\11\1\3\1\6\1"+
-			"\4\1\7\1\10\1\2\4\11\1\5\12\11\2\uffff\4\11\1\uffff\32\11\3\uffff\2\11"+
-			"\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff\2\11"+
-			"\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
+			"\4\1\7\1\10\1\2\4\11\1\5\12\11\2\uffff\4\11\1\uffff\32\11\1\uffff\1\11"+
+			"\1\uffff\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11"+
+			"\7\uffff\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
 			"\1\15\32\uffff\1\17\1\uffff\1\16",
 			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\1\23\1\21\1\20"+
-			"\20\23\1\22\6\23\3\uffff\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23"+
-			"\70\uffff\1\23\7\uffff\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
+			"\20\23\1\22\6\23\1\uffff\1\23\1\uffff\2\23\1\uffff\32\23\50\uffff\1\23"+
+			"\3\uffff\1\23\70\uffff\1\23\7\uffff\2\23\2\uffff\1\23\5\uffff\1\23\6"+
+			"\uffff\1\23",
 			"",
-			"\3\25\1\uffff\3\25\4\uffff\17\25\2\uffff\4\25\1\uffff\32\25\3\uffff"+
-			"\2\25\1\uffff\32\25\50\uffff\1\25\3\uffff\1\25\70\uffff\1\25\7\uffff"+
-			"\2\25\2\uffff\1\25\5\uffff\1\25\6\uffff\1\25",
+			"\3\25\1\uffff\3\25\4\uffff\17\25\2\uffff\4\25\1\uffff\32\25\1\uffff"+
+			"\1\25\1\uffff\2\25\1\uffff\32\25\50\uffff\1\25\3\uffff\1\25\70\uffff"+
+			"\1\25\7\uffff\2\25\2\uffff\1\25\5\uffff\1\25\6\uffff\1\25",
 			"\1\27\4\uffff\1\26",
 			"",
 			"",
@@ -928,24 +929,24 @@ public class CLParameterLexer extends Lexer {
 			"\1\30",
 			"",
 			"",
-			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\3\uffff"+
-			"\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff"+
-			"\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
-			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\3\uffff"+
-			"\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff"+
-			"\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
-			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\3\uffff"+
-			"\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff\1\11\7\uffff"+
-			"\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
+			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\1\uffff"+
+			"\1\11\1\uffff\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff"+
+			"\1\11\7\uffff\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
+			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\1\uffff"+
+			"\1\11\1\uffff\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff"+
+			"\1\11\7\uffff\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
+			"\2\11\1\uffff\1\11\6\uffff\17\11\2\uffff\4\11\1\uffff\32\11\1\uffff"+
+			"\1\11\1\uffff\2\11\1\uffff\32\11\50\uffff\1\11\3\uffff\1\11\70\uffff"+
+			"\1\11\7\uffff\2\11\2\uffff\1\11\5\uffff\1\11\6\uffff\1\11",
 			"\1\34",
 			"\1\35",
 			"\1\36",
 			"",
 			"",
 			"",
-			"\41\27\2\37\1\27\1\37\6\27\17\37\2\27\4\37\1\27\32\37\3\27\2\37\1\27"+
-			"\32\37\50\27\1\37\3\27\1\37\70\27\1\37\7\27\2\37\2\27\1\37\5\27\1\37"+
-			"\6\27\1\37\uff06\27",
+			"\41\27\2\37\1\27\1\37\6\27\17\37\2\27\4\37\1\27\32\37\1\27\1\37\1\27"+
+			"\2\37\1\27\32\37\50\27\1\37\3\27\1\37\70\27\1\37\7\27\2\37\2\27\1\37"+
+			"\5\27\1\37\6\27\1\37\uff06\27",
 			"",
 			"",
 			"",
@@ -954,20 +955,20 @@ public class CLParameterLexer extends Lexer {
 			"\1\40",
 			"\1\41",
 			"\1\42",
-			"\41\27\2\37\1\27\1\37\6\27\17\37\2\27\4\37\1\27\32\37\3\27\2\37\1\27"+
-			"\32\37\50\27\1\37\3\27\1\37\70\27\1\37\7\27\2\37\2\27\1\37\5\27\1\37"+
-			"\6\27\1\37\uff06\27",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\3\uffff"+
-			"\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff\1\23\7\uffff"+
-			"\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
+			"\41\27\2\37\1\27\1\37\6\27\17\37\2\27\4\37\1\27\32\37\1\27\1\37\1\27"+
+			"\2\37\1\27\32\37\50\27\1\37\3\27\1\37\70\27\1\37\7\27\2\37\2\27\1\37"+
+			"\5\27\1\37\6\27\1\37\uff06\27",
+			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\1\uffff"+
+			"\1\23\1\uffff\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff"+
+			"\1\23\7\uffff\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
 			"\1\43",
 			"\1\44",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\3\uffff"+
-			"\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff\1\23\7\uffff"+
-			"\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
-			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\3\uffff"+
-			"\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff\1\23\7\uffff"+
-			"\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23"
+			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\1\uffff"+
+			"\1\23\1\uffff\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff"+
+			"\1\23\7\uffff\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23",
+			"\2\23\1\uffff\1\23\6\uffff\17\23\2\uffff\4\23\1\uffff\32\23\1\uffff"+
+			"\1\23\1\uffff\2\23\1\uffff\32\23\50\uffff\1\23\3\uffff\1\23\70\uffff"+
+			"\1\23\7\uffff\2\23\2\uffff\1\23\5\uffff\1\23\6\uffff\1\23"
 	};
 
 	static final short[] DFA12_eot = DFA.unpackEncodedString(DFA12_eotS);
@@ -1011,8 +1012,8 @@ public class CLParameterLexer extends Lexer {
 					case 0 : 
 						int LA12_31 = input.LA(1);
 						s = -1;
-						if ( ((LA12_31 >= '\u0000' && LA12_31 <= ' ')||LA12_31=='#'||(LA12_31 >= '%' && LA12_31 <= '*')||(LA12_31 >= ':' && LA12_31 <= ';')||LA12_31=='@'||(LA12_31 >= '[' && LA12_31 <= ']')||LA12_31=='`'||(LA12_31 >= '{' && LA12_31 <= '\u00A2')||(LA12_31 >= '\u00A4' && LA12_31 <= '\u00A6')||(LA12_31 >= '\u00A8' && LA12_31 <= '\u00DF')||(LA12_31 >= '\u00E1' && LA12_31 <= '\u00E7')||(LA12_31 >= '\u00EA' && LA12_31 <= '\u00EB')||(LA12_31 >= '\u00ED' && LA12_31 <= '\u00F1')||(LA12_31 >= '\u00F3' && LA12_31 <= '\u00F8')||(LA12_31 >= '\u00FA' && LA12_31 <= '\uFFFF')) ) {s = 23;}
-						else if ( ((LA12_31 >= '!' && LA12_31 <= '\"')||LA12_31=='$'||(LA12_31 >= '+' && LA12_31 <= '9')||(LA12_31 >= '<' && LA12_31 <= '?')||(LA12_31 >= 'A' && LA12_31 <= 'Z')||(LA12_31 >= '^' && LA12_31 <= '_')||(LA12_31 >= 'a' && LA12_31 <= 'z')||LA12_31=='\u00A3'||LA12_31=='\u00A7'||LA12_31=='\u00E0'||(LA12_31 >= '\u00E8' && LA12_31 <= '\u00E9')||LA12_31=='\u00EC'||LA12_31=='\u00F2'||LA12_31=='\u00F9') ) {s = 31;}
+						if ( ((LA12_31 >= '\u0000' && LA12_31 <= ' ')||LA12_31=='#'||(LA12_31 >= '%' && LA12_31 <= '*')||(LA12_31 >= ':' && LA12_31 <= ';')||LA12_31=='@'||LA12_31=='['||LA12_31==']'||LA12_31=='`'||(LA12_31 >= '{' && LA12_31 <= '\u00A2')||(LA12_31 >= '\u00A4' && LA12_31 <= '\u00A6')||(LA12_31 >= '\u00A8' && LA12_31 <= '\u00DF')||(LA12_31 >= '\u00E1' && LA12_31 <= '\u00E7')||(LA12_31 >= '\u00EA' && LA12_31 <= '\u00EB')||(LA12_31 >= '\u00ED' && LA12_31 <= '\u00F1')||(LA12_31 >= '\u00F3' && LA12_31 <= '\u00F8')||(LA12_31 >= '\u00FA' && LA12_31 <= '\uFFFF')) ) {s = 23;}
+						else if ( ((LA12_31 >= '!' && LA12_31 <= '\"')||LA12_31=='$'||(LA12_31 >= '+' && LA12_31 <= '9')||(LA12_31 >= '<' && LA12_31 <= '?')||(LA12_31 >= 'A' && LA12_31 <= 'Z')||LA12_31=='\\'||(LA12_31 >= '^' && LA12_31 <= '_')||(LA12_31 >= 'a' && LA12_31 <= 'z')||LA12_31=='\u00A3'||LA12_31=='\u00A7'||LA12_31=='\u00E0'||(LA12_31 >= '\u00E8' && LA12_31 <= '\u00E9')||LA12_31=='\u00EC'||LA12_31=='\u00F2'||LA12_31=='\u00F9') ) {s = 31;}
 						else s = 9;
 						if ( s>=0 ) return s;
 						break;
@@ -1020,8 +1021,8 @@ public class CLParameterLexer extends Lexer {
 					case 1 : 
 						int LA12_22 = input.LA(1);
 						s = -1;
-						if ( ((LA12_22 >= '!' && LA12_22 <= '\"')||LA12_22=='$'||(LA12_22 >= '+' && LA12_22 <= '9')||(LA12_22 >= '<' && LA12_22 <= '?')||(LA12_22 >= 'A' && LA12_22 <= 'Z')||(LA12_22 >= '^' && LA12_22 <= '_')||(LA12_22 >= 'a' && LA12_22 <= 'z')||LA12_22=='\u00A3'||LA12_22=='\u00A7'||LA12_22=='\u00E0'||(LA12_22 >= '\u00E8' && LA12_22 <= '\u00E9')||LA12_22=='\u00EC'||LA12_22=='\u00F2'||LA12_22=='\u00F9') ) {s = 31;}
-						else if ( ((LA12_22 >= '\u0000' && LA12_22 <= ' ')||LA12_22=='#'||(LA12_22 >= '%' && LA12_22 <= '*')||(LA12_22 >= ':' && LA12_22 <= ';')||LA12_22=='@'||(LA12_22 >= '[' && LA12_22 <= ']')||LA12_22=='`'||(LA12_22 >= '{' && LA12_22 <= '\u00A2')||(LA12_22 >= '\u00A4' && LA12_22 <= '\u00A6')||(LA12_22 >= '\u00A8' && LA12_22 <= '\u00DF')||(LA12_22 >= '\u00E1' && LA12_22 <= '\u00E7')||(LA12_22 >= '\u00EA' && LA12_22 <= '\u00EB')||(LA12_22 >= '\u00ED' && LA12_22 <= '\u00F1')||(LA12_22 >= '\u00F3' && LA12_22 <= '\u00F8')||(LA12_22 >= '\u00FA' && LA12_22 <= '\uFFFF')) ) {s = 23;}
+						if ( ((LA12_22 >= '!' && LA12_22 <= '\"')||LA12_22=='$'||(LA12_22 >= '+' && LA12_22 <= '9')||(LA12_22 >= '<' && LA12_22 <= '?')||(LA12_22 >= 'A' && LA12_22 <= 'Z')||LA12_22=='\\'||(LA12_22 >= '^' && LA12_22 <= '_')||(LA12_22 >= 'a' && LA12_22 <= 'z')||LA12_22=='\u00A3'||LA12_22=='\u00A7'||LA12_22=='\u00E0'||(LA12_22 >= '\u00E8' && LA12_22 <= '\u00E9')||LA12_22=='\u00EC'||LA12_22=='\u00F2'||LA12_22=='\u00F9') ) {s = 31;}
+						else if ( ((LA12_22 >= '\u0000' && LA12_22 <= ' ')||LA12_22=='#'||(LA12_22 >= '%' && LA12_22 <= '*')||(LA12_22 >= ':' && LA12_22 <= ';')||LA12_22=='@'||LA12_22=='['||LA12_22==']'||LA12_22=='`'||(LA12_22 >= '{' && LA12_22 <= '\u00A2')||(LA12_22 >= '\u00A4' && LA12_22 <= '\u00A6')||(LA12_22 >= '\u00A8' && LA12_22 <= '\u00DF')||(LA12_22 >= '\u00E1' && LA12_22 <= '\u00E7')||(LA12_22 >= '\u00EA' && LA12_22 <= '\u00EB')||(LA12_22 >= '\u00ED' && LA12_22 <= '\u00F1')||(LA12_22 >= '\u00F3' && LA12_22 <= '\u00F8')||(LA12_22 >= '\u00FA' && LA12_22 <= '\uFFFF')) ) {s = 23;}
 						else s = 9;
 						if ( s>=0 ) return s;
 						break;

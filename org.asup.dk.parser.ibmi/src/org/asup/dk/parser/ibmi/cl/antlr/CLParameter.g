@@ -15,7 +15,7 @@ tokens
 	//SPECIAL
 	//STRING
 	FUNCTION;	
-	VALUE;
+	VALUE;	
 }
 
 
@@ -93,8 +93,8 @@ value
   |
   SPECIAL  
   |
-  STRING
-  |
+  STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
+  |  
   function
   ;
 
