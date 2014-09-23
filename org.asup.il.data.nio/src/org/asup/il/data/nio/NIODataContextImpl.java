@@ -18,7 +18,6 @@ import java.util.Map;
 
 import org.asup.fw.core.QContextID;
 import org.asup.il.core.QNode;
-import org.asup.il.data.QCompoundDataPart;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;

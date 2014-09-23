@@ -27,7 +27,7 @@ import java.lang.Enum;
  * @model abstract="true" EBounds="org.asup.fw.java.JavaEnum"
  * @generated
  */
-public interface QEnumDef<E extends Enum<E>, D extends QBufferedData> extends QUnaryDataDef<D>, QAtomicDataDef<D> {
+public interface QEnumDef<E extends Enum<E>, D extends QBufferedData> extends QUnaryAtomicDataDef<D> {
 	/**
 	 * Returns the value of the '<em><b>Delegate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

@@ -1866,7 +1866,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DEF__DELEGATE = UNARY_DATA_DEF_FEATURE_COUNT + 0;
+	int ENUM_DEF__DELEGATE = UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Klass</b></em>' attribute.
@@ -1875,7 +1875,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DEF__KLASS = UNARY_DATA_DEF_FEATURE_COUNT + 1;
+	int ENUM_DEF__KLASS = UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Enum Def</em>' class.
@@ -1884,7 +1884,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_DEF_FEATURE_COUNT = UNARY_DATA_DEF_FEATURE_COUNT + 2;
+	int ENUM_DEF_FEATURE_COUNT = UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Floating</em>' class.

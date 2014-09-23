@@ -2142,11 +2142,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		decimalDefEClass.getEGenericSuperTypes().add(g1);
 		enumEClass.getESuperTypes().add(this.getBufferedData());
-		g1 = createEGenericType(this.getUnaryDataDef());
-		g2 = createEGenericType(enumDefEClass_D);
-		g1.getETypeArguments().add(g2);
-		enumDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getAtomicDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicDataDef());
 		g2 = createEGenericType(enumDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		enumDefEClass.getEGenericSuperTypes().add(g1);
