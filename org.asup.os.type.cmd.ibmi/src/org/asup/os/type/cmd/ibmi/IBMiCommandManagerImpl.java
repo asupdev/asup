@@ -151,24 +151,25 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				value = clParameter.getValue().getText();
 			} else {
 				// TODO: manage default value
-				value = null;
+				value = "";
+			}
+			
+			// data term
+			QDataTerm<?> dataTerm = commandParameter.getDataTerm();
+			dataTerms.add(dataTerm);
+
+			// replace variable with prefix '&'
+			// value = replaceVariable(value, variables);
+
+			// assignment
+			QData data = null;
+			if (value.isEmpty() == false) {
+				data = assignValue(dataTerm, dataContext, value, variables);
 			}
 
-			if (value != null) {
-				// data term
-				QDataTerm<?> dataTerm = commandParameter.getDataTerm();
-				dataTerms.add(dataTerm);
-	
-				// replace variable with prefix '&'
-				// value = replaceVariable(value, variables);
-	
-				// assignment
-				QData data = assignValue(dataTerm, dataContext, value, variables);
-	
-				// required
-				if (data != null && data.isEmpty() && commandParameter.isRequired())
-					throw new OperatingSystemException("Required parameter: " + commandParameter.getName());
-			}
+			// required
+			if (data != null && data.isEmpty() && commandParameter.isRequired())
+				throw new OperatingSystemException("Required parameter: " + commandParameter.getName());			
 		}
 
 		return callableCommand;
@@ -220,38 +221,52 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			@SuppressWarnings("unused")
 			QMultipleAtomicDataDef<?> mulitpleAtomicDataDef = multipleAtomicDataTerm.getDefinition();
 			QList<?> listAtomic = (QList<?>) data;
+			
+			if (value.isEmpty() == false) {
 
-			// Expected parms as list
-			try {
-				paramComp = clParameterParser.parse(value);
-			} catch (Exception exc) {
-				throw new OperatingSystemException(exc);
-			}
+				// Expected parms as list
+				try {
+					paramComp = clParameterParser.parse(value);
+				} catch (Exception exc) {
+					throw new OperatingSystemException(exc);
+				}
+	
+				if (paramComp.getComponentType() == CLParmComponentType.LIST) {
+	
+					// Expected parm format as list
+	
+					LinkedList<CLParmAbstractComponent> listElements = paramComp.getChilds();
+	
+					int counter = 1;
+					Iterator<CLParmAbstractComponent> iterator = listElements.iterator();
+					while (iterator.hasNext()) {
+	
+						tokValue = buildParameterValue(multipleAtomicDataTerm, iterator.next());
+	
+						QData listItem = listAtomic.get(counter);
+	
+						// tokValue = replaceVariable(tokValue, variables);
+						// tokValue = resolveSpecialValue(multipleAtomicDataTerm,
+						// tokValue);
+	
+						assignValue(listItem, tokValue);
+	
+						counter++;
+					}
+				}
+			} else {
 
-			if (paramComp.getComponentType() == CLParmComponentType.LIST) {
-
-				// Expected parm format as list
-
-				LinkedList<CLParmAbstractComponent> listElements = paramComp.getChilds();
-
+				Iterator<?> iterator = listAtomic.iterator();
+				
 				int counter = 1;
-				Iterator<CLParmAbstractComponent> iterator = listElements.iterator();
-				while (iterator.hasNext()) {
-
-					tokValue = buildParameterValue(multipleAtomicDataTerm, iterator.next());
-
+				while(iterator.hasNext()){
 					QData listItem = listAtomic.get(counter);
-
-					// tokValue = replaceVariable(tokValue, variables);
-					// tokValue = resolveSpecialValue(multipleAtomicDataTerm,
-					// tokValue);
-
 					assignValue(listItem, tokValue);
-
 					counter++;
 				}
+				
 			}
-
+			
 			dbgString = multipleAtomicDataTerm.toString();
 
 			break;
@@ -283,26 +298,31 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		case UNARY_ATOMIC:
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;
+			
+			if (value.isEmpty() == false) {
 
-			try {
-				
-				/*
-				 * Parser response structure:
-				 * 
-				 *   							CLParamList
-				 *       							|
-				 *   							CLParamValue
-				 *     								|
-				 *   (CLParmToken OR CLPArmVariable OR CLParmSpecial OR CLParmString OR CLParmFunction)        
-				 * 
-				 */
-				
-				paramComp = clParameterParser.parse(value);
-			} catch (Exception exc) {
-				throw new OperatingSystemException(exc);
+				try {
+					
+					/*
+					 * Parser response structure:
+					 * 
+					 *   							CLParamList
+					 *       							|
+					 *   							CLParamValue
+					 *     								|
+					 *   (CLParmToken OR CLPArmVariable OR CLParmSpecial OR CLParmString OR CLParmFunction)        
+					 * 
+					 */
+					
+					paramComp = clParameterParser.parse(value);
+				} catch (Exception exc) {
+					throw new OperatingSystemException(exc);
+				}
+	
+				tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
+			} else {
+				tokValue = value;
 			}
-
-			tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
 
 			assignValue(data, tokValue);
 
