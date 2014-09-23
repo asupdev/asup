@@ -193,7 +193,7 @@
                   value="34"/>
             </facets>
             <definition
-                xsi:type="il-data:CharacterDef"
+                xsi:type="il-data:HexadecimalDef"
                 length="1"/>
           </elements>
           <elements
@@ -435,7 +435,7 @@
                   value="70"/>
             </facets>
             <definition
-                xsi:type="il-data:CharacterDef"
+                xsi:type="il-data:HexadecimalDef"
                 length="1"/>
           </elements>
           <elements
@@ -916,7 +916,7 @@
                   value="34"/>
             </facets>
             <definition
-                xsi:type="il-data:CharacterDef"
+                xsi:type="il-data:HexadecimalDef"
                 length="1"/>
           </elements>
           <elements
@@ -1176,7 +1176,7 @@
                   value="70"/>
             </facets>
             <definition
-                xsi:type="il-data:CharacterDef"
+                xsi:type="il-data:HexadecimalDef"
                 length="1"/>
           </elements>
           <elements
@@ -2336,13 +2336,11 @@
       xsi:type="os-type-cmd:Command"
       name="RMVMSGD"
       text="Remove Message Description"
-      program="QMHDLMSD"
-      status="TODO">
+      program="QMHDLMSD">
     <parameters
         allowVariable="true"
         name="MSGID"
-        position="1"
-        status="TODO">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="messageIdentifier"
@@ -2358,8 +2356,7 @@
     <parameters
         allowVariable="true"
         name="MSGF"
-        position="2"
-        status="TODO">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"

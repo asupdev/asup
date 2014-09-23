@@ -2,10 +2,12 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
@@ -37,37 +39,34 @@ public class JobDescriptionChanger {
 	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription,
 			@DataDef(qualified = true) JobQueue jobQueue,
-			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobPriorityOnJobq,
-			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputPriorityOnOutq,
-			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printdevice,
+			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobPriorityonJOBQ,
+			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputPriorityonOUTQ,
+			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printDevice,
 			@DataDef(qualified = true) OutputQueue outputQueue,
 			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
 			@DataDef(length = 10) QEnum<User, QCharacter> user,
-			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingcode,
-			@DataDef(length = 30) QEnum<PrintText, QCharacter> printtext,
-			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingdata,
-			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestdataorcommand,
-
-// TODO     @DataDef(dimension = "250", length = 10) QArray<QEnum<InitialLibraryList,QCharacter>> initialLibraryList,
-			@DataDef(dimension = "250", length = 10) QArray<QCharacter> initialLibraryList,
-
-			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialaspgroup,
-			MessageLogging messagelogging,
-			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logclprogramcommands,
-			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> joblogoutput,
-			@DataDef() QEnum<JobMessageQueueMaximumSize, QBinary> jobmessagequeuemaximumsize,
-			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobmessagequeuefullaction,
-			@DataDef() QEnum<CLSyntaxCheck, QBinary> clsyntaxcheck,
-			@DataDef() QEnum<EndSeverity, QBinary> endseverity,
-			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquirymessagereply,
-			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdonjobqueue,
-			@DataDef(length = 10) QEnum<JobDate, QCharacter> jobdate,
-			@DataDef(length = 8) QEnum<JobSwitches, QCharacter> jobswitches,
-			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> devicerecoveryaction,
-			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timesliceendpool,
-			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowmultiplethreads,
-			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledfileaction,
-			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> ddmconversation){
+			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingCode,
+			@DataDef(length = 30) QEnum<PrintText, QCharacter> printText,
+			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingData,
+			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestDataOrCommand,
+			@DataDef(occurrences = "250", length = 10) QArray<QEnum<InitialLibraryList, QCharacter>> initialLibraryList,
+			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialASPGroup,
+			MessageLogging messageLogging,
+			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logCLProgramCommands,
+			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> jobLogOutput,
+			QEnum<JobMessageQueueMaximumSize, QBinary> jobMessageQueueMaximumSize,
+			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobMessageQueueFullAction,
+			QEnum<CLSyntaxCheck, QBinary> cLSyntaxCheck,
+			QEnum<EndSeverity, QBinary> endSeverity,
+			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquiryMessageReply,
+			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdOnJobQueue,
+			@DataDef(datetime = DatetimeType.DATE) QEnum<JobDate, QDatetime> jobDate,
+			@DataDef(length = 8) QEnum<JobSwitches, QCharacter> jobSwitches,
+			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> deviceRecoveryAction,
+			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timeSliceEndPool,
+			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowMultipleThreads,
+			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledFileAction,
+			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> dDMConversation) {
 
 		String library = jobDescription.library.asData().trimR();
 		switch (jobDescription.library.asEnum()) {
@@ -125,19 +124,19 @@ public class JobDescriptionChanger {
 				qJobDescription.setJobQueue(refJobQueue);
 			}
 			
-			switch (jobPriorityOnJobq.asEnum()) {
+			switch (jobPriorityonJOBQ.asEnum()) {
 			case SAME:
 				break;
 			case OTHER:
-				qJobDescription.setJobPriorityOnJobq(jobPriorityOnJobq.asData().trimR());
+				qJobDescription.setJobPriorityOnJobq(jobPriorityonJOBQ.asData().trimR());
 				break;
 			}
 			
-			switch (outputPriorityOnOutq.asEnum()) {
+			switch (outputPriorityonOUTQ.asEnum()) {
 			case SAME:
 				break;
 			case OTHER:
-				qJobDescription.setOutputPriorityOnOutq(outputPriorityOnOutq.asData().trimR());
+				qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ.asData().trimR());
 				break;
 			}
 
@@ -185,12 +184,12 @@ public class JobDescriptionChanger {
 				break;
 			}
 
-			for (QCharacter initialLibrary : initialLibraryList) {
-				if (initialLibrary.trimR().isEmpty()) {
+			for (QEnum<InitialLibraryList, QCharacter> initialLibrary : initialLibraryList) {
+				if (initialLibrary.asData().trimR().isEmpty()) {
 					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
 					break;
 				}
-				qJobDescription.getLibraries().add(initialLibrary.trimR());
+				qJobDescription.getLibraries().add(initialLibrary.asData().trimR());
 			}
 
 			resource.save(qJobDescription,true);
@@ -250,7 +249,7 @@ public class JobDescriptionChanger {
 		SAME, @Special(value = "X'40404040404040404040'")
 		USRPRF, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*WRKSTN")
-		WRKSTN
+		WRKSTN, OTHER
 	}
 
 	public static class OutputQueue extends QDataStructDelegator {
@@ -291,58 +290,59 @@ public class JobDescriptionChanger {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*USRPRF")
 		USRPRF, @Special(value = "X'404040404040404040404040404040'")
-		BLANK
+		BLANK, OTHER
 	}
 
 	public static enum PrintText {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*BLANK")
-		BLANK
+		BLANK, OTHER
 	}
 
 	public static enum RoutingData {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*RQSDTA")
-		RQSDTA
+		RQSDTA, OTHER
 	}
 
 	public static enum RequestDataOrCommand {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*NONE")
 		NONE, @Special(value = "*RTGDTA")
-		RTGDTA
+		RTGDTA, OTHER
 	}
 
 	public static enum InitialLibraryList {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*NONE")
-		NONE
+		NONE, OTHER
 	}
 
 	public static enum InitialASPGroup {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*NONE")
-		NONE
+		NONE, OTHER
 	}
 
 	public static class MessageLogging extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1, value = "*SAME")
 		public QEnum<Level, QCharacter> level;
-		public @DataDef(value = "*SAME") QEnum<Severity, QBinary> severity;
+		@DataDef(value = "*SAME")
+		public QEnum<Severity, QBinary> severity;
 		@DataDef(length = 1, value = "*SAME")
 		public QEnum<Text, QCharacter> text;
 
 		public static enum Level {
 			@Special(value = "*")
-			SAME
+			SAME, OTHER
 		}
 
 		public static enum Severity {
 			@Special(value = "-2")
-			SAME
+			SAME, OTHER
 		}
 
 		public static enum Text {
@@ -350,7 +350,7 @@ public class JobDescriptionChanger {
 			SAME, @Special(value = "M")
 			MSG, @Special(value = "S")
 			SECLVL, @Special(value = "N")
-			NOLIST, MISSING
+			NOLIST
 		}
 	}
 
@@ -358,7 +358,7 @@ public class JobDescriptionChanger {
 		@Special(value = "*")
 		SAME, @Special(value = "X'40'")
 		NO, @Special(value = "Y")
-		YES, MISSING
+		YES
 	}
 
 	public static enum JobLogOutput {
@@ -367,13 +367,13 @@ public class JobDescriptionChanger {
 		SYSVAL, @Special(value = "*JOBLOGSVR")
 		JOBLOGSVR, @Special(value = "*JOBEND")
 		JOBEND, @Special(value = "*PND")
-		PND, MISSING
+		PND
 	}
 
 	public static enum JobMessageQueueMaximumSize {
 		@Special(value = "-2")
 		SAME, @Special(value = "0")
-		SYSVAL
+		SYSVAL, OTHER
 	}
 
 	public static enum JobMessageQueueFullAction {
@@ -382,18 +382,18 @@ public class JobDescriptionChanger {
 		SYSVAL, @Special(value = "N")
 		NOWRAP, @Special(value = "W")
 		WRAP, @Special(value = "P")
-		PRTWRAP, MISSING
+		PRTWRAP
 	}
 
 	public static enum CLSyntaxCheck {
 		@Special(value = "-2")
 		SAME, @Special(value = "-1")
-		NOCHK
+		NOCHK, OTHER
 	}
 
 	public static enum EndSeverity {
 		@Special(value = "-2")
-		SAME
+		SAME, OTHER
 	}
 
 	public static enum InquiryMessageReply {
@@ -401,25 +401,25 @@ public class JobDescriptionChanger {
 		SAME, @Special(value = "X'00'")
 		RQD, @Special(value = "X'01'")
 		DFT, @Special(value = "X'02'")
-		SYSRPYL, MISSING
+		SYSRPYL
 	}
 
 	public static enum HoldOnJobQueue {
 		@Special(value = "*")
 		SAME, @Special(value = "N")
 		NO, @Special(value = "Y")
-		YES, MISSING
+		YES
 	}
 
 	public static enum JobDate {
 		@Special(value = "0000000")
 		SAME, @Special(value = "0010000")
-		SYSVAL
+		SYSVAL, OTHER
 	}
 
 	public static enum JobSwitches {
 		@Special(value = "*SAME")
-		SAME
+		SAME, OTHER
 	}
 
 	public static enum DeviceRecoveryAction {
@@ -430,7 +430,7 @@ public class JobDescriptionChanger {
 		DSCMSG, @Special(value = "*DSCENDRQS")
 		DSCENDRQS, @Special(value = "*ENDJOB")
 		ENDJOB, @Special(value = "*ENDJOBNOLIST")
-		ENDJOBNOLIST, MISSING
+		ENDJOBNOLIST
 	}
 
 	public static enum TimeSliceEndPool {
@@ -438,14 +438,14 @@ public class JobDescriptionChanger {
 		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*NONE")
 		NONE, @Special(value = "*BASE")
-		BASE, MISSING
+		BASE
 	}
 
 	public static enum AllowMultipleThreads {
 		@Special(value = "*")
 		SAME, @Special(value = "X'00'")
 		NO, @Special(value = "X'01'")
-		YES, MISSING
+		YES
 	}
 
 	public static enum SpooledFileAction {
@@ -453,14 +453,13 @@ public class JobDescriptionChanger {
 		SAME, @Special(value = "*SYSVAL")
 		SYSVAL, @Special(value = "*KEEP")
 		KEEP, @Special(value = "*DETACH")
-		DETACH, MISSING
+		DETACH
 	}
 
 	public static enum DDMConversation {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*KEEP")
 		KEEP, @Special(value = "*DROP")
-		DROP, MISSING
+		DROP
 	}
-
 }

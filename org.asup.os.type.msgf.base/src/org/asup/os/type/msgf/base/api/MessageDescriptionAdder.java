@@ -3,8 +3,10 @@ package org.asup.os.type.msgf.base.api;
 import javax.inject.Inject;
 
 import org.asup.il.data.DatetimeType;
+import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QDataStroller;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
@@ -36,27 +38,25 @@ public class MessageDescriptionAdder {
 	@Inject
 	private QJobLogManager jobLogManager;
 	
-	public @Entry void main(
-			@DataDef(length = 7) QCharacter messageIdentifier,
-			@DataDef(qualified = true) MessageFile messageFile,
-			@DataDef(length = 132) QCharacter firstLevelMessageText,
-			@DataDef(length = 3000, value = "*NONE") QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
-			QBinary severityCode
-//			@DataDef(occurrences = "99", values = { "*NONE" }) QDataStroller<MessageDataFieldsFormat> messagedatafieldsformats,
-//			@DataDef(length = 1, value = "*CHAR") QEnum<ReplyType, QCharacter> replytype,
-//			@DataDef(value = "*TYPE") MaximumReplyLength maximumreplylength,
-//			@DataDef(dimension = "20", length = 32, values = { "*NONE" }) QArray<QEnum<ValidReplyValue, QCharacter>> validreplyvalues,
-//			@DataDef(occurrences = "20", values = { "*NONE" }) QDataStroller<SpecialReplyValue> specialreplyvalues,
-//			@DataDef(value = "*NONE") RangeOfReplyValues rangeofreplyvalues,
-//			@DataDef(value = "*NONE") RelationshipForValidReplies relationshipforvalidreplies,
-//			@DataDef(length = 132, value = "*NONE") QEnum<DefaultReplyValue, QCharacter> defaultreplyvalue,
-//			@DataDef(qualified = true, value = "*NONE") DefaultProgramToCall defaultprogramtocall,
-//			@DataDef(dimension = "102", values = { "*JOB" }) QArray<QEnum<DataToBeDumped, QBinary>> datatobedumped,
-//			LevelOfMessage levelofmessage,
-//			AlertOptions alertoptions,
-//			@DataDef(length = 1, value = "*NO") QEnum<LogProblem, QCharacter> logproblem,
-//			@DataDef(value = "*JOB") QEnum<CodedCharacterSetID, QBinary> codedcharactersetid
-			) {
+			public @Entry void main(
+					@DataDef(length = 7) QCharacter messageIdentifier,
+					@DataDef(qualified = true) MessageFile messageFile,
+					@DataDef(length = 132) QCharacter firstLevelMessageText,
+					@DataDef(length = 3000) QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
+					QBinary severityCode,
+					@DataDef(occurrences = "99") QDataStroller<MessageDataFieldsFormat> messageDataFieldsFormats,
+					@DataDef(length = 1) QEnum<ReplyType, QCharacter> replyType,
+					MaximumReplyLength maximumReplyLength,
+					@DataDef(occurrences = "20", length = 32) QArray<QEnum<ValidReplyValue, QCharacter>> validReplyValues,
+					@DataDef(occurrences = "20") QDataStroller<SpecialReplyValue> specialReplyValues,
+					RangeOfReplyValues rangeOfReplyValues,
+					RelationshipForValidReplies relationshipForValidReplies,
+					@DataDef(length = 132) QEnum<DefaultReplyValue, QCharacter> defaultReplyValue,
+					@DataDef(qualified = true) DefaultProgramToCall defaultProgramToCall,
+					@DataDef(occurrences = "102") QArray<QEnum<DataToBeDumped, QBinary>> dataToBeDumped,
+					LevelOfMessage levelOfMessage, AlertOptions alertOptions,
+					@DataDef(length = 1) QEnum<LogProblem, QCharacter> logProblem,
+					QEnum<CodedCharacterSetID, QBinary> codedCharacterSetID) {
 		
 		String library = "";
 		switch (messageFile.library.asEnum()) {
@@ -75,12 +75,18 @@ public class MessageDescriptionAdder {
 			QMessageFile qMessageFile = resource.lookup(name);	
 			if (qMessageFile == null)
 				throw new OperatingSystemException("Message File " + name+ " not exists in library " + library);
+			// Cerco il messaggio
+			for(QMessageDescription messageDescription: qMessageFile.getMessages()){
+				if(messageDescription.getName().equals(messageIdentifier.trimR()))
+					throw new OperatingSystemException("Message Description " + messageIdentifier + " already exist");
+			}
 
 			QMessageDescription qMessageDescription = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageDescription();
 
+			
 			qMessageDescription.setName(messageIdentifier.trimR());
-			if (qMessageFile.getMessages().contains(qMessageDescription))
-				throw new OperatingSystemException("Message Description " + messageIdentifier + " already exist");
+//			if (qMessageFile.getMessages().contains(qMessageDescription))
+//				throw new OperatingSystemException("Message Description " + messageIdentifier + " already exist");
 			
 			qMessageDescription.setMessageText(firstLevelMessageText.trimR());
 
@@ -97,8 +103,6 @@ public class MessageDescriptionAdder {
 
 			qMessageFile.getMessages().add(qMessageDescription);
 			
-			// TODO non va bene qui
-			
 			resource.save(qMessageFile, true);
 
 			jobLogManager.info(job, "Message Description " + messageIdentifier + " added to Message File " + name);
@@ -109,203 +113,208 @@ public class MessageDescriptionAdder {
 		
 	}
 
-	public static class MessageFile extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(length = 10)
-		public QCharacter name;
-		@DataDef(length = 10, value = "*LIBL")
-		public QEnum<Library, QCharacter> library;
+			public static class MessageFile extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 10)
+				public QCharacter name;
+				@DataDef(length = 10, value = "*LIBL")
+				public QEnum<Library, QCharacter> library;
 
-		public static enum Library {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
-		}
-	}
+				public static enum Library {
+					@Special(value = "*LIBL")
+					LIBL, @Special(value = "*CURLIB")
+					CURLIB, OTHER
+				}
+			}
 
-	public static enum SecondLevelMessageText {
-		@Special(value = "")
-		NONE, OTHER
-	}
+			public static enum SecondLevelMessageText {
+				@Special(value = "")
+				NONE, OTHER
+			}
 
-	public static class MessageDataFieldsFormat extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		public QEnum<DataType, QCharacter> datatype;
-		public @DataDef(value = "*VARY") QEnum<Length, QBinary> length;
-		public @DataDef(value = "0") QBinary varybytesordecpos;
+			public static class MessageDataFieldsFormat extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 1)
+				public QEnum<DataType, QCharacter> dataType;
+				@DataDef(value = "*VARY")
+				public QEnum<Length, QBinary> length;
+				@DataDef(value = "0")
+				public QBinary VARYBytesOrDecPos;
 
-		public static enum DataType {
-			@Special(value = "FF")
-			NONE, @Special(value = "04")
-			QTDCHAR, @Special(value = "44")
-			CHAR, @Special(value = "24")
-			HEX, @Special(value = "2F")
-			SPP, @Special(value = "03")
-			DEC, @Special(value = "00")
-			BIN, @Special(value = "02")
-			UBIN, @Special(value = "05")
-			CCHAR, @Special(value = "15")
-			UTC, @Special(value = "16")
-			UTCD, @Special(value = "17")
-			UTCT, @Special(value = "14")
-			DTS, @Special(value = "0F")
-			SYP, @Special(value = "34")
-			ITV, MISSING
-		}
+				public static enum DataType {
+					@Special(value = "FF")
+					NONE, @Special(value = "04")
+					QTDCHAR, @Special(value = "44")
+					CHAR, @Special(value = "24")
+					HEX, @Special(value = "2F")
+					SPP, @Special(value = "03")
+					DEC, @Special(value = "00")
+					BIN, @Special(value = "02")
+					UBIN, @Special(value = "05")
+					CCHAR, @Special(value = "15")
+					UTC, @Special(value = "16")
+					UTCD, @Special(value = "17")
+					UTCT, @Special(value = "14")
+					DTS, @Special(value = "0F")
+					SYP, @Special(value = "34")
+					ITV
+				}
 
-		public static enum Length {
-			@Special(value = "-1")
-			VARY
-		}
-	}
+				public static enum Length {
+					@Special(value = "-1")
+					VARY, OTHER
+				}
+			}
 
-	public static enum ReplyType {
-		@Special(value = "C")
-		CHAR, @Special(value = "D")
-		DEC, @Special(value = "A")
-		ALPHA, @Special(value = "N")
-		NAME, @Special(value = "X")
-		NONE, MISSING
-	}
+			public static enum ReplyType {
+				@Special(value = "C")
+				CHAR, @Special(value = "D")
+				DEC, @Special(value = "A")
+				ALPHA, @Special(value = "N")
+				NAME, @Special(value = "X")
+				NONE
+			}
 
-	public static class MaximumReplyLength extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		public QEnum<Length, QBinary> length;
-		public QBinary decimalpositions;
+			public static class MaximumReplyLength extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				public QEnum<Length, QBinary> length;
+				public QBinary decimalPositions;
 
-		public static enum Length {
-			@Special(value = "-1")
-			TYPE, @Special(value = "-2")
-			NONE
-		}
-	}
+				public static enum Length {
+					@Special(value = "-1")
+					TYPE, @Special(value = "-2")
+					NONE, OTHER
+				}
+			}
 
-	public static enum ValidReplyValue {
-		@Special(value = "*NONE")
-		NONE
-	}
+			public static enum ValidReplyValue {
+				@Special(value = "*NONE")
+				NONE, OTHER
+			}
 
-	public static class SpecialReplyValue extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(length = 32)
-		public QEnum<OriginalFromValue, QCharacter> originalfromvalue;
-		@DataDef(length = 32)
-		public QCharacter replacementtovalue;
+			public static class SpecialReplyValue extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 32)
+				public QEnum<OriginalFromValue, QCharacter> originalFromValue;
+				@DataDef(length = 32)
+				public QCharacter replacementToValue;
 
-		public static enum OriginalFromValue {
-			@Special(value = "*NONE")
-			NONE
-		}
-	}
+				public static enum OriginalFromValue {
+					@Special(value = "*NONE")
+					NONE, OTHER
+				}
+			}
 
-	public static class RangeOfReplyValues extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(length = 32)
-		public QEnum<LowerValue, QCharacter> lowervalue;
-		@DataDef(length = 32)
-		public QCharacter uppervalue;
+			public static class RangeOfReplyValues extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 32)
+				public QEnum<LowerValue, QCharacter> lowerValue;
+				@DataDef(length = 32)
+				public QCharacter upperValue;
 
-		public static enum LowerValue {
-			@Special(value = "*NONE")
-			NONE
-		}
-	}
+				public static enum LowerValue {
+					@Special(value = "*NONE")
+					NONE, OTHER
+				}
+			}
 
-	public static class RelationshipForValidReplies extends
-	QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(length = 1)
-		public QEnum<RelationalOperator, QCharacter> relationaloperator;
-	@DataDef(length = 32)
-	public QCharacter value;
+			public static class RelationshipForValidReplies extends
+					QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 1)
+				public QEnum<RelationalOperator, QCharacter> relationalOperator;
+				@DataDef(length = 32)
+				public QCharacter value;
 
-	public static enum RelationalOperator {
-		@Special(value = "FF")
-		NONE, @Special(value = "50")
-		EQ, @Special(value = "70")
-		LE, @Special(value = "40")
-		GE, @Special(value = "30")
-		GT, @Special(value = "80")
-		LT, @Special(value = "60")
-		NE, @Special(value = "40")
-		NL, @Special(value = "70")
-		NG, MISSING
-	}
-}
+				public static enum RelationalOperator {
+					@Special(value = "FF")
+					NONE, @Special(value = "50")
+					EQ, @Special(value = "70")
+					LE, @Special(value = "40")
+					GE, @Special(value = "30")
+					GT, @Special(value = "80")
+					LT, @Special(value = "60")
+					NE, @Special(value = "40")
+					NL, @Special(value = "70")
+					NG
+				}
+			}
 
-	public static enum DefaultReplyValue {
-		@Special(value = "*NONE")
-		NONE
-	}
+			public static enum DefaultReplyValue {
+				@Special(value = "*NONE")
+				NONE, OTHER
+			}
 
-	public static class DefaultProgramToCall extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(length = 10)
-		public QEnum<Name, QCharacter> name;
-		@DataDef(length = 10, value = "*LIBL")
-		public QEnum<Library, QCharacter> library;
+			public static class DefaultProgramToCall extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 10)
+				public QEnum<Name, QCharacter> name;
+				@DataDef(length = 10, value = "*LIBL")
+				public QEnum<Library, QCharacter> library;
 
-		public static enum Name {
-			@Special(value = "*NONE")
-			NONE
-		}
+				public static enum Name {
+					@Special(value = "*NONE")
+					NONE, OTHER
+				}
 
-		public static enum Library {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB
-		}
-	}
+				public static enum Library {
+					@Special(value = "*LIBL")
+					LIBL, @Special(value = "*CURLIB")
+					CURLIB, OTHER
+				}
+			}
 
-	public static enum DataToBeDumped {
-		@Special(value = "0")
-		NONE, @Special(value = "-4")
-		JOB, @Special(value = "-2")
-		JOBINT, @Special(value = "-1")
-		JOBDMP
-	}
+			public static enum DataToBeDumped {
+				@Special(value = "0")
+				NONE, @Special(value = "-4")
+				JOB, @Special(value = "-2")
+				JOBINT, @Special(value = "-1")
+				JOBDMP, OTHER
+			}
 
-	public static class LevelOfMessage extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(datetime = DatetimeType.DATE, value = "*CURRENT")
-		public QEnum<CreationDate, QDatetime> creationdate;
-		public @DataDef(value = "1") QBinary levelnumber;
+			public static class LevelOfMessage extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(datetime = DatetimeType.DATE, value = "*CURRENT")
+				public QEnum<CreationDate, QDatetime> creationDate;
+				@DataDef(value = "1")
+				public QBinary levelNumber;
 
-		public static enum CreationDate {
-			@Special(value = "0040000")
-			CURRENT
-		}
-	}
+				public static enum CreationDate {
+					@Special(value = "0040000")
+					CURRENT, OTHER
+				}
+			}
 
-	public static class AlertOptions extends QDataStructDelegator {
-		private static final long serialVersionUID = 1L;
-		@DataDef(length = 1, value = "*NO")
-		public QEnum<AlertType, QCharacter> alerttype;
-		public @DataDef(value = "*NONE") QEnum<ResourceNameVariable, QBinary> resourcenamevariable;
+			public static class AlertOptions extends QDataStructDelegator {
+				private static final long serialVersionUID = 1L;
+				@DataDef(length = 1, value = "*NO")
+				public QEnum<AlertType, QCharacter> alertType;
+				@DataDef(value = "*NONE")
+				public QEnum<ResourceNameVariable, QBinary> resourceNameVariable;
 
-		public static enum AlertType {
-			@Special(value = "I")
-			IMMED, @Special(value = "D")
-			DEFER, @Special(value = "U")
-			UNATTEND, @Special(value = "N")
-			NO, MISSING
-		}
+				public static enum AlertType {
+					@Special(value = "I")
+					IMMED, @Special(value = "D")
+					DEFER, @Special(value = "U")
+					UNATTEND, @Special(value = "N")
+					NO
+				}
 
-		public static enum ResourceNameVariable {
-			@Special(value = "0")
-			NONE
-		}
-	}
+				public static enum ResourceNameVariable {
+					@Special(value = "0")
+					NONE, OTHER
+				}
+			}
 
-	public static enum LogProblem {
-		@Special(value = "N")
-		NO, @Special(value = "Y")
-		YES, MISSING
-	}
+			public static enum LogProblem {
+				@Special(value = "N")
+				NO, @Special(value = "Y")
+				YES
+			}
 
-	public static enum CodedCharacterSetID {
-		@Special(value = "0")
-		JOB, @Special(value = "65535")
-		HEX
-	}
+			public static enum CodedCharacterSetID {
+				@Special(value = "0")
+				JOB, @Special(value = "65535")
+				HEX, OTHER
+			}
 }
