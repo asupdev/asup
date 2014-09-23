@@ -259,17 +259,15 @@
       <eParameters name="type" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaType"/>
       <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
     </eOperations>
-    <eOperations name="createDataStroller" lowerBound="1">
+    <eOperations name="createStroller" lowerBound="1">
       <eGenericType eClassifier="#//Stroller">
-        <eTypeArguments eTypeParameter="#//DataFactory/createDataStroller/D"/>
+        <eTypeArguments eTypeParameter="#//DataFactory/createStroller/D"/>
       </eGenericType>
       <eTypeParameters name="D">
-        <eBounds eClassifier="#//DataStruct"/>
+        <eBounds eClassifier="#//Struct"/>
       </eTypeParameters>
-      <eParameters name="classDelegator">
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-          <eTypeArguments eTypeParameter="#//DataFactory/createDataStroller/D"/>
-        </eGenericType>
+      <eParameters name="dataDelegate" lowerBound="1">
+        <eGenericType eTypeParameter="#//DataFactory/createStroller/D"/>
       </eParameters>
       <eParameters name="occurrences" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>

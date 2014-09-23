@@ -643,7 +643,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="rEXXExitPrograms">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="8">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -1791,7 +1791,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="rEXXExitPrograms">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="8">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -3163,7 +3163,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="command">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="50">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"

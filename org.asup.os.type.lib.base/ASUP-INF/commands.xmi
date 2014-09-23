@@ -1989,7 +1989,7 @@
             xsi:type="il-core:Domain"
             name="/os/type#//TypedObject"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -3201,7 +3201,7 @@
             xsi:type="il-core:Domain"
             name="/os/type#//TypedObject"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"

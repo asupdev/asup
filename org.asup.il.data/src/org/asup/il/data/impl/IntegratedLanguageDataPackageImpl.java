@@ -2451,14 +2451,12 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(dataFactoryEClass, null, "createDataStroller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataFactoryEClass, null, "createStroller", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "D");
-		g1 = createEGenericType(this.getDataStruct());
+		g1 = createEGenericType(this.getStruct());
 		t1.getEBounds().add(g1);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType(t1);
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "classDelegator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		addEParameter(op, g1, "dataDelegate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getStroller());
 		g2 = createEGenericType(t1);

@@ -137,7 +137,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="messageDataFieldsFormats">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="99">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -325,7 +325,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="specialReplyValues">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="20">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -857,7 +857,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="messageDataFieldsFormats">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="99">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -1057,7 +1057,7 @@
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="specialReplyValues">
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="20">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"

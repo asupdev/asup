@@ -382,7 +382,7 @@
             max="20"
             min="1"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="20">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -4685,7 +4685,7 @@
             xsi:type="il-core:Cardinality"
             max="50"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="50">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -7444,7 +7444,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -7565,7 +7565,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -7646,7 +7646,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -8885,7 +8885,7 @@
             xsi:type="il-core:Cardinality"
             max="50"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="50">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -18216,7 +18216,7 @@
             max="10"
             min="1"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="10">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -19126,7 +19126,7 @@
             xsi:type="il-core:Cardinality"
             max="200"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="200">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -19808,7 +19808,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -22674,7 +22674,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -23056,7 +23056,7 @@
             xsi:type="il-core:Cardinality"
             max="16"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="16">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -23425,7 +23425,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -23535,7 +23535,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -23624,7 +23624,7 @@
             xsi:type="il-core:Cardinality"
             max="20"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="20">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -24650,7 +24650,7 @@
             xsi:type="il-core:Cardinality"
             max="200"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="200">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -25885,7 +25885,7 @@
             xsi:type="il-core:Cardinality"
             max="200"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="200">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -25941,7 +25941,7 @@
             xsi:type="il-core:Cardinality"
             max="16"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="16">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -26611,7 +26611,7 @@
             xsi:type="il-core:Cardinality"
             max="50"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="50">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -27457,7 +27457,7 @@
             xsi:type="il-core:Domain"
             name="/os/type/pgm#//Program"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="20">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -27755,7 +27755,7 @@
             xsi:type="il-core:Cardinality"
             max="20"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="20">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -28651,7 +28651,7 @@
             max="300"
             min="1"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
@@ -28748,7 +28748,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
@@ -28865,7 +28865,7 @@
             xsi:type="il-core:Cardinality"
             max="300"/>
         <definition
-            xsi:type="il-data:DataStrollerDef"
+            xsi:type="il-data:StrollerDef"
             occurrences="300">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"

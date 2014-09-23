@@ -70,6 +70,7 @@ import org.asup.il.data.QScroller;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStroller;
 import org.asup.il.data.QStrollerDef;
+import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
@@ -114,13 +115,15 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 		// dataStroller
 		if(dataDef instanceof QStrollerDef<?>) {
-			QStrollerDef<?> dataStrollerDef = (QStrollerDef<?>)dataDef;
+			QStrollerDef<?> strollerDef = (QStrollerDef<?>)dataDef;
 			
 			Class<? extends QDataStruct> delegator = null;
-			if(dataStrollerDef.getClassDelegator() != null)
-				delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, dataStrollerDef.getClassDelegator());
+			if(strollerDef.getClassDelegator() != null)
+				delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, strollerDef.getClassDelegator());
 			
-			data = (D) createDataStroller(delegator, Integer.parseInt(dataStrollerDef.getOccurrences()));
+			QDataStruct bufferedData = createDataStruct(delegator, strollerDef.getElements(), strollerDef.getLength());
+			
+			data = (D) createStroller(bufferedData, Integer.parseInt(strollerDef.getOccurrences()));
 		}
 		// scroller
 		else if(dataDef instanceof QScrollerDef<?>) {
@@ -677,10 +680,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 	}
 
 	@Override
-	public <D extends QDataStruct> QStroller<D> createDataStroller(Class<D> classDelegator, int occurrences) {
-
-		//TODO: implements dataScroller creation
-		return null;
+	public <D extends QStruct> QStroller<D> createStroller(D dataDelegate, int occurrences) {
+		return new NIOStrollerImpl<D>(dataDelegate, occurrences, true);
 	}
 
 	@Override
@@ -711,7 +712,6 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 	@Override
 	public <D extends QBufferedData> QScroller<D> createScroller(D dataDelegate, int occurrences) {
-		// TODO Auto-generated method stub
 		return new NIOScrollerImpl<D>(dataDelegate, occurrences, true);
 	}
 

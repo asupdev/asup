@@ -236,10 +236,10 @@
     <genClasses image="false" ecoreClass="il-data.ecore#//DataStroller">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//DataStroller/D"/>
     </genClasses>
-    <genClasses ecoreClass="il-data.ecore#//DataStrollerDef">
-      <genTypeParameters ecoreTypeParameter="il-data.ecore#//DataStrollerDef/D"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//DataStrollerDef/length"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//DataStrollerDef/occurrences"/>
+    <genClasses ecoreClass="il-data.ecore#//StrollerDef">
+      <genTypeParameters ecoreTypeParameter="il-data.ecore#//StrollerDef/D"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//StrollerDef/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//StrollerDef/occurrences"/>
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//DataTerm">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//DataTerm/DD"/>
