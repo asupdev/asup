@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class EnumDefImpl<E extends Enum<E>, D extends QBufferedData> extends UnaryDataDefImpl<D> implements QEnumDef<E, D> {
+public abstract class EnumDefImpl<E extends Enum<E>, D extends QBufferedData> extends UnaryAtomicDataDefImpl<D> implements QEnumDef<E, D> {
 	/**
 	 * 
 	 */

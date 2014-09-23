@@ -8,9 +8,7 @@ import java.util.List;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.il.core.QSpecial;
-import org.asup.il.data.QArray;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataStroller;
 import org.asup.il.data.QDataStrollerDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QEnum;
@@ -59,7 +57,6 @@ public class RPJNodeWriter {
 	public Type prepareJavaType(QDataTerm<?> dataTerm) {
 		
 		QDataDef<?> dataDef = dataTerm.getDefinition();
-//		Class<? extends QDataDef<?>> klassDef = (Class<? extends QDataDef<?>>) dataDef.getClass();
 		
 		Type type = null;
 	
@@ -67,12 +64,12 @@ public class RPJNodeWriter {
 			case MULTIPLE_ATOMIC//		field.fragments().add(variable);
 :
 				QMultipleAtomicDataDef<?> multipleAtomicDataDef = (QMultipleAtomicDataDef<?>) dataDef;
+				writeImport(multipleAtomicDataDef.getDataClass());
 				
-				QUnaryAtomicDataDef<?> innerDataDefinition = multipleAtomicDataDef.getArgument();
-
-				writeImport(QArray.class);		
+				QUnaryAtomicDataDef<?> innerDataDefinition = multipleAtomicDataDef.getArgument();		
 				writeImport(innerDataDefinition.getDataClass());
-				Type array = getAST().newSimpleType(getAST().newSimpleName(QArray.class.getSimpleName()));
+				
+				Type array = getAST().newSimpleType(getAST().newSimpleName(multipleAtomicDataDef.getDataClass().getSimpleName()));
 				ParameterizedType parType = getAST().newParameterizedType(array);
 				
 				QSpecial special = dataTerm.getFacet(QSpecial.class);				
@@ -99,11 +96,10 @@ public class RPJNodeWriter {
 	
 				break;
 			case MULTIPLE_COMPOUND:
-				@SuppressWarnings("unused")
-				QDataStrollerDef<?> dataStrollerDef = (QDataStrollerDef<?>) dataDef;
+				QDataStrollerDef<?> dataStrollerDef = (QDataStrollerDef<?>) dataDef;				
+				writeImport(dataStrollerDef.getDataClass());
 				
-				writeImport(QDataStroller.class);
-				array = getAST().newSimpleType(getAST().newSimpleName(QDataStroller.class.getSimpleName()));
+				array = getAST().newSimpleType(getAST().newSimpleName(dataStrollerDef.getDataClass().getSimpleName()));
 				parType = getAST().newParameterizedType(array);
 				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
 				
