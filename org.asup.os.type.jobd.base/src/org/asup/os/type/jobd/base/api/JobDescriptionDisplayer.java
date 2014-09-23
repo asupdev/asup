@@ -50,10 +50,9 @@ public class JobDescriptionDisplayer {
 	@Inject
 	private QJob job;
 
-	@Entry
-	public void main(
+	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(length = 1, value = "*") QEnum<Output, QCharacter> output) {
+			@DataDef(length = 1) QEnum<Output, QCharacter> output) {
 
 		QObjectWriter objectWriter = outputManager.getObjectWriter(job,	output.getSpecialName());
 		objectWriter.initialize();
@@ -104,15 +103,13 @@ public class JobDescriptionDisplayer {
 		public static enum Library {
 			@Special(value = "*LIBL")
 			LIBL, @Special(value = "*CURLIB")
-			CURLIB
+			CURLIB, OTHER
 		}
 	}
 
 	public static enum Output {
 		@Special(value = "*")
 		TERM_STAR, @Special(value = "L")
-		PRINT, MISSING
+		PRINT
 	}
-
-
 }
