@@ -6,10 +6,10 @@ import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStroller;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
+import org.asup.il.data.QStroller;
 import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -44,11 +44,11 @@ public class MessageDescriptionAdder {
 					@DataDef(length = 132) QCharacter firstLevelMessageText,
 					@DataDef(length = 3000) QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
 					QBinary severityCode,
-					@DataDef(occurrences = "99") QDataStroller<MessageDataFieldsFormat> messageDataFieldsFormats,
+					@DataDef(occurrences = "99") QStroller<MessageDataFieldsFormat> messageDataFieldsFormats,
 					@DataDef(length = 1) QEnum<ReplyType, QCharacter> replyType,
 					MaximumReplyLength maximumReplyLength,
 					@DataDef(occurrences = "20", length = 32) QArray<QEnum<ValidReplyValue, QCharacter>> validReplyValues,
-					@DataDef(occurrences = "20") QDataStroller<SpecialReplyValue> specialReplyValues,
+					@DataDef(occurrences = "20") QStroller<SpecialReplyValue> specialReplyValues,
 					RangeOfReplyValues rangeOfReplyValues,
 					RelationshipForValidReplies relationshipForValidReplies,
 					@DataDef(length = 132) QEnum<DefaultReplyValue, QCharacter> defaultReplyValue,
