@@ -2,10 +2,13 @@ package org.asup.os.type.msgf.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QDataStroller;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
+import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -35,23 +38,22 @@ public class MessageDescriptionChanger {
 	public @Entry void main(
 			@DataDef(length = 7) QCharacter messageIdentifier,
 			@DataDef(qualified = true) MessageFile messageFile,
-			@DataDef(length = 132, value = "*SAME") QEnum<FirstLevelMessageText, QCharacter> firstLevelMessageText,
-			@DataDef(length = 3000, value = "*SAME") QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
-			@DataDef(value = "*SAME") QEnum<SeverityCode, QBinary> severityCode
-//			@DataDef(occurrences = "99", values = { "*SAME" }) QDataStroller<MessageDataFieldsFormat> messagedatafieldsformats,
-//			@DataDef(length = 1, value = "*SAME") QEnum<ReplyType, QCharacter> replytype,
-//			@DataDef(value = "*SAME") MaximumReplyLength maximumreplylength,
-//			@DataDef(occurrences = "20", length = 32, values = { "*SAME" }) QArray<QEnum<ValidReplyValue, QCharacter>> validreplyvalues,
-//			@DataDef(occurrences = "20", values = { "*SAME" }) QDataStroller<SpecialReplyValue> specialreplyvalues,
-//			@DataDef(value = "*SAME") RangeOfReplyValues rangeofreplyvalues,
-//			@DataDef(value = "*SAME") RelationshipForValidReplies relationshipforvalidreplies,
-//			@DataDef(length = 132, value = "*SAME") QEnum<DefaultReplyValue, QCharacter> defaultreplyvalue,
-//			@DataDef(qualified = true, value = "*SAME") DefaultProgramToCall defaultprogramtocall,
-//			@DataDef(occurrences = "102", values = { "*SAME" }) QArray<QEnum<DataToBeDumped, QBinary>> datatobedumped,
-//			@DataDef(value = "*SAME") AlertOptions alertoptions, 
-//			@DataDef(length = 1, value = "*SAME") QEnum<LogProblem, QCharacter> logproblem,
-//			@DataDef(value = "*JOB") QEnum<CodedCharacterSetID, QBinary> codedcharactersetid
-																							) {
+			@DataDef(length = 132) QEnum<FirstLevelMessageText, QCharacter> firstLevelMessageText,
+			@DataDef(length = 3000) QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
+			QEnum<SeverityCode, QBinary> severityCode,
+			@DataDef(occurrences = "99") QDataStroller<MessageDataFieldsFormat> messageDataFieldsFormats,
+			@DataDef(length = 1) QEnum<ReplyType, QCharacter> replyType,
+			MaximumReplyLength maximumReplyLength,
+			@DataDef(occurrences = "20", length = 32) QArray<QEnum<ValidReplyValue, QCharacter>> validReplyValues,
+			@DataDef(occurrences = "20") QDataStroller<SpecialReplyValue> specialReplyValues,
+			RangeOfReplyValues rangeOfReplyValues,
+			RelationshipForValidReplies relationshipForValidReplies,
+			@DataDef(length = 132) QEnum<DefaultReplyValue, QCharacter> defaultReplyValue,
+			@DataDef(qualified = true) DefaultProgramToCall defaultProgramToCall,
+			@DataDef(occurrences = "102") QArray<QEnum<DataToBeDumped, QBinary>> dataToBeDumped,
+			AlertOptions alertOptions,
+			@DataDef(length = 1) QEnum<LogProblem, QCharacter> logProblem,
+			QEnum<CodedCharacterSetID, QBinary> codedCharacterSetID) {
 	
 		String library = "";
 		switch (messageFile.library.asEnum()) {
@@ -70,12 +72,17 @@ public class MessageDescriptionChanger {
 			QMessageFile qMessageFile = resource.lookup(name);	
 			if (qMessageFile == null)
 				throw new OperatingSystemException("Message File " + name+ " not exists in library " + library);
+			// Cerco il messaggio
+			for(QMessageDescription messageDescription: qMessageFile.getMessages()){
+				if(messageDescription.getName().equals(messageIdentifier.trimR()))
+					throw new OperatingSystemException("Message Description " + messageIdentifier + " already exist");
+			}
 
 			QMessageDescription qMessageDescription = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageDescription();
 
 			qMessageDescription.setName(messageIdentifier.trimR());
-			if (!qMessageFile.getMessages().contains(qMessageDescription))
-				throw new OperatingSystemException("Message Description " + messageIdentifier + " not exist");
+//			if (!qMessageFile.getMessages().contains(qMessageDescription))
+//				throw new OperatingSystemException("Message Description " + messageIdentifier + " not exist");
 
 			qMessageFile.getMessages().remove(qMessageDescription);			
 			
@@ -118,10 +125,6 @@ public class MessageDescriptionChanger {
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
-	
-	
-	
-	
 	}
 
 	public static class MessageFile extends QDataStructDelegator {
@@ -157,9 +160,11 @@ public class MessageDescriptionChanger {
 
 	public static class MessageDataFieldsFormat extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		public QEnum<DataType, QCharacter> datatype;
-		public @DataDef(value = "*VARY") QEnum<Length, QBinary> length;
-		public @DataDef(value = "0") QBinary varybytesordecpos;
+		public QEnum<DataType, QHexadecimal> dataType;
+		@DataDef(value = "*VARY")
+		public QEnum<Length, QBinary> length;
+		@DataDef(value = "0")
+		public QBinary VARYBytesOrDecPos;
 
 		public static enum DataType {
 			@Special(value = "FE")
@@ -178,12 +183,12 @@ public class MessageDescriptionChanger {
 			UTCT, @Special(value = "14")
 			DTS, @Special(value = "0F")
 			SYP, @Special(value = "34")
-			ITV, MISSING
+			ITV
 		}
 
 		public static enum Length {
 			@Special(value = "-1")
-			VARY
+			VARY, OTHER
 		}
 	}
 
@@ -194,60 +199,60 @@ public class MessageDescriptionChanger {
 		CHAR, @Special(value = "D")
 		DEC, @Special(value = "A")
 		ALPHA, @Special(value = "N")
-		NAME, MISSING
+		NAME
 	}
 
 	public static class MaximumReplyLength extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		public QEnum<Length, QBinary> length;
-		public QBinary decimalpositions;
+		public QBinary decimalPositions;
 
 		public static enum Length {
 			@Special(value = "-2")
 			SAME, @Special(value = "-3")
 			NONE, @Special(value = "-1")
-			TYPE
+			TYPE, OTHER
 		}
 	}
 
 	public static enum ValidReplyValue {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*NONE")
-		NONE
+		NONE, OTHER
 	}
 
 	public static class SpecialReplyValue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 32)
-		public QEnum<OriginalFromValue, QCharacter> originalfromvalue;
+		public QEnum<OriginalFromValue, QCharacter> originalFromValue;
 		@DataDef(length = 32)
-		public QCharacter replacementtovalue;
+		public QCharacter replacementToValue;
 
 		public static enum OriginalFromValue {
 			@Special(value = "*SAME")
 			SAME, @Special(value = "*NONE")
-			NONE
+			NONE, OTHER
 		}
 	}
 
 	public static class RangeOfReplyValues extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 32)
-		public QEnum<LowerValue, QCharacter> lowervalue;
+		public QEnum<LowerValue, QCharacter> lowerValue;
 		@DataDef(length = 32)
-		public QCharacter uppervalue;
+		public QCharacter upperValue;
 
 		public static enum LowerValue {
 			@Special(value = "*SAME")
 			SAME, @Special(value = "*NONE")
-			NONE
+			NONE, OTHER
 		}
 	}
 
 	public static class RelationshipForValidReplies extends
 			QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		public QEnum<RelationalOperator, QCharacter> relationaloperator;
+		public QEnum<RelationalOperator, QHexadecimal> relationalOperator;
 		@DataDef(length = 32)
 		public QCharacter value;
 
@@ -262,14 +267,14 @@ public class MessageDescriptionChanger {
 			LT, @Special(value = "60")
 			NE, @Special(value = "40")
 			NL, @Special(value = "70")
-			NG, MISSING
+			NG
 		}
 	}
 
 	public static enum DefaultReplyValue {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "*NONE")
-		NONE
+		NONE, OTHER
 	}
 
 	public static class DefaultProgramToCall extends QDataStructDelegator {
@@ -282,13 +287,13 @@ public class MessageDescriptionChanger {
 		public static enum Name {
 			@Special(value = "*SAME")
 			SAME, @Special(value = "*NONE")
-			NONE
+			NONE, OTHER
 		}
 
 		public static enum Library {
 			@Special(value = "*LIBL")
 			LIBL, @Special(value = "*CURLIB")
-			CURLIB
+			CURLIB, OTHER
 		}
 	}
 
@@ -298,14 +303,15 @@ public class MessageDescriptionChanger {
 		NONE, @Special(value = "-4")
 		JOB, @Special(value = "-2")
 		JOBINT, @Special(value = "-1")
-		JOBDMP
+		JOBDMP, OTHER
 	}
 
 	public static class AlertOptions extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
-		public QEnum<AlertType, QCharacter> alerttype;
-		public @DataDef(value = "*NONE") QEnum<ResourceNameVariable, QBinary> resourcenamevariable;
+		public QEnum<AlertType, QCharacter> alertType;
+		@DataDef(value = "*NONE")
+		public QEnum<ResourceNameVariable, QBinary> resourceNameVariable;
 
 		public static enum AlertType {
 			@Special(value = "S")
@@ -313,12 +319,12 @@ public class MessageDescriptionChanger {
 			IMMED, @Special(value = "D")
 			DEFER, @Special(value = "U")
 			UNATTEND, @Special(value = "N")
-			NO
+			NO, OTHER
 		}
 
 		public static enum ResourceNameVariable {
 			@Special(value = "0")
-			NONE
+			NONE, OTHER
 		}
 	}
 
@@ -326,14 +332,13 @@ public class MessageDescriptionChanger {
 		@Special(value = "S")
 		SAME, @Special(value = "N")
 		NO, @Special(value = "Y")
-		YES, MISSING
+		YES
 	}
 
 	public static enum CodedCharacterSetID {
 		@Special(value = "-1")
 		SAME, @Special(value = "65535")
 		HEX, @Special(value = "0")
-		JOB
+		JOB, OTHER
 	}
-	
 }
