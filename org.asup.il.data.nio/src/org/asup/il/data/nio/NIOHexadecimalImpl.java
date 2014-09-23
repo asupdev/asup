@@ -11,16 +11,16 @@
  */
 package org.asup.il.data.nio;
 
-import org.asup.il.data.QBinary;
+import org.asup.il.data.QHexadecimal;
 
-public class NIOBinaryImpl extends NIODecimalImpl implements QBinary {
+public class NIOHexadecimalImpl extends NIODecimalImpl implements QHexadecimal {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NIOBinaryImpl(int length, byte[] value, boolean initialize) {
+	public NIOHexadecimalImpl(int length, byte[] value, boolean initialize) {
 		super(length, 0, value, initialize);
 	}
 
