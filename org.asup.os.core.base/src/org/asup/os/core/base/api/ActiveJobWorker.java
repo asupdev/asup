@@ -43,19 +43,18 @@ public class ActiveJobWorker {
 	@Inject
 	private QJobManager jobManager;
 	
-	public @Entry
-	void main(
-			@DataDef(length = 1) QCharacter output,
-			@DataDef(length = 1) QCharacter resetStatusStatistics,
-			@DataDef(occurrences = "25", length = 10) QScroller<QCharacter> subsystem,
-			@DataDef(precision = 3, scale = 1) QDecimal cPUPercentLimit,
-			@DataDef(precision = 4, scale = 1) QDecimal responseTimeLimit,
-			QBinary sequence,
+	public @Entry void main(
+			@DataDef(length = 1) QEnum<Output, QCharacter> output,
+			@DataDef(length = 1) QEnum<ResetStatusStatistics, QCharacter> resetStatusStatistics,
+			@DataDef(occurrences = "25", length = 10) QScroller<QEnum<Subsystem, QCharacter>> subsystem,
+			@DataDef(precision = 3, scale = 1) QEnum<CPUPercentLimit, QDecimal> cPUPercentLimit,
+			@DataDef(precision = 4, scale = 1) QEnum<ResponseTimeLimit, QDecimal> responseTimeLimit,
+			QEnum<Sequence, QBinary> sequence,
 			@DataDef(qualified = true) JobName jobName,
-			@DataDef(precision = 3) QDecimal automaticRefreshInterval) {
+			@DataDef(precision = 3) QEnum<AutomaticRefreshInterval, QDecimal> automaticRefreshInterval) {
 	
 		
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job, output.trimR());
+		QObjectWriter objectWriter = outputManager.getObjectWriter(job, output.asData().trimR());
 		objectWriter.initialize();
 		
 		for (QJob qJob : jobManager.getActiveJobs()) {
@@ -70,31 +69,32 @@ public class ActiveJobWorker {
 
 	}
 
+
 	public static enum Output {
 		@Special(value = "*")
 		TERM_STAR, @Special(value = "L")
-		PRINT, MISSING
+		PRINT
 	}
 
 	public static enum ResetStatusStatistics {
 		@Special(value = "N")
 		NO, @Special(value = "Y")
-		YES, MISSING
+		YES
 	}
 
 	public static enum Subsystem {
 		@Special(value = "*ALL")
-		ALL
+		ALL, OTHER
 	}
 
 	public static enum CPUPercentLimit {
 		@Special(value = "-1.0")
-		NONE
+		NONE, OTHER
 	}
 
 	public static enum ResponseTimeLimit {
 		@Special(value = "-1.0")
-		NONE
+		NONE, OTHER
 	}
 
 	public static enum Sequence {
@@ -114,24 +114,25 @@ public class ActiveJobWorker {
 		STS, @Special(value = "15")
 		THREADS, @Special(value = "3")
 		TYPE, @Special(value = "13")
-		USER, MISSING
+		USER
 	}
 
 	public static class JobName extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		@DataDef(length = 10)
+		@DataDef(length = 10, value = "*ALL")
 		public QEnum<NameGeneric, QCharacter> nameGeneric;
 
 		public static enum NameGeneric {
 			@Special(value = "*ALL")
 			ALL, @Special(value = "*SYS")
 			SYS, @Special(value = "*SBS")
-			SBS
+			SBS, OTHER
 		}
 	}
 
 	public static enum AutomaticRefreshInterval {
 		@Special(value = "-1")
-		PRV
+		PRV, OTHER
 	}
+
 }
