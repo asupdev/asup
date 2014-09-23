@@ -326,7 +326,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					// Recursive Call
 					assignValue = assignValue(unaryCompoundDataDef.getElements().get(j-1), dataContext, values[values.length - j], variables);
 					
-					assignValue(struct.getElement(j-1), assignValue.toString());
+					assignValue(struct.getElement(j), assignValue.toString());
 				}
 			} else {
 				
