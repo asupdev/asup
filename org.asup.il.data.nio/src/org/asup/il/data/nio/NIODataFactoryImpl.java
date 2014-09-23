@@ -140,8 +140,9 @@ public class NIODataFactoryImpl implements QDataFactory {
 			int dimension = 0;
 			if(arrayDef.getDimension().equalsIgnoreCase("%elem(£JAXSWK)"))
 				dimension = 300;
-			else
-				dimension = Integer.parseInt(arrayDef.getDimension()); 
+			else {
+				dimension = Integer.parseInt(arrayDef.getDimension());
+			}
 			
 			QBufferedData bufferedData = createArray(argument, dimension);
 			data = (D) bufferedData;
@@ -245,6 +246,19 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 			dataDef = arrayDef;
 		}
+		// stroller
+		else if(QStroller.class.isAssignableFrom(klass)) {
+			QStrollerDef<?> strollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createStrollerDef();
+			
+			// argument
+			QUnaryCompoundDataDef<?> argument = (QUnaryCompoundDataDef<?>) createDataDef(arguments.get(0), annotations);
+			strollerDef.setClassDelegator(argument.getClassDelegator());
+			strollerDef.setPrefix(argument.getPrefix());
+			strollerDef.setQualified(argument.isQualified());
+			strollerDef.getElements().addAll(argument.getElements());
+			
+			dataDef = strollerDef;
+		}
 		// scroller
 		else if(QScroller.class.isAssignableFrom(klass)) {
 			QScrollerDef<?> scrollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createScrollerDef();
@@ -255,7 +269,6 @@ public class NIODataFactoryImpl implements QDataFactory {
 			
 			dataDef = scrollerDef;
 		}
-
 		// enum
 		else if(QEnum.class.isAssignableFrom(klass)) {
 			
@@ -553,16 +566,16 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 		switch (type) {
 			case BYTE:
-				binary = new NIOBinaryImpl(1, 0, null, initialize);
+				binary = new NIOBinaryImpl(1, null, initialize);
 				break;	
 			case SHORT:
-				binary = new NIOBinaryImpl(3, 0, null, initialize);
+				binary = new NIOBinaryImpl(3, null, initialize);
 				break;
 			case INTEGER:
-				binary = new NIOBinaryImpl(5, 0, null, initialize);
+				binary = new NIOBinaryImpl(5, null, initialize);
 				break;
 			case LONG:
-				binary = new NIOBinaryImpl(10, 0, null, initialize);
+				binary = new NIOBinaryImpl(10, null, initialize);
 				break;
 			default:
 				throw new FrameworkCoreRuntimeException("Unknown data type " + type);
@@ -650,11 +663,17 @@ public class NIODataFactoryImpl implements QDataFactory {
 				EStructuralFeature eFeature = null;
 
 				// if default field (value) use annotation name
-				if (method.getName().equals("value"))
-					eFeature = eClass.getEStructuralFeature(annotation.annotationType().getSimpleName().toLowerCase());
-				else
-					eFeature = eClass.getEStructuralFeature(method.getName());
+//				if (method.getName().equals("value"))
+//					eFeature = eClass.getEStructuralFeature(annotation.annotationType().getSimpleName().toLowerCase());
+//				else
+				eFeature = eClass.getEStructuralFeature(method.getName());
 
+				if(eFeature == null) {
+					if(eClass.getName().replaceAll("Def", "").equalsIgnoreCase(method.getName().replace("Type", ""))) {
+						eFeature = eClass.getEStructuralFeature("type");
+					}
+				}
+				
 				if (eFeature != null) {
 					try {
 						Object object = method.invoke(annotation, new Object[] {});
@@ -700,8 +719,9 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 	@Override
 	public QHexadecimal createHexadecimal(int length) {
-		// TODO Auto-generated method stub
-		return null;
+		boolean initialize = (parent == null ? true : false);
+		
+		return new NIOHexadecimalImpl(length, null, initialize);
 	}
 
 	@Override

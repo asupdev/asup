@@ -12,6 +12,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 
 @DataType
@@ -36,6 +37,9 @@ public @interface DataDef {
 	
 	// datetime
 	DatetimeType datetime() default DatetimeType.DATE;
+	
+	// binary
+	BinaryType binary() default BinaryType.BYTE;
 	
 	// compound
 	boolean qualified() default false;	

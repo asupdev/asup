@@ -9,6 +9,7 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.il.core.QSpecial;
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QBinaryDef;
@@ -239,7 +240,9 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			
 		}
 		else if(QBinaryDef.class.isAssignableFrom(klassDef)) {
-			
+			QBinaryDef binaryDef = (QBinaryDef) dataDef;
+			writeImport(BinaryType.class);
+			writeAnnotation(node, DataDef.class, "binary", binaryDef.getType());			
 		}
 /*		else if(QEnumeratedDataDef.class.isAssignableFrom(klassDef)) {
 			QEnumeratedDataDef<?> dataDefinition = (QEnumeratedDataDef<?>) dataDef;
