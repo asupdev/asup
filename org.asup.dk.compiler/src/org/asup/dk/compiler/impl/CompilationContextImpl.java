@@ -7,12 +7,12 @@
  */
 package org.asup.dk.compiler.impl;
 
+import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilerPackage;
 import org.asup.fw.core.impl.ContextImpl;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
@@ -55,7 +55,18 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCallableUnit getUnitContext() {
+	public boolean equalsTermName(String source, String target) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CaseSensitiveType getCaseSensitive() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -67,6 +78,28 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * @generated NOT
 	 */
 	public abstract void linkDataSet(QDataSetTerm dataSet);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String normalizeTermName(String name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String normalizeTypeName(String name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,5 +163,16 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * @generated NOT
 	 */
 	public abstract String getQualifiedName(QNamedNode namedNode);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QNamedNode getRoot() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 } //CompilationContextImpl

@@ -17,8 +17,7 @@ import java.util.Stack;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.QCompilerManager;
-import org.asup.dk.compiler.rpj.util.CompilationContextHelper;
+import org.asup.dk.compiler.rpj.helper.CompilationContextHelper;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.data.QData;
@@ -81,8 +80,6 @@ import org.eclipse.jdt.core.dom.WhileStatement;
 
 public class JDTStatementWriter extends StatementVisitorImpl {
 
-	@Inject
-	private QCompilerManager compilerManager;
 	@Inject
 	private QCompilationContext compilationContext;
 	@Inject
@@ -343,9 +340,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		if(prototype == null) 
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure: "+statement.getProcedure());
 		
-		methodInvocation.setName(ast.newSimpleName(CompilationContextHelper.normalizeTermName(prototype.getName())));
+		methodInvocation.setName(ast.newSimpleName(compilationContext.normalizeTermName(prototype.getName())));
 
-		if(prototype.isChild() && prototype.getParent() != compilationContext.getUnitContext()) {
+		if(prototype.isChild() && prototype.getParent() != compilationContext.getRoot()) {
 			QNode parent = prototype.getParent();
 			if(parent instanceof QNamedNode) {
 				String qualifiedParent = compilationContext.getQualifiedName((QNamedNode) parent); 
@@ -432,7 +429,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			Block block = blocks.peek();
 
 			MethodInvocation methodInvocation = ast.newMethodInvocation();
-			methodInvocation.setName(ast.newSimpleName(CompilationContextHelper.normalizeTermName(statement.getMethod())));
+			methodInvocation.setName(ast.newSimpleName(compilationContext.normalizeTermName(statement.getMethod())));
 
 			if(statement.getObject()!=null)
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
@@ -614,7 +611,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
 		parser.setKind(ASTParser.K_EXPRESSION);
 
-		JavaExpressionStringBuilder builder = compilerManager.prepareVisitor(compilationContext, JavaExpressionStringBuilder.class);
+		JavaExpressionStringBuilder builder = compilationContext.make(JavaExpressionStringBuilder.class);
 		builder.setTarget(target);
 		expression.accept(builder);
 		String value = builder.getResult();
@@ -641,9 +638,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		if(routine == null) 
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid routine: "+statement.getRoutine());
 		
-		methodInvocation.setName(ast.newSimpleName(CompilationContextHelper.normalizeTermName(routine.getName())));
+		methodInvocation.setName(ast.newSimpleName(compilationContext.normalizeTermName(routine.getName())));
 
-		if(routine.isChild() && routine.getParent() != compilationContext.getUnitContext()) {
+		if(routine.isChild() && routine.getParent() != compilationContext.getRoot()) {
 			QNode parent = routine.getParent();
 			if(parent instanceof QNamedNode) {
 				String qualifiedParent = compilationContext.getQualifiedName((QNamedNode) parent); 

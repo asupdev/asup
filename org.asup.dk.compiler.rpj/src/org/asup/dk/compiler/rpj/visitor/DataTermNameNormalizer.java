@@ -11,7 +11,9 @@
  */
 package org.asup.dk.compiler.rpj.visitor;
 
-import org.asup.dk.compiler.rpj.util.CompilationContextHelper;
+import javax.inject.Inject;
+
+import org.asup.dk.compiler.QCompilationContext;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
@@ -21,6 +23,9 @@ import org.asup.il.data.impl.DataTermVisitorImpl;
 
 public class DataTermNameNormalizer extends DataTermVisitorImpl {
 
+	@Inject
+	private QCompilationContext compilationContext;
+	
 	@Override
 	public boolean visit(QMultipleAtomicDataTerm<?> term) {
 
@@ -55,8 +60,8 @@ public class DataTermNameNormalizer extends DataTermVisitorImpl {
 	
 	private void normalizeDataTerm(QDataTerm<?> dataTerm) {
 		
-		dataTerm.setLike(CompilationContextHelper.normalizeTermName(dataTerm.getLike()));
-		dataTerm.setName(CompilationContextHelper.normalizeTermName(dataTerm.getName()));
+		dataTerm.setLike(compilationContext.normalizeTermName(dataTerm.getLike()));
+		dataTerm.setName(compilationContext.normalizeTermName(dataTerm.getName()));
 
 	}
 }

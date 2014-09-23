@@ -245,7 +245,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		if(QCallableProgram.class.isAssignableFrom(klass)) {			
 			callableProgram = programInjector.makeCallableProgram(job, activationGroup, (Class<QCallableProgram>) klass);
 
-			// TODO
+/*			
 			BaseCallableProgramDelegator delegator = new BaseCallableProgramDelegator(callableProgram);
 
 			// search @Entry
@@ -258,9 +258,9 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 
 					break;
 				}
-			}		
-	
+			}			
 			callableProgram = delegator;
+*/
 
 		}
 		else {

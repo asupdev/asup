@@ -11,43 +11,18 @@
  */
 package org.asup.dk.compiler.rpj;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.inject.Inject;
-
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.QCompilerManager;
-import org.asup.dk.compiler.rpj.util.FieldHelper;
-import org.asup.il.data.QDataTerm;
-import org.asup.il.data.QMultipleDataTerm;
-import org.asup.il.data.QUnaryDataTerm;
-import org.asup.il.data.annotation.DataDef;
-import org.asup.il.data.annotation.ModuleDef;
-import org.asup.il.flow.QDataSection;
-import org.asup.os.core.jobs.QJob;
-import org.asup.os.type.pgm.rpj.RPJProgramSupport;
+import org.asup.dk.compiler.QCompilationSetup;
 import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MemberValuePair;
-import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-public abstract class UnitWriter {
+public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 
-	@Inject
-	protected QCompilerManager compilerManager;
-	@Inject
-	private QCompilationContext compilationContext;
-	@Inject
-	protected QJob job;
-	
-	protected QCompilationContext getCompilationContext() {
-		return this.compilationContext;
+	public RPJUnitWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
+		super(root, compilationContext, compilationSetup, name);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -57,6 +32,7 @@ public abstract class UnitWriter {
 		
 		NormalAnnotation annotation = ast.newNormalAnnotation();
 		annotation.setTypeName(ast.newSimpleName(SuppressWarnings.class.getSimpleName()));
+
 		MemberValuePair memberValuePair = ast.newMemberValuePair();
 		memberValuePair.setName(ast.newSimpleName("value"));
 		StringLiteral stringLiteral = ast.newStringLiteral();
@@ -66,12 +42,10 @@ public abstract class UnitWriter {
 		target.modifiers().add(annotation);
 		
 	}
+
+	public void writeSupportFields() {
+		
 	
-	@SuppressWarnings("unchecked")
-	public void writeSupportFields(TypeDeclaration target) {
-		
-		AST ast = target.getAST();
-		
 /*		VariableDeclarationFragment variable = ast.newVariableDeclarationFragment();
 		FieldDeclaration field = ast.newFieldDeclaration(variable);
 		field.modifiers().add(ast.newModifier(ModifierKeyword.PRIVATE_KEYWORD));
@@ -86,54 +60,16 @@ public abstract class UnitWriter {
 		variable.setName(ast.newSimpleName("qSP"));
 		target.bodyDeclarations().add(field);*/
 
-		VariableDeclarationFragment variable = ast.newVariableDeclarationFragment();
+/*		VariableDeclarationFragment variable = ast.newVariableDeclarationFragment();
 		FieldDeclaration field = ast.newFieldDeclaration(variable);
 		FieldHelper.writeAnnotation(field, ModuleDef.class.getSimpleName(), "name", "*RPJ");
 		field.modifiers().add(ast.newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 		field.setType(ast.newSimpleType(ast.newName(RPJProgramSupport.class.getSimpleName())));
 		variable.setName(ast.newSimpleName("qRPJ"));
-		target.bodyDeclarations().add(field);
+		target.bodyDeclarations().add(field);*/
 		
 	}
-	
-	@SuppressWarnings("unchecked")
-	public void writeDataFields(TypeDeclaration target, QDataSection dataSection) {
-
-		AST ast = target.getAST();
-		
-		// fields
-		for (QDataTerm<?> dataTerm : dataSection.getDatas()) {
-
-			if(dataTerm.getName().equalsIgnoreCase("TSTG79"))
-				dataTerm.toString();
-			
-			if(dataTerm.getDefinition() == null)
-				continue;
-			
-			dataTerm = compilationContext.getData(dataTerm.getName(), true);
-			
-			VariableDeclarationFragment variable = ast.newVariableDeclarationFragment();
-			FieldDeclaration field = ast.newFieldDeclaration(variable);
-			FieldHelper.writePublicField(field, dataTerm, false, false);
-			
-			if(dataTerm.getDataType().isUnary()) {
-				QUnaryDataTerm<?> unaryDataTerm = (QUnaryDataTerm<?>)dataTerm;
-				if(unaryDataTerm.getDefault() != null)
-					FieldHelper.writeAnnotation(field, DataDef.class.getSimpleName(), "value", unaryDataTerm.getDefault());
-			}
-			else {
-				QMultipleDataTerm<?> multipleDataTerm = (QMultipleDataTerm<?>)dataTerm;
-				if(multipleDataTerm.getDefault() != null)
-					FieldHelper.writeAnnotation(field, DataDef.class.getSimpleName(), "values", multipleDataTerm.getDefault());
-			}
-			
-				
-			
-			target.bodyDeclarations().add(field);
-		}
-
-	}
-	
+/*	
 	public void writeOutputStream(CompilationUnit compilationUnit, OutputStream outputStream) throws IOException {
 		// write file output
 		byte[] contentInBytes = compilationUnit.toString().getBytes();
@@ -141,5 +77,5 @@ public abstract class UnitWriter {
 		outputStream.write(contentInBytes);
 		outputStream.flush();
 		outputStream.close();
-	}
+	}*/
 }

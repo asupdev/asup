@@ -10,7 +10,6 @@ package org.asup.dk.compiler;
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QPrototype;
@@ -32,15 +31,19 @@ public interface QCompilationContext extends QContext {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Unit Context</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model required="true" sourceRequired="true" targetRequired="true"
 	 * @generated
 	 */
-	QCallableUnit getUnitContext();
+	boolean equalsTermName(String source, String target);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	CaseSensitiveType getCaseSensitive();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -49,6 +52,22 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	void linkDataSet(QDataSetTerm dataSet);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	String normalizeTermName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	String normalizeTypeName(String name);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,4 +140,12 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	String getQualifiedName(QNamedNode namedNode);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	QNamedNode getRoot();
 } // QCompilationContext
