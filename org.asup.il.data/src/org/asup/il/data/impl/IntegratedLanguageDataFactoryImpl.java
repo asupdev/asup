@@ -9,6 +9,7 @@ package org.asup.il.data.impl;
 
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DataType;
+import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
 import org.asup.il.data.FloatingType;
@@ -43,6 +44,7 @@ import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
+import org.asup.il.data.TimeFormat;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -134,10 +136,14 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 				return createDataTypeFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.DATETIME_TYPE:
 				return createDatetimeTypeFromString(eDataType, initialValue);
+			case QIntegratedLanguageDataPackage.DATE_FORMAT:
+				return createDateFormatFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.DECIMAL_TYPE:
 				return createDecimalTypeFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.FLOATING_TYPE:
 				return createFloatingTypeFromString(eDataType, initialValue);
+			case QIntegratedLanguageDataPackage.TIME_FORMAT:
+				return createTimeFormatFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.DATA_ARRAY:
 				return createDataArrayFromString(eDataType, initialValue);
 			default:
@@ -159,10 +165,14 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 				return convertDataTypeToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.DATETIME_TYPE:
 				return convertDatetimeTypeToString(eDataType, instanceValue);
+			case QIntegratedLanguageDataPackage.DATE_FORMAT:
+				return convertDateFormatToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.DECIMAL_TYPE:
 				return convertDecimalTypeToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.FLOATING_TYPE:
 				return convertFloatingTypeToString(eDataType, instanceValue);
+			case QIntegratedLanguageDataPackage.TIME_FORMAT:
+				return convertTimeFormatToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.DATA_ARRAY:
 				return convertDataArrayToString(eDataType, instanceValue);
 			default:
@@ -445,6 +455,26 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateFormat createDateFormatFromString(EDataType eDataType, String initialValue) {
+		DateFormat result = DateFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDateFormatToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DecimalType createDecimalTypeFromString(EDataType eDataType, String initialValue) {
 		DecimalType result = DecimalType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -477,6 +507,26 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * @generated
 	 */
 	public String convertFloatingTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimeFormat createTimeFormatFromString(EDataType eDataType, String initialValue) {
+		TimeFormat result = TimeFormat.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTimeFormatToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
