@@ -573,13 +573,22 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int SPECIAL_ELEMENT__TEXT = NAMED_NODE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Unary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIAL_ELEMENT__UNARY = NAMED_NODE_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIAL_ELEMENT__VALUE = NAMED_NODE_FEATURE_COUNT + 2;
+	int SPECIAL_ELEMENT__VALUE = NAMED_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Special Element</em>' class.
@@ -588,7 +597,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIAL_ELEMENT_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 3;
+	int SPECIAL_ELEMENT_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.SubjectImpl <em>Subject</em>}' class.
@@ -1059,6 +1068,17 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EAttribute getSpecialElement_Text();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.core.QSpecialElement#isUnary <em>Unary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unary</em>'.
+	 * @see org.asup.il.core.QSpecialElement#isUnary()
+	 * @see #getSpecialElement()
+	 * @generated
+	 */
+	EAttribute getSpecialElement_Unary();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.core.QSpecialElement#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1500,6 +1520,14 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPECIAL_ELEMENT__TEXT = eINSTANCE.getSpecialElement_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Unary</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPECIAL_ELEMENT__UNARY = eINSTANCE.getSpecialElement_Unary();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.

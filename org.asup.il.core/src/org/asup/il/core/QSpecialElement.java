@@ -18,6 +18,7 @@ package org.asup.il.core;
  * <ul>
  *   <li>{@link org.asup.il.core.QSpecialElement#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.il.core.QSpecialElement#getText <em>Text</em>}</li>
+ *   <li>{@link org.asup.il.core.QSpecialElement#isUnary <em>Unary</em>}</li>
  *   <li>{@link org.asup.il.core.QSpecialElement#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -78,6 +79,32 @@ public interface QSpecialElement extends QNamedNode {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Unary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unary</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unary</em>' attribute.
+	 * @see #setUnary(boolean)
+	 * @see org.asup.il.core.QIntegratedLanguageCorePackage#getSpecialElement_Unary()
+	 * @model
+	 * @generated
+	 */
+	boolean isUnary();
+
+	/**
+	 * Sets the value of the '{@link org.asup.il.core.QSpecialElement#isUnary <em>Unary</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unary</em>' attribute.
+	 * @see #isUnary()
+	 * @generated
+	 */
+	void setUnary(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

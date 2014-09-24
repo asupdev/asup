@@ -544,8 +544,17 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpecialElement_Value() {
+	public EAttribute getSpecialElement_Unary() {
 		return (EAttribute)specialElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpecialElement_Value() {
+		return (EAttribute)specialElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -729,6 +738,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		specialElementEClass = createEClass(SPECIAL_ELEMENT);
 		createEAttribute(specialElementEClass, SPECIAL_ELEMENT__NAME);
 		createEAttribute(specialElementEClass, SPECIAL_ELEMENT__TEXT);
+		createEAttribute(specialElementEClass, SPECIAL_ELEMENT__UNARY);
 		createEAttribute(specialElementEClass, SPECIAL_ELEMENT__VALUE);
 
 		subjectEClass = createEClass(SUBJECT);
@@ -865,6 +875,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(specialElementEClass, QSpecialElement.class, "SpecialElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecialElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, QSpecialElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpecialElement_Text(), ecorePackage.getEString(), "text", null, 0, 1, QSpecialElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpecialElement_Unary(), ecorePackage.getEBoolean(), "unary", null, 0, 1, QSpecialElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpecialElement_Value(), ecorePackage.getEString(), "value", null, 0, 1, QSpecialElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subjectEClass, QSubject.class, "Subject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
