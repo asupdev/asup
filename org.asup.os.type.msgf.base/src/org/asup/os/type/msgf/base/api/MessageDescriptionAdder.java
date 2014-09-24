@@ -44,7 +44,7 @@ public class MessageDescriptionAdder {
 			@DataDef(qualified = true) MessageFile messageFile,
 			@DataDef(length = 132) QCharacter firstLevelMessageText,
 			@DataDef(length = 3000) QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
-			@DataDef(binary = BinaryType.SHORT) QBinary severityCode,
+			@DataDef(binaryType = BinaryType.SHORT) QBinary severityCode,
 			@DataDef(occurrences = "99") QStroller<MessageDataFieldsFormat> messageDataFieldsFormats,
 			@DataDef(length = 1) QEnum<ReplyType, QCharacter> replyType,
 			MaximumReplyLength maximumReplyLength,
@@ -54,11 +54,11 @@ public class MessageDescriptionAdder {
 			RelationshipForValidReplies relationshipForValidReplies,
 			@DataDef(length = 132) QEnum<DefaultReplyValue, QCharacter> defaultReplyValue,
 			@DataDef(qualified = true) DefaultProgramToCall defaultProgramToCall,
-			@DataDef(occurrences = "102", binary = BinaryType.SHORT) QScroller<QEnum<DataToBeDumped, QBinary>> dataToBeDumped,
+			@DataDef(occurrences = "102", binaryType = BinaryType.SHORT) QScroller<QEnum<DataToBeDumped, QBinary>> dataToBeDumped,
 			LevelOfMessage levelOfMessage,
 			AlertOptions alertOptions,
 			@DataDef(length = 1) QEnum<LogProblem, QCharacter> logProblem,
-			@DataDef(binary = BinaryType.INTEGER) QEnum<CodedCharacterSetID, QBinary> codedCharacterSetID) {
+			@DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetID, QBinary> codedCharacterSetID) {
 
 		String library = "";
 		switch (messageFile.library.asEnum()) {
@@ -73,8 +73,7 @@ public class MessageDescriptionAdder {
 
 		String name = messageFile.name.trimR();
 		try {
-			QResourceWriter<QMessageFile> resource = messageFileManager
-					.getResourceWriter(job, library);
+			QResourceWriter<QMessageFile> resource = messageFileManager.getResourceWriter(job, library);
 			QMessageFile qMessageFile = resource.lookup(name);
 			if (qMessageFile == null)
 				throw new OperatingSystemException("Message File " + name
@@ -284,7 +283,7 @@ public class MessageDescriptionAdder {
 
 	public static class LevelOfMessage extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		@DataDef(datetime = DatetimeType.DATE, value = "*CURRENT")
+		@DataDef(datetimeType = DatetimeType.DATE, value = "*CURRENT")
 		public QEnum<CreationDate, QDatetime> creationDate;
 		@DataDef(value = "1")
 		public QBinary levelNumber;

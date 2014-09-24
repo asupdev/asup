@@ -27,6 +27,8 @@ import org.asup.os.core.QSystem;
 import org.asup.os.core.QSystemManager;
 import org.asup.os.core.Scope;
 import org.asup.os.core.SystemStatus;
+import org.asup.os.core.datetime.QDatetimePackage;
+import org.asup.os.core.datetime.impl.DatetimePackageImpl;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl;
 import org.asup.os.core.output.QOperatingSystemOutputPackage;
@@ -219,18 +221,21 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		OperatingSystemJobsPackageImpl theOperatingSystemJobsPackage = (OperatingSystemJobsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI) instanceof OperatingSystemJobsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI) : QOperatingSystemJobsPackage.eINSTANCE);
 		OperatingSystemOutputPackageImpl theOperatingSystemOutputPackage = (OperatingSystemOutputPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOutputPackage.eNS_URI) instanceof OperatingSystemOutputPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOutputPackage.eNS_URI) : QOperatingSystemOutputPackage.eINSTANCE);
 		OperatingSystemResourcesPackageImpl theOperatingSystemResourcesPackage = (OperatingSystemResourcesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemResourcesPackage.eNS_URI) instanceof OperatingSystemResourcesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemResourcesPackage.eNS_URI) : QOperatingSystemResourcesPackage.eINSTANCE);
+		DatetimePackageImpl theDatetimePackage = (DatetimePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatetimePackage.eNS_URI) instanceof DatetimePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatetimePackage.eNS_URI) : QDatetimePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOperatingSystemCorePackage.createPackageContents();
 		theOperatingSystemJobsPackage.createPackageContents();
 		theOperatingSystemOutputPackage.createPackageContents();
 		theOperatingSystemResourcesPackage.createPackageContents();
+		theDatetimePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOperatingSystemCorePackage.initializePackageContents();
 		theOperatingSystemJobsPackage.initializePackageContents();
 		theOperatingSystemOutputPackage.initializePackageContents();
 		theOperatingSystemResourcesPackage.initializePackageContents();
+		theDatetimePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theOperatingSystemCorePackage.freeze();
@@ -611,6 +616,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
 		QOperatingSystemOutputPackage theOperatingSystemOutputPackage = (QOperatingSystemOutputPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOutputPackage.eNS_URI);
 		QOperatingSystemResourcesPackage theOperatingSystemResourcesPackage = (QOperatingSystemResourcesPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemResourcesPackage.eNS_URI);
+		QDatetimePackage theDatetimePackage = (QDatetimePackage)EPackage.Registry.INSTANCE.getEPackage(QDatetimePackage.eNS_URI);
 		QOperatingSystemOmacPackage theOperatingSystemOmacPackage = (QOperatingSystemOmacPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOmacPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 
@@ -618,6 +624,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		getESubpackages().add(theOperatingSystemJobsPackage);
 		getESubpackages().add(theOperatingSystemOutputPackage);
 		getESubpackages().add(theOperatingSystemResourcesPackage);
+		getESubpackages().add(theDatetimePackage);
 
 		// Create type parameters
 		ETypeParameter containerEClass_T = addETypeParameter(containerEClass, "T");

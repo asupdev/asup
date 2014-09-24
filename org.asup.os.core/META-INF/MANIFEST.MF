@@ -7,6 +7,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: www.smeup.com
 Bundle-Localization: plugin
 Export-Package: org.asup.os.core,
+ org.asup.os.core.datetime,
+ org.asup.os.core.datetime.impl,
  org.asup.os.core.impl,
  org.asup.os.core.jobs,
  org.asup.os.core.jobs.impl,

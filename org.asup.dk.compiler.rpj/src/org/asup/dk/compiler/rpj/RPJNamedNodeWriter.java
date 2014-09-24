@@ -242,7 +242,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		else if(QBinaryDef.class.isAssignableFrom(klassDef)) {
 			QBinaryDef binaryDef = (QBinaryDef) dataDef;
 			writeImport(BinaryType.class);
-			writeAnnotation(node, DataDef.class, "binary", binaryDef.getType());			
+			writeAnnotation(node, DataDef.class, "binaryType", binaryDef.getType());			
 		}
 /*		else if(QEnumeratedDataDef.class.isAssignableFrom(klassDef)) {
 			QEnumeratedDataDef<?> dataDefinition = (QEnumeratedDataDef<?>) dataDef;
@@ -280,7 +280,9 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		else if(QDatetimeDef.class.isAssignableFrom(klassDef)) {
 			QDatetimeDef datetimeDef = (QDatetimeDef)dataDef;
 			writeImport(DatetimeType.class);
-			writeAnnotation(node, DataDef.class, "datetime", datetimeDef.getType());
+			writeAnnotation(node, DataDef.class, "datetimeType", datetimeDef.getType());
+			if(datetimeDef.getFormat() != null)
+				writeAnnotation(node, DataDef.class, "datetimeFormat", datetimeDef.getFormat());
 		}
 		else if(QDecimalDef.class.isAssignableFrom(klassDef)) {
 			QDecimalDef decimalDef = (QDecimalDef) dataDef;
