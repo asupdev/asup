@@ -10,6 +10,8 @@ package org.asup.os.core.jobs.impl;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
+import org.asup.os.core.datetime.QDatetimePackage;
+import org.asup.os.core.datetime.impl.DatetimePackageImpl;
 import org.asup.os.core.impl.OperatingSystemCorePackageImpl;
 import org.asup.os.core.jobs.JobStatus;
 import org.asup.os.core.jobs.JobType;
@@ -152,18 +154,21 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		OperatingSystemCorePackageImpl theOperatingSystemCorePackage = (OperatingSystemCorePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI) instanceof OperatingSystemCorePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI) : QOperatingSystemCorePackage.eINSTANCE);
 		OperatingSystemOutputPackageImpl theOperatingSystemOutputPackage = (OperatingSystemOutputPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOutputPackage.eNS_URI) instanceof OperatingSystemOutputPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOutputPackage.eNS_URI) : QOperatingSystemOutputPackage.eINSTANCE);
 		OperatingSystemResourcesPackageImpl theOperatingSystemResourcesPackage = (OperatingSystemResourcesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemResourcesPackage.eNS_URI) instanceof OperatingSystemResourcesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemResourcesPackage.eNS_URI) : QOperatingSystemResourcesPackage.eINSTANCE);
+		DatetimePackageImpl theDatetimePackage = (DatetimePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatetimePackage.eNS_URI) instanceof DatetimePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatetimePackage.eNS_URI) : QDatetimePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOperatingSystemJobsPackage.createPackageContents();
 		theOperatingSystemCorePackage.createPackageContents();
 		theOperatingSystemOutputPackage.createPackageContents();
 		theOperatingSystemResourcesPackage.createPackageContents();
+		theDatetimePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOperatingSystemJobsPackage.initializePackageContents();
 		theOperatingSystemCorePackage.initializePackageContents();
 		theOperatingSystemOutputPackage.initializePackageContents();
 		theOperatingSystemResourcesPackage.initializePackageContents();
+		theDatetimePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theOperatingSystemJobsPackage.freeze();

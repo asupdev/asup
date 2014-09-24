@@ -672,6 +672,9 @@ public class NIODataFactoryImpl implements QDataFactory {
 					if(eClass.getName().replaceAll("Def", "").equalsIgnoreCase(method.getName().replace("Type", ""))) {
 						eFeature = eClass.getEStructuralFeature("type");
 					}
+					else if(eClass.getName().replaceAll("Def", "").equalsIgnoreCase(method.getName().replace("Format", ""))) {
+						eFeature = eClass.getEStructuralFeature("format");
+					}
 				}
 				
 				if (eFeature != null) {

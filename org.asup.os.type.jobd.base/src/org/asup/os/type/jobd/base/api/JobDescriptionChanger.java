@@ -60,7 +60,7 @@ public class JobDescriptionChanger {
 			QEnum<EndSeverity, QBinary> endSeverity,
 			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquiryMessageReply,
 			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdOnJobQueue,
-			@DataDef(datetime = DatetimeType.DATE) QEnum<JobDate, QDatetime> jobDate,
+			@DataDef(datetimeType = DatetimeType.DATE) QEnum<JobDate, QDatetime> jobDate,
 			@DataDef(length = 8) QEnum<JobSwitches, QCharacter> jobSwitches,
 			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> deviceRecoveryAction,
 			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timeSliceEndPool,

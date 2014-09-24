@@ -35,6 +35,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated os-core -->
       <package
+            uri="http://www.asup.org/os/core/datetime"
+            class="org.asup.os.core.datetime.QDatetimePackage"
+            genModel="model/os-core.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated os-core -->
+      <package
             uri="http://www.asup.org/os/core/jobs"
             class="org.asup.os.core.jobs.QOperatingSystemJobsPackage"
             genModel="model/os-core.genmodel"/>

@@ -577,4 +577,25 @@
       </eGenericSuperTypes>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="datetime" nsURI="http://www.asup.org/os/core/datetime" nsPrefix="os-core-datetime">
+    <eClassifiers xsi:type="ecore:EEnum" name="DateFormat">
+      <eLiterals name="MDY" value="10" literal="*MDY"/>
+      <eLiterals name="DMY" value="20" literal="*DMY"/>
+      <eLiterals name="YMD" value="30" literal="*YMD"/>
+      <eLiterals name="JUL" value="40" literal="*JUL"/>
+      <eLiterals name="ISO" value="50" literal="*ISO"/>
+      <eLiterals name="USA" value="60" literal="*USA"/>
+      <eLiterals name="EUR" value="70" literal="*EUR"/>
+      <eLiterals name="JIS" value="80" literal="*JIS"/>
+      <eLiterals name="JOBRUN" value="90" literal="*JOBRUN"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeFormat">
+      <eLiterals name="HMS" value="10" literal="*HMS"/>
+      <eLiterals name="ISO" value="20" literal="*ISO"/>
+      <eLiterals name="USA" value="30" literal="*USA"/>
+      <eLiterals name="EUR" value="40" literal="*EUR"/>
+      <eLiterals name="JIS" value="50" literal="*JIS"/>
+      <eLiterals name="JOBRUN" value="60" literal="*JOBRUN"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

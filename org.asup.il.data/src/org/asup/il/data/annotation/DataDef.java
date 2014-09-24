@@ -36,10 +36,11 @@ public @interface DataDef {
 	boolean packed() default false;
 	
 	// datetime
-	DatetimeType datetime() default DatetimeType.DATE;
+	DatetimeType datetimeType() default DatetimeType.DATE;
+	String datetimeFormat() default "";
 	
 	// binary
-	BinaryType binary() default BinaryType.BYTE;
+	BinaryType binaryType() default BinaryType.BYTE;
 	
 	// compound
 	boolean qualified() default false;	
