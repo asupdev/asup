@@ -12,6 +12,7 @@ import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DataType;
+import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
 import org.asup.il.data.FloatingType;
@@ -84,6 +85,7 @@ import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataDef;
 import org.asup.il.data.QUnaryDataTerm;
+import org.asup.il.data.TimeFormat;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -597,6 +599,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum dateFormatEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum decimalTypeEEnum = null;
 
 	/**
@@ -605,6 +614,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EEnum floatingTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum timeFormatEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1610,6 +1626,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getDateFormat() {
+		return dateFormatEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDecimalType() {
 		return decimalTypeEEnum;
 	}
@@ -1621,6 +1646,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EEnum getFloatingType() {
 		return floatingTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTimeFormat() {
+		return timeFormatEEnum;
 	}
 
 	/**
@@ -1831,8 +1865,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		binaryTypeEEnum = createEEnum(BINARY_TYPE);
 		dataTypeEEnum = createEEnum(DATA_TYPE);
 		datetimeTypeEEnum = createEEnum(DATETIME_TYPE);
+		dateFormatEEnum = createEEnum(DATE_FORMAT);
 		decimalTypeEEnum = createEEnum(DECIMAL_TYPE);
 		floatingTypeEEnum = createEEnum(FLOATING_TYPE);
+		timeFormatEEnum = createEEnum(TIME_FORMAT);
 
 		// Create data types
 		dataArrayEDataType = createEDataType(DATA_ARRAY);
@@ -3423,6 +3459,17 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEEnumLiteral(datetimeTypeEEnum, DatetimeType.TIME);
 		addEEnumLiteral(datetimeTypeEEnum, DatetimeType.TIME_STAMP);
 
+		initEEnum(dateFormatEEnum, DateFormat.class, "DateFormat");
+		addEEnumLiteral(dateFormatEEnum, DateFormat.MDY);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.DMY);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.YMD);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.JUL);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.ISO);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.USA);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.EUR);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.JIS);
+		addEEnumLiteral(dateFormatEEnum, DateFormat.JOBRUN);
+
 		initEEnum(decimalTypeEEnum, DecimalType.class, "DecimalType");
 		addEEnumLiteral(decimalTypeEEnum, DecimalType.ZONED);
 		addEEnumLiteral(decimalTypeEEnum, DecimalType.PACKED);
@@ -3430,6 +3477,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEEnum(floatingTypeEEnum, FloatingType.class, "FloatingType");
 		addEEnumLiteral(floatingTypeEEnum, FloatingType.SINGLE);
 		addEEnumLiteral(floatingTypeEEnum, FloatingType.DOUBLE);
+
+		initEEnum(timeFormatEEnum, TimeFormat.class, "TimeFormat");
+		addEEnumLiteral(timeFormatEEnum, TimeFormat.HMS);
+		addEEnumLiteral(timeFormatEEnum, TimeFormat.ISO);
+		addEEnumLiteral(timeFormatEEnum, TimeFormat.USA);
+		addEEnumLiteral(timeFormatEEnum, TimeFormat.EUR);
+		addEEnumLiteral(timeFormatEEnum, TimeFormat.JIS);
+		addEEnumLiteral(timeFormatEEnum, TimeFormat.JOBRUN);
 
 		// Initialize data types
 		initEDataType(dataArrayEDataType, Object[].class, "DataArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

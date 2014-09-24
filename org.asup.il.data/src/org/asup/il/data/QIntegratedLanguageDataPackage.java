@@ -2647,6 +2647,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATETIME_TYPE = 69;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.data.DateFormat <em>Date Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.data.DateFormat
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDateFormat()
+	 * @generated
+	 */
+	int DATE_FORMAT = 70;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.data.DecimalType <em>Decimal Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2654,7 +2664,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDecimalType()
 	 * @generated
 	 */
-	int DECIMAL_TYPE = 70;
+	int DECIMAL_TYPE = 71;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.FloatingType <em>Floating Type</em>}' enum.
@@ -2664,7 +2674,17 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getFloatingType()
 	 * @generated
 	 */
-	int FLOATING_TYPE = 71;
+	int FLOATING_TYPE = 72;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.data.TimeFormat <em>Time Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.data.TimeFormat
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getTimeFormat()
+	 * @generated
+	 */
+	int TIME_FORMAT = 73;
 
 	/**
 	 * The meta object id for the '<em>Data Array</em>' data type.
@@ -2673,7 +2693,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataArray()
 	 * @generated
 	 */
-	int DATA_ARRAY = 72;
+	int DATA_ARRAY = 74;
 
 
 	/**
@@ -3740,6 +3760,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EEnum getDatetimeType();
 
 	/**
+	 * Returns the meta object for enum '{@link org.asup.il.data.DateFormat <em>Date Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Date Format</em>'.
+	 * @see org.asup.il.data.DateFormat
+	 * @generated
+	 */
+	EEnum getDateFormat();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.il.data.DecimalType <em>Decimal Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3758,6 +3788,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getFloatingType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.il.data.TimeFormat <em>Time Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Time Format</em>'.
+	 * @see org.asup.il.data.TimeFormat
+	 * @generated
+	 */
+	EEnum getTimeFormat();
 
 	/**
 	 * Returns the meta object for data type '<em>Data Array</em>'.
@@ -4756,6 +4796,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		EEnum DATETIME_TYPE = eINSTANCE.getDatetimeType();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.il.data.DateFormat <em>Date Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.data.DateFormat
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDateFormat()
+		 * @generated
+		 */
+		EEnum DATE_FORMAT = eINSTANCE.getDateFormat();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.il.data.DecimalType <em>Decimal Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4774,6 +4824,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum FLOATING_TYPE = eINSTANCE.getFloatingType();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.data.TimeFormat <em>Time Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.data.TimeFormat
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getTimeFormat()
+		 * @generated
+		 */
+		EEnum TIME_FORMAT = eINSTANCE.getTimeFormat();
 
 		/**
 		 * The meta object literal for the '<em>Data Array</em>' data type.
