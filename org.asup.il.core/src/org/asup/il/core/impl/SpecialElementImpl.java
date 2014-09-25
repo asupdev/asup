@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link org.asup.il.core.impl.SpecialElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.il.core.impl.SpecialElementImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.asup.il.core.impl.SpecialElementImpl#isUnary <em>Unary</em>}</li>
  *   <li>{@link org.asup.il.core.impl.SpecialElementImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -73,6 +74,26 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isUnary() <em>Unary</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnary()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNARY_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUnary() <em>Unary</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnary()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unary = UNARY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -160,6 +181,27 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUnary() {
+		return unary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnary(boolean newUnary) {
+		boolean oldUnary = unary;
+		unary = newUnary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__UNARY, oldUnary, unary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getValue() {
 		return value;
 	}
@@ -188,6 +230,8 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 				return getName();
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__TEXT:
 				return getText();
+			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__UNARY:
+				return isUnary();
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__VALUE:
 				return getValue();
 		}
@@ -207,6 +251,9 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 				return;
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__TEXT:
 				setText((String)newValue);
+				return;
+			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__UNARY:
+				setUnary((Boolean)newValue);
 				return;
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__VALUE:
 				setValue((String)newValue);
@@ -229,6 +276,9 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__UNARY:
+				setUnary(UNARY_EDEFAULT);
+				return;
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
@@ -248,6 +298,8 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__UNARY:
+				return unary != UNARY_EDEFAULT;
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
@@ -268,6 +320,8 @@ public class SpecialElementImpl extends NamedNodeImpl implements QSpecialElement
 		result.append(name);
 		result.append(", text: ");
 		result.append(text);
+		result.append(", unary: ");
+		result.append(unary);
 		result.append(", value: ");
 		result.append(value);
 		result.append(')');
