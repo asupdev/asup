@@ -92,6 +92,8 @@ public class OperatingSystemCommandFactoryImpl extends EFactoryImpl implements Q
 				return createCommandStatusFromString(eDataType, initialValue);
 			case QOperatingSystemCommandPackage.COMMAND_PARAMETER_ORDER:
 				return createCommandParameterOrderFromString(eDataType, initialValue);
+			case QOperatingSystemCommandPackage.COMMAND_ORDER:
+				return createCommandOrderFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -109,6 +111,8 @@ public class OperatingSystemCommandFactoryImpl extends EFactoryImpl implements Q
 				return convertCommandStatusToString(eDataType, instanceValue);
 			case QOperatingSystemCommandPackage.COMMAND_PARAMETER_ORDER:
 				return convertCommandParameterOrderToString(eDataType, instanceValue);
+			case QOperatingSystemCommandPackage.COMMAND_ORDER:
+				return convertCommandOrderToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -201,6 +205,26 @@ public class OperatingSystemCommandFactoryImpl extends EFactoryImpl implements Q
 	 * @generated
 	 */
 	public String convertCommandParameterOrderToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommandOrder createCommandOrderFromString(EDataType eDataType, String initialValue) {
+		CommandOrder result = CommandOrder.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCommandOrderToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.cmd;
 
+import java.util.List;
 import org.asup.os.type.QTypedContainer;
 
 /**
@@ -52,4 +53,12 @@ public interface QCommandContainer extends QTypedContainer<QCommand> {
 	 * @generated
 	 */
 	void setType(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" orderRequired="true"
+	 * @generated
+	 */
+	List<QCommand> getCommands(CommandOrder order);
 } // QCommandContainer
