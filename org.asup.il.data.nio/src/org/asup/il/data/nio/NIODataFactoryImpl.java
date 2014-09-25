@@ -709,8 +709,10 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 	@Override
 	public QDatetime createDate(DatetimeType type, String format) {
-		
-		NIODatetimeImpl datetime = new NIODatetimeImpl();
+
+		boolean initialize = (parent == null ? true : false);
+
+		NIODatetimeImpl datetime = new NIODatetimeImpl(type, format, null, initialize);
 		
 		return datetime;
 	}

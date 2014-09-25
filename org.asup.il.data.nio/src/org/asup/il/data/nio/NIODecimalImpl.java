@@ -36,8 +36,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	private byte[] _value;
 
-	public NIODecimalImpl(int precision, int scale, byte[] value,
-			boolean initialize) {
+	public NIODecimalImpl(int precision, int scale, byte[] value, boolean initialize) {
 
 		_precision = precision;
 		_scale = scale;
