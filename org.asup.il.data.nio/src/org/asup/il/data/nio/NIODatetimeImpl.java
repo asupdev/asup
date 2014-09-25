@@ -11,8 +11,12 @@
  */
 package org.asup.il.data.nio;
 
+import java.nio.ByteBuffer;
+import java.util.Arrays;
 import java.util.Date;
 
+import org.asup.il.data.DateFormat;
+import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataVisitor;
@@ -20,25 +24,58 @@ import org.asup.il.data.QDatetime;
 
 public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
+	private static byte INIT = (byte) 32;
+	
+	private DatetimeType _type;
+	private String _format;
 
-	public NIODatetimeImpl() {
-		// TODO Auto-generated constructor stub
+	private byte[] _value;
+
+	public NIODatetimeImpl(DatetimeType type, String format,  byte[] value, boolean initialize) {
+		
+		this._type = type;
+		this._format = format;
+		this._value = value;
+		
+		// default format
+		if(format == null || format.isEmpty()) {
+
+			switch (type) {
+			case DATE:
+				this._format = "*ISO";
+				break;
+			case TIME:
+				this._format = "*ISO";
+				break;
+			case TIME_STAMP:
+				this._format = "*ISOISO";
+				break;
+			}
+		}
+		
+		if (initialize) {
+
+			_buffer = ByteBuffer.allocate(length());
+			_position = 0;
+			
+
+			if (value != null)
+				NIOBufferHelper.movel(_buffer, _position, length(), value, true, INIT);
+			else
+				init();
+		}
 	}
 
 	@Override
 	public byte[] asBytes() {
-		// TODO Auto-generated method stub
-		return null;
+		return NIOBufferHelper.readBytes(_buffer, _position, length());
 	}
 
 	@Override
 	public String asString() {
-		// TODO Auto-generated method stub
-		return null;
+		return toString();
 	}
 
 	@Override
@@ -49,20 +86,59 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 
 	@Override
 	public int length() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		int length = 0;
+		
+		switch (_type) {
+		case DATE:
+			DateFormat dateFormat = DateFormat.get(_format);
+			switch (dateFormat) {
+			case DMY:
+				length = 8;
+				break;
+			case EUR:
+				length = 10;
+				break;
+			case ISO:
+				length = 10;
+				break;
+			case JIS:
+				length = 10;
+				break;
+			case JOBRUN:
+				length = 10;
+				break;
+			case JUL:
+				length = 6;
+				break;
+			case MDY:
+				length = 8;
+				break;
+			case USA:
+				length = 10;
+				break;
+			case YMD:
+				length = 8;
+				break;
+			}
+			break;
+		case TIME:
+			break;
+		case TIME_STAMP:
+			break;
+		}
+		
+		return length;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 26;
+		return length();
 	}
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
-		
+		NIOBufferHelper.movel(_buffer, _position, length(), _value, true, INIT);		
 	}
 
 	@Override
@@ -85,8 +161,7 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
-		
+		Arrays.fill(_buffer.array(), _position, _position + length(), INIT);		
 	}
 
 	@Override

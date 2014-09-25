@@ -89,22 +89,22 @@ public class EnumHelper {
 		case "*":
 			s = "TERM_STAR";
 			break;
-		case "'/'":
+		case "/":
 			s = "TERM_SLASH";
 			break;
-		case "'-'":
+		case "-":
 			s = "TERM_MINUS";
 			break;
-		case "'+'":
+		case "+":
 			s = "TERM_PLUS";
 			break;
-		case "'.'":
+		case ".":
 			s = "TERM_POINT";
 			break;
-		case "','":
+		case ",":
 			s = "TERM_COMMA";
 			break;
-		case "X''":
+		case "X'":
 			s = "TERM_HEX";
 			break;
 		}

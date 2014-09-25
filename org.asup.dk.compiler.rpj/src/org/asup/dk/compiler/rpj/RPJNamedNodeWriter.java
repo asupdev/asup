@@ -21,6 +21,7 @@ import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
 import org.asup.il.data.QFloatingDef;
+import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIndicatorDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
@@ -292,6 +293,9 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			
 			if (decimalDef.getScale() > 0) 
 				writeAnnotation(node, DataDef.class, "scale", decimalDef.getScale());
+			
+		}
+		else if(QHexadecimalDef.class.isAssignableFrom(klassDef)) {
 			
 		}
 		else if(QFloatingDef.class.isAssignableFrom(klassDef)) {
