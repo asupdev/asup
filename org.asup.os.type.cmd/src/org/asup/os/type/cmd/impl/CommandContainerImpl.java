@@ -7,6 +7,12 @@
  */
 package org.asup.os.type.cmd.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import org.asup.os.type.cmd.CommandOrder;
 import org.asup.os.type.cmd.QCommand;
 import org.asup.os.type.cmd.QCommandContainer;
 import org.asup.os.type.cmd.QOperatingSystemCommandPackage;
@@ -86,6 +92,29 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<QCommand> getCommands(CommandOrder order) {
+
+		List<QCommand> commandsList = new ArrayList<QCommand>(getContents());
+		
+		switch (order) {
+		case NAME:
+			Collections.sort(commandsList, new Comparator<QCommand>() {
+				@Override
+				public int compare(QCommand param1, QCommand param2) {
+					return param1.getName().compareToIgnoreCase(param2.getName());
+				}
+			});
+			break;
+		}
+		
+		return commandsList;
 	}
 
 	/**

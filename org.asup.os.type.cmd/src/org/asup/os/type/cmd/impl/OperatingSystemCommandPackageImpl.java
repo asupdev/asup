@@ -15,6 +15,7 @@ import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
+import org.asup.os.type.cmd.CommandOrder;
 import org.asup.os.type.cmd.CommandParameterOrder;
 import org.asup.os.type.cmd.CommandStatus;
 import org.asup.os.type.cmd.QCallableCommand;
@@ -97,6 +98,13 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EEnum commandParameterOrderEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum commandOrderEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -401,6 +409,15 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getCommandOrder() {
+		return commandOrderEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QOperatingSystemCommandFactory getOperatingSystemCommandFactory() {
 		return (QOperatingSystemCommandFactory)getEFactoryInstance();
 	}
@@ -457,6 +474,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		// Create enums
 		commandStatusEEnum = createEEnum(COMMAND_STATUS);
 		commandParameterOrderEEnum = createEEnum(COMMAND_PARAMETER_ORDER);
+		commandOrderEEnum = createEEnum(COMMAND_ORDER);
 	}
 
 	/**
@@ -535,6 +553,9 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		initEClass(commandContainerEClass, QCommandContainer.class, "CommandContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommandContainer_Type(), ecorePackage.getEString(), "type", null, 0, 1, QCommandContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(commandContainerEClass, this.getCommand(), "getCommands", 1, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCommandOrder(), "order", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(commandManagerEClass, QCommandManager.class, "CommandManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(commandManagerEClass, this.getCallableCommand(), "prepareCommand", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -584,6 +605,9 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		initEEnum(commandParameterOrderEEnum, CommandParameterOrder.class, "CommandParameterOrder");
 		addEEnumLiteral(commandParameterOrderEEnum, CommandParameterOrder.NAME);
 		addEEnumLiteral(commandParameterOrderEEnum, CommandParameterOrder.POSITION);
+
+		initEEnum(commandOrderEEnum, CommandOrder.class, "CommandOrder");
+		addEEnumLiteral(commandOrderEEnum, CommandOrder.NAME);
 
 		// Create resource
 		createResource(eNS_URI);

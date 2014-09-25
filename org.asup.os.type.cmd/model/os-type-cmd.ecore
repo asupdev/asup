@@ -43,6 +43,9 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommandContainer">
+    <eOperations name="getCommands" lowerBound="1" upperBound="-1" eType="#//Command">
+      <eParameters name="order" lowerBound="1" eType="#//CommandOrder"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedContainer">
       <eTypeArguments eClassifier="#//Command"/>
@@ -101,5 +104,8 @@
   <eClassifiers xsi:type="ecore:EEnum" name="CommandParameterOrder">
     <eLiterals name="Name" value="10" literal="NAME"/>
     <eLiterals name="Position" value="20" literal="POS"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CommandOrder">
+    <eLiterals name="Name" value="10" literal="NAME"/>
   </eClassifiers>
 </ecore:EPackage>
