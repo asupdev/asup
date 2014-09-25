@@ -115,6 +115,7 @@ public class CLParameterParserWrapper implements ParserInterface <CLParmAbstract
 		case CLParameterLexer.LIST:
 			
 			buildNode = new CLParmList();
+			buildNode.setText(antlrNode.getText());
 			
 			for (int i = 0; i < antlrNode.getChildCount(); i++) {
 				buildNode.addChild(build(buildNode, antlrNode.getChild(i)));
