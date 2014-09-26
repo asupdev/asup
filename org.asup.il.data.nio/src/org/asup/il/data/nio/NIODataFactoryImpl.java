@@ -486,7 +486,6 @@ public class NIODataFactoryImpl implements QDataFactory {
 	public QCharacter createCharacter(int length, boolean varying) {
 
 		boolean initialize = (parent == null ? true : false);
-
 		QCharacter character = null;
 		if (varying)
 			character = new NIOCharacterVaryingImpl(length, null, initialize);
