@@ -2,13 +2,14 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
-import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
+import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -49,15 +50,15 @@ public class JobDescriptionChanger {
 			@DataDef(length = 30) QEnum<PrintText, QCharacter> printText,
 			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingData,
 			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestDataOrCommand,
-			@DataDef(occurrences = "250", length = 10) QArray<QEnum<InitialLibraryList, QCharacter>> initialLibraryList,
+			@DataDef(occurrences = "250", length = 10) QScroller<QEnum<InitialLibraryList, QCharacter>> initialLibraryList,
 			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logCLProgramCommands,
 			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> jobLogOutput,
-			QEnum<JobMessageQueueMaximumSize, QBinary> jobMessageQueueMaximumSize,
+			@DataDef(binaryType = BinaryType.SHORT) QEnum<JobMessageQueueMaximumSize, QBinary> jobMessageQueueMaximumSize,
 			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobMessageQueueFullAction,
-			QEnum<CLSyntaxCheck, QBinary> cLSyntaxCheck,
-			QEnum<EndSeverity, QBinary> endSeverity,
+			@DataDef(binaryType = BinaryType.SHORT) QEnum<CLSyntaxCheck, QBinary> cLSyntaxCheck,
+			@DataDef(binaryType = BinaryType.SHORT) QEnum<EndSeverity, QBinary> endSeverity,
 			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquiryMessageReply,
 			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdOnJobQueue,
 			@DataDef(datetimeType = DatetimeType.DATE) QEnum<JobDate, QDatetime> jobDate,
@@ -67,6 +68,7 @@ public class JobDescriptionChanger {
 			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowMultipleThreads,
 			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledFileAction,
 			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> dDMConversation) {
+
 
 		String library = jobDescription.library.asData().trimR();
 		switch (jobDescription.library.asEnum()) {
@@ -330,7 +332,7 @@ public class JobDescriptionChanger {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1, value = "*SAME")
 		public QEnum<Level, QCharacter> level;
-		@DataDef(value = "*SAME")
+		@DataDef(binaryType = BinaryType.SHORT, value = "*SAME")
 		public QEnum<Severity, QBinary> severity;
 		@DataDef(length = 1, value = "*SAME")
 		public QEnum<Text, QCharacter> text;
