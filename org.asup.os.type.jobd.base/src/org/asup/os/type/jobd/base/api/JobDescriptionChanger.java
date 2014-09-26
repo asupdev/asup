@@ -39,11 +39,11 @@ public class JobDescriptionChanger {
 	
 	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(qualified = true) JobQueue jobQueue,
+			@DataDef(qualified = true) QEnum<JobQueue_e, JobQueue> jobQueue,
 			@DataDef(length = 1) QEnum<JobPriorityonJOBQ, QCharacter> jobPriorityonJOBQ,
 			@DataDef(length = 1) QEnum<OutputPriorityonOUTQ, QCharacter> outputPriorityonOUTQ,
 			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printDevice,
-			@DataDef(qualified = true) OutputQueue outputQueue,
+			@DataDef(qualified = true) QEnum<OutputQueue_e,OutputQueue> outputQueue,
 			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
 			@DataDef(length = 10) QEnum<User, QCharacter> user,
 			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingCode,
@@ -98,34 +98,30 @@ public class JobDescriptionChanger {
 				qJobDescription.setText(textDescription.asData().trimR());
 				break;
 			}
-
-			if (!jobQueue.name.isEmpty()) {
-				QTypedReference<QTypedObject> refJobQueue = null;
-				refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-				
-				switch (jobQueue.name.asEnum()) {
-				case SAME:
-					break;
-				case OTHER:
-					refJobQueue.setName(jobQueue.name.asData().trimR());
-					break;
-				}
-				
-				switch (jobQueue.library.asEnum()) {
-				case LIBL:
-					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
-					break;
-				case CURLIB:
-					// TODO
-					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
-					break;
-				case OTHER:
-					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
-					break;
-				}
-				qJobDescription.setJobQueue(refJobQueue);
-			}
 			
+			switch (jobQueue.asEnum()) {
+			case SAME:
+				break;
+			case OTHER:
+				if (!jobQueue.asData().name.isEmpty()) {
+					QTypedReference<QTypedObject> refJobQueue = null;
+					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+					refJobQueue.setName(jobQueue.asData().name.trimR());
+					switch (jobQueue.asData().library.asEnum()) {
+					case LIBL:
+						refJobQueue.setLibrary(jobQueue.asData().library.getSpecialName());
+						break;
+					case CURLIB:
+						refJobQueue.setLibrary(jobQueue.asData().library.getSpecialName());
+						break;
+					case OTHER:
+						refJobQueue.setLibrary(jobQueue.asData().library.asData().trimR());
+						break;
+					}
+					qJobDescription.setJobQueue(refJobQueue);
+				}
+				break;
+			}
 			switch (jobPriorityonJOBQ.asEnum()) {
 			case SAME:
 				break;
@@ -141,38 +137,36 @@ public class JobDescriptionChanger {
 				qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ.asData().trimR());
 				break;
 			}
-
-			if (!outputQueue.name.isEmpty()) {
-				QTypedReference<QTypedObject> refOutQueue = null;
+			
+			QTypedReference<QTypedObject> refOutQueue = null;
+			switch (outputQueue.asEnum()) {
+			case SAME:
+				break;
+			case DEV:
+			case WRKSTN:
+			case USRPRF:
 				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-
-				switch (outputQueue.name.asEnum()) {
-				case SAME:
-					break;
-				case DEV:
-				case WRKSTN:
-				case USRPRF:
-					refOutQueue.setName(outputQueue.name.getSpecialName());
-					break;
-				case OTHER:
-					refOutQueue.setName(outputQueue.name.asData().trimR());
-					break;
+				refOutQueue.setName(outputQueue.getSpecialName());
+				break;
+			case OTHER:
+				if (!outputQueue.asData().name.isEmpty()) {
+					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+					refOutQueue.setName(outputQueue.asData().name.trimR());
+					
+					switch (outputQueue.asData().library.asEnum()) {
+					case LIBL:
+						refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+						break;
+					case CURLIB:
+						refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+						break;
+					case OTHER:
+						refOutQueue.setLibrary(outputQueue.asData().library.asData().trimR());
+						break;
+					}
+					qJobDescription.setOutQueue(refOutQueue);
 				}
-				
-				switch (outputQueue.library.asEnum()) {
-				case LIBL:
-					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
-					break;
-				case CURLIB:
-					// TODO
-					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
-					break;
-				case OTHER:
-					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
-					break;
-				}
-
-				qJobDescription.setOutQueue(refOutQueue);
+				break;
 			}
 
 			switch (user.asEnum()) {
@@ -220,20 +214,20 @@ public class JobDescriptionChanger {
 	public static class JobQueue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
-		public QEnum<Name, QCharacter> name;
+		public QCharacter name;
 		@DataDef(length = 10, value = "*LIBL")
 		public QEnum<Library, QCharacter> library;
-
-		public static enum Name {
-			@Special(value = "*SAME")
-			SAME, OTHER
-		}
 
 		public static enum Library {
 			@Special(value = "*LIBL")
 			LIBL, @Special(value = "*CURLIB")
 			CURLIB, OTHER
 		}
+	}
+
+	public static enum JobQueue_e {
+		@Special(value = "*SAME")
+		SAME, OTHER
 	}
 
 	public static enum JobPriorityonJOBQ {
@@ -257,17 +251,9 @@ public class JobDescriptionChanger {
 	public static class OutputQueue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
-		public QEnum<Name, QCharacter> name;
+		public QCharacter name;
 		@DataDef(length = 10, value = "*LIBL")
 		public QEnum<Library, QCharacter> library;
-
-		public static enum Name {
-			@Special(value = "*SAME")
-			SAME, @Special(value = "*USRPRF")
-			USRPRF, @Special(value = "*DEV")
-			DEV, @Special(value = "*WRKSTN")
-			WRKSTN, OTHER
-		}
 
 		public static enum Library {
 			@Special(value = "*LIBL")
@@ -276,6 +262,15 @@ public class JobDescriptionChanger {
 		}
 	}
 
+	public static enum OutputQueue_e {
+		@Special(value = "*SAME")
+		SAME, @Special(value = "*USRPRF")
+		USRPRF, @Special(value = "*DEV")
+		DEV, @Special(value = "*WRKSTN")
+		WRKSTN, OTHER
+	}
+	
+	
 	public static enum TextDescription {
 		@Special(value = "*SAME")
 		SAME, @Special(value = "")
