@@ -131,7 +131,7 @@ public class ConsoleRequestHandler {
 						outputStreamWriter.flush();						
 						long timeIni = System.currentTimeMillis();
 
-						QCallableCommand callableCommand = commandManager.prepareCommand(contextID, command, null);
+						QCallableCommand callableCommand = commandManager.prepareCommand(contextID, command, null, true);
 			    		commandManager.executeCommand(contextID, callableCommand);			    		
 						
 			    		long timeEnd = System.currentTimeMillis();						
