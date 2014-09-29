@@ -6,7 +6,7 @@
     xmlns:il-core="http://www.asup.org/il/core"
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:os-type-cmd="http://www.asup.org/os/type/cmd"
-    name="os-type-msgf-command">
+    name="org.asup.os.type.msgf.base">
   <contents
       xsi:type="os-type-cmd:Command"
       name="ADDMSGD"
@@ -36,9 +36,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -69,9 +66,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -132,10 +126,20 @@
         allowVariable="true"
         name="FMT"
         position="6"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="messageDataFieldsFormats">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="99"/>
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NONE"
+              unary="true"
+              value="FF"/>
+        </facets>
         <definition
             xsi:type="il-data:StrollerDef"
             occurrences="99">
@@ -146,9 +150,6 @@
               mandatory="true">
             <facets
                 xsi:type="il-core:Special">
-              <elements
-                  name="*NONE"
-                  value="FF"/>
               <elements
                   name="*QTDCHAR"
                   value="04"/>
@@ -226,7 +227,7 @@
         allowVariable="true"
         name="TYPE"
         position="7"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="replyType"
@@ -259,25 +260,27 @@
         allowVariable="true"
         name="LEN"
         position="8"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="maximumReplyLength"
           default="*TYPE">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*TYPE"
+              unary="true"
+              value="-1"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="-2"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="length">
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*TYPE"
-                  value="-1"/>
-              <elements
-                  name="*NONE"
-                  value="-2"/>
-            </facets>
             <definition
                 xsi:type="il-data:BinaryDef"
                 type="SHORT"/>
@@ -296,14 +299,18 @@
         allowVariable="true"
         name="VALUES"
         position="9"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="validReplyValues">
         <facets
+            xsi:type="il-core:Cardinality"
+            max="20"/>
+        <facets
             xsi:type="il-core:Special">
           <elements
               name="*NONE"
+              unary="true"
               value="*NONE"/>
         </facets>
         <definition
@@ -320,10 +327,20 @@
         allowVariable="true"
         name="SPCVAL"
         position="10"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="specialReplyValues">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="20"/>
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:StrollerDef"
             occurrences="20">
@@ -331,12 +348,6 @@
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="originalFromValue"
               mandatory="true">
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="32"/>
@@ -356,23 +367,24 @@
         allowVariable="true"
         name="RANGE"
         position="11"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="rangeOfReplyValues"
           default="*NONE">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="lowerValue"
               mandatory="true">
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="32"/>
@@ -392,11 +404,18 @@
         allowVariable="true"
         name="REL"
         position="12"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="relationshipForValidReplies"
           default="*NONE">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NONE"
+              unary="true"
+              value="FF"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
@@ -406,9 +425,6 @@
               mandatory="true">
             <facets
                 xsi:type="il-core:Special">
-              <elements
-                  name="*NONE"
-                  value="FF"/>
               <elements
                   name="*EQ"
                   value="50"/>
@@ -453,7 +469,7 @@
         allowVariable="true"
         name="DFT"
         position="13"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="defaultReplyValue"
@@ -473,11 +489,18 @@
         allowVariable="true"
         name="DFTPGM"
         position="14"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="defaultProgramToCall"
           default="*NONE">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -488,12 +511,6 @@
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -514,9 +531,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -528,10 +542,13 @@
         allowVariable="true"
         name="DMPLST"
         position="15"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="dataToBeDumped">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="102"/>
         <facets
             xsi:type="il-core:Range"
             max="99"
@@ -540,6 +557,7 @@
             xsi:type="il-core:Special">
           <elements
               name="*NONE"
+              unary="true"
               value="0"/>
           <elements
               name="*JOB"
@@ -565,7 +583,7 @@
         allowVariable="true"
         name="LVL"
         position="16"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="levelOfMessage">
@@ -603,7 +621,7 @@
         allowVariable="true"
         name="ALROPT"
         position="17"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="alertOptions">
@@ -658,7 +676,7 @@
         allowVariable="true"
         name="LOGPRB"
         position="18"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="logProblem"
@@ -682,7 +700,7 @@
         allowVariable="true"
         name="CCSID"
         position="19"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="codedCharacterSetID"
@@ -738,9 +756,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -771,9 +786,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -852,10 +864,24 @@
         allowVariable="true"
         name="FMT"
         position="6"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="messageDataFieldsFormats">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="99"/>
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="FE"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="FF"/>
+        </facets>
         <definition
             xsi:type="il-data:StrollerDef"
             occurrences="99">
@@ -866,12 +892,6 @@
               mandatory="true">
             <facets
                 xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="FE"/>
-              <elements
-                  name="*NONE"
-                  value="FF"/>
               <elements
                   name="*QTDCHAR"
                   value="04"/>
@@ -949,7 +969,7 @@
         allowVariable="true"
         name="TYPE"
         position="7"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="replyType"
@@ -985,28 +1005,31 @@
         allowVariable="true"
         name="LEN"
         position="8"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="maximumReplyLength"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="-2"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="-3"/>
+          <elements
+              name="*TYPE"
+              unary="true"
+              value="-1"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="length">
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="-2"/>
-              <elements
-                  name="*NONE"
-                  value="-3"/>
-              <elements
-                  name="*TYPE"
-                  value="-1"/>
-            </facets>
             <definition
                 xsi:type="il-data:BinaryDef"
                 type="SHORT"/>
@@ -1025,17 +1048,22 @@
         allowVariable="true"
         name="VALUES"
         position="9"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="validReplyValues">
         <facets
+            xsi:type="il-core:Cardinality"
+            max="20"/>
+        <facets
             xsi:type="il-core:Special">
           <elements
               name="*SAME"
+              unary="true"
               value="*SAME"/>
           <elements
               name="*NONE"
+              unary="true"
               value="*NONE"/>
         </facets>
         <definition
@@ -1052,10 +1080,24 @@
         allowVariable="true"
         name="SPCVAL"
         position="10"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleCompoundDataTerm"
           name="specialReplyValues">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="20"/>
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="*SAME"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:StrollerDef"
             occurrences="20">
@@ -1063,15 +1105,6 @@
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="originalFromValue"
               mandatory="true">
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="*SAME"/>
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="32"/>
@@ -1091,26 +1124,28 @@
         allowVariable="true"
         name="RANGE"
         position="11"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="rangeOfReplyValues"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="*SAME"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="lowerValue"
               mandatory="true">
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="*SAME"/>
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="32"/>
@@ -1130,11 +1165,22 @@
         allowVariable="true"
         name="REL"
         position="12"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="relationshipForValidReplies"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="FE"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="FF"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
@@ -1144,12 +1190,6 @@
               mandatory="true">
             <facets
                 xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="FE"/>
-              <elements
-                  name="*NONE"
-                  value="FF"/>
               <elements
                   name="*EQ"
                   value="50"/>
@@ -1194,7 +1234,7 @@
         allowVariable="true"
         name="DFT"
         position="13"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="defaultReplyValue"
@@ -1217,11 +1257,22 @@
         allowVariable="true"
         name="DFTPGM"
         position="14"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="defaultProgramToCall"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="*SAME"/>
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1232,15 +1283,6 @@
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="*SAME"/>
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1261,9 +1303,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1275,10 +1314,13 @@
         allowVariable="true"
         name="DMPLST"
         position="15"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="dataToBeDumped">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="102"/>
         <facets
             xsi:type="il-core:Range"
             max="99"
@@ -1287,9 +1329,11 @@
             xsi:type="il-core:Special">
           <elements
               name="*SAME"
+              unary="true"
               value="-3"/>
           <elements
               name="*NONE"
+              unary="true"
               value="0"/>
           <elements
               name="*JOB"
@@ -1315,11 +1359,18 @@
         allowVariable="true"
         name="ALROPT"
         position="16"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="alertOptions"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="S"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
@@ -1328,9 +1379,6 @@
               mandatory="true">
             <facets
                 xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="S"/>
               <elements
                   name="*IMMED"
                   value="I"/>
@@ -1373,7 +1421,7 @@
         allowVariable="true"
         name="LOGPRB"
         position="17"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="logProblem"
@@ -1400,7 +1448,7 @@
         allowVariable="true"
         name="CCSID"
         position="18"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="codedCharacterSetID"
@@ -1443,9 +1491,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1491,9 +1536,6 @@
                   name="*ALL"
                   value="*ALL"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1527,7 +1569,7 @@
         allowVariable="true"
         name="CCSID"
         position="3"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="codedCharacterSetID"
@@ -1573,9 +1615,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1603,9 +1642,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1636,7 +1672,7 @@
         allowVariable="true"
         name="SIZE"
         position="3"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="fileSize">
@@ -1679,7 +1715,7 @@
         allowVariable="true"
         name="AUT"
         position="4"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="authority"
@@ -1714,7 +1750,7 @@
         allowVariable="true"
         name="CCSID"
         position="5"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="codedCharacterSetID"
@@ -1757,9 +1793,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1799,9 +1832,6 @@
                   name="*ALLUSR"
                   value="*ALLUSR"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1815,7 +1845,7 @@
         hidden="true">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          name="objectType"
+          name="objetcType"
           default="*MSGF">
         <definition
             xsi:type="il-data:CharacterDef"
@@ -1840,6 +1870,13 @@
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="rangeOfMessageIdentifiers">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*ALL"
+              unary="true"
+              value="*ALL"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef">
           <elements
@@ -1851,9 +1888,6 @@
                 type="NAME"/>
             <facets
                 xsi:type="il-core:Special">
-              <elements
-                  name="*ALL"
-                  value="*ALL"/>
               <elements
                   name="*FIRST"
                   value="*FIRST"/>
@@ -1893,9 +1927,6 @@
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1929,9 +1960,6 @@
                   name="*USRLIBL"
                   value="*USRLIBL"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2020,12 +2048,12 @@
       name="MRGMSGF"
       text="Merge Message File"
       program="QMHMRGMF"
-      status="TODO">
+      status="POS">
     <parameters
         allowVariable="true"
         name="FROMMSGF"
         position="1"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="fromMessageFile"
@@ -2060,9 +2088,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2074,7 +2099,7 @@
         allowVariable="true"
         name="TOMSGF"
         position="2"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="toMessageFile"
@@ -2109,9 +2134,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2123,11 +2145,18 @@
         allowVariable="true"
         name="RPLMSGF"
         position="3"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="replacedMessageFile"
           default="*NONE">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NONE"
+              unary="true"
+              value="*NONE"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -2138,12 +2167,6 @@
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*NONE"
-                  value="*NONE"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2164,9 +2187,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2178,10 +2198,13 @@
         allowVariable="true"
         name="SELECT"
         position="4"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="messageIDsToSelect">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="50"/>
         <facets
             xsi:type="il-core:Format"
             type="NAME"/>
@@ -2189,6 +2212,7 @@
             xsi:type="il-core:Special">
           <elements
               name="*ALL"
+              unary="true"
               value="*ALL"/>
         </facets>
         <definition
@@ -2205,10 +2229,13 @@
         allowVariable="true"
         name="OMIT"
         position="5"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="messageIDsToOmit">
+        <facets
+            xsi:type="il-core:Cardinality"
+            max="50"/>
         <facets
             xsi:type="il-core:Format"
             type="NAME"/>
@@ -2216,6 +2243,7 @@
             xsi:type="il-core:Special">
           <elements
               name="*NONE"
+              unary="true"
               value="*NONE"/>
         </facets>
         <definition
@@ -2248,9 +2276,6 @@
         <facets
             xsi:type="il-core:Format"
             type="NAME"/>
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:CharacterDef"
             length="10"/>
@@ -2294,9 +2319,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2308,7 +2330,7 @@
         allowVariable="true"
         name="SECURE"
         position="3"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="secureFromOtherOverrides"
@@ -2361,9 +2383,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -2394,9 +2413,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2414,12 +2430,12 @@
       text="Work with Message Descriptions"
       allowBatch="false"
       program="QMHDSMSF"
-      status="TODO">
+      status="POS">
     <parameters
         allowVariable="true"
         name="MSGID"
         position="1"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="messageIdentifier"
@@ -2442,13 +2458,10 @@
         allowVariable="true"
         name="MSGF"
         position="2"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -2479,9 +2492,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2507,9 +2517,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageFile"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/msgf#//MessageFile"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -2555,9 +2562,6 @@
                   name="*ALL"
                   value="*ALL"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2571,7 +2575,7 @@
         hidden="true">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          name="objectType"
+          name="objetcType"
           default="*MSGF">
         <definition
             xsi:type="il-data:CharacterDef"
