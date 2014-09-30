@@ -34,6 +34,7 @@ import org.asup.il.core.QFormat;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.util.FormatHelper;
+import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContext;
 import org.asup.il.data.QDataManager;
@@ -44,13 +45,13 @@ import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
-import org.asup.il.data.QStroller;
+import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
+import org.asup.il.data.QUnaryDataTerm;
 import org.asup.os.core.OperatingSystemException;
-import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
@@ -68,6 +69,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 	protected QJobManager jobManager;
 	protected QDataManager dataManager;
+	protected ParserInterface<?> clParameterParser;
+	protected ParserInterface<?> clParser;
 
 	@Inject
 	public IBMiCommandManagerImpl(QResourceFactory resourceFactory, QJobManager jobManager,
@@ -75,23 +78,25 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		super(resourceFactory, jobManager, jobLogManager, programManager);
 		this.jobManager = jobManager;
 		this.dataManager = dataManager;
-
+		this.clParameterParser = ParserFactory.getInstance().getParser(ParserFactory.ScriptType.CL_PARAMETER);
+		this.clParser = ParserFactory.getInstance().getParser(ParserFactory.ScriptType.CL);
 	}
 
 	@Override
-	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables)
+	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables, boolean defaults)
 			throws OperatingSystemException {
+		
+		
+		//TODO: togliere! per ora forzo la non valorizzazione dei defaults
+		defaults = false;
 
 		QJob job = jobManager.lookup(contextID);
 		if (job == null)
 			throw new OperatingSystemException("Invalid contextID");
 
-		@SuppressWarnings("unchecked")
-		ParserInterface<CLObject> clParser = ParserFactory.getInstance().getParser(ParserFactory.ScriptType.CL);
-
 		CLObject result = null;
 		try {
-			result = clParser.parse(" " + command + "\n");
+			result = (CLObject) clParser.parse(" " + command + "\n");
 		} catch (Exception exc) {
 			throw new OperatingSystemException(exc);
 		}
@@ -161,10 +166,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			// replace variable with prefix '&'
 			// value = replaceVariable(value, variables);
 
-			// assignment
+			// Assign value
 			QData data = null;
-			if (value.isEmpty() == false) {
-				data = assignValue(dataTerm, dataContext, value, variables);
+			if (value.isEmpty() == false || defaults) {
+							
+				data = assignValue(dataTerm, dataContext, value, variables, defaults);
 			}
 
 			// required
@@ -174,31 +180,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		return callableCommand;
 	}
-
-	private String replaceVariable(String value, Map<String, Object> variables) {
-
-		if (value == null)
-			value = "";
-
-		// search pointer to caller variable
-		if (value.startsWith("&")) {
-
-			// pointer not found
-			if (variables == null)
-				throw new OperatingSystemRuntimeException("Caller not found for pointer " + value);
-
-			// assign variable store
-			Object variable = variables.get(value.substring(1).toLowerCase());
-			value = variable.toString();
-		}
-
-		return value;
-	}
-
+	
 	private QData assignValue(QDataTerm<?> dataTerm, QDataContext dataContext, String value,
-			Map<String, Object> variables) throws OperatingSystemException {
+			Map<String, Object> variables, boolean defaults) throws OperatingSystemException {
 
-		ParserInterface<CLParmAbstractComponent> clParameterParser = ParserFactory.getInstance().getParser(ParserFactory.ScriptType.CL_PARAMETER);
+		
 		
 		String tokValue = null;
 
@@ -209,11 +195,18 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			value = value.substring(1, value.length() - 1);
 		}
 		*/
+			
 
 		@SuppressWarnings("unused")
 		String dbgString = null;
-
 		CLParmAbstractComponent paramComp;
+		
+		
+		// Manage default value
+		if (defaults) {
+			value = manageDefault(dataTerm, value);
+		}		
+				
 		switch (dataTerm.getDataType()) {
 
 		case MULTIPLE_ATOMIC:
@@ -228,7 +221,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 				// Expected parms as list
 				try {
-					paramComp = clParameterParser.parse(value);
+					paramComp = (CLParmAbstractComponent) clParameterParser.parse(value);
 				} catch (Exception exc) {
 					throw new OperatingSystemException(exc);
 				}
@@ -258,13 +251,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				}
 			} else {
 
-				Iterator<?> iterator = listAtomic.iterator();
+				int capacity = listAtomic.capacity();
 				
-				int counter = 1;
-				while(iterator.hasNext()){
-					QData listItem = listAtomic.get(counter);
-					assignValue(listItem, tokValue);
-					counter++;
+				for (int i = 1; i <= capacity; i++) {
+					QData listItem = listAtomic.get(i);
+					assignValue(listItem, "");					
 				}
 				
 			}
@@ -279,28 +270,33 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
 			QList<?> listCompound = (QList<?>) data;
 			
+			// Manage Struct specials
+			value = resolveSpecialValue(multipleCompoundDataTerm, value);
+			
 			// Parse the compound value ((A B C) (D E F)) --> return (A B C) and (D E F)
 			CLParmAbstractComponent multipleParamComp = null;
 			try {
-				multipleParamComp = clParameterParser.parse(value);
+				multipleParamComp = (CLParmAbstractComponent) clParameterParser.parse(value);
 			} catch (Exception exc) {
 				throw new OperatingSystemException(exc);
 			}
 						
 			Iterator<CLParmAbstractComponent> multipleParmIterator = multipleParamComp.getChilds().iterator();
-			List<QDataTerm<?>> dataTermList = multipleCompoundDataDef.getElements();
+			//List<QDataTerm<?>> dataTermList = multipleCompoundDataDef.getElements();
 			
 			int i = 0;
 					
 			while (multipleParmIterator.hasNext()){
-				
-				String parmValue = "";
-	
+
 				String tmpValue = multipleParmIterator.next().toString();
 				
-				if (value.startsWith("(") && value.endsWith(")")) {
+				/*
+				if (tmpVvalue.startsWith("(") && value.endsWith(")")) {
 					value = value.substring(1, value.length() - 1);
 				}
+				*/
+				
+				/*
 				
 				// Parse the value of single struct: (A B C) --> return A, B and C as single elements
 				try {
@@ -322,12 +318,15 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					}
 					
 					// Recursive call
-					QData assignValue = assignValue((QDataTerm)dataTermList.get(j), dataContext, elemValue, variables);					
+					QData assignValue = assignValue((QDataTerm)dataTermList.get(j), dataContext, elemValue, variables, defaults);					
 					//assignValue(listCompound.get(j), assignValue.toString());	
 					parmValue += assignValue.toString();					
 				}
-				
-				
+				*/
+
+				// Recursive call
+				//QData assignValue = assignValue(multipleCompoundDataTerm, dataContext, value, variables, defaults);
+				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
 				
 				assignValue(listCompound.get(i), parmValue);
 				i++;
@@ -337,7 +336,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			break;
 
 		case UNARY_ATOMIC:
-			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;
+			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;			
 			
 			if (value.isEmpty() == false) {
 				
@@ -358,7 +357,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					 * 
 					 */
 					
-					paramComp = clParameterParser.parse(value);
+					paramComp = (CLParmAbstractComponent) clParameterParser.parse(value);
 				} catch (Exception exc) {
 					throw new OperatingSystemException(exc);
 				}
@@ -377,44 +376,13 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			
 			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) dataTerm;
 
+			// Manage Struct specials
+			value = resolveSpecialValue(unaryCompoundDataTerm, value);
+			
 			QUnaryCompoundDataDef<?> unaryCompoundDataDef = unaryCompoundDataTerm.getDefinition();
 			QStruct struct = (QStruct) data;
 
-			QData assignValue = null;
-			
-			String structValue = "";
-			
-			if (unaryCompoundDataDef.isQualified()) {
-				
-				String[] values = value.split("/");
-				for (int j = values.length; j > 0; j--) {
-					
-					// Recursive Call
-					assignValue = assignValue(unaryCompoundDataDef.getElements().get(j-1), dataContext, values[values.length - j], variables);
-					
-					//assignValue(struct.getElement(j), assignValue.toString());
-					structValue = assignValue.toString() + structValue;
-				}
-			} else {
-				
-				// Parse the compound value
-				try {
-					paramComp = clParameterParser.parse(value);
-				} catch (Exception exc) {
-					throw new OperatingSystemException(exc);
-				}	
-				
-				Iterator<QDataTerm<?>> elementIterator = unaryCompoundDataDef.getElements().iterator();
-				
-				int k = 0;
-				while (elementIterator.hasNext()){	
-						// Recursive Call
-						assignValue = assignValue(elementIterator.next(), dataContext, paramComp.getChilds().get(k).toString(), variables);
-						//assignValue(struct.getElement(k+1), assignValue.toString());
-						structValue += assignValue.toString();
-						k++;
-				}
-			}
+			String structValue = buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
 			
 			assignValue(struct, structValue);
 
@@ -425,10 +393,79 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		return data;
 	}
+	
+	private String manageDefault(QDataTerm<?> dataTerm, String value) {
+		
+		String defValue = null;
+		if (value == null || value.isEmpty()) {
+			
+			if (dataTerm instanceof QUnaryDataTerm) {
+				
+				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
+				
+			} else  if (dataTerm instanceof QMultipleDataTerm) {
+				
+				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
+					defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);
+				}				
+			}
+		} else {
+			defValue = value;
+		}
 
-	private String buildDefaultValue(QMultipleAtomicDataTerm<?> multipleAtomicDataTerm) {
-		// TODO Auto-generated method stub
-		return null;
+		return defValue!=null?defValue:"";
+	}
+
+	private String buildStructValue(QCompoundDataDef<?> compoundDataDef, QDataContext dataContext, String parmValue, Map<String, Object> variables,
+									boolean defaults) throws OperatingSystemException {
+		
+		String structValue = "";
+		QData assignValue = null;
+		CLParmAbstractComponent paramComp;
+		
+		if (parmValue.startsWith("(") && parmValue.endsWith(")")) {
+			parmValue = parmValue.substring(1, parmValue.length() - 1);
+		}
+									
+		if (compoundDataDef.isQualified()) {
+			
+			String[] values = parmValue.split("/");
+			for (int j = values.length; j > 0; j--) {
+				
+				// Recursive Call
+				assignValue = assignValue(compoundDataDef.getElements().get(j-1), dataContext, values[values.length - j], variables, defaults);
+				
+				//assignValue(struct.getElement(j), assignValue.toString());
+				structValue = assignValue.toString() + structValue;
+			}
+		} else {
+			
+			// Parse the compound value
+			try {
+				paramComp = (CLParmAbstractComponent) clParameterParser.parse(parmValue);
+			} catch (Exception exc) {
+				throw new OperatingSystemException(exc);
+			}	
+			
+			Iterator<QDataTerm<?>> elementIterator = compoundDataDef.getElements().iterator();
+			Iterator<CLParmAbstractComponent> parmIterator = paramComp.getChilds().iterator();		
+			
+			while (elementIterator.hasNext()){	
+					
+					String tmpValue;
+					if (parmIterator.hasNext()) {
+						tmpValue = parmIterator.next().toString();
+					} else {
+						//TODO: set default value
+						tmpValue = "";
+					}
+					
+					// Recursive Call
+					assignValue = assignValue(elementIterator.next(), dataContext, tmpValue, variables, defaults);					
+					structValue += assignValue.toString();
+			}
+		}
+		return structValue;
 	}
 	
 	private String buildParameterValue(QDataTerm<?> dataTerm, CLParmAbstractComponent parmValue)
@@ -522,7 +559,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			}
 
 			break;
-
+		
+		case FILTER:
 		case STR_OPERATOR:
 
 			value = parmValue.toString();

@@ -94,7 +94,7 @@ public class JobSubmitter {
 
 			try {
 				// execute command
-				QCallableCommand callableCommand = commandManager.prepareCommand(qJob, commandString, variables);
+				QCallableCommand callableCommand = commandManager.prepareCommand(qJob, commandString, variables, true);
 				commandManager.executeCommand(qJob, callableCommand);
 			} catch (OperatingSystemException e) {
 				throw new OperatingSystemRuntimeException(null, e);

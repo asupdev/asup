@@ -567,6 +567,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "variables", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "defaults", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theOperatingSystemCorePackage.getOperatingSystemException());
 
 		op = addEOperation(commandManagerEClass, null, "executeCommand", 1, 1, IS_UNIQUE, IS_ORDERED);

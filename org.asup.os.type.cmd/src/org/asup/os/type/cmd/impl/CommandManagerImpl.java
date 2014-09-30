@@ -66,7 +66,7 @@ public abstract class CommandManagerImpl extends TypedManagerImpl<QCommand> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables) throws OperatingSystemException {
+	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables, boolean defaults) throws OperatingSystemException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

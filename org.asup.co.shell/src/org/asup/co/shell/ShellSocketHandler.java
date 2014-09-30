@@ -130,7 +130,7 @@ public class ShellSocketHandler extends Thread {
 		if (command == null || command.trim().length() == 0) 
 			return;
 
-		QCallableCommand callableCommand = commandManager.prepareCommand(contextID, command, null);
+		QCallableCommand callableCommand = commandManager.prepareCommand(contextID, command, null, true);
 		commandManager.executeCommand(contextID, callableCommand);
 
 	}

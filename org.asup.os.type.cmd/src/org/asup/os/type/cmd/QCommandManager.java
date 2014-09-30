@@ -27,10 +27,10 @@ public interface QCommandManager extends QTypedManager<QCommand> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" exceptions="org.asup.os.core.OperatingSystemException" contextIDRequired="true" commandRequired="true"
+	 * @model required="true" exceptions="org.asup.os.core.OperatingSystemException" contextIDRequired="true" commandRequired="true" defaultsRequired="true"
 	 * @generated
 	 */
-	QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables) throws OperatingSystemException;
+	QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables, boolean defaults) throws OperatingSystemException;
 
 	/**
 	 * <!-- begin-user-doc -->

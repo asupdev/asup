@@ -50,7 +50,7 @@ public class CRUDTest extends BaseAssertImpl{
 			// Create a test library (if none)
 			if (checkObj(job, QLibrary.class, "QSYS", testLib) == false){
 				String cmd = "CRTLIB LIB(" + testLib + ")";
-				QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null);
+				QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null, true);
 				commandManager.executeCommand(job, callableCommand);
 			}
 

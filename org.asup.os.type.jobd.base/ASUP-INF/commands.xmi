@@ -6,7 +6,7 @@
     xmlns:il-core="http://www.asup.org/il/core"
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:os-type-cmd="http://www.asup.org/os/type/cmd"
-    name="os-type-jobd-command">
+    name="org.asup.os.type.jobd.base">
   <contents
       xsi:type="os-type-cmd:Command"
       name="CHGJOBD"
@@ -20,9 +20,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobDescription"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/jobd#//JobDescription"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -53,9 +50,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -71,6 +65,13 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobQueue"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="*SAME"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -81,12 +82,6 @@
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="*SAME"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -107,9 +102,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -143,7 +135,8 @@
     <parameters
         allowVariable="true"
         name="OUTPTY"
-        position="4">
+        position="4"
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="outputPriorityonOUTQ"
@@ -167,7 +160,7 @@
         allowVariable="true"
         name="PRTDEV"
         position="5"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="printDevice"
@@ -203,6 +196,25 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="outputQueue"
           default="*SAME">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*SAME"
+              unary="true"
+              value="*SAME"/>
+          <elements
+              name="*USRPRF"
+              unary="true"
+              value="*USRPRF"/>
+          <elements
+              name="*DEV"
+              unary="true"
+              value="*DEV"/>
+          <elements
+              name="*WRKSTN"
+              unary="true"
+              value="*WRKSTN"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -213,21 +225,6 @@
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*SAME"
-                  value="*SAME"/>
-              <elements
-                  name="*USRPRF"
-                  value="*USRPRF"/>
-              <elements
-                  name="*DEV"
-                  value="*DEV"/>
-              <elements
-                  name="*WRKSTN"
-                  value="*WRKSTN"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -248,9 +245,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -309,7 +303,7 @@
         allowVariable="true"
         name="ACGCDE"
         position="9"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="accountingCode"
@@ -335,7 +329,7 @@
         allowVariable="true"
         name="PRTTXT"
         position="10"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="printText"
@@ -361,7 +355,7 @@
         allowVariable="true"
         name="RTGDTA"
         position="11"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="routingData"
@@ -384,7 +378,7 @@
         allowVariable="true"
         name="RQSDTA"
         position="12"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="requestDataOrCommand"
@@ -414,18 +408,24 @@
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="initialLibraryList">
         <facets
+            xsi:type="il-core:Cardinality"
+            max="250"/>
+        <facets
             xsi:type="il-core:Format"
             type="NAME"/>
         <facets
             xsi:type="il-core:Special">
           <elements
               name="*SAME"
+              unary="true"
               value="*SAME"/>
           <elements
               name="*SYSVAL"
+              unary="true"
               value="*SYSVAL"/>
           <elements
               name="*NONE"
+              unary="true"
               value="*NONE"/>
         </facets>
         <definition
@@ -442,7 +442,7 @@
         allowVariable="true"
         name="INLASPGRP"
         position="14"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="initialASPGroup"
@@ -468,7 +468,7 @@
         allowVariable="true"
         name="LOG"
         position="15"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageLogging">
@@ -541,7 +541,7 @@
         allowVariable="true"
         name="LOGCLPGM"
         position="16"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="logCLProgramCommands"
@@ -568,7 +568,7 @@
         allowVariable="true"
         name="LOGOUTPUT"
         position="17"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobLogOutput"
@@ -601,7 +601,7 @@
         allowVariable="true"
         name="JOBMSGQMX"
         position="18"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobMessageQueueMaximumSize"
@@ -628,7 +628,7 @@
         allowVariable="true"
         name="JOBMSGQFL"
         position="19"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobMessageQueueFullAction"
@@ -661,7 +661,7 @@
         allowVariable="true"
         name="SYNTAX"
         position="20"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="cLSyntaxCheck"
@@ -688,7 +688,7 @@
         allowVariable="true"
         name="ENDSEV"
         position="21"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="endSeverity"
@@ -712,7 +712,7 @@
         allowVariable="true"
         name="INQMSGRPY"
         position="22"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="inquiryMessageReply"
@@ -742,7 +742,7 @@
         allowVariable="true"
         name="HOLD"
         position="23"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="holdOnJobQueue"
@@ -769,7 +769,7 @@
         allowVariable="true"
         name="DATE"
         position="24"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobDate"
@@ -791,7 +791,7 @@
         allowVariable="true"
         name="SWS"
         position="25"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobSwitches"
@@ -811,7 +811,7 @@
         allowVariable="true"
         name="DEVRCYACN"
         position="26"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="deviceRecoveryAction"
@@ -850,7 +850,7 @@
         allowVariable="true"
         name="TSEPOOL"
         position="27"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="timeSliceEndPool"
@@ -880,7 +880,7 @@
         allowVariable="true"
         name="ALWMLTTHD"
         position="28"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="allowMultipleThreads"
@@ -907,7 +907,7 @@
         allowVariable="true"
         name="SPLFACN"
         position="29"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="spooledFileAction"
@@ -937,7 +937,7 @@
         allowVariable="true"
         name="DDMCNV"
         position="30"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="dDMConversation"
@@ -977,9 +977,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobDescription"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/jobd#//JobDescription"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1007,9 +1004,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1054,9 +1048,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1102,7 +1093,7 @@
         allowVariable="true"
         name="PRTDEV"
         position="5"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="printDevice"
@@ -1135,6 +1126,21 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="outputQueue"
           default="*USRPRF">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*USRPRF"
+              unary="true"
+              value="*USRPRF"/>
+          <elements
+              name="*DEV"
+              unary="true"
+              value="*DEV"/>
+          <elements
+              name="*WRKSTN"
+              unary="true"
+              value="*WRKSTN"/>
+        </facets>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1145,18 +1151,6 @@
             <facets
                 xsi:type="il-core:Format"
                 type="NAME"/>
-            <facets
-                xsi:type="il-core:Special">
-              <elements
-                  name="*USRPRF"
-                  value="*USRPRF"/>
-              <elements
-                  name="*DEV"
-                  value="*DEV"/>
-              <elements
-                  name="*WRKSTN"
-                  value="*WRKSTN"/>
-            </facets>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1177,9 +1171,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1232,7 +1223,7 @@
         allowVariable="true"
         name="ACGCDE"
         position="9"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="accountingCode"
@@ -1255,7 +1246,7 @@
         allowVariable="true"
         name="PRTTXT"
         position="10"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="printText"
@@ -1325,15 +1316,20 @@
           xsi:type="il-data:MultipleAtomicDataTerm"
           name="initialLibraryList">
         <facets
+            xsi:type="il-core:Cardinality"
+            max="250"/>
+        <facets
             xsi:type="il-core:Format"
             type="NAME"/>
         <facets
             xsi:type="il-core:Special">
           <elements
               name="*SYSVAL"
+              unary="true"
               value="*SYSVAL"/>
           <elements
               name="*NONE"
+              unary="true"
               value="*NONE"/>
         </facets>
         <definition
@@ -1350,7 +1346,7 @@
         allowVariable="true"
         name="INLASPGRP"
         position="14"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="initialASPGroup"
@@ -1373,7 +1369,7 @@
         allowVariable="true"
         name="LOG"
         position="15"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="messageLogging">
@@ -1431,7 +1427,7 @@
         allowVariable="true"
         name="LOGCLPGM"
         position="16"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="logCLProgramCommands"
@@ -1455,7 +1451,7 @@
         allowVariable="true"
         name="LOGOUTPUT"
         position="17"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobLogOutput"
@@ -1485,7 +1481,7 @@
         allowVariable="true"
         name="JOBMSGQMX"
         position="18"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobMessageQueueMaximumSize"
@@ -1509,7 +1505,7 @@
         allowVariable="true"
         name="JOBMSGQFL"
         position="19"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobMessageQueueFullAction"
@@ -1539,7 +1535,7 @@
         allowVariable="true"
         name="SYNTAX"
         position="20"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="cLSyntaxCheck"
@@ -1563,7 +1559,7 @@
         allowVariable="true"
         name="ENDSEV"
         position="21"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="endSeverity"
@@ -1581,7 +1577,7 @@
         allowVariable="true"
         name="INQMSGRPY"
         position="22"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="inquiryMessageReply"
@@ -1608,7 +1604,7 @@
         allowVariable="true"
         name="HOLD"
         position="23"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="holdOnJobQueue"
@@ -1632,7 +1628,7 @@
         allowVariable="true"
         name="DATE"
         position="24"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobDate"
@@ -1651,7 +1647,7 @@
         allowVariable="true"
         name="SWS"
         position="25"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="jobSwitches"
@@ -1665,7 +1661,7 @@
         allowVariable="true"
         name="DEVRCYACN"
         position="26"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="deviceRecoveryAction"
@@ -1701,7 +1697,7 @@
         allowVariable="true"
         name="TSEPOOL"
         position="27"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="timeSliceEndPool"
@@ -1728,7 +1724,7 @@
         allowVariable="true"
         name="AUT"
         position="28"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="authority"
@@ -1763,7 +1759,7 @@
         allowVariable="true"
         name="ALWMLTTHD"
         position="29"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="allowMultipleThreads"
@@ -1787,7 +1783,7 @@
         allowVariable="true"
         name="SPLFACN"
         position="30"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="spooledFileAction"
@@ -1814,7 +1810,7 @@
         allowVariable="true"
         name="DDMCNV"
         position="31"
-        status="TODO">
+        status="POS">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="dDMConversation"
@@ -1851,9 +1847,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobDescription"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/jobd#//JobDescription"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1893,9 +1886,6 @@
                   name="*ALLUSR"
                   value="*ALLUSR"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1904,12 +1894,14 @@
       </dataTerm>
     </parameters>
     <parameters
+        allowVariable="true"
         name="OBJTYPE"
         position="2"
         hidden="true">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="objectType"
+          restricted="true"
           default="*JOBD">
         <definition
             xsi:type="il-data:CharacterDef"
@@ -1933,9 +1925,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobDescription"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/jobd#//JobDescription"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -1966,9 +1955,6 @@
                   name="*CURLIB"
                   value="*CURLIB"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -1979,8 +1965,7 @@
     <parameters
         allowVariable="true"
         name="OUTPUT"
-        position="2"
-        status="TODO">
+        position="2">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="output"
@@ -2093,9 +2078,6 @@
           xsi:type="il-data:UnaryCompoundDataTerm"
           name="jobDescription"
           mandatory="true">
-        <facets
-            xsi:type="il-core:Domain"
-            name="/os/type/jobd#//JobDescription"/>
         <definition
             xsi:type="il-data:DataStructDef"
             qualified="true">
@@ -2141,9 +2123,6 @@
                   name="*ALL"
                   value="*ALL"/>
             </facets>
-            <facets
-                xsi:type="il-core:Domain"
-                name="/os/type/lib#//Library"/>
             <definition
                 xsi:type="il-data:CharacterDef"
                 length="10"/>
@@ -2152,12 +2131,14 @@
       </dataTerm>
     </parameters>
     <parameters
+        allowVariable="true"
         name="OBJTYPE"
         position="2"
         hidden="true">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="objectType"
+          restricted="true"
           default="*JOBD">
         <definition
             xsi:type="il-data:CharacterDef"
