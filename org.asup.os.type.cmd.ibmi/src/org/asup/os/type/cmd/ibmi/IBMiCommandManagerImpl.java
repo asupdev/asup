@@ -85,6 +85,10 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 	@Override
 	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables, boolean defaults)
 			throws OperatingSystemException {
+		
+		
+		//TODO: togliere! per ora forzo la non valorizzazione dei defaults
+		defaults = false;
 
 		QJob job = jobManager.lookup(contextID);
 		if (job == null)
@@ -247,13 +251,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				}
 			} else {
 
-				Iterator<?> iterator = listAtomic.iterator();
+				int capacity = listAtomic.capacity();
 				
-				int counter = 1;
-				while(iterator.hasNext()){
-					QData listItem = listAtomic.get(counter);
-					assignValue(listItem, tokValue);
-					counter++;
+				for (int i = 1; i <= capacity; i++) {
+					QData listItem = listAtomic.get(i);
+					assignValue(listItem, "");					
 				}
 				
 			}
@@ -267,6 +269,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 			QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
 			QList<?> listCompound = (QList<?>) data;
+			
+			// Manage Struct specials
+			value = resolveSpecialValue(multipleCompoundDataTerm, value);
 			
 			// Parse the compound value ((A B C) (D E F)) --> return (A B C) and (D E F)
 			CLParmAbstractComponent multipleParamComp = null;
@@ -371,7 +376,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			
 			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) dataTerm;
 
-			
+			// Manage Struct specials
+			value = resolveSpecialValue(unaryCompoundDataTerm, value);
 			
 			QUnaryCompoundDataDef<?> unaryCompoundDataDef = unaryCompoundDataTerm.getDefinition();
 			QStruct struct = (QStruct) data;
