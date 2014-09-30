@@ -548,7 +548,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			if(isSpecialValue(dataTerm, parmValue.toString()))
 				value = resolveSpecialValue(dataTerm, parmValue.toString());
 			else {
-				if (matchFormat(dataTerm, parmValue.toString()) == false) {
+				value = parmValue.toString();
+				if (matchFormat(dataTerm, value) == false) {
 					throw new OperatingSystemException("Invalid format for parm value: " + value);
 				}
 			}
