@@ -3,12 +3,12 @@ package org.asup.os.type.jobd.base.api;
 import javax.inject.Inject;
 
 import org.asup.il.data.DatetimeType;
-import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
+import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -49,7 +49,7 @@ public class JobDescriptionChanger {
 			@DataDef(length = 30) QEnum<PrintText, QCharacter> printText,
 			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingData,
 			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestDataOrCommand,
-			@DataDef(occurrences = "250", length = 10) QArray<QEnum<InitialLibraryList, QCharacter>> initialLibraryList,
+			@DataDef(occurrences = "250", length = 10) QScroller<QEnum<InitialLibraryList, QCharacter>> initialLibraryList,
 			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logCLProgramCommands,

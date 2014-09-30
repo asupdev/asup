@@ -44,6 +44,22 @@ public interface QBufferedData extends QData, QMoveable {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
+	void assign(QBufferedData value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	QBufferedData copy();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
 	void eval(QBufferedData value);
 
 	/**

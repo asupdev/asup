@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.asup.il.data.QCompoundDataDef;
-import org.asup.il.data.QCompoundDataPart;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QMultipleCompoundDataDef;
@@ -324,17 +323,12 @@ public abstract class MultipleCompoundDataDefImpl<D extends QStroller<?>> extend
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == QCompoundDataPart.class) {
-			switch (derivedFeatureID) {
-				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__CLASS_DELEGATOR;
-				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__ELEMENTS;
-				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__PREFIX: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__PREFIX;
-				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__QUALIFIED;
-				default: return -1;
-			}
-		}
 		if (baseClass == QCompoundDataDef.class) {
 			switch (derivedFeatureID) {
+				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__CLASS_DELEGATOR;
+				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__ELEMENTS;
+				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__PREFIX: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__PREFIX;
+				case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__QUALIFIED;
 				default: return -1;
 			}
 		}
@@ -348,17 +342,12 @@ public abstract class MultipleCompoundDataDefImpl<D extends QStroller<?>> extend
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == QCompoundDataPart.class) {
-			switch (baseFeatureID) {
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__CLASS_DELEGATOR: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__ELEMENTS: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__PREFIX: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__PREFIX;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__QUALIFIED: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED;
-				default: return -1;
-			}
-		}
 		if (baseClass == QCompoundDataDef.class) {
 			switch (baseFeatureID) {
+				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__CLASS_DELEGATOR: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
+				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__ELEMENTS: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__ELEMENTS;
+				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__PREFIX: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__PREFIX;
+				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__QUALIFIED: return QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_DEF__QUALIFIED;
 				default: return -1;
 			}
 		}

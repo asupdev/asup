@@ -22,7 +22,7 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QDatetime;
 
-public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
+public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -33,7 +33,7 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 
 	private byte[] _value;
 
-	public NIODatetimeImpl(DatetimeType type, String format,  byte[] value, boolean initialize) {
+	public NIODatetimeImpl(DatetimeType type, String format,  byte[] value) {		
 		
 		this._type = type;
 		this._format = format;
@@ -54,23 +54,29 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 				break;
 			}
 		}
+	}
+
+	@Override
+	public void allocate() {
+		if(getParent() == null)
+			setBuffer(ByteBuffer.allocate(size()));;
 		
-		if (initialize) {
-
-			_buffer = ByteBuffer.allocate(length());
-			_position = 0;
-			
-
-			if (value != null)
-				NIOBufferHelper.movel(_buffer, _position, length(), value, true, INIT);
-			else
-				init();
-		}
+		reset();
+		
+	}
+	
+	@Override
+	public void reset() {
+		if (_value != null)
+			NIOBufferHelper.movel(getBuffer(), getPosition(), length(), _value, true, INIT);
+		else
+			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + length(), INIT);
+		
 	}
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(_buffer, _position, length());
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), length());
 	}
 
 	@Override
@@ -137,11 +143,6 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 	}
 
 	@Override
-	public void reset() {
-		NIOBufferHelper.movel(_buffer, _position, length(), _value, true, INIT);		
-	}
-
-	@Override
 	public void accept(QDataVisitor visitor) {
 		// TODO Auto-generated method stub
 		
@@ -157,11 +158,6 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 	public void eval(Object value) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public void init() {
-		Arrays.fill(_buffer.array(), _position, _position + length(), INIT);		
 	}
 
 	@Override
@@ -300,6 +296,14 @@ public class NIODatetimeImpl extends NIOBufferReference implements QDatetime {
 	public <E extends Enum<E>> void eval(E value) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public NIODatetimeImpl copy() {
+
+		NIODatetimeImpl copy = new NIODatetimeImpl(_type, _format, _value);
+		
+		return copy;
 	}
 
 }

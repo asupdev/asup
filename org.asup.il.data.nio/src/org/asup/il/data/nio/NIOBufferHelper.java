@@ -26,9 +26,8 @@ public class NIOBufferHelper {
 
 		return bytes;
 	}
-
-	public static void movel(ByteBuffer buffer, int position, int length,
-			byte[] bytes, boolean clear, byte filler) {
+	
+	public static void movel(ByteBuffer buffer, int position, int length, byte[] bytes, boolean clear, byte filler) {
 		assert buffer != null;
 
 		_prepare(buffer, position, length);

@@ -78,7 +78,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 					streamWrite(data + "|");
 				}
 				else if(data instanceof QNumeric) {
-					QCharacter character = dataFactory.createCharacter(dataTerm.getName().length());
+					QCharacter character = dataFactory.createCharacter(dataTerm.getName().length(), false, true);
 					character.eval(stringUtil.firstToUpper(dataTerm.getName()));
 					streamWrite(character + "|");
 				}
@@ -110,7 +110,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 				streamWrite(data + "|");
 			}
 			else if (value instanceof Number) {
-				QCharacter character = dataFactory.createCharacter(dataTerm.getName().length());
+				QCharacter character = dataFactory.createCharacter(dataTerm.getName().length(), false, true);
 				character.eval(value);
 				streamWrite(character + "|");
 			} 

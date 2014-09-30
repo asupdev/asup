@@ -11,7 +11,6 @@
  */
 package org.asup.il.data.nio;
 
-import java.nio.ByteBuffer;
 import java.util.Iterator;
 
 import org.asup.il.data.QArray;
@@ -20,14 +19,19 @@ import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 
-public abstract class NIOBufferList<D extends QBufferedData> extends NIOBufferReference implements QList<D>, QBufferedData {
-
+public abstract class NIOBufferedList<D extends QBufferedData> extends NIOBufferedData implements QList<D>, QBufferedData {
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(_buffer, _position, size());
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), size());
 	}
 	
+	@Override
+	public void reset() {
+		for (QBufferedData element : this) {
+			element.reset();
+		}
+	}	
 
 	@Override
 	public void clear() {
@@ -56,27 +60,13 @@ public abstract class NIOBufferList<D extends QBufferedData> extends NIOBufferRe
 	}
 	
 	@Override
-	public void init() {
-
-		if (_buffer != null)
-			return;
-
-		_buffer = ByteBuffer.allocate(size());
-		_position = 0;
-
-		for (QBufferedData element : this) {
-			element.clear();
-		}
-	}
-	
-	@Override
 	public boolean isEmpty() {
 		return false;
 	}
 
 	@Override
 	public Iterator<D> iterator() {
-		return new NIOListIterator<D>(this);
+		return new NIOListIteratorImpl<D>(this);
 	}
 	
 
@@ -124,7 +114,7 @@ public abstract class NIOBufferList<D extends QBufferedData> extends NIOBufferRe
 
 	@Override
 	public void movea(QArray<?> value, boolean clear) {		
-		NIOBufferHelper.movel(_buffer, _position, value.size(), value.asBytes(), false, (byte) 32);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), value.size(), value.asBytes(), false, (byte) 32);
 
 	}
 
@@ -161,13 +151,6 @@ public abstract class NIOBufferList<D extends QBufferedData> extends NIOBufferRe
 	public void movel(String value, boolean clear) {
 		for (QBufferedData element : this) {
 			element.movel(value, clear);
-		}
-	}
-
-	@Override
-	public void reset() {
-		for (QBufferedData element : this) {
-			element.reset();
 		}
 	}
 

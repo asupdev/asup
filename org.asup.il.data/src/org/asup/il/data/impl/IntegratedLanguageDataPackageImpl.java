@@ -30,11 +30,11 @@ import org.asup.il.data.QBufferedDataTerm;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QCompoundDataDef;
-import org.asup.il.data.QCompoundDataPart;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContext;
 import org.asup.il.data.QDataDef;
+import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataDictionary;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
@@ -222,6 +222,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass dataDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataDelegatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -550,13 +557,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass compoundDataPartEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass compoundDataTermEClass = null;
 
 	/**
@@ -870,6 +870,42 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCompoundDataDef_ClassDelegator() {
+		return (EAttribute)compoundDataDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompoundDataDef_Elements() {
+		return (EReference)compoundDataDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompoundDataDef_Prefix() {
+		return (EAttribute)compoundDataDefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompoundDataDef_Qualified() {
+		return (EAttribute)compoundDataDefEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getData() {
 		return dataEClass;
 	}
@@ -890,6 +926,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getDataDef() {
 		return dataDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataDelegator() {
+		return dataDelegatorEClass;
 	}
 
 	/**
@@ -1509,51 +1554,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCompoundDataPart() {
-		return compoundDataPartEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompoundDataPart_ClassDelegator() {
-		return (EAttribute)compoundDataPartEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompoundDataPart_Elements() {
-		return (EReference)compoundDataPartEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompoundDataPart_Prefix() {
-		return (EAttribute)compoundDataPartEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCompoundDataPart_Qualified() {
-		return (EAttribute)compoundDataPartEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCompoundDataTerm() {
 		return compoundDataTermEClass;
 	}
@@ -1726,12 +1726,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		createEAttribute(characterDefEClass, CHARACTER_DEF__VARYING);
 
 		compoundDataDefEClass = createEClass(COMPOUND_DATA_DEF);
-
-		compoundDataPartEClass = createEClass(COMPOUND_DATA_PART);
-		createEAttribute(compoundDataPartEClass, COMPOUND_DATA_PART__CLASS_DELEGATOR);
-		createEReference(compoundDataPartEClass, COMPOUND_DATA_PART__ELEMENTS);
-		createEAttribute(compoundDataPartEClass, COMPOUND_DATA_PART__PREFIX);
-		createEAttribute(compoundDataPartEClass, COMPOUND_DATA_PART__QUALIFIED);
+		createEAttribute(compoundDataDefEClass, COMPOUND_DATA_DEF__CLASS_DELEGATOR);
+		createEReference(compoundDataDefEClass, COMPOUND_DATA_DEF__ELEMENTS);
+		createEAttribute(compoundDataDefEClass, COMPOUND_DATA_DEF__PREFIX);
+		createEAttribute(compoundDataDefEClass, COMPOUND_DATA_DEF__QUALIFIED);
 
 		compoundDataTermEClass = createEClass(COMPOUND_DATA_TERM);
 
@@ -1740,6 +1738,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		dataContextEClass = createEClass(DATA_CONTEXT);
 
 		dataDefEClass = createEClass(DATA_DEF);
+
+		dataDelegatorEClass = createEClass(DATA_DELEGATOR);
 
 		dataDictionaryEClass = createEClass(DATA_DICTIONARY);
 
@@ -2095,8 +2095,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(compoundDataDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		compoundDataDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getCompoundDataPart());
-		compoundDataDefEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType(compoundDataTermEClass_DD);
 		g1.getETypeArguments().add(g2);
@@ -2349,6 +2347,11 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		addEOperation(bufferedDataEClass, ecorePackage.getEString(), "asString", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(bufferedDataEClass, null, "assign", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBufferedData(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(bufferedDataEClass, this.getBufferedData(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(bufferedDataEClass, null, "eval", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBufferedData(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2373,15 +2376,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getCharacterDef_Varying(), ecorePackage.getEBoolean(), "varying", null, 0, 1, QCharacterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundDataDefEClass, QCompoundDataDef.class, "CompoundDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(compoundDataPartEClass, QCompoundDataPart.class, "CompoundDataPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCompoundDataPart_ClassDelegator(), ecorePackage.getEString(), "classDelegator", null, 0, 1, QCompoundDataPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompoundDataDef_ClassDelegator(), ecorePackage.getEString(), "classDelegator", null, 0, 1, QCompoundDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getCompoundDataPart_Elements(), g1, null, "elements", null, 0, -1, QCompoundDataPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompoundDataPart_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, QCompoundDataPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompoundDataPart_Qualified(), ecorePackage.getEBoolean(), "qualified", null, 0, 1, QCompoundDataPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompoundDataDef_Elements(), g1, null, "elements", null, 0, -1, QCompoundDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompoundDataDef_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, QCompoundDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompoundDataDef_Qualified(), ecorePackage.getEBoolean(), "qualified", null, 0, 1, QCompoundDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compoundDataTermEClass, QCompoundDataTerm.class, "CompoundDataTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2401,8 +2402,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		t1.getEBounds().add(g1);
 		g1 = createEGenericType(t1);
 		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(dataEClass, null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataEClass, ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2433,6 +2432,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		initEClass(dataDelegatorEClass, QDataDelegator.class, "DataDelegator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(dataDelegatorEClass, this.getData(), "getDelegate", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(dataDictionaryEClass, QDataDictionary.class, "DataDictionary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dataFactoryEClass, QDataFactory.class, "DataFactory", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2446,6 +2449,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "argument", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "dimension", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getArray());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -2454,13 +2458,12 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(dataFactoryEClass, this.getBinary(), "createBinary", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getBinaryType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "unsigned", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(dataFactoryEClass, this.getCharacter(), "createCharacter", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "length", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, this.getCharacter(), "createCharacter", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "length", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "varying", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, null, "createData", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "D");
@@ -2470,6 +2473,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dataDef", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
 
@@ -2478,6 +2482,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, null, "createDataDef", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -2487,16 +2492,17 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(dataFactoryEClass, null, "createStroller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataFactoryEClass, null, "createDataStruct", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "D");
-		g1 = createEGenericType(this.getStruct());
+		g1 = createEGenericType(this.getDataStruct());
 		t1.getEBounds().add(g1);
-		g1 = createEGenericType(t1);
-		addEParameter(op, g1, "dataDelegate", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getStroller());
-		g2 = createEGenericType(t1);
+		g1 = createEGenericType(this.getDataTerm());
+		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "elements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "length", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
 
 		op = addEOperation(dataFactoryEClass, null, "createDataStruct", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -2507,29 +2513,21 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "classDelegator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getDataTerm());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "elements", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "length", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
 
 		op = addEOperation(dataFactoryEClass, this.getDatetime(), "createDate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDatetimeType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "format", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(dataFactoryEClass, this.getDecimal(), "createDecimal", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "precision", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(dataFactoryEClass, this.getDecimal(), "createDecimal", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "precision", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "scale", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, this.getDecimal(), "createDecimal", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "precision", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "scale", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDecimalType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, null, "createEnum", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "E");
@@ -2544,6 +2542,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, g1, "classEnumerator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t2);
 		addEParameter(op, g1, "dataDelegate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getEnum());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -2553,29 +2552,53 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(dataFactoryEClass, this.getFloating(), "createFloating", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getFloatingType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, this.getHexadecimal(), "createHexadecimal", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "length", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(dataFactoryEClass, this.getIndicator(), "createIndicator", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataFactoryEClass, this.getIndicator(), "createIndicator", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(dataFactoryEClass, this.getHexadecimal(), "createPointer", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataFactoryEClass, this.getHexadecimal(), "createPointer", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, null, "createScroller", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "D");
-		g1 = createEGenericType(this.getBufferedData());
+		g1 = createEGenericType(this.getStruct());
 		t1.getEBounds().add(g1);
-		g1 = createEGenericType(t1);
-		addEParameter(op, g1, "dataDelegate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getAtomicDataDef());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "argument", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getScroller());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		addEOperation(dataFactoryEClass, this.getDatetime(), "createTime", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataFactoryEClass, null, "createStroller", 1, 1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "D");
+		g1 = createEGenericType(this.getStruct());
+		t1.getEBounds().add(g1);
+		g1 = createEGenericType(this.getCompoundDataDef());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "argument", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStroller());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
-		addEOperation(dataFactoryEClass, this.getDatetime(), "createTimestamp", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataFactoryEClass, this.getDatetime(), "createTime", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataFactoryEClass, this.getDatetime(), "createTimestamp", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataManagerEClass, QDataManager.class, "DataManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

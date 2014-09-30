@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.il.data.QCompoundDataPart;
+import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QDataTerm;
 import org.eclipse.jdt.core.dom.Modifier;
 
@@ -18,7 +18,7 @@ public class RPJDataStructureWriter extends RPJNamedNodeWriter {
 			getTarget().modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));
 	}
 
-	public void writeStructure(QCompoundDataPart dataPart) throws IOException {
+	public void writeStructure(QCompoundDataDef<?> dataPart) throws IOException {
 		
 		// fields
 		for (QDataTerm<?> element : dataPart.getElements()) {

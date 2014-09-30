@@ -22,11 +22,8 @@ import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 
-public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
+public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	
@@ -36,23 +33,36 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 	int _length;
 	byte[] _value;
 
-	public NIOCharacterImpl(int length, byte[] value, boolean initialize) {
-
+	public NIOCharacterImpl(int length, byte[] value) {
+		
 		_length = length;
 		_value = value;
+	}
 
-		if (initialize)
-			init();
+	@Override
+	public void allocate() {
+		setBuffer(ByteBuffer.allocate(size()));;
+		
+		reset();
+		
+	}
+
+	@Override
+	public void reset() {
+		if (_value != null)
+			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, _value, true, INIT);
+		else
+			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + _length, INIT);
 	}
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(_buffer, _position, _length);
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), _length);
 	}
 
 	@Override
 	public void clear() {
-		NIOBufferHelper.clear(_buffer, _position, _length, INIT);
+		NIOBufferHelper.clear(getBuffer(), getPosition(), _length, INIT);
 	}
 
 	@Override
@@ -92,30 +102,13 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 	}
 
 	@Override
-	public void init() {
-
-		if (_buffer != null)
-			return;
-
-		_buffer = ByteBuffer.allocate(size());
-		_position = 0;
-
-		if (_value != null)
-			NIOBufferHelper.movel(_buffer, _position, _length, _value, true,
-					INIT);
-		else
-			Arrays.fill(_buffer.array(), _position, _position + _length, INIT);
-	}
-
-	@Override
 	public boolean isEmpty() {
 		return trim().isEmpty();
 	}
 
 	@Override
 	public void move(boolean value) {
-		NIOBufferHelper.move(_buffer, _position, _length, new byte[] { 49 },
-				true, (byte) 49);
+		NIOBufferHelper.move(getBuffer(), getPosition(), _length, new byte[] { 49 }, true, (byte) 49);
 	}
 
 	@Override
@@ -125,8 +118,7 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 
 	@Override
 	public void move(int value, boolean clear) {
-		NIOBufferHelper.move(_buffer, _position, _length,
-				Integer.toString(value).getBytes(), clear, INIT);
+		NIOBufferHelper.move(getBuffer(), getPosition(), _length, Integer.toString(value).getBytes(), clear, INIT);
 	}
 
 	@Override
@@ -136,8 +128,7 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 
 	@Override
 	public void move(QBufferedData value, boolean clear) {
-		NIOBufferHelper.move(_buffer, _position, _length, value.asBytes(),
-				clear, INIT);
+		NIOBufferHelper.move(getBuffer(), getPosition(), _length, value.asBytes(), clear, INIT);
 	}
 
 	@Override
@@ -149,11 +140,9 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 	public void move(String value, boolean clear) {
 
 		try {
-			NIOBufferHelper.move(_buffer, _position, _length,
-					value.getBytes(ENCODING), clear, INIT);
+			NIOBufferHelper.move(getBuffer(), getPosition(), _length, value.getBytes(ENCODING), clear, INIT);
 		} catch (UnsupportedEncodingException e) {
-			NIOBufferHelper.move(_buffer, _position, _length, value.getBytes(),
-					clear, INIT);
+			NIOBufferHelper.move(getBuffer(), getPosition(), _length, value.getBytes(), clear, INIT);
 		}
 	}
 
@@ -171,8 +160,7 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 
 	@Override
 	public void movel(boolean value) {
-		NIOBufferHelper.movel(_buffer, _position, _length, new byte[] { 49 },
-				true, (byte) 49);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, new byte[] { 49 }, true, (byte) 49);
 	}
 
 	@Override
@@ -182,8 +170,7 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 
 	@Override
 	public void movel(int value, boolean clear) {
-		NIOBufferHelper.movel(_buffer, _position, _length,
-				Integer.toString(value).getBytes(), clear, INIT);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, Integer.toString(value).getBytes(), clear, INIT);
 	}
 
 	@Override
@@ -193,8 +180,7 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		NIOBufferHelper.movel(_buffer, _position, _length, value.asBytes(),
-				clear, INIT);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, value.asBytes(), clear, INIT);
 	}
 
 	@Override
@@ -209,17 +195,10 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 			value = "";
 		
 		try {
-			NIOBufferHelper.movel(_buffer, _position, _length,
-					value.getBytes(ENCODING), clear, INIT);
+			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, value.getBytes(ENCODING), clear, INIT);
 		} catch (UnsupportedEncodingException e) {
-			NIOBufferHelper.movel(_buffer, _position, _length,
-					value.getBytes(), clear, INIT);
+			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, value.getBytes(), clear, INIT);
 		}
-	}
-
-	@Override
-	public void reset() {
-		NIOBufferHelper.movel(_buffer, _position, _length, _value, true, INIT);
 	}
 
 	@Override
@@ -501,5 +480,13 @@ public class NIOCharacterImpl extends NIOBufferReference implements QCharacter {
 				&& (Character.isWhitespace(str.charAt(i)) || str.charAt(i) == 0))
 			i--;
 		return str.substring(0, i + 1);
+	}
+
+	@Override
+	public NIOCharacterImpl copy() {
+		
+		NIOCharacterImpl copy = new NIOCharacterImpl(_length, _value);
+		
+		return copy;
 	}
 }

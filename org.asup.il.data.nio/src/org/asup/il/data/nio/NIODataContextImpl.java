@@ -56,7 +56,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 
 			for(QDataTerm<?> dataTerm: dataTerms) {
 				if(dataTerm.getName().equals(name)) {
-					data = dataFactory.createData(dataTerm);
+					data = dataFactory.createData(dataTerm, true);
 					datas.put(name, data);
 					break;
 				}
@@ -100,7 +100,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 			// map update
 			QData data = datas.get(dataTerm.getName());
 			if(data == null) {
-				data = dataFactory.createData(dataTerm);
+				data = dataFactory.createData(dataTerm, true);
 				datas.put(dataTerm.getName(), data);
 			}
 			data.clear();

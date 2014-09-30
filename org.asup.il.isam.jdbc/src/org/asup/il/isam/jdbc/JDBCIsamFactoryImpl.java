@@ -53,7 +53,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			return new DummyDataSet();
 		
 
-		QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord());
+		QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
 		
 		if(dataSetTerm.isKeyedAccess()) {
 			QIndex index = getIndex(dataSetTerm.getFileName());

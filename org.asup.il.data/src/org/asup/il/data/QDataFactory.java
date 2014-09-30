@@ -27,50 +27,42 @@ public interface QDataFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" argumentRequired="true" dimensionRequired="true"
+	 * @model required="true" argumentRequired="true" dimensionRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QBufferedData> QArray<D> createArray(QUnaryAtomicDataDef<D> argument, int dimension);
+	<D extends QBufferedData> QArray<D> createArray(QUnaryAtomicDataDef<D> argument, int dimension, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" typeRequired="true" unsignedRequired="true"
+	 * @model required="true" typeRequired="true" unsignedRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QBinary createBinary(BinaryType type, boolean unsigned);
+	QBinary createBinary(BinaryType type, boolean unsigned, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" lengthRequired="true"
+	 * @model required="true" lengthRequired="true" varyingRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QCharacter createCharacter(int length);
+	QCharacter createCharacter(int length, boolean varying, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" lengthRequired="true" varyingRequired="true"
+	 * @model required="true" dataDefRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QCharacter createCharacter(int length, boolean varying);
+	<D extends QData> D createData(QDataDef<D> dataDef, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" dataDefRequired="true"
+	 * @model required="true" dataTermRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QData> D createData(QDataDef<D> dataDef);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" dataTermRequired="true"
-	 * @generated
-	 */
-	QData createData(QDataTerm<?> dataTerm);
+	QData createData(QDataTerm<?> dataTerm, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,113 +75,105 @@ public interface QDataFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" dataDelegateRequired="true" occurrencesRequired="true"
+	 * @model required="true" elementsMany="true" lengthRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QStruct> QStroller<D> createStroller(D dataDelegate, int occurrences);
+	<D extends QDataStruct> D createDataStruct(List<QDataTerm<?>> elements, int length, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" elementsMany="true" lengthRequired="true"
+	 * @model required="true" lengthRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QDataStruct> D createDataStruct(Class<D> classDelegator, List<QDataTerm<?>> elements, int length);
+	<D extends QDataStruct> D createDataStruct(Class<D> classDelegator, int length, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" typeRequired="true" formatRequired="true"
+	 * @model required="true" typeRequired="true" formatRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QDatetime createDate(DatetimeType type, String format);
+	QDatetime createDate(DatetimeType type, String format, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" precisionRequired="true"
+	 * @model required="true" precisionRequired="true" scaleRequired="true" typeRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QDecimal createDecimal(int precision);
+	QDecimal createDecimal(int precision, int scale, DecimalType type, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" precisionRequired="true" scaleRequired="true"
+	 * @model required="true" dataDelegateRequired="true" initializeRequired="true" EBounds="org.asup.fw.java.JavaEnum"
 	 * @generated
 	 */
-	QDecimal createDecimal(int precision, int scale);
+	<E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" precisionRequired="true" scaleRequired="true" typeRequired="true"
+	 * @model required="true" typeRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QDecimal createDecimal(int precision, int scale, DecimalType type);
+	QFloating createFloating(FloatingType type, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" dataDelegateRequired="true" EBounds="org.asup.fw.java.JavaEnum"
+	 * @model required="true" lengthRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate);
+	QHexadecimal createHexadecimal(int length, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" typeRequired="true"
+	 * @model required="true" initializeRequired="true"
 	 * @generated
 	 */
-	QFloating createFloating(FloatingType type);
+	QIndicator createIndicator(boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" lengthRequired="true"
+	 * @model required="true" initializeRequired="true"
 	 * @generated
 	 */
-	QHexadecimal createHexadecimal(int length);
+	QHexadecimal createPointer(boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true"
+	 * @model required="true" argumentRequired="true" occurrencesRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QIndicator createIndicator();
+	<D extends QStruct> QScroller<D> createScroller(QAtomicDataDef<D> argument, int occurrences, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true"
+	 * @model required="true" argumentRequired="true" occurrencesRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QHexadecimal createPointer();
+	<D extends QStruct> QStroller<D> createStroller(QCompoundDataDef<D> argument, int occurrences, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" dataDelegateRequired="true" occurrencesRequired="true"
+	 * @model required="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QBufferedData> QScroller<D> createScroller(D dataDelegate, int occurrences);
+	QDatetime createTime(boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true"
+	 * @model required="true" initializeRequired="true"
 	 * @generated
 	 */
-	QDatetime createTime();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true"
-	 * @generated
-	 */
-	QDatetime createTimestamp();
+	QDatetime createTimestamp(boolean initialize);
 
 } // QDataFactory

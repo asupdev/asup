@@ -13,7 +13,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.asup.il.data.QCompoundDataDef;
-import org.asup.il.data.QCompoundDataPart;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QStruct;
@@ -314,44 +313,6 @@ public abstract class CompoundDataDefImpl<D extends QStruct> extends DataDefImpl
 				return qualified != QUALIFIED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == QCompoundDataPart.class) {
-			switch (derivedFeatureID) {
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__CLASS_DELEGATOR: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__CLASS_DELEGATOR;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__ELEMENTS: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__ELEMENTS;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__PREFIX: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__PREFIX;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__QUALIFIED: return QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__QUALIFIED;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == QCompoundDataPart.class) {
-			switch (baseFeatureID) {
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__CLASS_DELEGATOR: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__CLASS_DELEGATOR;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__ELEMENTS: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__ELEMENTS;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__PREFIX: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__PREFIX;
-				case QIntegratedLanguageDataPackage.COMPOUND_DATA_PART__QUALIFIED: return QIntegratedLanguageDataPackage.COMPOUND_DATA_DEF__QUALIFIED;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

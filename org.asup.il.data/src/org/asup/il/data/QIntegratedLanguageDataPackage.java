@@ -73,7 +73,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataDef()
 	 * @generated
 	 */
-	int DATA_DEF = 18;
+	int DATA_DEF = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QBufferedDataDef <em>Buffered Data Def</em>}' class.
@@ -103,7 +103,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getData()
 	 * @generated
 	 */
-	int DATA = 16;
+	int DATA = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.QBufferedData <em>Buffered Data</em>}' class.
@@ -213,7 +213,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataContext()
 	 * @generated
 	 */
-	int DATA_CONTEXT = 17;
+	int DATA_CONTEXT = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.DataDictionaryImpl <em>Data Dictionary</em>}' class.
@@ -1147,61 +1147,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int MULTIPLE_DATA_TERM = 49;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.data.impl.CompoundDataPartImpl <em>Compound Data Part</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.data.impl.CompoundDataPartImpl
-	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getCompoundDataPart()
-	 * @generated
-	 */
-	int COMPOUND_DATA_PART = 14;
-
-	/**
-	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_DATA_PART__CLASS_DELEGATOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_DATA_PART__ELEMENTS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_DATA_PART__PREFIX = 2;
-
-	/**
-	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_DATA_PART__QUALIFIED = 3;
-
-	/**
-	 * The number of structural features of the '<em>Compound Data Part</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOUND_DATA_PART_FEATURE_COUNT = 4;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.CompoundDataTermImpl <em>Compound Data Term</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1209,7 +1154,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getCompoundDataTerm()
 	 * @generated
 	 */
-	int COMPOUND_DATA_TERM = 15;
+	int COMPOUND_DATA_TERM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1327,6 +1272,25 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_CONTEXT_FEATURE_COUNT = DATA_TERM_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.data.QDataDelegator <em>Data Delegator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.data.QDataDelegator
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataDelegator()
+	 * @generated
+	 */
+	int DATA_DELEGATOR = 18;
+
+	/**
+	 * The number of structural features of the '<em>Data Delegator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_DELEGATOR_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
@@ -2892,6 +2856,50 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EClass getCompoundDataDef();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QCompoundDataDef#getClassDelegator <em>Class Delegator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class Delegator</em>'.
+	 * @see org.asup.il.data.QCompoundDataDef#getClassDelegator()
+	 * @see #getCompoundDataDef()
+	 * @generated
+	 */
+	EAttribute getCompoundDataDef_ClassDelegator();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.data.QCompoundDataDef#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see org.asup.il.data.QCompoundDataDef#getElements()
+	 * @see #getCompoundDataDef()
+	 * @generated
+	 */
+	EReference getCompoundDataDef_Elements();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QCompoundDataDef#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see org.asup.il.data.QCompoundDataDef#getPrefix()
+	 * @see #getCompoundDataDef()
+	 * @generated
+	 */
+	EAttribute getCompoundDataDef_Prefix();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QCompoundDataDef#isQualified <em>Qualified</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualified</em>'.
+	 * @see org.asup.il.data.QCompoundDataDef#isQualified()
+	 * @see #getCompoundDataDef()
+	 * @generated
+	 */
+	EAttribute getCompoundDataDef_Qualified();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QData <em>Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2920,6 +2928,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDataDef();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.data.QDataDelegator <em>Data Delegator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Delegator</em>'.
+	 * @see org.asup.il.data.QDataDelegator
+	 * @generated
+	 */
+	EClass getDataDelegator();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QDataDictionary <em>Data Dictionary</em>}'.
@@ -3624,60 +3642,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EAttribute getUnaryDataTerm_Mandatory();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.il.data.QCompoundDataPart <em>Compound Data Part</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Compound Data Part</em>'.
-	 * @see org.asup.il.data.QCompoundDataPart
-	 * @generated
-	 */
-	EClass getCompoundDataPart();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QCompoundDataPart#getClassDelegator <em>Class Delegator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Class Delegator</em>'.
-	 * @see org.asup.il.data.QCompoundDataPart#getClassDelegator()
-	 * @see #getCompoundDataPart()
-	 * @generated
-	 */
-	EAttribute getCompoundDataPart_ClassDelegator();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.asup.il.data.QCompoundDataPart#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see org.asup.il.data.QCompoundDataPart#getElements()
-	 * @see #getCompoundDataPart()
-	 * @generated
-	 */
-	EReference getCompoundDataPart_Elements();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QCompoundDataPart#getPrefix <em>Prefix</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Prefix</em>'.
-	 * @see org.asup.il.data.QCompoundDataPart#getPrefix()
-	 * @see #getCompoundDataPart()
-	 * @generated
-	 */
-	EAttribute getCompoundDataPart_Prefix();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QCompoundDataPart#isQualified <em>Qualified</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Qualified</em>'.
-	 * @see org.asup.il.data.QCompoundDataPart#isQualified()
-	 * @see #getCompoundDataPart()
-	 * @generated
-	 */
-	EAttribute getCompoundDataPart_Qualified();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QCompoundDataTerm <em>Compound Data Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4012,6 +3976,38 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		EClass COMPOUND_DATA_DEF = eINSTANCE.getCompoundDataDef();
 
 		/**
+		 * The meta object literal for the '<em><b>Class Delegator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPOUND_DATA_DEF__CLASS_DELEGATOR = eINSTANCE.getCompoundDataDef_ClassDelegator();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOUND_DATA_DEF__ELEMENTS = eINSTANCE.getCompoundDataDef_Elements();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPOUND_DATA_DEF__PREFIX = eINSTANCE.getCompoundDataDef_Prefix();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualified</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPOUND_DATA_DEF__QUALIFIED = eINSTANCE.getCompoundDataDef_Qualified();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.il.data.QData <em>Data</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4040,6 +4036,16 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_DEF = eINSTANCE.getDataDef();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.data.QDataDelegator <em>Data Delegator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.data.QDataDelegator
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataDelegator()
+		 * @generated
+		 */
+		EClass DATA_DELEGATOR = eINSTANCE.getDataDelegator();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.DataDictionaryImpl <em>Data Dictionary</em>}' class.
@@ -4676,48 +4682,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNARY_DATA_TERM__MANDATORY = eINSTANCE.getUnaryDataTerm_Mandatory();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.il.data.impl.CompoundDataPartImpl <em>Compound Data Part</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.il.data.impl.CompoundDataPartImpl
-		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getCompoundDataPart()
-		 * @generated
-		 */
-		EClass COMPOUND_DATA_PART = eINSTANCE.getCompoundDataPart();
-
-		/**
-		 * The meta object literal for the '<em><b>Class Delegator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPOUND_DATA_PART__CLASS_DELEGATOR = eINSTANCE.getCompoundDataPart_ClassDelegator();
-
-		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOUND_DATA_PART__ELEMENTS = eINSTANCE.getCompoundDataPart_Elements();
-
-		/**
-		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPOUND_DATA_PART__PREFIX = eINSTANCE.getCompoundDataPart_Prefix();
-
-		/**
-		 * The meta object literal for the '<em><b>Qualified</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPOUND_DATA_PART__QUALIFIED = eINSTANCE.getCompoundDataPart_Qualified();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.CompoundDataTermImpl <em>Compound Data Term</em>}' class.

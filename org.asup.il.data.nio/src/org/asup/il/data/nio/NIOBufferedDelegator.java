@@ -13,186 +13,191 @@ package org.asup.il.data.nio;
 
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QData;
+import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public class NIOBufferDelegator implements QBufferedData {
+public abstract class NIOBufferedDelegator implements QBufferedData, QDataDelegator {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private QBufferedData delegate;
+	protected QBufferedData _delegate;
 	
-	protected NIOBufferDelegator(QBufferedData delegate) {
-		this.delegate = delegate;
+	protected NIOBufferedDelegator(QBufferedData delegate) {
+		this._delegate = delegate;
 	}
 	
-	protected QBufferedData getDelegate() {
-		return delegate;
+	@Override
+	public QData getDelegate() {
+
+		if(_delegate instanceof NIOBufferedDelegator) {
+			NIOBufferedDelegator nioBufferDelegator = (NIOBufferedDelegator) _delegate;
+			return nioBufferDelegator.getDelegate();
+		}
+		else
+			return _delegate;
 	}
+	
 	@Override
 	public String toString() {
-		return delegate.toString();
+		return _delegate.toString();
 	}
 	
 	@Override
 	public void eval(QBufferedData value) {
-		delegate.eval(value);
+		_delegate.eval(value);
 	}
 
 	@Override
 	public int length() {
-		return delegate.length();
+		return _delegate.length();
 	}
 
 	@Override
 	public int size() {
-		return delegate.size();
+		return _delegate.size();
 	}
 
 	@Override
 	public void reset() {
-		delegate.reset();		
+		_delegate.reset();		
 	}
 
 	@Override
 	public byte[] asBytes() {
-		return delegate.asBytes();
+		return _delegate.asBytes();
 	}
 
 	@Override
 	public void clear() {
-		delegate.clear();		
+		_delegate.clear();		
 	}
 
 	@Override
 	public void eval(Object value) {
-		delegate.eval(value);
-	}
-
-	@Override
-	public void init() {
-		delegate.init();		
+		_delegate.eval(value);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		return delegate.isEmpty();
+		return _delegate.isEmpty();
 	}
 
 	@Override
 	public void move(String value) {
-		delegate.move(value);		
+		_delegate.move(value);		
 	}
 
 	@Override
 	public void move(String value, boolean clear) {
-		delegate.move(value, clear);		
+		_delegate.move(value, clear);		
 	}
 
 	@Override
 	public void move(int value) {
-		delegate.move(value);		
+		_delegate.move(value);		
 	}
 
 	@Override
 	public void move(int value, boolean clear) {
-		delegate.move(value, clear);		
+		_delegate.move(value, clear);		
 	}
 
 	@Override
 	public void move(QBufferedData value) {
-		delegate.move(value);		
+		_delegate.move(value);		
 	}
 
 	@Override
 	public void move(QBufferedData value, boolean clear) {
-		delegate.move(value, clear);		
+		_delegate.move(value, clear);		
 	}
 
 	@Override
 	public void movea(QArray<?> value) {
-		delegate.movea(value);		
+		_delegate.movea(value);		
 	}
 
 	@Override
 	public void movea(QArray<?> value, boolean clear) {
-		delegate.movea(value, clear);		
+		_delegate.movea(value, clear);		
 	}
 
 	@Override
 	public void movel(String value) {
-		delegate.movel(value);
+		_delegate.movel(value);
 	}
 
 	@Override
 	public void movel(String value, boolean clear) {
-		delegate.movel(value, clear);		
+		_delegate.movel(value, clear);		
 	}
 
 	@Override
 	public void movel(int value) {
-		delegate.movel(value);		
+		_delegate.movel(value);		
 	}
 
 	@Override
 	public void movel(int value, boolean clear) {
-		delegate.movel(value, clear);
+		_delegate.movel(value, clear);
 	}
 
 	@Override
 	public void movel(QBufferedData value) {
-		delegate.movel(value);				
+		_delegate.movel(value);				
 	}
 
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		delegate.movel(value, clear);		
+		_delegate.movel(value, clear);		
 	}
 
 	@Override
 	public <E extends Enum<E>> void move(E value) {
-		delegate.move(value);
+		_delegate.move(value);
 	}
 
 	@Override
 	public <E extends Enum<E>> void move(E value, boolean clear) {
-		delegate.move(value, clear);
+		_delegate.move(value, clear);
 	}
 
 	@Override
 	public <E extends Enum<E>> void movea(E value) {
-		delegate.movea(value);
+		_delegate.movea(value);
 	}
 
 	@Override
 	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		delegate.movea(value, clear);
+		_delegate.movea(value, clear);
 	}
 
 	@Override
 	public <E extends Enum<E>> void movel(E value) {
-		delegate.movel(value);		
+		_delegate.movel(value);		
 	}
 
 	@Override
 	public <E extends Enum<E>> void movel(E value, boolean clear) {
-		delegate.movel(value, clear);		
+		_delegate.movel(value, clear);		
 	}
 
 	@Override
 	public String asString() {
-		return delegate.asString();
+		return _delegate.asString();
 	}
 
 	@Override
 	public void accept(QDataVisitor visitor) {
-		delegate.accept(visitor);
+		_delegate.accept(visitor);
 	}
 
 	@Override
 	public <E extends Enum<E>> void eval(E value) {
-		delegate.eval(value);
+		_delegate.eval(value);
 	}
 }

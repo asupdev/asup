@@ -58,14 +58,6 @@ public interface QData extends Serializable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void init();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */

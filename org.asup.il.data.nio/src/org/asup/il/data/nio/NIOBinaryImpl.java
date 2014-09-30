@@ -15,13 +15,18 @@ import org.asup.il.data.QBinary;
 
 public class NIOBinaryImpl extends NIODecimalImpl implements QBinary {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	public NIOBinaryImpl(int length, byte[] value, boolean initialize) {
-		super(length, 0, value, initialize);
+	public NIOBinaryImpl(int length, byte[] value) {
+		super(length, 0, value);
 	}
 
+
+	@Override
+	public NIOBinaryImpl copy() {
+		
+		NIOBinaryImpl copy = new NIOBinaryImpl(_precision, _value);
+		
+		return copy;
+	}	
 }

@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
 import org.asup.il.core.annotation.Overlay;
+import org.asup.il.data.DecimalType;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
@@ -148,7 +149,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	
 	public QDecimal qBox(Integer decimal) {
 		
-		QDecimal qDecimal = qDF.createDecimal(10);
+		QDecimal qDecimal = qDF.createDecimal(10, 0, DecimalType.ZONED, true);
 		qDecimal.eval(decimal);
 		
 		return qDecimal;
@@ -156,7 +157,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	
 	public QCharacter qBox(String character) {
 		
-		QCharacter qCharacter = qDF.createCharacter(character.length(), false);
+		QCharacter qCharacter = qDF.createCharacter(character.length(), false, true);
 		qCharacter.eval(character);
 		
 		return qCharacter;
@@ -183,12 +184,12 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	}
 
 	public QDecimal qElem(QList<?> list) {
-		QDecimal decimal = qDF.createDecimal(5);
+		QDecimal decimal = qDF.createDecimal(5, 0, DecimalType.ZONED, true);
 		decimal.eval(list.capacity());
 		return decimal;
 	}
 	public QDecimal qLen(QBufferedData bufferedData) {
-		QDecimal decimal = qDF.createDecimal(5, 8);
+		QDecimal decimal = qDF.createDecimal(5, 8, DecimalType.ZONED, true);
 		decimal.eval(bufferedData.length());
 		return decimal ;
 	}
@@ -225,7 +226,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 		String str = source.toString().substring(from-1, from-1+to); 
 		
-		QString string = qDF.createCharacter(str.length(), false);
+		QString string = qDF.createCharacter(str.length(), false, true);
 		string.eval(str);
 				
 		return string;
@@ -237,7 +238,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QString qTrim(QString source) {
 		
 		String str = source.trim();
-		QCharacter character = qDF.createCharacter(str.length());
+		QCharacter character = qDF.createCharacter(str.length(), false, true);
 		character.eval(str);
 		
 		return character;
@@ -247,7 +248,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QString qTriml(QString source) {
 		
 		String str = source.trimL();
-		QCharacter character = qDF.createCharacter(str.length());
+		QCharacter character = qDF.createCharacter(str.length(), false, true);
 		character.eval(str);
 		
 		return character;
@@ -257,7 +258,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QString qTrimr(QString source) {
 		
 		String str = source.trimR();
-		QCharacter character = qDF.createCharacter(str.length());
+		QCharacter character = qDF.createCharacter(str.length(), false, true);
 		character.eval(str);
 		
 		return character;

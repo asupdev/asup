@@ -15,44 +15,38 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QDataStruct;
+import org.asup.il.data.QData;
+import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public class NIODataStructureWrapperImpl extends NIOCharacterImpl implements QDataStruct {
+public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDelegator {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	private QDataStructDelegator delegator;
-	private boolean dynamicLength;
+	private QDataStructDelegator _delegator;
+	private boolean _dynamicLength;
 
-	public NIODataStructureWrapperImpl(int length, QDataStructDelegator delegator, boolean initialize) {
-		super(length, null, initialize);
-		this.delegator = delegator;
-		this.dynamicLength = (length == 0 ? true : false);
+	public NIODataStructWrapperImpl(int length, QDataStructDelegator delegator) {
+		super(length, null);
+		
+		this._delegator = delegator;
+		this._dynamicLength = (length == 0 ? true : false);
 	}
 
-	protected ByteBuffer getBuffer() {
-		return _buffer;
-	}
-	
 	@Override
 	public QBufferedData getElement(String name) {
 		
 		try {
-			Field field = delegator.getClass().getField(name);
+			Field field = _delegator.getClass().getField(name);
 			if(field == null)
 				return null;
 			
-			return (QBufferedData) field.get(delegator);
+			return (QBufferedData) field.get(_delegator);
 
 		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
@@ -64,15 +58,12 @@ public class NIODataStructureWrapperImpl extends NIOCharacterImpl implements QDa
 	public QBufferedData getElement(int position) {
 
 		try {
-			int i = 1;
-			for (Field field: delegator.getClass().getFields()) {
-	
-				if (i == position)
-					return (QBufferedData) field.get(delegator);
-	
-				i++;
-			}
-			return null;
+			Field field = _delegator.getClass().getFields()[position-1];
+			if(field == null)
+				return null;
+			
+			return (QBufferedData) field.get(_delegator);
+			
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
 			return null;
@@ -84,8 +75,8 @@ public class NIODataStructureWrapperImpl extends NIOCharacterImpl implements QDa
 		
 		List<QBufferedData> elements = new ArrayList<>();
 		try {
-			for (Field field: delegator.getClass().getFields()) {
-				elements.add((QBufferedData) field.get(delegator));
+			for (Field field: _delegator.getClass().getFields()) {
+				elements.add((QBufferedData) field.get(_delegator));
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
@@ -94,16 +85,16 @@ public class NIODataStructureWrapperImpl extends NIOCharacterImpl implements QDa
 		return elements;
 	}
 
-	public void addElement(String name, QBufferedData element) {
+	protected void addElement(String name, QBufferedData element) {
 
 		try {
-			Field field = delegator.getClass().getField(name);
+			Field field = _delegator.getClass().getField(name);
 			if(field == null)
 				return;
 			
-			field.set(delegator, element);
+			field.set(_delegator, element);
 	
-			if (dynamicLength)
+			if (_dynamicLength)
 				_length += element.size();
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException e) {
 			e.printStackTrace();
@@ -111,23 +102,42 @@ public class NIODataStructureWrapperImpl extends NIOCharacterImpl implements QDa
 	}
 	
 	private void writeObject(ObjectOutputStream stream) throws IOException {
-		stream.writeObject(delegator);
-		stream.writeBoolean(dynamicLength);
+		stream.writeObject(_delegator);
+		stream.writeBoolean(_dynamicLength);
 	}
 	
 	private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
 		
-		delegator = (QDataStructDelegator) stream.readObject();
-		dynamicLength = stream.readBoolean();
+		_delegator = (QDataStructDelegator) stream.readObject();
+		_dynamicLength = stream.readBoolean();
 		
 		for(QBufferedData element: getElements()) {
-			NIOBufferReference nioBufferReference = (NIOBufferReference)element;
-			nioBufferReference._buffer = _buffer;
+			NIOBufferedData nioBufferChild = (NIOBufferedData)element;
+			nioBufferChild.setBuffer(getBuffer());
 		}
 	}
 
 	@Override
+	public QData getDelegate() {
+		return _delegator;
+	}
+
+	@Override
 	public void accept(QDataVisitor visitor) {
-		visitor.visit(delegator);
+		visitor.visit(_delegator);
+	}
+
+	@Override
+	public NIODataStructWrapperImpl copy() {
+		
+		NIODataStructWrapperImpl copy = new NIODataStructWrapperImpl(_length, (QDataStructDelegator) _delegator.copy());
+		try {
+			for (Field field: _delegator.getClass().getFields()) {
+				copy.addElement(field.getName(), (QBufferedData) field.get(_delegator));
+			}
+		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return copy;
 	}
 }

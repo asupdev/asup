@@ -94,7 +94,7 @@ public class BaseProgramInjector {
 				annotationsList.add(annotation);
 			
 			QDataDef<?> dataType = dataFactory.createDataDef(type, annotationsList);
-			QData data = dataFactory.createData(dataType);
+			QData data = dataFactory.createData(dataType, false);
 
 			entry[entryIndex] = data;
 			entryIndex++;
@@ -143,7 +143,7 @@ public class BaseProgramInjector {
 			else if(QData.class.isAssignableFrom(fieldKlass)) {
 				
 				QDataDef<?> dataType = dataFactory.createDataDef(type, Arrays.asList(field.getAnnotations()));
-				QData data = dataFactory.createData(dataType);
+				QData data = dataFactory.createData(dataType, true);
 				
 				if(field.getAnnotation(DataDef.class) != null) {
 					DataDef dataDef = field.getAnnotation(DataDef.class);

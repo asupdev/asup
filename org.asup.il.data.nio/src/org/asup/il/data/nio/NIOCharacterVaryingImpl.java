@@ -19,13 +19,10 @@ import org.asup.il.data.QString;
 
 public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	public NIOCharacterVaryingImpl(int length, byte[] value, boolean initialize) {
-		super(length, value, initialize);
+	public NIOCharacterVaryingImpl(int length, byte[] value) {
+		super(length, value);
 	}
 
 	@Override
@@ -73,12 +70,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	public int size() {
 		// TODO Auto-generated method stub
 		return super.size();
-	}
-
-	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		super.init();
 	}
 
 	@Override
@@ -387,5 +378,11 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 		super.out();
 	}
 
-
+	@Override
+	public NIOCharacterVaryingImpl copy() {
+		
+		NIOCharacterVaryingImpl copy = new NIOCharacterVaryingImpl(_length, _value);
+		
+		return copy;
+	}
 }

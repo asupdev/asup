@@ -11,8 +11,8 @@ import org.asup.il.data.QStruct;
 
 public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> implements QStroller<D> {
 
-	public NIOStrollerImpl(D model, int dimension, boolean initialize) {
-		super(model, dimension, initialize);
+	public NIOStrollerImpl(D model, int dimension) {
+		super(model, dimension);
 	}
 
 	@Override
@@ -355,4 +355,14 @@ public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> imple
 	public String trimR() {
 		return current().trimR();
 	}
+	
+
+	@Override
+	public NIOStrollerImpl<D> copy() {
+
+		NIOStrollerImpl<D> copy = new NIOStrollerImpl<D>(_model, _occurrences);
+		
+		return copy;
+	}
+
 }

@@ -20,8 +20,16 @@ public class NIOHexadecimalImpl extends NIODecimalImpl implements QHexadecimal {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NIOHexadecimalImpl(int length, byte[] value, boolean initialize) {
-		super(length, 0, value, initialize);
+	public NIOHexadecimalImpl(int length, byte[] value) {
+		super(length, 0, value);
 	}
 
+
+	@Override
+	public NIOHexadecimalImpl copy() {
+
+		NIOHexadecimalImpl copy = new NIOHexadecimalImpl(_precision, _value);
+		
+		return copy;
+	}
 }

@@ -11,30 +11,37 @@
  */
 package org.asup.il.data.nio;
 
+import java.nio.ByteBuffer;
+
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QScroller;
 
-public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferList<D> implements QScroller<D> {
+public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D> implements QScroller<D> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	private D _model = null;
-	private int _occurrences;
+	protected D _model = null;
+	protected int _occurrences;
 
 	private int _lastIndex = 0;
 
-	public NIOScrollerImpl(D model, int dimension, boolean initialize) {
+	public NIOScrollerImpl(D model, int dimension) {
 
 		_model = model;
 		_occurrences = dimension;
-
-		if (initialize)
-			init();
 	}
 
+	@Override
+	public void allocate() {
+		if(getParent() == null)
+			setBuffer(ByteBuffer.allocate(size()));
+
+		slice(_model, 0);
+			
+		reset();
+		
+	}
+	
 	@Override
 	public int capacity() {
 		return _occurrences;
@@ -46,8 +53,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferList<D> i
 		if (_lastIndex == index)
 			return _model;
 
-		int position = _position + 1 + _model.size() * (index - 1);
-
+		int position = getPosition() + 1 + _model.size() * (index - 1);
 		slice(_model, position);
 
 		_lastIndex = index;
@@ -98,6 +104,15 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferList<D> i
 	@Override
 	public String asString() {
 		return toString();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public NIOScrollerImpl<D> copy() {
+		
+		NIOScrollerImpl<D> copy = new NIOScrollerImpl<D>((D) _model.copy(), _occurrences);
+		
+		return copy;
 	}
 
 	/*

@@ -17,18 +17,15 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.Special;
 
-public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIOBufferDelegator implements QEnum<E, D> {
+public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIOBufferedDelegator implements QEnum<E, D> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	private Class<E> klass;
+	private Class<E> _klass;
 	
 	public NIOEnumImpl(Class<E> klass, QBufferedData delegate) {
 		super(delegate);
-		this.klass = klass;
+		this._klass = klass;
 	}
 
 	@Override
@@ -36,16 +33,16 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 		
 		String value = asString().trim();
 
-		for(Field field: klass.getFields()) {
+		for(Field field: _klass.getFields()) {
 			Special special = field.getAnnotation(Special.class); 
 			if(special == null)
 				continue;
 			
 			if(special.value().equals(value))
-				return Enum.valueOf(klass, field.getName());
+				return Enum.valueOf(_klass, field.getName());
 		}
 		
-		return Enum.valueOf(klass, "OTHER");
+		return Enum.valueOf(_klass, "OTHER");
 	}
 
 
@@ -53,14 +50,7 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 	@Override
 	public D asData() {
 		
-		QBufferedData bufferedData = getDelegate(); 
-		
-		while(bufferedData instanceof NIOBufferDelegator) {
-			NIOBufferDelegator nioBufferDelegator = (NIOBufferDelegator) bufferedData;
-			bufferedData = nioBufferDelegator.getDelegate();
-		}
-		
-		return (D) bufferedData;
+		return (D) getDelegate();
 	}
 
 	@SuppressWarnings("hiding")
@@ -92,26 +82,16 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 
 	}
 
-	/*
 	@Override
-	public List<QEnumElementDef> getElements() {
+	public NIOEnumImpl<E, D> copy() {
 
-		if(elements == null) {
-			elements = new ArrayList<>();
-			for(Field field: klass.getFields()) {
-				Special special = field.getAnnotation(Special.class); 
-				if(special == null)
-					continue;
-				
-				QEnumElementDef enumElement = QIntegratedLanguageDataFactory.eINSTANCE.createEnumElementDef();
-				enumElement.setName("*"+field.getName());
-				enumElement.setText(special.text());
-				enumElement.setValue(special.value());
-				
-				elements.add(enumElement);
-			}
-		}
+		NIOEnumImpl<E, D> copy = new NIOEnumImpl<E, D>(_klass, _delegate.copy());
 		
-		return elements;
-	}*/
+		return copy;
+	}
+
+	@Override
+	public void assign(QBufferedData value) {
+		asData().assign(value);
+	}
 }

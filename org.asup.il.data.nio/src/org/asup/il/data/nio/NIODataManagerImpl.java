@@ -45,7 +45,7 @@ public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 	 * @generated NOT
 	 */
 	public QDataFactory createFactory(QContextID contextID) {
-		return new NIODataFactoryImpl(context, contextID, null);
+		return new NIODataFactoryImpl(context, contextID);
 	}
 
 	/**

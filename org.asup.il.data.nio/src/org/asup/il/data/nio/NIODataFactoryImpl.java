@@ -16,9 +16,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.asup.fw.core.FrameworkCoreRuntimeException;
@@ -33,15 +31,17 @@ import org.asup.il.data.DecimalType;
 import org.asup.il.data.FloatingType;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QArrayDef;
+import org.asup.il.data.QAtomicDataDef;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
-import org.asup.il.data.QCompoundDataPart;
+import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
+import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
@@ -89,53 +89,34 @@ public class NIODataFactoryImpl implements QDataFactory {
 	private QContext context;
 	private QContextID contextID;
 	
-	protected NIOBufferReference parent;
-	
 	protected NIODataFactoryImpl(QContext context, QContextID contextID) {
 		this.context = context;
 		this.contextID = contextID;
 	}
 	
-	protected NIODataFactoryImpl(QContext context, QContextID contextID, NIOBufferReference parent) {
-		this(context, contextID);
-		this.parent = parent; 
+	protected QContext getContext() {
+		return context;
 	}
 
-
-	@Override
-	public QData createData(QDataTerm<?> dataTerm) {
-		return createData((QDataDef<?>) dataTerm.getDefinition());
+	protected QContextID getContextID() {
+		return contextID;
+	}
+	
+	@Override	
+	public QData createData(QDataTerm<?> dataTerm, boolean initialize) {
+		return createData((QDataDef<?>) dataTerm.getDefinition(), initialize);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <D extends QData> D createData(QDataDef<D> dataDef) {
+	public <D extends QData> D createData(QDataDef<D> dataDef, boolean initialize) {
 
 		D data = null;
 
-		// dataStroller
-		if(dataDef instanceof QStrollerDef<?>) {
-			QStrollerDef<?> strollerDef = (QStrollerDef<?>)dataDef;
-			
-			Class<? extends QDataStruct> delegator = null;
-			if(strollerDef.getClassDelegator() != null)
-				delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, strollerDef.getClassDelegator());
-			
-			QDataStruct bufferedData = createDataStruct(delegator, strollerDef.getElements(), strollerDef.getLength());
-			
-			data = (D) createStroller(bufferedData, Integer.parseInt(strollerDef.getOccurrences()));
-		}
-		// scroller
-		else if(dataDef instanceof QScrollerDef<?>) {
-			QScrollerDef<?> scrollerDef = (QScrollerDef<?>)dataDef;
-			QBufferedData bufferedData = (QBufferedData) createData(scrollerDef.getArgument()); 
-			data = (D) createScroller(bufferedData, Integer.parseInt(scrollerDef.getOccurrences()));
-		}
 		// array
-		else if (dataDef instanceof QArrayDef) {
+		if (dataDef instanceof QArrayDef) {
 			QArrayDef<?> arrayDef = (QArrayDef<?>) dataDef;
-			QUnaryAtomicDataDef<QBufferedData> argument = (QUnaryAtomicDataDef<QBufferedData>) arrayDef.getArgument();
-			
+			QUnaryAtomicDataDef<QBufferedData> argument = (QUnaryAtomicDataDef<QBufferedData>) arrayDef.getArgument();			
 	
 			int dimension = 0;
 			if(arrayDef.getDimension().equalsIgnoreCase("%elem(£JAXSWK)"))
@@ -144,67 +125,90 @@ public class NIODataFactoryImpl implements QDataFactory {
 				dimension = Integer.parseInt(arrayDef.getDimension());
 			}
 			
-			QBufferedData bufferedData = createArray(argument, dimension);
+			QBufferedData bufferedData = createArray(argument, dimension, initialize);
 			data = (D) bufferedData;
 		} 
+		// scroller
+		else if(dataDef instanceof QScrollerDef<?>) {
+			QScrollerDef<?> scrollerDef = (QScrollerDef<?>)dataDef; 
+			QUnaryAtomicDataDef<QStruct> argument = (QUnaryAtomicDataDef<QStruct>) scrollerDef.getArgument();
+			
+			data = (D) createScroller(argument, Integer.parseInt(scrollerDef.getOccurrences()), initialize);
+		}
+		// dataStroller
+		else if(dataDef instanceof QStrollerDef<?>) {
+			QStrollerDef<?> strollerDef = (QStrollerDef<?>)dataDef;
+			
+			data = (D) createStroller(strollerDef, Integer.parseInt(strollerDef.getOccurrences()), initialize);			
+		}
 		// dataStruct
 		else if (dataDef instanceof QDataStructDef) {
 			QDataStructDef dataStructDef = (QDataStructDef) dataDef;
 			
 			Class<? extends QDataStruct> delegator = null;
-			if(dataStructDef.getClassDelegator() != null) 
-				delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, dataStructDef.getClassDelegator());
+			if(dataStructDef.getClassDelegator() != null) { 
 
-			QDataStruct bufferedData = createDataStruct(delegator, dataStructDef.getElements(), dataStructDef.getLength()); 
-			data = (D) bufferedData;
-		}
+				if(!dataStructDef.getElements().isEmpty())
+					throw new FrameworkCoreRuntimeException("Error sdf9dfg7574c2dn");
+				
+				delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, dataStructDef.getClassDelegator());
+				
+				QDataStruct bufferedData = createDataStruct(delegator, dataStructDef.getLength(), initialize); 
+				data = (D) bufferedData;
+			}
+			else {
+
+				QDataStruct bufferedData = createDataStruct(dataStructDef.getElements(), dataStructDef.getLength(), initialize); 
+				data = (D) bufferedData;				
+			}
+		}		
 		// base
 		else if (dataDef instanceof QBinaryDef) {
 			QBinaryDef binaryType = (QBinaryDef) dataDef;
-			data = (D) createBinary(binaryType.getType(), binaryType.isUnsigned());
+			data = (D) createBinary(binaryType.getType(), binaryType.isUnsigned(), initialize);
 		}
 		else if (dataDef instanceof QCharacterDef) {
 			QCharacterDef characterType = (QCharacterDef) dataDef;
-			data = (D) createCharacter(characterType.getLength(),characterType.isVarying());
+			data = (D) createCharacter(characterType.getLength(),characterType.isVarying(), initialize);
 		}
 		else if (dataDef instanceof QDatetimeDef) {
 			QDatetimeDef datetimeType = (QDatetimeDef) dataDef;
-			data = (D) createDate(datetimeType.getType(), datetimeType.getFormat());
+			data = (D) createDate(datetimeType.getType(), datetimeType.getFormat(), initialize);
 		}
 		else if (dataDef instanceof QDecimalDef) {
 			QDecimalDef decimalType = (QDecimalDef) dataDef;
-			data = (D) createDecimal(decimalType.getPrecision(),decimalType.getScale(), decimalType.getType());
+			data = (D) createDecimal(decimalType.getPrecision(),decimalType.getScale(), decimalType.getType(), initialize);
 		}
 		else if(dataDef instanceof QEnumDef<?, ?>) {
-			data = (D) _createData(dataDef);
+			data = (D) _createData(dataDef, initialize);
 		}
 		else if (dataDef instanceof QFloatingDef) {
 			QFloatingDef floatingType = (QFloatingDef) dataDef;
-			data = (D) createFloating(floatingType.getType());
+			data = (D) createFloating(floatingType.getType(), initialize);
 		}
 		else if (dataDef instanceof QHexadecimalDef) {
 			QHexadecimalDef hexadecimalDef = (QHexadecimalDef)dataDef;
-			data = (D) createHexadecimal(hexadecimalDef.getLength());
+			data = (D) createHexadecimal(hexadecimalDef.getLength(), initialize);
 		}
 		else if (dataDef instanceof QIndicatorDef) {
-			data = (D) createIndicator();
+			data = (D) createIndicator(initialize);
 		}
 		else if(dataDef instanceof QPointerDef) {
 //			QPointerDef pointerDef = (QPointerDef)dataDef;
-			data = (D) createPointer();
+			data = (D) createPointer(initialize);
 		}
 		else {
-			// TODO external dataDef
 			throw new FrameworkCoreRuntimeException("Unknown dataType: "+ dataDef);
 		}
+		
 		return data;
 	}
-
+	
 	@SuppressWarnings("unchecked")
-	private <E extends Enum<E>, BD extends QBufferedData, D extends QData> D _createData(QDataDef<D> dataDef) {
+	private <E extends Enum<E>, BD extends QBufferedData, D extends QData> D _createData(QDataDef<D> dataDef, boolean initialize) {
 		
 		QEnumDef<E, BD> enumDef = (QEnumDef<E, BD>)dataDef;
-		return (D) createEnum(enumDef.getKlass(), createData(enumDef.getDelegate()));
+		return (D) createEnum(enumDef.getKlass(), createData(enumDef.getDelegate(), false), initialize);
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -228,10 +232,14 @@ public class NIODataFactoryImpl implements QDataFactory {
 			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
 			
 			// delegator			
-			String address = getAddress(klass);
+			String address = "asup:/omac/"+FrameworkUtil.getBundle(klass).getSymbolicName() + "/" + klass.getName();
 			dataStructDef.setClassDelegator(address);
 
-			completeStructPart(dataStructDef, klass);
+			// fields introspection
+/*			for (Field field : klass.getFields()) {
+				QDataTerm<?> elementTerm = createDataTerm(field);
+				dataStructDef.getElements().add(elementTerm);
+			}*/
 
 			dataDef = dataStructDef;
 		}
@@ -310,200 +318,90 @@ public class NIODataFactoryImpl implements QDataFactory {
 		return dataDef;
 	}
 
-	private void completeStructPart(QCompoundDataPart structPart, Class<? extends QData> klass) {
-		// fields introspection
-		for (Field field : klass.getFields()) {
-
-			// annotations field
-			List<Annotation> annotationsField = new ArrayList<Annotation>();
-			for (Annotation annotation : field.getAnnotations()) {
-				annotationsField.add(annotation);
-			}
-
-			QDataDef<?> elementDef = createDataDef(field.getGenericType(), annotationsField);
-			QDataTerm<?> elementTerm = createDataTermByDef(elementDef);
-			elementTerm.setName(field.getName());
-
-			structPart.getElements().add(elementTerm);
-		}
-	}
-		
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private <DD extends QDataDef<?>> QDataTerm<DD> createDataTermByDef(DD elementDef) {
-		
-		QDataTerm<DD> elementTerm = null;
-		
-		if (elementDef instanceof QMultipleCompoundDataDef) {
-			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();
-			elementTerm = (QDataTerm<DD>) multipleCompoundDataTerm;
-		}
-		else if(elementDef instanceof QMultipleAtomicDataDef) {
-			QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();
-			elementTerm = (QDataTerm<DD>) multipleAtomicDataTerm;
-		}
-		else if(elementDef instanceof QUnaryCompoundDataDef) {
-			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
-			elementTerm = (QDataTerm<DD>) unaryCompoundDataTerm;
-		}
-		else if(elementDef instanceof QUnaryAtomicDataDef) {
-			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryAtomicDataTerm(); 
-			elementTerm = (QDataTerm<DD>) unaryAtomicDataTerm;
-		}
-		else if(elementDef instanceof QEnumDef) {
-
-			class MyTerm<ED extends QEnumDef<?, ?>> extends DataTermImpl<ED> {
-
-				private static final long serialVersionUID = 1L;
-				
-			}
-			
-			elementTerm = new MyTerm();
-
-		}
-		else {
-			throw new RuntimeException("Unknown dataDef: "+elementDef);
-		}			
-		elementTerm.setDefinition(elementDef);
-		
-		return elementTerm;
-	}
-
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public <D extends QBufferedData> QArray<D> createArray(QUnaryAtomicDataDef<D> argument, int dimension) {
+	public <D extends QBufferedData> QArray<D> createArray(QUnaryAtomicDataDef<D> argument, int dimension, boolean initialize) {
 
-		boolean initialize = (parent == null ? true : false);
-
-		D[] elements = (D[]) new QBufferedData[dimension];
+		QBufferedData model = (QBufferedData) createData(argument, false);		
 		
-		NIOArrayImpl<D> array = null;
-		NIODataFactoryImpl arrayDataFactory = this;
-
-		if(initialize) {
-			ByteBuffer buffer = ByteBuffer.allocate(((QBufferedDataDef<D>)argument).getLength()*dimension);
-			array = new NIOArrayImpl(elements, buffer);			
-			arrayDataFactory = new NIODataFactoryImpl(context, contextID, array);
-		}
-		else {
-			array = new NIOArrayImpl(elements, parent.getBuffer());
-		}
+		QArray<D> array = new NIOArrayImpl(model, dimension);
 		
-		int position = 1;
-		for(int i=1; i<=dimension; i++) {
-			elements[i-1] = arrayDataFactory.createData(argument);
-			array.slice(elements[i-1], position);
-			position = position+elements[i-1].length();
-		}
+		if(initialize)
+			initialize(array);
 		
 		return array;
-
 	}
 
-	@SuppressWarnings({ "unchecked"})
-	@Override
-	public <D extends QDataStruct> D createDataStruct(Class<D> classDelegator, List<QDataTerm<?>> dataTerms, int length) {
 
-		boolean initialize = (parent == null ? true : false);
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public <D extends QStruct> QScroller<D> createScroller(QAtomicDataDef<D> argument, int occurrences, boolean initialize) {
+		
+		QBufferedData model = (QBufferedData) createData(argument, false);
+		
+		QScroller<D> scroller = new NIOScrollerImpl(model, occurrences);
+	
+		if(initialize)
+			initialize(scroller);
+		
+		return scroller;
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public <D extends QStruct> QStroller<D> createStroller(QCompoundDataDef<D> argument, int occurrences, boolean initialize) {
+		
+		QStruct model = null;
+		
+		Class<? extends QDataStruct> delegator = null;
+		if(argument.getClassDelegator() != null) { 
+
+			if(!argument.getElements().isEmpty())
+				throw new FrameworkCoreRuntimeException("Error sdf9dfg7574c2dn");
+			
+			delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, argument.getClassDelegator());
+			
+			QDataStruct bufferedData = createDataStruct(delegator, 0, false); 
+			model = (D) bufferedData;
+		}
+		else {
+
+			QDataStruct bufferedData = createDataStruct(argument.getElements(), 0, false); 
+			model = (D) bufferedData;				
+		}
+				
+		QStroller<D> stroller = new NIOStrollerImpl(model, occurrences);
+				
+		if(initialize)
+			initialize(stroller);
+		
+		return stroller;
+	}
+
+	@Override
+	public <D extends QDataStruct> D createDataStruct(Class<D> classDelegator, int length, boolean initialize) {
 
 		// data structure
 		D dataStructure = null;
 		
-		if(classDelegator != null) { 
-			
-			try {
-				dataStructure = (D) classDelegator.newInstance();
-
-				NIODataStructureWrapperImpl dataStructureDelegate = new NIODataStructureWrapperImpl(length, (QDataStructDelegator) dataStructure, false);
-				
-				QDataFactory dataStructureFactory = this;				
-				if (initialize) 
-					dataStructureFactory = new NIODataFactoryImpl(context, contextID, (NIOBufferReference) dataStructureDelegate);
-				else
-					throw new RuntimeException("Unexpcted condition p4jo8765sfd087thtwmuj90");
-
-				// fields introspection
-				List<QBufferedData> fields = new ArrayList<>();
-				for (Field field : classDelegator.getFields()) {
-
-					// annotations field
-					List<Annotation> annotationsField = new ArrayList<Annotation>();
-					for (Annotation annotation : field.getAnnotations()) {
-						annotationsField.add(annotation);
-					}
-
-					// build
-					Type type = field.getGenericType();
-					QDataDef<QBufferedData> dataDef = (QDataDef<QBufferedData>) dataStructureFactory.createDataDef(type, annotationsField);
-					QBufferedData dataElement = dataStructureFactory.createData(dataDef);
-
-					dataStructureDelegate.addElement(field.getName(), dataElement);
-					
-					fields.add(dataElement);
-				}
-
-				// slice
-				if (initialize) {
-					dataStructureDelegate.init();
-					initializeElements(dataStructureDelegate, fields);
-				}
-				
-				((QDataStructDelegator)dataStructure).setDelegate(dataStructureDelegate);
-				
-			} catch (InstantiationException | IllegalAccessException | SecurityException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-		else {
-			
-			NIODataStructureImpl dataStructureDelegate = new NIODataStructureImpl(length, new LinkedHashMap<String, QBufferedData>(), false);
-
-			// build
-			QDataFactory dataStructureFactory = new NIODataFactoryImpl(context, contextID, (NIOBufferReference) dataStructureDelegate);
-			for (QDataTerm<?> dataTerm : dataTerms) {
-				QBufferedData element = dataStructureFactory.createData((QDataDef<D>) dataTerm.getDefinition());
-				dataStructureDelegate.addElement(dataTerm.getName(), element);
-			}
-			
-			// slice
-			if (initialize) {
-				dataStructureDelegate.init();
-				initializeTerms(dataStructureDelegate, dataTerms);
-			}
-			
-			dataStructure = (D) dataStructureDelegate;			
+		try {
+			dataStructure = (D) classDelegator.newInstance();
+		} catch (InstantiationException | IllegalAccessException | SecurityException e) {
+			e.printStackTrace();
+			return null;
 		}
 
-		return dataStructure;
-	}
-
-	@Override
-	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate) {		
-		return new NIOEnumImpl<E, D>(classEnumerator, dataDelegate);
-	}
-
-	@Override
-	public QCharacter createCharacter(int length, boolean varying) {
-
-		boolean initialize = (parent == null ? true : false);
-
-		QCharacter character = null;
-		if (varying)
-			character = new NIOCharacterVaryingImpl(length, null, initialize);
-		else
-			character = new NIOCharacterImpl(length, null, initialize);
-
-		return character;
-	}
-
-	private void initializeTerms(QDataStruct dataStructure, List<QDataTerm<?>> terms) {
-
+		NIODataStructWrapperImpl dataStructureDelegate = new NIODataStructWrapperImpl(length, (QDataStructDelegator) dataStructure);		
+		
 		int p = 1;
-		int i = 1;
-		for (QDataTerm<?> element : terms) {
+		for (Field field : classDelegator.getFields()) {
 
-			QOverlay overlay = element.getFacet(QOverlay.class);
+			QDataTerm<?> dataTerm = createDataTerm(field);
+			QBufferedData dataElement = (QBufferedData) createData(dataTerm, false);
 
+			dataStructureDelegate.addElement(field.getName(), dataElement);
+
+			QOverlay overlay = dataTerm.getFacet(QOverlay.class);
 			String position = null;
 			if (overlay != null)
 				position = overlay.getPosition();
@@ -515,113 +413,191 @@ public class NIODataFactoryImpl implements QDataFactory {
 					p = Integer.parseInt(position);
 				}
 			}
+			
+			dataStructureDelegate.slice(dataElement, p-1);
+			
+			p += dataElement.size();
+		}		
+				
+		((QDataStructDelegator)dataStructure).setDelegate(dataStructureDelegate);
 
-			QBufferedData data = dataStructure.getElement(i);
-			if (data instanceof NIOBufferReference)
-				((NIOBufferReference) dataStructure).slice(data, p);
-			else if (data instanceof NIOBufferDelegator)
-				((NIOBufferReference) dataStructure).slice(((NIOBufferDelegator)data).getDelegate(), p);
-			else
-				throw new FrameworkCoreRuntimeException("Error 92d74c234n");
+		if(initialize)
+			initialize(dataStructure);
+		
+		return dataStructure;
+	}
 
-			p += data.size();
-			i++;
+	@SuppressWarnings({ "unchecked"})
+	@Override
+	public <D extends QDataStruct> D createDataStruct(List<QDataTerm<?>> dataTerms, int length, boolean initialize) {
+
+		NIODataStructImpl dataStructureDelegate = new NIODataStructImpl(length);
+		
+		int p = 1;
+		for (QDataTerm<?> dataTerm : dataTerms) {
+		
+			QBufferedData dataElement = (QBufferedData)createData(dataTerm, false);
+			
+			dataStructureDelegate.addElement(dataTerm.getName(), dataElement);
+			
+			QOverlay overlay = dataTerm.getFacet(QOverlay.class);
+			String position = null;
+			if (overlay != null)
+				position = overlay.getPosition();
+
+			if (position != null) {
+				if (position.equals("*NEXT")) {
+
+				} else {
+					p = Integer.parseInt(position);
+				}
+			}
+			
+			dataStructureDelegate.slice(dataElement, p-1);
+			
+			p += dataElement.size();
+
 		}
-
+			
+		if(initialize)
+			initialize(dataStructureDelegate);
+		
+		return (D) dataStructureDelegate;			
 	}
 	
-	private void initializeElements(QDataStruct dataStructure, List<QBufferedData> elements) {
-
-		int p = 1;
-		for (QBufferedData data : elements) {
-
-			if (data instanceof NIOBufferReference)
-				((NIOBufferReference) dataStructure).slice(data, p);
-			else if (data instanceof NIOBufferDelegator)
-				((NIOBufferReference) dataStructure).slice(((NIOBufferDelegator)data).getDelegate(), p);
-			else
-				throw new FrameworkCoreRuntimeException("Error 92d7fd7834n");
-
-			if(data instanceof NIOArrayImpl) {
-				NIOArrayImpl<?> nioArray = (NIOArrayImpl<?>)data;
-
-				int position = 1;
-				for(int i=1; i<=nioArray.capacity(); i++) {
-					QBufferedData arrayElement = nioArray.get(i); 
-					nioArray.slice(arrayElement, position);
-					position = position+arrayElement.length();
-				}
-
-			}
-			p += data.size();
-		}
-
+	@Override
+	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate, boolean initialize) {		
+		return new NIOEnumImpl<E, D>(classEnumerator, (NIOBufferedData) dataDelegate);
 	}
 
 	@Override
-	public QBinary createBinary(BinaryType type, boolean unsigned) {
+	public QCharacter createCharacter(int length, boolean varying, boolean initialize) {
 
-		boolean initialize = (parent == null ? true : false);
+		QCharacter character = null;
+		if (varying)
+			character = new NIOCharacterVaryingImpl(length, null);
+		else
+			character = new NIOCharacterImpl(length, null);
+		
+		if(initialize)
+			initialize(character);
+		
+		return character;
+	}
+
+	@Override
+	public QBinary createBinary(BinaryType type, boolean unsigned, boolean initialize) {
+
 		QBinary binary = null;
 
 		switch (type) {
 			case BYTE:
-				binary = new NIOBinaryImpl(1, null, initialize);
+				binary = new NIOBinaryImpl(1, null);
 				break;	
 			case SHORT:
-				binary = new NIOBinaryImpl(3, null, initialize);
+				binary = new NIOBinaryImpl(3, null);
 				break;
 			case INTEGER:
-				binary = new NIOBinaryImpl(5, null, initialize);
+				binary = new NIOBinaryImpl(5, null);
 				break;
 			case LONG:
-				binary = new NIOBinaryImpl(10, null, initialize);
+				binary = new NIOBinaryImpl(10, null);
 				break;
-			default:
-				throw new FrameworkCoreRuntimeException("Unknown data type " + type);
-		}
+		}	
+		
+		if(initialize)
+			initialize(binary);
+		
 		return binary;
 	}
 
 	@Override
-	public QCharacter createCharacter(int length) {
-		return createCharacter(length, false);
-	}
-
-
-	@Override
-	public QDecimal createDecimal(int precision) {
-		return createDecimal(precision, 0);
-	}
-	
-	@Override
-	public QDecimal createDecimal(int precision, int scale) {
-		return createDecimal(precision, scale, DecimalType.ZONED);
-	}
-
-	@Override
-	public QDecimal createDecimal(int precision, int scale, DecimalType type) {
-
-		boolean initialize = (parent == null ? true : false);
+	public QDecimal createDecimal(int precision, int scale, DecimalType type, boolean initialize) {
 
 		QDecimal decimal = null;
 
 		switch (type) {
 			case ZONED:
-				decimal = new NIODecimalImpl(precision, scale, null, initialize);
+				decimal = new NIODecimalImpl(precision, scale, null);
 				break;
 			case PACKED:
 				break;
 		}
 
+		if(initialize)
+			initialize(decimal);
+		
 		return decimal;
 	}
 
 	@Override
-	public QIndicator createIndicator() {
-		return new NIOIndicatorImpl(true);
+	public QIndicator createIndicator(boolean initialize) {
+
+		QIndicator indicator = new NIOIndicatorImpl();
+				
+		if(initialize)
+			initialize(indicator);
+		
+		return indicator;
 	}
-	
+
+	@Override
+	public QDatetime createDate(DatetimeType type, String format, boolean initialize) {
+
+		NIODatetimeImpl datetime = new NIODatetimeImpl(type, format, null);
+				
+		if(initialize)
+			initialize(datetime);
+		
+		return datetime;
+	}
+
+	@Override
+	public QFloating createFloating(FloatingType type, boolean initialize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public QHexadecimal createHexadecimal(int length, boolean initialize) {
+		
+		QHexadecimal hexadecimal = new NIOHexadecimalImpl(length, null);
+				
+		if(initialize)
+			initialize(hexadecimal);
+		
+		return hexadecimal;
+	}
+
+	@Override
+	public QHexadecimal createPointer(boolean initialize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public QDatetime createTime(boolean initialize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public QDatetime createTimestamp(boolean initialize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void initialize(QData data) {
+		
+		NIOBufferedData nioBufferedData = null;
+		if(data instanceof NIOBufferedData)
+			nioBufferedData = (NIOBufferedData)data;
+		else if(data instanceof QDataDelegator)
+			nioBufferedData = (NIOBufferedData) ((QDataDelegator)data).getDelegate();
+		else
+			throw new FrameworkCoreRuntimeException("Error khsd87sd74c2dn");
+		nioBufferedData.allocate();
+	}
 	@SuppressWarnings("unchecked")
 	private Class<? extends QData> completeMetadata(Type type, List<Type> arguments, List<Annotation> annotations) {
 
@@ -700,63 +676,63 @@ public class NIODataFactoryImpl implements QDataFactory {
 		}
 
 	}
-
-	@Override
-	public <D extends QStruct> QStroller<D> createStroller(D dataDelegate, int occurrences) {
-		return new NIOStrollerImpl<D>(dataDelegate, occurrences, true);
-	}
-
-	@Override
-	public QDatetime createDate(DatetimeType type, String format) {
-
-		boolean initialize = (parent == null ? true : false);
-
-		NIODatetimeImpl datetime = new NIODatetimeImpl(type, format, null, initialize);
-		
-		return datetime;
-	}
-
-	@Override
-	public QFloating createFloating(FloatingType type) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public QHexadecimal createHexadecimal(int length) {
-		boolean initialize = (parent == null ? true : false);
-		
-		return new NIOHexadecimalImpl(length, null, initialize);
-	}
-
-	@Override
-	public QHexadecimal createPointer() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <D extends QBufferedData> QScroller<D> createScroller(D dataDelegate, int occurrences) {
-		return new NIOScrollerImpl<D>(dataDelegate, occurrences, true);
-	}
-
-	@Override
-	public QDatetime createTime() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public QDatetime createTimestamp() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
-	private String getAddress(Class<?> klass) {
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private <DD extends QDataDef<?>> QDataTerm<DD> createDataTerm(Field field) {
 
-		String address = "asup:/omac/"+FrameworkUtil.getBundle(klass).getSymbolicName() + "/" + klass.getName();
+		// annotations field
+		List<Annotation> annotations = new ArrayList<Annotation>();
+		for (Annotation annotation : field.getAnnotations()) {
+			annotations.add(annotation);
+		}
+
+		QDataTerm<DD> elementTerm = null;
+		DD elementDef = (DD) createDataDef(field.getGenericType(), annotations);
 		
-		return address;
+		if (elementDef instanceof QMultipleCompoundDataDef) {
+			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();
+			elementTerm = (QDataTerm<DD>) multipleCompoundDataTerm;
+		}
+		else if(elementDef instanceof QMultipleAtomicDataDef) {
+			QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();
+			elementTerm = (QDataTerm<DD>) multipleAtomicDataTerm;
+		}
+		else if(elementDef instanceof QUnaryCompoundDataDef) {
+			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
+			elementTerm = (QDataTerm<DD>) unaryCompoundDataTerm;
+		}
+		else if(elementDef instanceof QUnaryAtomicDataDef) {
+			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryAtomicDataTerm(); 
+			elementTerm = (QDataTerm<DD>) unaryAtomicDataTerm;
+		}
+		else if(elementDef instanceof QEnumDef) {
+
+			class MyTerm<ED extends QEnumDef<?, ?>> extends DataTermImpl<ED> {
+
+				private static final long serialVersionUID = 1L;
+				
+			}
+			
+			elementTerm = new MyTerm();
+		}
+		else {
+			throw new RuntimeException("Unknown dataDef: "+elementDef);
+		}			
+		elementTerm.setName(field.getName());
+		elementTerm.setDefinition(elementDef);
+		
+		// facets
+		for (Annotation annotation : field.getAnnotations()) {
+			if(annotation instanceof Overlay) {
+				Overlay overlay = (Overlay)annotation;
+				
+				QOverlay qOverlay = QIntegratedLanguageCoreFactory.eINSTANCE.createOverlay();
+				qOverlay.setName(overlay.name());
+				qOverlay.setPosition(overlay.position());
+				elementTerm.getFacets().add(qOverlay);
+			}
+		}
+		
+		return elementTerm;
 	}
-	
 }

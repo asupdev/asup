@@ -22,38 +22,33 @@ import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QNumeric;
 
-public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
+public class NIODecimalImpl extends NIOBufferedData implements QDecimal {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private static byte INIT = (byte) 48;
 
-	private int _precision;
-	private int _scale;
+	protected int _precision;
+	protected int _scale;
 
-	private byte[] _value;
+	protected byte[] _value;
 
-	public NIODecimalImpl(int precision, int scale, byte[] value, boolean initialize) {
-
+	public NIODecimalImpl(int precision, int scale, byte[] value) {
+		
 		_precision = precision;
 		_scale = scale;
 		_value = value;
-
-		if (initialize) {
-			_buffer = ByteBuffer.allocate(precision);
-			_position = 0;
-
-			if (value != null)
-				NIOBufferHelper.movel(_buffer, _position, _precision, value,
-						true, INIT);
-			else
-				init();
-		}
 	}
 
+	@Override
+	public void allocate() {
+		if(getParent() == null)
+			setBuffer(ByteBuffer.allocate(size()));;
+		
+		reset();
+		
+	}
+	
 	public int getScale() {
 		return _scale;
 	}
@@ -63,9 +58,10 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 		
 //		return NIODecimalHelper.decimalToBigInteger(_buffer.array(), _position, _precision).intValue();
 		
-		String s = new String(Arrays.copyOfRange(_buffer.array(), _position, _position+_precision));
+		String s = asString();
 		if(s.trim().isEmpty())
 			return 0;
+		
 		return (int) Float.parseFloat(s);
 	}
 
@@ -88,7 +84,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void move(String value, boolean clear) {
-		NIOBufferHelper.move(_buffer, _position, _precision, value.getBytes(), clear, INIT);
+		NIOBufferHelper.move(getBuffer(), getPosition(), _precision, value.getBytes(), clear, INIT);
 	}
 
 	@Override
@@ -98,7 +94,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void move(int value, boolean clear) {
-		NIOBufferHelper.move(_buffer, _position, _precision, Integer.toString(value).getBytes(), clear, INIT);
+		NIOBufferHelper.move(getBuffer(), getPosition(), _precision, Integer.toString(value).getBytes(), clear, INIT);
 	}
 
 	@Override
@@ -108,7 +104,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void move(QBufferedData value, boolean clear) {
-		NIOBufferHelper.move(_buffer, _position, _precision, value.asBytes(),
+		NIOBufferHelper.move(getBuffer(), getPosition(), _precision, value.asBytes(),
 				clear, INIT);
 	}
 
@@ -131,7 +127,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void movel(String value, boolean clear) {
-		NIOBufferHelper.movel(_buffer, _position, _precision, value.toString().getBytes(), clear, INIT);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _precision, value.toString().getBytes(), clear, INIT);
 	}
 
 	@Override
@@ -141,8 +137,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		NIOBufferHelper.movel(_buffer, _position, _precision, value.asBytes(),
-				clear, INIT);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _precision, value.asBytes(), clear, INIT);
 	}
 
 	@Override
@@ -152,8 +147,7 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void movel(int value, boolean clear) {
-		NIOBufferHelper.movel(_buffer, _position, _precision,
-				Integer.toString(value).getBytes(), clear, INIT);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _precision, Integer.toString(value).getBytes(), clear, INIT);
 	}
 
 	@Override
@@ -168,8 +162,11 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public void reset() {
-		NIOBufferHelper.movel(_buffer, _position, _precision, _value, true,
-				INIT);
+		
+		if (_value != null)
+			NIOBufferHelper.movel(getBuffer(), getPosition(), _precision, _value, true, INIT);
+		else
+			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + _precision, INIT);
 	}
 
 	@Override
@@ -179,17 +176,12 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(_buffer, _position, _precision);
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), _precision);
 	}
 
 	@Override
 	public void clear() {
-		NIOBufferHelper.clear(_buffer, _position, _precision, INIT);		
-	}
-
-	@Override
-	public void init() {
-		Arrays.fill(_buffer.array(), _position, _position + _precision, INIT);
+		NIOBufferHelper.clear(getBuffer(), getPosition(), _precision, INIT);		
 	}
 
 	@Override
@@ -512,5 +504,13 @@ public class NIODecimalImpl extends NIOBufferReference implements QDecimal {
 	@Override
 	public <E extends Enum<E>> boolean ne(E value) {
 		return ne(getPrimitive(value));
+	}
+
+	@Override
+	public NIODecimalImpl copy() {
+		
+		NIODecimalImpl copy = new NIODecimalImpl(_precision, _scale, _value);
+		
+		return copy;
 	}
 }

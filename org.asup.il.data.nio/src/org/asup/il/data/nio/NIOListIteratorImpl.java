@@ -16,13 +16,13 @@ import java.util.Iterator;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QList;
 
-public class NIOListIterator<D extends QBufferedData> implements Iterator<D> {
+public class NIOListIteratorImpl<D extends QBufferedData> implements Iterator<D> {
 
 	
 	private QList<D> list;
 	private int current = 0;
 
-	protected NIOListIterator(QList<D> list) {
+	protected NIOListIteratorImpl(QList<D> list) {
 		this.list = list;
 	}
 	

@@ -41,7 +41,7 @@ public class TestFlag {
 			}
 		});
 		
-		QCharacter delegate = dataFactory.createCharacter(3);		
+		QCharacter delegate = dataFactory.createCharacter(3, false, true);		
 		QEnum<Conflict, QCharacter> enumerator = null; //dataFactory.createEnum(Conflict.class, delegate, false);
 
 //		enumerator.eval(Conflict.Y);

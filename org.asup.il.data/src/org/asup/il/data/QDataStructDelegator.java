@@ -9,7 +9,7 @@ package org.asup.il.data;
 
 import java.util.List;
 
-public abstract class QDataStructDelegator implements QDataStruct {
+public abstract class QDataStructDelegator implements QDataStruct, QDataDelegator {
 
 	/**
 	 * 
@@ -152,11 +152,6 @@ public abstract class QDataStructDelegator implements QDataStruct {
 	@Override
 	public void clear() {
 		delegate.clear();
-	}
-
-	@Override
-	public void init() {
-		delegate.init();
 	}
 
 	@Override
@@ -409,5 +404,15 @@ public abstract class QDataStructDelegator implements QDataStruct {
 	@Override
 	public <E extends Enum<E>> boolean ne(E value) {
 		return delegate.ne(value);
+	}
+
+	@Override
+	public QBufferedData copy() {
+		return delegate.copy();
+	}
+
+	@Override
+	public void assign(QBufferedData value) {
+		delegate.assign(value);
 	}
 }

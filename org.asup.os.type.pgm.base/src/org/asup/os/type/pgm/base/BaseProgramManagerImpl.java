@@ -19,7 +19,6 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
 import org.asup.fw.util.QStringUtil;
-import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
 import org.asup.il.data.annotation.Entry;
@@ -169,7 +168,6 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void assignParameters(QData[] paramsTo, QData[] paramsFrom) throws OperatingSystemRuntimeProgramException {
 		
 		int paramsLength = 0;
@@ -185,12 +183,12 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 
 			if(paramsTo[i] instanceof QBufferedData && paramsFrom[i] instanceof QBufferedData) {
 				QBufferedData bufferedData = (QBufferedData)paramsTo[i];
-
-				if(QArray.class.isAssignableFrom(paramsFrom[i].getClass())) {
+				((QBufferedData) paramsFrom[i]).assign(bufferedData);
+/*				if(QArray.class.isAssignableFrom(paramsFrom[i].getClass())) {
 					bufferedData.movea((QArray<QBufferedData>) paramsFrom[i]);
 				}
 				else
-					bufferedData.movel((QBufferedData)paramsFrom[i]);				
+					bufferedData.movel((QBufferedData)paramsFrom[i]);*/				
 			}
 			else
 				paramsTo[i].eval(paramsFrom);
