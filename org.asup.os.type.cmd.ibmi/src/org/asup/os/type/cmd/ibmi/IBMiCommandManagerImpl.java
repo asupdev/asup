@@ -45,10 +45,12 @@ import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
+import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
+import org.asup.il.data.QUnaryDataTerm;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
@@ -87,9 +89,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		QJob job = jobManager.lookup(contextID);
 		if (job == null)
 			throw new OperatingSystemException("Invalid contextID");
-
-		@SuppressWarnings("unchecked")
-		
 
 		CLObject result = null;
 		try {
@@ -163,9 +162,10 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			// replace variable with prefix '&'
 			// value = replaceVariable(value, variables);
 
-			// assignment
+			// Assign value
 			QData data = null;
-			if (value.isEmpty() == false) {
+			if (value.isEmpty() == false || defaults) {
+							
 				data = assignValue(dataTerm, dataContext, value, variables, defaults);
 			}
 
@@ -191,10 +191,17 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			value = value.substring(1, value.length() - 1);
 		}
 		*/
+			
 
 		@SuppressWarnings("unused")
 		String dbgString = null;
 		CLParmAbstractComponent paramComp;
+		
+		
+		// Manage default value
+		if (defaults) {
+			value = manageDefault(dataTerm, value);
+		}		
 				
 		switch (dataTerm.getDataType()) {
 
@@ -381,6 +388,28 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		return data;
 	}
 	
+	private String manageDefault(QDataTerm<?> dataTerm, String value) {
+		
+		String defValue = null;
+		if (value == null || value.isEmpty()) {
+			
+			if (dataTerm instanceof QUnaryDataTerm) {
+				
+				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
+				
+			} else  if (dataTerm instanceof QMultipleDataTerm) {
+				
+				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
+					defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);
+				}				
+			}
+		} else {
+			defValue = value;
+		}
+
+		return defValue!=null?defValue:"";
+	}
+
 	private String buildStructValue(QCompoundDataDef<?> compoundDataDef, QDataContext dataContext, String parmValue, Map<String, Object> variables,
 									boolean defaults) throws OperatingSystemException {
 		
