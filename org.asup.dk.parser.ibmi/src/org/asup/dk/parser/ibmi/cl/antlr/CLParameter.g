@@ -14,6 +14,7 @@ tokens
 	//VARIABLE
 	//SPECIAL
 	//STRING
+	//FILTER
 	FUNCTION;	
 	VALUE;	
 }
@@ -93,6 +94,8 @@ value
   |
   SPECIAL  
   |
+  FILTER
+  |
   STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
   |  
   function
@@ -139,6 +142,10 @@ VARIABLE:
 SPECIAL	:	
    '*' TOKEN
  ;   	 
+ 
+FILTER :
+   TOKEN '*'
+ ; 
       
 OPEN_BRACE
   :

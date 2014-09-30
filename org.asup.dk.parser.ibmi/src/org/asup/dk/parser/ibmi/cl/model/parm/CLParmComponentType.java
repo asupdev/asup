@@ -15,6 +15,7 @@ public enum CLParmComponentType {
 	TOKEN,
 	VARIABLE,
 	SPECIAL,
+	FILTER,
 	STRING,
 	FUNCTION,
 	VALUE,
