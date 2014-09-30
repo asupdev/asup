@@ -58,7 +58,7 @@ public class NIODecimalImpl extends NIOBufferedData implements QDecimal {
 		
 //		return NIODecimalHelper.decimalToBigInteger(_buffer.array(), _position, _precision).intValue();
 		
-		String s = asString();
+		String s = new String(asBytes());
 		if(s.trim().isEmpty())
 			return 0;
 		

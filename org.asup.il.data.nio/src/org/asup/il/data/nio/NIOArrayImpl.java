@@ -51,7 +51,7 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedList<D> im
 		D element = _elements[index-1];
 		if(element == null) {
 			element = (D) _model.copy();
-			int position = getPosition() + 1 + _model.size() * (index - 1);
+			int position = getPosition() + _model.size() * (index - 1);
 			slice(element, position);
 		}
 		

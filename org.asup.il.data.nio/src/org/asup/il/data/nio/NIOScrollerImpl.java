@@ -53,7 +53,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D>
 		if (_lastIndex == index)
 			return _model;
 
-		int position = getPosition() + 1 + _model.size() * (index - 1);
+		int position = getPosition() + _model.size() * (index - 1);
 		slice(_model, position);
 
 		_lastIndex = index;

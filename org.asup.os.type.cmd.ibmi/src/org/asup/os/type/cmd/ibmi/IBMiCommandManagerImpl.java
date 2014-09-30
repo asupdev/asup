@@ -516,14 +516,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			}
 			
 			// The result value have to match the dataTerm format
-			if (value.startsWith("*") == false) {
-				if (matchFormat(dataTerm, value) == false) {
-			
+			if(!isSpecialValue(dataTerm, value)) {
+				if (matchFormat(dataTerm, value) == false) {			
 					throw new OperatingSystemException("Invalid format for parm value: " + value);
 				}
 			}
-			
-
 			
 			break;	
 			
@@ -548,9 +545,10 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		case SPECIAL:
 
-			value = resolveSpecialValue(dataTerm, parmValue.toString());
-			if (value.startsWith("*") == false) {
-				if (matchFormat(dataTerm, value) == false) {
+			if(isSpecialValue(dataTerm, parmValue.toString()))
+				value = resolveSpecialValue(dataTerm, parmValue.toString());
+			else {
+				if (matchFormat(dataTerm, parmValue.toString()) == false) {
 					throw new OperatingSystemException("Invalid format for parm value: " + value);
 				}
 			}
@@ -595,6 +593,22 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 	}
 
+	private boolean isSpecialValue(QDataTerm<?> dataTerm, String value) {
+
+
+		QSpecial special = dataTerm.getFacet(QSpecial.class);
+
+		if (special != null) {
+
+			for (QSpecialElement specialElem : special.getElements()) {
+				if (specialElem.getName().equals(value)) 
+					return true;
+			}
+		}
+
+		return false;
+	}
+	
 	private String resolveSpecialValue(QDataTerm<?> dataTerm, String value) {
 
 		String result = value;
