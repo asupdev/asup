@@ -391,36 +391,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 			return null;
 		}
 
-<<<<<<< HEAD
 		NIODataStructWrapperImpl dataStructureDelegate = new NIODataStructWrapperImpl(length, (QDataStructDelegator) dataStructure);		
 		
-=======
-		return dataStructure;
-	}
-
-	@Override
-	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate) {		
-		return new NIOEnumImpl<E, D>(classEnumerator, dataDelegate);
-	}
-
-	@Override
-	public QCharacter createCharacter(int length, boolean varying) {
-
-		//boolean initialize = (parent == null ? true : false);
-		boolean initialize = true;
-		
-		QCharacter character = null;
-		if (varying)
-			character = new NIOCharacterVaryingImpl(length, null, initialize);
-		else
-			character = new NIOCharacterImpl(length, null, initialize);
-
-		return character;
-	}
-
-	private void initializeTerms(QDataStruct dataStructure, List<QDataTerm<?>> terms) {
-
->>>>>>> refs/remotes/origin/master
 		int p = 1;
 		for (Field field : classDelegator.getFields()) {
 
