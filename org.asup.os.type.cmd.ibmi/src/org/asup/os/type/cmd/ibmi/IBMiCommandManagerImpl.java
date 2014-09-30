@@ -553,7 +553,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			}
 
 			break;
-
+		
+		case FILTER:
 		case STR_OPERATOR:
 
 			value = parmValue.toString();
