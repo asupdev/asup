@@ -85,10 +85,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 	@Override
 	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables, boolean defaults)
 			throws OperatingSystemException {
-		
-		
-		//TODO: togliere! per ora forzo la non valorizzazione dei defaults
-		defaults = false;
+
 
 		QJob job = jobManager.lookup(contextID);
 		if (job == null)
