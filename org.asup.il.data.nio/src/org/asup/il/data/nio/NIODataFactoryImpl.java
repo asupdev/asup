@@ -467,10 +467,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	
 	@Override
 	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate, boolean initialize) {
-		if(dataDelegate instanceof QDataDelegator)
-			return new NIOEnumImpl<E, D>(classEnumerator, (NIOBufferedData) ((QDataDelegator)dataDelegate).getDelegate());
-		else			
-			return new NIOEnumImpl<E, D>(classEnumerator, (NIOBufferedData) dataDelegate);
+		return new NIOEnumImpl<E, D>(classEnumerator, dataDelegate);
 	}
 
 	@Override

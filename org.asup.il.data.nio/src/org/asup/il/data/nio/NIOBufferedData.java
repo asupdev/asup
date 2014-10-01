@@ -92,24 +92,33 @@ public abstract class NIOBufferedData implements QBufferedData, Serializable {
 
 	public void slice(QBufferedData target, int position) {
 
-		if (target instanceof NIOBufferedData) {
-			setReference(target, position);
-		}
-		else if (target instanceof QDataDelegator) {
-			QDataDelegator dataDelegator = (QDataDelegator)target;
-			setReference(dataDelegator.getDelegate(), position);
-		}
-		else
+		NIOBufferedData nioBufferedData = getNIOBufferedData(target);
+
+		if(nioBufferedData == null)
 			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
+		
+		setReference(nioBufferedData, position);
 	}
 
-	private void setReference(QData target, int position) {
-		
-		NIOBufferedData nioBufferedData = (NIOBufferedData) target;
+	private void setReference(NIOBufferedData nioBufferedData, int position) {
 		
 		nioBufferedData.setParent(this);
 		nioBufferedData.setBuffer(null);
 		nioBufferedData.setPosition(getPosition() + position);
 	}
 	
+	private NIOBufferedData getNIOBufferedData(QData bufferedData) {
+		
+		NIOBufferedData nioBufferedData = null;
+		
+		if (bufferedData instanceof NIOBufferedData) {
+			nioBufferedData = (NIOBufferedData) bufferedData;
+		}
+		else if (bufferedData instanceof QDataDelegator) {
+			QDataDelegator dataDelegator = (QDataDelegator)bufferedData;
+			nioBufferedData = getNIOBufferedData(dataDelegator.getDelegate());
+		}
+		
+		return nioBufferedData;
+	}
 }

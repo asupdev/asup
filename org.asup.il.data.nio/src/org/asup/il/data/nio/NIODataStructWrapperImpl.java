@@ -28,13 +28,13 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 
 	private static final long serialVersionUID = 1L;
 
-	private QDataStructDelegator _delegator;
+	private QDataStructDelegator _wrapped;
 	private boolean _dynamicLength;
 
 	public NIODataStructWrapperImpl(int length, QDataStructDelegator delegator) {
 		super(length, null);
 		
-		this._delegator = delegator;
+		this._wrapped = delegator;
 		this._dynamicLength = (length == 0 ? true : false);
 	}
 
@@ -42,11 +42,11 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 	public QBufferedData getElement(String name) {
 		
 		try {
-			Field field = _delegator.getClass().getField(name);
+			Field field = _wrapped.getClass().getField(name);
 			if(field == null)
 				return null;
 			
-			return (QBufferedData) field.get(_delegator);
+			return (QBufferedData) field.get(_wrapped);
 
 		} catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
@@ -58,11 +58,11 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 	public QBufferedData getElement(int position) {
 
 		try {
-			Field field = _delegator.getClass().getFields()[position-1];
+			Field field = _wrapped.getClass().getFields()[position-1];
 			if(field == null)
 				return null;
 			
-			return (QBufferedData) field.get(_delegator);
+			return (QBufferedData) field.get(_wrapped);
 			
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
@@ -75,8 +75,8 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 		
 		List<QBufferedData> elements = new ArrayList<>();
 		try {
-			for (Field field: _delegator.getClass().getFields()) {
-				elements.add((QBufferedData) field.get(_delegator));
+			for (Field field: _wrapped.getClass().getFields()) {
+				elements.add((QBufferedData) field.get(_wrapped));
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
@@ -88,11 +88,11 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 	protected void addElement(String name, QBufferedData element) {
 
 		try {
-			Field field = _delegator.getClass().getField(name);
+			Field field = _wrapped.getClass().getField(name);
 			if(field == null)
 				return;
 			
-			field.set(_delegator, element);
+			field.set(_wrapped, element);
 	
 			if (_dynamicLength)
 				_length += element.size();
@@ -102,13 +102,13 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 	}
 	
 	private void writeObject(ObjectOutputStream stream) throws IOException {
-		stream.writeObject(_delegator);
+		stream.writeObject(_wrapped);
 		stream.writeBoolean(_dynamicLength);
 	}
 	
 	private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
 		
-		_delegator = (QDataStructDelegator) stream.readObject();
+		_wrapped = (QDataStructDelegator) stream.readObject();
 		_dynamicLength = stream.readBoolean();
 		
 		for(QBufferedData element: getElements()) {
@@ -119,21 +119,21 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 
 	@Override
 	public QData getDelegate() {
-		return _delegator;
+		return _wrapped;
 	}
 
 	@Override
 	public void accept(QDataVisitor visitor) {
-		visitor.visit(_delegator);
+		visitor.visit(_wrapped);
 	}
 
 	@Override
 	public NIODataStructWrapperImpl copy() {
 		
-		NIODataStructWrapperImpl copy = new NIODataStructWrapperImpl(_length, (QDataStructDelegator) _delegator.copy());
+		NIODataStructWrapperImpl copy = new NIODataStructWrapperImpl(_length, (QDataStructDelegator) _wrapped.copy());
 		try {
-			for (Field field: _delegator.getClass().getFields()) {
-				copy.addElement(field.getName(), (QBufferedData) field.get(_delegator));
+			for (Field field: _wrapped.getClass().getFields()) {
+				copy.addElement(field.getName(), (QBufferedData) field.get(_wrapped));
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();

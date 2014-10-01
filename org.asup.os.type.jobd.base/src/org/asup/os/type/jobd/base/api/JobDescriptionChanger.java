@@ -11,6 +11,8 @@ import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.Command;
+import org.asup.il.data.annotation.Conversion;
+import org.asup.il.data.annotation.Conversion.Status;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -27,15 +29,16 @@ import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
 
 @Command(name = "CHGJOBD")
-@Program(name = "QWDCCHG", messages = {"CPF1618","CPF1625","CPF9872"})
+@Program(name = "QWDCCHG", messages = { "CPF1618", "CPF1625", "CPF9872" })
 public class JobDescriptionChanger {
 
 	@Inject
 	private QJobDescriptionManager jobDescriptionManager;
 	@Inject
 	private QJob job;
-	@Inject 
+	@Inject
 	private QJobLogManager jobLogManager;
+
 	public @Entry void main(
 			@DataDef(qualified = true) JobDescription jobDescription,
 			@DataDef(qualified = true) QEnum<JobQueueEnum, JobQueue> jobQueue,
@@ -50,7 +53,7 @@ public class JobDescriptionChanger {
 			@DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
 			@DataDef(length = 256) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
 			@DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
-			@DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
+			@Conversion(status = Status.POSSIBLE) @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
 			@DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
@@ -67,7 +70,6 @@ public class JobDescriptionChanger {
 			@DataDef(length = 1) QEnum<AllowMultipleThreadsEnum, QCharacter> allowMultipleThreads,
 			@DataDef(length = 10) QEnum<SpooledFileActionEnum, QCharacter> spooledFileAction,
 			@DataDef(length = 10) QEnum<DDMConversationEnum, QCharacter> dDMConversation) {
-		
 
 		String library = jobDescription.library.asData().trimR();
 		switch (jobDescription.library.asEnum()) {
@@ -82,11 +84,13 @@ public class JobDescriptionChanger {
 
 		String name = jobDescription.name.trimR();
 		try {
-			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
-			QJobDescription qJobDescription = resource.lookup(name);	
+			QResourceWriter<QJobDescription> resource = jobDescriptionManager
+					.getResourceWriter(job, library);
+			QJobDescription qJobDescription = resource.lookup(name);
 			if (qJobDescription == null)
-				throw new OperatingSystemException("Job Description " + name+ " not exists in library " + library);
-				
+				throw new OperatingSystemException("Job Description " + name
+						+ " not exists in library " + library);
+
 			switch (textDescription.asEnum()) {
 			case SAME:
 				break;
@@ -97,24 +101,28 @@ public class JobDescriptionChanger {
 				qJobDescription.setText(textDescription.asData().trimR());
 				break;
 			}
-			
+
 			switch (jobQueue.asEnum()) {
 			case SAME:
 				break;
 			case OTHER:
 				if (!jobQueue.asData().name.isEmpty()) {
 					QTypedReference<QTypedObject> refJobQueue = null;
-					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE
+							.createTypedReference();
 					refJobQueue.setName(jobQueue.asData().name.trimR());
 					switch (jobQueue.asData().library.asEnum()) {
 					case LIBL:
-						refJobQueue.setLibrary(jobQueue.asData().library.getSpecialName());
+						refJobQueue.setLibrary(jobQueue.asData().library
+								.getSpecialName());
 						break;
 					case CURLIB:
-						refJobQueue.setLibrary(jobQueue.asData().library.getSpecialName());
+						refJobQueue.setLibrary(jobQueue.asData().library
+								.getSpecialName());
 						break;
 					case OTHER:
-						refJobQueue.setLibrary(jobQueue.asData().library.asData().trimR());
+						refJobQueue.setLibrary(jobQueue.asData().library
+								.asData().trimR());
 						break;
 					}
 					qJobDescription.setJobQueue(refJobQueue);
@@ -125,18 +133,20 @@ public class JobDescriptionChanger {
 			case SAME:
 				break;
 			case OTHER:
-				qJobDescription.setJobPriorityOnJobq(jobPriorityonJOBQ.asData().trimR());
+				qJobDescription.setJobPriorityOnJobq(jobPriorityonJOBQ.asData()
+						.trimR());
 				break;
 			}
-			
+
 			switch (outputPriorityonOUTQ.asEnum()) {
 			case SAME:
 				break;
 			case OTHER:
-				qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ.asData().trimR());
+				qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ
+						.asData().trimR());
 				break;
 			}
-			
+
 			QTypedReference<QTypedObject> refOutQueue = null;
 			switch (outputQueue.asEnum()) {
 			case SAME:
@@ -144,23 +154,28 @@ public class JobDescriptionChanger {
 			case DEV:
 			case WRKSTN:
 			case USRPRF:
-				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE
+						.createTypedReference();
 				refOutQueue.setName(outputQueue.getSpecialName());
 				break;
 			case OTHER:
 				if (!outputQueue.asData().name.isEmpty()) {
-					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE
+							.createTypedReference();
 					refOutQueue.setName(outputQueue.asData().name.trimR());
-					
+
 					switch (outputQueue.asData().library.asEnum()) {
 					case LIBL:
-						refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+						refOutQueue.setLibrary(outputQueue.asData().library
+								.getSpecialName());
 						break;
 					case CURLIB:
-						refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+						refOutQueue.setLibrary(outputQueue.asData().library
+								.getSpecialName());
 						break;
 					case OTHER:
-						refOutQueue.setLibrary(outputQueue.asData().library.asData().trimR());
+						refOutQueue.setLibrary(outputQueue.asData().library
+								.asData().trimR());
 						break;
 					}
 					qJobDescription.setOutQueue(refOutQueue);
@@ -181,19 +196,22 @@ public class JobDescriptionChanger {
 
 			for (QCharacter initialLibrary : initialLibraryList.asData()) {
 				if (initialLibrary.trimR().isEmpty()) {
-					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
+					System.err
+							.println("Unexpected condition ljsd6523jklsdfg8d");
 					break;
 				}
 				qJobDescription.getLibraries().add(initialLibrary.trimR());
 			}
 
-			resource.save(qJobDescription,true);
+			resource.save(qJobDescription, true);
 
-			jobLogManager.info(job, "Job Description " +jobDescription.name.trimR()+ " changed");
-			
+			jobLogManager.info(job,
+					"Job Description " + jobDescription.name.trimR()
+							+ " changed");
+
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
-		}		
+		}
 	}
 
 	public static class JobDescription extends QDataStructDelegator {
