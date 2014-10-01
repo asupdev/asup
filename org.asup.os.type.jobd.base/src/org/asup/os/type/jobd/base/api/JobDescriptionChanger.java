@@ -11,8 +11,6 @@ import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.Command;
-import org.asup.il.data.annotation.Conversion;
-import org.asup.il.data.annotation.Conversion.Status;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -53,7 +51,7 @@ public class JobDescriptionChanger {
 			@DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
 			@DataDef(length = 256) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
 			@DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
-			@Conversion(status = Status.POSSIBLE) @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
+			@DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
 			@DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
@@ -84,12 +82,10 @@ public class JobDescriptionChanger {
 
 		String name = jobDescription.name.trimR();
 		try {
-			QResourceWriter<QJobDescription> resource = jobDescriptionManager
-					.getResourceWriter(job, library);
+			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
 			QJobDescription qJobDescription = resource.lookup(name);
 			if (qJobDescription == null)
-				throw new OperatingSystemException("Job Description " + name
-						+ " not exists in library " + library);
+				throw new OperatingSystemException("Job Description " + name + " not exists in library " + library);
 
 			switch (textDescription.asEnum()) {
 			case SAME:
@@ -108,21 +104,17 @@ public class JobDescriptionChanger {
 			case OTHER:
 				if (!jobQueue.asData().name.isEmpty()) {
 					QTypedReference<QTypedObject> refJobQueue = null;
-					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE
-							.createTypedReference();
+					refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
 					refJobQueue.setName(jobQueue.asData().name.trimR());
 					switch (jobQueue.asData().library.asEnum()) {
 					case LIBL:
-						refJobQueue.setLibrary(jobQueue.asData().library
-								.getSpecialName());
+						refJobQueue.setLibrary(jobQueue.asData().library.getSpecialName());
 						break;
 					case CURLIB:
-						refJobQueue.setLibrary(jobQueue.asData().library
-								.getSpecialName());
+						refJobQueue.setLibrary(jobQueue.asData().library.getSpecialName());
 						break;
 					case OTHER:
-						refJobQueue.setLibrary(jobQueue.asData().library
-								.asData().trimR());
+						refJobQueue.setLibrary(jobQueue.asData().library.asData().trimR());
 						break;
 					}
 					qJobDescription.setJobQueue(refJobQueue);
@@ -154,28 +146,21 @@ public class JobDescriptionChanger {
 			case DEV:
 			case WRKSTN:
 			case USRPRF:
-				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE
-						.createTypedReference();
+				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
 				refOutQueue.setName(outputQueue.getSpecialName());
 				break;
 			case OTHER:
 				if (!outputQueue.asData().name.isEmpty()) {
-					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE
-							.createTypedReference();
+					refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
 					refOutQueue.setName(outputQueue.asData().name.trimR());
 
 					switch (outputQueue.asData().library.asEnum()) {
 					case LIBL:
-						refOutQueue.setLibrary(outputQueue.asData().library
-								.getSpecialName());
-						break;
 					case CURLIB:
-						refOutQueue.setLibrary(outputQueue.asData().library
-								.getSpecialName());
+						refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
 						break;
 					case OTHER:
-						refOutQueue.setLibrary(outputQueue.asData().library
-								.asData().trimR());
+						refOutQueue.setLibrary(outputQueue.asData().library.asData().trimR());
 						break;
 					}
 					qJobDescription.setOutQueue(refOutQueue);
@@ -204,9 +189,7 @@ public class JobDescriptionChanger {
 
 			resource.save(qJobDescription, true);
 
-			jobLogManager.info(job,
-					"Job Description " + jobDescription.name.trimR()
-							+ " changed");
+			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR() + " changed");
 
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
@@ -221,9 +204,7 @@ public class JobDescriptionChanger {
 		public QEnum<LibraryEnum, QCharacter> library;
 
 		public static enum LibraryEnum {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
+			LIBL, CURLIB, OTHER
 		}
 	}
 
@@ -235,14 +216,11 @@ public class JobDescriptionChanger {
 		public QEnum<LibraryEnum, QCharacter> library;
 
 		public static enum LibraryEnum {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
+			LIBL, CURLIB, OTHER
 		}
 	}
 
 	public static enum JobQueueEnum {
-		@Special(value = "*SAME")
 		SAME, OTHER
 	}
 
@@ -257,11 +235,8 @@ public class JobDescriptionChanger {
 	}
 
 	public static enum PrintDeviceEnum {
-		@Special(value = "*SAME")
 		SAME, @Special(value = "X'40404040404040404040'")
-		USRPRF, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*WRKSTN")
-		WRKSTN, OTHER
+		USRPRF, SYSVAL, WRKSTN, OTHER
 	}
 
 	public static class OutputQueue extends QDataStructDelegator {
@@ -272,70 +247,46 @@ public class JobDescriptionChanger {
 		public QEnum<LibraryEnum, QCharacter> library;
 
 		public static enum LibraryEnum {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
+			LIBL, CURLIB, OTHER
 		}
 	}
 
 	public static enum OutputQueueEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*USRPRF")
-		USRPRF, @Special(value = "*DEV")
-		DEV, @Special(value = "*WRKSTN")
-		WRKSTN, OTHER
+		SAME, USRPRF, DEV, WRKSTN, OTHER
 	}
 
 	public static enum TextDescriptionEnum {
-		@Special(value = "*SAME")
 		SAME, @Special(value = "")
 		BLANK, OTHER
 	}
 
 	public static enum UserEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*RQD")
-		RQD, OTHER
+		SAME, RQD, OTHER
 	}
 
 	public static enum AccountingCodeEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*USRPRF")
-		USRPRF, @Special(value = "X'404040404040404040404040404040'")
+		SAME, USRPRF, @Special(value = "X'404040404040404040404040404040'")
 		BLANK, OTHER
 	}
 
 	public static enum PrintTextEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*BLANK")
-		BLANK, OTHER
+		SAME, SYSVAL, BLANK, OTHER
 	}
 
 	public static enum RoutingDataEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*RQSDTA")
-		RQSDTA, OTHER
+		SAME, RQSDTA, OTHER
 	}
 
 	public static enum RequestDataOrCommandEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*NONE")
-		NONE, @Special(value = "*RTGDTA")
-		RTGDTA, OTHER
+		SAME, NONE, RTGDTA, OTHER
 	}
 
 	public static enum InitialLibraryListEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*NONE")
-		NONE, OTHER
+		SAME, SYSVAL, NONE, OTHER
 	}
 
 	public static enum InitialASPGroupEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*NONE")
-		NONE, OTHER
+		SAME, NONE, OTHER
 	}
 
 	public static class MessageLogging extends QDataStructDelegator {
@@ -374,12 +325,7 @@ public class JobDescriptionChanger {
 	}
 
 	public static enum JobLogOutputEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*JOBLOGSVR")
-		JOBLOGSVR, @Special(value = "*JOBEND")
-		JOBEND, @Special(value = "*PND")
-		PND
+		SAME, SYSVAL, JOBLOGSVR, JOBEND, PND
 	}
 
 	public static enum JobMessageQueueMaximumSizeEnum {
@@ -430,27 +376,15 @@ public class JobDescriptionChanger {
 	}
 
 	public static enum JobSwitchesEnum {
-		@Special(value = "*SAME")
 		SAME, OTHER
 	}
 
 	public static enum DeviceRecoveryActionEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*MSG")
-		MSG, @Special(value = "*DSCMSG")
-		DSCMSG, @Special(value = "*DSCENDRQS")
-		DSCENDRQS, @Special(value = "*ENDJOB")
-		ENDJOB, @Special(value = "*ENDJOBNOLIST")
-		ENDJOBNOLIST
+		SAME, SYSVAL, MSG, DSCMSG, DSCENDRQS, ENDJOB, ENDJOBNOLIST
 	}
 
 	public static enum TimeSliceEndPoolEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*NONE")
-		NONE, @Special(value = "*BASE")
-		BASE
+		SAME, SYSVAL, NONE, BASE
 	}
 
 	public static enum AllowMultipleThreadsEnum {
@@ -461,17 +395,10 @@ public class JobDescriptionChanger {
 	}
 
 	public static enum SpooledFileActionEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*KEEP")
-		KEEP, @Special(value = "*DETACH")
-		DETACH
+		SAME, SYSVAL, KEEP, DETACH
 	}
 
 	public static enum DDMConversationEnum {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*KEEP")
-		KEEP, @Special(value = "*DROP")
-		DROP
+		SAME, KEEP, DROP
 	}
 }

@@ -12,7 +12,6 @@
  */
 package org.asup.dk.compiler.rpj.helper;
 
-import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QDataTerm;
@@ -54,8 +53,8 @@ public class EnumHelper {
 		if (!dataTerm.isRestricted()) {
 			EnumConstantDeclaration constantDeclaration = ast.newEnumConstantDeclaration();
 			constantDeclaration.setName(ast.newSimpleName("OTHER"));
-			QSpecialElement elemDef = QIntegratedLanguageCoreFactory.eINSTANCE.createSpecialElement();
-			writeEnumField(constantDeclaration, elemDef);
+//			QSpecialElement elemDef = QIntegratedLanguageCoreFactory.eINSTANCE.createSpecialElement();
+//			writeEnumField(constantDeclaration, elemDef);
 			target.enumConstants().add(num, constantDeclaration);
 		}
 
@@ -65,7 +64,7 @@ public class EnumHelper {
 	private static void writeEnumField(EnumConstantDeclaration enumField, QSpecialElement elem) {
 		AST ast = enumField.getAST();
 		NormalAnnotation normalAnnotation = ast.newNormalAnnotation();
-		if (elem.getValue() != null) {
+		if (!elem.getName().equals(elem.getValue())) {
 			normalAnnotation.setTypeName(ast.newSimpleName(Special.class.getSimpleName()));
 			MemberValuePair memberValuePair = ast.newMemberValuePair();
 			memberValuePair.setName(ast.newSimpleName("value"));
