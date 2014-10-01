@@ -196,8 +196,7 @@ public class JobDescriptionChanger {
 
 			for (QCharacter initialLibrary : initialLibraryList.asData()) {
 				if (initialLibrary.trimR().isEmpty()) {
-					System.err
-							.println("Unexpected condition ljsd6523jklsdfg8d");
+					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
 					break;
 				}
 				qJobDescription.getLibraries().add(initialLibrary.trimR());
