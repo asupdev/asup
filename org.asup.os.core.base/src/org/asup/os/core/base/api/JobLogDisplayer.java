@@ -17,7 +17,6 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.os.core.OperatingSystemRuntimeException;
@@ -30,7 +29,6 @@ import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QOutputManager;
 import org.asup.os.data.ds.JobReference;
 
-@Command(name = "DSPJOBLOG")
 @Program(name = "QMHDSPJL")
 public class JobLogDisplayer {
 

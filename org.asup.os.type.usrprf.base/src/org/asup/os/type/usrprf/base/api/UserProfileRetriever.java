@@ -11,10 +11,8 @@
  */
 package org.asup.os.type.usrprf.base.api;
 
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.Program;
 
-@Command(name = "RTVUSRPRF")
 @Program(name = "QSYRTVUP")
 public class UserProfileRetriever {
 

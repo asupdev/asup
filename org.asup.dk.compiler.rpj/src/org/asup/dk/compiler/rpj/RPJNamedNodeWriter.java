@@ -362,8 +362,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			annotation.values().add(memberValuePair);
 		}
 		else
-			throw new RuntimeException("Unexpected runtime exception k7548j4s67vo4kk");		
-
+			throw new RuntimeException("Unexpected runtime exception k7548j4s67vo4kk");	
 	}
 
 	private NormalAnnotation findAnnotation(List<?> modifiers, Class<?> annotationKlass) {

@@ -17,14 +17,12 @@ import org.asup.fw.util.QListUtil;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.jobs.QJob;
 
-@Command(name = "ADDLIBLE")
 @Program(name = "QLICUSRL")
 public class LibraryListEntryAdder {
 

@@ -17,7 +17,6 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QList;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -34,7 +33,6 @@ import org.asup.os.type.QType;
 import org.asup.os.type.QTypeRegistry;
 import org.asup.os.type.QTypedObject;
 
-@Command(name = "DLCOBJ")
 @Program(name = "QWCCDAOC")
 public class ObjectDeallocator {
 

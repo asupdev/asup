@@ -8,42 +8,21 @@
 package org.asup.il.core.impl;
 
 import java.net.URI;
-import java.util.Collection;
-import java.util.List;
 
-import org.asup.il.core.QFacet;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.core.QTerm;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Term</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link org.asup.il.core.impl.TermImpl#getFacets <em>Facets</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class TermImpl extends NamedNodeImpl implements QTerm {
-	/**
-	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFacets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<QFacet> facets;
 	/**
 	 * 
 	 */
@@ -73,18 +52,6 @@ public abstract class TermImpl extends NamedNodeImpl implements QTerm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<QFacet> getFacets() {
-		if (facets == null) {
-			facets = new EObjectContainmentEList<QFacet>(QFacet.class, this, QIntegratedLanguageCorePackage.TERM__FACETS);
-		}
-		return facets;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getText() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -100,96 +67,6 @@ public abstract class TermImpl extends NamedNodeImpl implements QTerm {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@SuppressWarnings("unchecked")
-	public <F extends QFacet> F getFacet(Class<F> klass) {
-		
-		for(QFacet facet: getFacets()) {
-			if(klass.isAssignableFrom(facet.getClass()))
-				return (F) facet;
-		}
-		
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QIntegratedLanguageCorePackage.TERM__FACETS:
-				return ((InternalEList<?>)getFacets()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case QIntegratedLanguageCorePackage.TERM__FACETS:
-				return getFacets();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case QIntegratedLanguageCorePackage.TERM__FACETS:
-				getFacets().clear();
-				getFacets().addAll((Collection<? extends QFacet>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case QIntegratedLanguageCorePackage.TERM__FACETS:
-				getFacets().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case QIntegratedLanguageCorePackage.TERM__FACETS:
-				return facets != null && !facets.isEmpty();
-		}
-		return super.eIsSet(featureID);
 	}
 
 } //TermImpl

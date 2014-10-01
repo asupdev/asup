@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QScroller;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -16,7 +15,6 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.type.QTypedObject;
 import org.asup.os.type.pgm.QProgramManager;
 
-@Command(name = "CALL")
 @Program(name = "QCLCALL")
 public class ProgramCaller {
 

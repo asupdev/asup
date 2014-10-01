@@ -26,7 +26,6 @@ import org.asup.db.syntax.QQueryConverterRegistry;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -48,7 +47,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 
-@Command(name = "RUNSQL")
 @Program(name = "QASSQLSTMR")
 public class SQLStatementRunner {
 

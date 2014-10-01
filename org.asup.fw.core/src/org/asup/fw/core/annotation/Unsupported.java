@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.il.data.annotation;
+package org.asup.fw.core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,12 +13,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD, ElementType.PARAMETER})
-public @interface Conversion {
-	
-	Status status() default Status.SUPPORTED;
-	
-	public enum Status {
-		POSSIBLE, SUPPORTED, TODO, UNSUPPORTED;
-	}
+@Target({ElementType.TYPE, ElementType.FIELD, ElementType.PARAMETER})
+public @interface Unsupported {
 }

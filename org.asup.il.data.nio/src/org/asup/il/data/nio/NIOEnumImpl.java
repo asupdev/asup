@@ -35,11 +35,13 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 
 		for(Field field: _klass.getFields()) {
 			Special special = field.getAnnotation(Special.class); 
-			if(special == null)
-				continue;
-			
-			if(special.value().equals(value))
-				return Enum.valueOf(_klass, field.getName());
+			if(special == null) {
+				if(value.equals("*"+field.getName().toUpperCase()))
+					return Enum.valueOf(_klass, field.getName());
+			}
+			else
+				if(special.value().equals(value))
+					return Enum.valueOf(_klass, field.getName());
 		}
 		
 		return Enum.valueOf(_klass, "OTHER");

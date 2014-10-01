@@ -50,4 +50,12 @@ public interface QResourceProvider extends QService {
 	 */
 	<T extends QObjectNameable> QResourceWriter<T> getResourceWriter(QJob job, Class<T> klass, String container);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model jobRequired="true" klassRequired="true"
+	 * @generated
+	 */
+	<T extends QObjectNameable> QResourceWriter<T> getResourceWriter(QJob job, Class<T> klass, Scope scope);
+
 } // QResourceProvider

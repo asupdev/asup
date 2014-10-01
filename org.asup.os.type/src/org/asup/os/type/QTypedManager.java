@@ -60,4 +60,12 @@ public interface QTypedManager<T extends QTypedObject> extends QPlugin, QManager
 	 */
 	QResourceWriter<T> getResourceWriter(QJob job, String container);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model jobRequired="true"
+	 * @generated
+	 */
+	QResourceWriter<T> getResourceWriter(QJob job, Scope scope);
+
 } // QTypedManager

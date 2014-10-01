@@ -14,7 +14,6 @@ package org.asup.os.core.base.api;
 import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -32,7 +31,6 @@ import org.asup.os.type.file.QFileMemberManager;
 import org.asup.os.type.file.QFileMemberRow;
 import org.asup.os.type.file.QFileMembered;
 
-@Command(name = "RUNMBR")
 @Program(name = "QASRUNMB")
 public class FileMemberRunner {
 

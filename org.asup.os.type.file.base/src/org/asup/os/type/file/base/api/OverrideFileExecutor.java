@@ -14,7 +14,6 @@ package org.asup.os.type.file.base.api;
 import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -27,7 +26,6 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
 
-@Command(name = "OVRDBF")
 @Program(name = "QDMOVERD")
 public class OverrideFileExecutor {
 

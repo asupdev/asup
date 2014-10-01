@@ -72,7 +72,11 @@ public class BaseTypeRegistryImpl extends TypeRegistryImpl implements QResourceP
 	public <T extends QObjectNameable> QResourceWriter<T> getResourceWriter(QJob job, Class<T> klass, String container) {
 		throw new OperatingSystemRuntimeException("Not writable object: "+QType.class);
 	}
-	
+	@Override
+	public <T extends QObjectNameable> QResourceWriter<T> getResourceWriter(QJob job, Class<T> klass, Scope scope) {
+		throw new OperatingSystemRuntimeException("Not writable object: "+QType.class);
+	}
+
 	private class TypeResourceReader extends ResourceReaderImpl<QType> {
 
 		@Override

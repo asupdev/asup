@@ -109,6 +109,11 @@ public class E4ResourceProviderImpl extends ResourceProviderImpl {
 		return resourceWriter;
 	}
 
+	@Override
+	public <T extends QObjectNameable> QResourceWriter<T> getResourceWriter(QJob job, Class<T> klass, Scope scope) {
+		return null;
+	}
+
 	private <T extends QObjectNameable> Resource getResource(String repository, Class<T> klass) {
 
 		String resourceKey = repository+"/"+klass.getName();
@@ -132,4 +137,5 @@ public class E4ResourceProviderImpl extends ResourceProviderImpl {
 		}
 		return resource;
 	}
+
 }

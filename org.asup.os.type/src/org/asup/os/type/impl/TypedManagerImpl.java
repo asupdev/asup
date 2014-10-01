@@ -156,6 +156,15 @@ public abstract class TypedManagerImpl<T extends QTypedObject> extends PluginImp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public QResourceWriter<T> getResourceWriter(QJob job, Scope scope) {
+		return resourceProvider.getResourceWriter(job, getTypedClass(), scope);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

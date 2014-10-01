@@ -22,7 +22,6 @@ import org.asup.db.core.QSchema;
 import org.asup.db.core.QTable;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -40,7 +39,6 @@ import org.asup.os.type.file.QPhysicalFile;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-@Command(name = "CLRPFM")
 @Program(name = "QDBCLRPF")
 public class PhysicalFileClearer {
 

@@ -8,10 +8,12 @@
 package org.asup.il.core.impl;
 
 import org.asup.fw.java.QFrameworkJavaPackage;
+import org.asup.il.core.ConversionStatus;
 import org.asup.il.core.FormatType;
 import org.asup.il.core.QAtomicTerm;
 import org.asup.il.core.QCardinality;
 import org.asup.il.core.QCompoundTerm;
+import org.asup.il.core.QConversion;
 import org.asup.il.core.QDictionary;
 import org.asup.il.core.QDomain;
 import org.asup.il.core.QFacet;
@@ -67,6 +69,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass compoundTermEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conversionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +194,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum conversionStatusEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum formatTypeEEnum = null;
 
 	/**
@@ -285,6 +301,24 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getCompoundTerm() {
 		return compoundTermEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConversion() {
+		return conversionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConversion_Status() {
+		return (EAttribute)conversionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -454,6 +488,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getNamedNode_Facets() {
+		return (EReference)namedNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -598,15 +641,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTerm_Facets() {
-		return (EReference)termEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTermContainer() {
 		return termContainerEClass;
 	}
@@ -661,6 +695,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getConversionStatus() {
+		return conversionStatusEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getFormatType() {
 		return formatTypeEEnum;
 	}
@@ -701,6 +744,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		compoundTermEClass = createEClass(COMPOUND_TERM);
 
+		conversionEClass = createEClass(CONVERSION);
+		createEAttribute(conversionEClass, CONVERSION__STATUS);
+
 		dictionaryEClass = createEClass(DICTIONARY);
 		createEAttribute(dictionaryEClass, DICTIONARY__NAME);
 		createEAttribute(dictionaryEClass, DICTIONARY__TEXT);
@@ -724,6 +770,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		multipleTermEClass = createEClass(MULTIPLE_TERM);
 
 		namedNodeEClass = createEClass(NAMED_NODE);
+		createEReference(namedNodeEClass, NAMED_NODE__FACETS);
 
 		nodeEClass = createEClass(NODE);
 
@@ -746,7 +793,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEAttribute(subjectEClass, SUBJECT__TEXT);
 
 		termEClass = createEClass(TERM);
-		createEReference(termEClass, TERM__FACETS);
 
 		termContainerEClass = createEClass(TERM_CONTAINER);
 		createEReference(termContainerEClass, TERM_CONTAINER__TERMS);
@@ -758,6 +804,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		unaryTermEClass = createEClass(UNARY_TERM);
 
 		// Create enums
+		conversionStatusEEnum = createEEnum(CONVERSION_STATUS);
 		formatTypeEEnum = createEEnum(FORMAT_TYPE);
 	}
 
@@ -801,6 +848,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		atomicTermEClass.getESuperTypes().add(this.getTerm());
 		cardinalityEClass.getESuperTypes().add(this.getFacet());
 		compoundTermEClass.getESuperTypes().add(this.getTerm());
+		conversionEClass.getESuperTypes().add(this.getFacet());
 		g1 = createEGenericType(this.getTermContainer());
 		EGenericType g2 = createEGenericType(dictionaryEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -832,6 +880,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		initEClass(compoundTermEClass, QCompoundTerm.class, "CompoundTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(conversionEClass, QConversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConversion_Status(), this.getConversionStatus(), "status", null, 1, 1, QConversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(dictionaryEClass, QDictionary.class, "Dictionary", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDictionary_Name(), ecorePackage.getEString(), "name", null, 0, 1, QDictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDictionary_Text(), ecorePackage.getEString(), "text", null, 0, 1, QDictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -855,6 +906,18 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(multipleTermEClass, QMultipleTerm.class, "MultipleTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(namedNodeEClass, QNamedNode.class, "NamedNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNamedNode_Facets(), this.getFacet(), null, "facets", null, 0, -1, QNamedNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(namedNodeEClass, null, "getFacet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "F");
+		g1 = createEGenericType(this.getFacet());
+		t1.getEBounds().add(g1);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
 
 		addEOperation(namedNodeEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -883,22 +946,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEAttribute(getSubject_Text(), ecorePackage.getEString(), "text", null, 0, 1, QSubject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(termEClass, QTerm.class, "Term", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTerm_Facets(), this.getFacet(), null, "facets", null, 0, -1, QTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(termEClass, ecorePackage.getEString(), "getText", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(termEClass, theFrameworkJavaPackage.getJavaURI(), "getURI", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		EOperation op = addEOperation(termEClass, null, "getFacet", 0, 1, IS_UNIQUE, IS_ORDERED);
-		ETypeParameter t1 = addETypeParameter(op, "F");
-		g1 = createEGenericType(this.getFacet());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType(t1);
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(t1);
-		initEOperation(op, g1);
 
 		initEClass(termContainerEClass, QTermContainer.class, "TermContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(termContainerEClass_T);
@@ -911,6 +962,12 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(unaryTermEClass, QUnaryTerm.class, "UnaryTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
+		initEEnum(conversionStatusEEnum, ConversionStatus.class, "ConversionStatus");
+		addEEnumLiteral(conversionStatusEEnum, ConversionStatus.POSSIBLE);
+		addEEnumLiteral(conversionStatusEEnum, ConversionStatus.SUPPORTED);
+		addEEnumLiteral(conversionStatusEEnum, ConversionStatus.UNSUPPORTED);
+		addEEnumLiteral(conversionStatusEEnum, ConversionStatus.TODO);
+
 		initEEnum(formatTypeEEnum, FormatType.class, "FormatType");
 		addEEnumLiteral(formatTypeEEnum, FormatType.COMMUNICATIONS_NAME);
 		addEEnumLiteral(formatTypeEEnum, FormatType.COMMAND_STRING);

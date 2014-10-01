@@ -18,6 +18,10 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.fw.core.annotation.Supported;
+import org.asup.fw.core.annotation.Todo;
+import org.asup.fw.core.annotation.Unsupported;
+import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
@@ -26,6 +30,7 @@ import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
+import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
@@ -105,6 +110,30 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 
 	@SuppressWarnings("unchecked")
 	public void writeProgramAnnotation(QProgram program) {
+		QConversion conversion = program.getFacet(QConversion.class);
+		if(conversion != null) {
+			MarkerAnnotation conversionAnnotation = getAST().newMarkerAnnotation();
+			
+			switch (conversion.getStatus()) {
+			case POSSIBLE:
+				break;
+			case SUPPORTED:
+				writeImport(Supported.class);
+				conversionAnnotation.setTypeName(getAST().newSimpleName(Supported.class.getSimpleName()));
+				getTarget().modifiers().add(conversionAnnotation);
+				break;
+			case TODO:
+				writeImport(Todo.class);
+				conversionAnnotation.setTypeName(getAST().newSimpleName(Todo.class.getSimpleName()));
+				getTarget().modifiers().add(conversionAnnotation);
+				break;
+			case UNSUPPORTED:
+				writeImport(Unsupported.class);
+				conversionAnnotation.setTypeName(getAST().newSimpleName(Unsupported.class.getSimpleName()));
+				getTarget().modifiers().add(conversionAnnotation);
+				break;
+			}
+		}
 		
 		// @Program(name=)
 		NormalAnnotation programAnnotation = getAST().newNormalAnnotation();
@@ -132,7 +161,7 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 			programAnnotation.values().add(memberValuePair);
 		}
 	
-		getTarget().modifiers().add(programAnnotation);
+		getTarget().modifiers().add(programAnnotation);		
 	}
 	
 	private void loadModules(Collection<String> modules, String module) {

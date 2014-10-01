@@ -69,7 +69,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNamedNode()
 	 * @generated
 	 */
-	int NAMED_NODE = 9;
+	int NAMED_NODE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.CardinalityImpl <em>Cardinality</em>}' class.
@@ -89,7 +89,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTermContainer()
 	 * @generated
 	 */
-	int TERM_CONTAINER = 16;
+	int TERM_CONTAINER = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.DictionaryImpl <em>Dictionary</em>}' class.
@@ -99,7 +99,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getDictionary()
 	 * @generated
 	 */
-	int DICTIONARY = 3;
+	int DICTIONARY = 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.TermImpl <em>Term</em>}' class.
@@ -109,7 +109,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTerm()
 	 * @generated
 	 */
-	int TERM = 15;
+	int TERM = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.AtomicTermImpl <em>Atomic Term</em>}' class.
@@ -129,7 +129,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFacet()
 	 * @generated
 	 */
-	int FACET = 5;
+	int FACET = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.CompoundTermImpl <em>Compound Term</em>}' class.
@@ -149,7 +149,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getDomain()
 	 * @generated
 	 */
-	int DOMAIN = 4;
+	int DOMAIN = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.FormatImpl <em>Format</em>}' class.
@@ -159,7 +159,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFormat()
 	 * @generated
 	 */
-	int FORMAT = 6;
+	int FORMAT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.OverlayImpl <em>Overlay</em>}' class.
@@ -169,7 +169,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getOverlay()
 	 * @generated
 	 */
-	int OVERLAY = 7;
+	int OVERLAY = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.MultipleTermImpl <em>Multiple Term</em>}' class.
@@ -179,7 +179,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getMultipleTerm()
 	 * @generated
 	 */
-	int MULTIPLE_TERM = 8;
+	int MULTIPLE_TERM = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.NodeImpl <em>Node</em>}' class.
@@ -189,7 +189,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNode()
 	 * @generated
 	 */
-	int NODE = 10;
+	int NODE = 11;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -201,13 +201,22 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int NODE_FEATURE_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_NODE__FACETS = NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Named Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+	int NAMED_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -216,7 +225,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TERM__FACETS = NAMED_NODE_FEATURE_COUNT + 0;
+	int TERM__FACETS = NAMED_NODE__FACETS;
 
 	/**
 	 * The number of structural features of the '<em>Term</em>' class.
@@ -225,7 +234,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TERM_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 1;
+	int TERM_FEATURE_COUNT = NAMED_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -298,6 +307,34 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOUND_TERM_FEATURE_COUNT = TERM_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.ConversionImpl <em>Conversion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.ConversionImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversion()
+	 * @generated
+	 */
+	int CONVERSION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION__STATUS = FACET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Conversion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVERSION_FEATURE_COUNT = FACET_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
@@ -478,7 +515,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRange()
 	 * @generated
 	 */
-	int RANGE = 11;
+	int RANGE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Max</b></em>' attribute.
@@ -515,7 +552,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecial()
 	 * @generated
 	 */
-	int SPECIAL = 12;
+	int SPECIAL = 13;
 
 	/**
 	 * The feature id for the '<em><b>Class Delegate</b></em>' attribute.
@@ -552,7 +589,16 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecialElement()
 	 * @generated
 	 */
-	int SPECIAL_ELEMENT = 13;
+	int SPECIAL_ELEMENT = 14;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPECIAL_ELEMENT__FACETS = NAMED_NODE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -607,7 +653,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSubject()
 	 * @generated
 	 */
-	int SUBJECT = 14;
+	int SUBJECT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -653,7 +699,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 17;
+	int VERB = 18;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -699,7 +745,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getUnaryTerm()
 	 * @generated
 	 */
-	int UNARY_TERM = 18;
+	int UNARY_TERM = 19;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -720,6 +766,16 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int UNARY_TERM_FEATURE_COUNT = TERM_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.core.ConversionStatus <em>Conversion Status</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.ConversionStatus
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversionStatus()
+	 * @generated
+	 */
+	int CONVERSION_STATUS = 20;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.core.FormatType <em>Format Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -727,7 +783,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFormatType()
 	 * @generated
 	 */
-	int FORMAT_TYPE = 19;
+	int FORMAT_TYPE = 21;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QAtomicTerm <em>Atomic Term</em>}'.
@@ -769,6 +825,27 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCompoundTerm();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.core.QConversion <em>Conversion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Conversion</em>'.
+	 * @see org.asup.il.core.QConversion
+	 * @generated
+	 */
+	EClass getConversion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.core.QConversion#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see org.asup.il.core.QConversion#getStatus()
+	 * @see #getConversion()
+	 * @generated
+	 */
+	EAttribute getConversion_Status();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.core.QCardinality#getMax <em>Max</em>}'.
@@ -962,6 +1039,17 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EClass getNamedNode();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.core.QNamedNode#getFacets <em>Facets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Facets</em>'.
+	 * @see org.asup.il.core.QNamedNode#getFacets()
+	 * @see #getNamedNode()
+	 * @generated
+	 */
+	EReference getNamedNode_Facets();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QNode <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1132,17 +1220,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EClass getTerm();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.asup.il.core.QTerm#getFacets <em>Facets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Facets</em>'.
-	 * @see org.asup.il.core.QTerm#getFacets()
-	 * @see #getTerm()
-	 * @generated
-	 */
-	EReference getTerm_Facets();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QTermContainer <em>Term Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1204,6 +1281,16 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnaryTerm();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.il.core.ConversionStatus <em>Conversion Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Conversion Status</em>'.
+	 * @see org.asup.il.core.ConversionStatus
+	 * @generated
+	 */
+	EEnum getConversionStatus();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.il.core.FormatType <em>Format Type</em>}'.
@@ -1274,6 +1361,24 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPOUND_TERM = eINSTANCE.getCompoundTerm();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.core.impl.ConversionImpl <em>Conversion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.core.impl.ConversionImpl
+		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversion()
+		 * @generated
+		 */
+		EClass CONVERSION = eINSTANCE.getConversion();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONVERSION__STATUS = eINSTANCE.getConversion_Status();
 
 		/**
 		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
@@ -1434,6 +1539,14 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EClass NAMED_NODE = eINSTANCE.getNamedNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Facets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_NODE__FACETS = eINSTANCE.getNamedNode_Facets();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.il.core.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1574,14 +1687,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EClass TERM = eINSTANCE.getTerm();
 
 		/**
-		 * The meta object literal for the '<em><b>Facets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TERM__FACETS = eINSTANCE.getTerm_Facets();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.il.core.impl.TermContainerImpl <em>Term Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1634,6 +1739,16 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNARY_TERM = eINSTANCE.getUnaryTerm();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.core.ConversionStatus <em>Conversion Status</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.core.ConversionStatus
+		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversionStatus()
+		 * @generated
+		 */
+		EEnum CONVERSION_STATUS = eINSTANCE.getConversionStatus();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.core.FormatType <em>Format Type</em>}' enum.
