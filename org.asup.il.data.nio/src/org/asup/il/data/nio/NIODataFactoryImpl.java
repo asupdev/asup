@@ -283,7 +283,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 			class MyDef<E extends Enum<E>> extends EnumDefImpl<E, QBufferedData> {
 				private static final long serialVersionUID = 1L;
 
-				public MyDef(Class<E> klass, List<Annotation> annotations, Class<?> delegate) {
+				public MyDef(Class<E> klass, List<Annotation> annotations, Type delegate) {
 					
 					setDelegate((QBufferedDataDef<QBufferedData>) createDataDef(delegate, annotations));
 					setKlass(klass);
@@ -299,7 +299,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 					return QEnum.class;
 				}
 			}			
-			dataDef = new MyDef((Class<?>) arguments.get(0), annotations, (Class<?>)arguments.get(1));			
+			dataDef = new MyDef((Class<?>) arguments.get(0), annotations, arguments.get(1));			
 		}
 
 		// other
@@ -466,8 +466,11 @@ public class NIODataFactoryImpl implements QDataFactory {
 	}
 	
 	@Override
-	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate, boolean initialize) {		
-		return new NIOEnumImpl<E, D>(classEnumerator, (NIOBufferedData) dataDelegate);
+	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum(Class<E> classEnumerator, D dataDelegate, boolean initialize) {
+		if(dataDelegate instanceof QDataDelegator)
+			return new NIOEnumImpl<E, D>(classEnumerator, (NIOBufferedData) ((QDataDelegator)dataDelegate).getDelegate());
+		else			
+			return new NIOEnumImpl<E, D>(classEnumerator, (NIOBufferedData) dataDelegate);
 	}
 
 	@Override

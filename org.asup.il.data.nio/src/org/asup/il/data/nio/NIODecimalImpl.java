@@ -61,8 +61,13 @@ public class NIODecimalImpl extends NIOBufferedData implements QDecimal {
 		String s = new String(asBytes());
 		if(s.trim().isEmpty())
 			return 0;
-		
-		return (int) Float.parseFloat(s);
+		try {
+			return (int) Float.parseFloat(s);	
+		}
+		catch(NumberFormatException e) {
+			e.printStackTrace();
+			return 0;
+		} 
 	}
 
 	@Override

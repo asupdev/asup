@@ -72,28 +72,10 @@ public class RPJNodeWriter {
 				Type array = getAST().newSimpleType(getAST().newSimpleName(multipleAtomicDataDef.getDataClass().getSimpleName()));
 				ParameterizedType parType = getAST().newParameterizedType(array);
 				
-				QSpecial special = dataTerm.getFacet(QSpecial.class);				
-				if(special == null) {					
-					String argument = "Q"+innerDataDefinition.getClass().getSimpleName().replaceAll("DefImpl", "");
-					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-					type = parType;
-				}
-				else {
-					writeImport(QEnum.class);
-					Type enumerator = getAST().newSimpleType(getAST().newSimpleName(QEnum.class.getSimpleName()));
-					ParameterizedType parEnumType = getAST().newParameterizedType(enumerator);
-					
-					// E
-					parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
-					
-					// D
-					String argument = "Q"+innerDataDefinition.getClass().getSimpleName().replaceAll("DefImpl", "");
-					parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-					
-					parType.typeArguments().add(parEnumType);
-					type = parType;
-				}			
-	
+				String argument = innerDataDefinition.getDataClass().getSimpleName();
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+				type = parType;
+
 				break;
 			case MULTIPLE_COMPOUND:
 				QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;				
@@ -108,31 +90,13 @@ public class RPJNodeWriter {
 				break;
 			case UNARY_ATOMIC:
 				
-				special = dataTerm.getFacet(QSpecial.class);				
-				if(special == null || dataTerm.getName() == null) {
-					String argument = dataDef.getDataClass().getSimpleName();
-					writeImport(dataDef.getDataClass());
-					type = getAST().newSimpleType(getAST().newSimpleName(argument));
-				} else {
-					writeImport(QEnum.class);
-					Type enumerator = getAST().newSimpleType(getAST().newSimpleName(QEnum.class.getSimpleName()));
-					ParameterizedType parEnumType = getAST().newParameterizedType(enumerator);
-					
-					// E
-					parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
-					
-					// D
-//					String argument = "Q"+klassDef.getSimpleName().replaceAll("DefImpl", "");
-					String argument = dataDef.getDataClass().getSimpleName();
-					writeImport(dataDef.getDataClass());
-					parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-					
-					type = parEnumType;
-				}
-				
+				argument = dataDef.getDataClass().getSimpleName();
+				writeImport(dataDef.getDataClass());
+				type = getAST().newSimpleType(getAST().newSimpleName(argument));
+
 				break;
 			case UNARY_COMPOUND:
-				
+
 				if(dataTerm.getFacet(QExternalFileName.class) != null) {
 					QExternalFileName externalFileName = dataTerm.getFacet(QExternalFileName.class);
 					
@@ -146,7 +110,20 @@ public class RPJNodeWriter {
 	
 				break;
 		}
-		
+
+		QSpecial special = dataTerm.getFacet(QSpecial.class);				
+		if(special != null) {
+			writeImport(QEnum.class);
+			Type enumerator = getAST().newSimpleType(getAST().newSimpleName(QEnum.class.getSimpleName()));
+			ParameterizedType parEnumType = getAST().newParameterizedType(enumerator);			
+			// E
+			parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)+"Enum")));			
+			// D
+			parEnumType.typeArguments().add(type);
+			
+			type = parEnumType;
+		}
+	
 		return type;
 	}
 

@@ -23,13 +23,11 @@ import org.asup.il.data.QDecimalDef;
 import org.asup.il.data.QFloatingDef;
 import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIndicatorDef;
-import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStrollerDef;
-import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
@@ -132,28 +130,16 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void writeInnerTerm(QDataTerm<?> term) throws IOException {
+	public void writeInnerTerm(QDataTerm<?> dataTerm) throws IOException {
 		
-		switch (term.getDataType()) {
+		switch (dataTerm.getDataType()) {
 		
 			case UNARY_ATOMIC:
-				QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>)term;
-				
-				QSpecial special = unaryAtomicDataTerm.getFacet(QSpecial.class);
-				if(special != null) {
-					EnumDeclaration enumType = getAST().newEnumDeclaration();
-					enumType.setName(getAST().newSimpleName(normalizeInnerName(unaryAtomicDataTerm)));
-					EnumHelper.writeEnum(enumType, unaryAtomicDataTerm);
-					
-					writeImport(Special.class);
-					
-					target.bodyDeclarations().add(enumType);
-				}
 				
 				break;
 
 			case UNARY_COMPOUND:
-				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)term;
+				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
 				if(unaryCompoundDataTerm.getFacet(QExternalFileName.class) == null ||
 				   unaryCompoundDataTerm.getFacet(QExternalFileName.class).getName().equals("*PGM_STATUS")) {
@@ -168,21 +154,11 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 				break;
 				
 			case MULTIPLE_ATOMIC:
-				QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>)term;
-
-				special = multipleAtomicDataTerm.getFacet(QSpecial.class);
-				if(special != null) {
-					EnumDeclaration enumType = getAST().newEnumDeclaration();
-					enumType.setName(getAST().newSimpleName(normalizeInnerName(multipleAtomicDataTerm)));
-					EnumHelper.writeEnum(enumType, multipleAtomicDataTerm);
-					writeImport(Special.class);
-					target.bodyDeclarations().add(enumType);
-				}
 				
 				break;
 			
 			case MULTIPLE_COMPOUND:
-				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) term;
+				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 				
 				if(multipleCompoundDataTerm.getFacet(QExternalFileName.class) == null ||
 				   multipleCompoundDataTerm.getFacet(QExternalFileName.class).getName().equals("*PGM_STATUS")) {
@@ -196,6 +172,18 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 				
 				break;
 		}
+		
+		QSpecial special = dataTerm.getFacet(QSpecial.class);
+		if(special != null) {
+			EnumDeclaration enumType = getAST().newEnumDeclaration();
+			enumType.setName(getAST().newSimpleName(normalizeInnerName(dataTerm)+"Enum"));
+			EnumHelper.writeEnum(enumType, dataTerm);
+			
+			writeImport(Special.class);
+			
+			target.bodyDeclarations().add(enumType);
+		}
+
 	}
 
 	public Type getJavaPrimitive(QDataTerm<?> dataTerm) {

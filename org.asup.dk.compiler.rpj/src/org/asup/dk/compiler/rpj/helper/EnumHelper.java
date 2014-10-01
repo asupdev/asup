@@ -15,7 +15,7 @@ package org.asup.dk.compiler.rpj.helper;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
-import org.asup.il.data.QAtomicDataTerm;
+import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Special;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
@@ -28,7 +28,7 @@ import org.eclipse.jdt.core.dom.StringLiteral;
 public class EnumHelper {
 
 	@SuppressWarnings("unchecked")
-	public static void writeEnum(EnumDeclaration target, QAtomicDataTerm<?> dataTerm) {
+	public static void writeEnum(EnumDeclaration target, QDataTerm<?> dataTerm) {
 		AST ast = target.getAST();
 
 		QSpecial special = dataTerm.getFacet(QSpecial.class);
