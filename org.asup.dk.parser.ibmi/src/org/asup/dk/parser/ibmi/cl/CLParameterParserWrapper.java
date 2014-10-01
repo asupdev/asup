@@ -35,6 +35,7 @@ import org.asup.dk.parser.ibmi.cl.model.parm.CLParmAbstractComponent;
 import org.asup.dk.parser.ibmi.cl.model.parm.CLParmFilter;
 import org.asup.dk.parser.ibmi.cl.model.parm.CLParmFunction;
 import org.asup.dk.parser.ibmi.cl.model.parm.CLParmFunction.CLParmFunctionType;
+import org.asup.dk.parser.ibmi.cl.model.parm.CLParmHexadecimal;
 import org.asup.dk.parser.ibmi.cl.model.parm.CLParmList;
 import org.asup.dk.parser.ibmi.cl.model.parm.CLParmSpecial;
 import org.asup.dk.parser.ibmi.cl.model.parm.CLParmString;
@@ -148,6 +149,13 @@ public class CLParameterParserWrapper implements ParserInterface <CLParmAbstract
 		case CLParameterLexer.FILTER:
 			
 			buildNode = new CLParmFilter();
+			buildNode.setText(antlrNode.getText());
+			
+			break;
+		
+		case CLParameterLexer.HEX:
+			
+			buildNode = new CLParmHexadecimal();
 			buildNode.setText(antlrNode.getText());
 			
 			break;	

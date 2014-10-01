@@ -558,6 +558,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		
 		case FILTER:
 		case STR_OPERATOR:
+		case HEX:	
 
 			value = parmValue.toString();
 

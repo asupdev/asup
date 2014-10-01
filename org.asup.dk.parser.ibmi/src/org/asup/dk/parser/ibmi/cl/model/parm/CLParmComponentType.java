@@ -19,5 +19,6 @@ public enum CLParmComponentType {
 	STRING,
 	FUNCTION,
 	VALUE,
-	STR_OPERATOR	
+	STR_OPERATOR,
+	HEX
 }

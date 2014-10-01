@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-09-30 08:31:52
+// $ANTLR 3.5.1 CLParameter.g 2014-10-01 14:27:54
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -18,8 +18,8 @@ public class CLParameterParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "APOS", "BCAT", "CAT", "CHAR_SPECIAL", 
 		"CLOSE_BRACE", "COMMENT", "CR", "FILTER", "FUNCTION", "FUNCTION_NAME", 
-		"LIST", "OPEN_BRACE", "SPECIAL", "STRING", "TCAT", "TOKEN", "VALUE", "VARIABLE", 
-		"WS"
+		"HEX", "LIST", "OPEN_BRACE", "SPECIAL", "STRING", "TCAT", "TOKEN", "VALUE", 
+		"VARIABLE", "WS"
 	};
 	public static final int EOF=-1;
 	public static final int APOS=4;
@@ -32,15 +32,16 @@ public class CLParameterParser extends Parser {
 	public static final int FILTER=11;
 	public static final int FUNCTION=12;
 	public static final int FUNCTION_NAME=13;
-	public static final int LIST=14;
-	public static final int OPEN_BRACE=15;
-	public static final int SPECIAL=16;
-	public static final int STRING=17;
-	public static final int TCAT=18;
-	public static final int TOKEN=19;
-	public static final int VALUE=20;
-	public static final int VARIABLE=21;
-	public static final int WS=22;
+	public static final int HEX=14;
+	public static final int LIST=15;
+	public static final int OPEN_BRACE=16;
+	public static final int SPECIAL=17;
+	public static final int STRING=18;
+	public static final int TCAT=19;
+	public static final int TOKEN=20;
+	public static final int VALUE=21;
+	public static final int VARIABLE=22;
+	public static final int WS=23;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -101,7 +102,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "parse"
-	// CLParameter.g:67:1: parse : ( elem )* -> ^( LIST[$parse.text] ( elem )* ) ;
+	// CLParameter.g:68:1: parse : ( elem )* -> ^( LIST[$parse.text] ( elem )* ) ;
 	public final CLParameterParser.parse_return parse() throws RecognitionException {
 		CLParameterParser.parse_return retval = new CLParameterParser.parse_return();
 		retval.start = input.LT(1);
@@ -113,23 +114,23 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_elem=new RewriteRuleSubtreeStream(adaptor,"rule elem");
 
 		try {
-			// CLParameter.g:68:3: ( ( elem )* -> ^( LIST[$parse.text] ( elem )* ) )
-			// CLParameter.g:69:3: ( elem )*
+			// CLParameter.g:69:3: ( ( elem )* -> ^( LIST[$parse.text] ( elem )* ) )
+			// CLParameter.g:70:3: ( elem )*
 			{
-			// CLParameter.g:69:3: ( elem )*
+			// CLParameter.g:70:3: ( elem )*
 			loop1:
 			while (true) {
 				int alt1=2;
 				int LA1_0 = input.LA(1);
-				if ( (LA1_0==FILTER||LA1_0==FUNCTION_NAME||(LA1_0 >= OPEN_BRACE && LA1_0 <= STRING)||LA1_0==TOKEN||LA1_0==VARIABLE) ) {
+				if ( (LA1_0==FILTER||(LA1_0 >= FUNCTION_NAME && LA1_0 <= HEX)||(LA1_0 >= OPEN_BRACE && LA1_0 <= STRING)||LA1_0==TOKEN||LA1_0==VARIABLE) ) {
 					alt1=1;
 				}
 
 				switch (alt1) {
 				case 1 :
-					// CLParameter.g:69:4: elem
+					// CLParameter.g:70:4: elem
 					{
-					pushFollow(FOLLOW_elem_in_parse107);
+					pushFollow(FOLLOW_elem_in_parse109);
 					elem1=elem();
 					state._fsp--;
 
@@ -153,13 +154,13 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 69:11: -> ^( LIST[$parse.text] ( elem )* )
+			// 70:11: -> ^( LIST[$parse.text] ( elem )* )
 			{
-				// CLParameter.g:69:14: ^( LIST[$parse.text] ( elem )* )
+				// CLParameter.g:70:14: ^( LIST[$parse.text] ( elem )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, input.toString(retval.start,input.LT(-1))), root_1);
-				// CLParameter.g:69:34: ( elem )*
+				// CLParameter.g:70:34: ( elem )*
 				while ( stream_elem.hasNext() ) {
 					adaptor.addChild(root_1, stream_elem.nextTree());
 				}
@@ -203,7 +204,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "elem"
-	// CLParameter.g:72:1: elem : ( composite | list );
+	// CLParameter.g:73:1: elem : ( composite | list );
 	public final CLParameterParser.elem_return elem() throws RecognitionException {
 		CLParameterParser.elem_return retval = new CLParameterParser.elem_return();
 		retval.start = input.LT(1);
@@ -215,10 +216,10 @@ public class CLParameterParser extends Parser {
 
 
 		try {
-			// CLParameter.g:73:2: ( composite | list )
+			// CLParameter.g:74:2: ( composite | list )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
-			if ( (LA2_0==FILTER||LA2_0==FUNCTION_NAME||(LA2_0 >= SPECIAL && LA2_0 <= STRING)||LA2_0==TOKEN||LA2_0==VARIABLE) ) {
+			if ( (LA2_0==FILTER||(LA2_0 >= FUNCTION_NAME && LA2_0 <= HEX)||(LA2_0 >= SPECIAL && LA2_0 <= STRING)||LA2_0==TOKEN||LA2_0==VARIABLE) ) {
 				alt2=1;
 			}
 			else if ( (LA2_0==OPEN_BRACE) ) {
@@ -233,12 +234,12 @@ public class CLParameterParser extends Parser {
 
 			switch (alt2) {
 				case 1 :
-					// CLParameter.g:74:5: composite
+					// CLParameter.g:75:5: composite
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_composite_in_elem141);
+					pushFollow(FOLLOW_composite_in_elem143);
 					composite2=composite();
 					state._fsp--;
 
@@ -247,12 +248,12 @@ public class CLParameterParser extends Parser {
 					}
 					break;
 				case 2 :
-					// CLParameter.g:74:15: list
+					// CLParameter.g:75:15: list
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_list_in_elem143);
+					pushFollow(FOLLOW_list_in_elem145);
 					list3=list();
 					state._fsp--;
 
@@ -290,7 +291,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "composite"
-	// CLParameter.g:78:3: composite : value ( operator value )* -> ^( VALUE[$composite.text] value ( operator value )* ) ;
+	// CLParameter.g:79:3: composite : value ( operator value )* -> ^( VALUE[$composite.text] value ( operator value )* ) ;
 	public final CLParameterParser.composite_return composite() throws RecognitionException {
 		CLParameterParser.composite_return retval = new CLParameterParser.composite_return();
 		retval.start = input.LT(1);
@@ -305,15 +306,15 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_operator=new RewriteRuleSubtreeStream(adaptor,"rule operator");
 
 		try {
-			// CLParameter.g:79:3: ( value ( operator value )* -> ^( VALUE[$composite.text] value ( operator value )* ) )
-			// CLParameter.g:80:4: value ( operator value )*
+			// CLParameter.g:80:3: ( value ( operator value )* -> ^( VALUE[$composite.text] value ( operator value )* ) )
+			// CLParameter.g:81:4: value ( operator value )*
 			{
-			pushFollow(FOLLOW_value_in_composite172);
+			pushFollow(FOLLOW_value_in_composite174);
 			value4=value();
 			state._fsp--;
 
 			stream_value.add(value4.getTree());
-			// CLParameter.g:80:10: ( operator value )*
+			// CLParameter.g:81:10: ( operator value )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -324,14 +325,14 @@ public class CLParameterParser extends Parser {
 
 				switch (alt3) {
 				case 1 :
-					// CLParameter.g:80:11: operator value
+					// CLParameter.g:81:11: operator value
 					{
-					pushFollow(FOLLOW_operator_in_composite175);
+					pushFollow(FOLLOW_operator_in_composite177);
 					operator5=operator();
 					state._fsp--;
 
 					stream_operator.add(operator5.getTree());
-					pushFollow(FOLLOW_value_in_composite177);
+					pushFollow(FOLLOW_value_in_composite179);
 					value6=value();
 					state._fsp--;
 
@@ -345,7 +346,7 @@ public class CLParameterParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: operator, value, value
+			// elements: value, value, operator
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -355,20 +356,20 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 80:28: -> ^( VALUE[$composite.text] value ( operator value )* )
+			// 81:28: -> ^( VALUE[$composite.text] value ( operator value )* )
 			{
-				// CLParameter.g:80:31: ^( VALUE[$composite.text] value ( operator value )* )
+				// CLParameter.g:81:31: ^( VALUE[$composite.text] value ( operator value )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VALUE, input.toString(retval.start,input.LT(-1))), root_1);
 				adaptor.addChild(root_1, stream_value.nextTree());
-				// CLParameter.g:80:62: ( operator value )*
-				while ( stream_operator.hasNext()||stream_value.hasNext() ) {
+				// CLParameter.g:81:62: ( operator value )*
+				while ( stream_value.hasNext()||stream_operator.hasNext() ) {
 					adaptor.addChild(root_1, stream_operator.nextTree());
 					adaptor.addChild(root_1, stream_value.nextTree());
 				}
-				stream_operator.reset();
 				stream_value.reset();
+				stream_operator.reset();
 
 				adaptor.addChild(root_0, root_1);
 				}
@@ -408,7 +409,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "list"
-	// CLParameter.g:83:1: list : OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[$list.text] ( elem )* ) ;
+	// CLParameter.g:84:1: list : OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[$list.text] ( elem )* ) ;
 	public final CLParameterParser.list_return list() throws RecognitionException {
 		CLParameterParser.list_return retval = new CLParameterParser.list_return();
 		retval.start = input.LT(1);
@@ -426,26 +427,26 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_elem=new RewriteRuleSubtreeStream(adaptor,"rule elem");
 
 		try {
-			// CLParameter.g:84:3: ( OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[$list.text] ( elem )* ) )
-			// CLParameter.g:85:3: OPEN_BRACE ( elem )* CLOSE_BRACE
+			// CLParameter.g:85:3: ( OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[$list.text] ( elem )* ) )
+			// CLParameter.g:86:3: OPEN_BRACE ( elem )* CLOSE_BRACE
 			{
-			OPEN_BRACE7=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_list218);  
+			OPEN_BRACE7=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_list220);  
 			stream_OPEN_BRACE.add(OPEN_BRACE7);
 
-			// CLParameter.g:85:14: ( elem )*
+			// CLParameter.g:86:14: ( elem )*
 			loop4:
 			while (true) {
 				int alt4=2;
 				int LA4_0 = input.LA(1);
-				if ( (LA4_0==FILTER||LA4_0==FUNCTION_NAME||(LA4_0 >= OPEN_BRACE && LA4_0 <= STRING)||LA4_0==TOKEN||LA4_0==VARIABLE) ) {
+				if ( (LA4_0==FILTER||(LA4_0 >= FUNCTION_NAME && LA4_0 <= HEX)||(LA4_0 >= OPEN_BRACE && LA4_0 <= STRING)||LA4_0==TOKEN||LA4_0==VARIABLE) ) {
 					alt4=1;
 				}
 
 				switch (alt4) {
 				case 1 :
-					// CLParameter.g:85:15: elem
+					// CLParameter.g:86:15: elem
 					{
-					pushFollow(FOLLOW_elem_in_list221);
+					pushFollow(FOLLOW_elem_in_list223);
 					elem8=elem();
 					state._fsp--;
 
@@ -458,7 +459,7 @@ public class CLParameterParser extends Parser {
 				}
 			}
 
-			CLOSE_BRACE9=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_list225);  
+			CLOSE_BRACE9=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_list227);  
 			stream_CLOSE_BRACE.add(CLOSE_BRACE9);
 
 			// AST REWRITE
@@ -472,13 +473,13 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 85:34: -> ^( LIST[$list.text] ( elem )* )
+			// 86:34: -> ^( LIST[$list.text] ( elem )* )
 			{
-				// CLParameter.g:85:37: ^( LIST[$list.text] ( elem )* )
+				// CLParameter.g:86:37: ^( LIST[$list.text] ( elem )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, input.toString(retval.start,input.LT(-1))), root_1);
-				// CLParameter.g:85:57: ( elem )*
+				// CLParameter.g:86:57: ( elem )*
 				while ( stream_elem.hasNext() ) {
 					adaptor.addChild(root_1, stream_elem.nextTree());
 				}
@@ -522,7 +523,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// CLParameter.g:89:1: value : ( TOKEN | VARIABLE | SPECIAL | FILTER | STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)] | function );
+	// CLParameter.g:90:1: value : ( TOKEN | VARIABLE | SPECIAL | FILTER | HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)] | STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)] | function );
 	public final CLParameterParser.value_return value() throws RecognitionException {
 		CLParameterParser.value_return retval = new CLParameterParser.value_return();
 		retval.start = input.LT(1);
@@ -533,19 +534,22 @@ public class CLParameterParser extends Parser {
 		Token VARIABLE11=null;
 		Token SPECIAL12=null;
 		Token FILTER13=null;
-		Token STRING14=null;
-		ParserRuleReturnScope function15 =null;
+		Token HEX14=null;
+		Token STRING15=null;
+		ParserRuleReturnScope function16 =null;
 
 		CommonTree TOKEN10_tree=null;
 		CommonTree VARIABLE11_tree=null;
 		CommonTree SPECIAL12_tree=null;
 		CommonTree FILTER13_tree=null;
-		CommonTree STRING14_tree=null;
+		CommonTree HEX14_tree=null;
+		CommonTree STRING15_tree=null;
+		RewriteRuleTokenStream stream_HEX=new RewriteRuleTokenStream(adaptor,"token HEX");
 		RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
 		try {
-			// CLParameter.g:90:3: ( TOKEN | VARIABLE | SPECIAL | FILTER | STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)] | function )
-			int alt5=6;
+			// CLParameter.g:91:3: ( TOKEN | VARIABLE | SPECIAL | FILTER | HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)] | STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)] | function )
+			int alt5=7;
 			switch ( input.LA(1) ) {
 			case TOKEN:
 				{
@@ -567,14 +571,19 @@ public class CLParameterParser extends Parser {
 				alt5=4;
 				}
 				break;
-			case STRING:
+			case HEX:
 				{
 				alt5=5;
 				}
 				break;
-			case FUNCTION_NAME:
+			case STRING:
 				{
 				alt5=6;
+				}
+				break;
+			case FUNCTION_NAME:
+				{
+				alt5=7;
 				}
 				break;
 			default:
@@ -584,58 +593,85 @@ public class CLParameterParser extends Parser {
 			}
 			switch (alt5) {
 				case 1 :
-					// CLParameter.g:91:3: TOKEN
+					// CLParameter.g:92:3: TOKEN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TOKEN10=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_value260); 
+					TOKEN10=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_value262); 
 					TOKEN10_tree = (CommonTree)adaptor.create(TOKEN10);
 					adaptor.addChild(root_0, TOKEN10_tree);
 
 					}
 					break;
 				case 2 :
-					// CLParameter.g:93:3: VARIABLE
+					// CLParameter.g:94:3: VARIABLE
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					VARIABLE11=(Token)match(input,VARIABLE,FOLLOW_VARIABLE_in_value268); 
+					VARIABLE11=(Token)match(input,VARIABLE,FOLLOW_VARIABLE_in_value270); 
 					VARIABLE11_tree = (CommonTree)adaptor.create(VARIABLE11);
 					adaptor.addChild(root_0, VARIABLE11_tree);
 
 					}
 					break;
 				case 3 :
-					// CLParameter.g:95:3: SPECIAL
+					// CLParameter.g:96:3: SPECIAL
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					SPECIAL12=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_value276); 
+					SPECIAL12=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_value278); 
 					SPECIAL12_tree = (CommonTree)adaptor.create(SPECIAL12);
 					adaptor.addChild(root_0, SPECIAL12_tree);
 
 					}
 					break;
 				case 4 :
-					// CLParameter.g:97:3: FILTER
+					// CLParameter.g:98:3: FILTER
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					FILTER13=(Token)match(input,FILTER,FOLLOW_FILTER_in_value286); 
+					FILTER13=(Token)match(input,FILTER,FOLLOW_FILTER_in_value288); 
 					FILTER13_tree = (CommonTree)adaptor.create(FILTER13);
 					adaptor.addChild(root_0, FILTER13_tree);
 
 					}
 					break;
 				case 5 :
-					// CLParameter.g:99:3: STRING
+					// CLParameter.g:100:3: HEX
 					{
-					STRING14=(Token)match(input,STRING,FOLLOW_STRING_in_value294);  
-					stream_STRING.add(STRING14);
+					HEX14=(Token)match(input,HEX,FOLLOW_HEX_in_value296);  
+					stream_HEX.add(HEX14);
+
+					// AST REWRITE
+					// elements: HEX
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 100:7: -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)]
+					{
+						adaptor.addChild(root_0, (CommonTree)adaptor.create(HEX, (HEX14!=null?HEX14.getText():null).substring(2, (HEX14!=null?HEX14.getText():null).length()-1)));
+					}
+
+
+					retval.tree = root_0;
+
+					}
+					break;
+				case 6 :
+					// CLParameter.g:102:3: STRING
+					{
+					STRING15=(Token)match(input,STRING,FOLLOW_STRING_in_value309);  
+					stream_STRING.add(STRING15);
 
 					// AST REWRITE
 					// elements: STRING
@@ -648,9 +684,9 @@ public class CLParameterParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 99:10: -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
+					// 102:10: -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
 					{
-						adaptor.addChild(root_0, (CommonTree)adaptor.create(STRING, (STRING14!=null?STRING14.getText():null).substring(1, (STRING14!=null?STRING14.getText():null).length()-1)));
+						adaptor.addChild(root_0, (CommonTree)adaptor.create(STRING, (STRING15!=null?STRING15.getText():null).substring(1, (STRING15!=null?STRING15.getText():null).length()-1)));
 					}
 
 
@@ -658,17 +694,17 @@ public class CLParameterParser extends Parser {
 
 					}
 					break;
-				case 6 :
-					// CLParameter.g:101:3: function
+				case 7 :
+					// CLParameter.g:104:3: function
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_function_in_value309);
-					function15=function();
+					pushFollow(FOLLOW_function_in_value324);
+					function16=function();
 					state._fsp--;
 
-					adaptor.addChild(root_0, function15.getTree());
+					adaptor.addChild(root_0, function16.getTree());
 
 					}
 					break;
@@ -702,28 +738,28 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "operator"
-	// CLParameter.g:105:1: operator : ( CAT | BCAT | TCAT );
+	// CLParameter.g:108:1: operator : ( CAT | BCAT | TCAT );
 	public final CLParameterParser.operator_return operator() throws RecognitionException {
 		CLParameterParser.operator_return retval = new CLParameterParser.operator_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token set16=null;
+		Token set17=null;
 
-		CommonTree set16_tree=null;
+		CommonTree set17_tree=null;
 
 		try {
-			// CLParameter.g:105:9: ( CAT | BCAT | TCAT )
+			// CLParameter.g:108:9: ( CAT | BCAT | TCAT )
 			// CLParameter.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			set16=input.LT(1);
+			set17=input.LT(1);
 			if ( (input.LA(1) >= BCAT && input.LA(1) <= CAT)||input.LA(1)==TCAT ) {
 				input.consume();
-				adaptor.addChild(root_0, (CommonTree)adaptor.create(set16));
+				adaptor.addChild(root_0, (CommonTree)adaptor.create(set17));
 				state.errorRecovery=false;
 			}
 			else {
@@ -760,32 +796,32 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "function"
-	// CLParameter.g:116:1: function : FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) ;
+	// CLParameter.g:119:1: function : FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) ;
 	public final CLParameterParser.function_return function() throws RecognitionException {
 		CLParameterParser.function_return retval = new CLParameterParser.function_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token FUNCTION_NAME17=null;
-		ParserRuleReturnScope list18 =null;
+		Token FUNCTION_NAME18=null;
+		ParserRuleReturnScope list19 =null;
 
-		CommonTree FUNCTION_NAME17_tree=null;
+		CommonTree FUNCTION_NAME18_tree=null;
 		RewriteRuleTokenStream stream_FUNCTION_NAME=new RewriteRuleTokenStream(adaptor,"token FUNCTION_NAME");
 		RewriteRuleSubtreeStream stream_list=new RewriteRuleSubtreeStream(adaptor,"rule list");
 
 		try {
-			// CLParameter.g:116:9: ( FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) )
-			// CLParameter.g:117:3: FUNCTION_NAME list
+			// CLParameter.g:119:9: ( FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) )
+			// CLParameter.g:120:3: FUNCTION_NAME list
 			{
-			FUNCTION_NAME17=(Token)match(input,FUNCTION_NAME,FOLLOW_FUNCTION_NAME_in_function353);  
-			stream_FUNCTION_NAME.add(FUNCTION_NAME17);
+			FUNCTION_NAME18=(Token)match(input,FUNCTION_NAME,FOLLOW_FUNCTION_NAME_in_function368);  
+			stream_FUNCTION_NAME.add(FUNCTION_NAME18);
 
-			pushFollow(FOLLOW_list_in_function355);
-			list18=list();
+			pushFollow(FOLLOW_list_in_function370);
+			list19=list();
 			state._fsp--;
 
-			stream_list.add(list18.getTree());
+			stream_list.add(list19.getTree());
 			// AST REWRITE
 			// elements: list
 			// token labels: 
@@ -797,12 +833,12 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 117:22: -> ^( FUNCTION[$FUNCTION_NAME.text] list )
+			// 120:22: -> ^( FUNCTION[$FUNCTION_NAME.text] list )
 			{
-				// CLParameter.g:117:25: ^( FUNCTION[$FUNCTION_NAME.text] list )
+				// CLParameter.g:120:25: ^( FUNCTION[$FUNCTION_NAME.text] list )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, (FUNCTION_NAME17!=null?FUNCTION_NAME17.getText():null)), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, (FUNCTION_NAME18!=null?FUNCTION_NAME18.getText():null)), root_1);
 				adaptor.addChild(root_1, stream_list.nextTree());
 				adaptor.addChild(root_0, root_1);
 				}
@@ -837,21 +873,22 @@ public class CLParameterParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_elem_in_parse107 = new BitSet(new long[]{0x00000000002BA802L});
-	public static final BitSet FOLLOW_composite_in_elem141 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_list_in_elem143 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_value_in_composite172 = new BitSet(new long[]{0x0000000000040062L});
-	public static final BitSet FOLLOW_operator_in_composite175 = new BitSet(new long[]{0x00000000002B2800L});
-	public static final BitSet FOLLOW_value_in_composite177 = new BitSet(new long[]{0x0000000000040062L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_list218 = new BitSet(new long[]{0x00000000002BA900L});
-	public static final BitSet FOLLOW_elem_in_list221 = new BitSet(new long[]{0x00000000002BA900L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_list225 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TOKEN_in_value260 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VARIABLE_in_value268 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SPECIAL_in_value276 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FILTER_in_value286 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_value294 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_function_in_value309 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FUNCTION_NAME_in_function353 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_list_in_function355 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_elem_in_parse109 = new BitSet(new long[]{0x0000000000576802L});
+	public static final BitSet FOLLOW_composite_in_elem143 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_list_in_elem145 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_value_in_composite174 = new BitSet(new long[]{0x0000000000080062L});
+	public static final BitSet FOLLOW_operator_in_composite177 = new BitSet(new long[]{0x0000000000566800L});
+	public static final BitSet FOLLOW_value_in_composite179 = new BitSet(new long[]{0x0000000000080062L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_list220 = new BitSet(new long[]{0x0000000000576900L});
+	public static final BitSet FOLLOW_elem_in_list223 = new BitSet(new long[]{0x0000000000576900L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_list227 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TOKEN_in_value262 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VARIABLE_in_value270 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SPECIAL_in_value278 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FILTER_in_value288 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_HEX_in_value296 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_value309 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_function_in_value324 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FUNCTION_NAME_in_function368 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_list_in_function370 = new BitSet(new long[]{0x0000000000000002L});
 }

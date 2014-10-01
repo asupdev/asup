@@ -15,6 +15,7 @@ tokens
 	//SPECIAL
 	//STRING
 	//FILTER
+	//HEX
 	FUNCTION;	
 	VALUE;	
 }
@@ -96,6 +97,8 @@ value
   |
   FILTER
   |
+  HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)]
+  |
   STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
   |  
   function
@@ -146,6 +149,10 @@ SPECIAL	:
 FILTER :
    TOKEN '*'
  ; 
+ 
+ HEX	:
+	'X' APOS ('0'..'9'|'A'..'F'|'a'..'f')+ APOS	
+ ;
       
 OPEN_BRACE
   :
