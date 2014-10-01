@@ -33,9 +33,9 @@ public abstract class NIOBufferedDelegator implements QBufferedData, QDataDelega
 	@Override
 	public QData getDelegate() {
 
-		if(_delegate instanceof NIOBufferedDelegator) {
-			NIOBufferedDelegator nioBufferDelegator = (NIOBufferedDelegator) _delegate;
-			return nioBufferDelegator.getDelegate();
+		if(_delegate instanceof QDataDelegator) {
+			QDataDelegator delegator = (QDataDelegator) _delegate;
+			return delegator.getDelegate();
 		}
 		else
 			return _delegate;
