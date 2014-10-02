@@ -200,13 +200,16 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		
 		
 		// Manage default value
-		if (defaults) {
-			value = manageDefault(dataTerm, value);
-		}		
+		
 				
 		switch (dataTerm.getDataType()) {
 
 		case MULTIPLE_ATOMIC:
+			
+			if (defaults && useDefault(dataTerm, value)) {
+				value = assignDefault(dataTerm, value);
+				defaults = false;
+			}		
 
 			QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
 			
@@ -262,6 +265,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			break;
 
 		case MULTIPLE_COMPOUND:
+						
+			if (defaults && useDefault(dataTerm, value)) {
+				value = assignDefault(dataTerm, value);
+				defaults = false;
+			}		
+			
 			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 
 			QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
@@ -333,6 +342,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			break;
 
 		case UNARY_ATOMIC:
+			
+			if (defaults && useDefault(dataTerm, value)) {
+				value = assignDefault(dataTerm, value);
+			}
+			
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;			
 			
 			if (value.isEmpty() == false) {
@@ -371,6 +385,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			break;
 		case UNARY_COMPOUND:
 			
+			if (defaults && useDefault(dataTerm, value)) {
+				value = assignDefault(dataTerm, value);
+				defaults = false;
+			}
+			
 			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) dataTerm;
 
 			// Manage Struct specials
@@ -391,26 +410,56 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		return data;
 	}
 	
-	private String manageDefault(QDataTerm<?> dataTerm, String value) {
+	private boolean useDefault(QDataTerm<?> dataTerm, String value) {
 		
-		String defValue = null;
+		boolean  useDefault = false;
+		
 		if (value == null || value.isEmpty()) {
 			
-			if (dataTerm instanceof QUnaryDataTerm) {
+			String defValue = "";
+			if (dataTerm instanceof QUnaryDataTerm) {				
 				
 				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
 				
 			} else  if (dataTerm instanceof QMultipleDataTerm) {
 				
 				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
+					defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);					
+				}
+			}
+			
+			if (defValue != null && defValue.isEmpty() == false) {
+				useDefault = true;
+			}
+		} 
+
+		return useDefault;
+
+	}
+	
+	private String assignDefault(QDataTerm<?> dataTerm, String value) {
+		
+		String defValue = null;
+		if (value == null || value.isEmpty()) {
+			
+			if (dataTerm instanceof QUnaryDataTerm) {				
+				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
+
+			} else  if (dataTerm instanceof QMultipleDataTerm) {
+				
+				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
 					defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);
+					
 				}				
 			}
-		} else {
-			defValue = value;
+		} 
+		
+		// Manage HEX default values
+		if (defValue != null && defValue.startsWith("X'") && defValue.endsWith("'")) {
+			defValue = defValue.substring(1, defValue.length()-1);
 		}
 
-		return defValue!=null?defValue:"";
+		return defValue;
 	}
 
 	private String buildStructValue(QCompoundDataDef<?> compoundDataDef, QDataContext dataContext, String parmValue, Map<String, Object> variables,
