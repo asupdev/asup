@@ -7,6 +7,7 @@
  */
 package org.asup.il.core.impl;
 
+import org.asup.il.core.*;
 import org.asup.il.core.FormatType;
 import org.asup.il.core.QCardinality;
 import org.asup.il.core.QDomain;
@@ -71,6 +72,7 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QIntegratedLanguageCorePackage.CARDINALITY: return (EObject)createCardinality();
+			case QIntegratedLanguageCorePackage.CONVERSION: return (EObject)createConversion();
 			case QIntegratedLanguageCorePackage.DOMAIN: return (EObject)createDomain();
 			case QIntegratedLanguageCorePackage.FORMAT: return (EObject)createFormat();
 			case QIntegratedLanguageCorePackage.OVERLAY: return (EObject)createOverlay();
@@ -92,6 +94,8 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case QIntegratedLanguageCorePackage.CONVERSION_STATUS:
+				return createConversionStatusFromString(eDataType, initialValue);
 			case QIntegratedLanguageCorePackage.FORMAT_TYPE:
 				return createFormatTypeFromString(eDataType, initialValue);
 			default:
@@ -107,6 +111,8 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case QIntegratedLanguageCorePackage.CONVERSION_STATUS:
+				return convertConversionStatusToString(eDataType, instanceValue);
 			case QIntegratedLanguageCorePackage.FORMAT_TYPE:
 				return convertFormatTypeToString(eDataType, instanceValue);
 			default:
@@ -122,6 +128,16 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	public QCardinality createCardinality() {
 		CardinalityImpl cardinality = new CardinalityImpl();
 		return cardinality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QConversion createConversion() {
+		ConversionImpl conversion = new ConversionImpl();
+		return conversion;
 	}
 
 	/**
@@ -202,6 +218,26 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	public QVerb createVerb() {
 		VerbImpl verb = new VerbImpl();
 		return verb;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConversionStatus createConversionStatusFromString(EDataType eDataType, String initialValue) {
+		ConversionStatus result = ConversionStatus.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertConversionStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -15,7 +15,6 @@ import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -28,7 +27,6 @@ import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.lib.QLibrary;
 
-@Command(name = "DLTLIB")
 @Program(name = "QLICLLIB")
 public class LibraryDeleter {
 

@@ -10,7 +10,6 @@ import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -27,8 +26,7 @@ import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
 import org.asup.os.type.jobd.QOperatingSystemJobDescriptionFactory;
 
-@Command(name = "CRTJOBD")
-@Program(name = "QWDCCRG", messages = { "CPF1621" })
+@Program(name = "QWDCCRG")
 public class JobDescriptionCreator {
 
 	@Inject

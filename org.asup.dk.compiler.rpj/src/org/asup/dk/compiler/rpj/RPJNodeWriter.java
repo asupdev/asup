@@ -149,7 +149,7 @@ public class RPJNodeWriter {
 	}
 	
 	public void writeImport(Class<?> klass) {
-		writeImport(klass.getName());
+		writeImport(klass.getCanonicalName());
 	}
 
 	@SuppressWarnings("unchecked")

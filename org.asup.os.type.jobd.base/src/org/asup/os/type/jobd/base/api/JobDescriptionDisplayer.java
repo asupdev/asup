@@ -19,7 +19,6 @@ import javax.inject.Inject;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -37,7 +36,6 @@ import org.asup.os.type.QTypedReference;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.lib.QLibrary;
 
-@Command(name = "DSPJOBD")
 @Program(name = "QWDCDSG")
 public class JobDescriptionDisplayer {
 

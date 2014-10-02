@@ -36,6 +36,15 @@ public interface QIntegratedLanguageCoreFactory extends EFactory {
 	QCardinality createCardinality();
 
 	/**
+	 * Returns a new object of class '<em>Conversion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conversion</em>'.
+	 * @generated
+	 */
+	QConversion createConversion();
+
+	/**
 	 * Returns a new object of class '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

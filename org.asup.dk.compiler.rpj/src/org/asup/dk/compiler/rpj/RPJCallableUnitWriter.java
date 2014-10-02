@@ -17,6 +17,10 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
 import org.asup.dk.compiler.rpj.visitor.StatementNormalizer;
+import org.asup.fw.core.annotation.Supported;
+import org.asup.fw.core.annotation.Todo;
+import org.asup.fw.core.annotation.Unsupported;
+import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.FileDef;
@@ -272,6 +276,31 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));
 			Type type = prepareJavaType(dataTerm);
 			parameterVariable.setType(type);
+			
+			QConversion conversion = dataTerm.getFacet(QConversion.class);
+			if(conversion != null) {
+				MarkerAnnotation conversionAnnotation = getAST().newMarkerAnnotation();
+				
+				switch (conversion.getStatus()) {
+				case POSSIBLE:
+					break;
+				case SUPPORTED:
+					writeImport(Supported.class);
+					conversionAnnotation.setTypeName(getAST().newSimpleName(Supported.class.getSimpleName()));
+					parameterVariable.modifiers().add(conversionAnnotation);
+					break;
+				case TODO:
+					writeImport(Todo.class);
+					conversionAnnotation.setTypeName(getAST().newSimpleName(Todo.class.getSimpleName()));
+					parameterVariable.modifiers().add(conversionAnnotation);
+					break;
+				case UNSUPPORTED:
+					writeImport(Unsupported.class);
+					conversionAnnotation.setTypeName(getAST().newSimpleName(Unsupported.class.getSimpleName()));
+					parameterVariable.modifiers().add(conversionAnnotation);
+					break;
+				}
+			}
 			
 			writeDataDefAnnotation(parameterVariable, dataTerm.getDefinition());
 			

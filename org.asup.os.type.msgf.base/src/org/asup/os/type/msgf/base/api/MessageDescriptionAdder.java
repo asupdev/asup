@@ -11,7 +11,6 @@ import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QStroller;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -26,10 +25,7 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
-@Command(name = "ADDMSGD")
-@Program(name = "QMHCRMSD", messages = { "CPF2401", "CPF2407", "CPF2411",
-		"CPF2412", "CPF2430", "CPF2461", "CPF2483", "CPF2510", "CPF9830",
-		"CPF9838" })
+@Program(name = "QMHCRMSD")
 public class MessageDescriptionAdder {
 
 	@Inject

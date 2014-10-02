@@ -6,7 +6,6 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -19,9 +18,7 @@ import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 
-@Command(name = "CHGMSGF")
-@Program(name = "QMHCHMSF", messages = { "CPF2401", "CPF2407", "CPF2411",
-		"CPF247E", "CPF2483", "CPF9830"})
+@Program(name = "QMHCHMSF")
 
 public class MessageFileChanger {
 

@@ -17,10 +17,7 @@ import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.jobd.QJobDescription;
 
-@Program(name = "QWDRJOBD", messages = { "CPF1618", "CPF24B4", "CPF3CF1",
-		"CPF3CF2", "CPF3C21", "CPF3C24", "CPF3C90", "CPF9801", "CPF9802",
-		"CPF9803", "CPF9804", "CPF9807", "CPF9808", "CPF9810", "CPF9820",
-		"CPF9830", "CPF9872" })
+@Program(name = "QWDRJOBD")
 public class JobDescriptionRetriever {
 
 	@Inject

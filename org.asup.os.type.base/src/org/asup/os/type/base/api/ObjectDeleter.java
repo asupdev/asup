@@ -23,7 +23,7 @@ import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.QTypeRegistry;
 import org.asup.os.type.QTypedObject;
 
-@Program(name = "QLIDLOBJ", messages = {})
+@Program(name = "QLIDLOBJ")
 public class ObjectDeleter {
 
 	@Inject 

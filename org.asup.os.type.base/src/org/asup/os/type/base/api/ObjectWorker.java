@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -27,7 +26,6 @@ import org.asup.os.type.QTypeRegistry;
 import org.asup.os.type.QTypedManager;
 import org.asup.os.type.QTypedObject;
 
-@Command(name = "WRKOBJ")
 @Program(name = "QMNWRKXX")
 public class ObjectWorker {
 

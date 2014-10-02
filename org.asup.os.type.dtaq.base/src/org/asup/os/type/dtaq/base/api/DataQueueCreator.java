@@ -15,7 +15,6 @@ import javax.inject.Inject;
 
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -28,18 +27,7 @@ import org.asup.os.type.dtaq.base.data.DataQueue;
 import org.asup.os.type.dtaq.base.data.QueueSize;
 import org.asup.os.type.dtaq.base.data.RemoteDataQueue;
 
-@Command(name = "CRTDTAQ")
-@Program(name = "QMHQCRTQ", messages = { "CPF2105", "CPF2108", "CPF2109",
-		"CPF2110", "CPF2113", "CPF2116", "CPF2122", "CPF2123", "CPF2130",
-		"CPF2151", "CPF2152", "CPF2162", "CPF2176", "CPF2182", "CPF2185",
-		"CPF2186", "CPF2283", "CPF327E", "CPF6565", "CPF9810", "CPF9820",
-		"CPF9827", "CPF9830", "CPF9870", "OPT1350", "OPT1360", "OPT1460",
-		"OPT1462", "OPT1463", "OPT1530", "OPT1555", "OPT1605", "OPT1640",
-		"OPT1790", "OPT1795", "OPT1805", "OPT1810", "OPT1813", "OPT1815",
-		"OPT1820", "OPT1821", "OPT1825", "OPT1860", "OPT1861", "OPT1862",
-		"OPT1863", "OPT1872", "OPT2001", "OPT2004", "OPT2005", "OPT2006",
-		"OPT2007", "OPT2008", "OPT2009", "OPT2010", "OPT2015", "OPT2028",
-		"OPT2029", "OPT2040", "OPT2301", "OPT2420", "OPT2422", "OPT7740" })
+@Program(name = "QMHQCRTQ")
 public class DataQueueCreator {
 
 	@Inject

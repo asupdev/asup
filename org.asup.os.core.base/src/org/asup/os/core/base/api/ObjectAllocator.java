@@ -19,14 +19,12 @@ import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QList;
 import org.asup.il.data.QStruct;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.os.core.base.ObjectAllocationConflict;
 import org.asup.os.core.base.ObjectAllocationScope;
 
-@Command(name = "ALCOBJ")
 @Program(name = "QWCCALOC")
 public class ObjectAllocator {
 

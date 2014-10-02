@@ -499,6 +499,21 @@
         </eParameters>
         <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="getResourceWriter">
+        <eGenericType eClassifier="#//resources/ResourceWriter">
+          <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceWriter.1/T"/>
+        </eGenericType>
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceWriter.1/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="scope" eType="#//Scope"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceReader" abstract="true">
       <eTypeParameters name="T">

@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.il.data.annotation;
+package org.asup.fw.core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,10 +13,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE})
-public @interface Command {
-	
-	String name();
-	String text() default "";
-	boolean executeBatch() default true;
+@Target({ElementType.TYPE, ElementType.FIELD, ElementType.PARAMETER})
+public @interface Todo {
 }

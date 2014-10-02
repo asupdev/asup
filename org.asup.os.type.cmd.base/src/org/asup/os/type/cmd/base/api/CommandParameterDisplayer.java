@@ -14,7 +14,6 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.os.core.OperatingSystemRuntimeException;
@@ -28,7 +27,6 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.type.cmd.QCommand;
 import org.asup.os.type.cmd.QCommandParameter;
 
-@Command(name = "DSPCMDPAR")
 @Program(name = "QASDSPCP")
 public class CommandParameterDisplayer {
 

@@ -9,7 +9,6 @@ import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QStroller;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -24,8 +23,7 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
-@Command(name = "CHGMSGD")
-@Program(name = "QMHCHMSD", messages = {})
+@Program(name = "QMHCHMSD")
 public class MessageDescriptionChanger {
 
 	@Inject

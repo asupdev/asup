@@ -10,6 +10,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundTerm" abstract="true" eSuperTypes="#//Term"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conversion" eSuperTypes="#//Facet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
+        eType="#//ConversionStatus"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConversionStatus">
+    <eLiterals name="Possible" literal="POS"/>
+    <eLiterals name="Supported" value="10" literal="SUP"/>
+    <eLiterals name="Unsupported" value="20" literal="UNS"/>
+    <eLiterals name="Todo" value="30" literal="TODO"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Dictionary" abstract="true">
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Term"/>
@@ -47,7 +57,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultipleTerm" abstract="true" eSuperTypes="#//Term"/>
   <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node">
+    <eOperations name="getFacet">
+      <eGenericType eTypeParameter="#//NamedNode/getFacet/F"/>
+      <eTypeParameters name="F">
+        <eBounds eClassifier="#//Facet"/>
+      </eTypeParameters>
+      <eParameters name="klass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//NamedNode/getFacet/F"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="facets" upperBound="-1"
+        eType="#//Facet" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true">
     <eOperations name="getParent" lowerBound="1" eType="#//Node"/>
@@ -76,19 +99,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="Term" abstract="true" eSuperTypes="#//NamedNode">
     <eOperations name="getText" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="getURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
-    <eOperations name="getFacet">
-      <eGenericType eTypeParameter="#//Term/getFacet/F"/>
-      <eTypeParameters name="F">
-        <eBounds eClassifier="#//Facet"/>
-      </eTypeParameters>
-      <eParameters name="klass" lowerBound="1">
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-          <eTypeArguments eTypeParameter="#//Term/getFacet/F"/>
-        </eGenericType>
-      </eParameters>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="facets" upperBound="-1"
-        eType="#//Facet" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TermContainer" abstract="true">
     <eTypeParameters name="T">

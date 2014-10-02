@@ -6,7 +6,6 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -20,10 +19,7 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
-@Command(name = "CRTMSGF")
-@Program(name = "QMHCRMSF", messages = { "CPF2108", "CPF2112", "CPF2113",
-		"CPF2151", "CPF2182", "CPF2283", "CPF2402", "CPF247E", "CPF2497",
-		"CPF9838" })
+@Program(name = "QMHCRMSF")
 
 public class MessageFileCreator {
 

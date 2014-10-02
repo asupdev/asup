@@ -97,4 +97,11 @@ public class JDTResourceProviderImpl extends ResourceProviderImpl {
 		return resourceWriter;
 	}
 
+	@Override
+	public <T extends QObjectNameable> QResourceWriter<T> getResourceWriter(
+			QJob job, Class<T> klass, Scope scope) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -21,7 +21,6 @@ import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -32,7 +31,6 @@ import org.asup.os.core.jobs.QJobManager;
 import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QOutputManager;
 
-@Command(name = "WRKACTJOB")
 @Program(name = "QWCCDSAC")
 public class ActiveJobWorker {
 

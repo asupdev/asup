@@ -16,7 +16,6 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.annotation.Command;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -31,7 +30,6 @@ import org.asup.os.type.pgm.QCallableProgram;
 import org.asup.os.type.pgm.QProgramManager;
 import org.asup.os.type.pgm.QProgramStatus;
 
-@Command(name = "SBMJOB")
 @Program(name = "QWTCCSBJ")
 public class JobSubmitter {
 
