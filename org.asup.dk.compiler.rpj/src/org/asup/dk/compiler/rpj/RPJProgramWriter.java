@@ -19,7 +19,7 @@ import java.util.List;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.fw.core.annotation.Supported;
-import org.asup.fw.core.annotation.Todo;
+import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
@@ -123,8 +123,8 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 				getTarget().modifiers().add(conversionAnnotation);
 				break;
 			case TODO:
-				writeImport(Todo.class);
-				conversionAnnotation.setTypeName(getAST().newSimpleName(Todo.class.getSimpleName()));
+				writeImport(ToDo.class);
+				conversionAnnotation.setTypeName(getAST().newSimpleName(ToDo.class.getSimpleName()));
 				getTarget().modifiers().add(conversionAnnotation);
 				break;
 			case UNSUPPORTED:

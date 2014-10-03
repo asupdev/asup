@@ -2,6 +2,8 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.Supported;
+import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
@@ -37,37 +39,37 @@ public class JobDescriptionCreator {
 	private QJobLogManager jobLogManager;
 
 	public @Entry void main(
-			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(qualified = true) JobQueue jobQueue,
-			@DataDef(length = 1) QCharacter jobPriorityonJOBQ,
-			@DataDef(length = 1) QCharacter outputPriorityonOUTQ,
-			@DataDef(length = 10) QEnum<PrintDevice, QCharacter> printDevice,
-			@DataDef(qualified = true) OutputQueue outputQueue,
-			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
-			@DataDef(length = 10) QEnum<User, QCharacter> user,
-			@DataDef(length = 15) QEnum<AccountingCode, QCharacter> accountingCode,
-			@DataDef(length = 30) QEnum<PrintText, QCharacter> printText,
-			@DataDef(length = 80) QEnum<RoutingData, QCharacter> routingData,
-			@DataDef(length = 256) QEnum<RequestDataOrCommand, QCharacter> requestDataOrCommand,
-			@DataDef(occurrences = "250", length = 10) QScroller<QEnum<InitialLibraryList, QCharacter>> initialLibraryList,
-			@DataDef(length = 10) QEnum<InitialASPGroup, QCharacter> initialASPGroup,
+			@Supported @DataDef(qualified = true) JobDescription jobDescription,
+			@Supported @DataDef(qualified = true) JobQueue jobQueue,
+			@Supported @DataDef(length = 1) QCharacter jobPriorityonJOBQ,
+			@Supported @DataDef(length = 1) QCharacter outputPriorityonOUTQ,
+			@DataDef(length = 10) QEnum<PrintDeviceEnum, QCharacter> printDevice,
+			@Supported @DataDef(qualified = true) QEnum<OutputQueueEnum, OutputQueue> outputQueue,
+			@Supported @DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
+			@Supported @DataDef(length = 10) QEnum<UserEnum, QCharacter> user,
+			@DataDef(length = 15) QEnum<AccountingCodeEnum, QCharacter> accountingCode,
+			@DataDef(length = 30) QEnum<PrintTextEnum, QCharacter> printText,
+			@ToDo @DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
+			@ToDo @DataDef(length = 256) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
+			@Supported @DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
+			@DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
-			@DataDef(length = 1) QEnum<LogCLProgramCommands, QCharacter> logCLProgramCommands,
-			@DataDef(length = 10) QEnum<JobLogOutput, QCharacter> jobLogOutput,
-			@DataDef(binaryType = BinaryType.SHORT) QEnum<JobMessageQueueMaximumSize, QBinary> jobMessageQueueMaximumSize,
-			@DataDef(length = 10) QEnum<JobMessageQueueFullAction, QCharacter> jobMessageQueueFullAction,
-			@DataDef(binaryType = BinaryType.SHORT) QEnum<CLSyntaxCheck, QBinary> cLSyntaxCheck,
+			@DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
+			@DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
+			@DataDef(binaryType = BinaryType.SHORT) QEnum<JobMessageQueueMaximumSizeEnum, QBinary> jobMessageQueueMaximumSize,
+			@DataDef(length = 10) QEnum<JobMessageQueueFullActionEnum, QCharacter> jobMessageQueueFullAction,
+			@DataDef(binaryType = BinaryType.SHORT) QEnum<CLSyntaxCheckEnum, QBinary> cLSyntaxCheck,
 			@DataDef(binaryType = BinaryType.SHORT) QBinary endSeverity,
-			@DataDef(length = 1) QEnum<InquiryMessageReply, QCharacter> inquiryMessageReply,
-			@DataDef(length = 1) QEnum<HoldOnJobQueue, QCharacter> holdOnJobQueue,
-			@DataDef(datetimeType = DatetimeType.DATE) QEnum<JobDate, QDatetime> jobDate,
+			@DataDef(length = 1) QEnum<InquiryMessageReplyEnum, QCharacter> inquiryMessageReply,
+			@DataDef(length = 1) QEnum<HoldOnJobQueueEnum, QCharacter> holdOnJobQueue,
+			@DataDef(datetimeType = DatetimeType.DATE) QEnum<JobDateEnum, QDatetime> jobDate,
 			@DataDef(length = 8) QCharacter jobSwitches,
-			@DataDef(length = 13) QEnum<DeviceRecoveryAction, QCharacter> deviceRecoveryAction,
-			@DataDef(length = 10) QEnum<TimeSliceEndPool, QCharacter> timeSliceEndPool,
-			@DataDef(length = 10) QEnum<Authority, QCharacter> authority,
-			@DataDef(length = 1) QEnum<AllowMultipleThreads, QCharacter> allowMultipleThreads,
-			@DataDef(length = 10) QEnum<SpooledFileAction, QCharacter> spooledFileAction,
-			@DataDef(length = 10) QEnum<DDMConversation, QCharacter> dDMConversation) {
+			@DataDef(length = 13) QEnum<DeviceRecoveryActionEnum, QCharacter> deviceRecoveryAction,
+			@DataDef(length = 10) QEnum<TimeSliceEndPoolEnum, QCharacter> timeSliceEndPool,
+			@DataDef(length = 10) QEnum<AuthorityEnum, QCharacter> authority,
+			@DataDef(length = 1) QEnum<AllowMultipleThreadsEnum, QCharacter> allowMultipleThreads,
+			@DataDef(length = 10) QEnum<SpooledFileActionEnum, QCharacter> spooledFileAction,
+			@DataDef(length = 10) QEnum<DDMConversationEnum, QCharacter> dDMConversation) {
 		
 		String library = "";
 		switch (jobDescription.library.asEnum()) {
@@ -80,121 +82,105 @@ public class JobDescriptionCreator {
 		}
 
 		String name = jobDescription.name.trimR();
-		try {
-			QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
-			QJobDescription qJobDescription = resource.lookup(name);
-			if (qJobDescription != null)
-				throw new OperatingSystemException("Job Description " + name
-						+ " already exists in library " + library);
-			
-			qJobDescription = QOperatingSystemJobDescriptionFactory.eINSTANCE.createJobDescription();
+		QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
+		QJobDescription qJobDescription = resource.lookup(name);
+		if (qJobDescription != null)
+			throw new OperatingSystemRuntimeException("Job Description " + name + " already exists in library " + library);
+		
+		qJobDescription = QOperatingSystemJobDescriptionFactory.eINSTANCE.createJobDescription();
 
-			qJobDescription.setName(name);
-			qJobDescription.setLibrary(library);
-			
-			switch (textDescription.asEnum()) {
-			case BLANK:
-				qJobDescription.setText("");
-				break;
-			case OTHER:
-				qJobDescription.setText(textDescription.asData().trimR());
-				break;
-			}
-			
-			if (!jobQueue.name.isEmpty()) {
-				QTypedReference<QTypedObject> refJobQueue = null;
-				refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-				refJobQueue.setName(jobQueue.name.trimR());
-				
-				switch (jobQueue.library.asEnum()) {
-				case LIBL:
-					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
-					break;
-				case CURLIB:
-					// TODO
-					refJobQueue.setLibrary(jobQueue.library.getSpecialName());
-					break;
-				case OTHER:
-					refJobQueue.setLibrary(jobQueue.library.asData().trimR());
-					break;
-				}
-				qJobDescription.setJobQueue(refJobQueue);
-			}
-
-			qJobDescription.setJobPriorityOnJobq(jobPriorityonJOBQ.trimR());
-			qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ.trimR());
-
-			if (!outputQueue.name.isEmpty()) {
-				QTypedReference<QTypedObject> refOutQueue = null;
-				refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-
-				switch (outputQueue.name.asEnum()) {
-				case DEV:
-				case WRKSTN:
-				case USRPRF:
-					refOutQueue.setName(outputQueue.name.getSpecialName());
-					break;
-				case OTHER:
-					refOutQueue.setName(outputQueue.name.asData().trimR());
-					break;
-				}
-				
-				switch (outputQueue.library.asEnum()) {
-				case LIBL:
-					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
-					break;
-				case CURLIB:
-					// TODO
-					refOutQueue.setLibrary(outputQueue.library.getSpecialName());
-					break;
-				case OTHER:
-					refOutQueue.setLibrary(outputQueue.library.asData().trimR());
-					break;
-				}
-
-				qJobDescription.setOutQueue(refOutQueue);
-			}
-
-			switch (user.asEnum()) {
-			case RQD:
-				qJobDescription.setUser(user.getSpecialName());
-				break;
-			case OTHER:
-				qJobDescription.setUser(user.asData().trimR());
-				break;
-			}
-
-			for (QEnum<InitialLibraryList, QCharacter> initialLibrary : initialLibraryList) {
-				if (initialLibrary.asData().trimR().isEmpty()) {
-					System.err.println("Unexpected condition ljsd6523jklsdfg8d");
-					break;
-				}
-				qJobDescription.getLibraries().add(initialLibrary.asData().trimR());
-			}
-			
-/*		TODO	
-			for (QEnum<InitialLibraryList, QCharacter> initialLibrary : initialLibraryList) {
-				switch (initialLibrary.asEnum()) {
-				case SYSVAL:
-					break;
-				case NONE:
-					break;
-				case OTHER:
-					if (initialLibrary.asData().trimR().isEmpty()) {
-						System.err.println("Unexpected condition ljsd6523jklsdfg8d");
-						break;
-					}
-					qJobDescription.getLibraries().add(initialLibrary.asData().trimR());
-				}
-			}
-*/
-			resource.save(qJobDescription);
-
-			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR()+ " created");
-			
-		} catch (OperatingSystemException e) {
-			throw new OperatingSystemRuntimeException(e);
+		qJobDescription.setName(name);
+		qJobDescription.setLibrary(library);
+		
+		switch (textDescription.asEnum()) {
+		case BLANK:
+			qJobDescription.setText("");
+			break;
+		case OTHER:
+			qJobDescription.setText(textDescription.asData().trimR());
+			break;
 		}
+		
+		if (!jobQueue.name.isEmpty()) {
+			QTypedReference<QTypedObject> refJobQueue = null;
+			refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+			refJobQueue.setName(jobQueue.name.trimR());
+			
+			switch (jobQueue.library.asEnum()) {
+			case LIBL:
+				refJobQueue.setLibrary(jobQueue.library.getSpecialName());
+				break;
+			case CURLIB:
+				// TODO
+				refJobQueue.setLibrary(jobQueue.library.getSpecialName());
+				break;
+			case OTHER:
+				refJobQueue.setLibrary(jobQueue.library.asData().trimR());
+				break;
+			}
+			qJobDescription.setJobQueue(refJobQueue);
+		}
+
+		qJobDescription.setJobPriorityOnJobq(jobPriorityonJOBQ.trimR());
+		qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ.trimR());
+
+		QTypedReference<QTypedObject> refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+		switch (outputQueue.asEnum()) {
+		case DEV:
+		case USRPRF:
+		case WRKSTN:
+			refOutQueue.setName(outputQueue.getSpecialName());
+			break;
+		case OTHER:
+			refOutQueue.setName(outputQueue.asData().name.trimR());
+			break;				
+		}
+		
+		switch (outputQueue.asData().library.asEnum()) {
+		case LIBL:
+		case CURLIB:
+			refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+			break;
+		case OTHER:
+			refOutQueue.setLibrary(outputQueue.asData().library.asData().trimR());
+			break;
+		}
+		qJobDescription.setOutQueue(refOutQueue);
+
+		switch (user.asEnum()) {
+		case RQD:
+			qJobDescription.setUser(user.getSpecialName());
+			break;
+		case OTHER:
+			qJobDescription.setUser(user.asData().trimR());
+			break;
+		}
+		switch (initialLibraryList.asEnum()) {
+		case NONE:
+			qJobDescription.getLibraries().clear();
+			break;
+		case SYSVAL:
+			// TODO
+			break;
+		case OTHER:
+			qJobDescription.getLibraries().clear();
+			
+			for (QCharacter initialLibrary : initialLibraryList.asData()) {
+				if (initialLibrary.trimR().isEmpty())
+					continue;
+
+				qJobDescription.getLibraries().add(initialLibrary.trimR());
+			}
+
+			break;			
+		}
+		try {
+			resource.save(qJobDescription);
+			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR()+ " created");
+		} catch (OperatingSystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 
 	public static class JobDescription extends QDataStructDelegator {
@@ -202,10 +188,9 @@ public class JobDescriptionCreator {
 		@DataDef(length = 10)
 		public QCharacter name;
 		@DataDef(length = 10, value = "*CURLIB")
-		public QEnum<Library, QCharacter> library;
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum Library {
-			@Special(value = "*CURLIB")
+		public static enum LibraryEnum {
 			CURLIB, OTHER
 		}
 	}
@@ -215,84 +200,65 @@ public class JobDescriptionCreator {
 		@DataDef(length = 10, value = "QBATCH")
 		public QCharacter name;
 		@DataDef(length = 10, value = "*LIBL")
-		public QEnum<Library, QCharacter> library;
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum Library {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
+		public static enum LibraryEnum {
+			LIBL, CURLIB, OTHER
 		}
 	}
 
-	public static enum PrintDevice {
+	public static enum PrintDeviceEnum {
 		@Special(value = "X'40404040404040404040'")
-		USRPRF, @Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*WRKSTN")
-		WRKSTN, OTHER
+		USRPRF, SYSVAL, WRKSTN, OTHER
 	}
 
 	public static class OutputQueue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
-		public QEnum<Name, QCharacter> name;
+		public QCharacter name;
 		@DataDef(length = 10, value = "*LIBL")
-		public QEnum<Library, QCharacter> library;
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum Name {
-			@Special(value = "*USRPRF")
-			USRPRF, @Special(value = "*DEV")
-			DEV, @Special(value = "*WRKSTN")
-			WRKSTN, OTHER
-		}
-
-		public static enum Library {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
+		public static enum LibraryEnum {
+			LIBL, CURLIB, OTHER
 		}
 	}
 
-	public static enum TextDescription {
+	public static enum OutputQueueEnum {
+		USRPRF, DEV, WRKSTN, OTHER
+	}
+
+	public static enum TextDescriptionEnum {
 		@Special(value = "")
 		BLANK, OTHER
 	}
 
-	public static enum User {
-		@Special(value = "*RQD")
+	public static enum UserEnum {
 		RQD, OTHER
 	}
 
-	public static enum AccountingCode {
-		@Special(value = "*USRPRF")
+	public static enum AccountingCodeEnum {
 		USRPRF, @Special(value = "X'404040404040404040404040404040'")
 		BLANK, OTHER
 	}
 
-	public static enum PrintText {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*BLANK")
-		BLANK, OTHER
+	public static enum PrintTextEnum {
+		SYSVAL, BLANK, OTHER
 	}
 
-	public static enum RoutingData {
-		@Special(value = "*RQSDTA")
+	public static enum RoutingDataEnum {
 		RQSDTA, OTHER
 	}
 
-	public static enum RequestDataOrCommand {
-		@Special(value = "*NONE")
-		NONE, @Special(value = "*RTGDTA")
-		RTGDTA, OTHER
+	public static enum RequestDataOrCommandEnum {
+		NONE, RTGDTA, OTHER
 	}
 
-	public static enum InitialLibraryList {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*NONE")
-		NONE, OTHER
+	public static enum InitialLibraryListEnum {
+		SYSVAL, NONE, OTHER
 	}
 
-	public static enum InitialASPGroup {
-		@Special(value = "*NONE")
+	public static enum InitialASPGroupEnum {
 		NONE, OTHER
 	}
 
@@ -303,9 +269,9 @@ public class JobDescriptionCreator {
 		@DataDef(binaryType = BinaryType.SHORT, value = "0")
 		public QBinary severity;
 		@DataDef(length = 1, value = "*NOLIST")
-		public QEnum<Text, QCharacter> text;
+		public QEnum<TextEnum, QCharacter> text;
 
-		public static enum Text {
+		public static enum TextEnum {
 			@Special(value = "N")
 			NOLIST, @Special(value = "M")
 			MSG, @Special(value = "S")
@@ -313,98 +279,74 @@ public class JobDescriptionCreator {
 		}
 	}
 
-	public static enum LogCLProgramCommands {
+	public static enum LogCLProgramCommandsEnum {
 		@Special(value = "X'40'")
 		NO, @Special(value = "Y")
 		YES
 	}
 
-	public static enum JobLogOutput {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*JOBLOGSVR")
-		JOBLOGSVR, @Special(value = "*JOBEND")
-		JOBEND, @Special(value = "*PND")
-		PND
+	public static enum JobLogOutputEnum {
+		SYSVAL, JOBLOGSVR, JOBEND, PND
 	}
 
-	public static enum JobMessageQueueMaximumSize {
+	public static enum JobMessageQueueMaximumSizeEnum {
 		@Special(value = "0")
 		SYSVAL, OTHER
 	}
 
-	public static enum JobMessageQueueFullAction {
-		@Special(value = "*SYSVAL")
+	public static enum JobMessageQueueFullActionEnum {
 		SYSVAL, @Special(value = "N")
 		NOWRAP, @Special(value = "W")
 		WRAP, @Special(value = "P")
 		PRTWRAP
 	}
 
-	public static enum CLSyntaxCheck {
+	public static enum CLSyntaxCheckEnum {
 		@Special(value = "-1")
 		NOCHK, OTHER
 	}
 
-	public static enum InquiryMessageReply {
+	public static enum InquiryMessageReplyEnum {
 		@Special(value = "X'00'")
 		RQD, @Special(value = "X'01'")
 		DFT, @Special(value = "X'02'")
 		SYSRPYL
 	}
 
-	public static enum HoldOnJobQueue {
+	public static enum HoldOnJobQueueEnum {
 		@Special(value = "N")
 		NO, @Special(value = "Y")
 		YES
 	}
 
-	public static enum JobDate {
+	public static enum JobDateEnum {
 		@Special(value = "0010000")
 		SYSVAL, OTHER
 	}
 
-	public static enum DeviceRecoveryAction {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*MSG")
-		MSG, @Special(value = "*DSCMSG")
-		DSCMSG, @Special(value = "*DSCENDRQS")
-		DSCENDRQS, @Special(value = "*ENDJOB")
-		ENDJOB, @Special(value = "*ENDJOBNOLIST")
-		ENDJOBNOLIST
+	public static enum DeviceRecoveryActionEnum {
+		SYSVAL, MSG, DSCMSG, DSCENDRQS, ENDJOB, ENDJOBNOLIST
 	}
 
-	public static enum TimeSliceEndPool {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*NONE")
-		NONE, @Special(value = "*BASE")
-		BASE
+	public static enum TimeSliceEndPoolEnum {
+		SYSVAL, NONE, BASE
 	}
 
-	public static enum Authority {
-		@Special(value = "*LIBCRTAUT")
-		LIBCRTAUT, @Special(value = "*CHANGE")
-		CHANGE, @Special(value = "*ALL")
-		ALL, @Special(value = "*USE")
-		USE, @Special(value = "*EXCLUDE")
-		EXCLUDE, OTHER
+	public static enum AuthorityEnum {
+		LIBCRTAUT, CHANGE, ALL, USE, EXCLUDE, OTHER
 	}
 
-	public static enum AllowMultipleThreads {
+	public static enum AllowMultipleThreadsEnum {
 		@Special(value = "X'00'")
 		NO, @Special(value = "X'01'")
 		YES
 	}
 
-	public static enum SpooledFileAction {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*KEEP")
-		KEEP, @Special(value = "*DETACH")
-		DETACH
+	public static enum SpooledFileActionEnum {
+		SYSVAL, KEEP, DETACH
 	}
 
-	public static enum DDMConversation {
-		@Special(value = "*KEEP")
-		KEEP, @Special(value = "*DROP")
-		DROP
+	public static enum DDMConversationEnum {
+		KEEP, DROP
 	}
 }

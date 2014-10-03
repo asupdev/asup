@@ -2,7 +2,7 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
-import org.asup.fw.core.annotation.Todo;
+import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
@@ -51,7 +51,7 @@ public class JobDescriptionChanger {
 			@DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
 			@DataDef(length = 256) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
 			@DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
-			@Todo @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
+			@ToDo @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
 			@DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
@@ -75,11 +75,12 @@ public class JobDescriptionChanger {
 		switch (jobDescription.library.asEnum()) {
 		case LIBL:
 		case CURLIB:
-			resource = jobDescriptionManager.getResourceWriter(job, Scope.getByName(jobDescription.library.asData().trimR()));
 			library = jobDescription.library.getSpecialName();
+			resource = jobDescriptionManager.getResourceWriter(job, Scope.getByName(library));
 			break;
 		case OTHER:
 			library = jobDescription.library.asData().trimR();
+			resource = jobDescriptionManager.getResourceWriter(job, library);
 			break;
 		}
 

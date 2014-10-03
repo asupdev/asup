@@ -13,17 +13,18 @@ package org.asup.os.core.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.ToDo;
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
-import org.asup.il.data.QList;
-import org.asup.il.data.QStruct;
+import org.asup.il.data.QStroller;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
-import org.asup.os.core.base.ObjectAllocationConflict;
-import org.asup.os.core.base.ObjectAllocationScope;
+import org.asup.il.data.annotation.Special;
 
 @Program(name = "QWCCALOC")
 public class ObjectAllocator {
@@ -31,30 +32,137 @@ public class ObjectAllocator {
 	@Inject
 	public QDataFactory dataContainer;
 
-	@Entry
-	public void main(
-			@DataDef(length = 120, dimension = "1000") QList<QStruct> objects,
-			@DataDef QBinary wait, QEnum<ObjectAllocationScope, QCharacter> scope,
-			QEnum<ObjectAllocationConflict, QCharacter> conflict) {
-
-		for (QStruct dataStructure : objects) {
-			dataStructure.toString();
-			
-			ObjectAllocationScope enumValue = scope.asEnum();
-
-			switch (enumValue) {
-			case BLANK:
+	public @Entry void main(
+			@ToDo @DataDef(occurrences = "50") QStroller<ObjectSpecification> objectSpecifications,
+			@ToDo @DataDef(binaryType = BinaryType.SHORT) QEnum<WaitTimeEnum, QBinary> waitTime,
+			@ToDo @DataDef(length = 1) QEnum<LockScopeEnum, QCharacter> lockScope,
+			@ToDo @DataDef(length = 1) QEnum<LockConflictActionEnum, QCharacter> lockConflictAction) {
+		
+		for(ObjectSpecification objectSpecification: objectSpecifications) {
+			switch (lockScope.asEnum()) {
+			case JOB:
 				break;
-			case J:
+			case LCKSPC:
 				break;
-			case L:
-				break;
-			case T:
+			case THREAD:
 				break;
 			default:
 				break;
 			}
+			objectSpecification.toString();
+		}
+		
+	}
+
+	public static class ObjectSpecification extends QDataStructDelegator {
+		private static final long serialVersionUID = 1L;
+		@DataDef(qualified = true)
+		public Object object;
+		@DataDef(length = 7)
+		public QEnum<ObjectTypeEnum, QCharacter> objectType;
+		@DataDef(binaryType = BinaryType.SHORT)
+		public QEnum<LockStateEnum, QBinary> lockState;
+		@DataDef(length = 10)
+		public QEnum<MemberIfDataBaseFileEnum, QCharacter> memberIfDataBaseFile;
+
+		public static class Object extends QDataStructDelegator {
+			private static final long serialVersionUID = 1L;
+			@DataDef(length = 10)
+			public QCharacter name;
+			@DataDef(length = 10, value = "*LIBL")
+			public QEnum<LibraryEnum, QCharacter> library;
+
+			public static enum LibraryEnum {
+				LIBL, CURLIB, OTHER
+			}
 		}
 
+		public static enum ObjectTypeEnum {
+			@Special(value = "AUTL")
+			AUTL, @Special(value = "BNDDIR")
+			BNDDIR, @Special(value = "CLD")
+			CLD, @Special(value = "CRQD")
+			CRQD, @Special(value = "CSI")
+			CSI, @Special(value = "CSPMAP")
+			CSPMAP, @Special(value = "CSPTBL")
+			CSPTBL, @Special(value = "DEVD")
+			DEVD, @Special(value = "DTAARA")
+			DTAARA, @Special(value = "DTADCT")
+			DTADCT, @Special(value = "DTAQ")
+			DTAQ, @Special(value = "FCT")
+			FCT, @Special(value = "FILE")
+			FILE, @Special(value = "FNTRSC")
+			FNTRSC, @Special(value = "FNTTBL")
+			FNTTBL, @Special(value = "FORMDF")
+			FORMDF, @Special(value = "IMGCLG")
+			IMGCLG, @Special(value = "IPXD")
+			IPXD, @Special(value = "LIB")
+			LIB, @Special(value = "LOCALE")
+			LOCALE, @Special(value = "MEDDFN")
+			MEDDFN, @Special(value = "MENU")
+			MENU, @Special(value = "MGTCOL")
+			MGTCOL, @Special(value = "MODULE")
+			MODULE, @Special(value = "MSGQ")
+			MSGQ, @Special(value = "NODL")
+			NODL, @Special(value = "NTBD")
+			NTBD, @Special(value = "NWSCFG")
+			NWSCFG, @Special(value = "NWSD")
+			NWSD, @Special(value = "OVL")
+			OVL, @Special(value = "PAGDFN")
+			PAGDFN, @Special(value = "PAGSEG")
+			PAGSEG, @Special(value = "PDFMAP")
+			PDFMAP, @Special(value = "PDG")
+			PDG, @Special(value = "PGM")
+			PGM, @Special(value = "PNLGRP")
+			PNLGRP, @Special(value = "PSFCFG")
+			PSFCFG, @Special(value = "QMFORM")
+			QMFORM, @Special(value = "QMQRY")
+			QMQRY, @Special(value = "QRYDFN")
+			QRYDFN, @Special(value = "SBSD")
+			SBSD, @Special(value = "SCHIDX")
+			SCHIDX, @Special(value = "SQLPKG")
+			SQLPKG, @Special(value = "SRVPGM")
+			SRVPGM, @Special(value = "SSND")
+			SSND, @Special(value = "S36")
+			S36, @Special(value = "TIMZON")
+			TIMZON, @Special(value = "USRIDX")
+			USRIDX, @Special(value = "USRQ")
+			USRQ, @Special(value = "USRSPC")
+			USRSPC, @Special(value = "VLDL")
+			VLDL, @Special(value = "WSCST")
+			WSCST
+		}
+
+		public static enum LockStateEnum {
+			@Special(value = "1")
+			SHRRD, @Special(value = "2")
+			SHRNUP, @Special(value = "3")
+			SHRUPD, @Special(value = "4")
+			EXCLRD, @Special(value = "5")
+			EXCL
+		}
+
+		public static enum MemberIfDataBaseFileEnum {
+			@Special(value = "X'40'")
+			FIRST, OTHER
+		}
+	}
+
+	public static enum WaitTimeEnum {
+		@Special(value = "-1")
+		CLS, OTHER
+	}
+
+	public static enum LockScopeEnum {
+		@Special(value = "J")
+		JOB, @Special(value = "T")
+		THREAD, @Special(value = "L")
+		LCKSPC
+	}
+
+	public static enum LockConflictActionEnum {
+		@Special(value = "N")
+		NORQSRLS, @Special(value = "Y")
+		RQSRLS
 	}
 }

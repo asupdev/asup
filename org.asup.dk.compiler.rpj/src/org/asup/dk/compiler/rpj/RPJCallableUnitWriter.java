@@ -18,7 +18,7 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
 import org.asup.dk.compiler.rpj.visitor.StatementNormalizer;
 import org.asup.fw.core.annotation.Supported;
-import org.asup.fw.core.annotation.Todo;
+import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
@@ -290,8 +290,8 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 					parameterVariable.modifiers().add(conversionAnnotation);
 					break;
 				case TODO:
-					writeImport(Todo.class);
-					conversionAnnotation.setTypeName(getAST().newSimpleName(Todo.class.getSimpleName()));
+					writeImport(ToDo.class);
+					conversionAnnotation.setTypeName(getAST().newSimpleName(ToDo.class.getSimpleName()));
 					parameterVariable.modifiers().add(conversionAnnotation);
 					break;
 				case UNSUPPORTED:
