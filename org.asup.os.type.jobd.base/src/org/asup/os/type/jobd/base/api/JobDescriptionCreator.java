@@ -18,6 +18,7 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
@@ -28,8 +29,9 @@ import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
 import org.asup.os.type.jobd.QOperatingSystemJobDescriptionFactory;
 
+@Supported
 @Program(name = "QWDCCRG")
-public class JobDescriptionCreator {
+public  class JobDescriptionCreator {
 
 	@Inject
 	private QJobDescriptionManager jobDescriptionManager;
@@ -70,83 +72,89 @@ public class JobDescriptionCreator {
 			@DataDef(length = 1) QEnum<AllowMultipleThreadsEnum, QCharacter> allowMultipleThreads,
 			@DataDef(length = 10) QEnum<SpooledFileActionEnum, QCharacter> spooledFileAction,
 			@DataDef(length = 10) QEnum<DDMConversationEnum, QCharacter> dDMConversation) {
+
+		QResourceWriter<QJobDescription> resource = null;
 		
-		String library = "";
+		String library = null;
 		switch (jobDescription.library.asEnum()) {
 		case CURLIB:
 			library = jobDescription.library.getSpecialName();
+			resource = jobDescriptionManager.getResourceWriter(job, Scope.getByName(library));
 			break;
 		case OTHER:
 			library = jobDescription.library.asData().trimR();
+			resource = jobDescriptionManager.getResourceWriter(job, library);
 			break;
 		}
 
-		String name = jobDescription.name.trimR();
-		QResourceWriter<QJobDescription> resource = jobDescriptionManager.getResourceWriter(job, library);
-		QJobDescription qJobDescription = resource.lookup(name);
+		QJobDescription qJobDescription = resource.lookup(jobDescription.name.trimR());
 		if (qJobDescription != null)
-			throw new OperatingSystemRuntimeException("Job Description " + name + " already exists in library " + library);
+			throw new OperatingSystemRuntimeException("Job Description " + jobDescription.name + " already exists in library " + library);
 		
 		qJobDescription = QOperatingSystemJobDescriptionFactory.eINSTANCE.createJobDescription();
 
-		qJobDescription.setName(name);
+		qJobDescription.setName(jobDescription.name.trimR());
 		qJobDescription.setLibrary(library);
 		
+		// TEXT
 		switch (textDescription.asEnum()) {
 		case BLANK:
-			qJobDescription.setText("");
+			qJobDescription.setText(textDescription.getSpecialName());
 			break;
 		case OTHER:
 			qJobDescription.setText(textDescription.asData().trimR());
 			break;
 		}
-		
-		if (!jobQueue.name.isEmpty()) {
-			QTypedReference<QTypedObject> refJobQueue = null;
-			refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
-			refJobQueue.setName(jobQueue.name.trimR());
-			
-			switch (jobQueue.library.asEnum()) {
-			case LIBL:
-				refJobQueue.setLibrary(jobQueue.library.getSpecialName());
-				break;
-			case CURLIB:
-				// TODO
-				refJobQueue.setLibrary(jobQueue.library.getSpecialName());
-				break;
-			case OTHER:
-				refJobQueue.setLibrary(jobQueue.library.asData().trimR());
-				break;
-			}
-			qJobDescription.setJobQueue(refJobQueue);
-		}
 
+		// JOBQ
+		QTypedReference<QTypedObject> refJobQueue = null;
+		refJobQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+		refJobQueue.setName(jobQueue.name.trimR());
+		switch (jobQueue.library.asEnum()) {
+		case LIBL:
+			refJobQueue.setLibrary(jobQueue.library.getSpecialName());
+			break;
+		case CURLIB:
+			// TODO
+			refJobQueue.setLibrary(jobQueue.library.getSpecialName());
+			break;
+		case OTHER:
+			refJobQueue.setLibrary(jobQueue.library.asData().trimR());
+			break;
+		}
+		qJobDescription.setJobQueue(refJobQueue);
+
+		// JOBPTY
 		qJobDescription.setJobPriorityOnJobq(jobPriorityonJOBQ.trimR());
+		// OUTPTY
 		qJobDescription.setOutputPriorityOnOutq(outputPriorityonOUTQ.trimR());
 
-		QTypedReference<QTypedObject> refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
+		// OUTQ
+		QTypedReference<QTypedObject> refOutQueue = null;
 		switch (outputQueue.asEnum()) {
 		case DEV:
-		case USRPRF:
 		case WRKSTN:
+		case USRPRF:
+			refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
 			refOutQueue.setName(outputQueue.getSpecialName());
 			break;
 		case OTHER:
+			refOutQueue = OperatingSystemTypeFactoryImpl.eINSTANCE.createTypedReference();
 			refOutQueue.setName(outputQueue.asData().name.trimR());
-			break;				
-		}
-		
-		switch (outputQueue.asData().library.asEnum()) {
-		case LIBL:
-		case CURLIB:
-			refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+			switch (outputQueue.asData().library.asEnum()) {
+			case LIBL:
+			case CURLIB:
+				refOutQueue.setLibrary(outputQueue.asData().library.getSpecialName());
+				break;
+			case OTHER:
+				refOutQueue.setLibrary(outputQueue.asData().library.asData().trimR());
+				break;
+			}
+			qJobDescription.setOutQueue(refOutQueue);
 			break;
-		case OTHER:
-			refOutQueue.setLibrary(outputQueue.asData().library.asData().trimR());
-			break;
 		}
-		qJobDescription.setOutQueue(refOutQueue);
 
+		// USER
 		switch (user.asEnum()) {
 		case RQD:
 			qJobDescription.setUser(user.getSpecialName());
@@ -155,6 +163,8 @@ public class JobDescriptionCreator {
 			qJobDescription.setUser(user.asData().trimR());
 			break;
 		}
+		
+		// INLLIBL
 		switch (initialLibraryList.asEnum()) {
 		case NONE:
 			qJobDescription.getLibraries().clear();
@@ -164,21 +174,19 @@ public class JobDescriptionCreator {
 			break;
 		case OTHER:
 			qJobDescription.getLibraries().clear();
-			
 			for (QCharacter initialLibrary : initialLibraryList.asData()) {
 				if (initialLibrary.trimR().isEmpty())
 					continue;
 
 				qJobDescription.getLibraries().add(initialLibrary.trimR());
 			}
-
 			break;			
 		}
+
 		try {
 			resource.save(qJobDescription);
 			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR()+ " created");
 		} catch (OperatingSystemException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 	}

@@ -2,7 +2,7 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
-import org.asup.fw.core.annotation.ToDo;
+import org.asup.fw.core.annotation.Supported;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
@@ -27,6 +27,7 @@ import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
 
+@Supported 
 @Program(name = "QWDCCHG")
 public class JobDescriptionChanger {
 
@@ -38,20 +39,20 @@ public class JobDescriptionChanger {
 	private QJobLogManager jobLogManager;
 
 	public @Entry void main(
-			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(qualified = true) QEnum<JobQueueEnum, JobQueue> jobQueue,
-			@DataDef(length = 1) QEnum<JobPriorityonJOBQEnum, QCharacter> jobPriorityonJOBQ,
-			@DataDef(length = 1) QEnum<OutputPriorityonOUTQEnum, QCharacter> outputPriorityonOUTQ,
+			@Supported @DataDef(qualified = true) JobDescription jobDescription,
+			@Supported @DataDef(qualified = true) QEnum<JobQueueEnum, JobQueue> jobQueue,
+			@Supported @DataDef(length = 1) QEnum<JobPriorityonJOBQEnum, QCharacter> jobPriorityonJOBQ,
+			@Supported @DataDef(length = 1) QEnum<OutputPriorityonOUTQEnum, QCharacter> outputPriorityonOUTQ,
 			@DataDef(length = 10) QEnum<PrintDeviceEnum, QCharacter> printDevice,
 			@DataDef(qualified = true) QEnum<OutputQueueEnum, OutputQueue> outputQueue,
-			@DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
-			@DataDef(length = 10) QEnum<UserEnum, QCharacter> user,
+			@Supported @DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
+			@Supported @DataDef(length = 10) QEnum<UserEnum, QCharacter> user,
 			@DataDef(length = 15) QEnum<AccountingCodeEnum, QCharacter> accountingCode,
 			@DataDef(length = 30) QEnum<PrintTextEnum, QCharacter> printText,
 			@DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
 			@DataDef(length = 256) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
-			@DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
-			@ToDo @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
+			@Supported @DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
+			@DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
 			@DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
@@ -88,6 +89,7 @@ public class JobDescriptionChanger {
 		if (qJobDescription == null)
 			throw new OperatingSystemRuntimeException("Job Description " + jobDescription.name + " not exists in library " + library);
 
+		// TEXT
 		switch (textDescription.asEnum()) {
 		case SAME:
 			break;
@@ -122,6 +124,7 @@ public class JobDescriptionChanger {
 		}
 		qJobDescription.setJobQueue(refJobQueue);
 		
+		// JOBPTY
 		switch (jobPriorityonJOBQ.asEnum()) {
 		case SAME:
 			break;
@@ -130,6 +133,7 @@ public class JobDescriptionChanger {
 			break;
 		}
 
+		// OUTPTY
 		switch (outputPriorityonOUTQ.asEnum()) {
 		case SAME:
 			break;
@@ -138,6 +142,7 @@ public class JobDescriptionChanger {
 			break;
 		}
 
+		// OUTQ
 		QTypedReference<QTypedObject> refOutQueue = null;
 		switch (outputQueue.asEnum()) {
 		case SAME:
@@ -165,6 +170,7 @@ public class JobDescriptionChanger {
 			break;
 		}
 
+		// USER
 		switch (user.asEnum()) {
 		case SAME:
 			break;
@@ -176,7 +182,7 @@ public class JobDescriptionChanger {
 			break;
 		}
 
-		
+		// INLLIBL
 		switch (initialLibraryList.asEnum()) {
 		case NONE:
 			qJobDescription.getLibraries().clear();
@@ -188,14 +194,12 @@ public class JobDescriptionChanger {
 			break;
 		case OTHER:
 			qJobDescription.getLibraries().clear();
-			
 			for (QCharacter initialLibrary : initialLibraryList.asData()) {
 				if (initialLibrary.trimR().isEmpty())
 					continue;
 
 				qJobDescription.getLibraries().add(initialLibrary.trimR());
 			}
-
 			break;			
 		}
 
