@@ -19,7 +19,7 @@ import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 
-public abstract class NIOBufferedList<D extends QBufferedData> extends NIOBufferedData implements QList<D>, QBufferedData {
+public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBufferedDataImpl implements QList<D>, QBufferedData {
 
 	@Override
 	public byte[] asBytes() {
@@ -167,18 +167,6 @@ public abstract class NIOBufferedList<D extends QBufferedData> extends NIOBuffer
 
 	@Override
 	public <E extends Enum<E>> void move(E value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
 		// TODO Auto-generated method stub
 		
 	}

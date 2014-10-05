@@ -25,7 +25,7 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QCharacterDef extends QUnaryAtomicDataDef<QCharacter>, QBufferedDataDef<QCharacter> {
+public interface QCharacterDef extends QUnaryAtomicBufferedDataDef<QCharacter> {
 	/**
 	 * Returns the value of the '<em><b>Length</b></em>' attribute.
 	 * <!-- begin-user-doc -->

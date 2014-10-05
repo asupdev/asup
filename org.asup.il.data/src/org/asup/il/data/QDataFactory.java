@@ -147,18 +147,18 @@ public interface QDataFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" argumentRequired="true" occurrencesRequired="true" initializeRequired="true"
+	 * @model required="true" argumentRequired="true" dimensionRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QStruct> QScroller<D> createScroller(QAtomicDataDef<D> argument, int occurrences, boolean initialize);
+	<D extends QStruct> QScroller<D> createScroller(QAtomicDataDef<D> argument, int dimension, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" argumentRequired="true" occurrencesRequired="true" initializeRequired="true"
+	 * @model required="true" argumentRequired="true" dimensionRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QStruct> QStroller<D> createStroller(QCompoundDataDef<D> argument, int occurrences, boolean initialize);
+	<D extends QStruct> QStroller<D> createStroller(QCompoundDataDef<D> argument, int dimension, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->

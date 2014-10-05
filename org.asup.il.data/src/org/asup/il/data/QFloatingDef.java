@@ -24,7 +24,7 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QFloatingDef extends QUnaryAtomicDataDef<QFloating>, QBufferedDataDef<QFloating> {
+public interface QFloatingDef extends QUnaryAtomicBufferedDataDef<QFloating> {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.asup.il.data.FloatingType}.

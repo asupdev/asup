@@ -644,7 +644,7 @@
           name="rEXXExitPrograms">
         <definition
             xsi:type="il-data:StrollerDef"
-            occurrences="8">
+            dimension="8">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
               name="program"
@@ -816,7 +816,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="3">
+            dimension="3">
           <argument
               xsi:type="il-data:BinaryDef"
               type="SHORT"/>
@@ -871,7 +871,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="9">
+            dimension="9">
           <argument
               xsi:type="il-data:BinaryDef"
               type="SHORT"/>
@@ -1792,7 +1792,7 @@
           name="rEXXExitPrograms">
         <definition
             xsi:type="il-data:StrollerDef"
-            occurrences="8">
+            dimension="8">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
               name="program"
@@ -1955,7 +1955,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="3">
+            dimension="3">
           <argument
               xsi:type="il-data:BinaryDef"
               type="SHORT"/>
@@ -2007,7 +2007,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="9">
+            dimension="9">
           <argument
               xsi:type="il-data:BinaryDef"
               type="SHORT"/>
@@ -3137,7 +3137,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="3">
+            dimension="3">
           <argument
               xsi:type="il-data:BinaryDef"
               type="INTEGER"/>
@@ -3164,7 +3164,7 @@
           name="command">
         <definition
             xsi:type="il-data:StrollerDef"
-            occurrences="50">
+            dimension="50">
           <elements
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="name"

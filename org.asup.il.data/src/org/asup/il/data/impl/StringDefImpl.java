@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class StringDefImpl extends UnaryAtomicDataDefImpl<QString> implements QStringDef {
+public class StringDefImpl extends UnaryAtomicBufferedDataDefImpl<QString> implements QStringDef {
 	/**
 	 * 
 	 */
@@ -44,17 +44,6 @@ public class StringDefImpl extends UnaryAtomicDataDefImpl<QString> implements QS
 	@Override
 	protected EClass eStaticClass() {
 		return QIntegratedLanguageDataPackage.Literals.STRING_DEF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

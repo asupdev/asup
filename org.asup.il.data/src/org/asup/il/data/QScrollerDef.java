@@ -7,7 +7,6 @@
  */
 package org.asup.il.data;
 
-import java.lang.String;
 
 
 
@@ -19,7 +18,7 @@ import java.lang.String;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.il.data.QScrollerDef#getOccurrences <em>Occurrences</em>}</li>
+ *   <li>{@link org.asup.il.data.QScrollerDef#getDimension <em>Dimension</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,31 +26,31 @@ import java.lang.String;
  * @model
  * @generated
  */
-public interface QScrollerDef<D extends QScroller<?>> extends QMultipleAtomicDataDef<D>, QBufferedDataDef<D> {
+public interface QScrollerDef<D extends QScroller<QBufferedData>> extends QMultipleAtomicBufferedDataDef<D> {
 
 	/**
-	 * Returns the value of the '<em><b>Occurrences</b></em>' attribute.
+	 * Returns the value of the '<em><b>Dimension</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Occurrences</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Dimension</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Occurrences</em>' attribute.
-	 * @see #setOccurrences(String)
-	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getScrollerDef_Occurrences()
+	 * @return the value of the '<em>Dimension</em>' attribute.
+	 * @see #setDimension(int)
+	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getScrollerDef_Dimension()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getOccurrences();
+	int getDimension();
 
 	/**
-	 * Sets the value of the '{@link org.asup.il.data.QScrollerDef#getOccurrences <em>Occurrences</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.il.data.QScrollerDef#getDimension <em>Dimension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Occurrences</em>' attribute.
-	 * @see #getOccurrences()
+	 * @param value the new value of the '<em>Dimension</em>' attribute.
+	 * @see #getDimension()
 	 * @generated
 	 */
-	void setOccurrences(String value);
+	void setDimension(int value);
 } // QScrollerDataDef

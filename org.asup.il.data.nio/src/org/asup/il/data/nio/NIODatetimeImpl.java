@@ -11,18 +11,15 @@
  */
 package org.asup.il.data.nio;
 
-import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Date;
 
 import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
-import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QDatetime;
 
-public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
+public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -55,15 +52,6 @@ public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 			}
 		}
 	}
-
-	@Override
-	public void allocate() {
-		if(getParent() == null)
-			setBuffer(ByteBuffer.allocate(size()));;
-		
-		reset();
-		
-	}
 	
 	@Override
 	public void reset() {
@@ -71,22 +59,6 @@ public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 			NIOBufferHelper.movel(getBuffer(), getPosition(), length(), _value, true, INIT);
 		else
 			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + length(), INIT);
-		
-	}
-
-	@Override
-	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), length());
-	}
-
-	@Override
-	public String asString() {
-		return toString();
-	}
-
-	@Override
-	public void eval(QBufferedData value) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -142,24 +114,12 @@ public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 		return length();
 	}
 
-	@Override
-	public void accept(QDataVisitor visitor) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		NIOBufferHelper.clear(getBuffer(), getPosition(), size(), INIT);
 	}
-
-	@Override
-	public void eval(Object value) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
@@ -167,37 +127,7 @@ public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 	}
 
 	@Override
-	public void move(String value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void move(String value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void move(int value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void move(int value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void move(QBufferedData value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void move(QBufferedData value, boolean clear) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -215,61 +145,7 @@ public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 	}
 
 	@Override
-	public void movea(QArray<?> value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movea(QArray<?> value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movel(String value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void movel(String value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movel(int value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movel(int value, boolean clear) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movel(QBufferedData value) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void movel(QBufferedData value, boolean clear) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -304,6 +180,26 @@ public class NIODatetimeImpl extends NIOBufferedData implements QDatetime {
 		NIODatetimeImpl copy = new NIODatetimeImpl(_type, _format, _value);
 		
 		return copy;
+	}
+
+	@Override
+	public String asString() {
+		return new String(asBytes());
+	}
+
+	@Override
+	public void eval(QBufferedData value) {
+		movel(value.toString(), true);
+	}
+
+	@Override
+	public void eval(Object value) {
+		movel(value.toString(), true);
+	}
+
+	@Override
+	protected byte getFiller() {
+		return INIT;
 	}
 
 }

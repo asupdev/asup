@@ -19,6 +19,7 @@ package org.asup.il.data;
  * @generated
  */
 public interface QBufferedDataDef<D extends QBufferedData> extends QDataDef<D> {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

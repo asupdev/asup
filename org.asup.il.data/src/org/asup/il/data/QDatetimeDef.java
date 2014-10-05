@@ -27,7 +27,7 @@ import java.lang.String;
  * @model
  * @generated
  */
-public interface QDatetimeDef extends QUnaryAtomicDataDef<QDatetime>, QBufferedDataDef<QDatetime> {
+public interface QDatetimeDef extends QUnaryAtomicBufferedDataDef<QDatetime> {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.asup.il.data.DatetimeType}.

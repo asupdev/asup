@@ -10,6 +10,7 @@ package org.asup.il.data.impl;
 import java.lang.String;
 import java.util.List;
 
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QScrollerDef;
@@ -24,37 +25,37 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.il.data.impl.ScrollerDefImpl#getOccurrences <em>Occurrences</em>}</li>
+ *   <li>{@link org.asup.il.data.impl.ScrollerDefImpl#getDimension <em>Dimension</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataDefImpl<D> implements QScrollerDef<D> {
+public class ScrollerDefImpl<D extends QScroller<QBufferedData>> extends MultipleAtomicBufferedDataDefImpl<D> implements QScrollerDef<D> {
+	/**
+	 * The default value of the '{@link #getDimension() <em>Dimension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDimension()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int DIMENSION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDimension()
+	 * @generated
+	 * @ordered
+	 */
+	protected int dimension = DIMENSION_EDEFAULT;
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * The default value of the '{@link #getOccurrences() <em>Occurrences</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOccurrences()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String OCCURRENCES_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getOccurrences() <em>Occurrences</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOccurrences()
-	 * @generated
-	 * @ordered
-	 */
-	protected String occurrences = OCCURRENCES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,8 +81,8 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getOccurrences() {
-		return occurrences;
+	public int getDimension() {
+		return dimension;
 	}
 
 	/**
@@ -89,22 +90,11 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOccurrences(String newOccurrences) {
-		String oldOccurrences = occurrences;
-		occurrences = newOccurrences;
+	public void setDimension(int newDimension) {
+		int oldDimension = dimension;
+		dimension = newDimension;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.SCROLLER_DEF__OCCURRENCES, oldOccurrences, occurrences));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.SCROLLER_DEF__DIMENSION, oldDimension, dimension));
 	}
 
 	/**
@@ -115,8 +105,8 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.SCROLLER_DEF__OCCURRENCES:
-				return getOccurrences();
+			case QIntegratedLanguageDataPackage.SCROLLER_DEF__DIMENSION:
+				return getDimension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -129,8 +119,8 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.SCROLLER_DEF__OCCURRENCES:
-				setOccurrences((String)newValue);
+			case QIntegratedLanguageDataPackage.SCROLLER_DEF__DIMENSION:
+				setDimension((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -144,8 +134,8 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.SCROLLER_DEF__OCCURRENCES:
-				setOccurrences(OCCURRENCES_EDEFAULT);
+			case QIntegratedLanguageDataPackage.SCROLLER_DEF__DIMENSION:
+				setDimension(DIMENSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -159,8 +149,8 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageDataPackage.SCROLLER_DEF__OCCURRENCES:
-				return OCCURRENCES_EDEFAULT == null ? occurrences != null : !OCCURRENCES_EDEFAULT.equals(occurrences);
+			case QIntegratedLanguageDataPackage.SCROLLER_DEF__DIMENSION:
+				return dimension != DIMENSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -175,8 +165,8 @@ public class ScrollerDefImpl<D extends QScroller<?>> extends MultipleAtomicDataD
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (occurrences: ");
-		result.append(occurrences);
+		result.append(" (dimension: ");
+		result.append(dimension);
 		result.append(')');
 		return result.toString();
 	}

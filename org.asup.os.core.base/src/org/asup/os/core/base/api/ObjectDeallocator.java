@@ -45,7 +45,7 @@ public class ObjectDeallocator {
 	private QJob job;
 
 	@Entry
-	public void main(@DataDef(dimension = "50") QList<QTypedData> objects,
+	public void main(@DataDef(dimension = 50) QList<QTypedData> objects,
 			@DataDef QBinary wait, QEnum<ObjectAllocationScope, QCharacter> scope,
 			QEnum<ObjectAllocationConflict, QCharacter> conflict) {
 

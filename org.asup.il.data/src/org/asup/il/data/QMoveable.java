@@ -89,6 +89,22 @@ public interface QMoveable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model valueType="org.asup.fw.java.JavaNumber"
+	 * @generated
+	 */
+	void move(Number value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueType="org.asup.fw.java.JavaNumber" clearRequired="true"
+	 * @generated
+	 */
+	void move(Number value, boolean clear);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -101,22 +117,6 @@ public interface QMoveable {
 	 * @generated
 	 */
 	void movea(QArray<?> value, boolean clear);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> void movea(E value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model clearRequired="true" EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> void movea(E value, boolean clear);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,5 +181,21 @@ public interface QMoveable {
 	 * @generated
 	 */
 	<E extends Enum<E>> void movel(E value, boolean clear);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueType="org.asup.fw.java.JavaNumber"
+	 * @generated
+	 */
+	void movel(Number value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueType="org.asup.fw.java.JavaNumber" clearRequired="true"
+	 * @generated
+	 */
+	void movel(Number value, boolean clear);
 
 } // QMoveable

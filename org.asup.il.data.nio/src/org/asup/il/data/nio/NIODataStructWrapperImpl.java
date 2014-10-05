@@ -24,7 +24,7 @@ import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDelegator {
+public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements QDataDelegator {
 
 	private static final long serialVersionUID = 1L;
 
@@ -112,7 +112,7 @@ public class NIODataStructWrapperImpl extends NIODataStruct implements QDataDele
 		_dynamicLength = stream.readBoolean();
 		
 		for(QBufferedData element: getElements()) {
-			NIOBufferedData nioBufferChild = (NIOBufferedData)element;
+			NIOBufferedDataImpl nioBufferChild = (NIOBufferedDataImpl)element;
 			nioBufferChild.setBuffer(getBuffer());
 		}
 	}

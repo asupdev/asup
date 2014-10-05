@@ -31,7 +31,7 @@
           <elements name="*SERVICE" value="X'00400000'"/>
           <elements name="*SPLCTL" value="X'00100000'"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="8">
+        <definition xsi:type="il-data:ScrollerDef" dimension="8">
           <argument xsi:type="il-data:CharacterDef" length="4"/>
         </definition>
       </dataTerm>
@@ -316,7 +316,7 @@
           <elements name="*SAME" value="*SAME"/>
           <elements name="*NONE" value="X'40'"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="15">
+        <definition xsi:type="il-data:ScrollerDef" dimension="15">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -522,7 +522,7 @@
           <elements name="*SRTSEQ" value="X'0800'"/>
           <elements name="*TIMSEP" value="X'0400'"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="6">
+        <definition xsi:type="il-data:ScrollerDef" dimension="6">
           <argument xsi:type="il-data:CharacterDef" length="2"/>
         </definition>
       </dataTerm>
@@ -553,7 +553,7 @@
           <elements name="*HLPFULL" value="*HLPFULL"/>
           <elements name="*PRTMSG" value="*PRTMSG"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="7">
+        <definition xsi:type="il-data:ScrollerDef" dimension="7">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -678,7 +678,7 @@
           <elements name="*SERVICE" value="X'00400000'"/>
           <elements name="*SPLCTL" value="X'00100000'"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="8">
+        <definition xsi:type="il-data:ScrollerDef" dimension="8">
           <argument xsi:type="il-data:CharacterDef" length="4"/>
         </definition>
       </dataTerm>
@@ -937,7 +937,7 @@
         <facets xsi:type="il-core:Special">
           <elements name="*NONE" value="X'40'"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="15">
+        <definition xsi:type="il-data:ScrollerDef" dimension="15">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -1127,7 +1127,7 @@
           <elements name="*SRTSEQ" value="X'0800'"/>
           <elements name="*TIMSEP" value="X'0400'"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="6">
+        <definition xsi:type="il-data:ScrollerDef" dimension="6">
           <argument xsi:type="il-data:CharacterDef" length="2"/>
         </definition>
       </dataTerm>
@@ -1156,7 +1156,7 @@
           <elements name="*HLPFULL" value="*HLPFULL"/>
           <elements name="*PRTMSG" value="*PRTMSG"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="7">
+        <definition xsi:type="il-data:ScrollerDef" dimension="7">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -1449,7 +1449,7 @@
         <facets xsi:type="il-core:Special">
           <elements name="*SAVF" value="*SAVF"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="4">
+        <definition xsi:type="il-data:ScrollerDef" dimension="4">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -1462,7 +1462,7 @@
           <elements name="*NEW" value="*NEW"/>
           <elements name="*NONE" value="*NONE"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="300">
+        <definition xsi:type="il-data:ScrollerDef" dimension="300">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -1472,7 +1472,7 @@
         <facets xsi:type="il-core:Special">
           <elements name="*MOUNTED" value="*M"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="75">
+        <definition xsi:type="il-data:ScrollerDef" dimension="75">
           <argument xsi:type="il-data:CharacterDef" length="32"/>
         </definition>
       </dataTerm>
@@ -1514,7 +1514,7 @@
           <elements name="*OWNER" value="O"/>
           <elements name="*PGP" value="P"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="3">
+        <definition xsi:type="il-data:ScrollerDef" dimension="3">
           <argument xsi:type="il-data:CharacterDef" length="1"/>
         </definition>
       </dataTerm>
@@ -1537,7 +1537,7 @@
         <facets xsi:type="il-core:Special">
           <elements name="*NONE" value="*NONE"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="300">
+        <definition xsi:type="il-data:ScrollerDef" dimension="300">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>
@@ -1561,7 +1561,7 @@
           <elements name="*DCM" value="D"/>
           <elements name="*FCNUSG" value="F"/>
         </facets>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="3">
+        <definition xsi:type="il-data:ScrollerDef" dimension="3">
           <argument xsi:type="il-data:CharacterDef" length="1"/>
         </definition>
       </dataTerm>
@@ -1932,7 +1932,7 @@
     <parameters allowVariable="true" name="USRPRF" position="1" status="POS">
       <dataTerm xsi:type="il-data:MultipleAtomicDataTerm" name="userProfile">
         <facets xsi:type="il-core:Format" type="SNAME"/>
-        <definition xsi:type="il-data:ScrollerDef" occurrences="300">
+        <definition xsi:type="il-data:ScrollerDef" dimension="300">
           <argument xsi:type="il-data:CharacterDef" length="10"/>
         </definition>
       </dataTerm>

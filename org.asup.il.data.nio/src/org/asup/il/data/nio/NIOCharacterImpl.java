@@ -12,17 +12,15 @@
 package org.asup.il.data.nio;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
 import java.util.Arrays;
 
-import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 
-public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
+public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter {
 
 	private static final long serialVersionUID = 1L;
 
@@ -40,24 +38,11 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 	}
 
 	@Override
-	public void allocate() {
-		setBuffer(ByteBuffer.allocate(size()));;
-		
-		reset();
-		
-	}
-
-	@Override
 	public void reset() {
 		if (_value != null)
 			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, _value, true, INIT);
 		else
 			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + _length, INIT);
-	}
-
-	@Override
-	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), _length);
 	}
 
 	@Override
@@ -79,11 +64,6 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 		}
 
 		movel(value.toString(), true);
-	}
-
-	@Override
-	public void eval(QBufferedData value) {
-		movel(value, true);
 	}
 
 	@Override
@@ -110,32 +90,7 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 	public void move(boolean value) {
 		NIOBufferHelper.move(getBuffer(), getPosition(), _length, new byte[] { 49 }, true, (byte) 49);
 	}
-
-	@Override
-	public void move(int value) {
-		move(value, false);
-	}
-
-	@Override
-	public void move(int value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), _length, Integer.toString(value).getBytes(), clear, INIT);
-	}
-
-	@Override
-	public void move(QBufferedData value) {
-		move(value, false);
-	}
-
-	@Override
-	public void move(QBufferedData value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), _length, value.asBytes(), clear, INIT);
-	}
-
-	@Override
-	public void move(String value) {
-		move(value, false);
-	}
-
+	
 	@Override
 	public void move(String value, boolean clear) {
 
@@ -145,47 +100,20 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 			NIOBufferHelper.move(getBuffer(), getPosition(), _length, value.getBytes(), clear, INIT);
 		}
 	}
-
+	
 	@Override
-	public void movea(QArray<?> value) {
-		movea(value, false);
+	public <E extends Enum<E>> void move(E value) {
+		move(getPrimitive(value));		
 	}
 
 	@Override
-	public void movea(QArray<?> value, boolean clear) {
-		for (int i = 1; i <= value.capacity(); i++) {
-			movel(value.get(i), clear);
-		}
+	public <E extends Enum<E>> void move(E value, boolean clear) {
+		move(getPrimitive(value), clear);		
 	}
-
+	
 	@Override
 	public void movel(boolean value) {
 		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, new byte[] { 49 }, true, (byte) 49);
-	}
-
-	@Override
-	public void movel(int value) {
-		movel(value, true);
-	}
-
-	@Override
-	public void movel(int value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, Integer.toString(value).getBytes(), clear, INIT);
-	}
-
-	@Override
-	public void movel(QBufferedData value) {
-		movel(value, false);
-	}
-
-	@Override
-	public void movel(QBufferedData value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, value.asBytes(), clear, INIT);
-	}
-
-	@Override
-	public void movel(String value) {
-		movel(value, false);
 	}
 
 	@Override
@@ -339,63 +267,6 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 	}
 
 	@Override
-	public <E extends Enum<E>> void move(E value) {
-		move(getPrimitive(value));		
-	}
-
-	@Override
-	public <E extends Enum<E>> void move(E value, boolean clear) {
-		move(getPrimitive(value), clear);		
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		value.toString();
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		value.toString();
-	}
-
-	@Override
-	public <E extends Enum<E>> void movel(E value) {
-		movel(getPrimitive(value));
-	}
-
-	@Override
-	public <E extends Enum<E>> void movel(E value, boolean clear) {
-		movel(getPrimitive(value), clear);		
-	}
-
-	@Override
-	public String asString() {
-		return toString();
-	}
-
-	@Override
-	public void in() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void out() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void accept(QDataVisitor visitor) {
-		visitor.visit(this);
-	}
-
-	@Override
-	public <E extends Enum<E>> void eval(E value) {
-		eval(getPrimitive(value));
-	}
-
-	@Override
 	public boolean eq(QString value) {
 		return eq(value.asString());
 	}
@@ -454,6 +325,43 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 	public <E extends Enum<E>> boolean ne(E value) {
 		return ne(getPrimitive(value));
 	}
+
+	@Override
+	public <E extends Enum<E>> void movel(E value) {
+		movel(getPrimitive(value));
+	}
+
+	@Override
+	public <E extends Enum<E>> void movel(E value, boolean clear) {
+		movel(getPrimitive(value), clear);		
+	}
+
+	@Override
+	public String asString() {
+		return toString();
+	}
+
+	@Override
+	public void in() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void out() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void accept(QDataVisitor visitor) {
+		visitor.visit(this);
+	}
+
+	@Override
+	public <E extends Enum<E>> void eval(E value) {
+		eval(getPrimitive(value));
+	}
 	
 	private <E extends Enum<E>> String getPrimitive(E value) {
 		if(value.name().equals("BLANKS"))
@@ -489,4 +397,15 @@ public class NIOCharacterImpl extends NIOBufferedData implements QCharacter {
 		
 		return copy;
 	}
+
+	@Override
+	public void eval(QBufferedData value) {
+		movel(value, true);
+	}
+
+	@Override
+	protected byte getFiller() {
+		return INIT;
+	}
+
 }

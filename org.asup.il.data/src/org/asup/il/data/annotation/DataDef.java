@@ -20,11 +20,16 @@ import org.asup.il.data.DatetimeType;
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 public @interface DataDef {
 	
-	// array
-	String dimension() default "";
+	// common	
+	String value() default "";
+	String[] formulas() default {};
 	
-	// stroller
-	String occurrences() default "";
+	// compound
+	boolean qualified() default false;	
+	
+	// multiple
+	int dimension() default 0;
+	String[] values() default {};
 	
 	// character
 	int length() default 0;
@@ -42,10 +47,4 @@ public @interface DataDef {
 	// binary
 	BinaryType binaryType() default BinaryType.BYTE;
 	
-	// compound
-	boolean qualified() default false;	
-	
-	String value() default "";
-	
-	String[] values() default {};
 }

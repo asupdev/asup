@@ -18,7 +18,7 @@ package org.asup.il.data;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QArray<D extends QBufferedData> extends QList<D>, QBufferedData {
+public interface QArray<D extends QBufferedData> extends QBufferedList<D> {
 
 	/**
 	 * <!-- begin-user-doc -->

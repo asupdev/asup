@@ -46,6 +46,7 @@ import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
+import org.asup.il.data.QScroller;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
@@ -235,6 +236,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					int counter = 1;
 					Iterator<CLParmAbstractComponent> iterator = listElements.iterator();
 					while (iterator.hasNext()) {
+						if(listAtomic instanceof QScroller<?>)
+							((QScroller<?>)listAtomic).absolute(counter);
 	
 						tokValue = buildParameterValue(multipleAtomicDataTerm, iterator.next());
 	
@@ -272,7 +275,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			}		
 			
 			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
-
 			QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
 			QList<?> listCompound = (QList<?>) data;
 			
@@ -290,12 +292,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			Iterator<CLParmAbstractComponent> multipleParmIterator = multipleParamComp.getChilds().iterator();
 			//List<QDataTerm<?>> dataTermList = multipleCompoundDataDef.getElements();
 			
-			int i = 0;
+			int i = 1;
 					
 			while (multipleParmIterator.hasNext()){
-
+				if(listCompound instanceof QScroller<?>)
+					((QScroller<?>)listCompound).absolute(i);
 				String tmpValue = multipleParmIterator.next().toString();
-				
 				/*
 				if (tmpVvalue.startsWith("(") && value.endsWith(")")) {
 					value = value.substring(1, value.length() - 1);
@@ -332,12 +334,13 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 				// Recursive call
 				//QData assignValue = assignValue(multipleCompoundDataTerm, dataContext, value, variables, defaults);
-				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
 				
+				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
 				assignValue(listCompound.get(i), parmValue);
+
 				i++;
 			}
-
+			
 			dbgString = multipleCompoundDataTerm.toString();
 			break;
 

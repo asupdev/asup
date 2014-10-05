@@ -13,6 +13,7 @@ import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
 import org.asup.il.data.FloatingType;
+import org.asup.il.data.QAdapterDef;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QBinaryDef;
@@ -29,6 +30,8 @@ import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIndicatorDef;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.data.QList;
+import org.asup.il.data.QListDef;
 import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
@@ -96,6 +99,7 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QIntegratedLanguageDataPackage.ADAPTER_DEF: return (EObject)createAdapterDef();
 			case QIntegratedLanguageDataPackage.ARRAY_DEF: return (EObject)createArrayDef();
 			case QIntegratedLanguageDataPackage.BINARY_DEF: return (EObject)createBinaryDef();
 			case QIntegratedLanguageDataPackage.BUFFER_DEF: return (EObject)createBufferDef();
@@ -108,6 +112,7 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageDataPackage.FLOATING_DEF: return (EObject)createFloatingDef();
 			case QIntegratedLanguageDataPackage.HEXADECIMAL_DEF: return (EObject)createHexadecimalDef();
 			case QIntegratedLanguageDataPackage.INDICATOR_DEF: return (EObject)createIndicatorDef();
+			case QIntegratedLanguageDataPackage.LIST_DEF: return (EObject)createListDef();
 			case QIntegratedLanguageDataPackage.MULTIPLE_ATOMIC_DATA_TERM: return (EObject)createMultipleAtomicDataTerm();
 			case QIntegratedLanguageDataPackage.MULTIPLE_COMPOUND_DATA_TERM: return (EObject)createMultipleCompoundDataTerm();
 			case QIntegratedLanguageDataPackage.NUMERIC_DEF: return (EObject)createNumericDef();
@@ -178,6 +183,16 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QAdapterDef createAdapterDef() {
+		AdapterDefImpl adapterDef = new AdapterDefImpl();
+		return adapterDef;
 	}
 
 	/**
@@ -305,6 +320,16 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public <D extends QList<?>> QListDef<D> createListDef() {
+		ListDefImpl<D> listDef = new ListDefImpl<D>();
+		return listDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public <DD extends QMultipleAtomicDataDef<?>> QMultipleAtomicDataTerm<DD> createMultipleAtomicDataTerm() {
 		MultipleAtomicDataTermImpl<DD> multipleAtomicDataTerm = new MultipleAtomicDataTermImpl<DD>();
 		return multipleAtomicDataTerm;
@@ -345,7 +370,7 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <D extends QScroller<?>> QScrollerDef<D> createScrollerDef() {
+	public <D extends QScroller<QBufferedData>> QScrollerDef<D> createScrollerDef() {
 		ScrollerDefImpl<D> scrollerDef = new ScrollerDefImpl<D>();
 		return scrollerDef;
 	}

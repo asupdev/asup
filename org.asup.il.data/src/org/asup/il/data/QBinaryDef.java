@@ -25,7 +25,7 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QBinaryDef extends QUnaryAtomicDataDef<QBinary>, QBufferedDataDef<QBinary> {
+public interface QBinaryDef extends QUnaryAtomicBufferedDataDef<QBinary> {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.asup.il.data.BinaryType}.

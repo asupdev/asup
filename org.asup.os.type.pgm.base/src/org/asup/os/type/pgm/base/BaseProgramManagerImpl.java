@@ -184,14 +184,9 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 			if(paramsTo[i] instanceof QBufferedData && paramsFrom[i] instanceof QBufferedData) {
 				QBufferedData bufferedData = (QBufferedData)paramsTo[i];
 				((QBufferedData) paramsFrom[i]).assign(bufferedData);
-/*				if(QArray.class.isAssignableFrom(paramsFrom[i].getClass())) {
-					bufferedData.movea((QArray<QBufferedData>) paramsFrom[i]);
-				}
-				else
-					bufferedData.movel((QBufferedData)paramsFrom[i]);*/				
 			}
 			else
-				paramsTo[i].eval(paramsFrom);
+				paramsTo[i].eval(paramsFrom[i]);
 		}
 	}
 	

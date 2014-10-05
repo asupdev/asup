@@ -257,16 +257,6 @@ public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> imple
 	}
 
 	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		current().movea(value);
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		current().movea(value, clear);
-	}
-
-	@Override
 	public void movea(QArray<?> value) {
 		current().movea(value);
 	}
@@ -360,7 +350,7 @@ public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> imple
 	@Override
 	public NIOStrollerImpl<D> copy() {
 
-		NIOStrollerImpl<D> copy = new NIOStrollerImpl<D>(_model, _occurrences);
+		NIOStrollerImpl<D> copy = new NIOStrollerImpl<D>(_model, _dimension);
 		
 		return copy;
 	}

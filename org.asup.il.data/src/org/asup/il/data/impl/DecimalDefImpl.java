@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DecimalDefImpl extends UnaryAtomicDataDefImpl<QDecimal> implements QDecimalDef {
+public class DecimalDefImpl extends UnaryAtomicBufferedDataDefImpl<QDecimal> implements QDecimalDef {
 	/**
 	 * 
 	 */

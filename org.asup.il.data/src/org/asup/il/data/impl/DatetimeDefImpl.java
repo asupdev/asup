@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class DatetimeDefImpl extends UnaryAtomicDataDefImpl<QDatetime> implements QDatetimeDef {
+public class DatetimeDefImpl extends UnaryAtomicBufferedDataDefImpl<QDatetime> implements QDatetimeDef {
 	/**
 	 * 
 	 */
@@ -137,17 +137,6 @@ public class DatetimeDefImpl extends UnaryAtomicDataDefImpl<QDatetime> implement
 		format = newFormat;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.DATETIME_DEF__FORMAT, oldFormat, format));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

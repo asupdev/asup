@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CharacterDefImpl extends UnaryAtomicDataDefImpl<QCharacter> implements QCharacterDef {
+public class CharacterDefImpl extends UnaryAtomicBufferedDataDefImpl<QCharacter> implements QCharacterDef {
 	/**
 	 * 
 	 */

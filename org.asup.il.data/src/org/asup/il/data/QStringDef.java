@@ -18,5 +18,5 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QStringDef extends QUnaryAtomicDataDef<QString>, QBufferedDataDef<QString> {
+public interface QStringDef extends QUnaryAtomicBufferedDataDef<QString> {
 } // QStringDef

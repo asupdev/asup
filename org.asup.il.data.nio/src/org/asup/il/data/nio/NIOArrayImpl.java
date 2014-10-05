@@ -12,12 +12,11 @@
 package org.asup.il.data.nio;
 
 import java.lang.reflect.Array;
-import java.nio.ByteBuffer;
 
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 
-public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedList<D> implements QArray<D> {
+public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D> implements QArray<D> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,19 +29,16 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedList<D> im
 		this._model = model;
 		this._elements = (D[])Array.newInstance(model.getClass(), dimension);	
 	}
-
-	@Override
-	public void allocate() {
-		if(getParent() == null)
-			setBuffer(ByteBuffer.allocate(size()));
-		
-		reset();		
-	}
 	
 	@Override
 	public int capacity() {
 		return _elements.length;
 	}
+	@Override
+	public int count() {
+		return capacity();
+	}
+
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -97,5 +93,10 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedList<D> im
 		NIOArrayImpl<D> copy = new NIOArrayImpl<D>((D) _model.copy(), _elements.length);
 		
 		return copy;
+	}
+
+	@Override
+	protected byte getFiller() {
+		return ((NIOBufferedDataImpl)_model).getFiller();
 	}
 }

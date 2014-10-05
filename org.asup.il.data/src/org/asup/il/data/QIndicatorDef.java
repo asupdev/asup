@@ -18,5 +18,5 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QIndicatorDef extends QUnaryAtomicDataDef<QIndicator>, QBufferedDataDef<QIndicator> {
+public interface QIndicatorDef extends QUnaryAtomicBufferedDataDef<QIndicator> {
 } // QIndicatorDef

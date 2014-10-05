@@ -2,11 +2,11 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
-import org.asup.il.data.QArray;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -120,8 +120,8 @@ public class JobDescriptionRetriever {
 		public QCharacter outQueuePriority;
 		@DataDef(length = 50)
 		public QCharacter textDescription;
-		@DataDef(dimension = "250", length = 11)
-		public QArray<QCharacter> initialLibraryList;
+		@DataDef(dimension = 250, length = 11)
+		public QScroller<QCharacter> initialLibraryList;
 	}
 
 }

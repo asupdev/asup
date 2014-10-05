@@ -17,7 +17,7 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.Special;
 
-public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIOBufferedDelegator implements QEnum<E, D> {
+public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIOBufferedDelegatorImpl implements QEnum<E, D> {
 
 	private static final long serialVersionUID = 1L;
 
