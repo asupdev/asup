@@ -16,6 +16,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.Supported;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
@@ -29,45 +30,53 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QOutputManager;
-import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.QOperatingSystemTypeFactory;
 import org.asup.os.type.QTypedReference;
 import org.asup.os.type.jobd.QJobDescription;
+import org.asup.os.type.jobd.QJobDescriptionManager;
 import org.asup.os.type.lib.QLibrary;
 
+@Supported
 @Program(name = "QWDCDSG")
 public class JobDescriptionDisplayer {
 
-	@Inject
-	private QResourceFactory resourceFactory;
 	@Inject
 	private QOutputManager outputManager;
 	@Inject
 	private QJobLogManager jobLogManager;
 	@Inject
 	private QJob job;
+	@Inject
+	private QJobDescriptionManager jobDescriptionManager;
 
 	public @Entry void main(
-			@DataDef(qualified = true) JobDescription jobDescription,
-			@DataDef(length = 1) QEnum<Output, QCharacter> output) {
+			@Supported @DataDef(qualified = true) JobDescription jobDescription,
+			@Supported @DataDef(length = 1) QEnum<OutputEnum, QCharacter> output) {
 
 		QObjectWriter objectWriter = outputManager.getObjectWriter(job,	output.getSpecialName());
 		objectWriter.initialize();
 
-		if (jobDescription.name.trimR().equals("*CURRENT")) {
-			writeLibraries(objectWriter, job.getLibraries());
-			objectWriter.flush();
-			return;
-		}
+//		if (jobDescription.name.trimR().equals("*CURRENT")) {
+//			writeLibraries(objectWriter, job.getLibraries());
+//			objectWriter.flush();
+//			return;
+//		}
 
 		QResourceReader<QJobDescription> resourceReader = null;
 
-		Scope scope = Scope.get(jobDescription.library.getSpecialName());
-		if (scope != null)
-			resourceReader = resourceFactory.getResourceReader(job, QJobDescription.class, scope);
-		else
-			resourceReader = resourceFactory.getResourceReader(job, QJobDescription.class, jobDescription.library.asData().trimR());
+		String library = null;
+		switch (jobDescription.library.asEnum()) {
+		case LIBL:
+		case CURLIB:
+			library = jobDescription.library.getSpecialName();
+			resourceReader = jobDescriptionManager.getResourceReader(job, Scope.getByName(library));
+			break;
+		case OTHER:
+			library = jobDescription.library.asData().trimR();
+			resourceReader = jobDescriptionManager.getResourceReader(job, library);
+			break;
+		}
 
 		QJobDescription qJobDescription = resourceReader.lookup(jobDescription.name.trimR());
 		if (qJobDescription == null)
@@ -96,17 +105,14 @@ public class JobDescriptionDisplayer {
 		@DataDef(length = 10)
 		public QCharacter name;
 		@DataDef(length = 10, value = "*LIBL")
-		public QEnum<Library, QCharacter> library;
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum Library {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, OTHER
+		public static enum LibraryEnum {
+			LIBL, CURLIB, OTHER
 		}
 	}
 
-	public static enum Output {
-		@Special(value = "*")
+	public static enum OutputEnum {
 		TERM_STAR, @Special(value = "L")
 		PRINT
 	}

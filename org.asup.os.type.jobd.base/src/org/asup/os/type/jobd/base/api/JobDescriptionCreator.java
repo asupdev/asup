@@ -53,7 +53,7 @@ public  class JobDescriptionCreator {
 			@DataDef(length = 30) QEnum<PrintTextEnum, QCharacter> printText,
 			@ToDo @DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
 			@ToDo @DataDef(length = 256) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
-			@Supported @DataDef(occurrences = "250", length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
+			@Supported @DataDef(dimension = 250, length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
 			@DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
 			MessageLogging messageLogging,
 			@DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
