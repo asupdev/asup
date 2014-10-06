@@ -54,8 +54,9 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		
 		if(_parent != null)
 			return _parent.getPosition()+_position;
-		else
+		else {
 			return _position;
+		}
 	}
 	
 	protected void setPosition(int position) {
@@ -100,8 +101,9 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		if(nioBufferedData == null)
 			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
 
-		nioBufferedData.setBuffer(getBuffer());
-		nioBufferedData.setPosition(getPosition());
+		nioBufferedData.setParent(this);
+		nioBufferedData.setBuffer(null);
+		nioBufferedData.setPosition(0);
 
 //		slice(value, 0);
 	}

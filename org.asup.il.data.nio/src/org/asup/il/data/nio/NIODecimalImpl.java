@@ -19,6 +19,7 @@ import org.asup.il.data.QDecimal;
 public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	private static final long serialVersionUID = 1L;
+	private static byte INIT = (byte) 48;
 
 	protected int _precision;
 	protected int _scale;
@@ -29,6 +30,11 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		_scale = scale;
 	}
 
+	@Override
+	protected byte getFiller() {
+		return INIT;
+	}
+	
 	@Override
 	public NIODecimalImpl copy() {
 		

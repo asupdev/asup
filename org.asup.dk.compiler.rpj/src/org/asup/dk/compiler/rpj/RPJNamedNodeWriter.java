@@ -284,7 +284,9 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			
 		}
 		else if(QHexadecimalDef.class.isAssignableFrom(klassDef)) {
-			
+			QHexadecimalDef hexadecimalDef = (QHexadecimalDef)dataDef;
+			if (hexadecimalDef.getLength() > 0)
+				writeAnnotation(node, DataDef.class, "length", hexadecimalDef.getLength());			
 		}
 		else if(QFloatingDef.class.isAssignableFrom(klassDef)) {
 //			QFloatingDef floatDef = (QFloatingDef) dataDef;
