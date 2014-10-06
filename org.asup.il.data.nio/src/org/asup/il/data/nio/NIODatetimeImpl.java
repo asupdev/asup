@@ -11,7 +11,6 @@
  */
 package org.asup.il.data.nio;
 
-import java.util.Arrays;
 import java.util.Date;
 
 import org.asup.il.data.DateFormat;
@@ -53,14 +52,14 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 		}
 	}
 	
-	@Override
+/*	@Override
 	public void reset() {
 		if (_value != null)
 			NIOBufferHelper.movel(getBuffer(), getPosition(), length(), _value, true, INIT);
 		else
 			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + length(), INIT);
 		
-	}
+	}*/
 
 	@Override
 	public int length() {

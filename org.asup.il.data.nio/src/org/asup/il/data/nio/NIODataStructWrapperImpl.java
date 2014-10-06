@@ -32,7 +32,7 @@ public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements Q
 	private boolean _dynamicLength;
 
 	public NIODataStructWrapperImpl(int length, QDataStructDelegator delegator) {
-		super(length, null);
+		super(length);
 		
 		this._wrapped = delegator;
 		this._dynamicLength = (length == 0 ? true : false);

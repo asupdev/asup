@@ -18,7 +18,7 @@ public class TestHexadecimal {
 			bytes[i] = (byte) Integer.parseInt(hex,16);
 		}
 
-		NIOCharacterImpl character = new NIOCharacterImpl(15, null);
+		NIOCharacterImpl character = new NIOCharacterImpl(15);
 		character.allocate();
 		character.movel(new String(bytes, ENCODING));
 		

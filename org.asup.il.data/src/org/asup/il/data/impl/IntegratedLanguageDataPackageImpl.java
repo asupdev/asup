@@ -2502,8 +2502,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		addEOperation(bufferedDataEClass, ecorePackage.getEInt(), "size", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(bufferedDataEClass, null, "reset", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(bufferDefEClass, QBufferDef.class, "BufferDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bufferedDataTermEClass, QBufferedDataTerm.class, "BufferedDataTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

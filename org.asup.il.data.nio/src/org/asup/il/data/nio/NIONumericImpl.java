@@ -31,13 +31,13 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		return 0;
 	}
 
-	@Override
+/*	@Override
 	public void reset() {
 		if(_default != null)
 			eval(_default);
 		else
 			eval(0);
-	}
+	}*/
 	
 	
 	@Override

@@ -26,12 +26,12 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), size());
 	}
 	
-	@Override
+/*	@Override
 	public void reset() {
 		for (QBufferedData element : this) {
 			element.reset();
 		}
-	}	
+	}*/	
 
 	@Override
 	public void clear() {

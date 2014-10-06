@@ -134,11 +134,6 @@ public abstract class QDataStructDelegator implements QDataStruct, QDataDelegato
 	}
 
 	@Override
-	public void reset() {
-		delegate.reset();
-	}
-
-	@Override
 	public byte[] asBytes() {
 		return delegate.asBytes();
 	}

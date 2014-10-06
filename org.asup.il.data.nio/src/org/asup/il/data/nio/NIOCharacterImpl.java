@@ -12,7 +12,6 @@
 package org.asup.il.data.nio;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
@@ -28,22 +27,20 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	private static byte INIT = (byte) 32;
 	private static String ENCODING = "ISO-8859-1";
 
-	int _length;
-	byte[] _value;
+	protected int _length;
 
-	public NIOCharacterImpl(int length, byte[] value) {
+	public NIOCharacterImpl(int length) {
 		
 		_length = length;
-		_value = value;
 	}
 
-	@Override
+/*	@Override
 	public void reset() {
 		if (_value != null)
 			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, _value, true, INIT);
 		else
 			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + _length, INIT);
-	}
+	}*/
 
 	@Override
 	public void clear() {
@@ -393,7 +390,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public NIOCharacterImpl copy() {
 		
-		NIOCharacterImpl copy = new NIOCharacterImpl(_length, _value);
+		NIOCharacterImpl copy = new NIOCharacterImpl(_length);
 		
 		return copy;
 	}

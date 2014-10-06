@@ -30,7 +30,7 @@ public class NIODataStructImpl extends NIOAbstractDataStruct {
 	private boolean _dynamicLength;
 	
 	public NIODataStructImpl(int length) {
-		super(length, null);
+		super(length);
 		
 		this._elements = new LinkedHashMap<String, QBufferedData>();
 		this._dynamicLength = (length == 0 ? true : false);

@@ -27,16 +27,15 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
-@Program(name = "QMHCRMSD")
-public class MessageDescriptionAdder {
-
+public @Supported @Program(name = "ADDMSGD") class MessageDescriptionAdder {
+	
 	@Inject
 	private QMessageFileManager messageFileManager;
 	@Inject
 	private QJob job;
 	@Inject
 	private QJobLogManager jobLogManager;
-
+	
 	public @Entry void main(
 			@Supported @DataDef(length = 7) QCharacter messageIdentifier,
 			@Supported @DataDef(qualified = true) MessageFile messageFile,
@@ -57,6 +56,7 @@ public class MessageDescriptionAdder {
 			AlertOptions alertOptions,
 			@DataDef(length = 1) QEnum<LogProblemEnum, QCharacter> logProblem,
 			@DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetIDEnum, QBinary> codedCharacterSetID) {
+		
 		
 		String library = "";
 		switch (messageFile.library.asEnum()) {
@@ -157,8 +157,8 @@ public class MessageDescriptionAdder {
 			throw new OperatingSystemRuntimeException(e);
 		}
 
-	}
 
+	}
 
 	public static class MessageFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
@@ -179,7 +179,7 @@ public class MessageDescriptionAdder {
 
 	public static class MessageDataFieldsFormat extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		@DataDef(length=1) 
+		@DataDef(length = 1)
 		public QEnum<DataTypeEnum, QHexadecimal> dataType;
 		@DataDef(binaryType = BinaryType.SHORT, value = "*VARY")
 		public QEnum<LengthEnum, QBinary> length;
@@ -201,8 +201,7 @@ public class MessageDescriptionAdder {
 			UTCT, @Special(value = "14")
 			DTS, @Special(value = "0F")
 			SYP, @Special(value = "34")
-			ITV,
-			OTHER;
+			ITV, OTHER
 		}
 
 		public static enum LengthEnum {
@@ -270,6 +269,7 @@ public class MessageDescriptionAdder {
 	public static class RelationshipForValidReplies extends
 			QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
+		@DataDef(length = 1)
 		public QEnum<RelationalOperatorEnum, QHexadecimal> relationalOperator;
 		@DataDef(length = 32)
 		public QCharacter value;

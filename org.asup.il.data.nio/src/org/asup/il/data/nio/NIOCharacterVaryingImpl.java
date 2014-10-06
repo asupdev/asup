@@ -21,8 +21,8 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	private static final long serialVersionUID = 1L;
 	
-	public NIOCharacterVaryingImpl(int length, byte[] value) {
-		super(length, value);
+	public NIOCharacterVaryingImpl(int length) {
+		super(length);
 	}
 
 	@Override
@@ -172,12 +172,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	public void movel(String value, boolean clear) {
 		// TODO Auto-generated method stub
 		super.movel(value, clear);
-	}
-
-	@Override
-	public void reset() {
-		// TODO Auto-generated method stub
-		super.reset();
 	}
 
 	@Override
@@ -370,7 +364,7 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	@Override
 	public NIOCharacterVaryingImpl copy() {
 		
-		NIOCharacterVaryingImpl copy = new NIOCharacterVaryingImpl(_length, _value);
+		NIOCharacterVaryingImpl copy = new NIOCharacterVaryingImpl(_length);
 		
 		return copy;
 	}

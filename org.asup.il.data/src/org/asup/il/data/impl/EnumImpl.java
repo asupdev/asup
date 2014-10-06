@@ -178,17 +178,6 @@ public class EnumImpl<E extends Enum<E>, D extends QBufferedData> extends Minima
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void reset() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void move(String value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
