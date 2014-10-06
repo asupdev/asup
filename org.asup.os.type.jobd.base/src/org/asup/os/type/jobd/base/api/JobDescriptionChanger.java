@@ -17,7 +17,6 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
-import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
@@ -26,10 +25,12 @@ import org.asup.os.type.QTypedReference;
 import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.jobd.QJobDescription;
 import org.asup.os.type.jobd.QJobDescriptionManager;
+import org.asup.os.core.Scope;
 
-@Supported 
-@Program(name = "QWDCCHG")
-public class JobDescriptionChanger {
+
+@Supported
+@Program(name = "CHGJOBD")
+public  class JobDescriptionChanger {
 
 	@Inject
 	private QJobDescriptionManager jobDescriptionManager;
@@ -208,7 +209,7 @@ public class JobDescriptionChanger {
 			jobLogManager.info(job, "Job Description " + jobDescription.name.trimR() + " changed");
 		} 
 		catch (OperatingSystemException e) {
-			e.printStackTrace();
+			throw new OperatingSystemRuntimeException(e);
 		}
 	}
 

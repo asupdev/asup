@@ -46,7 +46,7 @@ public  class JobDescriptionCreator {
 			@Supported @DataDef(length = 1) QCharacter jobPriorityonJOBQ,
 			@Supported @DataDef(length = 1) QCharacter outputPriorityonOUTQ,
 			@DataDef(length = 10) QEnum<PrintDeviceEnum, QCharacter> printDevice,
-			@Supported @DataDef(qualified = true) QEnum<OutputQueueEnum, OutputQueue> outputQueue,
+			@DataDef(qualified = true) QEnum<OutputQueueEnum, OutputQueue> outputQueue,
 			@Supported @DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
 			@Supported @DataDef(length = 10) QEnum<UserEnum, QCharacter> user,
 			@DataDef(length = 15) QEnum<AccountingCodeEnum, QCharacter> accountingCode,
@@ -190,7 +190,6 @@ public  class JobDescriptionCreator {
 			e.printStackTrace();
 		}		
 	}
-
 	public static class JobDescription extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
@@ -357,4 +356,5 @@ public  class JobDescriptionCreator {
 	public static enum DDMConversationEnum {
 		KEEP, DROP
 	}
+
 }
