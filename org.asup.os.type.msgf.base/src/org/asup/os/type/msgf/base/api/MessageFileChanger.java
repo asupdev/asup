@@ -2,6 +2,8 @@ package org.asup.os.type.msgf.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.Supported;
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
@@ -12,12 +14,14 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 
+@Supported
 @Program(name = "QMHCHMSF")
 
 public class MessageFileChanger {
@@ -30,11 +34,13 @@ public class MessageFileChanger {
 	private QJobLogManager jobLogManager;
 
 	public @Entry void main(
-			@DataDef(qualified = true) MessageFile messageFile,
-			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
-			QEnum<CodedCharacterSetID, QBinary> codedcharactersetid) {
+			@Supported @DataDef(qualified = true) MessageFile messageFile,
+			@Supported @DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
+			@DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetIDEnum, QBinary> codedCharacterSetID) {
 
-		String library = "";
+		QResourceWriter<QMessageFile> resource = null;
+		// MSGF
+		String library = null;
 		switch (messageFile.library.asEnum()) {
 		case LIBL:
 		case CURLIB:
@@ -42,15 +48,19 @@ public class MessageFileChanger {
 		case ALLUSR:
 		case ALL:
 			library = messageFile.library.getSpecialName();
+			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();
+			resource = messageFileManager.getResourceWriter(job, library);
 			break;
 		}
 
-		String name = "";
+		String name = null;
 		switch (messageFile.name.asEnum()) {
 		case ALL:
+			// TODO 
+			// il nome può essere anche *ALL, gestiamo questa cosa?
 			name = messageFile.name.getSpecialName();
 			break;
 		case OTHER:
@@ -58,70 +68,55 @@ public class MessageFileChanger {
 			break;
 		}
 
-		// TODO 
-		// il nome può essere anche *ALL, gestiamo questa cosa?
-		
+		QMessageFile qMessageFile = resource.lookup(name);	
+		if (qMessageFile == null)
+			throw new OperatingSystemRuntimeException("Message File " + name+ " not exists in library " + library);
+
+		// TEXT
+		switch (textDescription.asEnum()) {
+		case SAME:
+			break;
+		case BLANK:
+			qMessageFile.setText("");
+			break;
+		case OTHER:
+			qMessageFile.setText(textDescription.asData().trimR());
+			break;
+		}
+
 		try {
-			QResourceWriter<QMessageFile> resource = messageFileManager.getResourceWriter(job, library);
-			QMessageFile qMessageFile = resource.lookup(name);	
-			if (qMessageFile == null)
-				throw new OperatingSystemException("Message File " + name+ " not exists in library " + library);
-
-			switch (textDescription.asEnum()) {
-			case SAME:
-				break;
-			case BLANK:
-				qMessageFile.setText("");
-				break;
-			case OTHER:
-				qMessageFile.setText(textDescription.asData().trimR());
-				break;
-			}
-
 			resource.save(qMessageFile,true);
-
 			jobLogManager.info(job, "Message File " + name + " changed");
-
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
-	
-	
 	}
 
 	public static class MessageFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
-		public QEnum<NameGeneric, QCharacter> name;
+		public QEnum<NameGenericEnum, QCharacter> name;
 		@DataDef(length = 10, value = "*LIBL")
-		public QEnum<Library, QCharacter> library;
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum NameGeneric {
-			@Special(value = "*ALL")
+		public static enum NameGenericEnum {
 			ALL, OTHER
 		}
 
-		public static enum Library {
-			@Special(value = "*LIBL")
-			LIBL, @Special(value = "*CURLIB")
-			CURLIB, @Special(value = "*USRLIBL")
-			USRLIBL, @Special(value = "*ALLUSR")
-			ALLUSR, @Special(value = "*ALL")
-			ALL, OTHER
+		public static enum LibraryEnum {
+			LIBL, CURLIB, USRLIBL, ALLUSR, ALL, OTHER
 		}
 	}
 
-	public static enum TextDescription {
-		@Special(value = "*SAME")
-		SAME, @Special(value = "*BLANK")
-		BLANK, OTHER
+	public static enum TextDescriptionEnum {
+		SAME, BLANK, OTHER
 	}
 
-	public static enum CodedCharacterSetID {
+	public static enum CodedCharacterSetIDEnum {
 		@Special(value = "-1")
 		SAME, @Special(value = "65535")
 		HEX, @Special(value = "65534")
 		MSGD, @Special(value = "0")
-		JOB
+		JOB, OTHER
 	}
 }

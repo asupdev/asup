@@ -2,6 +2,8 @@ package org.asup.os.type.msgf.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.Supported;
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
@@ -12,6 +14,7 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
@@ -19,8 +22,8 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
+@Supported
 @Program(name = "QMHCRMSF")
-
 public class MessageFileCreator {
 
 	@Inject
@@ -31,46 +34,49 @@ public class MessageFileCreator {
 	private QJobLogManager jobLogManager;
 	
 	public @Entry void main(
-			@DataDef(qualified = true) MessageFile messageFile,
-			@DataDef(length = 50) QEnum<TextDescription, QCharacter> textDescription,
-			FileSize filesize,
-			@DataDef(length = 10) QEnum<Authority, QCharacter> authority,
-			@DataDef() QEnum<CodedCharacterSetID, QBinary> codedCharacterSetId) {
+			@Supported @DataDef(qualified = true) MessageFile messageFile,
+			@Supported  @DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
+			FileSize fileSize,
+			@DataDef(length = 10) QEnum<AuthorityEnum, QCharacter> authority,
+			@DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetIDEnum, QBinary> codedCharacterSetID) {
 	
-		String library = "";
+		QResourceWriter<QMessageFile> resource = null;
+		String library = null;
+
 		switch (messageFile.library.asEnum()) {
 		case CURLIB:
 			library = messageFile.library.getSpecialName();
+			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();
+			resource = messageFileManager.getResourceWriter(job, library);
 			break;
 		}
 
-		String name = messageFile.name.trimR();
+		QMessageFile qMessageFile = resource.lookup(messageFile.name.trimR());
+		if (qMessageFile != null) 
+			throw new OperatingSystemRuntimeException("Message File " + messageFile.name + " already exists in library " + library);
+		
+		qMessageFile = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageFile();
+
+		// MSGF
+		qMessageFile.setName(messageFile.name.trimR());
+		qMessageFile.setLibrary(library);
+
+		// TEXT
+		switch (textDescription.asEnum()) {
+		case BLANK:
+			qMessageFile.setText("");
+			break;
+		case OTHER:
+			qMessageFile.setText(textDescription.asData().trimR());
+			break;
+		}
+		
 		try {
-			QResourceWriter<QMessageFile> resource = messageFileManager.getResourceWriter(job, library);
-
-			QMessageFile qMessageFile = resource.lookup(name);
-			if (qMessageFile != null) throw new OperatingSystemException("Message File " + name + " already exists in library " + library);
-			
-			qMessageFile = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageFile();
-
-			qMessageFile.setName(name);
-			qMessageFile.setLibrary(library);
-			
-			switch (textDescription.asEnum()) {
-			case BLANK:
-				qMessageFile.setText("");
-				break;
-			case OTHER:
-				qMessageFile.setText(textDescription.asData().trimR());
-				break;
-			}
-			
 			resource.save(qMessageFile);
 			jobLogManager.info(job, "Message File " + messageFile.name.trimR()+ " created");
-
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
@@ -80,45 +86,42 @@ public class MessageFileCreator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
-		@DataDef(length = 10)
-		public QEnum<Library, QCharacter> library;
+		@DataDef(length = 10, value = "*CURLIB")
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum Library {
-			@Special(value = "*CURLIB")
+		public static enum LibraryEnum {
 			CURLIB, OTHER
 		}
 	}
 
-	public static enum TextDescription {
+	public static enum TextDescriptionEnum {
 		@Special(value = "")
 		BLANK, OTHER
 	}
 
 	public static class FileSize extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		public @DataDef() QBinary initialstoragesize;
-		public @DataDef() QBinary incrementstoragesize;
-		public @DataDef() QEnum<MaximumIncrements, QBinary> maximumincrements;
+		@DataDef(binaryType = BinaryType.SHORT, value = "10")
+		public QBinary initialStorageSize;
+		@DataDef(binaryType = BinaryType.SHORT, value = "2")
+		public QBinary incrementStorageSize;
+		@DataDef(binaryType = BinaryType.SHORT, value = "*NOMAX")
+		public QEnum<MaximumIncrementsEnum, QBinary> maximumIncrements;
 
-		public static enum MaximumIncrements {
+		public static enum MaximumIncrementsEnum {
 			@Special(value = "-1")
 			NOMAX, OTHER
 		}
 	}
 
-	public static enum Authority {
-		@Special(value = "*LIBCRTAUT")
-		LIBCRTAUT, @Special(value = "*CHANGE")
-		CHANGE, @Special(value = "*ALL")
-		ALL, @Special(value = "*USE")
-		USE, @Special(value = "*EXCLUDE")
-		EXCLUDE, OTHER
+	public static enum AuthorityEnum {
+		LIBCRTAUT, CHANGE, ALL, USE, EXCLUDE, OTHER
 	}
 
-	public static enum CodedCharacterSetID {
+	public static enum CodedCharacterSetIDEnum {
 		@Special(value = "65535")
 		HEX, @Special(value = "65534")
 		MSGD, @Special(value = "0")
-		JOB
+		JOB, OTHER
 	}
 }

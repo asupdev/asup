@@ -19,6 +19,7 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
@@ -27,7 +28,9 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
-public @Supported @Program(name = "ADDMSGD") class MessageDescriptionAdder {
+@Supported 
+@Program(name = "ADDMSGD")
+public class MessageDescriptionAdder {
 	
 	@Inject
 	private QMessageFileManager messageFileManager;
@@ -58,108 +61,104 @@ public @Supported @Program(name = "ADDMSGD") class MessageDescriptionAdder {
 			@DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetIDEnum, QBinary> codedCharacterSetID) {
 		
 		
+		QResourceWriter<QMessageFile> resource = null;
 		String library = "";
 		switch (messageFile.library.asEnum()) {
 		case LIBL:
 		case CURLIB:
 			library = messageFile.library.getSpecialName();
+			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();
+			resource = messageFileManager.getResourceWriter(job, library);
 			break;
 		}
 
-		String name = messageFile.name.trimR();
+		QMessageFile qMessageFile = resource.lookup(messageFile.name.trimR());
+		if (qMessageFile == null) 
+			throw new OperatingSystemRuntimeException("Message File " + messageFile.name + " not exists in library " + library);
+
+		// TODO Come verifico l'esistenza??? 
+		for (QMessageDescription messageDescription : qMessageFile.getMessages()) {
+			if (messageDescription.getName().equals(messageIdentifier.trimR()))
+				throw new OperatingSystemRuntimeException("Message Description " + messageIdentifier + " already exist");
+		}
+
+		QMessageDescription qMessageDescription = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageDescription();
+		
+		// MSGID
+		qMessageDescription.setName(messageIdentifier.trimR());
+
+		// MSG
+		qMessageDescription.setMessageText(firstLevelMessageText.trimR());
+
+		// SECLVL
+		switch (secondLevelMessageText.asEnum()) {
+		case NONE:
+			qMessageDescription.setMessageHelp("");
+			break;
+		case OTHER:
+			qMessageDescription.setMessageHelp(secondLevelMessageText.asData().trimR());
+			break;
+		}
+		
+		// SEV
+		qMessageDescription.setSeverity(severityCode.asInteger());
+
+		// FMT TODO
+		switch (messageDataFieldsFormats.asEnum()) {
+		case NONE:
+			break;
+		case OTHER:
+			for(MessageDataFieldsFormat messageDataFieldsFormat: messageDataFieldsFormats.asData()) {
+				switch (messageDataFieldsFormat.dataType.asEnum()) {
+				case BIN:
+					break;
+				case CCHAR:
+					break;
+				case CHAR:
+					System.out.println("CHAR");
+					break;
+				case DEC:
+					break;
+				case DTS:
+					break;
+				case HEX:
+					break;
+				case ITV:
+					break;
+				case QTDCHAR:
+					break;
+				case SPP:
+					break;
+				case SYP:
+					break;
+				case UBIN:
+					break;
+				case UTC:
+					break;
+				case UTCD:
+					break;
+				case UTCT:
+					break;
+				case OTHER:
+					System.out.println("OTHER");
+					break;
+				}
+			}			
+			break;
+		}
+		
+		qMessageFile.getMessages().add(qMessageDescription);
+
 		try {
-			QResourceWriter<QMessageFile> resource = messageFileManager.getResourceWriter(job, library);
-			QMessageFile qMessageFile = resource.lookup(name);
-			if (qMessageFile == null)
-				throw new OperatingSystemException("Message File " + name
-						+ " not exists in library " + library);
-
-			// TODO
-			for (QMessageDescription messageDescription : qMessageFile.getMessages()) {
-				if (messageDescription.getName().equals(messageIdentifier.trimR()))
-					throw new OperatingSystemException("Message Description " + messageIdentifier + " already exist");
-			}
-
-			QMessageDescription qMessageDescription = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageDescription();
-
-			qMessageDescription.setName(messageIdentifier.trimR());
-			// if (qMessageFile.getMessages().contains(qMessageDescription))
-			// throw new OperatingSystemException("Message Description " +
-			// messageIdentifier + " already exist");
-
-			qMessageDescription.setMessageText(firstLevelMessageText.trimR());
-
-			switch (secondLevelMessageText.asEnum()) {
-			case NONE:
-				break;
-			case OTHER:
-				qMessageDescription.setMessageHelp(secondLevelMessageText
-						.asData().trimR());
-				break;
-			}
-
-			qMessageDescription.setSeverity(severityCode.asInteger());
-
-			switch (messageDataFieldsFormats.asEnum()) {
-			case NONE:
-				break;
-			case OTHER:
-				for(MessageDataFieldsFormat messageDataFieldsFormat: messageDataFieldsFormats.asData()) {
-					switch (messageDataFieldsFormat.dataType.asEnum()) {
-					case BIN:
-						break;
-					case CCHAR:
-						break;
-					case CHAR:
-						System.out.println("CHAR");
-						break;
-					case DEC:
-						break;
-					case DTS:
-						break;
-					case HEX:
-						break;
-					case ITV:
-						break;
-					case QTDCHAR:
-						break;
-					case SPP:
-						break;
-					case SYP:
-						break;
-					case UBIN:
-						break;
-					case UTC:
-						break;
-					case UTCD:
-						break;
-					case UTCT:
-						break;
-					case OTHER:
-						System.out.println("OTHER");
-						break;
-					}
-				}			
-				break;
-			}
-			
-			qMessageFile.getMessages().add(qMessageDescription);
-
 			resource.save(qMessageFile, true);
-
-			jobLogManager.info(job, "Message Description " + messageIdentifier
-					+ " added to Message File " + name);
-
+			jobLogManager.info(job, "Message Description " + messageIdentifier + " added to Message File " + messageFile.name.trimR());
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
-
-
 	}
-
 	public static class MessageFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
@@ -201,7 +200,8 @@ public @Supported @Program(name = "ADDMSGD") class MessageDescriptionAdder {
 			UTCT, @Special(value = "14")
 			DTS, @Special(value = "0F")
 			SYP, @Special(value = "34")
-			ITV, OTHER
+			ITV,
+			OTHER
 		}
 
 		public static enum LengthEnum {
@@ -365,4 +365,5 @@ public @Supported @Program(name = "ADDMSGD") class MessageDescriptionAdder {
 		JOB, @Special(value = "65535")
 		HEX, OTHER
 	}
+	
 }

@@ -1860,14 +1860,13 @@
       </dataTerm>
     </parameters>
     <parameters
-        allowVariable="true"
         name="OBJTYPE"
         position="2"
         status="TODO"
         hidden="true">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          name="objectName"
+          name="objectType"
           default="*MSGF">
         <definition
             xsi:type="il-data:CharacterDef"
@@ -2600,14 +2599,13 @@
       </dataTerm>
     </parameters>
     <parameters
-        allowVariable="true"
         name="OBJTYPE"
         position="2"
         status="POS"
         hidden="true">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
-          name="objectName"
+          name="objectType"
           default="*MSGF">
         <definition
             xsi:type="il-data:CharacterDef"

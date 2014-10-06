@@ -2,6 +2,7 @@ package org.asup.os.type.msgf.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.Supported;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
@@ -23,6 +24,7 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
+@Supported
 @Program(name = "QMHCHMSD")
 public class MessageDescriptionChanger {
 
