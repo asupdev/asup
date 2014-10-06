@@ -47,7 +47,6 @@ import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QScroller;
-import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
@@ -335,9 +334,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				// Recursive call
 				//QData assignValue = assignValue(multipleCompoundDataTerm, dataContext, value, variables, defaults);
 				
-				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
-				assignValue(listCompound.get(i), parmValue);
+//				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
+//				assignValue(listCompound.get(i), parmValue);
 
+				buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
+				
 				i++;
 			}
 			
@@ -399,11 +400,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			value = resolveSpecialValue(unaryCompoundDataTerm, value);
 			
 			QUnaryCompoundDataDef<?> unaryCompoundDataDef = unaryCompoundDataTerm.getDefinition();
-			QStruct struct = (QStruct) data;
+//			QStruct struct = (QStruct) data;
 
-			String structValue = buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
+//			String structValue = buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);			
+//			assignValue(struct, structValue);
 			
-			assignValue(struct, structValue);
+			buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
 
 			dbgString = unaryCompoundDataTerm.toString();
 

@@ -17,6 +17,7 @@ public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> imple
 
 	@Override
 	public String asString() {
+		absolute(1);
 		return current().asString();
 	}
 

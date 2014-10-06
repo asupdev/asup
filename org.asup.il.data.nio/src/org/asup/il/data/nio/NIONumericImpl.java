@@ -5,7 +5,6 @@ import org.asup.il.data.QNumeric;
 
 public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNumeric {
 
-	private static byte FILLER = (byte) 48;
 	private byte[] _default;
 	
 	public NIONumericImpl(byte[] _default) {
@@ -20,11 +19,6 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	protected byte[] getDefault() {
 		return _default;
-	}
-
-	@Override
-	protected byte getFiller() {
-		return FILLER;
 	}
 	
 	protected <E extends Enum<E>> Number getPrimitive(E value) {
@@ -320,7 +314,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	
 	@Override
 	public void move(String value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), size(), value.getBytes(), clear, FILLER);
+		NIOBufferHelper.move(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
 	}
 	
 	@Override
@@ -336,7 +330,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public void movel(String value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), value.getBytes(), clear, FILLER);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
 	}
 	
 	@Override

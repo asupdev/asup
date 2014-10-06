@@ -42,7 +42,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 		if(getParent() == null)
 			setBuffer(ByteBuffer.allocate(size()));
 
-		assign(_model);
+		slice(_model, 0);
 			
 		reset();
 		
