@@ -11,13 +11,10 @@
  */
 package org.asup.os.core.base.api;
 
-import javax.inject.Inject;
-
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QStroller;
@@ -29,16 +26,20 @@ import org.asup.il.data.annotation.Special;
 @Program(name = "QWCCALOC")
 public class ObjectAllocator {
 
-	@Inject
-	public QDataFactory dataContainer;
 
 	public @Entry void main(
-			@ToDo @DataDef(occurrences = "50") QStroller<ObjectSpecification> objectSpecifications,
+			@ToDo @DataDef(dimension = 50) QStroller<ObjectSpecification> objectSpecifications,
 			@ToDo @DataDef(binaryType = BinaryType.SHORT) QEnum<WaitTimeEnum, QBinary> waitTime,
 			@ToDo @DataDef(length = 1) QEnum<LockScopeEnum, QCharacter> lockScope,
 			@ToDo @DataDef(length = 1) QEnum<LockConflictActionEnum, QCharacter> lockConflictAction) {
-		
+
+		int i=0;
 		for(ObjectSpecification objectSpecification: objectSpecifications) {
+			i++;
+			
+			if(!objectSpecification.toString().trim().isEmpty())
+				System.out.println(i+":"+objectSpecification);
+			
 			switch (lockScope.asEnum()) {
 			case JOB:
 				break;
@@ -49,7 +50,6 @@ public class ObjectAllocator {
 			default:
 				break;
 			}
-			objectSpecification.toString();
 		}
 		
 	}

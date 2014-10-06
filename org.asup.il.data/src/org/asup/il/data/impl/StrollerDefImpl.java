@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.il.data.impl.StrollerDefImpl#getLength <em>Length</em>}</li>
- *   <li>{@link org.asup.il.data.impl.StrollerDefImpl#getOccurrences <em>Occurrences</em>}</li>
+ *   <li>{@link org.asup.il.data.impl.StrollerDefImpl#getDimension <em>Dimension</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,24 +58,24 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 	protected int length = LENGTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getOccurrences() <em>Occurrences</em>}' attribute.
+	 * The default value of the '{@link #getDimension() <em>Dimension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOccurrences()
+	 * @see #getDimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String OCCURRENCES_EDEFAULT = null;
+	protected static final int DIMENSION_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getOccurrences() <em>Occurrences</em>}' attribute.
+	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOccurrences()
+	 * @see #getDimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected String occurrences = OCCURRENCES_EDEFAULT;
+	protected int dimension = DIMENSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,8 +122,8 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getOccurrences() {
-		return occurrences;
+	public int getDimension() {
+		return dimension;
 	}
 
 	/**
@@ -131,11 +131,11 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOccurrences(String newOccurrences) {
-		String oldOccurrences = occurrences;
-		occurrences = newOccurrences;
+	public void setDimension(int newDimension) {
+		int oldDimension = dimension;
+		dimension = newDimension;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES, oldOccurrences, occurrences));
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.STROLLER_DEF__DIMENSION, oldDimension, dimension));
 	}
 
 	/**
@@ -148,8 +148,8 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				return getLength();
-			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
-				return getOccurrences();
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__DIMENSION:
+				return getDimension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,8 +165,8 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				setLength((Integer)newValue);
 				return;
-			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
-				setOccurrences((String)newValue);
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__DIMENSION:
+				setDimension((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,8 +183,8 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				setLength(LENGTH_EDEFAULT);
 				return;
-			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
-				setOccurrences(OCCURRENCES_EDEFAULT);
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__DIMENSION:
+				setDimension(DIMENSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -200,8 +200,8 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.STROLLER_DEF__LENGTH:
 				return length != LENGTH_EDEFAULT;
-			case QIntegratedLanguageDataPackage.STROLLER_DEF__OCCURRENCES:
-				return OCCURRENCES_EDEFAULT == null ? occurrences != null : !OCCURRENCES_EDEFAULT.equals(occurrences);
+			case QIntegratedLanguageDataPackage.STROLLER_DEF__DIMENSION:
+				return dimension != DIMENSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,8 +218,8 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (length: ");
 		result.append(length);
-		result.append(", occurrences: ");
-		result.append(occurrences);
+		result.append(", dimension: ");
+		result.append(dimension);
 		result.append(')');
 		return result.toString();
 	}

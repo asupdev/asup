@@ -27,6 +27,15 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	QIntegratedLanguageDataFactory eINSTANCE = org.asup.il.data.impl.IntegratedLanguageDataFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Adapter Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Adapter Def</em>'.
+	 * @generated
+	 */
+	QAdapterDef createAdapterDef();
+
+	/**
 	 * Returns a new object of class '<em>Array Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,6 +144,15 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	QIndicatorDef createIndicatorDef();
 
 	/**
+	 * Returns a new object of class '<em>List Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Def</em>'.
+	 * @generated
+	 */
+	<D extends QList<?>> QListDef<D> createListDef();
+
+	/**
 	 * Returns a new object of class '<em>Multiple Atomic Data Term</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,7 +195,7 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	 * @return a new object of class '<em>Scroller Def</em>'.
 	 * @generated
 	 */
-	<D extends QScroller<?>> QScrollerDef<D> createScrollerDef();
+	<D extends QScroller<QBufferedData>> QScrollerDef<D> createScrollerDef();
 
 	/**
 	 * Returns a new object of class '<em>String Def</em>'.

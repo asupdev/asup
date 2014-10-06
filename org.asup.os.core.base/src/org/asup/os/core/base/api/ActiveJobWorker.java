@@ -44,7 +44,7 @@ public class ActiveJobWorker {
 	public @Entry void main(
 			@DataDef(length = 1) QEnum<Output, QCharacter> output,
 			@DataDef(length = 1) QEnum<ResetStatusStatistics, QCharacter> resetStatusStatistics,
-			@DataDef(occurrences = "25", length = 10) QScroller<QEnum<Subsystem, QCharacter>> subsystem,
+			@DataDef(dimension = 25, length = 10) QScroller<QEnum<Subsystem, QCharacter>> subsystem,
 			@DataDef(precision = 3, scale = 1) QEnum<CPUPercentLimit, QDecimal> cPUPercentLimit,
 			@DataDef(precision = 4, scale = 1) QEnum<ResponseTimeLimit, QDecimal> responseTimeLimit,
 			QEnum<Sequence, QBinary> sequence,

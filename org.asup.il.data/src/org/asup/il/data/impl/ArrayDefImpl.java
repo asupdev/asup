@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicDataDefImpl<D> implements QArrayDef<D> {
+public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDataDefImpl<D> implements QArrayDef<D> {
 	/**
 	 * 
 	 */
@@ -94,17 +94,6 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicDataDefImpl
 		dimension = newDimension;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.ARRAY_DEF__DIMENSION, oldDimension, dimension));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

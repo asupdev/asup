@@ -16,27 +16,33 @@ import java.nio.ByteBuffer;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QScroller;
 
-public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D> implements QScroller<D> {
+public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImpl<D> implements QScroller<D> {
 
 	private static final long serialVersionUID = 1L;
 
 	protected D _model = null;
-	protected int _occurrences;
+	protected int _dimension;
 
 	private int _lastIndex = 0;
 
 	public NIOScrollerImpl(D model, int dimension) {
 
 		_model = model;
-		_occurrences = dimension;
+		_dimension = dimension;
 	}
+	
+	@Override
+	public int count() {
+		return _dimension;
+	}
+
 
 	@Override
 	public void allocate() {
 		if(getParent() == null)
 			setBuffer(ByteBuffer.allocate(size()));
 
-		slice(_model, 0);
+		assign(_model);
 			
 		reset();
 		
@@ -44,7 +50,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D>
 	
 	@Override
 	public int capacity() {
-		return _occurrences;
+		return _dimension;
 	}
 
 	@Override
@@ -53,7 +59,11 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D>
 		if (_lastIndex == index)
 			return _model;
 
-		int position = getPosition() + _model.size() * (index - 1);
+		if(index<1)
+			_model.toString();
+		
+		int size = _model.size();
+		int position = getPosition() + size * (index - 1);
 		slice(_model, position);
 
 		_lastIndex = index;
@@ -63,12 +73,12 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D>
 
 	@Override
 	public int length() {
-		return _occurrences * _model.length();
+		return _dimension * _model.length();
 	}
 
 	@Override
 	public int size() {
-		return _occurrences * _model.size();
+		return _dimension * _model.size();
 	}
 
 	@Override
@@ -88,7 +98,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D>
 
 	@Override
 	public D last() {
-		return get(_occurrences);
+		return get(_dimension);
 	}
 
 	@Override
@@ -110,9 +120,14 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedList<D>
 	@Override
 	public NIOScrollerImpl<D> copy() {
 		
-		NIOScrollerImpl<D> copy = new NIOScrollerImpl<D>((D) _model.copy(), _occurrences);
+		NIOScrollerImpl<D> copy = new NIOScrollerImpl<D>((D) _model.copy(), _dimension);
 		
 		return copy;
+	}
+
+	@Override
+	protected byte getFiller() {
+		return ((NIOBufferedDataImpl)_model).getFiller();
 	}
 
 	/*

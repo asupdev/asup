@@ -16,7 +16,7 @@ package org.asup.il.data;
  *
  * @see org.asup.il.data.QIntegratedLanguageDataPackage#getList()
  * @model interface="true" abstract="true"
- * @generated NOT
+ *  * @generated NOT
  */
 public interface QList<D extends QData> extends QData, Iterable<D> {
 
@@ -43,5 +43,13 @@ public interface QList<D extends QData> extends QData, Iterable<D> {
 	 * @generated
 	 */
 	int capacity();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	int count();
 
 } // QList

@@ -314,7 +314,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="250">
+            dimension="250">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -961,7 +961,7 @@
             name="/os/type/lib#//Library"/>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="15">
+            dimension="15">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -1189,7 +1189,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="300">
+            dimension="300">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -1222,7 +1222,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="4">
+            dimension="4">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -1252,7 +1252,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="75">
+            dimension="75">
           <argument
               xsi:type="il-data:CharacterDef"
               length="32"/>
@@ -1376,7 +1376,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="300">
+            dimension="300">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -1677,7 +1677,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="4">
+            dimension="4">
           <argument
               xsi:type="il-data:CharacterDef"
               length="1"/>
@@ -1990,7 +1990,7 @@
             name="/os/type#//TypedObject"/>
         <definition
             xsi:type="il-data:StrollerDef"
-            occurrences="300">
+            dimension="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
               name="object">
@@ -2370,7 +2370,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="300">
+            dimension="300">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -2403,7 +2403,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="4">
+            dimension="4">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -2430,7 +2430,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="75">
+            dimension="75">
           <argument
               xsi:type="il-data:CharacterDef"
               length="32"/>
@@ -3179,7 +3179,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="300">
+            dimension="300">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -3202,7 +3202,7 @@
             name="/os/type#//TypedObject"/>
         <definition
             xsi:type="il-data:StrollerDef"
-            occurrences="300">
+            dimension="300">
           <elements
               xsi:type="il-data:UnaryCompoundDataTerm"
               name="object">

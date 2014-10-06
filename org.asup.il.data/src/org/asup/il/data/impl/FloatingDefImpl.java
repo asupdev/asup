@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FloatingDefImpl extends UnaryAtomicDataDefImpl<QFloating> implements QFloatingDef {
+public class FloatingDefImpl extends UnaryAtomicBufferedDataDefImpl<QFloating> implements QFloatingDef {
 	/**
 	 * 
 	 */
@@ -92,17 +92,6 @@ public class FloatingDefImpl extends UnaryAtomicDataDefImpl<QFloating> implement
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.FLOATING_DEF__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

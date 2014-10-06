@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="data" nsURI="http://www.asup.org/il/data" nsPrefix="il-data">
+  <eClassifiers xsi:type="ecore:EClass" name="Adapter" abstract="true" interface="true"
+      eSuperTypes="#//Data"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AdapterDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
+      <eTypeArguments eClassifier="#//Adapter"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Array" abstract="true" interface="true">
     <eTypeParameters name="D">
       <eBounds eClassifier="#//BufferedData"/>
@@ -14,10 +21,9 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eGenericSuperTypes eClassifier="#//List">
+    <eGenericSuperTypes eClassifier="#//BufferedList">
       <eTypeArguments eTypeParameter="#//Array/D"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedData"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayDef">
     <eTypeParameters name="D">
@@ -27,10 +33,7 @@
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="#//MultipleAtomicDataDef">
-      <eTypeArguments eTypeParameter="#//ArrayDef/D"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//MultipleAtomicBufferedDataDef">
       <eTypeArguments eTypeParameter="#//ArrayDef/D"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -57,10 +60,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BinaryDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//BinaryType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unsigned" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Binary"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Binary"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -87,13 +87,12 @@
     <eOperations name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="reset"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BufferedDataDef" abstract="true" interface="true">
-    <eTypeParameters name="D">
-      <eBounds eClassifier="#//BufferedData"/>
-    </eTypeParameters>
-    <eOperations name="getLength" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eGenericSuperTypes eClassifier="#//DataDef">
-      <eTypeArguments eTypeParameter="#//BufferedDataDef/D"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BufferDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
+      <eTypeArguments eClassifier="#//BufferedData"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+      <eTypeArguments eClassifier="#//BufferedData"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BufferedDataTerm" abstract="true">
@@ -106,13 +105,23 @@
       <eTypeArguments eTypeParameter="#//BufferedDataTerm/DD"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BufferDef">
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//BufferedData"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BufferedDataDef" abstract="true" interface="true">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//BufferedData"/>
+    </eTypeParameters>
+    <eOperations name="getLength" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="#//DataDef">
+      <eTypeArguments eTypeParameter="#//BufferedDataDef/D"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
-      <eTypeArguments eClassifier="#//BufferedData"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BufferedList" abstract="true" interface="true">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//BufferedData"/>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="#//List">
+      <eTypeArguments eTypeParameter="#//BufferedList/D"/>
     </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//BufferedData"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Character" abstract="true" interface="true"
       eSuperTypes="#//String"/>
@@ -120,10 +129,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varying" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Character"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Character"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -200,6 +206,8 @@
         <eTypeArguments/>
       </eGenericType>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formulas" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataDelegator" abstract="true" interface="true">
     <eOperations name="getDelegate" lowerBound="1" eType="#//Data"/>
@@ -348,7 +356,7 @@
           <eTypeArguments eTypeParameter="#//DataFactory/createScroller/D"/>
         </eGenericType>
       </eParameters>
-      <eParameters name="occurrences" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="dimension" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="createStroller" lowerBound="1">
@@ -363,7 +371,7 @@
           <eTypeArguments eTypeParameter="#//DataFactory/createStroller/D"/>
         </eGenericType>
       </eParameters>
-      <eParameters name="occurrences" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="dimension" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="createTime" lowerBound="1" eType="#//Datetime">
@@ -661,10 +669,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DatetimeDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DatetimeType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Datetime"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Datetime"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -698,10 +703,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DecimalType"/>
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Decimal"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Decimal"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -757,10 +759,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FloatingDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//FloatingType"/>
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Floating"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Floating"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -775,10 +774,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="HexadecimalDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Hexadecimal"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Hexadecimal"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -817,11 +813,42 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndicatorDef">
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Indicator"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
-      <eTypeArguments eClassifier="#//Indicator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="List" abstract="true" interface="true"
+      eSuperTypes="#//Data">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//Data"/>
+    </eTypeParameters>
+    <eOperations name="get">
+      <eGenericType eTypeParameter="#//List/D"/>
+      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="get">
+      <eGenericType eTypeParameter="#//List/D"/>
+      <eParameters name="index" lowerBound="1" eType="#//Numeric"/>
+    </eOperations>
+    <eOperations name="capacity" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListDef">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//List">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+        containment="true">
+      <eGenericType eClassifier="#//UnaryAtomicDataDef">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialCapacity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="#//MultipleAtomicDataDef">
+      <eTypeArguments eTypeParameter="#//ListDef/D"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Moveable" abstract="true" interface="true">
@@ -863,35 +890,25 @@
       </eParameters>
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="movea">
-      <eParameters name="value">
-        <eGenericType eClassifier="#//Array">
-          <eTypeArguments/>
-        </eGenericType>
-      </eParameters>
+    <eOperations name="move">
+      <eParameters name="value" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaNumber"/>
     </eOperations>
-    <eOperations name="movea">
-      <eParameters name="value">
-        <eGenericType eClassifier="#//Array">
-          <eTypeArguments/>
-        </eGenericType>
-      </eParameters>
+    <eOperations name="move">
+      <eParameters name="value" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaNumber"/>
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="movea">
-      <eTypeParameters name="E">
-        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
-      </eTypeParameters>
       <eParameters name="value">
-        <eGenericType eTypeParameter="#//Moveable/movea.2/E"/>
+        <eGenericType eClassifier="#//Array">
+          <eTypeArguments/>
+        </eGenericType>
       </eParameters>
     </eOperations>
     <eOperations name="movea">
-      <eTypeParameters name="E">
-        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
-      </eTypeParameters>
       <eParameters name="value">
-        <eGenericType eTypeParameter="#//Moveable/movea.3/E"/>
+        <eGenericType eClassifier="#//Array">
+          <eTypeArguments/>
+        </eGenericType>
       </eParameters>
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -933,21 +950,13 @@
       </eParameters>
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="List" abstract="true" interface="true"
-      eSuperTypes="#//Data">
-    <eTypeParameters name="D">
-      <eBounds eClassifier="#//Data"/>
-    </eTypeParameters>
-    <eOperations name="get">
-      <eGenericType eTypeParameter="#//List/D"/>
-      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="movel">
+      <eParameters name="value" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaNumber"/>
     </eOperations>
-    <eOperations name="get">
-      <eGenericType eTypeParameter="#//List/D"/>
-      <eParameters name="index" lowerBound="1" eType="#//Numeric"/>
+    <eOperations name="movel">
+      <eParameters name="value" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaNumber"/>
+      <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="capacity" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultipleAtomicDataDef" abstract="true">
     <eTypeParameters name="D">
@@ -955,17 +964,35 @@
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-        containment="true">
+    <eOperations name="getArgument" lowerBound="1">
       <eGenericType eClassifier="#//UnaryAtomicDataDef">
         <eTypeArguments/>
       </eGenericType>
-    </eStructuralFeatures>
+    </eOperations>
     <eGenericSuperTypes eClassifier="#//MultipleDataDef">
       <eTypeArguments eTypeParameter="#//MultipleAtomicDataDef/D"/>
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//AtomicDataDef">
       <eTypeArguments eTypeParameter="#//MultipleAtomicDataDef/D"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultipleAtomicBufferedDataDef" abstract="true">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//BufferedList">
+        <eTypeArguments/>
+      </eBounds>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+        containment="true">
+      <eGenericType eClassifier="#//UnaryAtomicBufferedDataDef">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eGenericSuperTypes eClassifier="#//MultipleAtomicDataDef">
+      <eTypeArguments eTypeParameter="#//MultipleAtomicBufferedDataDef/D"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+      <eTypeArguments eTypeParameter="#//MultipleAtomicBufferedDataDef/D"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultipleAtomicDataTerm">
@@ -1194,20 +1221,14 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumericDef">
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Numeric"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Numeric"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pointer" abstract="true" interface="true"
       eSuperTypes="#//BufferedData"/>
   <eClassifiers xsi:type="ecore:EClass" name="PointerDef">
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//Pointer"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Pointer"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -1234,23 +1255,19 @@
     <eOperations name="previous" lowerBound="1">
       <eGenericType eTypeParameter="#//Scroller/D"/>
     </eOperations>
-    <eGenericSuperTypes eClassifier="#//List">
+    <eGenericSuperTypes eClassifier="#//BufferedList">
       <eTypeArguments eTypeParameter="#//Scroller/D"/>
     </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedData"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScrollerDef">
     <eTypeParameters name="D">
       <eBounds eClassifier="#//Scroller">
-        <eTypeArguments/>
+        <eTypeArguments eClassifier="#//BufferedData"/>
       </eBounds>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrences" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eGenericSuperTypes eClassifier="#//MultipleAtomicDataDef">
-      <eTypeArguments eTypeParameter="#//ScrollerDef/D"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eGenericSuperTypes eClassifier="#//MultipleAtomicBufferedDataDef">
       <eTypeArguments eTypeParameter="#//ScrollerDef/D"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -1421,10 +1438,7 @@
     <eOperations name="trimR" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringDef">
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//String"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//String"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -1444,8 +1458,8 @@
       </eBounds>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="occurrences" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//MultipleCompoundDataDef">
       <eTypeArguments eTypeParameter="#//StrollerDef/D"/>
     </eGenericSuperTypes>
@@ -1480,6 +1494,17 @@
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//AtomicDataDef">
       <eTypeArguments eTypeParameter="#//UnaryAtomicDataDef/D"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryAtomicBufferedDataDef" abstract="true">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="#//BufferedData"/>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
+      <eTypeArguments eTypeParameter="#//UnaryAtomicBufferedDataDef/D"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+      <eTypeArguments eTypeParameter="#//UnaryAtomicBufferedDataDef/D"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnaryAtomicDataTerm">

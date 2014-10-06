@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class NumericDefImpl extends UnaryAtomicDataDefImpl<QNumeric> implements QNumericDef {
+public class NumericDefImpl extends UnaryAtomicBufferedDataDefImpl<QNumeric> implements QNumericDef {
 	/**
 	 * 
 	 */
@@ -44,17 +44,6 @@ public class NumericDefImpl extends UnaryAtomicDataDefImpl<QNumeric> implements 
 	@Override
 	protected EClass eStaticClass() {
 		return QIntegratedLanguageDataPackage.Literals.NUMERIC_DEF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	@Override

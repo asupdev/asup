@@ -32,7 +32,7 @@ import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QMultipleAtomicDataTerm;
-import org.asup.il.data.QUnaryAtomicDataDef;
+import org.asup.il.data.QUnaryAtomicBufferedDataDef;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QEntry;
 import org.asup.il.flow.QEntryParameter;
@@ -443,7 +443,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 					
 					// arrayDef
 					QArrayDef<?> arrayDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createArrayDef();
-					arrayDataDef.setArgument((QUnaryAtomicDataDef<?>) EcoreUtil.copy((EObject)dataTerm.getDefinition()));
+					arrayDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)dataTerm.getDefinition()));
 					arrayDataDef.setDimension(((QArrayDef<?>)overlaid.getDefinition()).getDimension());
 					
 					multipleAtomicDataTerm.setDefinition(arrayDataDef);

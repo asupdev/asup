@@ -16,6 +16,8 @@ import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
 import org.asup.il.data.FloatingType;
+import org.asup.il.data.QAdapter;
+import org.asup.il.data.QAdapterDef;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QAtomicDataDef;
@@ -27,6 +29,7 @@ import org.asup.il.data.QBufferDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QBufferedDataTerm;
+import org.asup.il.data.QBufferedList;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QCompoundDataDef;
@@ -61,7 +64,9 @@ import org.asup.il.data.QIndicatorDef;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QList;
+import org.asup.il.data.QListDef;
 import org.asup.il.data.QMoveable;
+import org.asup.il.data.QMultipleAtomicBufferedDataDef;
 import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
@@ -79,6 +84,7 @@ import org.asup.il.data.QStringDef;
 import org.asup.il.data.QStroller;
 import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QStruct;
+import org.asup.il.data.QUnaryAtomicBufferedDataDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
@@ -104,6 +110,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements QIntegratedLanguageDataPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass adapterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass adapterDefEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,6 +185,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bufferDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass bufferedDataDefEClass = null;
 
 	/**
@@ -179,7 +206,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass bufferDefEClass = null;
+	private EClass bufferedListEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -410,7 +437,21 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass listDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass multipleAtomicDataDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multipleAtomicBufferedDataDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -516,6 +557,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass unaryAtomicDataDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unaryAtomicBufferedDataDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -699,6 +747,24 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAdapter() {
+		return adapterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAdapterDef() {
+		return adapterDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getArray() {
 		return arrayEClass;
 	}
@@ -798,6 +864,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBufferDef() {
+		return bufferDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBufferedDataDef() {
 		return bufferedDataDefEClass;
 	}
@@ -816,8 +891,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBufferDef() {
-		return bufferDefEClass;
+	public EClass getBufferedList() {
+		return bufferedListEClass;
 	}
 
 	/**
@@ -926,6 +1001,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getDataDef() {
 		return dataDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataDef_Formulas() {
+		return (EAttribute)dataDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1320,6 +1404,33 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getListDef() {
+		return listDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getListDef_Argument() {
+		return (EReference)listDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getListDef_InitialCapacity() {
+		return (EAttribute)listDefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMultipleAtomicDataDef() {
 		return multipleAtomicDataDefEClass;
 	}
@@ -1329,8 +1440,17 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMultipleAtomicDataDef_Argument() {
-		return (EReference)multipleAtomicDataDefEClass.getEStructuralFeatures().get(0);
+	public EClass getMultipleAtomicBufferedDataDef() {
+		return multipleAtomicBufferedDataDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMultipleAtomicBufferedDataDef_Argument() {
+		return (EReference)multipleAtomicBufferedDataDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1446,7 +1566,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getScrollerDef_Occurrences() {
+	public EAttribute getScrollerDef_Dimension() {
 		return (EAttribute)scrollerDefEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1484,6 +1604,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getUnaryAtomicDataDef() {
 		return unaryAtomicDataDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnaryAtomicBufferedDataDef() {
+		return unaryAtomicBufferedDataDefEClass;
 	}
 
 	/**
@@ -1590,7 +1719,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrollerDef_Occurrences() {
+	public EAttribute getStrollerDef_Dimension() {
 		return (EAttribute)strollerDefEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1694,6 +1823,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		isCreated = true;
 
 		// Create classes and their features
+		adapterEClass = createEClass(ADAPTER);
+
+		adapterDefEClass = createEClass(ADAPTER_DEF);
+
 		arrayEClass = createEClass(ARRAY);
 
 		arrayDefEClass = createEClass(ARRAY_DEF);
@@ -1713,11 +1846,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		bufferedDataEClass = createEClass(BUFFERED_DATA);
 
-		bufferedDataDefEClass = createEClass(BUFFERED_DATA_DEF);
+		bufferDefEClass = createEClass(BUFFER_DEF);
 
 		bufferedDataTermEClass = createEClass(BUFFERED_DATA_TERM);
 
-		bufferDefEClass = createEClass(BUFFER_DEF);
+		bufferedDataDefEClass = createEClass(BUFFERED_DATA_DEF);
+
+		bufferedListEClass = createEClass(BUFFERED_LIST);
 
 		characterEClass = createEClass(CHARACTER);
 
@@ -1738,6 +1873,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		dataContextEClass = createEClass(DATA_CONTEXT);
 
 		dataDefEClass = createEClass(DATA_DEF);
+		createEAttribute(dataDefEClass, DATA_DEF__FORMULAS);
 
 		dataDelegatorEClass = createEClass(DATA_DELEGATOR);
 
@@ -1804,12 +1940,18 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		indicatorDefEClass = createEClass(INDICATOR_DEF);
 
-		moveableEClass = createEClass(MOVEABLE);
-
 		listEClass = createEClass(LIST);
 
+		listDefEClass = createEClass(LIST_DEF);
+		createEReference(listDefEClass, LIST_DEF__ARGUMENT);
+		createEAttribute(listDefEClass, LIST_DEF__INITIAL_CAPACITY);
+
+		moveableEClass = createEClass(MOVEABLE);
+
 		multipleAtomicDataDefEClass = createEClass(MULTIPLE_ATOMIC_DATA_DEF);
-		createEReference(multipleAtomicDataDefEClass, MULTIPLE_ATOMIC_DATA_DEF__ARGUMENT);
+
+		multipleAtomicBufferedDataDefEClass = createEClass(MULTIPLE_ATOMIC_BUFFERED_DATA_DEF);
+		createEReference(multipleAtomicBufferedDataDefEClass, MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__ARGUMENT);
 
 		multipleAtomicDataTermEClass = createEClass(MULTIPLE_ATOMIC_DATA_TERM);
 
@@ -1833,7 +1975,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		scrollerEClass = createEClass(SCROLLER);
 
 		scrollerDefEClass = createEClass(SCROLLER_DEF);
-		createEAttribute(scrollerDefEClass, SCROLLER_DEF__OCCURRENCES);
+		createEAttribute(scrollerDefEClass, SCROLLER_DEF__DIMENSION);
 
 		stringEClass = createEClass(STRING);
 
@@ -1843,11 +1985,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		strollerDefEClass = createEClass(STROLLER_DEF);
 		createEAttribute(strollerDefEClass, STROLLER_DEF__LENGTH);
-		createEAttribute(strollerDefEClass, STROLLER_DEF__OCCURRENCES);
+		createEAttribute(strollerDefEClass, STROLLER_DEF__DIMENSION);
 
 		structEClass = createEClass(STRUCT);
 
 		unaryAtomicDataDefEClass = createEClass(UNARY_ATOMIC_DATA_DEF);
+
+		unaryAtomicBufferedDataDefEClass = createEClass(UNARY_ATOMIC_BUFFERED_DATA_DEF);
 
 		unaryAtomicDataTermEClass = createEClass(UNARY_ATOMIC_DATA_TERM);
 
@@ -1907,8 +2051,9 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		ETypeParameter arrayDefEClass_D = addETypeParameter(arrayDefEClass, "D");
 		ETypeParameter atomicDataDefEClass_D = addETypeParameter(atomicDataDefEClass, "D");
 		ETypeParameter atomicDataTermEClass_DD = addETypeParameter(atomicDataTermEClass, "DD");
-		ETypeParameter bufferedDataDefEClass_D = addETypeParameter(bufferedDataDefEClass, "D");
 		ETypeParameter bufferedDataTermEClass_DD = addETypeParameter(bufferedDataTermEClass, "DD");
+		ETypeParameter bufferedDataDefEClass_D = addETypeParameter(bufferedDataDefEClass, "D");
+		ETypeParameter bufferedListEClass_D = addETypeParameter(bufferedListEClass, "D");
 		ETypeParameter compoundDataDefEClass_D = addETypeParameter(compoundDataDefEClass, "D");
 		ETypeParameter compoundDataTermEClass_DD = addETypeParameter(compoundDataTermEClass, "DD");
 		ETypeParameter dataDefEClass_D = addETypeParameter(dataDefEClass, "D");
@@ -1918,7 +2063,9 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		ETypeParameter enumDefEClass_E = addETypeParameter(enumDefEClass, "E");
 		ETypeParameter enumDefEClass_D = addETypeParameter(enumDefEClass, "D");
 		ETypeParameter listEClass_D = addETypeParameter(listEClass, "D");
+		ETypeParameter listDefEClass_D = addETypeParameter(listDefEClass, "D");
 		ETypeParameter multipleAtomicDataDefEClass_D = addETypeParameter(multipleAtomicDataDefEClass, "D");
+		ETypeParameter multipleAtomicBufferedDataDefEClass_D = addETypeParameter(multipleAtomicBufferedDataDefEClass, "D");
 		ETypeParameter multipleAtomicDataTermEClass_DD = addETypeParameter(multipleAtomicDataTermEClass, "DD");
 		ETypeParameter multipleCompoundDataDefEClass_D = addETypeParameter(multipleCompoundDataDefEClass, "D");
 		ETypeParameter multipleCompoundDataTermEClass_DD = addETypeParameter(multipleCompoundDataTermEClass, "DD");
@@ -1929,6 +2076,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		ETypeParameter strollerEClass_D = addETypeParameter(strollerEClass, "D");
 		ETypeParameter strollerDefEClass_D = addETypeParameter(strollerDefEClass, "D");
 		ETypeParameter unaryAtomicDataDefEClass_D = addETypeParameter(unaryAtomicDataDefEClass, "D");
+		ETypeParameter unaryAtomicBufferedDataDefEClass_D = addETypeParameter(unaryAtomicBufferedDataDefEClass, "D");
 		ETypeParameter unaryAtomicDataTermEClass_DD = addETypeParameter(unaryAtomicDataTermEClass, "DD");
 		ETypeParameter unaryCompoundDataDefEClass_D = addETypeParameter(unaryCompoundDataDefEClass, "D");
 		ETypeParameter unaryCompoundDataTermEClass_DD = addETypeParameter(unaryCompoundDataTermEClass, "DD");
@@ -1948,12 +2096,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		atomicDataTermEClass_DD.getEBounds().add(g1);
-		g1 = createEGenericType(this.getBufferedData());
-		bufferedDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getBufferedDataDef());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		bufferedDataTermEClass_DD.getEBounds().add(g1);
+		g1 = createEGenericType(this.getBufferedData());
+		bufferedDataDefEClass_D.getEBounds().add(g1);
+		g1 = createEGenericType(this.getBufferedData());
+		bufferedListEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getStruct());
 		compoundDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getCompoundDataDef());
@@ -1979,7 +2129,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(this.getList());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
+		listDefEClass_D.getEBounds().add(g1);
+		g1 = createEGenericType(this.getList());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
 		multipleAtomicDataDefEClass_D.getEBounds().add(g1);
+		g1 = createEGenericType(this.getBufferedList());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		multipleAtomicBufferedDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getMultipleAtomicDataDef());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -2003,7 +2161,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(this.getBufferedData());
 		scrollerEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getScroller());
-		g2 = createEGenericType();
+		g2 = createEGenericType(this.getBufferedData());
 		g1.getETypeArguments().add(g2);
 		scrollerDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getStruct());
@@ -2014,6 +2172,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		strollerDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getData());
 		unaryAtomicDataDefEClass_D.getEBounds().add(g1);
+		g1 = createEGenericType(this.getBufferedData());
+		unaryAtomicBufferedDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getUnaryAtomicDataDef());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -2032,17 +2192,16 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		unaryDataTermEClass_DD.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		g1 = createEGenericType(this.getList());
+		adapterEClass.getESuperTypes().add(this.getData());
+		g1 = createEGenericType(this.getUnaryAtomicDataDef());
+		g2 = createEGenericType(this.getAdapter());
+		g1.getETypeArguments().add(g2);
+		adapterDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBufferedList());
 		g2 = createEGenericType(arrayEClass_D);
 		g1.getETypeArguments().add(g2);
 		arrayEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedData());
-		arrayEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMultipleAtomicDataDef());
-		g2 = createEGenericType(arrayDefEClass_D);
-		g1.getETypeArguments().add(g2);
-		arrayDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getMultipleAtomicBufferedDataDef());
 		g2 = createEGenericType(arrayDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		arrayDefEClass.getEGenericSuperTypes().add(g1);
@@ -2055,39 +2214,37 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		atomicDataTermEClass.getEGenericSuperTypes().add(g1);
 		binaryEClass.getESuperTypes().add(this.getNumeric());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getBinary());
-		g1.getETypeArguments().add(g2);
-		binaryDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getBinary());
 		g1.getETypeArguments().add(g2);
 		binaryDefEClass.getEGenericSuperTypes().add(g1);
 		booleanEClass.getESuperTypes().add(this.getData());
 		bufferedDataEClass.getESuperTypes().add(this.getData());
 		bufferedDataEClass.getESuperTypes().add(this.getMoveable());
-		g1 = createEGenericType(this.getDataDef());
-		g2 = createEGenericType(bufferedDataDefEClass_D);
+		g1 = createEGenericType(this.getUnaryAtomicDataDef());
+		g2 = createEGenericType(this.getBufferedData());
 		g1.getETypeArguments().add(g2);
-		bufferedDataDefEClass.getEGenericSuperTypes().add(g1);
+		bufferDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBufferedDataDef());
+		g2 = createEGenericType(this.getBufferedData());
+		g1.getETypeArguments().add(g2);
+		bufferDefEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType(bufferedDataTermEClass_DD);
 		g1.getETypeArguments().add(g2);
 		bufferedDataTermEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getBufferedData());
+		g1 = createEGenericType(this.getDataDef());
+		g2 = createEGenericType(bufferedDataDefEClass_D);
 		g1.getETypeArguments().add(g2);
-		bufferDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
-		g2 = createEGenericType(this.getBufferedData());
+		bufferedDataDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getList());
+		g2 = createEGenericType(bufferedListEClass_D);
 		g1.getETypeArguments().add(g2);
-		bufferDefEClass.getEGenericSuperTypes().add(g1);
+		bufferedListEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBufferedData());
+		bufferedListEClass.getEGenericSuperTypes().add(g1);
 		characterEClass.getESuperTypes().add(this.getString());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getCharacter());
-		g1.getETypeArguments().add(g2);
-		characterDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getCharacter());
 		g1.getETypeArguments().add(g2);
 		characterDefEClass.getEGenericSuperTypes().add(g1);
@@ -2124,20 +2281,12 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2.getETypeArguments().add(g3);
 		dataTermContainerEClass.getEGenericSuperTypes().add(g1);
 		datetimeEClass.getESuperTypes().add(this.getBufferedData());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getDatetime());
-		g1.getETypeArguments().add(g2);
-		datetimeDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getDatetime());
 		g1.getETypeArguments().add(g2);
 		datetimeDefEClass.getEGenericSuperTypes().add(g1);
 		decimalEClass.getESuperTypes().add(this.getNumeric());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getDecimal());
-		g1.getETypeArguments().add(g2);
-		decimalDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getDecimal());
 		g1.getETypeArguments().add(g2);
 		decimalDefEClass.getEGenericSuperTypes().add(g1);
@@ -2147,35 +2296,27 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		enumDefEClass.getEGenericSuperTypes().add(g1);
 		floatingEClass.getESuperTypes().add(this.getNumeric());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getFloating());
-		g1.getETypeArguments().add(g2);
-		floatingDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getFloating());
 		g1.getETypeArguments().add(g2);
 		floatingDefEClass.getEGenericSuperTypes().add(g1);
 		graphicEClass.getESuperTypes().add(this.getString());
 		hexadecimalEClass.getESuperTypes().add(this.getBufferedData());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getHexadecimal());
-		g1.getETypeArguments().add(g2);
-		hexadecimalDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getHexadecimal());
 		g1.getETypeArguments().add(g2);
 		hexadecimalDefEClass.getEGenericSuperTypes().add(g1);
 		identifierEClass.getESuperTypes().add(this.getBufferedData());
 		indicatorEClass.getESuperTypes().add(this.getString());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getIndicator());
-		g1.getETypeArguments().add(g2);
-		indicatorDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getIndicator());
 		g1.getETypeArguments().add(g2);
 		indicatorDefEClass.getEGenericSuperTypes().add(g1);
 		listEClass.getESuperTypes().add(this.getData());
+		g1 = createEGenericType(this.getMultipleAtomicDataDef());
+		g2 = createEGenericType(listDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		listDefEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getMultipleDataDef());
 		g2 = createEGenericType(multipleAtomicDataDefEClass_D);
 		g1.getETypeArguments().add(g2);
@@ -2184,6 +2325,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(multipleAtomicDataDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		multipleAtomicDataDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getMultipleAtomicDataDef());
+		g2 = createEGenericType(multipleAtomicBufferedDataDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		multipleAtomicBufferedDataDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBufferedDataDef());
+		g2 = createEGenericType(multipleAtomicBufferedDataDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		multipleAtomicBufferedDataDefEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getMultipleDataTerm());
 		g2 = createEGenericType(multipleAtomicDataTermEClass_DD);
 		g1.getETypeArguments().add(g2);
@@ -2217,43 +2366,25 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		multipleDataTermEClass.getEGenericSuperTypes().add(g1);
 		numericEClass.getESuperTypes().add(this.getBufferedData());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getNumeric());
-		g1.getETypeArguments().add(g2);
-		numericDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getNumeric());
 		g1.getETypeArguments().add(g2);
 		numericDefEClass.getEGenericSuperTypes().add(g1);
 		pointerEClass.getESuperTypes().add(this.getBufferedData());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getPointer());
 		g1.getETypeArguments().add(g2);
 		pointerDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
-		g2 = createEGenericType(this.getPointer());
-		g1.getETypeArguments().add(g2);
-		pointerDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getList());
+		g1 = createEGenericType(this.getBufferedList());
 		g2 = createEGenericType(scrollerEClass_D);
 		g1.getETypeArguments().add(g2);
 		scrollerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedData());
-		scrollerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getMultipleAtomicDataDef());
-		g2 = createEGenericType(scrollerDefEClass_D);
-		g1.getETypeArguments().add(g2);
-		scrollerDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getMultipleAtomicBufferedDataDef());
 		g2 = createEGenericType(scrollerDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		scrollerDefEClass.getEGenericSuperTypes().add(g1);
 		stringEClass.getESuperTypes().add(this.getBufferedData());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getString());
-		g1.getETypeArguments().add(g2);
-		stringDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getString());
 		g1.getETypeArguments().add(g2);
 		stringDefEClass.getEGenericSuperTypes().add(g1);
@@ -2280,6 +2411,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(unaryAtomicDataDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		unaryAtomicDataDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getUnaryAtomicDataDef());
+		g2 = createEGenericType(unaryAtomicBufferedDataDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		unaryAtomicBufferedDataDefEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getBufferedDataDef());
+		g2 = createEGenericType(unaryAtomicBufferedDataDefEClass_D);
+		g1.getETypeArguments().add(g2);
+		unaryAtomicBufferedDataDefEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getUnaryDataTerm());
 		g2 = createEGenericType(unaryAtomicDataTermEClass_DD);
 		g1.getETypeArguments().add(g2);
@@ -2314,6 +2453,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		unaryDataTermEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(adapterEClass, QAdapter.class, "Adapter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(adapterDefEClass, QAdapterDef.class, "AdapterDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(arrayEClass, QArray.class, "Array", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(arrayEClass, this.getDataArray(), "asArray", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -2361,13 +2504,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		addEOperation(bufferedDataEClass, null, "reset", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(bufferDefEClass, QBufferDef.class, "BufferDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bufferedDataTermEClass, QBufferedDataTerm.class, "BufferedDataTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(bufferedDataDefEClass, QBufferedDataDef.class, "BufferedDataDef", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(bufferedDataDefEClass, ecorePackage.getEInt(), "getLength", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(bufferedDataTermEClass, QBufferedDataTerm.class, "BufferedDataTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(bufferDefEClass, QBufferDef.class, "BufferDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bufferedListEClass, QBufferedList.class, "BufferedList", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(characterEClass, QCharacter.class, "Character", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2419,6 +2564,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataDefEClass, QDataDef.class, "DataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataDef_Formulas(), ecorePackage.getEString(), "formulas", null, 0, -1, QDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(dataDefEClass, null, "getDataClass", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
@@ -2572,7 +2718,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "argument", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "dimension", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getScroller());
 		g2 = createEGenericType(t1);
@@ -2587,7 +2733,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "argument", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "occurrences", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "dimension", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getStroller());
 		g2 = createEGenericType(t1);
@@ -2933,6 +3079,29 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(indicatorDefEClass, QIndicatorDef.class, "IndicatorDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(listEClass, QList.class, "List", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(listEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(listEClass_D);
+		initEOperation(op, g1);
+
+		op = addEOperation(listEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getNumeric(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(listEClass_D);
+		initEOperation(op, g1);
+
+		addEOperation(listEClass, ecorePackage.getEInt(), "capacity", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(listEClass, ecorePackage.getEInt(), "count", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(listDefEClass, QListDef.class, "ListDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(this.getUnaryAtomicDataDef());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getListDef_Argument(), g1, null, "argument", null, 1, 1, QListDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getListDef_InitialCapacity(), ecorePackage.getEInt(), "initialCapacity", null, 1, 1, QListDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(moveableEClass, QMoveable.class, "Moveable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(moveableEClass, null, "move", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2971,31 +3140,23 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "clear", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(moveableEClass, null, "movea", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getArray());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(moveableEClass, null, "move", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaNumber(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(moveableEClass, null, "movea", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getArray());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(moveableEClass, null, "move", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaNumber(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "clear", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(moveableEClass, null, "movea", 0, 1, IS_UNIQUE, IS_ORDERED);
-		t1 = addETypeParameter(op, "E");
-		g1 = createEGenericType(theFrameworkJavaPackage.getJavaEnum());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(t1);
+		g1 = createEGenericType(this.getArray());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(moveableEClass, null, "movea", 0, 1, IS_UNIQUE, IS_ORDERED);
-		t1 = addETypeParameter(op, "E");
-		g1 = createEGenericType(theFrameworkJavaPackage.getJavaEnum());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(t1);
+		g1 = createEGenericType(this.getArray());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "clear", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3035,25 +3196,26 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, g1, "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "clear", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(listEClass, QList.class, "List", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(moveableEClass, null, "movel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaNumber(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(listEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(listEClass_D);
-		initEOperation(op, g1);
-
-		op = addEOperation(listEClass, null, "get", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getNumeric(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(listEClass_D);
-		initEOperation(op, g1);
-
-		addEOperation(listEClass, ecorePackage.getEInt(), "capacity", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(moveableEClass, null, "movel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaNumber(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "clear", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(multipleAtomicDataDefEClass, QMultipleAtomicDataDef.class, "MultipleAtomicDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(multipleAtomicDataDefEClass, null, "getArgument", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getUnaryAtomicDataDef());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
-		initEReference(getMultipleAtomicDataDef_Argument(), g1, null, "argument", null, 1, 1, QMultipleAtomicDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(op, g1);
+
+		initEClass(multipleAtomicBufferedDataDefEClass, QMultipleAtomicBufferedDataDef.class, "MultipleAtomicBufferedDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getMultipleAtomicBufferedDataDef_Argument(), g1, null, "argument", null, 1, 1, QMultipleAtomicBufferedDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multipleAtomicDataTermEClass, QMultipleAtomicDataTerm.class, "MultipleAtomicDataTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3262,7 +3424,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEOperation(op, g1);
 
 		initEClass(scrollerDefEClass, QScrollerDef.class, "ScrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getScrollerDef_Occurrences(), ecorePackage.getEString(), "occurrences", null, 1, 1, QScrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScrollerDef_Dimension(), ecorePackage.getEInt(), "dimension", null, 1, 1, QScrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringEClass, QString.class, "String", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3434,7 +3596,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(strollerDefEClass, QStrollerDef.class, "StrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStrollerDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrollerDef_Occurrences(), ecorePackage.getEString(), "occurrences", null, 1, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrollerDef_Dimension(), ecorePackage.getEInt(), "dimension", null, 1, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(structEClass, QStruct.class, "Struct", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3447,6 +3609,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEOperation(structEClass, this.getBufferedData(), "getElements", 1, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(unaryAtomicDataDefEClass, QUnaryAtomicDataDef.class, "UnaryAtomicDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(unaryAtomicBufferedDataDefEClass, QUnaryAtomicBufferedDataDef.class, "UnaryAtomicBufferedDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(unaryAtomicDataTermEClass, QUnaryAtomicDataTerm.class, "UnaryAtomicDataTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

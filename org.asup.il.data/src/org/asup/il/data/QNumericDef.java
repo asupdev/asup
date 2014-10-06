@@ -18,5 +18,5 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QNumericDef extends QUnaryAtomicDataDef<QNumeric>, QBufferedDataDef<QNumeric> {
+public interface QNumericDef extends QUnaryAtomicBufferedDataDef<QNumeric> {
 } // QNumericDef

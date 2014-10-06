@@ -313,17 +313,7 @@ public abstract class QDataStructDelegator implements QDataStruct, QDataDelegato
 	@Override
 	public <E extends Enum<E>> void move(E value, boolean clear) {
 		delegate.move(value, clear);
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		delegate.movea(value);
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		delegate.movea(value, clear);
-	}
+	}	
 
 	@Override
 	public <E extends Enum<E>> void movel(E value) {
@@ -414,5 +404,25 @@ public abstract class QDataStructDelegator implements QDataStruct, QDataDelegato
 	@Override
 	public void assign(QBufferedData value) {
 		delegate.assign(value);
+	}
+
+	@Override
+	public void move(Number value) {
+		delegate.move(value);
+	}
+
+	@Override
+	public void move(Number value, boolean clear) {
+		delegate.move(value);		
+	}
+
+	@Override
+	public void movel(Number value) {
+		delegate.movel(value);
+	}
+
+	@Override
+	public void movel(Number value, boolean clear) {
+		delegate.movel(value);		
 	}
 }

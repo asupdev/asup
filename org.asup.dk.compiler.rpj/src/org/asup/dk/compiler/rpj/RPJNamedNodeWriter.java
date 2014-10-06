@@ -217,15 +217,15 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		else if(QScrollerDef.class.isAssignableFrom(klassDef)) {
 			QScrollerDef<?> scrollerDef = (QScrollerDef<?>)dataDef;
 			
-			if (scrollerDef.getOccurrences() != null) 
-				writeAnnotation(node, DataDef.class, "occurrences", scrollerDef.getOccurrences());
+			if (scrollerDef.getDimension() != 0) 
+				writeAnnotation(node, DataDef.class, "dimension", scrollerDef.getDimension());
 
 			writeDataDefAnnotation(node, scrollerDef.getArgument());			
 		}
 		else if(QStrollerDef.class.isAssignableFrom(klassDef)) {
 			QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;
-			if (strollerDef.getOccurrences() != null) 
-				writeAnnotation(node, DataDef.class, "occurrences", strollerDef.getOccurrences());
+			if (strollerDef.getDimension() != 0) 
+				writeAnnotation(node, DataDef.class, "dimension", strollerDef.getDimension());
 			
 		}
 		else if(QBinaryDef.class.isAssignableFrom(klassDef)) {
@@ -294,6 +294,9 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		}
 		else
 			System.err.println("Unknown field type "+dataDef);
+		
+		if(!dataDef.getFormulas().isEmpty())
+			writeAnnotation(node, DataDef.class, "formulas", dataDef.getFormulas());
 	}
 	
 	@SuppressWarnings("unchecked")

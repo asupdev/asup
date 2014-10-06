@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class BinaryDefImpl extends UnaryAtomicDataDefImpl<QBinary> implements QBinaryDef {
+public class BinaryDefImpl extends UnaryAtomicBufferedDataDefImpl<QBinary> implements QBinaryDef {
 	/**
 	 * 
 	 */

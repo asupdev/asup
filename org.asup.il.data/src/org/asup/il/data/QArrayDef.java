@@ -27,7 +27,7 @@ import java.lang.String;
  * @model
  * @generated
  */
-public interface QArrayDef<D extends QArray<?>> extends QMultipleAtomicDataDef<D>, QBufferedDataDef<D> {
+public interface QArrayDef<D extends QArray<?>> extends QMultipleAtomicBufferedDataDef<D> {
 	/**
 	 * Returns the value of the '<em><b>Dimension</b></em>' attribute.
 	 * <!-- begin-user-doc -->

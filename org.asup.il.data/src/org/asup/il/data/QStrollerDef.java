@@ -7,7 +7,6 @@
  */
 package org.asup.il.data;
 
-import java.lang.String;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +17,7 @@ import java.lang.String;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.il.data.QStrollerDef#getLength <em>Length</em>}</li>
- *   <li>{@link org.asup.il.data.QStrollerDef#getOccurrences <em>Occurrences</em>}</li>
+ *   <li>{@link org.asup.il.data.QStrollerDef#getDimension <em>Dimension</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,29 +53,29 @@ public interface QStrollerDef<D extends QStroller<?>> extends QMultipleCompoundD
 	void setLength(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Occurrences</b></em>' attribute.
+	 * Returns the value of the '<em><b>Dimension</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Occurrences</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Dimension</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Occurrences</em>' attribute.
-	 * @see #setOccurrences(String)
-	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStrollerDef_Occurrences()
+	 * @return the value of the '<em>Dimension</em>' attribute.
+	 * @see #setDimension(int)
+	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStrollerDef_Dimension()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getOccurrences();
+	int getDimension();
 
 	/**
-	 * Sets the value of the '{@link org.asup.il.data.QStrollerDef#getOccurrences <em>Occurrences</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.il.data.QStrollerDef#getDimension <em>Dimension</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Occurrences</em>' attribute.
-	 * @see #getOccurrences()
+	 * @param value the new value of the '<em>Dimension</em>' attribute.
+	 * @see #getDimension()
 	 * @generated
 	 */
-	void setOccurrences(String value);
+	void setDimension(int value);
 
 } // QStrollerDef

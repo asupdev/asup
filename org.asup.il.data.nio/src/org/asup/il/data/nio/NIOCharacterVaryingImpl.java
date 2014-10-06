@@ -336,17 +336,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 		super.move(value, clear);
 	}
 
-	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		// TODO Auto-generated method stub
-		super.movea(value);
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		// TODO Auto-generated method stub
-		super.movea(value, clear);
-	}
 
 	@Override
 	public <E extends Enum<E>> void movel(E value) {

@@ -26,7 +26,7 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QDecimalDef extends QUnaryAtomicDataDef<QDecimal>, QBufferedDataDef<QDecimal> {
+public interface QDecimalDef extends QUnaryAtomicBufferedDataDef<QDecimal> {
 	/**
 	 * Returns the value of the '<em><b>Precision</b></em>' attribute.
 	 * <!-- begin-user-doc -->

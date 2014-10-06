@@ -27,7 +27,7 @@ import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStrollerDef;
-import org.asup.il.data.QUnaryAtomicDataDef;
+import org.asup.il.data.QUnaryAtomicBufferedDataDef;
 import org.asup.il.data.QUnaryDataTerm;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
@@ -78,17 +78,17 @@ public class QOperatingSystemDataHelper {
 			// multiple
 			if (cardinality != null && cardinality.isMultiple()) {
 				
-				if(dataDef instanceof QAtomicDataDef) {
+				if(dataDef instanceof QUnaryAtomicBufferedDataDef) {
 					QScrollerDef<?> scrollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createScrollerDef();
-					scrollerDef.setOccurrences(Integer.toString(cardinality.getMax()));
-					scrollerDef.setArgument((QUnaryAtomicDataDef<?>) dataDef);
+					scrollerDef.setDimension(cardinality.getMax());
+					scrollerDef.setArgument((QUnaryAtomicBufferedDataDef<?>) dataDef);
 					dataDef = (DD) scrollerDef;
 					
 					dataTerm = (QDataTerm<DD>) QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();; 
 				}
 				else if(dataDef instanceof QCompoundDataDef) {
 					QStrollerDef<?> strollerDef = QIntegratedLanguageDataFactory.eINSTANCE.createStrollerDef();
-					strollerDef.setOccurrences(Integer.toString(cardinality.getMax()));
+					strollerDef.setDimension(cardinality.getMax());
 					dataDef = (DD) strollerDef;
 					
 					dataTerm = (QDataTerm<DD>) QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();

@@ -1937,7 +1937,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="250">
+            dimension="250">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>
@@ -3105,7 +3105,7 @@
         </facets>
         <definition
             xsi:type="il-data:ScrollerDef"
-            occurrences="25">
+            dimension="25">
           <argument
               xsi:type="il-data:CharacterDef"
               length="10"/>

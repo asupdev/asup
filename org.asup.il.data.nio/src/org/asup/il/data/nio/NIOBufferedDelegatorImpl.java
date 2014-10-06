@@ -17,7 +17,7 @@ import org.asup.il.data.QData;
 import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public abstract class NIOBufferedDelegator implements QBufferedData, QDataDelegator {
+public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QBufferedData, QDataDelegator {
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public abstract class NIOBufferedDelegator implements QBufferedData, QDataDelega
 	
 	protected QBufferedData _delegate;
 	
-	protected NIOBufferedDelegator(QBufferedData delegate) {
+	protected NIOBufferedDelegatorImpl(QBufferedData delegate) {
 		this._delegate = delegate;
 	}
 	
@@ -161,16 +161,6 @@ public abstract class NIOBufferedDelegator implements QBufferedData, QDataDelega
 	}
 
 	@Override
-	public <E extends Enum<E>> void movea(E value) {
-		_delegate.movea(value);
-	}
-
-	@Override
-	public <E extends Enum<E>> void movea(E value, boolean clear) {
-		_delegate.movea(value, clear);
-	}
-
-	@Override
 	public <E extends Enum<E>> void movel(E value) {
 		_delegate.movel(value);		
 	}
@@ -193,5 +183,24 @@ public abstract class NIOBufferedDelegator implements QBufferedData, QDataDelega
 	@Override
 	public <E extends Enum<E>> void eval(E value) {
 		_delegate.eval(value);
+	}
+
+	@Override
+	public void move(Number value) {
+		_delegate.move(value);		
+	}
+
+	@Override
+	public void move(Number value, boolean clear) {
+		_delegate.move(value, clear);		
+	}
+	@Override
+	public void movel(Number value) {
+		_delegate.movel(value);		
+	}
+
+	@Override
+	public void movel(Number value, boolean clear) {
+		_delegate.movel(value, clear);		
 	}
 }

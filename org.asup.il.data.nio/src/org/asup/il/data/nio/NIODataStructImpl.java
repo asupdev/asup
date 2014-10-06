@@ -22,7 +22,7 @@ import java.util.Map.Entry;
 
 import org.asup.il.data.QBufferedData;
 
-public class NIODataStructImpl extends NIODataStruct {
+public class NIODataStructImpl extends NIOAbstractDataStruct {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -84,7 +84,7 @@ public class NIODataStructImpl extends NIODataStruct {
 		_dynamicLength = stream.readBoolean();
 		
 		for(QBufferedData element: getElements()) {
-			NIOBufferedData nioBufferChild = (NIOBufferedData)element;
+			NIOBufferedDataImpl nioBufferChild = (NIOBufferedDataImpl)element;
 			nioBufferChild.setBuffer(getBuffer());
 		}
 	}
@@ -96,7 +96,7 @@ public class NIODataStructImpl extends NIODataStruct {
 		
 		for(Entry<String, QBufferedData> element: _elements.entrySet()) {
 			
-			NIOBufferedData copyElement = (NIOBufferedData) element.getValue().copy();
+			NIOBufferedDataImpl copyElement = (NIOBufferedDataImpl) element.getValue().copy();
 			copy.addElement(element.getKey(), copyElement);
 		}
 		

@@ -18,5 +18,5 @@ package org.asup.il.data;
  * @model
  * @generated
  */
-public interface QPointerDef extends QUnaryAtomicDataDef<QPointer>, QBufferedDataDef<QPointer> {
+public interface QPointerDef extends QUnaryAtomicBufferedDataDef<QPointer> {
 } // QPointerDef

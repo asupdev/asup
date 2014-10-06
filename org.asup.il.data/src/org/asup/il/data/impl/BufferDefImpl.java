@@ -60,13 +60,13 @@ public class BufferDefImpl extends UnaryAtomicDataDefImpl<QBufferedData> impleme
 	}
 
 	@Override
-	public Class<?> getJavaClass() {
-		return Buffer.class;
+	public Class<?> getDataClass() {
+		return QBufferedData.class;
 	}
 
 	@Override
-	public Class<?> getDataClass() {
-		return QBufferedData.class;
+	public Class<?> getJavaClass() {
+		return Buffer.class;
 	}
 
 } //BufferDefImpl

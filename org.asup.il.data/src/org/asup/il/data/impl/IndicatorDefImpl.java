@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class IndicatorDefImpl extends UnaryAtomicDataDefImpl<QIndicator> implements QIndicatorDef {
+public class IndicatorDefImpl extends UnaryAtomicBufferedDataDefImpl<QIndicator> implements QIndicatorDef {
 	/**
 	 * 
 	 */
@@ -45,18 +45,6 @@ public class IndicatorDefImpl extends UnaryAtomicDataDefImpl<QIndicator> impleme
 	protected EClass eStaticClass() {
 		return QIntegratedLanguageDataPackage.Literals.INDICATOR_DEF;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 
 	@Override
 	public Class<?> getJavaClass() {		

@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class HexadecimalDefImpl extends UnaryAtomicDataDefImpl<QHexadecimal> implements QHexadecimalDef {
+public class HexadecimalDefImpl extends UnaryAtomicBufferedDataDefImpl<QHexadecimal> implements QHexadecimalDef {
 	/**
 	 * 
 	 */
