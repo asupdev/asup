@@ -337,8 +337,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 //				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
 //				assignValue(listCompound.get(i), parmValue);
 
-				buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
-				
+				if(isSpecialValue(dataTerm, tmpValue)) {
+					assignValue(data, resolveSpecialValue(dataTerm, tmpValue));
+				}
+				else
+					buildStructValue(multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
+
 				i++;
 			}
 			
@@ -404,8 +408,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 //			String structValue = buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);			
 //			assignValue(struct, structValue);
-			
-			buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
+
+			if(isSpecialValue(dataTerm, value)) {
+				assignValue(data, resolveSpecialValue(dataTerm, value));
+			}
+			else
+				buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
 
 			dbgString = unaryCompoundDataTerm.toString();
 
@@ -676,6 +684,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			for (QSpecialElement specialElem : special.getElements()) {
 				if (specialElem.getName().equals(value)) {
 					result = specialElem.getValue();
+					break;
 				}
 			}
 		}
