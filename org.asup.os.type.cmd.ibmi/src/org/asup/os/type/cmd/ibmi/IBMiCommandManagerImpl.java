@@ -207,7 +207,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		case MULTIPLE_ATOMIC:
 			
 			if (defaults && useDefault(dataTerm, value)) {
-				value = assignDefault(dataTerm, value);
+				value = buildDefault(dataTerm);
 				defaults = false;
 			}		
 
@@ -235,8 +235,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					int counter = 1;
 					Iterator<CLParmAbstractComponent> iterator = listElements.iterator();
 					while (iterator.hasNext()) {
-						if(listAtomic instanceof QScroller<?>)
-							((QScroller<?>)listAtomic).absolute(counter);
+//						if(listAtomic instanceof QScroller<?>)
+//							((QScroller<?>)listAtomic).absolute(counter);
 	
 						tokValue = buildParameterValue(multipleAtomicDataTerm, iterator.next());
 	
@@ -269,13 +269,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		case MULTIPLE_COMPOUND:
 						
 			if (defaults && useDefault(dataTerm, value)) {
-				value = assignDefault(dataTerm, value);
+				value = buildDefault(dataTerm);
 				defaults = false;
 			}		
 			
 			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 			QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
-			QList<?> listCompound = (QList<?>) data;
 			
 			// Manage Struct specials
 			value = resolveSpecialValue(multipleCompoundDataTerm, value);
@@ -291,11 +290,8 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			Iterator<CLParmAbstractComponent> multipleParmIterator = multipleParamComp.getChilds().iterator();
 			//List<QDataTerm<?>> dataTermList = multipleCompoundDataDef.getElements();
 			
-			int i = 1;
-					
+			int i=1;
 			while (multipleParmIterator.hasNext()){
-				if(listCompound instanceof QScroller<?>)
-					((QScroller<?>)listCompound).absolute(i);
 				String tmpValue = multipleParmIterator.next().toString();
 				/*
 				if (tmpVvalue.startsWith("(") && value.endsWith(")")) {
@@ -336,8 +332,15 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				
 //				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
 //				assignValue(listCompound.get(i), parmValue);
-
-				buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
+				
+				if(data instanceof QScroller<?>)
+					((QScroller<?>)data).absolute(i);
+				
+				if(isSpecialValue(dataTerm, tmpValue)) {
+					assignValue(data, resolveSpecialValue(dataTerm, tmpValue));
+				}
+				else
+					buildStructValue(multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
 				
 				i++;
 			}
@@ -348,7 +351,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		case UNARY_ATOMIC:
 			
 			if (defaults && useDefault(dataTerm, value)) {
-				value = assignDefault(dataTerm, value);
+				value = buildDefault(dataTerm);
 			}
 			
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;			
@@ -390,7 +393,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		case UNARY_COMPOUND:
 			
 			if (defaults && useDefault(dataTerm, value)) {
-				value = assignDefault(dataTerm, value);
+				value = buildDefault(dataTerm);
 				defaults = false;
 			}
 			
@@ -404,8 +407,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 //			String structValue = buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);			
 //			assignValue(struct, structValue);
-			
-			buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
+
+			if(isSpecialValue(dataTerm, value)) {
+				assignValue(data, resolveSpecialValue(dataTerm, value));
+			}
+			else
+				buildStructValue(unaryCompoundDataDef, dataContext, value, variables, defaults);
 
 			dbgString = unaryCompoundDataTerm.toString();
 
@@ -442,22 +449,20 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 	}
 	
-	private String assignDefault(QDataTerm<?> dataTerm, String value) {
+	private String buildDefault(QDataTerm<?> dataTerm) {
 		
 		String defValue = null;
-		if (value == null || value.isEmpty()) {
 			
-			if (dataTerm instanceof QUnaryDataTerm) {				
-				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
+		if (dataTerm instanceof QUnaryDataTerm) {				
+			defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
 
-			} else  if (dataTerm instanceof QMultipleDataTerm) {
+		} else  if (dataTerm instanceof QMultipleDataTerm) {
+			
+			if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
+				defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);
 				
-				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
-					defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);
-					
-				}				
-			}
-		} 
+			}				
+		}
 		
 		// Manage HEX default values
 		if (defValue != null && defValue.startsWith("X'") && defValue.endsWith("'")) {
@@ -672,10 +677,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		QSpecial special = dataTerm.getFacet(QSpecial.class);
 
 		if (special != null) {
-
+ 
 			for (QSpecialElement specialElem : special.getElements()) {
 				if (specialElem.getName().equals(value)) {
 					result = specialElem.getValue();
+					break;
 				}
 			}
 		}

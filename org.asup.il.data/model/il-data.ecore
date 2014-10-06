@@ -85,7 +85,6 @@
     </eOperations>
     <eOperations name="length" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eOperations name="reset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BufferDef">
     <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">

@@ -78,12 +78,4 @@ public interface QBufferedData extends QData, QMoveable {
 	 */
 	int size();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void reset();
-
 } // QBufferedData

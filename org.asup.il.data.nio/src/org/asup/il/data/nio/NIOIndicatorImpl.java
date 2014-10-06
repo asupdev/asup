@@ -20,7 +20,7 @@ public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
 	private static byte INIT = (byte) 48;
 
 	public NIOIndicatorImpl() {
-		super(1, null);
+		super(1);
 	}
 
 	@Override

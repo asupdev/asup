@@ -35,7 +35,8 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	public void allocate() {
 		setBuffer(ByteBuffer.allocate(size()));
 		
-		reset();		
+//		reset();
+		clear();
 	}
 
 	protected NIOBufferedDataImpl getParent() {

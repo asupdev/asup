@@ -40,7 +40,7 @@ public class NIOAdapterImpl extends NIOBufferedDelegatorImpl implements QAdapter
 				int stringLength = string.length();
 				if(stringLength == 0)
 					stringLength = 32;
-				NIOCharacterImpl character = new NIOCharacterImpl(stringLength, null);
+				NIOCharacterImpl character = new NIOCharacterImpl(stringLength);
 				character.allocate();
 				character.eval(string);
 				

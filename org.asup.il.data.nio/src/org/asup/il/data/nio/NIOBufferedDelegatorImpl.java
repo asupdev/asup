@@ -55,10 +55,10 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 		return _delegate.size();
 	}
 
-	@Override
+/*	@Override
 	public void reset() {
 		_delegate.reset();		
-	}
+	}*/
 
 	@Override
 	public byte[] asBytes() {

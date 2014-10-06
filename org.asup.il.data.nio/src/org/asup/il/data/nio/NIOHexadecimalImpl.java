@@ -11,8 +11,6 @@
  */
 package org.asup.il.data.nio;
 
-import java.util.Arrays;
-
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QHexadecimal;
 
@@ -61,13 +59,13 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 		return length();
 	}
 
-	@Override
+/*	@Override
 	public void reset() {
 		if (_value != null)
 			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, _value, true, INIT);
 		else
 			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + _length, INIT);		
-	}
+	}*/
 
 	@Override
 	public void clear() {
@@ -80,7 +78,7 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 		String string = value.toString();
 		byte[] bytes = new byte[string.length()/2];
 		
-		NIOCharacterImpl character = new NIOCharacterImpl(_length, null);
+		NIOCharacterImpl character = new NIOCharacterImpl(_length);
 		for(int i=0; i<bytes.length; i++) {
 			String hex = new String(string.substring(2*i, 2*i+2));
 			bytes[i] = (byte) Integer.parseInt(hex, 16);

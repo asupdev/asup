@@ -44,7 +44,8 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 
 		slice(_model, 0);
 			
-		reset();
+//		reset();
+		clear();
 		
 	}
 	
