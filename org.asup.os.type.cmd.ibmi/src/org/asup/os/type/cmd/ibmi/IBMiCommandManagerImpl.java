@@ -680,7 +680,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		QSpecial special = dataTerm.getFacet(QSpecial.class);
 
 		if (special != null) {
-
+ 
 			for (QSpecialElement specialElem : special.getElements()) {
 				if (specialElem.getName().equals(value)) {
 					result = specialElem.getValue();
