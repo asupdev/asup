@@ -21,7 +21,8 @@ import org.asup.il.data.QBufferedData;
 public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 
 	private static final long serialVersionUID = 1L;
-
+	private static byte FILLER = (byte) 0;
+	
 	protected BinaryType _type;
 	protected boolean _unsigned;
 	
@@ -32,13 +33,17 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 	}
 
 	@Override
+	protected byte getFiller() {
+		return FILLER;
+	}
+	
+	@Override
 	public NIOBinaryImpl copy() {
 		
 		NIOBinaryImpl copy = new NIOBinaryImpl(_type, _unsigned, getDefault());
 		
 		return copy;
 	}
-	
 
 
 	@Override
@@ -78,15 +83,18 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 	@Override
 	public Number readNumber() {
 
+		ByteBuffer byteBuffer = getBuffer();
+		int position = getPosition();
+		
 		switch (_type) {
 		case BYTE:
-			return getBuffer().get(getPosition());
+			return byteBuffer.get(position);
 		case SHORT:
-			return getBuffer().getShort(getPosition()); 
+			return byteBuffer.getShort(position); 
 		case INTEGER:
-			return getBuffer().getInt(getPosition());
+			return byteBuffer.getInt(position);
 		case LONG:
-			return getBuffer().getLong(getPosition());
+			return byteBuffer.getLong(position);
 		}
 
 		throw new FrameworkCoreRuntimeException("Unexpected condition");		

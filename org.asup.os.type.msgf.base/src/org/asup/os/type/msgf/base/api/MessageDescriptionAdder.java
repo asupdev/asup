@@ -101,9 +101,51 @@ public class MessageDescriptionAdder {
 				break;
 			}
 
-			// TODO non funziona bene
 			qMessageDescription.setSeverity(severityCode.asInteger());
 
+			switch (messageDataFieldsFormats.asEnum()) {
+			case NONE:
+				break;
+			case OTHER:
+				for(MessageDataFieldsFormat messageDataFieldsFormat: messageDataFieldsFormats.asData()) {
+					switch (messageDataFieldsFormat.dataType.asEnum()) {
+					case BIN:
+						break;
+					case CCHAR:
+						break;
+					case CHAR:
+						System.out.println("CHAR");
+						break;
+					case DEC:
+						break;
+					case DTS:
+						break;
+					case HEX:
+						break;
+					case ITV:
+						break;
+					case QTDCHAR:
+						break;
+					case SPP:
+						break;
+					case SYP:
+						break;
+					case UBIN:
+						break;
+					case UTC:
+						break;
+					case UTCD:
+						break;
+					case UTCT:
+						break;
+					case OTHER:
+						System.out.println("OTHER");
+						break;
+					}
+				}			
+				break;
+			}
+			
 			qMessageFile.getMessages().add(qMessageDescription);
 
 			resource.save(qMessageFile, true);
@@ -137,6 +179,7 @@ public class MessageDescriptionAdder {
 
 	public static class MessageDataFieldsFormat extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
+		@DataDef(length=1) 
 		public QEnum<DataTypeEnum, QHexadecimal> dataType;
 		@DataDef(binaryType = BinaryType.SHORT, value = "*VARY")
 		public QEnum<LengthEnum, QBinary> length;
@@ -158,7 +201,8 @@ public class MessageDescriptionAdder {
 			UTCT, @Special(value = "14")
 			DTS, @Special(value = "0F")
 			SYP, @Special(value = "34")
-			ITV
+			ITV,
+			OTHER;
 		}
 
 		public static enum LengthEnum {
