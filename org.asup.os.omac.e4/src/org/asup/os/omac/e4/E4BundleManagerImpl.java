@@ -170,8 +170,10 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 				for(QCommand command: commands) {
 					try {
 						if(command.getStatus() == CommandStatus.SUPPORTED ||
-						   command.getStatus() == CommandStatus.TODO)
+						   command.getStatus() == CommandStatus.TODO ||
+						   command.getStatus() == CommandStatus.POSSIBLE)
 							commandWriter.save(command, true);
+							
 					} catch (OperatingSystemException e) {
 						System.err.println("Unexpected error: "+e.getMessage());
 					}
