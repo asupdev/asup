@@ -209,7 +209,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		if(QArrayDef.class.isAssignableFrom(klassDef)) {
 			QArrayDef<?> arrayDef = (QArrayDef<?>)dataDef;
 			
-			if (arrayDef.getDimension() != null) 
+			if (arrayDef.getDimension() != 0) 
 				writeAnnotation(node, DataDef.class, "dimension", arrayDef.getDimension());
 
 			writeDataDefAnnotation(node, arrayDef.getArgument());

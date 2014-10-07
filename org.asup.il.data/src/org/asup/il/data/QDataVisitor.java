@@ -54,7 +54,7 @@ public interface QDataVisitor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataRequired="true"
+	 * @model dataDataType="org.asup.il.data.Character" dataRequired="true"
 	 * @generated
 	 */
 	void endVisit(QCharacter data);
@@ -190,7 +190,7 @@ public interface QDataVisitor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataRequired="true"
+	 * @model dataDataType="org.asup.il.data.Character" dataRequired="true"
 	 * @generated
 	 */
 	boolean visit(QCharacter data);

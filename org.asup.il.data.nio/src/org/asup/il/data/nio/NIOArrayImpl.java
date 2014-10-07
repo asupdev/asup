@@ -21,11 +21,15 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D
 	private static final long serialVersionUID = 1L;
 
 	private D[] _elements;
-	private D _model;
+	private NIOBufferedDataImpl _model;
+	
+	public NIOArrayImpl() {
+		super();
+	}
 	
 	@SuppressWarnings({ "unchecked"})
-	public NIOArrayImpl(D model, int dimension) {
-		
+	public NIOArrayImpl(NIOBufferedDataImpl model, int dimension) {
+		super();
 		this._model = model;
 		this._elements = (D[])Array.newInstance(model.getClass(), dimension);	
 	}
@@ -47,10 +51,10 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D
 		D element = _elements[index-1];
 		if(element == null) {
 			element = (D) _model.copy();
-			int position = getPosition() + _model.size() * (index - 1);
+			int position = _model.size() * (index - 1);
 			slice(element, position);
+			_elements[index-1] = element;
 		}
-		
 		return element;
 	}
 
@@ -84,15 +88,6 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D
 	public void eval(QArray<?> value) {
 		
 		movea(value, true);		
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public NIOArrayImpl<D> copy() {
-
-		NIOArrayImpl<D> copy = new NIOArrayImpl<D>((D) _model.copy(), _elements.length);
-		
-		return copy;
 	}
 
 	@Override

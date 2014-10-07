@@ -7,7 +7,6 @@
  */
 package org.asup.il.data;
 
-import java.lang.String;
 
 
 
@@ -37,12 +36,12 @@ public interface QArrayDef<D extends QArray<?>> extends QMultipleAtomicBufferedD
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dimension</em>' attribute.
-	 * @see #setDimension(String)
+	 * @see #setDimension(int)
 	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getArrayDef_Dimension()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getDimension();
+	int getDimension();
 
 	/**
 	 * Sets the value of the '{@link org.asup.il.data.QArrayDef#getDimension <em>Dimension</em>}' attribute.
@@ -52,6 +51,6 @@ public interface QArrayDef<D extends QArray<?>> extends QMultipleAtomicBufferedD
 	 * @see #getDimension()
 	 * @generated
 	 */
-	void setDimension(String value);
+	void setDimension(int value);
 
 } // QArrayDef

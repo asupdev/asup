@@ -23,11 +23,15 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 	private static final long serialVersionUID = 1L;
 	private static byte FILLER = (byte) 0;
 	
-	protected BinaryType _type;
-	protected boolean _unsigned;
+	private BinaryType _type;
+	private boolean _unsigned;
 	
-	public NIOBinaryImpl(BinaryType type, boolean unsigned, byte[] value) {
-		super(value);
+	public NIOBinaryImpl() {
+		super();
+	}
+	
+	public NIOBinaryImpl(BinaryType type, boolean unsigned) {
+		super();
 		this._type = type;
 		this._unsigned = unsigned;
 	}
@@ -36,15 +40,6 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 	protected byte getFiller() {
 		return FILLER;
 	}
-	
-	@Override
-	public NIOBinaryImpl copy() {
-		
-		NIOBinaryImpl copy = new NIOBinaryImpl(_type, _unsigned, getDefault());
-		
-		return copy;
-	}
-
 
 	@Override
 	public boolean isSigned() {

@@ -17,22 +17,17 @@ import org.asup.il.data.QHexadecimal;
 public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadecimal {
 
 	private static final long serialVersionUID = 1L;
-	
-	private int _length;
-	byte[] _value;
 	private static byte INIT = (byte) -1;
 	
-	public NIOHexadecimalImpl(int length, byte[] value) {
-		this._length = length;
-		this._value = value;
+	private int _length;
+	
+	public NIOHexadecimalImpl() {
+		super();
 	}
-
-	@Override
-	public NIOHexadecimalImpl copy() {
-
-		NIOHexadecimalImpl copy = new NIOHexadecimalImpl(_length, _value);
-		
-		return copy;
+	
+	public NIOHexadecimalImpl(int length) {
+		super();
+		this._length = length;
 	}
 
 	@Override
@@ -68,11 +63,6 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 	}*/
 
 	@Override
-	public void clear() {
-		NIOBufferHelper.clear(getBuffer(), getPosition(), _length, INIT);		
-	}
-
-	@Override
 	public void eval(Object value) {
 
 		String string = value.toString();
@@ -93,12 +83,6 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 	public <E extends Enum<E>> void eval(E value) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -141,8 +125,7 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 
 	@Override
 	protected byte getFiller() {
-		// TODO Auto-generated method stub
-		return 0;
+		return INIT;
 	}
 	
 	private static final char[] BYTE2HEX=(

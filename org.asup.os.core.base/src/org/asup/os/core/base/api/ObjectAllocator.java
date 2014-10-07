@@ -37,6 +37,9 @@ public class ObjectAllocator {
 		for(ObjectSpecification objectSpecification: objectSpecifications) {
 			i++;
 			
+			if(objectSpecification.isEmpty())
+				continue;
+			
 			if(!objectSpecification.toString().trim().isEmpty())
 				System.out.println(i+":"+objectSpecification);
 			
@@ -47,8 +50,21 @@ public class ObjectAllocator {
 				break;
 			case THREAD:
 				break;
-			default:
-				break;
+			}
+			
+			if(!objectSpecification.lockState.isEmpty()) {
+				switch (objectSpecification.lockState.asEnum()) {
+				case EXCL:
+					break;
+				case EXCLRD:
+					break;
+				case SHRNUP:
+					break;
+				case SHRRD:
+					break;
+				case SHRUPD:
+					break;
+				}
 			}
 		}
 		

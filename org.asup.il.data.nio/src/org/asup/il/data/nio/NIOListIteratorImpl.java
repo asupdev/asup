@@ -17,7 +17,6 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QList;
 
 public class NIOListIteratorImpl<D extends QBufferedData> implements Iterator<D> {
-
 	
 	private QList<D> list;
 	private int current = 0;
