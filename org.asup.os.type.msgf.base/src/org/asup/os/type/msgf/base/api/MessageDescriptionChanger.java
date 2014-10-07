@@ -16,6 +16,7 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
@@ -36,11 +37,11 @@ public class MessageDescriptionChanger {
 	private QJobLogManager jobLogManager;
 	
 	public @Entry void main(
-			@DataDef(length = 7) QCharacter messageIdentifier,
-			@DataDef(qualified = true) MessageFile messageFile,
-			@DataDef(length = 132) QEnum<FirstLevelMessageText, QCharacter> firstLevelMessageText,
-			@DataDef(length = 3000) QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
-			QEnum<SeverityCode, QBinary> severityCode,
+			@Supported @DataDef(length = 7) QCharacter messageIdentifier,
+			@Supported @DataDef(qualified = true) MessageFile messageFile,
+			@Supported @DataDef(length = 132) QEnum<FirstLevelMessageText, QCharacter> firstLevelMessageText,
+			@Supported @DataDef(length = 3000) QEnum<SecondLevelMessageText, QCharacter> secondLevelMessageText,
+			@Supported QEnum<SeverityCode, QBinary> severityCode,
 			@DataDef(dimension = 99) QStroller<MessageDataFieldsFormat> messageDataFieldsFormats,
 			@DataDef(length = 1) QEnum<ReplyType, QCharacter> replyType,
 			MaximumReplyLength maximumReplyLength,
@@ -55,20 +56,22 @@ public class MessageDescriptionChanger {
 			@DataDef(length = 1) QEnum<LogProblem, QCharacter> logProblem,
 			QEnum<CodedCharacterSetID, QBinary> codedCharacterSetID) {
 	
-		String library = "";
+		QResourceWriter<QMessageFile> resource = null;
+		String library = null;
 		switch (messageFile.library.asEnum()) {
 		case LIBL:
 		case CURLIB:
 			library = messageFile.library.getSpecialName();
+			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();
+			resource = messageFileManager.getResourceWriter(job, library);
 			break;
 		}
 
 		String name = messageFile.name.trimR();
 		try {
-			QResourceWriter<QMessageFile> resource = messageFileManager.getResourceWriter(job, library);
 			QMessageFile qMessageFile = resource.lookup(name);	
 			if (qMessageFile == null)
 				throw new OperatingSystemException("Message File " + name+ " not exists in library " + library);

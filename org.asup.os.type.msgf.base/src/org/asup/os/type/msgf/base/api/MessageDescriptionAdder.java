@@ -29,7 +29,7 @@ import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 
 @Supported 
-@Program(name = "ADDMSGD")
+@Program(name = "QMHCRMSD")
 public class MessageDescriptionAdder {
 	
 	@Inject
