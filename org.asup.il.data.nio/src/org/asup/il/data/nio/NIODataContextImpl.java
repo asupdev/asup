@@ -27,9 +27,6 @@ import org.asup.il.data.impl.DataContextImpl;
 
 public class NIODataContextImpl extends DataContextImpl implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unused")

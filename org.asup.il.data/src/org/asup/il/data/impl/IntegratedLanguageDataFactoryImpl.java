@@ -19,6 +19,7 @@ import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QBufferDef;
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataDictionary;
 import org.asup.il.data.QDataStructDef;
@@ -149,6 +150,8 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 				return createFloatingTypeFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.TIME_FORMAT:
 				return createTimeFormatFromString(eDataType, initialValue);
+			case QIntegratedLanguageDataPackage.CHARACTER:
+				return createCharacterFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.DATA_ARRAY:
 				return createDataArrayFromString(eDataType, initialValue);
 			default:
@@ -178,6 +181,8 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 				return convertFloatingTypeToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.TIME_FORMAT:
 				return convertTimeFormatToString(eDataType, instanceValue);
+			case QIntegratedLanguageDataPackage.CHARACTER:
+				return convertCharacterToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.DATA_ARRAY:
 				return convertDataArrayToString(eDataType, instanceValue);
 			default:
@@ -553,6 +558,24 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 */
 	public String convertTimeFormatToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCharacter createCharacterFromString(EDataType eDataType, String initialValue) {
+		return (QCharacter)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCharacterToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

@@ -11,9 +11,6 @@
  */
 package org.asup.il.data.nio;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +28,10 @@ public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements Q
 	private QDataStructDelegator _wrapped;
 	private boolean _dynamicLength;
 
+	public NIODataStructWrapperImpl() {
+		super();
+	}
+	
 	public NIODataStructWrapperImpl(int length, QDataStructDelegator delegator) {
 		super(length);
 		
@@ -95,26 +96,11 @@ public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements Q
 			field.set(_wrapped, element);
 	
 			if (_dynamicLength)
-				_length += element.size();
+				_length += element.size();			
+
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException e) {
 			e.printStackTrace();
 		}			
-	}
-	
-	private void writeObject(ObjectOutputStream stream) throws IOException {
-		stream.writeObject(_wrapped);
-		stream.writeBoolean(_dynamicLength);
-	}
-	
-	private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
-		
-		_wrapped = (QDataStructDelegator) stream.readObject();
-		_dynamicLength = stream.readBoolean();
-		
-		for(QBufferedData element: getElements()) {
-			NIOBufferedDataImpl nioBufferChild = (NIOBufferedDataImpl)element;
-			nioBufferChild.setBuffer(getBuffer());
-		}
 	}
 
 	@Override
@@ -125,19 +111,5 @@ public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements Q
 	@Override
 	public void accept(QDataVisitor visitor) {
 		visitor.visit(_wrapped);
-	}
-
-	@Override
-	public NIODataStructWrapperImpl copy() {
-		
-		NIODataStructWrapperImpl copy = new NIODataStructWrapperImpl(_length, (QDataStructDelegator) _wrapped.copy());
-		try {
-			for (Field field: _wrapped.getClass().getFields()) {
-				copy.addElement(field.getName(), (QBufferedData) field.get(_wrapped));
-			}
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		return copy;
 	}
 }

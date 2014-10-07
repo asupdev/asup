@@ -22,7 +22,7 @@ package org.asup.il.data;
  * </p>
  *
  * @see org.asup.il.data.QIntegratedLanguageDataPackage#getCharacterDef()
- * @model
+ * @model superTypes="org.asup.il.data.UnaryAtomicBufferedDataDef<org.asup.il.data.Character>"
  * @generated
  */
 public interface QCharacterDef extends QUnaryAtomicBufferedDataDef<QCharacter> {

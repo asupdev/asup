@@ -11,55 +11,77 @@
  */
 package org.asup.il.data.nio.test;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 import org.asup.fw.core.QContextID;
+import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
-import org.asup.il.data.QDataStruct;
 import org.asup.il.data.nio.NIODataManagerImpl;
 
 public class NIOTestSerialization {
 
+	static QDataManager dataManager = new NIODataManagerImpl();
+	static QDataFactory dataFactory = dataManager.createFactory(new QContextID() {
+		
+		@Override
+		public String getID() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	});
+	
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-		String fileName = "./nio.txt";
-		QDataStruct dataStructure = buildDataStructure();
+		long timeIni = 0;
+				
+		timeIni = System.currentTimeMillis();
+		NIOTestDataStructure dataStructure = buildDataStructure();
+		System.out.println("Creation: "+ (System.currentTimeMillis()-timeIni));
 
-		// save the object to file
-		FileOutputStream fos = new FileOutputStream(fileName);
-		ObjectOutputStream out = new ObjectOutputStream(fos);
-		out.writeObject(dataStructure);
-		out.close();
-			
-		// read the object from file
-		// save the object to file
-		FileInputStream fis = new FileInputStream(fileName);
-		ObjectInputStream in = new ObjectInputStream(fis);
-		dataStructure = (QDataStruct) in.readObject();
-		in.close();
+		timeIni = System.currentTimeMillis();
+		for(QCharacter multElement: dataStructure.multiple) {
+			if(multElement.isEmpty())
+				continue;
+		}
+		System.out.println("Iterate: "+ (System.currentTimeMillis()-timeIni));
+
+		timeIni = System.currentTimeMillis();
+		for(QCharacter multElement: dataStructure.multiple) {
+			multElement.asBytes();
+		}
+		System.out.println("Read: "+ (System.currentTimeMillis()-timeIni));
+
+		timeIni = System.currentTimeMillis();
+		int i=0;
+		for(QCharacter multElement: dataStructure.multiple) {
+			i++;
+			multElement.eval(i);
+		}
+		System.out.println("Write: "+ (System.currentTimeMillis()-timeIni));
+
+		timeIni = System.currentTimeMillis();
+		for(QCharacter multElement: dataStructure.multiple) {
+			if(multElement.isEmpty())
+				continue;
+		}
+		System.out.println("Iterate: "+ (System.currentTimeMillis()-timeIni));
+
+		timeIni = System.currentTimeMillis();
+		for(QCharacter multElement: dataStructure.multiple) {
+			multElement.asBytes();
+		}
+		System.out.println("Read: "+ (System.currentTimeMillis()-timeIni));
+
 	}
 
-	@SuppressWarnings({ "unused", "null" })
-	private static QDataStruct buildDataStructure() {
+	private static NIOTestDataStructure buildDataStructure() {
 		
-		QDataManager dataManager = new NIODataManagerImpl();
-		QDataFactory dataFactory = dataManager.createFactory(new QContextID() {
-			
-			@Override
-			public String getID() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		});
-		
-		NIOTestDataStructure dataStruct = null; //dataFactory.createDataStructure(NIOTestDataStructure.class, null);
+		NIOTestDataStructure dataStruct = dataFactory.createDataStruct(NIOTestDataStructure.class, 0, true);
 		dataStruct.alfa.eval("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		dataStruct.decimal.eval(123);
+		dataStruct.multiple.get(1).eval("A");
+		dataStruct.multiple.get(2).eval("B");
 		
 		return dataStruct;
 	}

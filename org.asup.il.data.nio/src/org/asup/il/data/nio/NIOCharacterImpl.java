@@ -22,29 +22,18 @@ import org.asup.il.data.QString;
 public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter {
 
 	private static final long serialVersionUID = 1L;
-
-	
 	private static byte INIT = (byte) 32;
 	private static String ENCODING = "ISO-8859-1";
 
 	protected int _length;
 
-	public NIOCharacterImpl(int length) {
-		
-		_length = length;
+	public NIOCharacterImpl() {
+		super();
 	}
-
-/*	@Override
-	public void reset() {
-		if (_value != null)
-			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, _value, true, INIT);
-		else
-			Arrays.fill(getBuffer().array(), getPosition(), getPosition() + _length, INIT);
-	}*/
-
-	@Override
-	public void clear() {
-		NIOBufferHelper.clear(getBuffer(), getPosition(), _length, INIT);
+	
+	public NIOCharacterImpl(int length) {	
+		super();
+		_length = length;
 	}
 
 	@Override
@@ -76,11 +65,6 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public int size() {
 		return _length;
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return trim().isEmpty();
 	}
 
 	@Override
@@ -388,14 +372,6 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	}
 
 	@Override
-	public NIOCharacterImpl copy() {
-		
-		NIOCharacterImpl copy = new NIOCharacterImpl(_length);
-		
-		return copy;
-	}
-
-	@Override
 	public void eval(QBufferedData value) {
 		movel(value, true);
 	}
@@ -403,6 +379,5 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	protected byte getFiller() {
 		return INIT;
-	}
-
+	}	
 }

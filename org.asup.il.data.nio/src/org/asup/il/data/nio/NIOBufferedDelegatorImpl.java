@@ -11,6 +11,13 @@
  */
 package org.asup.il.data.nio;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
@@ -19,17 +26,58 @@ import org.asup.il.data.QDataVisitor;
 
 public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QBufferedData, QDataDelegator {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	protected QBufferedData _delegate;
+	private QBufferedData _delegate;
+
+	public NIOBufferedDelegatorImpl() {
+		super();
+	}
 	
 	protected NIOBufferedDelegatorImpl(QBufferedData delegate) {
+		super();
 		this._delegate = delegate;
 	}
 	
+	protected void setDelegate(QBufferedData delegate) {
+		this._delegate = delegate;
+	}
+	
+	@Override
+	public NIODataImpl copy() {
+
+		try {			
+			NIOBufferedDelegatorImpl copy = null;
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			QBufferedData temp = _delegate;
+			_delegate = null;
+			oos.writeObject(this);
+			_delegate = temp;
+			oos.close();
+					
+			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
+			copy = (NIOBufferedDelegatorImpl) ois.readObject();
+			ois.close();
+			copy._delegate = getNIOBufferedDataImpl(_delegate).copy();
+			
+			return copy;
+		}
+		catch(IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public void assign(QBufferedData value) {
+		if(_delegate != null)
+			_delegate.assign(value);
+		else
+			throw new FrameworkCoreRuntimeException("Unexpceted condition: fzt76tbc3bcr47");
+	}
 	@Override
 	public QData getDelegate() {
 		return _delegate;
@@ -54,11 +102,6 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	public int size() {
 		return _delegate.size();
 	}
-
-/*	@Override
-	public void reset() {
-		_delegate.reset();		
-	}*/
 
 	@Override
 	public byte[] asBytes() {

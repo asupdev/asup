@@ -1,5 +1,10 @@
 package org.asup.il.data.nio;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -15,11 +20,50 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	private ArrayList<D> _elements;
 	private D _model;
 	private int _dimension;
+
+	public NIOListImpl() {
+		super();
+	}
 	
 	public NIOListImpl(D model, int dimension) {
 		this._model = model;
 		this._dimension = dimension;
 		this._elements = new ArrayList<D>(_dimension);
+	}
+
+	@Override
+	public NIODataImpl copy() {
+
+		try {			
+			NIOBufferedDelegatorImpl copy = null;
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(this);
+			oos.close();
+					
+			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
+			copy = (NIOBufferedDelegatorImpl) ois.readObject();
+			ois.close();
+				
+			return copy;
+		}
+		catch(IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public boolean isEmpty() {
+
+		for (D element : this) {
+			if(!element.isEmpty())
+				return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -29,7 +73,8 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 
 	@Override
 	public void clear() {
-		_elements.clear();
+		for (D element : this) 
+			element.clear();
 	}
 
 	@Override
@@ -54,12 +99,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	public <E extends Enum<E>> void eval(E value) {
 		// TODO Auto-generated method stub		
 	}
-
-	@Override
-	public boolean isEmpty() {
-		return _elements.isEmpty();
-	}
-
+	
 	@Override
 	public Iterator<D> iterator() {
 		return _elements.iterator();
@@ -74,7 +114,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 			element = _elements.get(index-1);
 		
 		if(element == null) {
-			element = (D) _model.copy();
+			element = (D) _model.copy();			
 			_elements.add(index-1, element);
 			
 			return element;
@@ -97,14 +137,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public QData copy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int count() {
 		return _elements.size();
 	}
-
 }

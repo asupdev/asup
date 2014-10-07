@@ -32,7 +32,7 @@
       </eBounds>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//MultipleAtomicBufferedDataDef">
       <eTypeArguments eTypeParameter="#//ArrayDef/D"/>
     </eGenericSuperTypes>
@@ -79,7 +79,6 @@
     <eOperations name="assign">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
     </eOperations>
-    <eOperations name="copy" eType="#//BufferedData"/>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
     </eOperations>
@@ -122,8 +121,7 @@
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//BufferedData"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Character" abstract="true" interface="true"
-      eSuperTypes="#//String"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Character" instanceClassName="org.asup.il.data.QCharacter"/>
   <eClassifiers xsi:type="ecore:EClass" name="CharacterDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
