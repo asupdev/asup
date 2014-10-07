@@ -9,8 +9,10 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
+import org.asup.il.data.QDecimalDef;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QHexadecimal;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QStroller;
 import org.asup.il.data.annotation.DataDef;
@@ -24,9 +26,11 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.msgf.QMessageDescription;
+import org.asup.os.type.msgf.QMessageDescriptionDataField;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
+import org.asup.os.type.msgf.impl.OperatingSystemMessageFileFactoryImpl;
 
 @Supported 
 @Program(name = "QMHCRMSD")
@@ -107,6 +111,9 @@ public class MessageDescriptionAdder {
 		qMessageDescription.setSeverity(severityCode.asInteger());
 
 		// FMT TODO
+		QMessageDescriptionDataField messageDescriptionDataField = null;
+		messageDescriptionDataField = OperatingSystemMessageFileFactoryImpl.eINSTANCE.createMessageDescriptionDataField();
+
 		switch (messageDataFieldsFormats.asEnum()) {
 		case NONE:
 			break;
@@ -118,9 +125,21 @@ public class MessageDescriptionAdder {
 				case CCHAR:
 					break;
 				case CHAR:
-					System.out.println("CHAR");
 					break;
 				case DEC:
+					messageDescriptionDataField.setOutputMask(messageDataFieldsFormat.dataType.getSpecialName());
+					QDecimalDef decimalDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDecimalDef();
+//					switch (messageDataFieldsFormat.length.asEnum()) {
+//					case OTHER:
+//						System.out.println(messageDataFieldsFormat.length.asData().asShort());
+//						decimalDefinition.setPrecision(messageDataFieldsFormat.length.asData().asInteger());
+//						break;
+//					case VARY:
+//						break;
+//					}
+					decimalDefinition.setScale(messageDataFieldsFormat.VARYBytesOrDecPos.asShort());
+					messageDescriptionDataField.setDataDef(decimalDefinition);
+					qMessageDescription.getMessageDataFields().add(messageDescriptionDataField);
 					break;
 				case DTS:
 					break;
