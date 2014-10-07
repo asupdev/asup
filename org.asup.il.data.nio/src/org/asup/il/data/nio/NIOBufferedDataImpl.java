@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
@@ -33,24 +32,6 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements
 	private transient ByteBuffer _buffer;
 
 	private int _position;
-
-	private transient volatile byte[] _default = null;
-
-	public byte[] getDefault() {
-
-		if (_default == null) {
-			synchronized (this) {
-				if (_default == null) {
-					ByteBuffer buffer = ByteBuffer.allocate(size());
-					NIOBufferHelper.clear(buffer, 0, size(), getFiller());
-
-					_default = NIOBufferHelper.readBytes(buffer, 0, size());
-					
-				}
-			}
-		}
-		return _default;
-	}
 
 	public NIOBufferedDataImpl() {
 		super();
@@ -154,11 +135,13 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements
 
 	@Override
 	public boolean isEmpty() {
-
-		byte[] bufferedBytes = getDefault();
+		
 		byte[] bytes = asBytes();
-
-		return Arrays.equals(bytes, bufferedBytes);
+		for(int i=0; i<bytes.length; i++) {
+			if(bytes[i] != getFiller())
+				return false;
+		}
+		return true;
 	}
 
 	public ByteBuffer getBuffer() {
@@ -311,5 +294,15 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements
 	public void movel(QBufferedData value, boolean clear) {
 		NIOBufferHelper.movel(getBuffer(), getPosition(), size(),
 				value.asBytes(), clear, getFiller());
+	}
+	
+	@Override
+	public String toString() {
+		return new String(asBytes());
+	}
+	
+	@Override
+	public String asString() {
+		return toString();
 	}
 }

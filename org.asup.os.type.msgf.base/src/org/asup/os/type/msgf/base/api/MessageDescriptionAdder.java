@@ -90,7 +90,7 @@ public class MessageDescriptionAdder {
 		// MSGID
 		qMessageDescription.setName(messageIdentifier.trimR());
 
-		// MSG
+		// MSG	
 		qMessageDescription.setMessageText(firstLevelMessageText.trimR());
 
 		// SECLVL
@@ -112,6 +112,9 @@ public class MessageDescriptionAdder {
 			break;
 		case OTHER:
 			for(MessageDataFieldsFormat messageDataFieldsFormat: messageDataFieldsFormats.asData()) {
+				if(messageDataFieldsFormat.isEmpty())
+					continue;
+
 				switch (messageDataFieldsFormat.dataType.asEnum()) {
 				case BIN:
 					break;
@@ -141,9 +144,6 @@ public class MessageDescriptionAdder {
 				case UTCD:
 					break;
 				case UTCT:
-					break;
-				case OTHER:
-					System.out.println("OTHER");
 					break;
 				}
 			}			
@@ -200,8 +200,7 @@ public class MessageDescriptionAdder {
 			UTCT, @Special(value = "14")
 			DTS, @Special(value = "0F")
 			SYP, @Special(value = "34")
-			ITV,
-			OTHER
+			ITV
 		}
 
 		public static enum LengthEnum {

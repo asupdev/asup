@@ -48,7 +48,8 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 
 	@Override
 	public void eval(QBufferedData value) {
-		// TODO Auto-generated method stub		
+		// TODO Auto-generated method stub
+		value.toString();
 	}
 
 
@@ -81,6 +82,7 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 		ByteBuffer byteBuffer = getBuffer();
 		int position = getPosition();
 		
+		NIOBufferHelper.prepare(byteBuffer, position, size());
 		switch (_type) {
 		case BYTE:
 			return byteBuffer.get(position);
