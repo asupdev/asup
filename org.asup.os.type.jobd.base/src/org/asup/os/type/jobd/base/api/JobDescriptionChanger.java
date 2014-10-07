@@ -29,7 +29,7 @@ import org.asup.os.core.Scope;
 
 
 @Supported
-@Program(name = "CHGJOBD")
+@Program(name = "QWDCCHG")
 public  class JobDescriptionChanger {
 
 	@Inject
