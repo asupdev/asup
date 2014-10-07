@@ -7,12 +7,21 @@
  */
 package org.asup.os.type.msgf.impl;
 
+import java.util.Collection;
+import java.util.List;
+import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.os.omac.impl.ObjectImpl;
 import org.asup.os.type.msgf.QMessageDescription;
+import org.asup.os.type.msgf.QMessageDescriptionDataField;
 import org.asup.os.type.msgf.QOperatingSystemMessageFilePackage;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.os.type.msgf.impl.MessageDescriptionImpl#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.asup.os.type.msgf.impl.MessageDescriptionImpl#getMessageHelp <em>Message Help</em>}</li>
  *   <li>{@link org.asup.os.type.msgf.impl.MessageDescriptionImpl#getMessageText <em>Message Text</em>}</li>
+ *   <li>{@link org.asup.os.type.msgf.impl.MessageDescriptionImpl#getMessageDataFields <em>Message Data Fields</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,6 +125,16 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 	 * @ordered
 	 */
 	protected String messageText = MESSAGE_TEXT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMessageDataFields() <em>Message Data Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMessageDataFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QMessageDescriptionDataField> messageDataFields;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +244,32 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public List<QMessageDescriptionDataField> getMessageDataFields() {
+		if (messageDataFields == null) {
+			messageDataFields = new EObjectContainmentEList<QMessageDescriptionDataField>(QMessageDescriptionDataField.class, this, QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS);
+		}
+		return messageDataFields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS:
+				return ((InternalEList<?>)getMessageDataFields()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -235,6 +281,8 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 				return getMessageHelp();
 			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_TEXT:
 				return getMessageText();
+			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS:
+				return getMessageDataFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,6 +292,7 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -258,6 +307,10 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 				return;
 			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_TEXT:
 				setMessageText((String)newValue);
+				return;
+			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS:
+				getMessageDataFields().clear();
+				getMessageDataFields().addAll((Collection<? extends QMessageDescriptionDataField>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,6 +336,9 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_TEXT:
 				setMessageText(MESSAGE_TEXT_EDEFAULT);
 				return;
+			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS:
+				getMessageDataFields().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,6 +359,8 @@ public class MessageDescriptionImpl extends ObjectImpl implements QMessageDescri
 				return MESSAGE_HELP_EDEFAULT == null ? messageHelp != null : !MESSAGE_HELP_EDEFAULT.equals(messageHelp);
 			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_TEXT:
 				return MESSAGE_TEXT_EDEFAULT == null ? messageText != null : !MESSAGE_TEXT_EDEFAULT.equals(messageText);
+			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS:
+				return messageDataFields != null && !messageDataFields.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

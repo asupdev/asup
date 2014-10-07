@@ -9,11 +9,13 @@ package org.asup.os.type.msgf.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
+import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.msgf.QMessageDescription;
+import org.asup.os.type.msgf.QMessageDescriptionDataField;
 import org.asup.os.type.msgf.MessageException;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
@@ -42,6 +44,13 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 	 * @generated
 	 */
 	private EClass messageDescriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass messageDescriptionDataFieldEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +194,42 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMessageDescription_MessageDataFields() {
+		return (EReference)messageDescriptionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMessageDescriptionDataField() {
+		return messageDescriptionDataFieldEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessageDescriptionDataField_DataDef() {
+		return (EReference)messageDescriptionDataFieldEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageDescriptionDataField_OutputMask() {
+		return (EAttribute)messageDescriptionDataFieldEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMessageException() {
 		return messageExceptionEDataType;
 	}
@@ -258,6 +303,11 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 		createEAttribute(messageDescriptionEClass, MESSAGE_DESCRIPTION__SEVERITY);
 		createEAttribute(messageDescriptionEClass, MESSAGE_DESCRIPTION__MESSAGE_HELP);
 		createEAttribute(messageDescriptionEClass, MESSAGE_DESCRIPTION__MESSAGE_TEXT);
+		createEReference(messageDescriptionEClass, MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS);
+
+		messageDescriptionDataFieldEClass = createEClass(MESSAGE_DESCRIPTION_DATA_FIELD);
+		createEReference(messageDescriptionDataFieldEClass, MESSAGE_DESCRIPTION_DATA_FIELD__DATA_DEF);
+		createEAttribute(messageDescriptionDataFieldEClass, MESSAGE_DESCRIPTION_DATA_FIELD__OUTPUT_MASK);
 
 		messageFileEClass = createEClass(MESSAGE_FILE);
 		createEReference(messageFileEClass, MESSAGE_FILE__MESSAGES);
@@ -294,6 +344,7 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 
 		// Obtain other dependent packages
 		QOperatingSystemOmacPackage theOperatingSystemOmacPackage = (QOperatingSystemOmacPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOmacPackage.eNS_URI);
+		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
 		QOperatingSystemTypePackage theOperatingSystemTypePackage = (QOperatingSystemTypePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemTypePackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
@@ -306,6 +357,7 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 
 		// Add supertypes to classes
 		messageDescriptionEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
+		messageDescriptionDataFieldEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
 		messageFileEClass.getESuperTypes().add(theOperatingSystemTypePackage.getTypedObject());
 		EGenericType g1 = createEGenericType(theOperatingSystemTypePackage.getTypedManager());
 		EGenericType g2 = createEGenericType(this.getMessageFile());
@@ -318,6 +370,14 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 		initEAttribute(getMessageDescription_Severity(), ecorePackage.getEInt(), "severity", null, 0, 1, QMessageDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageDescription_MessageHelp(), ecorePackage.getEString(), "messageHelp", null, 0, 1, QMessageDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageDescription_MessageText(), ecorePackage.getEString(), "messageText", null, 0, 1, QMessageDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMessageDescription_MessageDataFields(), this.getMessageDescriptionDataField(), null, "messageDataFields", null, 0, -1, QMessageDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(messageDescriptionDataFieldEClass, QMessageDescriptionDataField.class, "MessageDescriptionDataField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theIntegratedLanguageDataPackage.getUnaryAtomicDataDef());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getMessageDescriptionDataField_DataDef(), g1, null, "dataDef", null, 1, 1, QMessageDescriptionDataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageDescriptionDataField_OutputMask(), ecorePackage.getEString(), "outputMask", null, 0, 1, QMessageDescriptionDataField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(messageFileEClass, QMessageFile.class, "MessageFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMessageFile_Messages(), this.getMessageDescription(), null, "messages", null, 0, -1, QMessageFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

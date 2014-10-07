@@ -7,6 +7,8 @@
  */
 package org.asup.os.type.msgf;
 
+import java.util.List;
+import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.os.omac.QObject;
 
 /**
@@ -21,6 +23,7 @@ import org.asup.os.omac.QObject;
  *   <li>{@link org.asup.os.type.msgf.QMessageDescription#getSeverity <em>Severity</em>}</li>
  *   <li>{@link org.asup.os.type.msgf.QMessageDescription#getMessageHelp <em>Message Help</em>}</li>
  *   <li>{@link org.asup.os.type.msgf.QMessageDescription#getMessageText <em>Message Text</em>}</li>
+ *   <li>{@link org.asup.os.type.msgf.QMessageDescription#getMessageDataFields <em>Message Data Fields</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,5 +135,21 @@ public interface QMessageDescription extends QObject {
 	 * @generated
 	 */
 	void setMessageText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Message Data Fields</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.os.type.msgf.QMessageDescriptionDataField}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Message Data Fields</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Message Data Fields</em>' containment reference list.
+	 * @see org.asup.os.type.msgf.QOperatingSystemMessageFilePackage#getMessageDescription_MessageDataFields()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QMessageDescriptionDataField> getMessageDataFields();
 
 } // QMessageDescription

@@ -63,6 +63,7 @@ public class OperatingSystemMessageFileFactoryImpl extends EFactoryImpl implemen
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION: return (EObject)createMessageDescription();
+			case QOperatingSystemMessageFilePackage.MESSAGE_DESCRIPTION_DATA_FIELD: return (EObject)createMessageDescriptionDataField();
 			case QOperatingSystemMessageFilePackage.MESSAGE_FILE: return (EObject)createMessageFile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -111,6 +112,16 @@ public class OperatingSystemMessageFileFactoryImpl extends EFactoryImpl implemen
 	public QMessageDescription createMessageDescription() {
 		MessageDescriptionImpl messageDescription = new MessageDescriptionImpl();
 		return messageDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QMessageDescriptionDataField createMessageDescriptionDataField() {
+		MessageDescriptionDataFieldImpl messageDescriptionDataField = new MessageDescriptionDataFieldImpl();
+		return messageDescriptionDataField;
 	}
 
 	/**

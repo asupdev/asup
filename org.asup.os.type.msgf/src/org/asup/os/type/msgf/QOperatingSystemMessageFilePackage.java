@@ -111,13 +111,59 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 	int MESSAGE_DESCRIPTION__MESSAGE_TEXT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Message Data Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Message Description</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_DESCRIPTION_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 4;
+	int MESSAGE_DESCRIPTION_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 5;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.msgf.impl.MessageDescriptionDataFieldImpl <em>Message Description Data Field</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.msgf.impl.MessageDescriptionDataFieldImpl
+	 * @see org.asup.os.type.msgf.impl.OperatingSystemMessageFilePackageImpl#getMessageDescriptionDataField()
+	 * @generated
+	 */
+	int MESSAGE_DESCRIPTION_DATA_FIELD = 1;
+
+	/**
+	 * The feature id for the '<em><b>Data Def</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_DESCRIPTION_DATA_FIELD__DATA_DEF = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Output Mask</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_DESCRIPTION_DATA_FIELD__OUTPUT_MASK = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Message Description Data Field</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_DESCRIPTION_DATA_FIELD_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '<em>Message Exception</em>' data type.
@@ -127,7 +173,7 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 	 * @see org.asup.os.type.msgf.impl.OperatingSystemMessageFilePackageImpl#getMessageException()
 	 * @generated
 	 */
-	int MESSAGE_EXCEPTION = 4;
+	int MESSAGE_EXCEPTION = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.msgf.impl.MessageFileImpl <em>Message File</em>}' class.
@@ -137,7 +183,7 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 	 * @see org.asup.os.type.msgf.impl.OperatingSystemMessageFilePackageImpl#getMessageFile()
 	 * @generated
 	 */
-	int MESSAGE_FILE = 1;
+	int MESSAGE_FILE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -228,7 +274,7 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 	 * @see org.asup.os.type.msgf.impl.OperatingSystemMessageFilePackageImpl#getMessageFileManager()
 	 * @generated
 	 */
-	int MESSAGE_FILE_MANAGER = 2;
+	int MESSAGE_FILE_MANAGER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -291,7 +337,7 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 	 * @see org.asup.os.type.msgf.impl.OperatingSystemMessageFilePackageImpl#getMessageVariableList()
 	 * @generated
 	 */
-	int MESSAGE_VARIABLE_LIST = 3;
+	int MESSAGE_VARIABLE_LIST = 4;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.msgf.QMessageDescription <em>Message Description</em>}'.
@@ -346,6 +392,49 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMessageDescription_MessageText();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.os.type.msgf.QMessageDescription#getMessageDataFields <em>Message Data Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Message Data Fields</em>'.
+	 * @see org.asup.os.type.msgf.QMessageDescription#getMessageDataFields()
+	 * @see #getMessageDescription()
+	 * @generated
+	 */
+	EReference getMessageDescription_MessageDataFields();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.os.type.msgf.QMessageDescriptionDataField <em>Message Description Data Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Message Description Data Field</em>'.
+	 * @see org.asup.os.type.msgf.QMessageDescriptionDataField
+	 * @generated
+	 */
+	EClass getMessageDescriptionDataField();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.os.type.msgf.QMessageDescriptionDataField#getDataDef <em>Data Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Data Def</em>'.
+	 * @see org.asup.os.type.msgf.QMessageDescriptionDataField#getDataDef()
+	 * @see #getMessageDescriptionDataField()
+	 * @generated
+	 */
+	EReference getMessageDescriptionDataField_DataDef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.msgf.QMessageDescriptionDataField#getOutputMask <em>Output Mask</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Mask</em>'.
+	 * @see org.asup.os.type.msgf.QMessageDescriptionDataField#getOutputMask()
+	 * @see #getMessageDescriptionDataField()
+	 * @generated
+	 */
+	EAttribute getMessageDescriptionDataField_OutputMask();
 
 	/**
 	 * Returns the meta object for data type '{@link org.asup.os.type.msgf.MessageException <em>Message Exception</em>}'.
@@ -463,6 +552,40 @@ public interface QOperatingSystemMessageFilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MESSAGE_DESCRIPTION__MESSAGE_TEXT = eINSTANCE.getMessageDescription_MessageText();
+
+		/**
+		 * The meta object literal for the '<em><b>Message Data Fields</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MESSAGE_DESCRIPTION__MESSAGE_DATA_FIELDS = eINSTANCE.getMessageDescription_MessageDataFields();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.type.msgf.impl.MessageDescriptionDataFieldImpl <em>Message Description Data Field</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.type.msgf.impl.MessageDescriptionDataFieldImpl
+		 * @see org.asup.os.type.msgf.impl.OperatingSystemMessageFilePackageImpl#getMessageDescriptionDataField()
+		 * @generated
+		 */
+		EClass MESSAGE_DESCRIPTION_DATA_FIELD = eINSTANCE.getMessageDescriptionDataField();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Def</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MESSAGE_DESCRIPTION_DATA_FIELD__DATA_DEF = eINSTANCE.getMessageDescriptionDataField_DataDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Mask</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_DESCRIPTION_DATA_FIELD__OUTPUT_MASK = eINSTANCE.getMessageDescriptionDataField_OutputMask();
 
 		/**
 		 * The meta object literal for the '<em>Message Exception</em>' data type.

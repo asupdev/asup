@@ -36,6 +36,15 @@ public interface QOperatingSystemMessageFileFactory extends EFactory {
 	QMessageDescription createMessageDescription();
 
 	/**
+	 * Returns a new object of class '<em>Message Description Data Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Description Data Field</em>'.
+	 * @generated
+	 */
+	QMessageDescriptionDataField createMessageDescriptionDataField();
+
+	/**
 	 * Returns a new object of class '<em>Message File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

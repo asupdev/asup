@@ -6,6 +6,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageHelp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messageDataFields" upperBound="-1"
+        eType="#//MessageDescriptionDataField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageDescriptionDataField" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataDef" lowerBound="1"
+        containment="true">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//UnaryAtomicDataDef">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageFile" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
     <eOperations name="lookup" lowerBound="1" eType="#//MessageDescription">
