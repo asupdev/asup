@@ -68,15 +68,11 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 		String string = value.toString();
 		byte[] bytes = new byte[string.length()/2];
 		
-		NIOCharacterImpl character = new NIOCharacterImpl(_length);
 		for(int i=0; i<bytes.length; i++) {
 			String hex = new String(string.substring(2*i, 2*i+2));
 			bytes[i] = (byte) Integer.parseInt(hex, 16);
-			
-			slice(character, i);
-			character.movel(new String(bytes));
-
 		}
+		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), bytes, true, getFiller());
 	}
 
 	@Override
