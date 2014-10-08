@@ -6,11 +6,13 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * 
  * Contributors: 
- *   Mattia Rocchi - Initial API and implementation
+ *   Dario Foresti - Initial API and implementation
+ *   Mattia Rocchi - Implementation
  */
 package org.asup.os.type.cmd.ibmi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -102,8 +104,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		CLCommand clCommand = clRow.getCommand();
 
 		// lookup command
-		QResourceSetReader<QCommand> commandResource = resourceFactory.getResourceReader(job, QCommand.class,
-				Scope.LIBRARY_LIST);
+		QResourceSetReader<QCommand> commandResource = resourceFactory.getResourceReader(job, QCommand.class,Scope.LIBRARY_LIST);
 		QCommand qCommand = commandResource.lookup(clCommand.getName());
 
 		// unknown command
@@ -116,21 +117,26 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		callableCommand.setCommandString(command);
 		callableCommand.setVariables(variables);
 
+		// prepare data terms
+		Map<String, QDataTerm<?>> dataTerms = new HashMap<String, QDataTerm<?>>();
+		List<QDataTerm<?>> arrayTerms = new ArrayList<>();
+		for (QCommandParameter commandParameter : qCommand.getParameters()) {
+			
+			// data term
+			QDataTerm<?> dataTerm = commandParameter.getDataTerm();
+			dataTerms.put(commandParameter.getName(), dataTerm);
+			arrayTerms.add(dataTerm);
+		}
+
 		// data context
-		List<QDataTerm<?>> dataTerms = new ArrayList<>();
-		QDataContext dataContext = dataManager.createContext(contextID, dataTerms);
+		QDataContext dataContext = dataManager.createContext(contextID, arrayTerms);
 		callableCommand.setDataContext(dataContext);
 
-		// initialize parameters
+		// set default values
+//		dataContext.resetData();
+		
+		// assign values
 		for (QCommandParameter commandParameter : qCommand.getParameters()) {
-
-			// TODO: managestatus?
-			switch (commandParameter.getStatus()) {
-			default:
-				break;
-			}
-
-			// TDOD: manage Hidden?
 
 			CLParameter clParameter = clCommand.getParm(commandParameter.getName());
 
@@ -154,19 +160,15 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			} else {
 				// TODO: manage default value
 				value = "";
-			}
-			
-			// data term
-			QDataTerm<?> dataTerm = commandParameter.getDataTerm();
-			dataTerms.add(dataTerm);
+			}		
 
 			// replace variable with prefix '&'
 			// value = replaceVariable(value, variables);
 
 			// Assign value
+			QDataTerm<?> dataTerm = dataTerms.get(commandParameter.getName());
 			QData data = null;
 			if (value.isEmpty() == false || defaults) {
-							
 				data = assignValue(dataTerm, dataContext, value, variables, defaults);
 			}
 
@@ -174,7 +176,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			if (data != null && data.isEmpty() && commandParameter.isRequired())
 				throw new OperatingSystemException("Required parameter: " + commandParameter.getName());			
 		}
-
 		return callableCommand;
 	}
 	
@@ -293,45 +294,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			int i=1;
 			while (multipleParmIterator.hasNext()){
 				String tmpValue = multipleParmIterator.next().toString();
-				/*
-				if (tmpVvalue.startsWith("(") && value.endsWith(")")) {
-					value = value.substring(1, value.length() - 1);
-				}
-				*/
-				
-				/*
-				
-				// Parse the value of single struct: (A B C) --> return A, B and C as single elements
-				try {
-					paramComp = clParameterParser.parse(tmpValue);
-				} catch (Exception exc) {
-					throw new OperatingSystemException(exc);
-				}
-							
-				LinkedList<CLParmAbstractComponent> listElements = paramComp.getChilds().getFirst().getChilds();
-				for (int j = 0; j < dataTermList.size(); j++) {
-					
-					String elemValue = "";
-					
-					if (listElements.size() > j){
-						elemValue = listElements.get(j).toString();
-					} else {
-						//TODO: DEFAULT
-						elemValue = "";
-					}
-					
-					// Recursive call
-					QData assignValue = assignValue((QDataTerm)dataTermList.get(j), dataContext, elemValue, variables, defaults);					
-					//assignValue(listCompound.get(j), assignValue.toString());	
-					parmValue += assignValue.toString();					
-				}
-				*/
-
-				// Recursive call
-				//QData assignValue = assignValue(multipleCompoundDataTerm, dataContext, value, variables, defaults);
-				
-//				String parmValue = buildStructValue( multipleCompoundDataDef, dataContext, tmpValue, variables, defaults);
-//				assignValue(listCompound.get(i), parmValue);
 				
 				if(data instanceof QScroller<?>)
 					((QScroller<?>)data).absolute(i);
@@ -429,12 +391,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		if (value == null || value.isEmpty()) {
 			
 			String defValue = "";
-			if (dataTerm instanceof QUnaryDataTerm) {				
-				
-				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
-				
-			} else  if (dataTerm instanceof QMultipleDataTerm) {
-				
+			if (dataTerm.getDataType().isUnary()) {							
+				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();				
+			} else {				
 				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
 					defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);					
 				}
@@ -453,10 +412,10 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		
 		String defValue = null;
 			
-		if (dataTerm instanceof QUnaryDataTerm) {				
+		if (dataTerm.getDataType().isUnary()) {				
 			defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
 
-		} else  if (dataTerm instanceof QMultipleDataTerm) {
+		} else {
 			
 			if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
 				defValue = (String) ((QMultipleDataTerm<?>) dataTerm).getDefault().get(0);

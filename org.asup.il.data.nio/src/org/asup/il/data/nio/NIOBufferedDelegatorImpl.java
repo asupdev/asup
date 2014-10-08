@@ -61,7 +61,8 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 			ObjectInputStream ois = new ObjectInputStream(bais);
 			copy = (NIOBufferedDelegatorImpl) ois.readObject();
 			ois.close();
-			copy._delegate = getNIOBufferedDataImpl(_delegate).copy();
+			if(_delegate != null)
+				copy._delegate = getNIOBufferedDataImpl(_delegate).copy();
 			
 			return copy;
 		}

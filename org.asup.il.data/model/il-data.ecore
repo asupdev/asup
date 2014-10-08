@@ -121,7 +121,7 @@
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="#//BufferedData"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Character" instanceClassName="org.asup.il.data.QCharacter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Character" abstract="true" interface="true" eSuperTypes="#//String"/>  
   <eClassifiers xsi:type="ecore:EClass" name="CharacterDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -182,6 +182,17 @@
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getData" eType="#//Data">
+      <eParameters name="dataTerm" lowerBound="1">
+        <eGenericType eClassifier="#//DataTerm">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="resetData"/>
+    <eOperations name="resetData">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="resetData">
       <eParameters name="dataTerm" lowerBound="1">
         <eGenericType eClassifier="#//DataTerm">
           <eTypeArguments/>

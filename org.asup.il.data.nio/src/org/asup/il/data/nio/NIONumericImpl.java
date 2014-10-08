@@ -1,5 +1,6 @@
 package org.asup.il.data.nio;
 
+import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QNumeric;
 
@@ -93,11 +94,15 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 			clear();
 			return;
 		}
+		else if(value instanceof QSpecialElement) {
+			QSpecialElement specialElement = (QSpecialElement) value;
+			eval(Long.parseLong(specialElement.getValue()));
+		}
 		else if(value.toString().isEmpty()) {
 			clear();
 		}
 		else {
-			eval(Long.parseLong(new String(value.toString())));
+			eval(Long.parseLong(value.toString()));
 		}
 	}
 

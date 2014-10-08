@@ -43,7 +43,7 @@ public interface QDataFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.il.data.Character" required="true" lengthRequired="true" varyingRequired="true" initializeRequired="true"
+	 * @model required="true" lengthRequired="true" varyingRequired="true" initializeRequired="true"
 	 * @generated
 	 */
 	QCharacter createCharacter(int length, boolean varying, boolean initialize);

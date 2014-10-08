@@ -24,6 +24,7 @@ import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.impl.DataContextImpl;
+import org.asup.il.data.nio.visitor.NIODataResetter;
 
 public class NIODataContextImpl extends DataContextImpl implements Serializable {
 
@@ -50,15 +51,13 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 
 		QData data = datas.get(name);
 		if(data == null) {
+			QDataTerm<?> dataTerm = _getDataTerm(name);
+			
+			if(dataTerm == null)
+				return null;
 
-			for(QDataTerm<?> dataTerm: dataTerms) {
-				if(dataTerm.getName().equals(name)) {
-					data = dataFactory.createData(dataTerm, true);
-					datas.put(name, data);
-					break;
-				}
-			}
-
+			data = dataFactory.createData(dataTerm, true);
+			datas.put(name, data);
 		}
 				
 		return data;
@@ -92,9 +91,6 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 		
 		for(QDataTerm<?> dataTerm: dataTerms) {
 			
-//			System.out.println(dataTerm);
-			
-			// map update
 			QData data = datas.get(dataTerm.getName());
 			if(data == null) {
 				data = dataFactory.createData(dataTerm, true);
@@ -103,15 +99,44 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 			data.clear();
 		}		
 	}
-/*
 	@Override
-	public List<QData> getDatas() {
+	public void resetData() {
+
+		for(QDataTerm<?> dataTerm: dataTerms) 
+			resetData(dataTerm.getName());	
 		
-		if(datas.values().size() != dataTerms.size()) {
-			for(QDataTerm<?> dataTerm: getTerms()) 
-				getData(dataTerm);
+	}
+
+	@Override
+	public void resetData(String name) {
+		
+		QDataTerm<?> dataTerm = _getDataTerm(name);
+			
+		if(dataTerm == null)
+			return;
+		
+		QData data = datas.get(dataTerm.getName());
+		if(data == null) {
+			data = dataFactory.createData(dataTerm, true);
+			datas.put(dataTerm.getName(), data);
+		}
+
+		NIODataResetter resetter = new NIODataResetter(data);
+		dataTerm.accept(resetter);
+
+	}
+	
+	private QDataTerm<?> _getDataTerm(String name) {
+		QDataTerm<?> dataTerm = null;
+		
+		for(QDataTerm<?> dt: dataTerms) {
+			if(dt.getName().equals(name)) {
+				dataTerm = dt;
+				break;
+			}
 		}
 			
-		return new ArrayList<>(datas.values());
-	}*/
-}
+		return dataTerm;
+	}
+
+}	

@@ -9,7 +9,7 @@ package org.asup.os.type.msgf.impl;
 
 import java.util.Collection;
 import java.util.List;
-import org.asup.il.data.QUnaryAtomicDataDef;
+
 import org.asup.os.omac.impl.ObjectImpl;
 import org.asup.os.type.msgf.QMessageDescription;
 import org.asup.os.type.msgf.QMessageDescriptionDataField;
