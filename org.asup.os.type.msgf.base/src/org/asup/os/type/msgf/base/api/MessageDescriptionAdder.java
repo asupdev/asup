@@ -7,6 +7,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDecimalDef;
@@ -118,6 +119,7 @@ public class MessageDescriptionAdder {
 		case NONE:
 			break;
 		case OTHER:
+			int i = 0;
 			for(MessageDataFieldsFormat messageDataFieldsFormat: messageDataFieldsFormats.asData()) {
 				if(messageDataFieldsFormat.isEmpty())
 					continue;
@@ -128,21 +130,35 @@ public class MessageDescriptionAdder {
 				case CCHAR:
 					break;
 				case CHAR:
+					messageDescriptionDataField = OperatingSystemMessageFileFactoryImpl.eINSTANCE.createMessageDescriptionDataField();
+					messageDescriptionDataField.setOutputMask(messageDataFieldsFormat.dataType.getSpecialName());
+					QCharacterDef characterDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createCharacterDef();
+					switch (messageDataFieldsFormat.length.asEnum()) {
+					case OTHER:
+						characterDefinition.setLength(messageDataFieldsFormat.length.asData().asInteger());
+						break;
+					case VARY:
+						characterDefinition.setLength(messageDataFieldsFormat.VARYBytesOrDecPos.asShort());
+						characterDefinition.setVarying(true);
+						break;
+					}
+					messageDescriptionDataField.setDataDef(characterDefinition);
+					qMessageDescription.getMessageDataFields().add(i, messageDescriptionDataField);
 					break;
 				case DEC:
+					messageDescriptionDataField = OperatingSystemMessageFileFactoryImpl.eINSTANCE.createMessageDescriptionDataField();
 					messageDescriptionDataField.setOutputMask(messageDataFieldsFormat.dataType.getSpecialName());
 					QDecimalDef decimalDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDecimalDef();
-//					switch (messageDataFieldsFormat.length.asEnum()) {
-//					case OTHER:
-//						System.out.println(messageDataFieldsFormat.length.asData().asShort());
-//						decimalDefinition.setPrecision(messageDataFieldsFormat.length.asData().asInteger());
-//						break;
-//					case VARY:
-//						break;
-//					}
+					switch (messageDataFieldsFormat.length.asEnum()) {
+					case OTHER:
+						decimalDefinition.setPrecision(messageDataFieldsFormat.length.asData().asInteger());
+						break;
+					case VARY:
+						break;
+					}
 					decimalDefinition.setScale(messageDataFieldsFormat.VARYBytesOrDecPos.asShort());
 					messageDescriptionDataField.setDataDef(decimalDefinition);
-					qMessageDescription.getMessageDataFields().add(messageDescriptionDataField);
+					qMessageDescription.getMessageDataFields().add(i, messageDescriptionDataField);
 					break;
 				case DTS:
 					break;
@@ -165,7 +181,9 @@ public class MessageDescriptionAdder {
 				case UTCT:
 					break;
 				}
+				i++;
 			}			
+			
 			break;
 		}
 		
