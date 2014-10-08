@@ -24,7 +24,7 @@ import org.asup.os.type.msgf.QMessageDescription;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 
-@ToDo 
+@Supported 
 @Program(name = "QMHDSMSF")
 public  class MessageDescriptionDisplayer {
 
@@ -38,12 +38,13 @@ public  class MessageDescriptionDisplayer {
 	private QJobLogManager jobLogManager;
 
 	public @Entry void main(
-			@ToDo QEnum<RangeOfMessageIdentifiersEnum, RangeOfMessageIdentifiers> rangeOfMessageIdentifiers,
+			@Supported QEnum<RangeOfMessageIdentifiersEnum, RangeOfMessageIdentifiers> rangeOfMessageIdentifiers,
 			@Supported @DataDef(qualified = true) MessageFile messageFile,
 			@ToDo @DataDef(length = 6) QEnum<DetailEnum, QCharacter> detail,
 			@ToDo @DataDef(length = 1) QEnum<FormatMessageTextEnum, QCharacter> formatMessageText,
-			@ToDo @DataDef(length = 1) QEnum<OutputEnum, QCharacter> output) {
+			@Supported @DataDef(length = 1) QEnum<OutputEnum, QCharacter> output) {
 
+		output.eval("*");
 		QResourceWriter<QMessageFile> resource = null;
 		String library = null;
 		switch (messageFile.library.asEnum()) {
@@ -137,6 +138,7 @@ public  class MessageDescriptionDisplayer {
 	}
 
 	public static enum OutputEnum {
+		@Special(value = "*")
 		TERM_STAR, @Special(value = "L")
 		PRINT
 	}

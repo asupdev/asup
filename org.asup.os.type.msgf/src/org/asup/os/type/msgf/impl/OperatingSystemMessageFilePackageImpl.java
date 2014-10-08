@@ -21,6 +21,7 @@ import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 import org.asup.os.type.msgf.QOperatingSystemMessageFileFactory;
 import org.asup.os.type.msgf.QOperatingSystemMessageFilePackage;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -422,6 +423,47 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// il-data
+		createIldataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>il-data</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createIldataAnnotations() {
+		String source = "il-data";	
+		addAnnotation
+		  (getMessageDescription_Name(), 
+		   source, 
+		   new String[] {
+			 "length", "7"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
+		  (getMessageDescription_MessageHelp(), 
+		   source, 
+		   new String[] {
+			 "length", "50"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
+		  (getMessageDescription_MessageText(), 
+		   source, 
+		   new String[] {
+			 "length", "50"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });
 	}
 
 } //OperatingSystemMessageFilePackageImpl
