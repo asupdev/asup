@@ -839,6 +839,9 @@
           <elements
               name="*NONE"
               value="*NONE"/>
+          <elements
+              name="X''"
+              value="*NONE"/>
         </facets>
         <definition
             xsi:type="il-data:CharacterDef"

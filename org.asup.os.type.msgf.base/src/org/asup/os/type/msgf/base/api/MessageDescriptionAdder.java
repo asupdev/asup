@@ -50,7 +50,7 @@ public class MessageDescriptionAdder {
 			@Supported @DataDef(length = 132) QCharacter firstLevelMessageText,
 			@Supported @DataDef(length = 3000) QEnum<SecondLevelMessageTextEnum, QCharacter> secondLevelMessageText,
 			@Supported @DataDef(binaryType = BinaryType.SHORT) QBinary severityCode,
-			@DataDef(dimension = 99) QEnum<MessageDataFieldsFormatEnum, QStroller<MessageDataFieldsFormat>> messageDataFieldsFormats,
+			@Supported @DataDef(dimension = 99) QEnum<MessageDataFieldsFormatEnum, QStroller<MessageDataFieldsFormat>> messageDataFieldsFormats,
 			@DataDef(length = 1) QEnum<ReplyTypeEnum, QCharacter> replyType,
 			QEnum<MaximumReplyLengthEnum, MaximumReplyLength> maximumReplyLength,
 			@DataDef(dimension = 20, length = 32) QEnum<ValidReplyValueEnum, QScroller<QCharacter>> validReplyValues,

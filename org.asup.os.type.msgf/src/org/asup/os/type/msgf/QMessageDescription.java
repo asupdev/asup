@@ -44,6 +44,7 @@ public interface QMessageDescription extends QObject {
 	 * @see #setName(String)
 	 * @see org.asup.os.type.msgf.QOperatingSystemMessageFilePackage#getMessageDescription_Name()
 	 * @model required="true"
+	 *        annotation="il-data length='7'"
 	 * @generated
 	 */
 	String getName();
@@ -95,7 +96,7 @@ public interface QMessageDescription extends QObject {
 	 * @return the value of the '<em>Message Help</em>' attribute.
 	 * @see #setMessageHelp(String)
 	 * @see org.asup.os.type.msgf.QOperatingSystemMessageFilePackage#getMessageDescription_MessageHelp()
-	 * @model
+	 * @model annotation="il-data length='50'"
 	 * @generated
 	 */
 	String getMessageHelp();
@@ -121,7 +122,7 @@ public interface QMessageDescription extends QObject {
 	 * @return the value of the '<em>Message Text</em>' attribute.
 	 * @see #setMessageText(String)
 	 * @see org.asup.os.type.msgf.QOperatingSystemMessageFilePackage#getMessageDescription_MessageText()
-	 * @model
+	 * @model annotation="il-data length='50'"
 	 * @generated
 	 */
 	String getMessageText();
