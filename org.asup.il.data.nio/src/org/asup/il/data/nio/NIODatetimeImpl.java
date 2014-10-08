@@ -20,20 +20,20 @@ import org.asup.il.data.QDatetime;
 
 public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 	private static byte INIT = (byte) 32;
 	
 	private DatetimeType _type;
 	private String _format;
 
-	private byte[] _value;
-
-	public NIODatetimeImpl(DatetimeType type, String format,  byte[] value) {		
+	public NIODatetimeImpl() {
+		super();
+	}
+	
+	public NIODatetimeImpl(DatetimeType type, String format) {		
 		
 		this._type = type;
 		this._format = format;
-		this._value = value;
 		
 		// default format
 		if(format == null || format.isEmpty()) {
@@ -113,18 +113,6 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 		return length();
 	}
 
-
-	@Override
-	public void clear() {
-		NIOBufferHelper.clear(getBuffer(), getPosition(), size(), INIT);
-	}
-	
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	@Override
 	public void move(String value, boolean clear) {
 		// TODO Auto-generated method stub
@@ -171,14 +159,6 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 	public <E extends Enum<E>> void eval(E value) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public NIODatetimeImpl copy() {
-
-		NIODatetimeImpl copy = new NIODatetimeImpl(_type, _format, _value);
-		
-		return copy;
 	}
 
 	@Override

@@ -175,7 +175,7 @@ public  class JobDescriptionCreator {
 		case OTHER:
 			qJobDescription.getLibraries().clear();
 			for (QCharacter initialLibrary : initialLibraryList.asData()) {
-				if (initialLibrary.trimR().isEmpty())
+				if (initialLibrary.isEmpty())
 					continue;
 
 				qJobDescription.getLibraries().add(initialLibrary.trimR());

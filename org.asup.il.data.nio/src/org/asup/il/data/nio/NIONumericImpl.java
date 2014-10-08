@@ -5,20 +5,16 @@ import org.asup.il.data.QNumeric;
 
 public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNumeric {
 
-	private byte[] _default;
-	
-	public NIONumericImpl(byte[] _default) {
-		this._default = _default;
-	}
-	
+	private static final long serialVersionUID = 1L;
+
 	public abstract Number readNumber();
 	
 	public abstract void writeNumber(Number number);
 	
 	public abstract int compareNumber(Number value);
-
-	protected byte[] getDefault() {
-		return _default;
+	
+	public NIONumericImpl() {
+		super();
 	}
 	
 	protected <E extends Enum<E>> Number getPrimitive(E value) {
@@ -63,16 +59,6 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	@Override
 	public long asLong() {
 		return readNumber().longValue();
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return asLong() == 0;
-	}
-
-	@Override
-	public void clear() {
-		eval(0);
 	}
 	
 	@Override

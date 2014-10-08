@@ -122,15 +122,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 		if (dataDef instanceof QArrayDef) {
 			QArrayDef<?> arrayDef = (QArrayDef<?>) dataDef;
 			QUnaryAtomicDataDef<QBufferedData> argument = (QUnaryAtomicDataDef<QBufferedData>) arrayDef.getArgument();			
-	
-			int dimension = 0;
-			if(arrayDef.getDimension().equalsIgnoreCase("%elem(£JAXSWK)"))
-				dimension = 300;
-			else {
-				dimension = Integer.parseInt(arrayDef.getDimension());
-			}
 			
-			QBufferedData bufferedData = createArray(argument, dimension, initialize);
+			QBufferedData bufferedData = createArray(argument, arrayDef.getDimension(), initialize);
 			data = (D) bufferedData;
 		} 
 		// scroller
@@ -354,7 +347,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public <D extends QBufferedData> QArray<D> createArray(QUnaryAtomicDataDef<D> argument, int dimension, boolean initialize) {
 
-		QBufferedData model = (QBufferedData) createData(argument, false);		
+		NIOBufferedDataImpl model = (NIOBufferedDataImpl) createData(argument, false);		
 		
 		QArray<D> array = new NIOArrayImpl(model, dimension);
 		
@@ -520,7 +513,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	@Override
 	public QBinary createBinary(BinaryType type, boolean unsigned, boolean initialize) {
 
-		QBinary binary = new NIOBinaryImpl(type, unsigned, null);
+		QBinary binary = new NIOBinaryImpl(type, unsigned);
 		
 		if(initialize)
 			initialize(binary);
@@ -535,7 +528,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 		switch (type) {
 			case ZONED:
-				decimal = new NIODecimalImpl(precision, scale, null);
+				decimal = new NIODecimalImpl(precision, scale);
 				break;
 			case PACKED:
 				break;
@@ -561,7 +554,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	@Override
 	public QDatetime createDate(DatetimeType type, String format, boolean initialize) {
 
-		NIODatetimeImpl datetime = new NIODatetimeImpl(type, format, null);
+		NIODatetimeImpl datetime = new NIODatetimeImpl(type, format);
 				
 		if(initialize)
 			initialize(datetime);
@@ -578,7 +571,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	@Override
 	public QHexadecimal createHexadecimal(int length, boolean initialize) {
 		
-		QHexadecimal hexadecimal = new NIOHexadecimalImpl(length, null);
+		QHexadecimal hexadecimal = new NIOHexadecimalImpl(length);
 				
 		if(initialize)
 			initialize(hexadecimal);

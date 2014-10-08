@@ -1,112 +1,205 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi - Initial API and implementation 
+ */
 package org.asup.il.data.nio;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.nio.ByteBuffer;
 
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QData;
-import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBufferedData, Serializable {
-	
-	private NIOBufferedDataImpl _parent;
+public abstract class NIOBufferedDataImpl extends NIODataImpl implements
+		QBufferedData {
 
+	private static final long serialVersionUID = 1L;
+
+	private NIOBufferedDataImpl _parent;
 	private transient ByteBuffer _buffer;
+
 	private int _position;
-	
+
+	public NIOBufferedDataImpl() {
+		super();
+	}
+
 	protected abstract byte getFiller();
-	
-	protected ByteBuffer getBuffer() {
-		
-		if(_buffer != null)
-			return _buffer;		
-		else if(_parent != null)
-			return _parent.getBuffer();		
-		else
+
+	@Override
+	public NIOBufferedDataImpl copy() {
+
+		try {
+
+			NIOBufferedDataImpl copy = null;
+
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+
+			// remove buffer and parent reference
+			// TODO synchronize
+			NIOBufferedDataImpl tempParent = _parent;
+			ByteBuffer tempBuffer = _buffer;
+			int tempPosition = _position;
+			_parent = null;
+			_buffer = null;
+			_position = 0;
+			oos.writeObject(this);
+			_parent = tempParent;
+			_buffer = tempBuffer;
+			_position = tempPosition;
+			oos.close();
+
+			ByteArrayInputStream bais = new ByteArrayInputStream(
+					baos.toByteArray());
+			ObjectInputStream ois = new ObjectInputStream(bais);
+			copy = (NIOBufferedDataImpl) ois.readObject();
+			ois.close();
+
+			return copy;
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
 			return null;
+		}
 	}
 
 	public void allocate() {
-		setBuffer(ByteBuffer.allocate(size()));
-		
-//		reset();
+
+		// TODO synchronize
+		if (_parent != null || _buffer != null)
+			throw new FrameworkCoreRuntimeException(
+					"Unexpected condition: dmn8432m75n030");
+
+		_parent = null;
+		_buffer = ByteBuffer.allocate(size());
+
+		// TODO performances
 		clear();
 	}
 
-	protected NIOBufferedDataImpl getParent() {
-		return this._parent;
-	}
-	
-	protected void setParent(NIOBufferedDataImpl parent) {
-		this._parent = parent;
-	}
-	
-	protected void setBuffer(ByteBuffer buffer) {
-		_buffer = buffer;
-	}
-	
-	protected int getPosition() {
-		
-		if(_parent != null)
-			return _parent.getPosition()+_position;
-		else {
-			return _position;
-		}
-	}
-	
-	protected void setPosition(int position) {
-		_position = position;
-	}
-	
-	private void writeObject(ObjectOutputStream stream) throws IOException {
-		
-		byte[] array = null;
-		if(_buffer != null)
-			array = _buffer.array();
-		else
-			array = new byte[0];		
-		stream.writeInt(array.length);
-		stream.write(array);
-		
-		stream.writeInt(_position);
-	}
+	public void slice(QBufferedData target, int position) {
 
-	private void readObject(ObjectInputStream stream) throws IOException {
-	
-		int length = stream.readInt();
-		byte[] array = new byte[length];
-		stream.read(array);
+		NIOBufferedDataImpl nioBufferedData = getNIOBufferedDataImpl(target);
 
-		_position = stream.readInt();
+		if (nioBufferedData == null)
+			throw new FrameworkCoreRuntimeException(
+					"No buffer reference found: " + target.getClass());
 
-		// TODO
-		if(_position == 538976288)
-			_position = 0;
-		
-		if(_parent == null) {		
-			_buffer = ByteBuffer.allocate(length);
-			_buffer.put(array);
-		}
+		// TODO synchronize
+		if (nioBufferedData._buffer != null)
+			throw new FrameworkCoreRuntimeException(
+					"Unexpected condition: dmn8432m75n031");
+
+		nioBufferedData._parent = this;
+		nioBufferedData._buffer = null;
+		nioBufferedData._position = position;
+
+		// System.out.println(nioBufferedData._position);
 	}
 
 	@Override
 	public void assign(QBufferedData target) {
-		NIOBufferedDataImpl nioBufferedData = getNIOBufferedData(target);
 
-		if(nioBufferedData == null)
-			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
+		NIOBufferedDataImpl nioBufferedData = getNIOBufferedDataImpl(target);
 
-		nioBufferedData.setParent(this);
-		nioBufferedData.setBuffer(null);
-		nioBufferedData.setPosition(0);
+		if (nioBufferedData == null)
+			throw new FrameworkCoreRuntimeException(
+					"No buffer reference found: " + target.getClass());
 
-//		slice(value, 0);
+		// TODO synchronize
+		if (_parent != null)
+			System.err.println("Unexpected condition: zsdg789zgsm07");
+
+		nioBufferedData._parent = null;
+		nioBufferedData._buffer = getBuffer();
+		nioBufferedData._position = getPosition();
+	}
+
+	@Override
+	public void clear() {
+		NIOBufferHelper.clear(getBuffer(), getPosition(), size(), getFiller());
+	}
+
+	@Override
+	public boolean isEmpty() {
+		
+		byte[] bytes = asBytes();
+		for(int i=0; i<bytes.length; i++) {
+			if(bytes[i] != getFiller())
+				return false;
+		}
+		return true;
+	}
+
+	public ByteBuffer getBuffer() {
+
+		// TODO synchronize
+		if (_buffer != null)
+			return _buffer;
+		else if (_parent != null)
+			return _parent.getBuffer();
+		else
+			return null;
+	}
+
+	public int getPosition() {
+
+		// TODO synchronize
+		if (_parent != null)
+			return _parent.getPosition() + _position;
+		else {
+			return _position;
+		}
+	}
+
+	private void writeObject(ObjectOutputStream stream) throws IOException {
+
+		// TODO synchronize
+		byte[] array = null;
+		if (_buffer != null)
+			array = _buffer.array();
+		else
+			array = new byte[0];
+
+		stream.writeInt(array.length);
+		stream.write(array);
+		stream.writeObject(_parent);
+		stream.writeInt(_position);
+	}
+
+	private void readObject(ObjectInputStream stream) throws IOException,
+			ClassNotFoundException {
+
+		int length = stream.readInt();
+		byte[] array = new byte[length];
+		stream.read(array);
+		Object object = stream.readObject();
+		_parent = (NIOBufferedDataImpl) object;
+		_position = stream.readInt();
+
+		// TODO
+		if (_position == 538976288) {
+			System.err.println("Unexpected condition: xm74tx045m07");
+			_position = 0;
+		}
+
+		if (length > 0) {
+			_buffer = ByteBuffer.allocate(length);
+			_buffer.put(array);
+		}
 	}
 
 	@Override
@@ -114,39 +207,10 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		visitor.visit(this);
 	}
 
-	public void slice(QBufferedData target, int position) {
-
-		NIOBufferedDataImpl nioBufferedData = getNIOBufferedData(target);
-
-		if(nioBufferedData == null)
-			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
-		
-		nioBufferedData.setParent(this);
-		nioBufferedData.setBuffer(null);
-		nioBufferedData.setPosition(getPosition() + position);
-
-	}
-	
-	private NIOBufferedDataImpl getNIOBufferedData(QData bufferedData) {
-		
-		NIOBufferedDataImpl nioBufferedData = null;
-		
-		if (bufferedData instanceof NIOBufferedDataImpl) {
-			nioBufferedData = (NIOBufferedDataImpl) bufferedData;
-		}
-		else if (bufferedData instanceof QDataDelegator) {
-			QDataDelegator dataDelegator = (QDataDelegator)bufferedData;
-			nioBufferedData = getNIOBufferedData(dataDelegator.getDelegate());
-		}
-		
-		return nioBufferedData;
-	}
-	
 	@Override
 	public byte[] asBytes() {
 		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), size());
 	}
-
 
 	@Override
 	public void move(int value) {
@@ -157,7 +221,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	public void move(int value, boolean clear) {
 		move(Integer.toString(value), clear);
 	}
-	
+
 	@Override
 	public void move(Number value) {
 		move(value, false);
@@ -166,23 +230,24 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void move(Number value, boolean clear) {
 		move(value.toString(), clear);
-	}	
+	}
 
 	@Override
 	public void move(QBufferedData value) {
 		move(value, false);
 	}
-	
+
 	@Override
 	public void move(QBufferedData value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), size(), value.asBytes(), clear, getFiller());
+		NIOBufferHelper.move(getBuffer(), getPosition(), size(),
+				value.asBytes(), clear, getFiller());
 	}
 
 	@Override
 	public void move(String value) {
 		move(value, false);
-	}	
-	
+	}
+
 	@Override
 	public void movea(QArray<?> value) {
 		movea(value, false);
@@ -204,7 +269,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	public void movel(int value, boolean clear) {
 		movel(Integer.toString(value), clear);
 	}
-	
+
 	@Override
 	public void movel(Number value) {
 		movel(value, false);
@@ -212,9 +277,9 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public void movel(Number value, boolean clear) {
-		movel(value.toString(), clear);		
+		movel(value.toString(), clear);
 	}
-	
+
 	@Override
 	public void movel(String value) {
 		movel(value, false);
@@ -224,9 +289,20 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	public void movel(QBufferedData value) {
 		movel(value, false);
 	}
-	
+
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), value.asBytes(), clear, getFiller());
+		NIOBufferHelper.movel(getBuffer(), getPosition(), size(),
+				value.asBytes(), clear, getFiller());
+	}
+	
+	@Override
+	public String toString() {
+		return new String(asBytes());
+	}
+	
+	@Override
+	public String asString() {
+		return toString();
 	}
 }

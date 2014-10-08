@@ -22,6 +22,10 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 	private static final long serialVersionUID = 1L;
 
 	private Class<E> _klass;
+
+	public NIOEnumImpl() {
+		super();
+	}
 	
 	public NIOEnumImpl(Class<E> klass, QBufferedData delegate) {
 		super(delegate);
@@ -82,18 +86,5 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 		
 		return "*"+asEnum().name();
 
-	}
-
-	@Override
-	public NIOEnumImpl<E, D> copy() {
-
-		NIOEnumImpl<E, D> copy = new NIOEnumImpl<E, D>(_klass, _delegate.copy());
-		
-		return copy;
-	}
-
-	@Override
-	public void assign(QBufferedData value) {
-		asData().assign(value);
 	}
 }

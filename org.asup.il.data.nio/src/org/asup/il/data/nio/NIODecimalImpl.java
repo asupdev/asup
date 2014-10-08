@@ -21,11 +21,15 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 	private static final long serialVersionUID = 1L;
 	private static byte INIT = (byte) 48;
 
-	protected int _precision;
-	protected int _scale;
+	private int _precision;
+	private int _scale;
 
-	public NIODecimalImpl(int precision, int scale, byte[] value) {
-		super(value);
+	public NIODecimalImpl() {
+		super();
+	}
+	
+	public NIODecimalImpl(int precision, int scale) {
+		super();
 		_precision = precision;
 		_scale = scale;
 	}
@@ -33,14 +37,6 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 	@Override
 	protected byte getFiller() {
 		return INIT;
-	}
-	
-	@Override
-	public NIODecimalImpl copy() {
-		
-		NIODecimalImpl copy = new NIODecimalImpl(_precision, _scale, getDefault());
-		
-		return copy;
 	}
 
 	public int getScale() {

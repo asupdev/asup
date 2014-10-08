@@ -12,11 +12,6 @@ package org.asup.il.data;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Character</b></em>'.
  * <!-- end-user-doc -->
- *
- *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getCharacter()
- * @model interface="true" abstract="true"
- * @generated
  */
 public interface QCharacter extends QString {
-} // QCharacter
+}

@@ -21,6 +21,30 @@ import org.asup.il.data.QNumeric;
 
 public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBufferedDataImpl implements QList<D>, QBufferedData {
 
+	private static final long serialVersionUID = 1L;
+
+	public NIOBufferedListImpl() {
+		super();
+	}
+	
+	@Override
+	public boolean isEmpty() {
+
+		for (D element : this) {
+			if(!element.isEmpty())
+				return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public void clear() {
+		for (QBufferedData element : this) {
+			element.clear();
+		}
+	}
+
 	@Override
 	public byte[] asBytes() {
 		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), size());
@@ -32,13 +56,6 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 			element.reset();
 		}
 	}*/	
-
-	@Override
-	public void clear() {
-		for (QBufferedData element : this) {
-			element.clear();
-		}
-	}
 
 	@Override
 	public void eval(Object value) {
@@ -57,11 +74,6 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	@Override
 	public D get(QNumeric index) {
 		return get(index.asInteger());
-	}
-	
-	@Override
-	public boolean isEmpty() {
-		return false;
 	}
 
 	@Override

@@ -44,7 +44,7 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DIMENSION_EDEFAULT = null;
+	protected static final int DIMENSION_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' attribute.
@@ -54,7 +54,7 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 	 * @generated
 	 * @ordered
 	 */
-	protected String dimension = DIMENSION_EDEFAULT;
+	protected int dimension = DIMENSION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,7 +80,7 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDimension() {
+	public int getDimension() {
 		return dimension;
 	}
 
@@ -89,8 +89,8 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDimension(String newDimension) {
-		String oldDimension = dimension;
+	public void setDimension(int newDimension) {
+		int oldDimension = dimension;
 		dimension = newDimension;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.ARRAY_DEF__DIMENSION, oldDimension, dimension));
@@ -119,7 +119,7 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.ARRAY_DEF__DIMENSION:
-				setDimension((String)newValue);
+				setDimension((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,7 +149,7 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.ARRAY_DEF__DIMENSION:
-				return DIMENSION_EDEFAULT == null ? dimension != null : !DIMENSION_EDEFAULT.equals(dimension);
+				return dimension != DIMENSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

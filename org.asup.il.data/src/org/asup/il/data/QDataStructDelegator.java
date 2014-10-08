@@ -11,9 +11,6 @@ import java.util.List;
 
 public abstract class QDataStructDelegator implements QDataStruct, QDataDelegator {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Override
@@ -389,11 +386,6 @@ public abstract class QDataStructDelegator implements QDataStruct, QDataDelegato
 	@Override
 	public <E extends Enum<E>> boolean ne(E value) {
 		return delegate.ne(value);
-	}
-
-	@Override
-	public QBufferedData copy() {
-		return delegate.copy();
 	}
 
 	@Override
