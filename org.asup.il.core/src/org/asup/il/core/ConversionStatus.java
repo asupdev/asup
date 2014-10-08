@@ -54,14 +54,14 @@ public enum ConversionStatus implements Enumerator {
 	UNSUPPORTED(20, "Unsupported", "UNS"),
 
 	/**
-	 * The '<em><b>ToDo</b></em>' literal object.
+	 * The '<em><b>Todo</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #TODO_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	TODO(30, "ToDo", "TODO");
+	TODO(30, "Todo", "TODO");
 
 	/**
 	 * The '<em><b>Possible</b></em>' literal value.
@@ -109,7 +109,7 @@ public enum ConversionStatus implements Enumerator {
 	public static final int UNSUPPORTED_VALUE = 20;
 
 	/**
-	 * The '<em><b>ToDo</b></em>' literal value.
+	 * The '<em><b>Todo</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>ToDo</b></em>' literal object isn't clear,
@@ -117,7 +117,7 @@ public enum ConversionStatus implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TODO
-	 * @model name="ToDo" literal="TODO"
+	 * @model name="Todo" literal="TODO"
 	 * @generated
 	 * @ordered
 	 */

@@ -213,6 +213,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass characterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass characterDefEClass = null;
 
 	/**
@@ -668,13 +675,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType characterEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType dataArrayEDataType = null;
 
 	/**
@@ -900,8 +900,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCharacter() {
-		return characterEDataType;
+	public EClass getCharacter() {
+		return characterEClass;
 	}
 
 	/**
@@ -1854,6 +1854,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		bufferedListEClass = createEClass(BUFFERED_LIST);
 
+		characterEClass = createEClass(CHARACTER);
+
 		characterDefEClass = createEClass(CHARACTER_DEF);
 		createEAttribute(characterDefEClass, CHARACTER_DEF__LENGTH);
 		createEAttribute(characterDefEClass, CHARACTER_DEF__VARYING);
@@ -2013,7 +2015,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		timeFormatEEnum = createEEnum(TIME_FORMAT);
 
 		// Create data types
-		characterEDataType = createEDataType(CHARACTER);
 		dataArrayEDataType = createEDataType(DATA_ARRAY);
 	}
 
@@ -2242,6 +2243,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		bufferedListEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getBufferedData());
 		bufferedListEClass.getEGenericSuperTypes().add(g1);
+		characterEClass.getESuperTypes().add(this.getString());
 		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getCharacter());
 		g1.getETypeArguments().add(g2);
@@ -2508,6 +2510,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(bufferedListEClass, QBufferedList.class, "BufferedList", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(characterEClass, QCharacter.class, "Character", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(characterDefEClass, QCharacterDef.class, "CharacterDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCharacterDef_Length(), ecorePackage.getEInt(), "length", null, 1, 1, QCharacterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCharacterDef_Varying(), ecorePackage.getEBoolean(), "varying", null, 0, 1, QCharacterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2550,6 +2554,17 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataContextEClass, this.getData(), "getData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getDataTerm());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -3666,7 +3681,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEEnumLiteral(timeFormatEEnum, TimeFormat.JOBRUN);
 
 		// Initialize data types
-		initEDataType(characterEDataType, QCharacter.class, "Character", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(dataArrayEDataType, Object[].class, "DataArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

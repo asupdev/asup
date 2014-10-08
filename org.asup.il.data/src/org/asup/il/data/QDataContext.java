@@ -47,4 +47,28 @@ public interface QDataContext extends QDataTermContainer {
 	 * @generated
 	 */
 	QData getData(QDataTerm<?> dataTerm);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void resetData();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model nameRequired="true"
+	 * @generated
+	 */
+	void resetData(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataTermRequired="true"
+	 * @generated
+	 */
+	void resetData(QDataTerm<?> dataTerm);
 } // QDataContext

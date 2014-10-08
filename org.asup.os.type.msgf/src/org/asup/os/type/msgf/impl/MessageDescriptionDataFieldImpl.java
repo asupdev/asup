@@ -8,18 +8,13 @@
 package org.asup.os.type.msgf.impl;
 
 import org.asup.il.data.QUnaryAtomicDataDef;
-
 import org.asup.os.omac.impl.ObjectImpl;
-
 import org.asup.os.type.msgf.QMessageDescriptionDataField;
 import org.asup.os.type.msgf.QOperatingSystemMessageFilePackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -37,6 +32,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class MessageDescriptionDataFieldImpl extends ObjectImpl implements QMessageDescriptionDataField {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The cached value of the '{@link #getDataDef() <em>Data Def</em>}' containment reference.
 	 * <!-- begin-user-doc -->
