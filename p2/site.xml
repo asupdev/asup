@@ -130,36 +130,169 @@
       <category name="org.asup.co"/>
    </feature>
    <category-def name="org.asup.fw" label="Framework">
+=======
+   <feature url="features/org.asup.ft.framework_0.5.0.201410091341.jar" id="org.asup.ft.framework" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.framework.base_0.5.0.201410091341.jar" id="org.asup.ft.framework.base" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.framework.e4_0.5.0.201410091341.jar" id="org.asup.ft.framework.e4" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.database_0.5.0.201410091341.jar" id="org.asup.ft.database" version="0.5.0.201410091341">
+      <category name="database"/>
+   </feature>
+   <feature url="features/org.asup.ft.database.base_0.5.0.201410091341.jar" id="org.asup.ft.database.base" version="0.5.0.201410091341">
+      <category name="database"/>
+   </feature>
+   <feature url="features/org.asup.ft.database.cdo_0.5.0.201410091341.jar" id="org.asup.ft.database.cdo" version="0.5.0.201410091341">
+      <category name="database"/>
+   </feature>
+   <feature url="features/org.asup.ft.database.ibmi_0.5.0.201410091341.jar" id="org.asup.ft.database.ibmi" version="0.5.0.201410091341">
+      <category name="database"/>
+   </feature>
+   <feature url="features/org.asup.ft.database.mssql_0.5.0.201410091341.jar" id="org.asup.ft.database.mssql" version="0.5.0.201410091341">
+      <category name="database"/>
+   </feature>
+   <feature url="features/org.asup.ft.database.mysql_0.5.0.201410091341.jar" id="org.asup.ft.database.mysql" version="0.5.0.201410091341">
+      <category name="database"/>
+   </feature>
+   <feature url="features/org.asup.ft.language_0.5.0.201410091341.jar" id="org.asup.ft.language" version="0.5.0.201410091341">
+      <category name="language"/>
+   </feature>
+   <feature url="features/org.asup.ft.language.base_0.5.0.201410091341.jar" id="org.asup.ft.language.base" version="0.5.0.201410091341">
+      <category name="language"/>
+   </feature>
+   <feature url="features/org.asup.ft.language.isam_0.5.0.201410091341.jar" id="org.asup.ft.language.isam" version="0.5.0.201410091341">
+      <category name="language"/>
+   </feature>
+   <feature url="features/org.asup.ft.language.jdbc_0.5.0.201410091341.jar" id="org.asup.ft.language.jdbc" version="0.5.0.201410091341">
+      <category name="language"/>
+   </feature>
+   <feature url="features/org.asup.ft.language.nio_0.5.0.201410091341.jar" id="org.asup.ft.language.nio" version="0.5.0.201410091341">
+      <category name="language"/>
+   </feature>
+   <feature url="features/org.asup.ft.eclipse.cdo_0.5.0.201410091341.jar" id="org.asup.ft.eclipse.cdo" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.eclipse.ecf_0.5.0.201410091341.jar" id="org.asup.ft.eclipse.ecf" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.eclipse.ide_0.5.0.201410091341.jar" id="org.asup.ft.eclipse.ide" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.eclipse.jetty_0.5.0.201410091341.jar" id="org.asup.ft.eclipse.jetty" version="0.5.0.201410091341">
+      <category name="framework"/>
+   </feature>
+   <feature url="features/org.asup.ft.compiler_0.5.0.201410091341.jar" id="org.asup.ft.compiler" version="0.5.0.201410091341">
+      <category name="developmentKit"/>
+   </feature>
+   <feature url="features/org.asup.ft.parser.ibmi_0.5.0.201410091341.jar" id="org.asup.ft.parser.ibmi" version="0.5.0.201410091341">
+      <category name="developmentKit"/>
+   </feature>
+   <feature url="features/org.asup.ft.source_0.5.0.201410091341.jar" id="org.asup.ft.source" version="0.5.0.201410091341">
+      <category name="developmentKit"/>
+   </feature>
+   <feature url="features/org.asup.ft.source.jdt_0.5.0.201410091341.jar" id="org.asup.ft.source.jdt" version="0.5.0.201410091341">
+      <category name="developmentKit"/>
+   </feature>
+   <feature url="features/org.asup.ft.system_0.5.0.201410091341.jar" id="org.asup.ft.system" version="0.5.0.201410091341">
+      <category name="operatingSystem"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.base_0.5.0.201410091341.jar" id="org.asup.ft.system.base" version="0.5.0.201410091341">
+      <category name="operatingSystem"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.cdo_0.5.0.201410091341.jar" id="org.asup.ft.system.cdo" version="0.5.0.201410091341">
+      <category name="operatingSystem"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.co_0.5.0.201410091341.jar" id="org.asup.ft.system.co" version="0.5.0.201410091341">
+      <category name="operatingSystem"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.e4_0.5.0.201410091341.jar" id="org.asup.ft.system.e4" version="0.5.0.201410091341">
+      <category name="operatingSystem"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.jdt_0.5.0.201410091341.jar" id="org.asup.ft.system.jdt" version="0.5.0.201410091341">
+      <category name="operatingSystem"/>
+   </feature>
+   <feature url="features/org.asup.ft.graph.facebook_0.5.0.201410091341.jar" id="org.asup.ft.graph.facebook" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.cmd_0.5.0.201410091341.jar" id="org.asup.ft.system.type.cmd" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.dtaara_0.5.0.201410091341.jar" id="org.asup.ft.system.type.dtaara" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.dtaq_0.5.0.201410091341.jar" id="org.asup.ft.system.type.dtaq" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.file_0.5.0.201410091341.jar" id="org.asup.ft.system.type.file" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.jobd_0.5.0.201410091341.jar" id="org.asup.ft.system.type.jobd" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.lib_0.5.0.201410091341.jar" id="org.asup.ft.system.type.lib" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.module_0.5.0.201410091341.jar" id="org.asup.ft.system.type.module" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.msgf_0.5.0.201410091341.jar" id="org.asup.ft.system.type.msgf" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.pgm_0.5.0.201410091341.jar" id="org.asup.ft.system.type.pgm" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.usrprf_0.5.0.201410091341.jar" id="org.asup.ft.system.type.usrprf" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.system.type.usrspc_0.5.0.201410091341.jar" id="org.asup.ft.system.type.usrspc" version="0.5.0.201410091341">
+      <category name="operatingSystemTypes"/>
+   </feature>
+   <feature url="features/org.asup.ft.connector.ecf_0.5.0.201410091341.jar" id="org.asup.ft.connector.ecf" version="0.5.0.201410091341">
+      <category name="connectors"/>
+   </feature>
+   <feature url="features/org.asup.ft.connector.shell_0.5.0.201410091341.jar" id="org.asup.ft.connector.shell" version="0.5.0.201410091341">
+      <category name="connectors"/>
+   </feature>
+   <category-def name="framework" label="Framework">
+>>>>>>> branch 'gh-pages' of https://github.com/asupdev/asup.git
       <description>
          As.UP Framework
       </description>
    </category-def>
-   <category-def name="org.asup.db" label="Database">
+   <category-def name="database" label="Database">
       <description>
          As.UP Database
       </description>
    </category-def>
-   <category-def name="org.asup.il" label="Language">
+   <category-def name="language" label="Language">
       <description>
          As.UP Integrated Language
       </description>
    </category-def>
+<<<<<<< HEAD
    <category-def name="org.ausp.dk" label="Development Kit">
+=======
+   <category-def name="developmentKit" label="Development Kit">
+>>>>>>> branch 'gh-pages' of https://github.com/asupdev/asup.git
       <description>
          As.UP Development Kit
       </description>
    </category-def>
-   <category-def name="org.asup.os" label="System">
+   <category-def name="operatingSystem" label="System">
       <description>
          As.UP Operating System
       </description>
    </category-def>
-   <category-def name="org.asup.os.type" label="System Types">
+   <category-def name="operatingSystemTypes" label="System Types">
       <description>
          As.UP Operating System Types
       </description>
    </category-def>
-   <category-def name="org.asup.co" label="Connectors">
+   <category-def name="connectors" label="Connectors">
       <description>
          As.UP Connectors
       </description>
