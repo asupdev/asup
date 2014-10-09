@@ -129,6 +129,7 @@ public class MessageDescriptionAdder {
 					break;
 				case CCHAR:
 					break;
+				case QTDCHAR:
 				case CHAR:
 					messageDescriptionDataField = OperatingSystemMessageFileFactoryImpl.eINSTANCE.createMessageDescriptionDataField();
 					messageDescriptionDataField.setOutputMask(messageDataFieldsFormat.dataType.getSpecialName());
@@ -165,8 +166,6 @@ public class MessageDescriptionAdder {
 				case HEX:
 					break;
 				case ITV:
-					break;
-				case QTDCHAR:
 					break;
 				case SPP:
 					break;

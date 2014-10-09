@@ -21,6 +21,7 @@ import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QOutputManager;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.msgf.QMessageDescription;
+import org.asup.os.type.msgf.QMessageDescriptionDataField;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QMessageFileManager;
 
@@ -44,7 +45,6 @@ public  class MessageDescriptionDisplayer {
 			@ToDo @DataDef(length = 1) QEnum<FormatMessageTextEnum, QCharacter> formatMessageText,
 			@Supported @DataDef(length = 1) QEnum<OutputEnum, QCharacter> output) {
 
-		output.eval("*");
 		QResourceWriter<QMessageFile> resource = null;
 		String library = null;
 		switch (messageFile.library.asEnum()) {
@@ -71,14 +71,26 @@ public  class MessageDescriptionDisplayer {
 		switch (rangeOfMessageIdentifiers.asEnum()) {
 		case ALL:
 			for (QMessageDescription qMessageDescription : qMessageFile.getMessages()) {
-				try {
-					objectWriter.write(qMessageDescription);
-				} catch (IOException e) {
-					jobLogManager.error(job, e.getMessage());
-				}
+				writeRecord(qMessageDescription, objectWriter);
 			}
 			break;
 		case OTHER:
+			for (@SuppressWarnings("unused") QMessageDescription qMessageDescription : qMessageFile.getMessages()) {
+				switch (rangeOfMessageIdentifiers.asData().lowerValue.asEnum()) {
+				case FIRST:
+					break;
+				case OTHER:
+					break;
+				}
+				switch (rangeOfMessageIdentifiers.asData().upperValue.asEnum()) {
+				case LAST:
+					break;
+				case ONLY:
+					break;
+				case OTHER:
+					break;
+				}
+			}
 			break;
 		}
 
@@ -95,6 +107,22 @@ public  class MessageDescriptionDisplayer {
 		objectWriter.flush();
 	}
 
+	private void writeRecord(QMessageDescription qMessageDescription, QObjectWriter objectWriter){
+		try {
+			objectWriter.write(qMessageDescription);
+			for (QMessageDescriptionDataField qMessageDescriptionDataField : qMessageDescription.getMessageDataFields()) {
+				try {
+					objectWriter.write(qMessageDescriptionDataField);
+				} catch (IOException e) {
+					jobLogManager.error(job, e.getMessage());
+				}
+			}
+		} catch (IOException e) {
+			jobLogManager.error(job, e.getMessage());
+		}
+	}
+	
+	
 	public static class RangeOfMessageIdentifiers extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 7, value = "*FIRST")
