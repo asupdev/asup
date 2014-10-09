@@ -89,6 +89,8 @@ list
 
 value
   :
+  ASTERISK -> ^(TOKEN[$ASTERISK.text])
+  |
   TOKEN
   |
   VARIABLE
@@ -143,12 +145,16 @@ VARIABLE:
  ;
  
 SPECIAL	:	
-   '*' TOKEN
+   ASTERISK TOKEN
  ;   	 
  
 FILTER :
-   TOKEN '*'
+   TOKEN ASTERISK
  ; 
+ 
+ASTERISK:
+	'*'	
+;
  
  HEX	:
 	'X' APOS ('0'..'9'|'A'..'F'|'a'..'f')+ APOS	
