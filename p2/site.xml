@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <description name="As.UP" url="http://asupdev.github.io/asup/p2">
-      As.UP Eclipse Update Site
+      As.UP 0.5.1 Eclipse Update Site
    </description>
+   <category-def name="org.asup.fw" label="Framework">
+      <description>
+         As.UP Framework
+      </description>
+   </category-def>
+   <category-def name="org.asup.db" label="Database">
+      <description>
+         As.UP Database
+      </description>
+   </category-def>
+   <category-def name="org.asup.il" label="Language">
+      <description>
+         As.UP Integrated Language
+      </description>
+   </category-def>
+   <category-def name="org.asup.dk" label="Development Kit">
+      <description>
+         As.UP Development Kit
+      </description>
+   </category-def>
+   <category-def name="org.asup.os" label="System">
+      <description>
+         As.UP Operating System
+      </description>
+   </category-def>
+   <category-def name="org.asup.os.type" label="System Types">
+      <description>
+         As.UP Operating System Types
+      </description>
+   </category-def>
+   <category-def name="org.asup.co" label="Connectors">
+      <description>
+         As.UP Connectors
+      </description>
+   </category-def>   
    <feature url="features/org.asup.ft.framework_0.5.0.201410091341.jar" id="org.asup.ft.framework" version="0.5.0.201410091341">
       <category name="org.asup.fw"/>
    </feature>
@@ -88,80 +123,45 @@
       <category name="org.asup.os"/>
    </feature>
    <feature url="features/org.asup.ft.graph.facebook_0.5.0.201410091341.jar" id="org.asup.ft.graph.facebook" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.cmd_0.5.0.201410091341.jar" id="org.asup.ft.system.type.cmd" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.dtaara_0.5.0.201410091341.jar" id="org.asup.ft.system.type.dtaara" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.dtaq_0.5.0.201410091341.jar" id="org.asup.ft.system.type.dtaq" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.file_0.5.0.201410091341.jar" id="org.asup.ft.system.type.file" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.jobd_0.5.0.201410091341.jar" id="org.asup.ft.system.type.jobd" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.lib_0.5.0.201410091341.jar" id="org.asup.ft.system.type.lib" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.module_0.5.0.201410091341.jar" id="org.asup.ft.system.type.module" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.msgf_0.5.0.201410091341.jar" id="org.asup.ft.system.type.msgf" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.pgm_0.5.0.201410091341.jar" id="org.asup.ft.system.type.pgm" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.usrprf_0.5.0.201410091341.jar" id="org.asup.ft.system.type.usrprf" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.system.type.usrspc_0.5.0.201410091341.jar" id="org.asup.ft.system.type.usrspc" version="0.5.0.201410091341">
-      <category name="org.ausp.os.type"/>
+      <category name="org.asup.os.type"/>
    </feature>
    <feature url="features/org.asup.ft.connector.ecf_0.5.0.201410091341.jar" id="org.asup.ft.connector.ecf" version="0.5.0.201410091341">
-      <category name="org.ausp.co"/>
+      <category name="org.asup.co"/>
    </feature>
    <feature url="features/org.asup.ft.connector.shell_0.5.0.201410091341.jar" id="org.asup.ft.connector.shell" version="0.5.0.201410091341">
-      <category name="org.ausp.co"/>
+      <category name="org.asup.co"/>
    </feature>
-   <category-def name="org.asup.fw" label="Framework">
-      <description>
-         As.UP Framework
-      </description>
-   </category-def>
-   <category-def name="org.asup.db" label="Database">
-      <description>
-         As.UP Database
-      </description>
-   </category-def>
-   <category-def name="org.asup.il" label="Language">
-      <description>
-         As.UP Integrated Language
-      </description>
-   </category-def>
-   <category-def name="org.asup.dk" label="Development Kit">
-      <description>
-         As.UP Development Kit
-      </description>
-   </category-def>
-   <category-def name="org.asup.os" label="System">
-      <description>
-         As.UP Operating System
-      </description>
-   </category-def>
-   <category-def name="org.ausp.os.type" label="System Types">
-      <description>
-         As.UP Operating System Types
-      </description>
-   </category-def>
-   <category-def name="org.ausp.co" label="Connectors">
-      <description>
-         As.UP Connectors
-      </description>
-   </category-def>
 </site>
