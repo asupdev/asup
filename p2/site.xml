@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <description name="As.UP" url="http://asupdev.github.io/asup/p2">
-      
+      As.UP Eclipse Update Site
    </description>
    <feature url="features/org.asup.ft.framework_0.5.0.201410091308.jar" id="org.asup.ft.framework" version="0.5.0.201410091308">
       <category name="org.asup.fw"/>
