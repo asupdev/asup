@@ -14,7 +14,6 @@ package org.asup.il.data.nio;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QDecimal;
 
 public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
@@ -65,7 +64,7 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	@Override
 	public boolean isSigned() {
 		return true;
