@@ -41,6 +41,7 @@ import org.asup.il.data.QData;
 import org.asup.il.data.QDataContext;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QDecimal;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QList;
 import org.asup.il.data.QMultipleAtomicDataDef;
@@ -210,7 +211,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			if (defaults && useDefault(dataTerm, value)) {
 				value = buildDefault(dataTerm);
 				defaults = false;
-			}		
+			} 
 
 			QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
 			
@@ -676,8 +677,13 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			 * enumElement.getValue(); break; } }
 			 */
 			enumerator.eval(value);
-		} else
+		} else if (data instanceof QDecimal){
+			
+			data.eval(Float.parseFloat(value.toString()));
+			
+		} else {
 			data.eval(value);
+		}
 	}
 
 }
