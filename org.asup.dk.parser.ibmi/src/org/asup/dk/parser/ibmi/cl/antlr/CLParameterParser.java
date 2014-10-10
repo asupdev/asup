@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-10-09 10:43:32
+// $ANTLR 3.5.1 CLParameter.g 2014-10-10 16:15:53
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -347,7 +347,7 @@ public class CLParameterParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: value, value, operator
+			// elements: value, operator, value
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
