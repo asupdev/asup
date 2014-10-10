@@ -71,25 +71,35 @@ public  class MessageDescriptionDisplayer {
 		switch (rangeOfMessageIdentifiers.asEnum()) {
 		case ALL:
 			for (QMessageDescription qMessageDescription : qMessageFile.getMessages()) {
-				writeRecord(qMessageDescription, objectWriter);
+				writeRecord(qMessageDescription, objectWriter,detail);
 			}
 			break;
 		case OTHER:
-			for (@SuppressWarnings("unused") QMessageDescription qMessageDescription : qMessageFile.getMessages()) {
+			boolean exit = false;
+			for (QMessageDescription qMessageDescription : qMessageFile.getMessages()) {
 				switch (rangeOfMessageIdentifiers.asData().lowerValue.asEnum()) {
 				case FIRST:
 					break;
 				case OTHER:
+					if(rangeOfMessageIdentifiers.asData().lowerValue.asData().trimR().compareTo(qMessageDescription.getName())>0)
+						continue;
 					break;
 				}
 				switch (rangeOfMessageIdentifiers.asData().upperValue.asEnum()) {
 				case LAST:
 					break;
 				case ONLY:
+					exit = true;
 					break;
 				case OTHER:
+					if(rangeOfMessageIdentifiers.asData().upperValue.asData().trimR().compareTo(qMessageDescription.getName())<0)
+						continue;
 					break;
 				}
+
+				writeRecord(qMessageDescription, objectWriter,detail);
+				if(exit)
+					break;
 			}
 			break;
 		}
@@ -107,16 +117,23 @@ public  class MessageDescriptionDisplayer {
 		objectWriter.flush();
 	}
 
-	private void writeRecord(QMessageDescription qMessageDescription, QObjectWriter objectWriter){
+	private void writeRecord(QMessageDescription qMessageDescription, QObjectWriter objectWriter, QEnum<DetailEnum, QCharacter> detail){
 		try {
 			objectWriter.write(qMessageDescription);
-			for (QMessageDescriptionDataField qMessageDescriptionDataField : qMessageDescription.getMessageDataFields()) {
-				try {
-					objectWriter.write(qMessageDescriptionDataField);
-				} catch (IOException e) {
-					jobLogManager.error(job, e.getMessage());
+			switch (detail.asEnum()) {
+			case BASIC:
+				break;
+			case FULL:
+				for (QMessageDescriptionDataField qMessageDescriptionDataField : qMessageDescription.getMessageDataFields()) {
+					try {
+						objectWriter.write(qMessageDescriptionDataField);
+					} catch (IOException e) {
+						jobLogManager.error(job, e.getMessage());
+					}
 				}
+				break;
 			}
+			
 		} catch (IOException e) {
 			jobLogManager.error(job, e.getMessage());
 		}
