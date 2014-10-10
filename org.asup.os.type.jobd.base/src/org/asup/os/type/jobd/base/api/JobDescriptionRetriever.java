@@ -28,10 +28,10 @@ public class JobDescriptionRetriever {
 	private QDataManager dataManager;
 
 	public @Entry void main(
-			@DataDef() QCharacter receiverVariable,
-			QCharacter receiveVariableLength,
+			@DataDef(length = 100) QCharacter receiverVariable,
+			@DataDef(length = 5) QCharacter receiveVariableLength,
 			@DataDef(length = 8) QCharacter formatName,
-			@DataDef(length = 20) QCharacter jobDescription,
+			JobDescription jobDescription,
 			@DataDef()QCharacter errorCode
 //			@DataDef() QPointer receiverVariable,
 //			QBinary receiveVariableLength,
@@ -42,37 +42,37 @@ public class JobDescriptionRetriever {
 
 		try {
 			QDataFactory dataFactory = dataManager.createFactory(job);
-//			String library = jobDescription.library.trimR();
-//			String name = jobDescription.name.trimR();
-			String library = "P_MULT";
-			String name = "GIULIANO";
-//			QCharacter formatName = dataFactory.createCharacter(8);
-			formatName.eval("JOBD0100");
 			
-			QResourceWriter<QJobDescription> resource = resourceFactory
-					.getResourceWriter(job, QJobDescription.class, library);
-			QJobDescription qJobDescription = resource.lookup(name);
+			QResourceWriter<QJobDescription> resource = resourceFactory.getResourceWriter(job, QJobDescription.class, jobDescription.library.trimR());
+			QJobDescription qJobDescription = resource.lookup(jobDescription.name.trimR());
 
 			if (qJobDescription == null)
-				throw new OperatingSystemException("Job Description " + name
-						+ " not exists in library " + library);
+				throw new OperatingSystemException("Job Description " + jobDescription.name + " not exists in library " + jobDescription.library);
 
 			if (formatName.eq("JOBD0100")) {
 				JOBD0100 jobd0100 = dataFactory.createDataStruct(JOBD0100.class, 0, true);
 
 				jobd0100.jobDescriptionName.eval(qJobDescription.getName());
 				jobd0100.jobDescriptionLibrary.eval(qJobDescription.getLibrary());
-				jobd0100.user.eval(qJobDescription.getUser());
+				if(qJobDescription.getUser() != null)
+					jobd0100.user.eval(qJobDescription.getUser());
+				if(qJobDescription.getJobQueue() != null){
+					jobd0100.jobQueueName.eval(qJobDescription.getJobQueue().getName());
+					jobd0100.jobQueueLibrary.eval(qJobDescription.getJobQueue().getLibrary());
+				}
+				if(qJobDescription.getJobPriorityOnJobq() != null)
+					jobd0100.jobQueuePriority.eval(qJobDescription.getJobPriorityOnJobq());
 
-				jobd0100.jobQueueName.eval(qJobDescription.getJobQueue().getName());
-				jobd0100.jobQueueLibrary.eval(qJobDescription.getJobQueue().getLibrary());
-				jobd0100.jobQueuePriority.eval(qJobDescription.getJobPriorityOnJobq());
+				if(qJobDescription.getOutQueue() != null){
+					jobd0100.outQueueName.eval(qJobDescription.getOutQueue().getName());
+					jobd0100.outQueueLibrary.eval(qJobDescription.getOutQueue().getLibrary());
+				}
 
-				jobd0100.outQueueName.eval(qJobDescription.getOutQueue().getName());
-				jobd0100.outQueueLibrary.eval(qJobDescription.getOutQueue().getLibrary());
-				jobd0100.outQueuePriority.eval(qJobDescription.getOutputPriorityOnOutq());
+				if(qJobDescription.getOutputPriorityOnOutq() != null)
+					jobd0100.outQueuePriority.eval(qJobDescription.getOutputPriorityOnOutq());
 
-				jobd0100.textDescription.eval(qJobDescription.getText());
+				if(qJobDescription.getText() != null)
+					jobd0100.textDescription.eval(qJobDescription.getText());
 				
 				int l = 1;
 				for(String initLibrary: qJobDescription.getLibraries()) {
