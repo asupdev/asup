@@ -11,11 +11,14 @@ import java.util.Collection;
 import java.util.List;
 import org.asup.fw.test.QFrameworkTestPackage;
 import org.asup.fw.test.QTestListener;
+import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -28,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.fw.test.impl.TestRunnerImpl#getTestListeners <em>Test Listeners</em>}</li>
+ *   <li>{@link org.asup.fw.test.impl.TestRunnerImpl#getTestResult <em>Test Result</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +47,16 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 	 * @ordered
 	 */
 	protected EList<QTestListener> testListeners;
+
+	/**
+	 * The cached value of the '{@link #getTestResult() <em>Test Result</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTestResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected QTestResult testResult;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,10 +94,8 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void runTest() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public QTestResult getTestResult() {
+		return testResult;
 	}
 
 	/**
@@ -91,7 +103,41 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTestName() {
+	public NotificationChain basicSetTestResult(QTestResult newTestResult, NotificationChain msgs) {
+		QTestResult oldTestResult = testResult;
+		testResult = newTestResult;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT, oldTestResult, newTestResult);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTestResult(QTestResult newTestResult) {
+		if (newTestResult != testResult) {
+			NotificationChain msgs = null;
+			if (testResult != null)
+				msgs = ((InternalEObject)testResult).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT, null, msgs);
+			if (newTestResult != null)
+				msgs = ((InternalEObject)newTestResult).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT, null, msgs);
+			msgs = basicSetTestResult(newTestResult, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT, newTestResult, newTestResult));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void runTest() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -107,6 +153,8 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 		switch (featureID) {
 			case QFrameworkTestPackage.TEST_RUNNER__TEST_LISTENERS:
 				return ((InternalEList<?>)getTestListeners()).basicRemove(otherEnd, msgs);
+			case QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT:
+				return basicSetTestResult(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,6 +169,8 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 		switch (featureID) {
 			case QFrameworkTestPackage.TEST_RUNNER__TEST_LISTENERS:
 				return getTestListeners();
+			case QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT:
+				return getTestResult();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,6 +188,9 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 				getTestListeners().clear();
 				getTestListeners().addAll((Collection<? extends QTestListener>)newValue);
 				return;
+			case QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT:
+				setTestResult((QTestResult)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -153,6 +206,9 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 			case QFrameworkTestPackage.TEST_RUNNER__TEST_LISTENERS:
 				getTestListeners().clear();
 				return;
+			case QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT:
+				setTestResult((QTestResult)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -167,6 +223,8 @@ public abstract class TestRunnerImpl extends EObjectImpl implements QTestRunner 
 		switch (featureID) {
 			case QFrameworkTestPackage.TEST_RUNNER__TEST_LISTENERS:
 				return testListeners != null && !testListeners.isEmpty();
+			case QFrameworkTestPackage.TEST_RUNNER__TEST_RESULT:
+				return testResult != null;
 		}
 		return super.eIsSet(featureID);
 	}

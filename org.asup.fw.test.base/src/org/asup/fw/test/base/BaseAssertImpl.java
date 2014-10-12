@@ -22,15 +22,12 @@ import org.asup.fw.test.QAssertionResult;
 import org.asup.fw.test.QAssertionSuccess;
 import org.asup.fw.test.QFrameworkTestFactory;
 import org.asup.fw.test.QTestListener;
-import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
 
 public abstract class BaseAssertImpl implements QAsserter {
 
 	@Inject
 	private QTestRunner testRunner;
-	@Inject
-	private QTestResult testResult;
 
 	private boolean fatal;
 	
@@ -357,16 +354,6 @@ public abstract class BaseAssertImpl implements QAsserter {
 		this.testRunner = value;
 	}
 
-
-	public QTestResult getTestResult() {
-		return testResult;
-	}
-
-
-	public void setTestResult(QTestResult value) {
-		this.testResult = value;
-	}
-
 	/**
      * Fails a test with no message.
 	 * @throws FrameworkTestFailureError
@@ -387,8 +374,8 @@ public abstract class BaseAssertImpl implements QAsserter {
 //    	assertionFailed.setTestClass(this.getClass().getName());
 //    	assertionFailed.setTestName(getTestName());
 
-    	getTestResult().getAssertResults().add(assertionFailed);
-    	getTestResult().setFailed(true);
+    	getTestRunner().getTestResult().getAssertResults().add(assertionFailed);
+    	getTestRunner().getTestResult().setFailed(true);
     	notifyAssertResult(assertionFailed);
 
     	if (fatal) 
@@ -417,7 +404,7 @@ public abstract class BaseAssertImpl implements QAsserter {
 //    	assertionSuccess.setTestClass(this.getClass().getName());
 //    	assertionSuccess.setTestName(getTestName());
 
-    	getTestResult().getAssertResults().add(assertionSuccess);
+    	getTestRunner().getTestResult().getAssertResults().add(assertionSuccess);
     	notifyAssertResult(assertionSuccess);
     }
 
@@ -443,11 +430,9 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
 	public void notifyAssertResult(QAssertionResult assertionResult) {
-		if (getTestRunner() != null) {
-			List<QTestListener> testListeners = getTestRunner().getTestListeners();
-			for (int i = 0; i < testListeners.size(); i++) {
-				testListeners.get(i).addAssertionResult(assertionResult);
-			}
+		List<QTestListener> testListeners = getTestRunner().getTestListeners();
+		for (int i = 0; i < testListeners.size(); i++) {
+			testListeners.get(i).addAssertionResult(assertionResult);
 		}
 	}
 

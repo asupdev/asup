@@ -38,14 +38,14 @@ public class WaitTest extends BaseAssertImpl {
 	@TestStarted
 	public void doTest(){
 
-		String testLib = "TSTLIB";
+		String testLib = "QTEMP";
 		String fifoDtaq = "FIFO_DTAQ";
 
 		try
 		{
 			// Create a test library (if none)
 			if (checkObj(job, QLibrary.class, "QSYS", testLib) == false){
-				String cmd = "CRTLIB LIB(" + testLib + ")";
+				String cmd = "CRTLIB LIB(" + testLib + ") TEXT('TEMPORARY LIB: '"+job.getJobID()+"')";
 				QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null, true);
 				commandManager.executeCommand(job, callableCommand);
 			}

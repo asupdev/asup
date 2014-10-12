@@ -325,6 +325,15 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTestRunner_TestResult() {
+		return (EReference)testRunnerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUnitTestRunner() {
 		return unitTestRunnerEClass;
 	}
@@ -424,6 +433,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		testRunnerEClass = createEClass(TEST_RUNNER);
 		createEReference(testRunnerEClass, TEST_RUNNER__TEST_LISTENERS);
+		createEReference(testRunnerEClass, TEST_RUNNER__TEST_RESULT);
 
 		unitTestRunnerEClass = createEClass(UNIT_TEST_RUNNER);
 		createEAttribute(unitTestRunnerEClass, UNIT_TEST_RUNNER__CLASS_NAME);
@@ -472,6 +482,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		assertionFailedEClass.getESuperTypes().add(this.getAssertionResult());
 		assertionSuccessEClass.getESuperTypes().add(this.getAssertionResult());
 		suiteTestRunnerEClass.getESuperTypes().add(this.getTestRunner());
+		testManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		unitTestRunnerEClass.getESuperTypes().add(this.getTestRunner());
 
 		// Initialize classes and features; add operations and parameters
@@ -659,6 +670,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
 
 		op = addEOperation(testManagerEClass, this.getTestResult(), "execute", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTestRunner(), "runner", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
 
@@ -669,10 +681,9 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		initEClass(testRunnerEClass, QTestRunner.class, "TestRunner", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestRunner_TestListeners(), this.getTestListener(), null, "testListeners", null, 0, -1, QTestRunner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTestRunner_TestResult(), this.getTestResult(), null, "testResult", null, 1, 1, QTestRunner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(testRunnerEClass, null, "runTest", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(testRunnerEClass, ecorePackage.getEString(), "getTestName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(unitTestRunnerEClass, QUnitTestRunner.class, "UnitTestRunner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnitTestRunner_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, QUnitTestRunner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

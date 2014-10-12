@@ -7,6 +7,7 @@
  */
 package org.asup.fw.test;
 
+import org.asup.fw.core.QFrameworkCorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -236,13 +237,22 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_RUNNER__TEST_LISTENERS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Test Result</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RUNNER__TEST_RESULT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Test Runner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RUNNER_FEATURE_COUNT = 1;
+	int TEST_RUNNER_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.SuiteTestRunnerImpl <em>Suite Test Runner</em>}' class.
@@ -264,6 +274,15 @@ public interface QFrameworkTestPackage extends EPackage {
 	int SUITE_TEST_RUNNER__TEST_LISTENERS = TEST_RUNNER__TEST_LISTENERS;
 
 	/**
+	 * The feature id for the '<em><b>Test Result</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUITE_TEST_RUNNER__TEST_RESULT = TEST_RUNNER__TEST_RESULT;
+
+	/**
 	 * The number of structural features of the '<em>Suite Test Runner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -282,13 +301,22 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_LISTENER_FEATURE_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_MANAGER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
+
+	/**
 	 * The number of structural features of the '<em>Test Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_MANAGER_FEATURE_COUNT = 0;
+	int TEST_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Failed</b></em>' attribute.
@@ -334,6 +362,15 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNIT_TEST_RUNNER__TEST_LISTENERS = TEST_RUNNER__TEST_LISTENERS;
+
+	/**
+	 * The feature id for the '<em><b>Test Result</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT_TEST_RUNNER__TEST_RESULT = TEST_RUNNER__TEST_RESULT;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -536,6 +573,17 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTestRunner_TestListeners();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.fw.test.QTestRunner#getTestResult <em>Test Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Test Result</em>'.
+	 * @see org.asup.fw.test.QTestRunner#getTestResult()
+	 * @see #getTestRunner()
+	 * @generated
+	 */
+	EReference getTestRunner_TestResult();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QUnitTestRunner <em>Unit Test Runner</em>}'.
@@ -752,6 +800,14 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEST_RUNNER__TEST_LISTENERS = eINSTANCE.getTestRunner_TestListeners();
+
+		/**
+		 * The meta object literal for the '<em><b>Test Result</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_RUNNER__TEST_RESULT = eINSTANCE.getTestRunner_TestResult();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.

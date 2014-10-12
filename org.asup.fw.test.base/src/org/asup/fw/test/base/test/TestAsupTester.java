@@ -84,17 +84,17 @@ public class TestAsupTester extends BaseAssertImpl{
 		expectedFailedCount++;
 
 		int failedCount = 0;
-		for (int i = 0; i < getTestResult().getAssertResults().size(); i++) {
-			if (getTestResult().getAssertResults().get(i) instanceof QAssertionFailed) {
+		for (int i = 0; i < getTestRunner().getTestResult().getAssertResults().size(); i++) {
+			if (getTestRunner().getTestResult().getAssertResults().get(i) instanceof QAssertionFailed) {
 				failedCount++;
 			}
 		}
 
 		// Manage global test result
 		if (failedCount == expectedFailedCount) {
-			getTestResult().setFailed(false);
+			getTestRunner().getTestResult().setFailed(false);
 		} else {
-			getTestResult().setFailed(true);
+			getTestRunner().getTestResult().setFailed(true);
 			fail("Expected " + expectedFailedCount + " failures but was " + failedCount);
 		}
 	}

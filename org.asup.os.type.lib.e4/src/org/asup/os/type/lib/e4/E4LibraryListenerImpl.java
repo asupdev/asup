@@ -13,10 +13,14 @@ package org.asup.os.type.lib.e4;
 
 import java.net.URI;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceEvent;
+import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
 import org.asup.os.type.lib.QLibrary;
 import org.osgi.framework.Bundle;
@@ -26,6 +30,14 @@ import org.osgi.framework.FrameworkUtil;
 
 public class E4LibraryListenerImpl extends ServiceImpl implements QResourceListener<QLibrary> {
 
+	@Inject
+	private QResourceFactory resourceFactory;
+
+	@PostConstruct
+	public void init() {
+		resourceFactory.registerListener(QLibrary.class, this);
+	}
+	
 	@Override
 	public void handleEvent(QResourceEvent<QLibrary> event) {
 
