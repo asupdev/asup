@@ -27,20 +27,19 @@ public class NIOBufferHelper {
 		return bytes;
 	}
 	
-	public static void movel(ByteBuffer buffer, int position, int length, byte[] bytes, boolean clear, byte filler) {
-		assert buffer != null;
+	public static void movel(ByteBuffer target, int position, int length, byte[] bytes, boolean clear, byte filler) {
+		assert target != null;
 
-		prepare(buffer, position, length);
+		prepare(target, position, length);
 
 		// overflow
-		if (bytes.length >= buffer.remaining())
-			buffer.put(bytes, 0, buffer.remaining());
+		if (bytes.length >= target.remaining())
+			target.put(bytes, 0, target.remaining());
 		else {
-			buffer.put(bytes);
+			target.put(bytes);
 
 			if (clear)
-				Arrays.fill(buffer.array(), buffer.position(), buffer.limit(),
-						filler);
+				fill(target, target.position(), target.limit(), filler);
 		}
 
 	}
@@ -58,8 +57,7 @@ public class NIOBufferHelper {
 		else {
 
 			if (clear)
-				Arrays.fill(buffer.array(), buffer.position(), buffer.limit()
-						- bytes.length, filler);
+				fill(buffer, buffer.position(), buffer.limit() - bytes.length, filler);
 
 			buffer.position(position + buffer.remaining() - bytes.length);
 
@@ -73,7 +71,7 @@ public class NIOBufferHelper {
 
 		prepare(buffer, position, length);
 
-		Arrays.fill(buffer.array(), position, buffer.limit(), filler);
+		fill(buffer, position, buffer.limit(), filler);
 	}
 
 	public static void prepare(ByteBuffer buffer, int position, int length) {
@@ -93,6 +91,17 @@ public class NIOBufferHelper {
 				buffer.limit(buffer.capacity());
 			else
 				buffer.limit(length);
+		}
+	}
+	
+	public static void fill(ByteBuffer buffer, int position, int length, byte filler) {
+
+		if(buffer.hasArray())
+			Arrays.fill(buffer.array(), position, length, filler);
+		else {
+			for(int i=position; i<length; i++) {
+				buffer.put(filler);
+			}
 		}
 	}
 }

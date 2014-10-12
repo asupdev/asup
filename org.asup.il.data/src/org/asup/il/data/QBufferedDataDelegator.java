@@ -10,21 +10,21 @@ package org.asup.il.data;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Data Delegator</b></em>'.
+ * A representation of the model object '<em><b>Buffered Data Delegator</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataDelegator()
+ * @see org.asup.il.data.QIntegratedLanguageDataPackage#getBufferedDataDelegator()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QDataDelegator<D extends QData> {
+public interface QBufferedDataDelegator extends QDataDelegator<QBufferedData> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QData getDelegate();
+	QBufferedData getDelegate();
 
-} // QDataDelegator
+} // QBufferedDataDelegator

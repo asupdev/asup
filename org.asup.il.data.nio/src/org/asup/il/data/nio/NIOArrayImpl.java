@@ -14,9 +14,9 @@ package org.asup.il.data.nio;
 import java.lang.reflect.Array;
 
 import org.asup.il.data.QArray;
-import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QNumeric;
 
-public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D> implements QArray<D> {
+public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedListImpl<D> implements QArray<D> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -33,11 +33,17 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D
 		this._model = model;
 		this._elements = (D[])Array.newInstance(model.getClass(), dimension);	
 	}
+
+	@Override
+	public void clear() {
+		NIOBufferHelper.clear(getBuffer(), getPosition(), size(), getFiller());
+	}
 	
 	@Override
 	public int capacity() {
 		return _elements.length;
 	}
+	
 	@Override
 	public int count() {
 		return capacity();
@@ -85,13 +91,23 @@ public class NIOArrayImpl<D extends QBufferedData> extends NIOBufferedListImpl<D
 	}
 
 	@Override
-	public void eval(QArray<?> value) {
-		
+	public void eval(QArray<D> value) {		
 		movea(value, true);		
 	}
 
 	@Override
 	protected byte getFiller() {
-		return ((NIOBufferedDataImpl)_model).getFiller();
+		return _model.getFiller();
 	}
+
+	@Override
+	public void set(int index, D value) {
+		get(index).eval(value);
+	}
+
+	@Override
+	public void set(QNumeric index, D value) {
+		set(index.asInteger(), value);
+	}
+	
 }

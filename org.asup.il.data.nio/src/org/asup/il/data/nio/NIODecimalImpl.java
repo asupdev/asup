@@ -85,5 +85,4 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

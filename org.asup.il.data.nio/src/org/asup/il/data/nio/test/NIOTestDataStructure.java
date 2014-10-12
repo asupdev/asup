@@ -27,6 +27,6 @@ public class NIOTestDataStructure extends QDataStructDelegator {
 	@DataDef(precision=5)
 	public QDecimal decimal;
 
-	@DataDef(length=64000, dimension=9999)
+	@DataDef(length=1000, dimension=9999)
 	public QArray<QCharacter> multiple;
 }

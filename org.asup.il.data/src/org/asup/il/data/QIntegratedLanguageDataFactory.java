@@ -81,6 +81,15 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	QDataDictionary createDataDictionary();
 
 	/**
+	 * Returns a new object of class '<em>Data Evaluator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Evaluator</em>'.
+	 * @generated
+	 */
+	QDataEvaluator createDataEvaluator();
+
+	/**
 	 * Returns a new object of class '<em>Data Struct Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,15 +115,6 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	 * @generated
 	 */
 	QDecimalDef createDecimalDef();
-
-	/**
-	 * Returns a new object of class '<em>Enum</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enum</em>'.
-	 * @generated
-	 */
-	<E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum();
 
 	/**
 	 * Returns a new object of class '<em>Floating Def</em>'.

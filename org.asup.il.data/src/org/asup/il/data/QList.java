@@ -16,10 +16,10 @@ package org.asup.il.data;
  *
  * @see org.asup.il.data.QIntegratedLanguageDataPackage#getList()
  * @model interface="true" abstract="true"
- *  * @generated NOT
+ * @generated NOT
  */
 public interface QList<D extends QData> extends QData, Iterable<D> {
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,6 +39,22 @@ public interface QList<D extends QData> extends QData, Iterable<D> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model indexRequired="true" valueRequired="true"
+	 * @generated
+	 */
+	void set(int index, D value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model indexRequired="true" valueRequired="true"
+	 * @generated
+	 */
+	void set(QNumeric index, D value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
 	 */
@@ -51,5 +67,13 @@ public interface QList<D extends QData> extends QData, Iterable<D> {
 	 * @generated
 	 */
 	int count();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(QList<D> value);
 
 } // QList

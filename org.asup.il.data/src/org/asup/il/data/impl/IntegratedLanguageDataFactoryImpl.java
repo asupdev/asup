@@ -21,10 +21,10 @@ import org.asup.il.data.QBufferDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataDictionary;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
-import org.asup.il.data.QEnum;
 import org.asup.il.data.QFloatingDef;
 import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIndicatorDef;
@@ -105,10 +105,10 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageDataPackage.BUFFER_DEF: return (EObject)createBufferDef();
 			case QIntegratedLanguageDataPackage.CHARACTER_DEF: return (EObject)createCharacterDef();
 			case QIntegratedLanguageDataPackage.DATA_DICTIONARY: return (EObject)createDataDictionary();
+			case QIntegratedLanguageDataPackage.DATA_EVALUATOR: return (EObject)createDataEvaluator();
 			case QIntegratedLanguageDataPackage.DATA_STRUCT_DEF: return (EObject)createDataStructDef();
 			case QIntegratedLanguageDataPackage.DATETIME_DEF: return (EObject)createDatetimeDef();
 			case QIntegratedLanguageDataPackage.DECIMAL_DEF: return (EObject)createDecimalDef();
-			case QIntegratedLanguageDataPackage.ENUM: return (EObject)createEnum();
 			case QIntegratedLanguageDataPackage.FLOATING_DEF: return (EObject)createFloatingDef();
 			case QIntegratedLanguageDataPackage.HEXADECIMAL_DEF: return (EObject)createHexadecimalDef();
 			case QIntegratedLanguageDataPackage.INDICATOR_DEF: return (EObject)createIndicatorDef();
@@ -250,6 +250,16 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QDataEvaluator createDataEvaluator() {
+		DataEvaluatorImpl dataEvaluator = new DataEvaluatorImpl();
+		return dataEvaluator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QDataStructDef createDataStructDef() {
 		DataStructDefImpl dataStructDef = new DataStructDefImpl();
 		return dataStructDef;
@@ -273,16 +283,6 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	public QDecimalDef createDecimalDef() {
 		DecimalDefImpl decimalDef = new DecimalDefImpl();
 		return decimalDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <E extends Enum<E>, D extends QBufferedData> QEnum<E, D> createEnum() {
-		EnumImpl<E, D> enum_ = new EnumImpl<E, D>();
-		return enum_;
 	}
 
 	/**

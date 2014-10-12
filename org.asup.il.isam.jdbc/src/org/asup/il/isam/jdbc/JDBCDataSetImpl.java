@@ -16,8 +16,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.asup.db.core.QConnection;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
 
@@ -32,6 +34,8 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 	protected String fileName;
 	protected QIndicator found;
 
+	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	
 	protected enum OpSet {
 		SETLL, SETGT, CHAIN;
 	}
@@ -219,7 +223,7 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 			
 			// skip first field (PKEY)
 			for(int x=1; record.getElements().size()>=x; x++) {
-				record.getElement(x).eval(_result.getString(x));
+				record.getElement(x).accept(evaluator.set(_result.getString(x)));
 			}
 			_opSet = null;
 			return true;

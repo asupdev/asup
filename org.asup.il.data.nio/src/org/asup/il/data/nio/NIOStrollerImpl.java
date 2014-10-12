@@ -123,11 +123,6 @@ public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> imple
 	}
 
 	@Override
-	public void eval(Object value) {
-		current().eval(value);
-	}
-
-	@Override
 	public void eval(QBufferedData value) {
 		current().eval(value);
 	}

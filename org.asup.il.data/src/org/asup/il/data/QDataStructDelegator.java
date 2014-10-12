@@ -9,7 +9,7 @@ package org.asup.il.data;
 
 import java.util.List;
 
-public abstract class QDataStructDelegator implements QDataStruct, QDataDelegator {
+public abstract class QDataStructDelegator implements QDataStruct, QBufferedDataDelegator {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -164,11 +164,6 @@ public abstract class QDataStructDelegator implements QDataStruct, QDataDelegato
 	@Override
 	public void eval(String value) {
 		delegate.eval(value);
-	}
-
-	@Override
-	public void eval(Object value) {
-		delegate.eval(value);		
 	}
 
 	@Override

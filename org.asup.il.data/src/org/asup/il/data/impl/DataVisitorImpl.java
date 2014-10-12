@@ -10,6 +10,7 @@ package org.asup.il.data.impl;
 import java.lang.reflect.Method;
 
 import org.asup.il.core.QNode;
+import org.asup.il.data.QAdapter;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QBoolean;
@@ -26,6 +27,7 @@ import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QIdentifier;
 import org.asup.il.data.QIndicator;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.data.QList;
 import org.asup.il.data.QPointer;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QStroller;
@@ -78,6 +80,14 @@ public abstract class DataVisitorImpl extends MinimalEObjectImpl.Container imple
 		catch (Exception e) {
 			System.out.println(data);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void endVisit(QAdapter value) {
 	}
 
 	/**
@@ -189,6 +199,14 @@ public abstract class DataVisitorImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public void endVisit(QList<?> data) {
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public void endVisit(QPointer data) {
 	}
 
@@ -228,6 +246,15 @@ public abstract class DataVisitorImpl extends MinimalEObjectImpl.Container imple
 			System.out.println(data);
 			return false;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean visit(QAdapter data) {
+		return true;
 	}
 
 	/**
@@ -345,6 +372,15 @@ public abstract class DataVisitorImpl extends MinimalEObjectImpl.Container imple
 	 * @generated NOT
 	 */
 	public boolean visit(QIndicator data) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean visit(QList<?> data) {
 		return true;
 	}
 

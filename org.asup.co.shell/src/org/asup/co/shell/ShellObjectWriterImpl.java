@@ -21,9 +21,11 @@ import org.asup.fw.util.QStringUtil;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 import org.asup.os.core.output.QObjectWriter;
@@ -50,6 +52,8 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	private QDataContext dataContext = null;
 	private QDataFactory dataFactory = null;
 	
+	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	
 //	private OutputStreamWriter sysout;
 	
 	@PostConstruct
@@ -74,7 +78,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			for(QDataTerm<?> dataTerm: dataContext.getTerms()) {				
 				QData data = dataContext.getData(dataTerm);
 				if(data instanceof QString) {
-					data.eval(stringUtil.firstToUpper(dataTerm.getName()));
+					data.accept(evaluator.set(stringUtil.firstToUpper(dataTerm.getName())));
 					streamWrite(data + "|");
 				}
 				else if(data instanceof QNumeric) {
@@ -94,28 +98,32 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			QData data = dataContext.getData(dataTerm);
 
 			Object value = eObject.eGet(eClass.getEStructuralFeature(dataTerm.getName()));
-			if (value instanceof QObjectNameable) {
+			if(value == null) {
+				data.clear();
+				streamWrite(data + "|");
+			} 
+			else if (value instanceof QObjectNameable) {
 				QObjectNameable qValue = (QObjectNameable) value;
-				data.eval(qValue.getName());
+				data.accept(evaluator.set(qValue.getName()));
 				streamWrite(data + "|");
 			}
 			else if (value instanceof QObject) {
 				QObject qValue = (QObject) value;
-				data.eval(qValue.toString());
+				data.accept(evaluator.set(qValue.toString()));
 				streamWrite(data + "|");				
 			}
 			else if (value instanceof Enumerator) {
 				Enumerator eEnumerator = (Enumerator) value;
-				data.eval(eEnumerator.getName());
+				data.accept(evaluator.set(eEnumerator.getName()));
 				streamWrite(data + "|");
 			}
 			else if (value instanceof Number) {
 				QCharacter character = dataFactory.createCharacter(dataTerm.getName().length(), false, true);
-				character.eval(value);
+				character.accept(evaluator.set(value.toString()));
 				streamWrite(character + "|");
 			} 
 			else {
-				data.eval(value);
+				data.accept(evaluator.set(value.toString()));
 				streamWrite(data + "|");
 			}
 		}

@@ -7,6 +7,8 @@
  */
 package org.asup.il.data;
 
+import java.lang.String;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,4 +21,20 @@ package org.asup.il.data;
  * @generated
  */
 public interface QHexadecimal extends QBufferedData {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(QHexadecimal value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(String value);
 } // QHexadecimal

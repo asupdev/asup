@@ -30,6 +30,14 @@ public interface QDataVisitor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void endVisit(QAdapter value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model dataRequired="true"
 	 * @generated
 	 */
@@ -137,6 +145,14 @@ public interface QDataVisitor {
 	 * @model dataRequired="true"
 	 * @generated
 	 */
+	void endVisit(QList<?> data);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataRequired="true"
+	 * @generated
+	 */
 	void endVisit(QPointer data);
 
 	/**
@@ -162,6 +178,14 @@ public interface QDataVisitor {
 	 * @generated
 	 */
 	boolean visit(QData data);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataRequired="true"
+	 * @generated
+	 */
+	boolean visit(QAdapter data);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,6 +290,14 @@ public interface QDataVisitor {
 	 * @generated
 	 */
 	boolean visit(QIndicator data);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataRequired="true"
+	 * @generated
+	 */
+	boolean visit(QList<?> data);
 
 	/**
 	 * <!-- begin-user-doc -->

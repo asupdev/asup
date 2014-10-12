@@ -3,7 +3,9 @@ package org.asup.il.data.nio.visitor;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QData;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
@@ -15,7 +17,7 @@ import org.asup.il.data.impl.DataTermVisitorImpl;
 public class NIODataResetter extends DataTermVisitorImpl {
 
 	private QData data;
-	
+	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
 	public NIODataResetter(QData data) {
 		this.data = data;
 	}
@@ -35,17 +37,20 @@ public class NIODataResetter extends DataTermVisitorImpl {
 
 			QSpecialElement specialElement = getSpecialElement(term, value);
 			if(specialElement != null) {
+				
+				// set default at current index
 				if(specialElement.isUnary()) {
-					list.get(i).eval(specialElement);
+					list.get(i).accept(evaluator.set(specialElement));
 				}
 				else {
+					// set default from current index to remaining
 					for(int e=i; e<=list.capacity(); e++) {
-						list.get(e).eval(specialElement);
+						list.get(e).accept(evaluator.set(specialElement));
 					}
 				}
 			}
 			else
-				data.eval(value);
+				data.accept(evaluator.set(value));
 
 			i++;
 		}
@@ -56,11 +61,6 @@ public class NIODataResetter extends DataTermVisitorImpl {
 	@Override
 	public boolean visit(QMultipleCompoundDataTerm<?> term) {
 
-		if(term.getDefault() == null || term.getDefault().isEmpty()) {
-			data.clear();
-			return true;
-		}
-		
 		@SuppressWarnings("unchecked")
 		QList<QStruct> list = (QList<QStruct>)data;
 		
@@ -72,22 +72,33 @@ public class NIODataResetter extends DataTermVisitorImpl {
 			QSpecialElement specialElement = getSpecialElement(term, value);
 			if(specialElement != null) {
 				if(specialElement.isUnary()) {
-					list.get(i).eval(specialElement);
+					list.get(i).accept(evaluator.set(specialElement));
 				}
 				else {
 					for(int e=i; e<=list.capacity(); e++) {
-						list.get(e).eval(specialElement);
+						list.get(e).accept(evaluator.set(specialElement));
 					}
 				}
 				_return = false;
 			}
 			else
-				data.eval(value);
+				data.accept(evaluator.set(value));
 			
 			i++;
 		}
+
+		if(_return) {
+
+			for(QStruct struct: list) {
+				// childs
+				for(QDataTerm<?> child: term.getDefinition().getElements()) {
+					NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()));
+					child.accept(childResetter);
+				}
+			}
+		}
 		
-		return _return;
+		return false;
 	}
 
 	@Override
@@ -100,9 +111,9 @@ public class NIODataResetter extends DataTermVisitorImpl {
 		
 		QSpecialElement specialElement = getSpecialElement(term, term.getDefault());
 		if(specialElement != null) 
-			data.eval(specialElement);
+			data.accept(evaluator.set(specialElement));
 		else
-			data.eval(term.getDefault());
+			data.accept(evaluator.set(term.getDefault()));
 		
 		return true;
 	}
@@ -110,24 +121,31 @@ public class NIODataResetter extends DataTermVisitorImpl {
 	@Override
 	public boolean visit(QUnaryCompoundDataTerm<?> term) {
 
-		if(term.getDefault() == null) {
-			data.clear();
-			return true;
-		}
-
 		QStruct struct = (QStruct)data;
 		
 		boolean _return = true;
-				
-		QSpecialElement specialElement = getSpecialElement(term, term.getDefault());
-		if(specialElement != null) { 
-			struct.eval(specialElement);
-			_return = false;
+
+		if(term.getDefault() != null) {
+			QSpecialElement specialElement = getSpecialElement(term, term.getDefault());
+			if(specialElement != null) { 
+				struct.accept(evaluator.set(specialElement));
+				_return = false;
+			}
+			else
+				data.accept(evaluator.set(term.getDefault()));
 		}
-		else
-			data.eval(term.getDefault());
 		
-		return _return;
+		if(_return) {
+
+			// childs
+			for(QDataTerm<?> child: term.getDefinition().getElements()) {
+				NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()));
+				child.accept(childResetter);
+			}
+
+		}		
+		
+		return false;
 	}
 	
 	private QSpecialElement getSpecialElement(QDataTerm<?> dataTerm, String value) {

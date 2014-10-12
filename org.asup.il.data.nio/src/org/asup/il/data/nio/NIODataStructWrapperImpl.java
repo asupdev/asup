@@ -20,8 +20,9 @@ import org.asup.il.data.QData;
 import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.QStruct;
 
-public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements QDataDelegator {
+public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements QDataDelegator<QStruct> {
 
 	private static final long serialVersionUID = 1L;
 

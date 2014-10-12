@@ -8,7 +8,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.asup.il.data.QData;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
@@ -20,7 +19,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	private ArrayList<D> _elements;
 	private D _model;
 	private int _dimension;
-
+	
 	public NIOListImpl() {
 		super();
 	}
@@ -68,7 +67,16 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 
 	@Override
 	public void accept(QDataVisitor visitor) {
-		visitor.visit(this);		
+
+		if(visitor.visit(this)) {
+			
+			Iterator<D> datas = this.iterator();
+			while(datas.hasNext()) {
+				datas.next().accept(visitor);
+			}
+		}
+		
+		visitor.endVisit(this);
 	}
 
 	@Override
@@ -78,21 +86,15 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public void eval(Object value) {
+	public void eval(QList<D> value) {
 		
-		if(value instanceof QList<?>) {
-			
-			clear();
-			
-			int i=1;
-			for(QData element: (QList<?>)value) {
-				get(i).eval(element);
-				i++;
-			}
-			return;
+		clear();
+		
+		int i=1;
+		for(D element: value) {
+			set(i, element);
+			i++;
 		}
-		
-		System.err.println("unexpcected condition: 7fjzs9yuwef");
 	}
 
 	@Override
@@ -129,6 +131,16 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
+	public void set(int index, D value) {
+		_elements.add(index-1, value);
+	}
+
+	@Override
+	public void set(QNumeric index, D value) {
+		set(index.asInteger(), value);
+	}
+
+	@Override
 	public int capacity() {
 		if(count() >= _dimension)
 			return count();
@@ -139,5 +151,23 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	@Override
 	public int count() {
 		return _elements.size();
+	}
+
+	@Override
+	public String toString() {
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		
+		boolean first = true;
+		for(D element: this) {
+			if(!first)
+				sb.append(", ");
+			sb.append(element.toString().trim());
+			first = false;
+		}
+		
+		sb.append("]");		
+		return sb.toString();
 	}
 }

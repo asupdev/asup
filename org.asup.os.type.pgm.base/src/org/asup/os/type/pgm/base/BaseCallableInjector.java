@@ -22,12 +22,15 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
-import org.asup.il.data.QArray;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
+import org.asup.il.data.QList;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.FileDef;
 import org.asup.il.data.annotation.ModuleDef;
@@ -39,38 +42,38 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.pgm.QActivationGroup;
 import org.asup.os.type.pgm.QCallableProgram;
-import org.asup.os.type.pgm.QProgramManager;
 
-public class BaseProgramInjector {
+public class BaseCallableInjector {
 
-	private QProgramManager programManager;
+
 	private QDataManager dataManager;
 	private QIsamManager isamManager;
 	
+	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	
 	@Inject
-	public BaseProgramInjector(QDataManager dataManager, QIsamManager isamManager, QProgramManager programManager) {
+	public BaseCallableInjector(QDataManager dataManager, QIsamManager isamManager) {
 		this.dataManager = dataManager;		
 		this.isamManager = isamManager;
-		this.programManager = programManager;
 	}
 
-	public QCallableProgram makeCallableProgram(QJob job, QActivationGroup activationGroup, Class<QCallableProgram> klass) {
+	public <C> C makeCallable(QJob job, QActivationGroup activationGroup, Class<C> klass) {
 				
 
 		QDataFactory dataFactory = dataManager.createFactory(job);
 		
-		QCallableProgram callableProgram = null;
+		C callable = null;
 		
 		try {
 			Map<String, QCallableProgram> sharedModules = new HashMap<>();			
-			callableProgram = injectData(klass, dataFactory, job, activationGroup, sharedModules);			
+			callable = injectData(klass, dataFactory, job, activationGroup, sharedModules);			
 		} 
 		catch (InstantiationException | IllegalAccessException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
 		
 		
-		return callableProgram;
+		return callable;
 	}
 	
 	public QData[] buildEntry(QContextID contextID, Method method) {
@@ -103,14 +106,19 @@ public class BaseProgramInjector {
 		return entry;
 	}
 	
-	@SuppressWarnings("unchecked")
-	private QCallableProgram injectData(Class<QCallableProgram> klass, QDataFactory dataFactory,
-							QJob job, QActivationGroup activationGroup,
+	private <C> C injectData(Class<C> klass, QDataFactory dataFactory,
+				 			QJob job, QActivationGroup activationGroup,
 							Map<String, QCallableProgram> sharedModules) throws IllegalArgumentException, IllegalAccessException, InstantiationException {
-
-		QCallableProgram callableProgram = klass.newInstance();
 		
+		C callable = klass.newInstance();
+		QContext context = job.getJobContext();
 		for(Field field: klass.getDeclaredFields()) {
+
+			field.setAccessible(true);
+			
+			// TODO
+			if(field.getName().startsWith("$SWITCH_TABLE"))
+				continue;
 			
 			Type type = field.getGenericType();
 			
@@ -124,46 +132,15 @@ public class BaseProgramInjector {
 			
 			if(field.getAnnotation(ModuleDef.class) != null) {
 				ModuleDef moduleDef = field.getAnnotation(ModuleDef.class); 
-				QCallableProgram callableModule = (QCallableProgram) sharedModules.get(moduleDef.name());
+				Object callableModule = sharedModules.get(moduleDef.name());
 				if(callableModule == null) {
-					callableModule = injectData((Class<QCallableProgram>) fieldKlass, dataFactory, job, activationGroup, sharedModules);
-					sharedModules.put(moduleDef.name(), callableModule);
+					callableModule = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
+					sharedModules.put(moduleDef.name(), (QCallableProgram)callableModule);
 				}
-				field.set(callableProgram, callableModule);
+				field.set(callable, callableModule);
 			}
 			else if(QDataFactory.class.isAssignableFrom(fieldKlass)) {					
-				field.set(callableProgram, dataFactory);
-			}
-			else if(QProgramManager.class.isAssignableFrom(fieldKlass)) {					
-				field.set(callableProgram, programManager);
-			}
-			else if(QContextID.class.isAssignableFrom(fieldKlass)) {
-				field.set(callableProgram, job);
-			}
-			else if(QData.class.isAssignableFrom(fieldKlass)) {
-				
-				QDataDef<?> dataType = dataFactory.createDataDef(type, Arrays.asList(field.getAnnotations()));
-				QData data = dataFactory.createData(dataType, true);
-				
-				if(field.getAnnotation(DataDef.class) != null) {
-					DataDef dataDef = field.getAnnotation(DataDef.class);
-					
-					if(data instanceof QArray) {
-						QArray<?> array = (QArray<?>)data;
-						int i=1;
-						for(String value: dataDef.values()) {
-							array.get(i).eval(value);
-							i++;
-						}
-					}
-					else {
-						if(!dataDef.value().isEmpty())
-							data.eval(dataDef.value());
-					}
-
-				}
-				
-				field.set(callableProgram, data);
+				field.set(callable, dataFactory);
 			}
 			else if(QDataSet.class.isAssignableFrom(fieldKlass)) {
 				
@@ -180,15 +157,47 @@ public class BaseProgramInjector {
 					QDataSetTerm dataSetTerm = isamFactory.createDataSetTerm(type, annotations);
 					QDataSet<?> dataSet = isamFactory.createDataSet(dataSetTerm);
 					
-					field.set(callableProgram, dataSet);
+					field.set(callable, dataSet);
 				}
 			}
-			else if(Enum.class.isAssignableFrom(fieldKlass)) {
+			else if(QData.class.isAssignableFrom(fieldKlass)) {
+				
+				QDataDef<?> dataType = dataFactory.createDataDef(type, Arrays.asList(field.getAnnotations()));
+				QData data = dataFactory.createData(dataType, true);
+				
+				if(field.getAnnotation(DataDef.class) != null) {
+					DataDef dataDef = field.getAnnotation(DataDef.class);
+				
+					if(data instanceof QList<?>) {
+						QList<?> array = (QList<?>)data;
+						int i=1;
+						for(String value: dataDef.values()) {
+							array.get(i).accept(evaluator.set(value));
+							i++;
+						}
+					}
+					else {
+						if(!dataDef.value().isEmpty())
+							data.accept(evaluator.set(dataDef.value()));
+					}
+
+				}
+				
+				field.set(callable, data);
 			}
-			else
-				throw new OperatingSystemRuntimeException("Unknown field type: "+type);
+			else if(field.getAnnotation(Inject.class) != null){
+				Object object = context.get(fieldKlass); 
+				if(object == null) {
+					field.setAccessible(false);
+					throw new OperatingSystemRuntimeException("Unknown field type: "+type);
+				}
+				else
+					field.set(callable, object);				
+			}			
+				
+			field.setAccessible(false);
 		}
 
-		return callableProgram;
+		return callable;
 	}
 }

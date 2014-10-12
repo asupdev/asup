@@ -42,12 +42,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	}
 
 	@Override
-	public void eval(Object value) {
-		// TODO Auto-generated method stub
-		super.eval(value);
-	}
-
-	@Override
 	public void eval(QBufferedData value) {
 		// TODO Auto-generated method stub
 		super.eval(value);
@@ -351,5 +345,5 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	public void out() {
 		// TODO Auto-generated method stub
 		super.out();
-	}
+	}	
 }

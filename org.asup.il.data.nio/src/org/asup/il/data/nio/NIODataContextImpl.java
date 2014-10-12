@@ -108,12 +108,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 	}
 
 	@Override
-	public void resetData(String name) {
-		
-		QDataTerm<?> dataTerm = _getDataTerm(name);
-			
-		if(dataTerm == null)
-			return;
+	public void resetData(QDataTerm<?> dataTerm) {
 		
 		QData data = datas.get(dataTerm.getName());
 		if(data == null) {
@@ -124,6 +119,17 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 		NIODataResetter resetter = new NIODataResetter(data);
 		dataTerm.accept(resetter);
 
+	}
+
+	@Override
+	public void resetData(String name) {
+		
+		QDataTerm<?> dataTerm = _getDataTerm(name);
+			
+		if(dataTerm == null)
+			return;
+		
+		resetData(dataTerm);
 	}
 	
 	private QDataTerm<?> _getDataTerm(String name) {

@@ -7,36 +7,28 @@
  */
 package org.asup.il.data;
 
+import java.lang.String;
+import org.asup.il.core.QSpecialElement;
+
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Array</b></em>'.
+ * A representation of the model object '<em><b>Data Evaluator</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getArray()
- * @model interface="true" abstract="true"
+ * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataEvaluator()
+ * @model
  * @generated
  */
-public interface QArray<D extends QBufferedData> extends QBufferedList<D> {
-
+public interface QDataEvaluator extends QDataVisitor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.il.data.DataArray" required="true"
+	 * @model valueRequired="true"
 	 * @generated
 	 */
-	D[] asArray();
-	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void sorta();
-
+	QDataEvaluator set(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,5 +36,14 @@ public interface QArray<D extends QBufferedData> extends QBufferedList<D> {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void eval(QArray<D> value);
-} // QArray
+	QDataEvaluator set(QSpecialElement value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	QDataEvaluator set(QBufferedData value);
+
+} // QDataEvaluator

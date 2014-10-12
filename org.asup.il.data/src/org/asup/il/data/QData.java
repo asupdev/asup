@@ -22,6 +22,7 @@ import java.lang.Enum;
  * @generated NOT
  */
 public interface QData extends Serializable {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,19 +39,10 @@ public interface QData extends Serializable {
 	 */
 	void clear();
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model valueRequired="true"
-	 * @generated
-	 */
-	void eval(Object value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.Enum"
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
 	 * @generated
 	 */
 	<E extends Enum<E>> void eval(E value);

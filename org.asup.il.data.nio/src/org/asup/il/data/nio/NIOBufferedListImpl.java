@@ -58,13 +58,6 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	}*/	
 
 	@Override
-	public void eval(Object value) {
-		for (QBufferedData element : this) {
-			element.eval(value);
-		}
-	}
-
-	@Override
 	public void eval(QBufferedData value) {
 		for (QBufferedData element : this) {
 			element.eval(value);
@@ -204,9 +197,8 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 			while(datas.hasNext()) {
 				datas.next().accept(visitor);
 			}
-		}
-		
-		visitor.endVisit(this);
+			visitor.endVisit(this);
+		}	
 	}
 	
 	@Override
@@ -214,4 +206,10 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void eval(QList<D> value) {
+		value.eval(this);
+	}
+
 }

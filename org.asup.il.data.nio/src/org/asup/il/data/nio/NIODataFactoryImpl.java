@@ -37,12 +37,12 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
+import org.asup.il.data.QBufferedDataDelegator;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
@@ -602,8 +602,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 		NIOBufferedDataImpl nioBufferedData = null;
 		if(data instanceof NIOBufferedDataImpl)
 			nioBufferedData = (NIOBufferedDataImpl)data;
-		else if(data instanceof QDataDelegator)
-			nioBufferedData = (NIOBufferedDataImpl) ((QDataDelegator)data).getDelegate();
+		else if(data instanceof QBufferedDataDelegator)
+			nioBufferedData = (NIOBufferedDataImpl) ((QBufferedDataDelegator)data).getDelegate();
 		else
 			throw new FrameworkCoreRuntimeException("Error khsd87sd74c2dn");
 		nioBufferedData.allocate();

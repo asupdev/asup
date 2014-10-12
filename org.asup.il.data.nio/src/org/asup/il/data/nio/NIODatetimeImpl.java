@@ -172,13 +172,7 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 	}
 
 	@Override
-	public void eval(Object value) {
-		movel(value.toString(), true);
-	}
-
-	@Override
 	protected byte getFiller() {
 		return INIT;
 	}
-
 }

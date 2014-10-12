@@ -20,11 +20,10 @@ import java.io.ObjectOutputStream;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QData;
-import org.asup.il.data.QDataDelegator;
+import org.asup.il.data.QBufferedDataDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QBufferedData, QDataDelegator {
+public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QBufferedData, QBufferedDataDelegator {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -80,7 +79,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 			throw new FrameworkCoreRuntimeException("Unexpceted condition: fzt76tbc3bcr47");
 	}
 	@Override
-	public QData getDelegate() {
+	public QBufferedData getDelegate() {
 		return _delegate;
 	}
 	
@@ -112,11 +111,6 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	@Override
 	public void clear() {
 		_delegate.clear();		
-	}
-
-	@Override
-	public void eval(Object value) {
-		_delegate.eval(value);
 	}
 
 	@Override

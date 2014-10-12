@@ -52,7 +52,6 @@ public abstract class BaseCommandManagerImpl extends CommandManagerImpl {
 			parameters[position] = dataContext.getData(dataContext.getTerms().get(position));
 		}
 
-		programManager.callProgram(contextID, null, callableCommand
-				.getCommand().getProgram(), parameters);
+		programManager.callProgram(contextID, null, callableCommand.getCommand().getProgram(), parameters);
 	}
 }

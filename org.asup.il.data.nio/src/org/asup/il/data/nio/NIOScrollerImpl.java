@@ -12,6 +12,7 @@
 package org.asup.il.data.nio;
 
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QNumeric;
 import org.asup.il.data.QScroller;
 
 public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImpl<D> implements QScroller<D> {
@@ -117,26 +118,13 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 		return ((NIOBufferedDataImpl)_model).getFiller();
 	}
 
-	/*
-	private void shift(QDataStructure target, int position) {
-
-		int p = 0;
-		for (Field field : target.getClass().getFields()) {
-			if (!QBufferedData.class.isAssignableFrom(field.getType()))
-				continue;
-
-			NIOBufferReference bufferReference;
-			try {
-				bufferReference = (NIOBufferReference) field.get(target);
-				bufferReference._buffer = _buffer;
-				bufferReference._position = p + position;
-
-	*			p += ((QBufferedData) bufferReference).getSize();
-			} catch (Exception e) {
-				throw new FrameworkCoreRuntimeException(e);
-			}
-
-		}
+	@Override
+	public void set(int index, D value) {
+		get(index).eval(value);
 	}
-	*/
+
+	@Override
+	public void set(QNumeric index, D value) {
+		set(index.asInteger(), value);
+	}
 }

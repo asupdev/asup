@@ -1,6 +1,5 @@
 package org.asup.il.data.nio;
 
-import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QNumeric;
 
@@ -18,7 +17,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		super();
 	}
 	
-	protected <E extends Enum<E>> Number getPrimitive(E value) {
+	protected <E extends Enum<E>> Integer getPrimitive(E value) {
 		if(value.name().equals("ZEROS"))
 			return 0;
 		else if(value.name().equals("ZERO"))
@@ -27,15 +26,6 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 			return 0;
 		return 0;
 	}
-
-/*	@Override
-	public void reset() {
-		if(_default != null)
-			eval(_default);
-		else
-			eval(0);
-	}*/
-	
 	
 	@Override
 	public String toString() {
@@ -87,8 +77,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		move(value, true);
 	}
 
-	@Override
-	public void eval(Object value) {
+	/*public void eval(Object value) {
 		
 		if (value == null) {
 			clear();
@@ -104,11 +93,12 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		else {
 			eval(Long.parseLong(value.toString()));
 		}
-	}
+	}*/
 
 	@Override
 	public <E extends Enum<E>> void eval(E value) {
-		eval(getPrimitive(value));		
+		Integer number = getPrimitive(value);
+		eval(number);		
 	}
 
 	@Override

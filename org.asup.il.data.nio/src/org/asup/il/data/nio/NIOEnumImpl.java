@@ -87,4 +87,26 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 		return "*"+asEnum().name();
 
 	}
+
+	@Override
+	public void eval(String value) {
+
+		Field field = null;
+		try {
+			field = value.getClass().getField(value);
+		} 
+		catch (NoSuchFieldException | SecurityException e) {
+			throw new RuntimeException(e);
+		}
+		
+		if(field == null)
+			throw new RuntimeException("Unknown field "+value);
+		
+		Special special = field.getAnnotation(Special.class); 
+		if(special == null)
+			throw new RuntimeException("Unknown value "+field.getName());
+		
+		eval(special.value());
+
+	}
 }

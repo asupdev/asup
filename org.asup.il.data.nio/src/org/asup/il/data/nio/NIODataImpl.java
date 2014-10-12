@@ -1,7 +1,7 @@
 package org.asup.il.data.nio;
 
+import org.asup.il.data.QBufferedDataDelegator;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataVisitor;
 
 public abstract class NIODataImpl implements QData {
@@ -26,12 +26,11 @@ public abstract class NIODataImpl implements QData {
 		if (bufferedData instanceof NIOBufferedDataImpl) {
 			nioBufferedData = (NIOBufferedDataImpl) bufferedData;
 		}
-		else if (bufferedData instanceof QDataDelegator) {
-			QDataDelegator dataDelegator = (QDataDelegator)bufferedData;
+		else if (bufferedData instanceof QBufferedDataDelegator) {
+			QBufferedDataDelegator dataDelegator = (QBufferedDataDelegator)bufferedData;
 			nioBufferedData = getNIOBufferedDataImpl(dataDelegator.getDelegate());
 		}
 		
 		return nioBufferedData;
 	}
-
 }

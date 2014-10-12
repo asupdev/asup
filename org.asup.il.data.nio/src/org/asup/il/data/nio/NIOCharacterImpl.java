@@ -42,17 +42,6 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	}
 
 	@Override
-	public void eval(Object value) {
-
-		if (value == null) {
-			clear();
-			return;
-		}
-
-		movel(value.toString(), true);
-	}
-
-	@Override
 	public void eval(String value) {
 		movel(value, true);
 	}

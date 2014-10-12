@@ -19,8 +19,10 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
 import org.asup.fw.util.QStringUtil;
+import org.asup.il.data.QAdapter;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
+import org.asup.il.data.QList;
 import org.asup.il.data.annotation.Entry;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.Scope;
@@ -142,7 +144,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 
 			programStack.setDateExit(new Date());
 			
-			System.out.println(callableProgram.getQProgram().getName()+" ("+getDateDiff(programStack.getDateEnter(), programStack.getDateExit(), TimeUnit.MILLISECONDS)+"ms)");
+//			System.out.println(callableProgram.getQProgram().getName()+" ("+getDateDiff(programStack.getDateEnter(), programStack.getDateExit(), TimeUnit.MILLISECONDS)+"ms)");
 
 		}
 		catch(Exception e) {
@@ -185,9 +187,25 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 				QBufferedData bufferedData = (QBufferedData)paramsTo[i];
 				((QBufferedData) paramsFrom[i]).assign(bufferedData);
 			}
+			else if(paramsTo[i] instanceof QList<?> && paramsFrom[i] instanceof QList<?>) {
+				assignList(paramsFrom[i], paramsTo[i]);
+			}
+			else if(paramsTo[i] instanceof QAdapter) {
+				QAdapter adapter = (QAdapter) paramsTo[i];
+				adapter.eval(adapter.getDelegate());
+			}
 			else
-				paramsTo[i].eval(paramsFrom[i]);
+				throw new OperatingSystemRuntimeProgramException("Unexpected condition: nxt057t024xn", null);
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <D extends QData> void assignList(QData from, QData to) {
+
+		QList<D> listFrom = (QList<D>)from;
+		QList<D> listTo = (QList<D>)to;
+
+		listTo.eval(listFrom);		
 	}
 	
 	@Override
@@ -228,37 +246,16 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
 	private QCallableProgram prepareCallableProgram(QJob job, QActivationGroup activationGroup, Class<?> klass) {
 
 		QCallableProgram callableProgram = null;
-
-		BaseProgramInjector programInjector = job.getJobContext().make(BaseProgramInjector.class);
+		BaseCallableInjector callableInjector = job.getJobContext().make(BaseCallableInjector.class);
 		
-		if(QCallableProgram.class.isAssignableFrom(klass)) {			
-			callableProgram = programInjector.makeCallableProgram(job, activationGroup, (Class<QCallableProgram>) klass);
-
-/*			
-			BaseCallableProgramDelegator delegator = new BaseCallableProgramDelegator(callableProgram);
-
-			// search @Entry
-			for(Method method: klass.getMethods()) {
-				if(method.isAnnotationPresent(Entry.class)) {
-					delegator.entry = method;
-					
-					QData[] entry = programInjector.buildEntry(job, method);
-					delegator.setQEntry(entry);        
-
-					break;
-				}
-			}			
-			callableProgram = delegator;
-*/
-
+		if(QCallableProgram.class.isAssignableFrom(klass)) {
+			callableProgram = (QCallableProgram) callableInjector.makeCallable(job, activationGroup, klass);
 		}
 		else {
-			
-			Object delegate = activationGroup.getFrameworkContext().make(klass);
+			Object delegate = callableInjector.makeCallable(job, activationGroup, klass);
 			BaseCallableProgramDelegator delegator = new BaseCallableProgramDelegator(delegate);
 
 			// search @Entry
@@ -266,7 +263,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 				if(method.isAnnotationPresent(Entry.class)) {
 					delegator.entry = method;
 					
-					QData[] entry = programInjector.buildEntry(job, method);
+					QData[] entry = callableInjector.buildEntry(job, method);
 					delegator.setQEntry(entry);        
 
 					break;
@@ -331,7 +328,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		System.out.println(job.getJobName()+"("+job.getJobNumber()+")"+"\t"+stringUtil.appendChars(text, "\t", programStack.size(), true));		
 	}
 	
-	private long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
+	protected long getDateDiff(Date date1, Date date2, TimeUnit timeUnit) {
 	    long diffInMillies = date2.getTime() - date1.getTime();
 	    return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
 	}

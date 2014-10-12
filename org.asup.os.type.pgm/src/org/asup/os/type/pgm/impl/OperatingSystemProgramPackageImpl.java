@@ -690,7 +690,7 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	protected void createIldataAnnotations() {
-		String source = "il-data";		
+		String source = "il-data";	
 		addAnnotation
 		  (getProgram_ActivationGroup(), 
 		   source, 
@@ -699,7 +699,7 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });		
+		   });	
 		addAnnotation
 		  (getProgram_Address(), 
 		   source, 

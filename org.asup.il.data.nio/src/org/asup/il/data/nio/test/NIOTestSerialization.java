@@ -15,8 +15,11 @@ import java.io.IOException;
 
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
+import org.asup.il.data.nio.NIOCharacterImpl;
 import org.asup.il.data.nio.NIODataManagerImpl;
 
 public class NIOTestSerialization {
@@ -44,21 +47,7 @@ public class NIOTestSerialization {
 			if(multElement.isEmpty())
 				continue;
 		}
-		System.out.println("Iterate: "+ (System.currentTimeMillis()-timeIni));
-
-		timeIni = System.currentTimeMillis();
-		for(QCharacter multElement: dataStructure.multiple) {
-			multElement.asBytes();
-		}
-		System.out.println("Read: "+ (System.currentTimeMillis()-timeIni));
-
-		timeIni = System.currentTimeMillis();
-		int i=0;
-		for(QCharacter multElement: dataStructure.multiple) {
-			i++;
-			multElement.eval(i);
-		}
-		System.out.println("Write: "+ (System.currentTimeMillis()-timeIni));
+		System.out.println("Iterate first: "+ (System.currentTimeMillis()-timeIni));
 
 		timeIni = System.currentTimeMillis();
 		for(QCharacter multElement: dataStructure.multiple) {
@@ -73,6 +62,40 @@ public class NIOTestSerialization {
 		}
 		System.out.println("Read: "+ (System.currentTimeMillis()-timeIni));
 
+		timeIni = System.currentTimeMillis();
+		int i=0;
+		for(QCharacter multElement: dataStructure.multiple) {
+			i++;
+			multElement.eval(Integer.toString(i));
+		}
+		System.out.println("Write: "+ (System.currentTimeMillis()-timeIni));
+
+		timeIni = System.currentTimeMillis();
+		for(QCharacter multElement: dataStructure.multiple) {
+			if(multElement.isEmpty())
+				continue;
+		}
+		System.out.println("Iterate: "+ (System.currentTimeMillis()-timeIni));
+
+		NIOCharacterImpl character = new NIOCharacterImpl(10000);
+		character.allocate();
+		
+		timeIni = System.currentTimeMillis();
+		for(int y=0; y<100; y++) {		
+			for(QCharacter multElement: dataStructure.multiple) {
+				character.movel(multElement, false);
+			}
+		}
+		System.out.println("Movel: "+ (System.currentTimeMillis()-timeIni));
+
+		QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator(); 
+		timeIni = System.currentTimeMillis();
+		for(int y=0; y<100; y++) {		
+			for(QCharacter multElement: dataStructure.multiple) {
+				character.accept(evaluator.set(multElement));
+			}
+		}
+		System.out.println("Evaluation: "+ (System.currentTimeMillis()-timeIni));
 	}
 
 	private static NIOTestDataStructure buildDataStructure() {

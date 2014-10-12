@@ -19,7 +19,7 @@ import java.lang.String;
  *
  *
  * @see org.asup.il.data.QIntegratedLanguageDataPackage#getEnum()
- * @model EBounds="org.asup.fw.java.JavaEnum"
+ * @model interface="true" abstract="true" EBounds="org.asup.fw.java.JavaEnum"
  * @generated
  */
 public interface QEnum<E extends Enum<E>, D extends QBufferedData> extends QBufferedData {
@@ -38,6 +38,14 @@ public interface QEnum<E extends Enum<E>, D extends QBufferedData> extends QBuff
 	 * @generated
 	 */
 	E asEnum();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
