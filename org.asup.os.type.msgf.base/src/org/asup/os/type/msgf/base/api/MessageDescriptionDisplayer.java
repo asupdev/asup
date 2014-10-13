@@ -64,7 +64,15 @@ public  class MessageDescriptionDisplayer {
 		if (qMessageFile == null) 
 			throw new OperatingSystemRuntimeException("Message File " + messageFile.name + " not exists in library " + library);
 
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job, output.asData().trimR());
+		QObjectWriter objectWriter = null;
+		switch (output.asEnum()) {
+		case PRINT:
+			objectWriter = outputManager.getObjectWriter(job,	output.getSpecialName());
+			break;
+		case TERM_STAR:
+			objectWriter = outputManager.getObjectWriter(job,	output.asData().trimR());
+			break;
+		}
 		objectWriter.initialize();
 
 		// RANGE 
