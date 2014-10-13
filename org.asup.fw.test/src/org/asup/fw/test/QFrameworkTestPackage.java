@@ -8,6 +8,7 @@
 package org.asup.fw.test;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -168,56 +168,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	int ASSERTION_SUCCESS_FEATURE_COUNT = ASSERTION_RESULT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.test.QTestListener
-	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestListener()
-	 * @generated
-	 */
-	int TEST_LISTENER = 8;
-
-	/**
-	 * The meta object id for the '{@link org.asup.fw.test.QTestManager <em>Test Manager</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.test.QTestManager
-	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestManager()
-	 * @generated
-	 */
-	int TEST_MANAGER = 9;
-
-	/**
-	 * The meta object id for the '{@link org.asup.fw.test.impl.TestResultImpl <em>Test Result</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.test.impl.TestResultImpl
-	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestResult()
-	 * @generated
-	 */
-	int TEST_RESULT = 10;
-
-	/**
-	 * The meta object id for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.test.impl.UnitTestRunnerImpl
-	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getUnitTestRunner()
-	 * @generated
-	 */
-	int UNIT_TEST_RUNNER = 12;
-
-	/**
-	 * The meta object id for the '{@link org.asup.fw.test.impl.TestContainerImpl <em>Test Container</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.test.impl.TestContainerImpl
-	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContainer()
-	 * @generated
-	 */
-	int TEST_CONTAINER = 6;
-
-	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.TestRunnerImpl <em>Test Runner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -311,6 +261,16 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_ASSERTER_FEATURE_COUNT = ASSERTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.fw.test.impl.TestContainerImpl <em>Test Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.test.impl.TestContainerImpl
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContainer()
+	 * @generated
+	 */
+	int TEST_CONTAINER = 6;
+
+	/**
 	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,6 +308,16 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_CONTEXT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.test.QTestListener
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestListener()
+	 * @generated
+	 */
+	int TEST_LISTENER = 8;
+
+	/**
 	 * The number of structural features of the '<em>Test Listener</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -355,6 +325,16 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_LISTENER_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.fw.test.QTestManager <em>Test Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.test.QTestManager
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestManager()
+	 * @generated
+	 */
+	int TEST_MANAGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -373,6 +353,16 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.fw.test.impl.TestResultImpl <em>Test Result</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.test.impl.TestResultImpl
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestResult()
+	 * @generated
+	 */
+	int TEST_RESULT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Failed</b></em>' attribute.
@@ -409,6 +399,16 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEST_RESULT_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.test.impl.UnitTestRunnerImpl
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getUnitTestRunner()
+	 * @generated
+	 */
+	int UNIT_TEST_RUNNER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -539,6 +539,37 @@ public interface QFrameworkTestPackage extends EPackage {
 	EClass getTestAsserter();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.fw.test.QTestContainer <em>Test Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Test Container</em>'.
+	 * @see org.asup.fw.test.QTestContainer
+	 * @generated
+	 */
+	EClass getTestContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.fw.test.QTestContainer#getTests <em>Tests</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tests</em>'.
+	 * @see org.asup.fw.test.QTestContainer#getTests()
+	 * @see #getTestContainer()
+	 * @generated
+	 */
+	EReference getTestContainer_Tests();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.fw.test.QTestContext <em>Test Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Test Context</em>'.
+	 * @see org.asup.fw.test.QTestContext
+	 * @generated
+	 */
+	EClass getTestContext();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -655,37 +686,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	EAttribute getUnitTestRunner_ClassName();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.fw.test.QTestContainer <em>Test Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Test Container</em>'.
-	 * @see org.asup.fw.test.QTestContainer
-	 * @generated
-	 */
-	EClass getTestContainer();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.asup.fw.test.QTestContainer#getTests <em>Tests</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tests</em>'.
-	 * @see org.asup.fw.test.QTestContainer#getTests()
-	 * @see #getTestContainer()
-	 * @generated
-	 */
-	EReference getTestContainer_Tests();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.fw.test.QTestContext <em>Test Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Test Context</em>'.
-	 * @see org.asup.fw.test.QTestContext
-	 * @generated
-	 */
-	EClass getTestContext();
-
-	/**
 	 * Returns the meta object for enum '{@link org.asup.fw.test.AssertionState <em>Assertion State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -721,7 +721,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
-	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -796,6 +795,34 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEST_ASSERTER = eINSTANCE.getTestAsserter();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.fw.test.impl.TestContainerImpl <em>Test Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.test.impl.TestContainerImpl
+		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContainer()
+		 * @generated
+		 */
+		EClass TEST_CONTAINER = eINSTANCE.getTestContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEST_CONTAINER__TESTS = eINSTANCE.getTestContainer_Tests();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.fw.test.impl.TestContextImpl <em>Test Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.test.impl.TestContextImpl
+		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContext()
+		 * @generated
+		 */
+		EClass TEST_CONTEXT = eINSTANCE.getTestContext();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}' class.
@@ -894,34 +921,6 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNIT_TEST_RUNNER__CLASS_NAME = eINSTANCE.getUnitTestRunner_ClassName();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.fw.test.impl.TestContainerImpl <em>Test Container</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.fw.test.impl.TestContainerImpl
-		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContainer()
-		 * @generated
-		 */
-		EClass TEST_CONTAINER = eINSTANCE.getTestContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TEST_CONTAINER__TESTS = eINSTANCE.getTestContainer_Tests();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.fw.test.impl.TestContextImpl <em>Test Context</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.fw.test.impl.TestContextImpl
-		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContext()
-		 * @generated
-		 */
-		EClass TEST_CONTEXT = eINSTANCE.getTestContext();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.AssertionState <em>Assertion State</em>}' enum.

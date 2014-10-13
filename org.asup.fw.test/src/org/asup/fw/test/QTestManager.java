@@ -36,7 +36,7 @@ public interface QTestManager extends QService {
 	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException"
 	 * @generated
 	 */
-	QTestResult executeRunner(QContext context, QTestRunner runner) throws FrameworkCoreException;
+	QTestResult executeRunner(QTestContext context, QTestRunner runner) throws FrameworkCoreException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,6 +44,6 @@ public interface QTestManager extends QService {
 	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException" classNameRequired="true"
 	 * @generated
 	 */
-	QTestRunner prepareRunner(QContext context, String className) throws FrameworkCoreException;
+	QTestRunner prepareRunner(QTestContext context, String className) throws FrameworkCoreException;
 
 } // QTestManager
