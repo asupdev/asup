@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CL.g 2014-09-22 12:05:18
+// $ANTLR 3.5.1 CL.g 2014-10-13 17:53:33
 
   package org.asup.dk.parser.ibmi.cl.antlr;
 
@@ -216,13 +216,12 @@ public class CLLexer extends Lexer {
 		try {
 			int _type = PAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CL.g:168:6: ( OPEN_BRACE ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | APOS | ' ' | PAREN | '%' | ':' )+ CLOSE_BRACE )
-			// CL.g:168:8: OPEN_BRACE ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | APOS | ' ' | PAREN | '%' | ':' )+ CLOSE_BRACE
+			// CL.g:168:6: ( OPEN_BRACE ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | APOS | ' ' | PAREN | '%' | ':' )* CLOSE_BRACE )
+			// CL.g:168:8: OPEN_BRACE ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | APOS | ' ' | PAREN | '%' | ':' )* CLOSE_BRACE
 			{
 			mOPEN_BRACE(); 
 
-			// CL.g:168:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | APOS | ' ' | PAREN | '%' | ':' )+
-			int cnt3=0;
+			// CL.g:168:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | APOS | ' ' | PAREN | '%' | ':' )*
 			loop3:
 			while (true) {
 				int alt3=10;
@@ -416,11 +415,8 @@ public class CLLexer extends Lexer {
 					break;
 
 				default :
-					if ( cnt3 >= 1 ) break loop3;
-					EarlyExitException eee = new EarlyExitException(3, input);
-					throw eee;
+					break loop3;
 				}
-				cnt3++;
 			}
 
 			mCLOSE_BRACE(); 
@@ -833,8 +829,8 @@ public class CLLexer extends Lexer {
 		"\2\uffff\1\2\2\uffff\1\7\2\uffff\1\11\1\12\2\uffff\1\4\1\1\1\13\1\3\1"+
 		"\6\1\5\1\11\1\uffff\1\10\6\uffff";
 	static final String DFA9_specialS =
-		"\1\1\1\0\1\uffff\1\3\2\uffff\1\12\3\uffff\1\2\1\7\7\uffff\1\11\1\uffff"+
-		"\1\5\1\10\1\14\1\6\1\4\1\13}>";
+		"\1\5\1\0\1\uffff\1\2\2\uffff\1\13\3\uffff\1\1\1\11\7\uffff\1\4\1\uffff"+
+		"\1\3\1\12\1\14\1\7\1\6\1\10}>";
 	static final String[] DFA9_transitionS = {
 			"\1\11\1\10\2\uffff\1\7\22\uffff\1\11\2\6\1\uffff\1\6\1\2\1\6\1\3\1\4"+
 			"\1\5\5\6\1\1\12\6\2\uffff\4\6\1\uffff\32\6\1\uffff\1\6\1\uffff\2\6\1"+
@@ -848,9 +844,9 @@ public class CLLexer extends Lexer {
 			"\3\17\1\uffff\3\17\3\uffff\21\17\1\uffff\4\17\1\uffff\32\17\1\uffff"+
 			"\1\17\1\uffff\2\17\1\uffff\32\17\50\uffff\1\17\3\uffff\1\17\70\uffff"+
 			"\1\17\7\uffff\2\17\2\uffff\1\17\5\uffff\1\17\6\uffff\1\17",
-			"\3\21\1\uffff\5\21\1\uffff\21\21\1\uffff\4\21\1\uffff\32\21\1\uffff"+
-			"\1\21\1\uffff\2\21\1\uffff\32\21\50\uffff\1\21\3\uffff\1\21\70\uffff"+
-			"\1\21\7\uffff\2\21\2\uffff\1\21\5\uffff\1\21\6\uffff\1\21",
+			"\3\21\1\uffff\27\21\1\uffff\4\21\1\uffff\32\21\1\uffff\1\21\1\uffff"+
+			"\2\21\1\uffff\32\21\50\uffff\1\21\3\uffff\1\21\70\uffff\1\21\7\uffff"+
+			"\2\21\2\uffff\1\21\5\uffff\1\21\6\uffff\1\21",
 			"",
 			"\2\6\1\uffff\1\6\1\uffff\1\6\3\uffff\20\6\1\15\1\uffff\4\6\1\uffff\32"+
 			"\6\1\uffff\1\6\1\uffff\2\6\1\uffff\32\6\50\uffff\1\6\3\uffff\1\6\70\uffff"+
@@ -944,6 +940,62 @@ public class CLLexer extends Lexer {
 						break;
 
 					case 1 : 
+						int LA9_10 = input.LA(1);
+						 
+						int index9_10 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA9_10==':') ) {s = 19;}
+						else if ( ((LA9_10 >= '\u0000' && LA9_10 <= ' ')||LA9_10=='#'||LA9_10=='%'||(LA9_10 >= '\'' && LA9_10 <= ')')||LA9_10==';'||LA9_10=='@'||LA9_10=='['||LA9_10==']'||LA9_10=='`'||(LA9_10 >= '{' && LA9_10 <= '\u00A2')||(LA9_10 >= '\u00A4' && LA9_10 <= '\u00A6')||(LA9_10 >= '\u00A8' && LA9_10 <= '\u00DF')||(LA9_10 >= '\u00E1' && LA9_10 <= '\u00E7')||(LA9_10 >= '\u00EA' && LA9_10 <= '\u00EB')||(LA9_10 >= '\u00ED' && LA9_10 <= '\u00F1')||(LA9_10 >= '\u00F3' && LA9_10 <= '\u00F8')||(LA9_10 >= '\u00FA' && LA9_10 <= '\uFFFF')) ) {s = 20;}
+						else if ( ((LA9_10 >= '!' && LA9_10 <= '\"')||LA9_10=='$'||LA9_10=='&'||(LA9_10 >= '*' && LA9_10 <= '9')||(LA9_10 >= '<' && LA9_10 <= '?')||(LA9_10 >= 'A' && LA9_10 <= 'Z')||LA9_10=='\\'||(LA9_10 >= '^' && LA9_10 <= '_')||(LA9_10 >= 'a' && LA9_10 <= 'z')||LA9_10=='\u00A3'||LA9_10=='\u00A7'||LA9_10=='\u00E0'||(LA9_10 >= '\u00E8' && LA9_10 <= '\u00E9')||LA9_10=='\u00EC'||LA9_10=='\u00F2'||LA9_10=='\u00F9') ) {s = 21;}
+						else s = 12;
+						 
+						input.seek(index9_10);
+						if ( s>=0 ) return s;
+						break;
+
+					case 2 : 
+						int LA9_3 = input.LA(1);
+						 
+						int index9_3 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA9_3 >= ' ' && LA9_3 <= '\"')||(LA9_3 >= '$' && LA9_3 <= '&')||(LA9_3 >= '*' && LA9_3 <= ':')||(LA9_3 >= '<' && LA9_3 <= '?')||(LA9_3 >= 'A' && LA9_3 <= 'Z')||LA9_3=='\\'||(LA9_3 >= '^' && LA9_3 <= '_')||(LA9_3 >= 'a' && LA9_3 <= 'z')||LA9_3=='\u00A3'||LA9_3=='\u00A7'||LA9_3=='\u00E0'||(LA9_3 >= '\u00E8' && LA9_3 <= '\u00E9')||LA9_3=='\u00EC'||LA9_3=='\u00F2'||LA9_3=='\u00F9') && (((openBraces - closeBraces) == 0))) {s = 15;}
+						else s = 14;
+						 
+						input.seek(index9_3);
+						if ( s>=0 ) return s;
+						break;
+
+					case 3 : 
+						int LA9_21 = input.LA(1);
+						 
+						int index9_21 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA9_21 >= '\u0000' && LA9_21 <= ' ')||LA9_21=='#'||LA9_21=='%'||(LA9_21 >= '\'' && LA9_21 <= ')')||LA9_21==';'||LA9_21=='@'||LA9_21=='['||LA9_21==']'||LA9_21=='`'||(LA9_21 >= '{' && LA9_21 <= '\u00A2')||(LA9_21 >= '\u00A4' && LA9_21 <= '\u00A6')||(LA9_21 >= '\u00A8' && LA9_21 <= '\u00DF')||(LA9_21 >= '\u00E1' && LA9_21 <= '\u00E7')||(LA9_21 >= '\u00EA' && LA9_21 <= '\u00EB')||(LA9_21 >= '\u00ED' && LA9_21 <= '\u00F1')||(LA9_21 >= '\u00F3' && LA9_21 <= '\u00F8')||(LA9_21 >= '\u00FA' && LA9_21 <= '\uFFFF')) ) {s = 20;}
+						else if ( (LA9_21==':') ) {s = 19;}
+						else if ( ((LA9_21 >= '!' && LA9_21 <= '\"')||LA9_21=='$'||LA9_21=='&'||(LA9_21 >= '*' && LA9_21 <= '9')||(LA9_21 >= '<' && LA9_21 <= '?')||(LA9_21 >= 'A' && LA9_21 <= 'Z')||LA9_21=='\\'||(LA9_21 >= '^' && LA9_21 <= '_')||(LA9_21 >= 'a' && LA9_21 <= 'z')||LA9_21=='\u00A3'||LA9_21=='\u00A7'||LA9_21=='\u00E0'||(LA9_21 >= '\u00E8' && LA9_21 <= '\u00E9')||LA9_21=='\u00EC'||LA9_21=='\u00F2'||LA9_21=='\u00F9') ) {s = 21;}
+						else s = 12;
+						 
+						input.seek(index9_21);
+						if ( s>=0 ) return s;
+						break;
+
+					case 4 : 
+						int LA9_19 = input.LA(1);
+						 
+						int index9_19 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA9_19 >= '\u0000' && LA9_19 <= '\uFFFF')) ) {s = 20;}
+						else s = 13;
+						 
+						input.seek(index9_19);
+						if ( s>=0 ) return s;
+						break;
+
+					case 5 : 
 						int LA9_0 = input.LA(1);
 						 
 						int index9_0 = input.index();
@@ -963,35 +1015,7 @@ public class CLLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 2 : 
-						int LA9_10 = input.LA(1);
-						 
-						int index9_10 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA9_10==':') ) {s = 19;}
-						else if ( ((LA9_10 >= '\u0000' && LA9_10 <= ' ')||LA9_10=='#'||LA9_10=='%'||(LA9_10 >= '\'' && LA9_10 <= ')')||LA9_10==';'||LA9_10=='@'||LA9_10=='['||LA9_10==']'||LA9_10=='`'||(LA9_10 >= '{' && LA9_10 <= '\u00A2')||(LA9_10 >= '\u00A4' && LA9_10 <= '\u00A6')||(LA9_10 >= '\u00A8' && LA9_10 <= '\u00DF')||(LA9_10 >= '\u00E1' && LA9_10 <= '\u00E7')||(LA9_10 >= '\u00EA' && LA9_10 <= '\u00EB')||(LA9_10 >= '\u00ED' && LA9_10 <= '\u00F1')||(LA9_10 >= '\u00F3' && LA9_10 <= '\u00F8')||(LA9_10 >= '\u00FA' && LA9_10 <= '\uFFFF')) ) {s = 20;}
-						else if ( ((LA9_10 >= '!' && LA9_10 <= '\"')||LA9_10=='$'||LA9_10=='&'||(LA9_10 >= '*' && LA9_10 <= '9')||(LA9_10 >= '<' && LA9_10 <= '?')||(LA9_10 >= 'A' && LA9_10 <= 'Z')||LA9_10=='\\'||(LA9_10 >= '^' && LA9_10 <= '_')||(LA9_10 >= 'a' && LA9_10 <= 'z')||LA9_10=='\u00A3'||LA9_10=='\u00A7'||LA9_10=='\u00E0'||(LA9_10 >= '\u00E8' && LA9_10 <= '\u00E9')||LA9_10=='\u00EC'||LA9_10=='\u00F2'||LA9_10=='\u00F9') ) {s = 21;}
-						else s = 12;
-						 
-						input.seek(index9_10);
-						if ( s>=0 ) return s;
-						break;
-
-					case 3 : 
-						int LA9_3 = input.LA(1);
-						 
-						int index9_3 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA9_3 >= ' ' && LA9_3 <= '\"')||(LA9_3 >= '$' && LA9_3 <= '&')||(LA9_3 >= '*' && LA9_3 <= ':')||(LA9_3 >= '<' && LA9_3 <= '?')||(LA9_3 >= 'A' && LA9_3 <= 'Z')||LA9_3=='\\'||(LA9_3 >= '^' && LA9_3 <= '_')||(LA9_3 >= 'a' && LA9_3 <= 'z')||LA9_3=='\u00A3'||LA9_3=='\u00A7'||LA9_3=='\u00E0'||(LA9_3 >= '\u00E8' && LA9_3 <= '\u00E9')||LA9_3=='\u00EC'||LA9_3=='\u00F2'||LA9_3=='\u00F9') && (((openBraces - closeBraces) == 0))) {s = 15;}
-						else s = 14;
-						 
-						input.seek(index9_3);
-						if ( s>=0 ) return s;
-						break;
-
-					case 4 : 
+					case 6 : 
 						int LA9_25 = input.LA(1);
 						s = -1;
 						if ( (LA9_25=='*') ) {s = 22;}
@@ -1002,22 +1026,7 @@ public class CLLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 5 : 
-						int LA9_21 = input.LA(1);
-						 
-						int index9_21 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA9_21 >= '\u0000' && LA9_21 <= ' ')||LA9_21=='#'||LA9_21=='%'||(LA9_21 >= '\'' && LA9_21 <= ')')||LA9_21==';'||LA9_21=='@'||LA9_21=='['||LA9_21==']'||LA9_21=='`'||(LA9_21 >= '{' && LA9_21 <= '\u00A2')||(LA9_21 >= '\u00A4' && LA9_21 <= '\u00A6')||(LA9_21 >= '\u00A8' && LA9_21 <= '\u00DF')||(LA9_21 >= '\u00E1' && LA9_21 <= '\u00E7')||(LA9_21 >= '\u00EA' && LA9_21 <= '\u00EB')||(LA9_21 >= '\u00ED' && LA9_21 <= '\u00F1')||(LA9_21 >= '\u00F3' && LA9_21 <= '\u00F8')||(LA9_21 >= '\u00FA' && LA9_21 <= '\uFFFF')) ) {s = 20;}
-						else if ( (LA9_21==':') ) {s = 19;}
-						else if ( ((LA9_21 >= '!' && LA9_21 <= '\"')||LA9_21=='$'||LA9_21=='&'||(LA9_21 >= '*' && LA9_21 <= '9')||(LA9_21 >= '<' && LA9_21 <= '?')||(LA9_21 >= 'A' && LA9_21 <= 'Z')||LA9_21=='\\'||(LA9_21 >= '^' && LA9_21 <= '_')||(LA9_21 >= 'a' && LA9_21 <= 'z')||LA9_21=='\u00A3'||LA9_21=='\u00A7'||LA9_21=='\u00E0'||(LA9_21 >= '\u00E8' && LA9_21 <= '\u00E9')||LA9_21=='\u00EC'||LA9_21=='\u00F2'||LA9_21=='\u00F9') ) {s = 21;}
-						else s = 12;
-						 
-						input.seek(index9_21);
-						if ( s>=0 ) return s;
-						break;
-
-					case 6 : 
+					case 7 : 
 						int LA9_24 = input.LA(1);
 						 
 						int index9_24 = input.index();
@@ -1033,7 +1042,20 @@ public class CLLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 7 : 
+					case 8 : 
+						int LA9_26 = input.LA(1);
+						 
+						int index9_26 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (((openBraces - closeBraces) == 0)) ) {s = 12;}
+						else if ( (true) ) {s = 20;}
+						 
+						input.seek(index9_26);
+						if ( s>=0 ) return s;
+						break;
+
+					case 9 : 
 						int LA9_11 = input.LA(1);
 						 
 						int index9_11 = input.index();
@@ -1049,7 +1071,7 @@ public class CLLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 8 : 
+					case 10 : 
 						int LA9_22 = input.LA(1);
 						 
 						int index9_22 = input.index();
@@ -1066,20 +1088,7 @@ public class CLLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 9 : 
-						int LA9_19 = input.LA(1);
-						 
-						int index9_19 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA9_19 >= '\u0000' && LA9_19 <= '\uFFFF')) ) {s = 20;}
-						else s = 13;
-						 
-						input.seek(index9_19);
-						if ( s>=0 ) return s;
-						break;
-
-					case 10 : 
+					case 11 : 
 						int LA9_6 = input.LA(1);
 						 
 						int index9_6 = input.index();
@@ -1090,19 +1099,6 @@ public class CLLexer extends Lexer {
 						else s = 12;
 						 
 						input.seek(index9_6);
-						if ( s>=0 ) return s;
-						break;
-
-					case 11 : 
-						int LA9_26 = input.LA(1);
-						 
-						int index9_26 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (((openBraces - closeBraces) == 0)) ) {s = 12;}
-						else if ( (true) ) {s = 20;}
-						 
-						input.seek(index9_26);
 						if ( s>=0 ) return s;
 						break;
 

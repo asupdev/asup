@@ -165,7 +165,7 @@ STRING	:
 TOKEN: {(openBraces - closeBraces) == 0}?=>('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL)+
   ;
 
-PAREN: OPEN_BRACE ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|APOS|' '|PAREN|'%'|':')+ CLOSE_BRACE
+PAREN: OPEN_BRACE ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|APOS|' '|PAREN|'%'|':')* CLOSE_BRACE
   ;
 
 OPEN_BRACE
