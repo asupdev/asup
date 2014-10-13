@@ -116,11 +116,11 @@
       <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
     </eOperations>
     <eOperations name="executeRunner" lowerBound="1" eType="#//TestResult" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
-      <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
+      <eParameters name="context" eType="#//TestContext"/>
       <eParameters name="runner" eType="#//TestRunner"/>
     </eOperations>
     <eOperations name="prepareRunner" lowerBound="1" eType="#//TestRunner" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
-      <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
+      <eParameters name="context" eType="#//TestContext"/>
       <eParameters name="className" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>

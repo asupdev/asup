@@ -33,7 +33,7 @@ import org.asup.fw.test.impl.TestContextImpl;
 public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	
 	@Override
-	public QTestRunner prepareRunner(QContext context, String className) throws FrameworkCoreException {
+	public QTestRunner prepareRunner(QTestContext context, String className) throws FrameworkCoreException {
 	
 		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
 		testRunner.setClassName(className);
@@ -44,9 +44,11 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	}
 
 	@Override
-	public QTestResult executeRunner(QContext context, QTestRunner runner) throws FrameworkCoreException {
+	public QTestResult executeRunner(QTestContext context, QTestRunner runner) throws FrameworkCoreException {
 
 		QContextID contextID = context.get(QContextID.class);
+
+	    context.set(QTestAsserter.class, new BaseTestAsserterImpl(runner));
 
 	    // result
 		QTestResult testResult = QFrameworkTestFactory.eINSTANCE.createTestResult();
