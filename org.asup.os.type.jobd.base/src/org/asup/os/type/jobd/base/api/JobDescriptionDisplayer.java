@@ -53,8 +53,16 @@ public class JobDescriptionDisplayer {
 	public @Entry void main(
 			@Supported @DataDef(qualified = true) JobDescription jobDescription,
 			@Supported @DataDef(length = 1) QEnum<OutputEnum, QCharacter> output) {
-
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job,	output.getSpecialName());
+		
+		QObjectWriter objectWriter = null;
+		switch (output.asEnum()) {
+		case PRINT:
+			objectWriter = outputManager.getObjectWriter(job,	output.getSpecialName());
+			break;
+		case TERM_STAR:
+			objectWriter = outputManager.getObjectWriter(job,	output.asData().trimR());
+			break;
+		}
 		objectWriter.initialize();
 
 //		if (jobDescription.name.trimR().equals("*CURRENT")) {
@@ -113,6 +121,7 @@ public class JobDescriptionDisplayer {
 	}
 
 	public static enum OutputEnum {
+		@Special(value = "*")
 		TERM_STAR, @Special(value = "L")
 		PRINT
 	}
