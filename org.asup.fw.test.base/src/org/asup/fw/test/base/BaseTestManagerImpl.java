@@ -19,8 +19,8 @@ import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
-import org.asup.fw.test.FrameworkTestFailureError;
 import org.asup.fw.test.QFrameworkTestFactory;
+import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.QTestManager;
 import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
@@ -45,11 +45,12 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	}
 
 	@Override
-	public QTestResult execute(QContextID contextID, QTestRunner runner) throws FrameworkCoreException {
+	public QTestResult executeRunner(QContextID contextID, QTestRunner runner) throws FrameworkCoreException {
 
 	    // runner context
 	    QContext runnerContext = frameworkContext.createChild();
-	    runnerContext.set(QTestRunner.class, runner);
+	    runnerContext.set(QContextID.class, contextID);
+	    runnerContext.set(QTestAsserter.class, new BaseTestAsserterImpl(runner));
 
 	    // result
 		QTestResult testResult = QFrameworkTestFactory.eINSTANCE.createTestResult();
@@ -77,7 +78,7 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 
 		try {
 			context.invoke(testCase, TestStarted.class);
-		} catch(FrameworkTestFailureError exc) {
+		} catch(Exception exc) {
 			result.setFailed(true);
 		}
 

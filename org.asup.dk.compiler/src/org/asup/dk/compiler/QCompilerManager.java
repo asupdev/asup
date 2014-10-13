@@ -10,6 +10,7 @@ package org.asup.dk.compiler;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.asup.fw.core.QService;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProgram;
@@ -37,6 +38,14 @@ public interface QCompilerManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" jobRequired="true" structureRequired="true" caseSensitiveRequired="true"
+	 * @generated
+	 */
+	QCompilationContext createCompilationContext(QJob job, QCompoundDataTerm<?> structure, CaseSensitiveType caseSensitive);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" jobRequired="true" moduleRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
@@ -57,6 +66,14 @@ public interface QCompilerManager extends QService {
 	 * @generated
 	 */
 	void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @generated
+	 */
+	void writeStruct(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->

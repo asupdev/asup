@@ -36,6 +36,6 @@ public interface QTestManager extends QService {
 	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException"
 	 * @generated
 	 */
-	QTestResult execute(QContextID contextID, QTestRunner runner) throws FrameworkCoreException;
+	QTestResult executeRunner(QContextID contextID, QTestRunner runner) throws FrameworkCoreException;
 
 } // QTestManager

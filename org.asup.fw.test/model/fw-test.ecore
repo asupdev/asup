@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test" nsURI="http://www.asup.org/fw/test" nsPrefix="fw-test">
-  <eClassifiers xsi:type="ecore:EDataType" name="FrameworkTestFaillureError" instanceClassName="org.asup.fw.test.FrameworkTestFailureError"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="AssertionState">
-    <eLiterals name="success" value="1"/>
-    <eLiterals name="failed"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Asserter" abstract="true" interface="true">
     <eOperations name="assertTrue">
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
-    <eOperations name="assertTrue">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -20,25 +12,12 @@
       <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="assertEquals">
-      <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="assertEquals">
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-      <eParameters name="delta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eParameters name="delta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -50,16 +29,7 @@
       <eParameters name="delta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
     <eOperations name="assertEquals">
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-      <eParameters name="delta" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     </eOperations>
@@ -69,15 +39,7 @@
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="assertEquals">
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
     </eOperations>
@@ -87,15 +49,7 @@
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
     </eOperations>
     <eOperations name="assertEquals">
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
-    </eOperations>
-    <eOperations name="assertEquals">
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     </eOperations>
@@ -104,30 +58,16 @@
       <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="assertEquals">
-      <eParameters name="expected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eParameters name="actual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
     <eOperations name="assertNotNull">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="assertNotNull">
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="assertNull">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eOperations name="assertNull">
-      <eParameters name="object" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
     <eOperations name="assertSame">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="assertSame">
       <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
@@ -136,23 +76,8 @@
       <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
-    <eOperations name="assertNotSame">
-      <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="fail" eExceptions="#//FrameworkTestFaillureError"/>
     <eOperations name="fail" eExceptions="#//FrameworkTestFaillureError">
       <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="failNotSame" eExceptions="#//FrameworkTestFaillureError">
-      <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="failNotEquals" eExceptions="#//FrameworkTestFaillureError">
-      <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="expected" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="actual" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssertionFailed" eSuperTypes="#//AssertionResult"/>
@@ -160,8 +85,19 @@
     <eOperations name="getAssertionState" eType="#//AssertionState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AssertionState">
+    <eLiterals name="success" value="1"/>
+    <eLiterals name="failed"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssertionSuccess" eSuperTypes="#//AssertionResult"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FrameworkTestFaillureError" instanceClassName="org.asup.fw.test.FrameworkTestFailureError"/>
   <eClassifiers xsi:type="ecore:EClass" name="SuiteTestRunner" eSuperTypes="#//TestRunner"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestAsserter" abstract="true" interface="true"
+      eSuperTypes="#//Asserter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tests" upperBound="-1"
+        eType="#//TestRunner" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestListener" abstract="true" interface="true">
     <eOperations name="addAssertionResult">
       <eParameters name="assertionResult" eType="#//AssertionResult"/>
@@ -179,7 +115,7 @@
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
       <eParameters name="className" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="execute" lowerBound="1" eType="#//TestResult" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
+    <eOperations name="executeRunner" lowerBound="1" eType="#//TestResult" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
       <eParameters name="runner" eType="#//TestRunner"/>
     </eOperations>
@@ -200,9 +136,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitTestRunner" eSuperTypes="#//TestRunner">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TestContainer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tests" upperBound="-1"
-        eType="#//TestRunner" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

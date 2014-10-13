@@ -13,11 +13,16 @@ package org.asup.dk.compiler.rpj;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.il.data.annotation.ModuleDef;
+import org.asup.os.type.pgm.rpj.RPJProgramSupport;
 import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.BodyDeclaration;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MemberValuePair;
+import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 
@@ -26,7 +31,7 @@ public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void writeSuppressWarning(TypeDeclaration target) {
+	public void writeSuppressWarning(BodyDeclaration target) {
 		
 		AST ast = target.getAST();
 		
@@ -43,6 +48,7 @@ public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public void writeSupportFields() {
 		
 	
@@ -60,13 +66,13 @@ public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 		variable.setName(ast.newSimpleName("qSP"));
 		target.bodyDeclarations().add(field);*/
 
-/*		VariableDeclarationFragment variable = ast.newVariableDeclarationFragment();
-		FieldDeclaration field = ast.newFieldDeclaration(variable);
-		FieldHelper.writeAnnotation(field, ModuleDef.class.getSimpleName(), "name", "*RPJ");
-		field.modifiers().add(ast.newModifier(ModifierKeyword.PUBLIC_KEYWORD));
-		field.setType(ast.newSimpleType(ast.newName(RPJProgramSupport.class.getSimpleName())));
-		variable.setName(ast.newSimpleName("qRPJ"));
-		target.bodyDeclarations().add(field);*/
+		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+		FieldDeclaration field = getAST().newFieldDeclaration(variable);
+		writeAnnotation(field, ModuleDef.class, "name", "*RPJ");
+		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+		field.setType(getAST().newSimpleType(getAST().newName(RPJProgramSupport.class.getSimpleName())));
+		variable.setName(getAST().newSimpleName("qRPJ"));
+		getTarget().bodyDeclarations().add(field);
 		
 	}
 /*	

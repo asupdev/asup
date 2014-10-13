@@ -175,7 +175,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestListener()
 	 * @generated
 	 */
-	int TEST_LISTENER = 5;
+	int TEST_LISTENER = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.QTestManager <em>Test Manager</em>}' class.
@@ -185,7 +185,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestManager()
 	 * @generated
 	 */
-	int TEST_MANAGER = 6;
+	int TEST_MANAGER = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.TestResultImpl <em>Test Result</em>}' class.
@@ -195,7 +195,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestResult()
 	 * @generated
 	 */
-	int TEST_RESULT = 7;
+	int TEST_RESULT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.
@@ -205,7 +205,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getUnitTestRunner()
 	 * @generated
 	 */
-	int UNIT_TEST_RUNNER = 9;
+	int UNIT_TEST_RUNNER = 11;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.TestContainerImpl <em>Test Container</em>}' class.
@@ -215,7 +215,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContainer()
 	 * @generated
 	 */
-	int TEST_CONTAINER = 10;
+	int TEST_CONTAINER = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.TestRunnerImpl <em>Test Runner</em>}' class.
@@ -225,7 +225,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestRunner()
 	 * @generated
 	 */
-	int TEST_RUNNER = 8;
+	int TEST_RUNNER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -290,6 +290,43 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUITE_TEST_RUNNER_FEATURE_COUNT = TEST_RUNNER_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.fw.test.QTestAsserter <em>Test Asserter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.test.QTestAsserter
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestAsserter()
+	 * @generated
+	 */
+	int TEST_ASSERTER = 5;
+
+	/**
+	 * The number of structural features of the '<em>Test Asserter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_ASSERTER_FEATURE_COUNT = ASSERTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_CONTAINER__TESTS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Test Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_CONTAINER_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of structural features of the '<em>Test Listener</em>' class.
@@ -391,24 +428,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	int UNIT_TEST_RUNNER_FEATURE_COUNT = TEST_RUNNER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_CONTAINER__TESTS = 0;
-
-	/**
-	 * The number of structural features of the '<em>Test Container</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_CONTAINER_FEATURE_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link org.asup.fw.test.AssertionState <em>Assertion State</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,7 +435,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getAssertionState()
 	 * @generated
 	 */
-	int ASSERTION_STATE = 11;
+	int ASSERTION_STATE = 12;
 
 	/**
 	 * The meta object id for the '<em>Faillure Error</em>' data type.
@@ -426,7 +445,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getFrameworkTestFaillureError()
 	 * @generated
 	 */
-	int FRAMEWORK_TEST_FAILLURE_ERROR = 12;
+	int FRAMEWORK_TEST_FAILLURE_ERROR = 13;
 
 
 	/**
@@ -489,6 +508,16 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSuiteTestRunner();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.fw.test.QTestAsserter <em>Test Asserter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Test Asserter</em>'.
+	 * @see org.asup.fw.test.QTestAsserter
+	 * @generated
+	 */
+	EClass getTestAsserter();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}'.
@@ -728,6 +757,16 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SUITE_TEST_RUNNER = eINSTANCE.getSuiteTestRunner();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.fw.test.QTestAsserter <em>Test Asserter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.test.QTestAsserter
+		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestAsserter()
+		 * @generated
+		 */
+		EClass TEST_ASSERTER = eINSTANCE.getTestAsserter();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}' class.

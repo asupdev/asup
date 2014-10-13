@@ -5,18 +5,19 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.il.data;
+package org.asup.fw.test;
 
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Buffer Def</b></em>'.
+ * A representation of the model object '<em><b>Test Asserter</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getBufferDef()
- * @model
+ * @see org.asup.fw.test.QFrameworkTestPackage#getTestAsserter()
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface QBufferDef extends QUnaryAtomicBufferedDataDef<QBufferedData> {
-} // QBufferDef
+public interface QTestAsserter extends QAsserter {
+
+} // QTestAsserter

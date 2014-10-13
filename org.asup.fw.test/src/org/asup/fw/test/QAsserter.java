@@ -25,31 +25,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertTrue(boolean expected);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertTrue(String message, boolean expected);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.test.FrameworkTestFaillureError"
-	 * @generated
-	 */
-	void fail() throws FrameworkTestFailureError;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.test.FrameworkTestFaillureError"
-	 * @generated
-	 */
-	void fail(String message) throws FrameworkTestFailureError;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,23 +41,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertEquals(Object expected, Object actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertEquals(String message, String expected, String actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertEquals(String expected, String actual);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,23 +57,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertEquals(double expected, double actual, double delta);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertEquals(String message, float expected, float actual, float delta);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertEquals(float expected, float actual, float delta);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,23 +73,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertEquals(long expected, long actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertEquals(String message, boolean expected, boolean actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertEquals(boolean expected, boolean actual);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,23 +89,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertEquals(byte expected, byte actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertEquals(String message, char expected, char actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertEquals(char expected, char actual);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,23 +105,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertEquals(short expected, short actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertEquals(String message, int expected, int actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertEquals(int expected, int actual);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,23 +121,7 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertNotNull(Object object);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertNull(String message, Object object);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertNull(Object object);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -257,38 +137,14 @@ public interface QAsserter {
 	 * @model
 	 * @generated
 	 */
-	void assertSame(Object expected, Object actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void assertNotSame(String message, Object expected, Object actual);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void assertNotSame(Object expected, Object actual);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.fw.test.FrameworkTestFaillureError"
 	 * @generated
 	 */
-	void failNotSame(String message, Object expected, Object actual) throws FrameworkTestFailureError;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.test.FrameworkTestFaillureError"
-	 * @generated
-	 */
-	void failNotEquals(String message, Object expected, Object actual) throws FrameworkTestFailureError;
+	void fail(String message) throws FrameworkTestFailureError;
 
 } // QAssert

@@ -152,7 +152,7 @@ public abstract class E4AbstractContextImpl extends ContextImpl {
 	public Class<?> loadClass(QContextID contextID, String address) {
 
 		URI uriAddress = URI.createURI(address);
-		System.out.println(uriAddress.segment(1));
+
 		Bundle bundleAuthority = Platform.getBundle(uriAddress.segment(1));
 		if(bundleAuthority == null)
 			return null;

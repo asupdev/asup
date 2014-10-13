@@ -134,6 +134,8 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.setName(getAST().newSimpleName(compilationContext.normalizeTermName(routine.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
+//		writeSuppressWarning(methodDeclaration);
+		
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
@@ -169,6 +171,8 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.setName(getAST().newSimpleName(compilationContext.normalizeTermName(prototype.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
+//		writeSuppressWarning(methodDeclaration);
+		
 		if(prototype.getDelegate() != null) {
 			Type type = prepareJavaType(prototype.getDelegate());
 			methodDeclaration.setReturnType2(type);
@@ -231,6 +235,8 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.setName(ast.newSimpleName(compilationContext.normalizeTermName(procedure.getName())));
 		methodDeclaration.modifiers().add(ast.newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
+//		writeSuppressWarning(methodDeclaration);
+		
 		Block block = ast.newBlock();
 		methodDeclaration.setBody(block);
 
@@ -264,6 +270,8 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.setName(getAST().newSimpleName(name));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
+//		writeSuppressWarning(methodDeclaration);
+		
 		MarkerAnnotation entryAnnotation = getAST().newMarkerAnnotation();
 		entryAnnotation.setTypeName(getAST().newSimpleName(Entry.class.getSimpleName()));
 		writeImport(Entry.class);

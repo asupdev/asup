@@ -420,6 +420,14 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 
 		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theIntegratedLanguageDataPackage.getCompoundDataTerm());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "structure", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageFlowPackage.getModule(), "module", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -435,6 +443,12 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		op = addEOperation(compilerManagerEClass, null, "writeProgram", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theFrameworkJavaPackage.getJavaIOException());
+
+		op = addEOperation(compilerManagerEClass, null, "writeStruct", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);

@@ -2263,11 +2263,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		booleanEClass.getESuperTypes().add(this.getData());
 		bufferedDataEClass.getESuperTypes().add(this.getData());
 		bufferedDataEClass.getESuperTypes().add(this.getMoveable());
-		g1 = createEGenericType(this.getUnaryAtomicDataDef());
-		g2 = createEGenericType(this.getBufferedData());
-		g1.getETypeArguments().add(g2);
-		bufferDefEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getBufferedDataDef());
+		g1 = createEGenericType(this.getUnaryAtomicBufferedDataDef());
 		g2 = createEGenericType(this.getBufferedData());
 		g1.getETypeArguments().add(g2);
 		bufferDefEClass.getEGenericSuperTypes().add(g1);

@@ -75,6 +75,15 @@
     </eOperations>
     <eOperations name="createCompilationContext" lowerBound="1" eType="#//CompilationContext">
       <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="structure" lowerBound="1">
+        <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//CompoundDataTerm">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="caseSensitive" lowerBound="1" eType="#//CaseSensitiveType"/>
+    </eOperations>
+    <eOperations name="createCompilationContext" lowerBound="1" eType="#//CompilationContext">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
       <eParameters name="module" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Module"/>
       <eParameters name="caseSensitive" lowerBound="1" eType="#//CaseSensitiveType"/>
     </eOperations>
@@ -89,6 +98,11 @@
       <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
     </eOperations>
     <eOperations name="writeProgram" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
+      <eParameters name="setup" eType="#//CompilationSetup"/>
+      <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
+    </eOperations>
+    <eOperations name="writeStruct" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
       <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
       <eParameters name="setup" eType="#//CompilationSetup"/>
       <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>

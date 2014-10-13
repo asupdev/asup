@@ -13,23 +13,22 @@ package org.asup.fw.test.base;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.asup.fw.test.FrameworkTestFailureError;
-import org.asup.fw.test.QAsserter;
 import org.asup.fw.test.QAssertionFailed;
 import org.asup.fw.test.QAssertionResult;
 import org.asup.fw.test.QAssertionSuccess;
 import org.asup.fw.test.QFrameworkTestFactory;
+import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.QTestListener;
 import org.asup.fw.test.QTestRunner;
 
-public abstract class BaseAssertImpl implements QAsserter {
+public class BaseTestAsserterImpl implements QTestAsserter {
 
-	@Inject
 	private QTestRunner testRunner;
 
-	private boolean fatal;
+	public BaseTestAsserterImpl(QTestRunner testRunner) {
+		this.testRunner = testRunner;
+	}
 	
 	/**
      * Asserts that a condition is true. If it isn't it throws
@@ -44,30 +43,12 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that a condition is true. If it isn't it throws
-     * an AssertionFailedError.
-     */
-    public void assertTrue(boolean condition) {
-        assertTrue(null, condition);
-    }
-
-    /**
      * Asserts that a condition is false. If it isn't it throws
      * an AssertionFailedError with the given message.
      */
     public void assertFalse(String message, boolean condition) {
         assertTrue(message, !condition);
     }
-
-    /**
-     * Asserts that a condition is false. If it isn't it throws
-     * an AssertionFailedError.
-     */
-    public void assertFalse(boolean condition) {
-        assertFalse(null, condition);
-    }
-
-
 
     /**
      * Asserts that two objects are equal. If they are not
@@ -86,14 +67,6 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two objects are equal. If they are not
-     * an AssertionFailedError is thrown.
-     */
-    public void assertEquals(Object expected, Object actual) {
-        assertEquals(null, expected, actual);
-    }
-
-    /**
      * Asserts that two Strings are equal.
      */
     public void assertEquals(String message, String expected, String actual) {
@@ -105,13 +78,6 @@ public abstract class BaseAssertImpl implements QAsserter {
         } else {
         	failNotEquals(message, expected, actual);
         }
-    }
-
-    /**
-     * Asserts that two Strings are equal.
-     */
-    public void assertEquals(String expected, String actual) {
-        assertEquals(null, expected, actual);
     }
 
     /**
@@ -128,14 +94,6 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two doubles are equal concerning a delta. If the expected
-     * value is infinity then the delta value is ignored.
-     */
-    public void assertEquals(double expected, double actual, double delta) {
-        assertEquals(null, expected, actual, delta);
-    }
-
-    /**
      * Asserts that two floats are equal concerning a positive delta. If they
      * are not an AssertionFailedError is thrown with the given message. If the
      * expected value is infinity then the delta value is ignored.
@@ -149,26 +107,11 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two floats are equal concerning a delta. If the expected
-     * value is infinity then the delta value is ignored.
-     */
-    public void assertEquals(float expected, float actual, float delta) {
-        assertEquals(null, expected, actual, delta);
-    }
-
-    /**
      * Asserts that two longs are equal. If they are not
      * an AssertionFailedError is thrown with the given message.
      */
     public void assertEquals(String message, long expected, long actual) {
         assertEquals(message, new Long(expected), new Long(actual));
-    }
-
-    /**
-     * Asserts that two longs are equal.
-     */
-    public void assertEquals(long expected, long actual) {
-        assertEquals(null, expected, actual);
     }
 
     /**
@@ -180,25 +123,11 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two booleans are equal.
-     */
-    public void assertEquals(boolean expected, boolean actual) {
-        assertEquals(null, expected, actual);
-    }
-
-    /**
      * Asserts that two bytes are equal. If they are not
      * an AssertionFailedError is thrown with the given message.
      */
     public void assertEquals(String message, byte expected, byte actual) {
         assertEquals(message, new Byte(expected), new Byte(actual));
-    }
-
-    /**
-     * Asserts that two bytes are equal.
-     */
-    public void assertEquals(byte expected, byte actual) {
-        assertEquals(null, expected, actual);
     }
 
     /**
@@ -210,25 +139,11 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two chars are equal.
-     */
-    public void assertEquals(char expected, char actual) {
-        assertEquals(null, expected, actual);
-    }
-
-    /**
      * Asserts that two shorts are equal. If they are not
      * an AssertionFailedError is thrown with the given message.
      */
     public void assertEquals(String message, short expected, short actual) {
         assertEquals(message, new Short(expected), new Short(actual));
-    }
-
-    /**
-     * Asserts that two shorts are equal.
-     */
-    public void assertEquals(short expected, short actual) {
-        assertEquals(null, expected, actual);
     }
 
     /**
@@ -240,38 +155,11 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two ints are equal.
-     */
-    public void assertEquals(int expected, int actual) {
-        assertEquals(null, expected, actual);
-    }
-
-    /**
-     * Asserts that an object isn't null.
-     */
-    public void assertNotNull(Object object) {
-        assertNotNull(null, object);
-    }
-
-    /**
      * Asserts that an object isn't null. If it is
      * an AssertionFailedError is thrown with the given message.
      */
     public void assertNotNull(String message, Object object) {
         assertTrue(message, object != null);
-    }
-
-    /**
-     * Asserts that an object is null. If it isn't an {@link AssertionError} is
-     * thrown.
-     * Message contains: Expected: <null> but was: object
-     *
-     * @param object Object to check or <code>null</code>
-     */
-    public void assertNull(Object object) {
-        if (object != null) {
-            assertNull("Expected: <null> but was: " + object.toString(), object);
-        }
     }
 
     /**
@@ -295,14 +183,6 @@ public abstract class BaseAssertImpl implements QAsserter {
     }
 
     /**
-     * Asserts that two objects refer to the same object. If they are not
-     * the same an AssertionFailedError is thrown.
-     */
-    public void assertSame(Object expected, Object actual) {
-        assertSame(null, expected, actual);
-    }
-
-    /**
      * Asserts that two objects do not refer to the same object. If they do
      * refer to the same object an AssertionFailedError is thrown with the
      * given message.
@@ -314,14 +194,6 @@ public abstract class BaseAssertImpl implements QAsserter {
         	successNotSame(message, expected, actual);
         }
 
-    }
-
-    /**
-     * Asserts that two objects do not refer to the same object. If they do
-     * refer to the same object an AssertionFailedError is thrown.
-     */
-    public void assertNotSame(Object expected, Object actual) {
-        assertNotSame(null, expected, actual);
     }
 
     public void failSame(String message) throws FrameworkTestFailureError {
@@ -354,14 +226,6 @@ public abstract class BaseAssertImpl implements QAsserter {
 		this.testRunner = value;
 	}
 
-	/**
-     * Fails a test with no message.
-	 * @throws FrameworkTestFailureError
-     */
-    public void fail() throws FrameworkTestFailureError {
-        fail(null);
-    }
-
 	 /**
      * Fails a test with the given message.
 	 * @throws FrameworkTestFailureError
@@ -378,19 +242,10 @@ public abstract class BaseAssertImpl implements QAsserter {
     	getTestRunner().getTestResult().setFailed(true);
     	notifyAssertResult(assertionFailed);
 
-    	if (fatal) 
-    		throw new FrameworkTestFailureError("Fatal test case");
     }
 
     public void failNotEquals(String message, Object expected, Object actual) throws FrameworkTestFailureError {
         fail(formatFailMessage(message, expected, actual));
-    }
-
-    /**
-     * Success a test with no message.
-     */
-    public void success() {
-        success(null);
     }
 
     /**
@@ -401,8 +256,6 @@ public abstract class BaseAssertImpl implements QAsserter {
     	//Create fail assertion
     	QAssertionSuccess assertionSuccess = QFrameworkTestFactory.eINSTANCE.createAssertionSuccess();
     	assertionSuccess.setMessage(message);
-//    	assertionSuccess.setTestClass(this.getClass().getName());
-//    	assertionSuccess.setTestName(getTestName());
 
     	getTestRunner().getTestResult().getAssertResults().add(assertionSuccess);
     	notifyAssertResult(assertionSuccess);

@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class BufferDefImpl extends UnaryAtomicDataDefImpl<QBufferedData> implements QBufferDef {
+public class BufferDefImpl extends UnaryAtomicBufferedDataDefImpl<QBufferedData> implements QBufferDef {
 	/**
 	 * 
 	 */
@@ -46,17 +46,6 @@ public class BufferDefImpl extends UnaryAtomicDataDefImpl<QBufferedData> impleme
 	@Override
 	protected EClass eStaticClass() {
 		return QIntegratedLanguageDataPackage.Literals.BUFFER_DEF;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getLength() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
