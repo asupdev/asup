@@ -302,7 +302,7 @@ public abstract class SystemManagerImpl extends EObjectImpl implements QSystemMa
 	    // job context
 	    QContext jobContext = getSystem().getContext().createChild();
 	    job.setJobContext(jobContext);
-	    
+
 	    jobContext.set(QContextID.class, job);
 	    jobContext.set(QJob.class, job);
 	    

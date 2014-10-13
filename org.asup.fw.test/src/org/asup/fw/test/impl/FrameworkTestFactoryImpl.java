@@ -65,9 +65,9 @@ public class FrameworkTestFactoryImpl extends EFactoryImpl implements QFramework
 			case QFrameworkTestPackage.ASSERTION_FAILED: return (EObject)createAssertionFailed();
 			case QFrameworkTestPackage.ASSERTION_SUCCESS: return (EObject)createAssertionSuccess();
 			case QFrameworkTestPackage.SUITE_TEST_RUNNER: return (EObject)createSuiteTestRunner();
+			case QFrameworkTestPackage.TEST_CONTAINER: return (EObject)createTestContainer();
 			case QFrameworkTestPackage.TEST_RESULT: return (EObject)createTestResult();
 			case QFrameworkTestPackage.UNIT_TEST_RUNNER: return (EObject)createUnitTestRunner();
-			case QFrameworkTestPackage.TEST_CONTAINER: return (EObject)createTestContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

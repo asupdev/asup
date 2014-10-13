@@ -28,6 +28,7 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.impl.CompilerManagerImpl;
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QExpressionParserRegistry;
 import org.asup.il.flow.QCallableUnit;
@@ -138,6 +139,24 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		return compilationContext;
 	}
+	
+
+	@Override
+	public QCompilationContext createCompilationContext(QJob job, QCompoundDataTerm<?> structure, CaseSensitiveType caseSensitive) {
+
+		List<QCompilationContext> contexts = new ArrayList<QCompilationContext>();
+		
+		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job, 
+																					 job.getJobContext().createChild(),
+																					 fileManager,
+																					 structure,
+																					 contexts,
+																					 caseSensitive);
+		compilationContext.set(QCompilationContext.class, compilationContext);
+
+		return compilationContext;
+	}
+
 	private List<QCompilationContext> prepareContext(QJob job, QCallableUnit unit, CaseSensitiveType caseSensitive) {
 		
 		Map<String, QCompilationContext> contexts = new HashMap<>();
@@ -218,6 +237,15 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		moduleWriter.writeModule((QModule) context.getRoot());
 
 		moduleWriter.writeOutputStream(output);
+	}
+
+	@Override
+	public void writeStruct(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+		
+		RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(null, context, setup, context.getRoot().getName(), false);
+		dataStructureWriter.writeStructure(((QCompoundDataTerm<?>)context.getRoot()).getDefinition());
+
+		dataStructureWriter.writeOutputStream(output);
 	}
 
 	@Override

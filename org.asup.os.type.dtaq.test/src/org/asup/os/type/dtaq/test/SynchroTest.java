@@ -13,8 +13,8 @@ package org.asup.os.type.dtaq.test;
 
 import javax.inject.Inject;
 
+import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.annotation.TestStarted;
-import org.asup.fw.test.base.BaseAssertImpl;
 import org.asup.os.core.ContentLockType;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.jobs.QJob;
@@ -30,147 +30,138 @@ import org.asup.os.type.dtaq.QDataQueue;
 import org.asup.os.type.dtaq.QDataQueueManager;
 import org.asup.os.type.lib.QLibrary;
 
-public class SynchroTest extends BaseAssertImpl {
+public class SynchroTest {
 
 	@Inject private QDataQueueManager dataQueueManager;
 	@Inject private QResourceFactory resourceFactory;
 	@Inject private QCommandManager commandManager;
 	@Inject private QJobManager jobManager;
+	@Inject private QTestAsserter testAsserter;
 	@Inject private QJob job;
 
 	private Object lockWaitObj = new Object();
 
 	@TestStarted
-	public void runTest() {
+	public void runTest() throws OperatingSystemException {
 		doTestReadOK();
 		doTestReadKO();
 	}
 
 	/**
 	 * Test reading from a locked by other queue, with lock that expire before timeout
+	 * @throws OperatingSystemException 
 	 */
-	public void doTestReadOK(){
+	public void doTestReadOK() throws OperatingSystemException{
 
-		String testLib = "TSTLIB";
+		String testLib = "QTEMP";
 		String fifoDtaq = "FIFO_DTAQ";
 
-		try
-		{
-			// Create a test library (if none)
-			if (checkObj(job, QLibrary.class, "QSYS", testLib) == false){
-				String cmd = "CRTLIB LIB(" + testLib + ")";
-				QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null, true);
-				commandManager.executeCommand(job, callableCommand);
-			}
-
-			// Assert: create queues (if none, else clear existent)
-			if (checkObj(job, QDataQueue.class, testLib, fifoDtaq) == false) {
-				dataQueueManager.createDataQueue(job, testLib, fifoDtaq, DataQueueType.FIFO, 32000);
-				assertTrue("Create FIFO DTAQ " + testLib + "/" + fifoDtaq, checkObj(job, QDataQueue.class, testLib, fifoDtaq));
-			} else {
-				dataQueueManager.clearDataQueue(job, testLib, fifoDtaq);
-			}
-
-
-			String writeVal = "TEST DTAQ 1";
-
-			// Wite test data in DTAQ
-			dataQueueManager.writeDataQueue(job, testLib, fifoDtaq, null, writeVal);
-
-			// Start timed read lock (10 secs)
-			long delay = 10000;
-			TimedLock call = new TimedLock(testLib, fifoDtaq, delay);
-			Thread t = new Thread(call);
-			t.start();
-
-			synchronized (lockWaitObj) {
-				try {
-					lockWaitObj.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-
-			// Read from queue waiting for 20 secs
-			long waitFor = 20000;
-			long startTime = System.currentTimeMillis();
-			String readVal = dataQueueManager.readDataQueue(job, testLib, fifoDtaq, waitFor, null, null);
-			long endTime = System.currentTimeMillis();
-
-			assertTrue("Wait unlock when reading", (endTime-startTime) < waitFor && (endTime-startTime) > delay);
-			assertEquals("Read from queue with wait for data", writeVal, readVal);
-
-			// Delete queues
-			dataQueueManager.deleteDataQueue(job, testLib, fifoDtaq);
-			assertTrue("Delete FIFO DTAQ " + testLib + "/" + fifoDtaq, checkObj(job, QDataQueue.class, testLib, fifoDtaq) == false);
-
-		} catch(OperatingSystemException exc) {
-			fail(exc.getMessage());
+		// Create a test library (if none)
+		if (checkObj(job, QLibrary.class, "QSYS", testLib) == false){
+			String cmd = "CRTLIB LIB(" + testLib + ")";
+			QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null, true);
+			commandManager.executeCommand(job, callableCommand);
 		}
+
+		// Assert: create queues (if none, else clear existent)
+		if (checkObj(job, QDataQueue.class, testLib, fifoDtaq) == false) {
+			dataQueueManager.createDataQueue(job, testLib, fifoDtaq, DataQueueType.FIFO, 32000);
+			testAsserter.assertTrue("Create FIFO DTAQ " + testLib + "/" + fifoDtaq, checkObj(job, QDataQueue.class, testLib, fifoDtaq));
+		} else {
+			dataQueueManager.clearDataQueue(job, testLib, fifoDtaq);
+		}
+
+
+		String writeVal = "TEST DTAQ 1";
+
+		// Write test data in DTAQ
+		dataQueueManager.writeDataQueue(job, testLib, fifoDtaq, null, writeVal);
+
+		// Start timed read lock (10 secs)
+		long delay = 10000;
+		TimedLock call = new TimedLock(testLib, fifoDtaq, delay);
+		Thread t = new Thread(call);
+		t.start();
+
+		synchronized (lockWaitObj) {
+			try {
+				lockWaitObj.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// Read from queue waiting for 20 secs
+		long waitFor = 20000;
+		long startTime = System.currentTimeMillis();
+		String readVal = dataQueueManager.readDataQueue(job, testLib, fifoDtaq, waitFor, null, null);
+		long endTime = System.currentTimeMillis();
+
+		testAsserter.assertTrue("Wait unlock when reading", (endTime-startTime) < waitFor && (endTime-startTime) > delay);
+		testAsserter.assertEquals("Read from queue with wait for data", writeVal, readVal);
+
+		// Delete queues
+		dataQueueManager.deleteDataQueue(job, testLib, fifoDtaq);
+		testAsserter.assertTrue("Delete FIFO DTAQ " + testLib + "/" + fifoDtaq, checkObj(job, QDataQueue.class, testLib, fifoDtaq) == false);
 	}
 
 	/**
 	 * Test reading from a locked by other queue, with lock that expire before timeout
+	 * @throws OperatingSystemException 
 	 */
-	public void doTestReadKO(){
+	public void doTestReadKO() throws OperatingSystemException{
 
 		String testLib = "TSTLIB";
 		String fifoDtaq_1 = "FIFO_DTAQ_1";
 
-		try
-		{
-			// Create a test library (if none)
-			if (checkObj(job, QLibrary.class, "QSYS", testLib) == false){
-				String cmd = "CRTLIB LIB(" + testLib + ")";
-				QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null, true);
-				commandManager.executeCommand(job, callableCommand);
-			}
-
-			// Assert: create queues (if none, else clear existent)
-			if (checkObj(job, QDataQueue.class, testLib, fifoDtaq_1) == false) {
-				dataQueueManager.createDataQueue(job, testLib, fifoDtaq_1, DataQueueType.FIFO, 32000);
-				assertTrue("Create FIFO DTAQ " + testLib + "/" + fifoDtaq_1, checkObj(job, QDataQueue.class, testLib, fifoDtaq_1));
-			} else {
-				dataQueueManager.clearDataQueue(job, testLib, fifoDtaq_1);
-			}
-
-
-			String writeVal = "TEST DTAQ 1";
-
-			// Wite test data in DTAQ
-			dataQueueManager.writeDataQueue(job, testLib, fifoDtaq_1, null, writeVal);
-
-			// Start timed read lock (20 secs)
-			long delay = 20000;
-			TimedLock call = new TimedLock(testLib, fifoDtaq_1, delay);
-			Thread t = new Thread(call);
-			t.start();
-
-			synchronized (lockWaitObj) {
-				try {
-					lockWaitObj.wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-
-			// Read from queue waiting for 10 secs
-			long waitFor = 10000;
-			long startTime = System.currentTimeMillis();
-			String readVal = dataQueueManager.readDataQueue(job, testLib, fifoDtaq_1, waitFor, null, null);
-			long endTime = System.currentTimeMillis();
-
-			
-			assertTrue("Wait until timeout occour", (endTime-startTime) > waitFor && (endTime-startTime) < delay);
-			assertNull("Read null from queue (cause timout)", readVal);
-
-			// Delete queues
-			dataQueueManager.deleteDataQueue(job, testLib, fifoDtaq_1);
-			assertTrue("Delete FIFO DTAQ " + testLib + "/" + fifoDtaq_1, checkObj(job, QDataQueue.class, testLib, fifoDtaq_1) == false);
-
-		} catch(OperatingSystemException exc) {
-			fail(exc.getMessage());
+		// Create a test library (if none)
+		if (checkObj(job, QLibrary.class, "QSYS", testLib) == false){
+			String cmd = "CRTLIB LIB(" + testLib + ")";
+			QCallableCommand callableCommand = commandManager.prepareCommand(job, cmd, null, true);
+			commandManager.executeCommand(job, callableCommand);
 		}
+
+		// Assert: create queues (if none, else clear existent)
+		if (checkObj(job, QDataQueue.class, testLib, fifoDtaq_1) == false) {
+			dataQueueManager.createDataQueue(job, testLib, fifoDtaq_1, DataQueueType.FIFO, 32000);
+			testAsserter.assertTrue("Create FIFO DTAQ " + testLib + "/" + fifoDtaq_1, checkObj(job, QDataQueue.class, testLib, fifoDtaq_1));
+		} else {
+			dataQueueManager.clearDataQueue(job, testLib, fifoDtaq_1);
+		}
+
+
+		String writeVal = "TEST DTAQ 1";
+
+		// Wite test data in DTAQ
+		dataQueueManager.writeDataQueue(job, testLib, fifoDtaq_1, null, writeVal);
+
+		// Start timed read lock (20 secs)
+		long delay = 20000;
+		TimedLock call = new TimedLock(testLib, fifoDtaq_1, delay);
+		Thread t = new Thread(call);
+		t.start();
+
+		synchronized (lockWaitObj) {
+			try {
+				lockWaitObj.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// Read from queue waiting for 10 secs
+		long waitFor = 10000;
+		long startTime = System.currentTimeMillis();
+		String readVal = dataQueueManager.readDataQueue(job, testLib, fifoDtaq_1, waitFor, null, null);
+		long endTime = System.currentTimeMillis();
+
+		
+		testAsserter.assertTrue("Wait until timeout occour", (endTime-startTime) > waitFor && (endTime-startTime) < delay);
+		testAsserter.assertNull("Read null from queue (cause timout)", readVal);
+
+		// Delete queues
+		dataQueueManager.deleteDataQueue(job, testLib, fifoDtaq_1);
+		testAsserter.assertTrue("Delete FIFO DTAQ " + testLib + "/" + fifoDtaq_1, checkObj(job, QDataQueue.class, testLib, fifoDtaq_1) == false);
 	}
 
 	private <T extends QObjectNameable> boolean checkObj(QJob job, Class<T> klass, String library, String name){

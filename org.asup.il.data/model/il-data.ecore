@@ -93,10 +93,7 @@
     <eOperations name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BufferDef">
-    <eGenericSuperTypes eClassifier="#//UnaryAtomicDataDef">
-      <eTypeArguments eClassifier="#//BufferedData"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//BufferedDataDef">
+    <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//BufferedData"/>
     </eGenericSuperTypes>
   </eClassifiers>

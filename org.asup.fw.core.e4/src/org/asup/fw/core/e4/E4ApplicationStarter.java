@@ -197,16 +197,10 @@ public class E4ApplicationStarter {
 			if(serviceReference.getInterfaceName() != null)
 			   if(bundleContext.getServiceReference(serviceReference.getInterfaceName()) == null)
 				   registerService(application, level, context, serviceReference.getInterfaceName(), service, dictionary, serviceReference.isRemoteExport());
-				// already registered
-				else
-					"".toCharArray();	
 			// by class
 			else if(serviceReference.getClassName() != null)
 				if(bundleContext.getServiceReference(serviceReference.getClassName()) == null)
 					registerService(application, level, context, serviceReference.getClassName(), service, dictionary, serviceReference.isRemoteExport());
-				// already registered
-				else
-					"".toCharArray();	
 
 			
 			messageLevel++;			

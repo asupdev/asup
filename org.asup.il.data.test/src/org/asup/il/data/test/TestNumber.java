@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.il.data.nio.test;
+package org.asup.il.data.test;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -46,8 +46,7 @@ public class TestNumber {
 	private static String formatBinary(byte b){
 		
 		
-		String s = String.format("%8s", Integer.toBinaryString(b & 0xFF))
-				.replace(' ', '0');
+		String s = String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
 		
 		return s;
 	}

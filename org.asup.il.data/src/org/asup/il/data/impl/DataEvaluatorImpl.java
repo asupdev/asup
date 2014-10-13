@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import java.lang.String;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QAdapter;
 import org.asup.il.data.QBinary;

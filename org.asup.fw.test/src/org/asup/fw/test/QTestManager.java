@@ -8,7 +8,7 @@
 package org.asup.fw.test;
 
 import org.asup.fw.core.FrameworkCoreException;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QService;
 
 /**
@@ -25,10 +25,10 @@ public interface QTestManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException" classNameRequired="true"
+	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException"
 	 * @generated
 	 */
-	QTestRunner prepareRunner(QContextID contextID, String className) throws FrameworkCoreException;
+	QTestContext createTestContext(QContext context) throws FrameworkCoreException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -36,6 +36,14 @@ public interface QTestManager extends QService {
 	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException"
 	 * @generated
 	 */
-	QTestResult execute(QContextID contextID, QTestRunner runner) throws FrameworkCoreException;
+	QTestResult executeRunner(QContext context, QTestRunner runner) throws FrameworkCoreException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException" classNameRequired="true"
+	 * @generated
+	 */
+	QTestRunner prepareRunner(QContext context, String className) throws FrameworkCoreException;
 
 } // QTestManager

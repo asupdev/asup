@@ -1278,7 +1278,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUFFER_DEF__FORMULAS = UNARY_ATOMIC_DATA_DEF__FORMULAS;
+	int BUFFER_DEF__FORMULAS = UNARY_ATOMIC_BUFFERED_DATA_DEF__FORMULAS;
 
 	/**
 	 * The number of structural features of the '<em>Buffer Def</em>' class.
@@ -1287,7 +1287,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BUFFER_DEF_FEATURE_COUNT = UNARY_ATOMIC_DATA_DEF_FEATURE_COUNT + 0;
+	int BUFFER_DEF_FEATURE_COUNT = UNARY_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Data Delegator</em>' class.

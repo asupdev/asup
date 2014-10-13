@@ -7,5 +7,4 @@ Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javax.inject
 Require-Bundle: org.asup.fw.test;bundle-version="0.5.0";visibility:=reexport
-Export-Package: org.asup.fw.test.base,
- org.asup.fw.test.base.test
+Export-Package: org.asup.fw.test.base
