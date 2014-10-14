@@ -1,4 +1,4 @@
-package org.asup.db.core.db2;
+package org.asup.db.core.test;
 
 import java.sql.SQLException;
 
@@ -14,14 +14,14 @@ import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
 
-public class DB2CommandProviderImpl extends ServiceImpl implements CommandProvider  {
+public class TestCommandProviderImpl extends ServiceImpl implements CommandProvider  {
 
 	@Inject
 	private QConnectionManager connectionManager;
 	@Inject
 	private QDatabaseManager databaseManager;
 	
-	public Object _testdb2(CommandInterpreter interpreter) {
+	public Object _testdb(CommandInterpreter interpreter) {
 		
 		QConnectionConfig connectionConfig = QDatabaseCoreFactory.eINSTANCE.createConnectionConfig();
 		connectionConfig.setDatabaseName("*LOCAL");
