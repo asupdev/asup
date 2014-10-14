@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Database Core DB2
+Bundle-SymbolicName: org.asup.db.core.db2
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.ecore.xmi.impl
+Require-Bundle: org.asup.db.core;bundle-version="0.5.0"

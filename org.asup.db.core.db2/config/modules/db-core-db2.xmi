@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fw-core="http://www.asup.org/fw/core" name="DBCoreDB2">
+  <services className="org.asup.db.core.db2.DB2CommandProviderImpl" interfaceName="org.eclipse.osgi.framework.console.CommandProvider"/>
+</fw-core:ApplicationModule>
