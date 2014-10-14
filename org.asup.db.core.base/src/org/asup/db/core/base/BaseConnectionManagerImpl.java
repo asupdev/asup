@@ -57,7 +57,7 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 		// lookup database
 		QDatabase database = databases.get(config.getDatabaseName());
 		if(database == null)
-			registerDatabase(config);			
+			database = registerDatabase(config);			
 
 		QConnection dbConnection = QDatabaseCoreFactory.eINSTANCE.createConnection();
 		dbConnection.setConnectionConfig(config);
@@ -79,7 +79,7 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 		connectionConfigs.put(name, config);
 	}
 
-	private void registerDatabase(QConnectionConfig config) {
+	private QDatabase registerDatabase(QConnectionConfig config) {
 		// lookup database
 		QDatabase database = databases.get(config.getDatabaseName());
 		// if not exists runtime creation
@@ -88,6 +88,8 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 			database.setName(config.getDatabaseName());
 			databases.put(database.getName(), database);
 		}		
+		
+		return database;
 	}
 	@Override
 	public QConnectionConfig createConnectionConfig(Dictionary<String, Object> dictionary) {

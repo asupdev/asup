@@ -32,7 +32,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		connectionConfig.setUseCatalog(false);
 		connectionConfig.setPluginName("MSSQL");		
 
-		connectionManager.registerConnectionConfig("*LOCAL", connectionConfig);
+//		connectionManager.registerConnectionConfig("*LOCAL", connectionConfig);
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);
 		
 		QTable muconv0f = databaseManager.getTable(connection, "P_MULT", "MUCONV0F");
