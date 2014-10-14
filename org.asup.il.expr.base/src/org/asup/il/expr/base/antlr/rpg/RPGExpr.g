@@ -127,11 +127,18 @@ bi_function
 
 usr_function
 	:	TERM params	 -> ^(USER_FUNCTION[$TERM.text] params)
+		|
+		TERM empty	-> ^(USER_FUNCTION[$TERM.text])
 	;
 
 params
 	:	'('! logicalExpression (':'! logicalExpression)* ')'!
 	;
+
+empty
+	:
+	'(' ')'
+	;		
 
 
 SPECIAL
