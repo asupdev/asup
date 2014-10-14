@@ -863,6 +863,17 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%eof">
+        <definition
+            xsi:type="il-data:IndicatorDef"/>
+      </delegate>
+      <entry>
+        <parameters/>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%error">
         <definition
             xsi:type="il-data:IndicatorDef"/>

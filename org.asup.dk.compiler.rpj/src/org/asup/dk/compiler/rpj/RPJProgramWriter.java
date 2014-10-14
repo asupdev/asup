@@ -69,7 +69,8 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		if(program.getDataSection() != null)
 			writeDataFields(program.getDataSection());
 		
-		writeEntry(program.getEntry(), "qEntry");
+		if(program.getEntry() != null)
+			writeEntry(program.getEntry(), "qEntry");
 		
 		// main
 		if(program.getMain() != null) {
@@ -84,6 +85,7 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 			
 			// routines
 			for(QRoutine routine: program.getFlowSection().getRoutines()) {
+				System.out.println(routine);
 				writeRoutine(getCompilationContext(), routine);
 			}
 			

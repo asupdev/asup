@@ -13,7 +13,6 @@ import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
-import org.asup.il.data.annotation.Special;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
@@ -40,11 +39,10 @@ public class ObjectWorker {
 	@Inject
 	private QJobLogManager jobLogManager;
 	
-	@Entry
-	public void main(Object object,
-					 @DataDef(length = 7) QCharacter objectType,
-					 @DataDef(length=50, varying=true) QCharacter text,
-					 @DataDef(length=2) QCharacter application) {
+	public @Entry void main(@DataDef(qualified = true) Object object,
+			@DataDef(length = 7) QCharacter objectType,
+			@DataDef(length = 50) QCharacter text,
+			@DataDef(length = 2) QCharacter application) {
 	
 		List<QTypedManager<?>> types = new ArrayList<QTypedManager<?>>();
 		if (objectType.trimR().equals("*ALL"))
@@ -57,23 +55,39 @@ public class ObjectWorker {
 		for (QTypedManager<?> qType : types) {
 
 //			System.out.println(qType);
-			
+
 			QResourceReader<?> resourceReader = null;
-			Scope scope = Scope.get(object.library.trimR());
-			if (scope != null)
-				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), scope);
-			else
-				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), object.library.trimR());
+			switch (object.library.asEnum()) {
+			case ALL:
+				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), Scope.ALL);
+				break;
+			case ALLUSR:
+				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), Scope.ALL_USER);
+				break;
+			case CURLIB:
+				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), Scope.CURRENT_LIBRARY);
+				break;
+			case LIBL:
+				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), Scope.LIBRARY_LIST);
+				break;
+			case USRLIBL:
+				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), Scope.USER_LIBRARY_LIST);
+				break;
+			case OTHER:
+				resourceReader = resourceFactory.getResourceReader(job,	qType.getTypedClass(), object.library.asData().trimR());
+				break;
+			}
+			
 
 			QObjectIterator<?> objectIterator = null;
 			
-			switch (object.name.asEnum()) {
+			switch (object.nameGeneric.asEnum()) {
 				case ALL:
 					objectIterator = resourceReader.find(null);					
 					break;
 	
 				case OTHER:
-					objectIterator = resourceReader.find(object.name.asData().trimR());					
+					objectIterator = resourceReader.find(object.nameGeneric.asData().trimR());					
 					break;
 
 			}
@@ -108,18 +122,20 @@ public class ObjectWorker {
 		objectWriter.flush();
 	}
 
+
 	public static class Object extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		
 		@DataDef(length = 10)
-		public QEnum<Name, QCharacter> name;
-		
-		@DataDef(length = 10)
-		public QCharacter library;
+		public QEnum<NameGenericEnum, QCharacter> nameGeneric;
+		@DataDef(length = 10, value = "*LIBL")
+		public QEnum<LibraryEnum, QCharacter> library;
 
-		public static enum Name {
-			@Special(value = "*ALL")
+		public static enum NameGenericEnum {
 			ALL, OTHER
+		}
+
+		public static enum LibraryEnum {
+			LIBL, CURLIB, USRLIBL, ALLUSR, ALL, OTHER
 		}
 	}
 }

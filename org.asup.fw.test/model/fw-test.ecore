@@ -84,6 +84,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AssertionResult" abstract="true">
     <eOperations name="getAssertionState" eType="#//AssertionState"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AssertionState">
     <eLiterals name="success" value="1"/>
@@ -93,7 +94,9 @@
   <eClassifiers xsi:type="ecore:EDataType" name="FrameworkTestFaillureError" instanceClassName="org.asup.fw.test.FrameworkTestFailureError"/>
   <eClassifiers xsi:type="ecore:EClass" name="SuiteTestRunner" eSuperTypes="#//TestRunner"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestAsserter" abstract="true" interface="true"
-      eSuperTypes="#//Asserter"/>
+      eSuperTypes="#//Asserter">
+    <eOperations name="resetTime"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestContainer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tests" upperBound="-1"
         eType="#//TestRunner" containment="true"/>
@@ -132,11 +135,9 @@
         eType="#//AssertionResult" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestRunner" abstract="true">
-    <eOperations name="runTest" lowerBound="1"/>
+    <eOperations name="runTest"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testListeners" upperBound="-1"
         eType="#//TestListener" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="testResult" lowerBound="1"
-        eType="#//TestResult" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitTestRunner" eSuperTypes="#//TestRunner">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

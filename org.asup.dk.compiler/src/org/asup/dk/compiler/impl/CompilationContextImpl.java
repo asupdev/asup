@@ -18,6 +18,7 @@ import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QKeyListTerm;
 import org.asup.os.type.file.QPhysicalFile;
 import org.eclipse.emf.ecore.EClass;
 
@@ -114,6 +115,17 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * @generated NOT
 	 */
 	public abstract QDataTerm<?> getData(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QKeyListTerm getKeyList(String name, boolean deep) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

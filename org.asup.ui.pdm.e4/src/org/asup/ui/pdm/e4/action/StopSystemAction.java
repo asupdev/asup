@@ -30,7 +30,7 @@ public class StopSystemAction implements IObjectActionDelegate  {
 	
 	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
-		if(Activator.getDefault().getApplication() != null)
+		if(Activator.getDefault().getApplicationContext() != null)
 			action.setEnabled(true);
 		else
 			action.setEnabled(false);

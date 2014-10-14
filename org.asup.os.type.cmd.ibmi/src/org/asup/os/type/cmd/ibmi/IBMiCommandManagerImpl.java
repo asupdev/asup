@@ -428,11 +428,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				
 			}				
 		}
-		
-		// Manage HEX default values
-		if (defValue != null && defValue.startsWith("X'") && defValue.endsWith("'")) {
-			defValue = defValue.substring(1, defValue.length()-1);
-		}
 
 		return defValue;
 	}
@@ -613,6 +608,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		default:
 			value = null;
 			break;
+		}
+		
+		// Manage HEX default values
+		if (value != null && value.startsWith("X'") && value.endsWith("'")) {
+			value = value.substring(2, value.length()-1);
+			System.out.println("Hexadecimal founded: "+value+ " "+dataTerm.getName());
 		}
 
 		return value;

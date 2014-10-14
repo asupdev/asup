@@ -50,16 +50,12 @@ public class E4ApplicationStarter {
 	private int messageLevel;
 	private Writer writer;
 	
-	public E4ApplicationStarter(QApplication application, OutputStream outputStream) {
+	protected E4ApplicationStarter(QApplication application, OutputStream outputStream) {
 		this.application = application;
 		this.writer = new OutputStreamWriter(outputStream);
 	}
-
-	public E4ApplicationStarter(QApplication application) {
-		this(application, System.out);
-	}
 	
-	public void start() throws Exception {
+	public QContext start() throws Exception {
 		
 		int i = 0;
 		
@@ -76,8 +72,10 @@ public class E4ApplicationStarter {
         bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 
 		// framework context
-        QContext frameworkContext = new E4ContextImpl(bundleContext);
-		bundleContext.registerService(QContext.class, frameworkContext, null);
+        QContext applicationContext = new E4ContextImpl(bundleContext);
+        
+        // TODO
+		bundleContext.registerService(QContext.class, applicationContext, null);
 
 		// hooks
 		messageLevel++;			
@@ -90,12 +88,12 @@ public class E4ApplicationStarter {
 			}
 
 			println("+hook "+hook);				
-			QService service = (QService)loadObject(frameworkContext, hook.getClassName());
+			QService service = (QService)loadObject(applicationContext, hook.getClassName());
 			service.setConfig(hook.getConfig());
 			Dictionary<String, Object> properties = new Hashtable<String, Object>();
 			properties.put("org.asup.fw.core.hook.application", application.getText());
 			bundleContext.registerService(QService.class, service, properties);
-			frameworkContext.invoke(service, ApplicationStarting.class);			
+			applicationContext.invoke(service, ApplicationStarting.class);			
 		}
 
 		messageLevel--;
@@ -115,7 +113,7 @@ public class E4ApplicationStarter {
 				}
 
 				println("+hook "+hook);				
-				QService service = (QService)loadObject(frameworkContext, hook.getClassName());
+				QService service = (QService)loadObject(applicationContext, hook.getClassName());
 				service.setConfig(hook.getConfig());
 				Dictionary<String, Object> properties = new Hashtable<String, Object>();
 				properties.put("org.asup.fw.core.hook.level", level.getValue());
@@ -123,7 +121,7 @@ public class E4ApplicationStarter {
 			}
 			messageLevel--;
 			
-			QContext contextLevel = frameworkContext.createChild();
+			QContext contextLevel = applicationContext.createChild();
 			contextLevel.set(QApplicationLevel.class, level);			
 	
 			// LevelStarting event
@@ -167,10 +165,12 @@ public class E4ApplicationStarter {
 
 		for(QService hook: loadHooks(application)) {
 			println("+hook "+hook);		
-			frameworkContext.invoke(hook, ApplicationStarted.class);			
+			applicationContext.invoke(hook, ApplicationStarted.class);			
 		}
 
 		messageLevel--;
+		
+		return applicationContext;
 	}
 
 	public void registerService(QApplication application, QApplicationLevel level, QContext context, QServiceReference serviceReference) throws ClassNotFoundException {

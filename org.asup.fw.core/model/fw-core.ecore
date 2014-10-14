@@ -18,6 +18,13 @@
         eType="#//ApplicationModule"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationManager" abstract="true"
+      interface="true">
+    <eOperations name="start" lowerBound="1" eType="#//Context">
+      <eParameters name="application" lowerBound="1" eType="#//Application"/>
+      <eParameters name="output" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationModule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>

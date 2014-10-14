@@ -20,4 +20,12 @@ package org.asup.fw.test;
  */
 public interface QTestAsserter extends QAsserter {
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void resetTime();
+
 } // QTestAsserter

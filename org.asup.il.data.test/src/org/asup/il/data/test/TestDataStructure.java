@@ -44,9 +44,11 @@ public class TestDataStructure {
 
 		QDataFactory dataFactory = dataManager.createFactory(contextID);
 
+		testAsserter.resetTime();
 		DataStructure dataStruct = dataFactory.createDataStruct(DataStructure.class, 0, true);
 		testAsserter.assertNotNull("DataStructure creation", dataStruct);
-		
+
+		testAsserter.resetTime();
 		dataStruct.alfa.eval("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		testAsserter.assertEquals("Read first 10 chars", "ABCDEFGHIJ", dataStruct.alfa.asString());
 		
@@ -55,15 +57,21 @@ public class TestDataStructure {
 		
 		dataStruct.multiple.get(1).eval("A");
 		dataStruct.multiple.get(2).eval("B");
-		testAsserter.assertEquals("Read array element[1]", "A", dataStruct.multiple.get(1));
-		testAsserter.assertEquals("Read array element[2]", "B", dataStruct.multiple.get(2));
+		testAsserter.assertEquals("Read array element[1]", "A", dataStruct.multiple.get(1).asString().trim());
+		testAsserter.assertEquals("Read array element[2]", "B", dataStruct.multiple.get(2).asString().trim());
 
 		int c = 0;		
 		for(@SuppressWarnings("unused") QCharacter multElement: dataStruct.multiple) {
 			c++;
 		}
-		testAsserter.assertEquals("Count all elements", DIM, c);
+		testAsserter.assertEquals("Count all elements first", DIM, c);
 
+		c = 0;		
+		for(@SuppressWarnings("unused") QCharacter multElement: dataStruct.multiple) {
+			c++;
+		}
+		testAsserter.assertEquals("Count all elements second", DIM, c);
+		
 		c = 0;
 		for(QCharacter multElement: dataStruct.multiple) {
 			if(multElement.isEmpty())
@@ -92,7 +100,7 @@ public class TestDataStructure {
 			multElement.asBytes();
 			c++;
 		}
-		testAsserter.assertEquals("Read not empty elements", DIM, c);
+		testAsserter.assertEquals("Read not empty elements", DIM, c-1);
 		
 
 		QCharacter character = dataFactory.createCharacter(10000, false, true);
