@@ -90,6 +90,7 @@
    <feature url="features/org.asup.ft.connector.shell_0.5.0.201410141423.jar" id="org.asup.ft.connector.shell" version="0.5.0.201410141423">
       <category name="org.asup.co"/>
    </feature>
+<<<<<<< HEAD
    <feature url="features/org.asup.ft.framework_0.5.0.201410141503.jar" id="org.asup.ft.framework" version="0.5.0.201410141503">
       <category name="org.asup.fw"/>
    </feature>
@@ -97,6 +98,15 @@
       <category name="org.asup.fw"/>
    </feature>
    <feature url="features/org.asup.ft.framework.e4_0.5.0.201410141503.jar" id="org.asup.ft.framework.e4" version="0.5.0.201410141503">
+=======
+   <feature url="features/org.asup.ft.framework_0.5.0.201410141447.jar" id="org.asup.ft.framework" version="0.5.0.201410141447">
+      <category name="org.asup.fw"/>
+   </feature>
+   <feature url="features/org.asup.ft.framework.base_0.5.0.201410141447.jar" id="org.asup.ft.framework.base" version="0.5.0.201410141447">
+      <category name="org.asup.fw"/>
+   </feature>
+   <feature url="features/org.asup.ft.framework.e4_0.5.0.201410141447.jar" id="org.asup.ft.framework.e4" version="0.5.0.201410141447">
+>>>>>>> branch 'gh-pages' of https://github.com/asupdev/asup.git
       <category name="org.asup.fw"/>
    </feature>
    <feature url="features/org.asup.ft.database_0.5.0.201410141447.jar" id="org.asup.ft.database" version="0.5.0.201410141447">
