@@ -1,27 +1,59 @@
 package org.asup.db.core.test;
 
+import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Properties;
 
 import javax.inject.Inject;
+import javax.sql.DataSource;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionFactory;
+import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseCoreFactory;
-import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QTable;
 import org.asup.fw.core.impl.ServiceImpl;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 public class TestCommandProviderImpl extends ServiceImpl implements CommandProvider  {
-
+	
+	@Inject
+	private QConnectionFactoryRegistry connectionFactoryRegistry;
 	@Inject
 	private QConnectionManager connectionManager;
-	@Inject
-	private QDatabaseManager databaseManager;
 	
-	public Object _testdb(CommandInterpreter interpreter) {
+	// dataFactory
+	public Object _testcon1(CommandInterpreter interpreter) throws SQLException {
+
+		System.out.println(connectionFactoryRegistry);
+		
+		QConnectionFactory mssqlConnectionFactory = connectionFactoryRegistry.lookup(DBType.MSSQL.name());
+		System.out.println(mssqlConnectionFactory);
+		
+		Properties props = new Properties();
+		props.put("url", "jdbc:jtds:sqlserver://ASUP-DB1/ASUP_0.5.0");
+		props.put("user", "ASUP");
+		props.put("password", "asup2013");
+		
+		DataSource dataSource = mssqlConnectionFactory.createDataSource(props);
+		System.out.println(dataSource.getConnection());
+		
+		return null;
+		
+	}
+	
+	// connectionManager e config
+	public Object _testcon2(CommandInterpreter interpreter) throws SQLException {
 		
 		QConnectionConfig connectionConfig = QDatabaseCoreFactory.eINSTANCE.createConnectionConfig();
 		connectionConfig.setDatabaseName("*LOCAL");
@@ -30,20 +62,22 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		connectionConfig.setUser("ASUP");
 		connectionConfig.setPassword("asup2013");
 		connectionConfig.setUseCatalog(false);
-		connectionConfig.setPluginName("MSSQL");		
+		connectionConfig.setPluginName(DBType.MSSQL.name());		
 
-//		connectionManager.registerConnectionConfig("*LOCAL", connectionConfig);
-		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);
+		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
+		System.out.println(connection.getConnection());
 		
-		QTable muconv0f = databaseManager.getTable(connection, "P_MULT", "MUCONV0F");
+		return null;
+	}
+	
+	// connectionManager e disk
+	public Object _testcon3(CommandInterpreter interpreter) throws SQLException {
 		
-		try {
-			databaseManager.createTable(connection, muconv0f, true);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		QConnectionConfig connectionConfig = loadConfig("MSSQL");
 
+		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
+		System.out.println(connection.getConnection());
+		
 		return null;
 	}
 	
@@ -51,5 +85,31 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	public String getHelp() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public enum DBType {
+		MSSQL, DB2;
+	}
+	
+	public QConnectionConfig loadConfig(String name) {
+		
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		
+		URL url = bundle.getEntry("/config/connection/"+name+".xmi");
+		System.out.println(URI.createURI(url.toString()));
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+    	Resource resource = resourceSet.createResource(URI.createURI(url.toString()));    	
+        try {
+			resource.load(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+        Object object = resource.getContents().get(0);
+        System.out.println(object);
+        
+		return (QConnectionConfig) object;
 	}
 }

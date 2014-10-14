@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fw-core="http://www.asup.org/fw/core" name="DBCoreDB2">
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl" interfaceName="org.asup.db.core.QConnectionFactoryRegistry" pluginInterface="org.asup.db.core.QConnectionFactory">
+    <services name="DB2" text="IBM DB2" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.core.db2.DB2ConnectionFactoryImpl"/>
+  </services>
+</fw-core:ApplicationModule>

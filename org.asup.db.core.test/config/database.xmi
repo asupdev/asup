@@ -3,7 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:fw-core="http://www.asup.org/fw/core"
-    text="As.UP Programming Development Manager E4">
+    text="As.UP Database Tester">
   <levels name="Framework"
       value="10">
     <modules
@@ -15,5 +15,7 @@
         href="modules/db-core-base.xmi#DBCoreBase"/>
     <modules
         href="modules/db-core-test.xmi#DBCoreTest"/>
+    <modules
+        href="modules/db-core-db2.xmi#DBCoreDB2"/>
   </levels>
 </fw-core:Application>
