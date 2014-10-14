@@ -18,7 +18,7 @@ public class ASMProgramLoader extends ServiceImpl implements WeavingHook {
 
 	@Override
 	public void weave(WovenClass wovenClass) {
-
+ 
 		BundleWiring bundleWiring = wovenClass.getBundleWiring();
 		Bundle bundle = bundleWiring.getBundle();
 		
