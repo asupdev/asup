@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.asup.fw.core.e4;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.fw.core.e4
-Require-Bundle: org.asup.fw.core;bundle-version="0.5.0"
+Require-Bundle: org.asup.fw.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.e4.core.contexts,

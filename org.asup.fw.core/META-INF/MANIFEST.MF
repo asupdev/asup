@@ -13,8 +13,8 @@ Export-Package: org.asup.fw.core,
  org.asup.fw.core.impl,
  org.osgi.service.jdbc,
  org.osgi.service.remoteserviceadmin
-Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0";visibility:=reexport,
- org.eclipse.emf.ecore;bundle-version="2.8.0";visibility:=reexport,
- org.asup.fw.java;bundle-version="0.5.0";visibility:=reexport,
- javax.inject;bundle-version="1.0.0";visibility:=reexport
+Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport,
+ javax.inject;visibility:=reexport
 Bundle-ActivationPolicy: lazy
