@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.fw.test.impl.AssertionResultImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.asup.fw.test.impl.AssertionResultImpl#getTime <em>Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,6 +49,26 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 	 * @ordered
 	 */
 	protected String message = MESSAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long TIME_EDEFAULT = 0L;
+
+	/**
+	 * The cached value of the '{@link #getTime() <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected long time = TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,6 +115,27 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public long getTime() {
+		return time;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTime(long newTime) {
+		long oldTime = time;
+		time = newTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QFrameworkTestPackage.ASSERTION_RESULT__TIME, oldTime, time));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AssertionState getAssertionState() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -110,6 +152,8 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 		switch (featureID) {
 			case QFrameworkTestPackage.ASSERTION_RESULT__MESSAGE:
 				return getMessage();
+			case QFrameworkTestPackage.ASSERTION_RESULT__TIME:
+				return getTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,6 +168,9 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 		switch (featureID) {
 			case QFrameworkTestPackage.ASSERTION_RESULT__MESSAGE:
 				setMessage((String)newValue);
+				return;
+			case QFrameworkTestPackage.ASSERTION_RESULT__TIME:
+				setTime((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -140,6 +187,9 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 			case QFrameworkTestPackage.ASSERTION_RESULT__MESSAGE:
 				setMessage(MESSAGE_EDEFAULT);
 				return;
+			case QFrameworkTestPackage.ASSERTION_RESULT__TIME:
+				setTime(TIME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,6 +204,8 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 		switch (featureID) {
 			case QFrameworkTestPackage.ASSERTION_RESULT__MESSAGE:
 				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+			case QFrameworkTestPackage.ASSERTION_RESULT__TIME:
+				return time != TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -170,6 +222,8 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (message: ");
 		result.append(message);
+		result.append(", time: ");
+		result.append(time);
 		result.append(')');
 		return result.toString();
 	}

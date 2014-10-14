@@ -20,14 +20,18 @@ import org.asup.fw.test.QAssertionSuccess;
 import org.asup.fw.test.QFrameworkTestFactory;
 import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.QTestListener;
-import org.asup.fw.test.QTestRunner;
+import org.asup.fw.test.QTestResult;
 
 public class BaseTestAsserterImpl implements QTestAsserter {
 
-	private QTestRunner testRunner;
+	private QTestResult testResult;
+	private List<QTestListener> testListeners;
+	private long time;
 
-	public BaseTestAsserterImpl(QTestRunner testRunner) {
-		this.testRunner = testRunner;
+	public BaseTestAsserterImpl(QTestResult testResult, List<QTestListener> testListeners) {
+		this.testResult = testResult;
+		this.testListeners = testListeners;
+		resetTime();
 	}
 	
 	/**
@@ -216,16 +220,6 @@ public class BaseTestAsserterImpl implements QTestAsserter {
         success(formatted + "expected not same:<" + expected + "> was not :<" + actual + "> as expected");
     }
 
-
-	public QTestRunner getTestRunner() {
-		return testRunner;
-	}
-
-
-	public void setTestRunner(QTestRunner value) {
-		this.testRunner = value;
-	}
-
 	 /**
      * Fails a test with the given message.
 	 * @throws FrameworkTestFailureError
@@ -235,13 +229,12 @@ public class BaseTestAsserterImpl implements QTestAsserter {
     	//Create fail assertion
     	QAssertionFailed assertionFailed = QFrameworkTestFactory.eINSTANCE.createAssertionFailed();
     	assertionFailed.setMessage(message);
-//    	assertionFailed.setTestClass(this.getClass().getName());
-//    	assertionFailed.setTestName(getTestName());
-
-    	getTestRunner().getTestResult().getAssertResults().add(assertionFailed);
-    	getTestRunner().getTestResult().setFailed(true);
+    	assertionFailed.setTime(System.currentTimeMillis()-time);
+    	testResult.getAssertResults().add(assertionFailed);
+    	testResult.setFailed(true);
     	notifyAssertResult(assertionFailed);
 
+    	resetTime();
     }
 
     public void failNotEquals(String message, Object expected, Object actual) throws FrameworkTestFailureError {
@@ -256,9 +249,11 @@ public class BaseTestAsserterImpl implements QTestAsserter {
     	//Create fail assertion
     	QAssertionSuccess assertionSuccess = QFrameworkTestFactory.eINSTANCE.createAssertionSuccess();
     	assertionSuccess.setMessage(message);
-
-    	getTestRunner().getTestResult().getAssertResults().add(assertionSuccess);
+    	assertionSuccess.setTime(System.currentTimeMillis()-time);
+    	testResult.getAssertResults().add(assertionSuccess);
     	notifyAssertResult(assertionSuccess);
+    	
+    	resetTime();
     }
 
     public void successEquals(String message, Object expected, Object actual) {
@@ -283,10 +278,15 @@ public class BaseTestAsserterImpl implements QTestAsserter {
     }
 
 	public void notifyAssertResult(QAssertionResult assertionResult) {
-		List<QTestListener> testListeners = getTestRunner().getTestListeners();
-		for (int i = 0; i < testListeners.size(); i++) {
-			testListeners.get(i).addAssertionResult(assertionResult);
+		for (QTestListener testListener: testListeners) {
+			testListener.addAssertionResult(assertionResult);
 		}
+	}
+
+	@Override
+	public void resetTime() {
+		time = System.currentTimeMillis();
+		
 	}
 
 //	public abstract void notifyAssertResult(QAssertionResult AssertionResult);

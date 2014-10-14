@@ -37,8 +37,8 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	
 		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
 		testRunner.setClassName(className);
-		QTestResult testResult = FrameworkTestFactoryImpl.eINSTANCE.createTestResult();		
-		testRunner.setTestResult(testResult);
+//		QTestResult testResult = FrameworkTestFactoryImpl.eINSTANCE.createTestResult();		
+//		testRunner.setTestResult(testResult);
 		
 		return testRunner;
 	}
@@ -46,44 +46,37 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	@Override
 	public QTestResult executeRunner(QTestContext context, QTestRunner runner) throws FrameworkCoreException {
 
-		QContextID contextID = context.get(QContextID.class);
-
-	    context.set(QTestAsserter.class, new BaseTestAsserterImpl(runner));
-
 	    // result
 		QTestResult testResult = QFrameworkTestFactory.eINSTANCE.createTestResult();
+	    context.set(QTestAsserter.class, new BaseTestAsserterImpl(testResult, runner.getTestListeners()));
+
 
 		if(runner instanceof QUnitTestRunner) {
-			executeUnitRunner(context, contextID, (QUnitTestRunner) runner, testResult);
+
+			QContextID contextID = context.get(QContextID.class);
+			Class<?> testClass = context.loadClass(contextID, ((QUnitTestRunner) runner).getClassName());
+		    if(testClass == null)
+		    	throw new FrameworkCoreException("Invalid runner: "+runner);
+
+			Object testCase = context.make(testClass);
+			
+			long start = System.currentTimeMillis();
+			try {
+				context.invoke(testCase, TestStarted.class);
+			} 
+			catch(Exception exc) {
+				testResult.setFailed(true);
+			}
+			long end = System.currentTimeMillis();
+			
+			testResult.setTime(end-start);
+
 		}
 		else {
 			throw new FrameworkCoreRuntimeException("Unknown runner: "+runner);
 		}
 		
 		return testResult;
-	}
-	
-	private void executeUnitRunner(QContext context, QContextID contextID, QUnitTestRunner runner, QTestResult result) throws FrameworkCoreException {
-
-	    context.set(QTestAsserter.class, new BaseTestAsserterImpl(runner));
-
-		// TODO: revise class search in bundles
-		Class<?> testClass = context.loadClass(contextID, runner.getClassName());
-	    if(testClass == null)
-	    	throw new FrameworkCoreException("Invalid runner: "+runner);
-
-		Object testCase = context.make(testClass);
-		
-		long start = System.currentTimeMillis();
-
-		try {
-			context.invoke(testCase, TestStarted.class);
-		} catch(Exception exc) {
-			result.setFailed(true);
-		}
-
-		long end = System.currentTimeMillis();
-		result.setTime(end-start);
 	}
 
 	@Override

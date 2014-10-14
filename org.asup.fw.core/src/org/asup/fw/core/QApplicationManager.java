@@ -5,27 +5,27 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.fw.test;
+package org.asup.fw.core;
 
+import java.io.OutputStream;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Test Asserter</b></em>'.
+ * A representation of the model object '<em><b>Application Manager</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.fw.test.QFrameworkTestPackage#getTestAsserter()
+ * @see org.asup.fw.core.QFrameworkCorePackage#getApplicationManager()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QTestAsserter extends QAsserter {
-
+public interface QApplicationManager {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model required="true" applicationRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream"
 	 * @generated
 	 */
-	void resetTime();
+	QContext start(QApplication application, OutputStream output);
 
-} // QTestAsserter
+} // QApplicationManager

@@ -12,3 +12,4 @@ Import-Package: org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.di,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore.xmi.impl
+Bundle-Activator: org.asup.fw.core.e4.E4Activator

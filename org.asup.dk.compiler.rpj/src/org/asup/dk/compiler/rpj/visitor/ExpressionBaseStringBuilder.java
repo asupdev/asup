@@ -194,20 +194,40 @@ public class ExpressionBaseStringBuilder extends ExpressionVisitorImpl {
 	@Override
 	public boolean visit(QCompoundTermExpression expression) {
 		
-		result += " "+expression.getValue();
 
 		if(expression.isFunction()) {
-			boolean first = true;
-			result += "(";
-			for(QExpression child: expression.getElements()) {
-				if(!first)
-					result += ": ";
-				child.accept(this);
-				first = false;
+
+			if(expression.isSpecial()) {
+				result += " "+expression.getValue();
+				
+				boolean first = true;
+				result += "(";
+				for(QExpression child: expression.getElements()) {
+					if(!first)
+						result += ": ";
+					child.accept(this);
+					first = false;
+				}
+				result += ")";
 			}
-			result += ")";
+			else {
+				result += " "+expression.getValue();
+	
+				boolean first = true;
+				result += "(";
+				for(QExpression child: expression.getElements()) {
+					if(!first)
+						result += ": ";
+					child.accept(this);
+					first = false;
+				}
+				result += ")";
+			}
 		}
 		else {
+			
+			result += " "+expression.getValue();
+
 			for(QExpression child: expression.getElements()) {
 				result += ".";
 				child.accept(this);

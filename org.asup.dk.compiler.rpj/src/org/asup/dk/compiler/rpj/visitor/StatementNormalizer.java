@@ -14,12 +14,14 @@ package org.asup.dk.compiler.rpj.visitor;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QTermExpression;
 import org.asup.il.flow.QCall;
+import org.asup.il.flow.QIf;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
 public class StatementNormalizer extends StatementVisitorImpl {
@@ -28,26 +30,42 @@ public class StatementNormalizer extends StatementVisitorImpl {
 	private QCompilationContext compilationContext;
 	@Inject
 	private QExpressionParser expressionParser;
+
+	private ExpressionBaseStringBuilder expressionBuilder;
+	
+	@PostConstruct
+	public void init() {
+		this.expressionBuilder = compilationContext.make(ExpressionBaseStringBuilder.class);
+	}
 	
 	@Override
 	public boolean visit(QCall statement) {
-		
-		ExpressionBaseStringBuilder builder = compilationContext.make(ExpressionBaseStringBuilder.class);
-		
+				
 		// program
 		QTermExpression expression = expressionParser.parseTerm(statement.getProgram());
-		expression.accept(builder);
-		statement.setProgram(builder.getResult());
+		expression.accept(expressionBuilder.reset());
+		statement.setProgram(expressionBuilder.getResult());
 
 		// parameters
 		List<String> parameters = new ArrayList<>();		
 		for(String parameter: statement.getParameters()) {
 			expression = expressionParser.parseTerm(parameter);
-			expression.accept(builder.reset());
-			parameters.add(builder.getResult());
+			expression.accept(expressionBuilder.reset());
+			parameters.add(expressionBuilder.getResult());
 		}
 		statement.getParameters().clear();
 		statement.getParameters().addAll(parameters);
+		
+		return super.visit(statement);
+	}
+
+	@Override
+	public boolean visit(QIf statement) {
+		
+		// program
+		QTermExpression expression = expressionParser.parseTerm(statement.getCondition());
+		expression.accept(expressionBuilder.reset());
+		statement.setCondition(expressionBuilder.getResult());
 		
 		return super.visit(statement);
 	}

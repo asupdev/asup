@@ -17,6 +17,7 @@ package org.asup.fw.test;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.fw.test.QAssertionResult#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.asup.fw.test.QAssertionResult#getTime <em>Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +51,32 @@ public interface QAssertionResult {
 	 * @generated
 	 */
 	void setMessage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time</em>' attribute.
+	 * @see #setTime(long)
+	 * @see org.asup.fw.test.QFrameworkTestPackage#getAssertionResult_Time()
+	 * @model
+	 * @generated
+	 */
+	long getTime();
+
+	/**
+	 * Sets the value of the '{@link org.asup.fw.test.QAssertionResult#getTime <em>Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time</em>' attribute.
+	 * @see #getTime()
+	 * @generated
+	 */
+	void setTime(long value);
 
 	/**
 	 * <!-- begin-user-doc -->

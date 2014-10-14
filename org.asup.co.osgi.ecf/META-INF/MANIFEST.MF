@@ -12,11 +12,12 @@ Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.equinox.common,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
- org.asup.co.osgi;bundle-version="0.5.0",
+ org.asup.co.osgi,
  org.asup.fw.core;visibility:=reexport,
  org.eclipse.ecf,
- org.eclipse.ecf.osgi.services.distribution;bundle-version="2.0.300",
- org.eclipse.ecf.osgi.services.remoteserviceadmin;bundle-version="4.0.0"
+ org.eclipse.ecf.osgi.services.distribution,
+ org.eclipse.ecf.osgi.services.remoteserviceadmin,
+ org.eclipse.ecf.remoteservice.asyncproxy
 Export-Package: org.asup.co.osgi.ecf,
  org.asup.co.osgi.ecf.hook,
  org.asup.co.osgi.ecf.impl

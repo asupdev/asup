@@ -103,13 +103,22 @@ public interface QFrameworkTestPackage extends EPackage {
 	int ASSERTION_RESULT__MESSAGE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSERTION_RESULT__TIME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Assertion Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSERTION_RESULT_FEATURE_COUNT = 1;
+	int ASSERTION_RESULT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.AssertionFailedImpl <em>Assertion Failed</em>}' class.
@@ -129,6 +138,15 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int ASSERTION_FAILED__MESSAGE = ASSERTION_RESULT__MESSAGE;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSERTION_FAILED__TIME = ASSERTION_RESULT__TIME;
 
 	/**
 	 * The number of structural features of the '<em>Assertion Failed</em>' class.
@@ -159,6 +177,15 @@ public interface QFrameworkTestPackage extends EPackage {
 	int ASSERTION_SUCCESS__MESSAGE = ASSERTION_RESULT__MESSAGE;
 
 	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSERTION_SUCCESS__TIME = ASSERTION_RESULT__TIME;
+
+	/**
 	 * The number of structural features of the '<em>Assertion Success</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,22 +214,13 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_RUNNER__TEST_LISTENERS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Test Result</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_RUNNER__TEST_RESULT = 1;
-
-	/**
 	 * The number of structural features of the '<em>Test Runner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RUNNER_FEATURE_COUNT = 2;
+	int TEST_RUNNER_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.SuiteTestRunnerImpl <em>Suite Test Runner</em>}' class.
@@ -222,15 +240,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUITE_TEST_RUNNER__TEST_LISTENERS = TEST_RUNNER__TEST_LISTENERS;
-
-	/**
-	 * The feature id for the '<em><b>Test Result</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUITE_TEST_RUNNER__TEST_RESULT = TEST_RUNNER__TEST_RESULT;
 
 	/**
 	 * The number of structural features of the '<em>Suite Test Runner</em>' class.
@@ -420,15 +429,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	int UNIT_TEST_RUNNER__TEST_LISTENERS = TEST_RUNNER__TEST_LISTENERS;
 
 	/**
-	 * The feature id for the '<em><b>Test Result</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_TEST_RUNNER__TEST_RESULT = TEST_RUNNER__TEST_RESULT;
-
-	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -507,6 +507,17 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAssertionResult_Message();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QAssertionResult#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time</em>'.
+	 * @see org.asup.fw.test.QAssertionResult#getTime()
+	 * @see #getAssertionResult()
+	 * @generated
+	 */
+	EAttribute getAssertionResult_Time();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QAssertionSuccess <em>Assertion Success</em>}'.
@@ -654,17 +665,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	EReference getTestRunner_TestListeners();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.asup.fw.test.QTestRunner#getTestResult <em>Test Result</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Test Result</em>'.
-	 * @see org.asup.fw.test.QTestRunner#getTestResult()
-	 * @see #getTestRunner()
-	 * @generated
-	 */
-	EReference getTestRunner_TestResult();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QUnitTestRunner <em>Unit Test Runner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -765,6 +765,14 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ASSERTION_RESULT__MESSAGE = eINSTANCE.getAssertionResult_Message();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSERTION_RESULT__TIME = eINSTANCE.getAssertionResult_Time();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.impl.AssertionSuccessImpl <em>Assertion Success</em>}' class.
@@ -895,14 +903,6 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEST_RUNNER__TEST_LISTENERS = eINSTANCE.getTestRunner_TestListeners();
-
-		/**
-		 * The meta object literal for the '<em><b>Test Result</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TEST_RUNNER__TEST_RESULT = eINSTANCE.getTestRunner_TestResult();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.

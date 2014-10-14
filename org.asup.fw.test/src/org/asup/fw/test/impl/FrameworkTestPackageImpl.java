@@ -254,6 +254,15 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAssertionResult_Time() {
+		return (EAttribute)assertionResultEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAssertionSuccess() {
 		return assertionSuccessEClass;
 	}
@@ -380,15 +389,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTestRunner_TestResult() {
-		return (EReference)testRunnerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUnitTestRunner() {
 		return unitTestRunnerEClass;
 	}
@@ -454,6 +454,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		assertionResultEClass = createEClass(ASSERTION_RESULT);
 		createEAttribute(assertionResultEClass, ASSERTION_RESULT__MESSAGE);
+		createEAttribute(assertionResultEClass, ASSERTION_RESULT__TIME);
 
 		assertionSuccessEClass = createEClass(ASSERTION_SUCCESS);
 
@@ -477,7 +478,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		testRunnerEClass = createEClass(TEST_RUNNER);
 		createEReference(testRunnerEClass, TEST_RUNNER__TEST_LISTENERS);
-		createEReference(testRunnerEClass, TEST_RUNNER__TEST_RESULT);
 
 		unitTestRunnerEClass = createEClass(UNIT_TEST_RUNNER);
 		createEAttribute(unitTestRunnerEClass, UNIT_TEST_RUNNER__CLASS_NAME);
@@ -613,6 +613,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		initEClass(assertionResultEClass, QAssertionResult.class, "AssertionResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssertionResult_Message(), ecorePackage.getEString(), "message", null, 0, 1, QAssertionResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssertionResult_Time(), ecorePackage.getELong(), "time", null, 0, 1, QAssertionResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(assertionResultEClass, this.getAssertionState(), "getAssertionState", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -621,6 +622,8 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		initEClass(suiteTestRunnerEClass, QSuiteTestRunner.class, "SuiteTestRunner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(testAsserterEClass, QTestAsserter.class, "TestAsserter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(testAsserterEClass, null, "resetTime", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(testContainerEClass, QTestContainer.class, "TestContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestContainer_Tests(), this.getTestRunner(), null, "tests", null, 0, -1, QTestContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -661,9 +664,8 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		initEClass(testRunnerEClass, QTestRunner.class, "TestRunner", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestRunner_TestListeners(), this.getTestListener(), null, "testListeners", null, 0, -1, QTestRunner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTestRunner_TestResult(), this.getTestResult(), null, "testResult", null, 1, 1, QTestRunner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(testRunnerEClass, null, "runTest", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(testRunnerEClass, null, "runTest", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(unitTestRunnerEClass, QUnitTestRunner.class, "UnitTestRunner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnitTestRunner_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, QUnitTestRunner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

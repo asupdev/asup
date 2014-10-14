@@ -15,8 +15,9 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.asup.fw.core.QApplication;
+import org.asup.fw.core.QApplicationManager;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QFrameworkCorePackage;
-import org.asup.fw.core.e4.E4ApplicationStarter;
 import org.asup.ui.pdm.e4.Activator;
 import org.asup.ui.pdm.e4.console.ConsoleSystem;
 import org.asup.ui.pdm.e4.console.ConsoleSystemHelper;
@@ -42,6 +43,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.console.IConsoleView;
 import org.eclipse.ui.console.IOConsoleOutputStream;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceReference;
 
 public class StartSystemAction implements IObjectActionDelegate {
 	
@@ -116,11 +120,14 @@ public class StartSystemAction implements IObjectActionDelegate {
 		      protected IStatus run(IProgressMonitor monitor) {
 
 			    try {
-					E4ApplicationStarter applicationStarter = new E4ApplicationStarter(application, stream);
+			    	
+			    	BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
+			    	ServiceReference<QApplicationManager> applicationManagerReference = bundleContext.getServiceReference(QApplicationManager.class);
+			    	
+			    	QApplicationManager applicationManager = bundleContext.getService(applicationManagerReference);			    	
+			    	QContext applicationContext = applicationManager.start(application, stream);
 
-					applicationStarter.start();
-
-					Activator.getDefault().setApplication(application);
+					Activator.getDefault().setApplicationContext(applicationContext);
 					
 			        return Status.OK_STATUS;
 				} catch (Exception e) {
@@ -140,7 +147,7 @@ public class StartSystemAction implements IObjectActionDelegate {
 		this.resource = null;
 		action.setEnabled(false);		
 		
-		if(Activator.getDefault().getApplication() != null) 
+		if(Activator.getDefault().getApplicationContext() != null) 
 			return;
 		
 		if(selection instanceof TreeSelection) {

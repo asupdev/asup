@@ -42,6 +42,7 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
+import org.asup.il.isam.QKeyListTerm;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
@@ -66,6 +67,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	
 	private List<QDataTerm<?>> datas;
 	private List<QDataSetTerm> dataSets;
+	private List<QKeyListTerm> keyLists;
 	private List<QRoutine> routines;
 	private List<QProcedure> procedures;
 	private List<QPrototype<?>> prototypes;
@@ -91,8 +93,10 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			if(callableUnit.getDataSection() != null)
 				datas = callableUnit.getDataSection().getDatas();
 			
-			if(callableUnit.getFileSection() != null)
+			if(callableUnit.getFileSection() != null) {
 				dataSets = callableUnit.getFileSection().getDataSets();
+				keyLists = callableUnit.getFileSection().getKeyLists();
+			}
 			
 			if(callableUnit.getFlowSection() != null) {
 				routines = callableUnit.getFlowSection().getRoutines();
@@ -105,6 +109,8 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			datas = new ArrayList<QDataTerm<?>>();
 		if(dataSets == null)
 			dataSets = new ArrayList<QDataSetTerm>();
+		if(keyLists == null)
+			keyLists = new ArrayList<QKeyListTerm>();
 		if(routines == null)
 			routines = new ArrayList<QRoutine>();
 		if(procedures == null)
@@ -161,13 +167,16 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 
 			if(equalsTermName(d.getFormatName(), name) ||
 			   equalsTermName(d.getFileName(), name) ) {
+				
 				dataSetTerm = d;
+				
+				QPhysicalFile physicalFile = getPhysicalFile(dataSetTerm.getFileName());			
+				dataSetTerm = QIntegratedLanguageIsamFactory.eINSTANCE.createDataSetTerm();
+				dataSetTerm.setFileName(physicalFile.getName());
+
 				break;
 			}	
 						
-			QPhysicalFile physicalFile = getPhysicalFile(d.getFileName());			
-			dataSetTerm = QIntegratedLanguageIsamFactory.eINSTANCE.createDataSetTerm();
-			dataSetTerm.setFileName(physicalFile.getName());
 
 		}		
 		
@@ -183,6 +192,33 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		
 		return dataSetTerm;
 	}	
+
+
+	@Override
+	public QKeyListTerm getKeyList(String name, boolean deep) {
+		
+		QKeyListTerm keyListTerm = null;
+		
+		for(QKeyListTerm k: keyLists) {
+			if(equalsTermName(k.getName(), name)) {				
+				keyListTerm = k;
+				break;
+			}	
+		}		
+		
+		// deep search
+		if(keyListTerm == null && deep) {
+			for(QCompilationContext compilationContext: contexts) {				
+				keyListTerm = compilationContext.getKeyList(name, true);
+				
+				if(keyListTerm != null)
+					break;
+			}
+		}
+		
+		return keyListTerm;
+
+	}
 
 	@Override
 	public QDataTerm<?> getData(String name, boolean deep) {
@@ -361,8 +397,18 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		if(namedNode != null)
 			return namedNode;
 
-		// prototype
+		// keyList
+		namedNode = getKeyList(name, deep);
+		if(namedNode != null)
+			return namedNode;
+		
+		// module
 		namedNode = getModule(name, deep);
+		if(namedNode != null)
+			return namedNode;
+		
+		// prototype
+		namedNode = getPrototype(name, deep);
 		if(namedNode != null)
 			return namedNode;
 		

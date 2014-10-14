@@ -11,6 +11,7 @@ import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QApplicationLevel;
+import org.asup.fw.core.QApplicationManager;
 import org.asup.fw.core.QApplicationModule;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
@@ -62,6 +63,13 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EClass applicationLevelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass applicationManagerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,6 +326,15 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 */
 	public EAttribute getApplicationLevel_Value() {
 		return (EAttribute)applicationLevelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApplicationManager() {
+		return applicationManagerEClass;
 	}
 
 	/**
@@ -647,6 +664,8 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		createEReference(applicationLevelEClass, APPLICATION_LEVEL__MODULES);
 		createEAttribute(applicationLevelEClass, APPLICATION_LEVEL__VALUE);
 
+		applicationManagerEClass = createEClass(APPLICATION_MANAGER);
+
 		applicationModuleEClass = createEClass(APPLICATION_MODULE);
 		createEAttribute(applicationModuleEClass, APPLICATION_MODULE__NAME);
 		createEReference(applicationModuleEClass, APPLICATION_MODULE__SERVICES);
@@ -751,13 +770,19 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEReference(getApplicationLevel_Modules(), this.getApplicationModule(), null, "modules", null, 0, -1, QApplicationLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplicationLevel_Value(), ecorePackage.getEInt(), "value", null, 1, 1, QApplicationLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(applicationManagerEClass, QApplicationManager.class, "ApplicationManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(applicationManagerEClass, this.getContext(), "start", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getApplication(), "application", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(applicationModuleEClass, QApplicationModule.class, "ApplicationModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getApplicationModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, QApplicationModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplicationModule_Services(), this.getServiceReference(), null, "services", null, 0, -1, QApplicationModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contextEClass, QContext.class, "Context", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(contextEClass, this.getContext(), "createChild", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(contextEClass, this.getContext(), "createChild", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
 		op = addEOperation(contextEClass, null, "get", 1, 1, IS_UNIQUE, IS_ORDERED);

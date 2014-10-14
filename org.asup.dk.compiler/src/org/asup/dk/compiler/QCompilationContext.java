@@ -15,6 +15,7 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QKeyListTerm;
 import org.asup.os.type.file.QPhysicalFile;
 
 /**
@@ -92,6 +93,14 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	QDataTerm<?> getData(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QKeyListTerm getKeyList(String name, boolean deep);
 
 	/**
 	 * <!-- begin-user-doc -->

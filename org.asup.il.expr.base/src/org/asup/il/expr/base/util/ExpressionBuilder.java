@@ -262,7 +262,7 @@ public class ExpressionBuilder {
 
 	public QExpression buildChildExpression(Tree node) {
 
-		QExpression expression = null;
+ 		QExpression expression = null;
 		
 		ExpressionType expressionType = expressionHelper.getExpressionType(node);
 		switch (expressionType) {
@@ -302,10 +302,11 @@ public class ExpressionBuilder {
 			compoundTermExpression.setFunction(expressionHelper.isFunction(node));
 			compoundTermExpression.setSpecial(expressionHelper.isSpecial(node));
 			text = expressionHelper.normalizeText(node.getText());
+			
 			compoundTermExpression.setValue(text);
 			for (int i = 0; i < node.getChildCount(); i++) 
-				compoundTermExpression.getElements().add(buildChildExpression(node.getChild(i)));
-			
+				compoundTermExpression.getElements().add(buildChildExpression(node.getChild(i)));				
+						
 			expression = compoundTermExpression;
 			break;
 		case LOGICAL:

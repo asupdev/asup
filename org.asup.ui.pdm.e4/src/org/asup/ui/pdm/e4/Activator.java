@@ -12,7 +12,7 @@
 package org.asup.ui.pdm.e4;
 
 
-import org.asup.fw.core.QApplication;
+import org.asup.fw.core.QContext;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -26,7 +26,7 @@ public class Activator extends AbstractUIPlugin {
 	public static String PLUGIN_ID = "org.asup.ui"; 	
 	private static Activator defaultActivator = null;
 
-	private QApplication application;
+	private QContext applicationContext;
 	
 	public Activator() {
 		defaultActivator = this;
@@ -41,12 +41,12 @@ public class Activator extends AbstractUIPlugin {
 		super.start(context);
 	}
 
-	public void setApplication(QApplication application) {
-		this.application = application;
+	public QContext getApplicationContext() {
+		return this.applicationContext;
 	}
 	
-	public QApplication getApplication() {
-		return application;
+	public void setApplicationContext(QContext applicationContext) {
+		this.applicationContext = applicationContext;
 	}
 	
 	/*

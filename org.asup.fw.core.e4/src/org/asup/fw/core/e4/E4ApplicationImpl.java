@@ -15,6 +15,8 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.asup.fw.core.QApplication;
+import org.asup.fw.core.QApplicationManager;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -23,6 +25,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceReference;
 
 public class E4ApplicationImpl implements IApplication {
 
@@ -63,11 +68,14 @@ public class E4ApplicationImpl implements IApplication {
 
 	    System.out.println("Starting "+application);
 	    
-		// Start application
-		E4ApplicationStarter applicationStarter = new E4ApplicationStarter(application);
-	    applicationStarter.start();	    
+    	
+    	BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
+    	ServiceReference<QApplicationManager> applicationManagerReference = bundleContext.getServiceReference(QApplicationManager.class);
+    	
+    	QApplicationManager applicationManager = bundleContext.getService(applicationManagerReference);			    	
+    	QContext applicationContext = applicationManager.start(application, System.out);
 	    
-	    return null;
+	    return applicationContext;
 	}
 
 	@Override
