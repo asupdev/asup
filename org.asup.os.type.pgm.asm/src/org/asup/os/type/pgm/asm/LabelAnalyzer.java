@@ -24,6 +24,9 @@ public class LabelAnalyzer extends EmptyVisitor {
 	@Override
     public void visitMethodInsn(int opcode, String owner, String name, String desc) {
 	
+//		if(owner.startsWith("org/asup/os/type/pgm/rpj/RPJProgramSupport"))
+//			return;
+		
 		if(opcode == Opcodes.INVOKEVIRTUAL && name.equals(LABEL))
 			tag2Label.put(lastTag, lastLabel);
 	}

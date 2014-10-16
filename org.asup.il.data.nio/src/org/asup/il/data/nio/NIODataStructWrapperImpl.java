@@ -87,7 +87,7 @@ public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements Q
 		return elements;
 	}
 
-	protected void addElement(String name, QBufferedData element) {
+	protected void addElement(String name, QBufferedData element, int position) {
 
 		try {
 			Field field = _wrapped.getClass().getField(name);
@@ -96,8 +96,12 @@ public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements Q
 			
 			field.set(_wrapped, element);
 	
-			if (_dynamicLength)
-				_length += element.size();			
+			if (_dynamicLength) {
+				if(position+element.size() >= _length)
+					_length = position+element.size();
+				else
+					System.err.println("Unexpected condition: mzt47cn9tre7n0tcw");
+			}
 
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException e) {
 			e.printStackTrace();

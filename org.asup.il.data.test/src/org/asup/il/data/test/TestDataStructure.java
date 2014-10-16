@@ -17,6 +17,7 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
 import org.asup.fw.test.QTestAsserter;
+import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QCharacter;
@@ -28,6 +29,7 @@ import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.annotation.DataDef;
 
+@Test(category="ILDATA", object="DATASTRUCTURE")
 public class TestDataStructure {
 
 	@Inject
@@ -48,7 +50,6 @@ public class TestDataStructure {
 		DataStructure dataStruct = dataFactory.createDataStruct(DataStructure.class, 0, true);
 		testAsserter.assertNotNull("DataStructure creation", dataStruct);
 
-		testAsserter.resetTime();
 		dataStruct.alfa.eval("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 		testAsserter.assertEquals("Read first 10 chars", "ABCDEFGHIJ", dataStruct.alfa.asString());
 		
@@ -105,19 +106,15 @@ public class TestDataStructure {
 
 		QCharacter character = dataFactory.createCharacter(10000, false, true);
 		
-		for(int y=0; y<100; y++) {		
-			for(QCharacter multElement: dataStruct.multiple) {
-				character.movel(multElement, false);
-			}
+		for(QCharacter multElement: dataStruct.multiple) {
+			character.movel(multElement, true);
 		}
 		testAsserter.assertEquals("Movel elements", true, true);
 
 
 		QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator(); 
-		for(int y=0; y<100; y++) {		
-			for(QCharacter multElement: dataStruct.multiple) {
-				character.accept(evaluator.set(multElement));
-			}
+		for(QCharacter multElement: dataStruct.multiple) {
+			character.accept(evaluator.set(multElement));
 		}
 		testAsserter.assertEquals("Evaluation elements", true, true);
 	}

@@ -325,6 +325,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int CALL_FEATURE_COUNT = INVOKE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNIT__FACETS = QIntegratedLanguageCorePackage.NAMED_NODE__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,6 +359,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNIT_FEATURE_COUNT = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLABLE_UNIT__FACETS = UNIT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -525,6 +543,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 */
 	int ENTRY_PARAMETER = 8;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_PARAMETER__FACETS = QIntegratedLanguageCorePackage.NAMED_NODE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Delegate</b></em>' containment reference.
@@ -864,6 +891,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int MODULE = 19;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__FACETS = CALLABLE_UNIT__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1038,6 +1074,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int PROCEDURE = 23;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__FACETS = CALLABLE_UNIT__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1154,6 +1199,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROCEDURE_EXEC_FEATURE_COUNT = INVOKE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__FACETS = CALLABLE_UNIT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1309,6 +1363,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 */
 	int ROUTINE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTINE__FACETS = UNIT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.

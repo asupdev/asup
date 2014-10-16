@@ -26,7 +26,6 @@ import org.asup.il.data.annotation.Special;
 @Program(name = "QWCCALOC")
 public class ObjectAllocator {
 
-
 	public @Entry void main(
 			@ToDo @DataDef(dimension = 50) QStroller<ObjectSpecification> objectSpecifications,
 			@ToDo @DataDef(binaryType = BinaryType.SHORT) QEnum<WaitTimeEnum, QBinary> waitTime,

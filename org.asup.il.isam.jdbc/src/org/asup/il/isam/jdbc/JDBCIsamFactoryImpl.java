@@ -92,7 +92,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		for(Annotation annotation: annotations) {
 			if(annotation instanceof FileDef) {
 				FileDef fileDef = (FileDef)annotation;
-				dataSetTerm.setFileName(fileDef.name());
+				dataSetTerm.setFileName(fileDef.fileName());
 				dataSetTerm.setUserOpen(fileDef.userOpen());
 			}
 		}

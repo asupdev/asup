@@ -20,6 +20,7 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.rpj.helper.CompilationContextHelper;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
@@ -41,9 +42,10 @@ import org.asup.il.expr.RelationalOperator;
 import org.asup.il.expr.impl.ExpressionVisitorImpl;
 import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QPrototype;
+import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
 
-public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
+public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 	@Inject
 	private QCompilationContext compilationContext; 
@@ -144,7 +146,7 @@ public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
 			value.append(".get");
 			value.append("(");
 			
-			JavaExpressionStringBuilder indexBuilder = compilationContext.make(JavaExpressionStringBuilder.class);
+			JDTExpressionStringBuilder indexBuilder = compilationContext.make(JDTExpressionStringBuilder.class);
 			indexBuilder.setTarget(null);				
 			for(QExpression element: expression.getElements()) {
 				element.accept(indexBuilder);
@@ -185,19 +187,26 @@ public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
 						throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: "+namedNode.getName());
 
 					QEntryParameter<?> entryParameter = entryParameters.next();
-					QDataTerm<?> parameterDelegate = entryParameter.getDelegate();
+					QTerm parameterDelegate = entryParameter.getDelegate();
 					
-					JavaExpressionStringBuilder parameterBuilder = compilationContext.make(JavaExpressionStringBuilder.class);
+					JDTExpressionStringBuilder parameterBuilder = compilationContext.make(JDTExpressionStringBuilder.class);
 					
-					if(parameterDelegate.isConstant())
-						parameterBuilder.setTarget(parameterDelegate.getDefinition().getJavaClass());
-					else
-						parameterBuilder.setTarget(parameterDelegate.getDefinition().getDataClass());
+					if(parameterDelegate instanceof QDataTerm) {
+						QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
+						if(dataTerm.isConstant())
+							parameterBuilder.setTarget(dataTerm.getDefinition().getJavaClass());
+						else
+							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());						
+					}
+					else if(parameterDelegate instanceof QDataSetTerm) {
+						parameterBuilder.setTarget(QDataSet.class);
+					}
 					
 					element.accept(parameterBuilder);
 					
 					if(!first)
-						value.append(", ");					
+						value.append(", ");
+					
 					value.append(parameterBuilder.getResult());
 					
 					first = false;							
@@ -239,7 +248,7 @@ public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
 	@Override
 	public boolean visit(QArithmeticExpression expression) {
 
-		JavaExpressionStringBuilder builder = compilationContext.make(JavaExpressionStringBuilder.class);
+		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
 		
 		// plus, minus, multiple ..
 		if(expression.getRightOperand() != null) {				
@@ -279,7 +288,7 @@ public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
 	public boolean visit(QBooleanExpression expression) {
 
 		if(expression.getOperand() != null) {
-			JavaExpressionStringBuilder builder = compilationContext.make(JavaExpressionStringBuilder.class);
+			JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
 			builder.setTarget(Boolean.class);
 /*			if(!CompilationContextHelper.isPrimitive(compilationContext, expression.getOperand()))
 				builder.setTarget(Boolean.class);
@@ -297,7 +306,7 @@ public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
 	@Override
 	public boolean visit(QLogicalExpression expression) {
 
-		JavaExpressionStringBuilder builder = compilationContext.make(JavaExpressionStringBuilder.class);
+		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
 
 		// and/or
 		if(expression.getRightOperand() != null) {
@@ -350,7 +359,7 @@ public class JavaExpressionStringBuilder extends ExpressionVisitorImpl {
 
 	@Override
 	public boolean visit(QRelationalExpression expression) {
-		JavaExpressionStringBuilder builder = compilationContext.make(JavaExpressionStringBuilder.class);
+		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
 		
 		if(CompilationContextHelper.isPrimitive(compilationContext, expression.getLeftOperand())) {
 		

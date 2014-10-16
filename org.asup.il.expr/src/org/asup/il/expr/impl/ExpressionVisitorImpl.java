@@ -76,12 +76,9 @@ public abstract class ExpressionVisitorImpl extends MinimalEObjectImpl.Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void endVisit(QBooleanExpression expression) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

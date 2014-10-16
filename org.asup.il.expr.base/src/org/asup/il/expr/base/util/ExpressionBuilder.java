@@ -153,7 +153,7 @@ public class ExpressionBuilder {
 			booleanExpression = QIntegratedLanguageExpressionFactory.eINSTANCE.createBooleanExpression();
 			booleanExpression.setOperand(termExpression);
 			
-			return booleanExpression;
+			return booleanExpression;			
 		case LOGICAL:
 			return (QPredicateExpression) buildChildExpression(node);
 		case RELATIONAL:

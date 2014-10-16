@@ -11,47 +11,104 @@
  */
 package org.asup.dk.compiler.rpj;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
-import org.asup.dk.compiler.rpj.visitor.StatementNormalizer;
+import org.asup.dk.compiler.rpj.visitor.RPJCallableUnitAnalyzer;
+import org.asup.dk.compiler.rpj.visitor.RPJExpressionNormalizer;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.FileDef;
 import org.asup.il.data.annotation.ModuleDef;
+import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QParameterList;
-import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.QStatement;
+import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QTableDataSet;
-import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.Block;
+import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
+import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
-import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 
 	public RPJCallableUnitWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
 		super(root, compilationContext, compilationSetup, name);
+	}
+
+	public void analyzeCallableUnit(QCallableUnit callableUnit) {
+		// analyze statement
+		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(getCallableUnitInfo());
+		
+		// main
+		if(callableUnit.getMain() != null) {
+			for(QStatement statement: callableUnit.getMain().getStatements()) {				
+				statement.accept(callableUnitAnalyzer);
+			}
+		}
+		
+		// flow section
+		if(callableUnit.getFlowSection() != null) {
+			
+			// routines
+			for(QRoutine routine: callableUnit.getFlowSection().getRoutines()) {
+				for(QStatement statement: routine.getMain().getStatements()) {				
+					statement.accept(callableUnitAnalyzer);
+				}		
+			}
+		}
+
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public void writeLabels(Collection<String> labels) {
+		
+		if(labels.isEmpty())
+			return;
+		
+		EnumDeclaration enumType = getAST().newEnumDeclaration();
+		enumType.setName(getAST().newSimpleName("TAG"));
+		enumType.modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
+		enumType.modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));
+
+		// elements
+		int num = 0;
+		
+		for (String label: labels) {
+
+			EnumConstantDeclaration constantDeclaration = getAST().newEnumConstantDeclaration();
+			constantDeclaration.setName(getAST().newSimpleName(EnumHelper.normalizeEnumName(label)));
+			
+			enumType.enumConstants().add(num, constantDeclaration);
+			num++;
+		}
+
+		getTarget().bodyDeclarations().add(enumType);
 	}
 
 	
@@ -92,21 +149,28 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	@SuppressWarnings("unchecked")
 	public void writeDataSets(List<QDataSetTerm> dataSets) {
 		
+		writeImport(QDataSet.class);
+
+		
 		for(QDataSetTerm dataSet: dataSets) {
 	
 			getCompilationContext().linkDataSet(dataSet);
 			
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, FileDef.class, "name", dataSet.getFileName());			
+			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());			
 			writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 			String className = null;
-			if(dataSet.isKeyedAccess()) 
+			if(dataSet.isKeyedAccess()) { 
+				writeImport(QIndexDataSet.class);
 				className = QIndexDataSet.class.getSimpleName();
-			else
+			}
+			else {
+				writeImport(QTableDataSet.class);
 				className = QTableDataSet.class.getSimpleName();
+			}
 			
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
@@ -142,9 +206,9 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		if(routine.getMain() != null) {
 			
 			// normalize statement
-			StatementNormalizer statementNormalizer = compilationContext.make(StatementNormalizer.class);
+			RPJExpressionNormalizer expressionNormalizer = compilationContext.make(RPJExpressionNormalizer.class);
 			for(QStatement statement: routine.getMain().getStatements()) {				
-				statement.accept(statementNormalizer);
+				statement.accept(expressionNormalizer);
 			}
 
 			// write java AST
@@ -183,20 +247,32 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			int p=0;
 			for(QEntryParameter<?> entryParameter: prototype.getEntry().getParameters()) {
 
-				QDataTerm<?> dataTerm = entryParameter.getDelegate();
+				QTerm parameterDelegate = entryParameter.getDelegate();
 				
 				SingleVariableDeclaration singleVar = getAST().newSingleVariableDeclaration();			
-				String parameterName = dataTerm.getName();
+				String parameterName = parameterDelegate.getName();
 				if(parameterName == null) 
 					parameterName = "arg"+p;
 				singleVar.setName(getAST().newSimpleName(compilationContext.normalizeTermName(parameterName)));
 				
-				// primitive
-				if(dataTerm.isConstant())
-					singleVar.setType(getJavaPrimitive(dataTerm));
-				else {
-					Type type = prepareJavaType(dataTerm);
-					singleVar.setType(type);
+				if(parameterDelegate instanceof QDataTerm) {
+					QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
+
+					// primitive
+					if(dataTerm.isConstant())
+						singleVar.setType(getJavaPrimitive(dataTerm));
+					else {
+						Type type = prepareJavaType(dataTerm);
+						singleVar.setType(type);
+					}
+				}
+				else if(parameterDelegate instanceof QDataSetTerm) {
+					
+					Type dataSet = getAST().newSimpleType(getAST().newSimpleName(QDataSet.class.getSimpleName()));
+					ParameterizedType parType = getAST().newParameterizedType(dataSet);
+					parType.typeArguments().add(getAST().newWildcardType());
+					
+					singleVar.setType(parType);	
 				}
 
 				methodDeclaration.parameters().add(singleVar);
@@ -224,42 +300,6 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 				
 	}
 
-	@SuppressWarnings("unchecked")
-	public void writeProcedure(TypeDeclaration target, QCompilationContext compilationContext, QProcedure procedure) {
-		
-		AST ast = target.getAST();
-
-		MethodDeclaration methodDeclaration = ast.newMethodDeclaration();
-		target.bodyDeclarations().add(methodDeclaration);
-
-		methodDeclaration.setName(ast.newSimpleName(compilationContext.normalizeTermName(procedure.getName())));
-		methodDeclaration.modifiers().add(ast.newModifier(ModifierKeyword.PUBLIC_KEYWORD));
-
-//		writeSuppressWarning(methodDeclaration);
-		
-		Block block = ast.newBlock();
-		methodDeclaration.setBody(block);
-
-		if(procedure.getMain() != null) {
-			
-			// normalize statement
-			StatementNormalizer statementNormalizer = compilationContext.make(StatementNormalizer.class);
-			for(QStatement statement: procedure.getMain().getStatements()) {				
-				statement.accept(statementNormalizer);
-			}
-
-			// write java AST
-			JDTStatementWriter statementWriter = compilationContext.make(JDTStatementWriter.class);
-			statementWriter.setAST(ast);		
-
-			statementWriter.getBlocks().push(block);		
-			for(QStatement statement: procedure.getMain().getStatements()) {			
-				statement.accept(statementWriter);
-			}			
-			statementWriter.getBlocks().pop();
-		}
-				
-	}
 	
 	@SuppressWarnings("unchecked")
 	public void writeMain(QParameterList parameterList, String name) {

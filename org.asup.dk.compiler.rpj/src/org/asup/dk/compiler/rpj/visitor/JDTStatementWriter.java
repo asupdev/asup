@@ -20,6 +20,7 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.rpj.helper.CompilationContextHelper;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
@@ -52,6 +53,8 @@ import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUntil;
 import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
+import org.asup.il.isam.QDataSet;
+import org.asup.il.isam.QDataSetTerm;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.dom.AST;
@@ -69,6 +72,7 @@ import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.ForStatement;
 import org.eclipse.jdt.core.dom.IfStatement;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.Name;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.StringLiteral;
@@ -360,14 +364,22 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				QTermExpression expression = expressionParser.parseTerm(parameter);
 				if(entryParameters.hasNext()) {
 					QEntryParameter<?> entryParameter = entryParameters.next();
-					QDataTerm<?> parameterDelegate = entryParameter.getDelegate(); 
+					QTerm parameterDelegate = entryParameter.getDelegate(); 
 					
-					if(parameterDelegate.isConstant()) {
-						Expression jdtExpression = buildExpression(ast, expression, parameterDelegate.getDefinition().getJavaClass());
-						methodInvocation.arguments().add(jdtExpression);
+					if(parameterDelegate instanceof QDataTerm) {
+						QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
+						
+						if(dataTerm.isConstant()) {
+							Expression jdtExpression = buildExpression(ast, expression, dataTerm.getDefinition().getJavaClass());
+							methodInvocation.arguments().add(jdtExpression);
+						}
+						else {
+							Expression jdtExpression = buildExpression(ast, expression, dataTerm.getDefinition().getDataClass());
+							methodInvocation.arguments().add(jdtExpression);
+						}
 					}
-					else {
-						Expression jdtExpression = buildExpression(ast, expression, parameterDelegate.getDefinition().getDataClass());
+					else if(parameterDelegate instanceof QDataSetTerm) {
+						Expression jdtExpression = buildExpression(ast, expression, QDataSet.class);
 						methodInvocation.arguments().add(jdtExpression);
 					}
 				}
@@ -391,9 +403,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 		methodInvocation.setExpression(ast.newSimpleName("qRPJ"));
 		methodInvocation.setName(ast.newSimpleName("qJump"));
-		StringLiteral stringLiteral = ast.newStringLiteral();
-		stringLiteral.setLiteralValue(statement.getLabel());
-		methodInvocation.arguments().add(0,stringLiteral);
+		
+		Name labelName = ast.newName(new String[] {"TAG", statement.getLabel()});
+		methodInvocation.arguments().add(0,labelName);
 
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
@@ -411,9 +423,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		methodInvocation.setExpression(ast.newSimpleName("qRPJ"));
 		methodInvocation.setName(ast.newSimpleName("qLabel"));
 
-		StringLiteral stringLiteral = ast.newStringLiteral();
-		stringLiteral.setLiteralValue(statement.getName());
-		methodInvocation.arguments().add(0,stringLiteral);
+		Name labelName = ast.newName(new String[] {"TAG", statement.getName()});
+		methodInvocation.arguments().add(0,labelName);
 
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
@@ -611,7 +622,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
 		parser.setKind(ASTParser.K_EXPRESSION);
 
-		JavaExpressionStringBuilder builder = compilationContext.make(JavaExpressionStringBuilder.class);
+		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
 		builder.setTarget(target);
 		expression.accept(builder);
 		String value = builder.getResult();

@@ -16,13 +16,14 @@ import org.asup.il.expr.QArithmeticExpression;
 import org.asup.il.expr.QAssignmentExpression;
 import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QBlockExpression;
+import org.asup.il.expr.QBooleanExpression;
 import org.asup.il.expr.QCompoundTermExpression;
 import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QLogicalExpression;
 import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.expr.impl.ExpressionVisitorImpl;
 
-public class ExpressionBaseStringBuilder extends ExpressionVisitorImpl {
+public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 
 	String result = "";
 
@@ -30,9 +31,15 @@ public class ExpressionBaseStringBuilder extends ExpressionVisitorImpl {
 		return result;
 	}
 	
-	public ExpressionBaseStringBuilder reset() {
+	public RPJExpressionStringBuilder reset() {
 		result = "";
 		return this;
+	}
+
+	@Override
+	public boolean visit(QBooleanExpression expression) {
+		expression.getOperand().accept(this);
+		return false;
 	}
 
 	@Override

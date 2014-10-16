@@ -8,7 +8,7 @@
 package org.asup.il.flow;
 
 import org.asup.il.core.QNamedNode;
-import org.asup.il.data.QDataTerm;
+import org.asup.il.core.QTerm;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +27,7 @@ import org.asup.il.data.QDataTerm;
  * @model
  * @generated
  */
-public interface QEntryParameter<DT extends QDataTerm<?>> extends QNamedNode {
+public interface QEntryParameter<T extends QTerm> extends QNamedNode {
 	/**
 	 * Returns the value of the '<em><b>Delegate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -37,12 +37,12 @@ public interface QEntryParameter<DT extends QDataTerm<?>> extends QNamedNode {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Delegate</em>' containment reference.
-	 * @see #setDelegate(QDataTerm)
+	 * @see #setDelegate(QTerm)
 	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getEntryParameter_Delegate()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DT getDelegate();
+	T getDelegate();
 
 	/**
 	 * Sets the value of the '{@link org.asup.il.flow.QEntryParameter#getDelegate <em>Delegate</em>}' containment reference.
@@ -52,7 +52,7 @@ public interface QEntryParameter<DT extends QDataTerm<?>> extends QNamedNode {
 	 * @see #getDelegate()
 	 * @generated
 	 */
-	void setDelegate(DT value);
+	void setDelegate(T value);
 
 	/**
 	 * Returns the value of the '<em><b>Passing Type</b></em>' attribute.
