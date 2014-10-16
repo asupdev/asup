@@ -32,6 +32,25 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	@Inject
 	private QConnectionManager connectionManager;
 	
+	public Object _testcondb2(CommandInterpreter interpreter) throws SQLException {
+
+		System.out.println(connectionFactoryRegistry);
+		
+		QConnectionFactory mssqlConnectionFactory = connectionFactoryRegistry.lookup(DBType.DB2.name());
+		System.out.println(mssqlConnectionFactory);
+		
+		Properties props = new Properties();
+		props.put("url", "jdbc:db2://localhost:50000/ASUP050");
+		props.put("user", "ASUP");
+		props.put("password", "asup2013");
+		
+		DataSource dataSource = mssqlConnectionFactory.createDataSource(props);
+		System.out.println(dataSource.getConnection());
+		
+		return null;
+		
+	}
+	
 	// dataFactory
 	public Object _testcon1(CommandInterpreter interpreter) throws SQLException {
 
@@ -41,7 +60,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		System.out.println(mssqlConnectionFactory);
 		
 		Properties props = new Properties();
-		props.put("url", "jdbc:jtds:sqlserver://ASUP-DB1/ASUP_0.5.0");
+		props.put("url", "jdbc:jtds:sqlserver://127.0.0.1:1433/ASUP_0.5.0;instance=SQLEXPRESS");
 		props.put("user", "ASUP");
 		props.put("password", "asup2013");
 		
@@ -58,12 +77,14 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		QConnectionConfig connectionConfig = QDatabaseCoreFactory.eINSTANCE.createConnectionConfig();
 		connectionConfig.setDatabaseName("*LOCAL");
 		connectionConfig.setDriver("net.sourceforge.jtds.jdbc.Driver");
-		connectionConfig.setUrl("jdbc:jtds:sqlserver://ASUP-DB1/ASUP_0.5.0");
+		connectionConfig.setUrl("jdbc:jtds:sqlserver://localhost:1433/ASUP_0.5.0");
 		connectionConfig.setUser("ASUP");
 		connectionConfig.setPassword("asup2013");
 		connectionConfig.setUseCatalog(false);
 		connectionConfig.setPluginName(DBType.MSSQL.name());		
-
+		
+		System.out.println("Testing url " + connectionConfig.getUrl());
+		
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
 		System.out.println(connection.getConnection());
 		
@@ -73,7 +94,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	// connectionManager e disk
 	public Object _testcon3(CommandInterpreter interpreter) throws SQLException {
 		
-		QConnectionConfig connectionConfig = loadConfig("MSSQL");
+		QConnectionConfig connectionConfig = loadConfig("DB2");
 
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
 		System.out.println(connection.getConnection());
