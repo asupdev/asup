@@ -9,5 +9,5 @@
     driver="com.ibm.db2.jcc.DB2Driver"
     password="asup2013"
     pluginName="DB2"
-    url="jdbc:db2://localhost:50000/ASUP050"
+    url="jdbc:db2://172.16.2.133:50000/ASUP050"
     user="ASUP"/>

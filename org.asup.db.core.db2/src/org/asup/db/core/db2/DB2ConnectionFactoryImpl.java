@@ -40,6 +40,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 			DB2Url db2Url = new DB2Url(props.getProperty(DataSourceFactory.JDBC_URL));
 			System.out.println("Connecting....");
 			DB2SimpleDataSource ds = new DB2SimpleDataSource();
+			ds.setDriverType(4);
 			ds.setRetrieveMessagesFromServerOnGetMessage(true);
 			ds.setServerName (db2Url.getHost());		
 			ds.setPortNumber(db2Url.getPort());

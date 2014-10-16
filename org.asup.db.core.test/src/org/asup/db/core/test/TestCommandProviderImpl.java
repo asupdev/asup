@@ -9,12 +9,20 @@ import java.util.Properties;
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
+import org.asup.db.core.DataType;
+import org.asup.db.core.OrderingType;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QDatabaseManager;
+import org.asup.db.core.QIndex;
+import org.asup.db.core.QIndexColumn;
+import org.asup.db.core.QSchema;
+import org.asup.db.core.QTable;
+import org.asup.db.core.QTableColumn;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -31,20 +39,87 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	private QConnectionFactoryRegistry connectionFactoryRegistry;
 	@Inject
 	private QConnectionManager connectionManager;
+	@Inject
+	private QDatabaseManager databaseManager;
+
+	
+	// connectionManager e disk
+	public Object _testcon(CommandInterpreter interpreter) throws SQLException {
+				
+		String pluginName = interpreter.nextArgument();
+		QConnectionConfig connectionConfig = loadConfig(pluginName);
+
+		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
+		System.out.println(connection.getConnection());
+		
+		return null;
+	}
+
+	public Object _testDDL(CommandInterpreter interpreter) throws SQLException {
+				
+		String pluginName = interpreter.nextArgument();
+		QConnectionConfig connectionConfig = loadConfig(pluginName);
+		
+		String schemaName = "ASUP_TEST";
+		String tableName = "ASUP_TABLE";
+		String indexName = "ASUP_INDEX";
+		
+		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);
+				
+		QSchema schema = databaseManager.getSchema(connection, schemaName);
+		if(schema != null)
+			databaseManager.dropSchema(connection, schema);
+		
+		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
+		schema.setDatabase(connection.getDatabase());
+		schema.setName(schemaName);
+		databaseManager.createSchema(connection, schema, true);
+		
+		QTable table = QDatabaseCoreFactory.eINSTANCE.createTable(); 
+		table.setName(tableName);
+		table.setSchema(schema);
+		
+		for(int i=1; i <= 3; i++) {
+			QTableColumn column = QDatabaseCoreFactory.eINSTANCE.createTableColumn();
+			column.setName("COL"+i);
+			column.setDataType(DataType.CHARACTER);
+			column.setPrecision(10);
+			column.setTable(table);
+			table.getColumns().add(column);
+		}
+		
+		databaseManager.createTable(connection, table, false);
+
+		QIndex index = QDatabaseCoreFactory.eINSTANCE.createIndex();
+		index.setName(indexName);
+		index.setSchema(schema);
+		index.setObject(table.getName());
+		
+		QIndexColumn indexColumn = QDatabaseCoreFactory.eINSTANCE.createIndexColumn();
+		indexColumn.setName("COL2");
+		indexColumn.setSequence(1);
+		indexColumn.setOrdering(OrderingType.ASCEND);
+		
+		index.getColumns().add(indexColumn);
+		
+		databaseManager.createIndex(connection, index);
+		
+		return null;
+	}
 	
 	public Object _testcondb2(CommandInterpreter interpreter) throws SQLException {
 
 		System.out.println(connectionFactoryRegistry);
 		
-		QConnectionFactory mssqlConnectionFactory = connectionFactoryRegistry.lookup(DBType.DB2.name());
-		System.out.println(mssqlConnectionFactory);
+		QConnectionFactory db2ConnectionFactory = connectionFactoryRegistry.lookup(DBType.DB2.name());
+		System.out.println(db2ConnectionFactory);
 		
 		Properties props = new Properties();
-		props.put("url", "jdbc:db2://localhost:50000/ASUP050");
+		props.put("url", "jdbc:db2://172.16.2.133:50000/ASUP050");
 		props.put("user", "ASUP");
 		props.put("password", "asup2013");
 		
-		DataSource dataSource = mssqlConnectionFactory.createDataSource(props);
+		DataSource dataSource = db2ConnectionFactory.createDataSource(props);
 		System.out.println(dataSource.getConnection());
 		
 		return null;
@@ -85,17 +160,6 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		
 		System.out.println("Testing url " + connectionConfig.getUrl());
 		
-		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
-		System.out.println(connection.getConnection());
-		
-		return null;
-	}
-	
-	// connectionManager e disk
-	public Object _testcon3(CommandInterpreter interpreter) throws SQLException {
-		
-		QConnectionConfig connectionConfig = loadConfig("DB2");
-
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
 		System.out.println(connection.getConnection());
 		

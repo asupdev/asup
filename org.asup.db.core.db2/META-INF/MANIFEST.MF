@@ -12,3 +12,4 @@ Require-Bundle: org.asup.db.core;bundle-version="0.5.0",
 Bundle-ClassPath: lib/db2jcc_license_cu.jar,
  lib/db2jcc.jar,
  .
+Export-Package: com.ibm.db2.jcc
