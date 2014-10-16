@@ -1,4 +1,4 @@
-package org.asup.os.type.msgf.base.api;
+package org.asup.os.type.msgf.base.api; 
 
 import java.io.IOException;
 
