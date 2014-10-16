@@ -76,9 +76,10 @@ public  class JobDescriptionChanger {
 		String library = null;
 		switch (jobDescription.library.asEnum()) {
 		case LIBL:
+			resource = jobDescriptionManager.getResourceWriter(job, Scope.LIBRARY_LIST);
+			break;
 		case CURLIB:
-			library = jobDescription.library.getSpecialName();
-			resource = jobDescriptionManager.getResourceWriter(job, Scope.getByName(library));
+			resource = jobDescriptionManager.getResourceWriter(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
 			library = jobDescription.library.asData().trimR();

@@ -719,7 +719,7 @@
         </definition>
       </dataTerm>
     </parameters>
-    <parameters name="OBJTYPE" position="2" hidden="true">
+    <parameters name="OBJTYPE" position="2" status="POS" hidden="true">
       <dataTerm xsi:type="il-data:UnaryAtomicDataTerm" name="objectType" default="*JOBD">
         <definition xsi:type="il-data:CharacterDef" length="7"/>
       </dataTerm>
@@ -808,9 +808,19 @@
         </definition>
       </dataTerm>
     </parameters>
-    <parameters name="OBJTYPE" position="2" hidden="true">
+    <parameters name="OBJTYPE" position="2" status="POS" hidden="true">
       <dataTerm xsi:type="il-data:UnaryAtomicDataTerm" name="objectType" default="*JOBD">
         <definition xsi:type="il-data:CharacterDef" length="7"/>
+      </dataTerm>
+    </parameters>
+    <parameters name="TEXT" position="3" status="POS">
+      <dataTerm xsi:type="il-data:UnaryAtomicDataTerm" name="text" default="">
+        <definition xsi:type="il-data:CharacterDef" length="50"/>
+      </dataTerm>
+    </parameters>
+    <parameters name="APPL" position="4" status="POS">
+      <dataTerm xsi:type="il-data:UnaryAtomicDataTerm" name="application" default="">
+        <definition xsi:type="il-data:CharacterDef" length="2"/>
       </dataTerm>
     </parameters>
     <source type="CMD" content="&#xA;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?>&#xA;&lt;QcdCLCmd DTDVersion=&quot;1.0&quot;>&lt;Cmd CmdName=&quot;WRKJOBD&quot; CmdLib=&quot;__LIBL&quot; CCSID=&quot;37&quot; HlpPnlGrp=&quot;QHMNCMD&quot; HlpPnlGrpLib=&quot;__LIBL&quot; HlpID=&quot;WRKJOBD&quot; MaxPos=&quot;1&quot; Prompt=&quot;Work with Job Descriptions&quot; MsgF=&quot;QCPFMSG&quot; MsgFLib=&quot;__LIBL&quot; ExecBatch=&quot;NO&quot; ChgCmdExit=&quot;NO&quot; RtvCmdExit=&quot;NO&quot;>&lt;Parm Kwd=&quot;JOBD&quot; PosNbr=&quot;1&quot; KeyParm=&quot;NO&quot; Type=&quot;QUAL&quot; Min=&quot;1&quot; Max=&quot;1&quot; Prompt=&quot;Job description&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; >&lt;Qual Type=&quot;GENERIC&quot; Min=&quot;1&quot; Max=&quot;1&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Name, generic*&quot; >&lt;SpcVal>&lt;Value Val=&quot;*ALL&quot; MapTo=&quot;*ALL&quot;/>&lt;/SpcVal>&lt;/Qual>&lt;Qual Type=&quot;NAME&quot; Min=&quot;0&quot; Max=&quot;1&quot; Prompt=&quot;Library&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; Dft=&quot;*LIBL&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;Name&quot; >&lt;SpcVal>&lt;Value Val=&quot;*LIBL&quot; MapTo=&quot;*LIBL&quot;/>&lt;Value Val=&quot;*CURLIB&quot; MapTo=&quot;*CURLIB   &quot;/>&lt;Value Val=&quot;*USRLIBL&quot; MapTo=&quot;*USRLIBL&quot;/>&lt;Value Val=&quot;*ALLUSR&quot; MapTo=&quot;*ALLUSR&quot;/>&lt;Value Val=&quot;*ALL&quot; MapTo=&quot;*ALL&quot;/>&lt;/SpcVal>&lt;/Qual>&lt;/Parm>&lt;/Cmd>&lt;/QcdCLCmd>&#xA;"/>

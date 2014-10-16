@@ -76,9 +76,10 @@ public class JobDescriptionDisplayer {
 		String library = null;
 		switch (jobDescription.library.asEnum()) {
 		case LIBL:
+			resourceReader = jobDescriptionManager.getResourceReader(job, Scope.LIBRARY_LIST);
+			break;
 		case CURLIB:
-			library = jobDescription.library.getSpecialName();
-			resourceReader = jobDescriptionManager.getResourceReader(job, Scope.getByName(library));
+			resourceReader = jobDescriptionManager.getResourceReader(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
 			library = jobDescription.library.asData().trimR();
