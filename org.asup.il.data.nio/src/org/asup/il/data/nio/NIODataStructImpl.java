@@ -55,16 +55,22 @@ public class NIODataStructImpl extends NIOAbstractDataStruct {
 		return null;
 	}
 
-	protected void addElement(String name, QBufferedData element) {
+	protected void addElement(String name, QBufferedData element, int position) {
 
 		// virtual name '/n'
-		if (name == null)
+		if (name == null) {
+			System.err.println("Unexpected condition: 61n67v8sh2756nv56");
 			name = "/" + _elements.size() + 1;
+		}
 
 		this._elements.put(name, element);
 
-		if (_dynamicLength)
-			_length += element.size();		
+		if (_dynamicLength) {
+			if(position+element.size() >= _length)
+				_length = position+element.size();
+			else
+				System.err.println("Unexpected condition: mzt47gafdg7n0tcw");
+		}
 	}
 
 	@Override

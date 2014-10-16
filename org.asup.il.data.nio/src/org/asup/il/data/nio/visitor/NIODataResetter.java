@@ -18,6 +18,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 
 	private QData data;
 	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	
 	public NIODataResetter(QData data) {
 		this.data = data;
 	}

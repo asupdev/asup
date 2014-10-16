@@ -78,7 +78,7 @@ public class EnumHelper {
 	}
 
 
-	private static String normalizeEnumName(String s) {
+	public static String normalizeEnumName(String s) {
 
 		// String a = s;
 		// if(!s.startsWith("*"))

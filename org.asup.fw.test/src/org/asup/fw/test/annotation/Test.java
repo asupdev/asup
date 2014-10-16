@@ -5,19 +5,17 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.il.data.annotation;
+package org.asup.fw.test.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@DataType
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface FileDef {
+@Target({ElementType.TYPE})
+public @interface Test {
 	
-	String fileName();
-	
-	boolean userOpen() default false;
+	String category();
+	String object();
 }

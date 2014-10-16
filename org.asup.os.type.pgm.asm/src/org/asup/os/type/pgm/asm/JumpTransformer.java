@@ -31,7 +31,9 @@ public class JumpTransformer extends ClassAdapter {
 
         	@Override
             public void visitMethodInsn(int opcode, String owner, String name, String desc) {
-
+        		
+//        		System.out.println("Method: "+owner+"."+name+"()");
+        		
             	// filtered class
             	if (!owner.startsWith(filterClass)) {
         			super.visitMethodInsn(opcode, owner, name, desc);
@@ -65,7 +67,7 @@ public class JumpTransformer extends ClassAdapter {
 			@Override
 			public void visitLabel(Label paramLabel) {
 				// TODO Auto-generated method stub
-//				super.visitLabel(paramLabel);
+				super.visitLabel(paramLabel);
 			}
 
 			@Override

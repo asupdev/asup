@@ -41,7 +41,6 @@ import org.asup.il.isam.QIsamManager;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.pgm.QActivationGroup;
-import org.asup.os.type.pgm.QCallableProgram;
 
 public class BaseCallableInjector {
 
@@ -65,7 +64,7 @@ public class BaseCallableInjector {
 		C callable = null;
 		
 		try {
-			Map<String, QCallableProgram> sharedModules = new HashMap<>();			
+			Map<String, Object> sharedModules = new HashMap<>();			
 			callable = injectData(klass, dataFactory, job, activationGroup, sharedModules);			
 		} 
 		catch (InstantiationException | IllegalAccessException e) {
@@ -108,13 +107,15 @@ public class BaseCallableInjector {
 	
 	private <C> C injectData(Class<C> klass, QDataFactory dataFactory,
 				 			QJob job, QActivationGroup activationGroup,
-							Map<String, QCallableProgram> sharedModules) throws IllegalArgumentException, IllegalAccessException, InstantiationException {
+							Map<String, Object> sharedModules) throws IllegalArgumentException, IllegalAccessException, InstantiationException {
 		
 		C callable = klass.newInstance();
 		QContext context = job.getJobContext();
 		for(Field field: klass.getDeclaredFields()) {
 
 			field.setAccessible(true);
+			
+//			System.out.println(field);
 			
 			// TODO
 			if(field.getName().startsWith("$SWITCH_TABLE"))
@@ -135,7 +136,7 @@ public class BaseCallableInjector {
 				Object callableModule = sharedModules.get(moduleDef.name());
 				if(callableModule == null) {
 					callableModule = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
-					sharedModules.put(moduleDef.name(), (QCallableProgram)callableModule);
+					sharedModules.put(moduleDef.name(), callableModule);
 				}
 				field.set(callable, callableModule);
 			}

@@ -5,7 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:il-flow="http://www.asup.org/il/flow"
-    xsi:schemaLocation="http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/il/flow ../../org.asup.il.flow/model/il-flow.ecore"
+    xmlns:il-isam="http://www.asup.org/il/isam"
+    xsi:schemaLocation="http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/il/flow ../../org.asup.il.flow/model/il-flow.ecore http://www.asup.org/il/isam ../../org.asup.il.isam/model/il-isam.ecore"
     name="*RPJ">
   <dataSection>
     <datas xsi:type="il-data:UnaryCompoundDataTerm"
@@ -868,7 +869,11 @@
             xsi:type="il-data:IndicatorDef"/>
       </delegate>
       <entry>
-        <parameters/>
+        <parameters>
+          <delegate
+              xsi:type="il-isam:DataSetTerm"
+              fileName="dataSet"/>
+        </parameters>
       </entry>
     </prototypes>
     <prototypes>

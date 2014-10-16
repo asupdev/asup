@@ -13,6 +13,7 @@ package org.asup.dk.compiler.rpj;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.il.data.QData;
 import org.asup.il.data.annotation.ModuleDef;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
 import org.eclipse.jdt.core.dom.AST;
@@ -25,9 +26,17 @@ import org.eclipse.jdt.core.dom.StringLiteral;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
-
+	
+	RPJCallableUnitInfo callableUnitInfo;		
+	
 	public RPJUnitWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
 		super(root, compilationContext, compilationSetup, name);
+		
+		callableUnitInfo = new RPJCallableUnitInfo();
+	}
+
+	public RPJCallableUnitInfo getCallableUnitInfo() {
+		return this.callableUnitInfo;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -66,6 +75,9 @@ public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 		variable.setName(ast.newSimpleName("qSP"));
 		target.bodyDeclarations().add(field);*/
 
+		writeImport(QData.class);
+		writeImport(RPJProgramSupport.class);
+		
 		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 		FieldDeclaration field = getAST().newFieldDeclaration(variable);
 		writeAnnotation(field, ModuleDef.class, "name", "*RPJ");

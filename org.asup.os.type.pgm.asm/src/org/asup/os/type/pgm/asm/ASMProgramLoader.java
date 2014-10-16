@@ -1,7 +1,6 @@
 package org.asup.os.type.pgm.asm;
 
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.asup.fw.core.impl.ServiceImpl;
 import org.objectweb.asm.ClassAdapter;
@@ -29,15 +28,18 @@ public class ASMProgramLoader extends ServiceImpl implements WeavingHook {
 	}
 	
 	private void completeClass(WovenClass wovenClass) {
+		
+//		System.out.println("Woven: "+wovenClass);
+		
         ClassReader cr = new ClassReader(wovenClass.getBytes());
         
         LabelAnalyzer labelAnalyzer = new LabelAnalyzer();        
         cr.accept(labelAnalyzer, 0);
         
         Map<String, Label> tag2Label = labelAnalyzer.getTag2Label();
-        for(Entry<String, Label> entry: tag2Label.entrySet()) {
+/*        for(Entry<String, Label> entry: tag2Label.entrySet()) {
         	System.out.println(entry.getKey()+"="+entry.getValue()+"("+entry.getValue().info+")");
-        }
+        }*/
         
         ClassWriter cw = new ClassWriter(cr, 0);  
         ClassAdapter ca = new JumpTransformer(cw, wovenClass.getClassName().replace(".", "/"), tag2Label);

@@ -76,14 +76,6 @@ public interface QCompilationContext extends QContext {
 	 * @model required="true" nameRequired="true"
 	 * @generated
 	 */
-	QPhysicalFile getPhysicalFile(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" nameRequired="true"
-	 * @generated
-	 */
 	QDataSetTerm getDataSet(String name, boolean deep);
 
 	/**
@@ -133,6 +125,14 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	QNamedNode getNamedNode(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QPhysicalFile getPhysicalFile(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -7,6 +7,7 @@
  */
 package org.asup.il.flow.impl;
 
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.flow.EvalOperator;
 import org.asup.il.flow.PassingType;
@@ -239,8 +240,8 @@ public class IntegratedLanguageFlowFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <DT extends QDataTerm<?>> QEntryParameter<DT> createEntryParameter() {
-		EntryParameterImpl<DT> entryParameter = new EntryParameterImpl<DT>();
+	public <T extends QTerm> QEntryParameter<T> createEntryParameter() {
+		EntryParameterImpl<T> entryParameter = new EntryParameterImpl<T>();
 		return entryParameter;
 	}
 
