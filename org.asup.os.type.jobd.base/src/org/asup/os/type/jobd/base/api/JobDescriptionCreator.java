@@ -77,7 +77,8 @@ public  class JobDescriptionCreator {
 		
 		String library = null;
 		switch (jobDescription.library.asEnum()) {
-		case CURLIB: 
+		case CURLIB:
+			library = jobDescription.library.getSpecialName();
 			resource = jobDescriptionManager.getResourceWriter(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
