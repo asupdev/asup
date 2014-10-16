@@ -40,7 +40,7 @@ public class JobDescriptionRetriever {
 			@DataDef(length = 8) QCharacter formatName,
 			//@DataDef(length = 20) QCharacter jobDescription,
 			JobDescription jobDescription,
-			@DataDef()QPointer errorCode
+			@DataDef()QPointer errorCode 
 			){
 
 		try {
