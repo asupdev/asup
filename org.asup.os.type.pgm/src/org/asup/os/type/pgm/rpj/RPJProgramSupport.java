@@ -29,6 +29,7 @@ import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
+import org.asup.il.isam.QDataSet;
 import org.asup.os.type.pgm.QProgramManager;
 import org.asup.os.type.pgm.impl.CallableProgramImpl;
 
@@ -136,16 +137,16 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	}
 	
 	public void qCall(String program, QData[] parameters) {
-		programManager.callProgram(contextID, null, program, parameters);
+		programManager.callProgram(contextID, null, program.trim(), parameters);
 	}
 
 	public void qCommand(String statement) {
 		
 	}
 
-	public void qJump(String label){}
+	public void qJump(Enum<?> label){}
 	
-	public void qLabel(String name){}
+	public void qLabel(Enum<?> name){}
 	
 	public QDecimal qBox(Integer decimal) {
 		
@@ -161,6 +162,14 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		qCharacter.eval(character);
 		
 		return qCharacter;
+	}
+
+	public QIndicator qBox(boolean boo) {
+
+		QIndicator qIndicator = qDF.createIndicator(true);
+		qIndicator.eval(boo);
+		
+		return qIndicator;
 	}
 	
 	public QString qChar(QNumeric numeric) {
@@ -270,5 +279,9 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	public QString qXlate(String oldString, String newString, QString source) {
 		return null;
+	}
+	
+	public QIndicator qEof(QDataSet<?> dataSet) {
+		return qBox(dataSet.isEndOfData());
 	}
 }

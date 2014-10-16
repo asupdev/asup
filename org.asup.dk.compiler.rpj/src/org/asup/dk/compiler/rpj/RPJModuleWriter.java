@@ -31,11 +31,13 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 	
 	public void writeModule(QModule module) throws IOException {
 		
+		// analyze callable unit
+		analyzeCallableUnit(module);
+		
 		// modules
 		for(String childModule: module.getSetupSection().getModules()) {
 			writeImport(childModule);
 		}
-		
 		
 		writeSupportFields();
 		
@@ -47,11 +49,15 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 		if(module.getDataSection() != null)
 			writeDataFields(module.getDataSection());
 
+		// labels
+		writeLabels(getCallableUnitInfo().getLabels().keySet());
+		
 		// main
 		if(module.getMain() != null) {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
 			routine.setName("call");
 			routine.setMain(module.getMain());
+			
 			writeRoutine(getCompilationContext(), routine);
 		}
 

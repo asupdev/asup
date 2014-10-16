@@ -45,6 +45,9 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 	
 	public void writeProgram(QProgram program) throws IOException {
 
+		// analyze callable unit
+		analyzeCallableUnit(program);
+		
 		// modules
 		List<String> modules = new ArrayList<>();
 		if(program.getSetupSection()!=null){
@@ -71,7 +74,10 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		
 		if(program.getEntry() != null)
 			writeEntry(program.getEntry(), "qEntry");
-		
+				
+		// labels
+		writeLabels(getCallableUnitInfo().getLabels().keySet());
+
 		// main
 		if(program.getMain() != null) {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
@@ -85,7 +91,6 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 			
 			// routines
 			for(QRoutine routine: program.getFlowSection().getRoutines()) {
-				System.out.println(routine);
 				writeRoutine(getCompilationContext(), routine);
 			}
 			

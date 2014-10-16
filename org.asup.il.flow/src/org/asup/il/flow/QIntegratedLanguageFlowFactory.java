@@ -7,6 +7,7 @@
  */
 package org.asup.il.flow;
 
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QDataTerm;
 import org.eclipse.emf.ecore.EFactory;
 
@@ -97,7 +98,7 @@ public interface QIntegratedLanguageFlowFactory extends EFactory {
 	 * @return a new object of class '<em>Entry Parameter</em>'.
 	 * @generated
 	 */
-	<DT extends QDataTerm<?>> QEntryParameter<DT> createEntryParameter();
+	<T extends QTerm> QEntryParameter<T> createEntryParameter();
 
 	/**
 	 * Returns a new object of class '<em>Eval</em>'.

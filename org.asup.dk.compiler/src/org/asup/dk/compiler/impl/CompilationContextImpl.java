@@ -107,13 +107,6 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public abstract QPhysicalFile getPhysicalFile(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	public abstract QDataTerm<?> getData(String name, boolean deep);
 
 	/**
@@ -147,6 +140,17 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * @generated NOT
 	 */
 	public abstract QNamedNode getNamedNode(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QPhysicalFile getPhysicalFile(String name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

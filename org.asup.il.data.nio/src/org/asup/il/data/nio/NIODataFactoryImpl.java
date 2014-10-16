@@ -424,8 +424,6 @@ public class NIODataFactoryImpl implements QDataFactory {
 			QDataTerm<?> dataTerm = createDataTerm(field);
 			QBufferedData dataElement = (QBufferedData) createData(dataTerm, false);
 
-			dataStructureDelegate.addElement(field.getName(), dataElement);
-
 			QOverlay overlay = dataTerm.getFacet(QOverlay.class);
 			String position = null;
 			if (overlay != null)
@@ -438,7 +436,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 					p = Integer.parseInt(position);
 				}
 			}
-			
+			dataStructureDelegate.addElement(field.getName(), dataElement, p-1);			
 			dataStructureDelegate.slice(dataElement, p-1);
 			
 			p += dataElement.size();
@@ -463,8 +461,6 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 			QBufferedData dataElement = (QBufferedData)createData(dataTerm, false);
 			
-			dataStructureDelegate.addElement(dataTerm.getName(), dataElement);
-			
 			QOverlay overlay = dataTerm.getFacet(QOverlay.class);
 			String position = null;
 			if (overlay != null)
@@ -477,7 +473,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 					p = Integer.parseInt(position);
 				}
 			}
-			
+
+			dataStructureDelegate.addElement(dataTerm.getName(), dataElement, p-1);
 			dataStructureDelegate.slice(dataElement, p-1);
 			
 			p += dataElement.size();

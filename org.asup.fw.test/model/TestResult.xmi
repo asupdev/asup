@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fw-test:TestResult
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:fw-test="http://www.asup.org/fw/test"
+    xsi:schemaLocation="http://www.asup.org/fw/test fw-test.ecore"
+    failed="true"
+    time="1234">
+  <assertResults
+      xsi:type="fw-test:AssertionSuccess"
+      message="Test numero elementi"
+      time="4"/>
+  <assertResults
+      xsi:type="fw-test:AssertionSuccess"
+      message="Test valore elementi"
+      time="12"/>
+  <assertResults
+      xsi:type="fw-test:AssertionFailed"
+      message="Sort elementi"
+      time="11"/>
+</fw-test:TestResult>

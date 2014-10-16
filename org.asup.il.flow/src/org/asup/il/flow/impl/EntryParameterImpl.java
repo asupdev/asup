@@ -7,8 +7,8 @@
  */
 package org.asup.il.flow.impl;
 
+import org.asup.il.core.QTerm;
 import org.asup.il.core.impl.NamedNodeImpl;
-import org.asup.il.data.QDataTerm;
 import org.asup.il.flow.PassingType;
 import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl implements QEntryParameter<DT> {
+public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implements QEntryParameter<T> {
 	/**
 	 * The cached value of the '{@link #getDelegate() <em>Delegate</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl i
 	 * @generated
 	 * @ordered
 	 */
-	protected DT delegate;
+	protected T delegate;
 
 	/**
 	 * 
@@ -92,7 +92,7 @@ public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DT getDelegate() {
+	public T getDelegate() {
 		return delegate;
 	}
 
@@ -101,8 +101,8 @@ public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDelegate(DT newDelegate, NotificationChain msgs) {
-		DT oldDelegate = delegate;
+	public NotificationChain basicSetDelegate(T newDelegate, NotificationChain msgs) {
+		T oldDelegate = delegate;
 		delegate = newDelegate;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE, oldDelegate, newDelegate);
@@ -116,7 +116,7 @@ public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDelegate(DT newDelegate) {
+	public void setDelegate(T newDelegate) {
 		if (newDelegate != delegate) {
 			NotificationChain msgs = null;
 			if (delegate != null)
@@ -191,7 +191,7 @@ public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl i
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE:
-				setDelegate((DT)newValue);
+				setDelegate((T)newValue);
 				return;
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__PASSING_TYPE:
 				setPassingType((PassingType)newValue);
@@ -209,7 +209,7 @@ public class EntryParameterImpl<DT extends QDataTerm<?>> extends NamedNodeImpl i
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE:
-				setDelegate((DT)null);
+				setDelegate((T)null);
 				return;
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__PASSING_TYPE:
 				setPassingType(PASSING_TYPE_EDEFAULT);

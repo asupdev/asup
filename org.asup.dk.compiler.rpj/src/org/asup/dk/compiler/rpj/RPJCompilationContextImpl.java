@@ -41,7 +41,6 @@ import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
-import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QKeyListTerm;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
@@ -170,11 +169,11 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 				
 				dataSetTerm = d;
 				
-				QPhysicalFile physicalFile = getPhysicalFile(dataSetTerm.getFileName());			
+/*				QPhysicalFile physicalFile = getPhysicalFile(dataSetTerm.getFileName());			
 				dataSetTerm = QIntegratedLanguageIsamFactory.eINSTANCE.createDataSetTerm();
 				dataSetTerm.setFileName(physicalFile.getName());
 
-				break;
+				break;*/
 			}	
 						
 
@@ -531,6 +530,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		}
 	}
 	
+	@Override
 	public QPhysicalFile getPhysicalFile(String name) {
 
 		QFile file = fileManager.getOverridedDatabaseFile(job, name);

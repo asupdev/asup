@@ -1463,16 +1463,14 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		QIntegratedLanguageIsamPackage theIntegratedLanguageIsamPackage = (QIntegratedLanguageIsamPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageIsamPackage.eNS_URI);
 
 		// Create type parameters
-		ETypeParameter entryParameterEClass_DT = addETypeParameter(entryParameterEClass, "DT");
+		ETypeParameter entryParameterEClass_T = addETypeParameter(entryParameterEClass, "T");
 		ETypeParameter prototypeEClass_DT = addETypeParameter(prototypeEClass, "DT");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());
-		EGenericType g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		entryParameterEClass_DT.getEBounds().add(g1);
+		EGenericType g1 = createEGenericType(theIntegratedLanguageCorePackage.getTerm());
+		entryParameterEClass_T.getEBounds().add(g1);
 		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());
-		g2 = createEGenericType();
+		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		prototypeEClass_DT.getEBounds().add(g1);
 
@@ -1548,7 +1546,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEReference(getEntry_Parameters(), g1, null, "parameters", null, 1, -1, QEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryParameterEClass, QEntryParameter.class, "EntryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(entryParameterEClass_DT);
+		g1 = createEGenericType(entryParameterEClass_T);
 		initEReference(getEntryParameter_Delegate(), g1, null, "delegate", null, 0, 1, QEntryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntryParameter_PassingType(), this.getPassingType(), "passingType", "REF", 1, 1, QEntryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

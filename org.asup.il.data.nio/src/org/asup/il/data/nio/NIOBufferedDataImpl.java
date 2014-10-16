@@ -29,9 +29,9 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements
 	private static final long serialVersionUID = 1L;
 
 	private NIOBufferedDataImpl _parent;
-	private transient ByteBuffer _buffer;
-
 	private int _position;
+	
+	private transient ByteBuffer _buffer;
 
 	public NIOBufferedDataImpl() {
 		super();

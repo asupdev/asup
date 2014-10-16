@@ -19,23 +19,24 @@ import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.il.expr.QExpressionParser;
+import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QTermExpression;
 import org.asup.il.flow.QCall;
 import org.asup.il.flow.QIf;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
-public class StatementNormalizer extends StatementVisitorImpl {
+public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 	@Inject
 	private QCompilationContext compilationContext;
 	@Inject
 	private QExpressionParser expressionParser;
 
-	private ExpressionBaseStringBuilder expressionBuilder;
+	private RPJExpressionStringBuilder expressionBuilder;
 	
 	@PostConstruct
 	public void init() {
-		this.expressionBuilder = compilationContext.make(ExpressionBaseStringBuilder.class);
+		this.expressionBuilder = compilationContext.make(RPJExpressionStringBuilder.class);
 	}
 	
 	@Override
@@ -63,7 +64,7 @@ public class StatementNormalizer extends StatementVisitorImpl {
 	public boolean visit(QIf statement) {
 		
 		// program
-		QTermExpression expression = expressionParser.parseTerm(statement.getCondition());
+		QPredicateExpression expression = expressionParser.parsePredicate(statement.getCondition());
 		expression.accept(expressionBuilder.reset());
 		statement.setCondition(expressionBuilder.getResult());
 		

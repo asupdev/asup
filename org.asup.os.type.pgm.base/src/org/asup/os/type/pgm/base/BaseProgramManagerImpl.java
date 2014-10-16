@@ -122,7 +122,6 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 			if(!callableProgram.isOpen())
 				callableProgram.open();
 
-			// assign parameters
 			assignParameters(callableProgram.getQEntry(), params);
 			
 /*			PrintStream ps = System.out;
@@ -152,7 +151,9 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		}		
 		finally {
 //			printCloseStack(job, programStack, callableProgram);
-						
+
+			// TODO release parameters
+			
 			// remove program from stack
 			programStack.pop();
 
@@ -174,7 +175,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		
 		int paramsLength = 0;
 		
-		if(paramsTo != null)
+		if(paramsTo != null && paramsFrom != null)
 			paramsLength = paramsFrom.length < paramsTo.length ? paramsFrom.length : paramsTo.length;
 		
 		// assign data pointers 
