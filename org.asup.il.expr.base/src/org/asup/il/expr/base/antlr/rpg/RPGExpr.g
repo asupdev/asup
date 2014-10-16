@@ -122,7 +122,10 @@ special	:
 	;
 
 bi_function
-	: 	BI_FUN (params)? -> ^(BI_FUNCTION[$BI_FUN.text] (params)?)
+	: 	
+		BI_FUN (params)? -> ^(BI_FUNCTION[$BI_FUN.text] (params)?)
+		|
+		BI_FUN '(' ')'   -> ^(BI_FUNCTION[$BI_FUN.text])
 	;
 
 usr_function
