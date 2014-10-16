@@ -7,4 +7,8 @@ Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore.xmi.impl
-Require-Bundle: org.asup.db.core;bundle-version="0.5.0"
+Require-Bundle: org.asup.db.core;bundle-version="0.5.0",
+ org.junit
+Bundle-ClassPath: lib/db2jcc_license_cu.jar,
+ lib/db2jcc.jar,
+ .
