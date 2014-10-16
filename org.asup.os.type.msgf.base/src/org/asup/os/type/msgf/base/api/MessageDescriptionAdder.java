@@ -67,12 +67,13 @@ public class MessageDescriptionAdder {
 		
 		
 		QResourceWriter<QMessageFile> resource = null;
-		String library = "";
+		String library = null;
 		switch (messageFile.library.asEnum()) {
 		case LIBL:
+			resource = messageFileManager.getResourceWriter(job, Scope.LIBRARY_LIST);
+			break;
 		case CURLIB:
-			library = messageFile.library.getSpecialName();
-			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
+			resource = messageFileManager.getResourceWriter(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();
@@ -114,7 +115,7 @@ public class MessageDescriptionAdder {
 		// FMT TODO
 		QMessageDescriptionDataField messageDescriptionDataField = null;
 		messageDescriptionDataField = OperatingSystemMessageFileFactoryImpl.eINSTANCE.createMessageDescriptionDataField();
-
+		System.out.println(messageDataFieldsFormats.asData().asString());
 		switch (messageDataFieldsFormats.asEnum()) {
 		case NONE:
 			break;

@@ -45,8 +45,7 @@ public class MessageFileCreator {
 
 		switch (messageFile.library.asEnum()) {
 		case CURLIB:
-			library = messageFile.library.getSpecialName();
-			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
+			resource = messageFileManager.getResourceWriter(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();

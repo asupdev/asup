@@ -35,9 +35,10 @@ public class MessageFileOverrider {
 		String library = null;
 		switch (overridingToMessageFile.library.asEnum()) {
 		case LIBL:
+			resource = messageFileManager.getResourceReader(job, Scope.LIBRARY_LIST);
+			break;
 		case CURLIB:
-			library = overridingToMessageFile.library.getSpecialName();
-			resource = messageFileManager.getResourceReader(job, Scope.getByName(library));
+			resource = messageFileManager.getResourceReader(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
 			library = overridingToMessageFile.library.asData().trimR();

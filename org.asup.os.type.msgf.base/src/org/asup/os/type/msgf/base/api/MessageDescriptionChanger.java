@@ -65,9 +65,10 @@ public class MessageDescriptionChanger {
 		String library = null;
 		switch (messageFile.library.asEnum()) {
 		case LIBL:
+			resource = messageFileManager.getResourceWriter(job, Scope.LIBRARY_LIST);
+			break;
 		case CURLIB:
-			library = messageFile.library.getSpecialName();
-			resource = messageFileManager.getResourceWriter(job, Scope.getByName(library));
+			resource = messageFileManager.getResourceWriter(job, Scope.CURRENT_LIBRARY);
 			break;
 		case OTHER:
 			library = messageFile.library.asData().trimR();
