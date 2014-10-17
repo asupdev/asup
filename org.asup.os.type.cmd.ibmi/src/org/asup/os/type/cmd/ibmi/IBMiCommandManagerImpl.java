@@ -148,7 +148,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 					QData element = null;
 					if (data instanceof QArray) {
-						element = ((QArray<?>) data).get(i);
+						element = ((QArray<?>) data).get(i+1);
 
 					} else if (data instanceof QScroller) {
 						element = ((QScroller<?>) data).absolute(i + 1);
@@ -436,7 +436,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 				int capacity = listAtomic.capacity();
 				
-				for (int i = 1; i <= capacity; i++) {
+				for (int i = 1; i < capacity; i++) {
 					QData listItem = listAtomic.get(i);
 					assignValue(evaluator, listItem, "");					
 				}
