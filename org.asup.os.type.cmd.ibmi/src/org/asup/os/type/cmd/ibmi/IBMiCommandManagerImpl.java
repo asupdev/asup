@@ -37,15 +37,11 @@ import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.util.FormatHelper;
 import org.asup.il.data.QAdapter;
-import org.asup.il.data.QArray;
-import org.asup.il.data.QAtomicDataTerm;
 import org.asup.il.data.QCompoundDataDef;
-import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContext;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataManager;
-import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -56,7 +52,6 @@ import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QScroller;
-import org.asup.il.data.QStroller;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
@@ -76,8 +71,6 @@ import org.asup.os.type.cmd.base.BaseCommandManagerImpl;
 import org.asup.os.type.pgm.QProgramManager;
 
 public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
-
-	private static final String SPACE = " ";
 	
 	protected QJobManager jobManager;
 	protected QDataManager dataManager;
@@ -99,167 +92,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 	public String decodeCommand(QContextID contextID, QCallableCommand callableCommand, boolean defaults)
 			throws OperatingSystemException {
 		
-		String result = callableCommand.getCommand().getName() + SPACE;
-		
-		QDataContext dataContext = callableCommand.getDataContext();
-		
-		QData data;
-		String name;
-		        
-        	
-    	List<QCommandParameter> parameterList = callableCommand.getCommand().getParameters();
-			
-		for (QCommandParameter commandParameter : parameterList) {
-			
-			int position = commandParameter.getPosition() - 1;			
-	
-			QDataTerm<?> dataTerm = dataContext.getTerms().get(position);
-			
-			if (defaults || dataContext.isSet(dataTerm)) {
-	
-				data = dataContext.getData(dataTerm);
-				name = dataTerm.getName();		
-				
-				result += commandParameter.getName() + "(";
-		
-				result = writeDataTermString(result, dataTerm, data, name);
-				
-				result += ")" + SPACE;
-			}
-		
-        } 
-
-		return result.trim();
+		return IBMiCommandDecoder.decodeCommand(contextID, callableCommand, defaults);
 
 	}
-	
-	private String writeDataTermString(String result, QDataTerm<?> dataTerm, QData data, String name) {
-			
-		switch (dataTerm.getDataType()) {
-			case MULTIPLE_ATOMIC:
-				QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
-
-				int c = 1;
-				if (multipleAtomicDataTerm.getCardinality() != null) {
-					c = multipleAtomicDataTerm.getCardinality().getMax();				
-				}
-
-				for (int i = 0; i < c; i++) {
-
-					QData element = null;
-					if (data instanceof QArray) {
-						element = ((QArray<?>) data).get(i+1);
-
-					} else if (data instanceof QScroller) {
-						element = ((QScroller<?>) data).absolute(i + 1);
-					} else if (data instanceof QList) {
-						element = ((QList<?>)data).get(i+1);
-					}
-					
-
-					result = writeAtomicDataTermString(result, multipleAtomicDataTerm, element, name + "_" + i);
-					
-					if (i < c-1) {
-						result += SPACE;
-					}
-				}
-				
-				result = result.trim();
-
-				break;
-
-			case MULTIPLE_COMPOUND:
-				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
-
-				c = 1;
-				if (multipleCompoundDataTerm.getCardinality() != null) {
-					c = multipleCompoundDataTerm.getCardinality().getMax();
-				}
-
-				for (int i = 0; i < c; i++) {
-
-					QData element = ((QStroller<?>) data).absolute(i + 1);
-					result = writeCompoundDataTermString(result, multipleCompoundDataTerm, element, name + "_" + i, true);
-					
-					if (i < c-1) {
-						result += SPACE;
-					}
-				}
-				
-				result = result.trim();
-				
-				break;
-
-			case UNARY_ATOMIC:
-				QAtomicDataTerm<?> unaryAtomicDataTerm = (QAtomicDataTerm<?>) dataTerm;
-				
-				result = writeAtomicDataTermString(result, unaryAtomicDataTerm, data, name);
-
-				break;
-
-			case UNARY_COMPOUND:
-				QCompoundDataTerm<?> unaryCompoundDataTerm = (QCompoundDataTerm<?>) dataTerm;
-
-				result = writeCompoundDataTermString(result, unaryCompoundDataTerm, data, name, false);
-
-				break;
-		}
-		
-		return result;
-	}
-	
-	
-	private String writeCompoundDataTermString(String result, QCompoundDataTerm<?> compoundDataTerm, QData data, String name, boolean parenthesis) {
-		
-		if (parenthesis) result += "(";
-		
-		List<QDataTerm<?>> elements = compoundDataTerm.getDefinition().getElements();
-		
-		int counter = 1;
-		
-		for (QDataTerm<?> element : elements) {
-
-			QData elementData = ((QDataStruct) data).getElement(element.getName());
-			
-			String struct_name = name + "_" + element.getName();
-						
-			result = writeDataTermString(result, element, elementData, struct_name);
-						
-			if (counter != elements.size()) {
-				if (compoundDataTerm.getDefinition().isQualified()) {
-					
-					result += "/";									
-				} else {
-									
-					result += SPACE;
-				}
-			}
-			
-			counter++;
-		}
-		
-		if (parenthesis) result += ")";
-		
-		return result;
-	}
-
-	private String writeAtomicDataTermString(String result, QAtomicDataTerm<?> atomicDataTerm, QData data, String name) {
-				
-		String value = data.toString();
-		
-		if (hasSpecialValue(atomicDataTerm, value)) {
-			value = encodeSpecialValue(atomicDataTerm, value);
-		}		
-		
-		if (value != null && value.length()>0) {
-			result += value.trim();
-		}
-		
-		return result;
-		
-	}
-
-	
 
 	@Override
 	public QCallableCommand prepareCommand(QContextID contextID, String command, Map<String, Object> variables, boolean defaults)
@@ -816,26 +651,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		return false;
 	}
 	
-	/**
-	 * Return true if value is a potential special value in dataterm
-	 * @param dataTerm
-	 * @param value
-	 * @return
-	 */
-	private boolean hasSpecialValue(QDataTerm<?> dataTerm, String value) {
 
-		QSpecial special = dataTerm.getFacet(QSpecial.class);
-
-		if (special != null) {
-
-			for (QSpecialElement specialElem : special.getElements()) {
-				if (specialElem.getValue().equals(value)) 
-					return true;
-			}
-		}
-
-		return false;
-	}
 
 	
 	/*
@@ -860,27 +676,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		return result;
 	}
 	
-	/*
-	 * value to Special
-	 */
-	private String encodeSpecialValue(QDataTerm<?> dataTerm, String value) {
-
-		String result = value;
-
-		QSpecial special = dataTerm.getFacet(QSpecial.class);
-
-		if (special != null) {
- 
-			for (QSpecialElement specialElem : special.getElements()) {
-				if (specialElem.getName().equals(value)) {
-					result = specialElem.getName();
-					break;
-				}
-			}
-		}
-
-		return result;
-	}
 
 	private boolean matchFormat(QDataTerm<?> dataTerm, Object value) {
 
