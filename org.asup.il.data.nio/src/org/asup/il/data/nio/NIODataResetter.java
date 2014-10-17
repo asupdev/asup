@@ -1,4 +1,4 @@
-package org.asup.il.data.nio.visitor;
+package org.asup.il.data.nio;
 
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;

@@ -22,9 +22,9 @@ import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QList;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.impl.DataContextImpl;
-import org.asup.il.data.nio.visitor.NIODataResetter;
 
 public class NIODataContextImpl extends DataContextImpl implements Serializable {
 
@@ -76,16 +76,51 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 	@Override
 	public QData getData(String name) {
 
-		QData data = datas.get(name);
-		if(data == null) {
-			QDataTerm<?> dataTerm = _getDataTerm(name);
-			
-			if(dataTerm == null)
-				return null;
 
-			data = dataFactory.createData(dataTerm, true);
-			datas.put(name, data);
-		}
+		String[] qualifiers = name.split("\\.");
+		
+		QData data = null;
+		for(String qualifier: qualifiers) {
+		
+			int index = 0;
+			int i = qualifier.indexOf("("); 
+			if(i > 0) {
+				index = Integer.parseInt(qualifier.substring(i+1, qualifier.indexOf(")")));
+				qualifier = qualifier.substring(0, i);
+			}
+			
+			// root data
+			if(data == null) {
+				data = datas.get(qualifier);
+				if(data == null) {
+					QDataTerm<?> dataTerm = _getDataTerm(qualifier);
+					
+					if(dataTerm == null)
+						return null;
+
+					data = dataFactory.createData(dataTerm, true);
+					datas.put(qualifier, data);
+				}				
+			}
+			else {
+				
+				if(!(data instanceof QStruct))
+					return null;
+				
+				QStruct struct = (QStruct)data;
+				data = struct.getElement(qualifier);
+			}
+			
+			// list
+			if(index > 0) {
+				
+				if(!(data instanceof QList))
+					return null;
+				
+				QList<?> list = (QList<?>)data;
+				data = list.get(index);
+			}
+		}				
 				
 		return data;
 	}
