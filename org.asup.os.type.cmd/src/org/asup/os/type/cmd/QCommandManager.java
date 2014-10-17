@@ -40,4 +40,12 @@ public interface QCommandManager extends QTypedManager<QCommand> {
 	 */
 	void executeCommand(QContextID contextID, QCallableCommand command) throws OperatingSystemException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.os.core.OperatingSystemException" contextIDRequired="true" callableCommandRequired="true" defaultsRequired="true"
+	 * @generated
+	 */
+	String decodeCommand(QContextID contextID, QCallableCommand callableCommand, boolean defaults) throws OperatingSystemException;
+
 } // QCommandManager

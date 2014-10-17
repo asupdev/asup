@@ -83,6 +83,28 @@ public abstract class DataContextImpl extends DataTermContainerImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSet(String name) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSet(QDataTerm<?> dataTerm) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void resetData() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

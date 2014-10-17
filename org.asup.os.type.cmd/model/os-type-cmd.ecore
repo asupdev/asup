@@ -67,6 +67,12 @@
       <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
       <eParameters name="command" lowerBound="1" eType="#//CallableCommand"/>
     </eOperations>
+    <eOperations name="decodeCommand" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemException">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="callableCommand" lowerBound="1" eType="#//CallableCommand"/>
+      <eParameters name="defaults" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedManager">
       <eTypeArguments eClassifier="#//Command"/>
     </eGenericSuperTypes>

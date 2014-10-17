@@ -2609,6 +2609,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(dataContextEClass, ecorePackage.getEBoolean(), "isSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataContextEClass, ecorePackage.getEBoolean(), "isSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getDataTerm());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);

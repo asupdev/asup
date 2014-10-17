@@ -28,6 +28,33 @@ import org.asup.il.data.nio.visitor.NIODataResetter;
 
 public class NIODataContextImpl extends DataContextImpl implements Serializable {
 
+	@Override
+	public boolean isSet(String name) {
+		
+		QDataTerm<?> dataTerm = _getDataTerm(name);
+		
+		return isSet(dataTerm);
+	}
+
+	@Override
+	public boolean isSet(QDataTerm<?> dataTerm) {
+		
+		boolean result = false;
+		
+		if (dataTerm == null) return false;
+		
+		QData data = dataFactory.createData(dataTerm, true);
+		NIODataResetter resetter = new NIODataResetter(data);
+		dataTerm.accept(resetter);
+		try {
+			result =  !getData(dataTerm).toString().equals(data.toString());
+		} catch (Exception exc) {
+			exc.printStackTrace();
+			result = false;
+		}
+		return result;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unused")

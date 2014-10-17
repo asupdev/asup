@@ -575,6 +575,12 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, this.getCallableCommand(), "command", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theOperatingSystemCorePackage.getOperatingSystemException());
 
+		op = addEOperation(commandManagerEClass, ecorePackage.getEString(), "decodeCommand", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCallableCommand(), "callableCommand", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "defaults", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theOperatingSystemCorePackage.getOperatingSystemException());
+
 		initEClass(commandParameterEClass, QCommandParameter.class, "CommandParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommandParameter_AllowVariable(), ecorePackage.getEBoolean(), "allowVariable", null, 1, 1, QCommandParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());

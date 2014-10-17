@@ -51,6 +51,22 @@ public interface QDataContext extends QDataTermContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model nameRequired="true"
+	 * @generated
+	 */
+	boolean isSet(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataTermRequired="true"
+	 * @generated
+	 */
+	boolean isSet(QDataTerm<?> dataTerm);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
