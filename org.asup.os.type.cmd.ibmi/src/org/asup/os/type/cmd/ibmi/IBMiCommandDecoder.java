@@ -80,7 +80,8 @@ public class IBMiCommandDecoder {
 
 			case MULTIPLE_COMPOUND:
 				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
-
+				QStroller<?> stroller = (QStroller<?>)data;
+				
 				c = 1;
 				if (multipleCompoundDataTerm.getCardinality() != null) {
 					c = multipleCompoundDataTerm.getCardinality().getMax();
@@ -88,8 +89,7 @@ public class IBMiCommandDecoder {
 
 				for (int i = 0; i < c; i++) {
 
-					QData element = ((QStroller<?>) data).absolute(i + 1);
-					result = writeCompoundDataTermString(result, multipleCompoundDataTerm, element, true);
+					result = writeCompoundDataTermString(result, multipleCompoundDataTerm, stroller.get(i+1), true);
 					
 					if (i < c-1) {
 						result += SPACE;
@@ -117,8 +117,7 @@ public class IBMiCommandDecoder {
 		
 		return result;
 	}
-	
-	
+		
 	private static String writeCompoundDataTermString(String result, QCompoundDataTerm<?> compoundDataTerm, QData data, boolean parenthesis) {
 		
 		if (parenthesis) result += "(";

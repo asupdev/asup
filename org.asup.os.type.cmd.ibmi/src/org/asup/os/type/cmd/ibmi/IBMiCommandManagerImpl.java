@@ -87,7 +87,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		this.clParser = ParserFactory.getInstance().getParser(ParserFactory.ScriptType.CL);
 	}
 	
-	
 	@Override
 	public String decodeCommand(QContextID contextID, QCallableCommand callableCommand, boolean defaults)
 			throws OperatingSystemException {
