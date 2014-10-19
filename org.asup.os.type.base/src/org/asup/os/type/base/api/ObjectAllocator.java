@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.os.core.base.api;
+package org.asup.os.type.base.api;
 
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.BinaryType;
@@ -68,7 +68,6 @@ public class ObjectAllocator {
 		}
 		
 	}
-
 	public static class ObjectSpecification extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(qualified = true)
@@ -180,4 +179,5 @@ public class ObjectAllocator {
 		NORQSRLS, @Special(value = "Y")
 		RQSRLS
 	}
+
 }

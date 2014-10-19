@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
@@ -39,11 +40,11 @@ public class ObjectWorker {
 	@Inject
 	private QJobLogManager jobLogManager;
 	
-	public @Entry void main(@DataDef(qualified = true) Object object,
-			@DataDef(length = 7) QCharacter objectType,
-			@DataDef(length = 50) QCharacter text,
-			@DataDef(length = 2) QCharacter application) {
-	
+	public @Entry void main(@ToDo @DataDef(qualified = true) Object object,
+			@ToDo @DataDef(length = 7) QCharacter objectType,
+			@ToDo @DataDef(length = 50) QCharacter text,
+			@ToDo @DataDef(length = 2) QCharacter application) {
+		
 		List<QTypedManager<?>> types = new ArrayList<QTypedManager<?>>();
 		if (objectType.trimR().equals("*ALL"))
 			types.addAll(typeRegistry.list());
@@ -98,14 +99,14 @@ public class ObjectWorker {
 					qObject = (QTypedObject)objectIterator.next();
 					
 					// text
-					if(!text.isEmpty()) {
+					if(!text.isNull() && !text.isEmpty()) {
 						if(qObject.getText() == null ||
 						   qObject.getText().toUpperCase().indexOf(text.trimR().toUpperCase())<0)
 							continue;
 					}
 					
 					// application
-					if(!application.isEmpty()) {
+					if(!application.isNull() && !application.isEmpty()) {
 						if(qObject.getApplication() == null ||
 						   qObject.getApplication().toUpperCase().indexOf(application.trimR().toUpperCase())<0)
 							continue;

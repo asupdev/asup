@@ -16,7 +16,7 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.os.type.file.QPhysicalFile;
+import org.asup.os.type.file.QFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -132,7 +132,7 @@ public interface QCompilationContext extends QContext {
 	 * @model required="true" nameRequired="true"
 	 * @generated
 	 */
-	QPhysicalFile getPhysicalFile(String name);
+	QFile getFile(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

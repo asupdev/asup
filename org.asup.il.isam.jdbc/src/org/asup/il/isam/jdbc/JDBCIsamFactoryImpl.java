@@ -20,6 +20,7 @@ import java.util.List;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QIndex;
 import org.asup.db.syntax.QAliasResolver;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
@@ -187,7 +188,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 
 		@Override
-		public boolean chain(Object[] keyList) {
+		public boolean chain(QBufferedData[] keyList) {
 			// TODO Auto-generated method stub
 			return false;
 		}
@@ -199,7 +200,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 
 		@Override
-		public boolean reade(Object[] keyList) {
+		public boolean reade(QBufferedData[] keyList) {
 			// TODO Auto-generated method stub
 			return false;
 		}
@@ -211,7 +212,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 
 		@Override
-		public boolean readpe(Object[] keyList) {
+		public boolean readpe(QBufferedData[] keyList) {
 			// TODO Auto-generated method stub
 			return false;
 		}
@@ -223,7 +224,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 
 		@Override
-		public void setll(Object[] keyList) {
+		public void setll(QBufferedData[] keyList) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -235,7 +236,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 
 		@Override
-		public void setgt(Object[] keyList) {
+		public void setgt(QBufferedData[] keyList) {
 			// TODO Auto-generated method stub
 			
 		}

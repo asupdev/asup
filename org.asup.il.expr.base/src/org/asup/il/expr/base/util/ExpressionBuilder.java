@@ -225,6 +225,8 @@ public class ExpressionBuilder {
 
 		if(expression.equalsIgnoreCase("*ALL'0'"))
 			expression = "*ZEROS";
+		if(expression.equalsIgnoreCase("*ALL'9'"))
+			expression = "*ZEROS";
 		else if(expression.toUpperCase().startsWith("*ALL"))
 			expression.toString();
 		

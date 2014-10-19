@@ -31,7 +31,12 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	public String toString() {
 		return readNumber().toString();		
 	}
-	
+
+	@Override
+	public double asDouble() {
+		return readNumber().doubleValue();
+	}
+
 	@Override
 	public short asShort() {
 		return readNumber().shortValue();
@@ -50,6 +55,11 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	@Override
 	public long asLong() {
 		return readNumber().longValue();
+	}
+
+	@Override
+	public void eval(double value) {
+		writeNumber(value);		
 	}
 	
 	@Override
@@ -322,5 +332,17 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	@Override
 	public <E extends Enum<E>> void movel(E value, boolean clear) {
 		movel(getPrimitive(value), clear);		
+	}
+
+	@Override
+	public int length() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

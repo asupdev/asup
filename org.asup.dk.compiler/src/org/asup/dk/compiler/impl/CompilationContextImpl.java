@@ -19,7 +19,7 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.os.type.file.QPhysicalFile;
+import org.asup.os.type.file.QFile;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -146,7 +146,7 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QPhysicalFile getPhysicalFile(String name) {
+	public QFile getFile(String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

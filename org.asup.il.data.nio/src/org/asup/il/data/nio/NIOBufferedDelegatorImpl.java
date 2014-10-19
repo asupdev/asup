@@ -42,6 +42,16 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 		this._delegate = delegate;
 	}
 	
+
+	@Override
+	public boolean isNull() {
+		if(_delegate == null)
+			return true;
+		
+		// TODO
+		return ((NIOBufferedDataImpl) _delegate).getBuffer() == null;
+	}
+
 	@Override
 	public NIODataImpl copy() {
 

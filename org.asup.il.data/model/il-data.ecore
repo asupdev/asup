@@ -89,6 +89,7 @@
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
     </eOperations>
+    <eOperations name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="length" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -1150,6 +1151,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Numeric" abstract="true" interface="true"
       eSuperTypes="#//BufferedData">
+    <eOperations name="asDouble" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eOperations name="asInteger" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="asLong" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eOperations name="asShort" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
@@ -1178,6 +1180,9 @@
       <eParameters name="value">
         <eGenericType eTypeParameter="#//Numeric/eq.2/E"/>
       </eParameters>
+    </eOperations>
+    <eOperations name="eval">
+      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eOperations>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>

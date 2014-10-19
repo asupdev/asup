@@ -31,54 +31,56 @@ public class LibraryListEntryAdder {
 
 	@Inject
 	private QListUtil listUtil;
-	
-	@Entry
-	public void main(@DataDef(length = 10) QCharacter library, LibraryListPosition libraryListPosition) {
 
-		switch (libraryListPosition.listPosition.asEnum()) {
-			
-			case FIRST:
-				listUtil.addFirst(job.getLibraries(), library.trimR());
-				break;
-				
-			case LAST:
-				listUtil.addLast(job.getLibraries(), library.trimR());
-				break;
-				
+	@Entry
+	public void main(
+			@DataDef(length = 10) QCharacter library,
+			QEnum<LibraryListPositionEnum, LibraryListPosition> libraryListPosition) {
+
+		switch (libraryListPosition.asEnum()) {
+		case FIRST:
+			listUtil.addFirst(job.getLibraries(), library.trimR());
+			break;
+		case LAST:
+			listUtil.addLast(job.getLibraries(), library.trimR());
+			break;
+		case OTHER:
+			switch (libraryListPosition.asData().listPosition.asEnum()) {
+
 			case AFTER:
 				break;
-				
-				
+
 			case BEFORE:
 				break;
-				
+
 			case REPLACE:
 				break;
-				
-			default:
-				break;
+			}
+
+			break;
 		}
+
 	}
 
 	public static class LibraryListPosition extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
-		public QEnum<ListPosition, QCharacter> listPosition;
-		
+		public QEnum<ListPositionEnum, QCharacter> listPosition;
 		@DataDef(length = 10)
 		public QCharacter referenceLibrary;
 
-		public static enum ListPosition {
-			@Special(value = "F")
-			FIRST, 
-			@Special(value = "L")
-			LAST, 
+		public static enum ListPositionEnum {
 			@Special(value = "A")
-			AFTER, 
-			@Special(value = "B")
-			BEFORE, 
-			@Special(value = "R")
+			AFTER, @Special(value = "B")
+			BEFORE, @Special(value = "R")
 			REPLACE
 		}
 	}
+
+	public static enum LibraryListPositionEnum {
+		@Special(value = "F")
+		FIRST, @Special(value = "L")
+		LAST, OTHER
+	}
+
 }

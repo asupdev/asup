@@ -23,7 +23,9 @@ import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QMultipleDataTerm;
+import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.expr.ArithmeticOperator;
 import org.asup.il.expr.AssignmentOperator;
@@ -89,10 +91,16 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			break;
 		case FLOATING:
 			value = expression.getValue();
+			value = value.replaceAll("\\,", "\\.");
 			break;
 		case HEXADECIMAL:
 			value = expression.getValue();
-			source = Object.class;
+			if(value.startsWith("X'")) {
+				value = value.substring(2);
+				value = "0x"+value.substring(0, value.length()-1);
+			}
+				
+			source = QHexadecimal.class;
 			break;
 		case SPECIAL:
 			source = Enum.class;
@@ -229,8 +237,11 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			
 			writeValue(prototype.getDelegate().getDefinition().getDataClass(), target, value.toString());
 		}
-		else 
-			compilationContext.getNamedNode(expression.getValue(), true);
+		else if(namedNode instanceof QUnaryAtomicDataTerm<?>) {
+			buffer.append(compilationContext.getQualifiedName(namedNode));
+		}
+		else
+			System.err.println("Unexpected condition: xm4t609543m487mxz");
 		
 		return false;
 	}
@@ -573,8 +584,10 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(value);
 			return;
 		}
-		
-		if(target.isAssignableFrom(String.class)) {
+		if(source.isAssignableFrom(QHexadecimal.class)) {
+			buffer.append(value);			
+		}
+		else if(target.isAssignableFrom(String.class)) {
 			buffer.append(value);
 			buffer.append(".asString()");
 		}

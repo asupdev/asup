@@ -45,16 +45,17 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 	@Override
 	public boolean visit(QLogicalExpression expression) {
 
-		expression.getLeftOperand().accept(this);
-		
 		switch (expression.getOperator()) {
 		case AND:
+			expression.getLeftOperand().accept(this);
 			result += " and ";
 			break;
 		case NOT:
 			result += " not ";
+			expression.getLeftOperand().accept(this);
 			break;
 		case OR:
+			expression.getLeftOperand().accept(this);
 			result += " or ";
 			break;
 		}
@@ -203,23 +204,9 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 		
 
 		if(expression.isFunction()) {
-
-			if(expression.isSpecial()) {
-				result += " "+expression.getValue();
-				
-				boolean first = true;
-				result += "(";
-				for(QExpression child: expression.getElements()) {
-					if(!first)
-						result += ": ";
-					child.accept(this);
-					first = false;
-				}
-				result += ")";
-			}
-			else {
-				result += " "+expression.getValue();
-	
+			result += " "+expression.getValue();
+			
+			if(!expression.getElements().isEmpty()) {
 				boolean first = true;
 				result += "(";
 				for(QExpression child: expression.getElements()) {
@@ -235,9 +222,12 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 			
 			result += " "+expression.getValue();
 
-			for(QExpression child: expression.getElements()) {
-				result += ".";
-				child.accept(this);
+			// TODO
+			if(!result.contains(".")) {
+				for(QExpression child: expression.getElements()) {
+					result += ".";
+					child.accept(this);
+				}
 			}
 		}
 

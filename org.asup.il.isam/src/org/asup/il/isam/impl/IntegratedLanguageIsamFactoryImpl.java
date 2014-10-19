@@ -7,6 +7,7 @@
  */
 package org.asup.il.isam.impl;
 
+import org.asup.il.data.QBufferedData;
 import org.asup.il.isam.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -193,8 +194,8 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object[] createKeyValueFromString(EDataType eDataType, String initialValue) {
-		return (Object[])super.createFromString(initialValue);
+	public QBufferedData[] createKeyValueFromString(EDataType eDataType, String initialValue) {
+		return (QBufferedData[])super.createFromString(initialValue);
 	}
 
 	/**

@@ -10,6 +10,7 @@ package org.asup.il.isam.impl;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.isam.OperationRead;
 import org.asup.il.isam.OperationSet;
@@ -21,7 +22,6 @@ import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIntegratedLanguageIsamPackage;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
-import org.asup.il.isam.QKeyList;
 import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QTableDataSet;
 import org.eclipse.emf.ecore.EAttribute;
@@ -55,13 +55,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass dataSetTermEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass keyListEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -267,15 +260,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getKeyList() {
-		return keyListEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getKeyListTerm() {
 		return keyListTermEClass;
 	}
@@ -408,8 +392,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		createEReference(dataSetTermEClass, DATA_SET_TERM__RECORD);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__USER_OPEN);
 
-		keyListEClass = createEClass(KEY_LIST);
-
 		keyListTermEClass = createEClass(KEY_LIST_TERM);
 		createEAttribute(keyListTermEClass, KEY_LIST_TERM__NAME);
 		createEAttribute(keyListTermEClass, KEY_LIST_TERM__KEY_FIELDS);
@@ -529,8 +511,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		initEReference(getDataSetTerm_Record(), theIntegratedLanguageDataPackage.getDataStructDef(), null, "record", null, 0, 1, QDataSetTerm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_UserOpen(), ecorePackage.getEBoolean(), "userOpen", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(keyListEClass, QKeyList.class, "KeyList", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(keyListTermEClass, QKeyListTerm.class, "KeyListTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyListTerm_Name(), ecorePackage.getEString(), "name", null, 1, 1, QKeyListTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKeyListTerm_KeyFields(), ecorePackage.getEString(), "keyFields", null, 1, -1, QKeyListTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -629,7 +609,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		addEEnumLiteral(operationReadEEnum, OperationRead.READ_PRIOR_EQUAL);
 
 		// Initialize data types
-		initEDataType(keyValueEDataType, Object[].class, "KeyValue", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(keyValueEDataType, QBufferedData[].class, "KeyValue", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

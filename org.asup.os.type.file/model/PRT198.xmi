@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<os-type-file:PrinterFile
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:os-type-file="http://www.asup.org/os/type/file"
+    xsi:schemaLocation="http://www.asup.org/os/type/file os-type-file.ecore"
+    library="QSYS"
+    name="PRT198"
+    attribute="PRTF"
+    text="Printer File 198"/>

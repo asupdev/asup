@@ -152,6 +152,11 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 	}
 
 	@Override
+	public boolean isNull() {
+		return delegate.isNull();
+	}
+
+	@Override
 	public QBufferedData getElement(String name) {
 		return delegate.getElement(name);
 	}

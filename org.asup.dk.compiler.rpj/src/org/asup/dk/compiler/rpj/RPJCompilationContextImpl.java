@@ -50,6 +50,7 @@ import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
+import org.asup.os.type.file.QPrinterFile;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -222,8 +223,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	@Override
 	public QDataTerm<?> getData(String name, boolean deep) {
 
-		// search on dataTermContainer
-		QDataTerm<?> dataTerm = findData(datas, name);
+		QDataTerm<?> dataTerm = null;
 		
 		// search on dataSet
 		if(dataTerm == null) {
@@ -242,12 +242,18 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		// deep search
 		if(dataTerm == null && deep) {
 			for(QCompilationContext compilationContext: contexts) {
+
 				dataTerm = compilationContext.getData(name, true);
 				
 				if(dataTerm != null)
 					break;
 			}
 		}
+
+		// search on dataTermContainer
+		if(dataTerm == null)
+			dataTerm = findData(datas, name);
+
 		
 		return dataTerm;
 	}
@@ -411,15 +417,14 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		if(namedNode != null)
 			return namedNode;
 		
-		// deep search
-		if(deep) {
+/*		if(deep) {
 			for(QCompilationContext compilationContext: contexts) {
 				namedNode = compilationContext.getNamedNode(name, true);
 				
 				if(namedNode != null)
 					break;
 			}
-		}
+		}*/
 		
 		return namedNode;
 	}
@@ -458,8 +463,15 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		QDataTerm<?> dataTerm = null;		
 		for(QDataTerm<?> child: dataTerms) {
 
+			
+//			if(name.equalsIgnoreCase("£UIDDS.£UIBFU") && child.getName().startsWith("£UID"))
+//				System.out.println(getQualifiedName(child));
+			
 			if(equalsTermName(child.getName(), name)) {
 				dataTerm = child;
+			}
+			else if(equalsTermName(getQualifiedName(child), name)) {
+					dataTerm = child;
 			}
 			else if(child instanceof QCompoundDataTerm) {
 				QCompoundDataTerm<?> compoundDataTerm = (QCompoundDataTerm<?>)child;
@@ -509,33 +521,38 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 
 	@Override
 	public void linkDataSet(QDataSetTerm dataSet) {
-		
-		if(dataSet.getFormatName() == null) {
-			
-			QPhysicalFile physicalFile = getPhysicalFile(dataSet.getFileName());
-			
-			dataSet.setFormatName(physicalFile.getTableFormat());
-		}		
-		
-		if(dataSet.getRecord() == null) {
+
+		QFile file = getFile(dataSet.getFileName());
+
+		if(file == null)
+			throw new OperatingSystemRuntimeException("File not found: "+dataSet.getFileName());
+
+		if(file instanceof QPhysicalFile || file instanceof QLogicalFile) {
 
 			QPhysicalFile physicalFile = getPhysicalFile(dataSet.getFileName());
 			
-			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
-			
-			List<QDataTerm<?>> elements = QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), dataSet.getName()).getDefinition().getElements();			
-			dataStructDef.getElements().addAll(elements);
-			
-			dataSet.setRecord(dataStructDef);
+			if(dataSet.getFormatName() == null)
+				dataSet.setFormatName(physicalFile.getTableFormat());
+
+			if(dataSet.getRecord() == null) {
+				
+				QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
+				
+				List<QDataTerm<?>> elements = QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), dataSet.getName()).getDefinition().getElements();			
+				dataStructDef.getElements().addAll(elements);
+				
+				dataSet.setRecord(dataStructDef);
+			}
 		}
+		else if(file instanceof QPrinterFile) {
+			file.toString();
+		}
+		
 	}
 	
-	@Override
 	public QPhysicalFile getPhysicalFile(String name) {
 
-		QFile file = fileManager.getOverridedDatabaseFile(job, name);
-		if(file == null)
-			file = fileReader.lookup(name);
+		QFile file = getFile(name);
 
 		QPhysicalFile physicalFile = null;
 		if(file instanceof QPhysicalFile) {
@@ -548,12 +565,18 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			if(physicalFile == null)
 				physicalFile = (QPhysicalFile) fileReader.lookup(logicalFile.getIndex().getObject());
 		}			
-
-		if(physicalFile == null)
-			throw new OperatingSystemRuntimeException("File not found: "+name);
-
 		
 		return physicalFile;
+	}
+
+	@Override
+	public QFile getFile(String name) {
+
+		QFile file = fileManager.getOverridedDatabaseFile(job, name);
+		if(file == null)
+			file = fileReader.lookup(name);
+		
+		return file;
 	}
 
 	@Override

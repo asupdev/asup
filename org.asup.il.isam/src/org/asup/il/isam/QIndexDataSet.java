@@ -7,6 +7,7 @@
  */
 package org.asup.il.isam;
 
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataStruct;
 
 
@@ -27,7 +28,7 @@ public interface QIndexDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model required="true" keyListDataType="org.asup.il.isam.KeyValue" keyListRequired="true"
 	 * @generated
 	 */
-	boolean chain(Object[] keyList);
+	boolean chain(QBufferedData[] keyList);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -43,7 +44,7 @@ public interface QIndexDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model keyListDataType="org.asup.il.isam.KeyValue" keyListRequired="true"
 	 * @generated
 	 */
-	boolean reade(Object[] keyList);
+	boolean reade(QBufferedData[] keyList);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,7 +60,7 @@ public interface QIndexDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model keyListDataType="org.asup.il.isam.KeyValue" keyListRequired="true"
 	 * @generated
 	 */
-	boolean readpe(Object[] keyList);
+	boolean readpe(QBufferedData[] keyList);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +76,7 @@ public interface QIndexDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model keyListDataType="org.asup.il.isam.KeyValue" keyListRequired="true"
 	 * @generated
 	 */
-	void setll(Object[] keyList);
+	void setll(QBufferedData[] keyList);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,7 +100,7 @@ public interface QIndexDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model keyListDataType="org.asup.il.isam.KeyValue" keyListRequired="true"
 	 * @generated
 	 */
-	void setgt(Object[] keyList);
+	void setgt(QBufferedData[] keyList);
 
 	/**
 	 * <!-- begin-user-doc -->

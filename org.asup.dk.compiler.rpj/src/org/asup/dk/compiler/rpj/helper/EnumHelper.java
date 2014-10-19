@@ -64,7 +64,9 @@ public class EnumHelper {
 	private static void writeEnumField(EnumConstantDeclaration enumField, QSpecialElement elem) {
 		AST ast = enumField.getAST();
 		NormalAnnotation normalAnnotation = ast.newNormalAnnotation();
-		if (!elem.getName().equals(elem.getValue())) {
+		
+		String name = new String("*"+enumField.getName()); 
+		if (elem.getValue() != null && !name.equals(elem.getValue())) {
 			normalAnnotation.setTypeName(ast.newSimpleName(Special.class.getSimpleName()));
 			MemberValuePair memberValuePair = ast.newMemberValuePair();
 			memberValuePair.setName(ast.newSimpleName("value"));
@@ -79,10 +81,6 @@ public class EnumHelper {
 
 
 	public static String normalizeEnumName(String s) {
-
-		// String a = s;
-		// if(!s.startsWith("*"))
-		// System.err.println("Termine speciale " + s);
 
 		switch (s) {
 		case "*":
@@ -103,23 +101,13 @@ public class EnumHelper {
 		case ",":
 			s = "TERM_COMMA";
 			break;
-		case "X'":
-			s = "TERM_HEX";
-			break;
 		}
-		// Se inizia con "*" tolgo il primo carattere;
-		if (s.startsWith("*")) {
+
+		if (s.startsWith("*")) 
 			s = s.substring(1);
-		}
 
-		if (isNumeric(s)) {
+		if (isNumeric(s)) 
 			s = "NUM_" + s.replace(".", "_");
-		} else {
-		}
-
-		// if(!a.equals(s)){
-		// System.err.println("Variabile " + a + " rinominata in " + s);
-		// }
 
 		return s;
 	}

@@ -37,10 +37,8 @@ public class LibraryDeleter {
 	@Inject
 	private QJob job;
 	
-	@Entry
-	public void main( 
-			@DataDef(length = 10) QCharacter library,
-			@DataDef(length = 10) QEnum<ASPDevice, QCharacter> aspDevice) {
+	public @Entry void main(@DataDef(length = 10) QCharacter library,
+			@DataDef(length = 10) QEnum<ASPDeviceEnum, QCharacter> aSPDevice) {
 
 		QResourceWriter<QLibrary> libraryWriter = resourceFactory.getResourceWriter(job, QLibrary.class, systemManager.getSystem().getSystemLibrary());
 
@@ -57,12 +55,8 @@ public class LibraryDeleter {
 		}		
 	}
 
-	public static enum ASPDevice {
+	public static enum ASPDeviceEnum {
 		@Special(value = "*")
-		TERM_STAR, 
-		@Special(value = "*CURASPGRP")
-		CURASPGRP, 
-		@Special(value = "*SYSBAS")
-		SYSBAS, OTHER
+		TERM_STAR, CURASPGRP, SYSBAS, OTHER
 	}
 }

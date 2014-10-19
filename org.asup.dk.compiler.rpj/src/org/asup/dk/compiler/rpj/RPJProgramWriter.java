@@ -65,13 +65,16 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		writeSupportFields();
 		
 		writeModuleFields(modules);
-				
-		if(program.getFileSection() != null)
-			writeDataSets(program.getFileSection().getDataSets());
 		
 		if(program.getDataSection() != null)
 			writeDataFields(program.getDataSection());
 		
+		if(program.getFileSection() != null) {
+			writeDataSets(program.getFileSection().getDataSets());
+			
+			writeKeyLists(program.getFileSection().getKeyLists());
+		}
+				
 		if(program.getEntry() != null)
 			writeEntry(program.getEntry(), "qEntry");
 				
@@ -110,9 +113,11 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 			}*/
 		}
 
-		if(program.getDataSection() != null)
-			for(QDataTerm<?> dataTerm: program.getDataSection().getDatas())
+		if(program.getDataSection() != null) {
+			for(QDataTerm<?> dataTerm: program.getDataSection().getDatas()) {
 				writeInnerTerm(dataTerm);	
+			}
+		}
 	}
 
 	@SuppressWarnings("unchecked")

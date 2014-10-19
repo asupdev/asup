@@ -166,25 +166,6 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int DATA_SET_TERM_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.isam.QKeyList <em>Key List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.isam.QKeyList
-	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyList()
-	 * @generated
-	 */
-	int KEY_LIST = 2;
-
-	/**
-	 * The number of structural features of the '<em>Key List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_LIST_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.isam.impl.KeyListTermImpl <em>Key List Term</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,7 +173,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyListTerm()
 	 * @generated
 	 */
-	int KEY_LIST_TERM = 3;
+	int KEY_LIST_TERM = 2;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -238,7 +219,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndexDataSet()
 	 * @generated
 	 */
-	int INDEX_DATA_SET = 4;
+	int INDEX_DATA_SET = 3;
 
 	/**
 	 * The number of structural features of the '<em>Index Data Set</em>' class.
@@ -257,7 +238,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIsamManager()
 	 * @generated
 	 */
-	int ISAM_MANAGER = 5;
+	int ISAM_MANAGER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -285,7 +266,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIsamFactory()
 	 * @generated
 	 */
-	int ISAM_FACTORY = 6;
+	int ISAM_FACTORY = 5;
 
 	/**
 	 * The number of structural features of the '<em>Isam Factory</em>' class.
@@ -304,7 +285,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getTableDataSet()
 	 * @generated
 	 */
-	int TABLE_DATA_SET = 7;
+	int TABLE_DATA_SET = 6;
 
 	/**
 	 * The number of structural features of the '<em>Table Data Set</em>' class.
@@ -323,7 +304,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getAccessMode()
 	 * @generated
 	 */
-	int ACCESS_MODE = 8;
+	int ACCESS_MODE = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationSet <em>Operation Set</em>}' enum.
@@ -333,7 +314,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationSet()
 	 * @generated
 	 */
-	int OPERATION_SET = 9;
+	int OPERATION_SET = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationRead <em>Operation Read</em>}' enum.
@@ -343,7 +324,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationRead()
 	 * @generated
 	 */
-	int OPERATION_READ = 10;
+	int OPERATION_READ = 9;
 
 	/**
 	 * The meta object id for the '<em>Key Value</em>' data type.
@@ -352,7 +333,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyValue()
 	 * @generated
 	 */
-	int KEY_VALUE = 11;
+	int KEY_VALUE = 10;
 
 
 	/**
@@ -440,16 +421,6 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataSetTerm_UserOpen();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.il.isam.QKeyList <em>Key List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Key List</em>'.
-	 * @see org.asup.il.isam.QKeyList
-	 * @generated
-	 */
-	EClass getKeyList();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QKeyListTerm <em>Key List Term</em>}'.
@@ -558,7 +529,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Key Value</em>'.
-	 * @model instanceClass="java.lang.Object[]"
+	 * @model instanceClass="org.asup.il.data.QBufferedData[]"
 	 * @generated
 	 */
 	EDataType getKeyValue();
@@ -652,16 +623,6 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SET_TERM__USER_OPEN = eINSTANCE.getDataSetTerm_UserOpen();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.il.isam.QKeyList <em>Key List</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.il.isam.QKeyList
-		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyList()
-		 * @generated
-		 */
-		EClass KEY_LIST = eINSTANCE.getKeyList();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.impl.KeyListTermImpl <em>Key List Term</em>}' class.

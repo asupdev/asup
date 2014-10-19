@@ -375,7 +375,7 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theOperatingSystemFilePackage.getPhysicalFile(), "getPhysicalFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationContextEClass, theOperatingSystemFilePackage.getFile(), "getFile", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getProcedure(), "getProcedure", 1, 1, IS_UNIQUE, IS_ORDERED);

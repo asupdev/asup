@@ -27,6 +27,14 @@ public interface QNumeric extends QBufferedData {
 	 * @model required="true"
 	 * @generated
 	 */
+	double asDouble();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
 	int asInteger();
 
 	/**
@@ -100,6 +108,14 @@ public interface QNumeric extends QBufferedData {
 	 * @generated
 	 */
 	<E extends Enum<E>> boolean eq(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(double value);
 
 	/**
 	 * <!-- begin-user-doc -->

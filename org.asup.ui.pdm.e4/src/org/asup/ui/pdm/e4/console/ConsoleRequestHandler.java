@@ -124,7 +124,6 @@ public class ConsoleRequestHandler {
 		      protected IStatus run(IProgressMonitor monitor) {
 
 					try {
-						
 						outputStreamWriter.write("\nCommand execution: "+command);
 						outputStreamWriter.write("\n");
 						outputStreamWriter.write("\n");
@@ -132,6 +131,7 @@ public class ConsoleRequestHandler {
 						long timeIni = System.currentTimeMillis();
 
 						QCallableCommand callableCommand = commandManager.prepareCommand(contextID, command, null, true);
+						
 			    		commandManager.executeCommand(contextID, callableCommand);			    		
 						
 			    		long timeEnd = System.currentTimeMillis();						

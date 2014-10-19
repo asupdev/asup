@@ -60,8 +60,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="KeyValue" instanceClassName="java.lang.Object[]"/>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyList" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="KeyValue" instanceClassName="org.asup.il.data.QBufferedData[]"/>
   <eClassifiers xsi:type="ecore:EClass" name="KeyListTerm" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyFields" lowerBound="1"

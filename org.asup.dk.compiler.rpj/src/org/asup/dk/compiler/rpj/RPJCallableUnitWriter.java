@@ -25,6 +25,7 @@ import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
 import org.asup.il.core.QTerm;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.FileDef;
@@ -39,7 +40,10 @@ import org.asup.il.flow.QStatement;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
+import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QTableDataSet;
+import org.eclipse.jdt.core.dom.ArrayCreation;
+import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
@@ -60,6 +64,10 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		super(root, compilationContext, compilationSetup, name);
 	}
 
+	public void compactDataSection(QDataSection dataSection) {
+		
+	}
+	
 	public void analyzeCallableUnit(QCallableUnit callableUnit) {
 		// analyze statement
 		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(getCallableUnitInfo());
@@ -139,10 +147,16 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			
 			if(dataTerm.getDefinition() == null)
 				continue;
+
 			
+			String oldName = getCompilationContext().getQualifiedName(dataTerm);
 			dataTerm = getCompilationContext().getData(dataTerm.getName(), true);
+			String newName = getCompilationContext().getQualifiedName(dataTerm);
 			
-			writePublicField(dataTerm, false);
+			if(oldName.equals(newName) || oldName.startsWith("£va") || oldName.startsWith("£do"))
+				writePublicField(dataTerm, false);			
+			else
+				System.out.println(oldName+" -> "+newName);
 		}
 
 	}
@@ -176,7 +190,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 			
 			if(!dataSet.getName().equalsIgnoreCase("PRT198")) {
-				String argument = getCompilationContext().getPhysicalFile(dataSet.getFileName()).getName();
+				String argument = getCompilationContext().getFile(dataSet.getFileName()).getName();
 				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
 			}
 			else
@@ -188,7 +202,42 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		}
 		
 	}
+	
+	public void writeKeyLists(List<QKeyListTerm> keyLists) {
+		
+		writeImport(QBufferedData.class);
+		
+		for(QKeyListTerm keyList: keyLists) {
+			writeKeyList(keyList);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void writeKeyList(QKeyListTerm keyList) {
+		
+		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+		variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(keyList.getName())));
+		FieldDeclaration field = getAST().newFieldDeclaration(variable);		
+		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
+		Type bufferedType = getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()));		
+		field.setType(getAST().newArrayType(bufferedType));
+
+		// array of bufferedData
+		ArrayCreation arrayCreation = getAST().newArrayCreation();
+		arrayCreation.setType(getAST().newArrayType(getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()))));
+
+		ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
+		for (String keyField: keyList.getKeyFields()){
+			arrayInitializer.expressions().add(getAST().newSimpleName(getCompilationContext().normalizeTermName(keyField)));
+		}
+		arrayCreation.setInitializer(arrayInitializer);
+
+		variable.setInitializer(arrayCreation);
+		
+		getTarget().bodyDeclarations().add(field);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QCompilationContext compilationContext, QRoutine routine) {
 				
@@ -207,7 +256,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			
 			// normalize statement
 			RPJExpressionNormalizer expressionNormalizer = compilationContext.make(RPJExpressionNormalizer.class);
-			for(QStatement statement: routine.getMain().getStatements()) {				
+			for(QStatement statement: routine.getMain().getStatements()) {
 				statement.accept(expressionNormalizer);
 			}
 
@@ -217,7 +266,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 
 			statementWriter.getBlocks().push(block);
 		
-			for(QStatement statement: routine.getMain().getStatements()) {			
+			for(QStatement statement: routine.getMain().getStatements()) {
 				statement.accept(statementWriter);
 			}
 			

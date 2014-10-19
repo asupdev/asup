@@ -24,6 +24,7 @@ import org.asup.db.core.QTableColumn;
 import org.asup.db.core.QView;
 import org.asup.db.core.QViewColumn;
 import org.asup.db.data.QDatabaseDataHelper;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QString;
@@ -43,7 +44,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	@Override
-	public boolean chain(Object[] keyList) {
+	public boolean chain(QBufferedData[] keyList) {
 		_opSet = OpSet.CHAIN;
 		_opRead = OpRead.CHAIN;
 		
@@ -68,7 +69,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	@Override
-	public boolean reade(Object[] keyList) {
+	public boolean reade(QBufferedData[] keyList) {
 
 		_opRead = OpRead.READE;
 		_keyRead = keyList;
@@ -92,7 +93,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	@Override
-	public boolean readpe(Object[] keyList) {
+	public boolean readpe(QBufferedData[] keyList) {
 		
 		_opRead = OpRead.READPE;
 		_keyRead = keyList;
@@ -116,7 +117,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	@Override
-	public void setll(Object[] keyList) {
+	public void setll(QBufferedData[] keyList) {
 		
 		_opSet = OpSet.SETLL;
 		_opRead = null;
@@ -146,7 +147,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	@Override
-	public void setgt(Object[] keyList) {
+	public void setgt(QBufferedData[] keyList) {
 
 		_opSet = OpSet.SETGT;
 		_opRead = null;

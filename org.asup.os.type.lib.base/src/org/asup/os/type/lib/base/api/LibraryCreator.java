@@ -13,6 +13,7 @@ package org.asup.os.type.lib.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QEnum;
@@ -42,13 +43,13 @@ public class LibraryCreator {
 	@Entry
 	public void main(
 			@DataDef(length = 10) QCharacter library,
-			@DataDef(length = 10) QEnum<LibraryType, QCharacter> libraryType,
-			@DataDef(length = 50) QCharacter textDescription,
-			@DataDef(length = 10) QEnum<Authority, QCharacter> authority,
-			QEnum<ASPNumber, QBinary> aspNumber,
-			@DataDef(length = 10) QEnum<ASPDevice, QCharacter> aspDevice,
-			@DataDef(length = 10) QEnum<CreateAuthority, QCharacter> createAuthority,
-			@DataDef(length = 10) QEnum<CreateObjectAuditing, QCharacter> createObjectAuditing) {
+			@DataDef(length = 10) QEnum<LibraryTypeEnum, QCharacter> libraryType,
+			@DataDef(length = 50) QEnum<TextDescriptionEnum, QCharacter> textDescription,
+			@DataDef(length = 10) QEnum<AuthorityEnum, QCharacter> authority,
+			@DataDef(binaryType = BinaryType.SHORT) QEnum<ASPNumberEnum, QBinary> aSPNumber,
+			@DataDef(length = 10) QEnum<ASPDeviceEnum, QCharacter> aSPDevice,
+			@DataDef(length = 10) QEnum<CreateAuthorityEnum, QCharacter> createAuthority,
+			@DataDef(length = 10) QEnum<CreateObjectAuditingEnum, QCharacter> createObjectAuditing) {
 		
 
 		QResourceWriter<QLibrary> libraryWriter = resourceFactory.getResourceWriter(job, QLibrary.class, systemManager.getSystem().getSystemLibrary());
@@ -58,8 +59,15 @@ public class LibraryCreator {
 
 		QLibrary qLibrary = QOperatingSystemLibraryFactory.eINSTANCE.createLibrary();
 		qLibrary.setName(library.trimR());
-		qLibrary.setText(textDescription.trimR());
-
+		
+		switch (textDescription.asEnum()) {
+		case BLANK:
+			break;
+		case OTHER:
+			qLibrary.setText(textDescription.asData().trimR());
+			break;
+		}
+		
 		try {
 			libraryWriter.save(qLibrary);
 		} catch (OperatingSystemException e) {
@@ -67,48 +75,35 @@ public class LibraryCreator {
 		}		
 	}
 
-	public static enum LibraryType {
+	public static enum LibraryTypeEnum {
 		@Special(value = "PROD")
 		PROD, @Special(value = "TEST")
 		TEST
 	}
 
-	public static enum Authority {
-		@Special(value = "*LIBCRTAUT")
-		LIBCRTAUT, @Special(value = "*CHANGE")
-		CHANGE, @Special(value = "*ALL")
-		ALL, @Special(value = "*USE")
-		USE, @Special(value = "*EXCLUDE")
-		EXCLUDE, OTHER
+	public static enum TextDescriptionEnum {
+		@Special(value = "")
+		BLANK, OTHER
 	}
 
-	public static enum ASPNumber {
+	public static enum AuthorityEnum {
+		LIBCRTAUT, CHANGE, ALL, USE, EXCLUDE, OTHER
+	}
+
+	public static enum ASPNumberEnum {
 		@Special(value = "0")
 		ASPDEV, OTHER
 	}
 
-	public static enum ASPDevice {
-		@Special(value = "*ASP")
-		ASP, @Special(value = "*ASPGRPPRI")
-		ASPGRPPRI, @Special(value = "*SYSTEM")
-		SYSTEM, OTHER
+	public static enum ASPDeviceEnum {
+		ASP, ASPGRPPRI, SYSTEM, OTHER
 	}
 
-	public static enum CreateAuthority {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*CHANGE")
-		CHANGE, @Special(value = "*ALL")
-		ALL, @Special(value = "*USE")
-		USE, @Special(value = "*EXCLUDE")
-		EXCLUDE, OTHER
+	public static enum CreateAuthorityEnum {
+		SYSVAL, CHANGE, ALL, USE, EXCLUDE, OTHER
 	}
 
-	public static enum CreateObjectAuditing {
-		@Special(value = "*SYSVAL")
-		SYSVAL, @Special(value = "*NONE")
-		NONE, @Special(value = "*USRPRF")
-		USRPRF, @Special(value = "*CHANGE")
-		CHANGE, @Special(value = "*ALL")
-		ALL
+	public static enum CreateObjectAuditingEnum {
+		SYSVAL, NONE, USRPRF, CHANGE, ALL
 	}
 }

@@ -15,6 +15,8 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import org.asup.fw.core.annotation.ToDo;
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructDelegator;
@@ -42,16 +44,15 @@ public class ActiveJobWorker {
 	private QJobManager jobManager;
 	
 	public @Entry void main(
-			@DataDef(length = 1) QEnum<Output, QCharacter> output,
-			@DataDef(length = 1) QEnum<ResetStatusStatistics, QCharacter> resetStatusStatistics,
-			@DataDef(dimension = 25, length = 10) QScroller<QEnum<Subsystem, QCharacter>> subsystem,
-			@DataDef(precision = 3, scale = 1) QEnum<CPUPercentLimit, QDecimal> cPUPercentLimit,
-			@DataDef(precision = 4, scale = 1) QEnum<ResponseTimeLimit, QDecimal> responseTimeLimit,
-			QEnum<Sequence, QBinary> sequence,
-			@DataDef(qualified = true) JobName jobName,
-			@DataDef(precision = 3) QEnum<AutomaticRefreshInterval, QDecimal> automaticRefreshInterval) {
+			@ToDo @DataDef(length = 1) QEnum<OutputEnum, QCharacter> output,
+			@ToDo @DataDef(length = 1) QEnum<ResetStatusStatisticsEnum, QCharacter> resetStatusStatistics,
+			@ToDo @DataDef(dimension = 25, length = 10) QEnum<SubsystemEnum, QScroller<QCharacter>> subsystem,
+			@ToDo @DataDef(precision = 3, scale = 1) QEnum<CPUPercentLimitEnum, QDecimal> cPUPercentLimit,
+			@ToDo @DataDef(precision = 4, scale = 1) QEnum<ResponseTimeLimitEnum, QDecimal> responseTimeLimit,
+			@ToDo @DataDef(binaryType = BinaryType.SHORT) QEnum<SequenceEnum, QBinary> sequence,
+			@ToDo @DataDef(qualified = true) JobName jobName,
+			@ToDo @DataDef(precision = 3) QEnum<AutomaticRefreshIntervalEnum, QDecimal> automaticRefreshInterval) {
 	
-		
 		QObjectWriter objectWriter = outputManager.getObjectWriter(job, output.asData().trimR());
 		objectWriter.initialize();
 		
@@ -67,35 +68,33 @@ public class ActiveJobWorker {
 
 	}
 
-
-	public static enum Output {
+	public static enum OutputEnum {
 		@Special(value = "*")
 		TERM_STAR, @Special(value = "L")
 		PRINT
 	}
 
-	public static enum ResetStatusStatistics {
+	public static enum ResetStatusStatisticsEnum {
 		@Special(value = "N")
 		NO, @Special(value = "Y")
 		YES
 	}
 
-	public static enum Subsystem {
-		@Special(value = "*ALL")
+	public static enum SubsystemEnum {
 		ALL, OTHER
 	}
 
-	public static enum CPUPercentLimit {
+	public static enum CPUPercentLimitEnum {
 		@Special(value = "-1.0")
 		NONE, OTHER
 	}
 
-	public static enum ResponseTimeLimit {
+	public static enum ResponseTimeLimitEnum {
 		@Special(value = "-1.0")
 		NONE, OTHER
 	}
 
-	public static enum Sequence {
+	public static enum SequenceEnum {
 		@Special(value = "1")
 		SBS, @Special(value = "9")
 		AUXIO, @Special(value = "6")
@@ -118,19 +117,15 @@ public class ActiveJobWorker {
 	public static class JobName extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10, value = "*ALL")
-		public QEnum<NameGeneric, QCharacter> nameGeneric;
+		public QEnum<NameGenericEnum, QCharacter> nameGeneric;
 
-		public static enum NameGeneric {
-			@Special(value = "*ALL")
-			ALL, @Special(value = "*SYS")
-			SYS, @Special(value = "*SBS")
-			SBS, OTHER
+		public static enum NameGenericEnum {
+			ALL, SYS, SBS, OTHER
 		}
 	}
 
-	public static enum AutomaticRefreshInterval {
+	public static enum AutomaticRefreshIntervalEnum {
 		@Special(value = "-1")
 		PRV, OTHER
 	}
-
 }

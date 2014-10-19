@@ -138,4 +138,14 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 
 		throw new FrameworkCoreRuntimeException("Unexpected condition");		
 	}
+
+	@Override
+	public double asDouble() {
+		return asInteger();
+	}
+
+	@Override
+	public void eval(double value) {
+		eval((int)value);
+	}
 }

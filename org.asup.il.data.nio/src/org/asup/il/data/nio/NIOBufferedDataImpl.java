@@ -144,6 +144,11 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements
 		return true;
 	}
 
+	@Override
+	public boolean isNull() {
+		return getBuffer() == null;
+	}
+	
 	public ByteBuffer getBuffer() {
 
 		// TODO synchronize

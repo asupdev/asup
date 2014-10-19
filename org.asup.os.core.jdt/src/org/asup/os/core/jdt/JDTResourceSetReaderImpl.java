@@ -51,7 +51,7 @@ public class JDTResourceSetReaderImpl<T extends QObjectNameable> extends Resourc
 		for(QResourceReader<T> resourceReader: resourceSet) {
 			if(library != null && !resourceReader.getContainer().equals(library))
 				continue;
-
+			
 			object = resourceReader.lookup(name);
 			if(object != null)
 				break;
