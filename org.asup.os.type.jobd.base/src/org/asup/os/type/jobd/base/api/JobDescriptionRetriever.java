@@ -2,12 +2,12 @@ package org.asup.os.type.jobd.base.api;
 
 import javax.inject.Inject;
 
+import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataStructDelegator;
-import org.asup.il.data.QPointer;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -30,17 +30,17 @@ public class JobDescriptionRetriever {
 	private QDataManager dataManager;
 
 	public @Entry void main(
-//			@DataDef(length = 100) QCharacter receiverVariable,
-//			@DataDef(length = 5) QCharacter receiveVariableLength,
+			@DataDef(length = 500) QCharacter receiverVariable,
+			@DataDef(binaryType = BinaryType.SHORT) QBinary receiveVariableLength,
+			@DataDef(length = 8) QCharacter formatName,
+			JobDescription jobDescription,
+			@DataDef()QCharacter errorCode
+
+//			@DataDef() QPointer receiverVariable,
+//			QBinary receiveVariableLength,
 //			@DataDef(length = 8) QCharacter formatName,
 //			JobDescription jobDescription,
-//			@DataDef()QCharacter errorCode
-			@DataDef() QPointer receiverVariable,
-			QBinary receiveVariableLength,
-			@DataDef(length = 8) QCharacter formatName,
-			//@DataDef(length = 20) QCharacter jobDescription,
-			JobDescription jobDescription,
-			@DataDef()QPointer errorCode 
+//			@DataDef()QPointer errorCode 
 			){
 
 		try {
@@ -83,7 +83,7 @@ public class JobDescriptionRetriever {
 					l++;
 				}
 				
-				System.out.println(jobd0100);
+				receiverVariable.eval(jobd0100);
 			} else {
 				throw new OperatingSystemException("Format name not supported");
 			}
