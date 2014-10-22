@@ -59,50 +59,46 @@ public class ConsoleRequestHandler {
 		this.outputStreamWriter = new OutputStreamWriter(outputStream);
 	}
 
-	public void handle(String request) {
+	public void handle(String request) throws IOException {
 
-		try {
+		
 			
-			// hello
-			if (request.equals("HELLO")) 
-				outputStreamWriter.write(WELCOME);
-			
-			// disconnect
-			else if (request.equalsIgnoreCase("SIGNOFF") || 
-					 request.equalsIgnoreCase("EXIT") ||
-					 request.equalsIgnoreCase("QUIT")) {
-				contextID = null;
-				qJob = null;				
-			}
-			// handle request
-			else {
-				try {
-					if(contextID == null) { 							
-						connect(request);
-						outputWrapper.register(qJob.getID(), outputStreamWriter);
-
-						outputStreamWriter.write("\n\n");
-						outputStreamWriter.write("User logged\n");
-						printEObject((EObject) qJob);
-						outputStreamWriter.write("\n");
-					}
-					else {	
-						executeCommand(request, outputStreamWriter);
-					}
-				}
-				catch (Exception e) {
-					outputStreamWriter.write(e.toString()+"\n");
-				}
-			}
-
-			if(qJob == null)
-				outputStreamWriter.write(LOGIN);
-			
-			outputStreamWriter.flush();
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		// hello
+		if (request.equals("HELLO")) 
+			outputStreamWriter.write(WELCOME);
+		
+		// disconnect
+		else if (request.equalsIgnoreCase("SIGNOFF") || 
+				 request.equalsIgnoreCase("EXIT") ||
+				 request.equalsIgnoreCase("QUIT")) {
+			contextID = null;
+			qJob = null;				
 		}
+		// handle request
+		else {
+			try {
+				if(contextID == null) { 							
+					connect(request);
+					outputWrapper.register(qJob.getID(), outputStreamWriter);
+
+					outputStreamWriter.write("\n\n");
+					outputStreamWriter.write("User logged\n");
+					printEObject((EObject) qJob);
+					outputStreamWriter.write("\n");
+				}
+				else {	
+					executeCommand(request, outputStreamWriter);
+				}
+			}
+			catch (Exception e) {
+				outputStreamWriter.write(e.toString()+"\n");
+			}
+		}
+
+		if(qJob == null)
+			outputStreamWriter.write(LOGIN);
+		
+		outputStreamWriter.flush();
 	}
 	private void connect(String command) throws OperatingSystemException {
 		// retrieve user

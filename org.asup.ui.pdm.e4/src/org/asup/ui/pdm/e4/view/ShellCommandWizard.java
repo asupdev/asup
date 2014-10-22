@@ -11,8 +11,10 @@
  */
 package org.asup.ui.pdm.e4.view;
 
+import org.asup.os.core.OperatingSystemException;
+
 public interface ShellCommandWizard {
 
-	public String requestCommand(String command);
+	public String requestCommand(String command) throws OperatingSystemException;
 
 }

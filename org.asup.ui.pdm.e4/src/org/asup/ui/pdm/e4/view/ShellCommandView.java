@@ -109,6 +109,8 @@ public class ShellCommandView extends ViewPart {
 					}
 					
 					consoleHandler.handle(text.getText());							
+				} catch (IOException e) {
+					MessageDialog.openWarning(parent.getShell(), "Console System", "Error on command execution: " + e.getMessage());
 				}
 				finally {
 
@@ -150,9 +152,14 @@ public class ShellCommandView extends ViewPart {
 						ServiceReference<ShellCommandWizard> serviceReference = bundleContext.getServiceReference(ShellCommandWizard.class);
 						
 						if (serviceReference != null) {
-							ShellCommandWizard shellCommandVizard = bundleContext.getService(serviceReference);			
-						
-							String response = shellCommandVizard.requestCommand(text.getText().toUpperCase());
+							ShellCommandWizard shellCommandVizard = bundleContext.getService(serviceReference);
+							String response = text.getText();
+							try {
+								response= shellCommandVizard.requestCommand(text.getText().toUpperCase());
+							} catch (Exception exc) {
+								MessageDialog.openWarning(parent.getShell(), "Console System", "Error in command execution: " + exc.getMessage());
+							}
+							
 							text.setText(response);
 						} else
 							MessageDialog.openWarning(parent.getShell(), "Console System", "Unactive system. Cannot display command Wizard");
