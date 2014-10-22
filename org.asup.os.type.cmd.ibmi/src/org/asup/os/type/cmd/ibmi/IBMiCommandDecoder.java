@@ -1,6 +1,7 @@
 package org.asup.os.type.cmd.ibmi;
 
 import java.util.List;
+import java.util.ListIterator;
 
 import org.asup.fw.core.QContextID;
 import org.asup.il.core.QSpecial;
@@ -124,27 +125,51 @@ public class IBMiCommandDecoder {
 		
 		List<QDataTerm<?>> elements = compoundDataTerm.getDefinition().getElements();
 		
-		int counter = 1;
+		int counter;
+		ListIterator<QDataTerm<?>> listIterator = null;
 		
-		for (QDataTerm<?> element : elements) {
-
-			QData elementData = ((QDataStruct) data).getElement(element.getName());
+		if (compoundDataTerm.getDefinition().isQualified()) {
 			
-			result = writeDataTermString(result, element, elementData);
-						
-			if (counter != elements.size()) {
-				if (compoundDataTerm.getDefinition().isQualified()) {
-					
-					result += "/";									
-				} else {
-									
-					result += SPACE;
+			// If qualified, reverse fields
+			
+			counter = elements.size() -1;
+			listIterator = elements.listIterator(elements.size());						 
+			
+			while(listIterator.hasPrevious()){
+				
+				QDataTerm<?> element = listIterator.previous();
+				
+				QData elementData = ((QDataStruct) data).getElement(element.getName());
+				result = writeDataTermString(result, element, elementData);
+				
+				if (counter > 0) {
+					result += "/";														
 				}
+				
+				counter--;
 			}
 			
-			counter++;
+		} else {
+			
+			counter = 1;
+			listIterator = elements.listIterator();
+			
+			while(listIterator.hasNext()) {
+				
+				QDataTerm<?> element = listIterator.next();
+
+				QData elementData = ((QDataStruct) data).getElement(element.getName());
+				
+				result = writeDataTermString(result, element, elementData);
+							
+				if (counter != elements.size()) {													
+					result += SPACE;					
+				}
+				
+				counter++;
+			}
 		}
-		
+				
 		if (parenthesis) result += ")";
 		
 		return result;
