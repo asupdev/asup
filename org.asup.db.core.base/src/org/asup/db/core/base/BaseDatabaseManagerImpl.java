@@ -375,8 +375,8 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			else {
 				ResultSet schemas = connection.getConnection().getMetaData().getSchemas();
 				while(schemas.next()) {
-					  if(schemas.getString("TABLE_SCHEM").equals(name))
-						  return true;
+					if(schemas.getString("TABLE_SCHEM").equals(name))
+						return true;
 				}
 			}
 			return false;
@@ -388,32 +388,20 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	private void loadTables(QConnection connection, QSchema schema, String tableNamePattern) throws SQLException {
 
-		ResultSet rst = null;
-		if(connection.getConnectionConfig().isUseCatalog())
-			rst = connection.getConnection().getMetaData().getTables(connection.getConnection().getCatalog(), schema.getName(), tableNamePattern, new String[] {"TABLE"});
-		else
-			rst = connection.getConnection().getMetaData().getTables(connection.getConnection().getCatalog(), schema.getName(), tableNamePattern, new String[] {"TABLE"});
+		ResultSet rst = connection.getConnection().getMetaData().getTables(connection.getConnection().getCatalog(), schema.getName(), tableNamePattern, new String[] {"TABLE"});
 
     	while(rst.next()) {
     		QTable table = QDatabaseCoreFactory.eINSTANCE.createTable();
     		table.setSchema(schema);
     		table.setName(rst.getString("TABLE_NAME").toUpperCase());
 
-    		ResultSet rsc = null;
-    		if(connection.getConnectionConfig().isUseCatalog())
-    			rsc = connection.getConnection().getMetaData().getColumns(connection.getConnection().getCatalog(), schema.getName(), table.getName(), null);
-    		else
-    			rsc = connection.getConnection().getMetaData().getColumns(connection.getConnection().getCatalog(), schema.getName(), table.getName(), null);
+    		ResultSet rsc = connection.getConnection().getMetaData().getColumns(connection.getConnection().getCatalog(), schema.getName(), table.getName(), null);
     		while(rsc.next()) {
     			loadTableColumn(table, rsc);
     		}
 
 			Map<String, QIndex> indexes = new HashMap<String, QIndex>();
-			ResultSet rsi = null;
-			if(connection.getConnectionConfig().isUseCatalog())
-				rsi = connection.getConnection().getMetaData().getIndexInfo(connection.getConnection().getCatalog(), schema.getName(), table.getName(), false, false);
-			else
-				rsi = connection.getConnection().getMetaData().getIndexInfo(connection.getConnection().getCatalog(), schema.getName(), table.getName(), false, false);
+			ResultSet rsi = connection.getConnection().getMetaData().getIndexInfo(connection.getConnection().getCatalog(), schema.getName(), table.getName(), false, false);
 
 			while(rsi.next()) {
 				String indexName = rsi.getString("INDEX_NAME");
@@ -462,11 +450,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	private void loadViews(QConnection connection, QSchema schema) throws SQLException {
 
-		ResultSet rsv = null;
-		if(connection.getConnectionConfig().isUseCatalog())
-			rsv = connection.getConnection().getMetaData().getTables(connection.getConnection().getCatalog(), schema.getName(), null, new String[] {"VIEW"});
-		else
-			rsv = connection.getConnection().getMetaData().getTables(connection.getConnection().getCatalog(), schema.getName(), null, new String[] {"VIEW"});
+		ResultSet rsv = connection.getConnection().getMetaData().getTables(connection.getConnection().getCatalog(), schema.getName(), null, new String[] {"VIEW"});
 
     	while(rsv.next()) {
     		try {
@@ -475,11 +459,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	    		view.setName(rsv.getString("TABLE_NAME").toUpperCase());
 
 	    		// Colonne della vista
-	    		ResultSet rs = null;
-	    		if(connection.getConnectionConfig().isUseCatalog())
-	    			rs = connection.getConnection().getMetaData().getColumns(connection.getConnection().getCatalog(), schema.getName(), view.getName(), null);
-	    		else
-	    			rs = connection.getConnection().getMetaData().getColumns(connection.getConnection().getCatalog(), schema.getName(),  view.getName(), null);
+	    		ResultSet rs = connection.getConnection().getMetaData().getColumns(connection.getConnection().getCatalog(), schema.getName(), view.getName(), null);
 
 	    		while(rs.next())
 	    			loadViewColumn(view, rs);
@@ -487,11 +467,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	        	
 	    		// Indici
 	    		Map<String, QIndex> indexes = new HashMap<String, QIndex>();
-	    		ResultSet rsi = null;
-	    		if(connection.getConnectionConfig().isUseCatalog())
-	    			rsi = connection.getConnection().getMetaData().getIndexInfo(connection.getConnection().getCatalog(), schema.getName(), view.getName(), false, false);
-	    		else
-	    			rsi = connection.getConnection().getMetaData().getIndexInfo(connection.getConnection().getCatalog(), schema.getName(), view.getName(), false, false);
+	    		ResultSet rsi = connection.getConnection().getMetaData().getIndexInfo(connection.getConnection().getCatalog(), schema.getName(), view.getName(), false, false);;
 
 	    		while(rsi.next()) {
 	    			String indexName = rsi.getString("INDEX_NAME");
