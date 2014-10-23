@@ -116,7 +116,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		
 		Properties props = new Properties();
 		props.put("url", "jdbc:db2://172.16.2.133:50000/ASUP050");
-		props.put("user", "ASUP");
+		props.put("user", "asup");
 		props.put("password", "asup2013");
 		
 		DataSource dataSource = db2ConnectionFactory.createDataSource(props);

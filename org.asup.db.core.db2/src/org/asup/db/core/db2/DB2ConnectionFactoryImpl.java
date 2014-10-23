@@ -8,12 +8,15 @@ import javax.sql.ConnectionPoolDataSource;
 import javax.sql.DataSource;
 import javax.sql.XADataSource;
 
+import org.asup.db.core.db2.logging.LoggingDataSource;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
 import org.osgi.service.jdbc.DataSourceFactory;
 
 import com.ibm.db2.jcc.*;
 
 public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
+
+	private static final boolean LOG_DB = true;
 
 	@Override
 	public DataSource createDataSource(Properties props) throws SQLException {
@@ -47,7 +50,11 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 			ds.setDatabaseName(db2Url.getDatabaseName());
 			ds.setUser(props.getProperty(DataSourceFactory.JDBC_USER));
 			ds.setPassword(props.getProperty(DataSourceFactory.JDBC_PASSWORD));
-			return ds;
+			if (LOG_DB) {
+				return new LoggingDataSource(ds);
+			} else {
+				return ds;
+			}
 		} catch (Throwable e) {
 			e.printStackTrace();
 			return null;

@@ -7,15 +7,14 @@ import org.asup.db.core.QView;
 import org.asup.db.syntax.impl.SyntaxBuilderImpl;
 
 public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
-
-	public DB2SyntaxBuilderImpl() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public String createSchema(QSchema schema) {
-		// TODO Auto-generated method stub
-		return super.createSchema(schema);
+		return "CREATE SCHEMA "+ quoted(schema.getName());
+	}
+	
+	@Override
+	public String dropSchema(QSchema schema) {
+		return "DROP SCHEMA " + quoted(schema.getName()) + " RESTRICT";		
 	}
 
 	@Override
@@ -24,6 +23,12 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return super.createTable(table);
 	}
 
+	@Override
+	public String dropTable(QTable table) {
+		return "DROP TABLE " + quoted(table.getSchema().getName()) + "." +  quoted(table.getName()) ;		
+	}
+
+	
 	@Override
 	public String createView(QView view) {
 		// TODO Auto-generated method stub
@@ -36,17 +41,6 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return super.createIndex(index);
 	}
 
-	@Override
-	public String dropSchema(QSchema schema) {
-		// TODO Auto-generated method stub
-		return super.dropSchema(schema);
-	}
-
-	@Override
-	public String dropTable(QTable table) {
-		// TODO Auto-generated method stub
-		return super.dropTable(table);
-	}
 
 	@Override
 	public String dropView(QView view) {
@@ -56,8 +50,7 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 
 	@Override
 	public String dropIndex(QIndex index) {
-		// TODO Auto-generated method stub
-		return super.dropIndex(index);
+		return "DROP INDEX " + index.getName();
 	}
 
 	@Override
@@ -78,4 +71,7 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return super.insertData(table, prepare);
 	}
 
+	private String quoted(String name) {
+		return "\"" + name + "\"";
+	}
 }
