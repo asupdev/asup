@@ -61,7 +61,7 @@ public abstract class MessageFileManagerImpl extends TypedManagerImpl<QMessageFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <E extends Enum<E>> MessageException prepareException(QContextID contextID, String messageFile, Enum<E> messageName, Object[] variables) {
+	public <E extends Enum<E>> MessageException prepareException(QContextID contextID, Enum<E> messageName, Object[] variables) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
