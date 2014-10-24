@@ -66,7 +66,7 @@ public interface QJobLogEntry extends QObject {
 	 * @see #setMessage(String)
 	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJobLogEntry_Message()
 	 * @model required="true"
-	 *        annotation="il-data length='100'"
+	 *        annotation="il-data length='128'"
 	 * @generated
 	 */
 	String getMessage();

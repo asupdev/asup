@@ -9,7 +9,7 @@ package org.asup.os.data.impl;
 
 import org.asup.il.core.impl.FacetImpl;
 
-import org.asup.os.data.QExternalFileName;
+import org.asup.os.data.QExternalFile;
 import org.asup.os.data.QOperatingSystemDataPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,19 +20,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>External File Name</b></em>'.
+ * An implementation of the model object '<em><b>External File</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.data.impl.ExternalFileNameImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.os.data.impl.ExternalFileNameImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.asup.os.data.impl.ExternalFileImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.os.data.impl.ExternalFileImpl#getFormat <em>Format</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName {
+public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 	/**
 	 * 
 	 */
@@ -83,7 +83,7 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExternalFileNameImpl() {
+	protected ExternalFileImpl() {
 		super();
 	}
 
@@ -94,7 +94,7 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QOperatingSystemDataPackage.Literals.EXTERNAL_FILE_NAME;
+		return QOperatingSystemDataPackage.Literals.EXTERNAL_FILE;
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemDataPackage.EXTERNAL_FILE__NAME, oldName, name));
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 		String oldFormat = format;
 		format = newFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__FORMAT, oldFormat, format));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemDataPackage.EXTERNAL_FILE__FORMAT, oldFormat, format));
 	}
 
 	/**
@@ -147,9 +147,9 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__NAME:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__NAME:
 				return getName();
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__FORMAT:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__FORMAT:
 				return getFormat();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -163,10 +163,10 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__NAME:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__NAME:
 				setName((String)newValue);
 				return;
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__FORMAT:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__FORMAT:
 				setFormat((String)newValue);
 				return;
 		}
@@ -181,10 +181,10 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__NAME:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__FORMAT:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
 		}
@@ -199,9 +199,9 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__NAME:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case QOperatingSystemDataPackage.EXTERNAL_FILE_NAME__FORMAT:
+			case QOperatingSystemDataPackage.EXTERNAL_FILE__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
 		}
 		return super.eIsSet(featureID);
@@ -225,4 +225,4 @@ public class ExternalFileNameImpl extends FacetImpl implements QExternalFileName
 		return result.toString();
 	}
 
-} //ExternalFileNameImpl
+} //ExternalFileImpl

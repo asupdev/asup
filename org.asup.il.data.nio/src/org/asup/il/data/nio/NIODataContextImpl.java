@@ -20,13 +20,36 @@ import org.asup.fw.core.QContextID;
 import org.asup.il.core.QNode;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.QStruct;
 import org.asup.il.data.impl.DataContextImpl;
 
 public class NIODataContextImpl extends DataContextImpl implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@SuppressWarnings("unused")
+	private QContextID contextID;
+	
+	private transient QDataFactory dataFactory;
+
+	private List<QDataTerm<?>> dataTerms;
+	
+	private Map<String, QData> datas;
+
+	private QDataEvaluator evaluator;
+	
+	protected NIODataContextImpl(QContextID contextID, QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
+		this.contextID = contextID;
+		this.dataFactory = dataFactory;
+		this.dataTerms = dataTerms;
+		this.datas = new HashMap<String, QData>();
+		this.evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	}
 
 	@Override
 	public boolean isSet(String name) {
@@ -44,7 +67,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 		if (dataTerm == null) return false;
 		
 		QData data = dataFactory.createData(dataTerm, true);
-		NIODataResetter resetter = new NIODataResetter(data);
+		NIODataResetter resetter = new NIODataResetter(data,evaluator);
 		dataTerm.accept(resetter);
 		try {
 			result =  !getData(dataTerm).toString().equals(data.toString());
@@ -53,24 +76,6 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 			result = false;
 		}
 		return result;
-	}
-
-	private static final long serialVersionUID = 1L;
-
-	@SuppressWarnings("unused")
-	private QContextID contextID;
-	
-	private transient QDataFactory dataFactory;
-
-	private List<QDataTerm<?>> dataTerms;
-	
-	private Map<String, QData> datas;
-	
-	protected NIODataContextImpl(QContextID contextID, QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
-		this.contextID = contextID;
-		this.dataFactory = dataFactory;
-		this.dataTerms = dataTerms;
-		this.datas = new HashMap<String, QData>();
 	}
 
 	@Override
@@ -178,7 +183,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 			datas.put(dataTerm.getName(), data);
 		}
 
-		NIODataResetter resetter = new NIODataResetter(data);
+		NIODataResetter resetter = new NIODataResetter(data, evaluator);
 		dataTerm.accept(resetter);
 
 	}
@@ -206,5 +211,4 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 			
 		return dataTerm;
 	}
-
 }	

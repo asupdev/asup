@@ -7,6 +7,7 @@
  */
 package org.asup.dk.compiler.impl;
 
+import java.util.List;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilerPackage;
@@ -19,7 +20,6 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.os.type.file.QFile;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -76,10 +76,25 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public abstract void linkDataSet(QDataSetTerm dataSet);
+	public List<QCompilationContext> getChildContexts() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDataSetTerm getDataSet(String name, boolean deep) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,13 +120,6 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public abstract QDataTerm<?> getData(String name, boolean deep);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QKeyListTerm getKeyList(String name, boolean deep) {
@@ -123,9 +131,13 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public abstract QDataSetTerm getDataSet(String name, boolean deep);
+	public QDataTerm<?> getDataTerm(String name, boolean deep) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,17 +152,6 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * @generated NOT
 	 */
 	public abstract QNamedNode getNamedNode(String name, boolean deep);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QFile getFile(String name) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

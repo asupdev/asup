@@ -799,15 +799,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArrayDef_Dimension() {
-		return (EAttribute)arrayDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAtomicDataDef() {
 		return atomicDataDefEClass;
 	}
@@ -1456,15 +1447,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getListDef_InitialCapacity() {
-		return (EAttribute)listDefEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getMultipleAtomicDataDef() {
 		return multipleAtomicDataDefEClass;
 	}
@@ -1521,6 +1503,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getMultipleDataDef() {
 		return multipleDataDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMultipleDataDef_Dimension() {
+		return (EAttribute)multipleDataDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1593,15 +1584,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getScrollerDef() {
 		return scrollerDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getScrollerDef_Dimension() {
-		return (EAttribute)scrollerDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1753,15 +1735,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrollerDef_Dimension() {
-		return (EAttribute)strollerDefEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getBinaryType() {
 		return binaryTypeEEnum;
 	}
@@ -1864,7 +1837,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		arrayEClass = createEClass(ARRAY);
 
 		arrayDefEClass = createEClass(ARRAY_DEF);
-		createEAttribute(arrayDefEClass, ARRAY_DEF__DIMENSION);
 
 		atomicDataDefEClass = createEClass(ATOMIC_DATA_DEF);
 
@@ -1982,7 +1954,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		listDefEClass = createEClass(LIST_DEF);
 		createEReference(listDefEClass, LIST_DEF__ARGUMENT);
-		createEAttribute(listDefEClass, LIST_DEF__INITIAL_CAPACITY);
 
 		moveableEClass = createEClass(MOVEABLE);
 
@@ -1998,6 +1969,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		multipleCompoundDataTermEClass = createEClass(MULTIPLE_COMPOUND_DATA_TERM);
 
 		multipleDataDefEClass = createEClass(MULTIPLE_DATA_DEF);
+		createEAttribute(multipleDataDefEClass, MULTIPLE_DATA_DEF__DIMENSION);
 
 		multipleDataTermEClass = createEClass(MULTIPLE_DATA_TERM);
 		createEAttribute(multipleDataTermEClass, MULTIPLE_DATA_TERM__DEFAULT);
@@ -2013,7 +1985,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		scrollerEClass = createEClass(SCROLLER);
 
 		scrollerDefEClass = createEClass(SCROLLER_DEF);
-		createEAttribute(scrollerDefEClass, SCROLLER_DEF__DIMENSION);
 
 		stringEClass = createEClass(STRING);
 
@@ -2023,7 +1994,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		strollerDefEClass = createEClass(STROLLER_DEF);
 		createEAttribute(strollerDefEClass, STROLLER_DEF__LENGTH);
-		createEAttribute(strollerDefEClass, STROLLER_DEF__DIMENSION);
 
 		structEClass = createEClass(STRUCT);
 
@@ -2519,7 +2489,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, g1, "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(arrayDefEClass, QArrayDef.class, "ArrayDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getArrayDef_Dimension(), ecorePackage.getEInt(), "dimension", null, 1, 1, QArrayDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(atomicDataDefEClass, QAtomicDataDef.class, "AtomicDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3222,7 +3191,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEReference(getListDef_Argument(), g1, null, "argument", null, 1, 1, QListDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getListDef_InitialCapacity(), ecorePackage.getEInt(), "initialCapacity", null, 1, 1, QListDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moveableEClass, QMoveable.class, "Moveable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3346,6 +3314,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEClass(multipleCompoundDataTermEClass, QMultipleCompoundDataTerm.class, "MultipleCompoundDataTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(multipleDataDefEClass, QMultipleDataDef.class, "MultipleDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMultipleDataDef_Dimension(), ecorePackage.getEInt(), "dimension", null, 1, 1, QMultipleDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multipleDataTermEClass, QMultipleDataTerm.class, "MultipleDataTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMultipleDataTerm_Default(), ecorePackage.getEString(), "default", null, 0, -1, QMultipleDataTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3551,7 +3520,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEOperation(op, g1);
 
 		initEClass(scrollerDefEClass, QScrollerDef.class, "ScrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getScrollerDef_Dimension(), ecorePackage.getEInt(), "dimension", null, 1, 1, QScrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringEClass, QString.class, "String", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3723,7 +3691,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(strollerDefEClass, QStrollerDef.class, "StrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStrollerDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrollerDef_Dimension(), ecorePackage.getEInt(), "dimension", null, 1, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(structEClass, QStruct.class, "Struct", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

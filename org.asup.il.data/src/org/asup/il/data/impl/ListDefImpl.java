@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.il.data.impl.ListDefImpl#getArgument <em>Argument</em>}</li>
- *   <li>{@link org.asup.il.data.impl.ListDefImpl#getInitialCapacity <em>Initial Capacity</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,24 +42,6 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 	 * @ordered
 	 */
 	protected QUnaryAtomicDataDef<?> argument;
-	/**
-	 * The default value of the '{@link #getInitialCapacity() <em>Initial Capacity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialCapacity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int INITIAL_CAPACITY_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getInitialCapacity() <em>Initial Capacity</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInitialCapacity()
-	 * @generated
-	 * @ordered
-	 */
-	protected int initialCapacity = INITIAL_CAPACITY_EDEFAULT;
 	/**
 	 * 
 	 */
@@ -133,27 +114,6 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getInitialCapacity() {
-		return initialCapacity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInitialCapacity(int newInitialCapacity) {
-		int oldInitialCapacity = initialCapacity;
-		initialCapacity = newInitialCapacity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageDataPackage.LIST_DEF__INITIAL_CAPACITY, oldInitialCapacity, initialCapacity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -173,8 +133,6 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.LIST_DEF__ARGUMENT:
 				return getArgument();
-			case QIntegratedLanguageDataPackage.LIST_DEF__INITIAL_CAPACITY:
-				return getInitialCapacity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -189,9 +147,6 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.LIST_DEF__ARGUMENT:
 				setArgument((QUnaryAtomicDataDef<?>)newValue);
-				return;
-			case QIntegratedLanguageDataPackage.LIST_DEF__INITIAL_CAPACITY:
-				setInitialCapacity((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,9 +163,6 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 			case QIntegratedLanguageDataPackage.LIST_DEF__ARGUMENT:
 				setArgument((QUnaryAtomicDataDef<?>)null);
 				return;
-			case QIntegratedLanguageDataPackage.LIST_DEF__INITIAL_CAPACITY:
-				setInitialCapacity(INITIAL_CAPACITY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -225,26 +177,8 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 		switch (featureID) {
 			case QIntegratedLanguageDataPackage.LIST_DEF__ARGUMENT:
 				return argument != null;
-			case QIntegratedLanguageDataPackage.LIST_DEF__INITIAL_CAPACITY:
-				return initialCapacity != INITIAL_CAPACITY_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (initialCapacity: ");
-		result.append(initialCapacity);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override

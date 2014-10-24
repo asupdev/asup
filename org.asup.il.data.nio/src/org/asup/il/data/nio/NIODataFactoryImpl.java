@@ -146,7 +146,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 			
 			NIODataImpl model = (NIODataImpl) createData(listDef.getArgument(), false);
 			
-			data = (D) new NIOListImpl<>(model, listDef.getInitialCapacity());
+			data = (D) new NIOListImpl<>(model, listDef.getDimension());
 		}
 		// dataStruct
 		else if (dataDef instanceof QDataStructDef) {

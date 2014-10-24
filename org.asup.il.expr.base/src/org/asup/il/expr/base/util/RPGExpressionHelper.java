@@ -194,9 +194,8 @@ public class RPGExpressionHelper implements ExpressionHelper {
 	public Tree parse(String expression) {
 		
 		//if(expression.equals("£PRZNN = 0 or ( %ABS(£PRZNN) = *ALL and £PRZNN < 0)"))
-		System.out.println(expression);
-		if(expression.equals("£PRZAX = *ALL or  %SUBST(£PRZAX: 1: 1) = *HIVAL"))
-			System.out.println(expression);
+//		if(expression.equals("£PRZAX = *ALL or  %SUBST(£PRZAX: 1: 1) = *HIVAL"))
+//			System.out.println(expression);
 		
 		CommonTree tree;
 		

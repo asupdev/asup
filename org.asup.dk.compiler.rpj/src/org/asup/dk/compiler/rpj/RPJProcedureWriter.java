@@ -33,12 +33,11 @@ public class RPJProcedureWriter extends RPJCallableUnitWriter {
 		analyzeCallableUnit(procedure);
 		
 		writeModuleFields(procedure.getSetupSection().getModules());
-		
+
 		if(procedure.getFileSection() != null) {
 			writeDataSets(procedure.getFileSection().getDataSets());
-			
 			writeKeyLists(procedure.getFileSection().getKeyLists());
-		}
+		}			
 				
 		if(procedure.getDataSection() != null)
 			writeDataFields(procedure.getDataSection());

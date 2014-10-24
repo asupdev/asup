@@ -100,6 +100,17 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void linkCompilationContext(QCompilationContext context) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

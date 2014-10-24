@@ -62,6 +62,14 @@ public interface QCompilerManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model contextRequired="true"
+	 * @generated
+	 */
+	void linkCompilationContext(QCompilationContext context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */

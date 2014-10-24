@@ -42,10 +42,9 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 		writeSupportFields();
 		
 		writeModuleFields(module.getSetupSection().getModules());		
-		
+
 		if(module.getFileSection() != null) {
 			writeDataSets(module.getFileSection().getDataSets());
-			
 			writeKeyLists(module.getFileSection().getKeyLists());
 		}
 				

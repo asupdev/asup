@@ -223,13 +223,6 @@ public class ExpressionBuilder {
 	
 	public QTermExpression buildAsTerm(String expression) throws IntegratedLanguageExpressionRuntimeException {
 
-		if(expression.equalsIgnoreCase("*ALL'0'"))
-			expression = "*ZEROS";
-		if(expression.equalsIgnoreCase("*ALL'9'"))
-			expression = "*ZEROS";
-		else if(expression.toUpperCase().startsWith("*ALL"))
-			expression.toString();
-		
 		Tree antAst = expressionHelper.parse(expression);
 		QTermExpression ast = buildAsTerm(antAst);
 

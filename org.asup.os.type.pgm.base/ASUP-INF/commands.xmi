@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="ASCII"?>
 <os-type-cmd:CommandContainer
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
@@ -640,7 +639,7 @@
             max="255"/>
         <definition
             xsi:type="il-data:ListDef"
-            initialCapacity="255">
+            dimension="255">
           <argument
               xsi:type="il-data:AdapterDef"/>
         </definition>

@@ -36,13 +36,13 @@ public interface QOperatingSystemDataFactory extends EFactory {
 	QTypedDataDef createTypedDataDef();
 
 	/**
-	 * Returns a new object of class '<em>External File Name</em>'.
+	 * Returns a new object of class '<em>External File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>External File Name</em>'.
+	 * @return a new object of class '<em>External File</em>'.
 	 * @generated
 	 */
-	QExternalFileName createExternalFileName();
+	QExternalFile createExternalFile();
 
 	/**
 	 * Returns the package supported by this factory.

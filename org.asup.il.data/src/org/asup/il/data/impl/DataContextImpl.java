@@ -8,12 +8,10 @@
 package org.asup.il.data.impl;
 
 import java.lang.String;
-
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContext;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

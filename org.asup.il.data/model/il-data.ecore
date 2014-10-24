@@ -38,8 +38,6 @@
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//MultipleAtomicBufferedDataDef">
       <eTypeArguments eTypeParameter="#//ArrayDef/D"/>
     </eGenericSuperTypes>
@@ -937,8 +935,6 @@
         <eTypeArguments/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialCapacity" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//MultipleAtomicDataDef">
       <eTypeArguments eTypeParameter="#//ListDef/D"/>
     </eGenericSuperTypes>
@@ -1132,6 +1128,8 @@
         <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//DataDef">
       <eTypeArguments eTypeParameter="#//MultipleDataDef/D"/>
     </eGenericSuperTypes>
@@ -1361,8 +1359,6 @@
         <eTypeArguments eClassifier="#//BufferedData"/>
       </eBounds>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//MultipleAtomicBufferedDataDef">
       <eTypeArguments eTypeParameter="#//ScrollerDef/D"/>
     </eGenericSuperTypes>
@@ -1554,8 +1550,6 @@
       </eBounds>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eGenericSuperTypes eClassifier="#//MultipleCompoundDataDef">
       <eTypeArguments eTypeParameter="#//StrollerDef/D"/>
     </eGenericSuperTypes>
