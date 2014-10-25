@@ -45,10 +45,10 @@ public class BaseMessageFileManagerImpl extends MessageFileManagerImpl {
 	
 	@Override
 	public <E extends Enum<E>> MessageException prepareException(
-			QContextID contextID, String messageFile, Enum<E> messageName,
+			QContextID contextID, Enum<E> messageName,
 			Object[] variables) {
 		
-		QMessageFile qMessageFile = messageFileReader.lookup(messageFile);
+		QMessageFile qMessageFile = messageFileReader.lookup(messageName.getClass().getSimpleName());
 		QMessageDescription messageDescription = qMessageFile.lookup(messageName);
 		
 		String messageText = "";

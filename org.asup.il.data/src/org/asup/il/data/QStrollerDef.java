@@ -17,7 +17,6 @@ package org.asup.il.data;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.il.data.QStrollerDef#getLength <em>Length</em>}</li>
- *   <li>{@link org.asup.il.data.QStrollerDef#getDimension <em>Dimension</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,31 +50,5 @@ public interface QStrollerDef<D extends QStroller<?>> extends QMultipleCompoundD
 	 * @generated
 	 */
 	void setLength(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Dimension</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dimension</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dimension</em>' attribute.
-	 * @see #setDimension(int)
-	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStrollerDef_Dimension()
-	 * @model required="true"
-	 * @generated
-	 */
-	int getDimension();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.data.QStrollerDef#getDimension <em>Dimension</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dimension</em>' attribute.
-	 * @see #getDimension()
-	 * @generated
-	 */
-	void setDimension(int value);
 
 } // QStrollerDef

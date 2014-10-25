@@ -11,22 +11,22 @@ import org.asup.il.core.QFacet;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>External File Name</b></em>'.
+ * A representation of the model object '<em><b>External File</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.os.data.QExternalFileName#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.os.data.QExternalFileName#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.asup.os.data.QExternalFile#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.os.data.QExternalFile#getFormat <em>Format</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.os.data.QOperatingSystemDataPackage#getExternalFileName()
+ * @see org.asup.os.data.QOperatingSystemDataPackage#getExternalFile()
  * @model
  * @generated
  */
-public interface QExternalFileName extends QFacet {
+public interface QExternalFile extends QFacet {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -37,14 +37,14 @@ public interface QExternalFileName extends QFacet {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see org.asup.os.data.QOperatingSystemDataPackage#getExternalFileName_Name()
+	 * @see org.asup.os.data.QOperatingSystemDataPackage#getExternalFile_Name()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.data.QExternalFileName#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.os.data.QExternalFile#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -63,14 +63,14 @@ public interface QExternalFileName extends QFacet {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Format</em>' attribute.
 	 * @see #setFormat(String)
-	 * @see org.asup.os.data.QOperatingSystemDataPackage#getExternalFileName_Format()
+	 * @see org.asup.os.data.QOperatingSystemDataPackage#getExternalFile_Format()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getFormat();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.data.QExternalFileName#getFormat <em>Format</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.os.data.QExternalFile#getFormat <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Format</em>' attribute.
@@ -79,4 +79,4 @@ public interface QExternalFileName extends QFacet {
 	 */
 	void setFormat(String value);
 
-} // QExternalFileName
+} // QExternalFile

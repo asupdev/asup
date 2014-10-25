@@ -237,7 +237,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
-          <details key="length" value="100"/>
+          <details key="length" value="128"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>

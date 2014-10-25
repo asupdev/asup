@@ -630,7 +630,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		  (getJobLogEntry_Message(), 
 		   source, 
 		   new String[] {
-			 "length", "100"
+			 "length", "128"
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")

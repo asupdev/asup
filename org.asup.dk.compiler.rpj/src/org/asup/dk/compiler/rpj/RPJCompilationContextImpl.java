@@ -17,7 +17,6 @@ import java.text.StringCharacterIterator;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.impl.CompilationContextImpl;
@@ -25,14 +24,8 @@ import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
-import org.asup.il.core.QOverlay;
-import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QCompoundDataTerm;
-import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.data.QIntegratedLanguageDataFactory;
-import org.asup.il.data.QMultipleAtomicDataTerm;
-import org.asup.il.data.QUnaryAtomicBufferedDataDef;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QEntry;
 import org.asup.il.flow.QEntryParameter;
@@ -42,56 +35,33 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.os.core.OperatingSystemRuntimeException;
-import org.asup.os.core.Scope;
-import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.resources.QResourceReader;
-import org.asup.os.type.file.QFile;
-import org.asup.os.type.file.QFileManager;
-import org.asup.os.type.file.QLogicalFile;
-import org.asup.os.type.file.QPhysicalFile;
-import org.asup.os.type.file.QPrinterFile;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class RPJCompilationContextImpl extends CompilationContextImpl {
 
-	private QJob job;
 	private QContext delegate;
 	private QNamedNode root;
-	private QFileManager fileManager;
-	private QResourceReader<QFile> fileReader;
 
 	private List<QCompilationContext> contexts;
 	private CaseSensitiveType caseSensitive;
 	
-	private List<QDataTerm<?>> datas;
 	private List<QDataSetTerm> dataSets;
 	private List<QKeyListTerm> keyLists;
 	private List<QRoutine> routines;
 	private List<QProcedure> procedures;
 	private List<QPrototype<?>> prototypes;
 	
-	public RPJCompilationContextImpl(QJob job, QContext delegate, QFileManager fileManager,
+	public RPJCompilationContextImpl(QContext delegate,
 									 QNamedNode root,
 									 List<QCompilationContext> contexts,
 									 CaseSensitiveType caseSensitive) {
 		
-		this.job = job;
 		this.delegate = delegate;
-		
-		this.fileManager = fileManager;
-		this.fileReader = fileManager.getResourceReader(job, Scope.LIBRARY_LIST);
-		
 		this.contexts = contexts;
 		this.caseSensitive = caseSensitive;
 		this.root = root;
  
 		if(root instanceof QCallableUnit) {
 			QCallableUnit callableUnit = (QCallableUnit) root;
-			
-			if(callableUnit.getDataSection() != null)
-				datas = callableUnit.getDataSection().getDatas();
 			
 			if(callableUnit.getFileSection() != null) {
 				dataSets = callableUnit.getFileSection().getDataSets();
@@ -105,8 +75,6 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			}
 		}
 
-		if(datas == null)
-			datas = new ArrayList<QDataTerm<?>>();
 		if(dataSets == null)
 			dataSets = new ArrayList<QDataSetTerm>();
 		if(keyLists == null)
@@ -221,10 +189,14 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	}
 
 	@Override
-	public QDataTerm<?> getData(String name, boolean deep) {
+	public QDataTerm<?> getDataTerm(String name, boolean deep) {
 
 		QDataTerm<?> dataTerm = null;
-		
+
+		// search on dataTermContainer
+		if(dataTerm == null && ((QCallableUnit)getRoot()).getDataSection() != null) 
+			dataTerm = findData(((QCallableUnit)getRoot()).getDataSection().getDatas(), name);
+
 		// search on dataSet
 		if(dataTerm == null) {
 			for(QDataSetTerm dataSetTerm: dataSets) {
@@ -243,17 +215,12 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		if(dataTerm == null && deep) {
 			for(QCompilationContext compilationContext: contexts) {
 
-				dataTerm = compilationContext.getData(name, true);
+				dataTerm = compilationContext.getDataTerm(name, true);
 				
 				if(dataTerm != null)
 					break;
 			}
 		}
-
-		// search on dataTermContainer
-		if(dataTerm == null)
-			dataTerm = findData(datas, name);
-
 		
 		return dataTerm;
 	}
@@ -388,7 +355,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			return namedNode;
 		
 		// dataTerms
-		namedNode = getData(name, deep);
+		namedNode = getDataTerm(name, deep);
 		if(namedNode != null)
 			return namedNode;
 			
@@ -465,7 +432,6 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 
 			
 //			if(name.equalsIgnoreCase("£UIDDS.£UIBFU") && child.getName().startsWith("£UID"))
-//				System.out.println(getQualifiedName(child));
 			
 			if(equalsTermName(child.getName(), name)) {
 				dataTerm = child;
@@ -482,101 +448,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 				break;
 		}
 		
-		if(dataTerm != null) {
-			
-			// overlay
-			QOverlay overlay = dataTerm.getFacet(QOverlay.class);
-			if(overlay != null) {
-				QDataTerm<?> overlaid = getData(overlay.getName(), true);
-				if(overlaid == null)
-					System.err.println("Overlaid term not found: "+overlay);
-
-				if(overlaid.getDataType().isMultiple() && !dataTerm.getDataType().isMultiple()) {
-					
-					// multiple term
-					QMultipleAtomicDataTerm<QArrayDef<?>> multipleAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();
-					multipleAtomicDataTerm.setName(dataTerm.getName());
-					multipleAtomicDataTerm.setConstant(dataTerm.isConstant());
-					
-					// arrayDef
-					QArrayDef<?> arrayDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createArrayDef();
-					arrayDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)dataTerm.getDefinition()));
-					arrayDataDef.setDimension(((QArrayDef<?>)overlaid.getDefinition()).getDimension());
-					
-					multipleAtomicDataTerm.setDefinition(arrayDataDef);
-
-					if(dataTerm.getParent() instanceof QCompoundDataTerm) {
-						QCompoundDataTerm<?> parent = (QCompoundDataTerm<?>)dataTerm.getParent();
-						parent.getDefinition().getElements().remove(dataTerm);
-						parent.getDefinition().getElements().add(multipleAtomicDataTerm);
-					}
-					dataTerm = multipleAtomicDataTerm;
-				}
-			}
-			return dataTerm;
-		}
-		
 		return dataTerm;
-	}
-
-	@Override
-	public void linkDataSet(QDataSetTerm dataSet) {
-
-		QFile file = getFile(dataSet.getFileName());
-
-		if(file == null)
-			throw new OperatingSystemRuntimeException("File not found: "+dataSet.getFileName());
-
-		if(file instanceof QPhysicalFile || file instanceof QLogicalFile) {
-
-			QPhysicalFile physicalFile = getPhysicalFile(dataSet.getFileName());
-			
-			if(dataSet.getFormatName() == null)
-				dataSet.setFormatName(physicalFile.getTableFormat());
-
-			if(dataSet.getRecord() == null) {
-				
-				QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
-				
-				List<QDataTerm<?>> elements = QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), dataSet.getName()).getDefinition().getElements();			
-				dataStructDef.getElements().addAll(elements);
-				
-				dataSet.setRecord(dataStructDef);
-			}
-		}
-		else if(file instanceof QPrinterFile) {
-			file.toString();
-		}
-		
-	}
-	
-	public QPhysicalFile getPhysicalFile(String name) {
-
-		QFile file = getFile(name);
-
-		QPhysicalFile physicalFile = null;
-		if(file instanceof QPhysicalFile) {
-			physicalFile = (QPhysicalFile) file;
-		}
-		else if(file instanceof QLogicalFile) {
-			QLogicalFile logicalFile = (QLogicalFile) file;
-			physicalFile = (QPhysicalFile) fileManager.getOverridedDatabaseFile(job, logicalFile.getIndex().getObject());
-			
-			if(physicalFile == null)
-				physicalFile = (QPhysicalFile) fileReader.lookup(logicalFile.getIndex().getObject());
-		}			
-		
-		return physicalFile;
-	}
-
-	@Override
-	public QFile getFile(String name) {
-
-		QFile file = fileManager.getOverridedDatabaseFile(job, name);
-		if(file == null)
-			file = fileReader.lookup(name);
-		
-		return file;
 	}
 
 	@Override
@@ -682,4 +554,8 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		return this.caseSensitive;
 	}
 
+	@Override
+	public List<QCompilationContext> getChildContexts() {
+		return new ArrayList<QCompilationContext>(contexts);
+	}
 }

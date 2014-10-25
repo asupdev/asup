@@ -27,10 +27,10 @@ public interface QMessageFileManager extends QTypedManager<QMessageFile> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.os.type.msgf.MessageException" contextIDRequired="true" messageFileRequired="true" messageNameType="org.asup.fw.java.JavaEnum" messageNameRequired="true" variablesDataType="org.asup.os.type.msgf.MessageVariableList" variablesRequired="true" EBounds="org.asup.fw.java.JavaEnum"
+	 * @model dataType="org.asup.os.type.msgf.MessageException" contextIDRequired="true" messageNameType="org.asup.fw.java.JavaEnum" messageNameRequired="true" variablesDataType="org.asup.os.type.msgf.MessageVariableList" variablesRequired="true" EBounds="org.asup.fw.java.JavaEnum"
 	 * @generated
 	 */
-	<E extends Enum<E>> MessageException prepareException(QContextID contextID, String messageFile, Enum<E> messageName, Object[] variables);
+	<E extends Enum<E>> MessageException prepareException(QContextID contextID, Enum<E> messageName, Object[] variables);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -32,7 +32,7 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.data.QExternalFileName;
+import org.asup.os.data.QExternalFile;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
@@ -141,8 +141,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
-				if(unaryCompoundDataTerm.getFacet(QExternalFileName.class) == null ||
-				   unaryCompoundDataTerm.getFacet(QExternalFileName.class).getName().equals("*PGM_STATUS")) {
+				if(unaryCompoundDataTerm.getFacet(QExternalFile.class) == null ||
+				   unaryCompoundDataTerm.getFacet(QExternalFile.class).getName().equals("*PGM_STATUS")) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
@@ -160,8 +160,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case MULTIPLE_COMPOUND:
 				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 				
-				if(multipleCompoundDataTerm.getFacet(QExternalFileName.class) == null ||
-				   multipleCompoundDataTerm.getFacet(QExternalFileName.class).getName().equals("*PGM_STATUS")) {
+				if(multipleCompoundDataTerm.getFacet(QExternalFile.class) == null ||
+				   multipleCompoundDataTerm.getFacet(QExternalFile.class).getName().equals("*PGM_STATUS")) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);

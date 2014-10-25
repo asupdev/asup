@@ -9,7 +9,7 @@ package org.asup.os.data.impl;
 
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
-import org.asup.os.data.QExternalFileName;
+import org.asup.os.data.QExternalFile;
 import org.asup.os.data.QOperatingSystemDataFactory;
 import org.asup.os.data.QOperatingSystemDataPackage;
 import org.asup.os.data.QTypedData;
@@ -47,7 +47,7 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass externalFileNameEClass = null;
+	private EClass externalFileEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -163,8 +163,8 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExternalFileName() {
-		return externalFileNameEClass;
+	public EClass getExternalFile() {
+		return externalFileEClass;
 	}
 
 	/**
@@ -172,8 +172,8 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExternalFileName_Name() {
-		return (EAttribute)externalFileNameEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExternalFile_Name() {
+		return (EAttribute)externalFileEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -181,8 +181,8 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExternalFileName_Format() {
-		return (EAttribute)externalFileNameEClass.getEStructuralFeatures().get(1);
+	public EAttribute getExternalFile_Format() {
+		return (EAttribute)externalFileEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -220,9 +220,9 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 		typedDataDefEClass = createEClass(TYPED_DATA_DEF);
 		createEAttribute(typedDataDefEClass, TYPED_DATA_DEF__TYPE);
 
-		externalFileNameEClass = createEClass(EXTERNAL_FILE_NAME);
-		createEAttribute(externalFileNameEClass, EXTERNAL_FILE_NAME__NAME);
-		createEAttribute(externalFileNameEClass, EXTERNAL_FILE_NAME__FORMAT);
+		externalFileEClass = createEClass(EXTERNAL_FILE);
+		createEAttribute(externalFileEClass, EXTERNAL_FILE__NAME);
+		createEAttribute(externalFileEClass, EXTERNAL_FILE__FORMAT);
 	}
 
 	/**
@@ -263,7 +263,7 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 		EGenericType g2 = createEGenericType(this.getTypedData());
 		g1.getETypeArguments().add(g2);
 		typedDataDefEClass.getEGenericSuperTypes().add(g1);
-		externalFileNameEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getFacet());
+		externalFileEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getFacet());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(typedDataEClass, QTypedData.class, "TypedData", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -275,9 +275,9 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 		initEClass(typedDataDefEClass, QTypedDataDef.class, "TypedDataDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypedDataDef_Type(), ecorePackage.getEString(), "type", null, 0, 1, QTypedDataDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(externalFileNameEClass, QExternalFileName.class, "ExternalFileName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExternalFileName_Name(), ecorePackage.getEString(), "name", null, 1, 1, QExternalFileName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExternalFileName_Format(), ecorePackage.getEString(), "format", null, 1, 1, QExternalFileName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(externalFileEClass, QExternalFile.class, "ExternalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExternalFile_Name(), ecorePackage.getEString(), "name", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalFile_Format(), ecorePackage.getEString(), "format", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

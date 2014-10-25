@@ -402,7 +402,6 @@ public class OperatingSystemMessageFilePackageImpl extends EPackageImpl implemen
 		g1 = createEGenericType(theFrameworkJavaPackage.getJavaEnum());
 		t1.getEBounds().add(g1);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "messageFile", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaEnum(), "messageName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getMessageVariableList(), "variables", 1, 1, IS_UNIQUE, IS_ORDERED);
 

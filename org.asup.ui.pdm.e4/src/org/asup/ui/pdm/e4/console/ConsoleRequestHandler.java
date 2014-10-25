@@ -132,7 +132,7 @@ public class ConsoleRequestHandler {
 						
 			    		long timeEnd = System.currentTimeMillis();						
 						outputStreamWriter.write("\n");
-						outputStreamWriter.write("Execution info: "+"elapsed time(ms): "+(timeEnd-timeIni));
+						outputStreamWriter.write("Command execution info: "+command+" elapsed time(ms) "+(timeEnd-timeIni));
 						outputStreamWriter.write("\n");						
 						outputStreamWriter.flush();
 						

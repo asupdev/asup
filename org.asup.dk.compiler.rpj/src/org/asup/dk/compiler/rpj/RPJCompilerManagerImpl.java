@@ -39,7 +39,6 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceReader;
-import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.module.QModuleManager;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -57,21 +56,27 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	private QModuleManager moduleManager;
 	@Inject 
 	private QSourceManager sourceManager;
-	@Inject
-	private QFileManager fileManager;
 
 	private ResourceSet resourceSet = new ResourceSetImpl();
 
 	@Override
 	public QCompilationContext createCompilationContext(QJob job, QModule module, CaseSensitiveType caseSensitive) {
-
-		List<QCompilationContext> contexts = prepareContext(job, module, caseSensitive);
 		
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job, 
-																					 job.getJobContext().createChild(),
-																					 fileManager,
+		Map<String, QCompilationContext> globalContexts = new HashMap<>();	
+		return createCompilationContext(job, globalContexts, module, caseSensitive);
+	}
+	
+	private QCompilationContext createCompilationContext(QJob job, Map<String, QCompilationContext> globalContexts, QModule module, CaseSensitiveType caseSensitive) {
+
+		List<QCompilationContext> moduleContexts = null;
+		if(!module.getName().startsWith("*"))
+			moduleContexts = prepareContexts(job, globalContexts, module, caseSensitive);
+		else
+			moduleContexts = new ArrayList<QCompilationContext>();
+		
+		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(),
 																					 module,
-																					 contexts,
+																					 moduleContexts,
 																					 caseSensitive);
 		
 		compilationContext.set(QCompilationContext.class, compilationContext);
@@ -92,13 +97,12 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public QCompilationContext createCompilationContext(QJob job, QProgram program, CaseSensitiveType caseSensitive) {
 
-		List<QCompilationContext> contexts = prepareContext(job, program, caseSensitive);
+		Map<String, QCompilationContext> globalContexts = new HashMap<>();
+		List<QCompilationContext> moduleContexts = prepareContexts(job, globalContexts, program, caseSensitive);
 		
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job,
-																					 job.getJobContext().createChild(),
-																					 fileManager,
+		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(),
 																					 program,
-																					 contexts,
+																					 moduleContexts,
 																					 caseSensitive);
 
 		compilationContext.set(QCompilationContext.class, compilationContext);
@@ -123,16 +127,13 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		QJob job = master.get(QJob.class);
 		
+		Map<String, QCompilationContext> globalContexts = new HashMap<>();
+		List<QCompilationContext> moduleContexts = prepareContexts(job, globalContexts, procedure, master.getCaseSensitive());		
+		moduleContexts.add(master);
 		
-		List<QCompilationContext> contexts = prepareContext(job, procedure, master.getCaseSensitive());
-		
-		contexts.add(master);
-		
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job, 
-																					 master.createChild(),
-																					 fileManager,
+		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(master.createChild(),
 																					 procedure,
-																					 contexts,
+																					 moduleContexts,
 																					 master.getCaseSensitive());
 
 		compilationContext.set(QCompilationContext.class, compilationContext);
@@ -144,11 +145,10 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public QCompilationContext createCompilationContext(QJob job, QCompoundDataTerm<?> structure, CaseSensitiveType caseSensitive) {
 
+
 		List<QCompilationContext> contexts = new ArrayList<QCompilationContext>();
 		
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job, 
-																					 job.getJobContext().createChild(),
-																					 fileManager,
+		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(),
 																					 structure,
 																					 contexts,
 																					 caseSensitive);
@@ -156,69 +156,79 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		return compilationContext;
 	}
-
-	private List<QCompilationContext> prepareContext(QJob job, QCallableUnit unit, CaseSensitiveType caseSensitive) {
-		
-		Map<String, QCompilationContext> contexts = new HashMap<>();
-		
-		// default context
-		if(!unit.getName().startsWith("*")) {
-			try {
-				URL entry = FrameworkUtil.getBundle(this.getClass()).getEntry("./ASUP-INF/modules.xmi");
-				Resource resource = resourceSet.createResource(URI.createURI(entry.toString()));
-				resource.load(Collections.EMPTY_MAP);
-				
-				// type check
-				EObject eObject = resource.getContents().get(0);			
-				if(eObject instanceof QModule) {
-					QModule module = (QModule)eObject;
-					
-					// add *RPJ module
-					contexts.put(module.getName(), createCompilationContext(job, module, caseSensitive));
-				}
 	
+	private void prepareDefaultContext(List<QCompilationContext> contexts, QJob job, CaseSensitiveType caseSensitive) {
+		// default context
+		try {
+			URL entry = FrameworkUtil.getBundle(this.getClass()).getEntry("./ASUP-INF/modules.xmi");
+			Resource resource = resourceSet.createResource(URI.createURI(entry.toString()));
+			resource.load(Collections.EMPTY_MAP);
+			
+			// type check
+			EObject eObject = resource.getContents().get(0);			
+			if(eObject instanceof QModule) {
+				QModule module = (QModule)eObject;
+				
+				// add *RPJ module
+				QCompilationContext moduleContext = createCompilationContext(job, new HashMap<String, QCompilationContext>(), module, caseSensitive);
+				contexts.add(moduleContext);
 			}
-			catch(Exception e) {
-				System.out.println("Error on loading resource ./ASUP-INF/modules.xmi");
-			}
+
 		}
+		catch(Exception e) {
+			System.out.println("Error on loading resource ./ASUP-INF/modules.xmi");
+		}
+	}
 
+	private List<QCompilationContext> prepareContexts(QJob job, Map<String, QCompilationContext> globalContexts, QCallableUnit unit, CaseSensitiveType caseSensitive) {
 		
+		List<QCompilationContext> moduleContexts = new ArrayList<QCompilationContext>();
+		prepareDefaultContext(moduleContexts, job, caseSensitive); 
+				
 		if(unit.getSetupSection() == null)
-			return new ArrayList<QCompilationContext>(contexts.values());
-
+			return moduleContexts;
 		
 		QResourceReader<org.asup.os.type.module.QModule> moduleReader = moduleManager.getResourceReader(job, Scope.LIBRARY_LIST);		
 		for(String moduleName: unit.getSetupSection().getModules()) {
+
+			QCompilationContext moduleContext = globalContexts.get(moduleName);
+			
+			if(moduleContext != null) {
+				moduleContexts.add(moduleContext);
+				continue;
+			}
+				
 			org.asup.os.type.module.QModule module = moduleReader.lookup(moduleName);
 
 			if (module == null)
 				throw new OperatingSystemRuntimeException("Null resource for object " + moduleName, null);
-			
+				
 			// lookup module source entry
 			QSourceEntry moduleEntry = sourceManager.getObjectEntry(job, module.getLibrary(), org.asup.os.type.module.QModule.class, module.getName());		
 			if (moduleEntry == null)
 				throw new OperatingSystemRuntimeException("Null resource for object " + module.getName(), null);
-			
+				
 			// XMI conversion
 			QSourceEntry xmiModuleSource = sourceManager.getChildEntry(job, moduleEntry, module.getName()+ ".xmi");
 			if (xmiModuleSource == null)
 				throw new OperatingSystemRuntimeException("Null resource for object " + module.getName(), null);
-
+		
 			// load flow module
 			Resource resourceModule = new XMIResourceImpl();
 			try {
 				resourceModule.load(xmiModuleSource.getInputStream(), Collections.EMPTY_MAP);
 				QModule flowModel = (QModule) resourceModule.getContents().get(0);
 
-				contexts.put(moduleName, createCompilationContext(job, flowModel, caseSensitive));
+				moduleContext = createCompilationContext(job, globalContexts, flowModel, caseSensitive);
+				
+				moduleContexts.add(moduleContext);
+				globalContexts.put(moduleName, moduleContext);
 			} catch (IOException e) {
 				throw new OperatingSystemRuntimeException(e);
 			}
-			
 		}
 		
-		return new ArrayList<QCompilationContext>(contexts.values());
+		return moduleContexts;
 	}
 
 	@Override
@@ -255,5 +265,26 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		skeletonWriter.writeSkeleton((QProgram) context.getRoot());
 		
 		skeletonWriter.writeOutputStream(output);
+	}
+
+	@Override
+	public void linkCompilationContext(QCompilationContext context) {
+
+		// link childs
+		for(QCompilationContext childCompilationContext: context.getChildContexts()) {
+			linkCompilationContext(childCompilationContext);
+		}
+		
+		// link root
+		RPJCallableUnitLinker callableUnitLinker = context.make(RPJCallableUnitLinker.class);
+		
+		// register linker on context
+		context.set(RPJCallableUnitLinker.class, callableUnitLinker);
+
+		callableUnitLinker.linkFiles();
+		
+		callableUnitLinker.linkExternalDatas();
+
+		callableUnitLinker.linkLikeDatas();
 	}
 }
