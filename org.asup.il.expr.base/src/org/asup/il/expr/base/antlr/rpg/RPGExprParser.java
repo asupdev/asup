@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 RPGExpr.g 2014-10-25 12:21:54
+// $ANTLR 3.5.1 RPGExpr.g 2014-10-27 11:39:59
 
   package org.asup.il.expr.base.antlr.rpg;
   
@@ -1096,7 +1096,7 @@ public class RPGExprParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: vals, v
+					// elements: v, vals
 					// token labels: 
 					// rule labels: v, retval
 					// token list labels: 
@@ -1645,7 +1645,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "filler"
-	// RPGExpr.g:167:1: filler : FILLER STRING -> ^( BI_FUNCTION[$FILLER.text] TERM[$STRING.text] ) ;
+	// RPGExpr.g:167:1: filler : FILLER STRING -> ^( BI_FUNCTION[$FILLER.text] STRING ) ;
 	public final RPGExprParser.filler_return filler() throws RecognitionException {
 		RPGExprParser.filler_return retval = new RPGExprParser.filler_return();
 		retval.start = input.LT(1);
@@ -1661,7 +1661,7 @@ public class RPGExprParser extends Parser {
 		RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
 		try {
-			// RPGExpr.g:167:8: ( FILLER STRING -> ^( BI_FUNCTION[$FILLER.text] TERM[$STRING.text] ) )
+			// RPGExpr.g:167:8: ( FILLER STRING -> ^( BI_FUNCTION[$FILLER.text] STRING ) )
 			// RPGExpr.g:168:3: FILLER STRING
 			{
 			FILLER48=(Token)match(input,FILLER,FOLLOW_FILLER_in_filler529);  
@@ -1671,7 +1671,7 @@ public class RPGExprParser extends Parser {
 			stream_STRING.add(STRING49);
 
 			// AST REWRITE
-			// elements: 
+			// elements: STRING
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1681,13 +1681,13 @@ public class RPGExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 168:17: -> ^( BI_FUNCTION[$FILLER.text] TERM[$STRING.text] )
+			// 168:17: -> ^( BI_FUNCTION[$FILLER.text] STRING )
 			{
-				// RPGExpr.g:168:20: ^( BI_FUNCTION[$FILLER.text] TERM[$STRING.text] )
+				// RPGExpr.g:168:20: ^( BI_FUNCTION[$FILLER.text] STRING )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (FILLER48!=null?FILLER48.getText():null)), root_1);
-				adaptor.addChild(root_1, (CommonTree)adaptor.create(TERM, (STRING49!=null?STRING49.getText():null)));
+				adaptor.addChild(root_1, stream_STRING.nextNode());
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -1745,10 +1745,10 @@ public class RPGExprParser extends Parser {
 			// RPGExpr.g:171:9: ( MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text] )
 			// RPGExpr.g:172:3: MULT SPECIAL
 			{
-			MULT50=(Token)match(input,MULT,FOLLOW_MULT_in_special553);  
+			MULT50=(Token)match(input,MULT,FOLLOW_MULT_in_special552);  
 			stream_MULT.add(MULT50);
 
-			SPECIAL51=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_special555);  
+			SPECIAL51=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_special554);  
 			stream_SPECIAL.add(SPECIAL51);
 
 			// AST REWRITE
@@ -1873,10 +1873,10 @@ public class RPGExprParser extends Parser {
 				case 1 :
 					// RPGExpr.g:176:4: TERM params
 					{
-					TERM52=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function571);  
+					TERM52=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function570);  
 					stream_TERM.add(TERM52);
 
-					pushFollow(FOLLOW_params_in_usr_function573);
+					pushFollow(FOLLOW_params_in_usr_function572);
 					params53=params();
 					state._fsp--;
 
@@ -1912,10 +1912,10 @@ public class RPGExprParser extends Parser {
 				case 2 :
 					// RPGExpr.g:178:3: TERM empty
 					{
-					TERM54=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function591);  
+					TERM54=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function590);  
 					stream_TERM.add(TERM54);
 
-					pushFollow(FOLLOW_empty_in_usr_function593);
+					pushFollow(FOLLOW_empty_in_usr_function592);
 					empty55=empty();
 					state._fsp--;
 
@@ -2057,7 +2057,7 @@ public class RPGExprParser extends Parser {
 				case 1 :
 					// RPGExpr.g:183:3: BI_FUN ( params )?
 					{
-					BI_FUN56=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function615);  
+					BI_FUN56=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function614);  
 					stream_BI_FUN.add(BI_FUN56);
 
 					// RPGExpr.g:183:10: ( params )?
@@ -2070,7 +2070,7 @@ public class RPGExprParser extends Parser {
 						case 1 :
 							// RPGExpr.g:183:11: params
 							{
-							pushFollow(FOLLOW_params_in_bi_function618);
+							pushFollow(FOLLOW_params_in_bi_function617);
 							params57=params();
 							state._fsp--;
 
@@ -2116,13 +2116,13 @@ public class RPGExprParser extends Parser {
 				case 2 :
 					// RPGExpr.g:185:3: BI_FUN '(' ')'
 					{
-					BI_FUN58=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function640);  
+					BI_FUN58=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function639);  
 					stream_BI_FUN.add(BI_FUN58);
 
-					char_literal59=(Token)match(input,72,FOLLOW_72_in_bi_function642);  
+					char_literal59=(Token)match(input,72,FOLLOW_72_in_bi_function641);  
 					stream_72.add(char_literal59);
 
-					char_literal60=(Token)match(input,73,FOLLOW_73_in_bi_function644);  
+					char_literal60=(Token)match(input,73,FOLLOW_73_in_bi_function643);  
 					stream_73.add(char_literal60);
 
 					// AST REWRITE
@@ -2206,8 +2206,8 @@ public class RPGExprParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			char_literal61=(Token)match(input,72,FOLLOW_72_in_params664); 
-			pushFollow(FOLLOW_logicalExpression_in_params667);
+			char_literal61=(Token)match(input,72,FOLLOW_72_in_params663); 
+			pushFollow(FOLLOW_logicalExpression_in_params666);
 			logicalExpression62=logicalExpression();
 			state._fsp--;
 
@@ -2226,8 +2226,8 @@ public class RPGExprParser extends Parser {
 				case 1 :
 					// RPGExpr.g:189:28: ':' ! logicalExpression
 					{
-					char_literal63=(Token)match(input,74,FOLLOW_74_in_params670); 
-					pushFollow(FOLLOW_logicalExpression_in_params673);
+					char_literal63=(Token)match(input,74,FOLLOW_74_in_params669); 
+					pushFollow(FOLLOW_logicalExpression_in_params672);
 					logicalExpression64=logicalExpression();
 					state._fsp--;
 
@@ -2241,7 +2241,7 @@ public class RPGExprParser extends Parser {
 				}
 			}
 
-			char_literal65=(Token)match(input,73,FOLLOW_73_in_params677); 
+			char_literal65=(Token)match(input,73,FOLLOW_73_in_params676); 
 			}
 
 			retval.stop = input.LT(-1);
@@ -2292,11 +2292,11 @@ public class RPGExprParser extends Parser {
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			char_literal66=(Token)match(input,72,FOLLOW_72_in_empty690); 
+			char_literal66=(Token)match(input,72,FOLLOW_72_in_empty689); 
 			char_literal66_tree = (CommonTree)adaptor.create(char_literal66);
 			adaptor.addChild(root_0, char_literal66_tree);
 
-			char_literal67=(Token)match(input,73,FOLLOW_73_in_empty692); 
+			char_literal67=(Token)match(input,73,FOLLOW_73_in_empty691); 
 			char_literal67_tree = (CommonTree)adaptor.create(char_literal67);
 			adaptor.addChild(root_0, char_literal67_tree);
 
@@ -2351,15 +2351,15 @@ public class RPGExprParser extends Parser {
 			// RPGExpr.g:198:2: ( ARRAY_INDICATOR logicalExpression ')' -> ^( BI_FUNCTION[\"*IN\"] logicalExpression ) )
 			// RPGExpr.g:199:3: ARRAY_INDICATOR logicalExpression ')'
 			{
-			ARRAY_INDICATOR68=(Token)match(input,ARRAY_INDICATOR,FOLLOW_ARRAY_INDICATOR_in_array_indicator706);  
+			ARRAY_INDICATOR68=(Token)match(input,ARRAY_INDICATOR,FOLLOW_ARRAY_INDICATOR_in_array_indicator705);  
 			stream_ARRAY_INDICATOR.add(ARRAY_INDICATOR68);
 
-			pushFollow(FOLLOW_logicalExpression_in_array_indicator709);
+			pushFollow(FOLLOW_logicalExpression_in_array_indicator708);
 			logicalExpression69=logicalExpression();
 			state._fsp--;
 
 			stream_logicalExpression.add(logicalExpression69.getTree());
-			char_literal70=(Token)match(input,73,FOLLOW_73_in_array_indicator711);  
+			char_literal70=(Token)match(input,73,FOLLOW_73_in_array_indicator710);  
 			stream_73.add(char_literal70);
 
 			// AST REWRITE
@@ -2464,25 +2464,25 @@ public class RPGExprParser extends Parser {
 	public static final BitSet FOLLOW_array_indicator_in_value517 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_FILLER_in_filler529 = new BitSet(new long[]{0x1000000000000000L});
 	public static final BitSet FOLLOW_STRING_in_filler531 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MULT_in_special553 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_SPECIAL_in_special555 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TERM_in_usr_function571 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_params_in_usr_function573 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TERM_in_usr_function591 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_empty_in_usr_function593 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BI_FUN_in_bi_function615 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000100L});
-	public static final BitSet FOLLOW_params_in_bi_function618 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BI_FUN_in_bi_function640 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_72_in_bi_function642 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_bi_function644 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_72_in_params664 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_params667 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
-	public static final BitSet FOLLOW_74_in_params670 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_params673 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
-	public static final BitSet FOLLOW_73_in_params677 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_72_in_empty690 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_empty692 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ARRAY_INDICATOR_in_array_indicator706 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_array_indicator709 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_array_indicator711 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MULT_in_special552 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_SPECIAL_in_special554 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TERM_in_usr_function570 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_params_in_usr_function572 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TERM_in_usr_function590 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_empty_in_usr_function592 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BI_FUN_in_bi_function614 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000100L});
+	public static final BitSet FOLLOW_params_in_bi_function617 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BI_FUN_in_bi_function639 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_72_in_bi_function641 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_73_in_bi_function643 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_72_in_params663 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
+	public static final BitSet FOLLOW_logicalExpression_in_params666 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
+	public static final BitSet FOLLOW_74_in_params669 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
+	public static final BitSet FOLLOW_logicalExpression_in_params672 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
+	public static final BitSet FOLLOW_73_in_params676 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_72_in_empty689 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_73_in_empty691 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ARRAY_INDICATOR_in_array_indicator705 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
+	public static final BitSet FOLLOW_logicalExpression_in_array_indicator708 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_73_in_array_indicator710 = new BitSet(new long[]{0x0000000000000002L});
 }

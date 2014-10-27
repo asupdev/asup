@@ -165,7 +165,7 @@ value
 	;
 
 filler	:
-		FILLER STRING -> ^(BI_FUNCTION[$FILLER.text] TERM[$STRING.text])
+		FILLER STRING -> ^(BI_FUNCTION[$FILLER.text] STRING)
 	;
 
 special	:
