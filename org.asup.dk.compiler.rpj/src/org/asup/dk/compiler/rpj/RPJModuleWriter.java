@@ -30,7 +30,7 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 	}
 	
 	public void writeModule(QModule module) throws IOException {
-		
+
 		// analyze callable unit
 		analyzeCallableUnit(module);
 		
@@ -57,7 +57,7 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 		// main
 		if(module.getMain() != null) {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
-			routine.setName("call");
+			routine.setName("main");
 			routine.setMain(module.getMain());
 			
 			writeRoutine(getCompilationContext(), routine);

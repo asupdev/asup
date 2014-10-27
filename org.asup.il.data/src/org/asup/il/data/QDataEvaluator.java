@@ -28,6 +28,14 @@ public interface QDataEvaluator extends QDataVisitor {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
+	QDataEvaluator set(int value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
 	QDataEvaluator set(String value);
 
 	/**

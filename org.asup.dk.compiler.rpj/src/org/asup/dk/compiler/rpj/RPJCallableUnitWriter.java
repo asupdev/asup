@@ -200,7 +200,10 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 
 			String argument = dataSet.getFileName();
-			parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+			if(argument.equals("PRT198"))
+				parType.typeArguments().add(getAST().newWildcardType());
+			else
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
 			
 			field.setType(parType);
 			variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getName())));

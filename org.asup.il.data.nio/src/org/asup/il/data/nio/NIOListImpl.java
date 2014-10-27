@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
@@ -169,5 +170,83 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 		
 		sb.append("]");		
 		return sb.toString();
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean eq(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean eq(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void eval(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ge(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ge(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean gt(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean gt(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean le(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean le(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean lt(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean lt(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ne(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ne(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

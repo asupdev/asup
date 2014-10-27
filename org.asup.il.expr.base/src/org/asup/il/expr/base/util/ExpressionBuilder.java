@@ -125,7 +125,7 @@ public class ExpressionBuilder {
 	public QPredicateExpression buildAsPredicate(String expression) throws IntegratedLanguageExpressionRuntimeException {
 
 		if(expression.equals("*TRUE"))
-			expression = "true";
+			expression = "*ON";
 		
 		Tree antAst = expressionHelper.parse(expression);
 		QPredicateExpression predicateExpression = buildAsPredicate(antAst);

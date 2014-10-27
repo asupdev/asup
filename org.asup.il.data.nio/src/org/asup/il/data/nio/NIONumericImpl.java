@@ -7,36 +7,25 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	private static final long serialVersionUID = 1L;
 
-	public abstract Number readNumber();
-	
-	public abstract void writeNumber(Number number);
-	
-	public abstract int compareNumber(Number value);
-	
 	public NIONumericImpl() {
 		super();
 	}
 	
-	protected <E extends Enum<E>> Integer getPrimitive(E value) {
-		if(value.name().equals("ZEROS"))
-			return 0;
-		else if(value.name().equals("ZERO"))
-			return 0;
-		else if(value.name().equals("LOVAL"))
-			return 0;
-		return 0;
-	}
-	
-	@Override
-	public String toString() {
-		return readNumber().toString();		
-	}
-
 	@Override
 	public double asDouble() {
 		return readNumber().doubleValue();
 	}
-
+	
+	@Override
+	public int asInteger() {
+		return readNumber().intValue();
+	}
+	
+	@Override
+	public long asLong() {
+		return readNumber().longValue();
+	}
+	
 	@Override
 	public short asShort() {
 		return readNumber().shortValue();
@@ -47,44 +36,57 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		return readNumber().toString();
 	}
 
+	public abstract int compareNumber(Number value);
+
 	@Override
-	public int asInteger() {
-		return readNumber().intValue();
+	public void divide(int value) {
+		eval(asLong()/value);		
 	}
 	
 	@Override
-	public long asLong() {
-		return readNumber().longValue();
+	public void divide(long value) {
+		eval(asLong()/value);		
+	}
+
+	@Override
+	public void divide(QNumeric value) {
+		eval(asLong()/value.asLong());
+	}
+	
+	@Override
+	public void divide(short value) {
+		eval(asLong()/value);
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean eq(E value) {
+		return eq(getPrimitive(value));
+	}
+	
+	@Override
+	public boolean eq(Number value) {
+		return compareNumber(value) == 0;
+	}
+
+	@Override
+	public boolean eq(QNumeric value) {
+		return compareNumber(value.asLong()) == 0;
 	}
 
 	@Override
 	public void eval(double value) {
 		writeNumber(value);		
 	}
-	
+
 	@Override
-	public void eval(short value) {
-		writeNumber(value);
+	public <E extends Enum<E>> void eval(E value) {
+		Integer number = getPrimitive(value);
+		eval(number);		
 	}
 
 	@Override
 	public void eval(int value) {
 		writeNumber(value);		
-	}
-
-	@Override
-	public void eval(long value) {
-		writeNumber(value);		
-	}
-
-	@Override
-	public void eval(QNumeric value) {
-		writeNumber(value.asLong());		
-	}
-
-	@Override
-	public void eval(QBufferedData value) {
-		move(value, true);
 	}
 
 	/*public void eval(Object value) {
@@ -106,39 +108,28 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}*/
 
 	@Override
-	public <E extends Enum<E>> void eval(E value) {
-		Integer number = getPrimitive(value);
-		eval(number);		
+	public void eval(long value) {
+		writeNumber(value);		
 	}
 
 	@Override
-	public boolean eq(Number value) {
-		return compareNumber(value) == 0;
+	public void eval(QBufferedData value) {
+		move(value, true);
 	}
 
 	@Override
-	public boolean eq(QNumeric value) {
-		return compareNumber(value.asLong()) == 0;
+	public void eval(QNumeric value) {
+		writeNumber(value.asLong());		
 	}
 
 	@Override
-	public <E extends Enum<E>> boolean eq(E value) {
-		return eq(getPrimitive(value));
+	public void eval(short value) {
+		writeNumber(value);
 	}
 	
 	@Override
-	public boolean ne(Number value) {
-		return !eq(value);
-	}
-
-	@Override
-	public boolean ne(QNumeric value) {
-		return !eq(value);
-	}
-
-	@Override
-	public <E extends Enum<E>> boolean ne(E value) {
-		return !eq(value);
+	public <E extends Enum<E>> boolean ge(E value) {
+		return ge(getPrimitive(value));
 	}
 
 	@Override
@@ -147,13 +138,23 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public <E extends Enum<E>> boolean ge(E value) {
-		return ge(getPrimitive(value));
+	public boolean ge(QNumeric value) {
+		return compareNumber(value.asLong()) >= 0;
+	}
+
+	protected <E extends Enum<E>> Integer getPrimitive(E value) {
+		if(value.name().equals("ZEROS"))
+			return 0;
+		else if(value.name().equals("ZERO"))
+			return 0;
+		else if(value.name().equals("LOVAL"))
+			return 0;
+		return 0;
 	}
 
 	@Override
-	public boolean ge(QNumeric value) {
-		return compareNumber(value.asLong()) >= 0;
+	public <E extends Enum<E>> boolean gt(E value) {
+		return gt(getPrimitive(value));
 	}
 
 	@Override
@@ -167,8 +168,8 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public <E extends Enum<E>> boolean gt(E value) {
-		return gt(getPrimitive(value));
+	public <E extends Enum<E>> boolean le(E value) {
+		return le(getPrimitive(value));
 	}
 
 	@Override
@@ -176,15 +177,21 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		return compareNumber(value) <= 0;
 	}
 
-
 	@Override
 	public boolean le(QNumeric value) {
 		return compareNumber(value.asLong()) <= 0;
 	}
 
+
 	@Override
-	public <E extends Enum<E>> boolean le(E value) {
-		return le(getPrimitive(value));
+	public int length() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean lt(E value) {
+		return lt(getPrimitive(value));
 	}
 	
 	@Override
@@ -199,42 +206,12 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public <E extends Enum<E>> boolean lt(E value) {
-		return lt(getPrimitive(value));
+	public void minus(int value) {
+		eval(asLong()-value);		
 	}
 	
 	@Override
-	public void plus(short value) {
-		eval(asLong()+value);		
-	}
-
-	@Override
-	public void plus(long value) {
-		eval(asLong()+value);		
-	}
-
-	@Override
-	public void plus(int value) {
-		eval(asLong()+value);		
-	}
-
-	@Override
-	public void plus(QNumeric value) {
-		eval(asLong()+value.asLong());
-	}
-
-	@Override
-	public void minus(short value) {
-		eval(asLong()-value);
-	}
-
-	@Override
 	public void minus(long value) {
-		eval(asLong()-value);		
-	}
-
-	@Override
-	public void minus(int value) {
 		eval(asLong()-value);		
 	}
 
@@ -244,70 +221,10 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public void mult(short value) {
-		eval(asLong()*value);		
+	public void minus(short value) {
+		eval(asLong()-value);
 	}
 
-	@Override
-	public void mult(long value) {
-		eval(asLong()-value);		
-	}
-
-	@Override
-	public void mult(int value) {
-		eval(asLong()-value);		
-	}
-
-	@Override
-	public void mult(QNumeric value) {
-		eval(asLong()-value.asLong());		
-	}
-
-	@Override
-	public void divide(short value) {
-		eval(asLong()/value);
-	}
-
-	@Override
-	public void divide(int value) {
-		eval(asLong()/value);		
-	}
-
-	@Override
-	public void divide(long value) {
-		eval(asLong()/value);		
-	}
-
-	@Override
-	public void divide(QNumeric value) {
-		eval(asLong()/value.asLong());
-	}
-	
-	@Override
-	public void power(short value) {
-		eval(asLong()^value);		
-	}
-
-	@Override
-	public void power(long value) {
-		eval(asLong()^value);		
-	}
-
-	@Override
-	public void power(int value) {
-		eval(asLong()^value);		
-	}
-
-	@Override
-	public void power(QNumeric value) {
-		eval(asLong()^value.asLong());		
-	}
-	
-	@Override
-	public void move(String value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
-	}
-	
 	@Override
 	public <E extends Enum<E>> void move(E value) {
 		move(getPrimitive(value));		
@@ -318,12 +235,11 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		move(getPrimitive(value), clear);		
 	}
 
-
 	@Override
-	public void movel(String value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
+	public void move(String value, boolean clear) {
+		NIOBufferHelper.move(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
 	}
-	
+
 	@Override
 	public <E extends Enum<E>> void movel(E value) {
 		movel(getPrimitive(value));		
@@ -335,14 +251,98 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public int length() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void movel(String value, boolean clear) {
+		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
 	}
+
+	@Override
+	public void mult(int value) {
+		eval(asLong()-value);		
+	}
+
+	@Override
+	public void mult(long value) {
+		eval(asLong()-value);		
+	}
+
+	@Override
+	public void mult(QNumeric value) {
+		eval(asLong()-value.asLong());		
+	}
+
+	@Override
+	public void mult(short value) {
+		eval(asLong()*value);		
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ne(E value) {
+		return !eq(value);
+	}
+
+	@Override
+	public boolean ne(Number value) {
+		return !eq(value);
+	}
+
+	@Override
+	public boolean ne(QNumeric value) {
+		return !eq(value);
+	}
+	
+	@Override
+	public void plus(int value) {
+		eval(asLong()+value);		
+	}
+
+	@Override
+	public void plus(long value) {
+		eval(asLong()+value);		
+	}
+
+	@Override
+	public void plus(QNumeric value) {
+		eval(asLong()+value.asLong());
+	}
+
+	@Override
+	public void plus(short value) {
+		eval(asLong()+value);		
+	}
+	
+	@Override
+	public void power(int value) {
+		eval(asLong()^value);		
+	}
+	
+	@Override
+	public void power(long value) {
+		eval(asLong()^value);		
+	}
+
+	@Override
+	public void power(QNumeric value) {
+		eval(asLong()^value.asLong());		
+	}
+
+
+	@Override
+	public void power(short value) {
+		eval(asLong()^value);		
+	}
+	
+	public abstract Number readNumber();
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public String toString() {
+		return readNumber().toString();		
+	}
+
+	public abstract void writeNumber(Number number);
 }

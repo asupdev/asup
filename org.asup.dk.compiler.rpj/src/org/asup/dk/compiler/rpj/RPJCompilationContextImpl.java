@@ -26,6 +26,7 @@ import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QEntry;
 import org.asup.il.flow.QEntryParameter;
@@ -406,15 +407,17 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		while(node.isChild()) {
 			node = node.getParent();
 
-			
-			if(node instanceof QDataSetTerm) {
+			if(node instanceof QMultipleCompoundDataTerm) {
+				name = "current()."+name;
+			}			
+			else if(node instanceof QDataSetTerm) {
 				name = "get()."+name;
 			}
-
-			if(node instanceof QEntry) {
+			else if(node instanceof QEntry) {
 				name = "qEN."+name;
 			}
-			else if(node != getRoot()) {
+			
+			if(node != getRoot()) {
 				QNamedNode namedChildNode = (QNamedNode)node;
 				name = normalizeTermName(namedChildNode.getName())+"."+name;	
 			}

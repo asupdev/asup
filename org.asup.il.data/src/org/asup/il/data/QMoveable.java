@@ -89,6 +89,22 @@ public interface QMoveable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void move(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model clearRequired="true"
+	 * @generated
+	 */
+	void move(QDataEvaluator value, boolean clear);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model valueType="org.asup.fw.java.JavaNumber"
 	 * @generated
 	 */
@@ -181,6 +197,22 @@ public interface QMoveable {
 	 * @generated
 	 */
 	<E extends Enum<E>> void movel(E value, boolean clear);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void movel(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model clearRequired="true"
+	 * @generated
+	 */
+	void movel(QDataEvaluator value, boolean clear);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -9,7 +9,8 @@ import javax.inject.Inject;
 import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.rpj.visitor.RPJDataExternalNameVisitor;
-import org.asup.dk.compiler.rpj.visitor.RPJDataLikeVisitor;
+import org.asup.dk.compiler.rpj.visitor.RPJDataLikeRefactor;
+import org.asup.dk.compiler.rpj.visitor.RPJDataOverlayRefactor;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -61,7 +62,6 @@ public class RPJCallableUnitLinker {
 
 	}
 	
-
 	public void linkLikeDatas() {
 		
 		// TODO
@@ -76,7 +76,7 @@ public class RPJCallableUnitLinker {
 
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(dataSection.getDatas());
 
-		RPJDataLikeVisitor dataLikeVisitor = new RPJDataLikeVisitor(compilationContext);
+		RPJDataLikeRefactor dataLikeVisitor = new RPJDataLikeRefactor(compilationContext);
 		for(QDataTerm<?> dataTerm: dataTerms) {
 			dataLikeVisitor.reset();
 			
@@ -85,8 +85,33 @@ public class RPJCallableUnitLinker {
 			dataSection.getDatas().add(dataLikeVisitor.getDataTerm());
 		}
 		
+	}	
+
+	public void linkOverlayDatas() {
+		
+		// TODO
+		if(!(compilationContext.getRoot() instanceof QCallableUnit))
+			return;
+		
+		QCallableUnit callableUnit = (QCallableUnit) compilationContext.getRoot();
+		
+		QDataSection dataSection = callableUnit.getDataSection();
+		if(dataSection == null) 
+			return;
+
+		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(dataSection.getDatas());
+
+		RPJDataOverlayRefactor dataOverlayVisitor = new RPJDataOverlayRefactor(compilationContext);
+		for(QDataTerm<?> dataTerm: dataTerms) {
+			dataOverlayVisitor.reset();
+			
+			dataTerm.accept(dataOverlayVisitor);			
+			dataSection.getDatas().remove(dataTerm);			
+			dataSection.getDatas().add(dataOverlayVisitor.getDataTerm());
+		}
+		
 	}
-	
+
 	public void linkFiles() {
 		
 		// TODO
@@ -106,6 +131,9 @@ public class RPJCallableUnitLinker {
 	
 	private void linkDataSet(QDataSetTerm dataSet) {
 
+		if(dataSet.getFileName().equalsIgnoreCase("PRT198"))
+			return;
+		
 		QFile file = getFile(dataSet.getFileName());
 
 		if(file == null)

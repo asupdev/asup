@@ -12,6 +12,7 @@
 package org.asup.os.core.jdt;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 
 import org.asup.dk.source.QSourceEntry;
@@ -39,11 +40,14 @@ public class JDTSourceIterator<T extends QObjectNameable> implements Iterator<T>
 		T typedObject = null;
 		QSourceEntry entry = entries.next();
 		try {
-			typedObject = (T) emfConverter.convertToEObject(entry.getInputStream());
+			InputStream inputStream = entry.getInputStream();
+			typedObject = (T) emfConverter.convertToEObject(inputStream);
+			inputStream.close();
 		} catch (IOException e) {
 			System.err.println(e.getMessage()+" location: "+entry);
 			typedObject = next();
 		}
+		
 		return typedObject;
 	}
 

@@ -280,11 +280,13 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		
 		// register linker on context
 		context.set(RPJCallableUnitLinker.class, callableUnitLinker);
-
-		callableUnitLinker.linkFiles();
 		
+		callableUnitLinker.linkFiles();
+
 		callableUnitLinker.linkExternalDatas();
 
 		callableUnitLinker.linkLikeDatas();
+		
+		callableUnitLinker.linkOverlayDatas();
 	}
 }

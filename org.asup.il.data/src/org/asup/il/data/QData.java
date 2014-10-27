@@ -8,7 +8,6 @@
 package org.asup.il.data;
 
 import java.io.Serializable;
-import java.lang.Enum;
 
 
 /**
@@ -45,7 +44,63 @@ public interface QData extends Serializable {
 	 * @model EBounds="org.asup.fw.java.JavaEnum"
 	 * @generated
 	 */
+	<E extends Enum<E>> boolean eq(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean eq(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
 	<E extends Enum<E>> void eval(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void eval(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
+	<E extends Enum<E>> boolean ge(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ge(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
+	<E extends Enum<E>> boolean gt(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean gt(QDataEvaluator value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -54,5 +109,53 @@ public interface QData extends Serializable {
 	 * @generated
 	 */
 	boolean isEmpty();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
+	<E extends Enum<E>> boolean le(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean le(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
+	<E extends Enum<E>> boolean lt(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean lt(QDataEvaluator value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
+	<E extends Enum<E>> boolean ne(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ne(QDataEvaluator value);
 
 } // QData

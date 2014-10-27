@@ -12,6 +12,7 @@
 package org.asup.os.core.jdt;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,7 +74,9 @@ public class JDTResourceReaderImpl<T extends QObjectNameable> extends ResourceRe
 		
 		T object = null;
 		try {
-			object = (T) emfConverter.convertToEObject(entry.getInputStream());
+			InputStream inputStream = entry.getInputStream();
+			object = (T) emfConverter.convertToEObject(inputStream);
+			inputStream.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

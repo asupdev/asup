@@ -21,6 +21,7 @@ import java.nio.ByteBuffer;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataVisitor;
 
 public abstract class NIOBufferedDataImpl extends NIODataImpl implements
@@ -310,4 +311,71 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements
 	public String asString() {
 		return toString();
 	}
+	
+
+	@Override
+	public boolean eq(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void eval(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ge(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean gt(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean le(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean lt(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ne(QDataEvaluator  value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void move(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void move(QDataEvaluator value, boolean clear) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void movel(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void movel(QDataEvaluator value, boolean clear) {
+		// TODO Auto-generated method stub
+		
+	}	
 }

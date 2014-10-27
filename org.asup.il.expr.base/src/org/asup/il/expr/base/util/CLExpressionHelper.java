@@ -95,7 +95,7 @@ public class CLExpressionHelper implements ExpressionHelper {
 			return AtomicType.NAME;
 
 		default:
-			System.out.println(node.getType());
+			System.err.println(node.getType());
 			return null;
 
 		}
@@ -117,6 +117,7 @@ public class CLExpressionHelper implements ExpressionHelper {
 		case CLExprLexer.NEGATE:
 			return ArithmeticOperator.NEGATE;
 		default:
+			System.err.println(node.getType());
 			return null;
 		}
 	}
@@ -131,6 +132,7 @@ public class CLExpressionHelper implements ExpressionHelper {
 		case CLExprLexer.NOT:
 			return LogicalOperator.NOT;
 		default:
+			System.err.println(node.getType());
 			return null;
 		}
 	}
@@ -151,6 +153,7 @@ public class CLExpressionHelper implements ExpressionHelper {
 		case CLExprLexer.GTEQ:
 			return RelationalOperator.GREATER_THAN_EQUAL;
 		default:
+			System.err.println(node.getType());
 			return null;
 		}
 	}

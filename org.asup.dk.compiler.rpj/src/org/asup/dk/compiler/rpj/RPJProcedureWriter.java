@@ -2,10 +2,9 @@ package org.asup.dk.compiler.rpj;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
-import org.asup.dk.compiler.rpj.visitor.RPJExpressionNormalizer;
+import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QProcedure;
-import org.asup.il.flow.QStatement;
+import org.asup.il.flow.QRoutine;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
@@ -45,23 +44,13 @@ public class RPJProcedureWriter extends RPJCallableUnitWriter {
 		// labels
 		writeLabels(getCallableUnitInfo().getLabels().keySet());
 
+		// main
 		if(procedure.getMain() != null) {
-						
-			// normalize statement
-			RPJExpressionNormalizer expressionNormalizer = getCompilationContext().make(RPJExpressionNormalizer.class);
-			for(QStatement statement: procedure.getMain().getStatements()) {				
-				statement.accept(expressionNormalizer);
-			}
-
-			// write java AST
-			JDTStatementWriter statementWriter = getCompilationContext().make(JDTStatementWriter.class);
-			statementWriter.setAST(getAST());		
-
-			statementWriter.getBlocks().push(block);		
-			for(QStatement statement: procedure.getMain().getStatements()) {			
-				statement.accept(statementWriter);
-			}			
-			statementWriter.getBlocks().pop();
+			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
+			routine.setName("main");
+			routine.setMain(procedure.getMain());
+			
+			writeRoutine(getCompilationContext(), routine);
 		}
 				
 	}
