@@ -13,7 +13,7 @@ public class LoggingSQLStatement implements InvocationHandler {
 	
 	public LoggingSQLStatement(Statement implementation, Object sql) {
 		this.implementation = implementation;
-    this.sql = sql;
+		this.sql = sql;
 	}
 
   public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

@@ -51,7 +51,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 			ds.setUser(props.getProperty(DataSourceFactory.JDBC_USER));
 			ds.setPassword(props.getProperty(DataSourceFactory.JDBC_PASSWORD));
 			if (LOG_DB) {
-				return new LoggingDataSource(ds);
+				return LoggingDataSource.getInstance(ds);
 			} else {
 				return ds;
 			}
