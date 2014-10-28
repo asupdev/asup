@@ -14,6 +14,7 @@ import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QCharacterDef;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataStructDelegator;
@@ -32,7 +33,8 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.data.QExternalFileName;
+import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.type.file.QExternalFile;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
@@ -141,8 +143,12 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
-				if(unaryCompoundDataTerm.getFacet(QExternalFileName.class) == null ||
-				   unaryCompoundDataTerm.getFacet(QExternalFileName.class).getName().equals("*PGM_STATUS")) {
+				QExternalFile externalFile = unaryCompoundDataTerm.getFacet(QExternalFile.class);
+				
+				if(externalFile != null) {
+					writeExternalFile(unaryCompoundDataTerm, externalFile);
+				}
+				else {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
@@ -159,9 +165,13 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			
 			case MULTIPLE_COMPOUND:
 				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
+
+				externalFile = multipleCompoundDataTerm.getFacet(QExternalFile.class);
 				
-				if(multipleCompoundDataTerm.getFacet(QExternalFileName.class) == null ||
-				   multipleCompoundDataTerm.getFacet(QExternalFileName.class).getName().equals("*PGM_STATUS")) {
+				if(externalFile != null) {
+					writeExternalFile(multipleCompoundDataTerm, externalFile);
+				}
+				else {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
@@ -381,4 +391,20 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		
 		return null;
 	}
+	
+	private boolean writeExternalFile(QCompoundDataTerm<?> compoundDataTerm, QExternalFile externalFile) throws IOException {
+
+		if(externalFile.getLinkedClass() == null)
+			throw new OperatingSystemRuntimeException("File not linked: "+externalFile.getName());
+
+		QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+		
+		
+		compilationSetup.setSuperClass(externalFile.getLinkedClass());
+		RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(compoundDataTerm), true);
+		dataStructureWriter.writeStructure(compoundDataTerm.getDefinition());
+		
+		return true;
+	}
+	
 }

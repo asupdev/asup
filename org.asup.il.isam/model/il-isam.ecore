@@ -51,6 +51,7 @@
         <details key="documentation" value="Imposta il tipo di accesso al data set."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infoStruct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStructDef"
         transient="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userOpen" lowerBound="1"

@@ -169,6 +169,7 @@ public class BaseCallableInjector {
 				if(field.getAnnotation(DataDef.class) != null) {
 					DataDef dataDef = field.getAnnotation(DataDef.class);
 				
+					// default
 					if(data instanceof QList<?>) {
 						QList<?> array = (QList<?>)data;
 						int i=1;

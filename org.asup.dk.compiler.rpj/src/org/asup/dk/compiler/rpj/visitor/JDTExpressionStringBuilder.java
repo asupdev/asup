@@ -117,10 +117,8 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		case INDICATOR:			
 		case NAME:
 			QNamedNode namedNode = compilationContext.getNamedNode(expression.getValue(), true);
-			if(namedNode == null) { 
-				compilationContext.getNamedNode(expression.getValue(), true);
+			if(namedNode == null)  
 				throw new IntegratedLanguageExpressionRuntimeException("Invalid term: "+expression.getValue());
-			}
 			
 			value = compilationContext.getQualifiedName(namedNode);
 			
@@ -148,7 +146,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		// array
 		if(namedNode instanceof QMultipleDataTerm ||
 		   namedNode instanceof QUnaryCompoundDataTerm) {
-
+			
 			StringBuffer value = new StringBuffer(); 
 			value.append(compilationContext.getQualifiedName(namedNode));
 			value.append(".get");

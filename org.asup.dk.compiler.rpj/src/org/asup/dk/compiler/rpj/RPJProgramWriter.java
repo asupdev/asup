@@ -29,7 +29,6 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
-import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
@@ -44,7 +43,7 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 	}
 	
 	public void writeProgram(QProgram program) throws IOException {
-
+		
 		// analyze callable unit
 		analyzeCallableUnit(program);
 		
@@ -68,10 +67,9 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		
 		if(program.getDataSection() != null)
 			writeDataFields(program.getDataSection());
-		
+			
 		if(program.getFileSection() != null) {
 			writeDataSets(program.getFileSection().getDataSets());
-			
 			writeKeyLists(program.getFileSection().getKeyLists());
 		}
 				
@@ -158,21 +156,20 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		programAnnotation.values().add(memberValuePair);
 
 		// @Program(messages=)
-		List<String> messages = program.getMessages();
-		if (!messages.isEmpty()) {
+/*		if(!program.getMessages().isEmpty()) {
 			memberValuePair = getAST().newMemberValuePair();
 			memberValuePair.setName(getAST().newSimpleName("messages"));
-			ArrayInitializer arrayInit = getAST().newArrayInitializer();
-			for (String message : messages) {
 
+			ArrayInitializer arrayInit = getAST().newArrayInitializer();
+			for (String message : program.getMessages()) {
 				stringLiteral = getAST().newStringLiteral();
 				stringLiteral.setLiteralValue(message); 
 				arrayInit.expressions().add(stringLiteral);
 			}
 			memberValuePair.setValue(arrayInit);
 			programAnnotation.values().add(memberValuePair);
-		}
-	
+		}*/
+
 		getTarget().modifiers().add(programAnnotation);		
 	}
 	

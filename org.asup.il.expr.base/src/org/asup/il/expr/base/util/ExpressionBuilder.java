@@ -125,7 +125,7 @@ public class ExpressionBuilder {
 	public QPredicateExpression buildAsPredicate(String expression) throws IntegratedLanguageExpressionRuntimeException {
 
 		if(expression.equals("*TRUE"))
-			expression = "true";
+			expression = "*ON";
 		
 		Tree antAst = expressionHelper.parse(expression);
 		QPredicateExpression predicateExpression = buildAsPredicate(antAst);
@@ -223,13 +223,6 @@ public class ExpressionBuilder {
 	
 	public QTermExpression buildAsTerm(String expression) throws IntegratedLanguageExpressionRuntimeException {
 
-		if(expression.equalsIgnoreCase("*ALL'0'"))
-			expression = "*ZEROS";
-		if(expression.equalsIgnoreCase("*ALL'9'"))
-			expression = "*ZEROS";
-		else if(expression.toUpperCase().startsWith("*ALL"))
-			expression.toString();
-		
 		Tree antAst = expressionHelper.parse(expression);
 		QTermExpression ast = buildAsTerm(antAst);
 

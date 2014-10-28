@@ -266,35 +266,6 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		return ne(value.asString());
 	}
 
-	@Override
-	public <E extends Enum<E>> boolean eq(E value) {
-		return eq(getPrimitive(value));
-	}
-
-	@Override
-	public <E extends Enum<E>> boolean ge(E value) {
-		return ge(getPrimitive(value));
-	}
-
-	@Override
-	public <E extends Enum<E>> boolean gt(E value) {
-		return gt(getPrimitive(value));
-	}
-
-	@Override
-	public <E extends Enum<E>> boolean le(E value) {
-		return le(getPrimitive(value));
-	}
-
-	@Override
-	public <E extends Enum<E>> boolean lt(E value) {
-		return lt(getPrimitive(value));
-	}
-
-	@Override
-	public <E extends Enum<E>> boolean ne(E value) {
-		return ne(getPrimitive(value));
-	}
 
 	@Override
 	public <E extends Enum<E>> void movel(E value) {
@@ -333,6 +304,38 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		eval(getPrimitive(value));
 	}
 	
+	
+	@Override
+	public <E extends Enum<E>> boolean eq(E value) {
+		return eq(getPrimitive(value));
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ge(E value) {
+		return ge(getPrimitive(value));
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean gt(E value) {
+		return gt(getPrimitive(value));
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean le(E value) {
+		return le(getPrimitive(value));
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean lt(E value) {
+		return lt(getPrimitive(value));
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ne(E value) {
+		return ne(getPrimitive(value));
+	}
+
+	
 	private <E extends Enum<E>> String getPrimitive(E value) {
 		if(value.name().equals("BLANKS"))
 			return "";
@@ -341,8 +344,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		else if(value.name().equals("LOVAL"))
 			return "";
 		return null;
-	}
-	
+	}	
 	
 	public static String trimL(String str) {
 		int i = 0;
@@ -368,5 +370,5 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	protected byte getFiller() {
 		return INIT;
-	}	
+	}
 }

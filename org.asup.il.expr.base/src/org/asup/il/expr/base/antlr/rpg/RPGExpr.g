@@ -155,21 +155,27 @@ value
 	|	STRING
 	|	HEX
 	|	TERM
-	|	INDICATOR
-	|	(ARRAY_INDICATOR -> BI_FUNCTION[$ARRAY_INDICATOR.text])
+	|	INDICATOR	
 	|	(SPECIAL -> TERM)
 	|	filler
 	|	special
 	|	bi_function
 	|	usr_function
+	|   array_indicator
 	;
 
 filler	:
-		FILLER STRING -> ^(SP_VALUE[$FILLER.text] TERM[$STRING.text])
+		FILLER STRING -> ^(BI_FUNCTION[$FILLER.text] STRING)
 	;
 
 special	:
 		MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text]
+	;
+
+usr_function
+	:	TERM params	 -> ^(USER_FUNCTION[$TERM.text] params)
+		|
+		TERM empty	-> ^(USER_FUNCTION[$TERM.text])
 	;
 
 bi_function
@@ -179,12 +185,6 @@ bi_function
 		BI_FUN '(' ')'   -> ^(BI_FUNCTION[$BI_FUN.text])
 	;
 
-usr_function
-	:	TERM params	 -> ^(USER_FUNCTION[$TERM.text] params)
-		|
-		TERM empty	-> ^(USER_FUNCTION[$TERM.text])
-	;
-
 params
 	:	'('! logicalExpression (':'! logicalExpression)* ')'!
 	;
@@ -192,7 +192,12 @@ params
 empty
 	:
 	'(' ')'
-	;		
+	;	
+
+array_indicator
+	:
+		ARRAY_INDICATOR  logicalExpression ')' -> ^(BI_FUNCTION["*IN"] logicalExpression)
+	;			
 
 
 SPECIAL
@@ -253,7 +258,7 @@ BI_FUN  :	'%'TERM
 INDICATOR : ('*IN' (LETTER | DIGIT )*)
 	;
 	
-ARRAY_INDICATOR	: '*IN(' (LETTER | DIGIT)* ')'
+ARRAY_INDICATOR	: '*IN('
 	;	
 
 HEX	:   ('X\''|'x\'') (HexDigit)+ '\''

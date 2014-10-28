@@ -7,6 +7,7 @@
  */
 package org.asup.dk.compiler;
 
+import java.util.List;
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
@@ -16,7 +17,6 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.os.type.file.QFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,10 +49,10 @@ public interface QCompilationContext extends QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataSetRequired="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	void linkDataSet(QDataSetTerm dataSet);
+	List<QCompilationContext> getChildContexts();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,7 +84,7 @@ public interface QCompilationContext extends QContext {
 	 * @model required="true" nameRequired="true"
 	 * @generated
 	 */
-	QDataTerm<?> getData(String name, boolean deep);
+	QDataTerm<?> getDataTerm(String name, boolean deep);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,14 +125,6 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	QNamedNode getNamedNode(String name, boolean deep);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" nameRequired="true"
-	 * @generated
-	 */
-	QFile getFile(String name);
 
 	/**
 	 * <!-- begin-user-doc -->

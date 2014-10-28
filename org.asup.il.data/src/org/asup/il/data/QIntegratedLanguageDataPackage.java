@@ -672,13 +672,22 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int MULTIPLE_DATA_DEF__FORMULAS = DATA_DEF__FORMULAS;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_DATA_DEF__DIMENSION = DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Multiple Data Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_DATA_DEF_FEATURE_COUNT = DATA_DEF_FEATURE_COUNT + 0;
+	int MULTIPLE_DATA_DEF_FEATURE_COUNT = DATA_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
@@ -688,6 +697,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLE_ATOMIC_DATA_DEF__FORMULAS = MULTIPLE_DATA_DEF__FORMULAS;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ATOMIC_DATA_DEF__DIMENSION = MULTIPLE_DATA_DEF__DIMENSION;
 
 	/**
 	 * The number of structural features of the '<em>Multiple Atomic Data Def</em>' class.
@@ -706,6 +724,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__FORMULAS = MULTIPLE_ATOMIC_DATA_DEF__FORMULAS;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__DIMENSION = MULTIPLE_ATOMIC_DATA_DEF__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
@@ -735,6 +762,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int ARRAY_DEF__FORMULAS = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__FORMULAS;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_DEF__DIMENSION = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,22 +780,13 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int ARRAY_DEF__ARGUMENT = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__ARGUMENT;
 
 	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARRAY_DEF__DIMENSION = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Array Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_DEF_FEATURE_COUNT = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 1;
+	int ARRAY_DEF_FEATURE_COUNT = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
@@ -2175,6 +2202,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int LIST_DEF__FORMULAS = MULTIPLE_ATOMIC_DATA_DEF__FORMULAS;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_DEF__DIMENSION = MULTIPLE_ATOMIC_DATA_DEF__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2184,22 +2220,13 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int LIST_DEF__ARGUMENT = MULTIPLE_ATOMIC_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Initial Capacity</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_DEF__INITIAL_CAPACITY = MULTIPLE_ATOMIC_DATA_DEF_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>List Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIST_DEF_FEATURE_COUNT = MULTIPLE_ATOMIC_DATA_DEF_FEATURE_COUNT + 2;
+	int LIST_DEF_FEATURE_COUNT = MULTIPLE_ATOMIC_DATA_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Moveable</em>' class.
@@ -2400,6 +2427,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int MULTIPLE_COMPOUND_DATA_DEF__FORMULAS = MULTIPLE_DATA_DEF__FORMULAS;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_COMPOUND_DATA_DEF__DIMENSION = MULTIPLE_DATA_DEF__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2598,6 +2634,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int SCROLLER_DEF__FORMULAS = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__FORMULAS;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCROLLER_DEF__DIMENSION = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2607,22 +2652,13 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int SCROLLER_DEF__ARGUMENT = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF__ARGUMENT;
 
 	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCROLLER_DEF__DIMENSION = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Scroller Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCROLLER_DEF_FEATURE_COUNT = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 1;
+	int SCROLLER_DEF_FEATURE_COUNT = MULTIPLE_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
@@ -2659,6 +2695,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int STROLLER_DEF__FORMULAS = MULTIPLE_COMPOUND_DATA_DEF__FORMULAS;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STROLLER_DEF__DIMENSION = MULTIPLE_COMPOUND_DATA_DEF__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
@@ -2706,22 +2751,13 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int STROLLER_DEF__LENGTH = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STROLLER_DEF__DIMENSION = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Stroller Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STROLLER_DEF_FEATURE_COUNT = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 2;
+	int STROLLER_DEF_FEATURE_COUNT = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -3139,17 +3175,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getArrayDef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QArrayDef#getDimension <em>Dimension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dimension</em>'.
-	 * @see org.asup.il.data.QArrayDef#getDimension()
-	 * @see #getArrayDef()
-	 * @generated
-	 */
-	EAttribute getArrayDef_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QAtomicDataDef <em>Atomic Data Def</em>}'.
@@ -3899,17 +3924,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EReference getListDef_Argument();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QListDef#getInitialCapacity <em>Initial Capacity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Initial Capacity</em>'.
-	 * @see org.asup.il.data.QListDef#getInitialCapacity()
-	 * @see #getListDef()
-	 * @generated
-	 */
-	EAttribute getListDef_InitialCapacity();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QMultipleAtomicDataDef <em>Multiple Atomic Data Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3979,6 +3993,17 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMultipleDataDef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QMultipleDataDef#getDimension <em>Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dimension</em>'.
+	 * @see org.asup.il.data.QMultipleDataDef#getDimension()
+	 * @see #getMultipleDataDef()
+	 * @generated
+	 */
+	EAttribute getMultipleDataDef_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QMultipleDataTerm <em>Multiple Data Term</em>}'.
@@ -4060,17 +4085,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getScrollerDef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QScrollerDef#getDimension <em>Dimension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dimension</em>'.
-	 * @see org.asup.il.data.QScrollerDef#getDimension()
-	 * @see #getScrollerDef()
-	 * @generated
-	 */
-	EAttribute getScrollerDef_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QString <em>String</em>}'.
@@ -4236,17 +4250,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EAttribute getStrollerDef_Length();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.data.QStrollerDef#getDimension <em>Dimension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dimension</em>'.
-	 * @see org.asup.il.data.QStrollerDef#getDimension()
-	 * @see #getStrollerDef()
-	 * @generated
-	 */
-	EAttribute getStrollerDef_Dimension();
-
-	/**
 	 * Returns the meta object for enum '{@link org.asup.il.data.BinaryType <em>Binary Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4387,14 +4390,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ARRAY_DEF = eINSTANCE.getArrayDef();
-
-		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARRAY_DEF__DIMENSION = eINSTANCE.getArrayDef_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.AtomicDataDefImpl <em>Atomic Data Def</em>}' class.
@@ -5063,14 +5058,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		EReference LIST_DEF__ARGUMENT = eINSTANCE.getListDef_Argument();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial Capacity</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIST_DEF__INITIAL_CAPACITY = eINSTANCE.getListDef_InitialCapacity();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.MultipleAtomicDataDefImpl <em>Multiple Atomic Data Def</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5137,6 +5124,14 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MULTIPLE_DATA_DEF = eINSTANCE.getMultipleDataDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Dimension</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_DATA_DEF__DIMENSION = eINSTANCE.getMultipleDataDef_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.MultipleDataTermImpl <em>Multiple Data Term</em>}' class.
@@ -5215,14 +5210,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCROLLER_DEF = eINSTANCE.getScrollerDef();
-
-		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCROLLER_DEF__DIMENSION = eINSTANCE.getScrollerDef_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.QString <em>String</em>}' class.
@@ -5377,14 +5364,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STROLLER_DEF__LENGTH = eINSTANCE.getStrollerDef_Length();
-
-		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STROLLER_DEF__DIMENSION = eINSTANCE.getStrollerDef_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.BinaryType <em>Binary Type</em>}' enum.

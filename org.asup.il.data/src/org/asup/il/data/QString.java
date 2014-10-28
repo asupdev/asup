@@ -7,8 +7,8 @@
  */
 package org.asup.il.data;
 
-import java.lang.Enum;
 import java.lang.String;
+
 
 
 /**
@@ -153,14 +153,6 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> boolean eq(E value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
@@ -193,14 +185,6 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> boolean ge(E value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
@@ -213,14 +197,6 @@ public interface QString extends QBufferedData {
 	 * @generated
 	 */
 	boolean gt(QString value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> boolean gt(E value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,14 +225,6 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> boolean le(E value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
@@ -269,14 +237,6 @@ public interface QString extends QBufferedData {
 	 * @generated
 	 */
 	boolean lt(QString value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> boolean lt(E value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,14 +269,6 @@ public interface QString extends QBufferedData {
 	 * @generated
 	 */
 	boolean ne(QString value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model EBounds="org.asup.fw.java.JavaEnum"
-	 * @generated
-	 */
-	<E extends Enum<E>> boolean ne(E value);
 
 	/**
 	 * <!-- begin-user-doc -->

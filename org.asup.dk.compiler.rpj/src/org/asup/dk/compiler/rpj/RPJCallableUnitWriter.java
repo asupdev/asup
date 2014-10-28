@@ -63,10 +63,6 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	public RPJCallableUnitWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
 		super(root, compilationContext, compilationSetup, name);
 	}
-
-	public void compactDataSection(QDataSection dataSection) {
-		
-	}
 	
 	public void analyzeCallableUnit(QCallableUnit callableUnit) {
 		// analyze statement
@@ -118,7 +114,30 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 
 		getTarget().bodyDeclarations().add(enumType);
 	}
+	
+	@SuppressWarnings("unchecked")
+	public void writeMessages(Collection<String> messages) {
+			
+		EnumDeclaration enumType = getAST().newEnumDeclaration();
+		enumType.setName(getAST().newSimpleName("QCPFMSG"));
+		enumType.modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
+		enumType.modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));
 
+		// elements
+		int num = 0;
+		
+		for (String message: messages) {
+			if(message.equalsIgnoreCase("CPF0000"))
+				continue;
+			EnumConstantDeclaration constantDeclaration = getAST().newEnumConstantDeclaration();
+			constantDeclaration.setName(getAST().newSimpleName(EnumHelper.normalizeEnumName(message)));
+			
+			enumType.enumConstants().add(num, constantDeclaration);
+			num++;
+		}
+
+		getTarget().bodyDeclarations().add(enumType);
+	}
 	
 	@SuppressWarnings("unchecked")
 	public void writeModuleFields(List<String> modules) {
@@ -147,16 +166,10 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			
 			if(dataTerm.getDefinition() == null)
 				continue;
-
 			
-			String oldName = getCompilationContext().getQualifiedName(dataTerm);
-			dataTerm = getCompilationContext().getData(dataTerm.getName(), true);
-			String newName = getCompilationContext().getQualifiedName(dataTerm);
+			dataTerm = getCompilationContext().getDataTerm(dataTerm.getName(), true);
 			
-			if(oldName.equals(newName) || oldName.startsWith("£va") || oldName.startsWith("£do"))
-				writePublicField(dataTerm, false);			
-			else
-				System.out.println(oldName+" -> "+newName);
+			writePublicField(dataTerm, false);			
 		}
 
 	}
@@ -164,16 +177,17 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	public void writeDataSets(List<QDataSetTerm> dataSets) {
 		
 		writeImport(QDataSet.class);
-
 		
 		for(QDataSetTerm dataSet: dataSets) {
 	
-			getCompilationContext().linkDataSet(dataSet);
-			
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());			
-			writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
+			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());
+			if(dataSet.isUserOpen())
+				writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
+			if(dataSet.getInfoStruct() != null)
+				writeAnnotation(field, FileDef.class, "infoStruct", dataSet.getInfoStruct());
+			
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 			String className = null;
@@ -188,13 +202,12 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
-			
-			if(!dataSet.getName().equalsIgnoreCase("PRT198")) {
-				String argument = getCompilationContext().getFile(dataSet.getFileName()).getName();
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-			}
-			else
+
+			String argument = dataSet.getFileName();
+			if(argument.equals("PRT198"))
 				parType.typeArguments().add(getAST().newWildcardType());
+			else
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
 			
 			field.setType(parType);
 			variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getName())));
@@ -367,7 +380,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.modifiers().add(entryAnnotation);
 
 		for(String parameterName: parameterList.getParameters()) {
-			QDataTerm<?> dataTerm = getCompilationContext().getData(parameterName, true);
+			QDataTerm<?> dataTerm = getCompilationContext().getDataTerm(parameterName, true);
 			
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
 			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));
@@ -423,7 +436,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.modifiers().add(entryAnnotation);
 
 		for(String parameterName: parameterList.getParameters()) {
-			QDataTerm<?> dataTerm = getCompilationContext().getData(parameterName, true);
+			QDataTerm<?> dataTerm = getCompilationContext().getDataTerm(parameterName, true);
 			
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
 			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));

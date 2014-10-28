@@ -22,6 +22,7 @@ import org.asup.il.data.QDataStructDef;
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getFormatName <em>Format Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#isKeyedAccess <em>Keyed Access</em>}</li>
+ *   <li>{@link org.asup.il.isam.QDataSetTerm#getInfoStruct <em>Info Struct</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#isUserOpen <em>User Open</em>}</li>
  * </ul>
@@ -138,6 +139,32 @@ public interface QDataSetTerm extends QTerm {
 	 * @generated
 	 */
 	void setKeyedAccess(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Info Struct</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Info Struct</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Info Struct</em>' attribute.
+	 * @see #setInfoStruct(String)
+	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getDataSetTerm_InfoStruct()
+	 * @model
+	 * @generated
+	 */
+	String getInfoStruct();
+
+	/**
+	 * Sets the value of the '{@link org.asup.il.isam.QDataSetTerm#getInfoStruct <em>Info Struct</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Info Struct</em>' attribute.
+	 * @see #getInfoStruct()
+	 * @generated
+	 */
+	void setInfoStruct(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Record</b></em>' containment reference.

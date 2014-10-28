@@ -26,9 +26,10 @@ public class RPJStubWriter extends RPJProgramWriter {
 	
 	public void writeSkeleton(QProgram program) throws IOException {
 
-		// Program annotation
 		writeProgramAnnotation(program);
 
+		writeMessages(program.getMessages());
+		
 		writeMain(program.getEntry(), "main");
 		
 		if(program.getDataSection() != null)

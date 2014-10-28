@@ -17,11 +17,56 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return "DROP SCHEMA " + quoter.quote(schema.getName()) + " RESTRICT";		
 	}
 
-	@Override
-	public String createTable(QTable table) {
-		return super.createTable(new QuotedTable(table, quoter));
-	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String createTable(QTable table) {
+		StringBuffer result = new StringBuffer("CREATE TABLE ");
+		result.append(table.getFullName()+" (");
+
+		boolean pkey = false;
+		String pkey_name = null;
+		
+		boolean first = true;
+		for(QTableColumn field: table.getColumns()) {
+
+			if(!first)
+				result.append(", ");
+			
+			switch (field.getDataType()) {
+				case IDENTITY:
+					result.append(field.getName()+" INTEGER NOT NULL  GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1)");					
+					pkey = true;
+					pkey_name = field.getName();
+					break;
+				case CHARACTER:
+					result.append(field.getName()+" CHAR("+field.getPrecision()+")");
+					break;
+				case VARCHAR:
+					result.append(field.getName()+" VARCHAR("+field.getPrecision()+")");
+					break;
+				case DECIMAL:
+					if(field.getScale() != 0)
+						result.append(field.getName()+" DECIMAL("+field.getPrecision()+", "+field.getScale()+")");
+					else
+						result.append(field.getName()+" DECIMAL("+field.getPrecision()+",  0)");
+					break;
+				case TEXT:
+					result.append(field.getName()+" BLOB");
+					break;
+				default:
+					result.append(field.getName()+" "+field.getDataType().getName() .toUpperCase());
+			}			
+			first = false;
+		}
+		if(pkey)
+			result.append(", PRIMARY KEY ("+pkey_name+")");
+		result.append(")");
+		return result.toString();
+	}
 	@Override
 	public String dropTable(QTable table) {
 		return "DROP TABLE " + quoter.quoteFullName(table.getSchema(),  table.getName()) ;		

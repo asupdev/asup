@@ -9,5 +9,5 @@
     driver="net.sourceforge.jtds.jdbc.Driver"
     password="asup2014"
     pluginName="MSSQL"
-    url="jdbc:jtds:sqlserver://172.16.2.83/ASUP_0.5.0"
+    url="jdbc:jtds:sqlserver://172.16.2.83/ASUP_0.4.0"
     user="ASUP"/>

@@ -322,7 +322,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
 		QIntegratedLanguageFlowPackage theIntegratedLanguageFlowPackage = (QIntegratedLanguageFlowPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageFlowPackage.eNS_URI);
 		QIntegratedLanguageCorePackage theIntegratedLanguageCorePackage = (QIntegratedLanguageCorePackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageCorePackage.eNS_URI);
-		QOperatingSystemFilePackage theOperatingSystemFilePackage = (QOperatingSystemFilePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemFilePackage.eNS_URI);
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QOperatingSystemModulePackage theOperatingSystemModulePackage = (QOperatingSystemModulePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemModulePackage.eNS_URI);
@@ -351,11 +350,13 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 
 		addEOperation(compilationContextEClass, this.getCaseSensitiveType(), "getCaseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(compilationContextEClass, this.getCompilationContext(), "getChildContexts", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageIsamPackage.getDataSetTerm(), "getDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, null, "getData", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationContextEClass, null, "getDataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());
@@ -374,9 +375,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getNamedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(compilationContextEClass, theOperatingSystemFilePackage.getFile(), "getFile", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getProcedure(), "getProcedure", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -398,9 +396,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getRoutine(), "getRoutine", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(compilationContextEClass, null, "linkDataSet", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageIsamPackage.getDataSetTerm(), "dataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "normalizeTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -439,6 +434,9 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageFlowPackage.getProgram(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilerManagerEClass, null, "linkCompilationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilerManagerEClass, null, "writeModule", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);

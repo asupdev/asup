@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
 public class EMFConverter {
-	
+
 	private ResourceSet resourceSet;
 	private URI uri;
 	
@@ -33,10 +33,12 @@ public class EMFConverter {
 	
     public EObject convertToEObject(InputStream stream) throws IOException {
         
-    	Resource resource = resourceSet.createResource(this.uri);    	
+    	Resource resource = resourceSet.createResource(this.uri);
         resource.load(stream, Collections.EMPTY_MAP);
 
-        return resource.getContents().get(0);
+        EObject eObject = resource.getContents().get(0);
+
+        return eObject;
     }
     
     public void writeToStream(EObject object, OutputStream stream) throws IOException {

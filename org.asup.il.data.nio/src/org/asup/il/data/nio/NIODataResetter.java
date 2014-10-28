@@ -5,7 +5,6 @@ import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
@@ -17,10 +16,11 @@ import org.asup.il.data.impl.DataTermVisitorImpl;
 public class NIODataResetter extends DataTermVisitorImpl {
 
 	private QData data;
-	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	private QDataEvaluator evaluator;
 	
-	public NIODataResetter(QData data) {
+	public NIODataResetter(QData data, QDataEvaluator evaluator) {
 		this.data = data;
+		this.evaluator = evaluator;
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 			for(QStruct struct: list) {
 				// childs
 				for(QDataTerm<?> child: term.getDefinition().getElements()) {
-					NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()));
+					NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()),evaluator);
 					child.accept(childResetter);
 				}
 			}
@@ -140,7 +140,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 
 			// childs
 			for(QDataTerm<?> child: term.getDefinition().getElements()) {
-				NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()));
+				NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()), evaluator);
 				child.accept(childResetter);
 			}
 

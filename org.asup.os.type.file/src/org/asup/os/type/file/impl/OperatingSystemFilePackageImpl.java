@@ -9,6 +9,7 @@ package org.asup.os.type.file.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
@@ -17,6 +18,7 @@ import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.file.FileType;
 import org.asup.os.type.file.QDisplayFile;
 import org.asup.os.type.file.QDisplayFormatDef;
+import org.asup.os.type.file.QExternalFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.file.QFileMember;
@@ -121,6 +123,13 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	private EClass displayFormatDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass externalFileEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -460,6 +469,42 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExternalFile() {
+		return externalFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalFile_Name() {
+		return (EAttribute)externalFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalFile_Format() {
+		return (EAttribute)externalFileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalFile_LinkedClass() {
+		return (EAttribute)externalFileEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getFileType() {
 		return fileTypeEEnum;
 	}
@@ -494,6 +539,13 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		// Create classes and their features
 		displayFileEClass = createEClass(DISPLAY_FILE);
 		createEReference(displayFileEClass, DISPLAY_FILE__DISPLAY_FORMATS);
+
+		displayFormatDefEClass = createEClass(DISPLAY_FORMAT_DEF);
+
+		externalFileEClass = createEClass(EXTERNAL_FILE);
+		createEAttribute(externalFileEClass, EXTERNAL_FILE__NAME);
+		createEAttribute(externalFileEClass, EXTERNAL_FILE__FORMAT);
+		createEAttribute(externalFileEClass, EXTERNAL_FILE__LINKED_CLASS);
 
 		fileEClass = createEClass(FILE);
 		createEAttribute(fileEClass, FILE__RECORD_LENGTH);
@@ -530,8 +582,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		printerFileEClass = createEClass(PRINTER_FILE);
 
-		displayFormatDefEClass = createEClass(DISPLAY_FORMAT_DEF);
-
 		// Create enums
 		fileTypeEEnum = createEEnum(FILE_TYPE);
 	}
@@ -560,13 +610,14 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
+		QIntegratedLanguageCorePackage theIntegratedLanguageCorePackage = (QIntegratedLanguageCorePackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageCorePackage.eNS_URI);
 		QOperatingSystemTypePackage theOperatingSystemTypePackage = (QOperatingSystemTypePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemTypePackage.eNS_URI);
 		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
 		QOperatingSystemCorePackage theOperatingSystemCorePackage = (QOperatingSystemCorePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI);
 		QOperatingSystemOmacPackage theOperatingSystemOmacPackage = (QOperatingSystemOmacPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOmacPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
-		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -574,9 +625,14 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		// Add supertypes to classes
 		displayFileEClass.getESuperTypes().add(this.getFile());
+		EGenericType g1 = createEGenericType(theIntegratedLanguageDataPackage.getUnaryCompoundDataDef());
+		EGenericType g2 = createEGenericType(theIntegratedLanguageDataPackage.getStruct());
+		g1.getETypeArguments().add(g2);
+		displayFormatDefEClass.getEGenericSuperTypes().add(g1);
+		externalFileEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getFacet());
 		fileEClass.getESuperTypes().add(theOperatingSystemTypePackage.getTypedObject());
-		EGenericType g1 = createEGenericType(theOperatingSystemTypePackage.getTypedManager());
-		EGenericType g2 = createEGenericType(this.getFile());
+		g1 = createEGenericType(theOperatingSystemTypePackage.getTypedManager());
+		g2 = createEGenericType(this.getFile());
 		g1.getETypeArguments().add(g2);
 		fileManagerEClass.getEGenericSuperTypes().add(g1);
 		fileMemberEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
@@ -586,14 +642,20 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		physicalFileEClass.getESuperTypes().add(this.getFile());
 		physicalFileEClass.getESuperTypes().add(this.getFileMembered());
 		printerFileEClass.getESuperTypes().add(this.getFile());
-		g1 = createEGenericType(theIntegratedLanguageDataPackage.getUnaryCompoundDataDef());
-		g2 = createEGenericType(theIntegratedLanguageDataPackage.getStruct());
-		g1.getETypeArguments().add(g2);
-		displayFormatDefEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(displayFileEClass, QDisplayFile.class, "DisplayFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDisplayFile_DisplayFormats(), this.getDisplayFormatDef(), null, "displayFormats", null, 0, -1, QDisplayFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(displayFormatDefEClass, QDisplayFormatDef.class, "DisplayFormatDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(externalFileEClass, QExternalFile.class, "ExternalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExternalFile_Name(), ecorePackage.getEString(), "name", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExternalFile_Format(), ecorePackage.getEString(), "format", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getExternalFile_LinkedClass(), g1, "linkedClass", null, 0, 1, QExternalFile.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, QFile.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFile_RecordLength(), ecorePackage.getEInt(), "recordLength", null, 0, 1, QFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -658,8 +720,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		initEClass(printerFileEClass, QPrinterFile.class, "PrinterFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(displayFormatDefEClass, QDisplayFormatDef.class, "DisplayFormatDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		// Initialize enums and add enum literals
 		initEEnum(fileTypeEEnum, FileType.class, "FileType");
 		addEEnumLiteral(fileTypeEEnum, FileType.SOURCE);
@@ -680,7 +740,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	protected void createIldataAnnotations() {
-		String source = "il-data";			
+		String source = "il-data";	
 		addAnnotation
 		  (getFile_RecordLength(), 
 		   source, 
@@ -689,7 +749,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//DecimalDef")
-		   });			
+		   });	
 		addAnnotation
 		  (getFile_WaitFile(), 
 		   source, 
@@ -698,7 +758,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		   },
 		   new URI[] {
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//DecimalDef")
-		   });	
+		   });
 	}
 
 } //OSFileCorePackageImpl

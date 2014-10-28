@@ -14,7 +14,7 @@ import org.asup.il.data.QEnum;
 import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
-import org.asup.os.data.QExternalFileName;
+import org.asup.os.type.file.QExternalFile;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
@@ -97,13 +97,13 @@ public class RPJNodeWriter {
 				break;
 			case UNARY_COMPOUND:
 
-				if(dataTerm.getFacet(QExternalFileName.class) != null) {
-					QExternalFileName externalFileName = dataTerm.getFacet(QExternalFileName.class);
+				if(dataTerm.getFacet(QExternalFile.class) != null) {
+					QExternalFile externalFile = dataTerm.getFacet(QExternalFile.class);
 					
-					if(externalFileName.getName().equals("*PGM_STATUS"))
+					if(externalFile.getName().equals("*PGM_STATUS"))
 						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm.getName())));
 					else
-						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(externalFileName.getName())));					
+						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(externalFile.getName())));					
 				}
 				else
 					type = getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)));

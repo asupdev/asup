@@ -7,6 +7,7 @@
  */
 package org.asup.fw.test.impl;
 
+import org.asup.fw.test.AssertionState;
 import org.asup.fw.test.QAssertionSuccess;
 import org.asup.fw.test.QFrameworkTestPackage;
 import org.eclipse.emf.ecore.EClass;
@@ -38,6 +39,16 @@ public class AssertionSuccessImpl extends AssertionResultImpl implements QAssert
 	@Override
 	protected EClass eStaticClass() {
 		return QFrameworkTestPackage.Literals.ASSERTION_SUCCESS;
+	}
+
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public AssertionState getAssertionState() {
+		return AssertionState.SUCCESS;
 	}
 
 } //AssertionSuccessImpl

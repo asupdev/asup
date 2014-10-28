@@ -197,4 +197,22 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
         
 		return (QConnectionConfig) object;
 	}
+	
+	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
+		
+		String pluginNameFrom = interpreter.nextArgument();
+		QConnectionConfig connectionConfigFrom = loadConfig(pluginNameFrom);
+		QConnection connectionFrom = connectionManager.getDatabaseConnection(connectionConfigFrom);
+		
+		String pluginNameTo = interpreter.nextArgument();
+		QConnectionConfig connectionConfigTo = loadConfig(pluginNameTo);
+		QConnection connectionTo = connectionManager.getDatabaseConnection(connectionConfigTo);
+				
+		QSchema schema = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
+		
+		databaseManager.dropSchema(connectionTo, schema);
+		databaseManager.createSchema(connectionTo, schema, true);
+		
+		return null;
+	}
 }

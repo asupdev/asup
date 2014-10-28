@@ -8,6 +8,7 @@
  * 
  * Contributors: 
  *   Dario Foresti - Initial API and implementation 
+ *   Mattia Rocchi - Implementation
  */
 package org.asup.il.expr.base.util;
 
@@ -61,8 +62,8 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.BI_FUNCTION:
 			return ExpressionType.COMPOUND;
 
-		case RPGExprLexer.INDICATOR:
 		case RPGExprLexer.SP_VALUE:
+		case RPGExprLexer.INDICATOR:
 		case RPGExprLexer.TERM:
 		case RPGExprLexer.INTEGER:
 		case RPGExprLexer.FLOAT:
@@ -76,7 +77,8 @@ public class RPGExpressionHelper implements ExpressionHelper {
 			return ExpressionType.BLOCK;
 
 		default:
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid token: "+node);
+			System.err.println(node.getType());
+			return null;
 		}
 	}
 
@@ -99,6 +101,7 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.NEGATE:
 			return ArithmeticOperator.NEGATE;
 		default:
+			System.err.println(node.getType());
 			return null;
 		}
 	}
@@ -113,6 +116,7 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.NOT:
 			return LogicalOperator.NOT;
 		default:
+			System.err.println(node.getType());
 			return null;
 		}
 	}
@@ -133,6 +137,7 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.GTEQ:
 			return RelationalOperator.GREATER_THAN_EQUAL;
 		default:
+			System.err.println(node.getType());
 			return null;
 		}
 	}
@@ -156,11 +161,7 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.SP_VALUE:
 			return true;
 		default:
-			if(node.getText().equals("*IN")) {
-				return true;
-			}
-			else
-				return false;
+			return false;
 		}
 	}
 
@@ -193,40 +194,16 @@ public class RPGExpressionHelper implements ExpressionHelper {
 	@Override
 	public Tree parse(String expression) {
 		
-		//if(expression.equals("£PRZNN = 0 or ( %ABS(£PRZNN) = *ALL and £PRZNN < 0)"))
-		System.out.println(expression);
-		if(expression.equals("£PRZAX = *ALL or  %SUBST(£PRZAX: 1: 1) = *HIVAL"))
-			System.out.println(expression);
-		
-		CommonTree tree;
-		
-		if(expression.startsWith("*IN(")) {
-			expression = expression.replaceAll("\\*IN", "qIN");
-			
-			RPGExprLexer lex = new RPGExprLexer(new ANTLRStringStream(expression));
-			CommonTokenStream tokens = new CommonTokenStream(lex);
-			RPGExprParser parser = new RPGExprParser(tokens);
+		RPGExprLexer lex = new RPGExprLexer(new ANTLRStringStream(expression));
+		CommonTokenStream tokens = new CommonTokenStream(lex);
+		RPGExprParser parser = new RPGExprParser(tokens);
 
-			try {
-				tree = parser.expression().getTree();
-				tree.getToken().setText("*IN");
-			} catch (RecognitionException e) {
-				throw new IntegratedLanguageExpressionRuntimeException(e);
-			}
+		try {
+			CommonTree tree = parser.expression().getTree();
+			return tree;
+		} catch (RecognitionException e) {
+			throw new IntegratedLanguageExpressionRuntimeException(e);
 		}
-		else {
-			RPGExprLexer lex = new RPGExprLexer(new ANTLRStringStream(expression));
-			CommonTokenStream tokens = new CommonTokenStream(lex);
-			RPGExprParser parser = new RPGExprParser(tokens);
-
-			try {
-				tree = parser.expression().getTree();
-			} catch (RecognitionException e) {
-				throw new IntegratedLanguageExpressionRuntimeException(e);
-			}
-		}
-
-		return tree;
 	}
 
 	@Override

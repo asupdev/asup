@@ -18,6 +18,6 @@ import java.lang.annotation.Target;
 public @interface FileDef {
 	
 	String fileName();
-	
+	String infoStruct() default "";
 	boolean userOpen() default false;
 }

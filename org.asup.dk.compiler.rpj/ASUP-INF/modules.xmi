@@ -657,6 +657,24 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%all">
+        <definition
+            xsi:type="il-data:StringDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="expression">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%char">
         <definition
             xsi:type="il-data:StringDef"/>

@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.il.isam.impl.DataSetTermImpl#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.asup.il.isam.impl.DataSetTermImpl#getFormatName <em>Format Name</em>}</li>
  *   <li>{@link org.asup.il.isam.impl.DataSetTermImpl#isKeyedAccess <em>Keyed Access</em>}</li>
+ *   <li>{@link org.asup.il.isam.impl.DataSetTermImpl#getInfoStruct <em>Info Struct</em>}</li>
  *   <li>{@link org.asup.il.isam.impl.DataSetTermImpl#getRecord <em>Record</em>}</li>
  *   <li>{@link org.asup.il.isam.impl.DataSetTermImpl#isUserOpen <em>User Open</em>}</li>
  * </ul>
@@ -109,6 +110,24 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * @ordered
 	 */
 	protected boolean keyedAccess = KEYED_ACCESS_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getInfoStruct() <em>Info Struct</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInfoStruct()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INFO_STRUCT_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getInfoStruct() <em>Info Struct</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInfoStruct()
+	 * @generated
+	 * @ordered
+	 */
+	protected String infoStruct = INFO_STRUCT_EDEFAULT;
 	/**
 	 * The cached value of the '{@link #getRecord() <em>Record</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -249,6 +268,27 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getInfoStruct() {
+		return infoStruct;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInfoStruct(String newInfoStruct) {
+		String oldInfoStruct = infoStruct;
+		infoStruct = newInfoStruct;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageIsamPackage.DATA_SET_TERM__INFO_STRUCT, oldInfoStruct, infoStruct));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QDataStructDef getRecord() {
 		return record;
 	}
@@ -338,6 +378,8 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 				return getFormatName();
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__KEYED_ACCESS:
 				return isKeyedAccess();
+			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__INFO_STRUCT:
+				return getInfoStruct();
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD:
 				return getRecord();
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__USER_OPEN:
@@ -365,6 +407,9 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__KEYED_ACCESS:
 				setKeyedAccess((Boolean)newValue);
+				return;
+			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__INFO_STRUCT:
+				setInfoStruct((String)newValue);
 				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD:
 				setRecord((QDataStructDef)newValue);
@@ -396,6 +441,9 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__KEYED_ACCESS:
 				setKeyedAccess(KEYED_ACCESS_EDEFAULT);
 				return;
+			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__INFO_STRUCT:
+				setInfoStruct(INFO_STRUCT_EDEFAULT);
+				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD:
 				setRecord((QDataStructDef)null);
 				return;
@@ -422,6 +470,8 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 				return FORMAT_NAME_EDEFAULT == null ? formatName != null : !FORMAT_NAME_EDEFAULT.equals(formatName);
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__KEYED_ACCESS:
 				return keyedAccess != KEYED_ACCESS_EDEFAULT;
+			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__INFO_STRUCT:
+				return INFO_STRUCT_EDEFAULT == null ? infoStruct != null : !INFO_STRUCT_EDEFAULT.equals(infoStruct);
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD:
 				return record != null;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__USER_OPEN:
@@ -448,6 +498,8 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 		result.append(formatName);
 		result.append(", keyedAccess: ");
 		result.append(keyedAccess);
+		result.append(", infoStruct: ");
+		result.append(infoStruct);
 		result.append(", userOpen: ");
 		result.append(userOpen);
 		result.append(')');

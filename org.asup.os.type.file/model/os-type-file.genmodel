@@ -16,6 +16,12 @@
     <genClasses ecoreClass="os-type-file.ecore#//DisplayFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//DisplayFile/displayFormats"/>
     </genClasses>
+    <genClasses ecoreClass="os-type-file.ecore#//DisplayFormatDef"/>
+    <genClasses ecoreClass="os-type-file.ecore#//ExternalFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//ExternalFile/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//ExternalFile/format"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//ExternalFile/linkedFile"/>
+    </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//File">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//File/recordLength"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//File/waitFile"/>
@@ -74,6 +80,5 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//PhysicalFile/tableFormat"/>
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//PrinterFile"/>
-    <genClasses ecoreClass="os-type-file.ecore#//DisplayFormatDef"/>
   </genPackages>
 </genmodel:GenModel>

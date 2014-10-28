@@ -7,7 +7,6 @@
  */
 package org.asup.os.data;
 
-import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -110,6 +109,15 @@ public interface QOperatingSystemDataPackage extends EPackage {
 	int TYPED_DATA_DEF = 1;
 
 	/**
+	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPED_DATA_DEF__FORMULAS = QIntegratedLanguageDataPackage.DATA_DEF__FORMULAS;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,43 +134,6 @@ public interface QOperatingSystemDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPED_DATA_DEF_FEATURE_COUNT = QIntegratedLanguageDataPackage.DATA_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.os.data.impl.ExternalFileNameImpl <em>External File Name</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.data.impl.ExternalFileNameImpl
-	 * @see org.asup.os.data.impl.OperatingSystemDataPackageImpl#getExternalFileName()
-	 * @generated
-	 */
-	int EXTERNAL_FILE_NAME = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_FILE_NAME__NAME = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Format</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_FILE_NAME__FORMAT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>External File Name</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_FILE_NAME_FEATURE_COUNT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.data.QTypedData <em>Typed Data</em>}'.
@@ -216,38 +187,6 @@ public interface QOperatingSystemDataPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTypedDataDef_Type();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.os.data.QExternalFileName <em>External File Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>External File Name</em>'.
-	 * @see org.asup.os.data.QExternalFileName
-	 * @generated
-	 */
-	EClass getExternalFileName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.data.QExternalFileName#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.asup.os.data.QExternalFileName#getName()
-	 * @see #getExternalFileName()
-	 * @generated
-	 */
-	EAttribute getExternalFileName_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.data.QExternalFileName#getFormat <em>Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see org.asup.os.data.QExternalFileName#getFormat()
-	 * @see #getExternalFileName()
-	 * @generated
-	 */
-	EAttribute getExternalFileName_Format();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -315,32 +254,6 @@ public interface QOperatingSystemDataPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TYPED_DATA_DEF__TYPE = eINSTANCE.getTypedDataDef_Type();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.os.data.impl.ExternalFileNameImpl <em>External File Name</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.os.data.impl.ExternalFileNameImpl
-		 * @see org.asup.os.data.impl.OperatingSystemDataPackageImpl#getExternalFileName()
-		 * @generated
-		 */
-		EClass EXTERNAL_FILE_NAME = eINSTANCE.getExternalFileName();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTERNAL_FILE_NAME__NAME = eINSTANCE.getExternalFileName_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTERNAL_FILE_NAME__FORMAT = eINSTANCE.getExternalFileName_Format();
 
 	}
 

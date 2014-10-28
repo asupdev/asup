@@ -8,7 +8,6 @@
 package org.asup.fw.test.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.asup.fw.test.AssertionState;
 import org.asup.fw.test.FrameworkTestFailureError;
 import org.asup.fw.test.QAsserter;
@@ -26,7 +25,6 @@ import org.asup.fw.test.QTestManager;
 import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.QUnitTestRunner;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -34,7 +32,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**

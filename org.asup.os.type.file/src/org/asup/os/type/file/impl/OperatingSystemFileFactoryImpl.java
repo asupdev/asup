@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.file.impl;
 
+import org.asup.os.type.file.*;
 import org.asup.os.type.file.FileType;
 import org.asup.os.type.file.QDisplayFile;
 import org.asup.os.type.file.QDisplayFormatDef;
@@ -70,13 +71,14 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemFilePackage.DISPLAY_FILE: return (EObject)createDisplayFile();
+			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF: return (EObject)createDisplayFormatDef();
+			case QOperatingSystemFilePackage.EXTERNAL_FILE: return (EObject)createExternalFile();
 			case QOperatingSystemFilePackage.FILE: return (EObject)createFile();
 			case QOperatingSystemFilePackage.FILE_MEMBER: return (EObject)createFileMember();
 			case QOperatingSystemFilePackage.FILE_MEMBER_ROW: return (EObject)createFileMemberRow();
 			case QOperatingSystemFilePackage.LOGICAL_FILE: return (EObject)createLogicalFile();
 			case QOperatingSystemFilePackage.PHYSICAL_FILE: return (EObject)createPhysicalFile();
 			case QOperatingSystemFilePackage.PRINTER_FILE: return (EObject)createPrinterFile();
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF: return (EObject)createDisplayFormatDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -190,6 +192,16 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	public QDisplayFormatDef createDisplayFormatDef() {
 		DisplayFormatDefImpl displayFormatDef = new DisplayFormatDefImpl();
 		return displayFormatDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QExternalFile createExternalFile() {
+		ExternalFileImpl externalFile = new ExternalFileImpl();
+		return externalFile;
 	}
 
 	/**

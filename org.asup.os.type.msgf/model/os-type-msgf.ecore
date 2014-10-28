@@ -52,7 +52,6 @@
         <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
       </eTypeParameters>
       <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
-      <eParameters name="messageFile" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="messageName" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
       <eParameters name="variables" lowerBound="1" eType="#//MessageVariableList"/>
     </eOperations>

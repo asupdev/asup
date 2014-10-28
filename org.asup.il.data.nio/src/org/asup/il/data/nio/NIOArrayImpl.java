@@ -109,5 +109,41 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 	public void set(QNumeric index, D value) {
 		set(index.asInteger(), value);
 	}
+
+	@Override
+	public <E extends Enum<E>> boolean eq(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ge(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean gt(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean le(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean lt(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ne(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

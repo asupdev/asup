@@ -8,6 +8,7 @@
 package org.asup.os.type.file;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
@@ -73,7 +74,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFile()
 	 * @generated
 	 */
-	int FILE = 1;
+	int FILE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -300,7 +301,187 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileManager()
 	 * @generated
 	 */
-	int FILE_MANAGER = 2;
+	int FILE_MANAGER = 4;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.FileMemberImpl <em>File Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.FileMemberImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMember()
+	 * @generated
+	 */
+	int FILE_MEMBER = 5;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.FileMemberManagerImpl <em>File Member Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.FileMemberManagerImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMemberManager()
+	 * @generated
+	 */
+	int FILE_MEMBER_MANAGER = 6;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.FileMemberRowImpl <em>File Member Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.FileMemberRowImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMemberRow()
+	 * @generated
+	 */
+	int FILE_MEMBER_ROW = 7;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.QFileMembered <em>File Membered</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.QFileMembered
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMembered()
+	 * @generated
+	 */
+	int FILE_MEMBERED = 8;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.LogicalFileImpl <em>Logical File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.LogicalFileImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getLogicalFile()
+	 * @generated
+	 */
+	int LOGICAL_FILE = 9;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.PhysicalFileImpl <em>Physical File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.PhysicalFileImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPhysicalFile()
+	 * @generated
+	 */
+	int PHYSICAL_FILE = 10;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.PrinterFileImpl <em>Printer File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.PrinterFileImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPrinterFile()
+	 * @generated
+	 */
+	int PRINTER_FILE = 11;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.DisplayFormatDefImpl <em>Display Format Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.DisplayFormatDefImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getDisplayFormatDef()
+	 * @generated
+	 */
+	int DISPLAY_FORMAT_DEF = 1;
+
+	/**
+	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FORMAT_DEF__FORMULAS = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__FORMULAS;
+
+	/**
+	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FORMAT_DEF__CLASS_DELEGATOR = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FORMAT_DEF__ELEMENTS = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FORMAT_DEF__PREFIX = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__PREFIX;
+
+	/**
+	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FORMAT_DEF__QUALIFIED = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__QUALIFIED;
+
+	/**
+	 * The number of structural features of the '<em>Display Format Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FORMAT_DEF_FEATURE_COUNT = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.type.file.impl.ExternalFileImpl <em>External File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.file.impl.ExternalFileImpl
+	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getExternalFile()
+	 * @generated
+	 */
+	int EXTERNAL_FILE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_FILE__NAME = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_FILE__FORMAT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Linked Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_FILE__LINKED_CLASS = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>External File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_FILE_FEATURE_COUNT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -357,16 +538,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int FILE_MANAGER_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_MANAGER_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.FileMemberImpl <em>File Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.FileMemberImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMember()
-	 * @generated
-	 */
-	int FILE_MEMBER = 3;
-
-	/**
 	 * The feature id for the '<em><b>File</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,16 +592,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int FILE_MEMBER_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.FileMemberManagerImpl <em>File Member Manager</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.FileMemberManagerImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMemberManager()
-	 * @generated
-	 */
-	int FILE_MEMBER_MANAGER = 4;
-
-	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -447,16 +608,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE_MEMBER_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.FileMemberRowImpl <em>File Member Row</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.FileMemberRowImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMemberRow()
-	 * @generated
-	 */
-	int FILE_MEMBER_ROW = 5;
 
 	/**
 	 * The feature id for the '<em><b>Sequence</b></em>' attribute.
@@ -504,16 +655,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int FILE_MEMBER_ROW_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.QFileMembered <em>File Membered</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.QFileMembered
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMembered()
-	 * @generated
-	 */
-	int FILE_MEMBERED = 6;
-
-	/**
 	 * The number of structural features of the '<em>File Membered</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,16 +662,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE_MEMBERED_FEATURE_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.LogicalFileImpl <em>Logical File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.LogicalFileImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getLogicalFile()
-	 * @generated
-	 */
-	int LOGICAL_FILE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -648,16 +779,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int LOGICAL_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.PhysicalFileImpl <em>Physical File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.PhysicalFileImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPhysicalFile()
-	 * @generated
-	 */
-	int PHYSICAL_FILE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -786,16 +907,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int PHYSICAL_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.PrinterFileImpl <em>Printer File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.PrinterFileImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPrinterFile()
-	 * @generated
-	 */
-	int PRINTER_FILE = 9;
-
-	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -895,61 +1006,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int PRINTER_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.impl.DisplayFormatDefImpl <em>Display Format Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.impl.DisplayFormatDefImpl
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getDisplayFormatDef()
-	 * @generated
-	 */
-	int DISPLAY_FORMAT_DEF = 10;
-
-	/**
-	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FORMAT_DEF__CLASS_DELEGATOR = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
-
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FORMAT_DEF__ELEMENTS = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__ELEMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FORMAT_DEF__PREFIX = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__PREFIX;
-
-	/**
-	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FORMAT_DEF__QUALIFIED = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__QUALIFIED;
-
-	/**
-	 * The number of structural features of the '<em>Display Format Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FORMAT_DEF_FEATURE_COUNT = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.FileType <em>File Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -957,7 +1013,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileType()
 	 * @generated
 	 */
-	int FILE_TYPE = 11;
+	int FILE_TYPE = 12;
 
 
 	/**
@@ -1269,6 +1325,49 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	EClass getDisplayFormatDef();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.os.type.file.QExternalFile <em>External File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External File</em>'.
+	 * @see org.asup.os.type.file.QExternalFile
+	 * @generated
+	 */
+	EClass getExternalFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QExternalFile#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.asup.os.type.file.QExternalFile#getName()
+	 * @see #getExternalFile()
+	 * @generated
+	 */
+	EAttribute getExternalFile_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QExternalFile#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.asup.os.type.file.QExternalFile#getFormat()
+	 * @see #getExternalFile()
+	 * @generated
+	 */
+	EAttribute getExternalFile_Format();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QExternalFile#getLinkedClass <em>Linked Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Linked Class</em>'.
+	 * @see org.asup.os.type.file.QExternalFile#getLinkedClass()
+	 * @see #getExternalFile()
+	 * @generated
+	 */
+	EAttribute getExternalFile_LinkedClass();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.os.type.file.FileType <em>File Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1553,6 +1652,40 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		 * @generated
 		 */
 		EClass DISPLAY_FORMAT_DEF = eINSTANCE.getDisplayFormatDef();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.type.file.impl.ExternalFileImpl <em>External File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.type.file.impl.ExternalFileImpl
+		 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getExternalFile()
+		 * @generated
+		 */
+		EClass EXTERNAL_FILE = eINSTANCE.getExternalFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_FILE__NAME = eINSTANCE.getExternalFile_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_FILE__FORMAT = eINSTANCE.getExternalFile_Format();
+
+		/**
+		 * The meta object literal for the '<em><b>Linked Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTERNAL_FILE__LINKED_CLASS = eINSTANCE.getExternalFile_LinkedClass();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.file.FileType <em>File Type</em>}' enum.
