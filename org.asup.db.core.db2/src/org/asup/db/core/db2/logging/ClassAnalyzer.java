@@ -3,6 +3,7 @@ package org.asup.db.core.db2.logging;
 import java.lang.reflect.*;
 import java.util.*;
 
+@SuppressWarnings({"unchecked", "rawtypes", "serial"})
 public class ClassAnalyzer<T> {
 
   private Class<T> classeBase;
@@ -15,9 +16,9 @@ public class ClassAnalyzer<T> {
     return elencoCostanti(classeBase);
   }
   
-  public <R> Collection<R> elencoCostanti(Class<R> tipo) {
+public <R> Collection<R> elencoCostanti(Class<R> tipo) {
     Field[] fields = classeBase.getDeclaredFields();
-    Collection elencoRisultati = new ArrayList();
+	Collection elencoRisultati = new ArrayList();
     for (int i = 0; i < fields.length; i++) {
       if (tipo == null || tipo.isAssignableFrom(fields[i].getType())) {
         try {
@@ -31,7 +32,7 @@ public class ClassAnalyzer<T> {
   }
 
   public T[] arrayCostanti(){
-    Collection<T> collection = elencoCostanti();
+	  Collection<T> collection = elencoCostanti();
     return collection.toArray((T[]) Array.newInstance(classeBase, collection.size()));
   }
       

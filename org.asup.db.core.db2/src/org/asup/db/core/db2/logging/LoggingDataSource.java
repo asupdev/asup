@@ -10,7 +10,7 @@ public class LoggingDataSource implements InvocationHandler {
 
 	private DataSource implementation;
 
-	public LoggingDataSource(DataSource implementation) {
+	private LoggingDataSource(DataSource implementation) {
 		this.implementation = implementation;
 	}
 
@@ -28,7 +28,8 @@ public class LoggingDataSource implements InvocationHandler {
 		}
 		return result;
 	}
-
+	
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	public static DataSource getInstance(DataSource implementation) {
 		ClassAnalyzer analyzer = new ClassAnalyzer(implementation.getClass());
 		return (DataSource)Proxy.newProxyInstance(implementation.getClass().getClassLoader(),

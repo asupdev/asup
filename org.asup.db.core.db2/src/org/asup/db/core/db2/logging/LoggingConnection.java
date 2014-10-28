@@ -9,7 +9,7 @@ public class LoggingConnection implements InvocationHandler {
 
   private Connection implementation;
 
-  public LoggingConnection(Connection implementation) {
+  private LoggingConnection(Connection implementation) {
     this.implementation = implementation;
   }
 
@@ -32,6 +32,7 @@ public class LoggingConnection implements InvocationHandler {
     return result;
   }
   
+  @SuppressWarnings({"unchecked", "rawtypes"})
   public static Connection getInstance(Connection implementation) {
     ClassAnalyzer analyzer = new ClassAnalyzer(implementation.getClass());
     return (Connection)Proxy.newProxyInstance(implementation.getClass().getClassLoader(),
