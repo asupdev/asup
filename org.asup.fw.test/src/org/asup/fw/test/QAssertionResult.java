@@ -37,7 +37,7 @@ public interface QAssertionResult {
 	 * @return the value of the '<em>Message</em>' attribute.
 	 * @see #setMessage(String)
 	 * @see org.asup.fw.test.QFrameworkTestPackage#getAssertionResult_Message()
-	 * @model
+	 * @model annotation="il-data length='128'"
 	 * @generated
 	 */
 	String getMessage();

@@ -166,7 +166,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 		compoundDataDefTo.setQualified(compoundDataDef.isQualified());
 		
 		RPJAbstractDataRefactor elementVisitor = this.copy();
-		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(EcoreUtil.copyAll(compoundDataDef.getElements()));
+		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(compoundDataDef.getElements());
 		for(QDataTerm<?> element: dataTerms) {
 			elementVisitor.reset();
 			element.accept(elementVisitor);

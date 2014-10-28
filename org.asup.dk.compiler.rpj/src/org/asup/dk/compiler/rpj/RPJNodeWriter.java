@@ -14,7 +14,7 @@ import org.asup.il.data.QEnum;
 import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QStrollerDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
-import org.asup.os.type.file.QExternalFile;
+import org.asup.os.data.QExternalFile;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;

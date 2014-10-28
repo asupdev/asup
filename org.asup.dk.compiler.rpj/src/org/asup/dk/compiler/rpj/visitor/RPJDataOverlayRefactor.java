@@ -10,6 +10,7 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 
 public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 
+
 	@Inject
 	public RPJDataOverlayRefactor(QCompilationContext compilationContext) {
 		super(compilationContext);

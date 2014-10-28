@@ -182,12 +182,8 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());
-			if(dataSet.isUserOpen())
-				writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
-			if(dataSet.getInfoStruct() != null)
-				writeAnnotation(field, FileDef.class, "infoStruct", dataSet.getInfoStruct());
-			
+			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());			
+			writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 			String className = null;

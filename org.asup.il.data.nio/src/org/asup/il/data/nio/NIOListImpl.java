@@ -82,7 +82,8 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 
 	@Override
 	public void clear() {
-		this._elements = new ArrayList<D>(_dimension);
+		for (D element : this) 
+			element.clear();
 	}
 
 	@Override
