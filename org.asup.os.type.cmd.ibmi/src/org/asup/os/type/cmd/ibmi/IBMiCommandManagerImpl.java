@@ -602,11 +602,14 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		case TOKEN:
 
-			value = parmValue.toString();
-			if (matchFormat(dataTerm, value) == false) {
-				throw new OperatingSystemException("Invalid format for parm value: " + value);
+			if(isSpecialValue(dataTerm, parmValue.toString()))
+				value = resolveSpecialValue(dataTerm, parmValue.toString());
+			else {
+				value = parmValue.toString();
+				if (matchFormat(dataTerm, value) == false) {
+					throw new OperatingSystemException("Invalid format for parm value: " + value);
+				}
 			}
-
 			break;
 
 		case VARIABLE:
