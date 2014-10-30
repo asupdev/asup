@@ -117,27 +117,23 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 	}
 	
 	@Override
+	public String dropView(QView view) {
+		return "DROP VIEW " + quoter.quoteFullName(view.getSchema(), view.getName());
+	}
+	
+	@Override
 	public String createView(QView view) {
-		// TODO Auto-generated method stub
 		return super.createView(view);
 	}
 
 	@Override
-	public String dropView(QView view) {
-		// TODO Auto-generated method stub
-		return super.dropView(view);
-	}
-	
-	@Override
 	public String deleteData(QTable table) {
-		// TODO Auto-generated method stub
-		return super.deleteData(table);
+		return super.deleteData(new QuotedTable(table, quoter));
 	}
 
 	@Override
 	public String selectData(QTable table) {
-		// TODO Auto-generated method stub
-		return super.selectData(table);
+		return super.selectData(new QuotedTable(table, quoter));
 	}
 
 	@Override

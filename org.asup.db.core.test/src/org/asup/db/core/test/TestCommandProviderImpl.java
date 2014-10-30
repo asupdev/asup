@@ -2,27 +2,15 @@ package org.asup.db.core.test;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Collections;
 import java.util.Properties;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
+import javax.swing.plaf.ListUI;
 
-import org.asup.db.core.DataType;
-import org.asup.db.core.OrderingType;
-import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
-import org.asup.db.core.QConnectionFactory;
-import org.asup.db.core.QConnectionFactoryRegistry;
-import org.asup.db.core.QConnectionManager;
-import org.asup.db.core.QDatabaseCoreFactory;
-import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QIndexColumn;
-import org.asup.db.core.QSchema;
-import org.asup.db.core.QTable;
-import org.asup.db.core.QTableColumn;
+import org.asup.db.core.*;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -229,5 +217,31 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	public Object _copy(CommandInterpreter interpreter) throws SQLException {
 		copyDDL("MSSQL040", "DB2");
 		return  null;
+	}
+	
+	public Object _copyV(CommandInterpreter interpreter) throws SQLException {
+		QConnectionConfig connectionConfigFrom = loadConfig("MSSQL040");
+		QConnection connectionFrom = connectionManager.getDatabaseConnection(connectionConfigFrom);
+		
+		QConnectionConfig connectionConfigTo = loadConfig("DB2");
+		QConnection connectionTo = connectionManager.getDatabaseConnection(connectionConfigTo);
+				
+		System.out.print("Reading schema...");
+		QSchema schema = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
+		System.out.println("...OK");
+		
+//		try {
+//			databaseManager.dropSchema(connectionTo, schema);
+//		} catch (Exception e) {
+//		}
+//		QTable table = databaseManager.getTable(connectionFrom, "SMEUP_DAT", "A£LIND0F");
+//		databaseManager.createTable(connectionTo, table, false);
+		for (QView view : schema.getViews()) {
+			if (view.getName().equals("A£LIND0L")) {
+				databaseManager.createView(connectionTo, view);
+				break;
+			}
+		}
+		return null;
 	}
 }

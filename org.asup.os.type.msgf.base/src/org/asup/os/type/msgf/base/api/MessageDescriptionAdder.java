@@ -83,12 +83,12 @@ public class MessageDescriptionAdder {
 
 		QMessageFile qMessageFile = resource.lookup(messageFile.name.trimR());
 		if (qMessageFile == null) 
-			throw new OperatingSystemRuntimeException("Message File " + messageFile.name + " not exists in library " + library);
+			throw messageFileManager.prepareException(job, QCPFMSG.CPF2407, new String[] {messageFile.name.trimR(),messageFile.library.asData().trimR()});
 
 		// TODO Come verifico l'esistenza??? 
 		for (QMessageDescription messageDescription : qMessageFile.getMessages()) {
 			if (messageDescription.getName().equals(messageIdentifier.trimR()))
-				throw new OperatingSystemRuntimeException("Message Description " + messageIdentifier + " already exist");
+				throw messageFileManager.prepareException(job, QCPFMSG.CPF2412, new String[] {messageIdentifier.trimR(), messageFile.name.trimR(),messageFile.library.asData().trimR()});
 		}
 
 		QMessageDescription qMessageDescription = QOperatingSystemMessageFileFactory.eINSTANCE.createMessageDescription();
@@ -115,7 +115,6 @@ public class MessageDescriptionAdder {
 		// FMT TODO
 		QMessageDescriptionDataField messageDescriptionDataField = null;
 		messageDescriptionDataField = OperatingSystemMessageFileFactoryImpl.eINSTANCE.createMessageDescriptionDataField();
-		System.out.println(messageDataFieldsFormats.asData().asString());
 		switch (messageDataFieldsFormats.asEnum()) {
 		case NONE:
 			break;
@@ -196,6 +195,11 @@ public class MessageDescriptionAdder {
 			throw new OperatingSystemRuntimeException(e);
 		}
 	}
+
+	public static enum QCPFMSG {
+		CPF2407, CPF2412
+	}
+	
 	public static class MessageFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
