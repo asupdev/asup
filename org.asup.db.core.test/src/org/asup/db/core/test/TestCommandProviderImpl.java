@@ -201,18 +201,33 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
 		
 		String pluginNameFrom = interpreter.nextArgument();
+		String pluginNameTo = interpreter.nextArgument();
+
+		copyDDL(pluginNameFrom, pluginNameTo);
+		
+		return null;
+	}
+
+	private void copyDDL(String pluginNameFrom, String pluginNameTo) throws SQLException {
 		QConnectionConfig connectionConfigFrom = loadConfig(pluginNameFrom);
 		QConnection connectionFrom = connectionManager.getDatabaseConnection(connectionConfigFrom);
 		
-		String pluginNameTo = interpreter.nextArgument();
 		QConnectionConfig connectionConfigTo = loadConfig(pluginNameTo);
 		QConnection connectionTo = connectionManager.getDatabaseConnection(connectionConfigTo);
 				
+		System.out.print("Reading schema...");
 		QSchema schema = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
+		System.out.println("...OK");
 		
-		databaseManager.dropSchema(connectionTo, schema);
+		try {
+			databaseManager.dropSchema(connectionTo, schema);
+		} catch (Exception e) {
+		}
 		databaseManager.createSchema(connectionTo, schema, true);
-		
-		return null;
+	}
+	
+	public Object _copy(CommandInterpreter interpreter) throws SQLException {
+		copyDDL("MSSQL040", "DB2");
+		return  null;
 	}
 }

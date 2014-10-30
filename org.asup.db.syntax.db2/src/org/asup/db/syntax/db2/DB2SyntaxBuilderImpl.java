@@ -24,6 +24,10 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 	 * @generated NOT
 	 */
 	public String createTable(QTable table) {
+		return db2CreateTable(new QuotedTable(table, quoter));
+	}
+
+	private String db2CreateTable(QTable table) {
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
 		result.append(table.getFullName()+" (");
 
@@ -43,7 +47,11 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 					pkey_name = field.getName();
 					break;
 				case CHARACTER:
-					result.append(field.getName()+" CHAR("+field.getPrecision()+")");
+					if (field.getPrecision() <= 254) {
+						result.append(field.getName()+" CHAR("+field.getPrecision()+")");
+					} else {
+						result.append(field.getName()+" VARCHAR("+field.getPrecision()+")");
+					}
 					break;
 				case VARCHAR:
 					result.append(field.getName()+" VARCHAR("+field.getPrecision()+")");
@@ -74,10 +82,10 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 
 	@Override
 	public String createIndex(QIndex index) {
-		return db2CreateIndes(new QuotedIndex(index, quoter));
+		return db2CreateIndex(new QuotedIndex(index, quoter));
 	}
 
-	private String db2CreateIndes(QuotedIndex index) {
+	private String db2CreateIndex(QuotedIndex index) {
 		StringBuffer result = new StringBuffer("CREATE ");
 		if(index.isUnique()) {
 			result.append("UNIQUE ");			
