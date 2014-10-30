@@ -73,6 +73,7 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 		switch (eClass.getClassifierID()) {
 			case QIntegratedLanguageCorePackage.CARDINALITY: return (EObject)createCardinality();
 			case QIntegratedLanguageCorePackage.CONVERSION: return (EObject)createConversion();
+			case QIntegratedLanguageCorePackage.DERIVED: return (EObject)createDerived();
 			case QIntegratedLanguageCorePackage.DOMAIN: return (EObject)createDomain();
 			case QIntegratedLanguageCorePackage.FORMAT: return (EObject)createFormat();
 			case QIntegratedLanguageCorePackage.OVERLAY: return (EObject)createOverlay();
@@ -138,6 +139,16 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	public QConversion createConversion() {
 		ConversionImpl conversion = new ConversionImpl();
 		return conversion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDerived createDerived() {
+		DerivedImpl derived = new DerivedImpl();
+		return derived;
 	}
 
 	/**

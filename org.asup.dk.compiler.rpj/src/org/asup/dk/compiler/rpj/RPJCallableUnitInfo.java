@@ -8,11 +8,15 @@ public class RPJCallableUnitInfo {
 	private Map<String, Label> labels;
 	
 	public RPJCallableUnitInfo() {
-		this.labels = new HashMap<String, RPJCallableUnitInfo.Label>();
+		reset();
 	}
 
 	public Map<String, Label> getLabels() {
 		return this.labels;
+	}
+	
+	public void reset() {
+		this.labels = new HashMap<String, RPJCallableUnitInfo.Label>();
 	}
 	
 	public static class Label {

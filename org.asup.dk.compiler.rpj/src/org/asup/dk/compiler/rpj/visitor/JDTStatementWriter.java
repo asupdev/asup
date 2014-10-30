@@ -632,7 +632,6 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		if(node.getLength()==0) 
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: "+value);
 
-
 		Expression jdtExpression = (Expression) node;
 
 		return (Expression) ASTNode.copySubtree(ast, jdtExpression);

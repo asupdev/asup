@@ -1,6 +1,7 @@
 package org.asup.dk.compiler.rpj;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
@@ -19,15 +20,22 @@ public class RPJDataStructureWriter extends RPJNamedNodeWriter {
 	}
 
 	public void writeStructure(QCompoundDataDef<?> dataPart) throws IOException {
+
+		writeStructure(dataPart.getElements());
+		
+	}
+
+	public void writeStructure(List<QDataTerm<?>> elements) throws IOException {
 		
 		// fields
-		for (QDataTerm<?> element : dataPart.getElements()) {
+		for (QDataTerm<?> element : elements) {
 			writePublicField(element, false);
 		}
 
 		// elements
-		for(QDataTerm<?> element: dataPart.getElements()) {
+		for(QDataTerm<?> element: elements) {
 			writeInnerTerm(element);
 		} 
 	}
+
 }

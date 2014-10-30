@@ -246,8 +246,8 @@ public class NIODataFactoryImpl implements QDataFactory {
 			String address = "asup:/omac/"+FrameworkUtil.getBundle(klass).getSymbolicName() + "/" + klass.getName();
 			dataStructDef.setClassDelegator(address);
 
-			// fields introspection
-/*			for (Field field : klass.getFields()) {
+/*			// fields introspection
+			for (Field field : klass.getFields()) {
 				QDataTerm<?> elementTerm = createDataTerm(field);
 				dataStructDef.getElements().add(elementTerm);
 			}*/

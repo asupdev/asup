@@ -105,7 +105,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 				// unary
 				if(termFrom.getDataType().isUnary()) {
 					QMultipleAtomicBufferedDataDef<?> multipleAtomicDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
-					multipleAtomicDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)multipleAtomicDataDef.getArgument()));
+					multipleAtomicDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition()));
 					multipleAtomicDataTerm.setDefinition(multipleAtomicDataDef);
 				}
 				// multiple

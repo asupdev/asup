@@ -18,10 +18,18 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
+import org.asup.il.data.QAtomicDataTerm;
+import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QMultipleAtomicBufferedDataDef;
+import org.asup.il.data.QMultipleDataTerm;
+import org.asup.il.expr.QAssignmentExpression;
+import org.asup.il.expr.QAtomicTermExpression;
+import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QTermExpression;
 import org.asup.il.flow.QCall;
+import org.asup.il.flow.QEval;
 import org.asup.il.flow.QIf;
 import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.impl.StatementVisitorImpl;
@@ -92,6 +100,96 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 		}
 		statement.getParameters().clear();
 		statement.getParameters().addAll(parameters);
+
+		return super.visit(statement);
+	}
+
+	@Override
+	public boolean visit(QEval statement) {
+		
+		QAssignmentExpression assignmentExpression = expressionParser.parseAssignment(statement.getAssignment());
+
+		// function
+		QTermExpression leftExpression = assignmentExpression.getLeftOperand();
+		if(leftExpression.isFunction()) 
+			return super.visit(statement);
+		
+		// dataTerm
+		QDataTerm<?> dataTerm = compilationContext.getDataTerm(leftExpression.getValue(), true);
+		if(dataTerm == null)
+			return super.visit(statement);
+		
+		// unary
+		if(dataTerm.getDataType().isUnary()) 
+			return super.visit(statement);
+		
+		// multiple
+		QMultipleDataTerm<?	> multipleDataTerm = (QMultipleDataTerm<?>) dataTerm;
+					
+		// search QArray<QNumeric>.eval(0)
+		QExpression rightExpression = assignmentExpression.getRightOperand();
+		switch (rightExpression.getExpressionType()) {
+		case ARITHMETIC:
+			break;
+		case ASSIGNMENT:
+			break;
+		case ATOMIC:
+			QAtomicTermExpression atomicTermExpression = (QAtomicTermExpression) rightExpression;
+			switch (atomicTermExpression.getType()) {
+			case BOOLEAN:
+				break;
+			case DATETIME:
+				break;
+			case FLOATING:
+				break;
+			case HEXADECIMAL:
+				break;
+			case INDICATOR:
+				break;
+			case INTEGER:
+				if(multipleDataTerm.getDefinition() instanceof QMultipleAtomicBufferedDataDef<?>) {
+					if(((QMultipleAtomicBufferedDataDef<?>)multipleDataTerm.getDefinition()).getArgument().getJavaClass().equals(Integer.class)) {
+						try {
+							int i = Integer.parseInt(atomicTermExpression.getValue());
+							if(i==0) {
+								atomicTermExpression.setValue("*ZEROS");
+
+								RPJExpressionStringBuilder expressionStringBuilder = new RPJExpressionStringBuilder();
+								expressionStringBuilder.visit(assignmentExpression);											
+								statement.setAssignment(expressionStringBuilder.getResult());
+							}
+						}
+						catch(NumberFormatException e) {
+							System.err.println(e);
+						}
+					}
+				}
+				break;
+			case NAME:
+				QAtomicDataTerm<?> atomicDataTerm = (QAtomicDataTerm<?>) compilationContext.getDataTerm(atomicTermExpression.getValue(), true);;
+				if(atomicDataTerm != null) {
+					atomicDataTerm.toString();	
+				}
+				else
+					System.err.println("d684350dgfsd6654");
+				break;
+			case SPECIAL:
+				break;
+			case STRING:
+				break;
+			}
+			break;
+		case BLOCK:
+			break;
+		case BOOLEAN:
+			break;
+		case COMPOUND:
+			break;
+		case LOGICAL:
+			break;
+		case RELATIONAL:
+			break;
+		}
 
 		return super.visit(statement);
 	}

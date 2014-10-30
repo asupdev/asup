@@ -22,7 +22,7 @@ import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
 public class RPJStatementRefactor extends StatementVisitorImpl {
-
+	
 	private QStatement statement;
 	
 	protected QStatement getStatement() {
@@ -60,7 +60,7 @@ public class RPJStatementRefactor extends StatementVisitorImpl {
 	}
 
 	@Override
-	public boolean visit(QEval statement) {
+	public boolean visit(QEval statement) {		
 		// TODO Auto-generated method stub
 		return super.visit(statement);
 	}

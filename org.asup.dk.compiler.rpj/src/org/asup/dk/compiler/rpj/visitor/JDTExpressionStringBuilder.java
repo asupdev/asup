@@ -143,9 +143,12 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		if(namedNode == null) 
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid term: "+expression.getValue());
 
+		// datSrtuct
+		if(namedNode instanceof QUnaryCompoundDataTerm) {
+			buffer.append(compilationContext.getQualifiedName(namedNode));
+		}
 		// array
-		if(namedNode instanceof QMultipleDataTerm ||
-		   namedNode instanceof QUnaryCompoundDataTerm) {
+		else if(namedNode instanceof QMultipleDataTerm) {
 			
 			StringBuffer value = new StringBuffer(); 
 			value.append(compilationContext.getQualifiedName(namedNode));

@@ -14,6 +14,7 @@ import org.asup.il.core.QAtomicTerm;
 import org.asup.il.core.QCardinality;
 import org.asup.il.core.QCompoundTerm;
 import org.asup.il.core.QConversion;
+import org.asup.il.core.QDerived;
 import org.asup.il.core.QDictionary;
 import org.asup.il.core.QDomain;
 import org.asup.il.core.QFacet;
@@ -76,6 +77,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass conversionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass derivedEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,6 +327,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EAttribute getConversion_Status() {
 		return (EAttribute)conversionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDerived() {
+		return derivedEClass;
 	}
 
 	/**
@@ -747,6 +764,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		conversionEClass = createEClass(CONVERSION);
 		createEAttribute(conversionEClass, CONVERSION__STATUS);
 
+		derivedEClass = createEClass(DERIVED);
+
 		dictionaryEClass = createEClass(DICTIONARY);
 		createEAttribute(dictionaryEClass, DICTIONARY__NAME);
 		createEAttribute(dictionaryEClass, DICTIONARY__TEXT);
@@ -849,6 +868,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		cardinalityEClass.getESuperTypes().add(this.getFacet());
 		compoundTermEClass.getESuperTypes().add(this.getTerm());
 		conversionEClass.getESuperTypes().add(this.getFacet());
+		derivedEClass.getESuperTypes().add(this.getFacet());
 		g1 = createEGenericType(this.getTermContainer());
 		EGenericType g2 = createEGenericType(dictionaryEClass_T);
 		g1.getETypeArguments().add(g2);
@@ -882,6 +902,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		initEClass(conversionEClass, QConversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConversion_Status(), this.getConversionStatus(), "status", null, 1, 1, QConversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(derivedEClass, QDerived.class, "Derived", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dictionaryEClass, QDictionary.class, "Dictionary", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDictionary_Name(), ecorePackage.getEString(), "name", null, 0, 1, QDictionary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

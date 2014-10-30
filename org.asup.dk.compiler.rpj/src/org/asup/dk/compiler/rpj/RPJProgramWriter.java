@@ -47,6 +47,12 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		// analyze callable unit
 		analyzeCallableUnit(program);
 		
+		// refactoring callable unit
+		refactCallableUnit(program);
+		
+		// analyze callable unit
+		analyzeCallableUnit(program);
+		
 		// modules
 		List<String> modules = new ArrayList<>();
 		if(program.getSetupSection()!=null){
@@ -84,7 +90,7 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
 			routine.setName("main");
 			routine.setMain(program.getMain());
-			writeRoutine(getCompilationContext(), routine);
+			writeRoutine(routine);
 		}
 
 		// functions
@@ -92,23 +98,13 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 			
 			// routines
 			for(QRoutine routine: program.getFlowSection().getRoutines()) {
-				writeRoutine(getCompilationContext(), routine);
+				writeRoutine(routine);
 			}
 			
 			// prototype
 			for(QPrototype<?> prototype: program.getFlowSection().getPrototypes()) {
-				writePrototype(getCompilationContext(), prototype);
+				writePrototype(prototype);
 			}
-			
-			// procedures
-/*			for(QProcedure procedure: module.getFlowSection().getProcedures()) {
-	
-				// TODO insert master context
-				QCompilationContext compilationContext = compilerManager.createChildContext(getCompilationContext(), procedure);
-				compilationContext.set(org.asup.il.flow.QProcedure.class, procedure);
-				
-				writeProcedure(target, compilationContext, procedure);
-			}*/
 		}
 
 		if(program.getDataSection() != null) {

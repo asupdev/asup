@@ -1,5 +1,6 @@
 package org.asup.dk.compiler.rpj.visitor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,6 +8,8 @@ import javax.inject.Inject;
 import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.rpj.RPJCallableUnitLinker;
+import org.asup.il.core.QDerived;
+import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
@@ -18,14 +21,14 @@ import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
 
-public class RPJDataExternalNameLinker extends DataTermVisitorImpl {
+public class RPJDataTermLinker extends DataTermVisitorImpl {
 
 
 	private QCompilationContext compilationContext;
 	private RPJCallableUnitLinker callableUnitLinker;
 
 	@Inject
-	public RPJDataExternalNameLinker(QCompilationContext compilationContext) {
+	public RPJDataTermLinker(QCompilationContext compilationContext) {
 		this.compilationContext = compilationContext;
 		this.callableUnitLinker = compilationContext.get(RPJCallableUnitLinker.class);
 	}
@@ -70,11 +73,19 @@ public class RPJDataExternalNameLinker extends DataTermVisitorImpl {
 				externalFile.setFormat(physicalFile.getTableFormat());
 
 			String address = "asup:/omac/"+file.getLibrary() + "/" + file.getApplication()+".file."+file.getName();
+			// TODO
 			Class<?> linkedClass = compilationContext.loadClass(null, address);
+			if(linkedClass == null)
+				throw new RuntimeException("Unexpected runtime exception: vs56ccui63x25b5cx674");
+			
 			externalFile.setLinkedClass(linkedClass);
 			
-			List<QDataTerm<?>> elements = QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), file.getName()).getDefinition().getElements();			
-			dataDef.getElements().addAll(elements);
+			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), file.getName()).getDefinition().getElements());
+			for(QDataTerm<?> element: elements) {
+				QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
+				element.getFacets().add(derived);
+				dataDef.getElements().add(element);
+			}
 		}
 		else 
 			System.err.println(file);

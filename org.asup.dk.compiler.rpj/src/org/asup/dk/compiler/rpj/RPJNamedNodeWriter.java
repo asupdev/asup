@@ -2,37 +2,46 @@ package org.asup.dk.compiler.rpj;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.rpj.helper.EnumHelper;
+import org.asup.il.core.QDerived;
+import org.asup.il.core.QOverlay;
 import org.asup.il.core.QSpecial;
+import org.asup.il.core.annotation.Overlay;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QCharacterDef;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataDef;
+import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
+import org.asup.il.data.QEnum;
 import org.asup.il.data.QFloatingDef;
 import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIndicatorDef;
+import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStrollerDef;
+import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.data.QExternalFile;
+import org.asup.os.type.file.QExternalFile;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
@@ -41,6 +50,7 @@ import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
+import org.eclipse.jdt.core.dom.ParameterizedType;
 import org.eclipse.jdt.core.dom.PrimitiveType;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.StringLiteral;
@@ -54,9 +64,9 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 	
 	@SuppressWarnings("unchecked")
 	public RPJNamedNodeWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
-				
+			
 		super(root, compilationContext, compilationSetup);
-		
+
 		// Type declaration
 		target= getAST().newTypeDeclaration();
 		target.setName(getAST().newSimpleName(getCompilationContext().normalizeTypeName(name)));
@@ -107,7 +117,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		
 		// @DataDef
 		writeDataDefAnnotation(field, dataTerm.getDefinition());
-
+		
 		if(dataTerm.getDataType().isUnary()) {
 			QUnaryDataTerm<?> unaryDataTerm = (QUnaryDataTerm<?>)dataTerm;
 			if(unaryDataTerm.getDefault() != null)
@@ -115,9 +125,34 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		}
 		else {
 			QMultipleDataTerm<?> multipleDataTerm = (QMultipleDataTerm<?>)dataTerm;
-			if(multipleDataTerm.getDefault() != null)
+			if(multipleDataTerm.getDefault() != null && !multipleDataTerm.getDefault().isEmpty())
 				writeAnnotation(field, DataDef.class, "values", multipleDataTerm.getDefault());
 		}			
+
+		// @Overlay
+		if(dataTerm.getFacet(QOverlay.class) != null) {
+			QOverlay overlay = dataTerm.getFacet(QOverlay.class); 
+			
+			if(dataTerm.getParent() instanceof QCompoundDataTerm) {
+				QCompoundDataTerm<?> compoundTerm = (QCompoundDataTerm<?>)dataTerm.getParent();
+				if(!getCompilationContext().equalsTermName(compoundTerm.getName(), overlay.getName())) 
+					writeAnnotation(field, Overlay.class, "name", overlay.getName());
+
+				if(overlay.getPosition() != null && !overlay.getPosition().equals(Overlay.NEXT)) 
+					writeAnnotation(field, Overlay.class, "position", overlay.getPosition());
+
+			}
+			else {
+				writeAnnotation(field, Overlay.class, "name", overlay.getName());
+
+				if(overlay.getPosition() != null)
+					if(overlay.getPosition().equals(Overlay.NEXT))
+						throw new RuntimeException("Unexpected runtime exception nc707256c76045");
+					else
+						writeAnnotation(field, Overlay.class, "position", overlay.getPosition());
+			}
+
+		}
 
 		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 		Type type = prepareJavaType(dataTerm);
@@ -141,14 +176,35 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
-				if(unaryCompoundDataTerm.getFacet(QExternalFile.class) == null ||
-				   unaryCompoundDataTerm.getFacet(QExternalFile.class).getName().equals("*PGM_STATUS")) {
+				QExternalFile externalFile = unaryCompoundDataTerm.getFacet(QExternalFile.class); 
+				if(externalFile == null) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
 					RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
 					dataStructureWriter.writeStructure(unaryCompoundDataTerm.getDefinition());
+				}
+				else {
+					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
+					if(linkedClass == null)
+						throw new RuntimeException("Unexpected runtime exception: lr98dsfg98ae9veo5");
+
+					// TODO @Derived
+					if(isOverridden(unaryCompoundDataTerm)) {
+						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+						compilationSetup.setSuperClass(linkedClass);
+	
+						RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
+						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
+						for(QDataTerm<?> element: unaryCompoundDataTerm.getDefinition().getElements()) {
+							if(element.getFacet(QDerived.class) != null)
+								continue;
+							
+							elements.add(element);
+						}
+						dataStructureWriter.writeStructure(elements);
+					}
 				}
 				
 				break;
@@ -160,8 +216,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case MULTIPLE_COMPOUND:
 				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 				
-				if(multipleCompoundDataTerm.getFacet(QExternalFile.class) == null ||
-				   multipleCompoundDataTerm.getFacet(QExternalFile.class).getName().equals("*PGM_STATUS")) {
+				externalFile = multipleCompoundDataTerm.getFacet(QExternalFile.class); 
+				if(externalFile == null) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
@@ -169,6 +225,27 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 					RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
 					dataStructureWriter.writeStructure(multipleCompoundDataTerm.getDefinition());
 				}
+				else {
+					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
+					if(linkedClass == null)
+						throw new RuntimeException("Unexpected runtime exception: lr98dsfg98ae9veo5");
+
+					if(isOverridden(multipleCompoundDataTerm)) {
+						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+						compilationSetup.setSuperClass(linkedClass);
+	
+						RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
+						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
+						for(QDataTerm<?> element: multipleCompoundDataTerm.getDefinition().getElements()) {
+							if(element.getFacet(QDerived.class) != null)
+								continue;
+							
+							elements.add(element);
+						}
+						dataStructureWriter.writeStructure(elements);
+					}
+				}
+				
 				
 				break;
 		}
@@ -380,5 +457,94 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 		}
 		
 		return null;
+	}
+	
+	
+	@SuppressWarnings({ "unchecked"})
+	public Type prepareJavaType(QDataTerm<?> dataTerm) {
+		
+		QDataDef<?> dataDef = dataTerm.getDefinition();
+		
+		Type type = null;
+	
+		switch (dataTerm.getDataType()) {
+			case MULTIPLE_ATOMIC:
+				QMultipleAtomicDataDef<?> multipleAtomicDataDef = (QMultipleAtomicDataDef<?>) dataDef;
+				writeImport(multipleAtomicDataDef.getDataClass());
+				
+				QUnaryAtomicDataDef<?> innerDataDefinition = multipleAtomicDataDef.getArgument();		
+				writeImport(innerDataDefinition.getDataClass());
+				
+				Type array = getAST().newSimpleType(getAST().newSimpleName(multipleAtomicDataDef.getDataClass().getSimpleName()));
+				ParameterizedType parType = getAST().newParameterizedType(array);
+				
+				String argument = innerDataDefinition.getDataClass().getSimpleName();
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+				type = parType;
+
+				break;
+			case MULTIPLE_COMPOUND:
+				QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;				
+				writeImport(strollerDef.getDataClass());
+				
+				array = getAST().newSimpleType(getAST().newSimpleName(strollerDef.getDataClass().getSimpleName()));
+				parType = getAST().newParameterizedType(array);
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
+				
+				type = parType;
+				
+				break;
+			case UNARY_ATOMIC:
+				
+				argument = dataDef.getDataClass().getSimpleName();
+				writeImport(dataDef.getDataClass());
+				type = getAST().newSimpleType(getAST().newSimpleName(argument));
+
+				break;
+			case UNARY_COMPOUND:
+				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
+				
+				QExternalFile externalFile = dataTerm.getFacet(QExternalFile.class);
+				if(externalFile != null) {
+					
+					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
+					if(linkedClass == null)
+						throw new RuntimeException("Unexpected runtime exception: vb54634654vb5cx674");
+					
+					if(isOverridden(unaryCompoundDataTerm)) 
+						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm.getName())));
+					else
+						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(externalFile.getName())));
+										
+				}
+				else
+					type = getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)));
+	
+				break;
+		}
+
+		QSpecial special = dataTerm.getFacet(QSpecial.class);				
+		if(special != null) {
+			writeImport(QEnum.class);
+			Type enumerator = getAST().newSimpleType(getAST().newSimpleName(QEnum.class.getSimpleName()));
+			ParameterizedType parEnumType = getAST().newParameterizedType(enumerator);			
+			// E
+			parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)+"Enum")));			
+			// D
+			parEnumType.typeArguments().add(type);
+			
+			type = parEnumType;
+		}
+	
+		return type;
+	}
+	
+	public boolean isOverridden(QCompoundDataTerm<?> compoundDataTerm) {
+		
+		for(QDataTerm<?> element: compoundDataTerm.getDefinition().getElements())
+			if(element.getFacet(QDerived.class) != null)
+				return true;
+		
+		return false;
 	}
 }

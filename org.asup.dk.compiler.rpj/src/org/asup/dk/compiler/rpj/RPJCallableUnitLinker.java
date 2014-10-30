@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.rpj.visitor.RPJDataExternalNameVisitor;
+import org.asup.dk.compiler.rpj.visitor.RPJDataTermLinker;
 import org.asup.dk.compiler.rpj.visitor.RPJDataLikeRefactor;
 import org.asup.dk.compiler.rpj.visitor.RPJDataOverlayRefactor;
 import org.asup.il.data.QDataStructDef;
@@ -55,9 +55,9 @@ public class RPJCallableUnitLinker {
 		if(dataSection == null) 
 			return;
 			
-		RPJDataExternalNameVisitor externalNameVisitor = new RPJDataExternalNameVisitor(compilationContext);
+		RPJDataTermLinker externalNameLinker = new RPJDataTermLinker(compilationContext);
 		for(QDataTerm<?> dataTerm: dataSection.getDatas()) {			
-			dataTerm.accept(externalNameVisitor);			
+			dataTerm.accept(externalNameLinker);			
 		}
 
 	}

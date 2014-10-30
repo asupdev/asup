@@ -22,6 +22,7 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.impl.CompilationContextImpl;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
+import org.asup.fw.core.QContextID;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.data.QCompoundDataTerm;
@@ -560,5 +561,10 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	@Override
 	public List<QCompilationContext> getChildContexts() {
 		return new ArrayList<QCompilationContext>(contexts);
+	}
+	
+	@Override
+	public Class<?> loadClass(QContextID contextID, String address) {
+		return delegate.loadClass(contextID, address);
 	}
 }
