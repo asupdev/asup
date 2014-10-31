@@ -620,12 +620,12 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			value = null;
 			break;
 		}
-		
+				
 		// Manage HEX default values
 		if (value != null && value.startsWith("X'") && value.endsWith("'")) {
 			value = value.substring(2, value.length()-1);
 			System.out.println("Hexadecimal founded: "+value+ " "+dataTerm.getName());
-		}
+		}		
 
 		return value;
 

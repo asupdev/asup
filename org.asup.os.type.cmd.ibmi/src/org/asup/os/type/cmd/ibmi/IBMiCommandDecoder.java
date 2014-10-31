@@ -35,9 +35,13 @@ public class IBMiCommandDecoder {
 			
 		for (QCommandParameter commandParameter : parameterList) {
 			
+			QDataTerm<?> dataTerm = commandParameter.getDataTerm();
+			
+			/*
 			int position = commandParameter.getPosition() - 1;			
 	
 			QDataTerm<?> dataTerm = dataContext.getTerms().get(position);
+			*/
 			
 			if (defaults || dataContext.isSet(dataTerm)) {
 	
@@ -177,7 +181,7 @@ public class IBMiCommandDecoder {
 
 	private static String writeAtomicDataTermString(String result, QAtomicDataTerm<?> atomicDataTerm, QData data) {
 				
-		String value = data.toString();
+		String value = data.toString().trim();
 		
 		if (hasSpecialValue(atomicDataTerm, value)) {
 			value = encodeSpecialValue(atomicDataTerm, value);
