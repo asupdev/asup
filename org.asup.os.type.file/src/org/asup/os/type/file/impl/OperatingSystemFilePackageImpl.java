@@ -469,6 +469,15 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDisplayFormatDef_Name() {
+		return (EAttribute)displayFormatDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExternalFile() {
 		return externalFileEClass;
 	}
@@ -541,6 +550,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		createEReference(displayFileEClass, DISPLAY_FILE__DISPLAY_FORMATS);
 
 		displayFormatDefEClass = createEClass(DISPLAY_FORMAT_DEF);
+		createEAttribute(displayFormatDefEClass, DISPLAY_FORMAT_DEF__NAME);
 
 		externalFileEClass = createEClass(EXTERNAL_FILE);
 		createEAttribute(externalFileEClass, EXTERNAL_FILE__NAME);
@@ -648,6 +658,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEReference(getDisplayFile_DisplayFormats(), this.getDisplayFormatDef(), null, "displayFormats", null, 0, -1, QDisplayFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(displayFormatDefEClass, QDisplayFormatDef.class, "DisplayFormatDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDisplayFormatDef_Name(), ecorePackage.getEString(), "name", null, 0, 1, QDisplayFormatDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalFileEClass, QExternalFile.class, "ExternalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExternalFile_Name(), ecorePackage.getEString(), "name", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -8,9 +8,10 @@ import javax.inject.Inject;
 
 import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.rpj.visitor.RPJDataTermLinker;
 import org.asup.dk.compiler.rpj.visitor.RPJDataLikeRefactor;
 import org.asup.dk.compiler.rpj.visitor.RPJDataOverlayRefactor;
+import org.asup.dk.compiler.rpj.visitor.RPJDataTermLinker;
+import org.asup.fw.core.QContextID;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -26,6 +27,8 @@ import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
+import org.asup.os.type.lib.QLibrary;
+import org.asup.os.type.lib.QLibraryManager;
 
 public class RPJCallableUnitLinker {
 
@@ -35,12 +38,16 @@ public class RPJCallableUnitLinker {
 	private QJob job;
 	@Inject
 	private QFileManager fileManager;
+	@Inject
+	private QLibraryManager libraryManager;
 
 	private QResourceReader<QFile> fileReader;
+	private QResourceReader<QLibrary> libraryReader;
 
 	@PostConstruct
 	public void init() {
-		this.fileReader = fileManager.getResourceReader(job, Scope.LIBRARY_LIST);		
+		this.fileReader = fileManager.getResourceReader(job, Scope.LIBRARY_LIST);
+		this.libraryReader = libraryManager.getLibraryReader(job);
 	}
 
 	public void linkExternalDatas() {
@@ -188,5 +195,28 @@ public class RPJCallableUnitLinker {
 			file = fileReader.lookup(name);
 		
 		return file;
+	}
+	
+	public Class<?> loadClass(QContextID contextID, QFile file) {
+
+		String address = "asup:/omac/"+file.getLibrary() + "/" + file.getApplication()+".file."+file.getName();
+		Class<?> linkedClass = compilationContext.loadClass(null, address);
+		
+		// search on parent library
+		if(linkedClass == null) {
+			
+			QLibrary library = libraryReader.lookup(file.getLibrary());
+			if(library.getParentLibrary() != null) {
+
+				QLibrary masterLibrary = libraryReader.lookup(library.getParentLibrary());
+				if(masterLibrary == null)
+					throw new OperatingSystemRuntimeException("Master library not found: "+library);
+				
+				address = "asup:/omac/"+masterLibrary.getName() + "/" + file.getApplication()+".file."+file.getName();
+				linkedClass = compilationContext.loadClass(null, address);
+			}
+		}
+		
+		return linkedClass;
 	}
 }

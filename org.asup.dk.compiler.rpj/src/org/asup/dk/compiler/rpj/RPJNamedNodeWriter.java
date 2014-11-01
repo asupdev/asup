@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
@@ -147,7 +148,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 
 				if(overlay.getPosition() != null)
 					if(overlay.getPosition().equals(Overlay.NEXT))
-						throw new RuntimeException("Unexpected runtime exception nc707256c76045");
+						throw new RuntimeException("Unexpected runtime exception: nc707256c76045");
 					else
 						writeAnnotation(field, Overlay.class, "position", overlay.getPosition());
 			}
@@ -188,7 +189,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 				else {
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
 					if(linkedClass == null)
-						throw new RuntimeException("Unexpected runtime exception: lr98dsfg98ae9veo5");
+						throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 
 					// TODO @Derived
 					if(isOverridden(unaryCompoundDataTerm)) {
@@ -228,7 +229,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 				else {
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
 					if(linkedClass == null)
-						throw new RuntimeException("Unexpected runtime exception: lr98dsfg98ae9veo5");
+						throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 
 					if(isOverridden(multipleCompoundDataTerm)) {
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
@@ -509,7 +510,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 					
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
 					if(linkedClass == null)
-						throw new RuntimeException("Unexpected runtime exception: vb54634654vb5cx674");
+						throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 					
 					if(isOverridden(unaryCompoundDataTerm)) 
 						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm.getName())));

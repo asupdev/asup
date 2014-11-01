@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.db.data.QDatabaseDataHelper;
+import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.rpj.RPJCallableUnitLinker;
 import org.asup.il.core.QDerived;
@@ -24,12 +25,10 @@ import org.asup.os.type.file.QPhysicalFile;
 public class RPJDataTermLinker extends DataTermVisitorImpl {
 
 
-	private QCompilationContext compilationContext;
 	private RPJCallableUnitLinker callableUnitLinker;
 
 	@Inject
 	public RPJDataTermLinker(QCompilationContext compilationContext) {
-		this.compilationContext = compilationContext;
 		this.callableUnitLinker = compilationContext.get(RPJCallableUnitLinker.class);
 	}
 	
@@ -72,11 +71,9 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 			if(externalFile.getFormat() == null)
 				externalFile.setFormat(physicalFile.getTableFormat());
 
-			String address = "asup:/omac/"+file.getLibrary() + "/" + file.getApplication()+".file."+file.getName();
-			// TODO
-			Class<?> linkedClass = compilationContext.loadClass(null, address);
-			if(linkedClass == null)
-				throw new RuntimeException("Unexpected runtime exception: vs56ccui63x25b5cx674");
+			Class<?> linkedClass = callableUnitLinker.loadClass(null, file);		
+			if(linkedClass == null)				
+				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 			
 			externalFile.setLinkedClass(linkedClass);
 			

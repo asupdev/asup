@@ -6,6 +6,7 @@
         eType="#//DisplayFormatDef" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DisplayFormatDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//UnaryCompoundDataDef">
       <eTypeArguments eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Struct"/>
     </eGenericSuperTypes>

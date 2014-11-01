@@ -75,7 +75,11 @@ public class FileMemberRunner {
 
 		for(QFileMemberRow fileMemberRow: fileMember.getRows()) {
 			String line = fileMemberRow.getContent();
+
 			if(line.trim().isEmpty())
+				continue;
+			
+			if(line.trim().startsWith("//"))
 				continue;
 
 			try {					
@@ -90,7 +94,7 @@ public class FileMemberRunner {
 
 	public static class SourceFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
-		@DataDef(length = 10, value = "")
+		@DataDef(length = 10)
 		public QCharacter name;
 		@DataDef(length = 10, value = "*LIBL")
 		public QEnum<LibraryEnum, QCharacter> library;
