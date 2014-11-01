@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
 import org.asup.dk.compiler.rpj.visitor.RPJCallableUnitAnalyzer;
@@ -23,6 +24,7 @@ import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
+import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
@@ -202,11 +204,20 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 
-			String argument = dataSet.getFileName();
-			if(argument.equals("PRT198"))
+			if(dataSet.getFileName().equals("PRT198"))
 				parType.typeArguments().add(getAST().newWildcardType());
-			else
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+			else {
+				QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
+				if(compilerLinker != null) {
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getName().split("\\."))));
+				}
+				else {
+					String argument = dataSet.getFileName(); 
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));					
+				}
+
+
+			}
 			
 			field.setType(parType);
 			variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getName())));
@@ -240,8 +251,11 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		arrayCreation.setType(getAST().newArrayType(getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()))));
 
 		ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
-		for (String keyField: keyList.getKeyFields()){
-			arrayInitializer.expressions().add(getAST().newSimpleName(getCompilationContext().normalizeTermName(keyField)));
+		for (String keyField: keyList.getKeyFields()) {
+			
+			QNamedNode namedNode = getCompilationContext().getNamedNode(keyField, true);
+			String qualifiedName = getCompilationContext().getQualifiedName(namedNode);
+			arrayInitializer.expressions().add(getAST().newName(getCompilationContext().normalizeTermName(qualifiedName).split("\\.")));
 		}
 		arrayCreation.setInitializer(arrayInitializer);
 

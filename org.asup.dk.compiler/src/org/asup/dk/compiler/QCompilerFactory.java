@@ -36,6 +36,15 @@ public interface QCompilerFactory extends EFactory {
 	QCompilationSetup createCompilationSetup();
 
 	/**
+	 * Returns a new object of class '<em>Linker</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Linker</em>'.
+	 * @generated
+	 */
+	QCompilerLinker createCompilerLinker();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

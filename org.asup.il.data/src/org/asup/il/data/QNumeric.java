@@ -51,7 +51,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void divide(short value);
+	QNumeric divide(short value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void divide(long value);
+	QNumeric divide(long value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void divide(int value);
+	QNumeric divide(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +75,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void divide(QNumeric value);
+	QNumeric divide(QNumeric value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,7 +259,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void minus(short value);
+	QNumeric minus(short value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -267,7 +267,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void minus(long value);
+	QNumeric minus(long value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -275,7 +275,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void minus(int value);
+	QNumeric minus(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,7 +283,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void minus(QNumeric value);
+	QNumeric minus(QNumeric value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,7 +291,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void mult(short value);
+	QNumeric mult(short value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -299,7 +299,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void mult(long value);
+	QNumeric mult(long value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -307,7 +307,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void mult(int value);
+	QNumeric mult(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -315,7 +315,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void mult(QNumeric value);
+	QNumeric mult(QNumeric value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,7 +347,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void plus(short value);
+	QNumeric plus(short value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -355,7 +355,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void plus(long value);
+	QNumeric plus(long value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -363,7 +363,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void plus(int value);
+	QNumeric plus(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -371,7 +371,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void plus(QNumeric value);
+	QNumeric plus(QNumeric value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -379,7 +379,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void power(short value);
+	QNumeric power(short value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -387,7 +387,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void power(long value);
+	QNumeric power(long value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -395,7 +395,7 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void power(int value);
+	QNumeric power(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -403,6 +403,6 @@ public interface QNumeric extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	void power(QNumeric value);
+	QNumeric power(QNumeric value);
 
 } // QNumeric

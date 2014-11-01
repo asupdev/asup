@@ -98,6 +98,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			if(value.startsWith("X'")) {
 				value = value.substring(2);
 				value = "0x"+value.substring(0, value.length()-1);
+				value = "\""+value+"\"";
 			}
 				
 			source = QHexadecimal.class;
@@ -262,8 +263,29 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
 		
+		// pointer
+		if(CompilationContextHelper.isPointer(compilationContext, expression.getLeftOperand())) {
+			
+			// left
+			builder.setTarget(null);
+			builder.clear();			
+			expression.getLeftOperand().accept(builder);			
+			buffer.append(builder.getResult());
+
+			// operator
+			buffer.append("."+toJavaMethod(expression));
+			buffer.append("(");
+			
+			// right		
+			builder.clear();
+			expression.getRightOperand().accept(builder);
+			buffer.append(builder.getResult());				
+	
+			buffer.append(")");
+
+		}
 		// plus, minus, multiple ..
-		if(expression.getRightOperand() != null) {				
+		else if(expression.getRightOperand() != null) {				
 
 			builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getLeftOperand()));
 			builder.clear();			

@@ -19,7 +19,6 @@ import org.asup.il.core.QFacet;
  * <ul>
  *   <li>{@link org.asup.os.type.file.QExternalFile#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.os.type.file.QExternalFile#getFormat <em>Format</em>}</li>
- *   <li>{@link org.asup.os.type.file.QExternalFile#getLinkedClass <em>Linked Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,31 +78,5 @@ public interface QExternalFile extends QFacet {
 	 * @generated
 	 */
 	void setFormat(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Linked Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Linked Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Linked Class</em>' attribute.
-	 * @see #setLinkedClass(Class)
-	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getExternalFile_LinkedClass()
-	 * @model transient="true"
-	 * @generated
-	 */
-	Class<?> getLinkedClass();
-
-	/**
-	 * Sets the value of the '{@link org.asup.os.type.file.QExternalFile#getLinkedClass <em>Linked Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Linked Class</em>' attribute.
-	 * @see #getLinkedClass()
-	 * @generated
-	 */
-	void setLinkedClass(Class<?> value);
 
 } // QExternalFile

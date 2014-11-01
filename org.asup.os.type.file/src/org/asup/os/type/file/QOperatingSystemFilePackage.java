@@ -475,22 +475,13 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int EXTERNAL_FILE__FORMAT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Linked Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTERNAL_FILE__LINKED_CLASS = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>External File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_FILE_FEATURE_COUNT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 3;
+	int EXTERNAL_FILE_FEATURE_COUNT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1377,17 +1368,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	EAttribute getExternalFile_Format();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QExternalFile#getLinkedClass <em>Linked Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Linked Class</em>'.
-	 * @see org.asup.os.type.file.QExternalFile#getLinkedClass()
-	 * @see #getExternalFile()
-	 * @generated
-	 */
-	EAttribute getExternalFile_LinkedClass();
-
-	/**
 	 * Returns the meta object for enum '{@link org.asup.os.type.file.FileType <em>File Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1706,14 +1686,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXTERNAL_FILE__FORMAT = eINSTANCE.getExternalFile_Format();
-
-		/**
-		 * The meta object literal for the '<em><b>Linked Class</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXTERNAL_FILE__LINKED_CLASS = eINSTANCE.getExternalFile_LinkedClass();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.file.FileType <em>File Type</em>}' enum.

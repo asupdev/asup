@@ -7,9 +7,10 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.db.data.QDatabaseDataHelper;
+import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.rpj.visitor.RPJDataLikeRefactor;
-import org.asup.dk.compiler.rpj.visitor.RPJDataOverlayRefactor;
+import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.visitor.RPJDataTermLinker;
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QDataStructDef;
@@ -29,6 +30,9 @@ import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
+//github.com/asupdev/asup.git
+import org.asup.dk.compiler.rpj.visitor.RPJDataLikeRefactor;
+import org.asup.dk.compiler.rpj.visitor.RPJDataOverlayRefactor;
 
 public class RPJCallableUnitLinker {
 
@@ -133,6 +137,7 @@ public class RPJCallableUnitLinker {
 
 		for(QDataSetTerm dataSet: fileSection.getDataSets()) 
 			linkDataSet(dataSet);
+		
 	}
 	
 	
@@ -152,6 +157,14 @@ public class RPJCallableUnitLinker {
 			
 			if(dataSet.getFormatName() == null)
 				dataSet.setFormatName(physicalFile.getTableFormat());
+
+			Class<?> linkedClass = loadClass(null, physicalFile);		
+			if(linkedClass == null)				
+				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+file);
+
+			QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
+			compilerLinker.setLinkedClass(linkedClass);
+			dataSet.getFacets().add(compilerLinker);
 
 			if(dataSet.getRecord() == null) {
 				

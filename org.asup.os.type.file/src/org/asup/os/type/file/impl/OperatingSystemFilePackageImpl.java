@@ -505,15 +505,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExternalFile_LinkedClass() {
-		return (EAttribute)externalFileEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getFileType() {
 		return fileTypeEEnum;
 	}
@@ -555,7 +546,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		externalFileEClass = createEClass(EXTERNAL_FILE);
 		createEAttribute(externalFileEClass, EXTERNAL_FILE__NAME);
 		createEAttribute(externalFileEClass, EXTERNAL_FILE__FORMAT);
-		createEAttribute(externalFileEClass, EXTERNAL_FILE__LINKED_CLASS);
 
 		fileEClass = createEClass(FILE);
 		createEAttribute(fileEClass, FILE__RECORD_LENGTH);
@@ -663,10 +653,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEClass(externalFileEClass, QExternalFile.class, "ExternalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExternalFile_Name(), ecorePackage.getEString(), "name", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExternalFile_Format(), ecorePackage.getEString(), "format", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getExternalFile_LinkedClass(), g1, "linkedClass", null, 0, 1, QExternalFile.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, QFile.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFile_RecordLength(), ecorePackage.getEInt(), "recordLength", null, 0, 1, QFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -8,10 +8,12 @@ import javax.inject.Inject;
 import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.RPJCallableUnitLinker;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
-import org.asup.il.data.QCompoundDataDef;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
@@ -37,7 +39,7 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 
 		QExternalFile externalFile = term.getFacet(QExternalFile.class);
 		if( externalFile != null) {
-			completeCompoundDef(term.getDefinition(), externalFile);
+			completeCompoundDef(term, externalFile);
 		}
 
 		return false;
@@ -48,13 +50,13 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 
 		QExternalFile externalFile = term.getFacet(QExternalFile.class);
 		if(externalFile != null) {
-			completeCompoundDef(term.getDefinition(), externalFile);
+			completeCompoundDef(term, externalFile);
 		}
 		
 		return false;
 	}
 
-	private void completeCompoundDef(QCompoundDataDef<?> dataDef, QExternalFile externalFile) {
+	private void completeCompoundDef(QCompoundDataTerm<?> compoundDataTerm, QExternalFile externalFile) {
 
 		if(externalFile.getName().startsWith("*"))
 			return;
@@ -74,14 +76,16 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 			Class<?> linkedClass = callableUnitLinker.loadClass(null, file);		
 			if(linkedClass == null)				
 				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
-			
-			externalFile.setLinkedClass(linkedClass);
-			
+
+			QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
+			compilerLinker.setLinkedClass(linkedClass);
+			compoundDataTerm.getFacets().add(compilerLinker);
+
 			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), file.getName()).getDefinition().getElements());
 			for(QDataTerm<?> element: elements) {
 				QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
 				element.getFacets().add(derived);
-				dataDef.getElements().add(element);
+				compoundDataTerm.getDefinition().getElements().add(element);
 			}
 		}
 		else 
