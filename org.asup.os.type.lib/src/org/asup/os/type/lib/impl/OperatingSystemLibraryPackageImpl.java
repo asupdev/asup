@@ -13,6 +13,7 @@ import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 import org.asup.os.type.lib.QOperatingSystemLibraryFactory;
 import org.asup.os.type.lib.QOperatingSystemLibraryPackage;
+import org.eclipse.emf.ecore.EAttribute;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -135,6 +136,15 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLibrary_ParentLibrary() {
+		return (EAttribute)libraryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QOperatingSystemLibraryFactory getOperatingSystemLibraryFactory() {
 		return (QOperatingSystemLibraryFactory)getEFactoryInstance();
 	}
@@ -161,6 +171,7 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 		libraryManagerEClass = createEClass(LIBRARY_MANAGER);
 
 		libraryEClass = createEClass(LIBRARY);
+		createEAttribute(libraryEClass, LIBRARY__PARENT_LIBRARY);
 	}
 
 	/**
@@ -220,6 +231,11 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 		initEOperation(op, g1);
 
 		initEClass(libraryEClass, QLibrary.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLibrary_ParentLibrary(), ecorePackage.getEString(), "parentLibrary", null, 0, 1, QLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(libraryEClass, ecorePackage.getEBoolean(), "isRootLibrary", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(libraryEClass, ecorePackage.getEBoolean(), "isChildLibrary", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

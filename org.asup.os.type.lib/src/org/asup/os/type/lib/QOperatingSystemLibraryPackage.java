@@ -8,6 +8,7 @@
 package org.asup.os.type.lib;
 
 import org.asup.os.type.QOperatingSystemTypePackage;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -204,13 +205,22 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	int LIBRARY__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
+	 * The feature id for the '<em><b>Parent Library</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__PARENT_LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Library</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIBRARY_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+	int LIBRARY_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.lib.QLibraryManager <em>Library Manager</em>}'.
@@ -231,6 +241,17 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLibrary();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.lib.QLibrary#getParentLibrary <em>Parent Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parent Library</em>'.
+	 * @see org.asup.os.type.lib.QLibrary#getParentLibrary()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EAttribute getLibrary_ParentLibrary();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -273,6 +294,14 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LIBRARY = eINSTANCE.getLibrary();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Library</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIBRARY__PARENT_LIBRARY = eINSTANCE.getLibrary_ParentLibrary();
 
 	}
 

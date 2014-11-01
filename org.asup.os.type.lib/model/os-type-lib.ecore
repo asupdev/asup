@@ -18,5 +18,9 @@
       <eTypeArguments eClassifier="#//Library"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
+    <eOperations name="isRootLibrary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isChildLibrary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parentLibrary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
