@@ -24,8 +24,7 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataVisitor;
 
-public abstract class NIOBufferedDataImpl extends NIODataImpl implements
-		QBufferedData {
+public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBufferedData {
 
 	private static final long serialVersionUID = 1L;
 

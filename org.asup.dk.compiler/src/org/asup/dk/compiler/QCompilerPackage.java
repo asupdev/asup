@@ -8,6 +8,7 @@
 package org.asup.dk.compiler;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -154,7 +155,7 @@ public interface QCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getEntryType()
 	 * @generated
 	 */
-	int ENTRY_TYPE = 5;
+	int ENTRY_TYPE = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.CaseSensitiveType <em>Case Sensitive Type</em>}' enum.
@@ -164,7 +165,7 @@ public interface QCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCaseSensitiveType()
 	 * @generated
 	 */
-	int CASE_SENSITIVE_TYPE = 6;
+	int CASE_SENSITIVE_TYPE = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Manager</em>}' class.
@@ -278,6 +279,34 @@ public interface QCompilerPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerLinkerImpl <em>Linker</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.impl.CompilerLinkerImpl
+	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerLinker()
+	 * @generated
+	 */
+	int COMPILER_LINKER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Linked Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILER_LINKER__LINKED_CLASS = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Linker</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILER_LINKER_FEATURE_COUNT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 1;
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationContext <em>Compilation Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,6 +378,27 @@ public interface QCompilerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnitConverterRegistry();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilerLinker <em>Linker</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Linker</em>'.
+	 * @see org.asup.dk.compiler.QCompilerLinker
+	 * @generated
+	 */
+	EClass getCompilerLinker();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.dk.compiler.QCompilerLinker#getLinkedClass <em>Linked Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Linked Class</em>'.
+	 * @see org.asup.dk.compiler.QCompilerLinker#getLinkedClass()
+	 * @see #getCompilerLinker()
+	 * @generated
+	 */
+	EAttribute getCompilerLinker_LinkedClass();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.dk.compiler.EntryType <em>Entry Type</em>}'.
@@ -465,6 +515,24 @@ public interface QCompilerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNIT_CONVERTER_REGISTRY = eINSTANCE.getUnitConverterRegistry();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilerLinkerImpl <em>Linker</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.dk.compiler.impl.CompilerLinkerImpl
+		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerLinker()
+		 * @generated
+		 */
+		EClass COMPILER_LINKER = eINSTANCE.getCompilerLinker();
+
+		/**
+		 * The meta object literal for the '<em><b>Linked Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPILER_LINKER__LINKED_CLASS = eINSTANCE.getCompilerLinker_LinkedClass();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.EntryType <em>Entry Type</em>}' enum.

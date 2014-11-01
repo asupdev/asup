@@ -68,6 +68,7 @@ import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
+import org.asup.il.data.QPointer;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.QScrollerDef;
@@ -577,7 +578,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 	}
 
 	@Override
-	public QHexadecimal createPointer(boolean initialize) {
+	public QPointer createPointer(boolean initialize) {
 		// TODO Auto-generated method stub
 		return null;
 	}

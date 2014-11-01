@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.ExternalFileImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.ExternalFileImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link org.asup.os.type.file.impl.ExternalFileImpl#getLinkedClass <em>Linked Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,16 +73,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 	 * @ordered
 	 */
 	protected String format = FORMAT_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLinkedClass() <em>Linked Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLinkedClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected Class<?> linkedClass;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,27 +140,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class<?> getLinkedClass() {
-		return linkedClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLinkedClass(Class<?> newLinkedClass) {
-		Class<?> oldLinkedClass = linkedClass;
-		linkedClass = newLinkedClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.EXTERNAL_FILE__LINKED_CLASS, oldLinkedClass, linkedClass));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -179,8 +147,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 				return getName();
 			case QOperatingSystemFilePackage.EXTERNAL_FILE__FORMAT:
 				return getFormat();
-			case QOperatingSystemFilePackage.EXTERNAL_FILE__LINKED_CLASS:
-				return getLinkedClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,9 +164,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 				return;
 			case QOperatingSystemFilePackage.EXTERNAL_FILE__FORMAT:
 				setFormat((String)newValue);
-				return;
-			case QOperatingSystemFilePackage.EXTERNAL_FILE__LINKED_CLASS:
-				setLinkedClass((Class<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -220,9 +183,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 			case QOperatingSystemFilePackage.EXTERNAL_FILE__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
-			case QOperatingSystemFilePackage.EXTERNAL_FILE__LINKED_CLASS:
-				setLinkedClass((Class<?>)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -239,8 +199,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case QOperatingSystemFilePackage.EXTERNAL_FILE__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
-			case QOperatingSystemFilePackage.EXTERNAL_FILE__LINKED_CLASS:
-				return linkedClass != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -259,8 +217,6 @@ public class ExternalFileImpl extends FacetImpl implements QExternalFile {
 		result.append(name);
 		result.append(", format: ");
 		result.append(format);
-		result.append(", linkedClass: ");
-		result.append(linkedClass);
 		result.append(')');
 		return result.toString();
 	}

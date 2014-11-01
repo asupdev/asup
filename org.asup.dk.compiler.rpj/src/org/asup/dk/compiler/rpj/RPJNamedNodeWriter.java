@@ -5,10 +5,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QOverlay;
@@ -42,7 +42,6 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
-import org.asup.os.type.file.QExternalFile;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
@@ -177,8 +176,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
-				QExternalFile externalFile = unaryCompoundDataTerm.getFacet(QExternalFile.class); 
-				if(externalFile == null) {
+				QCompilerLinker compilerLinker = unaryCompoundDataTerm.getFacet(QCompilerLinker.class); 
+				if(compilerLinker == null) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
@@ -187,12 +186,10 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 					dataStructureWriter.writeStructure(unaryCompoundDataTerm.getDefinition());
 				}
 				else {
-					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
-					if(linkedClass == null)
-						throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 
 					// TODO @Derived
 					if(isOverridden(unaryCompoundDataTerm)) {
+						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 						compilationSetup.setSuperClass(linkedClass);
 	
@@ -217,8 +214,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case MULTIPLE_COMPOUND:
 				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>) dataTerm;
 				
-				externalFile = multipleCompoundDataTerm.getFacet(QExternalFile.class); 
-				if(externalFile == null) {
+				compilerLinker = multipleCompoundDataTerm.getFacet(QCompilerLinker.class); 
+				if(compilerLinker == null) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
@@ -227,11 +224,8 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 					dataStructureWriter.writeStructure(multipleCompoundDataTerm.getDefinition());
 				}
 				else {
-					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
-					if(linkedClass == null)
-						throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
-
 					if(isOverridden(multipleCompoundDataTerm)) {
+						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 						compilationSetup.setSuperClass(linkedClass);
 	
@@ -505,17 +499,15 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
-				QExternalFile externalFile = dataTerm.getFacet(QExternalFile.class);
-				if(externalFile != null) {
+				QCompilerLinker compilerLinker = dataTerm.getFacet(QCompilerLinker.class);
+				if(compilerLinker != null) {
 					
-					Class<QDataStruct> linkedClass = (Class<QDataStruct>) externalFile.getLinkedClass(); 
-					if(linkedClass == null)
-						throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
+					Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass(); 
 					
 					if(isOverridden(unaryCompoundDataTerm)) 
 						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm.getName())));
 					else
-						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(externalFile.getName())));
+						type = getAST().newSimpleType(getAST().newName(linkedClass.getName().split("\\.")));
 										
 				}
 				else
@@ -543,7 +535,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 	public boolean isOverridden(QCompoundDataTerm<?> compoundDataTerm) {
 		
 		for(QDataTerm<?> element: compoundDataTerm.getDefinition().getElements())
-			if(element.getFacet(QDerived.class) != null)
+			if(element.getFacet(QDerived.class) == null)
 				return true;
 		
 		return false;

@@ -49,13 +49,14 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 		
 		writeModuleFields(module.getSetupSection().getModules());		
 
-		if(module.getFileSection() != null) {
+		if(module.getFileSection() != null)
 			writeDataSets(module.getFileSection().getDataSets());
-			writeKeyLists(module.getFileSection().getKeyLists());
-		}
 				
 		if(module.getDataSection() != null)
 			writeDataFields(module.getDataSection());
+
+		if(module.getFileSection() != null)
+			writeKeyLists(module.getFileSection().getKeyLists());
 
 		// labels
 		writeLabels(getCallableUnitInfo().getLabels().keySet());

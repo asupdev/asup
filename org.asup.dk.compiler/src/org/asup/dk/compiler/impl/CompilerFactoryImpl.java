@@ -63,6 +63,7 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QCompilerPackage.COMPILATION_SETUP: return (EObject)createCompilationSetup();
+			case QCompilerPackage.COMPILER_LINKER: return (EObject)createCompilerLinker();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -110,6 +111,16 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	public QCompilationSetup createCompilationSetup() {
 		CompilationSetupImpl compilationSetup = new CompilationSetupImpl();
 		return compilationSetup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCompilerLinker createCompilerLinker() {
+		CompilerLinkerImpl compilerLinker = new CompilerLinkerImpl();
+		return compilerLinker;
 	}
 
 	/**

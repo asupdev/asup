@@ -141,4 +141,11 @@
     <eLiterals name="Upper" value="20" literal="U"/>
     <eLiterals name="Ignore" value="30" literal="I"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompilerLinker" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Facet">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkedClass" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
 </ecore:EPackage>

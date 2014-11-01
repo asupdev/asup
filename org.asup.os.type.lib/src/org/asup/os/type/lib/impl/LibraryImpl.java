@@ -100,7 +100,7 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isRootLibrary() {
 		return getParentLibrary() == null;
