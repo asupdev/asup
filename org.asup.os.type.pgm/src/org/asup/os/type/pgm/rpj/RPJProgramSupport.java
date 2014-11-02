@@ -90,6 +90,14 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		}
 	}
 
+	public static class ProgramStatus extends QDataStructDelegator {
+
+		private static final long serialVersionUID = 1L;
+
+		@DataDef(length=5)
+		public QDecimal qStatus;
+	}
+	
 	public static enum Specials {
 		ALL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
 
@@ -115,15 +123,12 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QIndicator qINOF;
 	@DataDef
 	public QIndicator qINRT;
-
 	@DataDef
 	public QIndicator qINLR;
-
+	@DataDef
+	public ProgramStatus qSTATUS;
 	@DataDef
 	public Specials qSP;
-
-	@DataDef
-	public QDecimal qStatus;
 
 	public QNumeric qAbs(QNumeric numeric) {
 		return numeric;
@@ -254,7 +259,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	}
 
 	public QDecimal qStatus() {
-		return qStatus;
+		return qSTATUS.qStatus;
 	}
 
 	public QString qSubst(QString source, Integer from) {

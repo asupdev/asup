@@ -1,13 +1,19 @@
 package org.asup.dk.compiler.rpj.visitor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.asup.db.data.QDatabaseDataHelper;
+import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.RPJCallableUnitLinker;
-import org.asup.il.data.QCompoundDataDef;
+import org.asup.il.core.QDerived;
+import org.asup.il.core.QIntegratedLanguageCoreFactory;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
@@ -18,15 +24,13 @@ import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
 
-public class RPJDataExternalNameLinker extends DataTermVisitorImpl {
+public class RPJDataTermLinker extends DataTermVisitorImpl {
 
 
-	private QCompilationContext compilationContext;
 	private RPJCallableUnitLinker callableUnitLinker;
 
 	@Inject
-	public RPJDataExternalNameLinker(QCompilationContext compilationContext) {
-		this.compilationContext = compilationContext;
+	public RPJDataTermLinker(QCompilationContext compilationContext) {
 		this.callableUnitLinker = compilationContext.get(RPJCallableUnitLinker.class);
 	}
 	
@@ -35,7 +39,7 @@ public class RPJDataExternalNameLinker extends DataTermVisitorImpl {
 
 		QExternalFile externalFile = term.getFacet(QExternalFile.class);
 		if( externalFile != null) {
-			completeCompoundDef(term.getDefinition(), externalFile);
+			completeCompoundDef(term, externalFile);
 		}
 
 		return false;
@@ -46,13 +50,13 @@ public class RPJDataExternalNameLinker extends DataTermVisitorImpl {
 
 		QExternalFile externalFile = term.getFacet(QExternalFile.class);
 		if(externalFile != null) {
-			completeCompoundDef(term.getDefinition(), externalFile);
+			completeCompoundDef(term, externalFile);
 		}
 		
 		return false;
 	}
 
-	private void completeCompoundDef(QCompoundDataDef<?> dataDef, QExternalFile externalFile) {
+	private void completeCompoundDef(QCompoundDataTerm<?> compoundDataTerm, QExternalFile externalFile) {
 
 		if(externalFile.getName().startsWith("*"))
 			return;
@@ -69,12 +73,20 @@ public class RPJDataExternalNameLinker extends DataTermVisitorImpl {
 			if(externalFile.getFormat() == null)
 				externalFile.setFormat(physicalFile.getTableFormat());
 
-			String address = "asup:/omac/"+file.getLibrary() + "/" + file.getApplication()+".file."+file.getName();
-			Class<?> linkedClass = compilationContext.loadClass(null, address);
-			externalFile.setLinkedClass(linkedClass);
-			
-			List<QDataTerm<?>> elements = QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), file.getName()).getDefinition().getElements();			
-			dataDef.getElements().addAll(elements);
+			Class<?> linkedClass = callableUnitLinker.loadClass(null, file);		
+			if(linkedClass == null)				
+				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
+
+			QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
+			compilerLinker.setLinkedClass(linkedClass);
+			compoundDataTerm.getFacets().add(compilerLinker);
+
+			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), file.getName()).getDefinition().getElements());
+			for(QDataTerm<?> element: elements) {
+				QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
+				element.getFacets().add(derived);
+				compoundDataTerm.getDefinition().getElements().add(element);
+			}
 		}
 		else 
 			System.err.println(file);

@@ -30,7 +30,13 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 	}
 	
 	public void writeModule(QModule module) throws IOException {
-
+		
+		// analyze callable unit
+		analyzeCallableUnit(module);
+		
+		// refactoring callable unit
+		refactCallableUnit(module);
+		
 		// analyze callable unit
 		analyzeCallableUnit(module);
 		
@@ -43,13 +49,14 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 		
 		writeModuleFields(module.getSetupSection().getModules());		
 
-		if(module.getFileSection() != null) {
+		if(module.getFileSection() != null)
 			writeDataSets(module.getFileSection().getDataSets());
-			writeKeyLists(module.getFileSection().getKeyLists());
-		}
 				
 		if(module.getDataSection() != null)
 			writeDataFields(module.getDataSection());
+
+		if(module.getFileSection() != null)
+			writeKeyLists(module.getFileSection().getKeyLists());
 
 		// labels
 		writeLabels(getCallableUnitInfo().getLabels().keySet());
@@ -60,7 +67,7 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 			routine.setName("main");
 			routine.setMain(module.getMain());
 			
-			writeRoutine(getCompilationContext(), routine);
+			writeRoutine(routine);
 		}
 
 		// functions
@@ -68,23 +75,13 @@ public class RPJModuleWriter extends RPJCallableUnitWriter {
 			
 			// routines
 			for(QRoutine routine: module.getFlowSection().getRoutines()) {
-				writeRoutine(getCompilationContext(), routine);
+				writeRoutine(routine);
 			}
 			
 			// prototype
 			for(QPrototype<?> prototype: module.getFlowSection().getPrototypes()) {
-				writePrototype(getCompilationContext(), prototype);
-			}
-			
-			// procedures
-/*			for(QProcedure procedure: module.getFlowSection().getProcedures()) {
-	
-				// TODO insert master context
-				QCompilationContext compilationContext = compilerManager.createChildContext(getCompilationContext(), procedure);
-				compilationContext.set(org.asup.il.flow.QProcedure.class, procedure);
-				
-				writeProcedure(target, compilationContext, procedure);
-			}*/
+				writePrototype(prototype);
+			}			
 		}
 
 		if(module.getDataSection() != null)

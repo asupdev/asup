@@ -142,7 +142,7 @@ public interface QDataFactory {
 	 * @model required="true" initializeRequired="true"
 	 * @generated
 	 */
-	QHexadecimal createPointer(boolean initialize);
+	QPointer createPointer(boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->

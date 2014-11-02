@@ -13,8 +13,11 @@ package org.asup.dk.compiler.rpj;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.rpj.visitor.RPJExpressionNormalizer;
 import org.asup.il.data.QData;
 import org.asup.il.data.annotation.ModuleDef;
+import org.asup.il.flow.QStatement;
+import org.asup.il.flow.QUnit;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
@@ -96,4 +99,16 @@ public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
 		outputStream.flush();
 		outputStream.close();
 	}*/
+	
+	public void refactUnit(QUnit unit) {
+		
+		RPJExpressionNormalizer expressionNormalizer = getCompilationContext().make(RPJExpressionNormalizer.class);
+		
+		// main
+		if(unit.getMain() != null) {
+			for(QStatement statement: unit.getMain().getStatements()) {
+				statement.accept(expressionNormalizer);
+			}
+		}
+	}
 }

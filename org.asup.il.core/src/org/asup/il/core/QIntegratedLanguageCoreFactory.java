@@ -45,6 +45,15 @@ public interface QIntegratedLanguageCoreFactory extends EFactory {
 	QConversion createConversion();
 
 	/**
+	 * Returns a new object of class '<em>Derived</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Derived</em>'.
+	 * @generated
+	 */
+	QDerived createDerived();
+
+	/**
 	 * Returns a new object of class '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

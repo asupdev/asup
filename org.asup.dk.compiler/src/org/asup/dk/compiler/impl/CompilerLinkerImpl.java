@@ -5,60 +5,53 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.os.type.file.impl;
+package org.asup.dk.compiler.impl;
 
-import org.asup.il.data.QStruct;
-import org.asup.il.data.impl.UnaryCompoundDataDefImpl;
-import org.asup.os.type.file.QDisplayFile;
-import org.asup.os.type.file.QDisplayFormatDef;
-import org.asup.os.type.file.QOperatingSystemFilePackage;
+import org.asup.dk.compiler.QCompilerLinker;
+import org.asup.dk.compiler.QCompilerPackage;
+
+import org.asup.il.core.impl.FacetImpl;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Display Format Def</b></em>'.
+ * An implementation of the model object '<em><b>Linker</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.type.file.impl.DisplayFormatDefImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.dk.compiler.impl.CompilerLinkerImpl#getLinkedClass <em>Linked Class</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> implements QDisplayFormatDef {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * The cached value of the '{@link #getLinkedClass() <em>Linked Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinkedClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected Class<?> linkedClass;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DisplayFormatDefImpl() {
+	protected CompilerLinkerImpl() {
 		super();
 	}
 
@@ -69,17 +62,7 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QOperatingSystemFilePackage.Literals.DISPLAY_FORMAT_DEF;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
+		return QCompilerPackage.Literals.COMPILER_LINKER;
 	}
 
 	/**
@@ -87,11 +70,20 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public Class<?> getLinkedClass() {
+		return linkedClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLinkedClass(Class<?> newLinkedClass) {
+		Class<?> oldLinkedClass = linkedClass;
+		linkedClass = newLinkedClass;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, QCompilerPackage.COMPILER_LINKER__LINKED_CLASS, oldLinkedClass, linkedClass));
 	}
 
 	/**
@@ -102,8 +94,8 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
-				return getName();
+			case QCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
+				return getLinkedClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -116,8 +108,8 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
-				setName((String)newValue);
+			case QCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
+				setLinkedClass((Class<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +123,8 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
-				setName(NAME_EDEFAULT);
+			case QCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
+				setLinkedClass((Class<?>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -146,8 +138,8 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case QCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
+				return linkedClass != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -162,19 +154,10 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
+		result.append(" (linkedClass: ");
+		result.append(linkedClass);
 		result.append(')');
 		return result.toString();
 	}
 
-	@Override
-	public Class<?> getJavaClass() {		
-		return Object.class;
-	}
-
-	@Override
-	public Class<?> getDataClass() {
-		return QDisplayFile.class;
-	}
-} //DisplayFormatDefImpl
+} //CompilerLinkerImpl

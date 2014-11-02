@@ -16,14 +16,15 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
 import org.asup.dk.compiler.rpj.visitor.RPJCallableUnitAnalyzer;
-import org.asup.dk.compiler.rpj.visitor.RPJExpressionNormalizer;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
+import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
@@ -37,6 +38,7 @@ import org.asup.il.flow.QParameterList;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.QStatement;
+import org.asup.il.flow.QUnit;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
@@ -65,6 +67,9 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	}
 	
 	public void analyzeCallableUnit(QCallableUnit callableUnit) {
+		
+		getCallableUnitInfo().reset();
+		
 		// analyze statement
 		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(getCallableUnitInfo());
 		
@@ -199,11 +204,20 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 
-			String argument = dataSet.getFileName();
-			if(argument.equals("PRT198"))
+			if(dataSet.getFileName().equals("PRT198"))
 				parType.typeArguments().add(getAST().newWildcardType());
-			else
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+			else {
+				QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
+				if(compilerLinker != null) {
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getName().split("\\."))));
+				}
+				else {
+					String argument = dataSet.getFileName(); 
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));					
+				}
+
+
+			}
 			
 			field.setType(parType);
 			variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getName())));
@@ -237,8 +251,11 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		arrayCreation.setType(getAST().newArrayType(getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()))));
 
 		ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
-		for (String keyField: keyList.getKeyFields()){
-			arrayInitializer.expressions().add(getAST().newSimpleName(getCompilationContext().normalizeTermName(keyField)));
+		for (String keyField: keyList.getKeyFields()) {
+			
+			QNamedNode namedNode = getCompilationContext().getNamedNode(keyField, true);
+			String qualifiedName = getCompilationContext().getQualifiedName(namedNode);
+			arrayInitializer.expressions().add(getAST().newName(getCompilationContext().normalizeTermName(qualifiedName).split("\\.")));
 		}
 		arrayCreation.setInitializer(arrayInitializer);
 
@@ -248,12 +265,12 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void writeRoutine(QCompilationContext compilationContext, QRoutine routine) {
+	public void writeRoutine(QRoutine routine) {
 				
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
-		methodDeclaration.setName(getAST().newSimpleName(compilationContext.normalizeTermName(routine.getName())));
+		methodDeclaration.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(routine.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 //		writeSuppressWarning(methodDeclaration);
@@ -262,15 +279,9 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.setBody(block);
 
 		if(routine.getMain() != null) {
-			
-			// normalize statement
-			RPJExpressionNormalizer expressionNormalizer = compilationContext.make(RPJExpressionNormalizer.class);
-			for(QStatement statement: routine.getMain().getStatements()) {
-				statement.accept(expressionNormalizer);
-			}
 
 			// write java AST
-			JDTStatementWriter statementWriter = compilationContext.make(JDTStatementWriter.class);
+			JDTStatementWriter statementWriter = getCompilationContext().make(JDTStatementWriter.class);
 			statementWriter.setAST(getAST());		
 
 			statementWriter.getBlocks().push(block);
@@ -285,12 +296,12 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void writePrototype(QCompilationContext compilationContext, QPrototype<?> prototype) {
+	public void writePrototype(QPrototype<?> prototype) {
 		
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
-		methodDeclaration.setName(getAST().newSimpleName(compilationContext.normalizeTermName(prototype.getName())));
+		methodDeclaration.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(prototype.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 //		writeSuppressWarning(methodDeclaration);
@@ -311,7 +322,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 				String parameterName = parameterDelegate.getName();
 				if(parameterName == null) 
 					parameterName = "arg"+p;
-				singleVar.setName(getAST().newSimpleName(compilationContext.normalizeTermName(parameterName)));
+				singleVar.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(parameterName)));
 				
 				if(parameterDelegate instanceof QDataTerm) {
 					QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
@@ -343,7 +354,7 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 		methodDeclaration.setBody(block);
 
 		// write java AST
-		JDTStatementWriter statementWriter = compilationContext.make(JDTStatementWriter.class);
+		JDTStatementWriter statementWriter = getCompilationContext().make(JDTStatementWriter.class);
 		statementWriter.setAST(getAST());		
 
 		statementWriter.getBlocks().push(block);
@@ -446,5 +457,18 @@ public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
 
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
+	}
+	
+	
+	public void refactCallableUnit(QCallableUnit callableUnit) {
+		
+		refactUnit(callableUnit);
+		
+		// main
+		if(callableUnit.getFlowSection() != null) {
+			for(QUnit unit: callableUnit.getFlowSection().getRoutines()) {
+				refactUnit(unit);
+			}
+		}
 	}
 }

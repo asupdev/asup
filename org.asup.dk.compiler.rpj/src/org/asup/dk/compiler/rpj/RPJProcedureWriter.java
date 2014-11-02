@@ -1,9 +1,13 @@
 package org.asup.dk.compiler.rpj;
 
+import java.io.IOException;
+
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.il.data.QDataTerm;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QProcedure;
+import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -17,7 +21,16 @@ public class RPJProcedureWriter extends RPJCallableUnitWriter {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void writeProcedure(QProcedure procedure) {
+	public void writeProcedure(QProcedure procedure) throws IOException {
+		
+		// analyze callable unit
+		analyzeCallableUnit(procedure);		
+		
+		// refactoring callable unit
+		refactCallableUnit(procedure);
+		
+		// analyze callable unit
+		analyzeCallableUnit(procedure);
 		
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
@@ -27,9 +40,6 @@ public class RPJProcedureWriter extends RPJCallableUnitWriter {
 		
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
-
-		// analyze callable unit
-		analyzeCallableUnit(procedure);
 		
 		writeModuleFields(procedure.getSetupSection().getModules());
 
@@ -50,9 +60,26 @@ public class RPJProcedureWriter extends RPJCallableUnitWriter {
 			routine.setName("main");
 			routine.setMain(procedure.getMain());
 			
-			writeRoutine(getCompilationContext(), routine);
+			writeRoutine(routine);
 		}
-				
+	
+		// functions
+		if(procedure.getFlowSection() != null) {
+			
+			// routines
+			for(QRoutine routine: procedure.getFlowSection().getRoutines()) {
+				writeRoutine(routine);
+			}
+			
+			// prototype
+			for(QPrototype<?> prototype: procedure.getFlowSection().getPrototypes()) {
+				writePrototype(prototype);
+			}
+		}
+
+		if(procedure.getDataSection() != null)
+			for(QDataTerm<?> dataTerm: procedure.getDataSection().getDatas())
+				writeInnerTerm(dataTerm);	
 	}
 
 }

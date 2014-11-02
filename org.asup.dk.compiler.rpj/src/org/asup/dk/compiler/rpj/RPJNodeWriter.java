@@ -7,20 +7,11 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.il.core.QSpecial;
-import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.data.QEnum;
-import org.asup.il.data.QMultipleAtomicDataDef;
-import org.asup.il.data.QStrollerDef;
-import org.asup.il.data.QUnaryAtomicDataDef;
-import org.asup.os.data.QExternalFile;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
-import org.eclipse.jdt.core.dom.ParameterizedType;
-import org.eclipse.jdt.core.dom.Type;
 
 public class RPJNodeWriter {
 
@@ -51,80 +42,6 @@ public class RPJNodeWriter {
 			packageDeclaration.setName(ast.newName(compilationSetup.getBasePackage().split("\\.")));
 			this.compilationUnit.setPackage(packageDeclaration);
 		}
-	}
-	
-	@SuppressWarnings({ "unchecked"})
-	public Type prepareJavaType(QDataTerm<?> dataTerm) {
-		
-		QDataDef<?> dataDef = dataTerm.getDefinition();
-		
-		Type type = null;
-	
-		switch (dataTerm.getDataType()) {
-			case MULTIPLE_ATOMIC//		field.fragments().add(variable);
-:
-				QMultipleAtomicDataDef<?> multipleAtomicDataDef = (QMultipleAtomicDataDef<?>) dataDef;
-				writeImport(multipleAtomicDataDef.getDataClass());
-				
-				QUnaryAtomicDataDef<?> innerDataDefinition = multipleAtomicDataDef.getArgument();		
-				writeImport(innerDataDefinition.getDataClass());
-				
-				Type array = getAST().newSimpleType(getAST().newSimpleName(multipleAtomicDataDef.getDataClass().getSimpleName()));
-				ParameterizedType parType = getAST().newParameterizedType(array);
-				
-				String argument = innerDataDefinition.getDataClass().getSimpleName();
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-				type = parType;
-
-				break;
-			case MULTIPLE_COMPOUND:
-				QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;				
-				writeImport(strollerDef.getDataClass());
-				
-				array = getAST().newSimpleType(getAST().newSimpleName(strollerDef.getDataClass().getSimpleName()));
-				parType = getAST().newParameterizedType(array);
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
-				
-				type = parType;
-				
-				break;
-			case UNARY_ATOMIC:
-				
-				argument = dataDef.getDataClass().getSimpleName();
-				writeImport(dataDef.getDataClass());
-				type = getAST().newSimpleType(getAST().newSimpleName(argument));
-
-				break;
-			case UNARY_COMPOUND:
-
-				if(dataTerm.getFacet(QExternalFile.class) != null) {
-					QExternalFile externalFile = dataTerm.getFacet(QExternalFile.class);
-					
-					if(externalFile.getName().equals("*PGM_STATUS"))
-						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm.getName())));
-					else
-						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(externalFile.getName())));					
-				}
-				else
-					type = getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)));
-	
-				break;
-		}
-
-		QSpecial special = dataTerm.getFacet(QSpecial.class);				
-		if(special != null) {
-			writeImport(QEnum.class);
-			Type enumerator = getAST().newSimpleType(getAST().newSimpleName(QEnum.class.getSimpleName()));
-			ParameterizedType parEnumType = getAST().newParameterizedType(enumerator);			
-			// E
-			parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)+"Enum")));			
-			// D
-			parEnumType.typeArguments().add(type);
-			
-			type = parEnumType;
-		}
-	
-		return type;
 	}
 
 	protected String normalizeInnerName(QDataTerm<?> term) {

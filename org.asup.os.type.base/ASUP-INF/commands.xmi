@@ -25961,7 +25961,7 @@
             xsi:type="il-core:Special">
           <elements
               name="*ALL"
-              value="ALL"/>
+              value="*ALL"/>
         </facets>
         <definition
             xsi:type="il-data:CharacterDef"

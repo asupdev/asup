@@ -267,14 +267,27 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		skeletonWriter.writeOutputStream(output);
 	}
 
+
 	@Override
 	public void linkCompilationContext(QCompilationContext context) {
 
-		// link childs
-		for(QCompilationContext childCompilationContext: context.getChildContexts()) {
-			linkCompilationContext(childCompilationContext);
-		}
+		// load childs
+		List<String> contexts = new ArrayList<String>();
+		linkCompilationContext(contexts, context);		
+
+	}
 		
+	private void linkCompilationContext(List<String> contexts, QCompilationContext context) {
+
+		if(contexts.contains(context.getRoot().getName()))
+			return;
+
+		contexts.add(context.getRoot().getName()	);
+		
+		// link childs
+		for(QCompilationContext childCompilationContext: context.getChildContexts())
+			linkCompilationContext(contexts, childCompilationContext);
+
 		// link root
 		RPJCallableUnitLinker callableUnitLinker = context.make(RPJCallableUnitLinker.class);
 		
@@ -288,5 +301,6 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		callableUnitLinker.linkLikeDatas();
 		
 		callableUnitLinker.linkOverlayDatas();
+		
 	}
 }

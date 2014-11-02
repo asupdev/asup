@@ -17,6 +17,7 @@ import java.util.Date;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QPointerDef;
 import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QBlockExpression;
 import org.asup.il.expr.QBooleanExpression;
@@ -81,6 +82,45 @@ public class CompilationContextHelper {
 		}
 
 		return false;
+	}
+
+	public static boolean isPointer(QCompilationContext compilationContext, QExpression expression) {
+
+		switch (expression.getExpressionType()) {
+		case ATOMIC:
+			QAtomicTermExpression atomicTermExpression = (QAtomicTermExpression) expression;
+			
+			switch (atomicTermExpression.getType()) {
+			case BOOLEAN:
+			case DATETIME:
+			case FLOATING:
+			case HEXADECIMAL:
+			case INTEGER:
+			case SPECIAL:
+			case STRING:
+				return false;
+			case INDICATOR:
+			case NAME:
+
+				QNamedNode namedNode = compilationContext.getNamedNode(atomicTermExpression.getValue(), true);
+				QDataTerm<?> dataTerm = getDataTerm(namedNode);
+				if(dataTerm == null) 
+					return false;
+
+				return dataTerm.getDefinition() instanceof QPointerDef;
+			}
+		case COMPOUND:			
+			QCompoundTermExpression compoundTermExpression = (QCompoundTermExpression)expression;
+
+			QNamedNode namedNode = compilationContext.getNamedNode(compoundTermExpression.getValue(), true);
+			QDataTerm<?> dataTerm = getDataTerm(namedNode);
+			if(dataTerm == null) 
+				return true;
+
+			return dataTerm.getDefinition() instanceof QPointerDef;
+		default:
+			return false;
+		}
 	}
 	
 	public static Class<?> getJavaClass(QCompilationContext compilationContext, QExpression expression) {

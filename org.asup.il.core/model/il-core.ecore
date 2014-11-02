@@ -20,6 +20,7 @@
     <eLiterals name="Unsupported" value="20" literal="UNS"/>
     <eLiterals name="Todo" value="30" literal="TODO"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Derived" eSuperTypes="#//Facet"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dictionary" abstract="true">
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Term"/>

@@ -59,7 +59,6 @@ public class OperatingSystemDataFactoryImpl extends EFactoryImpl implements QOpe
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemDataPackage.TYPED_DATA_DEF: return (EObject)createTypedDataDef();
-			case QOperatingSystemDataPackage.EXTERNAL_FILE: return (EObject)createExternalFile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,16 +72,6 @@ public class OperatingSystemDataFactoryImpl extends EFactoryImpl implements QOpe
 	public QTypedDataDef createTypedDataDef() {
 		TypedDataDefImpl typedDataDef = new TypedDataDefImpl();
 		return typedDataDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QExternalFile createExternalFile() {
-		ExternalFileImpl externalFile = new ExternalFileImpl();
-		return externalFile;
 	}
 
 	/**

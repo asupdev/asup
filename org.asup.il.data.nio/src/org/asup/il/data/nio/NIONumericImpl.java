@@ -39,23 +39,27 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	public abstract int compareNumber(Number value);
 
 	@Override
-	public void divide(int value) {
-		eval(asLong()/value);		
+	public QNumeric divide(int value) {
+		eval(asLong()/value);
+		return this;
 	}
 	
 	@Override
-	public void divide(long value) {
-		eval(asLong()/value);		
+	public QNumeric divide(long value) {
+		eval(asLong()/value);
+		return this;
 	}
 
 	@Override
-	public void divide(QNumeric value) {
+	public QNumeric divide(QNumeric value) {
 		eval(asLong()/value.asLong());
+		return this;
 	}
 	
 	@Override
-	public void divide(short value) {
+	public QNumeric divide(short value) {
 		eval(asLong()/value);
+		return this;
 	}
 
 	@Override
@@ -206,23 +210,27 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public void minus(int value) {
-		eval(asLong()-value);		
+	public QNumeric minus(int value) {
+		eval(asLong()-value);
+		return this;
 	}
 	
 	@Override
-	public void minus(long value) {
-		eval(asLong()-value);		
-	}
-
-	@Override
-	public void minus(QNumeric value) {
-		eval(asLong()-value.asLong());		
-	}
-
-	@Override
-	public void minus(short value) {
+	public QNumeric minus(long value) {
 		eval(asLong()-value);
+		return this;
+	}
+
+	@Override
+	public QNumeric minus(QNumeric value) {
+		eval(asLong()-value.asLong());
+		return this;
+	}
+
+	@Override
+	public QNumeric minus(short value) {
+		eval(asLong()-value);
+		return this;
 	}
 
 	@Override
@@ -256,23 +264,27 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	@Override
-	public void mult(int value) {
-		eval(asLong()-value);		
+	public QNumeric mult(int value) {
+		eval(asLong()-value);
+		return this;
 	}
 
 	@Override
-	public void mult(long value) {
-		eval(asLong()-value);		
+	public QNumeric mult(long value) {
+		eval(asLong()-value);
+		return this;
 	}
 
 	@Override
-	public void mult(QNumeric value) {
-		eval(asLong()-value.asLong());		
+	public QNumeric mult(QNumeric value) {
+		eval(asLong()-value.asLong());
+		return this;
 	}
 
 	@Override
-	public void mult(short value) {
-		eval(asLong()*value);		
+	public QNumeric mult(short value) {
+		eval(asLong()*value);
+		return this;
 	}
 
 	@Override
@@ -291,44 +303,52 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 	
 	@Override
-	public void plus(int value) {
-		eval(asLong()+value);		
+	public QNumeric plus(int value) {
+		eval(asLong()+value);
+		return this;
 	}
 
 	@Override
-	public void plus(long value) {
-		eval(asLong()+value);		
+	public QNumeric plus(long value) {
+		eval(asLong()+value);
+		return this;
 	}
 
 	@Override
-	public void plus(QNumeric value) {
+	public QNumeric plus(QNumeric value) {
 		eval(asLong()+value.asLong());
+		return this;
 	}
 
 	@Override
-	public void plus(short value) {
-		eval(asLong()+value);		
+	public QNumeric plus(short value) {
+		eval(asLong()+value);
+		return this;
 	}
 	
 	@Override
-	public void power(int value) {
+	public QNumeric power(int value) {
 		eval(asLong()^value);		
+		return this;
 	}
 	
 	@Override
-	public void power(long value) {
+	public QNumeric power(long value) {
 		eval(asLong()^value);		
+		return this;
 	}
 
 	@Override
-	public void power(QNumeric value) {
-		eval(asLong()^value.asLong());		
+	public QNumeric power(QNumeric value) {
+		eval(asLong()^value.asLong());	
+		return this;
 	}
 
 
 	@Override
-	public void power(short value) {
+	public QNumeric power(short value) {
 		eval(asLong()^value);		
+		return this;
 	}
 	
 	public abstract Number readNumber();

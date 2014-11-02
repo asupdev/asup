@@ -22,8 +22,10 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.impl.CompilationContextImpl;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
+import org.asup.fw.core.QContextID;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
+import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
@@ -138,12 +140,6 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			   equalsTermName(d.getFileName(), name) ) {
 				
 				dataSetTerm = d;
-				
-/*				QPhysicalFile physicalFile = getPhysicalFile(dataSetTerm.getFileName());			
-				dataSetTerm = QIntegratedLanguageIsamFactory.eINSTANCE.createDataSetTerm();
-				dataSetTerm.setFileName(physicalFile.getName());
-
-				break;*/
 			}	
 						
 
@@ -196,7 +192,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 
 		// search on dataTermContainer
 		if(dataTerm == null && ((QCallableUnit)getRoot()).getDataSection() != null) 
-			dataTerm = findData(((QCallableUnit)getRoot()).getDataSection().getDatas(), name);
+			dataTerm = findData(((QCallableUnit)getRoot()).getDataSection().getDatas(), name, null, 0);
 
 		// search on dataSet
 		if(dataTerm == null) {
@@ -205,7 +201,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 				if(dataSetTerm.getRecord() == null)
 					continue;
 				
-				dataTerm = findData(dataSetTerm.getRecord().getElements(), name);
+				dataTerm = findData(dataSetTerm.getRecord().getElements(), name, null, 0);
 										
 				if(dataTerm != null)
 					break;
@@ -303,10 +299,6 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			}
 		}
 		
-		// TODO remove
-//		if(prototype == null && !name.startsWith("%")) 
-//			prototype = getPrototype("%"+name, deep);
-		
 		return prototype;
 	}
 
@@ -385,15 +377,6 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		if(namedNode != null)
 			return namedNode;
 		
-/*		if(deep) {
-			for(QCompilationContext compilationContext: contexts) {
-				namedNode = compilationContext.getNamedNode(name, true);
-				
-				if(namedNode != null)
-					break;
-			}
-		}*/
-		
 		return namedNode;
 	}
 
@@ -427,16 +410,18 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	}
 	
 	
-	private QDataTerm<?> findData(List<QDataTerm<?>> dataTerms, String name) {
+	private QDataTerm<?> findData(List<QDataTerm<?>> dataTerms, String name, String prefix, int position) {
 
-		
 		QDataTerm<?> dataTerm = null;		
 		for(QDataTerm<?> child: dataTerms) {
 
+			String childName = null;
+			if(prefix != null)
+				childName = prefix+child.getName().substring(position);
+			else
+				childName = child.getName();
 			
-//			if(name.equalsIgnoreCase("£UIDDS.£UIBFU") && child.getName().startsWith("£UID"))
-			
-			if(equalsTermName(child.getName(), name)) {
+			if(equalsTermName(childName, name)) {
 				dataTerm = child;
 			}
 			else if(equalsTermName(getQualifiedName(child), name)) {
@@ -444,7 +429,20 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 			}
 			else if(child instanceof QCompoundDataTerm) {
 				QCompoundDataTerm<?> compoundDataTerm = (QCompoundDataTerm<?>)child;
-				dataTerm = findData(compoundDataTerm.getDefinition().getElements(), name);
+				QCompoundDataDef<?> compoundDataDef = compoundDataTerm.getDefinition();
+				if(compoundDataDef.getPrefix() != null) {
+					String[] tokens = compoundDataDef.getPrefix().split("\\:");
+					String pfx = tokens[0];
+					int pos = 1;
+					if(tokens.length>1)
+						pos = Integer.parseInt(tokens[1]);
+					else
+						pos = pfx.length();
+
+					dataTerm = findData(compoundDataDef.getElements(), name, pfx, pos);
+				}
+				else
+					dataTerm = findData(compoundDataDef.getElements(), name, null, 0);
 			}
 			
 			if(dataTerm != null)
@@ -560,5 +558,10 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	@Override
 	public List<QCompilationContext> getChildContexts() {
 		return new ArrayList<QCompilationContext>(contexts);
+	}
+	
+	@Override
+	public Class<?> loadClass(QContextID contextID, String address) {
+		return delegate.loadClass(contextID, address);
 	}
 }

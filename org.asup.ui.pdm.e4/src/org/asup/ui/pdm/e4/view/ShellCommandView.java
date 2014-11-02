@@ -158,6 +158,7 @@ public class ShellCommandView extends ViewPart {
 								response= shellCommandVizard.requestCommand(text.getText().toUpperCase());
 							} catch (Exception exc) {
 								MessageDialog.openWarning(parent.getShell(), "Console System", "Error in command execution: " + exc.getMessage());
+								exc.printStackTrace();
 							}
 							
 							text.setText(response);

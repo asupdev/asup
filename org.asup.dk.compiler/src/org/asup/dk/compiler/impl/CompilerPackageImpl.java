@@ -12,6 +12,7 @@ import org.asup.dk.compiler.EntryType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QCompilerManager;
 import org.asup.dk.compiler.QCompilerPackage;
 import org.asup.dk.compiler.QUnitConverter;
@@ -68,6 +69,13 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * @generated
 	 */
 	private EClass unitConverterRegistryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compilerLinkerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,6 +233,24 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCompilerLinker() {
+		return compilerLinkerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompilerLinker_LinkedClass() {
+		return (EAttribute)compilerLinkerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEntryType() {
 		return entryTypeEEnum;
 	}
@@ -288,6 +314,9 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 
 		unitConverterRegistryEClass = createEClass(UNIT_CONVERTER_REGISTRY);
 
+		compilerLinkerEClass = createEClass(COMPILER_LINKER);
+		createEAttribute(compilerLinkerEClass, COMPILER_LINKER__LINKED_CLASS);
+
 		// Create enums
 		entryTypeEEnum = createEEnum(ENTRY_TYPE);
 		caseSensitiveTypeEEnum = createEEnum(CASE_SENSITIVE_TYPE);
@@ -340,6 +369,7 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		EGenericType g2 = createEGenericType(this.getUnitConverter());
 		g1.getETypeArguments().add(g2);
 		unitConverterRegistryEClass.getEGenericSuperTypes().add(g1);
+		compilerLinkerEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getFacet());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(compilationContextEClass, QCompilationContext.class, "CompilationContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -475,6 +505,12 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		addEException(op, theFrameworkJavaPackage.getJavaException());
 
 		initEClass(unitConverterRegistryEClass, QUnitConverterRegistry.class, "UnitConverterRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(compilerLinkerEClass, QCompilerLinker.class, "CompilerLinker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getCompilerLinker_LinkedClass(), g1, "linkedClass", null, 0, 1, QCompilerLinker.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(entryTypeEEnum, EntryType.class, "EntryType");

@@ -609,6 +609,11 @@
         </elements>
       </definition>
     </datas>
+    <datas xsi:type="il-data:UnaryCompoundDataTerm"
+        name="*PGMSTATUS">
+      <definition
+          xsi:type="il-data:DataStructDef"/>
+    </datas>
     <datas xsi:type="il-data:UnaryAtomicDataTerm"
         name="*INOF">
       <definition
