@@ -1,5 +1,4 @@
 /**
- *  Copyright (c) 2012, 2014 Sme.UP and others.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
  *  which accompanies this distribution, and is available at
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndex;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.il.data.QBufferedData;
@@ -39,10 +39,12 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	private QConnection connection;
 	private QAliasResolver aliasAliasResolver;
 	private QDataFactory dataFactory;
+	private QDatabaseManager databaseManager;
 	
-	public JDBCIsamFactoryImpl(QConnection connection, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
+	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
 
 		this.connection = connection;
+		this.databaseManager = databaseManager;
 		this.aliasAliasResolver = aliasResolver;
 		this.dataFactory = dataFactory;
 	}
@@ -275,12 +277,14 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	
 	
 	public QIndex getIndex(String name) {
-
-		QIndex index = aliasAliasResolver.getIndex(connection, name);
 		
-/* 		
-		this.fileReader = fileManager.getResourceReader((QJob) contextID, Scope.LIBRARY_LIST);
- 		QFile file = fileManager.getOverridedDatabaseFile((QJob) contextID, name);
+		QIndex index = null;
+		if(aliasAliasResolver != null)
+			index = aliasAliasResolver.getIndex(connection, name);
+		
+		if(index == null)
+			index = databaseManager.getIndex(connection, "P_MULT", "MUTEST0F", "MUTEST0L");
+/* 		QFile file = fileManager.getOverridedDatabaseFile((QJob) contextID, name);
 		if(file == null)
 			file = fileReader.lookup(name);
 

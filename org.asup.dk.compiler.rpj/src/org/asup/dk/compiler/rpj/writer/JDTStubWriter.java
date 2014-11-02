@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi				- Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 
@@ -18,9 +18,9 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.flow.QProgram;
 
-public class RPJStubWriter extends RPJProgramWriter {
+public class JDTStubWriter extends JDTProgramWriter {
 
-	public RPJStubWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
+	public JDTStubWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationContext, compilationSetup, name);		
 	}
 	

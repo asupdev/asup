@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
 
-public class RPJMessageFileWriter extends RPJNamedNodeWriter {
+public class JDTMessageFileWriter extends JDTNamedNodeWriter {
 
-	public RPJMessageFileWriter(RPJNamedNodeWriter root,
+	public JDTMessageFileWriter(JDTNamedNodeWriter root,
 			QCompilationContext compilationContext,
 			QCompilationSetup compilationSetup, String name) {
 		super(root, compilationContext, compilationSetup, name);

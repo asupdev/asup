@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi				- Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 
@@ -21,9 +21,9 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 
-public class RPJModuleWriter extends RPJCallableUnitWriter {
+public class JDTModuleWriter extends JDTCallableUnitWriter {
 
-	public RPJModuleWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
+	public JDTModuleWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationContext, compilationSetup, name);
 		
 		writeImport(QModule.class);

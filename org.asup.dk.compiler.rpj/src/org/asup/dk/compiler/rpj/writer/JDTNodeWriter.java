@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -13,7 +13,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
 
-public class RPJNodeWriter {
+public class JDTNodeWriter {
 
 	private AST ast;
 	private CompilationUnit compilationUnit;
@@ -22,7 +22,7 @@ public class RPJNodeWriter {
 	private QCompilationContext compilationContext;
 	private QCompilationSetup compilationSetup;
 	
-	public RPJNodeWriter(RPJNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup) {
+	public JDTNodeWriter(JDTNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup) {
 		
 		this.compilationContext = compilationContext;
 		this.compilationSetup = compilationSetup;
@@ -46,7 +46,6 @@ public class RPJNodeWriter {
 
 	protected String normalizeInnerName(QDataTerm<?> term) {
 
-		
 		String name = getCompilationContext().normalizeTypeName(term.getName());
 		
 		// multiple

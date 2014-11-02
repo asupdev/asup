@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -58,12 +58,12 @@ import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-public class RPJNamedNodeWriter extends RPJNodeWriter {
+public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 	private TypeDeclaration target;
 	
 	@SuppressWarnings("unchecked")
-	public RPJNamedNodeWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
+	public JDTNamedNodeWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
 			
 		super(root, compilationContext, compilationSetup);
 
@@ -182,18 +182,17 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
-					RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
 					dataStructureWriter.writeStructure(unaryCompoundDataTerm.getDefinition());
 				}
 				else {
 
-					// TODO @Derived
 					if(isOverridden(unaryCompoundDataTerm)) {
 						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 						compilationSetup.setSuperClass(linkedClass);
 	
-						RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
+						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 						for(QDataTerm<?> element: unaryCompoundDataTerm.getDefinition().getElements()) {
 							if(element.getFacet(QDerived.class) != null)
@@ -220,7 +219,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
-					RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
 					dataStructureWriter.writeStructure(multipleCompoundDataTerm.getDefinition());
 				}
 				else {
@@ -229,7 +228,7 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 						compilationSetup.setSuperClass(linkedClass);
 	
-						RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
+						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 						for(QDataTerm<?> element: multipleCompoundDataTerm.getDefinition().getElements()) {
 							if(element.getFacet(QDerived.class) != null)
@@ -510,8 +509,10 @@ public class RPJNamedNodeWriter extends RPJNodeWriter {
 						type = getAST().newSimpleType(getAST().newName(linkedClass.getName().split("\\.")));
 										
 				}
-				else
-					type = getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)));
+				else {
+					String qualifiedName = getCompilationContext().getQualifiedName(dataTerm);
+					type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(qualifiedName)));
+				}
 	
 				break;
 		}

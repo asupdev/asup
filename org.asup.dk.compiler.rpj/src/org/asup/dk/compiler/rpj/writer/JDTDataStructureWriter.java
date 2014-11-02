@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QDataTerm;
 import org.eclipse.jdt.core.dom.Modifier;
 
-public class RPJDataStructureWriter extends RPJNamedNodeWriter {
+public class JDTDataStructureWriter extends JDTNamedNodeWriter {
 
 	@SuppressWarnings("unchecked")
-	public RPJDataStructureWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name, boolean statik) {
+	public JDTDataStructureWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name, boolean statik) {
 		super(root, compilationContext, compilationSetup, name);
 		
 		if(statik)

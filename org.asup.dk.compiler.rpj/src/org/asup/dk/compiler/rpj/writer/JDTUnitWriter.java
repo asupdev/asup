@@ -9,11 +9,12 @@
  * Contributors: 
  *   Mattia Rocchi				- Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.rpj.visitor.RPJExpressionNormalizer;
+import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
+import org.asup.dk.compiler.rpj.RPJExpressionNormalizer;
 import org.asup.il.data.QData;
 import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.flow.QStatement;
@@ -28,11 +29,11 @@ import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-public abstract class RPJUnitWriter extends RPJNamedNodeWriter {
+public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 	
 	RPJCallableUnitInfo callableUnitInfo;		
 	
-	public RPJUnitWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
+	public JDTUnitWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
 		super(root, compilationContext, compilationSetup, name);
 		
 		callableUnitInfo = new RPJCallableUnitInfo();

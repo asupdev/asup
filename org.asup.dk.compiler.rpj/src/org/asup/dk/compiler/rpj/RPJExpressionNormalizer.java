@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj.visitor;
+package org.asup.dk.compiler.rpj;
 
 import java.util.ArrayList;
 import java.util.List;

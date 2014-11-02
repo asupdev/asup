@@ -40,7 +40,8 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	
 	protected JDBCIndexDataSetImpl(QConnection databaseConnection, QIndex index, AccessMode accessMode, DS dataStruct) {
 		super(databaseConnection, accessMode, dataStruct);
-		setIndex(index);
+		if(index != null)
+			setIndex(index);
 	}
 
 	@Override

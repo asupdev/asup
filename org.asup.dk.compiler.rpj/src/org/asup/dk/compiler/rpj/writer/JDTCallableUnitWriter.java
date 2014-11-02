@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi				- Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,9 +17,8 @@ import java.util.List;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerLinker;
+import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
 import org.asup.dk.compiler.rpj.helper.EnumHelper;
-import org.asup.dk.compiler.rpj.visitor.JDTStatementWriter;
-import org.asup.dk.compiler.rpj.visitor.RPJCallableUnitAnalyzer;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
@@ -60,9 +59,9 @@ import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-public abstract class RPJCallableUnitWriter extends RPJUnitWriter {
+public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
-	public RPJCallableUnitWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
+	public JDTCallableUnitWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
 		super(root, compilationContext, compilationSetup, name);
 	}
 	
