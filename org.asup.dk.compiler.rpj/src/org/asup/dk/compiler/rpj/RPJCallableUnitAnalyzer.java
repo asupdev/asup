@@ -1,6 +1,5 @@
-package org.asup.dk.compiler.rpj.visitor;
+package org.asup.dk.compiler.rpj;
 
-import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
 import org.asup.il.flow.impl.StatementVisitorImpl;

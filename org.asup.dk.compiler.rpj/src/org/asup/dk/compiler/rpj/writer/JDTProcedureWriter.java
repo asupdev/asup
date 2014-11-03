@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 
@@ -13,9 +13,9 @@ import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 
-public class RPJProcedureWriter extends RPJCallableUnitWriter {
+public class JDTProcedureWriter extends JDTCallableUnitWriter {
 
-	public RPJProcedureWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
+	public JDTProcedureWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
 		
 		super(root, compilationContext, compilationSetup, name);
 	}

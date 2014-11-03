@@ -26,6 +26,10 @@ import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.impl.CompilerManagerImpl;
+import org.asup.dk.compiler.rpj.writer.JDTDataStructureWriter;
+import org.asup.dk.compiler.rpj.writer.JDTModuleWriter;
+import org.asup.dk.compiler.rpj.writer.JDTProgramWriter;
+import org.asup.dk.compiler.rpj.writer.JDTStubWriter;
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
 import org.asup.il.data.QCompoundDataTerm;
@@ -234,7 +238,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		RPJProgramWriter programWriter = new RPJProgramWriter(null, context, setup, context.getRoot().getName());
+		JDTProgramWriter programWriter = new JDTProgramWriter(null, context, setup, context.getRoot().getName());
 		programWriter.writeProgram((QProgram) context.getRoot());
 
 		programWriter.writeOutputStream(output);
@@ -243,7 +247,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		
-		RPJModuleWriter moduleWriter = new RPJModuleWriter(null, context, setup, context.getRoot().getName());		
+		JDTModuleWriter moduleWriter = new JDTModuleWriter(null, context, setup, context.getRoot().getName());		
 		moduleWriter.writeModule((QModule) context.getRoot());
 
 		moduleWriter.writeOutputStream(output);
@@ -252,7 +256,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public void writeStruct(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		
-		RPJDataStructureWriter dataStructureWriter = new RPJDataStructureWriter(null, context, setup, context.getRoot().getName(), false);
+		JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(null, context, setup, context.getRoot().getName(), false);
 		dataStructureWriter.writeStructure(((QCompoundDataTerm<?>)context.getRoot()).getDefinition());
 
 		dataStructureWriter.writeOutputStream(output);
@@ -261,7 +265,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public void writeStub(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		
-		RPJStubWriter skeletonWriter = new RPJStubWriter(null, context, setup, context.getRoot().getName());
+		JDTStubWriter skeletonWriter = new JDTStubWriter(null, context, setup, context.getRoot().getName());
 		skeletonWriter.writeSkeleton((QProgram) context.getRoot());
 		
 		skeletonWriter.writeOutputStream(output);

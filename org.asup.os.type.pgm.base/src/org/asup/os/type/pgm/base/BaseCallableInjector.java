@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContext;
@@ -200,6 +201,8 @@ public class BaseCallableInjector {
 			field.setAccessible(false);
 		}
 
+		context.invoke(callable, PostConstruct.class);
+		
 		return callable;
 	}
 }

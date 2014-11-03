@@ -211,4 +211,10 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public long getTime() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

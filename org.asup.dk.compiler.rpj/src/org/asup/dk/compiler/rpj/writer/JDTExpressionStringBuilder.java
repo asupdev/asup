@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj.visitor;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -642,6 +642,10 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(value);
 			buffer.append(".asDouble()");
 		}
+		else if(target.isAssignableFrom(Date.class)) {
+			buffer.append(value);
+			buffer.append(".getTime()");
+		}
 		else if(target.isAssignableFrom(Object.class)) {
 			buffer.append(value);
 			buffer.append(".asObject()");					
@@ -650,6 +654,6 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append("qRPJ.qBox("+value+")");
 		}
 		else
-			value.toCharArray();
+			System.err.println("Unexpected condition: xm4tnfdgs78f87mxz");
 	}
 }

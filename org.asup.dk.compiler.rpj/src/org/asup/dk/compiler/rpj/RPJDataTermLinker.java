@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj.visitor;
+package org.asup.dk.compiler.rpj;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,6 @@ import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.QCompilerLinker;
-import org.asup.dk.compiler.rpj.RPJCallableUnitLinker;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.data.QCompoundDataTerm;

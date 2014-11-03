@@ -1,4 +1,4 @@
-package org.asup.dk.compiler.rpj.visitor;
+package org.asup.dk.compiler.rpj;
 
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QBreak;

@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi				- Initial API and implementation 
  */
-package org.asup.dk.compiler.rpj;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,9 +34,9 @@ import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
-public class RPJProgramWriter extends RPJCallableUnitWriter {
+public class JDTProgramWriter extends JDTCallableUnitWriter {
 
-	public RPJProgramWriter(RPJNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
+	public JDTProgramWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationContext, compilationSetup, name);
 		
 		writeImport(Program.class);
@@ -150,21 +150,6 @@ public class RPJProgramWriter extends RPJCallableUnitWriter {
 		stringLiteral.setLiteralValue(program.getName());
 		memberValuePair.setValue(stringLiteral);
 		programAnnotation.values().add(memberValuePair);
-
-		// @Program(messages=)
-/*		if(!program.getMessages().isEmpty()) {
-			memberValuePair = getAST().newMemberValuePair();
-			memberValuePair.setName(getAST().newSimpleName("messages"));
-
-			ArrayInitializer arrayInit = getAST().newArrayInitializer();
-			for (String message : program.getMessages()) {
-				stringLiteral = getAST().newStringLiteral();
-				stringLiteral.setLiteralValue(message); 
-				arrayInit.expressions().add(stringLiteral);
-			}
-			memberValuePair.setValue(arrayInit);
-			programAnnotation.values().add(memberValuePair);
-		}*/
 
 		getTarget().modifiers().add(programAnnotation);		
 	}

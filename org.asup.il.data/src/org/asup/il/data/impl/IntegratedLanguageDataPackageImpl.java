@@ -3120,6 +3120,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(datetimeEClass, null, "eval", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(datetimeEClass, ecorePackage.getELong(), "getTime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(datetimeDefEClass, QDatetimeDef.class, "DatetimeDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDatetimeDef_Type(), this.getDatetimeType(), "type", null, 1, 1, QDatetimeDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDatetimeDef_Format(), ecorePackage.getEString(), "format", null, 0, 1, QDatetimeDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

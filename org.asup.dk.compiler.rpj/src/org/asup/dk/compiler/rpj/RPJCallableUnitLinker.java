@@ -11,7 +11,6 @@ import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.QCompilerLinker;
-import org.asup.dk.compiler.rpj.visitor.RPJDataTermLinker;
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
@@ -31,8 +30,6 @@ import org.asup.os.type.file.QPhysicalFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 //github.com/asupdev/asup.git
-import org.asup.dk.compiler.rpj.visitor.RPJDataLikeRefactor;
-import org.asup.dk.compiler.rpj.visitor.RPJDataOverlayRefactor;
 
 public class RPJCallableUnitLinker {
 
@@ -56,8 +53,7 @@ public class RPJCallableUnitLinker {
 
 	public void linkExternalDatas() {
 		
-		// TODO
-		if(!(compilationContext.getRoot() instanceof QCallableUnit))
+	if(!(compilationContext.getRoot() instanceof QCallableUnit))
 			return;
 		
 		QCallableUnit callableUnit = (QCallableUnit) compilationContext.getRoot();
@@ -75,7 +71,6 @@ public class RPJCallableUnitLinker {
 	
 	public void linkLikeDatas() {
 		
-		// TODO
 		if(!(compilationContext.getRoot() instanceof QCallableUnit))
 			return;
 		
@@ -100,7 +95,6 @@ public class RPJCallableUnitLinker {
 
 	public void linkOverlayDatas() {
 		
-		// TODO
 		if(!(compilationContext.getRoot() instanceof QCallableUnit))
 			return;
 		
@@ -125,7 +119,6 @@ public class RPJCallableUnitLinker {
 
 	public void linkFiles() {
 		
-		// TODO
 		if(!(compilationContext.getRoot() instanceof QCallableUnit))
 			return;
 
