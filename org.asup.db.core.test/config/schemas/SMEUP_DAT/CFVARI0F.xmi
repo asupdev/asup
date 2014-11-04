@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CFVARI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C&#xa3;QUES" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa3;CD01" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa3;CD02" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa3;CD03" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa3;DOMA" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa3;OGVA" precision="12"/>
+  <columns dataType="CHAR" name="C&#xa3;CDVA" precision="100"/>
+  <columns dataType="CHAR" name="C&#xa3;PARA" precision="100"/>
+  <columns dataType="CHAR" name="C&#xa3;FL01" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL02" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL03" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL04" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL05" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL06" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL07" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL08" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL09" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa3;FL10" precision="1"/>
+  <columns dataType="DECIMAL" name="C&#xa3;DTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa3;DTAG" precision="8"/>
+  <columns dataType="CHAR" name="C&#xa3;USAG" precision="10"/>
+</db-core:Table>

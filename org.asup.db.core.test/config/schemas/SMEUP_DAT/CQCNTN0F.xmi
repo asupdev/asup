@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQCNTN0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;LOTI" precision="15"/>
+  <columns dataType="DECIMAL" name="C&#xa7;PROG" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;QRIL" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="C&#xa7;QSCA" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="C&#xa7;QCOR" precision="9" scale="3"/>
+  <columns dataType="CHAR" name="C&#xa7;TCON" precision="3"/>
+  <columns dataType="CHAR" name="C&#xa7;UBIC" precision="5"/>
+  <columns dataType="CHAR" name="C&#xa7;STST" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;STAM" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;TDUB" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;JRIF" precision="22"/>
+  <columns dataType="DECIMAL" name="C&#xa7;KRIF" precision="7"/>
+  <columns dataType="DECIMAL" name="C&#xa7;RMOV" precision="4"/>
+</db-core:Table>

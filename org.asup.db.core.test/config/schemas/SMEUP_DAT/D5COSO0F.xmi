@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D5COSO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="D$TIPA" precision="12"/>
+  <columns dataType="CHAR" name="D$CODI" precision="15"/>
+  <columns dataType="CHAR" name="D$TROT" precision="3"/>
+  <columns dataType="CHAR" name="D$COD1" precision="15"/>
+  <columns dataType="CHAR" name="D$COD2" precision="15"/>
+  <columns dataType="CHAR" name="D$COD3" precision="15"/>
+  <columns dataType="CHAR" name="D$DTVA" precision="10"/>
+  <columns dataType="CHAR" name="D$SSIN" precision="2"/>
+  <columns dataType="DECIMAL" name="D$C001" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C002" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C003" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C004" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C005" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C006" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C007" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C008" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C009" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C010" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C011" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C012" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C013" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C014" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C015" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C016" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C017" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C018" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C019" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C020" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C021" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C022" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C023" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C024" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C025" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C026" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C027" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C028" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C029" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C030" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C031" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C032" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C033" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C034" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C035" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C036" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C037" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C038" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C039" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C040" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C041" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C042" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C043" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C044" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C045" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C046" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C047" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C048" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C049" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C050" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C051" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C052" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C053" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C054" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C055" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C056" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C057" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C058" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C059" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C060" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C061" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C062" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C063" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C064" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C065" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C066" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C067" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C068" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C069" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C070" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C071" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C072" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C073" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C074" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C075" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C076" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C077" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C078" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C079" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C080" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C081" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C082" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C083" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C084" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C085" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C086" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C087" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C088" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C089" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C090" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C091" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C092" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C093" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C094" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C095" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C096" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C097" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C098" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D$C099" precision="20" scale="6"/>
+  <columns dataType="CHAR" name="D$LIVE" precision="1"/>
+  <columns dataType="CHAR" name="D$STAT" precision="2"/>
+  <columns dataType="DECIMAL" name="D$DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="D$ORIN" precision="6"/>
+  <columns dataType="DECIMAL" name="D$DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="D$ORAG" precision="6"/>
+  <columns dataType="CHAR" name="D$USIN" precision="10"/>
+  <columns dataType="CHAR" name="D$USAG" precision="10"/>
+  <columns dataType="CHAR" name="D$PRIN" precision="10"/>
+  <columns dataType="CHAR" name="D$PRAG" precision="10"/>
+  <columns dataType="CHAR" name="D$FL01" precision="1"/>
+  <columns dataType="CHAR" name="D$FL02" precision="1"/>
+  <columns dataType="CHAR" name="D$FL03" precision="1"/>
+  <columns dataType="CHAR" name="D$FL04" precision="1"/>
+  <columns dataType="CHAR" name="D$FL05" precision="1"/>
+  <columns dataType="CHAR" name="D$FL06" precision="1"/>
+  <columns dataType="CHAR" name="D$FL07" precision="1"/>
+  <columns dataType="CHAR" name="D$FL08" precision="1"/>
+  <columns dataType="CHAR" name="D$FL09" precision="1"/>
+  <columns dataType="CHAR" name="D$FL10" precision="1"/>
+  <columns dataType="CHAR" name="D$FL11" precision="1"/>
+  <columns dataType="CHAR" name="D$FL12" precision="1"/>
+  <columns dataType="CHAR" name="D$FL13" precision="1"/>
+  <columns dataType="CHAR" name="D$FL14" precision="1"/>
+  <columns dataType="CHAR" name="D$FL15" precision="1"/>
+  <columns dataType="CHAR" name="D$FL16" precision="1"/>
+  <columns dataType="CHAR" name="D$FL17" precision="1"/>
+  <columns dataType="CHAR" name="D$FL18" precision="1"/>
+  <columns dataType="CHAR" name="D$FL19" precision="1"/>
+  <columns dataType="CHAR" name="D$FL20" precision="1"/>
+</db-core:Table>

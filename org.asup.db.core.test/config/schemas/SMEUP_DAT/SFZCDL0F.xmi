@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFZCDL0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="SZCANN" precision="1"/>
+  <columns dataType="CHAR" name="SZCATT" precision="15"/>
+  <columns dataType="CHAR" name="SZCCDL" precision="6"/>
+  <columns dataType="DECIMAL" name="SZCNAT" precision="5"/>
+  <columns dataType="DECIMAL" name="SZCTLA" precision="6" scale="2"/>
+  <columns dataType="DECIMAL" name="SZCTAT" precision="6" scale="2"/>
+</db-core:Table>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW MMMATE1L (&#xA;  M$CODI ,&#xA;  M$COIN ,&#xA;  M$COMA ,&#xA;  M$DESC ,&#xA;  M$TIPO ,&#xA;  M$UMIS ,&#xA;  M$QTAI ,&#xA;  M$FORN ,&#xA;  M$RAGS ,&#xA;  M$CAFO )&#xA;  AS&#xA;  SELECT&#xA;  M$CODI ,&#xA;  M$COIN ,&#xA;  M$COMA ,&#xA;  M$DESC ,&#xA;  M$TIPO ,&#xA;  M$UMIS ,&#xA;  M$QTAI ,&#xA;  M$FORN ,&#xA;  M$RAGS ,&#xA;  M$CAFO&#xA;  FROM MMMATE0F&#xA;  ;&#xA;&#xA;" name="MMMATE1L"/>

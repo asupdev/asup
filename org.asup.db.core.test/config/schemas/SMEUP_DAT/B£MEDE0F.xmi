@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;MEDE0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="MEAZIE" precision="2"/>
+  <columns dataType="CHAR" name="MEIDOJ" precision="10"/>
+  <columns dataType="CHAR" name="METIPA" precision="12"/>
+  <columns dataType="CHAR" name="MECODI" precision="15"/>
+  <columns dataType="CHAR" name="METIPO" precision="3"/>
+  <columns dataType="CHAR" name="MECOD1" precision="15"/>
+  <columns dataType="CHAR" name="MECOD2" precision="15"/>
+  <columns dataType="CHAR" name="MECOD3" precision="15"/>
+  <columns dataType="CHAR" name="METIP2" precision="3"/>
+  <columns dataType="CHAR" name="MECOD4" precision="15"/>
+  <columns dataType="CHAR" name="MECOD5" precision="15"/>
+  <columns dataType="CHAR" name="MECOD6" precision="15"/>
+  <columns dataType="CHAR" name="MEDESC" precision="35"/>
+  <columns dataType="DECIMAL" name="MEDT01" precision="8"/>
+  <columns dataType="DECIMAL" name="MEDT02" precision="8"/>
+  <columns dataType="DECIMAL" name="MEDT03" precision="8"/>
+  <columns dataType="DECIMAL" name="MEDT04" precision="8"/>
+  <columns dataType="DECIMAL" name="MEDT05" precision="8"/>
+  <columns dataType="CHAR" name="MECDL1" precision="15"/>
+  <columns dataType="CHAR" name="MECDL2" precision="15"/>
+  <columns dataType="CHAR" name="MECDL3" precision="15"/>
+  <columns dataType="CHAR" name="MECDL4" precision="15"/>
+  <columns dataType="CHAR" name="MECDL5" precision="15"/>
+  <columns dataType="DECIMAL" name="MENUM1" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MENUM2" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MENUM3" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MENUM4" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MENUM5" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="MEFL01" precision="1"/>
+  <columns dataType="CHAR" name="MEFL02" precision="1"/>
+  <columns dataType="CHAR" name="MEFL03" precision="1"/>
+  <columns dataType="CHAR" name="MEFL04" precision="1"/>
+  <columns dataType="CHAR" name="MEFL05" precision="1"/>
+  <columns dataType="CHAR" name="MEFL06" precision="1"/>
+  <columns dataType="CHAR" name="MEFL07" precision="1"/>
+  <columns dataType="CHAR" name="MEFL08" precision="1"/>
+  <columns dataType="CHAR" name="MEFL09" precision="1"/>
+  <columns dataType="CHAR" name="MEFL10" precision="1"/>
+  <columns dataType="CHAR" name="MEFL11" precision="1"/>
+  <columns dataType="CHAR" name="MEFL12" precision="1"/>
+  <columns dataType="CHAR" name="MEFL13" precision="1"/>
+  <columns dataType="CHAR" name="MEFL14" precision="1"/>
+  <columns dataType="CHAR" name="MEFL15" precision="1"/>
+  <columns dataType="CHAR" name="MEFL16" precision="1"/>
+  <columns dataType="CHAR" name="MEFL17" precision="1"/>
+  <columns dataType="CHAR" name="MEFL18" precision="1"/>
+  <columns dataType="CHAR" name="MEFL19" precision="1"/>
+  <columns dataType="CHAR" name="MEFL20" precision="1"/>
+  <columns dataType="DECIMAL" name="MEDTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="MEORIN" precision="6"/>
+  <columns dataType="DECIMAL" name="MEDTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="MEORAG" precision="6"/>
+  <columns dataType="CHAR" name="MEUSIN" precision="10"/>
+  <columns dataType="CHAR" name="MEUSAG" precision="10"/>
+  <columns dataType="CHAR" name="MEPRIN" precision="10"/>
+  <columns dataType="CHAR" name="MEPRAG" precision="10"/>
+  <columns dataType="VARCHAR" name="MEDATI" precision="30002"/>
+</db-core:Table>

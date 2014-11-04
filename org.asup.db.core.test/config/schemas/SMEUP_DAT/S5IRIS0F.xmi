@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="S5IRIS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="S6SCEN" precision="10"/>
+  <columns dataType="CHAR" name="S6TIRS" precision="3"/>
+  <columns dataType="CHAR" name="S6TSCH" precision="3"/>
+  <columns dataType="CHAR" name="S6TORI" precision="2"/>
+  <columns dataType="CHAR" name="S6TDOC" precision="3"/>
+  <columns dataType="CHAR" name="S6NDOC" precision="10"/>
+  <columns dataType="DECIMAL" name="S6NRIG" precision="4"/>
+  <columns dataType="CHAR" name="S6S$OR" precision="2"/>
+  <columns dataType="CHAR" name="S6L$OR" precision="1"/>
+  <columns dataType="CHAR" name="S6MAGC" precision="3"/>
+  <columns dataType="CHAR" name="S6COAR" precision="15"/>
+  <columns dataType="CHAR" name="S6CONF" precision="20"/>
+  <columns dataType="CHAR" name="S6TIEN" precision="3"/>
+  <columns dataType="CHAR" name="S6CLIE" precision="15"/>
+  <columns dataType="CHAR" name="S6COMS" precision="15"/>
+  <columns dataType="CHAR" name="S6PRIO" precision="2"/>
+  <columns dataType="DECIMAL" name="S6QORD" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6DIRI" precision="8"/>
+  <columns dataType="DECIMAL" name="S6DFRI" precision="8"/>
+  <columns dataType="CHAR" name="S6NORF" precision="10"/>
+  <columns dataType="CHAR" name="S6TORF" precision="2"/>
+  <columns dataType="CHAR" name="S6PARF" precision="10"/>
+  <columns dataType="CHAR" name="S6OGRF" precision="15"/>
+  <columns dataType="CHAR" name="S6TDOR" precision="3"/>
+  <columns dataType="CHAR" name="S6NDOR" precision="10"/>
+  <columns dataType="DECIMAL" name="S6NRIR" precision="4"/>
+  <columns dataType="DECIMAL" name="S6NREC" precision="11"/>
+  <columns dataType="CHAR" name="S6IDOF" precision="10"/>
+  <columns dataType="CHAR" name="S6OPER" precision="6"/>
+  <columns dataType="CHAR" name="S6DEOP" precision="30"/>
+  <columns dataType="CHAR" name="S6OPRI" precision="6"/>
+  <columns dataType="CHAR" name="S6TIRP" precision="3"/>
+  <columns dataType="CHAR" name="S6CLAV" precision="15"/>
+  <columns dataType="CHAR" name="S6TIRF" precision="3"/>
+  <columns dataType="CHAR" name="S6MACC" precision="15"/>
+  <columns dataType="CHAR" name="S6TPRA" precision="2"/>
+  <columns dataType="CHAR" name="S6PARA" precision="10"/>
+  <columns dataType="CHAR" name="S6OGRA" precision="15"/>
+  <columns dataType="CHAR" name="S6S$OP" precision="2"/>
+  <columns dataType="CHAR" name="S6L$OP" precision="1"/>
+  <columns dataType="CHAR" name="S6TCIC" precision="3"/>
+  <columns dataType="CHAR" name="S6CICL" precision="3"/>
+  <columns dataType="CHAR" name="S6TOPE" precision="3"/>
+  <columns dataType="CHAR" name="S6GRAL" precision="5"/>
+  <columns dataType="CHAR" name="S6CODC" precision="15"/>
+  <columns dataType="CHAR" name="S6CICC" precision="3"/>
+  <columns dataType="CHAR" name="S6SQCC" precision="6"/>
+  <columns dataType="CHAR" name="S6UBIP" precision="12"/>
+  <columns dataType="CHAR" name="S6UBID" precision="12"/>
+  <columns dataType="CHAR" name="S6STOP" precision="1"/>
+  <columns dataType="CHAR" name="S6UMIS" precision="2"/>
+  <columns dataType="DECIMAL" name="S6QTOR" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6QTOT" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6QTSC" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6QTFA" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="S6OPFA" precision="6"/>
+  <columns dataType="DECIMAL" name="S6QT01" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6QT02" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6QT03" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="S6DTUA" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HUNI" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S6HTOT" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HATR" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HR01" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HR02" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HR03" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6EF01" precision="6" scale="4"/>
+  <columns dataType="DECIMAL" name="S6EF02" precision="6" scale="4"/>
+  <columns dataType="DECIMAL" name="S6EF03" precision="6" scale="4"/>
+  <columns dataType="DECIMAL" name="S6EF04" precision="6" scale="4"/>
+  <columns dataType="DECIMAL" name="S6QUET" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="S6GG01" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6GG02" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6GG03" precision="7" scale="2"/>
+  <columns dataType="CHAR" name="S6UMTE" precision="2"/>
+  <columns dataType="CHAR" name="S6CDCA" precision="2"/>
+  <columns dataType="DECIMAL" name="S6TE01" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE02" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE03" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE04" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE05" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE06" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE07" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE08" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE09" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6TE10" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC01" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC02" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC03" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC04" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC05" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC06" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC07" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC08" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC09" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="S6CC10" precision="11" scale="4"/>
+  <columns dataType="CHAR" name="S6CROR" precision="100"/>
+  <columns dataType="CHAR" name="S6TPRG" precision="3"/>
+  <columns dataType="CHAR" name="S6CODR" precision="10"/>
+  <columns dataType="DECIMAL" name="S6NUMR" precision="7"/>
+  <columns dataType="CHAR" name="S6TIPF" precision="3"/>
+  <columns dataType="CHAR" name="S6CODF" precision="15"/>
+  <columns dataType="DECIMAL" name="S6PRGS" precision="5"/>
+  <columns dataType="CHAR" name="S6TRIN" precision="1"/>
+  <columns dataType="DECIMAL" name="S6DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HRIN" precision="6"/>
+  <columns dataType="CHAR" name="S6TRFI" precision="1"/>
+  <columns dataType="DECIMAL" name="S6DTFI" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HRFI" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DISC" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HISC" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DFSC" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HFSC" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DIST" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HIST" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DFST" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HFST" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DTPP" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HRPP" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DTPT" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HRPT" precision="6"/>
+  <columns dataType="CHAR" name="S6VEIT" precision="2"/>
+  <columns dataType="DECIMAL" name="S6VEID" precision="8"/>
+  <columns dataType="DECIMAL" name="S6VEIH" precision="6"/>
+  <columns dataType="CHAR" name="S6VEFT" precision="2"/>
+  <columns dataType="DECIMAL" name="S6VEFD" precision="8"/>
+  <columns dataType="DECIMAL" name="S6VEFH" precision="6"/>
+  <columns dataType="CHAR" name="S6CAUS" precision="5"/>
+  <columns dataType="DECIMAL" name="S6ID01" precision="8"/>
+  <columns dataType="DECIMAL" name="S6IH01" precision="6"/>
+  <columns dataType="DECIMAL" name="S6ID02" precision="8"/>
+  <columns dataType="DECIMAL" name="S6IH02" precision="6"/>
+  <columns dataType="DECIMAL" name="S6ID03" precision="8"/>
+  <columns dataType="DECIMAL" name="S6IH03" precision="6"/>
+  <columns dataType="DECIMAL" name="S6ID04" precision="8"/>
+  <columns dataType="DECIMAL" name="S6IH04" precision="6"/>
+  <columns dataType="DECIMAL" name="S6ID05" precision="8"/>
+  <columns dataType="DECIMAL" name="S6IH05" precision="6"/>
+  <columns dataType="DECIMAL" name="S6DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="S6DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="S6DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="S6DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="S6DT05" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HL01" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HL02" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HL03" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HL04" precision="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S6HL05" precision="7" scale="2"/>
+  <columns dataType="CHAR" name="S6AA01" precision="15"/>
+  <columns dataType="CHAR" name="S6AA02" precision="15"/>
+  <columns dataType="CHAR" name="S6AA03" precision="15"/>
+  <columns dataType="CHAR" name="S6AA04" precision="15"/>
+  <columns dataType="CHAR" name="S6AA05" precision="15"/>
+  <columns dataType="DECIMAL" name="S6NU01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S6NU02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S6NU03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S6NU04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S6NU05" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="S6NOTA" precision="50"/>
+  <columns dataType="CHAR" name="S6FL01" precision="1"/>
+  <columns dataType="CHAR" name="S6FL02" precision="1"/>
+  <columns dataType="CHAR" name="S6FL03" precision="1"/>
+  <columns dataType="CHAR" name="S6FL04" precision="1"/>
+  <columns dataType="CHAR" name="S6FL05" precision="1"/>
+  <columns dataType="CHAR" name="S6FL06" precision="1"/>
+  <columns dataType="CHAR" name="S6FL07" precision="1"/>
+  <columns dataType="CHAR" name="S6FL08" precision="1"/>
+  <columns dataType="CHAR" name="S6FL09" precision="1"/>
+  <columns dataType="CHAR" name="S6FL10" precision="1"/>
+  <columns dataType="CHAR" name="S6FL11" precision="1"/>
+  <columns dataType="CHAR" name="S6FL12" precision="1"/>
+  <columns dataType="CHAR" name="S6FL13" precision="1"/>
+  <columns dataType="CHAR" name="S6FL14" precision="1"/>
+  <columns dataType="CHAR" name="S6FL15" precision="1"/>
+  <columns dataType="CHAR" name="S6FL16" precision="1"/>
+  <columns dataType="CHAR" name="S6FL17" precision="1"/>
+  <columns dataType="CHAR" name="S6FL18" precision="1"/>
+  <columns dataType="CHAR" name="S6FL19" precision="1"/>
+  <columns dataType="CHAR" name="S6FL20" precision="1"/>
+  <columns dataType="CHAR" name="S6FL21" precision="1"/>
+  <columns dataType="CHAR" name="S6FL22" precision="1"/>
+  <columns dataType="CHAR" name="S6FL23" precision="1"/>
+  <columns dataType="CHAR" name="S6FL24" precision="1"/>
+  <columns dataType="CHAR" name="S6FL25" precision="1"/>
+  <columns dataType="CHAR" name="S6FL26" precision="1"/>
+  <columns dataType="CHAR" name="S6FL27" precision="1"/>
+  <columns dataType="CHAR" name="S6FL28" precision="1"/>
+  <columns dataType="CHAR" name="S6FL29" precision="1"/>
+  <columns dataType="CHAR" name="S6FL30" precision="1"/>
+  <columns dataType="CHAR" name="S6FL31" precision="1"/>
+  <columns dataType="CHAR" name="S6FL32" precision="1"/>
+  <columns dataType="CHAR" name="S6FL33" precision="1"/>
+  <columns dataType="CHAR" name="S6FL34" precision="1"/>
+  <columns dataType="CHAR" name="S6FL35" precision="1"/>
+  <columns dataType="CHAR" name="S6FL36" precision="1"/>
+  <columns dataType="CHAR" name="S6FL37" precision="1"/>
+  <columns dataType="CHAR" name="S6FL38" precision="1"/>
+  <columns dataType="CHAR" name="S6FL39" precision="1"/>
+  <columns dataType="CHAR" name="S6FL40" precision="1"/>
+  <columns dataType="CHAR" name="S6IDOJ" precision="10"/>
+  <columns dataType="DECIMAL" name="S6DTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HRCR" precision="6"/>
+  <columns dataType="CHAR" name="S6USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="S6DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="S6HRAG" precision="6"/>
+  <columns dataType="CHAR" name="S6USAG" precision="10"/>
+</db-core:Table>

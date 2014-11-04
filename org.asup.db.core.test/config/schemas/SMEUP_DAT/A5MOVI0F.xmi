@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A5MOVI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="RAAZIE" precision="2"/>
+  <columns dataType="CHAR" name="RADIVI" precision="3"/>
+  <columns dataType="CHAR" name="RAESER" precision="10"/>
+  <columns dataType="CHAR" name="RALIVE" precision="1"/>
+  <columns dataType="CHAR" name="RASTAT" precision="2"/>
+  <columns dataType="CHAR" name="RAIDOJ" precision="10"/>
+  <columns dataType="CHAR" name="RACESP" precision="15"/>
+  <columns dataType="CHAR" name="RACACE" precision="10"/>
+  <columns dataType="CHAR" name="RACERI" precision="15"/>
+  <columns dataType="CHAR" name="RACAUS" precision="3"/>
+  <columns dataType="CHAR" name="RATIMO" precision="2"/>
+  <columns dataType="CHAR" name="RADESC" precision="30"/>
+  <columns dataType="CHAR" name="RADESS" precision="30"/>
+  <columns dataType="CHAR" name="RANDOR" precision="20"/>
+  <columns dataType="CHAR" name="RANPRO" precision="15"/>
+  <columns dataType="CHAR" name="RALINE" precision="2"/>
+  <columns dataType="CHAR" name="RAIDOR" precision="10"/>
+  <columns dataType="CHAR" name="RAPROG" precision="10"/>
+  <columns dataType="DECIMAL" name="RARIGA" precision="5"/>
+  <columns dataType="CHAR" name="RATREG" precision="6"/>
+  <columns dataType="CHAR" name="RATPOR" precision="12"/>
+  <columns dataType="CHAR" name="RACDOR" precision="15"/>
+  <columns dataType="CHAR" name="RATPCN" precision="3"/>
+  <columns dataType="CHAR" name="RASOGG" precision="15"/>
+  <columns dataType="CHAR" name="RAVALU" precision="4"/>
+  <columns dataType="DECIMAL" name="RACAMB" precision="11" scale="6"/>
+  <columns dataType="DECIMAL" name="RAIMPO" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RAIMVA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RAVALO" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RAPTEO" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="RAPERC" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="RANRPZ" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RADREG" precision="8"/>
+  <columns dataType="DECIMAL" name="RADDOR" precision="8"/>
+  <columns dataType="DECIMAL" name="RADPRO" precision="8"/>
+  <columns dataType="DECIMAL" name="RADAMM" precision="8"/>
+  <columns dataType="DECIMAL" name="RADT01" precision="8"/>
+  <columns dataType="DECIMAL" name="RADT02" precision="8"/>
+  <columns dataType="DECIMAL" name="RADT03" precision="8"/>
+  <columns dataType="DECIMAL" name="RADT04" precision="8"/>
+  <columns dataType="DECIMAL" name="RADT05" precision="8"/>
+  <columns dataType="CHAR" name="RAAA01" precision="15"/>
+  <columns dataType="CHAR" name="RAAA02" precision="15"/>
+  <columns dataType="CHAR" name="RAAA03" precision="15"/>
+  <columns dataType="CHAR" name="RAAA04" precision="15"/>
+  <columns dataType="CHAR" name="RAAA05" precision="15"/>
+  <columns dataType="DECIMAL" name="RANU01" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RANU02" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RANU03" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RANU04" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="RANU05" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="RAFL01" precision="1"/>
+  <columns dataType="CHAR" name="RAFL02" precision="1"/>
+  <columns dataType="CHAR" name="RAFL03" precision="1"/>
+  <columns dataType="CHAR" name="RAFL04" precision="1"/>
+  <columns dataType="CHAR" name="RAFL05" precision="1"/>
+  <columns dataType="CHAR" name="RAFL06" precision="1"/>
+  <columns dataType="CHAR" name="RAFL07" precision="1"/>
+  <columns dataType="CHAR" name="RAFL08" precision="1"/>
+  <columns dataType="CHAR" name="RAFL09" precision="1"/>
+  <columns dataType="CHAR" name="RAFL10" precision="1"/>
+  <columns dataType="CHAR" name="RAFL11" precision="1"/>
+  <columns dataType="CHAR" name="RAFL12" precision="1"/>
+  <columns dataType="CHAR" name="RAFL13" precision="1"/>
+  <columns dataType="CHAR" name="RAFL14" precision="1"/>
+  <columns dataType="CHAR" name="RAFL15" precision="1"/>
+  <columns dataType="CHAR" name="RAFL16" precision="1"/>
+  <columns dataType="CHAR" name="RAFL17" precision="1"/>
+  <columns dataType="CHAR" name="RAFL18" precision="1"/>
+  <columns dataType="CHAR" name="RAFL19" precision="1"/>
+  <columns dataType="CHAR" name="RAFL20" precision="1"/>
+  <columns dataType="CHAR" name="RAFL21" precision="1"/>
+  <columns dataType="CHAR" name="RAFL22" precision="1"/>
+  <columns dataType="CHAR" name="RAFL23" precision="1"/>
+  <columns dataType="CHAR" name="RAFL24" precision="1"/>
+  <columns dataType="CHAR" name="RAFL25" precision="1"/>
+  <columns dataType="CHAR" name="RAFL26" precision="1"/>
+  <columns dataType="CHAR" name="RAFL27" precision="1"/>
+  <columns dataType="CHAR" name="RAFL28" precision="1"/>
+  <columns dataType="CHAR" name="RAFL29" precision="1"/>
+  <columns dataType="CHAR" name="RAFL30" precision="1"/>
+  <columns dataType="CHAR" name="RAFL31" precision="1"/>
+  <columns dataType="CHAR" name="RAFL32" precision="1"/>
+  <columns dataType="CHAR" name="RAFL33" precision="1"/>
+  <columns dataType="CHAR" name="RAFL34" precision="1"/>
+  <columns dataType="CHAR" name="RAFL35" precision="1"/>
+  <columns dataType="CHAR" name="RAFL36" precision="1"/>
+  <columns dataType="CHAR" name="RAFL37" precision="1"/>
+  <columns dataType="CHAR" name="RAFL38" precision="1"/>
+  <columns dataType="CHAR" name="RAFL39" precision="1"/>
+  <columns dataType="CHAR" name="RAFL40" precision="1"/>
+  <columns dataType="DECIMAL" name="RADTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="RAORIN" precision="6"/>
+  <columns dataType="CHAR" name="RAUSIN" precision="10"/>
+  <columns dataType="DECIMAL" name="RADTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="RAORAG" precision="6"/>
+  <columns dataType="CHAR" name="RAUSAG" precision="10"/>
+</db-core:Table>

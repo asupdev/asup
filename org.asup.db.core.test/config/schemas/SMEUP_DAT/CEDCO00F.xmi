@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CEDCO00F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C$ANNU" precision="1"/>
+  <columns dataType="CHAR" name="C$TIPO" precision="1"/>
+  <columns dataType="CHAR" name="C$GCDC" precision="3"/>
+  <columns dataType="CHAR" name="C$CDC" precision="6"/>
+  <columns dataType="CHAR" name="C$DESC" precision="35"/>
+  <columns dataType="CHAR" name="C$INDR" precision="10"/>
+  <columns dataType="CHAR" name="C$VDS" precision="6"/>
+  <columns dataType="CHAR" name="C$VDSA" precision="6"/>
+  <columns dataType="CHAR" name="C$CO01" precision="12"/>
+  <columns dataType="CHAR" name="C$CO02" precision="12"/>
+  <columns dataType="CHAR" name="C$CO03" precision="12"/>
+  <columns dataType="CHAR" name="C$CO04" precision="12"/>
+  <columns dataType="CHAR" name="C$CO05" precision="12"/>
+  <columns dataType="CHAR" name="C$CO06" precision="12"/>
+  <columns dataType="CHAR" name="C$UNOP" precision="2"/>
+  <columns dataType="CHAR" name="C$DIRE" precision="3"/>
+  <columns dataType="CHAR" name="C$AREA" precision="3"/>
+  <columns dataType="DECIMAL" name="C$DIPR" precision="6"/>
+  <columns dataType="DECIMAL" name="C$DFPR" precision="6"/>
+  <columns dataType="DECIMAL" name="C$DIEF" precision="6"/>
+  <columns dataType="DECIMAL" name="C$DFEF" precision="6"/>
+  <columns dataType="CHAR" name="C$COCL" precision="6"/>
+  <columns dataType="CHAR" name="C$STAT" precision="2"/>
+  <columns dataType="CHAR" name="C$GCC4" precision="3"/>
+  <columns dataType="CHAR" name="C$GCC5" precision="3"/>
+  <columns dataType="CHAR" name="C$GCC6" precision="3"/>
+  <columns dataType="CHAR" name="C$GCC7" precision="3"/>
+  <columns dataType="CHAR" name="C$GCC8" precision="3"/>
+  <columns dataType="CHAR" name="C$GCC9" precision="3"/>
+</db-core:Table>

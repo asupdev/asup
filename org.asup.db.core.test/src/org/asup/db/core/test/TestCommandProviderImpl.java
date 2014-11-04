@@ -2,24 +2,22 @@ package org.asup.db.core.test;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-import java.util.Collections;
-import java.util.Properties;
+import java.sql.SQLException;
+import java.util.*;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
-import javax.swing.plaf.ListUI;
 
 import org.asup.db.core.*;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.*;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.osgi.framework.console.CommandInterpreter;
-import org.eclipse.osgi.framework.console.CommandProvider;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.FrameworkUtil;
+import org.eclipse.osgi.framework.console.*;
+import org.osgi.framework.*;
+
+
 
 public class TestCommandProviderImpl extends ServiceImpl implements CommandProvider  {
 	
@@ -30,6 +28,62 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	@Inject
 	private QDatabaseManager databaseManager;
 
+	public void _copySchema(CommandInterpreter interpreter) throws SQLException {
+		
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		
+		
+		String schemaName = interpreter.nextArgument();
+		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"+schemaName);
+		
+		String pluginName = interpreter.nextArgument();
+		QConnectionConfig connectionConfig = loadConfig(pluginName);
+
+		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
+		QSchema schema = databaseManager.getSchema(connection, schemaName);
+		if(schema != null)
+			databaseManager.dropSchema(connection, schema);
+
+		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
+		schema.setName(schemaName);
+		databaseManager.createSchema(connection, schema, true);
+		
+		
+		Set<String> fileNames = new TreeSet<String>();
+		
+		while(entries.hasMoreElements()) {
+			String entry = entries.nextElement();
+			fileNames.add(entry);
+		}
+		
+		for(String fileName: fileNames) {
+		
+			URL url = bundle.getEntry(fileName);
+			Object file = load(url);
+			
+			try {
+				if(file instanceof QTable) {
+					QTable table = (QTable) file;
+					table.setSchema(schema);
+					databaseManager.createTable(connection, table, true);
+				}
+				else if(file instanceof QView) {
+					QView view = (QView) file;
+					view.setSchema(schema);
+					databaseManager.createView(connection, view);
+				}
+				else if(file instanceof QIndex) {
+					QIndex index = (QIndex) file;
+					databaseManager.createIndex(connection, index);
+				}
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		connection.close();
+	}
 	
 	// connectionManager e disk
 	public Object _testcon(CommandInterpreter interpreter) throws SQLException {
@@ -171,19 +225,22 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		URL url = bundle.getEntry("/config/connection/"+name+".xmi");
 		System.out.println(URI.createURI(url.toString()));
 
+		
+		return (QConnectionConfig) load(url);
+	}
+
+	public EObject load(URL url) {
+
 		ResourceSet resourceSet = new ResourceSetImpl();
     	Resource resource = resourceSet.createResource(URI.createURI(url.toString()));    	
         try {
 			resource.load(Collections.EMPTY_MAP);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-        Object object = resource.getContents().get(0);
-        System.out.println(object);
-        
-		return (QConnectionConfig) object;
+        return resource.getContents().get(0);
+
 	}
 	
 	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
@@ -213,6 +270,8 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		}
 		databaseManager.createSchema(connectionTo, schema, true);
 	}
+	
+	
 	
 	public Object _copy(CommandInterpreter interpreter) throws SQLException {
 		copyDDL("MSSQL040", "DB2");

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="XMTEST0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="T$CODI" precision="15"/>
+  <columns dataType="CHAR" name="T$TIPO" precision="3"/>
+  <columns dataType="CHAR" name="T$DEIM" precision="50"/>
+  <columns dataType="CHAR" name="T$STAT" precision="3"/>
+  <columns dataType="CHAR" name="T$COAP" precision="15"/>
+  <columns dataType="CHAR" name="T$COCE" precision="15"/>
+  <columns dataType="CHAR" name="T$CSTR" precision="30"/>
+  <columns dataType="CHAR" name="T$FORN" precision="30"/>
+  <columns dataType="DECIMAL" name="T$ACOS" precision="4"/>
+  <columns dataType="DECIMAL" name="T$DINS" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DUMA" precision="8"/>
+  <columns dataType="CHAR" name="T$MAIN" precision="15"/>
+  <columns dataType="CHAR" name="T$MAFO" precision="15"/>
+  <columns dataType="CHAR" name="T$CDL" precision="6"/>
+  <columns dataType="CHAR" name="T$CDC" precision="6"/>
+  <columns dataType="DECIMAL" name="T$PESO" precision="7"/>
+  <columns dataType="DECIMAL" name="T$ALTE" precision="5"/>
+  <columns dataType="DECIMAL" name="T$LARG" precision="5"/>
+  <columns dataType="DECIMAL" name="T$LUNG" precision="5"/>
+</db-core:Table>

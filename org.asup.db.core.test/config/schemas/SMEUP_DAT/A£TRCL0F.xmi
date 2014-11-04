@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;TRCL0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="S3TIPA" precision="12"/>
+  <columns dataType="CHAR" name="S3CODI" precision="15"/>
+  <columns dataType="DECIMAL" name="S2LUNG" precision="4"/>
+  <columns dataType="CHAR" name="S2FILE" precision="10"/>
+  <columns dataType="CHAR" name="S2LIBR" precision="10"/>
+  <columns dataType="CHAR" name="S2APPL" precision="2"/>
+  <columns dataType="CHAR" name="S2STOR" precision="2"/>
+  <columns dataType="CHAR" name="S2LING" precision="3"/>
+  <columns dataType="CHAR" name="S2AMDE" precision="2"/>
+  <columns dataType="CHAR" name="S2TRAD" precision="100"/>
+  <columns dataType="CHAR" name="S2LINO" precision="3"/>
+  <columns dataType="CHAR" name="S2STDE" precision="2"/>
+  <columns dataType="CHAR" name="S2FTTR" precision="2"/>
+  <columns dataType="CHAR" name="S2USEX" precision="10"/>
+  <columns dataType="DECIMAL" name="S2DTEX" precision="8"/>
+  <columns dataType="DECIMAL" name="S2OREX" precision="6"/>
+  <columns dataType="CHAR" name="S2USIM" precision="10"/>
+  <columns dataType="DECIMAL" name="S2DTIM" precision="8"/>
+  <columns dataType="DECIMAL" name="S2ORIM" precision="6"/>
+  <columns dataType="DECIMAL" name="S2NRIM" precision="5"/>
+  <columns dataType="CHAR" name="S2NOT1" precision="512"/>
+  <columns dataType="CHAR" name="S2NOT2" precision="512"/>
+  <columns dataType="DECIMAL" name="S2DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="S2DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="S2DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="S2DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="S2DT05" precision="8"/>
+  <columns dataType="CHAR" name="S2COD1" precision="15"/>
+  <columns dataType="CHAR" name="S2COD2" precision="15"/>
+  <columns dataType="CHAR" name="S2COD3" precision="15"/>
+  <columns dataType="CHAR" name="S2COD4" precision="15"/>
+  <columns dataType="CHAR" name="S2COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="S2NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S2NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S2NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S2NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S2NUM5" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="S2FL01" precision="1"/>
+  <columns dataType="CHAR" name="S2FL02" precision="1"/>
+  <columns dataType="CHAR" name="S2FL03" precision="1"/>
+  <columns dataType="CHAR" name="S2FL04" precision="1"/>
+  <columns dataType="CHAR" name="S2FL05" precision="1"/>
+  <columns dataType="CHAR" name="S2FL06" precision="1"/>
+  <columns dataType="CHAR" name="S2FL07" precision="1"/>
+  <columns dataType="CHAR" name="S2FL08" precision="1"/>
+  <columns dataType="CHAR" name="S2FL09" precision="1"/>
+  <columns dataType="CHAR" name="S2FL10" precision="1"/>
+  <columns dataType="CHAR" name="S2FL11" precision="1"/>
+  <columns dataType="CHAR" name="S2FL12" precision="1"/>
+  <columns dataType="CHAR" name="S2FL13" precision="1"/>
+  <columns dataType="CHAR" name="S2FL14" precision="1"/>
+  <columns dataType="CHAR" name="S2FL15" precision="1"/>
+  <columns dataType="CHAR" name="S2FL16" precision="1"/>
+  <columns dataType="CHAR" name="S2FL17" precision="1"/>
+  <columns dataType="CHAR" name="S2FL18" precision="1"/>
+  <columns dataType="CHAR" name="S2FL19" precision="1"/>
+  <columns dataType="CHAR" name="S2FL20" precision="1"/>
+  <columns dataType="CHAR" name="S2USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="S2DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="S2ORIN" precision="6"/>
+  <columns dataType="CHAR" name="S2USAG" precision="10"/>
+  <columns dataType="DECIMAL" name="S2DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="S2ORAG" precision="6"/>
+</db-core:Table>

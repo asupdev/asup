@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQMCNT0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C&#xa7;MCDS" precision="7"/>
+  <columns dataType="CHAR" name="C&#xa7;MMTR" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;TIES" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;COES" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;COER" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;MMTC" precision="15"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MDUC" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MDCN" precision="8"/>
+  <columns dataType="CHAR" name="C&#xa7;MCLP" precision="4"/>
+  <columns dataType="CHAR" name="C&#xa7;MESC" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;MCLR" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;MUTL" precision="10"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MICN" precision="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MDPC" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ1P" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ2P" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ3P" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ4P" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ5P" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ1R" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ2R" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ3R" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ4R" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MQ5R" precision="9" scale="4"/>
+  <columns dataType="CHAR" name="C&#xa7;MQ6R" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;MQ7R" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;MQ8R" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;MQ9R" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;MQ0R" precision="10"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MSNS" precision="8" scale="4"/>
+  <columns dataType="CHAR" name="C&#xa7;APRO" precision="15"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MERR" precision="7" scale="3"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MINS" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="C&#xa7;MFDS" precision="9" scale="4"/>
+  <columns dataType="CHAR" name="C&#xa7;CETA" precision="10"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DTMR" precision="8"/>
+  <columns dataType="CHAR" name="C&#xa7;UTEN" precision="10"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DTCR" precision="8"/>
+</db-core:Table>

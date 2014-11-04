@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="G9DCON0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NREG" precision="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;RREG" precision="3"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DMOV" precision="8"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NPRO" precision="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DDOC" precision="8"/>
+  <columns dataType="CHAR" name="G&#xa7;NRIF" precision="10"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DRIF" precision="8"/>
+  <columns dataType="CHAR" name="G&#xa7;CAUS" precision="4"/>
+  <columns dataType="CHAR" name="G&#xa7;CAUR" precision="3"/>
+  <columns dataType="CHAR" name="G&#xa7;DESC" precision="35"/>
+  <columns dataType="CHAR" name="G&#xa7;TCON" precision="3"/>
+  <columns dataType="CHAR" name="G&#xa7;CODF" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;TRIG" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;CONT" precision="12"/>
+  <columns dataType="CHAR" name="G&#xa7;DAAV" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;DIVI" precision="3"/>
+  <columns dataType="DECIMAL" name="G&#xa7;IMIM" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="G&#xa7;IMPO" precision="15" scale="3"/>
+  <columns dataType="CHAR" name="G&#xa7;VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="G&#xa7;CAMB" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DVAL" precision="8"/>
+  <columns dataType="CHAR" name="G&#xa7;CASI" precision="2"/>
+  <columns dataType="CHAR" name="G&#xa7;RIVA" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;NIVA" precision="2"/>
+  <columns dataType="CHAR" name="G&#xa7;COPA" precision="3"/>
+  <columns dataType="CHAR" name="G&#xa7;TIPA" precision="2"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DSCA" precision="8"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NRAT" precision="3"/>
+  <columns dataType="DECIMAL" name="G&#xa7;PRAT" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="G&#xa7;BANC" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;TOPE" precision="2"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DOPE" precision="8"/>
+  <columns dataType="CHAR" name="G&#xa7;ESEC" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;MPRO" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;MVAL" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;CDC" precision="6"/>
+  <columns dataType="CHAR" name="G&#xa7;COMM" precision="10"/>
+  <columns dataType="CHAR" name="G&#xa7;VDS" precision="6"/>
+  <columns dataType="CHAR" name="G&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="G&#xa7;FLG5" precision="1"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DTAG" precision="8"/>
+  <columns dataType="CHAR" name="G&#xa7;USAG" precision="10"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NPR2" precision="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;DDO2" precision="8"/>
+  <columns dataType="CHAR" name="G&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD3" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD4" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NUM1" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NUM2" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NUM3" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NUM4" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="G&#xa7;NUM5" precision="21" scale="6"/>
+</db-core:Table>

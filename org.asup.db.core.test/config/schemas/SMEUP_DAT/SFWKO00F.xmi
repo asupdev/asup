@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFWKO00F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="WKORDI" precision="3"/>
+  <columns dataType="DECIMAL" name="WKNREC" precision="7"/>
+  <columns dataType="CHAR" name="WKPR01" precision="15"/>
+  <columns dataType="CHAR" name="WKPR02" precision="15"/>
+  <columns dataType="CHAR" name="WKPR03" precision="15"/>
+  <columns dataType="CHAR" name="WKPR04" precision="15"/>
+  <columns dataType="CHAR" name="WKPR05" precision="15"/>
+  <columns dataType="CHAR" name="WKPR06" precision="15"/>
+  <columns dataType="CHAR" name="WKPR07" precision="15"/>
+  <columns dataType="CHAR" name="WKPR08" precision="15"/>
+  <columns dataType="CHAR" name="WKPR09" precision="15"/>
+  <columns dataType="CHAR" name="WKPR10" precision="15"/>
+  <columns dataType="CHAR" name="WKDE01" precision="35"/>
+  <columns dataType="CHAR" name="WKDE02" precision="35"/>
+  <columns dataType="CHAR" name="WKDE03" precision="35"/>
+  <columns dataType="CHAR" name="WKDE04" precision="35"/>
+  <columns dataType="CHAR" name="WKDE05" precision="35"/>
+  <columns dataType="CHAR" name="WKDE06" precision="35"/>
+  <columns dataType="CHAR" name="WKDE07" precision="35"/>
+  <columns dataType="CHAR" name="WKDE08" precision="35"/>
+  <columns dataType="CHAR" name="WKDE09" precision="35"/>
+  <columns dataType="CHAR" name="WKDE10" precision="35"/>
+</db-core:Table>

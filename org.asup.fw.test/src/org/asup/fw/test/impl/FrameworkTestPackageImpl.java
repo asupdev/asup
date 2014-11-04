@@ -27,8 +27,6 @@ import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.QUnitTestRunner;
 
-import org.asup.il.data.QIntegratedLanguageDataPackage;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -198,7 +196,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		isInited = true;
 
 		// Initialize simple dependencies
-		QIntegratedLanguageDataPackage.eINSTANCE.eClass();
+		QFrameworkCorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theFrameworkTestPackage.createPackageContents();
@@ -682,29 +680,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// il-data
-		createIldataAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>il-data</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createIldataAnnotations() {
-		String source = "il-data";	
-		addAnnotation
-		  (getAssertionResult_Message(), 
-		   source, 
-		   new String[] {
-			 "length", "128"
-		   },
-		   new URI[] {
-			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
-		   });
 	}
 
 } //FrameworkTestPackageImpl

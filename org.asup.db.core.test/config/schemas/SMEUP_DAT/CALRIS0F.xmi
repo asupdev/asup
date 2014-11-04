@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CALRIS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="CR&#xa3;STA" precision="1"/>
+  <columns dataType="CHAR" name="CR&#xa3;TRG" precision="3"/>
+  <columns dataType="CHAR" name="CR&#xa3;RIS" precision="15"/>
+  <columns dataType="CHAR" name="CR&#xa3;RIC" precision="15"/>
+  <columns dataType="CHAR" name="CR&#xa3;ANN" precision="4"/>
+  <columns dataType="CHAR" name="CR&#xa3;MES" precision="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O01" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P01" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O02" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P02" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O03" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P03" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O04" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P04" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O05" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P05" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O06" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P06" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O07" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P07" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O08" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P08" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O09" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P09" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O10" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P10" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O11" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P11" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O12" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P12" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O13" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P13" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O14" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P14" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O15" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P15" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O16" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P16" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O17" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P17" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O18" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P18" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O19" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P19" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O20" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P20" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O21" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P21" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O22" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P22" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O23" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P23" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O24" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P24" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O25" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P25" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O26" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P26" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O27" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P27" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O28" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P28" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O29" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P29" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O30" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P30" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="CR&#xa3;O31" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;P31" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R01" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R02" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R03" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R04" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R05" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R06" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R07" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R08" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R09" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R10" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R11" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R12" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R13" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R14" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R15" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R16" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R17" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R18" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R19" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R20" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R21" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R22" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R23" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R24" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R25" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R26" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R27" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R28" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R29" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R30" precision="2"/>
+  <columns dataType="DECIMAL" name="CR&#xa3;R31" precision="2"/>
+</db-core:Table>

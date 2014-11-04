@@ -7,3 +7,5 @@ Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.db.syntax;bundle-version="0.5.0"
 Export-Package: org.asup.db.syntax.db2
+Import-Package: org.asup.db.syntax.base,
+ org.asup.dk.parser

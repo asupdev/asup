@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5FOTO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="F5AZIE" precision="2"/>
+  <columns dataType="CHAR" name="F5DIVI" precision="3"/>
+  <columns dataType="CHAR" name="F5ESER" precision="10"/>
+  <columns dataType="CHAR" name="F5CRCL" precision="15"/>
+  <columns dataType="DECIMAL" name="F5DATA" precision="8"/>
+  <columns dataType="CHAR" name="F5RICL" precision="15"/>
+  <columns dataType="CHAR" name="F5CONT" precision="15"/>
+  <columns dataType="CHAR" name="F5TPOG" precision="12"/>
+  <columns dataType="CHAR" name="F5CDOG" precision="15"/>
+  <columns dataType="CHAR" name="F5VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="F5LISI" precision="2"/>
+  <columns dataType="DECIMAL" name="F5PDFA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PAFA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PDFS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PAFS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PDGA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PAGA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PDGS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5PAGS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RDFA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RAFA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RDFS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RAFS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RDGA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RAGA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RDGS" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="F5RAGS" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="F5FL01" precision="1"/>
+  <columns dataType="CHAR" name="F5FL02" precision="1"/>
+  <columns dataType="CHAR" name="F5FL03" precision="1"/>
+  <columns dataType="CHAR" name="F5FL04" precision="1"/>
+  <columns dataType="CHAR" name="F5FL05" precision="1"/>
+  <columns dataType="CHAR" name="F5FL06" precision="1"/>
+  <columns dataType="CHAR" name="F5FL07" precision="1"/>
+  <columns dataType="CHAR" name="F5FL08" precision="1"/>
+  <columns dataType="CHAR" name="F5FL09" precision="1"/>
+  <columns dataType="CHAR" name="F5FL10" precision="1"/>
+  <columns dataType="CHAR" name="F5FL11" precision="1"/>
+  <columns dataType="CHAR" name="F5FL12" precision="1"/>
+  <columns dataType="CHAR" name="F5FL13" precision="1"/>
+  <columns dataType="CHAR" name="F5FL14" precision="1"/>
+  <columns dataType="CHAR" name="F5FL15" precision="1"/>
+  <columns dataType="CHAR" name="F5FL16" precision="1"/>
+  <columns dataType="CHAR" name="F5FL17" precision="1"/>
+  <columns dataType="CHAR" name="F5FL18" precision="1"/>
+  <columns dataType="CHAR" name="F5FL19" precision="1"/>
+  <columns dataType="CHAR" name="F5FL20" precision="1"/>
+  <columns dataType="DECIMAL" name="F5DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="F5ORIN" precision="6"/>
+  <columns dataType="DECIMAL" name="F5DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="F5ORAG" precision="6"/>
+  <columns dataType="CHAR" name="F5USAG" precision="10"/>
+</db-core:Table>

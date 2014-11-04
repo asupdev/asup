@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V9ASSA0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="A$TIP1" precision="12"/>
+  <columns dataType="CHAR" name="A$OGG1" precision="15"/>
+  <columns dataType="CHAR" name="A$TIP2" precision="12"/>
+  <columns dataType="CHAR" name="A$OGG2" precision="15"/>
+  <columns dataType="CHAR" name="A$LIVE" precision="1"/>
+  <columns dataType="CHAR" name="A$STAT" precision="2"/>
+  <columns dataType="CHAR" name="A$ATTI" precision="5"/>
+  <columns dataType="CHAR" name="A$DESC" precision="30"/>
+  <columns dataType="CHAR" name="A$TPES" precision="12"/>
+  <columns dataType="CHAR" name="A$ESEC" precision="15"/>
+  <columns dataType="CHAR" name="A$TPLG" precision="12"/>
+  <columns dataType="CHAR" name="A$LUOG" precision="15"/>
+  <columns dataType="CHAR" name="A$FREQ" precision="10"/>
+  <columns dataType="CHAR" name="A$PARF" precision="15"/>
+  <columns dataType="CHAR" name="A$COND" precision="10"/>
+  <columns dataType="CHAR" name="A$PARC" precision="15"/>
+  <columns dataType="CHAR" name="A$UMTP" precision="4"/>
+  <columns dataType="DECIMAL" name="A$TEMP" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="A$COD1" precision="15"/>
+  <columns dataType="CHAR" name="A$COD2" precision="15"/>
+  <columns dataType="CHAR" name="A$COD3" precision="15"/>
+  <columns dataType="CHAR" name="A$COD4" precision="15"/>
+  <columns dataType="CHAR" name="A$COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="A$NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A$NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A$NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A$NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A$NUM5" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="A$FL01" precision="1"/>
+  <columns dataType="CHAR" name="A$FL02" precision="1"/>
+  <columns dataType="CHAR" name="A$FL03" precision="1"/>
+  <columns dataType="CHAR" name="A$FL04" precision="1"/>
+  <columns dataType="CHAR" name="A$FL05" precision="1"/>
+  <columns dataType="CHAR" name="A$FL06" precision="1"/>
+  <columns dataType="CHAR" name="A$FL07" precision="1"/>
+  <columns dataType="CHAR" name="A$FL08" precision="1"/>
+  <columns dataType="CHAR" name="A$FL09" precision="1"/>
+  <columns dataType="CHAR" name="A$FL10" precision="1"/>
+</db-core:Table>

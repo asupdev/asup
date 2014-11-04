@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW SFQSPL0L (&#xA;  QSTORI ,&#xA;  QSTDOC ,&#xA;  QSNDOC ,&#xA;  QSOPER ,&#xA;  QSSPLT ,&#xA;  QSTIRP ,&#xA;  QSCLAV ,&#xA;  QSTIRF ,&#xA;  QSMACC ,&#xA;  QSQTSC )&#xA;  AS&#xA;  SELECT&#xA;  QSTORI ,&#xA;  QSTDOC ,&#xA;  QSNDOC ,&#xA;  QSOPER ,&#xA;  QSSPLT ,&#xA;  QSTIRP ,&#xA;  QSCLAV ,&#xA;  QSTIRF ,&#xA;  QSMACC ,&#xA;  QSQTSC&#xA;  FROM SFQSPL0F&#xA;  ;&#xA;&#xA;" name="SFQSPL0L"/>

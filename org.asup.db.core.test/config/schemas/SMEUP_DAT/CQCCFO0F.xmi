@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQCCFO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="Z&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;CENR" precision="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;CFAL" precision="6"/>
+  <columns dataType="CHAR" name="Z&#xa7;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;CFAC" precision="6"/>
+  <columns dataType="CHAR" name="Z&#xa7;CLIV" precision="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;CTCO" precision="3"/>
+  <columns dataType="CHAR" name="Z&#xa7;CPDC" precision="4"/>
+  <columns dataType="CHAR" name="Z&#xa7;LPDC" precision="4"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;CLQA" precision="6" scale="3"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DAEE" precision="8"/>
+  <columns dataType="CHAR" name="Z&#xa7;MQRL" precision="6"/>
+  <columns dataType="CHAR" name="Z&#xa7;TIEN" precision="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;COEN" precision="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;MTRD" precision="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;RIFT" precision="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;RIFC" precision="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;CCRR" precision="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;CCFR" precision="6"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG5" precision="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;TRAT" precision="4"/>
+</db-core:Table>

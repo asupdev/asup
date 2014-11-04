@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRRISO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C&#xa7;TRIS" precision="3"/>
+  <columns dataType="CHAR" name="C&#xa7;RISO" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;DESC" precision="30"/>
+  <columns dataType="CHAR" name="C&#xa7;CDAP" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;DEPT" precision="5"/>
+  <columns dataType="CHAR" name="C&#xa7;CDMG" precision="3"/>
+  <columns dataType="CHAR" name="C&#xa7;LOCN" precision="12"/>
+  <columns dataType="DECIMAL" name="C&#xa7;CODA" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="C&#xa7;UMTE" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DTAG" precision="8"/>
+  <columns dataType="CHAR" name="C&#xa7;USAG" precision="10"/>
+  <columns dataType="DECIMAL" name="C&#xa7;CMEF" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;CMTE" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;ESTD" precision="6" scale="4"/>
+  <columns dataType="CHAR" name="C&#xa7;CDCA" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;NRRS" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;CMGG" precision="5" scale="2"/>
+  <columns dataType="CHAR" name="C&#xa7;RESP" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;STAT" precision="2"/>
+</db-core:Table>

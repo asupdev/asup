@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;LING0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="T&#xa7;TIPO" precision="12"/>
+  <columns dataType="CHAR" name="T&#xa7;CODI" precision="15"/>
+  <columns dataType="CHAR" name="T&#xa7;LING" precision="3"/>
+  <columns dataType="CHAR" name="T&#xa7;DESC" precision="35"/>
+  <columns dataType="CHAR" name="T&#xa7;DEA1" precision="70"/>
+  <columns dataType="CHAR" name="T&#xa7;DEA2" precision="70"/>
+  <columns dataType="CHAR" name="T&#xa7;DEA3" precision="70"/>
+  <columns dataType="DECIMAL" name="T&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="T&#xa7;ORIN" precision="6"/>
+  <columns dataType="CHAR" name="T&#xa7;USIN" precision="10"/>
+  <columns dataType="CHAR" name="T&#xa7;OGIN" precision="10"/>
+  <columns dataType="DECIMAL" name="T&#xa7;DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="T&#xa7;ORAG" precision="6"/>
+  <columns dataType="CHAR" name="T&#xa7;USAG" precision="10"/>
+  <columns dataType="CHAR" name="T&#xa7;OGAG" precision="10"/>
+</db-core:Table>

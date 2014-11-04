@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGMOVE0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="MMDNEG" precision="3"/>
+  <columns dataType="DECIMAL" name="MMDDAT" precision="8"/>
+  <columns dataType="CHAR" name="MMDART" precision="15"/>
+  <columns dataType="CHAR" name="MMDCL1" precision="3"/>
+  <columns dataType="CHAR" name="MMDCL2" precision="3"/>
+  <columns dataType="CHAR" name="MMDCL3" precision="3"/>
+  <columns dataType="CHAR" name="MMDMAR" precision="4"/>
+  <columns dataType="DECIMAL" name="MMDIMP" precision="18" scale="3"/>
+  <columns dataType="CHAR" name="MMDIVA" precision="2"/>
+  <columns dataType="DECIMAL" name="MMDCST" precision="18" scale="3"/>
+  <columns dataType="DECIMAL" name="MMDQTA" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="MMDSCV" precision="18" scale="3"/>
+</db-core:Table>

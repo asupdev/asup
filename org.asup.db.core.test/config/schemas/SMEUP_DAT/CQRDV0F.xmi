@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQRDV0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="R&#xa7;TRDV" precision="3"/>
+  <columns dataType="CHAR" name="R&#xa7;CRDV" precision="7"/>
+  <columns dataType="CHAR" name="R&#xa7;ESOG" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;SOGG" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;EOGG" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;OGGE" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;CABI" precision="5"/>
+  <columns dataType="CHAR" name="R&#xa7;TQLF" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;PRIF" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;NOT1" precision="50"/>
+  <columns dataType="CHAR" name="R&#xa7;NOT2" precision="50"/>
+  <columns dataType="CHAR" name="R&#xa7;NOT3" precision="50"/>
+  <columns dataType="CHAR" name="R&#xa7;NOT4" precision="50"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTIQ" precision="8"/>
+  <columns dataType="DECIMAL" name="R&#xa7;INTE" precision="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTFQ" precision="8"/>
+  <columns dataType="CHAR" name="R&#xa7;EEMI" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;EMIT" precision="15"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTEM" precision="8"/>
+  <columns dataType="CHAR" name="R&#xa7;EAPP" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;APPR" precision="15"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTAP" precision="8"/>
+  <columns dataType="CHAR" name="R&#xa7;STAP" precision="6"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTMR" precision="8"/>
+  <columns dataType="CHAR" name="R&#xa7;UTEN" precision="10"/>
+</db-core:Table>

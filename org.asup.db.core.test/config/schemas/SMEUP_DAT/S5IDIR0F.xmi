@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="S5IDIR0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="I6SCEN" precision="10"/>
+  <columns dataType="CHAR" name="I6TORI" precision="2"/>
+  <columns dataType="CHAR" name="I6TDOC" precision="3"/>
+  <columns dataType="CHAR" name="I6NDOC" precision="10"/>
+  <columns dataType="DECIMAL" name="I6NRIG" precision="4"/>
+  <columns dataType="CHAR" name="I6OPER" precision="6"/>
+  <columns dataType="CHAR" name="I6FL12" precision="1"/>
+  <columns dataType="CHAR" name="I6IDOJ" precision="10"/>
+  <columns dataType="DECIMAL" name="I6DTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="I6HRCR" precision="6"/>
+  <columns dataType="CHAR" name="I6USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="I6DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="I6HRAG" precision="6"/>
+  <columns dataType="CHAR" name="I6USAG" precision="10"/>
+</db-core:Table>

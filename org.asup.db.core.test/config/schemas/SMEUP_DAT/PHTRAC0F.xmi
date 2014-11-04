@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PHTRAC0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="P&#xa7;IDOJ" precision="10"/>
+  <columns dataType="CHAR" name="P&#xa7;USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="P&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="P&#xa7;ORIN" precision="6"/>
+  <columns dataType="CHAR" name="P&#xa7;ADUF" precision="2"/>
+  <columns dataType="CHAR" name="P&#xa7;ADUL" precision="1"/>
+  <columns dataType="CHAR" name="P&#xa7;TIPO" precision="1"/>
+  <columns dataType="CHAR" name="P&#xa7;EVEN" precision="1"/>
+  <columns dataType="CHAR" name="P&#xa7;DATI" precision="510"/>
+</db-core:Table>

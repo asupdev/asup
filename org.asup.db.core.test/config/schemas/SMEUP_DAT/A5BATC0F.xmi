@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A5BATC0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="WAPROG" precision="10"/>
+  <columns dataType="CHAR" name="WATREC" precision="2"/>
+  <columns dataType="CHAR" name="WATPOR" precision="12"/>
+  <columns dataType="CHAR" name="WACDOR" precision="15"/>
+  <columns dataType="CHAR" name="WACORD" precision="50"/>
+  <columns dataType="CHAR" name="WAREC" precision="2000"/>
+  <columns dataType="CHAR" name="WAFL01" precision="1"/>
+  <columns dataType="CHAR" name="WAFL02" precision="1"/>
+  <columns dataType="CHAR" name="WAFL03" precision="1"/>
+  <columns dataType="CHAR" name="WAFL04" precision="1"/>
+  <columns dataType="CHAR" name="WAFL05" precision="1"/>
+  <columns dataType="CHAR" name="WAFL06" precision="1"/>
+  <columns dataType="CHAR" name="WAFL07" precision="1"/>
+  <columns dataType="CHAR" name="WAFL08" precision="1"/>
+  <columns dataType="CHAR" name="WAFL09" precision="1"/>
+  <columns dataType="CHAR" name="WAFL10" precision="1"/>
+  <columns dataType="CHAR" name="WAFL11" precision="1"/>
+  <columns dataType="CHAR" name="WAFL12" precision="1"/>
+  <columns dataType="CHAR" name="WAFL13" precision="1"/>
+  <columns dataType="CHAR" name="WAFL14" precision="1"/>
+  <columns dataType="CHAR" name="WAFL15" precision="1"/>
+  <columns dataType="CHAR" name="WAFL16" precision="1"/>
+  <columns dataType="CHAR" name="WAFL17" precision="1"/>
+  <columns dataType="CHAR" name="WAFL18" precision="1"/>
+  <columns dataType="CHAR" name="WAFL19" precision="1"/>
+  <columns dataType="CHAR" name="WAFL20" precision="1"/>
+  <columns dataType="DECIMAL" name="WADTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="WAORIN" precision="6"/>
+  <columns dataType="CHAR" name="WAUSIN" precision="10"/>
+  <columns dataType="DECIMAL" name="WADTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="WAORAG" precision="6"/>
+  <columns dataType="CHAR" name="WAUSAG" precision="10"/>
+  <columns dataType="CHAR" name="WATERM" precision="10"/>
+  <columns dataType="DECIMAL" name="WANJOB" precision="6"/>
+</db-core:Table>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SUPD0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="ARIDRC" precision="16"/>
+  <columns dataType="CHAR" name="ARCNAM" precision="10"/>
+  <columns dataType="DECIMAL" name="ARFLIX" precision="5"/>
+  <columns dataType="CHAR" name="ARSSID" precision="52"/>
+  <columns dataType="CHAR" name="AROGGE" precision="30"/>
+  <columns dataType="CHAR" name="ARVAL1" precision="2562"/>
+  <columns dataType="DECIMAL" name="ARNUM1" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="ARUSE1" precision="1"/>
+  <columns dataType="CHAR" name="ARVAL2" precision="2562"/>
+  <columns dataType="DECIMAL" name="ARNUM2" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="ARUSE2" precision="1"/>
+  <columns dataType="CHAR" name="AREVEN" precision="1"/>
+  <columns dataType="CHAR" name="ARFD35" precision="1"/>
+  <columns dataType="CHAR" name="ARFDLV" precision="2"/>
+  <columns dataType="CHAR" name="ARFDMS" precision="256"/>
+  <columns dataType="CHAR" name="ARRC35" precision="1"/>
+  <columns dataType="CHAR" name="ARRCMS" precision="256"/>
+  <columns dataType="DECIMAL" name="ARNMOD" precision="16"/>
+  <columns dataType="CHAR" name="ARIDUS" precision="15"/>
+  <columns dataType="DECIMAL" name="ARDTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="ARORIN" precision="6"/>
+  <columns dataType="CHAR" name="ARUSIN" precision="10"/>
+  <columns dataType="CHAR" name="AROGIN" precision="10"/>
+  <columns dataType="DECIMAL" name="ARDTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="ARORAG" precision="6"/>
+  <columns dataType="CHAR" name="ARUSAG" precision="10"/>
+  <columns dataType="CHAR" name="AROGAG" precision="10"/>
+</db-core:Table>

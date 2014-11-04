@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D0WKDA0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="BDKYF1" precision="50"/>
+  <columns dataType="CHAR" name="BDKYF2" precision="50"/>
+  <columns dataType="CHAR" name="BDKYOR" precision="100"/>
+  <columns dataType="CHAR" name="BDCD01" precision="30"/>
+  <columns dataType="CHAR" name="BDCD02" precision="30"/>
+  <columns dataType="CHAR" name="BDCD03" precision="30"/>
+  <columns dataType="CHAR" name="BDCD04" precision="30"/>
+  <columns dataType="CHAR" name="BDCD05" precision="30"/>
+  <columns dataType="CHAR" name="BDCD06" precision="30"/>
+  <columns dataType="CHAR" name="BDCD07" precision="30"/>
+  <columns dataType="CHAR" name="BDCD08" precision="30"/>
+  <columns dataType="CHAR" name="BDCD09" precision="30"/>
+  <columns dataType="CHAR" name="BDCD10" precision="30"/>
+  <columns dataType="CHAR" name="BDCD11" precision="30"/>
+  <columns dataType="CHAR" name="BDCD12" precision="30"/>
+  <columns dataType="CHAR" name="BDCD13" precision="30"/>
+  <columns dataType="CHAR" name="BDCD14" precision="30"/>
+  <columns dataType="CHAR" name="BDCD15" precision="30"/>
+  <columns dataType="CHAR" name="BDCD16" precision="30"/>
+  <columns dataType="CHAR" name="BDCD17" precision="30"/>
+  <columns dataType="CHAR" name="BDCD18" precision="30"/>
+  <columns dataType="CHAR" name="BDCD19" precision="30"/>
+  <columns dataType="CHAR" name="BDCD20" precision="30"/>
+  <columns dataType="DECIMAL" name="BDDT01" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT02" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT03" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT04" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT05" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT06" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT07" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT08" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT09" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT10" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT11" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT12" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT13" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT14" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT15" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT16" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT17" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT18" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT19" precision="8"/>
+  <columns dataType="DECIMAL" name="BDDT20" precision="8"/>
+  <columns dataType="DECIMAL" name="BDNR01" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR02" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR03" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR04" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR05" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR06" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR07" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR08" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR09" precision="11"/>
+  <columns dataType="DECIMAL" name="BDNR10" precision="11"/>
+  <columns dataType="DECIMAL" name="BDQT01" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT02" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT03" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT04" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT05" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT06" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT07" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT08" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT09" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT10" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT11" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT12" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT13" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT14" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT15" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT16" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT17" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT18" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT19" precision="30" scale="9"/>
+  <columns dataType="DECIMAL" name="BDQT20" precision="30" scale="9"/>
+  <columns dataType="CHAR" name="BDFL01" precision="1"/>
+  <columns dataType="CHAR" name="BDFL02" precision="1"/>
+  <columns dataType="CHAR" name="BDFL03" precision="1"/>
+  <columns dataType="CHAR" name="BDFL04" precision="1"/>
+  <columns dataType="CHAR" name="BDFL05" precision="1"/>
+  <columns dataType="CHAR" name="BDFL06" precision="1"/>
+  <columns dataType="CHAR" name="BDFL07" precision="1"/>
+  <columns dataType="CHAR" name="BDFL08" precision="1"/>
+  <columns dataType="CHAR" name="BDFL09" precision="1"/>
+  <columns dataType="CHAR" name="BDFL10" precision="1"/>
+  <columns dataType="CHAR" name="BDFL11" precision="1"/>
+  <columns dataType="CHAR" name="BDFL12" precision="1"/>
+  <columns dataType="CHAR" name="BDFL13" precision="1"/>
+  <columns dataType="CHAR" name="BDFL14" precision="1"/>
+  <columns dataType="CHAR" name="BDFL15" precision="1"/>
+  <columns dataType="CHAR" name="BDFL16" precision="1"/>
+  <columns dataType="CHAR" name="BDFL17" precision="1"/>
+  <columns dataType="CHAR" name="BDFL18" precision="1"/>
+  <columns dataType="CHAR" name="BDFL19" precision="1"/>
+  <columns dataType="CHAR" name="BDFL20" precision="1"/>
+  <columns dataType="DECIMAL" name="BDDTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="BDORIN" precision="6"/>
+  <columns dataType="CHAR" name="BDOGIN" precision="10"/>
+  <columns dataType="CHAR" name="BDUSIN" precision="10"/>
+  <columns dataType="VARCHAR" name="BDDATI" precision="24002"/>
+</db-core:Table>

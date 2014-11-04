@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5MOAN0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="A5AZIE" precision="2"/>
+  <columns dataType="CHAR" name="A5DIVI" precision="3"/>
+  <columns dataType="CHAR" name="A5ESER" precision="10"/>
+  <columns dataType="CHAR" name="A5LIVE" precision="1"/>
+  <columns dataType="CHAR" name="A5STAT" precision="2"/>
+  <columns dataType="CHAR" name="A5SOCI" precision="3"/>
+  <columns dataType="CHAR" name="A5SOCO" precision="3"/>
+  <columns dataType="CHAR" name="A5IDOJ" precision="10"/>
+  <columns dataType="CHAR" name="A5CAUS" precision="3"/>
+  <columns dataType="CHAR" name="A5CAUC" precision="3"/>
+  <columns dataType="CHAR" name="A5DESC" precision="30"/>
+  <columns dataType="CHAR" name="A5NDOR" precision="20"/>
+  <columns dataType="CHAR" name="A5CONT" precision="15"/>
+  <columns dataType="CHAR" name="A5TPCN" precision="3"/>
+  <columns dataType="CHAR" name="A5SOGG" precision="15"/>
+  <columns dataType="CHAR" name="A5TPRO" precision="12"/>
+  <columns dataType="CHAR" name="A5NPRO" precision="15"/>
+  <columns dataType="DECIMAL" name="A5RIGA" precision="5"/>
+  <columns dataType="CHAR" name="A5TPOR" precision="12"/>
+  <columns dataType="CHAR" name="A5CDOR" precision="15"/>
+  <columns dataType="DECIMAL" name="A5DREG" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DCOM" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DDOR" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DPRO" precision="8"/>
+  <columns dataType="CHAR" name="A5TPN1" precision="12"/>
+  <columns dataType="CHAR" name="A5CDN1" precision="15"/>
+  <columns dataType="CHAR" name="A5TPN2" precision="12"/>
+  <columns dataType="CHAR" name="A5CDN2" precision="15"/>
+  <columns dataType="CHAR" name="A5TPN3" precision="12"/>
+  <columns dataType="CHAR" name="A5CDN3" precision="15"/>
+  <columns dataType="CHAR" name="A5TPD1" precision="12"/>
+  <columns dataType="CHAR" name="A5CDD1" precision="15"/>
+  <columns dataType="CHAR" name="A5TPD2" precision="12"/>
+  <columns dataType="CHAR" name="A5CDD2" precision="15"/>
+  <columns dataType="CHAR" name="A5TPD3" precision="12"/>
+  <columns dataType="CHAR" name="A5CDD3" precision="15"/>
+  <columns dataType="CHAR" name="A5DAAV" precision="1"/>
+  <columns dataType="CHAR" name="A5VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="A5CAMB" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="A5IMPO" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A5IMVA" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="A5VALE" precision="4"/>
+  <columns dataType="DECIMAL" name="A5CAME" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="A5IMVE" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="A5UNMS" precision="2"/>
+  <columns dataType="DECIMAL" name="A5QUAN" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A5DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="A5DT05" precision="8"/>
+  <columns dataType="CHAR" name="A5AA01" precision="15"/>
+  <columns dataType="CHAR" name="A5AA02" precision="15"/>
+  <columns dataType="CHAR" name="A5AA03" precision="15"/>
+  <columns dataType="CHAR" name="A5AA04" precision="15"/>
+  <columns dataType="CHAR" name="A5AA05" precision="15"/>
+  <columns dataType="DECIMAL" name="A5NU01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A5NU02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A5NU03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A5NU04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="A5NU05" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="A5FL01" precision="1"/>
+  <columns dataType="CHAR" name="A5FL02" precision="1"/>
+  <columns dataType="CHAR" name="A5FL03" precision="1"/>
+  <columns dataType="CHAR" name="A5FL04" precision="1"/>
+  <columns dataType="CHAR" name="A5FL05" precision="1"/>
+  <columns dataType="CHAR" name="A5FL06" precision="1"/>
+  <columns dataType="CHAR" name="A5FL07" precision="1"/>
+  <columns dataType="CHAR" name="A5FL08" precision="1"/>
+  <columns dataType="CHAR" name="A5FL09" precision="1"/>
+  <columns dataType="CHAR" name="A5FL10" precision="1"/>
+  <columns dataType="CHAR" name="A5FL11" precision="1"/>
+  <columns dataType="CHAR" name="A5FL12" precision="1"/>
+  <columns dataType="CHAR" name="A5FL13" precision="1"/>
+  <columns dataType="CHAR" name="A5FL14" precision="1"/>
+  <columns dataType="CHAR" name="A5FL15" precision="1"/>
+  <columns dataType="CHAR" name="A5FL16" precision="1"/>
+  <columns dataType="CHAR" name="A5FL17" precision="1"/>
+  <columns dataType="CHAR" name="A5FL18" precision="1"/>
+  <columns dataType="CHAR" name="A5FL19" precision="1"/>
+  <columns dataType="CHAR" name="A5FL20" precision="1"/>
+  <columns dataType="CHAR" name="A5FL21" precision="1"/>
+  <columns dataType="CHAR" name="A5FL22" precision="1"/>
+  <columns dataType="CHAR" name="A5FL23" precision="1"/>
+  <columns dataType="CHAR" name="A5FL24" precision="1"/>
+  <columns dataType="CHAR" name="A5FL25" precision="1"/>
+  <columns dataType="CHAR" name="A5FL26" precision="1"/>
+  <columns dataType="CHAR" name="A5FL27" precision="1"/>
+  <columns dataType="CHAR" name="A5FL28" precision="1"/>
+  <columns dataType="CHAR" name="A5FL29" precision="1"/>
+  <columns dataType="CHAR" name="A5FL30" precision="1"/>
+  <columns dataType="CHAR" name="A5FL31" precision="1"/>
+  <columns dataType="CHAR" name="A5FL32" precision="1"/>
+  <columns dataType="CHAR" name="A5FL33" precision="1"/>
+  <columns dataType="CHAR" name="A5FL34" precision="1"/>
+  <columns dataType="CHAR" name="A5FL35" precision="1"/>
+  <columns dataType="CHAR" name="A5FL36" precision="1"/>
+  <columns dataType="CHAR" name="A5FL37" precision="1"/>
+  <columns dataType="CHAR" name="A5FL38" precision="1"/>
+  <columns dataType="CHAR" name="A5FL39" precision="1"/>
+  <columns dataType="CHAR" name="A5FL40" precision="1"/>
+  <columns dataType="DECIMAL" name="A5DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="A5ORIN" precision="6"/>
+  <columns dataType="CHAR" name="A5USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="A5DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="A5ORAG" precision="6"/>
+  <columns dataType="CHAR" name="A5USAG" precision="10"/>
+</db-core:Table>

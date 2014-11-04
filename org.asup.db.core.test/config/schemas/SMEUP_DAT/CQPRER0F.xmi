@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQPRER0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="Q&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="Q&#xa7;COER" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;PPOS" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;PSBF" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;PDCO" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;PCOR" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;EDIZ" precision="6"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;PDAT" precision="8"/>
+  <columns dataType="CHAR" name="Q&#xa7;PVAI" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;PVAT" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;RWRC" precision="15"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;ROCN" precision="7" scale="4"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;VAVA" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;VACN" precision="15" scale="3"/>
+  <columns dataType="CHAR" name="Q&#xa7;ACOR" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;NPRG" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;NUDO" precision="10"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DADO" precision="8"/>
+  <columns dataType="CHAR" name="Q&#xa7;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG5" precision="1"/>
+</db-core:Table>

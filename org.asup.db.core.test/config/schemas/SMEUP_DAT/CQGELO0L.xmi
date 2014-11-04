@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW CQGELO0L (&#xA;  X&#xa7;RIFE ,&#xA;  X&#xa7;LOTI )&#xA;  AS&#xA;  SELECT&#xA;  X&#xa7;RIFE ,&#xA;  X&#xa7;LOTI&#xA;  FROM CQGELO0F&#xA;  ;&#xA;&#xA;" name="CQGELO0L"/>

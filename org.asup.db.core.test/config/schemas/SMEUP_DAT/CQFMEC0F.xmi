@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQFMEC0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C&#xa7;ANNU" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;NUDO" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;TIGR" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;GRUP" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;TIIM" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;COIM" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;DCOD" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;DCOC" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;FTST" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;RAPP" precision="50"/>
+  <columns dataType="CHAR" name="C&#xa7;FRIS" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;AOBB" precision="50"/>
+  <columns dataType="CHAR" name="C&#xa7;FPRO" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;VPRO" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;FRIL" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;VRIL" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;FGRA" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;VGRA" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;ACOR" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;ORIC" precision="10"/>
+  <columns dataType="CHAR" name="C&#xa7;APRP" precision="50"/>
+  <columns dataType="CHAR" name="C&#xa7;APRO" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;TIES" precision="2"/>
+  <columns dataType="CHAR" name="C&#xa7;COES" precision="15"/>
+  <columns dataType="CHAR" name="C&#xa7;ASOL" precision="50"/>
+  <columns dataType="CHAR" name="C&#xa7;RINT" precision="2"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DAEV" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DAEE" precision="8"/>
+  <columns dataType="CHAR" name="C&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="C&#xa7;FLG5" precision="1"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DTMR" precision="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;TIME" precision="6"/>
+  <columns dataType="CHAR" name="C&#xa7;UTEN" precision="10"/>
+</db-core:Table>

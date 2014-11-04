@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NTSTIN0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="I$TIPC" precision="3"/>
+  <columns dataType="CHAR" name="I$KYC1" precision="15"/>
+  <columns dataType="CHAR" name="I$KYC2" precision="15"/>
+  <columns dataType="CHAR" name="I$KYC3" precision="15"/>
+  <columns dataType="CHAR" name="I$TIPI" precision="3"/>
+  <columns dataType="CHAR" name="I$DCAR" precision="2"/>
+  <columns dataType="CHAR" name="I$CAR1" precision="15"/>
+  <columns dataType="CHAR" name="I$CAR2" precision="15"/>
+  <columns dataType="CHAR" name="I$CAR3" precision="15"/>
+  <columns dataType="CHAR" name="I$CAR4" precision="15"/>
+  <columns dataType="CHAR" name="I$CAR5" precision="15"/>
+  <columns dataType="CHAR" name="I$CAR6" precision="15"/>
+  <columns dataType="CHAR" name="I$DES1" precision="70"/>
+  <columns dataType="CHAR" name="I$DES2" precision="70"/>
+  <columns dataType="CHAR" name="I$DES3" precision="70"/>
+  <columns dataType="CHAR" name="I$DES4" precision="70"/>
+  <columns dataType="CHAR" name="I$STA1" precision="3"/>
+  <columns dataType="CHAR" name="I$STA2" precision="3"/>
+  <columns dataType="CHAR" name="I$STA3" precision="3"/>
+  <columns dataType="CHAR" name="I$UTCR" precision="10"/>
+  <columns dataType="DECIMAL" name="I$DTCR" precision="6"/>
+  <columns dataType="CHAR" name="I$UTAG" precision="10"/>
+  <columns dataType="DECIMAL" name="I$DTAG" precision="6"/>
+</db-core:Table>
