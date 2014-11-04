@@ -28,15 +28,21 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	@Inject
 	private QDatabaseManager databaseManager;
 
+	public void _copyS(CommandInterpreter interpreter) throws SQLException {
+		copySchema("SMEUP_DAT", "DB2");
+	}
+
 	public void _copySchema(CommandInterpreter interpreter) throws SQLException {
-		
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		
-		
 		String schemaName = interpreter.nextArgument();
-		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"+schemaName);
-		
 		String pluginName = interpreter.nextArgument();
+
+		copySchema(schemaName, pluginName);
+	}
+
+	private void copySchema(String schemaName, String pluginName)
+			throws SQLException {
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"+schemaName);
 		QConnectionConfig connectionConfig = loadConfig(pluginName);
 
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
