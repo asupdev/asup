@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW CEDCOA0L (&#xA;  C$ANNU ,&#xA;  C$CDC ,&#xA;  C$TICO ,&#xA;  C$ALI1 ,&#xA;  C$ALI2 ,&#xA;  C$ALI3 ,&#xA;  C$ALI4 ,&#xA;  C$ALI5 ,&#xA;  C$ALI6 )&#xA;  AS&#xA;  SELECT&#xA;  C$ANNU ,&#xA;  C$CDC ,&#xA;  C$TICO ,&#xA;  C$ALI1 ,&#xA;  C$ALI2 ,&#xA;  C$ALI3 ,&#xA;  C$ALI4 ,&#xA;  C$ALI5 ,&#xA;  C$ALI6&#xA;  FROM CEDCOA0F&#xA;  ;&#xA;&#xA;" name="CEDCOA0L"/>

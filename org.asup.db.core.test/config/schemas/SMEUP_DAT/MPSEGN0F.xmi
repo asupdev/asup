@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MPSEGN0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="MPCDPI" precision="6"/>
+  <columns dataType="CHAR" name="MPTPRC" precision="3"/>
+  <columns dataType="CHAR" name="MPCD01" precision="15"/>
+  <columns dataType="CHAR" name="MPCD02" precision="15"/>
+  <columns dataType="CHAR" name="MPTPRG" precision="3"/>
+  <columns dataType="CHAR" name="MPCDRG" precision="6"/>
+  <columns dataType="CHAR" name="MPCDSE" precision="6"/>
+  <columns dataType="CHAR" name="MPCDGR" precision="3"/>
+  <columns dataType="CHAR" name="MPCDMS" precision="7"/>
+  <columns dataType="CHAR" name="MPFIMS" precision="10"/>
+  <columns dataType="CHAR" name="MPVAR1" precision="15"/>
+  <columns dataType="CHAR" name="MPVAR2" precision="15"/>
+  <columns dataType="CHAR" name="MPVAR3" precision="15"/>
+  <columns dataType="CHAR" name="MPVAR4" precision="15"/>
+</db-core:Table>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V9ATPR0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="P$CATE" precision="3"/>
+  <columns dataType="CHAR" name="P$GRUP" precision="15"/>
+  <columns dataType="CHAR" name="P$NINT" precision="10"/>
+  <columns dataType="CHAR" name="P$TIP1" precision="12"/>
+  <columns dataType="CHAR" name="P$OGG1" precision="15"/>
+  <columns dataType="CHAR" name="P$TIP2" precision="12"/>
+  <columns dataType="CHAR" name="P$OGG2" precision="15"/>
+  <columns dataType="CHAR" name="P$ATTI" precision="5"/>
+  <columns dataType="CHAR" name="P$LIVE" precision="1"/>
+  <columns dataType="CHAR" name="P$STAT" precision="2"/>
+  <columns dataType="CHAR" name="P$TPES" precision="12"/>
+  <columns dataType="CHAR" name="P$ESEC" precision="15"/>
+  <columns dataType="CHAR" name="P$TPLG" precision="12"/>
+  <columns dataType="CHAR" name="P$LUOG" precision="15"/>
+  <columns dataType="CHAR" name="P$UMTP" precision="4"/>
+  <columns dataType="DECIMAL" name="P$TEMP" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="P$TPAT" precision="3"/>
+  <columns dataType="DECIMAL" name="P$DTES" precision="8"/>
+  <columns dataType="DECIMAL" name="P$ORES" precision="6"/>
+  <columns dataType="CHAR" name="P$COD1" precision="15"/>
+  <columns dataType="CHAR" name="P$COD2" precision="15"/>
+  <columns dataType="CHAR" name="P$COD3" precision="15"/>
+  <columns dataType="CHAR" name="P$COD4" precision="15"/>
+  <columns dataType="CHAR" name="P$COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="P$NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P$NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P$NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P$NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P$NUM5" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="P$FL01" precision="1"/>
+  <columns dataType="CHAR" name="P$FL02" precision="1"/>
+  <columns dataType="CHAR" name="P$FL03" precision="1"/>
+  <columns dataType="CHAR" name="P$FL04" precision="1"/>
+  <columns dataType="CHAR" name="P$FL05" precision="1"/>
+  <columns dataType="CHAR" name="P$FL06" precision="1"/>
+  <columns dataType="CHAR" name="P$FL07" precision="1"/>
+  <columns dataType="CHAR" name="P$FL08" precision="1"/>
+  <columns dataType="CHAR" name="P$FL09" precision="1"/>
+  <columns dataType="CHAR" name="P$FL10" precision="1"/>
+</db-core:Table>

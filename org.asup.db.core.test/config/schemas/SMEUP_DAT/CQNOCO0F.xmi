@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQNOCO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="N&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="N&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="N&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="N&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="N&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;NUDO" precision="10"/>
+  <columns dataType="DECIMAL" name="N&#xa7;DADO" precision="8"/>
+  <columns dataType="CHAR" name="N&#xa7;TISC" precision="3"/>
+  <columns dataType="CHAR" name="N&#xa7;CIMP" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;DCOD" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;DCLS" precision="2"/>
+  <columns dataType="DECIMAL" name="N&#xa7;DGRA" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;DCOC" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;DPRO" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;CART" precision="5"/>
+  <columns dataType="CHAR" name="N&#xa7;PLAN" precision="5"/>
+  <columns dataType="CHAR" name="N&#xa7;DPTN" precision="5"/>
+  <columns dataType="CHAR" name="N&#xa7;CFAL" precision="6"/>
+  <columns dataType="CHAR" name="N&#xa7;LDSC" precision="30"/>
+  <columns dataType="CHAR" name="N&#xa7;CFAC" precision="6"/>
+  <columns dataType="CHAR" name="N&#xa7;CDSC" precision="30"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QLOT" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QCNT" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QSEL" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QNOC" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QSCA" precision="9" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QRLV" precision="9" scale="3"/>
+  <columns dataType="CHAR" name="N&#xa7;TIEM" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;COEM" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;COER" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;EDVT" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;TIEA" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;COEA" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;CARR" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;LOTI" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;NORD" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;CORP" precision="6"/>
+  <columns dataType="CHAR" name="N&#xa7;COMM" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;LOTR" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;CESA" precision="5"/>
+  <columns dataType="CHAR" name="N&#xa7;TIIM" precision="2"/>
+  <columns dataType="CHAR" name="N&#xa7;COIM" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;SEGM" precision="1"/>
+  <columns dataType="DECIMAL" name="N&#xa7;RORE" precision="7" scale="4"/>
+  <columns dataType="CHAR" name="N&#xa7;RWRC" precision="15"/>
+  <columns dataType="DECIMAL" name="N&#xa7;RORS" precision="7" scale="4"/>
+  <columns dataType="CHAR" name="N&#xa7;RINT" precision="2"/>
+  <columns dataType="DECIMAL" name="N&#xa7;CORF" precision="5"/>
+  <columns dataType="DECIMAL" name="N&#xa7;CORA" precision="5"/>
+  <columns dataType="CHAR" name="N&#xa7;RIFI" precision="10"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VAMA" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VALE" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VALI" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VACP" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VAMS" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VARA" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="N&#xa7;VAUD" precision="15" scale="3"/>
+  <columns dataType="CHAR" name="N&#xa7;CSTA" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;CVEN" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG3" precision="1"/>
+  <columns dataType="DECIMAL" name="N&#xa7;QRID" precision="9" scale="3"/>
+  <columns dataType="CHAR" name="N&#xa7;PNOC" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;MATP" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;TDOC" precision="4"/>
+  <columns dataType="CHAR" name="N&#xa7;ARAL" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;ORIC" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;ACOR" precision="15"/>
+  <columns dataType="CHAR" name="N&#xa7;NPRG" precision="10"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG5" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG6" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG7" precision="1"/>
+  <columns dataType="CHAR" name="N&#xa7;FLG8" precision="1"/>
+</db-core:Table>

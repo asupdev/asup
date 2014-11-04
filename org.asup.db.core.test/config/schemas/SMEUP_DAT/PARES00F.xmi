@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PARES00F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="PE&#xa3;STA" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;OGG" precision="15"/>
+  <columns dataType="CHAR" name="PE&#xa3;UTE" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;PGM" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;AT0" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;AT1" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;JQN" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;AT2" precision="1"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;JQP" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;JQH" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;O1N" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;O1H" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;O1F" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;AT5" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;O2N" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;AT6" precision="1"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;O2P" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;O2H" precision="1"/>
+  <columns dataType="CHAR" name="PE&#xa3;O2S" precision="1"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;O2C" precision="2"/>
+  <columns dataType="CHAR" name="PE&#xa3;O2F" precision="10"/>
+  <columns dataType="CHAR" name="PE&#xa3;O2I" precision="1"/>
+  <columns dataType="VARCHAR" name="PE&#xa3;ATR" precision="30002"/>
+  <columns dataType="CHAR" name="PE&#xa3;UTI" precision="10"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;DTI" precision="8"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;ORI" precision="6"/>
+  <columns dataType="CHAR" name="PE&#xa3;UTA" precision="10"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;DTA" precision="8"/>
+  <columns dataType="DECIMAL" name="PE&#xa3;ORA" precision="6"/>
+</db-core:Table>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0VVI00F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="V&#xa7;COVI" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;CODV" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;NOME" precision="30"/>
+  <columns dataType="CHAR" name="V&#xa7;TIAP" precision="3"/>
+  <columns dataType="CHAR" name="V&#xa7;CODT" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;DECT" precision="30"/>
+  <columns dataType="CHAR" name="V&#xa7;STAT" precision="3"/>
+  <columns dataType="DECIMAL" name="V&#xa7;HRIV" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="V&#xa7;HRFV" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DINV" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DFNV" precision="8"/>
+  <columns dataType="CHAR" name="V&#xa7;CONI" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;DECI" precision="30"/>
+  <columns dataType="CHAR" name="V&#xa7;TIPV" precision="3"/>
+  <columns dataType="CHAR" name="V&#xa7;NOT1" precision="40"/>
+  <columns dataType="CHAR" name="V&#xa7;NOT2" precision="40"/>
+</db-core:Table>

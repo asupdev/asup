@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMMATE0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="M$CODI" precision="15"/>
+  <columns dataType="CHAR" name="M$COIN" precision="5"/>
+  <columns dataType="CHAR" name="M$COMA" precision="15"/>
+  <columns dataType="CHAR" name="M$DESC" precision="30"/>
+  <columns dataType="CHAR" name="M$TIPO" precision="3"/>
+  <columns dataType="CHAR" name="M$UMIS" precision="2"/>
+  <columns dataType="DECIMAL" name="M$QTAI" precision="9" scale="2"/>
+  <columns dataType="CHAR" name="M$FORN" precision="15"/>
+  <columns dataType="CHAR" name="M$RAGS" precision="35"/>
+  <columns dataType="CHAR" name="M$CAFO" precision="15"/>
+</db-core:Table>

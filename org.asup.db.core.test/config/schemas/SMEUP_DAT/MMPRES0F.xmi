@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMPRES0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="I&#xa7;RAGG" precision="8"/>
+  <columns dataType="CHAR" name="I&#xa7;CODI" precision="15"/>
+  <columns dataType="CHAR" name="I&#xa7;COIN" precision="5"/>
+  <columns dataType="CHAR" name="I&#xa7;TIPO" precision="3"/>
+  <columns dataType="CHAR" name="I&#xa7;DEIN" precision="30"/>
+  <columns dataType="DECIMAL" name="I&#xa7;DESE" precision="8"/>
+  <columns dataType="DECIMAL" name="I&#xa7;TEIN" precision="6" scale="2"/>
+  <columns dataType="DECIMAL" name="I&#xa7;FEMA" precision="6" scale="2"/>
+  <columns dataType="DECIMAL" name="I&#xa7;NUPE" precision="2"/>
+  <columns dataType="DECIMAL" name="I&#xa7;DUIN" precision="8"/>
+  <columns dataType="CHAR" name="I&#xa7;TIDO" precision="4"/>
+  <columns dataType="CHAR" name="I&#xa7;DOCU" precision="15"/>
+  <columns dataType="CHAR" name="I&#xa7;ARAL" precision="15"/>
+  <columns dataType="CHAR" name="I&#xa7;ORIC" precision="10"/>
+  <columns dataType="CHAR" name="I&#xa7;MANU" precision="1"/>
+  <columns dataType="CHAR" name="I&#xa7;SCAD" precision="1"/>
+</db-core:Table>

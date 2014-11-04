@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GARDAT0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="R&#xa7;NRIC" precision="6"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NRIG" precision="4"/>
+  <columns dataType="CHAR" name="R&#xa7;TGAR" precision="4"/>
+  <columns dataType="CHAR" name="R&#xa7;LIVE" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;STAT" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;TCDS" precision="3"/>
+  <columns dataType="CHAR" name="R&#xa7;CDCS" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;CCRI" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;DEST" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;CCUT" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;COMM" precision="10"/>
+  <columns dataType="CHAR" name="R&#xa7;VOSP" precision="6"/>
+  <columns dataType="CHAR" name="R&#xa7;URGE" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;TIOR" precision="3"/>
+  <columns dataType="CHAR" name="R&#xa7;CDOR" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;DSOR" precision="35"/>
+  <columns dataType="CHAR" name="R&#xa7;TIOG" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;CDOG" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;DSOG" precision="35"/>
+  <columns dataType="CHAR" name="R&#xa7;CONF" precision="20"/>
+  <columns dataType="CHAR" name="R&#xa7;MAGA" precision="3"/>
+  <columns dataType="CHAR" name="R&#xa7;OPER" precision="6"/>
+  <columns dataType="CHAR" name="R&#xa7;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="R&#xa7;UNMI" precision="6"/>
+  <columns dataType="DECIMAL" name="R&#xa7;QTRI" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;QTOR" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;QTRV" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;QTOV" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="R&#xa7;UNMV" precision="2"/>
+  <columns dataType="DECIMAL" name="R&#xa7;FATC" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R&#xa7;VALO" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="R&#xa7;VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="R&#xa7;SCON" precision="5" scale="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;SC02" precision="5" scale="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;SC03" precision="5" scale="3"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTCO" precision="8"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTEM" precision="8"/>
+  <columns dataType="CHAR" name="R&#xa7;ORIG" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;CLAS" precision="6"/>
+  <columns dataType="CHAR" name="R&#xa7;TORD" precision="3"/>
+  <columns dataType="CHAR" name="R&#xa7;ORDI" precision="10"/>
+  <columns dataType="DECIMAL" name="R&#xa7;RIGA" precision="4"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTPA" precision="8"/>
+  <columns dataType="CHAR" name="R&#xa7;TIDC" precision="3"/>
+  <columns dataType="CHAR" name="R&#xa7;NRDC" precision="10"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NRID" precision="4"/>
+  <columns dataType="CHAR" name="R&#xa7;BUYE" precision="10"/>
+  <columns dataType="CHAR" name="R&#xa7;OFFE" precision="10"/>
+  <columns dataType="CHAR" name="R&#xa7;STOF" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;COD3" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;COD4" precision="15"/>
+  <columns dataType="CHAR" name="R&#xa7;COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R&#xa7;NUM5" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="R&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FLG5" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL06" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL07" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL08" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL09" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL10" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL11" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL12" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL13" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL14" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL15" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL16" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL17" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL18" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL19" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;FL20" precision="1"/>
+  <columns dataType="CHAR" name="R&#xa7;UTEN" precision="10"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="R&#xa7;DTUM" precision="8"/>
+</db-core:Table>

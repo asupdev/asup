@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW C&#xa3;VARI0L (&#xA;  C&#xa3;CDCD ,&#xA;  C&#xa3;CDTR ,&#xA;  C&#xa3;CDPR ,&#xA;  C&#xa3;DESC )&#xA;  AS&#xA;  SELECT&#xA;  C&#xa3;CDCD ,&#xA;  C&#xa3;CDTR ,&#xA;  C&#xa3;CDPR ,&#xA;  C&#xa3;DESC&#xA;  FROM C&#xa3;VARI0F&#xA;  ;&#xA;&#xA;" name="C&#xa3;VARI0L"/>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="EDRECI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="R$MESS" precision="15"/>
+  <columns dataType="CHAR" name="R$ENOR" precision="15"/>
+  <columns dataType="CHAR" name="R$ENDE" precision="15"/>
+  <columns dataType="CHAR" name="R$CD01" precision="15"/>
+  <columns dataType="CHAR" name="R$CD02" precision="15"/>
+  <columns dataType="CHAR" name="R$CD03" precision="15"/>
+  <columns dataType="CHAR" name="R$USAG" precision="10"/>
+  <columns dataType="DECIMAL" name="R$DTNA" precision="8"/>
+  <columns dataType="DECIMAL" name="R$ORNA" precision="6"/>
+  <columns dataType="DECIMAL" name="R$DTES" precision="8"/>
+  <columns dataType="DECIMAL" name="R$ORES" precision="6"/>
+  <columns dataType="CHAR" name="R$BATC" precision="10"/>
+  <columns dataType="DECIMAL" name="R$NRTR" precision="9"/>
+  <columns dataType="CHAR" name="R$TTRA" precision="10"/>
+  <columns dataType="CHAR" name="R$NTRA" precision="10"/>
+  <columns dataType="CHAR" name="R$LIVE" precision="1"/>
+  <columns dataType="CHAR" name="R$STAT" precision="2"/>
+  <columns dataType="CHAR" name="R$FL01" precision="1"/>
+  <columns dataType="CHAR" name="R$FL02" precision="1"/>
+  <columns dataType="CHAR" name="R$FL03" precision="1"/>
+  <columns dataType="CHAR" name="R$FL04" precision="1"/>
+  <columns dataType="CHAR" name="R$FL05" precision="1"/>
+  <columns dataType="CHAR" name="R$FL06" precision="1"/>
+  <columns dataType="CHAR" name="R$FL07" precision="1"/>
+  <columns dataType="CHAR" name="R$FL08" precision="1"/>
+  <columns dataType="CHAR" name="R$FL09" precision="1"/>
+  <columns dataType="CHAR" name="R$FL10" precision="1"/>
+  <columns dataType="CHAR" name="R$FL11" precision="1"/>
+  <columns dataType="CHAR" name="R$FL12" precision="1"/>
+  <columns dataType="CHAR" name="R$FL13" precision="1"/>
+  <columns dataType="CHAR" name="R$FL14" precision="1"/>
+  <columns dataType="CHAR" name="R$FL15" precision="1"/>
+  <columns dataType="CHAR" name="R$FL16" precision="1"/>
+  <columns dataType="CHAR" name="R$FL17" precision="1"/>
+  <columns dataType="CHAR" name="R$FL18" precision="1"/>
+  <columns dataType="CHAR" name="R$FL19" precision="1"/>
+  <columns dataType="CHAR" name="R$FL20" precision="1"/>
+  <columns dataType="CHAR" name="R$DATI" precision="2050"/>
+</db-core:Table>

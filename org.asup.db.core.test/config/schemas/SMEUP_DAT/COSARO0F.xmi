@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="O$COAR" precision="15"/>
+  <columns dataType="CHAR" name="O$TCOS" precision="3"/>
+  <columns dataType="CHAR" name="O$OPSQ" precision="4"/>
+  <columns dataType="DECIMAL" name="O$LEV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LEF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LEA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LES1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LAV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LAF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LAA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$LAS1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$MCV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$MCF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$MCA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="O$MCS1" precision="15" scale="5"/>
+</db-core:Table>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGWKTT0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="TABEL00001" precision="7"/>
+  <columns dataType="CHAR" name="SOCIE00001" precision="7"/>
+  <columns dataType="DECIMAL" name="PKEY" precision="20"/>
+  <columns dataType="CHAR" name="ANNULLATO" precision="9"/>
+  <columns dataType="CHAR" name="TCNET" precision="8"/>
+  <columns dataType="CHAR" name="TCNEG" precision="5"/>
+  <columns dataType="CHAR" name="TCCAS" precision="5"/>
+  <columns dataType="CHAR" name="TCTIP" precision="5"/>
+  <columns dataType="CHAR" name="TCCOD" precision="5"/>
+  <columns dataType="DECIMAL" name="TCDAT" precision="8"/>
+  <columns dataType="DECIMAL" name="TCPRG" precision="5"/>
+  <columns dataType="DECIMAL" name="TCIMD" precision="19" scale="3"/>
+  <columns dataType="DECIMAL" name="TCIMA" precision="19" scale="3"/>
+  <columns dataType="DECIMAL" name="TCIMP" precision="19" scale="3"/>
+  <columns dataType="CHAR" name="TCDES" precision="50"/>
+  <columns dataType="CHAR" name="TCFLT" precision="5"/>
+  <columns dataType="CHAR" name="TCNSC" precision="5"/>
+  <columns dataType="CHAR" name="TCFLG" precision="5"/>
+  <columns dataType="CHAR" name="TCSTA" precision="5"/>
+  <columns dataType="CHAR" name="TCPRV" precision="5"/>
+  <columns dataType="CHAR" name="TCTPR" precision="5"/>
+  <columns dataType="CHAR" name="TCRNG" precision="5"/>
+  <columns dataType="CHAR" name="TCRCS" precision="5"/>
+  <columns dataType="CHAR" name="TCRTP" precision="5"/>
+  <columns dataType="CHAR" name="TCRCD" precision="5"/>
+  <columns dataType="DECIMAL" name="TCRDT" precision="8"/>
+  <columns dataType="DECIMAL" name="TCRPR" precision="5"/>
+  <columns dataType="CHAR" name="TCCSP" precision="5"/>
+  <columns dataType="DECIMAL" name="TCIMC" precision="19" scale="3"/>
+  <columns dataType="CHAR" name="TCFLC" precision="5"/>
+  <columns dataType="CHAR" name="TCKDS" precision="30"/>
+  <columns dataType="CHAR" name="TCKBL" precision="30"/>
+  <columns dataType="CHAR" name="TCKD2" precision="30"/>
+  <columns dataType="CHAR" name="TCCST" precision="5"/>
+  <columns dataType="CHAR" name="TCWFL" precision="15"/>
+  <columns dataType="CHAR" name="TCWFS" precision="5"/>
+  <columns dataType="CHAR" name="TCKNT" precision="30"/>
+  <columns dataType="CHAR" name="TCTDA" precision="5"/>
+  <columns dataType="DECIMAL" name="TCDDA" precision="8"/>
+  <columns dataType="CHAR" name="TCNDA" precision="20"/>
+  <columns dataType="CHAR" name="TCOPE" precision="8"/>
+  <columns dataType="DECIMAL" name="TCIMR" precision="19" scale="3"/>
+  <columns dataType="CHAR" name="TCOPC" precision="8"/>
+  <columns dataType="CHAR" name="TCVAL" precision="5"/>
+  <columns dataType="CHAR" name="TCTPD" precision="5"/>
+  <columns dataType="DECIMAL" name="TCIVD" precision="19" scale="3"/>
+  <columns dataType="DECIMAL" name="TCIVA" precision="19" scale="3"/>
+  <columns dataType="DECIMAL" name="TCIVP" precision="19" scale="3"/>
+  <columns dataType="DECIMAL" name="TCCAM" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="TCFLD" precision="5"/>
+  <columns dataType="CHAR" name="TBDES" precision="35"/>
+</db-core:Table>

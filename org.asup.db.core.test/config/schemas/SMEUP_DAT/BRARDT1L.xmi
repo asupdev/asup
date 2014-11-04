@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW BRARDT1L (&#xA;  D&#xa7;TIPD ,&#xA;  D&#xa7;ARTI ,&#xA;  D&#xa7;CONF ,&#xA;  D&#xa7;NRUT ,&#xA;  D&#xa7;NRCO ,&#xA;  D&#xa7;LOLE ,&#xA;  D&#xa7;LOLW )&#xA;  AS&#xA;  SELECT&#xA;  D&#xa7;TIPD ,&#xA;  D&#xa7;ARTI ,&#xA;  D&#xa7;CONF ,&#xA;  D&#xa7;NRUT ,&#xA;  D&#xa7;NRCO ,&#xA;  D&#xa7;LOLE ,&#xA;  D&#xa7;LOLW&#xA;  FROM BRARDT0F&#xA;  ;&#xA;&#xA;" name="BRARDT1L"/>

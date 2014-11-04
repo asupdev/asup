@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;LIND0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="AD&#xa3;DES" precision="80"/>
+  <columns dataType="DECIMAL" name="AD&#xa3;LUN" precision="4"/>
+  <columns dataType="CHAR" name="AD&#xa3;KEY" precision="7"/>
+  <columns dataType="CHAR" name="AD&#xa3;STA" precision="2"/>
+  <columns dataType="CHAR" name="AD&#xa3;LIV" precision="1"/>
+  <columns dataType="CHAR" name="AD&#xa3;F01" precision="1"/>
+  <columns dataType="CHAR" name="AD&#xa3;USA" precision="10"/>
+  <columns dataType="DECIMAL" name="AD&#xa3;DTA" precision="8"/>
+  <columns dataType="DECIMAL" name="AD&#xa3;ORA" precision="6"/>
+</db-core:Table>

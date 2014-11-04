@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW SFZCDL2L (&#xA;  SZCANN ,&#xA;  SZCATT ,&#xA;  SZCCDL ,&#xA;  SZCNAT ,&#xA;  SZCTLA ,&#xA;  SZCTAT )&#xA;  AS&#xA;  SELECT&#xA;  SZCANN ,&#xA;  SZCATT ,&#xA;  SZCCDL ,&#xA;  SZCNAT ,&#xA;  SZCTLA ,&#xA;  SZCTAT&#xA;  FROM SFZCDL0F&#xA;  WHERE&#xA;  ( ( NOT SZCANN &lt;> ' ' ) OR SZCANN IS NULL ) ;&#xA;&#xA;" name="SFZCDL2L"/>

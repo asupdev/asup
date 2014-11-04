@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMTEST0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="T$CODI" precision="15"/>
+  <columns dataType="CHAR" name="T$TIPO" precision="3"/>
+  <columns dataType="CHAR" name="T$DEIM" precision="50"/>
+  <columns dataType="CHAR" name="T$STAT" precision="3"/>
+  <columns dataType="CHAR" name="T$COAP" precision="15"/>
+  <columns dataType="CHAR" name="T$COCE" precision="15"/>
+  <columns dataType="CHAR" name="T$CSTR" precision="30"/>
+  <columns dataType="CHAR" name="T$FORN" precision="30"/>
+  <columns dataType="DECIMAL" name="T$ACOS" precision="4"/>
+  <columns dataType="DECIMAL" name="T$DINS" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DUMA" precision="8"/>
+  <columns dataType="CHAR" name="T$MAIN" precision="15"/>
+  <columns dataType="CHAR" name="T$MAFO" precision="15"/>
+  <columns dataType="CHAR" name="T$CDL" precision="6"/>
+  <columns dataType="CHAR" name="T$CDC" precision="6"/>
+  <columns dataType="DECIMAL" name="T$PESO" precision="7"/>
+  <columns dataType="DECIMAL" name="T$ALTE" precision="5"/>
+  <columns dataType="DECIMAL" name="T$LARG" precision="5"/>
+  <columns dataType="DECIMAL" name="T$LUNG" precision="5"/>
+  <columns dataType="DECIMAL" name="T$DL01" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL02" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL03" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL04" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL05" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL06" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL07" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL08" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL09" precision="8"/>
+  <columns dataType="DECIMAL" name="T$DL10" precision="8"/>
+  <columns dataType="CHAR" name="T$CD01" precision="15"/>
+  <columns dataType="CHAR" name="T$CD02" precision="15"/>
+  <columns dataType="CHAR" name="T$CD03" precision="15"/>
+  <columns dataType="CHAR" name="T$CD04" precision="15"/>
+  <columns dataType="CHAR" name="T$CD05" precision="15"/>
+  <columns dataType="CHAR" name="T$CD06" precision="15"/>
+  <columns dataType="CHAR" name="T$CD07" precision="15"/>
+  <columns dataType="CHAR" name="T$CD08" precision="15"/>
+  <columns dataType="CHAR" name="T$CD09" precision="15"/>
+  <columns dataType="CHAR" name="T$CD10" precision="15"/>
+  <columns dataType="DECIMAL" name="T$NR01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR05" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR06" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR07" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR08" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR09" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T$NR10" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="T$FL01" precision="1"/>
+  <columns dataType="CHAR" name="T$FL02" precision="1"/>
+  <columns dataType="CHAR" name="T$FL03" precision="1"/>
+  <columns dataType="CHAR" name="T$FL04" precision="1"/>
+  <columns dataType="CHAR" name="T$FL05" precision="1"/>
+  <columns dataType="CHAR" name="T$FL06" precision="1"/>
+  <columns dataType="CHAR" name="T$FL07" precision="1"/>
+  <columns dataType="CHAR" name="T$FL08" precision="1"/>
+  <columns dataType="CHAR" name="T$FL09" precision="1"/>
+  <columns dataType="CHAR" name="T$FL10" precision="1"/>
+  <columns dataType="CHAR" name="T$FL11" precision="1"/>
+  <columns dataType="CHAR" name="T$FL12" precision="1"/>
+  <columns dataType="CHAR" name="T$FL13" precision="1"/>
+  <columns dataType="CHAR" name="T$FL14" precision="1"/>
+  <columns dataType="CHAR" name="T$FL15" precision="1"/>
+  <columns dataType="CHAR" name="T$FL16" precision="1"/>
+  <columns dataType="CHAR" name="T$FL17" precision="1"/>
+  <columns dataType="CHAR" name="T$FL18" precision="1"/>
+  <columns dataType="CHAR" name="T$FL19" precision="1"/>
+  <columns dataType="CHAR" name="T$FL20" precision="1"/>
+  <columns dataType="CHAR" name="T$FL21" precision="1"/>
+  <columns dataType="CHAR" name="T$FL22" precision="1"/>
+  <columns dataType="CHAR" name="T$FL23" precision="1"/>
+  <columns dataType="CHAR" name="T$FL24" precision="1"/>
+  <columns dataType="CHAR" name="T$FL25" precision="1"/>
+  <columns dataType="CHAR" name="T$FL26" precision="1"/>
+  <columns dataType="CHAR" name="T$FL27" precision="1"/>
+  <columns dataType="CHAR" name="T$FL28" precision="1"/>
+  <columns dataType="CHAR" name="T$FL29" precision="1"/>
+  <columns dataType="CHAR" name="T$FL30" precision="1"/>
+  <columns dataType="CHAR" name="T$FL31" precision="1"/>
+  <columns dataType="CHAR" name="T$FL32" precision="1"/>
+  <columns dataType="CHAR" name="T$FL33" precision="1"/>
+  <columns dataType="CHAR" name="T$FL34" precision="1"/>
+  <columns dataType="CHAR" name="T$FL35" precision="1"/>
+  <columns dataType="CHAR" name="T$FL36" precision="1"/>
+  <columns dataType="CHAR" name="T$FL37" precision="1"/>
+  <columns dataType="CHAR" name="T$FL38" precision="1"/>
+  <columns dataType="CHAR" name="T$FL39" precision="1"/>
+  <columns dataType="CHAR" name="T$FL40" precision="1"/>
+  <columns dataType="CHAR" name="T$USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="T$DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="T$ORIN" precision="6"/>
+  <columns dataType="CHAR" name="T$OGIN" precision="10"/>
+  <columns dataType="CHAR" name="T$USAG" precision="10"/>
+  <columns dataType="DECIMAL" name="T$DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="T$ORAG" precision="6"/>
+  <columns dataType="CHAR" name="T$OGAG" precision="10"/>
+</db-core:Table>

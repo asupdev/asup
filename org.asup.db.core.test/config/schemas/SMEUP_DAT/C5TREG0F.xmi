@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5TREG0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="T5AZIE" precision="2"/>
+  <columns dataType="CHAR" name="T5DIVI" precision="3"/>
+  <columns dataType="CHAR" name="T5ESER" precision="10"/>
+  <columns dataType="CHAR" name="T5LIVE" precision="1"/>
+  <columns dataType="CHAR" name="T5STAT" precision="2"/>
+  <columns dataType="CHAR" name="T5SOCI" precision="3"/>
+  <columns dataType="CHAR" name="T5SOCO" precision="3"/>
+  <columns dataType="CHAR" name="T5PROG" precision="10"/>
+  <columns dataType="CHAR" name="T5TPRS" precision="12"/>
+  <columns dataType="CHAR" name="T5CDRS" precision="15"/>
+  <columns dataType="CHAR" name="T5CAST" precision="3"/>
+  <columns dataType="CHAR" name="T5TREG" precision="6"/>
+  <columns dataType="CHAR" name="T5TIPM" precision="3"/>
+  <columns dataType="CHAR" name="T5IDOR" precision="10"/>
+  <columns dataType="CHAR" name="T5TPOG" precision="12"/>
+  <columns dataType="CHAR" name="T5CDOG" precision="15"/>
+  <columns dataType="CHAR" name="T5COFI" precision="20"/>
+  <columns dataType="CHAR" name="T5NDOR" precision="20"/>
+  <columns dataType="CHAR" name="T5NRIF" precision="10"/>
+  <columns dataType="CHAR" name="T5TPRO" precision="12"/>
+  <columns dataType="CHAR" name="T5NPRO" precision="15"/>
+  <columns dataType="CHAR" name="T5DESC" precision="30"/>
+  <columns dataType="CHAR" name="T5AGEN" precision="4"/>
+  <columns dataType="CHAR" name="T5COPA" precision="3"/>
+  <columns dataType="CHAR" name="T5CAUS" precision="3"/>
+  <columns dataType="CHAR" name="T5BANC" precision="3"/>
+  <columns dataType="CHAR" name="T5CCOR" precision="15"/>
+  <columns dataType="CHAR" name="T5ABCB" precision="15"/>
+  <columns dataType="CHAR" name="T5DBAP" precision="35"/>
+  <columns dataType="CHAR" name="T5IBAN" precision="35"/>
+  <columns dataType="CHAR" name="T5SWIF" precision="11"/>
+  <columns dataType="CHAR" name="T5TICE" precision="3"/>
+  <columns dataType="CHAR" name="T5CECE" precision="15"/>
+  <columns dataType="DECIMAL" name="T5DREG" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DDOR" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DRIF" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DPRO" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DCOI" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DCOF" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DINP" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DAOP" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DCIV" precision="8"/>
+  <columns dataType="CHAR" name="T5GIVA" precision="3"/>
+  <columns dataType="CHAR" name="T5TIVA" precision="1"/>
+  <columns dataType="CHAR" name="T5SEGN" precision="1"/>
+  <columns dataType="CHAR" name="T5CIVA" precision="2"/>
+  <columns dataType="CHAR" name="T5VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="T5CAMB" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="T5IMPO" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5IMVA" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5PDAR" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5VDAR" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5PAVE" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5VAVE" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="T5VALE" precision="4"/>
+  <columns dataType="DECIMAL" name="T5CAME" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="T5IMVE" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5EDAR" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5EAVE" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="T5DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="T5DT05" precision="8"/>
+  <columns dataType="CHAR" name="T5AA01" precision="15"/>
+  <columns dataType="CHAR" name="T5AA02" precision="15"/>
+  <columns dataType="CHAR" name="T5AA03" precision="15"/>
+  <columns dataType="CHAR" name="T5AA04" precision="15"/>
+  <columns dataType="CHAR" name="T5AA05" precision="15"/>
+  <columns dataType="DECIMAL" name="T5NU01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T5NU02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T5NU03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T5NU04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="T5NU05" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="T5FL01" precision="1"/>
+  <columns dataType="CHAR" name="T5FL02" precision="1"/>
+  <columns dataType="CHAR" name="T5FL03" precision="1"/>
+  <columns dataType="CHAR" name="T5FL04" precision="1"/>
+  <columns dataType="CHAR" name="T5FL05" precision="1"/>
+  <columns dataType="CHAR" name="T5FL06" precision="1"/>
+  <columns dataType="CHAR" name="T5FL07" precision="1"/>
+  <columns dataType="CHAR" name="T5FL08" precision="1"/>
+  <columns dataType="CHAR" name="T5FL09" precision="1"/>
+  <columns dataType="CHAR" name="T5FL10" precision="1"/>
+  <columns dataType="CHAR" name="T5FL11" precision="1"/>
+  <columns dataType="CHAR" name="T5FL12" precision="1"/>
+  <columns dataType="CHAR" name="T5FL13" precision="1"/>
+  <columns dataType="CHAR" name="T5FL14" precision="1"/>
+  <columns dataType="CHAR" name="T5FL15" precision="1"/>
+  <columns dataType="CHAR" name="T5FL16" precision="1"/>
+  <columns dataType="CHAR" name="T5FL17" precision="1"/>
+  <columns dataType="CHAR" name="T5FL18" precision="1"/>
+  <columns dataType="CHAR" name="T5FL19" precision="1"/>
+  <columns dataType="CHAR" name="T5FL20" precision="1"/>
+  <columns dataType="CHAR" name="T5FL21" precision="1"/>
+  <columns dataType="CHAR" name="T5FL22" precision="1"/>
+  <columns dataType="CHAR" name="T5FL23" precision="1"/>
+  <columns dataType="CHAR" name="T5FL24" precision="1"/>
+  <columns dataType="CHAR" name="T5FL25" precision="1"/>
+  <columns dataType="CHAR" name="T5FL26" precision="1"/>
+  <columns dataType="CHAR" name="T5FL27" precision="1"/>
+  <columns dataType="CHAR" name="T5FL28" precision="1"/>
+  <columns dataType="CHAR" name="T5FL29" precision="1"/>
+  <columns dataType="CHAR" name="T5FL30" precision="1"/>
+  <columns dataType="CHAR" name="T5FL31" precision="1"/>
+  <columns dataType="CHAR" name="T5FL32" precision="1"/>
+  <columns dataType="CHAR" name="T5FL33" precision="1"/>
+  <columns dataType="CHAR" name="T5FL34" precision="1"/>
+  <columns dataType="CHAR" name="T5FL35" precision="1"/>
+  <columns dataType="CHAR" name="T5FL36" precision="1"/>
+  <columns dataType="CHAR" name="T5FL37" precision="1"/>
+  <columns dataType="CHAR" name="T5FL38" precision="1"/>
+  <columns dataType="CHAR" name="T5FL39" precision="1"/>
+  <columns dataType="CHAR" name="T5FL40" precision="1"/>
+  <columns dataType="DECIMAL" name="T5DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="T5ORIN" precision="6"/>
+  <columns dataType="CHAR" name="T5USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="T5DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="T5ORAG" precision="6"/>
+  <columns dataType="CHAR" name="T5USAG" precision="10"/>
+</db-core:Table>

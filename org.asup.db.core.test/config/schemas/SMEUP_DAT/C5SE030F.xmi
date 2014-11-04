@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5SE030F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="D&#xa7;RECO" precision="4000"/>
+</db-core:Table>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;COAZ0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="J&#xa7;OGCA" precision="3"/>
+  <columns dataType="CHAR" name="J&#xa7;CD01" precision="15"/>
+  <columns dataType="CHAR" name="J&#xa7;SECO" precision="6"/>
+  <columns dataType="CHAR" name="J&#xa7;SEAZ" precision="6"/>
+  <columns dataType="CHAR" name="J&#xa7;TICA" precision="3"/>
+  <columns dataType="CHAR" name="J&#xa7;DESC" precision="35"/>
+  <columns dataType="CHAR" name="J&#xa7;COAZ" precision="200"/>
+  <columns dataType="CHAR" name="J&#xa7;LIVE" precision="1"/>
+  <columns dataType="CHAR" name="J&#xa7;STAT" precision="2"/>
+  <columns dataType="DECIMAL" name="J&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="J&#xa7;DTAG" precision="8"/>
+  <columns dataType="CHAR" name="J&#xa7;USAG" precision="10"/>
+</db-core:Table>

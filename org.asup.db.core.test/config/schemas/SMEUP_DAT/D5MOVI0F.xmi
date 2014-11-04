@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D5MOVI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="D&#xa3;PERI" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;SSFO" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;FONT" precision="15"/>
+  <columns dataType="DECIMAL" name="D&#xa3;NURE" precision="7"/>
+  <columns dataType="DECIMAL" name="D&#xa3;DTRE" precision="8"/>
+  <columns dataType="CHAR" name="D&#xa3;DESC" precision="35"/>
+  <columns dataType="CHAR" name="D&#xa3;NUDO" precision="10"/>
+  <columns dataType="DECIMAL" name="D&#xa3;DTDO" precision="8"/>
+  <columns dataType="DECIMAL" name="D&#xa3;QTMO" precision="13" scale="3"/>
+  <columns dataType="CHAR" name="D&#xa3;VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CAMB" precision="12" scale="6"/>
+  <columns dataType="CHAR" name="D&#xa3;TICO" precision="3"/>
+  <columns dataType="CHAR" name="D&#xa3;TO01" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO01" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG01" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO02" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO02" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG02" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO03" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO03" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG03" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO04" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO04" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG04" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO05" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO05" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG05" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO06" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO06" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG06" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO07" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO07" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG07" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO08" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO08" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG08" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO09" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO09" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG09" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa3;TO10" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa3;PO10" precision="10"/>
+  <columns dataType="CHAR" name="D&#xa3;OG10" precision="15"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN01" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN02" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN03" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN04" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN05" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN06" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN07" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN08" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN09" precision="20" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa3;CN10" precision="20" scale="6"/>
+  <columns dataType="CHAR" name="D&#xa3;FL01" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL02" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL03" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL04" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL05" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL06" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL07" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL08" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL09" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa3;FL10" precision="1"/>
+</db-core:Table>

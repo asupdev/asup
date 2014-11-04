@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFORTE0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="F1AZIE" precision="2"/>
+  <columns dataType="CHAR" name="F1LIVE" precision="1"/>
+  <columns dataType="CHAR" name="F1STAT" precision="2"/>
+  <columns dataType="CHAR" name="F1NORD" precision="10"/>
+  <columns dataType="CHAR" name="F1TIWF" precision="10"/>
+  <columns dataType="CHAR" name="F1DESC" precision="35"/>
+  <columns dataType="CHAR" name="F1STAV" precision="2"/>
+  <columns dataType="CHAR" name="F1TPMA" precision="12"/>
+  <columns dataType="CHAR" name="F1CDMA" precision="15"/>
+  <columns dataType="CHAR" name="F1TPOW" precision="12"/>
+  <columns dataType="CHAR" name="F1CDOW" precision="15"/>
+  <columns dataType="CHAR" name="F1PRIO" precision="2"/>
+  <columns dataType="DECIMAL" name="F1LTOT" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="F1DFRI" precision="8"/>
+  <columns dataType="CHAR" name="F1NMAS" precision="10"/>
+  <columns dataType="CHAR" name="F1TMAS" precision="10"/>
+  <columns dataType="CHAR" name="F1AMAS" precision="10"/>
+  <columns dataType="DECIMAL" name="F1DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="F1DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="F1DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="F1DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="F1DT05" precision="8"/>
+  <columns dataType="CHAR" name="F1AA01" precision="15"/>
+  <columns dataType="CHAR" name="F1AA02" precision="15"/>
+  <columns dataType="CHAR" name="F1AA03" precision="15"/>
+  <columns dataType="CHAR" name="F1AA04" precision="15"/>
+  <columns dataType="CHAR" name="F1AA05" precision="15"/>
+  <columns dataType="DECIMAL" name="F1NU01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F1NU02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F1NU03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F1NU04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F1NU05" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="F1FL01" precision="1"/>
+  <columns dataType="CHAR" name="F1FL02" precision="1"/>
+  <columns dataType="CHAR" name="F1FL03" precision="1"/>
+  <columns dataType="CHAR" name="F1FL04" precision="1"/>
+  <columns dataType="CHAR" name="F1FL05" precision="1"/>
+  <columns dataType="CHAR" name="F1FL06" precision="1"/>
+  <columns dataType="CHAR" name="F1FL07" precision="1"/>
+  <columns dataType="CHAR" name="F1FL08" precision="1"/>
+  <columns dataType="CHAR" name="F1FL09" precision="1"/>
+  <columns dataType="CHAR" name="F1FL10" precision="1"/>
+  <columns dataType="CHAR" name="F1FL11" precision="1"/>
+  <columns dataType="CHAR" name="F1FL12" precision="1"/>
+  <columns dataType="CHAR" name="F1FL13" precision="1"/>
+  <columns dataType="CHAR" name="F1FL14" precision="1"/>
+  <columns dataType="CHAR" name="F1FL15" precision="1"/>
+  <columns dataType="CHAR" name="F1FL16" precision="1"/>
+  <columns dataType="CHAR" name="F1FL17" precision="1"/>
+  <columns dataType="CHAR" name="F1FL18" precision="1"/>
+  <columns dataType="CHAR" name="F1FL19" precision="1"/>
+  <columns dataType="CHAR" name="F1FL20" precision="1"/>
+  <columns dataType="CHAR" name="F1FL21" precision="1"/>
+  <columns dataType="CHAR" name="F1FL22" precision="1"/>
+  <columns dataType="CHAR" name="F1FL23" precision="1"/>
+  <columns dataType="CHAR" name="F1FL24" precision="1"/>
+  <columns dataType="CHAR" name="F1FL25" precision="1"/>
+  <columns dataType="CHAR" name="F1FL26" precision="1"/>
+  <columns dataType="CHAR" name="F1FL27" precision="1"/>
+  <columns dataType="CHAR" name="F1FL28" precision="1"/>
+  <columns dataType="CHAR" name="F1FL29" precision="1"/>
+  <columns dataType="CHAR" name="F1FL30" precision="1"/>
+  <columns dataType="CHAR" name="F1FL31" precision="1"/>
+  <columns dataType="CHAR" name="F1FL32" precision="1"/>
+  <columns dataType="CHAR" name="F1FL33" precision="1"/>
+  <columns dataType="CHAR" name="F1FL34" precision="1"/>
+  <columns dataType="CHAR" name="F1FL35" precision="1"/>
+  <columns dataType="CHAR" name="F1FL36" precision="1"/>
+  <columns dataType="CHAR" name="F1FL37" precision="1"/>
+  <columns dataType="CHAR" name="F1FL38" precision="1"/>
+  <columns dataType="CHAR" name="F1FL39" precision="1"/>
+  <columns dataType="CHAR" name="F1FL40" precision="1"/>
+  <columns dataType="DECIMAL" name="F1DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="F1ORIN" precision="6"/>
+  <columns dataType="CHAR" name="F1USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="F1DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="F1ORAG" precision="6"/>
+  <columns dataType="CHAR" name="F1USAG" precision="10"/>
+</db-core:Table>

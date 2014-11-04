@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;SAVE0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="S1IDOG" precision="30"/>
+  <columns dataType="CHAR" name="S1OPER" precision="1"/>
+  <columns dataType="CHAR" name="S1LIBR" precision="10"/>
+  <columns dataType="DECIMAL" name="S1NOGG" precision="9"/>
+  <columns dataType="DECIMAL" name="S1NERR" precision="9"/>
+  <columns dataType="DECIMAL" name="S1NRIS" precision="9"/>
+  <columns dataType="DECIMAL" name="S1SIZE" precision="30"/>
+  <columns dataType="CHAR" name="S1TGTR" precision="6"/>
+  <columns dataType="DECIMAL" name="S1DTSV" precision="8"/>
+  <columns dataType="DECIMAL" name="S1ORSV" precision="6"/>
+  <columns dataType="CHAR" name="S1TDEV" precision="15"/>
+  <columns dataType="CHAR" name="S1DEVC" precision="256"/>
+  <columns dataType="CHAR" name="S1MESE" precision="6"/>
+  <columns dataType="CHAR" name="S1TDEO" precision="15"/>
+  <columns dataType="CHAR" name="S1DEVO" precision="256"/>
+  <columns dataType="CHAR" name="S1ASLA" precision="10"/>
+  <columns dataType="CHAR" name="S1ASUT" precision="10"/>
+  <columns dataType="DECIMAL" name="S1ASNR" precision="6"/>
+  <columns dataType="DECIMAL" name="S1DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="S1DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="S1DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="S1DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="S1DT05" precision="8"/>
+  <columns dataType="CHAR" name="S1CDL1" precision="15"/>
+  <columns dataType="CHAR" name="S1CDL2" precision="15"/>
+  <columns dataType="CHAR" name="S1CDL3" precision="15"/>
+  <columns dataType="CHAR" name="S1CDL4" precision="15"/>
+  <columns dataType="CHAR" name="S1CDL5" precision="15"/>
+  <columns dataType="DECIMAL" name="S1NUM1" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S1NUM2" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S1NUM3" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S1NUM4" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S1NUM5" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="S1FL01" precision="1"/>
+  <columns dataType="CHAR" name="S1FL02" precision="1"/>
+  <columns dataType="CHAR" name="S1FL03" precision="1"/>
+  <columns dataType="CHAR" name="S1FL04" precision="1"/>
+  <columns dataType="CHAR" name="S1FL05" precision="1"/>
+  <columns dataType="CHAR" name="S1FL06" precision="1"/>
+  <columns dataType="CHAR" name="S1FL07" precision="1"/>
+  <columns dataType="CHAR" name="S1FL08" precision="1"/>
+  <columns dataType="CHAR" name="S1FL09" precision="1"/>
+  <columns dataType="CHAR" name="S1FL10" precision="1"/>
+  <columns dataType="DECIMAL" name="S1DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="S1ORIN" precision="6"/>
+  <columns dataType="CHAR" name="S1USIN" precision="10"/>
+  <columns dataType="CHAR" name="S1PRIN" precision="10"/>
+  <columns dataType="DECIMAL" name="S1DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="S1ORAG" precision="6"/>
+  <columns dataType="CHAR" name="S1USAG" precision="10"/>
+  <columns dataType="CHAR" name="S1PRAG" precision="10"/>
+  <columns dataType="VARCHAR" name="S1DATI" precision="30002"/>
+</db-core:Table>

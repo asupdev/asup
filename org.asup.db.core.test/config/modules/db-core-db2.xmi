@@ -29,4 +29,16 @@
         vendor="www.smeup.com"
         className="org.asup.db.syntax.db2.DB2SyntaxBuilderImpl"/>
   </services>
+  <services
+      xsi:type="fw-core:ServicePluginRegistry"
+      className="org.asup.db.syntax.base.BaseQueryConverterRegistryImpl"
+      interfaceName="org.asup.db.syntax.QQueryConverterRegistry"
+      pluginInterface="org.asup.db.syntax.QQueryConverter">
+    <services
+        name="DB2"
+        text="IBM DB2"
+        version="0.5.0"
+        vendor="www.smeup.com"
+        className="org.asup.db.syntax.db2.DB2QueryConverterImpl"/>
+  </services>
 </fw-core:ApplicationModule>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQRILM0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="M&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="M&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="M&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="M&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="M&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;LOTI" precision="15"/>
+  <columns dataType="CHAR" name="M&#xa7;NUDO" precision="10"/>
+  <columns dataType="DECIMAL" name="M&#xa7;DADO" precision="8"/>
+  <columns dataType="CHAR" name="M&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="M&#xa7;APRO" precision="15"/>
+  <columns dataType="CHAR" name="M&#xa7;CCAR" precision="15"/>
+  <columns dataType="CHAR" name="M&#xa7;CTIP" precision="3"/>
+  <columns dataType="CHAR" name="M&#xa7;CFAL" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;CFAC" precision="6"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CFR1" precision="5"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CFR2" precision="5"/>
+  <columns dataType="CHAR" name="M&#xa7;MUNM" precision="6"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ01" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ02" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ03" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ04" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ05" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ06" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ07" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ08" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ09" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ10" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ11" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ12" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ13" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ14" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ15" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ16" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ17" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ18" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ19" precision="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ20" precision="9" scale="4"/>
+  <columns dataType="CHAR" name="M&#xa7;RWRC" precision="15"/>
+  <columns dataType="DECIMAL" name="M&#xa7;ROPR" precision="7" scale="4"/>
+  <columns dataType="CHAR" name="M&#xa7;MUN1" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;MUN2" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;MATP" precision="15"/>
+  <columns dataType="CHAR" name="M&#xa7;CMSG" precision="15"/>
+  <columns dataType="CHAR" name="M&#xa7;AN01" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD01" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT01" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN01" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN02" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD02" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT02" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN02" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN03" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD03" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT03" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN03" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN04" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD04" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT04" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN04" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN05" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD05" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT05" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN05" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN06" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD06" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT06" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN06" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN07" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD07" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT07" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN07" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN08" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD08" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT08" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN08" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN09" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD09" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT09" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN09" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN10" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD10" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT10" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN10" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN11" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD11" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT11" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN11" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN12" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD12" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT12" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN12" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN13" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD13" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT13" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN13" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN14" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD14" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT14" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN14" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN15" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD15" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT15" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN15" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN16" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD16" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT16" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN16" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN17" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD17" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT17" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN17" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN18" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD18" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT18" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN18" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN19" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD19" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT19" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN19" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;AN20" precision="1"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CD20" precision="8"/>
+  <columns dataType="DECIMAL" name="M&#xa7;CT20" precision="6"/>
+  <columns dataType="CHAR" name="M&#xa7;RN20" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="M&#xa7;FLG5" precision="1"/>
+</db-core:Table>

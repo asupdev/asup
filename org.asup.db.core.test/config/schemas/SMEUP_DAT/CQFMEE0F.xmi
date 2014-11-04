@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQFMEE0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="E&#xa7;ANNU" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa7;NUDO" precision="10"/>
+  <columns dataType="CHAR" name="E&#xa7;TIGR" precision="2"/>
+  <columns dataType="CHAR" name="E&#xa7;GRUP" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa7;TIIM" precision="2"/>
+  <columns dataType="CHAR" name="E&#xa7;COIM" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa7;DCOD" precision="10"/>
+  <columns dataType="CHAR" name="E&#xa7;FFAL" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa7;FEFR" precision="6"/>
+  <columns dataType="CHAR" name="E&#xa7;ACOD" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa7;FLG5" precision="1"/>
+  <columns dataType="DECIMAL" name="E&#xa7;DTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa7;DTMR" precision="8"/>
+  <columns dataType="CHAR" name="E&#xa7;UTEN" precision="10"/>
+</db-core:Table>

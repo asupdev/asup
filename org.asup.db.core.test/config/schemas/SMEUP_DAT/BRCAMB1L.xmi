@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW BRCAMB1L (&#xA;  C&#xa3;STAT ,&#xA;  C&#xa3;DIVI ,&#xA;  C&#xa3;DATA ,&#xA;  C&#xa3;TIPO ,&#xA;  C&#xa3;CAMB ,&#xA;  C&#xa3;DFIC )&#xA;  AS&#xA;  SELECT&#xA;  C&#xa3;STAT ,&#xA;  C&#xa3;DIVI ,&#xA;  C&#xa3;DATA ,&#xA;  C&#xa3;TIPO ,&#xA;  C&#xa3;CAMB ,&#xA;  C&#xa3;DFIC&#xA;  FROM BRCAMB0F&#xA;  WHERE&#xA;  ( ( NOT C&#xa3;STAT = 'A' ) OR C&#xa3;STAT IS NULL ) ;&#xA;&#xA;" name="BRCAMB1L"/>

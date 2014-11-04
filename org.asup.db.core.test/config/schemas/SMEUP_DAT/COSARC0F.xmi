@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARC0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="R$COAR" precision="15"/>
+  <columns dataType="CHAR" name="R$TCOS" precision="3"/>
+  <columns dataType="CHAR" name="R$CDL" precision="6"/>
+  <columns dataType="DECIMAL" name="R$TLAL" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TMAL" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TATL" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TSCL" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TLAI" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TMAI" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TATI" precision="12" scale="6"/>
+  <columns dataType="DECIMAL" name="R$TSCI" precision="12" scale="6"/>
+</db-core:Table>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5BATC0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="W5LOTT" precision="10"/>
+  <columns dataType="DECIMAL" name="W5SOLO" precision="6"/>
+  <columns dataType="CHAR" name="W5IDOJ" precision="15"/>
+  <columns dataType="CHAR" name="W5IMOJ" precision="15"/>
+  <columns dataType="CHAR" name="W5CORD" precision="50"/>
+  <columns dataType="CHAR" name="W5TREC" precision="2"/>
+  <columns dataType="VARCHAR" name="W5RECO" precision="10002"/>
+  <columns dataType="CHAR" name="W5CDMS" precision="7"/>
+  <columns dataType="CHAR" name="W5FIMS" precision="10"/>
+  <columns dataType="CHAR" name="W5VAMS" precision="35"/>
+  <columns dataType="CHAR" name="W5FL01" precision="1"/>
+  <columns dataType="CHAR" name="W5FL02" precision="1"/>
+  <columns dataType="CHAR" name="W5FL03" precision="1"/>
+  <columns dataType="CHAR" name="W5FL04" precision="1"/>
+  <columns dataType="CHAR" name="W5FL05" precision="1"/>
+  <columns dataType="CHAR" name="W5FL06" precision="1"/>
+  <columns dataType="CHAR" name="W5FL07" precision="1"/>
+  <columns dataType="CHAR" name="W5FL08" precision="1"/>
+  <columns dataType="CHAR" name="W5FL09" precision="1"/>
+  <columns dataType="CHAR" name="W5FL10" precision="1"/>
+  <columns dataType="CHAR" name="W5FL11" precision="1"/>
+  <columns dataType="CHAR" name="W5FL12" precision="1"/>
+  <columns dataType="CHAR" name="W5FL13" precision="1"/>
+  <columns dataType="CHAR" name="W5FL14" precision="1"/>
+  <columns dataType="CHAR" name="W5FL15" precision="1"/>
+  <columns dataType="CHAR" name="W5FL16" precision="1"/>
+  <columns dataType="CHAR" name="W5FL17" precision="1"/>
+  <columns dataType="CHAR" name="W5FL18" precision="1"/>
+  <columns dataType="CHAR" name="W5FL19" precision="1"/>
+  <columns dataType="CHAR" name="W5FL20" precision="1"/>
+  <columns dataType="DECIMAL" name="W5DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="W5ORIN" precision="6"/>
+  <columns dataType="CHAR" name="W5USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="W5DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="W5ORAG" precision="6"/>
+  <columns dataType="CHAR" name="W5USAG" precision="10"/>
+  <columns dataType="CHAR" name="W5TERM" precision="10"/>
+  <columns dataType="DECIMAL" name="W5NJOB" precision="6"/>
+</db-core:Table>

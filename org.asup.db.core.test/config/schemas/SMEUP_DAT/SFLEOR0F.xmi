@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFLEOR0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="SFLTOA" precision="2"/>
+  <columns dataType="CHAR" name="SFLTDA" precision="3"/>
+  <columns dataType="CHAR" name="SFLNDA" precision="10"/>
+  <columns dataType="CHAR" name="SFLTOC" precision="2"/>
+  <columns dataType="CHAR" name="SFLTDC" precision="3"/>
+  <columns dataType="CHAR" name="SFLNDC" precision="10"/>
+  <columns dataType="DECIMAL" name="SFLDFI" precision="8"/>
+  <columns dataType="DECIMAL" name="SFLHFI" precision="6"/>
+</db-core:Table>

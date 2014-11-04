@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFQSPL0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="QSTORI" precision="2"/>
+  <columns dataType="CHAR" name="QSTDOC" precision="3"/>
+  <columns dataType="CHAR" name="QSNDOC" precision="10"/>
+  <columns dataType="CHAR" name="QSOPER" precision="6"/>
+  <columns dataType="CHAR" name="QSSPLT" precision="1"/>
+  <columns dataType="CHAR" name="QSTIRP" precision="3"/>
+  <columns dataType="CHAR" name="QSCLAV" precision="15"/>
+  <columns dataType="CHAR" name="QSTIRF" precision="3"/>
+  <columns dataType="CHAR" name="QSMACC" precision="15"/>
+  <columns dataType="DECIMAL" name="QSQTSC" precision="11" scale="3"/>
+</db-core:Table>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFATTI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="F4AZIE" precision="2"/>
+  <columns dataType="CHAR" name="F4LIVE" precision="1"/>
+  <columns dataType="CHAR" name="F4STAT" precision="2"/>
+  <columns dataType="CHAR" name="F4NURE" precision="10"/>
+  <columns dataType="CHAR" name="F4DESC" precision="35"/>
+  <columns dataType="CHAR" name="F4NORD" precision="10"/>
+  <columns dataType="CHAR" name="F4TRAN" precision="10"/>
+  <columns dataType="CHAR" name="F4TIWF" precision="10"/>
+  <columns dataType="CHAR" name="F4TIMP" precision="5"/>
+  <columns dataType="CHAR" name="F4IMPE" precision="10"/>
+  <columns dataType="CHAR" name="F4MAST" precision="10"/>
+  <columns dataType="CHAR" name="F4IMAS" precision="10"/>
+  <columns dataType="CHAR" name="F4AZIO" precision="10"/>
+  <columns dataType="DECIMAL" name="F4DRIC" precision="8"/>
+  <columns dataType="DECIMAL" name="F4HRIC" precision="6"/>
+  <columns dataType="CHAR" name="F4TROR" precision="2"/>
+  <columns dataType="CHAR" name="F4PROR" precision="10"/>
+  <columns dataType="CHAR" name="F4RIOR" precision="15"/>
+  <columns dataType="CHAR" name="F4TRSE" precision="2"/>
+  <columns dataType="CHAR" name="F4PRSE" precision="10"/>
+  <columns dataType="CHAR" name="F4RISE" precision="15"/>
+  <columns dataType="DECIMAL" name="F4DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="F4DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="F4DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="F4DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="F4DT05" precision="8"/>
+  <columns dataType="CHAR" name="F4AA01" precision="15"/>
+  <columns dataType="CHAR" name="F4AA02" precision="15"/>
+  <columns dataType="CHAR" name="F4AA03" precision="15"/>
+  <columns dataType="CHAR" name="F4AA04" precision="15"/>
+  <columns dataType="CHAR" name="F4AA05" precision="15"/>
+  <columns dataType="DECIMAL" name="F4NU01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F4NU02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F4NU03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F4NU04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="F4NU05" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="F4FL01" precision="1"/>
+  <columns dataType="CHAR" name="F4FL02" precision="1"/>
+  <columns dataType="CHAR" name="F4FL03" precision="1"/>
+  <columns dataType="CHAR" name="F4FL04" precision="1"/>
+  <columns dataType="CHAR" name="F4FL05" precision="1"/>
+  <columns dataType="CHAR" name="F4FL06" precision="1"/>
+  <columns dataType="CHAR" name="F4FL07" precision="1"/>
+  <columns dataType="CHAR" name="F4FL08" precision="1"/>
+  <columns dataType="CHAR" name="F4FL09" precision="1"/>
+  <columns dataType="CHAR" name="F4FL10" precision="1"/>
+  <columns dataType="CHAR" name="F4FL11" precision="1"/>
+  <columns dataType="CHAR" name="F4FL12" precision="1"/>
+  <columns dataType="CHAR" name="F4FL13" precision="1"/>
+  <columns dataType="CHAR" name="F4FL14" precision="1"/>
+  <columns dataType="CHAR" name="F4FL15" precision="1"/>
+  <columns dataType="CHAR" name="F4FL16" precision="1"/>
+  <columns dataType="CHAR" name="F4FL17" precision="1"/>
+  <columns dataType="CHAR" name="F4FL18" precision="1"/>
+  <columns dataType="CHAR" name="F4FL19" precision="1"/>
+  <columns dataType="CHAR" name="F4FL20" precision="1"/>
+  <columns dataType="DECIMAL" name="F4DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="F4ORIN" precision="6"/>
+  <columns dataType="CHAR" name="F4USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="F4DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="F4ORAG" precision="6"/>
+  <columns dataType="CHAR" name="F4USAG" precision="10"/>
+</db-core:Table>

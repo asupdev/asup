@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMQUAN0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="G&#xa7;TIGC" precision="2"/>
+  <columns dataType="CHAR" name="G&#xa7;SOGC" precision="2"/>
+  <columns dataType="CHAR" name="G&#xa7;CDMG" precision="3"/>
+  <columns dataType="CHAR" name="G&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD3" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;COD4" precision="15"/>
+  <columns dataType="CHAR" name="G&#xa7;STAT" precision="2"/>
+  <columns dataType="CHAR" name="G&#xa7;NCOL" precision="15"/>
+  <columns dataType="DECIMAL" name="G&#xa7;QTGZ" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="G&#xa7;QTAL" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="G&#xa7;QTAT" precision="11" scale="3"/>
+</db-core:Table>

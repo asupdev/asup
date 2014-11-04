@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;ESMO0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="E&#xa3;TIES" precision="12"/>
+  <columns dataType="CHAR" name="E&#xa3;CODI" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="E&#xa3;DESC" precision="35"/>
+  <columns dataType="CHAR" name="E&#xa3;NUPR" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;NUMO" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;LIVE" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa3;STAT" precision="2"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DTIV" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT05" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT06" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT07" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT08" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT09" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DT10" precision="8"/>
+  <columns dataType="CHAR" name="E&#xa3;CVAL" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;PVAL" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;FL01" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa3;FL02" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa3;FL03" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa3;FL04" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa3;FL05" precision="1"/>
+  <columns dataType="CHAR" name="E&#xa3;COD1" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;COD2" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;COD3" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;COD4" precision="15"/>
+  <columns dataType="CHAR" name="E&#xa3;COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="E&#xa3;NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E&#xa3;NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E&#xa3;NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E&#xa3;NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E&#xa3;NUM5" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa3;DTAG" precision="8"/>
+  <columns dataType="CHAR" name="E&#xa3;USAG" precision="10"/>
+</db-core:Table>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5TRIP0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="V$CDVG" precision="15"/>
+  <columns dataType="CHAR" name="V$DEVG" precision="35"/>
+  <columns dataType="CHAR" name="V$TIVG" precision="3"/>
+  <columns dataType="CHAR" name="V$NAVG" precision="2"/>
+  <columns dataType="CHAR" name="V$LIVE" precision="1"/>
+  <columns dataType="CHAR" name="V$STAT" precision="2"/>
+  <columns dataType="DECIMAL" name="V$DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DTAG" precision="8"/>
+  <columns dataType="CHAR" name="V$USAG" precision="10"/>
+  <columns dataType="CHAR" name="V$TIOG" precision="2"/>
+  <columns dataType="CHAR" name="V$PAOG" precision="10"/>
+  <columns dataType="CHAR" name="V$CDOG" precision="15"/>
+  <columns dataType="CHAR" name="V$CDMZ" precision="15"/>
+  <columns dataType="CHAR" name="V$IDMZ" precision="15"/>
+  <columns dataType="CHAR" name="V$CDME" precision="15"/>
+  <columns dataType="CHAR" name="V$IDME" precision="15"/>
+  <columns dataType="CHAR" name="V$TIDE" precision="2"/>
+  <columns dataType="CHAR" name="V$PADE" precision="10"/>
+  <columns dataType="CHAR" name="V$CODE" precision="15"/>
+  <columns dataType="DECIMAL" name="V$DPPA" precision="8"/>
+  <columns dataType="DECIMAL" name="V$OPPA" precision="6"/>
+  <columns dataType="DECIMAL" name="V$DEPA" precision="8"/>
+  <columns dataType="DECIMAL" name="V$OEPA" precision="6"/>
+  <columns dataType="DECIMAL" name="V$DPAR" precision="8"/>
+  <columns dataType="DECIMAL" name="V$OPAR" precision="6"/>
+  <columns dataType="DECIMAL" name="V$DEAR" precision="8"/>
+  <columns dataType="DECIMAL" name="V$OEAR" precision="6"/>
+  <columns dataType="DECIMAL" name="V$VOPR" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$VOEF" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$PEPR" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$PEEF" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$COPR" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$COEF" precision="15" scale="3"/>
+  <columns dataType="CHAR" name="V$TDOC" precision="3"/>
+  <columns dataType="CHAR" name="V$NDOC" precision="10"/>
+  <columns dataType="CHAR" name="V$TDFS" precision="3"/>
+  <columns dataType="CHAR" name="V$NDFS" precision="10"/>
+  <columns dataType="CHAR" name="V$PER1" precision="15"/>
+  <columns dataType="CHAR" name="V$PER2" precision="15"/>
+  <columns dataType="CHAR" name="V$PER3" precision="15"/>
+  <columns dataType="CHAR" name="V$PER4" precision="15"/>
+  <columns dataType="CHAR" name="V$PER5" precision="15"/>
+  <columns dataType="CHAR" name="V$COD1" precision="15"/>
+  <columns dataType="CHAR" name="V$COD2" precision="15"/>
+  <columns dataType="CHAR" name="V$COD3" precision="15"/>
+  <columns dataType="CHAR" name="V$COD4" precision="15"/>
+  <columns dataType="CHAR" name="V$COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="V$NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V$NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V$NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V$NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V$NUM5" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V$DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT05" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT06" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT07" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT08" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT09" precision="8"/>
+  <columns dataType="DECIMAL" name="V$DT10" precision="8"/>
+  <columns dataType="DECIMAL" name="V$QI01" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI02" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI03" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI04" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI05" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI06" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI07" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI08" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI09" precision="15" scale="3"/>
+  <columns dataType="DECIMAL" name="V$QI10" precision="15" scale="3"/>
+  <columns dataType="CHAR" name="V$FL01" precision="1"/>
+  <columns dataType="CHAR" name="V$FL02" precision="1"/>
+  <columns dataType="CHAR" name="V$FL03" precision="1"/>
+  <columns dataType="CHAR" name="V$FL04" precision="1"/>
+  <columns dataType="CHAR" name="V$FL05" precision="1"/>
+  <columns dataType="CHAR" name="V$FL06" precision="1"/>
+  <columns dataType="CHAR" name="V$FL07" precision="1"/>
+  <columns dataType="CHAR" name="V$FL08" precision="1"/>
+  <columns dataType="CHAR" name="V$FL09" precision="1"/>
+  <columns dataType="CHAR" name="V$FL10" precision="1"/>
+  <columns dataType="CHAR" name="V$FL11" precision="1"/>
+  <columns dataType="CHAR" name="V$FL12" precision="1"/>
+  <columns dataType="CHAR" name="V$FL13" precision="1"/>
+  <columns dataType="CHAR" name="V$FL14" precision="1"/>
+  <columns dataType="CHAR" name="V$FL15" precision="1"/>
+  <columns dataType="CHAR" name="V$FL16" precision="1"/>
+  <columns dataType="CHAR" name="V$FL17" precision="1"/>
+  <columns dataType="CHAR" name="V$FL18" precision="1"/>
+  <columns dataType="CHAR" name="V$FL19" precision="1"/>
+  <columns dataType="CHAR" name="V$FL20" precision="1"/>
+</db-core:Table>

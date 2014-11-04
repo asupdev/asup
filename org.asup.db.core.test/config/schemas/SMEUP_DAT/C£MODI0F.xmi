@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;MODI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="M3SCEN" precision="15"/>
+  <columns dataType="CHAR" name="M3TCON" precision="15"/>
+  <columns dataType="CHAR" name="M3CONT" precision="15"/>
+  <columns dataType="CHAR" name="M3TVER" precision="15"/>
+  <columns dataType="CHAR" name="M3TSOG" precision="15"/>
+  <columns dataType="CHAR" name="M3DTSO" precision="35"/>
+  <columns dataType="CHAR" name="M3SOGG" precision="15"/>
+  <columns dataType="CHAR" name="M3DSOG" precision="35"/>
+  <columns dataType="CHAR" name="M3VSOG" precision="25"/>
+  <columns dataType="CHAR" name="M3TOGG" precision="15"/>
+  <columns dataType="CHAR" name="M3DTOG" precision="35"/>
+  <columns dataType="CHAR" name="M3OGGE" precision="15"/>
+  <columns dataType="CHAR" name="M3DOGG" precision="35"/>
+  <columns dataType="CHAR" name="M3VOGG" precision="25"/>
+  <columns dataType="CHAR" name="M3TATT" precision="15"/>
+  <columns dataType="CHAR" name="M3ATTR" precision="258"/>
+  <columns dataType="CHAR" name="M3COD1" precision="15"/>
+  <columns dataType="CHAR" name="M3COD2" precision="15"/>
+  <columns dataType="CHAR" name="M3COD3" precision="15"/>
+  <columns dataType="CHAR" name="M3COD4" precision="15"/>
+  <columns dataType="CHAR" name="M3COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="M3NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="M3NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="M3NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="M3NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="M3NUM5" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="M3FL01" precision="1"/>
+  <columns dataType="CHAR" name="M3FL02" precision="1"/>
+  <columns dataType="CHAR" name="M3FL03" precision="1"/>
+  <columns dataType="CHAR" name="M3FL04" precision="1"/>
+  <columns dataType="CHAR" name="M3FL05" precision="1"/>
+  <columns dataType="CHAR" name="M3FL06" precision="1"/>
+  <columns dataType="CHAR" name="M3FL07" precision="1"/>
+  <columns dataType="CHAR" name="M3FL08" precision="1"/>
+  <columns dataType="CHAR" name="M3FL09" precision="1"/>
+  <columns dataType="CHAR" name="M3FL10" precision="1"/>
+  <columns dataType="CHAR" name="M3FL11" precision="1"/>
+  <columns dataType="CHAR" name="M3FL12" precision="1"/>
+  <columns dataType="CHAR" name="M3FL13" precision="1"/>
+  <columns dataType="CHAR" name="M3FL14" precision="1"/>
+  <columns dataType="CHAR" name="M3FL15" precision="1"/>
+  <columns dataType="CHAR" name="M3FL16" precision="1"/>
+  <columns dataType="CHAR" name="M3FL17" precision="1"/>
+  <columns dataType="CHAR" name="M3FL18" precision="1"/>
+  <columns dataType="CHAR" name="M3FL19" precision="1"/>
+  <columns dataType="CHAR" name="M3FL20" precision="1"/>
+  <columns dataType="DECIMAL" name="M3DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="M3ORIN" precision="6"/>
+  <columns dataType="CHAR" name="M3USIN" precision="10"/>
+</db-core:Table>

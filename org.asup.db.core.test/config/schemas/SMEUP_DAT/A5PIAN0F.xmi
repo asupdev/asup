@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A5PIAN0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="PAAZIE" precision="2"/>
+  <columns dataType="CHAR" name="PALIVE" precision="1"/>
+  <columns dataType="CHAR" name="PASTAT" precision="2"/>
+  <columns dataType="CHAR" name="PAIDOJ" precision="10"/>
+  <columns dataType="DECIMAL" name="PADTIA" precision="8"/>
+  <columns dataType="DECIMAL" name="PADTFA" precision="8"/>
+  <columns dataType="CHAR" name="PALIVR" precision="1"/>
+  <columns dataType="CHAR" name="PALINE" precision="2"/>
+  <columns dataType="CHAR" name="PACACE" precision="10"/>
+  <columns dataType="CHAR" name="PACESP" precision="15"/>
+  <columns dataType="CHAR" name="PAESER" precision="10"/>
+  <columns dataType="DECIMAL" name="PANPER" precision="2"/>
+  <columns dataType="CHAR" name="PACAU1" precision="3"/>
+  <columns dataType="DECIMAL" name="PAPER1" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="PAIMP1" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="PACAU2" precision="3"/>
+  <columns dataType="DECIMAL" name="PAPER2" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="PAIMP2" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="PACAU3" precision="3"/>
+  <columns dataType="DECIMAL" name="PAPER3" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="PAIMP3" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="PAFL01" precision="1"/>
+  <columns dataType="CHAR" name="PAFL02" precision="1"/>
+  <columns dataType="CHAR" name="PAFL03" precision="1"/>
+  <columns dataType="CHAR" name="PAFL04" precision="1"/>
+  <columns dataType="CHAR" name="PAFL05" precision="1"/>
+  <columns dataType="CHAR" name="PAFL06" precision="1"/>
+  <columns dataType="CHAR" name="PAFL07" precision="1"/>
+  <columns dataType="CHAR" name="PAFL08" precision="1"/>
+  <columns dataType="CHAR" name="PAFL09" precision="1"/>
+  <columns dataType="CHAR" name="PAFL10" precision="1"/>
+  <columns dataType="CHAR" name="PAFL11" precision="1"/>
+  <columns dataType="CHAR" name="PAFL12" precision="1"/>
+  <columns dataType="CHAR" name="PAFL13" precision="1"/>
+  <columns dataType="CHAR" name="PAFL14" precision="1"/>
+  <columns dataType="CHAR" name="PAFL15" precision="1"/>
+  <columns dataType="CHAR" name="PAFL16" precision="1"/>
+  <columns dataType="CHAR" name="PAFL17" precision="1"/>
+  <columns dataType="CHAR" name="PAFL18" precision="1"/>
+  <columns dataType="CHAR" name="PAFL19" precision="1"/>
+  <columns dataType="CHAR" name="PAFL20" precision="1"/>
+  <columns dataType="CHAR" name="PAFL21" precision="1"/>
+  <columns dataType="CHAR" name="PAFL22" precision="1"/>
+  <columns dataType="CHAR" name="PAFL23" precision="1"/>
+  <columns dataType="CHAR" name="PAFL24" precision="1"/>
+  <columns dataType="CHAR" name="PAFL25" precision="1"/>
+  <columns dataType="CHAR" name="PAFL26" precision="1"/>
+  <columns dataType="CHAR" name="PAFL27" precision="1"/>
+  <columns dataType="CHAR" name="PAFL28" precision="1"/>
+  <columns dataType="CHAR" name="PAFL29" precision="1"/>
+  <columns dataType="CHAR" name="PAFL30" precision="1"/>
+  <columns dataType="CHAR" name="PAFL31" precision="1"/>
+  <columns dataType="CHAR" name="PAFL32" precision="1"/>
+  <columns dataType="CHAR" name="PAFL33" precision="1"/>
+  <columns dataType="CHAR" name="PAFL34" precision="1"/>
+  <columns dataType="CHAR" name="PAFL35" precision="1"/>
+  <columns dataType="CHAR" name="PAFL36" precision="1"/>
+  <columns dataType="CHAR" name="PAFL37" precision="1"/>
+  <columns dataType="CHAR" name="PAFL38" precision="1"/>
+  <columns dataType="CHAR" name="PAFL39" precision="1"/>
+  <columns dataType="CHAR" name="PAFL40" precision="1"/>
+  <columns dataType="DECIMAL" name="PADTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="PAORIN" precision="6"/>
+  <columns dataType="CHAR" name="PAUSIN" precision="10"/>
+  <columns dataType="DECIMAL" name="PADTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="PAORAG" precision="6"/>
+  <columns dataType="CHAR" name="PAUSAG" precision="10"/>
+</db-core:Table>

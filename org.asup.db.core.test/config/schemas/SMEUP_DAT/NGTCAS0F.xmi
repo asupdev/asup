@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGTCAS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="TTCNET" precision="8"/>
+  <columns dataType="CHAR" name="TTCNEG" precision="3"/>
+  <columns dataType="CHAR" name="TTCCAS" precision="3"/>
+  <columns dataType="CHAR" name="TTCTIP" precision="1"/>
+  <columns dataType="CHAR" name="TTCCOD" precision="3"/>
+  <columns dataType="DECIMAL" name="TTCDAT" precision="8"/>
+  <columns dataType="DECIMAL" name="TTCPRG" precision="5"/>
+  <columns dataType="DECIMAL" name="TTCIMD" precision="17" scale="3"/>
+  <columns dataType="DECIMAL" name="TTCIMA" precision="17" scale="3"/>
+  <columns dataType="DECIMAL" name="TTCIMP" precision="17" scale="3"/>
+  <columns dataType="CHAR" name="TTCDES" precision="50"/>
+  <columns dataType="CHAR" name="TTCFLT" precision="1"/>
+  <columns dataType="CHAR" name="TTCNSC" precision="10"/>
+  <columns dataType="CHAR" name="TTCFLG" precision="1"/>
+  <columns dataType="CHAR" name="TTCSTA" precision="2"/>
+  <columns dataType="CHAR" name="TTCPRV" precision="2"/>
+  <columns dataType="CHAR" name="TTCTPR" precision="2"/>
+  <columns dataType="CHAR" name="TTCRNG" precision="3"/>
+  <columns dataType="CHAR" name="TTCRCS" precision="3"/>
+  <columns dataType="CHAR" name="TTCRTP" precision="3"/>
+  <columns dataType="CHAR" name="TTCRCD" precision="3"/>
+  <columns dataType="DECIMAL" name="TTCRDT" precision="8"/>
+  <columns dataType="DECIMAL" name="TTCRPR" precision="5"/>
+  <columns dataType="CHAR" name="TTCCSP" precision="3"/>
+  <columns dataType="DECIMAL" name="TTCIMC" precision="17" scale="3"/>
+  <columns dataType="CHAR" name="TTCFLC" precision="1"/>
+  <columns dataType="CHAR" name="TTCKDS" precision="30"/>
+  <columns dataType="CHAR" name="TTCKBL" precision="30"/>
+  <columns dataType="CHAR" name="TTCKD2" precision="30"/>
+  <columns dataType="CHAR" name="TTCCST" precision="2"/>
+  <columns dataType="CHAR" name="TTCWFL" precision="15"/>
+  <columns dataType="CHAR" name="TTCWFS" precision="3"/>
+  <columns dataType="CHAR" name="TTCKNT" precision="30"/>
+  <columns dataType="CHAR" name="TTCTDA" precision="3"/>
+  <columns dataType="DECIMAL" name="TTCDDA" precision="8"/>
+  <columns dataType="CHAR" name="TTCNDA" precision="20"/>
+  <columns dataType="CHAR" name="TTCOPE" precision="8"/>
+  <columns dataType="DECIMAL" name="TTCIMR" precision="17" scale="3"/>
+  <columns dataType="CHAR" name="TTCOPC" precision="8"/>
+  <columns dataType="CHAR" name="TTCVAL" precision="4"/>
+  <columns dataType="CHAR" name="TTCTPD" precision="3"/>
+  <columns dataType="DECIMAL" name="TTCIVD" precision="17" scale="3"/>
+  <columns dataType="DECIMAL" name="TTCIVA" precision="17" scale="3"/>
+  <columns dataType="DECIMAL" name="TTCIVP" precision="17" scale="3"/>
+  <columns dataType="DECIMAL" name="TTCCAM" precision="19" scale="6"/>
+  <columns dataType="CHAR" name="TTCFLD" precision="1"/>
+</db-core:Table>

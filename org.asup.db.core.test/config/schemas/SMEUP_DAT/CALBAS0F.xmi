@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CALBAS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="CB&#xa3;STA" precision="1"/>
+  <columns dataType="CHAR" name="CB&#xa3;TRG" precision="3"/>
+  <columns dataType="CHAR" name="CB&#xa3;RIS" precision="15"/>
+  <columns dataType="CHAR" name="CB&#xa3;RIC" precision="15"/>
+  <columns dataType="CHAR" name="CB&#xa3;O01" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P01" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R01" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O02" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P02" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R02" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O03" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P03" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R03" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O04" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P04" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R04" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O05" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P05" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R05" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O06" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P06" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R06" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O07" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P07" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R07" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O08" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P08" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R08" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O09" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P09" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R09" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O10" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P10" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R10" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O11" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P11" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R11" precision="2"/>
+  <columns dataType="CHAR" name="CB&#xa3;O12" precision="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;P12" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="CB&#xa3;R12" precision="2"/>
+</db-core:Table>

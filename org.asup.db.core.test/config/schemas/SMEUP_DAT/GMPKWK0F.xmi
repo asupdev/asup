@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMPKWK0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="W&#xa7;SESS" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TIDO" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;NRDM" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;CDMG" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;UNMS" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;TCDC" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;CDCL" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TCDS" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;CODS" precision="15"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DATA" precision="8"/>
+  <columns dataType="DECIMAL" name="W&#xa7;QT01" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="W&#xa7;QT02" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="W&#xa7;UNMV" precision="2"/>
+  <columns dataType="DECIMAL" name="W&#xa7;Q01V" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="W&#xa7;Q02V" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="W&#xa7;FL01" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL02" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL03" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL04" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL05" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL06" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL07" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL08" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL09" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL10" precision="1"/>
+  <columns dataType="DECIMAL" name="W&#xa7;QTRI" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="W&#xa7;QRIV" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="W&#xa7;TP01" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;PA01" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;CD01" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TP02" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;PA02" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;CD02" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TP03" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;PA03" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;CD03" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD3" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD4" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM5" precision="15" scale="5"/>
+</db-core:Table>

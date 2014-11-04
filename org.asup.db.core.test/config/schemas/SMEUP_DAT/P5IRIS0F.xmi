@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5IRIS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="SFTIRS" precision="3"/>
+  <columns dataType="CHAR" name="SFTSCH" precision="3"/>
+  <columns dataType="CHAR" name="SFTORI" precision="2"/>
+  <columns dataType="CHAR" name="SFTDOC" precision="3"/>
+  <columns dataType="CHAR" name="SFNDOC" precision="10"/>
+  <columns dataType="DECIMAL" name="SFNRIG" precision="4"/>
+  <columns dataType="CHAR" name="SFOPER" precision="6"/>
+  <columns dataType="CHAR" name="SFOPRI" precision="6"/>
+  <columns dataType="CHAR" name="SFTIRP" precision="3"/>
+  <columns dataType="CHAR" name="SFCLAV" precision="15"/>
+  <columns dataType="CHAR" name="SFTIRF" precision="3"/>
+  <columns dataType="CHAR" name="SFMACC" precision="15"/>
+  <columns dataType="CHAR" name="SFATTR" precision="15"/>
+  <columns dataType="DECIMAL" name="SFLOTT" precision="4"/>
+  <columns dataType="CHAR" name="SFCOAR" precision="15"/>
+  <columns dataType="CHAR" name="SFS$OR" precision="2"/>
+  <columns dataType="CHAR" name="SFL$OR" precision="1"/>
+  <columns dataType="CHAR" name="SFS$OP" precision="2"/>
+  <columns dataType="CHAR" name="SFL$OP" precision="1"/>
+  <columns dataType="CHAR" name="SFCAUS" precision="5"/>
+  <columns dataType="DECIMAL" name="SFQTOR" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="SFQTSC" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="SFQORD" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="SFUMIS" precision="2"/>
+  <columns dataType="CHAR" name="SFTRIN" precision="1"/>
+  <columns dataType="DECIMAL" name="SFDTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="SFHRIN" precision="6"/>
+  <columns dataType="CHAR" name="SFTRFI" precision="1"/>
+  <columns dataType="DECIMAL" name="SFDTFI" precision="8"/>
+  <columns dataType="DECIMAL" name="SFHRFI" precision="6"/>
+  <columns dataType="CHAR" name="SFMAGC" precision="3"/>
+  <columns dataType="CHAR" name="SFDEAR" precision="35"/>
+  <columns dataType="CHAR" name="SFTIEN" precision="3"/>
+  <columns dataType="CHAR" name="SFCLIE" precision="15"/>
+  <columns dataType="CHAR" name="SFCOMS" precision="15"/>
+  <columns dataType="CHAR" name="SFPRIO" precision="2"/>
+  <columns dataType="DECIMAL" name="SFDIRI" precision="8"/>
+  <columns dataType="DECIMAL" name="SFDFRI" precision="8"/>
+  <columns dataType="CHAR" name="SFDEOP" precision="30"/>
+  <columns dataType="DECIMAL" name="SFHATR" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="SFHUNI" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="SFDIEF" precision="8"/>
+  <columns dataType="DECIMAL" name="SFDISC" precision="8"/>
+  <columns dataType="DECIMAL" name="SFHISC" precision="6"/>
+  <columns dataType="DECIMAL" name="SFDFSC" precision="8"/>
+  <columns dataType="DECIMAL" name="SFHFSC" precision="6"/>
+  <columns dataType="DECIMAL" name="SFQUET" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="SFHTOT" precision="8" scale="2"/>
+  <columns dataType="CHAR" name="SFCROR" precision="30"/>
+  <columns dataType="DECIMAL" name="SFDTPP" precision="8"/>
+  <columns dataType="DECIMAL" name="SFHRPP" precision="6"/>
+  <columns dataType="DECIMAL" name="SFDTPT" precision="8"/>
+  <columns dataType="DECIMAL" name="SFHRPT" precision="6"/>
+  <columns dataType="CHAR" name="SFVEIT" precision="2"/>
+  <columns dataType="DECIMAL" name="SFVEID" precision="8"/>
+  <columns dataType="DECIMAL" name="SFVEIH" precision="6"/>
+  <columns dataType="CHAR" name="SFVEFT" precision="2"/>
+  <columns dataType="DECIMAL" name="SFVEFD" precision="8"/>
+  <columns dataType="DECIMAL" name="SFVEFH" precision="6"/>
+  <columns dataType="CHAR" name="SFSINT" precision="15"/>
+  <columns dataType="CHAR" name="SFFL01" precision="1"/>
+  <columns dataType="CHAR" name="SFFL02" precision="1"/>
+  <columns dataType="CHAR" name="SFFL03" precision="1"/>
+  <columns dataType="CHAR" name="SFFL04" precision="1"/>
+  <columns dataType="CHAR" name="SFFL05" precision="1"/>
+  <columns dataType="CHAR" name="SFER01" precision="1"/>
+  <columns dataType="CHAR" name="SFER02" precision="1"/>
+  <columns dataType="CHAR" name="SFER03" precision="1"/>
+  <columns dataType="CHAR" name="SFER04" precision="1"/>
+  <columns dataType="CHAR" name="SFTIPO" precision="1"/>
+  <columns dataType="CHAR" name="SFSPLT" precision="1"/>
+  <columns dataType="CHAR" name="SFSOSP" precision="1"/>
+  <columns dataType="CHAR" name="SFSECO" precision="1"/>
+  <columns dataType="CHAR" name="SFSTOP" precision="1"/>
+  <columns dataType="CHAR" name="SFCLMO" precision="1"/>
+  <columns dataType="CHAR" name="SFRINO" precision="1"/>
+  <columns dataType="CHAR" name="SFFL17" precision="1"/>
+  <columns dataType="CHAR" name="SFFL18" precision="1"/>
+  <columns dataType="CHAR" name="SFFL19" precision="1"/>
+  <columns dataType="CHAR" name="SFFL20" precision="1"/>
+  <columns dataType="CHAR" name="SFTCIC" precision="3"/>
+  <columns dataType="CHAR" name="SFCICL" precision="3"/>
+  <columns dataType="CHAR" name="SFTOPE" precision="3"/>
+  <columns dataType="CHAR" name="SFGRAL" precision="5"/>
+  <columns dataType="CHAR" name="SFCODC" precision="15"/>
+  <columns dataType="CHAR" name="SFCICC" precision="3"/>
+  <columns dataType="CHAR" name="SFSQCC" precision="6"/>
+  <columns dataType="CHAR" name="SFUMTE" precision="2"/>
+  <columns dataType="DECIMAL" name="SFTE01" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE02" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE03" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE04" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE05" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE06" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE07" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE08" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE09" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFTE10" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC01" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC02" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC03" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC04" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC05" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC06" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC07" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC08" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC09" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SFCC10" precision="11" scale="4"/>
+  <columns dataType="CHAR" name="SFNOTA" precision="50"/>
+  <columns dataType="DECIMAL" name="SFDTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="SFDTAG" precision="8"/>
+  <columns dataType="CHAR" name="SFUSAG" precision="10"/>
+</db-core:Table>

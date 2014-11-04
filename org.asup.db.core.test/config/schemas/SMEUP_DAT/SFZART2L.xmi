@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW SFZART2L (&#xA;  SZAANN ,&#xA;  SZAATT ,&#xA;  SZAART ,&#xA;  SZANPZ ,&#xA;  SZATUN ,&#xA;  SZAAPR ,&#xA;  SZAMAC )&#xA;  AS&#xA;  SELECT&#xA;  SZAANN ,&#xA;  SZAATT ,&#xA;  SZAART ,&#xA;  SZANPZ ,&#xA;  SZATUN ,&#xA;  SZAAPR ,&#xA;  SZAMAC&#xA;  FROM SFZART0F&#xA;  WHERE&#xA;  ( ( NOT SZAANN &lt;> ' ' ) OR SZAANN IS NULL ) ;&#xA;&#xA;" name="SFZART2L"/>

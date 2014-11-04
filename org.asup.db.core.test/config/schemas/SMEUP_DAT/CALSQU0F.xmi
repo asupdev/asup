@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CALSQU0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="CQ&#xa3;TRG" precision="3"/>
+  <columns dataType="CHAR" name="CQ&#xa3;RIS" precision="15"/>
+  <columns dataType="CHAR" name="CQTPOG" precision="12"/>
+  <columns dataType="CHAR" name="CQCDOG" precision="15"/>
+  <columns dataType="CHAR" name="CQSTAT" precision="2"/>
+  <columns dataType="CHAR" name="CQLIVE" precision="1"/>
+  <columns dataType="DECIMAL" name="CQDH01" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQAH01" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQNR01" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="CQDH02" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQAH02" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQNR02" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="CQDH03" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQAH03" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQNR03" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="CQDH04" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQAH04" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQNR04" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="CQDH05" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQAH05" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQNR05" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="CQDH06" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQAH06" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="CQNR06" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="CQDL01" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL02" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL03" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL04" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL05" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL06" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL07" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL08" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL09" precision="8"/>
+  <columns dataType="DECIMAL" name="CQDL10" precision="8"/>
+  <columns dataType="CHAR" name="CQCD01" precision="15"/>
+  <columns dataType="CHAR" name="CQCD02" precision="15"/>
+  <columns dataType="CHAR" name="CQCD03" precision="15"/>
+  <columns dataType="CHAR" name="CQCD04" precision="15"/>
+  <columns dataType="CHAR" name="CQCD05" precision="15"/>
+  <columns dataType="CHAR" name="CQCD06" precision="15"/>
+  <columns dataType="CHAR" name="CQCD07" precision="15"/>
+  <columns dataType="CHAR" name="CQCD08" precision="15"/>
+  <columns dataType="CHAR" name="CQCD09" precision="15"/>
+  <columns dataType="CHAR" name="CQCD10" precision="15"/>
+  <columns dataType="DECIMAL" name="CQNL01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL05" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL06" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL07" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL08" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL09" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="CQNL10" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="CQFL01" precision="1"/>
+  <columns dataType="CHAR" name="CQFL02" precision="1"/>
+  <columns dataType="CHAR" name="CQFL03" precision="1"/>
+  <columns dataType="CHAR" name="CQFL04" precision="1"/>
+  <columns dataType="CHAR" name="CQFL05" precision="1"/>
+  <columns dataType="CHAR" name="CQFL06" precision="1"/>
+  <columns dataType="CHAR" name="CQFL07" precision="1"/>
+  <columns dataType="CHAR" name="CQFL08" precision="1"/>
+  <columns dataType="CHAR" name="CQFL09" precision="1"/>
+  <columns dataType="CHAR" name="CQFL10" precision="1"/>
+  <columns dataType="CHAR" name="CQUSIN" precision="10"/>
+  <columns dataType="DECIMAL" name="CQDTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="CQORIN" precision="6"/>
+  <columns dataType="CHAR" name="CQOGIN" precision="10"/>
+  <columns dataType="CHAR" name="CQUSAG" precision="10"/>
+  <columns dataType="DECIMAL" name="CQDTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="CQORAG" precision="6"/>
+  <columns dataType="CHAR" name="CQOGAG" precision="10"/>
+</db-core:Table>

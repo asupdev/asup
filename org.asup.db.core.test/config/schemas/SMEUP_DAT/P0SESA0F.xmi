@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0SESA0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="E&#xa7;CDVI" precision="6"/>
+  <columns dataType="CHAR" name="E&#xa7;CDES" precision="6"/>
+  <columns dataType="DECIMAL" name="E&#xa7;DTRE" precision="8"/>
+  <columns dataType="DECIMAL" name="E&#xa7;DTEE" precision="8"/>
+  <columns dataType="CHAR" name="E&#xa7;ENES" precision="5"/>
+  <columns dataType="CHAR" name="E&#xa7;STES" precision="2"/>
+  <columns dataType="CHAR" name="E&#xa7;ESES" precision="5"/>
+  <columns dataType="CHAR" name="E&#xa7;NOTA" precision="50"/>
+</db-core:Table>

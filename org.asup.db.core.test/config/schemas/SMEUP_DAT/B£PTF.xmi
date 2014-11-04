@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;PTF">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="SRCMEM" precision="10"/>
+  <columns dataType="DECIMAL" name="SRCSEQ" precision="6" scale="2"/>
+  <columns dataType="DECIMAL" name="SRCDAT" precision="6"/>
+  <columns dataType="CHAR" name="SRCDTA" precision="80"/>
+</db-core:Table>

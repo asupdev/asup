@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSAR00F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="C$COAR" precision="15"/>
+  <columns dataType="CHAR" name="C$FASE" precision="4"/>
+  <columns dataType="CHAR" name="C$TCOS" precision="3"/>
+  <columns dataType="DECIMAL" name="C$MAV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAS1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LEV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LEF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LEA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LES1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAS1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCV1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCF1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCA1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCS1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAV2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAF2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAA2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MAS2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LEV2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LEF2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LEA2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LES2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAV2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAF2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAA2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$LAS2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCV2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCF2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCA2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MCS2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$IND1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$IND2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$IND3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$GEN1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$GEN2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$GEN3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MRI1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MRI2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="C$MRI3" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="C$TPRI" precision="2"/>
+  <columns dataType="CHAR" name="C$RICA" precision="3"/>
+  <columns dataType="CHAR" name="C$ALCO" precision="3"/>
+  <columns dataType="CHAR" name="C$CLAR" precision="5"/>
+  <columns dataType="DECIMAL" name="C$LTSD" precision="7"/>
+  <columns dataType="DECIMAL" name="C$PSCA" precision="5" scale="3"/>
+  <columns dataType="DECIMAL" name="C$PREC" precision="5" scale="3"/>
+  <columns dataType="DECIMAL" name="C$DCAL" precision="6"/>
+  <columns dataType="CHAR" name="C$TCIC" precision="2"/>
+</db-core:Table>

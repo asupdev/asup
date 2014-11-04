@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW SFLEOR1L (&#xA;  SFLTOA ,&#xA;  SFLTDA ,&#xA;  SFLNDA ,&#xA;  SFLTOC ,&#xA;  SFLTDC ,&#xA;  SFLNDC ,&#xA;  SFLDFI ,&#xA;  SFLHFI )&#xA;  AS&#xA;  SELECT&#xA;  SFLTOA ,&#xA;  SFLTDA ,&#xA;  SFLNDA ,&#xA;  SFLTOC ,&#xA;  SFLTDC ,&#xA;  SFLNDC ,&#xA;  SFLDFI ,&#xA;  SFLHFI&#xA;  FROM SFLEOR0F&#xA;  ;&#xA;&#xA;" name="SFLEOR1L"/>

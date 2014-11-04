@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5ATTI0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NURE" precision="9"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DTRE" precision="8"/>
+  <columns dataType="CHAR" name="W&#xa7;NDOP" precision="10"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DADO" precision="8"/>
+  <columns dataType="CHAR" name="W&#xa7;CAUS" precision="5"/>
+  <columns dataType="CHAR" name="W&#xa7;ATTI" precision="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="W&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DATF" precision="8"/>
+  <columns dataType="DECIMAL" name="W&#xa7;ORAF" precision="6"/>
+  <columns dataType="CHAR" name="W&#xa7;STAT" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;LIVE" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;TORI" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;TDOC" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;NDOC" precision="10"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NRIG" precision="4"/>
+  <columns dataType="CHAR" name="W&#xa7;TDO2" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;NDO2" precision="10"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NRI2" precision="4"/>
+  <columns dataType="CHAR" name="W&#xa7;OPER" precision="6"/>
+  <columns dataType="CHAR" name="W&#xa7;OPRI" precision="6"/>
+  <columns dataType="CHAR" name="W&#xa7;DEOP" precision="30"/>
+  <columns dataType="CHAR" name="W&#xa7;LOTT" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;COMM" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;CONF" precision="20"/>
+  <columns dataType="CHAR" name="W&#xa7;TIEN" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;COEN" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TRIP" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;RISP" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TRIE" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;RISE" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TIRF" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;MACC" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;TIOG" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;PARA" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;CDOG" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;DSOG" precision="35"/>
+  <columns dataType="CHAR" name="W&#xa7;UNMS" precision="2"/>
+  <columns dataType="CHAR" name="W&#xa7;CDMG" precision="3"/>
+  <columns dataType="DECIMAL" name="W&#xa7;QT01" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="W&#xa7;QT02" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="W&#xa7;TCIC" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;CICL" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;TOPE" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;GRAL" precision="5"/>
+  <columns dataType="CHAR" name="W&#xa7;CODC" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;CICC" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;SQCC" precision="6"/>
+  <columns dataType="CHAR" name="W&#xa7;UMTE" precision="2"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T01P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T02P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T03P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T04P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T05P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T06P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T07P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T08P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T09P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T10P" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T01E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T02E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T03E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T04E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T05E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T06E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T07E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T08E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T09E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;T10E" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;VALO" precision="15" scale="3"/>
+  <columns dataType="CHAR" name="W&#xa7;VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="W&#xa7;CAMB" precision="12" scale="6"/>
+  <columns dataType="CHAR" name="W&#xa7;TIPD" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;DIPE" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;CDCD" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;CDCO" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;TPRG" precision="3"/>
+  <columns dataType="CHAR" name="W&#xa7;CODR" precision="10"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUMR" precision="7"/>
+  <columns dataType="CHAR" name="W&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD3" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD4" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD5" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD6" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD7" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD8" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;COD9" precision="15"/>
+  <columns dataType="CHAR" name="W&#xa7;CODA" precision="15"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM5" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM6" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM7" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM8" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUM9" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W&#xa7;NUMA" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="W&#xa7;NOTA" precision="50"/>
+  <columns dataType="CHAR" name="W&#xa7;NOTB" precision="20"/>
+  <columns dataType="CHAR" name="W&#xa7;ACSA" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL01" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL02" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL03" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL04" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL05" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL06" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL07" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL08" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL09" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL10" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL11" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL12" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL13" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL14" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL15" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL16" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL17" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL18" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL19" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL20" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL21" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL22" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL23" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL24" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL25" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL26" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL27" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL28" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL29" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL30" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL31" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL32" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL33" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL34" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL35" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL36" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL37" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL38" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL39" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;FL40" precision="1"/>
+  <columns dataType="CHAR" name="W&#xa7;USIN" precision="10"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="W&#xa7;ORIN" precision="6"/>
+  <columns dataType="CHAR" name="W&#xa7;OGIN" precision="10"/>
+  <columns dataType="CHAR" name="W&#xa7;USAG" precision="10"/>
+  <columns dataType="DECIMAL" name="W&#xa7;DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="W&#xa7;ORAG" precision="6"/>
+  <columns dataType="CHAR" name="W&#xa7;OGAG" precision="10"/>
+</db-core:Table>

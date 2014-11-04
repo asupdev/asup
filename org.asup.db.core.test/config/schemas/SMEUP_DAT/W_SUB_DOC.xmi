@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="W_SUB_DOC">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="J&#xa7;TIP1" precision="12"/>
+  <columns dataType="CHAR" name="J&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="J&#xa7;TIP2" precision="12"/>
+  <columns dataType="CHAR" name="J&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="J&#xa7;DOCU" precision="15"/>
+  <columns dataType="VARCHAR" name="J&#xa7;DATI" precision="30000"/>
+</db-core:Table>

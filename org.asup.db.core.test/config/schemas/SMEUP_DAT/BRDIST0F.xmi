@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRDIST0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="D&#xa7;TIPD" precision="3"/>
+  <columns dataType="CHAR" name="D&#xa7;ASSI" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa7;USR1" precision="4"/>
+  <columns dataType="CHAR" name="D&#xa7;COMP" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa7;USR2" precision="4"/>
+  <columns dataType="CHAR" name="D&#xa7;STAT" precision="2"/>
+  <columns dataType="CHAR" name="D&#xa7;SQCI" precision="6"/>
+  <columns dataType="DECIMAL" name="D&#xa7;LTAD" precision="3"/>
+  <columns dataType="DECIMAL" name="D&#xa7;DINV" precision="8"/>
+  <columns dataType="DECIMAL" name="D&#xa7;DFNV" precision="8"/>
+  <columns dataType="CHAR" name="D&#xa7;CRSE" precision="5"/>
+  <columns dataType="DECIMAL" name="D&#xa7;COEF" precision="15" scale="6"/>
+  <columns dataType="CHAR" name="D&#xa7;PAS1" precision="15"/>
+  <columns dataType="CHAR" name="D&#xa7;PAS2" precision="15"/>
+  <columns dataType="DECIMAL" name="D&#xa7;QTLO" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="D&#xa7;PERT" precision="5" scale="3"/>
+  <columns dataType="DECIMAL" name="D&#xa7;QUA1" precision="15" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa7;QUA2" precision="15" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa7;QUA3" precision="15" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa7;QUA4" precision="15" scale="6"/>
+  <columns dataType="DECIMAL" name="D&#xa7;QUA5" precision="15" scale="6"/>
+  <columns dataType="CHAR" name="D&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa7;FLG5" precision="1"/>
+  <columns dataType="CHAR" name="D&#xa7;NOTA" precision="50"/>
+  <columns dataType="CHAR" name="D&#xa7;DISE" precision="20"/>
+  <columns dataType="CHAR" name="D&#xa7;DISP" precision="5"/>
+  <columns dataType="DECIMAL" name="D&#xa7;DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="D&#xa7;DTAG" precision="8"/>
+  <columns dataType="CHAR" name="D&#xa7;USAG" precision="10"/>
+</db-core:Table>

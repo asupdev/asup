@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQRADS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="S&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="S&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="S&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="S&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="S&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="S&#xa7;TRDS" precision="3"/>
+  <columns dataType="CHAR" name="S&#xa7;CRDS" precision="10"/>
+  <columns dataType="CHAR" name="S&#xa7;DESC" precision="30"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DAT1" precision="8"/>
+  <columns dataType="CHAR" name="S&#xa7;TIEM" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;COEM" precision="15"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DAT2" precision="8"/>
+  <columns dataType="CHAR" name="S&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;COER" precision="15"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DAT3" precision="8"/>
+  <columns dataType="CHAR" name="S&#xa7;EOAP" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;OAPP" precision="15"/>
+  <columns dataType="CHAR" name="S&#xa7;DOAP" precision="35"/>
+  <columns dataType="CHAR" name="S&#xa7;EORS" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;ORES" precision="15"/>
+  <columns dataType="CHAR" name="S&#xa7;DORS" precision="35"/>
+  <columns dataType="CHAR" name="S&#xa7;MATR" precision="15"/>
+  <columns dataType="CHAR" name="S&#xa7;DCOD" precision="10"/>
+  <columns dataType="CHAR" name="S&#xa7;DENC" precision="50"/>
+  <columns dataType="CHAR" name="S&#xa7;DCOC" precision="10"/>
+  <columns dataType="CHAR" name="S&#xa7;DECA" precision="50"/>
+  <columns dataType="CHAR" name="S&#xa7;TIEA" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;COEA" precision="15"/>
+  <columns dataType="CHAR" name="S&#xa7;DOEA" precision="30"/>
+  <columns dataType="CHAR" name="S&#xa7;DINR" precision="150"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DATR" precision="8"/>
+  <columns dataType="DECIMAL" name="S&#xa7;TIMR" precision="6" scale="2"/>
+  <columns dataType="CHAR" name="S&#xa7;EINR" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;CINR" precision="15"/>
+  <columns dataType="CHAR" name="S&#xa7;DINE" precision="150"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DATE" precision="8"/>
+  <columns dataType="DECIMAL" name="S&#xa7;TIME" precision="6" scale="2"/>
+  <columns dataType="CHAR" name="S&#xa7;EINE" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;CINE" precision="15"/>
+  <columns dataType="CHAR" name="S&#xa7;SSEG" precision="6"/>
+  <columns dataType="CHAR" name="S&#xa7;DSEG" precision="30"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DATS" precision="8"/>
+  <columns dataType="CHAR" name="S&#xa7;SINT" precision="6"/>
+  <columns dataType="CHAR" name="S&#xa7;DINT" precision="30"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DAIM" precision="8"/>
+  <columns dataType="CHAR" name="S&#xa7;SAPP" precision="6"/>
+  <columns dataType="CHAR" name="S&#xa7;DAPP" precision="30"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DATA" precision="8"/>
+  <columns dataType="CHAR" name="S&#xa7;EAPR" precision="2"/>
+  <columns dataType="CHAR" name="S&#xa7;CAPR" precision="15"/>
+  <columns dataType="DECIMAL" name="S&#xa7;NCAS" precision="4"/>
+  <columns dataType="DECIMAL" name="S&#xa7;NSEG" precision="4"/>
+  <columns dataType="CHAR" name="S&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLG5" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="S&#xa7;CLIB" precision="20"/>
+</db-core:Table>

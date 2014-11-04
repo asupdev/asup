@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQFOAR0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="V&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="V&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="V&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="V&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="V&#xa7;CENR" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;CFAL" precision="6"/>
+  <columns dataType="CHAR" name="V&#xa7;ESMO" precision="2"/>
+  <columns dataType="CHAR" name="V&#xa7;CFAB" precision="5"/>
+  <columns dataType="CHAR" name="V&#xa7;FREE" precision="1"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NRFR" precision="5"/>
+  <columns dataType="CHAR" name="V&#xa7;GRCL" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;ACCO" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;ABAR" precision="1"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DTFZ" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DTFR" precision="8"/>
+  <columns dataType="CHAR" name="V&#xa7;PRIF" precision="1"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DTPF" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NRPF" precision="5"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NRFZ" precision="5"/>
+  <columns dataType="CHAR" name="V&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;FLG4" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;FLG5" precision="1"/>
+  <columns dataType="CHAR" name="V&#xa7;PCFO" precision="4"/>
+  <columns dataType="CHAR" name="V&#xa7;LVFO" precision="15"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NRLV" precision="7"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NRLE" precision="7"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DTVF" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="V&#xa7;DT05" precision="8"/>
+  <columns dataType="CHAR" name="V&#xa7;COD1" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;COD2" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;COD3" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;COD4" precision="15"/>
+  <columns dataType="CHAR" name="V&#xa7;COD5" precision="15"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NUM1" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NUM2" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NUM3" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NUM4" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="V&#xa7;NUM5" precision="15" scale="5"/>
+</db-core:Table>

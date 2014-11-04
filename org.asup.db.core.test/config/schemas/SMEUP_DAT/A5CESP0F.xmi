@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A5CESP0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="TAAZIE" precision="2"/>
+  <columns dataType="CHAR" name="TADIVI" precision="3"/>
+  <columns dataType="CHAR" name="TALIVE" precision="1"/>
+  <columns dataType="CHAR" name="TASTAT" precision="2"/>
+  <columns dataType="CHAR" name="TACESP" precision="15"/>
+  <columns dataType="CHAR" name="TADECE" precision="35"/>
+  <columns dataType="CHAR" name="TADECA" precision="35"/>
+  <columns dataType="CHAR" name="TACACE" precision="10"/>
+  <columns dataType="CHAR" name="TARCAC" precision="10"/>
+  <columns dataType="CHAR" name="TACERI" precision="15"/>
+  <columns dataType="CHAR" name="TATPOR" precision="12"/>
+  <columns dataType="CHAR" name="TACDOR" precision="15"/>
+  <columns dataType="CHAR" name="TATC01" precision="12"/>
+  <columns dataType="CHAR" name="TATC02" precision="12"/>
+  <columns dataType="CHAR" name="TATC03" precision="12"/>
+  <columns dataType="CHAR" name="TATC04" precision="12"/>
+  <columns dataType="CHAR" name="TATC05" precision="12"/>
+  <columns dataType="CHAR" name="TATC06" precision="12"/>
+  <columns dataType="CHAR" name="TACL01" precision="15"/>
+  <columns dataType="CHAR" name="TACL02" precision="15"/>
+  <columns dataType="CHAR" name="TACL03" precision="15"/>
+  <columns dataType="CHAR" name="TACL04" precision="15"/>
+  <columns dataType="CHAR" name="TACL05" precision="15"/>
+  <columns dataType="CHAR" name="TACL06" precision="15"/>
+  <columns dataType="CHAR" name="TARGVA" precision="15"/>
+  <columns dataType="CHAR" name="TAUBIC" precision="15"/>
+  <columns dataType="CHAR" name="TANUMA" precision="15"/>
+  <columns dataType="CHAR" name="TANUIN" precision="15"/>
+  <columns dataType="DECIMAL" name="TADTAQ" precision="8"/>
+  <columns dataType="DECIMAL" name="TADTIA" precision="8"/>
+  <columns dataType="DECIMAL" name="TADTVA" precision="8"/>
+  <columns dataType="DECIMAL" name="TADT01" precision="8"/>
+  <columns dataType="DECIMAL" name="TADT02" precision="8"/>
+  <columns dataType="DECIMAL" name="TADT03" precision="8"/>
+  <columns dataType="DECIMAL" name="TADT04" precision="8"/>
+  <columns dataType="DECIMAL" name="TADT05" precision="8"/>
+  <columns dataType="CHAR" name="TAAA01" precision="15"/>
+  <columns dataType="CHAR" name="TAAA02" precision="15"/>
+  <columns dataType="CHAR" name="TAAA03" precision="15"/>
+  <columns dataType="CHAR" name="TAAA04" precision="15"/>
+  <columns dataType="CHAR" name="TAAA05" precision="15"/>
+  <columns dataType="DECIMAL" name="TANU01" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="TANU02" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="TANU03" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="TANU04" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="TANU05" precision="15" scale="5"/>
+  <columns dataType="CHAR" name="TAFL01" precision="1"/>
+  <columns dataType="CHAR" name="TAFL02" precision="1"/>
+  <columns dataType="CHAR" name="TAFL03" precision="1"/>
+  <columns dataType="CHAR" name="TAFL04" precision="1"/>
+  <columns dataType="CHAR" name="TAFL05" precision="1"/>
+  <columns dataType="CHAR" name="TAFL06" precision="1"/>
+  <columns dataType="CHAR" name="TAFL07" precision="1"/>
+  <columns dataType="CHAR" name="TAFL08" precision="1"/>
+  <columns dataType="CHAR" name="TAFL09" precision="1"/>
+  <columns dataType="CHAR" name="TAFL10" precision="1"/>
+  <columns dataType="CHAR" name="TAFL11" precision="1"/>
+  <columns dataType="CHAR" name="TAFL12" precision="1"/>
+  <columns dataType="CHAR" name="TAFL13" precision="1"/>
+  <columns dataType="CHAR" name="TAFL14" precision="1"/>
+  <columns dataType="CHAR" name="TAFL15" precision="1"/>
+  <columns dataType="CHAR" name="TAFL16" precision="1"/>
+  <columns dataType="CHAR" name="TAFL17" precision="1"/>
+  <columns dataType="CHAR" name="TAFL18" precision="1"/>
+  <columns dataType="CHAR" name="TAFL19" precision="1"/>
+  <columns dataType="CHAR" name="TAFL20" precision="1"/>
+  <columns dataType="CHAR" name="TAFL21" precision="1"/>
+  <columns dataType="CHAR" name="TAFL22" precision="1"/>
+  <columns dataType="CHAR" name="TAFL23" precision="1"/>
+  <columns dataType="CHAR" name="TAFL24" precision="1"/>
+  <columns dataType="CHAR" name="TAFL25" precision="1"/>
+  <columns dataType="CHAR" name="TAFL26" precision="1"/>
+  <columns dataType="CHAR" name="TAFL27" precision="1"/>
+  <columns dataType="CHAR" name="TAFL28" precision="1"/>
+  <columns dataType="CHAR" name="TAFL29" precision="1"/>
+  <columns dataType="CHAR" name="TAFL30" precision="1"/>
+  <columns dataType="CHAR" name="TAFL31" precision="1"/>
+  <columns dataType="CHAR" name="TAFL32" precision="1"/>
+  <columns dataType="CHAR" name="TAFL33" precision="1"/>
+  <columns dataType="CHAR" name="TAFL34" precision="1"/>
+  <columns dataType="CHAR" name="TAFL35" precision="1"/>
+  <columns dataType="CHAR" name="TAFL36" precision="1"/>
+  <columns dataType="CHAR" name="TAFL37" precision="1"/>
+  <columns dataType="CHAR" name="TAFL38" precision="1"/>
+  <columns dataType="CHAR" name="TAFL39" precision="1"/>
+  <columns dataType="CHAR" name="TAFL40" precision="1"/>
+  <columns dataType="DECIMAL" name="TADTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="TAORIN" precision="6"/>
+  <columns dataType="CHAR" name="TAUSIN" precision="10"/>
+  <columns dataType="DECIMAL" name="TADTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="TAORAG" precision="6"/>
+  <columns dataType="CHAR" name="TAUSAG" precision="10"/>
+</db-core:Table>

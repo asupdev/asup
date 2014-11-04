@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0SVIS0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="P&#xa7;CDVI" precision="6"/>
+  <columns dataType="DECIMAL" name="P&#xa7;DTRV" precision="8"/>
+  <columns dataType="DECIMAL" name="P&#xa7;DTEV" precision="8"/>
+  <columns dataType="CHAR" name="P&#xa7;DIPE" precision="15"/>
+  <columns dataType="CHAR" name="P&#xa7;TPVI" precision="2"/>
+  <columns dataType="CHAR" name="P&#xa7;STVI" precision="2"/>
+  <columns dataType="CHAR" name="P&#xa7;ENVI" precision="5"/>
+  <columns dataType="CHAR" name="P&#xa7;ESVI" precision="5"/>
+  <columns dataType="CHAR" name="P&#xa7;NOTA" precision="50"/>
+</db-core:Table>

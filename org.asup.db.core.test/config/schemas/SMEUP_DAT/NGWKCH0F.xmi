@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGWKCH0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="TABEL00001" precision="7"/>
+  <columns dataType="CHAR" name="SOCIE00001" precision="7"/>
+  <columns dataType="DECIMAL" name="PKEY" precision="20"/>
+  <columns dataType="CHAR" name="ANNULLATO" precision="9"/>
+  <columns dataType="CHAR" name="CHNEG" precision="5"/>
+  <columns dataType="DECIMAL" name="CHDAT" precision="8"/>
+  <columns dataType="CHAR" name="CHRCH" precision="5"/>
+  <columns dataType="CHAR" name="CHCAS" precision="5"/>
+  <columns dataType="CHAR" name="CHTIP" precision="5"/>
+  <columns dataType="DECIMAL" name="CHIGT" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIGC" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHICZ" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHINZ" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIMH" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIMM" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIMR" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIMA" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIME" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIGD" precision="20" scale="3"/>
+  <columns dataType="CHAR" name="CHDIC" precision="5"/>
+  <columns dataType="CHAR" name="CHNKY" precision="30"/>
+  <columns dataType="CHAR" name="CHSTA" precision="5"/>
+  <columns dataType="CHAR" name="CHFLT" precision="5"/>
+  <columns dataType="DECIMAL" name="CHISG" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHIRG" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHNNC" precision="7"/>
+  <columns dataType="DECIMAL" name="CHNSC" precision="7"/>
+  <columns dataType="DECIMAL" name="CHNRZ" precision="7"/>
+  <columns dataType="CHAR" name="CHSTS" precision="5"/>
+  <columns dataType="CHAR" name="CHFLC" precision="5"/>
+  <columns dataType="DECIMAL" name="CHICC" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHTFT" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHNFI" precision="7"/>
+  <columns dataType="DECIMAL" name="CHNFF" precision="7"/>
+  <columns dataType="DECIMAL" name="CHTPR" precision="20" scale="3"/>
+  <columns dataType="DECIMAL" name="CHNPI" precision="7"/>
+  <columns dataType="DECIMAL" name="CHNPF" precision="7"/>
+  <columns dataType="CHAR" name="CHAPE" precision="5"/>
+  <columns dataType="DECIMAL" name="CHIDV" precision="20" scale="3"/>
+  <columns dataType="CHAR" name="CHOPE" precision="8"/>
+  <columns dataType="CHAR" name="CHPRV" precision="5"/>
+  <columns dataType="DECIMAL" name="CHIGF" precision="20" scale="3"/>
+</db-core:Table>

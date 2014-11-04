@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5STAT0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="D6TIPC" precision="3"/>
+  <columns dataType="CHAR" name="D6TPRO" precision="12"/>
+  <columns dataType="CHAR" name="D6NPRO" precision="15"/>
+  <columns dataType="DECIMAL" name="D6DPRO" precision="8"/>
+  <columns dataType="CHAR" name="D6NFAT" precision="20"/>
+  <columns dataType="DECIMAL" name="D6DFAT" precision="8"/>
+  <columns dataType="CHAR" name="D6TDOC" precision="3"/>
+  <columns dataType="CHAR" name="D6NDOC" precision="10"/>
+  <columns dataType="CHAR" name="D6SMDO" precision="2"/>
+  <columns dataType="CHAR" name="D6MDOC" precision="3"/>
+  <columns dataType="CHAR" name="D6TMOD" precision="3"/>
+  <columns dataType="CHAR" name="D6STRG" precision="2"/>
+  <columns dataType="CHAR" name="D6TRIG" precision="3"/>
+  <columns dataType="DECIMAL" name="D6NRIG" precision="4"/>
+  <columns dataType="CHAR" name="D6NBOL" precision="10"/>
+  <columns dataType="DECIMAL" name="D6DBOL" precision="8"/>
+  <columns dataType="CHAR" name="D6ESPR" precision="10"/>
+  <columns dataType="CHAR" name="D6PEPR" precision="10"/>
+  <columns dataType="CHAR" name="D6ESCO" precision="10"/>
+  <columns dataType="CHAR" name="D6PECO" precision="10"/>
+  <columns dataType="CHAR" name="D6AZIE" precision="2"/>
+  <columns dataType="CHAR" name="D6DIVI" precision="3"/>
+  <columns dataType="CHAR" name="D6PROG" precision="15"/>
+  <columns dataType="CHAR" name="D6CONT" precision="15"/>
+  <columns dataType="CHAR" name="D6CCRC" precision="10"/>
+  <columns dataType="CHAR" name="D6CDMG" precision="3"/>
+  <columns dataType="CHAR" name="D6RECO" precision="10"/>
+  <columns dataType="CHAR" name="D6AGE1" precision="10"/>
+  <columns dataType="CHAR" name="D6AGE2" precision="10"/>
+  <columns dataType="CHAR" name="D6AGE3" precision="10"/>
+  <columns dataType="CHAR" name="D6AGE4" precision="10"/>
+  <columns dataType="CHAR" name="D6TCCL" precision="3"/>
+  <columns dataType="CHAR" name="D6CDCL" precision="15"/>
+  <columns dataType="CHAR" name="D6TCDC" precision="3"/>
+  <columns dataType="CHAR" name="D6CDCC" precision="15"/>
+  <columns dataType="CHAR" name="D6TCDF" precision="3"/>
+  <columns dataType="CHAR" name="D6CODF" precision="15"/>
+  <columns dataType="CHAR" name="D6TCDS" precision="3"/>
+  <columns dataType="CHAR" name="D6CODS" precision="15"/>
+  <columns dataType="CHAR" name="D6CNAZ" precision="10"/>
+  <columns dataType="CHAR" name="D6CREG" precision="10"/>
+  <columns dataType="CHAR" name="D6PROV" precision="10"/>
+  <columns dataType="CHAR" name="D6ZONA" precision="10"/>
+  <columns dataType="CHAR" name="D6CATE" precision="10"/>
+  <columns dataType="CHAR" name="D6SETE" precision="10"/>
+  <columns dataType="DECIMAL" name="D6NRRI" precision="4"/>
+  <columns dataType="CHAR" name="D6TDOR" precision="3"/>
+  <columns dataType="CHAR" name="D6NDOR" precision="10"/>
+  <columns dataType="DECIMAL" name="D6NRIR" precision="4"/>
+  <columns dataType="CHAR" name="D6COMM" precision="10"/>
+  <columns dataType="CHAR" name="D6NCON" precision="15"/>
+  <columns dataType="CHAR" name="D6ORAQ" precision="30"/>
+  <columns dataType="DECIMAL" name="D6DOAQ" precision="8"/>
+  <columns dataType="CHAR" name="D6ARTI" precision="15"/>
+  <columns dataType="CHAR" name="D6TIAR" precision="10"/>
+  <columns dataType="CHAR" name="D6TPAR" precision="10"/>
+  <columns dataType="CHAR" name="D6CLMA" precision="10"/>
+  <columns dataType="CHAR" name="D6CLGE" precision="10"/>
+  <columns dataType="CHAR" name="D6CLCO" precision="10"/>
+  <columns dataType="CHAR" name="D6TPOG" precision="12"/>
+  <columns dataType="CHAR" name="D6CDOG" precision="15"/>
+  <columns dataType="CHAR" name="D6DESC" precision="35"/>
+  <columns dataType="CHAR" name="D6TPSP" precision="3"/>
+  <columns dataType="CHAR" name="D6CONF" precision="20"/>
+  <columns dataType="CHAR" name="D6OPER" precision="15"/>
+  <columns dataType="CHAR" name="D6UNMS" precision="2"/>
+  <columns dataType="DECIMAL" name="D6QT01" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="D6UNMA" precision="2"/>
+  <columns dataType="DECIMAL" name="D6QT02" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6IMLO" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6IMSC" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6IMSP" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6IMPR" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6IMNE" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="D6VALU" precision="4"/>
+  <columns dataType="DECIMAL" name="D6CAMB" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6COST" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6QTBG" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6IMBG" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6COBG" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6VAL1" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6VAL2" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6VAL3" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6VAL4" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6VAL5" precision="21" scale="6"/>
+  <columns dataType="CHAR" name="D6COPA" precision="3"/>
+  <columns dataType="CHAR" name="D6SPED" precision="3"/>
+  <columns dataType="CHAR" name="D6CONS" precision="3"/>
+  <columns dataType="CHAR" name="D6COD1" precision="15"/>
+  <columns dataType="CHAR" name="D6COD2" precision="15"/>
+  <columns dataType="CHAR" name="D6COD3" precision="15"/>
+  <columns dataType="CHAR" name="D6COD4" precision="15"/>
+  <columns dataType="CHAR" name="D6COD5" precision="15"/>
+  <columns dataType="CHAR" name="D6COD6" precision="15"/>
+  <columns dataType="CHAR" name="D6COD7" precision="15"/>
+  <columns dataType="CHAR" name="D6COD8" precision="15"/>
+  <columns dataType="CHAR" name="D6COD9" precision="15"/>
+  <columns dataType="CHAR" name="D6COD0" precision="15"/>
+  <columns dataType="DECIMAL" name="D6NUM1" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM2" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM3" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM4" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM5" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM6" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM7" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM8" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM9" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6NUM0" precision="21" scale="6"/>
+  <columns dataType="DECIMAL" name="D6DT01" precision="8"/>
+  <columns dataType="DECIMAL" name="D6DT02" precision="8"/>
+  <columns dataType="DECIMAL" name="D6DT03" precision="8"/>
+  <columns dataType="DECIMAL" name="D6DT04" precision="8"/>
+  <columns dataType="DECIMAL" name="D6DT05" precision="8"/>
+  <columns dataType="CHAR" name="D6FL01" precision="1"/>
+  <columns dataType="CHAR" name="D6FL02" precision="1"/>
+  <columns dataType="CHAR" name="D6FL03" precision="1"/>
+  <columns dataType="CHAR" name="D6FL04" precision="1"/>
+  <columns dataType="CHAR" name="D6FL05" precision="1"/>
+  <columns dataType="CHAR" name="D6FL06" precision="1"/>
+  <columns dataType="CHAR" name="D6FL07" precision="1"/>
+  <columns dataType="CHAR" name="D6FL08" precision="1"/>
+  <columns dataType="CHAR" name="D6FL09" precision="1"/>
+  <columns dataType="CHAR" name="D6FL10" precision="1"/>
+  <columns dataType="CHAR" name="D6FL11" precision="1"/>
+  <columns dataType="CHAR" name="D6FL12" precision="1"/>
+  <columns dataType="CHAR" name="D6FL13" precision="1"/>
+  <columns dataType="CHAR" name="D6FL14" precision="1"/>
+  <columns dataType="CHAR" name="D6FL15" precision="1"/>
+  <columns dataType="CHAR" name="D6FL16" precision="1"/>
+  <columns dataType="CHAR" name="D6FL17" precision="1"/>
+  <columns dataType="CHAR" name="D6FL18" precision="1"/>
+  <columns dataType="CHAR" name="D6FL19" precision="1"/>
+  <columns dataType="CHAR" name="D6FL20" precision="1"/>
+  <columns dataType="CHAR" name="D6UTIN" precision="10"/>
+  <columns dataType="DECIMAL" name="D6DTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="D6ORIN" precision="6"/>
+  <columns dataType="CHAR" name="D6UTAG" precision="10"/>
+  <columns dataType="DECIMAL" name="D6DTAG" precision="8"/>
+  <columns dataType="DECIMAL" name="D6ORAG" precision="6"/>
+</db-core:Table>

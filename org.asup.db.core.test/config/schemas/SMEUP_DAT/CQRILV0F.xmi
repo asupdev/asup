@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQRILV0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DATI" precision="8"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;ORAI" precision="6"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DATM" precision="8"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;ORAM" precision="6"/>
+  <columns dataType="CHAR" name="Q&#xa7;UTEN" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;WKST" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;PROG" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLR1" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLR2" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLR3" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG1" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG2" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;FLG3" precision="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;LOTI" precision="15"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;RIGC" precision="4"/>
+  <columns dataType="CHAR" name="Q&#xa7;ARTI" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;CFAL" precision="6"/>
+  <columns dataType="CHAR" name="Q&#xa7;CFAC" precision="6"/>
+  <columns dataType="CHAR" name="Q&#xa7;CLIV" precision="2"/>
+  <columns dataType="CHAR" name="Q&#xa7;TIER" precision="2"/>
+  <columns dataType="CHAR" name="Q&#xa7;COER" precision="15"/>
+  <columns dataType="CHAR" name="Q&#xa7;ESCO" precision="2"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DATC" precision="8"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;ORAC" precision="4" scale="2"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;QCNT" precision="9" scale="3"/>
+  <columns dataType="CHAR" name="Q&#xa7;NUD1" precision="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;NUD2" precision="10"/>
+</db-core:Table>

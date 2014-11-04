@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW MEDAV02L (&#xA;  MD&#xa3;STA ,&#xA;  MD&#xa3;UTE ,&#xA;  MD&#xa3;PGM ,&#xA;  MD&#xa3;DAT ,&#xA;  MD&#xa3;DTU )&#xA;  AS&#xA;  SELECT&#xA;  MD&#xa3;STA ,&#xA;  MD&#xa3;UTE ,&#xA;  MD&#xa3;PGM ,&#xA;  MD&#xa3;DAT ,&#xA;  MD&#xa3;DTU&#xA;  FROM MEDAV00F&#xA;  ;&#xA;&#xA;" name="MEDAV02L"/>

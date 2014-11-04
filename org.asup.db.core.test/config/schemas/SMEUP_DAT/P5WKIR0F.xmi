@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5WKIR0F">
+  <columns name="QMUKEY" precision="20"/>
+  <columns dataType="CHAR" name="SWNSES" precision="10"/>
+  <columns dataType="CHAR" name="SWTIRS" precision="3"/>
+  <columns dataType="CHAR" name="SWTSCH" precision="3"/>
+  <columns dataType="CHAR" name="SWTORI" precision="2"/>
+  <columns dataType="CHAR" name="SWTDOC" precision="3"/>
+  <columns dataType="CHAR" name="SWNDOC" precision="10"/>
+  <columns dataType="DECIMAL" name="SWNRIG" precision="4"/>
+  <columns dataType="CHAR" name="SWOPER" precision="6"/>
+  <columns dataType="CHAR" name="SWOPRI" precision="6"/>
+  <columns dataType="CHAR" name="SWTIRP" precision="3"/>
+  <columns dataType="CHAR" name="SWCLAV" precision="15"/>
+  <columns dataType="CHAR" name="SWTIRF" precision="3"/>
+  <columns dataType="CHAR" name="SWMACC" precision="15"/>
+  <columns dataType="CHAR" name="SWATTR" precision="15"/>
+  <columns dataType="DECIMAL" name="SWLOTT" precision="4"/>
+  <columns dataType="CHAR" name="SWCOAR" precision="15"/>
+  <columns dataType="CHAR" name="SWS$OR" precision="2"/>
+  <columns dataType="CHAR" name="SWL$OR" precision="1"/>
+  <columns dataType="CHAR" name="SWS$OP" precision="2"/>
+  <columns dataType="CHAR" name="SWL$OP" precision="1"/>
+  <columns dataType="CHAR" name="SWCAUS" precision="5"/>
+  <columns dataType="DECIMAL" name="SWQTOR" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="SWQTSC" precision="11" scale="3"/>
+  <columns dataType="DECIMAL" name="SWQORD" precision="11" scale="3"/>
+  <columns dataType="CHAR" name="SWUMIS" precision="2"/>
+  <columns dataType="CHAR" name="SWTRIN" precision="1"/>
+  <columns dataType="DECIMAL" name="SWDTIN" precision="8"/>
+  <columns dataType="DECIMAL" name="SWHRIN" precision="6"/>
+  <columns dataType="CHAR" name="SWTRFI" precision="1"/>
+  <columns dataType="DECIMAL" name="SWDTFI" precision="8"/>
+  <columns dataType="DECIMAL" name="SWHRFI" precision="6"/>
+  <columns dataType="CHAR" name="SWMAGC" precision="3"/>
+  <columns dataType="CHAR" name="SWDEAR" precision="35"/>
+  <columns dataType="CHAR" name="SWTIEN" precision="3"/>
+  <columns dataType="CHAR" name="SWCLIE" precision="15"/>
+  <columns dataType="CHAR" name="SWCOMS" precision="15"/>
+  <columns dataType="CHAR" name="SWPRIO" precision="2"/>
+  <columns dataType="DECIMAL" name="SWDIRI" precision="8"/>
+  <columns dataType="DECIMAL" name="SWDFRI" precision="8"/>
+  <columns dataType="CHAR" name="SWDEOP" precision="30"/>
+  <columns dataType="DECIMAL" name="SWHATR" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="SWHUNI" precision="15" scale="5"/>
+  <columns dataType="DECIMAL" name="SWDIEF" precision="8"/>
+  <columns dataType="DECIMAL" name="SWDISC" precision="8"/>
+  <columns dataType="DECIMAL" name="SWHISC" precision="6"/>
+  <columns dataType="DECIMAL" name="SWDFSC" precision="8"/>
+  <columns dataType="DECIMAL" name="SWHFSC" precision="6"/>
+  <columns dataType="DECIMAL" name="SWQUET" precision="5" scale="2"/>
+  <columns dataType="DECIMAL" name="SWHTOT" precision="8" scale="2"/>
+  <columns dataType="CHAR" name="SWCROR" precision="30"/>
+  <columns dataType="DECIMAL" name="SWDTPP" precision="8"/>
+  <columns dataType="DECIMAL" name="SWHRPP" precision="6"/>
+  <columns dataType="DECIMAL" name="SWDTPT" precision="8"/>
+  <columns dataType="DECIMAL" name="SWHRPT" precision="6"/>
+  <columns dataType="CHAR" name="SWVEIT" precision="2"/>
+  <columns dataType="DECIMAL" name="SWVEID" precision="8"/>
+  <columns dataType="DECIMAL" name="SWVEIH" precision="6"/>
+  <columns dataType="CHAR" name="SWVEFT" precision="2"/>
+  <columns dataType="DECIMAL" name="SWVEFD" precision="8"/>
+  <columns dataType="DECIMAL" name="SWVEFH" precision="6"/>
+  <columns dataType="CHAR" name="SWSINT" precision="15"/>
+  <columns dataType="CHAR" name="SWFL01" precision="1"/>
+  <columns dataType="CHAR" name="SWFL02" precision="1"/>
+  <columns dataType="CHAR" name="SWFL03" precision="1"/>
+  <columns dataType="CHAR" name="SWFL04" precision="1"/>
+  <columns dataType="CHAR" name="SWFL05" precision="1"/>
+  <columns dataType="CHAR" name="SWER01" precision="1"/>
+  <columns dataType="CHAR" name="SWER02" precision="1"/>
+  <columns dataType="CHAR" name="SWER03" precision="1"/>
+  <columns dataType="CHAR" name="SWER04" precision="1"/>
+  <columns dataType="CHAR" name="SWTIPO" precision="1"/>
+  <columns dataType="CHAR" name="SWSPLT" precision="1"/>
+  <columns dataType="CHAR" name="SWSOSP" precision="1"/>
+  <columns dataType="CHAR" name="SWSECO" precision="1"/>
+  <columns dataType="CHAR" name="SWSTOP" precision="1"/>
+  <columns dataType="CHAR" name="SWCLMO" precision="1"/>
+  <columns dataType="CHAR" name="SWRINO" precision="1"/>
+  <columns dataType="CHAR" name="SWFL17" precision="1"/>
+  <columns dataType="CHAR" name="SWFL18" precision="1"/>
+  <columns dataType="CHAR" name="SWFL19" precision="1"/>
+  <columns dataType="CHAR" name="SWFL20" precision="1"/>
+  <columns dataType="CHAR" name="SWTCIC" precision="3"/>
+  <columns dataType="CHAR" name="SWCICL" precision="3"/>
+  <columns dataType="CHAR" name="SWTOPE" precision="3"/>
+  <columns dataType="CHAR" name="SWGRAL" precision="5"/>
+  <columns dataType="CHAR" name="SWCODC" precision="15"/>
+  <columns dataType="CHAR" name="SWCICC" precision="3"/>
+  <columns dataType="CHAR" name="SWSQCC" precision="6"/>
+  <columns dataType="CHAR" name="SWUMTE" precision="2"/>
+  <columns dataType="DECIMAL" name="SWTE01" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE02" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE03" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE04" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE05" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE06" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE07" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE08" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE09" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWTE10" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC01" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC02" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC03" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC04" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC05" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC06" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC07" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC08" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC09" precision="11" scale="4"/>
+  <columns dataType="DECIMAL" name="SWCC10" precision="11" scale="4"/>
+  <columns dataType="CHAR" name="SWNOTA" precision="50"/>
+  <columns dataType="DECIMAL" name="SWDTCR" precision="8"/>
+  <columns dataType="DECIMAL" name="SWDTAG" precision="8"/>
+  <columns dataType="CHAR" name="SWUSAG" precision="10"/>
+</db-core:Table>
