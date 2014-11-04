@@ -28,21 +28,32 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	@Inject
 	private QDatabaseManager databaseManager;
 
+	private void dropDB2Schema(QConnection connection, QSchema schema) throws SQLException {
+		String sql = "CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schema.getName() + "', NULL, 'ERRORSCHEMA', 'ERRORTABLE')";
+		connection.createStatement().execute(sql);
+	}
+	
+	public void _copyS(CommandInterpreter interpreter) throws SQLException {
+		copySchema("SMEUP_DAT", "DB2");
+	}
+
 	public void _copySchema(CommandInterpreter interpreter) throws SQLException {
-		
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		
-		
 		String schemaName = interpreter.nextArgument();
-		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"+schemaName);
-		
 		String pluginName = interpreter.nextArgument();
+
+		copySchema(schemaName, pluginName);
+	}
+
+	private void copySchema(String schemaName, String pluginName)
+			throws SQLException {
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"+schemaName);
 		QConnectionConfig connectionConfig = loadConfig(pluginName);
 
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
 		QSchema schema = databaseManager.getSchema(connection, schemaName);
 		if(schema != null)
-			databaseManager.dropSchema(connection, schema);
+			dropDB2Schema(connection, schema);
 
 		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
 		schema.setName(schemaName);
@@ -110,7 +121,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 				
 		QSchema schema = databaseManager.getSchema(connection, schemaName);
 		if(schema != null)
-			databaseManager.dropSchema(connection, schema);
+			dropDB2Schema(connection, schema);
 		
 		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
 		schema.setDatabase(connection.getDatabase());
@@ -265,7 +276,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		System.out.println("...OK");
 		
 		try {
-			databaseManager.dropSchema(connectionTo, schema);
+			dropDB2Schema(connectionTo, schema);
 		} catch (Exception e) {
 		}
 		databaseManager.createSchema(connectionTo, schema, true);

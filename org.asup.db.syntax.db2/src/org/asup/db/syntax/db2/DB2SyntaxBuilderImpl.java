@@ -32,7 +32,7 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 	private QQueryParserRegistry queryParserRegistry;
 
 	private final Quoter quoter = new Quoter("\"");
-
+	
 	private QQueryConverter queryConverter;
 	
 	@PostConstruct

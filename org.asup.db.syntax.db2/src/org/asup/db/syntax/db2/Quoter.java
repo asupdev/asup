@@ -17,9 +17,17 @@ public class Quoter {
 	}
 
 	public String quote(String name) {
-		return startQuote + name + endQuote;
+		if (needsQuoting(name)) {
+			return startQuote + name + endQuote;
+		} else {
+			return name;
+		}
 	}
 	
+	private boolean needsQuoting(String name) {
+		return name.contains(" ");
+	}
+
 	public String quoteFullName(QSchema schema, String objName) {
 		return quote(schema.getName()) + "." + quote(objName);
 	}
