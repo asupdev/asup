@@ -29,8 +29,10 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	private QDatabaseManager databaseManager;
 
 	private void dropDB2Schema(QConnection connection, QSchema schema) throws SQLException {
-		String sql = "CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schema.getName() + "', NULL, 'ERRORSCHEMA', 'ERRORTABLE')";
-		connection.createStatement().execute(sql);
+		String sql = 
+				"CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schema.getName() + "', NULL, 'ERRORSCHEMA', 'ERRORTABLE')";
+		connection.createStatement()
+				  .execute(sql);
 	}
 	
 	public void _copyS(CommandInterpreter interpreter) throws SQLException {
