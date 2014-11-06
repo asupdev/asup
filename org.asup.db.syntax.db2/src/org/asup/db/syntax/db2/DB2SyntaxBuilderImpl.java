@@ -72,7 +72,7 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 					break;
 				case DECIMAL:
 					if (field.getPrecision() > 31) {
-						result.append(field.getName()+" DECFLOAT("+field.getPrecision()+")");
+						result.append(field.getName()+" DECFLOAT(34)");
 					} 
 					else if(field.getScale() != 0)
 						result.append(field.getName()+" DECIMAL("+field.getPrecision()+", "+field.getScale()+")");
