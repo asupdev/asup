@@ -29,10 +29,18 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	private QDatabaseManager databaseManager;
 
 	private void dropDB2Schema(QConnection connection, QSchema schema) throws SQLException {
-		String sql = 
-				"CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schema.getName() + "', NULL, 'ERRORSCHEMA', 'ERRORTABLE')";
-		connection.createStatement()
-				  .execute(sql);
+		String sql  = 
+				"begin " + 
+				"  declare l_errschema varchar(128) default 'ERRORSCHEMA';" +
+				"  declare l_errtab varchar(128) default 'ERRORTABLE';" +
+				"  CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schema.getName() + "', NULL, l_errschema, l_errtab);" +
+			    " end";
+		try {
+			connection.createStatement().execute(sql);
+		} catch (Exception e) {
+			System.err.println("****** ERRORE SU " + sql);
+			System.err.println(e);
+		}
 	}
 	
 	public void _copyS(CommandInterpreter interpreter) throws SQLException {
@@ -60,7 +68,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
 		schema.setName(schemaName);
 		databaseManager.createSchema(connection, schema, true);
-		
+		connection.createStatement().execute("SET CURRENT SCHEMA " + schemaName);
 		
 		Set<String> fileNames = new TreeSet<String>();
 		
@@ -91,7 +99,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 				}
 			}
 			catch(SQLException e) {
-				e.printStackTrace();
+				System.err.println(e);
 			}
 		}
 		
