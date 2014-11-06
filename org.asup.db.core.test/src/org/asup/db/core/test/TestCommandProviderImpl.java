@@ -29,6 +29,8 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	private QDatabaseManager databaseManager;
 
 	private void dropDB2Schema(QConnection connection, QSchema schema) throws SQLException {
+		System.out.print("Dropping schema " + schema + "...");
+//		databaseManager.dropSchema(connection, schema);
 		String sql  = 
 				"begin " + 
 				"  declare l_errschema varchar(128) default 'ERRORSCHEMA';" +
@@ -41,6 +43,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 			System.err.println("****** ERRORE SU " + sql);
 			System.err.println(e);
 		}
+		System.out.println("done!");
 	}
 	
 	public void _copyS(CommandInterpreter interpreter) throws SQLException {
