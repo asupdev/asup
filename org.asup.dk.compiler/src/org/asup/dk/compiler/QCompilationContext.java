@@ -73,6 +73,14 @@ public interface QCompilationContext extends QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" dataTermRequired="true"
+	 * @generated
+	 */
+	String normalizeTypeName(QDataTerm<?> dataTerm);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" nameRequired="true"
 	 * @generated
 	 */

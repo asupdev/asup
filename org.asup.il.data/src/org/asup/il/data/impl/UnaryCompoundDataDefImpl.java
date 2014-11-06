@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class UnaryCompoundDataDefImpl<D extends QStruct> extends UnaryDataDefImpl<D> implements QUnaryCompoundDataDef<D> {
+public abstract class UnaryCompoundDataDefImpl<D extends QStruct<?>> extends UnaryDataDefImpl<D> implements QUnaryCompoundDataDef<D> {
 	/**
 	 * 
 	 */

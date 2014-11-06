@@ -20,14 +20,14 @@ import java.util.List;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QStruct extends QString {
+public interface QStruct<D extends QData> extends QData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model nameRequired="true"
 	 * @generated
 	 */
-	QBufferedData getElement(String name);
+	D getElement(String name);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public interface QStruct extends QString {
 	 * @model positionRequired="true"
 	 * @generated
 	 */
-	QBufferedData getElement(int position);
+	D getElement(int position);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -43,6 +43,6 @@ public interface QStruct extends QString {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	List<QBufferedData> getElements();
+	List<D> getElements();
 
 } // QStruct

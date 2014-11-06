@@ -78,7 +78,7 @@ public interface QOperatingSystemDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_DATA__LIBRARY = QIntegratedLanguageDataPackage.STRUCT_FEATURE_COUNT + 0;
+	int TYPED_DATA__LIBRARY = QIntegratedLanguageDataPackage.DATA_STRUCT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -87,7 +87,7 @@ public interface QOperatingSystemDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_DATA__NAME = QIntegratedLanguageDataPackage.STRUCT_FEATURE_COUNT + 1;
+	int TYPED_DATA__NAME = QIntegratedLanguageDataPackage.DATA_STRUCT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Typed Data</em>' class.
@@ -96,7 +96,7 @@ public interface QOperatingSystemDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_DATA_FEATURE_COUNT = QIntegratedLanguageDataPackage.STRUCT_FEATURE_COUNT + 2;
+	int TYPED_DATA_FEATURE_COUNT = QIntegratedLanguageDataPackage.DATA_STRUCT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.data.impl.TypedDataDefImpl <em>Typed Data Def</em>}' class.

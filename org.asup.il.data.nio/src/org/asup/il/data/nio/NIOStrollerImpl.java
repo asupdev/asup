@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 import org.asup.il.data.QStroller;
-import org.asup.il.data.QStruct;
 
-public class NIOStrollerImpl<D extends QStruct> extends NIOScrollerImpl<D> implements QStroller<D> {
+public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> implements QStroller<D> {
 
 	private static final long serialVersionUID = 1L;
 

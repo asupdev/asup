@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.PhysicalFileImpl#getFileType <em>File Type</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.PhysicalFileImpl#getRecordLength <em>Record Length</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.PhysicalFileImpl#getTable <em>Table</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.PhysicalFileImpl#getTableFormat <em>Table Format</em>}</li>
  * </ul>
@@ -57,6 +58,26 @@ public class PhysicalFileImpl extends FileImpl implements QPhysicalFile {
 	 * @ordered
 	 */
 	protected FileType fileType = FILE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRecordLength() <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RECORD_LENGTH_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRecordLength() <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int recordLength = RECORD_LENGTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTable() <em>Table</em>}' containment reference.
@@ -212,11 +233,34 @@ public class PhysicalFileImpl extends FileImpl implements QPhysicalFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRecordLength() {
+		return recordLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecordLength(int newRecordLength) {
+		int oldRecordLength = recordLength;
+		recordLength = newRecordLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.PHYSICAL_FILE__RECORD_LENGTH, oldRecordLength, recordLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__FILE_TYPE:
 				return getFileType();
+			case QOperatingSystemFilePackage.PHYSICAL_FILE__RECORD_LENGTH:
+				return getRecordLength();
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__TABLE:
 				return getTable();
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__TABLE_FORMAT:
@@ -235,6 +279,9 @@ public class PhysicalFileImpl extends FileImpl implements QPhysicalFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__FILE_TYPE:
 				setFileType((FileType)newValue);
+				return;
+			case QOperatingSystemFilePackage.PHYSICAL_FILE__RECORD_LENGTH:
+				setRecordLength((Integer)newValue);
 				return;
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__TABLE:
 				setTable((QTable)newValue);
@@ -257,6 +304,9 @@ public class PhysicalFileImpl extends FileImpl implements QPhysicalFile {
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__FILE_TYPE:
 				setFileType(FILE_TYPE_EDEFAULT);
 				return;
+			case QOperatingSystemFilePackage.PHYSICAL_FILE__RECORD_LENGTH:
+				setRecordLength(RECORD_LENGTH_EDEFAULT);
+				return;
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__TABLE:
 				setTable((QTable)null);
 				return;
@@ -277,6 +327,8 @@ public class PhysicalFileImpl extends FileImpl implements QPhysicalFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__FILE_TYPE:
 				return fileType != FILE_TYPE_EDEFAULT;
+			case QOperatingSystemFilePackage.PHYSICAL_FILE__RECORD_LENGTH:
+				return recordLength != RECORD_LENGTH_EDEFAULT;
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__TABLE:
 				return table != null;
 			case QOperatingSystemFilePackage.PHYSICAL_FILE__TABLE_FORMAT:
@@ -297,6 +349,8 @@ public class PhysicalFileImpl extends FileImpl implements QPhysicalFile {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (fileType: ");
 		result.append(fileType);
+		result.append(", recordLength: ");
+		result.append(recordLength);
 		result.append(", tableFormat: ");
 		result.append(tableFormat);
 		result.append(')');

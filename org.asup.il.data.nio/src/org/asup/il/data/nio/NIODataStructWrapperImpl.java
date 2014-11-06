@@ -18,11 +18,11 @@ import java.util.List;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDelegator;
+import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataVisitor;
-import org.asup.il.data.QStruct;
 
-public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements QDataDelegator<QStruct> {
+public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements QDataDelegator<QDataStruct> {
 
 	private static final long serialVersionUID = 1L;
 

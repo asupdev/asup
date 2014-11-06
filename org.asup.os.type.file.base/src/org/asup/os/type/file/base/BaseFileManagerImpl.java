@@ -56,7 +56,7 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	}
 
 	@Override
-	public void overrideDatabaseFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
+	public void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
 
 		try {			
 			BaseOverridedFileMap overrideFileMap = getOverridedFile(job);
@@ -68,7 +68,7 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	}
 
 	@Override
-	public QFile getOverridedDatabaseFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
+	public QFile getOverriddenFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
 		
 		try {
 			
@@ -102,5 +102,11 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 			job.getJobContext().set(BaseOverridedFileMap.class, overrideFileMap);
 		}
 		return overrideFileMap;
+	}
+	
+
+	@Override
+	public Class<QFile> getTypedClass() {
+		return QFile.class;
 	}
 }

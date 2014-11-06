@@ -7,7 +7,7 @@
  */
 package org.asup.os.data;
 
-import org.asup.il.data.QStruct;
+import org.asup.il.data.QDataStruct;
 import org.asup.os.type.QType;
 
 /**
@@ -27,7 +27,7 @@ import org.asup.os.type.QType;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QTypedData extends QStruct {
+public interface QTypedData extends QDataStruct {
 	/**
 	 * Returns the value of the '<em><b>Library</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -520,31 +520,39 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	@Override
 	public String normalizeTypeName(String name) {
 		
-		// specials
-		if(name.startsWith("*")) {
+		// special
+		if(name.startsWith("*")) 
 			name = name.substring(1).toUpperCase();
-		}
-		else
-			name = firstToUpper(name);
 
-		name = name.replaceAll("§", "ç");
-		
-		return name;
-	}
-	
-	public String firstToUpper(String str) {
-		StringBuffer s = new StringBuffer(str.length());
-		CharacterIterator it = new StringCharacterIterator(str);
+		StringBuffer s = new StringBuffer(name.length());
+		CharacterIterator it = new StringCharacterIterator(name);
 		for (char ch = it.first(); ch != CharacterIterator.DONE; ch = it.next()) {
 			if(it.getIndex()==0) {
 				s.append(String.valueOf(ch).toUpperCase());
 			} else {
-				s.append(ch);
+				if(ch == '§')
+					s.append('ç');
+				else
+					s.append(ch);
 			}
 		}
-		return s.toString();
+		name = s.toString();
+		
+		return name;
 	}
 
+	@Override
+	public String normalizeTypeName(QDataTerm<?> dataTerm) {
+		
+		String name = normalizeTypeName(dataTerm.getName());
+		
+		// multiple
+		if(dataTerm.getDataType().isMultiple() && name.endsWith("s"))
+			name = removeLastChar(name);
+
+		return name;
+	}
+	
 	@Override
 	public QNamedNode getRoot() {
 		return this.root;
@@ -563,5 +571,15 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 	@Override
 	public Class<?> loadClass(QContextID contextID, String address) {
 		return delegate.loadClass(contextID, address);
+	}
+	
+
+	private String removeLastChar(String str) {
+		if(str.length() == 0)
+			return str;
+		if(str.length() == 1)
+			return "";
+		
+		return str.substring(0, str.length() - 1);
 	}
 }

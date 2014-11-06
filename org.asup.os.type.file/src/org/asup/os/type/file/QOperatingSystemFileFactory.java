@@ -36,13 +36,31 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	QDisplayFile createDisplayFile();
 
 	/**
-	 * Returns a new object of class '<em>File</em>'.
+	 * Returns a new object of class '<em>Display File Format</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>File</em>'.
+	 * @return a new object of class '<em>Display File Format</em>'.
 	 * @generated
 	 */
-	QFile createFile();
+	QDisplayFileFormat createDisplayFileFormat();
+
+	/**
+	 * Returns a new object of class '<em>File Format</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Format</em>'.
+	 * @generated
+	 */
+	QFileFormat createFileFormat();
+
+	/**
+	 * Returns a new object of class '<em>File Format Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Format Field</em>'.
+	 * @generated
+	 */
+	QFileFormatField createFileFormatField();
 
 	/**
 	 * Returns a new object of class '<em>File Member</em>'.
@@ -90,13 +108,13 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	QPrinterFile createPrinterFile();
 
 	/**
-	 * Returns a new object of class '<em>Display Format Def</em>'.
+	 * Returns a new object of class '<em>Printer File Format</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Display Format Def</em>'.
+	 * @return a new object of class '<em>Printer File Format</em>'.
 	 * @generated
 	 */
-	QDisplayFormatDef createDisplayFormatDef();
+	QPrinterFileFormat createPrinterFileFormat();
 
 	/**
 	 * Returns a new object of class '<em>External File</em>'.

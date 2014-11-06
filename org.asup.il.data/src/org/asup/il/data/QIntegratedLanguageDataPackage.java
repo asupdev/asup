@@ -1633,15 +1633,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int COMPOUND_DATA_TERM_FEATURE_COUNT = DATA_TERM_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TERM_CONTAINER__TERMS = QIntegratedLanguageCorePackage.TERM_CONTAINER__TERMS;
-
-	/**
 	 * The number of structural features of the '<em>Data Term Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1651,15 +1642,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATA_TERM_CONTAINER_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_CONTEXT__TERMS = DATA_TERM_CONTAINER__TERMS;
-
-	/**
 	 * The number of structural features of the '<em>Data Context</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1667,15 +1649,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_CONTEXT_FEATURE_COUNT = DATA_TERM_CONTAINER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_DICTIONARY__TERMS = QIntegratedLanguageCorePackage.DICTIONARY__TERMS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1778,22 +1751,13 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATA_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Struct</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCT_FEATURE_COUNT = STRING_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Data Struct</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_STRUCT_FEATURE_COUNT = STRUCT_FEATURE_COUNT + 0;
+	int DATA_STRUCT_FEATURE_COUNT = STRING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
@@ -2758,6 +2722,15 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @ordered
 	 */
 	int STROLLER_DEF_FEATURE_COUNT = MULTIPLE_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Struct</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRUCT_FEATURE_COUNT = DATA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.

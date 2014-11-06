@@ -13,7 +13,7 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 
 	private static final long serialVersionUID = 1L;
 	
-	private QStruct delegate;
+	private QDataStruct delegate;
 
 	@Override
 	public void accept(QDataVisitor visitor) {
@@ -178,7 +178,7 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 		return delegate.ge(value);
 	}
 
-	public QStruct getDelegate() {
+	public QDataStruct getDelegate() {
 		return this.delegate;
 	}
 
@@ -420,7 +420,7 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 		
 	}
 
-	public void setDelegate(QStruct delegate) {
+	public void setDelegate(QDataStruct delegate) {
 		this.delegate = delegate;		
 	}
 

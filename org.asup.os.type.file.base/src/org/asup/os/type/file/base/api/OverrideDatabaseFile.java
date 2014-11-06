@@ -27,7 +27,7 @@ import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
 
 @Program(name = "QDMOVERD")
-public class OverrideFileExecutor {
+public class OverrideDatabaseFile {
 
 	@Inject
 	private QFileManager fileManager;
@@ -46,7 +46,7 @@ public class OverrideFileExecutor {
 		if (qFile == null)
 			throw new OperatingSystemRuntimeException("File not found: " + fileTo);
 
-		fileManager.overrideDatabaseFile(job, file.trimR(), qFile);
+		fileManager.overrideFile(job, file.trimR(), qFile);
 
 	}
 

@@ -74,7 +74,6 @@ import org.asup.il.data.QScroller;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStroller;
 import org.asup.il.data.QStrollerDef;
-import org.asup.il.data.QStruct;
 import org.asup.il.data.QUnaryAtomicBufferedDataDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -130,7 +129,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 		// scroller
 		else if(dataDef instanceof QScrollerDef<?>) {
 			QScrollerDef<?> scrollerDef = (QScrollerDef<?>)dataDef; 
-			QUnaryAtomicDataDef<QStruct> argument = (QUnaryAtomicDataDef<QStruct>) scrollerDef.getArgument();
+			QUnaryAtomicBufferedDataDef<?> argument = (QUnaryAtomicBufferedDataDef<?>) scrollerDef.getArgument();
 			
 			data = (D) createScroller(argument, scrollerDef.getDimension(), initialize);
 		}
@@ -360,7 +359,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public <D extends QStruct> QScroller<D> createScroller(QAtomicDataDef<D> argument, int dimension, boolean initialize) {
+	public <D extends QBufferedData> QScroller<D> createScroller(QAtomicDataDef<D> argument, int dimension, boolean initialize) {
 		
 		QBufferedData model = (QBufferedData) createData(argument, false);
 		
@@ -374,9 +373,9 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public <D extends QStruct> QStroller<D> createStroller(QCompoundDataDef<D> argument, int dimension, boolean initialize) {
+	public <D extends QDataStruct> QStroller<D> createStroller(QCompoundDataDef<?> argument, int dimension, boolean initialize) {
 		
-		QStruct model = null;
+		QDataStruct model = null;
 		
 		Class<? extends QDataStruct> delegator = null;
 		if(argument.getClassDelegator() != null) { 
@@ -387,12 +386,12 @@ public class NIODataFactoryImpl implements QDataFactory {
 			delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, argument.getClassDelegator());
 			
 			QDataStruct bufferedData = createDataStruct(delegator, 0, false); 
-			model = (D) bufferedData;
+			model = bufferedData;
 		}
 		else {
 
 			QDataStruct bufferedData = createDataStruct(argument.getElements(), 0, false); 
-			model = (D) bufferedData;				
+			model = bufferedData;				
 		}
 				
 		QStroller<D> stroller = new NIOStrollerImpl(model, dimension);

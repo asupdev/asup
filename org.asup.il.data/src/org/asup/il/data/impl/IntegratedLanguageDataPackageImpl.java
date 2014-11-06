@@ -2084,6 +2084,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		ETypeParameter scrollerDefEClass_D = addETypeParameter(scrollerDefEClass, "D");
 		ETypeParameter strollerEClass_D = addETypeParameter(strollerEClass, "D");
 		ETypeParameter strollerDefEClass_D = addETypeParameter(strollerDefEClass, "D");
+		ETypeParameter structEClass_D = addETypeParameter(structEClass, "D");
 		ETypeParameter unaryAtomicDataDefEClass_D = addETypeParameter(unaryAtomicDataDefEClass, "D");
 		ETypeParameter unaryAtomicBufferedDataDefEClass_D = addETypeParameter(unaryAtomicBufferedDataDefEClass, "D");
 		ETypeParameter unaryAtomicDataTermEClass_DD = addETypeParameter(unaryAtomicDataTermEClass, "DD");
@@ -2114,6 +2115,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(this.getBufferedData());
 		bufferedListEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getStruct());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
 		compoundDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getCompoundDataDef());
 		g2 = createEGenericType();
@@ -2175,12 +2178,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(this.getBufferedData());
 		g1.getETypeArguments().add(g2);
 		scrollerDefEClass_D.getEBounds().add(g1);
-		g1 = createEGenericType(this.getStruct());
+		g1 = createEGenericType(this.getDataStruct());
 		strollerEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getStroller());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		strollerDefEClass_D.getEBounds().add(g1);
+		g1 = createEGenericType(this.getData());
+		structEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getData());
 		unaryAtomicDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getBufferedData());
@@ -2190,6 +2195,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		unaryAtomicDataTermEClass_DD.getEBounds().add(g1);
 		g1 = createEGenericType(this.getStruct());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
 		unaryCompoundDataDefEClass_D.getEBounds().add(g1);
 		g1 = createEGenericType(this.getUnaryCompoundDataDef());
 		g2 = createEGenericType();
@@ -2277,7 +2284,12 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		dataDictionaryEClass.getEGenericSuperTypes().add(g1);
 		dataEvaluatorEClass.getESuperTypes().add(this.getDataVisitor());
 		dataManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
-		dataStructEClass.getESuperTypes().add(this.getStruct());
+		g1 = createEGenericType(this.getString());
+		dataStructEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getStruct());
+		g2 = createEGenericType(this.getBufferedData());
+		g1.getETypeArguments().add(g2);
+		dataStructEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getUnaryCompoundDataDef());
 		g2 = createEGenericType(this.getDataStruct());
 		g1.getETypeArguments().add(g2);
@@ -2405,7 +2417,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(strollerEClass_D);
 		g1.getETypeArguments().add(g2);
 		strollerEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getStruct());
+		g1 = createEGenericType(this.getDataStruct());
 		strollerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getMultipleCompoundDataDef());
 		g2 = createEGenericType(strollerDefEClass_D);
@@ -2415,7 +2427,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(strollerDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		strollerDefEClass.getEGenericSuperTypes().add(g1);
-		structEClass.getESuperTypes().add(this.getString());
+		structEClass.getESuperTypes().add(this.getData());
 		g1 = createEGenericType(this.getUnaryDataDef());
 		g2 = createEGenericType(unaryAtomicDataDefEClass_D);
 		g1.getETypeArguments().add(g2);
@@ -2826,7 +2838,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(dataFactoryEClass, null, "createScroller", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "D");
-		g1 = createEGenericType(this.getStruct());
+		g1 = createEGenericType(this.getBufferedData());
 		t1.getEBounds().add(g1);
 		g1 = createEGenericType(this.getAtomicDataDef());
 		g2 = createEGenericType(t1);
@@ -2841,10 +2853,10 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(dataFactoryEClass, null, "createStroller", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "D");
-		g1 = createEGenericType(this.getStruct());
+		g1 = createEGenericType(this.getDataStruct());
 		t1.getEBounds().add(g1);
 		g1 = createEGenericType(this.getCompoundDataDef());
-		g2 = createEGenericType(t1);
+		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "argument", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "dimension", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -3794,13 +3806,19 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(structEClass, QStruct.class, "Struct", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(structEClass, this.getBufferedData(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(structEClass, null, "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(structEClass_D);
+		initEOperation(op, g1);
 
-		op = addEOperation(structEClass, this.getBufferedData(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(structEClass, null, "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "position", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(structEClass_D);
+		initEOperation(op, g1);
 
-		addEOperation(structEClass, this.getBufferedData(), "getElements", 1, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(structEClass, null, "getElements", 1, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(structEClass_D);
+		initEOperation(op, g1);
 
 		initEClass(unaryAtomicDataDefEClass, QUnaryAtomicDataDef.class, "UnaryAtomicDataDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

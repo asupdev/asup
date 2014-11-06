@@ -5,18 +5,18 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.il.data;
+package org.asup.os.type.file;
 
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Stroller</b></em>'.
+ * A representation of the model object '<em><b>Printer File Format</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getStroller()
- * @model interface="true" abstract="true"
+ * @see org.asup.os.type.file.QOperatingSystemFilePackage#getPrinterFileFormat()
+ * @model
  * @generated
  */
-public interface QStroller<D extends QDataStruct> extends QScroller<D>, QDataStruct {
-} // QStroller
+public interface QPrinterFileFormat extends QFileFormat {
+} // QPrinterFileFormat

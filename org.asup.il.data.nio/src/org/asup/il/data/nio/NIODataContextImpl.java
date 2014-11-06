@@ -112,7 +112,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 				if(!(data instanceof QStruct))
 					return null;
 				
-				QStruct struct = (QStruct)data;
+				QStruct<?> struct = (QStruct<?>)data;
 				data = struct.getElement(qualifier);
 			}
 			
@@ -140,7 +140,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 		else {
 			if(parent instanceof QCompoundDataTerm) {
 				QCompoundDataTerm<?> compoundDataTerm = (QCompoundDataTerm<?>)parent;
-				QStruct dataParent = (QStruct) getData(compoundDataTerm);
+				QStruct<?> dataParent = (QStruct<?>) getData(compoundDataTerm);
 				return dataParent.getElement(dataTerm.getName());
 			}
 			else

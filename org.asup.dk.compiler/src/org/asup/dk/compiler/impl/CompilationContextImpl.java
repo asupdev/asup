@@ -122,6 +122,17 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String normalizeTypeName(QDataTerm<?> dataTerm) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QKeyListTerm getKeyList(String name, boolean deep) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

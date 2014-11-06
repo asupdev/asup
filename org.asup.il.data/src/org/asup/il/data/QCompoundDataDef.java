@@ -30,7 +30,7 @@ import java.util.List;
  * @model abstract="true"
  * @generated
  */
-public interface QCompoundDataDef<D extends QStruct> extends QDataDef<D> {
+public interface QCompoundDataDef<D extends QStruct<?>> extends QDataDef<D> {
 
 	/**
 	 * Returns the value of the '<em><b>Class Delegator</b></em>' attribute.

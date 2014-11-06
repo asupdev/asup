@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.il.data.QDataTerm;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
@@ -26,7 +25,6 @@ public class JDTNodeWriter {
 		
 		this.compilationContext = compilationContext;
 		this.compilationSetup = compilationSetup;
-		
 		if(root != null) {
 			this.ast = root.getAST();
 			this.compilationUnit = root.getCompilationUnit();
@@ -42,26 +40,6 @@ public class JDTNodeWriter {
 			packageDeclaration.setName(ast.newName(compilationSetup.getBasePackage().split("\\.")));
 			this.compilationUnit.setPackage(packageDeclaration);
 		}
-	}
-
-	protected String normalizeInnerName(QDataTerm<?> term) {
-
-		String name = getCompilationContext().normalizeTypeName(term.getName());
-		
-		// multiple
-		if(term.getDataType().isMultiple() && name.endsWith("s"))
-			name = removeLastChar(name);
-		
-		return name;
-	}
-	
-	private String removeLastChar(String str) {
-		if(str.length() == 0)
-			return str;
-		if(str.length() == 1)
-			return "";
-		
-		return str.substring(0, str.length() - 1);
 	}
 	
 	public void writeImport(Class<?> klass) {

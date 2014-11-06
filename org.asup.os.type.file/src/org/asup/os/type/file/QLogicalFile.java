@@ -20,6 +20,7 @@ import org.asup.db.core.QView;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.os.type.file.QLogicalFile#getIndex <em>Index</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QLogicalFile#getRecordLength <em>Record Length</em>}</li>
  *   <li>{@link org.asup.os.type.file.QLogicalFile#getView <em>View</em>}</li>
  * </ul>
  * </p>
@@ -54,6 +55,32 @@ public interface QLogicalFile extends QFile, QFileMembered {
 	 * @generated
 	 */
 	void setIndex(QIndex value);
+
+	/**
+	 * Returns the value of the '<em><b>Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Record Length</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Record Length</em>' attribute.
+	 * @see #setRecordLength(int)
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getLogicalFile_RecordLength()
+	 * @model
+	 * @generated
+	 */
+	int getRecordLength();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.file.QLogicalFile#getRecordLength <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Record Length</em>' attribute.
+	 * @see #getRecordLength()
+	 * @generated
+	 */
+	void setRecordLength(int value);
 
 	/**
 	 * Returns the value of the '<em><b>View</b></em>' containment reference.

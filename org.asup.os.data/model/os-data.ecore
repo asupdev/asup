@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="data" nsURI="http://www.asup.org/os/data" nsPrefix="os-data">
   <eClassifiers xsi:type="ecore:EClass" name="TypedData" abstract="true" interface="true"
-      eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//Struct">
+      eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct">
     <eOperations name="getType" lowerBound="1" eType="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="library" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

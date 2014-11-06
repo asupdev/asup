@@ -63,7 +63,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 	public boolean visit(QMultipleCompoundDataTerm<?> term) {
 
 		@SuppressWarnings("unchecked")
-		QList<QStruct> list = (QList<QStruct>)data;
+		QList<QStruct<?>> list = (QList<QStruct<?>>)data;
 		
 		boolean _return = true;
 		
@@ -90,7 +90,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 
 		if(_return) {
 
-			for(QStruct struct: list) {
+			for(QStruct<?> struct: list) {
 				// childs
 				for(QDataTerm<?> child: term.getDefinition().getElements()) {
 					NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()),evaluator);
@@ -122,7 +122,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 	@Override
 	public boolean visit(QUnaryCompoundDataTerm<?> term) {
 
-		QStruct struct = (QStruct)data;
+		QStruct<?> struct = (QStruct<?>)data;
 		
 		boolean _return = true;
 
