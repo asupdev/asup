@@ -8,10 +8,16 @@ import javax.sql.DataSource;
 
 public class LoggingDataSource implements InvocationHandler {
 
+	public enum LoggingLevel {
+		DEBUG, ERROR;
+	}
+	
 	private DataSource implementation;
+	private LoggingLevel loggingLevel;
 
-	private LoggingDataSource(DataSource implementation) {
+	private LoggingDataSource(DataSource implementation, LoggingLevel loggingLevel) {
 		this.implementation = implementation;
+		this.loggingLevel = loggingLevel;
 	}
 
 	public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
@@ -24,16 +30,16 @@ public class LoggingDataSource implements InvocationHandler {
 			throw e.getTargetException();
 		}
 		if (result instanceof Connection) {
-			result = LoggingConnection.getInstance((Connection) result);
+			result = LoggingConnection.getInstance((Connection) result, loggingLevel);
 		}
 		return result;
 	}
 	
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public static DataSource getInstance(DataSource implementation) {
+	public static DataSource getInstance(DataSource implementation, LoggingLevel loggingLevel) {
 		ClassAnalyzer analyzer = new ClassAnalyzer(implementation.getClass());
 		return (DataSource)Proxy.newProxyInstance(implementation.getClass().getClassLoader(),
 				analyzer.elencoInterfacceAsArray(),
-				new LoggingDataSource(implementation));
+				new LoggingDataSource(implementation, loggingLevel));
 	}
 }
