@@ -42,7 +42,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	private DataSource createNativeDataSource(Properties props) {
 		try {
 			DB2Url db2Url = new DB2Url(props.getProperty(DataSourceFactory.JDBC_URL));
-			System.out.println("Connecting....");
+			System.out.println("Connecting to " + db2Url.getHost() + " ...");
 			DB2SimpleDataSource ds = new DB2SimpleDataSource();
 			ds.setDriverType(4);
 			ds.setRetrieveMessagesFromServerOnGetMessage(true);

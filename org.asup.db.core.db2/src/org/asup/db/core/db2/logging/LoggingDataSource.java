@@ -1,7 +1,7 @@
 package org.asup.db.core.db2.logging;
 
 import java.lang.reflect.*;
-import java.sql.Connection;
+import java.sql.*;
 
 import javax.sql.DataSource;
 
@@ -31,10 +31,21 @@ public class LoggingDataSource implements InvocationHandler {
 		}
 		if (result instanceof Connection) {
 			result = LoggingConnection.getInstance((Connection) result, loggingLevel);
+			if (LoggingLevel.DEBUG.equals(loggingLevel)) {
+				System.out.println("Connected to " + describeConnection((Connection)result));
+			}
 		}
 		return result;
 	}
 	
+	private String describeConnection(Connection connection) {
+		try {
+			return "" + connection.getMetaData().getURL();
+		} catch (SQLException e) {
+			return e.toString();
+		}
+	}
+
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	public static DataSource getInstance(DataSource implementation, LoggingLevel loggingLevel) {
 		ClassAnalyzer analyzer = new ClassAnalyzer(implementation.getClass());
