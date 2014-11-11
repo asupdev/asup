@@ -9,8 +9,8 @@ import org.asup.db.core.db2.logging.LoggingDataSource.LoggingLevel;
 
 public class LoggingConnection implements InvocationHandler {
 
-	private Connection implementation;
-	private LoggingLevel loggingLevel;
+	private final Connection implementation;
+	private final LoggingLevel loggingLevel;
 
 	private LoggingConnection(Connection implementation, LoggingLevel loggingLevel) {
 		this.implementation = implementation;

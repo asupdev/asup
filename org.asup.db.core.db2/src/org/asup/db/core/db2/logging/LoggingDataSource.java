@@ -12,8 +12,8 @@ public class LoggingDataSource implements InvocationHandler {
 		DEBUG, ERROR;
 	}
 	
-	private DataSource implementation;
-	private LoggingLevel loggingLevel;
+	private final DataSource implementation;
+	private final LoggingLevel loggingLevel;
 
 	private LoggingDataSource(DataSource implementation, LoggingLevel loggingLevel) {
 		this.implementation = implementation;

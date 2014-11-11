@@ -10,9 +10,9 @@ import static org.asup.db.core.db2.logging.LoggingDataSource.LoggingLevel.*;
 
 public class LoggingSQLStatement implements InvocationHandler {
 
-	private Statement implementation;
+	private final Statement implementation;
 	private final Object sql;
-	private LoggingLevel loggingLevel;
+	private final LoggingLevel loggingLevel;
 
 	private LoggingSQLStatement(Statement implementation, Object sql, LoggingLevel loggingLevel) {
 		this.implementation = implementation;

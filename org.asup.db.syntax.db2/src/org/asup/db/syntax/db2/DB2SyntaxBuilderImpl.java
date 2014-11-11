@@ -1,10 +1,13 @@
 package org.asup.db.syntax.db2;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.db.core.*;
 import org.asup.db.syntax.*;
+import org.asup.db.syntax.db2.quoting.*;
 import org.asup.db.syntax.impl.SyntaxBuilderImpl;
 
 public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
@@ -45,19 +48,19 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
 		result.append(table.getFullName()+" (");
 
-		boolean pkey = false;
 		String pkey_name = null;
 		
 		boolean first = true;
-		for(QTableColumn field: table.getColumns()) {
-
-			if(!first)
+		for(QColumn field: table.getColumns()) {
+			if(!first) {
 				result.append(", ");
+			} else {
+				first = false;
+			}
 			
 			switch (field.getDataType()) {
 				case IDENTITY:
 					result.append(field.getName()+" INTEGER NOT NULL  GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1)");					
-					pkey = true;
 					pkey_name = field.getName();
 					break;
 				case CHARACTER:
@@ -85,10 +88,10 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 				default:
 					result.append(field.getName()+" "+field.getDataType().getName() .toUpperCase());
 			}			
-			first = false;
 		}
-		if(pkey)
+		if(pkey_name != null) {
 			result.append(", PRIMARY KEY ("+pkey_name+")");
+		}
 		result.append(")");
 		return result.toString();
 	}
