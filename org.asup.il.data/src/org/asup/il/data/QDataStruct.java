@@ -18,5 +18,5 @@ package org.asup.il.data;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QDataStruct extends QStruct {
+public interface QDataStruct extends QString, QStruct<QBufferedData> {
 } // QDataStruct

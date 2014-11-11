@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class CompoundDataDefImpl<D extends QStruct> extends DataDefImpl<D> implements QCompoundDataDef<D> {
+public abstract class CompoundDataDefImpl<D extends QStruct<?>> extends DataDefImpl<D> implements QCompoundDataDef<D> {
 	/**
 	 * 
 	 */

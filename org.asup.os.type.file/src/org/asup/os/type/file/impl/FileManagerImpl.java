@@ -35,15 +35,6 @@ public abstract class FileManagerImpl extends TypedManagerImpl<QFile> implements
 		super();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Class<QFile> getTypedClass() {
-		return QFile.class;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,18 +62,19 @@ public abstract class FileManagerImpl extends TypedManagerImpl<QFile> implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QFile getOverridedDatabaseFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
+	public QFile getOverriddenFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void overrideDatabaseFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
+	public void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

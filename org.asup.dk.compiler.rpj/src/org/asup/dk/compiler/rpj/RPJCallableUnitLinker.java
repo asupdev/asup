@@ -184,7 +184,7 @@ public class RPJCallableUnitLinker {
 		}
 		else if(file instanceof QLogicalFile) {
 			QLogicalFile logicalFile = (QLogicalFile) file;
-			physicalFile = (QPhysicalFile) fileManager.getOverridedDatabaseFile(job, logicalFile.getIndex().getObject());
+			physicalFile = (QPhysicalFile) fileManager.getOverriddenFile(job, logicalFile.getIndex().getObject());
 			
 			if(physicalFile == null)
 				physicalFile = (QPhysicalFile) fileReader.lookup(logicalFile.getIndex().getObject());
@@ -196,7 +196,7 @@ public class RPJCallableUnitLinker {
 
 	public QFile getFile(String name) {
 
-		QFile file = fileManager.getOverridedDatabaseFile(job, name);
+		QFile file = fileManager.getOverriddenFile(job, name);
 		if(file == null)
 			file = fileReader.lookup(name);
 		

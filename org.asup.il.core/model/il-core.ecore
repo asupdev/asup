@@ -105,10 +105,6 @@
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Term"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="terms" upperBound="-1"
-        containment="true">
-      <eGenericType eTypeParameter="#//TermContainer/T"/>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Verb" eSuperTypes="#//Term">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

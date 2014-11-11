@@ -12,5 +12,12 @@ import org.asup.il.data.QDataStructDelegator;
 public abstract class QRecordDelegator extends QDataStructDelegator {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	public void read() {
+		
+	}
+	
+	public void write() {
+		
+	}
 }

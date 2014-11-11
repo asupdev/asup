@@ -217,7 +217,7 @@ public class OperatingSystemDataPackageImpl extends EPackageImpl implements QOpe
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		typedDataEClass.getESuperTypes().add(theIntegratedLanguageDataPackage.getStruct());
+		typedDataEClass.getESuperTypes().add(theIntegratedLanguageDataPackage.getDataStruct());
 		EGenericType g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataDef());
 		EGenericType g2 = createEGenericType(this.getTypedData());
 		g1.getETypeArguments().add(g2);

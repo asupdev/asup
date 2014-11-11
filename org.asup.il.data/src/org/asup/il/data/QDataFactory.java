@@ -150,7 +150,7 @@ public interface QDataFactory {
 	 * @model required="true" argumentRequired="true" dimensionRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QStruct> QScroller<D> createScroller(QAtomicDataDef<D> argument, int dimension, boolean initialize);
+	<D extends QBufferedData> QScroller<D> createScroller(QAtomicDataDef<D> argument, int dimension, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +158,7 @@ public interface QDataFactory {
 	 * @model required="true" argumentRequired="true" dimensionRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QStruct> QStroller<D> createStroller(QCompoundDataDef<D> argument, int dimension, boolean initialize);
+	<D extends QDataStruct> QStroller<D> createStroller(QCompoundDataDef<?> argument, int dimension, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->

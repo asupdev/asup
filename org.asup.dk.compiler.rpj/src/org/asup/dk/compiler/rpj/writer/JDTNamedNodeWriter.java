@@ -32,6 +32,7 @@ import org.asup.il.data.QFloatingDef;
 import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIndicatorDef;
 import org.asup.il.data.QMultipleAtomicDataDef;
+import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QPointerDef;
@@ -118,9 +119,10 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		// @DataDef
 		writeDataDefAnnotation(field, dataTerm.getDefinition());
 		
+		// default
 		if(dataTerm.getDataType().isUnary()) {
 			QUnaryDataTerm<?> unaryDataTerm = (QUnaryDataTerm<?>)dataTerm;
-			if(unaryDataTerm.getDefault() != null)
+			if(unaryDataTerm.getDefault() != null && !unaryDataTerm.getDefault().isEmpty())
 				writeAnnotation(field, DataDef.class, "value", unaryDataTerm.getDefault());
 		}
 		else {
@@ -155,7 +157,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		}
 
 		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
-		Type type = prepareJavaType(dataTerm);
+		Type type = getJavaType(dataTerm);
 		field.setType(type);
 
 		if (nullInitialization)
@@ -182,7 +184,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
-					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), true);
 					dataStructureWriter.writeStructure(unaryCompoundDataTerm.getDefinition());
 				}
 				else {
@@ -192,7 +194,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 						compilationSetup.setSuperClass(linkedClass);
 	
-						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(unaryCompoundDataTerm), true);
+						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 						for(QDataTerm<?> element: unaryCompoundDataTerm.getDefinition().getElements()) {
 							if(element.getFacet(QDerived.class) != null)
@@ -219,7 +221,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
-					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), true);
 					dataStructureWriter.writeStructure(multipleCompoundDataTerm.getDefinition());
 				}
 				else {
@@ -228,7 +230,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 						compilationSetup.setSuperClass(linkedClass);
 	
-						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, normalizeInnerName(multipleCompoundDataTerm), true);
+						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 						for(QDataTerm<?> element: multipleCompoundDataTerm.getDefinition().getElements()) {
 							if(element.getFacet(QDerived.class) != null)
@@ -247,7 +249,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		QSpecial special = dataTerm.getFacet(QSpecial.class);
 		if(special != null) {
 			EnumDeclaration enumType = getAST().newEnumDeclaration();
-			enumType.setName(getAST().newSimpleName(normalizeInnerName(dataTerm)+"Enum"));
+			enumType.setName(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm)+"Enum"));
 			EnumHelper.writeEnum(enumType, dataTerm);
 			
 			writeImport(Special.class);
@@ -455,16 +457,16 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 	
 	
 	@SuppressWarnings({ "unchecked"})
-	public Type prepareJavaType(QDataTerm<?> dataTerm) {
+	public Type getJavaType(QDataTerm<?> dataTerm) {
 		
 		QDataDef<?> dataDef = dataTerm.getDefinition();
+		writeImport(dataDef.getDataClass());
 		
 		Type type = null;
 	
 		switch (dataTerm.getDataType()) {
 			case MULTIPLE_ATOMIC:
 				QMultipleAtomicDataDef<?> multipleAtomicDataDef = (QMultipleAtomicDataDef<?>) dataDef;
-				writeImport(multipleAtomicDataDef.getDataClass());
 				
 				QUnaryAtomicDataDef<?> innerDataDefinition = multipleAtomicDataDef.getArgument();		
 				writeImport(innerDataDefinition.getDataClass());
@@ -477,23 +479,26 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				type = parType;
 
 				break;
-			case MULTIPLE_COMPOUND:
-				QStrollerDef<?> strollerDef = (QStrollerDef<?>) dataDef;				
-				writeImport(strollerDef.getDataClass());
 				
-				array = getAST().newSimpleType(getAST().newSimpleName(strollerDef.getDataClass().getSimpleName()));
-				parType = getAST().newParameterizedType(array);
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));
-				
-				type = parType;
-				
-				break;
-			case UNARY_ATOMIC:
-				
-				argument = dataDef.getDataClass().getSimpleName();
-				writeImport(dataDef.getDataClass());
-				type = getAST().newSimpleType(getAST().newSimpleName(argument));
+			case UNARY_ATOMIC:				
 
+				type = getAST().newSimpleType(getAST().newSimpleName(dataDef.getDataClass().getSimpleName()));
+
+				break;
+				
+			case MULTIPLE_COMPOUND:
+				QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = (QMultipleCompoundDataTerm<?>)dataTerm;
+				
+				QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
+				writeImport(multipleCompoundDataDef.getDataClass());
+				
+/*				array = getAST().newSimpleType(getAST().newSimpleName(multipleCompoundDataDef.getDataClass().getSimpleName()));
+				parType = getAST().newParameterizedType(array);
+
+				argument = multipleCompoundDataDef.getDataClass().getSimpleName();
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));				
+				type = parType;*/
+				
 				break;
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
@@ -503,15 +508,19 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 					
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass(); 
 					
-					if(isOverridden(unaryCompoundDataTerm)) 
-						type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm.getName())));
+					if(isOverridden(unaryCompoundDataTerm)) {
+						String qualifiedName = getCompilationContext().getQualifiedName(dataTerm);
+						// TODO setup
+						type = getAST().newSimpleType(getAST().newName(getCompilationContext().normalizeTypeName(qualifiedName).split("\\.")));
+					}
 					else
 						type = getAST().newSimpleType(getAST().newName(linkedClass.getName().split("\\.")));
 										
 				}
 				else {
 					String qualifiedName = getCompilationContext().getQualifiedName(dataTerm);
-					type = getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(qualifiedName)));
+					// TODO setup
+					type = getAST().newSimpleType(getAST().newName(getCompilationContext().normalizeTypeName(qualifiedName).split("\\.")));
 				}
 	
 				break;
@@ -523,7 +532,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			Type enumerator = getAST().newSimpleType(getAST().newSimpleName(QEnum.class.getSimpleName()));
 			ParameterizedType parEnumType = getAST().newParameterizedType(enumerator);			
 			// E
-			parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm)+"Enum")));			
+			parEnumType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm)+"Enum")));			
 			// D
 			parEnumType.typeArguments().add(type);
 			

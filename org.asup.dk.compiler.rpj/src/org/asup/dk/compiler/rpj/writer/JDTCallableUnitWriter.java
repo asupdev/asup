@@ -306,7 +306,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 //		writeSuppressWarning(methodDeclaration);
 		
 		if(prototype.getDelegate() != null) {
-			Type type = prepareJavaType(prototype.getDelegate());
+			Type type = getJavaType(prototype.getDelegate());
 			methodDeclaration.setReturnType2(type);
 		}
 		
@@ -330,7 +330,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 					if(dataTerm.isConstant())
 						singleVar.setType(getJavaPrimitive(dataTerm));
 					else {
-						Type type = prepareJavaType(dataTerm);
+						Type type = getJavaType(dataTerm);
 						singleVar.setType(type);
 					}
 				}
@@ -390,7 +390,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
 			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));
-			Type type = prepareJavaType(dataTerm);
+			Type type = getJavaType(dataTerm);
 			parameterVariable.setType(type);
 			
 			QConversion conversion = dataTerm.getFacet(QConversion.class);
@@ -446,7 +446,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
 			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));
-			Type type = prepareJavaType(dataTerm);
+			Type type = getJavaType(dataTerm);
 			parameterVariable.setType(type);
 			
 			writeDataDefAnnotation(parameterVariable, dataTerm.getDefinition());

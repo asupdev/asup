@@ -5,7 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:os-type-file="http://www.asup.org/os/type/file"
     xsi:schemaLocation="http://www.asup.org/os/type/file os-type-file.ecore"
-    library="QSYS"
-    name="PRT198"
-    attribute="PRTF"
-    text="Printer File 198"/>
+    name="PRT198">
+  <fileFormats
+      name="TESTA">
+  </fileFormats>
+</os-type-file:PrinterFile>

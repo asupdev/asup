@@ -19,6 +19,7 @@ import org.asup.db.core.QTable;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.os.type.file.QPhysicalFile#getFileType <em>File Type</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QPhysicalFile#getRecordLength <em>Record Length</em>}</li>
  *   <li>{@link org.asup.os.type.file.QPhysicalFile#getTable <em>Table</em>}</li>
  *   <li>{@link org.asup.os.type.file.QPhysicalFile#getTableFormat <em>Table Format</em>}</li>
  * </ul>
@@ -109,5 +110,31 @@ public interface QPhysicalFile extends QFile, QFileMembered {
 	 * @generated
 	 */
 	void setFileType(FileType value);
+
+	/**
+	 * Returns the value of the '<em><b>Record Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Record Length</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Record Length</em>' attribute.
+	 * @see #setRecordLength(int)
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getPhysicalFile_RecordLength()
+	 * @model
+	 * @generated
+	 */
+	int getRecordLength();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.file.QPhysicalFile#getRecordLength <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Record Length</em>' attribute.
+	 * @see #getRecordLength()
+	 * @generated
+	 */
+	void setRecordLength(int value);
 
 } // QPhysicalFile

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.LogicalFileImpl#getIndex <em>Index</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.LogicalFileImpl#getRecordLength <em>Record Length</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.LogicalFileImpl#getView <em>View</em>}</li>
  * </ul>
  * </p>
@@ -46,6 +47,26 @@ public class LogicalFileImpl extends FileImpl implements QLogicalFile {
 	 * @ordered
 	 */
 	protected QIndex index;
+
+	/**
+	 * The default value of the '{@link #getRecordLength() <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int RECORD_LENGTH_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getRecordLength() <em>Record Length</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRecordLength()
+	 * @generated
+	 * @ordered
+	 */
+	protected int recordLength = RECORD_LENGTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getView() <em>View</em>}' containment reference.
@@ -125,6 +146,27 @@ public class LogicalFileImpl extends FileImpl implements QLogicalFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getRecordLength() {
+		return recordLength;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecordLength(int newRecordLength) {
+		int oldRecordLength = recordLength;
+		recordLength = newRecordLength;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.LOGICAL_FILE__RECORD_LENGTH, oldRecordLength, recordLength));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QView getView() {
 		return view;
 	}
@@ -189,6 +231,8 @@ public class LogicalFileImpl extends FileImpl implements QLogicalFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__INDEX:
 				return getIndex();
+			case QOperatingSystemFilePackage.LOGICAL_FILE__RECORD_LENGTH:
+				return getRecordLength();
 			case QOperatingSystemFilePackage.LOGICAL_FILE__VIEW:
 				return getView();
 		}
@@ -205,6 +249,9 @@ public class LogicalFileImpl extends FileImpl implements QLogicalFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__INDEX:
 				setIndex((QIndex)newValue);
+				return;
+			case QOperatingSystemFilePackage.LOGICAL_FILE__RECORD_LENGTH:
+				setRecordLength((Integer)newValue);
 				return;
 			case QOperatingSystemFilePackage.LOGICAL_FILE__VIEW:
 				setView((QView)newValue);
@@ -224,6 +271,9 @@ public class LogicalFileImpl extends FileImpl implements QLogicalFile {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__INDEX:
 				setIndex((QIndex)null);
 				return;
+			case QOperatingSystemFilePackage.LOGICAL_FILE__RECORD_LENGTH:
+				setRecordLength(RECORD_LENGTH_EDEFAULT);
+				return;
 			case QOperatingSystemFilePackage.LOGICAL_FILE__VIEW:
 				setView((QView)null);
 				return;
@@ -241,10 +291,28 @@ public class LogicalFileImpl extends FileImpl implements QLogicalFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__INDEX:
 				return index != null;
+			case QOperatingSystemFilePackage.LOGICAL_FILE__RECORD_LENGTH:
+				return recordLength != RECORD_LENGTH_EDEFAULT;
 			case QOperatingSystemFilePackage.LOGICAL_FILE__VIEW:
 				return view != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (recordLength: ");
+		result.append(recordLength);
+		result.append(')');
+		return result.toString();
 	}
 
 } //QLogicalFileImpl

@@ -5,30 +5,30 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.il.data.impl;
+package org.asup.os.type.file.impl;
 
-import org.asup.il.core.impl.TermContainerImpl;
-import org.asup.il.data.QDataTerm;
-import org.asup.il.data.QDataTermContainer;
-import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.os.type.file.QDisplayFileFormat;
+import org.asup.os.type.file.QOperatingSystemFilePackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Data Term Container</b></em>'.
+ * An implementation of the model object '<em><b>Display File Format</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class DataTermContainerImpl extends TermContainerImpl<QDataTerm<?>> implements QDataTermContainer {
+public class DisplayFileFormatImpl extends FileFormatImpl implements QDisplayFileFormat {
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataTermContainerImpl() {
+	protected DisplayFileFormatImpl() {
 		super();
 	}
 
@@ -39,7 +39,7 @@ public abstract class DataTermContainerImpl extends TermContainerImpl<QDataTerm<
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QIntegratedLanguageDataPackage.Literals.DATA_TERM_CONTAINER;
+		return QOperatingSystemFilePackage.Literals.DISPLAY_FILE_FORMAT;
 	}
 
-} //DataTermContainerImpl
+} //DisplayFileFormatImpl

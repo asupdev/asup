@@ -10,8 +10,9 @@ package org.asup.os.type.file.impl;
 import org.asup.os.type.file.*;
 import org.asup.os.type.file.FileType;
 import org.asup.os.type.file.QDisplayFile;
-import org.asup.os.type.file.QDisplayFormatDef;
-import org.asup.os.type.file.QFile;
+import org.asup.os.type.file.QDisplayFileFormat;
+import org.asup.os.type.file.QExternalFile;
+import org.asup.os.type.file.QFileFormat;
 import org.asup.os.type.file.QFileMember;
 import org.asup.os.type.file.QFileMemberRow;
 import org.asup.os.type.file.QLogicalFile;
@@ -19,6 +20,7 @@ import org.asup.os.type.file.QOperatingSystemFileFactory;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.asup.os.type.file.QPhysicalFile;
 import org.asup.os.type.file.QPrinterFile;
+import org.asup.os.type.file.QPrinterFileFormat;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -71,14 +73,16 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemFilePackage.DISPLAY_FILE: return (EObject)createDisplayFile();
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF: return (EObject)createDisplayFormatDef();
+			case QOperatingSystemFilePackage.DISPLAY_FILE_FORMAT: return (EObject)createDisplayFileFormat();
 			case QOperatingSystemFilePackage.EXTERNAL_FILE: return (EObject)createExternalFile();
-			case QOperatingSystemFilePackage.FILE: return (EObject)createFile();
+			case QOperatingSystemFilePackage.FILE_FORMAT: return (EObject)createFileFormat();
+			case QOperatingSystemFilePackage.FILE_FORMAT_FIELD: return (EObject)createFileFormatField();
 			case QOperatingSystemFilePackage.FILE_MEMBER: return (EObject)createFileMember();
 			case QOperatingSystemFilePackage.FILE_MEMBER_ROW: return (EObject)createFileMemberRow();
 			case QOperatingSystemFilePackage.LOGICAL_FILE: return (EObject)createLogicalFile();
 			case QOperatingSystemFilePackage.PHYSICAL_FILE: return (EObject)createPhysicalFile();
 			case QOperatingSystemFilePackage.PRINTER_FILE: return (EObject)createPrinterFile();
+			case QOperatingSystemFilePackage.PRINTER_FILE_FORMAT: return (EObject)createPrinterFileFormat();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -129,9 +133,29 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QFile createFile() {
-		FileImpl file = new FileImpl();
-		return file;
+	public QDisplayFileFormat createDisplayFileFormat() {
+		DisplayFileFormatImpl displayFileFormat = new DisplayFileFormatImpl();
+		return displayFileFormat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QFileFormat createFileFormat() {
+		FileFormatImpl fileFormat = new FileFormatImpl();
+		return fileFormat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QFileFormatField createFileFormatField() {
+		FileFormatFieldImpl fileFormatField = new FileFormatFieldImpl();
+		return fileFormatField;
 	}
 
 	/**
@@ -189,9 +213,9 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDisplayFormatDef createDisplayFormatDef() {
-		DisplayFormatDefImpl displayFormatDef = new DisplayFormatDefImpl();
-		return displayFormatDef;
+	public QPrinterFileFormat createPrinterFileFormat() {
+		PrinterFileFormatImpl printerFileFormat = new PrinterFileFormatImpl();
+		return printerFileFormat;
 	}
 
 	/**

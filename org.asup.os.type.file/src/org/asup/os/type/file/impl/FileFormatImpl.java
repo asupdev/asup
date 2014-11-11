@@ -7,29 +7,37 @@
  */
 package org.asup.os.type.file.impl;
 
-import org.asup.il.data.QStruct;
-import org.asup.il.data.impl.UnaryCompoundDataDefImpl;
-import org.asup.os.type.file.QDisplayFile;
-import org.asup.os.type.file.QDisplayFormatDef;
+import java.util.Collection;
+import java.util.List;
+
+import org.asup.os.type.file.QFileFormat;
+import org.asup.os.type.file.QFileFormatField;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Display Format Def</b></em>'.
+ * An implementation of the model object '<em><b>File Format</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.type.file.impl.DisplayFormatDefImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.FileFormatImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.FileFormatImpl#getFields <em>Fields</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> implements QDisplayFormatDef {
+public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -49,16 +57,21 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	 */
 	protected String name = NAME_EDEFAULT;
 	/**
-	 * 
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
 	 */
-	private static final long serialVersionUID = 1L;
+	protected EList<QFileFormatField> fields;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DisplayFormatDefImpl() {
+	protected FileFormatImpl() {
 		super();
 	}
 
@@ -69,9 +82,8 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QOperatingSystemFilePackage.Literals.DISPLAY_FORMAT_DEF;
+		return QOperatingSystemFilePackage.Literals.FILE_FORMAT;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,7 +103,33 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.FILE_FORMAT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<QFileFormatField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<QFileFormatField>(QFileFormatField.class, this, QOperatingSystemFilePackage.FILE_FORMAT__FIELDS);
+		}
+		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -102,8 +140,10 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
+			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				return getName();
+			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
+				return getFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,11 +153,16 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
+			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				setName((String)newValue);
+				return;
+			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends QFileFormatField>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +176,11 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
+			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
+				getFields().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -146,8 +194,10 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.DISPLAY_FORMAT_DEF__NAME:
+			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
+				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -167,14 +217,4 @@ public class DisplayFormatDefImpl extends UnaryCompoundDataDefImpl<QStruct> impl
 		result.append(')');
 		return result.toString();
 	}
-
-	@Override
-	public Class<?> getJavaClass() {		
-		return Object.class;
-	}
-
-	@Override
-	public Class<?> getDataClass() {
-		return QDisplayFile.class;
-	}
-} //DisplayFormatDefImpl
+} //FileFormatImpl

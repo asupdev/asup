@@ -18,5 +18,5 @@ package org.asup.il.data;
  * @model abstract="true"
  * @generated
  */
-public interface QUnaryCompoundDataDef<D extends QStruct> extends QUnaryDataDef<D>, QCompoundDataDef<D> {
+public interface QUnaryCompoundDataDef<D extends QStruct<?>> extends QUnaryDataDef<D>, QCompoundDataDef<D> {
 } // QUnaryCompoundDataDef
