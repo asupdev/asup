@@ -1,23 +1,25 @@
 package org.asup.db.syntax.db2;
 
-import java.util.List;
+import java.io.ByteArrayInputStream;
+import java.sql.SQLException;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.db.core.*;
 import org.asup.db.syntax.*;
+import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.asup.db.syntax.db2.quoting.*;
 import org.asup.db.syntax.impl.SyntaxBuilderImpl;
+import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 	
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;
-
+	private QQueryConverter queryConverter;
 	private final Quoter quoter = new Quoter("\"");
 
-	private QQueryConverter queryConverter;
 	
 	@PostConstruct
 	private void init() {
@@ -35,11 +37,6 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 	}
 
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	public String createTable(QTable table) {
 		return db2CreateTable(new QuotedTable(table, quoter));
 	}
@@ -114,18 +111,18 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		result.append(" ON "+index.getSchema().getName()+"."+index.getObject()+" (");
 
 		boolean first = true;
-		
 		for(QIndexColumn field: index.getColumns()) {			
-			
-			if(!first)
+			if(!first) {
 				result.append(", ");
-
+			} else {
+				first = false;
+			}
+			
 			result.append(field.getName());
 			
-			if(field.getOrdering() == OrderingType.DESCEND) 
+			if(field.getOrdering().equals(OrderingType.DESCEND)) { 
 				result.append(" DESC");
-
-			first = false;
+			}
 		}
 		result.append(")");
 		return result.toString();
@@ -136,16 +133,6 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return "DROP INDEX " + quoter.quoteFullName(index.getSchema(), index.getName());
 	}
 	
-	@Override
-	public String dropView(QView view) {
-		return "DROP VIEW " + quoter.quoteFullName(view.getSchema(), view.getName());
-	}
-
-	@Override
-	public String createView(QView view) {
-		return super.createView(view).trim().replace("\n", " ").replace(";", "");
-	}
-
 	@Override
 	public String deleteData(QTable table) {
 		return super.deleteData(new QuotedTable(table, quoter));
@@ -158,13 +145,64 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 
 	@Override
 	public String insertData(QTable table, boolean prepare) {
-		// TODO Auto-generated method stub
-		return super.insertData(table, prepare);
+		return super.insertData(new QuotedTable(table, quoter), prepare);
 	}
 
+	@Override
+	public String dropView(QView view) {
+		return "DROP VIEW " + quoter.quoteFullName(view.getSchema(), view.getName());
+	}
 
+///////////////////////
+	@Override
+	public String createView(QView view) {
+		String command = view.getCreationCommand();
+		
+		int i = command.toUpperCase().indexOf("  AS\n  SELECT");
+		if(i > 0) {
+			String commandCreate = command.substring(0, i);			
+			String commandSelect = command.substring(i + 4);
+			
+			try {
+				commandCreate = convertCreateCommand(view, commandCreate);
+				commandSelect = convertSelectCommand(view, commandSelect);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+			
+			command = commandCreate + " AS " + commandSelect;
+		}
 
-
+		return command;
+	}
 	
-
+	private String convertCreateCommand(QView view, String command) throws SQLException {
+		return command.replaceFirst(view.getName(), 
+							   	    quoter.quoteFullName(view.getSchema(), view.getName()))
+					  .replaceFirst("\\(" , "(QMUKEY,");
+	}
+	
+	
+	private String convertSelectCommand(QView view, String command) throws SQLException {
+		String commandWork = null;
+		
+		try {
+			QQueryParser queryParser = queryParserRegistry.lookup(view.getCreationPlugin());
+			
+			commandWork = command.replaceFirst("SELECT", "SELECT QMUKEY,");
+			
+			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(commandWork.getBytes()));
+			
+			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(view.getSchema().getName());
+			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
+			
+			commandWork = queryConverter.convertQuery(query);			
+						
+		} catch (Exception e) {
+			throw new SQLException(e);
+		} 
+				
+		return commandWork;
+	}
 }

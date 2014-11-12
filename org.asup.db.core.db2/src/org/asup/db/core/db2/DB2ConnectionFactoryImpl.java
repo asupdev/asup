@@ -17,7 +17,7 @@ import com.ibm.db2.jcc.*;
 
 public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 
-	private static final LoggingLevel LOG_DB_LEVEL = LoggingLevel.DEBUG;
+	private static final LoggingLevel LOG_DB_LEVEL = LoggingLevel.ERROR;
 
 	@Override
 	public DataSource createDataSource(Properties props) throws SQLException {

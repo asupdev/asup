@@ -42,11 +42,15 @@ public class LoggingSQLStatement implements InvocationHandler {
 
 	protected void printStatement(Object[] args, PrintStream printStream) {
 		if (args != null && args.length > 0) {
-			printStream.println("[Execute SQL] : " + args[0]);
+			printStream.println("[Execute SQL] : " + formatStmt(args[0]));
 		}
 		if (sql != null) {
-			printStream.println("[Prepared SQL] : " + sql);
+			printStream.println("[Prepared SQL] : " + formatStmt(sql));
 		}
+	}
+
+	private String formatStmt(Object obj) {
+		return ("" + obj).replaceAll("[\\t\\n\\r]+"," ");
 	}
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
