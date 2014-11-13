@@ -1,17 +1,23 @@
 package org.asup.db.core.db2.logging;
 
 import java.lang.reflect.*;
-import java.sql.Connection;
+import java.sql.*;
 
 import javax.sql.DataSource;
 
 
 public class LoggingDataSource implements InvocationHandler {
 
-	private DataSource implementation;
+	public enum LoggingLevel {
+		DEBUG, ERROR;
+	}
+	
+	private final DataSource implementation;
+	private final LoggingLevel loggingLevel;
 
-	private LoggingDataSource(DataSource implementation) {
+	private LoggingDataSource(DataSource implementation, LoggingLevel loggingLevel) {
 		this.implementation = implementation;
+		this.loggingLevel = loggingLevel;
 	}
 
 	public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
@@ -24,16 +30,27 @@ public class LoggingDataSource implements InvocationHandler {
 			throw e.getTargetException();
 		}
 		if (result instanceof Connection) {
-			result = LoggingConnection.getInstance((Connection) result);
+			result = LoggingConnection.getInstance((Connection) result, loggingLevel);
+			if (LoggingLevel.DEBUG.equals(loggingLevel)) {
+				System.out.println("Connected to " + describeConnection((Connection)result));
+			}
 		}
 		return result;
 	}
 	
+	private String describeConnection(Connection connection) {
+		try {
+			return "" + connection.getMetaData().getURL();
+		} catch (SQLException e) {
+			return e.toString();
+		}
+	}
+
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public static DataSource getInstance(DataSource implementation) {
+	public static DataSource getInstance(DataSource implementation, LoggingLevel loggingLevel) {
 		ClassAnalyzer analyzer = new ClassAnalyzer(implementation.getClass());
 		return (DataSource)Proxy.newProxyInstance(implementation.getClass().getClassLoader(),
 				analyzer.elencoInterfacceAsArray(),
-				new LoggingDataSource(implementation));
+				new LoggingDataSource(implementation, loggingLevel));
 	}
 }

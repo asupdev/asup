@@ -1,4 +1,4 @@
-package org.asup.db.syntax.db2;
+package org.asup.db.syntax.db2.quoting;
 
 import java.util.*;
 

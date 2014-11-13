@@ -8,7 +8,8 @@ import javax.sql.ConnectionPoolDataSource;
 import javax.sql.DataSource;
 import javax.sql.XADataSource;
 
-import org.asup.db.core.db2.logging.LoggingDataSource;
+import org.asup.db.core.db2.logging.*;
+import org.asup.db.core.db2.logging.LoggingDataSource.LoggingLevel;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
 import org.osgi.service.jdbc.DataSourceFactory;
 
@@ -16,7 +17,7 @@ import com.ibm.db2.jcc.*;
 
 public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 
-	private static final boolean LOG_DB = true;
+	private static final LoggingLevel LOG_DB_LEVEL = LoggingLevel.ERROR;
 
 	@Override
 	public DataSource createDataSource(Properties props) throws SQLException {
@@ -41,7 +42,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	private DataSource createNativeDataSource(Properties props) {
 		try {
 			DB2Url db2Url = new DB2Url(props.getProperty(DataSourceFactory.JDBC_URL));
-			System.out.println("Connecting....");
+			System.out.println("Connecting to " + db2Url.getHost() + " ...");
 			DB2SimpleDataSource ds = new DB2SimpleDataSource();
 			ds.setDriverType(4);
 			ds.setRetrieveMessagesFromServerOnGetMessage(true);
@@ -50,8 +51,8 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 			ds.setDatabaseName(db2Url.getDatabaseName());
 			ds.setUser(props.getProperty(DataSourceFactory.JDBC_USER));
 			ds.setPassword(props.getProperty(DataSourceFactory.JDBC_PASSWORD));
-			if (LOG_DB) {
-				return LoggingDataSource.getInstance(ds);
+			if (LOG_DB_LEVEL != null) {
+				return LoggingDataSource.getInstance(ds, LOG_DB_LEVEL);
 			} else {
 				return ds;
 			}

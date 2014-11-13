@@ -28,12 +28,14 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	@Inject
 	private QDatabaseManager databaseManager;
 
-	private void dropDB2Schema(QConnection connection, QSchema schema) throws SQLException {
+	private void dropDB2Schema(QConnection connection, String schemaName) throws SQLException {
+		System.out.print("Dropping schema " + schemaName + "...");
+//		databaseManager.dropSchema(connection, schema);
 		String sql  = 
 				"begin " + 
 				"  declare l_errschema varchar(128) default 'ERRORSCHEMA';" +
 				"  declare l_errtab varchar(128) default 'ERRORTABLE';" +
-				"  CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schema.getName() + "', NULL, l_errschema, l_errtab);" +
+				"  CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schemaName + "', NULL, l_errschema, l_errtab);" +
 			    " end";
 		try {
 			connection.createStatement().execute(sql);
@@ -41,6 +43,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 			System.err.println("****** ERRORE SU " + sql);
 			System.err.println(e);
 		}
+		System.out.println("schema dropped");
 	}
 	
 	public void _copyS(CommandInterpreter interpreter) throws SQLException {
@@ -61,14 +64,16 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		QConnectionConfig connectionConfig = loadConfig(pluginName);
 
 		QConnection connection = connectionManager.getDatabaseConnection(connectionConfig);	
-		QSchema schema = databaseManager.getSchema(connection, schemaName);
-		if(schema != null)
-			dropDB2Schema(connection, schema);
+//		QSchema schema = databaseManager.getSchema(connection, schemaName);
+//		if(schema != null)
+//			dropDB2Schema(connection, schema);
 
-		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
+		dropDB2Schema(connection, schemaName);
+		
+		QSchema schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
 		schema.setName(schemaName);
 		databaseManager.createSchema(connection, schema, true);
-		connection.createStatement().execute("SET CURRENT SCHEMA " + schemaName);
+//		connection.createStatement().execute("SET CURRENT SCHEMA " + schemaName);
 		
 		Set<String> fileNames = new TreeSet<String>();
 		
@@ -83,6 +88,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 			Object file = load(url);
 			
 			try {
+				System.out.print(".");
 				if(file instanceof QTable) {
 					QTable table = (QTable) file;
 					table.setSchema(schema);
@@ -104,6 +110,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		}
 		
 		connection.close();
+		System.out.println("Creazione schema completata");
 	}
 	
 	// connectionManager e disk
@@ -131,7 +138,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 				
 		QSchema schema = databaseManager.getSchema(connection, schemaName);
 		if(schema != null)
-			dropDB2Schema(connection, schema);
+			dropDB2Schema(connection, schemaName);
 		
 		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
 		schema.setDatabase(connection.getDatabase());
@@ -286,7 +293,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		System.out.println("...OK");
 		
 		try {
-			dropDB2Schema(connectionTo, schema);
+			dropDB2Schema(connectionTo, schema.getName());
 		} catch (Exception e) {
 		}
 		databaseManager.createSchema(connectionTo, schema, true);
