@@ -205,20 +205,33 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 
 		if (funcName.equalsIgnoreCase("SUBSTRING")) {
 			appendFunctionSQL_SUBSTR(valExprFunc, sb);
-//		} else if (funcName.equalsIgnoreCase("DIGITS")) {
-//			appendFunctionSQL_DIGITS(valExprFunc, sb);
-//		} else if (funcName.equalsIgnoreCase("UCASE")) {
-//			appendFunctionSQL_UCASE(valExprFunc, sb);
-//		} else if (funcName.equalsIgnoreCase("TRIM")) {
-//			appendFunctionSQL_TRIM(valExprFunc, sb);
-//		} else if (funcName.equalsIgnoreCase("RRN")) {
-//			appendFunctionSQL_RRN(valExprFunc, sb);
+		} else if (funcName.equalsIgnoreCase("RRN")) {
+			appendFunctionSQL_RRN(valExprFunc, sb);
 		} else {
 			super.appendSpecificSQL(valExprFunc, sb);
 		}
 
 	}
 
+	/*
+	 * Manage RRN(FIELD_NAME) --> ROW_NUMBER OVER(FIELD_NAME)
+	 * 
+	 * TODO: choose precision in relation to FIELD_NAME datatype.
+	 */
+	private void appendFunctionSQL_RRN(ValueExpressionFunction valExprFunc,
+			StringBuffer sb) {
+
+		StringBuffer sbExpr = new StringBuffer();
+
+		appendFunctionName(sbExpr, "ROW_NUMBER() OVER()");
+		/* Process the function argument list. */
+		List paramList = valExprFunc.getParameterList();
+		appendSQLForSQLObjectList(paramList, sbExpr);
+
+		appendSymbol(sbExpr, PAREN_RIGHT);
+		appendStringBuffer(sb, sbExpr);
+	}
+	
 	private void appendFunctionSQL_SUBSTR(ValueExpressionFunction valExprFunc,
 										  StringBuffer sb) {
 		valExprFunc.setName("SUBSTR");										  

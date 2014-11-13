@@ -1,6 +1,6 @@
 package org.asup.db.core.test;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
@@ -9,7 +9,11 @@ import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.asup.db.core.*;
+import org.asup.db.core.test.TestCommandProviderImpl.DBType;
+import org.asup.db.syntax.*;
+import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.asup.fw.core.impl.ServiceImpl;
+import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.*;
@@ -27,10 +31,15 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	private QConnectionManager connectionManager;
 	@Inject
 	private QDatabaseManager databaseManager;
-
+	@Inject
+	private QQueryParserRegistry queryParserRegistry;
+	@Inject
+	private QQueryConverterRegistry queryConverterRegistry;
+	
 	private void dropDB2Schema(QConnection connection, String schemaName) throws SQLException {
 		System.out.print("Dropping schema " + schemaName + "...");
-//		databaseManager.dropSchema(connection, schema);
+		QSchema schema = databaseManager.getSchema(connection, schemaName);
+		databaseManager.dropSchema(connection, schema);
 		String sql  = 
 				"begin " + 
 				"  declare l_errschema varchar(128) default 'ERRORSCHEMA';" +
@@ -112,6 +121,36 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		connection.close();
 		System.out.println("Creazione schema completata");
 	}
+	
+	public void _cSQL(CommandInterpreter interpreter) throws SQLException {
+		QConnectionConfig connectionConfigTo = loadConfig("DB2");
+		QConnection connectionTo = connectionManager.getDatabaseConnection(connectionConfigTo);
+		String sql = convertSelectCommand("IBMI", "DB2", "SMEUP_DAT", "SELECT BRARTI0F.* , RRN(BRARTI0F) AS $_RRN FROM BRARTI0F WHERE A§ARTI LIKE 'A%' FETCH FIRST 10 ROWS ONLY");
+		connectionTo.createStatement().execute(sql);
+		System.out.println("SUCCESS!");
+	}
+	
+	private String convertSelectCommand(String pluginFrom, String pluginTo, String schemaName, String command) throws SQLException {
+		String commandWork = null;
+		try {
+			QQueryParser queryParser = queryParserRegistry.lookup(pluginFrom);
+			
+			commandWork = command.replaceFirst("SELECT", "SELECT QMUKEY,");
+			
+			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(commandWork.getBytes()));
+			
+			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schemaName);
+			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
+			
+			QQueryConverter queryConverter = queryConverterRegistry.lookup(pluginTo);
+			
+			commandWork = queryConverter.convertQuery(query);			
+		} catch (Exception e) {
+			throw new SQLException(e);
+		} 
+				
+		return commandWork;
+	}	
 	
 	// connectionManager e disk
 	public Object _testcon(CommandInterpreter interpreter) throws SQLException {

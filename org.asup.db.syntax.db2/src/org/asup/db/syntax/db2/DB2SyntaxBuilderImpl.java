@@ -153,7 +153,6 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return "DROP VIEW " + quoter.quoteFullName(view.getSchema(), view.getName());
 	}
 
-///////////////////////
 	@Override
 	public String createView(QView view) {
 		String command = view.getCreationCommand();
@@ -165,7 +164,7 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 			
 			try {
 				commandCreate = convertCreateCommand(view, commandCreate);
-				commandSelect = convertSelectCommand(view, commandSelect);
+				commandSelect = convertSelectCommand(view.getCreationPlugin(), view.getSchema().getName(), commandSelect);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return null;
@@ -184,21 +183,19 @@ public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
 	}
 	
 	
-	private String convertSelectCommand(QView view, String command) throws SQLException {
+	private String convertSelectCommand(String creationPlugin, String schemaName, String command) throws SQLException {
 		String commandWork = null;
-		
 		try {
-			QQueryParser queryParser = queryParserRegistry.lookup(view.getCreationPlugin());
+			QQueryParser queryParser = queryParserRegistry.lookup(creationPlugin);
 			
 			commandWork = command.replaceFirst("SELECT", "SELECT QMUKEY,");
 			
 			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(commandWork.getBytes()));
 			
-			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(view.getSchema().getName());
+			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schemaName);
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 			
 			commandWork = queryConverter.convertQuery(query);			
-						
 		} catch (Exception e) {
 			throw new SQLException(e);
 		} 
