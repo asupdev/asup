@@ -51,12 +51,6 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 				appendSpace(sbSelect);
 			}
 
-			// Manage FETCH FIRST n ROWS ONLY clause --> TOP (n)
-			int rowFetchLimit = select.getRowFetchLimit();
-			if (rowFetchLimit > 0) {
-				appendSQLForFetchFirstClause(rowFetchLimit, sbSelect);
-				appendSpace(sbSelect);
-			}
 
 			List selectClauseList = select.getSelectClause();
 			if (selectClauseList != null && selectClauseList.size() > 0) {
@@ -171,6 +165,13 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 				trimWhiteSpace(sbSelect);
 			}
 
+			// Manage FETCH FIRST n ROWS ONLY clause --> TOP (n)
+			int rowFetchLimit = select.getRowFetchLimit();
+			if (rowFetchLimit > 0) {
+				appendSQLForFetchFirstClause(rowFetchLimit, sbSelect);
+				appendSpace(sbSelect);
+			}
+			
 			appendStringBuffer(sb, sbSelect);
 		}
 	}
@@ -214,22 +215,13 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 	}
 
 	/*
-	 * Manage RRN(FIELD_NAME) --> ROW_NUMBER OVER(FIELD_NAME)
+	 * Manage RRN(FIELD_NAME) --> ROW_NUMBER() OVER()
 	 * 
 	 * TODO: choose precision in relation to FIELD_NAME datatype.
 	 */
 	private void appendFunctionSQL_RRN(ValueExpressionFunction valExprFunc,
-			StringBuffer sb) {
-
-		StringBuffer sbExpr = new StringBuffer();
-
-		appendFunctionName(sbExpr, "ROW_NUMBER() OVER()");
-		/* Process the function argument list. */
-		List paramList = valExprFunc.getParameterList();
-		appendSQLForSQLObjectList(paramList, sbExpr);
-
-		appendSymbol(sbExpr, PAREN_RIGHT);
-		appendStringBuffer(sb, sbExpr);
+									  StringBuffer sb) {
+		sb.append("ROW_NUMBER() OVER()");
 	}
 	
 	private void appendFunctionSQL_SUBSTR(ValueExpressionFunction valExprFunc,
