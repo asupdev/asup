@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<SQLConstraints:Index xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore"
+    xsi:schemaLocation="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints"/>

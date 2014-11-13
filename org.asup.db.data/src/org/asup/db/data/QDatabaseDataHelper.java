@@ -12,7 +12,9 @@
 package org.asup.db.data;
 
 import org.asup.db.core.QColumn;
+import org.asup.db.core.QIndex;
 import org.asup.db.core.QTable;
+import org.asup.db.core.QView;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QCompoundDataTerm;
@@ -23,9 +25,31 @@ import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
+import org.asup.os.type.file.QLogicalFile;
+import org.asup.os.type.file.QPhysicalFile;
 
 public class QDatabaseDataHelper {
 
+	public static QTable buildTable(QPhysicalFile file) {
+		// TODO
+		return null;
+	}
+	
+	public static QIndex buildIndex(QPhysicalFile file) {
+		// TODO
+		return null;
+	}
+	
+	public static QView buildView(QLogicalFile file) {
+		// TODO
+		return null;
+	}
+		
+	public static QIndex buildIndex(QLogicalFile file) {
+		// TODO
+		return null;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static <DD extends QUnaryCompoundDataDef<?>> QCompoundDataTerm<DD> buildDataTerm(QTable table, String name) {
 		
