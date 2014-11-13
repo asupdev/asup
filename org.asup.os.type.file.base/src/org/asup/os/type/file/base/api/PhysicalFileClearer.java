@@ -18,7 +18,6 @@ import javax.inject.Inject;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QSchema;
 import org.asup.db.core.QTable;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QEnum;
@@ -36,8 +35,6 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.type.QTypedObject;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QPhysicalFile;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 @Program(name = "QDBCLRPF")
 public class PhysicalFileClearer {
@@ -66,16 +63,11 @@ public class PhysicalFileClearer {
 		qFile.setLibrary(file.library.trimR());
 		String databaseName = systemManager.getSystem().getSystemDatabase();
 		QConnection databaseConnection = connectionManager.getDatabaseConnection(databaseName);
-		QSchema schema = databaseManager.getSchema(databaseConnection, file.library.trimR());
+
 		// create
 		try {
-
 			if(qFile instanceof QPhysicalFile) {
-				QPhysicalFile physicalFile = (QPhysicalFile)qFile;
-				QTable table = physicalFile.getTable();
-				
-				table = (QTable) EcoreUtil.copy((EObject)table);
-				table.setSchema(schema);
+				QTable table = databaseManager.getTable(databaseConnection, qFile.getLibrary(), qFile.getName());				
 				databaseManager.deleteData(databaseConnection, table);
 			}			
 		} catch (SQLException e) {

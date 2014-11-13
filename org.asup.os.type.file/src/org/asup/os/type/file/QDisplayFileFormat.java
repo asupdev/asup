@@ -18,5 +18,5 @@ package org.asup.os.type.file;
  * @model
  * @generated
  */
-public interface QDisplayFileFormat extends QFileFormat {
+public interface QDisplayFileFormat extends QFileFormat<QDisplayFileField> {
 } // QDisplayFileFormat

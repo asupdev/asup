@@ -35,7 +35,6 @@ import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QOutputManager;
 import org.asup.os.omac.QObject;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
-import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.pgm.OperatingSystemRuntimeProgramException;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EAnnotation;
@@ -51,8 +50,6 @@ import org.eclipse.emf.ecore.EcorePackage;
 public class SQLStatementRunner {
 
 	@Inject
-	private QFileManager fileManager;
-	@Inject
 	private QOutputManager outputManager;
 
 	@Inject
@@ -63,13 +60,16 @@ public class SQLStatementRunner {
 	@Inject
 	private QJob job;
 
+	@SuppressWarnings("null")
 	@Entry
 	public void main(@DataDef(varying = true) QCharacter statement) {
 
 		QObjectWriter objectWriter = outputManager.getDefaultWriter(job);
 		objectWriter.initialize();
 
-		QConnection databaseConnection = fileManager.getDatabaseConnection(job);
+		QConnection databaseConnection = null; 
+				
+		// fileManager.getDatabaseConnection(job);
 
 		Statement stm = null;
 		try {

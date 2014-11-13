@@ -17,16 +17,16 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.os.type.file.QFileFormat#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.os.type.file.QFileFormat#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QFileFormat#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.asup.os.type.file.QOperatingSystemFilePackage#getFileFormat()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface QFileFormat {
+public interface QFileFormat<F extends QFileFormatField> {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -56,7 +56,6 @@ public interface QFileFormat {
 
 	/**
 	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
-	 * The list contents are of type {@link org.asup.os.type.file.QFileFormatField}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fields</em>' reference list isn't clear,
@@ -68,5 +67,5 @@ public interface QFileFormat {
 	 * @model containment="true"
 	 * @generated
 	 */
-	List<QFileFormatField> getFields();
+	List<F> getFields();
 } // QFileFormat

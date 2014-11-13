@@ -7,7 +7,6 @@
  */
 package org.asup.os.type.file;
 
-import org.asup.db.core.QConnection;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.QTypedManager;
@@ -23,14 +22,6 @@ import org.asup.os.type.QTypedManager;
  * @generated
  */
 public interface QFileManager extends QTypedManager<QFile> {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" exceptions="org.asup.os.core.OperatingSystemRuntimeException" jobRequired="true"
-	 * @generated
-	 */
-	QConnection getDatabaseConnection(QJob job) throws OperatingSystemRuntimeException;
 
 	/**
 	 * <!-- begin-user-doc -->

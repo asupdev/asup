@@ -310,8 +310,6 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 		else
 			qProgram.setName(klass.getSimpleName());
 		
-		qProgram.setAttribute("JAVA");
-		
 		return qProgram;
 	}
 

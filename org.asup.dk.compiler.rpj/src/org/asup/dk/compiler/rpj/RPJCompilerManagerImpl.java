@@ -32,7 +32,10 @@ import org.asup.dk.compiler.rpj.writer.JDTProgramWriter;
 import org.asup.dk.compiler.rpj.writer.JDTStubWriter;
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
+import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QCompoundDataTerm;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
+import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QExpressionParserRegistry;
 import org.asup.il.flow.QCallableUnit;
@@ -43,6 +46,9 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceReader;
+import org.asup.os.type.file.QDisplayFile;
+import org.asup.os.type.file.QDisplayFileFormat;
+import org.asup.os.type.file.QFile;
 import org.asup.os.type.module.QModuleManager;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -147,13 +153,13 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	
 
 	@Override
-	public QCompilationContext createCompilationContext(QJob job, QCompoundDataTerm<?> structure, CaseSensitiveType caseSensitive) {
+	public QCompilationContext createCompilationContext(QJob job, QFile file, CaseSensitiveType caseSensitive) {
 
 
 		List<QCompilationContext> contexts = new ArrayList<QCompilationContext>();
 		
 		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(),
-																					 structure,
+																					 file,
 																					 contexts,
 																					 caseSensitive);
 		compilationContext.set(QCompilationContext.class, compilationContext);
@@ -254,11 +260,28 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	}
 
 	@Override
-	public void writeStruct(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDisplayFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+		
+		QDisplayFile displayFile = (QDisplayFile) context.getRoot();
 		
 		JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(null, context, setup, context.getRoot().getName(), false);
-		dataStructureWriter.writeStructure(((QCompoundDataTerm<?>)context.getRoot()).getDefinition());
+	
+		QCompoundDataDef<?> displayDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();		
 
+		for(QDisplayFileFormat displayFileFormat: displayFile.getDisplayFormats()) {
+
+			QCompoundDataTerm<QUnaryCompoundDataDef<?>> formatDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
+			formatDataTerm.setName(displayFileFormat.getName());
+			QUnaryCompoundDataDef<?> formatDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
+			formatDataDef.getElements().addAll(displayFileFormat.getFields());
+			
+			formatDataTerm.setDefinition(formatDataDef);
+
+			displayDataDef.getElements().add(formatDataTerm);
+		}
+
+		dataStructureWriter.writeStructure(displayDataDef);
+		
 		dataStructureWriter.writeOutputStream(output);
 	}
 

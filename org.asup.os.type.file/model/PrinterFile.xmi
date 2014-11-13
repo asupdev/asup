@@ -5,8 +5,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:os-type-file="http://www.asup.org/os/type/file"
     xsi:schemaLocation="http://www.asup.org/os/type/file os-type-file.ecore"
-    name="PRT198">
-  <fileFormats
-      name="TESTA">
-  </fileFormats>
+    name="BRAR01GP">
+  <printerFormats
+      name="FMT1">
+    <fields
+        xsi:type="os-type-file:PrinterFileField"
+        name="W$AA01"/>
+  </printerFormats>
 </os-type-file:PrinterFile>

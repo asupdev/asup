@@ -18,5 +18,5 @@ package org.asup.os.type.file;
  * @model
  * @generated
  */
-public interface QPrinterFileFormat extends QFileFormat {
+public interface QPrinterFileFormat extends QFileFormat<QPrinterFileField> {
 } // QPrinterFileFormat

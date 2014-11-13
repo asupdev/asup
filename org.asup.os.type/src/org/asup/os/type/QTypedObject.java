@@ -24,7 +24,6 @@ import org.asup.os.omac.QObjectNameable;
  *   <li>{@link org.asup.os.type.QTypedObject#getApplication <em>Application</em>}</li>
  *   <li>{@link org.asup.os.type.QTypedObject#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.asup.os.type.QTypedObject#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.os.type.QTypedObject#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.asup.os.type.QTypedObject#getText <em>Text</em>}</li>
  *   <li>{@link org.asup.os.type.QTypedObject#getCreationInfo <em>Creation Info</em>}</li>
  *   <li>{@link org.asup.os.type.QTypedObject#getMemoryInfo <em>Memory Info</em>}</li>
@@ -59,28 +58,6 @@ public interface QTypedObject extends QObjectNameable {
 	void setLibrary(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute</em>' attribute.
-	 * @see #setAttribute(String)
-	 * @see org.asup.os.type.QOperatingSystemTypePackage#getTypedObject_Attribute()
-	 * @model annotation="il-data length='10'"
-	 * @generated
-	 */
-	String getAttribute();
-
-	/**
-	 * Sets the value of the '{@link org.asup.os.type.QTypedObject#getAttribute <em>Attribute</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attribute</em>' attribute.
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	void setAttribute(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Memory Info</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -105,6 +82,14 @@ public interface QTypedObject extends QObjectNameable {
 	 * @generated
 	 */
 	void setMemoryInfo(QMemoryInfo value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getAttribute();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

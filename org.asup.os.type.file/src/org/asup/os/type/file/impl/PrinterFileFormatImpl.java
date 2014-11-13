@@ -7,10 +7,13 @@
  */
 package org.asup.os.type.file.impl;
 
-import org.asup.os.type.file.QOperatingSystemFilePackage;
-import org.asup.os.type.file.QPrinterFileFormat;
+import java.util.List;
 
+import org.asup.os.type.file.QOperatingSystemFilePackage;
+import org.asup.os.type.file.QPrinterFileField;
+import org.asup.os.type.file.QPrinterFileFormat;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class PrinterFileFormatImpl extends FileFormatImpl implements QPrinterFileFormat {
+public class PrinterFileFormatImpl extends FileFormatImpl<QPrinterFileField> implements QPrinterFileFormat {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -40,6 +43,20 @@ public class PrinterFileFormatImpl extends FileFormatImpl implements QPrinterFil
 	@Override
 	protected EClass eStaticClass() {
 		return QOperatingSystemFilePackage.Literals.PRINTER_FILE_FORMAT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public List<QPrinterFileField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<QPrinterFileField>(QPrinterFileField.class, this, QOperatingSystemFilePackage.PRINTER_FILE_FORMAT__FIELDS);
+		}
+		return fields;
 	}
 
 } //PrinterFileFormatImpl

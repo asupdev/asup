@@ -7,12 +7,11 @@
  */
 package org.asup.os.type.usrprf.impl;
 
-import org.asup.os.core.QOperatingSystemCorePackage;
+import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.usrprf.QOperatingSystemUserProfileFactory;
 import org.asup.os.type.usrprf.QOperatingSystemUserProfilePackage;
 import org.asup.os.type.usrprf.QUserProfile;
 import org.asup.os.type.usrprf.QUserProfileManager;
-import org.asup.os.type.QOperatingSystemTypePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -87,7 +86,6 @@ public class OperatingSystemUserProfilePackageImpl extends EPackageImpl implemen
 		isInited = true;
 
 		// Initialize simple dependencies
-		QOperatingSystemCorePackage.eINSTANCE.eClass();
 		QOperatingSystemTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects

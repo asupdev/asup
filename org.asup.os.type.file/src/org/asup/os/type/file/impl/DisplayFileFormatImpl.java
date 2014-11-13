@@ -7,10 +7,13 @@
  */
 package org.asup.os.type.file.impl;
 
+import java.util.List;
+
+import org.asup.os.type.file.QDisplayFileField;
 import org.asup.os.type.file.QDisplayFileFormat;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DisplayFileFormatImpl extends FileFormatImpl implements QDisplayFileFormat {
+public class DisplayFileFormatImpl extends FileFormatImpl<QDisplayFileField> implements QDisplayFileFormat {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -40,6 +43,20 @@ public class DisplayFileFormatImpl extends FileFormatImpl implements QDisplayFil
 	@Override
 	protected EClass eStaticClass() {
 		return QOperatingSystemFilePackage.Literals.DISPLAY_FILE_FORMAT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * This is specialized for the more specific element type known in this context.
+	 * @generated
+	 */
+	@Override
+	public List<QDisplayFileField> getFields() {
+		if (fields == null) {
+			fields = new EObjectContainmentEList<QDisplayFileField>(QDisplayFileField.class, this, QOperatingSystemFilePackage.DISPLAY_FILE_FORMAT__FIELDS);
+		}
+		return fields;
 	}
 
 } //DisplayFileFormatImpl
