@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class DisplayFileImpl extends FileMultiFormatImpl implements QDisplayFile {
+public class DisplayFileImpl extends FileImpl implements QDisplayFile {
 	/**
 	 * The cached value of the '{@link #getDisplayFormats() <em>Display Formats</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -76,6 +76,15 @@ public class DisplayFileImpl extends FileMultiFormatImpl implements QDisplayFile
 			displayFormats = new EObjectContainmentEList<QDisplayFileFormat>(QDisplayFileFormat.class, this, QOperatingSystemFilePackage.DISPLAY_FILE__DISPLAY_FORMATS);
 		}
 		return displayFormats;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<QDisplayFileFormat> getFileFormats() {
+		return getDisplayFormats();
 	}
 
 	/**

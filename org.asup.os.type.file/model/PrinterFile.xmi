@@ -9,7 +9,6 @@
   <printerFormats
       name="FMT1">
     <fields
-        xsi:type="os-type-file:PrinterFileField"
         name="W$AA01"/>
   </printerFormats>
 </os-type-file:PrinterFile>

@@ -18,6 +18,7 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getFields <em>Fields</em>}</li>
  *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getFormatKeys <em>Format Keys</em>}</li>
  * </ul>
  * </p>
@@ -27,6 +28,22 @@ import java.util.List;
  * @generated
  */
 public interface QDatabaseFileFormat extends QFileFormat<QDatabaseFileField> {
+
+	/**
+	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.os.type.file.QDatabaseFileField}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fields</em>' containment reference list.
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getDatabaseFileFormat_Fields()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QDatabaseFileField> getFields();
 
 	/**
 	 * Returns the value of the '<em><b>Format Keys</b></em>' containment reference list.

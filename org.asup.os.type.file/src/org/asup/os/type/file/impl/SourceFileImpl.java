@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SourceFileImpl extends FileSingleFormatImpl implements QSourceFile {
+public class SourceFileImpl extends FileImpl implements QSourceFile {
 	/**
 	 * 
 	 */

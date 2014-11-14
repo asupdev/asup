@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class DatabaseFileImpl extends FileSingleFormatImpl implements QDatabaseFile {
+public abstract class DatabaseFileImpl extends FileImpl implements QDatabaseFile {
 	/**
 	 * The cached value of the '{@link #getDatabaseFormat() <em>Database Format</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -104,6 +104,15 @@ public abstract class DatabaseFileImpl extends FileSingleFormatImpl implements Q
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.DATABASE_FILE__DATABASE_FORMAT, newDatabaseFormat, newDatabaseFormat));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public QDatabaseFileFormat getFileFormat() {
+		return getDatabaseFormat();
 	}
 
 	/**

@@ -26,7 +26,7 @@ import java.util.List;
  * @model
  * @generated
  */
-public interface QPrinterFile extends QFileMultiFormat {
+public interface QPrinterFile extends QFileMultiFormat<QPrinterFileFormat> {
 
 	/**
 	 * Returns the value of the '<em><b>Printer Formats</b></em>' containment reference list.

@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class PrinterFileImpl extends FileMultiFormatImpl implements QPrinterFile {
+public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	/**
 	 * The cached value of the '{@link #getPrinterFormats() <em>Printer Formats</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -76,6 +76,15 @@ public class PrinterFileImpl extends FileMultiFormatImpl implements QPrinterFile
 			printerFormats = new EObjectContainmentEList<QPrinterFileFormat>(QPrinterFileFormat.class, this, QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS);
 		}
 		return printerFormats;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public List<QPrinterFileFormat> getFileFormats() {
+		return getPrinterFormats();
 	}
 
 	/**

@@ -7,6 +7,8 @@
  */
 package org.asup.os.type.file;
 
+import java.util.List;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +17,16 @@ package org.asup.os.type.file;
  *
  *
  * @see org.asup.os.type.file.QOperatingSystemFilePackage#getFileMultiFormat()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface QFileMultiFormat extends QFile {
+public interface QFileMultiFormat<FF extends QFileFormat<?>> extends QFile {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	List<FF> getFileFormats();
 } // QFileMultiFormat

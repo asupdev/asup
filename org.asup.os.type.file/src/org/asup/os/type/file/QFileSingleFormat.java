@@ -15,8 +15,16 @@ package org.asup.os.type.file;
  *
  *
  * @see org.asup.os.type.file.QOperatingSystemFilePackage#getFileSingleFormat()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface QFileSingleFormat extends QFile {
+public interface QFileSingleFormat<FF extends QFileFormat<?>> extends QFile {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	FF getFileFormat();
 } // QFileSingleFormat
