@@ -761,13 +761,22 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int DATABASE_FILE_FORMAT__FORMAT_KEYS = FILE_FORMAT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_FILE_FORMAT__UNIQUE = FILE_FORMAT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Database File Format</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE_FORMAT_FEATURE_COUNT = FILE_FORMAT_FEATURE_COUNT + 2;
+	int DATABASE_FILE_FORMAT_FEATURE_COUNT = FILE_FORMAT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -1890,6 +1899,17 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	EReference getDatabaseFileFormat_FormatKeys();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QDatabaseFileFormat#isUnique <em>Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique</em>'.
+	 * @see org.asup.os.type.file.QDatabaseFileFormat#isUnique()
+	 * @see #getDatabaseFileFormat()
+	 * @generated
+	 */
+	EAttribute getDatabaseFileFormat_Unique();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.file.QDisplayFile <em>Display File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2394,6 +2414,14 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATABASE_FILE_FORMAT__FORMAT_KEYS = eINSTANCE.getDatabaseFileFormat_FormatKeys();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATABASE_FILE_FORMAT__UNIQUE = eINSTANCE.getDatabaseFileFormat_Unique();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.file.impl.DisplayFileImpl <em>Display File</em>}' class.

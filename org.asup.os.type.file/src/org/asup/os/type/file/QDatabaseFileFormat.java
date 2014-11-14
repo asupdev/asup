@@ -20,6 +20,7 @@ import java.util.List;
  * <ul>
  *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getFields <em>Fields</em>}</li>
  *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getFormatKeys <em>Format Keys</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,4 +61,30 @@ public interface QDatabaseFileFormat extends QFileFormat<QDatabaseFileField> {
 	 * @generated
 	 */
 	List<QFileFormatKey> getFormatKeys();
+
+	/**
+	 * Returns the value of the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unique</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unique</em>' attribute.
+	 * @see #setUnique(boolean)
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getDatabaseFileFormat_Unique()
+	 * @model
+	 * @generated
+	 */
+	boolean isUnique();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.file.QDatabaseFileFormat#isUnique <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unique</em>' attribute.
+	 * @see #isUnique()
+	 * @generated
+	 */
+	void setUnique(boolean value);
 } // QDatabaseFileFormat

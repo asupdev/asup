@@ -14,10 +14,12 @@ import org.asup.os.type.file.QDatabaseFileField;
 import org.asup.os.type.file.QDatabaseFileFormat;
 import org.asup.os.type.file.QFileFormatKey;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getFormatKeys <em>Format Keys</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +57,25 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	 * @ordered
 	 */
 	protected EList<QFileFormatKey> formatKeys;
+
+	/**
+	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNIQUE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unique = UNIQUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +126,27 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isUnique() {
+		return unique;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnique(boolean newUnique) {
+		boolean oldUnique = unique;
+		unique = newUnique;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE, oldUnique, unique));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -127,6 +170,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 				return getFields();
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				return getFormatKeys();
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
+				return isUnique();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -148,6 +193,9 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 				getFormatKeys().clear();
 				getFormatKeys().addAll((Collection<? extends QFileFormatKey>)newValue);
 				return;
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
+				setUnique((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -166,6 +214,9 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				getFormatKeys().clear();
 				return;
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
+				setUnique(UNIQUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -182,8 +233,26 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 				return fields != null && !fields.isEmpty();
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				return formatKeys != null && !formatKeys.isEmpty();
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
+				return unique != UNIQUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (unique: ");
+		result.append(unique);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DatabaseFileFormatImpl

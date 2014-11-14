@@ -14,6 +14,7 @@
         eType="#//DatabaseFileField" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="formatKeys" upperBound="-1"
         eType="#//FileFormatKey" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eGenericSuperTypes eClassifier="#//FileFormat">
       <eTypeArguments eClassifier="#//DatabaseFileField"/>
     </eGenericSuperTypes>
