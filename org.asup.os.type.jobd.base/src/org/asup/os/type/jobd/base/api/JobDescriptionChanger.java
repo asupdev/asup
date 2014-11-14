@@ -7,7 +7,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
@@ -214,7 +214,7 @@ public  class JobDescriptionChanger {
 		}
 	}
 
-	public static class JobDescription extends QDataStructDelegator {
+	public static class JobDescription extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -226,7 +226,7 @@ public  class JobDescriptionChanger {
 		}
 	}
 
-	public static class JobQueue extends QDataStructDelegator {
+	public static class JobQueue extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -257,7 +257,7 @@ public  class JobDescriptionChanger {
 		USRPRF, SYSVAL, WRKSTN, OTHER
 	}
 
-	public static class OutputQueue extends QDataStructDelegator {
+	public static class OutputQueue extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -307,7 +307,7 @@ public  class JobDescriptionChanger {
 		SAME, NONE, OTHER
 	}
 
-	public static class MessageLogging extends QDataStructDelegator {
+	public static class MessageLogging extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1, value = "*SAME")
 		public QEnum<LevelEnum, QCharacter> level;

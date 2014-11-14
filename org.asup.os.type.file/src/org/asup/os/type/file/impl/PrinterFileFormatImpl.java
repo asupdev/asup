@@ -151,4 +151,9 @@ public class PrinterFileFormatImpl extends FileFormatImpl<QPrinterFileField> imp
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return getFields().isEmpty();
+	}
+
 } //PrinterFileFormatImpl

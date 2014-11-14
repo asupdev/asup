@@ -13,7 +13,7 @@ package org.asup.os.type.base.api;
 
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
@@ -96,7 +96,7 @@ public class ObjectDescriptionRetriever {
 			@ToDo @DataDef(length = 10) QCharacter cLVarForRCVLIBGRP10) {
 	}
 
-	public static class Object extends QDataStructDelegator {
+	public static class Object extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -204,7 +204,7 @@ public class ObjectDescriptionRetriever {
 		WSCST
 	}
 
-	public static class ASPDevice extends QDataStructDelegator {
+	public static class ASPDevice extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<DeviceEnum, QCharacter> device;

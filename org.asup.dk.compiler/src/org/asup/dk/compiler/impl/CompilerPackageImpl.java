@@ -206,15 +206,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCompilationSetup_SuperClass() {
-		return (EAttribute)compilationSetupEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUnitConverter() {
 		return unitConverterEClass;
 	}
@@ -306,7 +297,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		compilationSetupEClass = createEClass(COMPILATION_SETUP);
 		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__BASE_PACKAGE);
 		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__ENTRY_TYPE);
-		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__SUPER_CLASS);
 
 		compilerManagerEClass = createEClass(COMPILER_MANAGER);
 
@@ -443,10 +433,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		initEClass(compilationSetupEClass, QCompilationSetup.class, "CompilationSetup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompilationSetup_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompilationSetup_EntryType(), this.getEntryType(), "entryType", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getCompilationSetup_SuperClass(), g1, "superClass", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compilerManagerEClass, QCompilerManager.class, "CompilerManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

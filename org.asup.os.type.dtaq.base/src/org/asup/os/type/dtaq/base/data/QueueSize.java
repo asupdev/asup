@@ -11,11 +11,11 @@
  */
 package org.asup.os.type.dtaq.base.data;
 
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.annotation.DataDef;
 
-public class QueueSize extends QDataStructDelegator {
+public class QueueSize extends QDataStructureHandler {
 	private static final long serialVersionUID = 1L;
 	@DataDef()
 	public QBinary maximumNumberOfEntries;

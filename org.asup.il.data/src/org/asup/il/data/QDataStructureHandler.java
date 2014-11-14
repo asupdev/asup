@@ -9,7 +9,7 @@ package org.asup.il.data;
 
 import java.util.List;
 
-public abstract class QDataStructDelegator implements QDataStruct, QBufferedDataDelegator {
+public abstract class QDataStructureHandler implements QDataStruct, QBufferedDataDelegator {
 
 	private static final long serialVersionUID = 1L;
 	

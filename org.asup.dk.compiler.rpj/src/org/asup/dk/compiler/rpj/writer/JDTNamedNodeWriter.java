@@ -1,7 +1,6 @@
 package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +8,10 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.QCompilerLinker;
-import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QOverlay;
 import org.asup.il.core.QSpecial;
+import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.annotation.Overlay;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
@@ -23,7 +22,7 @@ import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
@@ -43,8 +42,10 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
+import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
+import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MemberValuePair;
@@ -77,20 +78,6 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			getCompilationUnit().types().add(target);
 		else
 			root.getTarget().bodyDeclarations().add(target);
-		
-		if(compilationSetup.getSuperClass() != null) {
-			writeImport(compilationSetup.getSuperClass());
-			
-			// super type
-			Type superType = getAST().newSimpleType(getAST().newName(compilationSetup.getSuperClass().getSimpleName()));
-			target.setSuperclassType(superType);
-			
-			// serializable
-			if(Serializable.class.isAssignableFrom(compilationSetup.getSuperClass()))
-				writeFieldSerializer();
-			
-		}
-
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -182,19 +169,17 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				if(compilerLinker == null) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
-					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
-					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), true);
-					dataStructureWriter.writeStructure(unaryCompoundDataTerm.getDefinition());
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), QDataStructureHandler.class, true);
+					dataStructureWriter.writeDataStructure(unaryCompoundDataTerm.getDefinition());
 				}
 				else {
 
 					if(isOverridden(unaryCompoundDataTerm)) {
 						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
-						compilationSetup.setSuperClass(linkedClass);
 	
-						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), true);
+						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), linkedClass, true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 						for(QDataTerm<?> element: unaryCompoundDataTerm.getDefinition().getElements()) {
 							if(element.getFacet(QDerived.class) != null)
@@ -202,7 +187,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 							
 							elements.add(element);
 						}
-						dataStructureWriter.writeStructure(elements);
+						dataStructureWriter.writeElements(elements);
 					}
 				}
 				
@@ -219,18 +204,16 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				if(compilerLinker == null) {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
-					compilationSetup.setSuperClass(QDataStructDelegator.class);
 
-					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), true);
-					dataStructureWriter.writeStructure(multipleCompoundDataTerm.getDefinition());
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), QDataStructureHandler.class, true);
+					dataStructureWriter.writeDataStructure(multipleCompoundDataTerm.getDefinition());
 				}
 				else {
 					if(isOverridden(multipleCompoundDataTerm)) {
 						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
-						compilationSetup.setSuperClass(linkedClass);
 	
-						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), true);
+						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), linkedClass, true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 						for(QDataTerm<?> element: multipleCompoundDataTerm.getDefinition().getElements()) {
 							if(element.getFacet(QDerived.class) != null)
@@ -238,7 +221,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 							
 							elements.add(element);
 						}
-						dataStructureWriter.writeStructure(elements);
+						dataStructureWriter.writeElements(elements);
 					}
 				}
 				
@@ -250,13 +233,66 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		if(special != null) {
 			EnumDeclaration enumType = getAST().newEnumDeclaration();
 			enumType.setName(getAST().newSimpleName(getCompilationContext().normalizeTypeName(dataTerm)+"Enum"));
-			EnumHelper.writeEnum(enumType, dataTerm);
+			writeEnum(enumType, dataTerm);
 			
 			writeImport(Special.class);
 			
 			target.bodyDeclarations().add(enumType);
 		}
 
+	}
+
+	@SuppressWarnings("unchecked")
+	public void writeEnum(EnumDeclaration target, QDataTerm<?> dataTerm) {
+		AST ast = target.getAST();
+
+		QSpecial special = dataTerm.getFacet(QSpecial.class);
+		
+		target.modifiers().add(ast.newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
+		target.modifiers().add(ast.newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));
+		
+		// elements
+		int num = 0;
+		
+		if(special != null) {
+			for (QSpecialElement element : special.getElements()) {
+
+				EnumConstantDeclaration constantDeclaration = ast.newEnumConstantDeclaration();
+				constantDeclaration.setName(ast.newSimpleName(normalizeEnumName(element.getName())));				
+				writeEnumField(constantDeclaration, element);
+				target.enumConstants().add(num, constantDeclaration);
+				num++;
+			}
+		}
+		
+		// restricted
+		if (!dataTerm.isRestricted()) {
+			EnumConstantDeclaration constantDeclaration = ast.newEnumConstantDeclaration();
+			constantDeclaration.setName(ast.newSimpleName("OTHER"));
+//			QSpecialElement elemDef = QIntegratedLanguageCoreFactory.eINSTANCE.createSpecialElement();
+//			writeEnumField(constantDeclaration, elemDef);
+			target.enumConstants().add(num, constantDeclaration);
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public void writeEnumField(EnumConstantDeclaration enumField, QSpecialElement elem) {
+		AST ast = enumField.getAST();
+		NormalAnnotation normalAnnotation = ast.newNormalAnnotation();
+		
+		String name = new String("*"+enumField.getName()); 
+		if (elem.getValue() != null && !name.equals(elem.getValue())) {
+			normalAnnotation.setTypeName(ast.newSimpleName(Special.class.getSimpleName()));
+			MemberValuePair memberValuePair = ast.newMemberValuePair();
+			memberValuePair.setName(ast.newSimpleName("value"));
+			StringLiteral stringLiteral = ast.newStringLiteral();
+			stringLiteral.setLiteralValue(elem.getValue());
+			memberValuePair.setValue(stringLiteral);
+			normalAnnotation.values().add(memberValuePair);
+			
+			enumField.modifiers().add(normalAnnotation);
+		}
 	}
 
 	public Type getJavaPrimitive(QDataTerm<?> dataTerm) {
@@ -550,4 +586,46 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		
 		return false;
 	}
+	
+	public String normalizeEnumName(String s) {
+
+		switch (s) {
+		case "*":
+			s = "TERM_STAR";
+			break;
+		case "/":
+			s = "TERM_SLASH";
+			break;
+		case "-":
+			s = "TERM_MINUS";
+			break;
+		case "+":
+			s = "TERM_PLUS";
+			break;
+		case ".":
+			s = "TERM_POINT";
+			break;
+		case ",":
+			s = "TERM_COMMA";
+			break;
+		}
+
+		if (s.startsWith("*")) 
+			s = s.substring(1);
+
+		if (isNumeric(s)) 
+			s = "NUM_" + s.replace(".", "_");
+
+		return s;
+	}
+	
+	private boolean isNumeric(String s) {
+		try {
+			Double.parseDouble(s);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 }

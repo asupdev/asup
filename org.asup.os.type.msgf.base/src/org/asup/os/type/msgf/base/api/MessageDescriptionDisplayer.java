@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -151,7 +151,7 @@ public  class MessageDescriptionDisplayer {
 	}
 	
 	
-	public static class RangeOfMessageIdentifiers extends QDataStructDelegator {
+	public static class RangeOfMessageIdentifiers extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 7, value = "*FIRST")
 		public QEnum<LowerValueEnum, QCharacter> lowerValue;
@@ -171,7 +171,7 @@ public  class MessageDescriptionDisplayer {
 		ALL, OTHER
 	}
 
-	public static class MessageFile extends QDataStructDelegator {
+	public static class MessageFile extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10, value = "QCPFMSG")
 		public QCharacter name;

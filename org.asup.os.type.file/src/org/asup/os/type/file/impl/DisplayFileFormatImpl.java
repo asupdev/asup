@@ -151,4 +151,8 @@ public class DisplayFileFormatImpl extends FileFormatImpl<QDisplayFileField> imp
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return getFields().isEmpty();
+	}
 } //DisplayFileFormatImpl

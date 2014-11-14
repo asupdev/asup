@@ -255,4 +255,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 		return result.toString();
 	}
 
+	@Override
+	public boolean isEmpty() {
+		return getFields().isEmpty();
+	}
 } //DatabaseFileFormatImpl

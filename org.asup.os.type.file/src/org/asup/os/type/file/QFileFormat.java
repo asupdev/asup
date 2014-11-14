@@ -64,4 +64,12 @@ public interface QFileFormat<F extends QFileFormatField> {
 	 * @generated
 	 */
 	List<F> getFields();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isEmpty();
 } // QFileFormat

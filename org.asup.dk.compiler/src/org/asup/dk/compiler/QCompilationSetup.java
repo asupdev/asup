@@ -18,7 +18,6 @@ package org.asup.dk.compiler;
  * <ul>
  *   <li>{@link org.asup.dk.compiler.QCompilationSetup#getBasePackage <em>Base Package</em>}</li>
  *   <li>{@link org.asup.dk.compiler.QCompilationSetup#getEntryType <em>Entry Type</em>}</li>
- *   <li>{@link org.asup.dk.compiler.QCompilationSetup#getSuperClass <em>Super Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,31 +80,5 @@ public interface QCompilationSetup {
 	 * @generated
 	 */
 	void setEntryType(EntryType value);
-
-	/**
-	 * Returns the value of the '<em><b>Super Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Super Class</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Super Class</em>' attribute.
-	 * @see #setSuperClass(Class)
-	 * @see org.asup.dk.compiler.QCompilerPackage#getCompilationSetup_SuperClass()
-	 * @model
-	 * @generated
-	 */
-	Class<?> getSuperClass();
-
-	/**
-	 * Sets the value of the '{@link org.asup.dk.compiler.QCompilationSetup#getSuperClass <em>Super Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Super Class</em>' attribute.
-	 * @see #getSuperClass()
-	 * @generated
-	 */
-	void setSuperClass(Class<?> value);
 
 } // QCompilationSetup

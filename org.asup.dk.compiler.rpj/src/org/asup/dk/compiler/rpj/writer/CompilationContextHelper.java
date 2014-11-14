@@ -10,7 +10,7 @@
  *   Giuliano Giancristofaro - Initial API and implementation 
  *   Mattia Rocchi			 - Implementation
  */
-package org.asup.dk.compiler.rpj.helper;
+package org.asup.dk.compiler.rpj.writer;
 
 import java.util.Date;
 

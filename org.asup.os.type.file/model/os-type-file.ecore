@@ -49,6 +49,7 @@
     <eOperations name="getFields" upperBound="-1">
       <eGenericType eTypeParameter="#//FileFormat/F"/>
     </eOperations>
+    <eOperations name="isEmpty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileFormatField" abstract="true">

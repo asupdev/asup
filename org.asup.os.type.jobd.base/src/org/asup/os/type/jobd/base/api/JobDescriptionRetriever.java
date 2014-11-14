@@ -7,7 +7,7 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QScroller;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -93,7 +93,7 @@ public class JobDescriptionRetriever {
 		}
 	}
 
-	public static class JobDescription extends QDataStructDelegator {
+	public static class JobDescription extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -101,7 +101,7 @@ public class JobDescriptionRetriever {
 		public QCharacter library;
 	}
 
-	public static class JOBD0100 extends QDataStructDelegator {
+	public static class JOBD0100 extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter jobDescriptionName;

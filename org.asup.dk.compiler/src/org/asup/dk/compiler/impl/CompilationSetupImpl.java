@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link org.asup.dk.compiler.impl.CompilationSetupImpl#getBasePackage <em>Base Package</em>}</li>
  *   <li>{@link org.asup.dk.compiler.impl.CompilationSetupImpl#getEntryType <em>Entry Type</em>}</li>
- *   <li>{@link org.asup.dk.compiler.impl.CompilationSetupImpl#getSuperClass <em>Super Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,16 +69,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected EntryType entryType = ENTRY_TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSuperClass() <em>Super Class</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSuperClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected Class<?> superClass;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,27 +136,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class<?> getSuperClass() {
-		return superClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSuperClass(Class<?> newSuperClass) {
-		Class<?> oldSuperClass = superClass;
-		superClass = newSuperClass;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QCompilerPackage.COMPILATION_SETUP__SUPER_CLASS, oldSuperClass, superClass));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -175,8 +143,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 				return getBasePackage();
 			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				return getEntryType();
-			case QCompilerPackage.COMPILATION_SETUP__SUPER_CLASS:
-				return getSuperClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,9 +160,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				setEntryType((EntryType)newValue);
-				return;
-			case QCompilerPackage.COMPILATION_SETUP__SUPER_CLASS:
-				setSuperClass((Class<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -216,9 +179,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				setEntryType(ENTRY_TYPE_EDEFAULT);
 				return;
-			case QCompilerPackage.COMPILATION_SETUP__SUPER_CLASS:
-				setSuperClass((Class<?>)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,8 +195,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 				return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
 			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				return entryType != ENTRY_TYPE_EDEFAULT;
-			case QCompilerPackage.COMPILATION_SETUP__SUPER_CLASS:
-				return superClass != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -255,8 +213,6 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 		result.append(basePackage);
 		result.append(", entryType: ");
 		result.append(entryType);
-		result.append(", superClass: ");
-		result.append(superClass);
 		result.append(')');
 		return result.toString();
 	}

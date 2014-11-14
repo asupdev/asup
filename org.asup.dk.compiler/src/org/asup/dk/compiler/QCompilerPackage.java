@@ -110,22 +110,13 @@ public interface QCompilerPackage extends EPackage {
 	int COMPILATION_SETUP__ENTRY_TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Super Class</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPILATION_SETUP__SUPER_CLASS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Compilation Setup</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_SETUP_FEATURE_COUNT = 3;
+	int COMPILATION_SETUP_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.UnitConverterImpl <em>Unit Converter</em>}' class.
@@ -349,17 +340,6 @@ public interface QCompilerPackage extends EPackage {
 	EAttribute getCompilationSetup_EntryType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.dk.compiler.QCompilationSetup#getSuperClass <em>Super Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Super Class</em>'.
-	 * @see org.asup.dk.compiler.QCompilationSetup#getSuperClass()
-	 * @see #getCompilationSetup()
-	 * @generated
-	 */
-	EAttribute getCompilationSetup_SuperClass();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QUnitConverter <em>Unit Converter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,14 +467,6 @@ public interface QCompilerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPILATION_SETUP__ENTRY_TYPE = eINSTANCE.getCompilationSetup_EntryType();
-
-		/**
-		 * The meta object literal for the '<em><b>Super Class</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPILATION_SETUP__SUPER_CLASS = eINSTANCE.getCompilationSetup_SuperClass();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.UnitConverterImpl <em>Unit Converter</em>}' class.

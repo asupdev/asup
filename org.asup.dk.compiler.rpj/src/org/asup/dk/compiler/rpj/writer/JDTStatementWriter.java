@@ -17,7 +17,6 @@ import java.util.Stack;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.rpj.helper.CompilationContextHelper;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.core.QTerm;

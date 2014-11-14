@@ -953,6 +953,8 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		g1 = createEGenericType(fileFormatEClass_F);
 		initEOperation(op, g1);
 
+		addEOperation(fileFormatEClass, ecorePackage.getEBoolean(), "isEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(fileFormatFieldEClass, QFileFormatField.class, "FileFormatField", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(fileFormatKeyEClass, QFileFormatKey.class, "FileFormatKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
