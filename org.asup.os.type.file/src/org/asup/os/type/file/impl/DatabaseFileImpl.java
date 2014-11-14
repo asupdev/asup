@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class DatabaseFileImpl extends FileImpl implements QDatabaseFile {
+public abstract class DatabaseFileImpl extends FileSingleFormatImpl<QDatabaseFileFormat> implements QDatabaseFile {
 	/**
 	 * The cached value of the '{@link #getDatabaseFormat() <em>Database Format</em>}' containment reference.
 	 * <!-- begin-user-doc -->

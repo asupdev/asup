@@ -19,7 +19,6 @@ package org.asup.os.type.file;
  * @generated
  */
 public interface QFileSingleFormat<FF extends QFileFormat<?>> extends QFile {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
