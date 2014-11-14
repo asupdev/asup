@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getFields <em>Fields</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getFormatKeys <em>Format Keys</em>}</li>
  * </ul>
  * </p>
@@ -35,6 +36,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> implements QDatabaseFileFormat {
+	/**
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFields()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QDatabaseFileField> fields;
 	/**
 	 * The cached value of the '{@link #getFormatKeys() <em>Format Keys</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -67,7 +77,6 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific element type known in this context.
 	 * @generated
 	 */
 	@Override
@@ -98,6 +107,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				return ((InternalEList<?>)getFormatKeys()).basicRemove(otherEnd, msgs);
 		}
@@ -112,6 +123,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
+				return getFields();
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				return getFormatKeys();
 		}
@@ -127,6 +140,10 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
+				getFields().clear();
+				getFields().addAll((Collection<? extends QDatabaseFileField>)newValue);
+				return;
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				getFormatKeys().clear();
 				getFormatKeys().addAll((Collection<? extends QFileFormatKey>)newValue);
@@ -143,6 +160,9 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
+				getFields().clear();
+				return;
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				getFormatKeys().clear();
 				return;
@@ -158,6 +178,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
+				return fields != null && !fields.isEmpty();
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
 				return formatKeys != null && !formatKeys.isEmpty();
 		}

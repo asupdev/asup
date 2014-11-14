@@ -14,14 +14,12 @@
   <displayFormats
       name="FMT1">
     <fields
-        xsi:type="os-type-file:DisplayFileField"
         name="W$AA01">
       <definition
           xsi:type="il-data:CharacterDef"
           length="10"/>
     </fields>
     <fields
-        xsi:type="os-type-file:DisplayFileField"
         name="W$NN01">
       <definition
           xsi:type="il-data:DecimalDef"
@@ -32,14 +30,12 @@
   <displayFormats
       name="FMT2">
     <fields
-        xsi:type="os-type-file:DisplayFileField"
         name="W$AA01">
       <definition
           xsi:type="il-data:CharacterDef"
           length="10"/>
     </fields>
     <fields
-        xsi:type="os-type-file:DisplayFileField"
         name="W$NN01">
       <definition
           xsi:type="il-data:DecimalDef"

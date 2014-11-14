@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.file.impl;
 
+import org.asup.os.type.file.QFileFormat;
 import org.asup.os.type.file.QFileSingleFormat;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class FileSingleFormatImpl extends FileImpl implements QFileSingleFormat {
+public abstract class FileSingleFormatImpl<FF extends QFileFormat<?>> extends FileImpl implements QFileSingleFormat<FF> {
 	/**
 	 * 
 	 */

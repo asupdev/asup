@@ -329,8 +329,17 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDatabaseFileFormat_FormatKeys() {
+	public EReference getDatabaseFileFormat_Fields() {
 		return (EReference)databaseFileFormatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDatabaseFileFormat_FormatKeys() {
+		return (EReference)databaseFileFormatEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -374,6 +383,15 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDisplayFileFormat_Fields() {
+		return (EReference)displayFileFormatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFile() {
 		return fileEClass;
 	}
@@ -402,16 +420,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getFileFormat_Name() {
-		return (EAttribute)fileFormatEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFileFormat_Fields() {
-		return (EReference)fileFormatEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)fileFormatEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -653,6 +662,15 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPrinterFileFormat_Fields() {
+		return (EReference)printerFileFormatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPrinterFileField() {
 		return printerFileFieldEClass;
 	}
@@ -727,6 +745,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		databaseFileFieldEClass = createEClass(DATABASE_FILE_FIELD);
 
 		databaseFileFormatEClass = createEClass(DATABASE_FILE_FORMAT);
+		createEReference(databaseFileFormatEClass, DATABASE_FILE_FORMAT__FIELDS);
 		createEReference(databaseFileFormatEClass, DATABASE_FILE_FORMAT__FORMAT_KEYS);
 
 		displayFileEClass = createEClass(DISPLAY_FILE);
@@ -735,6 +754,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		displayFileFieldEClass = createEClass(DISPLAY_FILE_FIELD);
 
 		displayFileFormatEClass = createEClass(DISPLAY_FILE_FORMAT);
+		createEReference(displayFileFormatEClass, DISPLAY_FILE_FORMAT__FIELDS);
 
 		externalFileEClass = createEClass(EXTERNAL_FILE);
 		createEAttribute(externalFileEClass, EXTERNAL_FILE__NAME);
@@ -744,7 +764,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		createEAttribute(fileEClass, FILE__DICTIONARY);
 
 		fileFormatEClass = createEClass(FILE_FORMAT);
-		createEReference(fileFormatEClass, FILE_FORMAT__FIELDS);
 		createEAttribute(fileFormatEClass, FILE_FORMAT__NAME);
 
 		fileFormatFieldEClass = createEClass(FILE_FORMAT_FIELD);
@@ -785,6 +804,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		createEReference(printerFileEClass, PRINTER_FILE__PRINTER_FORMATS);
 
 		printerFileFormatEClass = createEClass(PRINTER_FILE_FORMAT);
+		createEReference(printerFileFormatEClass, PRINTER_FILE_FORMAT__FIELDS);
 
 		printerFileFieldEClass = createEClass(PRINTER_FILE_FIELD);
 
@@ -825,19 +845,35 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		// Create type parameters
 		ETypeParameter fileFormatEClass_F = addETypeParameter(fileFormatEClass, "F");
+		ETypeParameter fileMultiFormatEClass_FF = addETypeParameter(fileMultiFormatEClass, "FF");
+		ETypeParameter fileSingleFormatEClass_FF = addETypeParameter(fileSingleFormatEClass, "FF");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getFileFormatField());
 		fileFormatEClass_F.getEBounds().add(g1);
+		g1 = createEGenericType(this.getFileFormat());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		fileMultiFormatEClass_FF.getEBounds().add(g1);
+		g1 = createEGenericType(this.getFileFormat());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		fileSingleFormatEClass_FF.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		databaseFileEClass.getESuperTypes().add(this.getFileSingleFormat());
+		g1 = createEGenericType(this.getFileSingleFormat());
+		g2 = createEGenericType(this.getDatabaseFileFormat());
+		g1.getETypeArguments().add(g2);
+		databaseFileEClass.getEGenericSuperTypes().add(g1);
 		databaseFileFieldEClass.getESuperTypes().add(this.getFileFormatField());
 		g1 = createEGenericType(this.getFileFormat());
-		EGenericType g2 = createEGenericType(this.getDatabaseFileField());
+		g2 = createEGenericType(this.getDatabaseFileField());
 		g1.getETypeArguments().add(g2);
 		databaseFileFormatEClass.getEGenericSuperTypes().add(g1);
-		displayFileEClass.getESuperTypes().add(this.getFileMultiFormat());
+		g1 = createEGenericType(this.getFileMultiFormat());
+		g2 = createEGenericType(this.getDisplayFileFormat());
+		g1.getETypeArguments().add(g2);
+		displayFileEClass.getEGenericSuperTypes().add(g1);
 		displayFileFieldEClass.getESuperTypes().add(this.getFileFormatField());
 		g1 = createEGenericType(this.getFileFormat());
 		g2 = createEGenericType(this.getDisplayFileField());
@@ -862,13 +898,16 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		fileSingleFormatEClass.getESuperTypes().add(this.getFile());
 		logicalFileEClass.getESuperTypes().add(this.getDatabaseFile());
 		physicalFileEClass.getESuperTypes().add(this.getDatabaseFile());
-		printerFileEClass.getESuperTypes().add(this.getFileMultiFormat());
+		g1 = createEGenericType(this.getFileMultiFormat());
+		g2 = createEGenericType(this.getPrinterFileFormat());
+		g1.getETypeArguments().add(g2);
+		printerFileEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getFileFormat());
 		g2 = createEGenericType(this.getPrinterFileField());
 		g1.getETypeArguments().add(g2);
 		printerFileFormatEClass.getEGenericSuperTypes().add(g1);
 		printerFileFieldEClass.getESuperTypes().add(this.getFileFormatField());
-		sourceFileEClass.getESuperTypes().add(this.getFileSingleFormat());
+		sourceFileEClass.getESuperTypes().add(this.getFile());
 		sourceFileEClass.getESuperTypes().add(this.getFileMembered());
 
 		// Initialize classes and features; add operations and parameters
@@ -878,6 +917,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEClass(databaseFileFieldEClass, QDatabaseFileField.class, "DatabaseFileField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(databaseFileFormatEClass, QDatabaseFileFormat.class, "DatabaseFileFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDatabaseFileFormat_Fields(), this.getDatabaseFileField(), null, "fields", null, 0, -1, QDatabaseFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabaseFileFormat_FormatKeys(), this.getFileFormatKey(), null, "formatKeys", null, 0, -1, QDatabaseFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(displayFileEClass, QDisplayFile.class, "DisplayFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -886,6 +926,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEClass(displayFileFieldEClass, QDisplayFileField.class, "DisplayFileField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(displayFileFormatEClass, QDisplayFileFormat.class, "DisplayFileFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDisplayFileFormat_Fields(), this.getDisplayFileField(), null, "fields", null, 0, -1, QDisplayFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalFileEClass, QExternalFile.class, "ExternalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExternalFile_Name(), ecorePackage.getEString(), "name", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -895,9 +936,11 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEAttribute(getFile_Dictionary(), ecorePackage.getEString(), "dictionary", null, 0, 1, QFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileFormatEClass, QFileFormat.class, "FileFormat", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(fileFormatEClass_F);
-		initEReference(getFileFormat_Fields(), g1, null, "fields", null, 0, -1, QFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFileFormat_Name(), ecorePackage.getEString(), "name", null, 1, 1, QFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = addEOperation(fileFormatEClass, null, "getFields", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(fileFormatEClass_F);
+		initEOperation(op, g1);
 
 		initEClass(fileFormatFieldEClass, QFileFormatField.class, "FileFormatField", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -907,7 +950,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		initEClass(fileManagerEClass, QFileManager.class, "FileManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(fileManagerEClass, this.getFile(), "getOverriddenFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(fileManagerEClass, this.getFile(), "getOverriddenFile", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "fileName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theOperatingSystemCorePackage.getOperatingSystemRuntimeException());
@@ -961,6 +1004,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEReference(getPrinterFile_PrinterFormats(), this.getPrinterFileFormat(), null, "printerFormats", null, 0, -1, QPrinterFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(printerFileFormatEClass, QPrinterFileFormat.class, "PrinterFileFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPrinterFileFormat_Fields(), this.getPrinterFileField(), null, "fields", null, 0, -1, QPrinterFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(printerFileFieldEClass, QPrinterFileField.class, "PrinterFileField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

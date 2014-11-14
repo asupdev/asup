@@ -18,5 +18,5 @@ package org.asup.os.type.file;
  * @model abstract="true"
  * @generated
  */
-public interface QFileMultiFormat extends QFile {
+public interface QFileMultiFormat<FF extends QFileFormat<?>> extends QFile {
 } // QFileMultiFormat

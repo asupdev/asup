@@ -24,7 +24,7 @@ package org.asup.os.type.file;
  * @model abstract="true"
  * @generated
  */
-public interface QDatabaseFile extends QFileSingleFormat {
+public interface QDatabaseFile extends QFileSingleFormat<QDatabaseFileFormat> {
 
 	/**
 	 * Returns the value of the '<em><b>Database Format</b></em>' containment reference.

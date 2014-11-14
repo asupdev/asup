@@ -18,5 +18,5 @@ package org.asup.os.type.file;
  * @model
  * @generated
  */
-public interface QSourceFile extends QFileSingleFormat, QFileMembered {
+public interface QSourceFile extends QFile, QFileMembered {
 } // QSourceFile
