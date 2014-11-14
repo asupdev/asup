@@ -1,25 +1,50 @@
 package org.asup.db.core.test;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.asup.db.core.*;
-import org.asup.db.core.test.TestCommandProviderImpl.DBType;
-import org.asup.db.syntax.*;
+import org.asup.db.core.DataType;
+import org.asup.db.core.OrderingType;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionFactory;
+import org.asup.db.core.QConnectionFactoryRegistry;
+import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QDatabaseManager;
+import org.asup.db.core.QIndex;
+import org.asup.db.core.QIndexColumn;
+import org.asup.db.core.QSchema;
+import org.asup.db.core.QTable;
+import org.asup.db.core.QTableColumn;
+import org.asup.db.core.QView;
+import org.asup.db.syntax.QAliasResolver;
+import org.asup.db.syntax.QQueryConverter;
+import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QQueryParser;
+import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.*;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.osgi.framework.console.*;
-import org.osgi.framework.*;
+import org.eclipse.osgi.framework.console.CommandInterpreter;
+import org.eclipse.osgi.framework.console.CommandProvider;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 
 
