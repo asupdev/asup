@@ -5,34 +5,29 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.os.omac.impl;
+package org.asup.fw.core.impl;
 
-import org.asup.os.omac.QObjectNameable;
-import org.asup.os.omac.QOperatingSystemOmacPackage;
+import org.asup.fw.core.QAdapterManager;
+import org.asup.fw.core.QFrameworkCorePackage;
 
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Object Nameable</b></em>'.
+ * An implementation of the model object '<em><b>Adapter Manager</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class ObjectNameableImpl extends ObjectImpl implements QObjectNameable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+public abstract class AdapterManagerImpl extends ServiceImpl implements QAdapterManager {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ObjectNameableImpl() {
+	protected AdapterManagerImpl() {
 		super();
 	}
 
@@ -43,7 +38,7 @@ public abstract class ObjectNameableImpl extends ObjectImpl implements QObjectNa
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QOperatingSystemOmacPackage.Literals.OBJECT_NAMEABLE;
+		return QFrameworkCorePackage.Literals.ADAPTER_MANAGER;
 	}
 
 	/**
@@ -51,10 +46,10 @@ public abstract class ObjectNameableImpl extends ObjectImpl implements QObjectNa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
+	public <T extends Object> T getAdapter(Object source, Class<T> target) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-} //ObjectNameableImpl
+} //AdapterManagerImpl

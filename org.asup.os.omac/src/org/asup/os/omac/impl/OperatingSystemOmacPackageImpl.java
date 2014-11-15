@@ -8,7 +8,6 @@
 package org.asup.os.omac.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
-import org.asup.os.omac.QAdaptable;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QManager;
 import org.asup.os.omac.QMemoryInfo;
@@ -37,13 +36,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOperatingSystemOmacPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass adaptableEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,15 +168,6 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(QOperatingSystemOmacPackage.eNS_URI, theOperatingSystemOmacPackage);
 		return theOperatingSystemOmacPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAdaptable() {
-		return adaptableEClass;
 	}
 
 	/**
@@ -350,8 +333,6 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		isCreated = true;
 
 		// Create classes and their features
-		adaptableEClass = createEClass(ADAPTABLE);
-
 		bundleManagerEClass = createEClass(BUNDLE_MANAGER);
 
 		bundleVisitorEClass = createEClass(BUNDLE_VISITOR);
@@ -419,35 +400,12 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		creationInfoEClass.getESuperTypes().add(this.getObject());
 		managerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		memoryInfoEClass.getESuperTypes().add(this.getObject());
-		objectEClass.getESuperTypes().add(this.getAdaptable());
 		objectNameableEClass.getESuperTypes().add(this.getObject());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(adaptableEClass, QAdaptable.class, "Adaptable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		EOperation op = addEOperation(adaptableEClass, null, "adaptTo", 1, 1, IS_UNIQUE, IS_ORDERED);
-		ETypeParameter t1 = addETypeParameter(op, "T");
-		g1 = createEGenericType(ecorePackage.getEJavaObject());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		EGenericType g2 = createEGenericType(t1);
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(t1);
-		initEOperation(op, g1);
-
-		op = addEOperation(adaptableEClass, ecorePackage.getEBoolean(), "isAdapterForType", 1, 1, IS_UNIQUE, IS_ORDERED);
-		t1 = addETypeParameter(op, "T");
-		g1 = createEGenericType(ecorePackage.getEJavaObject());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType(t1);
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(bundleManagerEClass, QBundleManager.class, "BundleManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(bundleManagerEClass, ecorePackage.getEBoolean(), "isRegisterable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(bundleManagerEClass, ecorePackage.getEBoolean(), "isRegisterable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "bundleName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -471,7 +429,7 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 
 		op = addEOperation(bundleVisitorEClass, null, "visitEnter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getObjectContainer());
-		g2 = createEGenericType();
+		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 

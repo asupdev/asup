@@ -7,17 +7,17 @@
  */
 package org.asup.os.omac.impl;
 
-import java.lang.Class;
-import java.lang.Object;
 import org.asup.os.omac.QClass;
 import org.asup.os.omac.QObject;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>QObject</b></em>'.
+ * An implementation of the model object '<em><b>Object</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
@@ -29,7 +29,7 @@ public abstract class ObjectImpl extends MinimalEObjectImpl.Container implements
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -60,26 +60,4 @@ public abstract class ObjectImpl extends MinimalEObjectImpl.Container implements
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T extends Object> T adaptTo(Class<T> klass) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T extends Object> boolean isAdapterForType(Class<T> klass) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-} //QObjectImpl
+} //ObjectImpl

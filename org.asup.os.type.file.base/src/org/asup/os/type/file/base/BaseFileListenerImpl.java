@@ -20,7 +20,7 @@ import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndex;
 import org.asup.db.core.QTable;
 import org.asup.db.core.QView;
-import org.asup.db.data.QDatabaseDataHelper;
+import org.asup.fw.core.QAdapterManager;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.resources.QResourceEvent;
@@ -36,7 +36,8 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 
 	private QConnectionManager connectionManager = null;
 	private QDatabaseManager databaseManager = null;	
-
+	private QAdapterManager adapterManager;
+	
 	@Inject
 	private QResourceFactory resourceFactory;
 	
@@ -46,9 +47,10 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 	}
 
 	@Inject
-	public BaseFileListenerImpl(QConnectionManager connectionManager, QDatabaseManager databaseManager) {
+	public BaseFileListenerImpl(QConnectionManager connectionManager, QDatabaseManager databaseManager, QAdapterManager adapterManager) {
 		this.connectionManager = connectionManager;
 		this.databaseManager = databaseManager;
+		this.adapterManager = adapterManager;
 	}
 	
 	@Override
@@ -79,20 +81,20 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			if(file instanceof QPhysicalFile) {
 				QPhysicalFile physicalFile = (QPhysicalFile)file;
 				
-				QTable table = QDatabaseDataHelper.buildTable(physicalFile);
+				QTable table = adapterManager.getAdapter(physicalFile, QTable.class);
 				databaseManager.createTable(databaseConnection, table, false);				
 				
-				QIndex index = QDatabaseDataHelper.buildIndex(physicalFile);
+				QIndex index = adapterManager.getAdapter(physicalFile, QIndex.class);
 				if(index != null)
 					databaseManager.createIndex(databaseConnection, index);
 			}
 			else if(file instanceof QLogicalFile) {
 				QLogicalFile logicalFile = (QLogicalFile)file;
 				
-				QView view = QDatabaseDataHelper.buildView(logicalFile);
+				QView view = adapterManager.getAdapter(logicalFile, QView.class);
 				databaseManager.createView(databaseConnection, view);
 				
-				QIndex index = QDatabaseDataHelper.buildIndex(logicalFile);
+				QIndex index = adapterManager.getAdapter(logicalFile, QIndex.class);
 				if(index != null)
 					databaseManager.createIndex(databaseConnection, index);
 			}

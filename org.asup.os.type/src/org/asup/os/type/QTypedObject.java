@@ -98,7 +98,8 @@ public interface QTypedObject extends QObjectNameable {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.asup.os.type.QOperatingSystemTypePackage#getTypedObject_Name()
-	 * @model annotation="il-data length='10'"
+	 * @model required="true"
+	 *        annotation="il-data length='10'"
 	 * @generated
 	 */
 	String getName();

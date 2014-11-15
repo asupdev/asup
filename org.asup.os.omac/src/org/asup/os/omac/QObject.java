@@ -22,5 +22,5 @@ import java.io.Serializable;
  * @model abstract="true"
  * @generated NOT
  */
-public interface QObject extends QAdaptable, Serializable {
+public interface QObject extends Serializable {
 } // QObject
