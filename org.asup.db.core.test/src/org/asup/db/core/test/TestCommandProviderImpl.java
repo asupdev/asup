@@ -21,8 +21,7 @@ import org.eclipse.osgi.framework.console.*;
 import org.osgi.framework.*;
 
 
-public class TestCommandProviderImpl extends ServiceImpl implements
-		CommandProvider {
+public class TestCommandProviderImpl extends ServiceImpl implements CommandProvider {
 
 	@Inject
 	private QConnectionFactoryRegistry connectionFactoryRegistry;
@@ -65,8 +64,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 		copySchema(schemaName, pluginName);
 	}
 
-	private void copySchema(String schemaName, String pluginName)
-			throws SQLException {
+	private void copySchema(String schemaName, String pluginName) throws SQLException {
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
 		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"
 				+ schemaName);
@@ -125,9 +123,6 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 		QConnectionConfig connectionConfigTo = loadConfig("DB2");
 		QConnection connectionTo = connectionManager
 				.getDatabaseConnection(connectionConfigTo);
-		// Statement statement = connectionTo.createStatement();
-		// statement.execute("SET CURRENT SCHEMA SMEUP_DAT");
-		// statement.close();
 		List<String> statements = readStatementsForTest();
 		for (String sql : statements) {
 			Statement s = connectionTo.createStatement(false);
@@ -157,8 +152,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 		List<String> result = new ArrayList<String>();
 		for (int i = 0; i < sourceSQL.length; i++) {
 			try {
-				result.add(convertSelectCommand("IBMI", "DB2", "SMEUP_DAT",
-						sourceSQL[i]));
+				result.add(convertSelectCommand("IBMI", "DB2", "SMEUP_DAT",	sourceSQL[i]));
 			} catch (Exception e) {
 				System.err.println(e.getMessage());
 				System.err.println(sourceSQL[i]);
@@ -186,8 +180,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 		}
 	}
 
-	public static String[] readLinesFromInputStream(InputStream inputStream)
-			throws IOException {
+	public static String[] readLinesFromInputStream(InputStream inputStream) throws IOException {
 		return readLinesFrom(new BufferedReader(new InputStreamReader(
 				inputStream)));
 	}
@@ -292,9 +285,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 		return null;
 	}
 
-	public Object _testcondb2(CommandInterpreter interpreter)
-			throws SQLException {
-
+	public Object _testcondb2(CommandInterpreter interpreter) throws SQLException {
 		System.out.println(connectionFactoryRegistry);
 
 		QConnectionFactory db2ConnectionFactory = connectionFactoryRegistry
@@ -323,8 +314,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 		System.out.println(mssqlConnectionFactory);
 
 		Properties props = new Properties();
-		props.put("url",
-				"jdbc:jtds:sqlserver://127.0.0.1:1433/ASUP_0.5.0;instance=SQLEXPRESS");
+		props.put("url","jdbc:jtds:sqlserver://127.0.0.1:1433/ASUP_0.5.0;instance=SQLEXPRESS");
 		props.put("user", "ASUP");
 		props.put("password", "asup2013");
 

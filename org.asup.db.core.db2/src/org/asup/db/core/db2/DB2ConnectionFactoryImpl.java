@@ -46,6 +46,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 			DB2SimpleDataSource ds = new DB2SimpleDataSource();
 			ds.setDriverType(4);
 			ds.setRetrieveMessagesFromServerOnGetMessage(true);
+			ds.setCursorSensitivity(2);
 			ds.setServerName (db2Url.getHost());		
 			ds.setPortNumber(db2Url.getPort());
 			ds.setDatabaseName(db2Url.getDatabaseName());
@@ -67,7 +68,9 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 			DB2Url db2Url = new DB2Url(props.getProperty(DataSourceFactory.JDBC_URL));
 			System.out.println("Connecting....");
 			DB2ConnectionPoolDataSource ds = new DB2ConnectionPoolDataSource();
+			ds.setDriverType(4);
 			ds.setRetrieveMessagesFromServerOnGetMessage(true);
+			ds.setCursorSensitivity(2);
 			ds.setServerName (db2Url.getHost());		
 			ds.setPortNumber(db2Url.getPort());
 			ds.setDatabaseName(db2Url.getDatabaseName());
