@@ -6,9 +6,12 @@
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:os-type-file="http://www.asup.org/os/type/file"
     xsi:schemaLocation="http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/os/type/file os-type-file.ecore"
+    application=""
+    library=""
     name="BRAR01GV"
-    text="ARTI Manutenzione articoli: guida">
-  <fileFormats
+    text=""
+    dictionary="">
+  <displayFormats
       name="FMT1">
     <fields
         name="W$AA01">
@@ -17,11 +20,27 @@
           length="10"/>
     </fields>
     <fields
-        name="W$AA02">
+        name="W$NN01">
       <definition
           xsi:type="il-data:DecimalDef"
-          precision="5"
+          precision="10"
           scale="2"/>
     </fields>
-  </fileFormats>
+  </displayFormats>
+  <displayFormats
+      name="FMT2">
+    <fields
+        name="W$AA01">
+      <definition
+          xsi:type="il-data:CharacterDef"
+          length="10"/>
+    </fields>
+    <fields
+        name="W$NN01">
+      <definition
+          xsi:type="il-data:DecimalDef"
+          precision="10"
+          scale="2"/>
+    </fields>
+  </displayFormats>
 </os-type-file:DisplayFile>

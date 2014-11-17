@@ -18,9 +18,9 @@ import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndex;
-import org.asup.db.core.QSchema;
 import org.asup.db.core.QTable;
 import org.asup.db.core.QView;
+import org.asup.fw.core.QAdapterManager;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.resources.QResourceEvent;
@@ -30,15 +30,14 @@ import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class BaseFileListenerImpl extends ServiceImpl implements QResourceListener<QFile> {
 
 
 	private QConnectionManager connectionManager = null;
 	private QDatabaseManager databaseManager = null;	
-
+	private QAdapterManager adapterManager;
+	
 	@Inject
 	private QResourceFactory resourceFactory;
 	
@@ -48,9 +47,10 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 	}
 
 	@Inject
-	public BaseFileListenerImpl(QConnectionManager connectionManager, QDatabaseManager databaseManager) {
+	public BaseFileListenerImpl(QConnectionManager connectionManager, QDatabaseManager databaseManager, QAdapterManager adapterManager) {
 		this.connectionManager = connectionManager;
 		this.databaseManager = databaseManager;
+		this.adapterManager = adapterManager;
 	}
 	
 	@Override
@@ -77,46 +77,26 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		if(databaseConnection == null)
 			throw new OperatingSystemRuntimeException("Install schema error: "+file.getLibrary());
 
-		QSchema schema = databaseManager.getSchema(databaseConnection, file.getLibrary());
-
 		try {
 			if(file instanceof QPhysicalFile) {
 				QPhysicalFile physicalFile = (QPhysicalFile)file;
-				QTable table = physicalFile.getTable();
 				
-				table = (QTable) EcoreUtil.copy((EObject)table);
-				table.setSchema(schema);
+				QTable table = adapterManager.getAdapter(physicalFile, QTable.class);
 				databaseManager.createTable(databaseConnection, table, false);				
+				
+				QIndex index = adapterManager.getAdapter(physicalFile, QIndex.class);
+				if(index != null)
+					databaseManager.createIndex(databaseConnection, index);
 			}
 			else if(file instanceof QLogicalFile) {
 				QLogicalFile logicalFile = (QLogicalFile)file;
-				QView view = logicalFile.getView();
 				
-				view = (QView) EcoreUtil.copy((EObject)view);
-				view.setSchema(schema);
+				QView view = adapterManager.getAdapter(logicalFile, QView.class);
 				databaseManager.createView(databaseConnection, view);
 				
-				QIndex index = logicalFile.getIndex();				
-				index = (QIndex) EcoreUtil.copy((EObject)index);
-				index.setSchema(schema);
-				
-				// create unique clustered index on view
-/*				
-				if(!index.isUnique()) {
-					QIndex idx = QDatabaseCoreFactory.eINSTANCE.createIndex();
-					idx.setName("PK_"+index.getName());
-					idx.setObject(index.getObject());
-					idx.setSchema(schema);
-					idx.setUnique(true);
-					QIndexColumn idxColumn = QDatabaseCoreFactory.eINSTANCE.createIndexColumn();
-					idxColumn.setName("QMUKEY");
-					idxColumn.setOrdering(OrderingType.ASCEND);
-					idxColumn.setSequence(1);
-					idx.getColumns().add(idxColumn);
-					databaseManager.createIndex(databaseConnection, idx);
-				}
-*/				
-				databaseManager.createIndex(databaseConnection, index);
+				QIndex index = adapterManager.getAdapter(logicalFile, QIndex.class);
+				if(index != null)
+					databaseManager.createIndex(databaseConnection, index);
 			}
 		}
 		catch (Exception e) {
@@ -126,7 +106,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 
 	private void deleteFile(QResourceEvent<QFile> event) throws OperatingSystemRuntimeException {
 		
-		
+/*		
 		QFile file = event.getSource();
    		file.setLibrary(((QResourceWriter<QFile>)event.getResource()).getContainer());
 
@@ -172,6 +152,6 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			catch (Exception e) {
 				throw new OperatingSystemRuntimeException(e.getMessage(), e);
 			}					
-		}
+		}*/
 	}
 }

@@ -121,22 +121,13 @@ public interface QOperatingSystemTypePackage extends EPackage {
 	int TYPED_OBJECT__NAME = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPED_OBJECT__ATTRIBUTE = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_OBJECT__TEXT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
+	int TYPED_OBJECT__TEXT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
@@ -145,7 +136,7 @@ public interface QOperatingSystemTypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_OBJECT__CREATION_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
+	int TYPED_OBJECT__CREATION_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
@@ -154,7 +145,7 @@ public interface QOperatingSystemTypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_OBJECT__MEMORY_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
+	int TYPED_OBJECT__MEMORY_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Typed Object</em>' class.
@@ -163,7 +154,7 @@ public interface QOperatingSystemTypePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPED_OBJECT_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
+	int TYPED_OBJECT_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.impl.TypeImpl <em>Type</em>}' class.
@@ -201,15 +192,6 @@ public interface QOperatingSystemTypePackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE__NAME = TYPED_OBJECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__ATTRIBUTE = TYPED_OBJECT__ATTRIBUTE;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -625,17 +607,6 @@ public interface QOperatingSystemTypePackage extends EPackage {
 	EAttribute getTypedObject_Application();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.QTypedObject#getAttribute <em>Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Attribute</em>'.
-	 * @see org.asup.os.type.QTypedObject#getAttribute()
-	 * @see #getTypedObject()
-	 * @generated
-	 */
-	EAttribute getTypedObject_Attribute();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.os.type.QTypedObject#getCreationInfo <em>Creation Info</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -836,13 +807,6 @@ public interface QOperatingSystemTypePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TYPED_OBJECT__APPLICATION = eINSTANCE.getTypedObject_Application();
-		/**
-		 * The meta object literal for the '<em><b>Attribute</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TYPED_OBJECT__ATTRIBUTE = eINSTANCE.getTypedObject_Attribute();
 		/**
 		 * The meta object literal for the '<em><b>Creation Info</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->

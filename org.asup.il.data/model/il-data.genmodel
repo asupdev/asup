@@ -56,7 +56,14 @@
       <genEnumLiterals ecoreEnumLiteral="il-data.ecore#//TimeFormat/JOBRUN"/>
     </genEnums>
     <genDataTypes ecoreDataType="il-data.ecore#//DataArray"/>
-    <genClasses image="false" ecoreClass="il-data.ecore#//Adapter"/>
+    <genClasses image="false" ecoreClass="il-data.ecore#//Adapter">
+      <genOperations ecoreOperation="il-data.ecore#//Adapter/eval">
+        <genParameters ecoreParameter="il-data.ecore#//Adapter/eval/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Adapter/eval.1">
+        <genParameters ecoreParameter="il-data.ecore#//Adapter/eval.1/value"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="il-data.ecore#//AdapterDef"/>
     <genClasses image="false" ecoreClass="il-data.ecore#//Array">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//Array/D"/>
@@ -68,7 +75,6 @@
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//ArrayDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//ArrayDef/D"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//ArrayDef/dimension"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//AtomicDataDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//AtomicDataDef/D"/>
@@ -88,20 +94,23 @@
       <genOperations ecoreOperation="il-data.ecore#//BufferedData/assign">
         <genParameters ecoreParameter="il-data.ecore#//BufferedData/assign/value"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//BufferedData/copy"/>
       <genOperations ecoreOperation="il-data.ecore#//BufferedData/eval">
         <genParameters ecoreParameter="il-data.ecore#//BufferedData/eval/value"/>
       </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//BufferedData/isNull"/>
       <genOperations ecoreOperation="il-data.ecore#//BufferedData/length"/>
       <genOperations ecoreOperation="il-data.ecore#//BufferedData/size"/>
-      <genOperations ecoreOperation="il-data.ecore#//BufferedData/reset"/>
+    </genClasses>
+    <genClasses ecoreClass="il-data.ecore#//BufferDef"/>
+    <genClasses image="false" ecoreClass="il-data.ecore#//BufferedDataDelegator">
+      <genOperations ecoreOperation="il-data.ecore#//BufferedDataDelegator/getDelegate"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-data.ecore#//BufferedDataTerm">
+      <genTypeParameters ecoreTypeParameter="il-data.ecore#//BufferedDataTerm/DD"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//BufferedDataDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//BufferedDataDef/D"/>
       <genOperations ecoreOperation="il-data.ecore#//BufferedDataDef/getLength"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="il-data.ecore#//BufferedDataTerm">
-      <genTypeParameters ecoreTypeParameter="il-data.ecore#//BufferedDataTerm/DD"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//BufferedList">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//BufferedList/D"/>
@@ -126,14 +135,56 @@
         <genParameters ecoreParameter="il-data.ecore#//Data/accept/visitor"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Data/clear"/>
+      <genOperations ecoreOperation="il-data.ecore#//Data/eq">
+        <genParameters ecoreParameter="il-data.ecore#//Data/eq/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/eq/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/eq.1">
+        <genParameters ecoreParameter="il-data.ecore#//Data/eq.1/value"/>
+      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Data/eval">
         <genParameters ecoreParameter="il-data.ecore#//Data/eval/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/eval/E"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Data/eval.1">
         <genParameters ecoreParameter="il-data.ecore#//Data/eval.1/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/eval.1/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/ge">
+        <genParameters ecoreParameter="il-data.ecore#//Data/ge/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/ge/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/ge.1">
+        <genParameters ecoreParameter="il-data.ecore#//Data/ge.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/gt">
+        <genParameters ecoreParameter="il-data.ecore#//Data/gt/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/gt/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/gt.1">
+        <genParameters ecoreParameter="il-data.ecore#//Data/gt.1/value"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Data/isEmpty"/>
+      <genOperations ecoreOperation="il-data.ecore#//Data/le">
+        <genParameters ecoreParameter="il-data.ecore#//Data/le/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/le/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/le.1">
+        <genParameters ecoreParameter="il-data.ecore#//Data/le.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/lt">
+        <genParameters ecoreParameter="il-data.ecore#//Data/lt/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/lt/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/lt.1">
+        <genParameters ecoreParameter="il-data.ecore#//Data/lt.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/ne">
+        <genParameters ecoreParameter="il-data.ecore#//Data/ne/value"/>
+        <genTypeParameters ecoreTypeParameter="il-data.ecore#//Data/ne/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Data/ne.1">
+        <genParameters ecoreParameter="il-data.ecore#//Data/ne.1/value"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//DataContext">
       <genOperations ecoreOperation="il-data.ecore#//DataContext/clearData"/>
@@ -143,16 +194,45 @@
       <genOperations ecoreOperation="il-data.ecore#//DataContext/getData.1">
         <genParameters ecoreParameter="il-data.ecore#//DataContext/getData.1/dataTerm"/>
       </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataContext/isSet">
+        <genParameters ecoreParameter="il-data.ecore#//DataContext/isSet/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataContext/isSet.1">
+        <genParameters ecoreParameter="il-data.ecore#//DataContext/isSet.1/dataTerm"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataContext/resetData"/>
+      <genOperations ecoreOperation="il-data.ecore#//DataContext/resetData.1">
+        <genParameters ecoreParameter="il-data.ecore#//DataContext/resetData.1/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataContext/resetData.2">
+        <genParameters ecoreParameter="il-data.ecore#//DataContext/resetData.2/dataTerm"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//DataDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//DataDef/D"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//DataDef/formulas"/>
       <genOperations ecoreOperation="il-data.ecore#//DataDef/getDataClass"/>
       <genOperations ecoreOperation="il-data.ecore#//DataDef/getJavaClass"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//DataDelegator">
+      <genTypeParameters ecoreTypeParameter="il-data.ecore#//DataDelegator/D"/>
       <genOperations ecoreOperation="il-data.ecore#//DataDelegator/getDelegate"/>
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//DataDictionary"/>
+    <genClasses ecoreClass="il-data.ecore#//DataEvaluator">
+      <genOperations ecoreOperation="il-data.ecore#//DataEvaluator/set">
+        <genParameters ecoreParameter="il-data.ecore#//DataEvaluator/set/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataEvaluator/set.1">
+        <genParameters ecoreParameter="il-data.ecore#//DataEvaluator/set.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataEvaluator/set.2">
+        <genParameters ecoreParameter="il-data.ecore#//DataEvaluator/set.2/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataEvaluator/set.3">
+        <genParameters ecoreParameter="il-data.ecore#//DataEvaluator/set.3/value"/>
+      </genOperations>
+    </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//DataFactory">
       <genOperations ecoreOperation="il-data.ecore#//DataFactory/createArray">
         <genParameters ecoreParameter="il-data.ecore#//DataFactory/createArray/argument"/>
@@ -320,7 +400,7 @@
         <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit/data"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//DataVisitor/endVisit.1">
-        <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit.1/data"/>
+        <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit.1/value"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//DataVisitor/endVisit.2">
         <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit.2/data"/>
@@ -366,6 +446,12 @@
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//DataVisitor/endVisit.16">
         <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit.16/data"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataVisitor/endVisit.17">
+        <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit.17/data"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataVisitor/endVisit.18">
+        <genParameters ecoreParameter="il-data.ecore#//DataVisitor/endVisit.18/data"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//DataVisitor/visit">
         <genParameters ecoreParameter="il-data.ecore#//DataVisitor/visit/data"/>
@@ -418,11 +504,18 @@
       <genOperations ecoreOperation="il-data.ecore#//DataVisitor/visit.16">
         <genParameters ecoreParameter="il-data.ecore#//DataVisitor/visit.16/data"/>
       </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataVisitor/visit.17">
+        <genParameters ecoreParameter="il-data.ecore#//DataVisitor/visit.17/data"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//DataVisitor/visit.18">
+        <genParameters ecoreParameter="il-data.ecore#//DataVisitor/visit.18/data"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//Datetime">
       <genOperations ecoreOperation="il-data.ecore#//Datetime/eval">
         <genParameters ecoreParameter="il-data.ecore#//Datetime/eval/value"/>
       </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Datetime/getTime"/>
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//DatetimeDef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//DatetimeDef/type"/>
@@ -446,6 +539,9 @@
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//Enum/D"/>
       <genOperations ecoreOperation="il-data.ecore#//Enum/asData"/>
       <genOperations ecoreOperation="il-data.ecore#//Enum/asEnum"/>
+      <genOperations ecoreOperation="il-data.ecore#//Enum/eval">
+        <genParameters ecoreParameter="il-data.ecore#//Enum/eval/value"/>
+      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Enum/getSpecialName"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//EnumDef">
@@ -466,7 +562,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//FloatingDef/type"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//Graphic"/>
-    <genClasses image="false" ecoreClass="il-data.ecore#//Hexadecimal"/>
+    <genClasses image="false" ecoreClass="il-data.ecore#//Hexadecimal">
+      <genOperations ecoreOperation="il-data.ecore#//Hexadecimal/eval">
+        <genParameters ecoreParameter="il-data.ecore#//Hexadecimal/eval/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Hexadecimal/eval.1">
+        <genParameters ecoreParameter="il-data.ecore#//Hexadecimal/eval.1/value"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="il-data.ecore#//HexadecimalDef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//HexadecimalDef/length"/>
     </genClasses>
@@ -497,19 +600,29 @@
     <genClasses ecoreClass="il-data.ecore#//IndicatorDef"/>
     <genClasses image="false" ecoreClass="il-data.ecore#//List">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//List/D"/>
+      <genOperations ecoreOperation="il-data.ecore#//List/capacity"/>
+      <genOperations ecoreOperation="il-data.ecore#//List/count"/>
+      <genOperations ecoreOperation="il-data.ecore#//List/eval">
+        <genParameters ecoreParameter="il-data.ecore#//List/eval/value"/>
+      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//List/get">
         <genParameters ecoreParameter="il-data.ecore#//List/get/index"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//List/get.1">
         <genParameters ecoreParameter="il-data.ecore#//List/get.1/index"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//List/capacity"/>
-      <genOperations ecoreOperation="il-data.ecore#//List/count"/>
+      <genOperations ecoreOperation="il-data.ecore#//List/set">
+        <genParameters ecoreParameter="il-data.ecore#//List/set/index"/>
+        <genParameters ecoreParameter="il-data.ecore#//List/set/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//List/set.1">
+        <genParameters ecoreParameter="il-data.ecore#//List/set.1/index"/>
+        <genParameters ecoreParameter="il-data.ecore#//List/set.1/value"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//ListDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//ListDef/D"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-data.ecore#//ListDef/argument"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//ListDef/initialCapacity"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//Moveable">
       <genOperations ecoreOperation="il-data.ecore#//Moveable/move">
@@ -548,6 +661,13 @@
       <genOperations ecoreOperation="il-data.ecore#//Moveable/move.9">
         <genParameters ecoreParameter="il-data.ecore#//Moveable/move.9/value"/>
         <genParameters ecoreParameter="il-data.ecore#//Moveable/move.9/clear"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Moveable/move.10">
+        <genParameters ecoreParameter="il-data.ecore#//Moveable/move.10/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Moveable/move.11">
+        <genParameters ecoreParameter="il-data.ecore#//Moveable/move.11/value"/>
+        <genParameters ecoreParameter="il-data.ecore#//Moveable/move.11/clear"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Moveable/movea">
         <genParameters ecoreParameter="il-data.ecore#//Moveable/movea/value"/>
@@ -593,6 +713,13 @@
         <genParameters ecoreParameter="il-data.ecore#//Moveable/movel.9/value"/>
         <genParameters ecoreParameter="il-data.ecore#//Moveable/movel.9/clear"/>
       </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Moveable/movel.10">
+        <genParameters ecoreParameter="il-data.ecore#//Moveable/movel.10/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Moveable/movel.11">
+        <genParameters ecoreParameter="il-data.ecore#//Moveable/movel.11/value"/>
+        <genParameters ecoreParameter="il-data.ecore#//Moveable/movel.11/clear"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//MultipleAtomicDataDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//MultipleAtomicDataDef/D"/>
@@ -613,6 +740,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//MultipleDataDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//MultipleDataDef/D"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//MultipleDataDef/dimension"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//MultipleDataTerm">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//MultipleDataTerm/DD"/>
@@ -620,6 +748,7 @@
       <genOperations ecoreOperation="il-data.ecore#//MultipleDataTerm/getCardinality"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//Numeric">
+      <genOperations ecoreOperation="il-data.ecore#//Numeric/asDouble"/>
       <genOperations ecoreOperation="il-data.ecore#//Numeric/asInteger"/>
       <genOperations ecoreOperation="il-data.ecore#//Numeric/asLong"/>
       <genOperations ecoreOperation="il-data.ecore#//Numeric/asShort"/>
@@ -656,6 +785,9 @@
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Numeric/eval.3">
         <genParameters ecoreParameter="il-data.ecore#//Numeric/eval.3/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Numeric/eval.4">
+        <genParameters ecoreParameter="il-data.ecore#//Numeric/eval.4/value"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//Numeric/ge">
         <genParameters ecoreParameter="il-data.ecore#//Numeric/ge/value"/>
@@ -758,7 +890,68 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//NumericDef"/>
-    <genClasses image="false" ecoreClass="il-data.ecore#//Pointer"/>
+    <genClasses image="false" ecoreClass="il-data.ecore#//Pointer">
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/divide">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/divide/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/divide.1">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/divide.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/divide.2">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/divide.2/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/divide.3">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/divide.3/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/minus">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/minus/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/minus.1">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/minus.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/minus.2">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/minus.2/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/minus.3">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/minus.3/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/mult">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/mult/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/mult.1">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/mult.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/mult.2">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/mult.2/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/mult.3">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/mult.3/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/plus">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/plus/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/plus.1">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/plus.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/plus.2">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/plus.2/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/plus.3">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/plus.3/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/power">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/power/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/power.1">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/power.1/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/power.2">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/power.2/value"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-data.ecore#//Pointer/power.3">
+        <genParameters ecoreParameter="il-data.ecore#//Pointer/power.3/value"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="il-data.ecore#//PointerDef"/>
     <genClasses image="false" ecoreClass="il-data.ecore#//Scroller">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//Scroller/D"/>
@@ -773,7 +966,6 @@
     </genClasses>
     <genClasses ecoreClass="il-data.ecore#//ScrollerDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//ScrollerDef/D"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//ScrollerDef/dimension"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//String">
       <genOperations ecoreOperation="il-data.ecore#//String/cat">
@@ -844,10 +1036,6 @@
       <genOperations ecoreOperation="il-data.ecore#//String/eq.1">
         <genParameters ecoreParameter="il-data.ecore#//String/eq.1/value"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//String/eq.2">
-        <genParameters ecoreParameter="il-data.ecore#//String/eq.2/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//String/eq.2/E"/>
-      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/eval">
         <genParameters ecoreParameter="il-data.ecore#//String/eval/value"/>
       </genOperations>
@@ -860,19 +1048,11 @@
       <genOperations ecoreOperation="il-data.ecore#//String/ge.1">
         <genParameters ecoreParameter="il-data.ecore#//String/ge.1/value"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//String/ge.2">
-        <genParameters ecoreParameter="il-data.ecore#//String/ge.2/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//String/ge.2/E"/>
-      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/gt">
         <genParameters ecoreParameter="il-data.ecore#//String/gt/value"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/gt.1">
         <genParameters ecoreParameter="il-data.ecore#//String/gt.1/value"/>
-      </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//String/gt.2">
-        <genParameters ecoreParameter="il-data.ecore#//String/gt.2/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//String/gt.2/E"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/in"/>
       <genOperations ecoreOperation="il-data.ecore#//String/le">
@@ -881,19 +1061,11 @@
       <genOperations ecoreOperation="il-data.ecore#//String/le.1">
         <genParameters ecoreParameter="il-data.ecore#//String/le.1/value"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//String/le.2">
-        <genParameters ecoreParameter="il-data.ecore#//String/le.2/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//String/le.2/E"/>
-      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/lt">
         <genParameters ecoreParameter="il-data.ecore#//String/lt/value"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/lt.1">
         <genParameters ecoreParameter="il-data.ecore#//String/lt.1/value"/>
-      </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//String/lt.2">
-        <genParameters ecoreParameter="il-data.ecore#//String/lt.2/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//String/lt.2/E"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/move">
         <genParameters ecoreParameter="il-data.ecore#//String/move/value"/>
@@ -907,10 +1079,6 @@
       <genOperations ecoreOperation="il-data.ecore#//String/ne.1">
         <genParameters ecoreParameter="il-data.ecore#//String/ne.1/value"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//String/ne.2">
-        <genParameters ecoreParameter="il-data.ecore#//String/ne.2/value"/>
-        <genTypeParameters ecoreTypeParameter="il-data.ecore#//String/ne.2/E"/>
-      </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//String/out"/>
       <genOperations ecoreOperation="il-data.ecore#//String/trim"/>
       <genOperations ecoreOperation="il-data.ecore#//String/trimL"/>
@@ -923,9 +1091,9 @@
     <genClasses ecoreClass="il-data.ecore#//StrollerDef">
       <genTypeParameters ecoreTypeParameter="il-data.ecore#//StrollerDef/D"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//StrollerDef/length"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-data.ecore#//StrollerDef/dimension"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//Struct">
+      <genTypeParameters ecoreTypeParameter="il-data.ecore#//Struct/D"/>
       <genOperations ecoreOperation="il-data.ecore#//Struct/getElement">
         <genParameters ecoreParameter="il-data.ecore#//Struct/getElement/name"/>
       </genOperations>

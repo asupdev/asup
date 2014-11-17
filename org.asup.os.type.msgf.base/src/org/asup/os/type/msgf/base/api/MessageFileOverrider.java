@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.annotation.Supported;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -54,7 +54,7 @@ public class MessageFileOverrider {
 		messageFileManager.overrideMessageFile(job, messageFileBeingOverridden.trimR(), qMessageFile);
 	}
 
-	public static class OverridingToMessageFile extends QDataStructDelegator {
+	public static class OverridingToMessageFile extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;

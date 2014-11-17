@@ -8,12 +8,9 @@
 package org.asup.os.type.file.impl;
 
 import org.asup.il.data.QUnaryAtomicBufferedDataDef;
-
 import org.asup.il.data.impl.UnaryAtomicDataTermImpl;
-
 import org.asup.os.type.file.QFileFormatField;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -25,7 +22,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class FileFormatFieldImpl extends UnaryAtomicDataTermImpl<QUnaryAtomicBufferedDataDef<?>> implements QFileFormatField {
+public abstract class FileFormatFieldImpl extends UnaryAtomicDataTermImpl<QUnaryAtomicBufferedDataDef<?>> implements QFileFormatField {
 	/**
 	 * 
 	 */

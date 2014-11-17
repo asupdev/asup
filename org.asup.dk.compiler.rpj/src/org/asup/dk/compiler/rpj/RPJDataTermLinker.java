@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilerFactory;
@@ -18,10 +17,9 @@ import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.impl.DataTermVisitorImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QExternalFile;
 import org.asup.os.type.file.QFile;
-import org.asup.os.type.file.QLogicalFile;
-import org.asup.os.type.file.QPhysicalFile;
 
 public class RPJDataTermLinker extends DataTermVisitorImpl {
 
@@ -65,30 +63,26 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 		if(file == null)
 			throw new OperatingSystemRuntimeException("File not found: "+externalFile.getName());
 
-		if(file instanceof QPhysicalFile || file instanceof QLogicalFile) {
+		QDatabaseFile databaseFile = (QDatabaseFile) file;
+		
+		
+		if(externalFile.getFormat() == null)
+			externalFile.setFormat(databaseFile.getDatabaseFormat().getName());
 
-			QPhysicalFile physicalFile = callableUnitLinker.getPhysicalFile(file.getName());
-			
-			if(externalFile.getFormat() == null)
-				externalFile.setFormat(physicalFile.getTableFormat());
+		Class<?> linkedClass = callableUnitLinker.loadClass(null, file);		
+		if(linkedClass == null)				
+			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 
-			Class<?> linkedClass = callableUnitLinker.loadClass(null, file);		
-			if(linkedClass == null)				
-				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
+		QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
+		compilerLinker.setLinkedClass(linkedClass);
+		compoundDataTerm.getFacets().add(compilerLinker);
 
-			QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
-			compilerLinker.setLinkedClass(linkedClass);
-			compoundDataTerm.getFacets().add(compilerLinker);
-
-			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), file.getName()).getDefinition().getElements());
-			for(QDataTerm<?> element: elements) {
-				QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
-				element.getFacets().add(derived);
-				compoundDataTerm.getDefinition().getElements().add(element);
-			}
+		List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(databaseFile.getDatabaseFormat().getFields());
+		for(QDataTerm<?> element: elements) {
+			QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
+			element.getFacets().add(derived);
+			compoundDataTerm.getDefinition().getElements().add(element);
 		}
-		else 
-			System.err.println(file);
 
 	}
 }

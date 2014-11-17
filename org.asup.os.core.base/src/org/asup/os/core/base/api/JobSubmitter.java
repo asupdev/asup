@@ -20,7 +20,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
@@ -162,7 +162,7 @@ public class JobSubmitter {
 		JOBD, OTHER
 	}
 
-	public static class JobDescription extends QDataStructDelegator {
+	public static class JobDescription extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;
@@ -178,7 +178,7 @@ public class JobSubmitter {
 		}
 	}
 
-	public static class JobQueue extends QDataStructDelegator {
+	public static class JobQueue extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;
@@ -209,7 +209,7 @@ public class JobSubmitter {
 		USRPRF, SYSVAL, JOBD, OTHER
 	}
 
-	public static class OutputQueue extends QDataStructDelegator {
+	public static class OutputQueue extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;
@@ -261,7 +261,7 @@ public class JobSubmitter {
 		CURRENT, JOBD, NONE, OTHER
 	}
 
-	public static class MessageLogging extends QDataStructDelegator {
+	public static class MessageLogging extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1, value = "*JOBD")
 		public QEnum<LevelEnum, QCharacter> level;
@@ -364,7 +364,7 @@ public class JobSubmitter {
 		NO
 	}
 
-	public static class SubmittedFor extends QDataStructDelegator {
+	public static class SubmittedFor extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;
@@ -378,7 +378,7 @@ public class JobSubmitter {
 		}
 	}
 
-	public static class MessageQueue extends QDataStructDelegator {
+	public static class MessageQueue extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;
@@ -394,7 +394,7 @@ public class JobSubmitter {
 		}
 	}
 
-	public static class SortSequence extends QDataStructDelegator {
+	public static class SortSequence extends QDataStructureHandler {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;

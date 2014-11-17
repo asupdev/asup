@@ -9,7 +9,6 @@ import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.asup.db.core.*;
-import org.asup.db.core.test.TestCommandProviderImpl.DBType;
 import org.asup.db.syntax.*;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.asup.fw.core.impl.ServiceImpl;
@@ -20,6 +19,7 @@ import org.eclipse.emf.ecore.resource.*;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.osgi.framework.console.*;
 import org.osgi.framework.*;
+
 
 public class TestCommandProviderImpl extends ServiceImpl implements
 		CommandProvider {
@@ -360,7 +360,6 @@ public class TestCommandProviderImpl extends ServiceImpl implements
 
 	@Override
 	public String getHelp() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

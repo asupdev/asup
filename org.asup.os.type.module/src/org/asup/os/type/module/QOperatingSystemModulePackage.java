@@ -83,24 +83,6 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	int MODULE__APPLICATION = QOperatingSystemTypePackage.TYPED_OBJECT__APPLICATION;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE__ATTRIBUTE = QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE__CREATION_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO;
-
-	/**
 	 * The feature id for the '<em><b>Library</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,15 +90,6 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE__LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT__LIBRARY;
-
-	/**
-	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -135,6 +108,24 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE__TEXT = QOperatingSystemTypePackage.TYPED_OBJECT__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__CREATION_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.

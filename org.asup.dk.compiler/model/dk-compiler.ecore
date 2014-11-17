@@ -68,11 +68,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="CompilationSetup">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryType" eType="#//EntryType"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="superClass">
-      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-        <eTypeArguments/>
-      </eGenericType>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompilerManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createChildContext" lowerBound="1" eType="#//CompilationContext">
@@ -81,11 +76,7 @@
     </eOperations>
     <eOperations name="createCompilationContext" lowerBound="1" eType="#//CompilationContext">
       <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
-      <eParameters name="structure" lowerBound="1">
-        <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//CompoundDataTerm">
-          <eTypeArguments/>
-        </eGenericType>
-      </eParameters>
+      <eParameters name="file" lowerBound="1" eType="ecore:EClass ../../org.asup.os.type.file/model/os-type-file.ecore#//File"/>
       <eParameters name="caseSensitive" lowerBound="1" eType="#//CaseSensitiveType"/>
     </eOperations>
     <eOperations name="createCompilationContext" lowerBound="1" eType="#//CompilationContext">
@@ -101,17 +92,27 @@
     <eOperations name="linkCompilationContext">
       <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
     </eOperations>
+    <eOperations name="writeDatabaseFile" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
+      <eParameters name="setup" eType="#//CompilationSetup"/>
+      <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
+    </eOperations>
+    <eOperations name="writeDisplayFile" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
+      <eParameters name="setup" eType="#//CompilationSetup"/>
+      <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
+    </eOperations>
     <eOperations name="writeModule" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
       <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
       <eParameters name="setup" eType="#//CompilationSetup"/>
       <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
     </eOperations>
-    <eOperations name="writeProgram" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+    <eOperations name="writePrinterFile" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
       <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
       <eParameters name="setup" eType="#//CompilationSetup"/>
       <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
     </eOperations>
-    <eOperations name="writeStruct" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+    <eOperations name="writeProgram" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
       <eParameters name="context" lowerBound="1" eType="#//CompilationContext"/>
       <eParameters name="setup" eType="#//CompilationSetup"/>
       <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>

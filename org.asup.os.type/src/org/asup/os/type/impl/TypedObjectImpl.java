@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getLibrary <em>Library</em>}</li>
  *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getCreationInfo <em>Creation Info</em>}</li>
  *   <li>{@link org.asup.os.type.impl.TypedObjectImpl#getMemoryInfo <em>Memory Info</em>}</li>
@@ -105,26 +104,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ATTRIBUTE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected String attribute = ATTRIBUTE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,27 +168,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAttribute() {
-		return attribute;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAttribute(String newAttribute) {
-		String oldAttribute = attribute;
-		attribute = newAttribute;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE, oldAttribute, attribute));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QMemoryInfo getMemoryInfo() {
 		return memoryInfo;
 	}
@@ -246,6 +204,17 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO, newMemoryInfo, newMemoryInfo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAttribute() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -405,8 +374,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 				return getLibrary();
 			case QOperatingSystemTypePackage.TYPED_OBJECT__NAME:
 				return getName();
-			case QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE:
-				return getAttribute();
 			case QOperatingSystemTypePackage.TYPED_OBJECT__TEXT:
 				return getText();
 			case QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO:
@@ -433,9 +400,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 				return;
 			case QOperatingSystemTypePackage.TYPED_OBJECT__NAME:
 				setName((String)newValue);
-				return;
-			case QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE:
-				setAttribute((String)newValue);
 				return;
 			case QOperatingSystemTypePackage.TYPED_OBJECT__TEXT:
 				setText((String)newValue);
@@ -467,9 +431,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 			case QOperatingSystemTypePackage.TYPED_OBJECT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE:
-				setAttribute(ATTRIBUTE_EDEFAULT);
-				return;
 			case QOperatingSystemTypePackage.TYPED_OBJECT__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
@@ -497,8 +458,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 				return LIBRARY_EDEFAULT == null ? library != null : !LIBRARY_EDEFAULT.equals(library);
 			case QOperatingSystemTypePackage.TYPED_OBJECT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE:
-				return ATTRIBUTE_EDEFAULT == null ? attribute != null : !ATTRIBUTE_EDEFAULT.equals(attribute);
 			case QOperatingSystemTypePackage.TYPED_OBJECT__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
 			case QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO:
@@ -525,8 +484,6 @@ public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTyp
 		result.append(library);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", attribute: ");
-		result.append(attribute);
 		result.append(", text: ");
 		result.append(text);
 		result.append(')');

@@ -27,6 +27,24 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	QOperatingSystemFileFactory eINSTANCE = org.asup.os.type.file.impl.OperatingSystemFileFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Database File Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Database File Field</em>'.
+	 * @generated
+	 */
+	QDatabaseFileField createDatabaseFileField();
+
+	/**
+	 * Returns a new object of class '<em>Database File Format</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Database File Format</em>'.
+	 * @generated
+	 */
+	QDatabaseFileFormat createDatabaseFileFormat();
+
+	/**
 	 * Returns a new object of class '<em>Display File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,6 +54,15 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	QDisplayFile createDisplayFile();
 
 	/**
+	 * Returns a new object of class '<em>Display File Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Display File Field</em>'.
+	 * @generated
+	 */
+	QDisplayFileField createDisplayFileField();
+
+	/**
 	 * Returns a new object of class '<em>Display File Format</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43,24 +70,6 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	 * @generated
 	 */
 	QDisplayFileFormat createDisplayFileFormat();
-
-	/**
-	 * Returns a new object of class '<em>File Format</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>File Format</em>'.
-	 * @generated
-	 */
-	QFileFormat createFileFormat();
-
-	/**
-	 * Returns a new object of class '<em>File Format Field</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>File Format Field</em>'.
-	 * @generated
-	 */
-	QFileFormatField createFileFormatField();
 
 	/**
 	 * Returns a new object of class '<em>File Member</em>'.
@@ -117,6 +126,24 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	QPrinterFileFormat createPrinterFileFormat();
 
 	/**
+	 * Returns a new object of class '<em>Printer File Field</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Printer File Field</em>'.
+	 * @generated
+	 */
+	QPrinterFileField createPrinterFileField();
+
+	/**
+	 * Returns a new object of class '<em>Source File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Source File</em>'.
+	 * @generated
+	 */
+	QSourceFile createSourceFile();
+
+	/**
 	 * Returns a new object of class '<em>External File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,6 +151,15 @@ public interface QOperatingSystemFileFactory extends EFactory {
 	 * @generated
 	 */
 	QExternalFile createExternalFile();
+
+	/**
+	 * Returns a new object of class '<em>File Format Key</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Format Key</em>'.
+	 * @generated
+	 */
+	QFileFormatKey createFileFormatKey();
 
 	/**
 	 * Returns the package supported by this factory.

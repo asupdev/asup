@@ -7,21 +7,15 @@
  */
 package org.asup.os.type.file.impl;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.asup.os.type.file.QFileFormat;
 import org.asup.os.type.file.QFileFormatField;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,13 +25,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.FileFormatImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.os.type.file.impl.FileFormatImpl#getFields <em>Fields</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FileFormatImpl extends EObjectImpl implements QFileFormat {
+public abstract class FileFormatImpl<F extends QFileFormatField> extends EObjectImpl implements QFileFormat<F> {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,15 +49,6 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFields()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<QFileFormatField> fields;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,11 +95,10 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<QFileFormatField> getFields() {
-		if (fields == null) {
-			fields = new EObjectContainmentEList<QFileFormatField>(QFileFormatField.class, this, QOperatingSystemFilePackage.FILE_FORMAT__FIELDS);
-		}
-		return fields;
+	public List<F> getFields() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -123,13 +106,10 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
-				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public boolean isEmpty() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -142,8 +122,6 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				return getName();
-			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
-				return getFields();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,16 +131,11 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				setName((String)newValue);
-				return;
-			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
-				getFields().clear();
-				getFields().addAll((Collection<? extends QFileFormatField>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,9 +152,6 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
-				getFields().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,8 +166,6 @@ public class FileFormatImpl extends EObjectImpl implements QFileFormat {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.FILE_FORMAT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case QOperatingSystemFilePackage.FILE_FORMAT__FIELDS:
-				return fields != null && !fields.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

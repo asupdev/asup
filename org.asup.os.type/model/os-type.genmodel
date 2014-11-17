@@ -8,7 +8,7 @@
     interfaceNamePattern="Q{0}" importOrganizing="true">
   <foreignModel>os-type.ecore</foreignModel>
   <genPackages prefix="OperatingSystemType" basePackage="org.asup.os" disposableProviderFactory="true"
-      contentTypeIdentifier="" ecorePackage="os-type.ecore#/">
+      adapterFactory="false" contentTypeIdentifier="" ecorePackage="os-type.ecore#/">
     <genClasses ecoreClass="os-type.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//Type/className"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//Type/domain"/>
@@ -24,27 +24,28 @@
       <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceReader">
         <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader/job"/>
         <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader/container"/>
-        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/getResourceReader/T"/>
       </genOperations>
       <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceReader.1">
         <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader.1/job"/>
         <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceReader.1/scope"/>
-        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/getResourceReader.1/T"/>
       </genOperations>
       <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceWriter">
         <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceWriter/job"/>
         <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceWriter/container"/>
-        <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedManager/getResourceWriter/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type.ecore#//TypedManager/getResourceWriter.1">
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceWriter.1/job"/>
+        <genParameters ecoreParameter="os-type.ecore#//TypedManager/getResourceWriter.1/scope"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="os-type.ecore#//TypedObject">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/application"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/library"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/attribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type.ecore#//TypedObject/text"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type.ecore#//TypedObject/creationInfo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type.ecore#//TypedObject/memoryInfo"/>
+      <genOperations ecoreOperation="os-type.ecore#//TypedObject/getAttribute"/>
     </genClasses>
     <genClasses ecoreClass="os-type.ecore#//TypedReference">
       <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypedReference/T"/>

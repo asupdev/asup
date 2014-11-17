@@ -17,7 +17,7 @@ import org.asup.il.data.QUnaryAtomicDataTerm;
  *
  *
  * @see org.asup.os.type.file.QOperatingSystemFilePackage#getFileFormatField()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface QFileFormatField extends QUnaryAtomicDataTerm<QUnaryAtomicBufferedDataDef<?>> {

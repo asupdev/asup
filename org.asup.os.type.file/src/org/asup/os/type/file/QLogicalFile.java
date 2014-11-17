@@ -7,8 +7,6 @@
  */
 package org.asup.os.type.file;
 
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QView;
 
 
 /**
@@ -19,9 +17,7 @@ import org.asup.db.core.QView;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.os.type.file.QLogicalFile#getIndex <em>Index</em>}</li>
- *   <li>{@link org.asup.os.type.file.QLogicalFile#getRecordLength <em>Record Length</em>}</li>
- *   <li>{@link org.asup.os.type.file.QLogicalFile#getView <em>View</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QLogicalFile#getCreationStatement <em>Creation Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,83 +25,32 @@ import org.asup.db.core.QView;
  * @model
  * @generated
  */
-public interface QLogicalFile extends QFile, QFileMembered {
+public interface QLogicalFile extends QDatabaseFile {
+
 	/**
-	 * Returns the value of the '<em><b>Index</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Creation Statement</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Index</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Creation Statement</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Index</em>' containment reference.
-	 * @see #setIndex(QIndex)
-	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getLogicalFile_Index()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	QIndex getIndex();
-
-	/**
-	 * Sets the value of the '{@link org.asup.os.type.file.QLogicalFile#getIndex <em>Index</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Index</em>' containment reference.
-	 * @see #getIndex()
-	 * @generated
-	 */
-	void setIndex(QIndex value);
-
-	/**
-	 * Returns the value of the '<em><b>Record Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Record Length</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Record Length</em>' attribute.
-	 * @see #setRecordLength(int)
-	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getLogicalFile_RecordLength()
+	 * @return the value of the '<em>Creation Statement</em>' attribute.
+	 * @see #setCreationStatement(String)
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getLogicalFile_CreationStatement()
 	 * @model
 	 * @generated
 	 */
-	int getRecordLength();
+	String getCreationStatement();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.type.file.QLogicalFile#getRecordLength <em>Record Length</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.os.type.file.QLogicalFile#getCreationStatement <em>Creation Statement</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Record Length</em>' attribute.
-	 * @see #getRecordLength()
+	 * @param value the new value of the '<em>Creation Statement</em>' attribute.
+	 * @see #getCreationStatement()
 	 * @generated
 	 */
-	void setRecordLength(int value);
-
-	/**
-	 * Returns the value of the '<em><b>View</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>View</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>View</em>' containment reference.
-	 * @see #setView(QView)
-	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getLogicalFile_View()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	QView getView();
-
-	/**
-	 * Sets the value of the '{@link org.asup.os.type.file.QLogicalFile#getView <em>View</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>View</em>' containment reference.
-	 * @see #getView()
-	 * @generated
-	 */
-	void setView(QView value);
+	void setCreationStatement(String value);
 
 } // QLogicalFile

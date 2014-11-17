@@ -15,11 +15,11 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerManager;
 import org.asup.dk.compiler.QCompilerPackage;
 import org.asup.fw.core.impl.ServiceImpl;
-import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProgram;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.type.file.QFile;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -67,7 +67,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCompilationContext createCompilationContext(QJob job, QCompoundDataTerm<?> structure, CaseSensitiveType caseSensitive) {
+	public QCompilationContext createCompilationContext(QJob job, QFile file, CaseSensitiveType caseSensitive) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -111,7 +111,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDatabaseFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -122,7 +122,18 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeStruct(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDisplayFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -145,6 +156,17 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * @generated
 	 */
 	public void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void writePrinterFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

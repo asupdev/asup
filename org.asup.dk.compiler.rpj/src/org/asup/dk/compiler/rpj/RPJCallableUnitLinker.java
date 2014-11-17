@@ -6,7 +6,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.asup.db.data.QDatabaseDataHelper;
 import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilerFactory;
@@ -23,10 +22,9 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceReader;
+import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
-import org.asup.os.type.file.QLogicalFile;
-import org.asup.os.type.file.QPhysicalFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 //github.com/asupdev/asup.git
@@ -136,63 +134,35 @@ public class RPJCallableUnitLinker {
 	
 	private void linkDataSet(QDataSetTerm dataSet) {
 
-		if(dataSet.getFileName().equalsIgnoreCase("PRT198"))
-			return;
-		
 		QFile file = getFile(dataSet.getFileName());
 
 		if(file == null)
 			throw new OperatingSystemRuntimeException("File not found: "+dataSet.getFileName());
 
-		if(file instanceof QPhysicalFile || file instanceof QLogicalFile) {
+		QDatabaseFile databaseFile = (QDatabaseFile) file;
+		
+		if(dataSet.getFormatName() == null)
+			dataSet.setFormatName(databaseFile.getDatabaseFormat().getName());
 
-			QPhysicalFile physicalFile = getPhysicalFile(dataSet.getFileName());
+		Class<?> linkedClass = loadClass(null, databaseFile);		
+		if(linkedClass == null)				
+			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+file);
+
+		QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
+		compilerLinker.setLinkedClass(linkedClass);
+		dataSet.getFacets().add(compilerLinker);
+
+		if(dataSet.getRecord() == null) {
 			
-			if(dataSet.getFormatName() == null)
-				dataSet.setFormatName(physicalFile.getTableFormat());
-
-			Class<?> linkedClass = loadClass(null, physicalFile);		
-			if(linkedClass == null)				
-				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+file);
-
-			QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
-			compilerLinker.setLinkedClass(linkedClass);
-			dataSet.getFacets().add(compilerLinker);
-
-			if(dataSet.getRecord() == null) {
-				
-				QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
-				
-				List<QDataTerm<?>> elements = QDatabaseDataHelper.buildDataTerm(physicalFile.getTable(), dataSet.getName()).getDefinition().getElements();			
-				dataStructDef.getElements().addAll(elements);
-				
-				dataSet.setRecord(dataStructDef);
-			}
+			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
+			
+			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(databaseFile.getDatabaseFormat().getFields());
+			dataStructDef.getElements().addAll(elements);
+			
+			dataSet.setRecord(dataStructDef);
 		}
-		else 
-			System.err.println(file);
 		
 	}
-
-	public QPhysicalFile getPhysicalFile(String name) {
-
-		QFile file = getFile(name);
-
-		QPhysicalFile physicalFile = null;
-		if(file instanceof QPhysicalFile) {
-			physicalFile = (QPhysicalFile) file;
-		}
-		else if(file instanceof QLogicalFile) {
-			QLogicalFile logicalFile = (QLogicalFile) file;
-			physicalFile = (QPhysicalFile) fileManager.getOverriddenFile(job, logicalFile.getIndex().getObject());
-			
-			if(physicalFile == null)
-				physicalFile = (QPhysicalFile) fileReader.lookup(logicalFile.getIndex().getObject());
-		}			
-		
-		return physicalFile;
-	}
-
 
 	public QFile getFile(String name) {
 

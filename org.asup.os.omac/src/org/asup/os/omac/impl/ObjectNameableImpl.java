@@ -9,11 +9,12 @@ package org.asup.os.omac.impl;
 
 import org.asup.os.omac.QObjectNameable;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>QObject Nameable</b></em>'.
+ * An implementation of the model object '<em><b>Object Nameable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
@@ -56,4 +57,4 @@ public abstract class ObjectNameableImpl extends ObjectImpl implements QObjectNa
 		throw new UnsupportedOperationException();
 	}
 
-} //QObjectNameableImpl
+} //ObjectNameableImpl

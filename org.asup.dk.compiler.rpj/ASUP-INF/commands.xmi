@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<os-type-cmd:CommandContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:os-type-cmd="http://www.asup.org/os/type/cmd" xsi:schemaLocation="http://www.asup.org/os/type/cmd ../../org.asup.os.type.cmd/model/os-type-cmd.ecore" name="org.asup.dk.compiler.rpj" text="As.UP Devolpment Kit Compiler RPJ Commands" version="0.5.0" vendor="www.smeup.com"/>

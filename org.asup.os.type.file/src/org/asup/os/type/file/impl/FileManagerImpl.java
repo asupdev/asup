@@ -7,7 +7,6 @@
  */
 package org.asup.os.type.file.impl;
 
-import org.asup.db.core.QConnection;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.file.QFile;
@@ -44,17 +43,6 @@ public abstract class FileManagerImpl extends TypedManagerImpl<QFile> implements
 	@Override
 	protected EClass eStaticClass() {
 		return QOperatingSystemFilePackage.Literals.FILE_MANAGER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QConnection getDatabaseConnection(QJob job) throws OperatingSystemRuntimeException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

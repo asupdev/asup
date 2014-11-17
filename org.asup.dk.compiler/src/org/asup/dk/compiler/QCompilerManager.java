@@ -10,11 +10,11 @@ package org.asup.dk.compiler;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.asup.fw.core.QService;
-import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProgram;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.type.file.QFile;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,10 +38,10 @@ public interface QCompilerManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" jobRequired="true" structureRequired="true" caseSensitiveRequired="true"
+	 * @model required="true" jobRequired="true" fileRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createCompilationContext(QJob job, QCompoundDataTerm<?> structure, CaseSensitiveType caseSensitive);
+	QCompilationContext createCompilationContext(QJob job, QFile file, CaseSensitiveType caseSensitive);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public interface QCompilerManager extends QService {
 	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeDatabaseFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +81,15 @@ public interface QCompilerManager extends QService {
 	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeStruct(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeDisplayFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @generated
+	 */
+	void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,5 +106,13 @@ public interface QCompilerManager extends QService {
 	 * @generated
 	 */
 	void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @generated
+	 */
+	void writePrinterFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
 
 } // QCompilerManager

@@ -62,25 +62,6 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	QOperatingSystemOmacPackage eINSTANCE = org.asup.os.omac.impl.OperatingSystemOmacPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.omac.QAdaptable <em>Adaptable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.omac.QAdaptable
-	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getAdaptable()
-	 * @generated
-	 */
-	int ADAPTABLE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Adaptable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADAPTABLE_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.os.omac.impl.ObjectImpl <em>Object</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +69,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObject()
 	 * @generated
 	 */
-	int OBJECT = 7;
+	int OBJECT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.impl.CreationInfoImpl <em>Creation Info</em>}' class.
@@ -98,7 +79,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getCreationInfo()
 	 * @generated
 	 */
-	int CREATION_INFO = 4;
+	int CREATION_INFO = 3;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.impl.MemoryInfoImpl <em>Memory Info</em>}' class.
@@ -108,7 +89,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getMemoryInfo()
 	 * @generated
 	 */
-	int MEMORY_INFO = 6;
+	int MEMORY_INFO = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.QObjectIterator <em>Object Iterator</em>}' class.
@@ -118,7 +99,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObjectIterator()
 	 * @generated
 	 */
-	int OBJECT_ITERATOR = 9;
+	int OBJECT_ITERATOR = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.omac.impl.ObjectNameableImpl <em>Object Nameable</em>}' class.
@@ -128,7 +109,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObjectNameable()
 	 * @generated
 	 */
-	int OBJECT_NAMEABLE = 10;
+	int OBJECT_NAMEABLE = 9;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.omac.QBundleManager <em>Bundle Manager</em>}'.
@@ -168,7 +149,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getManager()
 	 * @generated
 	 */
-	int MANAGER = 5;
+	int MANAGER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -196,7 +177,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getBundleManager()
 	 * @generated
 	 */
-	int BUNDLE_MANAGER = 1;
+	int BUNDLE_MANAGER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -224,7 +205,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getBundleVisitor()
 	 * @generated
 	 */
-	int BUNDLE_VISITOR = 2;
+	int BUNDLE_VISITOR = 1;
 
 	/**
 	 * The number of structural features of the '<em>Bundle Visitor</em>' class.
@@ -243,7 +224,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getClass_()
 	 * @generated
 	 */
-	int CLASS = 3;
+	int CLASS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Class</em>' class.
@@ -261,7 +242,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = ADAPTABLE_FEATURE_COUNT + 0;
+	int OBJECT_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
@@ -325,7 +306,7 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getObjectContainer()
 	 * @generated
 	 */
-	int OBJECT_CONTAINER = 8;
+	int OBJECT_CONTAINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -362,16 +343,6 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @ordered
 	 */
 	int OBJECT_NAMEABLE_FEATURE_COUNT = OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.os.omac.QAdaptable <em>Adaptable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Adaptable</em>'.
-	 * @see org.asup.os.omac.QAdaptable
-	 * @generated
-	 */
-	EClass getAdaptable();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.omac.QCreationInfo <em>Creation Info</em>}'.
@@ -520,16 +491,6 @@ public interface QOperatingSystemOmacPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link org.asup.os.omac.QAdaptable <em>Adaptable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.os.omac.QAdaptable
-		 * @see org.asup.os.omac.impl.OperatingSystemOmacPackageImpl#getAdaptable()
-		 * @generated
-		 */
-		EClass ADAPTABLE = eINSTANCE.getAdaptable();
-
 		/**
 		 * The meta object literal for the '{@link org.asup.os.omac.impl.BundleManagerImpl <em>Bundle Manager</em>}' class.
 		 * <!-- begin-user-doc -->

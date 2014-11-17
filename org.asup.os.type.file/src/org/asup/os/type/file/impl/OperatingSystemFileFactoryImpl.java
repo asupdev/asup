@@ -8,11 +8,12 @@
 package org.asup.os.type.file.impl;
 
 import org.asup.os.type.file.*;
-import org.asup.os.type.file.FileType;
+import org.asup.os.type.file.QDatabaseFileField;
+import org.asup.os.type.file.QDatabaseFileFormat;
 import org.asup.os.type.file.QDisplayFile;
+import org.asup.os.type.file.QDisplayFileField;
 import org.asup.os.type.file.QDisplayFileFormat;
 import org.asup.os.type.file.QExternalFile;
-import org.asup.os.type.file.QFileFormat;
 import org.asup.os.type.file.QFileMember;
 import org.asup.os.type.file.QFileMemberRow;
 import org.asup.os.type.file.QLogicalFile;
@@ -20,9 +21,10 @@ import org.asup.os.type.file.QOperatingSystemFileFactory;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.asup.os.type.file.QPhysicalFile;
 import org.asup.os.type.file.QPrinterFile;
+import org.asup.os.type.file.QPrinterFileField;
 import org.asup.os.type.file.QPrinterFileFormat;
+import org.asup.os.type.file.QSourceFile;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -72,17 +74,21 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QOperatingSystemFilePackage.DATABASE_FILE_FIELD: return (EObject)createDatabaseFileField();
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT: return (EObject)createDatabaseFileFormat();
 			case QOperatingSystemFilePackage.DISPLAY_FILE: return (EObject)createDisplayFile();
+			case QOperatingSystemFilePackage.DISPLAY_FILE_FIELD: return (EObject)createDisplayFileField();
 			case QOperatingSystemFilePackage.DISPLAY_FILE_FORMAT: return (EObject)createDisplayFileFormat();
 			case QOperatingSystemFilePackage.EXTERNAL_FILE: return (EObject)createExternalFile();
-			case QOperatingSystemFilePackage.FILE_FORMAT: return (EObject)createFileFormat();
-			case QOperatingSystemFilePackage.FILE_FORMAT_FIELD: return (EObject)createFileFormatField();
+			case QOperatingSystemFilePackage.FILE_FORMAT_KEY: return (EObject)createFileFormatKey();
 			case QOperatingSystemFilePackage.FILE_MEMBER: return (EObject)createFileMember();
 			case QOperatingSystemFilePackage.FILE_MEMBER_ROW: return (EObject)createFileMemberRow();
 			case QOperatingSystemFilePackage.LOGICAL_FILE: return (EObject)createLogicalFile();
 			case QOperatingSystemFilePackage.PHYSICAL_FILE: return (EObject)createPhysicalFile();
 			case QOperatingSystemFilePackage.PRINTER_FILE: return (EObject)createPrinterFile();
 			case QOperatingSystemFilePackage.PRINTER_FILE_FORMAT: return (EObject)createPrinterFileFormat();
+			case QOperatingSystemFilePackage.PRINTER_FILE_FIELD: return (EObject)createPrinterFileField();
+			case QOperatingSystemFilePackage.SOURCE_FILE: return (EObject)createSourceFile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,14 +99,9 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case QOperatingSystemFilePackage.FILE_TYPE:
-				return createFileTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
+	public QDatabaseFileField createDatabaseFileField() {
+		DatabaseFileFieldImpl databaseFileField = new DatabaseFileFieldImpl();
+		return databaseFileField;
 	}
 
 	/**
@@ -108,14 +109,9 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case QOperatingSystemFilePackage.FILE_TYPE:
-				return convertFileTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
+	public QDatabaseFileFormat createDatabaseFileFormat() {
+		DatabaseFileFormatImpl databaseFileFormat = new DatabaseFileFormatImpl();
+		return databaseFileFormat;
 	}
 
 	/**
@@ -133,29 +129,19 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QDisplayFileField createDisplayFileField() {
+		DisplayFileFieldImpl displayFileField = new DisplayFileFieldImpl();
+		return displayFileField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QDisplayFileFormat createDisplayFileFormat() {
 		DisplayFileFormatImpl displayFileFormat = new DisplayFileFormatImpl();
 		return displayFileFormat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QFileFormat createFileFormat() {
-		FileFormatImpl fileFormat = new FileFormatImpl();
-		return fileFormat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QFileFormatField createFileFormatField() {
-		FileFormatFieldImpl fileFormatField = new FileFormatFieldImpl();
-		return fileFormatField;
 	}
 
 	/**
@@ -223,6 +209,26 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QPrinterFileField createPrinterFileField() {
+		PrinterFileFieldImpl printerFileField = new PrinterFileFieldImpl();
+		return printerFileField;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QSourceFile createSourceFile() {
+		SourceFileImpl sourceFile = new SourceFileImpl();
+		return sourceFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QExternalFile createExternalFile() {
 		ExternalFileImpl externalFile = new ExternalFileImpl();
 		return externalFile;
@@ -233,19 +239,9 @@ public class OperatingSystemFileFactoryImpl extends EFactoryImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FileType createFileTypeFromString(EDataType eDataType, String initialValue) {
-		FileType result = FileType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertFileTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public QFileFormatKey createFileFormatKey() {
+		FileFormatKeyImpl fileFormatKey = new FileFormatKeyImpl();
+		return fileFormatKey;
 	}
 
 	/**

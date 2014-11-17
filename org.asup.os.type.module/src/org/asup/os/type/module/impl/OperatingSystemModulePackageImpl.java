@@ -7,6 +7,9 @@
  */
 package org.asup.os.type.module.impl;
 
+import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
+import org.asup.os.core.output.QOperatingSystemOutputPackage;
+import org.asup.os.core.resources.QOperatingSystemResourcesPackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
 
@@ -100,6 +103,9 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 
 		// Initialize simple dependencies
 		QOperatingSystemTypePackage.eINSTANCE.eClass();
+		QOperatingSystemResourcesPackage.eINSTANCE.eClass();
+		QOperatingSystemJobsPackage.eINSTANCE.eClass();
+		QOperatingSystemOutputPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theOperatingSystemModulePackage.createPackageContents();

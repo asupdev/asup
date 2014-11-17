@@ -17,7 +17,6 @@ import java.util.Iterator;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.rpj.helper.CompilationContextHelper;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;

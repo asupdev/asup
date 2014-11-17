@@ -18,7 +18,6 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
-import org.asup.dk.compiler.rpj.helper.EnumHelper;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
@@ -110,7 +109,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		for (String label: labels) {
 
 			EnumConstantDeclaration constantDeclaration = getAST().newEnumConstantDeclaration();
-			constantDeclaration.setName(getAST().newSimpleName(EnumHelper.normalizeEnumName(label)));
+			constantDeclaration.setName(getAST().newSimpleName(normalizeEnumName(label)));
 			
 			enumType.enumConstants().add(num, constantDeclaration);
 			num++;
@@ -134,7 +133,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			if(message.equalsIgnoreCase("CPF0000"))
 				continue;
 			EnumConstantDeclaration constantDeclaration = getAST().newEnumConstantDeclaration();
-			constantDeclaration.setName(getAST().newSimpleName(EnumHelper.normalizeEnumName(message)));
+			constantDeclaration.setName(getAST().newSimpleName(normalizeEnumName(message)));
 			
 			enumType.enumConstants().add(num, constantDeclaration);
 			num++;

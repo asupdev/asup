@@ -19,21 +19,21 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataStruct;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructureHandler;
 import org.asup.il.data.QDataVisitor;
 
 public class NIODataStructWrapperImpl extends NIOAbstractDataStruct implements QDataDelegator<QDataStruct> {
 
 	private static final long serialVersionUID = 1L;
 
-	private QDataStructDelegator _wrapped;
+	private QDataStructureHandler _wrapped;
 	private boolean _dynamicLength;
 
 	public NIODataStructWrapperImpl() {
 		super();
 	}
 	
-	public NIODataStructWrapperImpl(int length, QDataStructDelegator delegator) {
+	public NIODataStructWrapperImpl(int length, QDataStructureHandler delegator) {
 		super(length);
 		
 		this._wrapped = delegator;

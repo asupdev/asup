@@ -80,24 +80,6 @@ public interface QOperatingSystemUserProfilePackage extends EPackage {
 	int USER_PROFILE__APPLICATION = QOperatingSystemTypePackage.TYPED_OBJECT__APPLICATION;
 
 	/**
-	 * The feature id for the '<em><b>Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER_PROFILE__ATTRIBUTE = QOperatingSystemTypePackage.TYPED_OBJECT__ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER_PROFILE__CREATION_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO;
-
-	/**
 	 * The feature id for the '<em><b>Library</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,15 +87,6 @@ public interface QOperatingSystemUserProfilePackage extends EPackage {
 	 * @ordered
 	 */
 	int USER_PROFILE__LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT__LIBRARY;
-
-	/**
-	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER_PROFILE__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -132,6 +105,24 @@ public interface QOperatingSystemUserProfilePackage extends EPackage {
 	 * @ordered
 	 */
 	int USER_PROFILE__TEXT = QOperatingSystemTypePackage.TYPED_OBJECT__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_PROFILE__CREATION_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__CREATION_INFO;
+
+	/**
+	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_PROFILE__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Job Description</b></em>' attribute.

@@ -18,7 +18,7 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.os.type.file.QPrinterFile#getFileFormats <em>File Formats</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QPrinterFile#getPrinterFormats <em>Printer Formats</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,22 +26,21 @@ import java.util.List;
  * @model
  * @generated
  */
-public interface QPrinterFile extends QFile {
+public interface QPrinterFile extends QFileMultiFormat<QPrinterFileFormat> {
 
 	/**
-	 * Returns the value of the '<em><b>File Formats</b></em>' reference list.
+	 * Returns the value of the '<em><b>Printer Formats</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.os.type.file.QPrinterFileFormat}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>File Formats</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Printer Formats</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>File Formats</em>' reference list.
-	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getPrinterFile_FileFormats()
-	 * @model
-	 * @generated NOT
+	 * @return the value of the '<em>Printer Formats</em>' containment reference list.
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getPrinterFile_PrinterFormats()
+	 * @model containment="true"
+	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	List<QPrinterFileFormat> getFileFormats();
+	List<QPrinterFileFormat> getPrinterFormats();
 } // QPrinterFile

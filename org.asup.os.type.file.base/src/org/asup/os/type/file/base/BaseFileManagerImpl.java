@@ -11,12 +11,8 @@
  */
 package org.asup.os.type.file.base;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
 
-import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.FrameworkCoreException;
@@ -31,18 +27,14 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	@Inject
 	private QConnectionManager connectionManager;
 	
-	private Map<String, QConnection> connections;
-
-	@ServiceRegistration
-	public void init() {
-		connections = new HashMap<String, QConnection>();
-		
+		@ServiceRegistration
+	public void init() {		
 		QConnectionConfig connectionConfig = (QConnectionConfig) getConfig();
 		connectionManager.registerConnectionConfig(connectionConfig.getDatabaseName(), connectionConfig);
 	}
 	
-	@Override
-	public QConnection getDatabaseConnection(QJob job) throws OperatingSystemRuntimeException {
+//	@Override
+/*	public QConnection getDatabaseConnection(QJob job) throws OperatingSystemRuntimeException {
 		
 		QConnection databaseConnection = connections.get(job.getID());
 		if(databaseConnection == null) {
@@ -53,7 +45,7 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 		}
 		
 		return databaseConnection;
-	}
+	}*/
 
 	@Override
 	public void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {

@@ -17,7 +17,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.type.file.impl.PrinterFileImpl#getFileFormats <em>File Formats</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.PrinterFileImpl#getPrinterFormats <em>Printer Formats</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,19 +35,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * The cached value of the '{@link #getFileFormats() <em>File Formats</em>}' containment reference list.
+	 * The cached value of the '{@link #getPrinterFormats() <em>Printer Formats</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFileFormats()
+	 * @see #getPrinterFormats()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QPrinterFileFormat> fileFormats;
-
+	protected EList<QPrinterFileFormat> printerFormats;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,14 +69,22 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<QPrinterFileFormat> getPrinterFormats() {
+		if (printerFormats == null) {
+			printerFormats = new EObjectContainmentEList<QPrinterFileFormat>(QPrinterFileFormat.class, this, QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS);
+		}
+		return printerFormats;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@SuppressWarnings("unchecked")
 	public List<QPrinterFileFormat> getFileFormats() {
-		if (fileFormats == null) {
-			fileFormats = new EObjectResolvingEList<QPrinterFileFormat>(QPrinterFileFormat.class, this, QOperatingSystemFilePackage.PRINTER_FILE__FILE_FORMATS);
-		}
-		return fileFormats;
+		return getPrinterFormats();
 	}
 
 	/**
@@ -88,8 +95,8 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.PRINTER_FILE__FILE_FORMATS:
-				return ((InternalEList<?>)getFileFormats()).basicRemove(otherEnd, msgs);
+			case QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS:
+				return ((InternalEList<?>)getPrinterFormats()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -102,8 +109,8 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.PRINTER_FILE__FILE_FORMATS:
-				return getFileFormats();
+			case QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS:
+				return getPrinterFormats();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,9 +124,9 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.PRINTER_FILE__FILE_FORMATS:
-				getFileFormats().clear();
-				getFileFormats().addAll((Collection<? extends QPrinterFileFormat>)newValue);
+			case QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS:
+				getPrinterFormats().clear();
+				getPrinterFormats().addAll((Collection<? extends QPrinterFileFormat>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +140,8 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.PRINTER_FILE__FILE_FORMATS:
-				getFileFormats().clear();
+			case QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS:
+				getPrinterFormats().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,8 +155,8 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemFilePackage.PRINTER_FILE__FILE_FORMATS:
-				return fileFormats != null && !fileFormats.isEmpty();
+			case QOperatingSystemFilePackage.PRINTER_FILE__PRINTER_FORMATS:
+				return printerFormats != null && !printerFormats.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
