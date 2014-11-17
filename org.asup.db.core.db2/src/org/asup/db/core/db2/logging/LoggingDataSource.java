@@ -31,16 +31,18 @@ public class LoggingDataSource implements InvocationHandler {
 		}
 		if (result instanceof Connection) {
 			result = LoggingConnection.getInstance((Connection) result, loggingLevel);
-			if (LoggingLevel.DEBUG.equals(loggingLevel)) {
-				System.out.println("Connected to " + describeConnection((Connection)result));
-			}
+			System.out.println("Connected to " + describeConnection((Connection)result));
 		}
 		return result;
 	}
 	
 	private String describeConnection(Connection connection) {
 		try {
-			return "" + connection.getMetaData().getURL();
+			DatabaseMetaData metaData = connection.getMetaData();
+			return metaData.getURL() + 
+				   " - Driver " + metaData.getDriverVersion() +
+				   " - " + metaData.getDatabaseProductName() + 
+				   " " + metaData.getDatabaseMajorVersion() + "." + metaData.getDatabaseMinorVersion();
 		} catch (SQLException e) {
 			return e.toString();
 		}

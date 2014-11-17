@@ -188,9 +188,9 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 	protected void appendSQLForOptimizeClause(int aRowOptimizeLimit,
 			StringBuffer sb) {
 		if (aRowOptimizeLimit > 0) {
-			appendKeyword(sb, "LIMIT(1,");
+			appendKeyword(sb, "FETCH FIRST ");
 			appendInt(sb, aRowOptimizeLimit);
-			appendKeyword(sb, ")");
+			appendKeyword(sb, " ROWS ONLY");
 		}
 	}
 	
@@ -215,13 +215,14 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 	}
 
 	/*
-	 * Manage RRN(FIELD_NAME) --> ROW_NUMBER() OVER()
+	 * Manage RRN(FIELD_NAME) -->ROWNUM 
+	 * Richiede  db2set DB2_COMPATIBILITY_VECTOR=ORA
 	 * 
 	 * TODO: choose precision in relation to FIELD_NAME datatype.
 	 */
 	private void appendFunctionSQL_RRN(ValueExpressionFunction valExprFunc,
 									  StringBuffer sb) {
-		sb.append("ROW_NUMBER() OVER()");
+		sb.append("ROWNUM");
 	}
 	
 	private void appendFunctionSQL_SUBSTR(ValueExpressionFunction valExprFunc,
