@@ -4,7 +4,7 @@ import org.asup.fw.core.impl.AdapterManagerImpl;
 import org.eclipse.core.internal.runtime.AdapterManager;
 
 @SuppressWarnings("restriction")
-public class E4AdapterManager extends AdapterManagerImpl {
+public class E4AdapterManagerImpl extends AdapterManagerImpl {
 
 	@SuppressWarnings({"unchecked" })
 	@Override

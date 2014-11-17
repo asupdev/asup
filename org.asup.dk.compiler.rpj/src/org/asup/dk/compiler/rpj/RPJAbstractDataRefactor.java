@@ -170,7 +170,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 		for(QDataTerm<?> element: dataTerms) {
 			elementVisitor.reset();
 			element.accept(elementVisitor);
-			compoundDataDefTo.getElements().add(elementVisitor.getDataTerm());
+			compoundDataDefTo.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject)elementVisitor.getDataTerm()));
 		}
 		
 		copyDataDef(compoundDataDef, compoundDataDefTo);

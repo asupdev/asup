@@ -24,9 +24,7 @@ import org.asup.il.flow.QRoutine;
 public class JDTModuleWriter extends JDTCallableUnitWriter {
 
 	public JDTModuleWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
-		super(root, compilationContext, compilationSetup, name);
-		
-		writeImport(QModule.class);
+		super(root, compilationContext, compilationSetup, name);		
 	}
 	
 	public void writeModule(QModule module) throws IOException {

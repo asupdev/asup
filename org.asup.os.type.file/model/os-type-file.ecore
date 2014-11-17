@@ -7,6 +7,7 @@
     <eGenericSuperTypes eClassifier="#//FileSingleFormat">
       <eTypeArguments eClassifier="#//DatabaseFileFormat"/>
     </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="#//FileMembered"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseFileField" eSuperTypes="#//FileFormatField"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseFileFormat">

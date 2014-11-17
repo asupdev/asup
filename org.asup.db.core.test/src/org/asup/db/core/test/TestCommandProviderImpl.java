@@ -1,27 +1,55 @@
 package org.asup.db.core.test;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.sql.*;
-import java.util.*;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
-import org.asup.db.core.*;
-import org.asup.db.syntax.*;
+import org.asup.db.core.DataType;
+import org.asup.db.core.OrderingType;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionFactory;
+import org.asup.db.core.QConnectionFactoryRegistry;
+import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QDatabaseManager;
+import org.asup.db.core.QIndex;
+import org.asup.db.core.QIndexColumn;
+import org.asup.db.core.QSchema;
+import org.asup.db.core.QTable;
+import org.asup.db.core.QTableColumn;
+import org.asup.db.core.QView;
+import org.asup.db.syntax.QAliasResolver;
+import org.asup.db.syntax.QQueryConverter;
+import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QQueryParser;
+import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
-import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.*;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.osgi.framework.console.*;
-import org.osgi.framework.*;
+import org.eclipse.osgi.framework.console.CommandInterpreter;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 
-public class TestCommandProviderImpl extends ServiceImpl implements CommandProvider {
+public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 	@Inject
 	private QConnectionFactoryRegistry connectionFactoryRegistry;
@@ -346,40 +374,6 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		System.out.println(connection.getConnection());
 
 		return null;
-	}
-
-	@Override
-	public String getHelp() {
-		return null;
-	}
-
-	public enum DBType {
-		MSSQL, DB2;
-	}
-
-	public QConnectionConfig loadConfig(String name) {
-
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-
-		URL url = bundle.getEntry("/config/connection/" + name + ".xmi");
-		System.out.println(URI.createURI(url.toString()));
-
-		return (QConnectionConfig) load(url);
-	}
-
-	public EObject load(URL url) {
-
-		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.createResource(URI.createURI(url
-				.toString()));
-		try {
-			resource.load(Collections.EMPTY_MAP);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return resource.getContents().get(0);
-
 	}
 
 	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
