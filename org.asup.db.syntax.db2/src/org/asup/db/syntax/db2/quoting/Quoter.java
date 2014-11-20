@@ -1,5 +1,7 @@
 package org.asup.db.syntax.db2.quoting;
 
+import java.util.regex.*;
+
 import org.asup.db.core.QSchema;
 
 public class Quoter {
@@ -25,10 +27,14 @@ public class Quoter {
 	}
 	
 	private boolean needsQuoting(String name) {
-		return name.contains(" ");
+        String nonAlphaRegex = "[\\W]"; 
+        Pattern patern = Pattern.compile(nonAlphaRegex);
+        Matcher matcher = patern.matcher(name);
+        return matcher.find();
 	}
 
 	public String quoteFullName(QSchema schema, String objName) {
 		return quote(schema.getName()) + "." + quote(objName);
 	}
+	
 }

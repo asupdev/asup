@@ -141,14 +141,14 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 			}
 		}
 		System.out.println("");
-		System.out.println("SUCCESS!");
+		System.out.println("DONE!");
 	}
 
 	private List<String> readStatementsForTest() throws IOException,
 			SQLException {
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-//		URL entry = bundle.getEntry("/config/statements/prova.txt");
-		URL entry = bundle.getEntry("/config/statements/sql_smeup.txt");
+		URL entry = bundle.getEntry("/config/statements/prova.txt");
+//		URL entry = bundle.getEntry("/config/statements/sql_smeup.txt");
 		String[] sourceSQL = readLinesFromInputStream(entry.openStream());
 		List<String> result = new ArrayList<String>();
 		for (int i = 0; i < sourceSQL.length; i++) {
@@ -204,6 +204,9 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 			String schemaName, String command) throws Exception {
 		QQueryParser queryParser = queryParserRegistry.lookup(pluginFrom);
 
+		String semicolonReplacement = "§SEMICOLON§";
+		command = command.replace(";", semicolonReplacement);
+		
 		SQLQueryParseResult query = queryParser
 				.parseQuery(new ByteArrayInputStream(command.getBytes()));
 
@@ -215,7 +218,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		QQueryConverter queryConverter = queryConverterRegistry
 				.lookup(pluginTo);
 
-		return queryConverter.convertQuery(query);
+		return queryConverter.convertQuery(query).replace(semicolonReplacement, ";");
 	}			
 
 	// connectionManager e disk
