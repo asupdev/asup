@@ -147,6 +147,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 	private List<String> readStatementsForTest() throws IOException,
 			SQLException {
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+//		URL entry = bundle.getEntry("/config/statements/prova.txt");
 		URL entry = bundle.getEntry("/config/statements/sql_smeup.txt");
 		String[] sourceSQL = readLinesFromInputStream(entry.openStream());
 		List<String> result = new ArrayList<String>();
@@ -215,7 +216,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 				.lookup(pluginTo);
 
 		return queryConverter.convertQuery(query);
-	}
+	}			
 
 	// connectionManager e disk
 	public Object _testcon(CommandInterpreter interpreter) throws SQLException {
@@ -350,7 +351,7 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 
 	@Override
 	public String getHelp() {
-		return null;
+		return "Nuovo help";
 	}
 
 	public enum DBType {
