@@ -12,7 +12,7 @@ public class Quoter {
 	public Quoter(String quoteString) {
 		this(quoteString, quoteString);
 	}
-
+	
 	public Quoter(String startQuote, String endQuote) {
 		this.startQuote = startQuote;
 		this.endQuote = endQuote;
