@@ -7,6 +7,7 @@ Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.db.core;bundle-version="0.5.0",
  org.asup.db.syntax;bundle-version="0.5.0",
- org.eclipse.datatools.sqltools.parsers.sql;bundle-version="1.0.2"
+ org.eclipse.datatools.enablement.msft.sqlserver;bundle-version="1.0.3",
+ org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition;bundle-version="1.0.1"
 Export-Package: org.asup.db.core.test
 Import-Package: org.asup.db.syntax.base

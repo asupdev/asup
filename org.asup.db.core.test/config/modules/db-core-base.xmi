@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fw-core="http://www.asup.org/fw/core" name="DBCoreBase">
+<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fw-core="http://www.asup.org/fw/core" xsi:schemaLocation="http://www.asup.org/fw/core ../../../../org.asup.fw.core/model/fw-core.ecore" name="DBCoreBase">
   <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl" interfaceName="org.asup.db.core.QConnectionFactoryRegistry" pluginInterface="org.asup.db.core.QConnectionFactory">
     <services name="MSSQL" text="Microsoft SQL Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.core.jtds.JtdsConnectionFactoryImpl"/>
   </services>
@@ -9,6 +9,7 @@
   </services>
   <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseSyntaxBuilderRegistryImpl" interfaceName="org.asup.db.syntax.QSyntaxBuilderRegistry" pluginInterface="org.asup.db.syntax.QSyntaxBuilder">
     <services name="MSSQL" text="Microsoft SQL Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.mssql.MsSQLSyntaxBuilderImpl"/>
+    <services name="IBMI" text="IBMi Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.ibmi.IBMiSyntaxBuilderImpl"/>
   </services>
   <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseQueryConverterRegistryImpl" interfaceName="org.asup.db.syntax.QQueryConverterRegistry" pluginInterface="org.asup.db.syntax.QQueryConverter">
     <services name="MSSQL" text="Microsoft SQL Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.mssql.MsSQLQueryConverterImpl"/>

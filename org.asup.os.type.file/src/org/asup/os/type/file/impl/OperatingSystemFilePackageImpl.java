@@ -875,6 +875,8 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		g2 = createEGenericType(this.getDatabaseFileFormat());
 		g1.getETypeArguments().add(g2);
 		databaseFileEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getFileMembered());
+		databaseFileEClass.getEGenericSuperTypes().add(g1);
 		databaseFileFieldEClass.getESuperTypes().add(this.getFileFormatField());
 		g1 = createEGenericType(this.getFileFormat());
 		g2 = createEGenericType(this.getDatabaseFileField());

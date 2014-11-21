@@ -11,17 +11,16 @@ import javax.sql.DataSource;
 import org.asup.db.core.*;
 import org.asup.db.syntax.*;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
-import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.*;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.osgi.framework.console.*;
+import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.osgi.framework.*;
 
 
-public class TestCommandProviderImpl extends ServiceImpl implements CommandProvider {
+public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 	@Inject
 	private QConnectionFactoryRegistry connectionFactoryRegistry;
@@ -383,7 +382,6 @@ public class TestCommandProviderImpl extends ServiceImpl implements CommandProvi
 		}
 
 		return resource.getContents().get(0);
-
 	}
 
 	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {

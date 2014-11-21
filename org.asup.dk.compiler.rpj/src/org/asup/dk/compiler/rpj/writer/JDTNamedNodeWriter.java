@@ -356,6 +356,8 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			if (dataStructureDef.isQualified()) 
 				writeAnnotation(node, DataDef.class, "qualified", dataStructureDef.isQualified());
 			
+			if (dataStructureDef.getLength() > 0)
+				writeAnnotation(node, DataDef.class, "length", dataStructureDef.getLength());
 		}
 		else if(QCharacterDef.class.isAssignableFrom(klassDef)) {
 			QCharacterDef charDef = (QCharacterDef) dataDef;
@@ -528,18 +530,39 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				QMultipleCompoundDataDef<?> multipleCompoundDataDef = multipleCompoundDataTerm.getDefinition();
 				writeImport(multipleCompoundDataDef.getDataClass());
 				
-/*				array = getAST().newSimpleType(getAST().newSimpleName(multipleCompoundDataDef.getDataClass().getSimpleName()));
+				QCompilerLinker compilerLinker = dataTerm.getFacet(QCompilerLinker.class);
+				compilerLinker = dataTerm.getFacet(QCompilerLinker.class);
+				if(compilerLinker != null) {
+					
+					Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass(); 
+					
+					if(isOverridden(multipleCompoundDataTerm)) {
+						String qualifiedName = getCompilationContext().getQualifiedName(dataTerm);
+						// TODO setup
+						type = getAST().newSimpleType(getAST().newName(getCompilationContext().normalizeTypeName(qualifiedName).split("\\.")));
+					}
+					else
+						type = getAST().newSimpleType(getAST().newName(linkedClass.getName().split("\\.")));
+										
+				}
+				else {
+					String qualifiedName = getCompilationContext().getQualifiedName(dataTerm);
+					// TODO setup
+					type = getAST().newSimpleType(getAST().newName(getCompilationContext().normalizeTypeName(qualifiedName).split("\\.")));
+				}
+
+				array = getAST().newSimpleType(getAST().newSimpleName(multipleCompoundDataDef.getDataClass().getSimpleName()));
 				parType = getAST().newParameterizedType(array);
 
 				argument = multipleCompoundDataDef.getDataClass().getSimpleName();
-				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(normalizeInnerName(dataTerm))));				
-				type = parType;*/
+				parType.typeArguments().add(type);				
+				type = parType;
 				
 				break;
 			case UNARY_COMPOUND:
 				QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>)dataTerm;
 				
-				QCompilerLinker compilerLinker = dataTerm.getFacet(QCompilerLinker.class);
+				compilerLinker = dataTerm.getFacet(QCompilerLinker.class);
 				if(compilerLinker != null) {
 					
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass(); 

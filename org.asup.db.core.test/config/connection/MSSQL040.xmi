@@ -6,8 +6,8 @@
     xmlns:db-core="http://www.asup.org/db/core"
     xsi:schemaLocation="http://www.asup.org/db/core ../../../org.asup.db.core/model/db-core.ecore"
     databaseName="*LOCAL"
-    driver="net.sourceforge.jtds.jdbc.Driver"
-    password="asup2014"
+    driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    password="asup2013"
     pluginName="MSSQL"
-    url="jdbc:jtds:sqlserver://172.16.2.83/ASUP_0.4.0"
-    user="ASUP"/>
+    url="jdbc:sqlserver://asup-db1/ASUP_0.4.0"
+    user="asup"/>

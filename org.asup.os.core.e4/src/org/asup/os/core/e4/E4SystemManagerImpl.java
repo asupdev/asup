@@ -37,7 +37,7 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 		// QSystem
 		this.system = QOperatingSystemCoreFactory.eINSTANCE.createSystem();
 		this.system.setName("localhost");
-		this.system.setSystemUser("QCONSOLE");
+		this.system.setSystemUser("QASUP");
 		this.system.setSystemLibrary("QSYS");
 		this.system.setSystemDatabase("*LOCAL");		
 		this.system.setInstallPath(System.getProperty("osgi.instance.area"));
@@ -59,7 +59,7 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 
 		this.locker= new E4SystemLockerImpl(this.system);
 
-		this.startupJob = createJob(JobType.KERNEL, "QCONSOLE");
+		this.startupJob = createJob(JobType.KERNEL, "QASUP");
 		this.startupJob.setJobContext(frameworkContext.createChild());
 		
 		return startupJob;

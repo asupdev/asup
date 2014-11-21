@@ -538,7 +538,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		}
 		name = s.toString();
 		
-		return name;
+		return name.toUpperCase();
 	}
 
 	@Override
