@@ -27,7 +27,7 @@ public class Quoter {
 	}
 	
 	private boolean needsQuoting(String name) {
-        String nonAlphaRegex = "[\\W]"; 
+        String nonAlphaRegex = "[\\W&&[^$#@]]"; 
         Pattern patern = Pattern.compile(nonAlphaRegex);
         Matcher matcher = patern.matcher(name);
         return matcher.find();
