@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRTRAN0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="W5IDTR" precision="10"/>
-  <columns dataType="DECIMAL" name="W5RIGA" precision="5"/>
-  <columns dataType="CHAR" name="W5TRAG" precision="3"/>
-  <columns dataType="CHAR" name="W5CRAG" precision="15"/>
-  <columns dataType="CHAR" name="W5SCEN" precision="15"/>
-  <columns dataType="CHAR" name="W5TREC" precision="15"/>
-  <columns dataType="CHAR" name="W5KEY" precision="200"/>
-  <columns dataType="DECIMAL" name="W5DINV" precision="8"/>
-  <columns dataType="DECIMAL" name="W5DFNV" precision="8"/>
-  <columns dataType="CHAR" name="W5IDOJ" precision="10"/>
-  <columns dataType="VARCHAR" name="W5REC" precision="31002"/>
-  <columns dataType="DECIMAL" name="W5DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="W5DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="W5DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="W5DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="W5DT05" precision="8"/>
-  <columns dataType="CHAR" name="W5COD1" precision="15"/>
-  <columns dataType="CHAR" name="W5COD2" precision="15"/>
-  <columns dataType="CHAR" name="W5COD3" precision="15"/>
-  <columns dataType="CHAR" name="W5COD4" precision="15"/>
-  <columns dataType="CHAR" name="W5COD5" precision="15"/>
-  <columns dataType="DECIMAL" name="W5NUM1" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W5NUM2" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W5NUM3" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W5NUM4" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W5NUM5" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="W5FL01" precision="2"/>
-  <columns dataType="CHAR" name="W5FL02" precision="2"/>
-  <columns dataType="CHAR" name="W5FL03" precision="2"/>
-  <columns dataType="CHAR" name="W5FL04" precision="2"/>
-  <columns dataType="CHAR" name="W5FL05" precision="2"/>
-  <columns dataType="CHAR" name="W5FL06" precision="2"/>
-  <columns dataType="CHAR" name="W5FL07" precision="2"/>
-  <columns dataType="CHAR" name="W5FL08" precision="2"/>
-  <columns dataType="CHAR" name="W5FL09" precision="2"/>
-  <columns dataType="CHAR" name="W5FL10" precision="2"/>
-  <columns dataType="CHAR" name="W5FL11" precision="2"/>
-  <columns dataType="CHAR" name="W5FL12" precision="2"/>
-  <columns dataType="CHAR" name="W5FL13" precision="2"/>
-  <columns dataType="CHAR" name="W5FL14" precision="2"/>
-  <columns dataType="CHAR" name="W5FL15" precision="2"/>
-  <columns dataType="CHAR" name="W5FL16" precision="2"/>
-  <columns dataType="CHAR" name="W5FL17" precision="2"/>
-  <columns dataType="CHAR" name="W5FL18" precision="2"/>
-  <columns dataType="CHAR" name="W5FL19" precision="2"/>
-  <columns dataType="CHAR" name="W5FL20" precision="2"/>
-  <columns dataType="DECIMAL" name="W5DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="W5ORIN" precision="6"/>
-  <columns dataType="CHAR" name="W5USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="W5DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="W5ORAG" precision="6"/>
-  <columns dataType="CHAR" name="W5USAG" precision="10"/>
-  <columns dataType="CHAR" name="W5TERM" precision="10"/>
-  <columns dataType="DECIMAL" name="W5NJOB" precision="6"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRTRAN0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="W5IDTR" length="10"/>
+  <columns dataType="DECIMAL" name="W5RIGA" length="5"/>
+  <columns dataType="CHAR" name="W5TRAG" length="3"/>
+  <columns dataType="CHAR" name="W5CRAG" length="15"/>
+  <columns dataType="CHAR" name="W5SCEN" length="15"/>
+  <columns dataType="CHAR" name="W5TREC" length="15"/>
+  <columns dataType="CHAR" name="W5KEY" length="200"/>
+  <columns dataType="DECIMAL" name="W5DINV" length="8"/>
+  <columns dataType="DECIMAL" name="W5DFNV" length="8"/>
+  <columns dataType="CHAR" name="W5IDOJ" length="10"/>
+  <columns dataType="VARCHAR" name="W5REC" length="31002"/>
+  <columns dataType="DECIMAL" name="W5DT01" length="8"/>
+  <columns dataType="DECIMAL" name="W5DT02" length="8"/>
+  <columns dataType="DECIMAL" name="W5DT03" length="8"/>
+  <columns dataType="DECIMAL" name="W5DT04" length="8"/>
+  <columns dataType="DECIMAL" name="W5DT05" length="8"/>
+  <columns dataType="CHAR" name="W5COD1" length="15"/>
+  <columns dataType="CHAR" name="W5COD2" length="15"/>
+  <columns dataType="CHAR" name="W5COD3" length="15"/>
+  <columns dataType="CHAR" name="W5COD4" length="15"/>
+  <columns dataType="CHAR" name="W5COD5" length="15"/>
+  <columns dataType="DECIMAL" name="W5NUM1" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W5NUM2" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W5NUM3" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W5NUM4" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="W5NUM5" length="15" scale="5"/>
+  <columns dataType="CHAR" name="W5FL01" length="2"/>
+  <columns dataType="CHAR" name="W5FL02" length="2"/>
+  <columns dataType="CHAR" name="W5FL03" length="2"/>
+  <columns dataType="CHAR" name="W5FL04" length="2"/>
+  <columns dataType="CHAR" name="W5FL05" length="2"/>
+  <columns dataType="CHAR" name="W5FL06" length="2"/>
+  <columns dataType="CHAR" name="W5FL07" length="2"/>
+  <columns dataType="CHAR" name="W5FL08" length="2"/>
+  <columns dataType="CHAR" name="W5FL09" length="2"/>
+  <columns dataType="CHAR" name="W5FL10" length="2"/>
+  <columns dataType="CHAR" name="W5FL11" length="2"/>
+  <columns dataType="CHAR" name="W5FL12" length="2"/>
+  <columns dataType="CHAR" name="W5FL13" length="2"/>
+  <columns dataType="CHAR" name="W5FL14" length="2"/>
+  <columns dataType="CHAR" name="W5FL15" length="2"/>
+  <columns dataType="CHAR" name="W5FL16" length="2"/>
+  <columns dataType="CHAR" name="W5FL17" length="2"/>
+  <columns dataType="CHAR" name="W5FL18" length="2"/>
+  <columns dataType="CHAR" name="W5FL19" length="2"/>
+  <columns dataType="CHAR" name="W5FL20" length="2"/>
+  <columns dataType="DECIMAL" name="W5DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="W5ORIN" length="6"/>
+  <columns dataType="CHAR" name="W5USIN" length="10"/>
+  <columns dataType="DECIMAL" name="W5DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="W5ORAG" length="6"/>
+  <columns dataType="CHAR" name="W5USAG" length="10"/>
+  <columns dataType="CHAR" name="W5TERM" length="10"/>
+  <columns dataType="DECIMAL" name="W5NJOB" length="6"/>
+</db-core:TableDef>

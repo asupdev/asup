@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:fw-core="http://www.asup.org/fw/core"
-    xsi:schemaLocation="http://www.asup.org/fw/core ../../../../org.asup.fw.core/model/fw-core.ecore"
+    xsi:schemaLocation="http://www.asup.org/fw/core ../../../org.asup.fw.core/model/fw-core.ecore"
     name="FWCoreE4">
   <services
       className="org.asup.fw.core.base.BaseStringUtilImpl"
@@ -27,7 +27,4 @@
   <services
       className="org.asup.fw.core.e4.E4PluginRegistryFactoryImpl"
       interfaceName="org.asup.fw.core.QPluginRegistryFactory"/>
-  <services
-      className="org.asup.fw.core.e4.E4AdapterManagerImpl"
-      interfaceName="org.asup.fw.core.QAdapterManager"/>
 </fw-core:ApplicationModule>

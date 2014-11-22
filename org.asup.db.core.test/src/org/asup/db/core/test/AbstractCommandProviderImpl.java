@@ -22,27 +22,24 @@ public abstract class AbstractCommandProviderImpl extends ServiceImpl implements
 	}
 
 	protected QConnectionConfig loadConfig(String name) {
-		
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		
-		URL url = bundle.getEntry("/config/connection/"+name+".xmi");
-		System.out.println(URI.createURI(url.toString()));
 
-		
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		URL url = bundle.getEntry("/config/connection/" + name + ".xmi");
+
 		return (QConnectionConfig) load(url);
 	}
 
 	protected EObject load(URL url) {
 
 		ResourceSet resourceSet = new ResourceSetImpl();
-    	Resource resource = resourceSet.createResource(URI.createURI(url.toString()));    	
-        try {
+		Resource resource = resourceSet.createResource(URI.createURI(url.toString()));
+		try {
 			resource.load(Collections.EMPTY_MAP);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-        return resource.getContents().get(0);
+		return resource.getContents().get(0);
 
 	}
 

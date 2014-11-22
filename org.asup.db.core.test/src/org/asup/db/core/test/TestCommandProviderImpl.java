@@ -1,92 +1,81 @@
 package org.asup.db.core.test;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.sql.*;
-import java.util.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.inject.Inject;
-import javax.sql.DataSource;
 
-import org.asup.db.core.*;
-import org.asup.db.syntax.*;
-import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
-import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
+import org.asup.db.core.DataType;
+import org.asup.db.core.OrderingType;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QDatabaseManager;
+import org.asup.db.core.QIndexColumnDef;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QSchemaDef;
+import org.asup.db.core.QStatement;
+import org.asup.db.core.QTableColumnDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.*;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
-import org.osgi.framework.*;
-
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 	@Inject
-	private QConnectionFactoryRegistry connectionFactoryRegistry;
-	@Inject
 	private QConnectionManager connectionManager;
 	@Inject
 	private QDatabaseManager databaseManager;
-	@Inject
-	private QQueryParserRegistry queryParserRegistry;
-	@Inject
-	private QQueryConverterRegistry queryConverterRegistry;
-
-	private void dropDB2Schema(QConnection connection, String schemaName)
-			throws SQLException {
-		System.out.print("Dropping schema " + schemaName + "...");
-		QSchema schema = databaseManager.getSchema(connection, schemaName);
-		databaseManager.dropSchema(connection, schema);
-		String sql = "begin "
-				+ "  declare l_errschema varchar(128) default 'ERRORSCHEMA';"
-				+ "  declare l_errtab varchar(128) default 'ERRORTABLE';"
-				+ "  CALL SYSPROC.ADMIN_DROP_SCHEMA('" + schemaName
-				+ "', NULL, l_errschema, l_errtab);" + " end";
-		try {
-			connection.createStatement().execute(sql);
-		} catch (Exception e) {
-			System.err.println("****** ERRORE SU " + sql);
-			System.err.println(e);
-		}
-		System.out.println("schema dropped");
-	}
-
-	public void _copyS(CommandInterpreter interpreter) throws SQLException {
-		copySchema("SMEUP_DAT", "DB2");
-	}
 
 	public void _copySchema(CommandInterpreter interpreter) throws SQLException {
+
 		String schemaName = interpreter.nextArgument();
 		String pluginName = interpreter.nextArgument();
 
-		copySchema(schemaName, pluginName);
-	}
-
-	private void copySchema(String schemaName, String pluginName) throws SQLException {
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		Enumeration<String> entries = bundle.getEntryPaths("/config/schemas/"
-				+ schemaName);
+		Enumeration<String> objects = bundle.getEntryPaths("/config/schemas/" + schemaName);
 		QConnectionConfig connectionConfig = loadConfig(pluginName);
 
-		QConnection connection = connectionManager
-				.getDatabaseConnection(connectionConfig);
-		// QSchema schema = databaseManager.getSchema(connection, schemaName);
-		// if(schema != null)
-		// dropDB2Schema(connection, schema);
+		QConnection connection = connectionManager.createDatabaseConnection(connectionConfig);
 
 		dropDB2Schema(connection, schemaName);
 
-		QSchema schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
-		schema.setName(schemaName);
-		databaseManager.createSchema(connection, schema, true);
-		// connection.createStatement().execute("SET CURRENT SCHEMA " +
-		// schemaName);
+		QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
+		schemaDef.setName(schemaName);
+		databaseManager.createSchema(connection, schemaDef);
+
+		Schema schema = databaseManager.getSchema(connection, schemaName);
 
 		Set<String> fileNames = new TreeSet<String>();
 
-		while (entries.hasMoreElements()) {
-			String entry = entries.nextElement();
+		while (objects.hasMoreElements()) {
+			String entry = objects.nextElement();
 			fileNames.add(entry);
 		}
 
@@ -94,23 +83,22 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 			URL url = bundle.getEntry(fileName);
 			Object file = load(url);
+			System.out.println("Create object: " + file);
 
 			try {
-				System.out.print(".");
-				if (file instanceof QTable) {
-					QTable table = (QTable) file;
-					table.setSchema(schema);
-					databaseManager.createTable(connection, table, true);
-				} else if (file instanceof QView) {
-					QView view = (QView) file;
-					view.setSchema(schema);
-					databaseManager.createView(connection, view);
-				} else if (file instanceof QIndex) {
-					QIndex index = (QIndex) file;
-					databaseManager.createIndex(connection, index);
+				if (file instanceof QTableDef) {
+					QTableDef tableDef = (QTableDef) file;
+					databaseManager.createTable(connection, schema, tableDef);
+				} else if (file instanceof QViewDef) {
+					QViewDef viewDef = (QViewDef) file;
+					databaseManager.createView(connection, schema, viewDef);
+				} else if (file instanceof QIndexDef) {
+					QIndexDef indexDef = (QIndexDef) file;
+					Table table = databaseManager.getTable(connection, schemaName, ((QIndexDef) file).getName());
+					databaseManager.createIndex(connection, table, indexDef);
 				}
 			} catch (SQLException e) {
-				System.err.println(e);
+				System.err.println(e.toString());
 			}
 		}
 
@@ -119,106 +107,75 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 	}
 
 	public void _cSQL(CommandInterpreter interpreter) throws Exception {
+
 		QConnectionConfig connectionConfigTo = loadConfig("DB2");
-		QConnection connectionTo = connectionManager
-				.getDatabaseConnection(connectionConfigTo);
+
+		QConnection connectionTo = connectionManager.createDatabaseConnection(connectionConfigTo);
 		List<String> statements = readStatementsForTest();
-		for (String sql : statements) {
-			Statement s = connectionTo.createStatement(false);
-			try {
-				s.execute(sql);
-				System.out.print(".");
-			} catch (SQLException e) {
-				System.err.println(e.getMessage());
-				System.out.println("");
-				writeToFile(sql, new File("c:\\temp\\sql.log"), true);
-			} finally {
+
+		for(int i=0; i<10; i++) {
+			long timeIni = System.currentTimeMillis();
+			for (String sql : statements) {
 				try {
+					QStatement s = connectionTo.createStatement();
+					s.execute(sql);
 					s.close();
-				} catch (Exception e) {
+	//				System.out.print(".");
+				} catch (SQLException e) {
+	//				System.err.println(e.getMessage());
+					// writeToFile(sql, new File("c:\\temp\\sql.log"), true);
 				}
 			}
+			long timeEnd = System.currentTimeMillis();
+			System.out.println("DONE! " + (timeEnd - timeIni));
 		}
-		System.out.println("");
-		System.out.println("DONE!");
+		connectionTo.close();
 	}
 
-	private List<String> readStatementsForTest() throws IOException,
-			SQLException {
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		URL entry = bundle.getEntry("/config/statements/prova.txt");
-//		URL entry = bundle.getEntry("/config/statements/sql_smeup.txt");
-		String[] sourceSQL = readLinesFromInputStream(entry.openStream());
-		List<String> result = new ArrayList<String>();
-		for (int i = 0; i < sourceSQL.length; i++) {
-			try {
-				result.add(convertSelectCommand("IBMI", "DB2", "SMEUP_DAT",	sourceSQL[i]));
-			} catch (Exception e) {
-				System.err.println(e.getMessage());
-				System.err.println(sourceSQL[i]);
-				System.err.println("-----");
-			}
-		}
-		return result;
-	}
+	@SuppressWarnings("unchecked")
+	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
 
-	public static void writeToFile(String s, File file) throws IOException {
-		writeToFile(s, file, false);
-	}
+		String pluginNameFrom = interpreter.nextArgument();
+		String pluginNameTo = interpreter.nextArgument();
 
-	public static void writeToFile(String s, File file, boolean append)
-			throws IOException {
+		QConnectionConfig connectionConfigFrom = loadConfig(pluginNameFrom);
+		QConnection connectionFrom = connectionManager.createDatabaseConnection(connectionConfigFrom);
 
-		BufferedWriter out = null;
+		QConnectionConfig connectionConfigTo = loadConfig(pluginNameTo);
+		QConnection connectionTo = connectionManager.createDatabaseConnection(connectionConfigTo);
+
+		System.out.print("Reading schema...");
+		Schema schemaFrom = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
+		System.out.println("...OK");
+
 		try {
-			out = new BufferedWriter(new FileWriter(file, append));
-			out.write(s);
-		} finally {
-			if (out != null) {
-				out.close();
+			dropDB2Schema(connectionTo, schemaFrom.getName());
+		} catch (Exception e) {
+		}
+
+		QSchemaDef schemaDef = connectionTo.getAdapter(schemaFrom, QSchemaDef.class);
+		databaseManager.createSchema(connectionTo, schemaDef);
+		Schema schemaTo = databaseManager.getSchema(connectionTo, schemaDef.getName());
+
+		for (Table table : (List<Table>) schemaFrom.getTables()) {
+
+			if (table instanceof ViewTable) {
+				QViewDef viewDef = connectionTo.getAdapter(schemaFrom, QViewDef.class);
+				databaseManager.createView(connectionTo, schemaTo, viewDef);
+			} else {
+				QTableDef tableDef = connectionTo.getAdapter(table, QTableDef.class);
+				databaseManager.createTable(connectionTo, schemaTo, tableDef);
 			}
 		}
-	}
 
-	public static String[] readLinesFromInputStream(InputStream inputStream) throws IOException {
-		return readLinesFrom(new BufferedReader(new InputStreamReader(
-				inputStream)));
-	}
-
-	public static String[] readLinesFromFile(File file) throws IOException {
-		return readLinesFrom(new BufferedReader(new FileReader(file)));
-	}
-
-	public static String[] readLinesFrom(BufferedReader in) throws IOException {
-		ArrayList<String> linee = new ArrayList<String>();
-		String str;
-		while ((str = in.readLine()) != null) {
-			linee.add(str);
+		for (Index index : (List<Index>) schemaFrom.getIndices()) {
+			QIndexDef indexDef = connectionTo.getAdapter(index, QIndexDef.class);
+			Table tableTo = databaseManager.getTable(connectionTo, schemaTo.getName(), index.getName());
+			databaseManager.createIndex(connectionTo, tableTo, indexDef);
 		}
-		in.close();
-		return (String[]) linee.toArray(new String[] {});
+
+		return null;
 	}
-
-	private String convertSelectCommand(String pluginFrom, String pluginTo,
-			String schemaName, String command) throws Exception {
-		QQueryParser queryParser = queryParserRegistry.lookup(pluginFrom);
-
-		String semicolonReplacement = "§SEMICOLON§";
-		command = command.replace(";", semicolonReplacement);
-		
-		SQLQueryParseResult query = queryParser
-				.parseQuery(new ByteArrayInputStream(command.getBytes()));
-
-		QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(
-				schemaName);
-		query.setQueryStatement(aliasResolver.resolveAlias(query
-				.getQueryStatement()));
-
-		QQueryConverter queryConverter = queryConverterRegistry
-				.lookup(pluginTo);
-
-		return queryConverter.convertQuery(query).replace(semicolonReplacement, ";");
-	}			
 
 	// connectionManager e disk
 	public Object _testcon(CommandInterpreter interpreter) throws SQLException {
@@ -226,9 +183,10 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		String pluginName = interpreter.nextArgument();
 		QConnectionConfig connectionConfig = loadConfig(pluginName);
 
-		QConnection connection = connectionManager
-				.getDatabaseConnection(connectionConfig);
-		System.out.println(connection.getConnection());
+		QConnection connection = connectionManager.createDatabaseConnection(connectionConfig);
+		System.out.println(connection);
+
+		connection.close();
 
 		return null;
 	}
@@ -242,113 +200,138 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		String tableName = "ASUP_TABLE";
 		String indexName = "ASUP_INDEX";
 
-		QConnection connection = connectionManager
-				.getDatabaseConnection(connectionConfig);
+		QConnection connection = connectionManager.createDatabaseConnection(connectionConfig);
 
-		QSchema schema = databaseManager.getSchema(connection, schemaName);
+		Schema schema = databaseManager.getSchema(connection, schemaName);
 		if (schema != null)
 			dropDB2Schema(connection, schemaName);
 
-		schema = QDatabaseCoreFactory.eINSTANCE.createSchema();
-		schema.setDatabase(connection.getDatabase());
-		schema.setName(schemaName);
-		databaseManager.createSchema(connection, schema, true);
+		QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
+		schemaDef.setName(schemaName);
+		databaseManager.createSchema(connection, schemaDef);
+		schema = databaseManager.getSchema(connection, schemaName);
 
-		QTable table = QDatabaseCoreFactory.eINSTANCE.createTable();
-		table.setName(tableName);
-		table.setSchema(schema);
+		QTableDef tableDef = QDatabaseCoreFactory.eINSTANCE.createTableDef();
+		tableDef.setName(tableName);
 
 		for (int i = 1; i <= 3; i++) {
-			QTableColumn column = QDatabaseCoreFactory.eINSTANCE
-					.createTableColumn();
+			QTableColumnDef column = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 			column.setName("COL" + i);
 			column.setDataType(DataType.CHARACTER);
-			column.setPrecision(10);
-			column.setTable(table);
-			table.getColumns().add(column);
+			column.setLength(10);
+			tableDef.getColumns().add(column);
 		}
 
-		databaseManager.createTable(connection, table, false);
+		databaseManager.createTable(connection, schema, tableDef);
+		Table table = databaseManager.getTable(connection, schema.getName(), tableName);
 
-		QIndex index = QDatabaseCoreFactory.eINSTANCE.createIndex();
-		index.setName(indexName);
-		index.setSchema(schema);
-		index.setObject(table.getName());
+		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
+		indexDef.setName(indexName);
 
-		QIndexColumn indexColumn = QDatabaseCoreFactory.eINSTANCE
-				.createIndexColumn();
+		QIndexColumnDef indexColumn = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
 		indexColumn.setName("COL2");
 		indexColumn.setSequence(1);
 		indexColumn.setOrdering(OrderingType.ASCEND);
 
-		index.getColumns().add(indexColumn);
+		indexDef.getColumns().add(indexColumn);
 
-		databaseManager.createIndex(connection, index);
+		databaseManager.createIndex(connection, table, indexDef);
 
 		return null;
 	}
 
-	public Object _testcondb2(CommandInterpreter interpreter) throws SQLException {
-		System.out.println(connectionFactoryRegistry);
+	@SuppressWarnings("unchecked")
+	public Object _copyV(CommandInterpreter interpreter) throws SQLException {
 
-		QConnectionFactory db2ConnectionFactory = connectionFactoryRegistry
-				.lookup(DBType.DB2.name());
-		System.out.println(db2ConnectionFactory);
+		QConnectionConfig connectionConfigFrom = loadConfig("MSSQL");
+		QConnection connectionFrom = connectionManager.createDatabaseConnection(connectionConfigFrom);
 
-		Properties props = new Properties();
-		props.put("url", "jdbc:db2://172.16.2.133:50000/ASUP050");
-		props.put("user", "asup");
-		props.put("password", "asup2013");
+		QConnectionConfig connectionConfigTo = loadConfig("DB2");
+		QConnection connectionTo = connectionManager.createDatabaseConnection(connectionConfigTo);
 
-		DataSource dataSource = db2ConnectionFactory.createDataSource(props);
-		System.out.println(dataSource.getConnection());
+		System.out.print("Reading schemas...");
+		Schema schemaFrom = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
+		Schema schemaTo = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
+		System.out.println("...OK");
 
+		for (Table table : (List<Table>) schemaFrom.getTables()) {
+
+			if (!(table instanceof ViewTable))
+				continue;
+
+			ViewTable view = (ViewTable) table;
+			if (view.getName().equals("A£LIND0L")) {
+				QViewDef viewDef = connectionFrom.getAdapter(view, QViewDef.class);
+				databaseManager.createView(connectionTo, schemaTo, viewDef);
+				break;
+			}
+		}
 		return null;
-
 	}
 
-	// dataFactory
-	public Object _testcon1(CommandInterpreter interpreter) throws SQLException {
+	private void dropDB2Schema(QConnection connection, String schemaName) throws SQLException {
 
-		System.out.println(connectionFactoryRegistry);
+		System.out.print("Dropping schema " + schemaName + "...");
 
-		QConnectionFactory mssqlConnectionFactory = connectionFactoryRegistry
-				.lookup(DBType.MSSQL.name());
-		System.out.println(mssqlConnectionFactory);
+		Schema schema = databaseManager.getSchema(connection, schemaName);
+		if (schema == null)
+			return;
 
-		Properties props = new Properties();
-		props.put("url","jdbc:jtds:sqlserver://127.0.0.1:1433/ASUP_0.5.0;instance=SQLEXPRESS");
-		props.put("user", "ASUP");
-		props.put("password", "asup2013");
-
-		DataSource dataSource = mssqlConnectionFactory.createDataSource(props);
-		System.out.println(dataSource.getConnection());
-
-		return null;
-
+		databaseManager.dropSchema(connection, schema);
+		String sql = "begin " + "  declare l_errschema varchar(128) default 'ERRORSCHEMA';" + "  declare l_errtab varchar(128) default 'ERRORTABLE';" + "  CALL SYSPROC.ADMIN_DROP_SCHEMA('"
+				+ schemaName + "', NULL, l_errschema, l_errtab);" + " end";
+		try {
+			connection.createStatement().execute(sql);
+		} catch (Exception e) {
+			System.err.println("****** ERRORE SU " + sql);
+			System.err.println(e);
+		}
+		System.out.println("schema dropped");
 	}
 
-	// connectionManager e config
-	public Object _testcon2(CommandInterpreter interpreter) throws SQLException {
+	private List<String> readStatementsForTest() throws IOException, SQLException {
 
-		QConnectionConfig connectionConfig = QDatabaseCoreFactory.eINSTANCE
-				.createConnectionConfig();
-		connectionConfig.setDatabaseName("*LOCAL");
-		connectionConfig.setDriver("net.sourceforge.jtds.jdbc.Driver");
-		connectionConfig
-				.setUrl("jdbc:jtds:sqlserver://localhost:1433/ASUP_0.5.0");
-		connectionConfig.setUser("ASUP");
-		connectionConfig.setPassword("asup2013");
-		connectionConfig.setUseCatalog(false);
-		connectionConfig.setPluginName(DBType.MSSQL.name());
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		// URL entry = bundle.getEntry("/config/statements/prova.txt");
+		URL entry = bundle.getEntry("/config/statements/sql_smeup.txt");
+		List<String> sourceSQL = readLinesFromInputStream(entry.openStream());
 
-		System.out.println("Testing url " + connectionConfig.getUrl());
+		return sourceSQL;
+	}
 
-		QConnection connection = connectionManager
-				.getDatabaseConnection(connectionConfig);
-		System.out.println(connection.getConnection());
+	public static void writeToFile(String s, File file) throws IOException {
+		writeToFile(s, file, false);
+	}
 
-		return null;
+	public static void writeToFile(String s, File file, boolean append) throws IOException {
+
+		BufferedWriter out = null;
+		try {
+			out = new BufferedWriter(new FileWriter(file, append));
+			out.write(s);
+		} finally {
+			if (out != null) {
+				out.close();
+			}
+		}
+	}
+
+	public static List<String> readLinesFromInputStream(InputStream inputStream) throws IOException {
+		return readLinesFrom(new BufferedReader(new InputStreamReader(inputStream)));
+	}
+
+	public static List<String> readLinesFromFile(File file) throws IOException {
+		return readLinesFrom(new BufferedReader(new FileReader(file)));
+	}
+
+	public static List<String> readLinesFrom(BufferedReader in) throws IOException {
+		ArrayList<String> linee = new ArrayList<String>();
+		String str;
+		while ((str = in.readLine()) != null) {
+			linee.add(str);
+		}
+		in.close();
+		return linee;
 	}
 
 	@Override
@@ -365,7 +348,6 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
 
 		URL url = bundle.getEntry("/config/connection/" + name + ".xmi");
-		System.out.println(URI.createURI(url.toString()));
 
 		return (QConnectionConfig) load(url);
 	}
@@ -373,8 +355,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 	public EObject load(URL url) {
 
 		ResourceSet resourceSet = new ResourceSetImpl();
-		Resource resource = resourceSet.createResource(URI.createURI(url
-				.toString()));
+		Resource resource = resourceSet.createResource(URI.createURI(url.toString()));
 		try {
 			resource.load(Collections.EMPTY_MAP);
 		} catch (IOException e) {
@@ -382,70 +363,5 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		}
 
 		return resource.getContents().get(0);
-	}
-
-	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
-
-		String pluginNameFrom = interpreter.nextArgument();
-		String pluginNameTo = interpreter.nextArgument();
-
-		copyDDL(pluginNameFrom, pluginNameTo);
-
-		return null;
-	}
-
-	private void copyDDL(String pluginNameFrom, String pluginNameTo)
-			throws SQLException {
-		QConnectionConfig connectionConfigFrom = loadConfig(pluginNameFrom);
-		QConnection connectionFrom = connectionManager
-				.getDatabaseConnection(connectionConfigFrom);
-
-		QConnectionConfig connectionConfigTo = loadConfig(pluginNameTo);
-		QConnection connectionTo = connectionManager
-				.getDatabaseConnection(connectionConfigTo);
-
-		System.out.print("Reading schema...");
-		QSchema schema = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
-		System.out.println("...OK");
-
-		try {
-			dropDB2Schema(connectionTo, schema.getName());
-		} catch (Exception e) {
-		}
-		databaseManager.createSchema(connectionTo, schema, true);
-	}
-
-	public Object _copy(CommandInterpreter interpreter) throws SQLException {
-		copyDDL("MSSQL040", "DB2");
-		return null;
-	}
-
-	public Object _copyV(CommandInterpreter interpreter) throws SQLException {
-		QConnectionConfig connectionConfigFrom = loadConfig("MSSQL040");
-		QConnection connectionFrom = connectionManager
-				.getDatabaseConnection(connectionConfigFrom);
-
-		QConnectionConfig connectionConfigTo = loadConfig("DB2");
-		QConnection connectionTo = connectionManager
-				.getDatabaseConnection(connectionConfigTo);
-
-		System.out.print("Reading schema...");
-		QSchema schema = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
-		System.out.println("...OK");
-
-		// try {
-		// databaseManager.dropSchema(connectionTo, schema);
-		// } catch (Exception e) {
-		// }
-		// QTable table = databaseManager.getTable(connectionFrom, "SMEUP_DAT",
-		// "A£LIND0F");
-		// databaseManager.createTable(connectionTo, table, false);
-		for (QView view : schema.getViews()) {
-			if (view.getName().equals("A£LIND0L")) {
-				databaseManager.createView(connectionTo, view);
-				break;
-			}
-		}
-		return null;
 	}
 }

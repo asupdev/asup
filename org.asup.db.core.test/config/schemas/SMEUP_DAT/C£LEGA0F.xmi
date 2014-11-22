@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;LEGA0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="C&#xa7;CDLG" precision="5"/>
-  <columns dataType="CHAR" name="C&#xa7;COD1" precision="15"/>
-  <columns dataType="CHAR" name="C&#xa7;COD2" precision="15"/>
-  <columns dataType="CHAR" name="C&#xa7;LIMI" precision="10"/>
-  <columns dataType="CHAR" name="C&#xa7;LIMF" precision="10"/>
-  <columns dataType="CHAR" name="C&#xa7;DATI" precision="150"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;LEGA0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="C&#xa7;CDLG" length="5"/>
+  <columns dataType="CHAR" name="C&#xa7;COD1" length="15"/>
+  <columns dataType="CHAR" name="C&#xa7;COD2" length="15"/>
+  <columns dataType="CHAR" name="C&#xa7;LIMI" length="10"/>
+  <columns dataType="CHAR" name="C&#xa7;LIMF" length="10"/>
+  <columns dataType="CHAR" name="C&#xa7;DATI" length="150"/>
+</db-core:TableDef>

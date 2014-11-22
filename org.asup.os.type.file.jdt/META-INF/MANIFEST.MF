@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Operating System File Eclipse JDT
 Bundle-SymbolicName: org.asup.os.type.file.jdt
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.os.type.file.jdt;version="0.2.2.qualifier"
-Require-Bundle: org.asup.os.type.file;bundle-version="0.5.0",
- org.asup.dk.source;bundle-version="0.5.0"
+Require-Bundle: org.asup.os.type.file;bundle-version="0.5.3",
+ org.asup.dk.source;bundle-version="0.5.3"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

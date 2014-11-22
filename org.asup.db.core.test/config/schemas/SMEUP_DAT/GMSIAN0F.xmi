@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMSIAN0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="A&#xa7;IDGM" precision="10"/>
-  <columns dataType="CHAR" name="A&#xa7;SCEI" precision="10"/>
-  <columns dataType="CHAR" name="A&#xa7;MAGF" precision="3"/>
-  <columns dataType="CHAR" name="A&#xa7;MAGA" precision="3"/>
-  <columns dataType="CHAR" name="A&#xa7;ARTI" precision="15"/>
-  <columns dataType="CHAR" name="A&#xa7;ESER" precision="10"/>
-  <columns dataType="CHAR" name="A&#xa7;CONF" precision="15"/>
-  <columns dataType="CHAR" name="A&#xa7;UNMS" precision="2"/>
-  <columns dataType="DECIMAL" name="A&#xa7;GINI" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="A&#xa7;QENT" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="A&#xa7;QUSC" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="A&#xa7;GFIN" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="A&#xa7;COSM" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="A&#xa7;COS3" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="A&#xa7;CMAN" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="A&#xa7;SINT" precision="15"/>
-  <columns dataType="CHAR" name="A&#xa7;SIN2" precision="15"/>
-  <columns dataType="CHAR" name="AS&#xa7;COD1" precision="15"/>
-  <columns dataType="CHAR" name="AS&#xa7;COD2" precision="15"/>
-  <columns dataType="CHAR" name="AS&#xa7;COD3" precision="15"/>
-  <columns dataType="CHAR" name="AS&#xa7;COD4" precision="15"/>
-  <columns dataType="CHAR" name="AS&#xa7;COD5" precision="15"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;NUM1" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;NUM2" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;NUM3" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;NUM4" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;NUM5" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="AS&#xa7;DT05" precision="8"/>
-  <columns dataType="CHAR" name="A&#xa7;FLG1" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FLG2" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FLG3" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FLG4" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FLG5" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FL06" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FL07" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FL08" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FL09" precision="1"/>
-  <columns dataType="CHAR" name="A&#xa7;FL10" precision="1"/>
-  <columns dataType="DECIMAL" name="A&#xa7;DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="A&#xa7;DTAG" precision="8"/>
-  <columns dataType="CHAR" name="A&#xa7;USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMSIAN0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="A&#xa7;IDGM" length="10"/>
+  <columns dataType="CHAR" name="A&#xa7;SCEI" length="10"/>
+  <columns dataType="CHAR" name="A&#xa7;MAGF" length="3"/>
+  <columns dataType="CHAR" name="A&#xa7;MAGA" length="3"/>
+  <columns dataType="CHAR" name="A&#xa7;ARTI" length="15"/>
+  <columns dataType="CHAR" name="A&#xa7;ESER" length="10"/>
+  <columns dataType="CHAR" name="A&#xa7;CONF" length="15"/>
+  <columns dataType="CHAR" name="A&#xa7;UNMS" length="2"/>
+  <columns dataType="DECIMAL" name="A&#xa7;GINI" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A&#xa7;QENT" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A&#xa7;QUSC" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A&#xa7;GFIN" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A&#xa7;COSM" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A&#xa7;COS3" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="A&#xa7;CMAN" length="21" scale="6"/>
+  <columns dataType="CHAR" name="A&#xa7;SINT" length="15"/>
+  <columns dataType="CHAR" name="A&#xa7;SIN2" length="15"/>
+  <columns dataType="CHAR" name="AS&#xa7;COD1" length="15"/>
+  <columns dataType="CHAR" name="AS&#xa7;COD2" length="15"/>
+  <columns dataType="CHAR" name="AS&#xa7;COD3" length="15"/>
+  <columns dataType="CHAR" name="AS&#xa7;COD4" length="15"/>
+  <columns dataType="CHAR" name="AS&#xa7;COD5" length="15"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;NUM1" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;NUM2" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;NUM3" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;NUM4" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;NUM5" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;DT01" length="8"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;DT02" length="8"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;DT03" length="8"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;DT04" length="8"/>
+  <columns dataType="DECIMAL" name="AS&#xa7;DT05" length="8"/>
+  <columns dataType="CHAR" name="A&#xa7;FLG1" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FLG2" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FLG3" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FLG4" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FLG5" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FL06" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FL07" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FL08" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FL09" length="1"/>
+  <columns dataType="CHAR" name="A&#xa7;FL10" length="1"/>
+  <columns dataType="DECIMAL" name="A&#xa7;DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="A&#xa7;DTAG" length="8"/>
+  <columns dataType="CHAR" name="A&#xa7;USAG" length="10"/>
+</db-core:TableDef>

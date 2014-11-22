@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQSINT0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="S&#xa7;TTRI" precision="11"/>
-  <columns dataType="CHAR" name="S&#xa7;TDRI" precision="30"/>
-  <columns dataType="CHAR" name="S&#xa7;TART" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;TEFO" precision="2"/>
-  <columns dataType="CHAR" name="S&#xa7;TCFO" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;TCNC" precision="10"/>
-  <columns dataType="DECIMAL" name="S&#xa7;TQSC" precision="9" scale="3"/>
-  <columns dataType="DECIMAL" name="S&#xa7;TQRL" precision="9" scale="3"/>
-  <columns dataType="DECIMAL" name="S&#xa7;TTEM" precision="3"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQSINT0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="S&#xa7;TTRI" length="11"/>
+  <columns dataType="CHAR" name="S&#xa7;TDRI" length="30"/>
+  <columns dataType="CHAR" name="S&#xa7;TART" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;TEFO" length="2"/>
+  <columns dataType="CHAR" name="S&#xa7;TCFO" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;TCNC" length="10"/>
+  <columns dataType="DECIMAL" name="S&#xa7;TQSC" length="9" scale="3"/>
+  <columns dataType="DECIMAL" name="S&#xa7;TQRL" length="9" scale="3"/>
+  <columns dataType="DECIMAL" name="S&#xa7;TTEM" length="3"/>
+</db-core:TableDef>

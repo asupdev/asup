@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Syntax MsSql
 Bundle-SymbolicName: org.asup.db.syntax.mssql
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.db.syntax.mssql
-Require-Bundle: org.asup.db.syntax;bundle-version="0.5.0",
- org.asup.db.syntax.base;bundle-version="0.5.0",
+Require-Bundle: org.asup.db.syntax;bundle-version="0.5.3",
+ org.asup.db.syntax.base;bundle-version="0.5.3",
  org.asup.db.core.base,
  org.asup.dk.parser
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

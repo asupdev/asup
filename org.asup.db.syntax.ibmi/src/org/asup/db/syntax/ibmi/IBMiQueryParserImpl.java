@@ -14,12 +14,11 @@ package org.asup.db.syntax.ibmi;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 import org.asup.db.syntax.ibmi.parser.IBMiQueryParserManagerImpl;
 import org.asup.db.syntax.impl.QueryParserImpl;
 import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceFormat;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParserException;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParserInternalException;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class IBMiQueryParserImpl extends QueryParserImpl {
@@ -33,9 +32,22 @@ public class IBMiQueryParserImpl extends QueryParserImpl {
 	}
 
 	@Override
-	public SQLQueryParseResult parseQuery(InputStream stream) throws SQLParserException, SQLParserInternalException {
+	public SQLQueryParseResult parseQuery(String sql) throws SQLException {
+		try {
+			return parserManager.parseQuery(sql);
+		} catch (Exception e) {
+			throw new SQLException(e);
+		}
+	}
+	
+	@Override
+	public SQLQueryParseResult parseQuery(InputStream stream) throws SQLException {
 		String sql = toString(stream);
-		return parserManager.parseQuery(sql);
+		try {
+			return parserManager.parseQuery(sql);
+		} catch (Exception e) {
+			throw new SQLException(e);
+		}
 	}
 	
 	public static String toString(InputStream is) {
@@ -54,4 +66,5 @@ public class IBMiQueryParserImpl extends QueryParserImpl {
         	return "";
         }
 	}
+
 }

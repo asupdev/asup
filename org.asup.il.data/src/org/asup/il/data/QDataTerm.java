@@ -70,7 +70,7 @@ public interface QDataTerm<DD extends QDataDef<?>> extends QTerm {
 	 * @return the value of the '<em>Definition</em>' containment reference.
 	 * @see #setDefinition(QDataDef)
 	 * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataTerm_Definition()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	DD getDefinition();

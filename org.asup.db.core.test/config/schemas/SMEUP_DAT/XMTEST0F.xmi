@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="XMTEST0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="T$CODI" precision="15"/>
-  <columns dataType="CHAR" name="T$TIPO" precision="3"/>
-  <columns dataType="CHAR" name="T$DEIM" precision="50"/>
-  <columns dataType="CHAR" name="T$STAT" precision="3"/>
-  <columns dataType="CHAR" name="T$COAP" precision="15"/>
-  <columns dataType="CHAR" name="T$COCE" precision="15"/>
-  <columns dataType="CHAR" name="T$CSTR" precision="30"/>
-  <columns dataType="CHAR" name="T$FORN" precision="30"/>
-  <columns dataType="DECIMAL" name="T$ACOS" precision="4"/>
-  <columns dataType="DECIMAL" name="T$DINS" precision="8"/>
-  <columns dataType="DECIMAL" name="T$DUMA" precision="8"/>
-  <columns dataType="CHAR" name="T$MAIN" precision="15"/>
-  <columns dataType="CHAR" name="T$MAFO" precision="15"/>
-  <columns dataType="CHAR" name="T$CDL" precision="6"/>
-  <columns dataType="CHAR" name="T$CDC" precision="6"/>
-  <columns dataType="DECIMAL" name="T$PESO" precision="7"/>
-  <columns dataType="DECIMAL" name="T$ALTE" precision="5"/>
-  <columns dataType="DECIMAL" name="T$LARG" precision="5"/>
-  <columns dataType="DECIMAL" name="T$LUNG" precision="5"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="XMTEST0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="T$CODI" length="15"/>
+  <columns dataType="CHAR" name="T$TIPO" length="3"/>
+  <columns dataType="CHAR" name="T$DEIM" length="50"/>
+  <columns dataType="CHAR" name="T$STAT" length="3"/>
+  <columns dataType="CHAR" name="T$COAP" length="15"/>
+  <columns dataType="CHAR" name="T$COCE" length="15"/>
+  <columns dataType="CHAR" name="T$CSTR" length="30"/>
+  <columns dataType="CHAR" name="T$FORN" length="30"/>
+  <columns dataType="DECIMAL" name="T$ACOS" length="4"/>
+  <columns dataType="DECIMAL" name="T$DINS" length="8"/>
+  <columns dataType="DECIMAL" name="T$DUMA" length="8"/>
+  <columns dataType="CHAR" name="T$MAIN" length="15"/>
+  <columns dataType="CHAR" name="T$MAFO" length="15"/>
+  <columns dataType="CHAR" name="T$CDL" length="6"/>
+  <columns dataType="CHAR" name="T$CDC" length="6"/>
+  <columns dataType="DECIMAL" name="T$PESO" length="7"/>
+  <columns dataType="DECIMAL" name="T$ALTE" length="5"/>
+  <columns dataType="DECIMAL" name="T$LARG" length="5"/>
+  <columns dataType="DECIMAL" name="T$LUNG" length="5"/>
+</db-core:TableDef>

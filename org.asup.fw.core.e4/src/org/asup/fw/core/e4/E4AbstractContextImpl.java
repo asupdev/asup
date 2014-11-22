@@ -19,6 +19,7 @@ import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ContextImpl;
+import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -29,6 +30,7 @@ import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.remoteserviceadmin.RemoteConstants;
 
+@SuppressWarnings("restriction")
 public abstract class E4AbstractContextImpl extends ContextImpl {
 	
 	protected BundleContext bundleContext;
@@ -163,5 +165,17 @@ public abstract class E4AbstractContextImpl extends ContextImpl {
 		catch (ClassNotFoundException e) {
 			return null;
 		}		
+	}
+
+	@SuppressWarnings({"unchecked" })
+	@Override
+	public <T> T getAdapter(Object adaptable, Class<T> adapter) {
+		AdapterManager adapterManager = AdapterManager.getDefault(); 
+		return (T) adapterManager.getAdapter(adaptable, adapter);
+	}
+
+	@Override
+	public void close() throws FrameworkCoreRuntimeException {
+		getEclipseContext().dispose();
 	}
 }

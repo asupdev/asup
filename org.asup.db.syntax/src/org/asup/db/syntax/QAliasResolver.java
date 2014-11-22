@@ -8,9 +8,9 @@
 package org.asup.db.syntax;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QIndex;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
@@ -36,10 +36,10 @@ public interface QAliasResolver extends QPlugin, QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" tableRequired="true" nomeColonnaRequired="true"
+	 * @model required="true" tableRequired="true" columnRequired="true"
 	 * @generated
 	 */
-	String getAliasForColumn(Table table, String nomeColonna);
+	String getAliasForColumn(Table table, String column);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,17 +52,9 @@ public interface QAliasResolver extends QPlugin, QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	String getSchemaSeparator();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model indexRequired="true"
 	 * @generated
 	 */
-	QIndex getIndex(QConnection connection, String index);
+	Index getIndex(QConnection connection, String index);
 
 } // AliasResolver

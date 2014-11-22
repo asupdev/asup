@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQPIAN0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="Q&#xa7;ANNU" precision="1"/>
-  <columns dataType="CHAR" name="Q&#xa7;CPDC" precision="4"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM1" precision="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM2" precision="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM3" precision="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM4" precision="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM5" precision="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM6" precision="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;CAM7" precision="10"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;DTCR" precision="8"/>
-  <columns dataType="CHAR" name="Q&#xa7;UTEN" precision="10"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;DTMR" precision="8"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQPIAN0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="Q&#xa7;ANNU" length="1"/>
+  <columns dataType="CHAR" name="Q&#xa7;CPDC" length="4"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM1" length="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM2" length="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM3" length="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM4" length="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM5" length="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM6" length="10"/>
+  <columns dataType="CHAR" name="Q&#xa7;CAM7" length="10"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DTCR" length="8"/>
+  <columns dataType="CHAR" name="Q&#xa7;UTEN" length="10"/>
+  <columns dataType="DECIMAL" name="Q&#xa7;DTMR" length="8"/>
+</db-core:TableDef>

@@ -1,19 +1,74 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fw-core="http://www.asup.org/fw/core" xsi:schemaLocation="http://www.asup.org/fw/core ../../../../org.asup.fw.core/model/fw-core.ecore" name="DBCoreBase">
-  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl" interfaceName="org.asup.db.core.QConnectionFactoryRegistry" pluginInterface="org.asup.db.core.QConnectionFactory">
-    <services name="MSSQL" text="Microsoft SQL Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.core.jtds.JtdsConnectionFactoryImpl"/>
+<fw-core:ApplicationModule
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:fw-core="http://www.asup.org/fw/core"
+    xsi:schemaLocation="http://www.asup.org/fw/core ../../../org.asup.fw.core/model/fw-core.ecore"
+    name="DBCoreBase">
+  <services
+      xsi:type="fw-core:ServicePluginRegistry"
+      className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl"
+      interfaceName="org.asup.db.core.QConnectionFactoryRegistry"
+      pluginInterface="org.asup.db.core.QConnectionFactory">
+    <services
+        name="MSSQL"
+        text="Microsoft SQL Server"
+        version="0.5.3"
+        vendor="www.smeup.com"
+        className="org.asup.db.core.mssql.MsSQLConnectionFactoryImpl"/>
   </services>
-  <services className="org.asup.db.core.base.BaseConnectionManagerImpl" interfaceName="org.asup.db.core.QConnectionManager"/>
-  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseQueryParserRegistryImpl" interfaceName="org.asup.db.syntax.QQueryParserRegistry" pluginInterface="org.asup.db.syntax.QQueryParser">
-    <services name="IBMI" text="IBMi Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.ibmi.IBMiQueryParserImpl"/>
+  <services
+      className="org.asup.db.core.base.BaseConnectionManagerImpl"
+      interfaceName="org.asup.db.core.QConnectionManager"/>
+  <services
+      xsi:type="fw-core:ServicePluginRegistry"
+      className="org.asup.db.syntax.base.BaseQueryParserRegistryImpl"
+      interfaceName="org.asup.db.syntax.QQueryParserRegistry"
+      pluginInterface="org.asup.db.syntax.QQueryParser">
+    <services
+        name="IBMI"
+        text="IBMi Server"
+        version="0.5.3"
+        vendor="www.smeup.com"
+        className="org.asup.db.syntax.ibmi.IBMiQueryParserImpl"/>
   </services>
-  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseSyntaxBuilderRegistryImpl" interfaceName="org.asup.db.syntax.QSyntaxBuilderRegistry" pluginInterface="org.asup.db.syntax.QSyntaxBuilder">
-    <services name="MSSQL" text="Microsoft SQL Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.mssql.MsSQLSyntaxBuilderImpl"/>
-    <services name="IBMI" text="IBMi Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.ibmi.IBMiSyntaxBuilderImpl"/>
+  <services
+      xsi:type="fw-core:ServicePluginRegistry"
+      className="org.asup.db.syntax.base.BaseSyntaxBuilderRegistryImpl"
+      interfaceName="org.asup.db.syntax.QSyntaxBuilderRegistry"
+      pluginInterface="org.asup.db.syntax.QSyntaxBuilder">
+    <services
+        name="MSSQL"
+        text="Microsoft SQL Server"
+        version="0.5.3"
+        vendor="www.smeup.com"
+        className="org.asup.db.syntax.mssql.MsSQLSyntaxBuilderImpl"/>
+    <services
+        name="IBMI"
+        text="IBMi Server"
+        version="0.5.3"
+        vendor="www.smeup.com"
+        className="org.asup.db.syntax.ibmi.IBMiSyntaxBuilderImpl"/>
   </services>
-  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseQueryConverterRegistryImpl" interfaceName="org.asup.db.syntax.QQueryConverterRegistry" pluginInterface="org.asup.db.syntax.QQueryConverter">
-    <services name="MSSQL" text="Microsoft SQL Server" version="0.5.0" vendor="www.smeup.com" className="org.asup.db.syntax.mssql.MsSQLQueryConverterImpl"/>
+  <services
+      xsi:type="fw-core:ServicePluginRegistry"
+      className="org.asup.db.syntax.base.BaseQueryConverterRegistryImpl"
+      interfaceName="org.asup.db.syntax.QQueryConverterRegistry"
+      pluginInterface="org.asup.db.syntax.QQueryConverter">
+    <services
+        name="MSSQL"
+        text="Microsoft SQL Server"
+        version="0.5.3"
+        vendor="www.smeup.com"
+        className="org.asup.db.syntax.mssql.MsSQLQueryConverterImpl"/>
   </services>
-  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseAliasResolverRegistryImpl" interfaceName="org.asup.db.syntax.QAliasResolverRegistry" pluginInterface="org.asup.db.syntax.QAliasResolver"/>
-  <services className="org.asup.db.core.base.BaseDatabaseManagerImpl" interfaceName="org.asup.db.core.QDatabaseManager"/>
+  <services
+      xsi:type="fw-core:ServicePluginRegistry"
+      className="org.asup.db.syntax.base.BaseAliasResolverRegistryImpl"
+      interfaceName="org.asup.db.syntax.QAliasResolverRegistry"
+      pluginInterface="org.asup.db.syntax.QAliasResolver"/>
+  <services
+      className="org.asup.db.core.base.BaseDatabaseManagerImpl"
+      interfaceName="org.asup.db.core.QDatabaseManager"/>
 </fw-core:ApplicationModule>

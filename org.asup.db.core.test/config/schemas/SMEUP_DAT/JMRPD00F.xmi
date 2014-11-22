@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="JMRPD00F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="JMFLLC" precision="2"/>
-  <columns dataType="CHAR" name="JMFMAG" precision="3"/>
-  <columns dataType="CHAR" name="JMFART" precision="15"/>
-  <columns dataType="CHAR" name="JMFSTA" precision="2"/>
-  <columns dataType="CHAR" name="JMFLIV" precision="1"/>
-  <columns dataType="DECIMAL" name="JMFDTF" precision="8"/>
-  <columns dataType="DECIMAL" name="JMFNFP" precision="5"/>
-  <columns dataType="CHAR" name="JMFPRI" precision="2"/>
-  <columns dataType="CHAR" name="JMFCMF" precision="10"/>
-  <columns dataType="DECIMAL" name="JMFQTF" precision="11" scale="3"/>
-  <columns dataType="CHAR" name="JMFFPF" precision="1"/>
-  <columns dataType="CHAR" name="JMFFNT" precision="3"/>
-  <columns dataType="CHAR" name="JMFOFN" precision="2"/>
-  <columns dataType="CHAR" name="JMFTRK" precision="1"/>
-  <columns dataType="CHAR" name="JMFSQN" precision="1"/>
-  <columns dataType="DECIMAL" name="JMFDTD" precision="8"/>
-  <columns dataType="CHAR" name="JMFTDO" precision="3"/>
-  <columns dataType="CHAR" name="JMFORD" precision="10"/>
-  <columns dataType="DECIMAL" name="JMFRIG" precision="4"/>
-  <columns dataType="CHAR" name="JMFCMD" precision="10"/>
-  <columns dataType="DECIMAL" name="JMFQTD" precision="11" scale="3"/>
-  <columns dataType="CHAR" name="JMFTEN" precision="3"/>
-  <columns dataType="CHAR" name="JMFCEN" precision="15"/>
-  <columns dataType="DECIMAL" name="JMFRFN" precision="9"/>
-  <columns dataType="DECIMAL" name="JMFDT1" precision="8"/>
-  <columns dataType="DECIMAL" name="JMFDT2" precision="8"/>
-  <columns dataType="DECIMAL" name="JMFQT1" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="JMFQT2" precision="11" scale="3"/>
-  <columns dataType="CHAR" name="JMFCD1" precision="15"/>
-  <columns dataType="CHAR" name="JMFCD2" precision="15"/>
-  <columns dataType="CHAR" name="JMFFL1" precision="1"/>
-  <columns dataType="CHAR" name="JMFFL2" precision="1"/>
-  <columns dataType="CHAR" name="JMFFL3" precision="1"/>
-  <columns dataType="CHAR" name="JMFFL4" precision="1"/>
-  <columns dataType="CHAR" name="JMFFL5" precision="1"/>
-  <columns dataType="CHAR" name="JMFPTH" precision="60"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="JMRPD00F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="JMFLLC" length="2"/>
+  <columns dataType="CHAR" name="JMFMAG" length="3"/>
+  <columns dataType="CHAR" name="JMFART" length="15"/>
+  <columns dataType="CHAR" name="JMFSTA" length="2"/>
+  <columns dataType="CHAR" name="JMFLIV" length="1"/>
+  <columns dataType="DECIMAL" name="JMFDTF" length="8"/>
+  <columns dataType="DECIMAL" name="JMFNFP" length="5"/>
+  <columns dataType="CHAR" name="JMFPRI" length="2"/>
+  <columns dataType="CHAR" name="JMFCMF" length="10"/>
+  <columns dataType="DECIMAL" name="JMFQTF" length="11" scale="3"/>
+  <columns dataType="CHAR" name="JMFFPF" length="1"/>
+  <columns dataType="CHAR" name="JMFFNT" length="3"/>
+  <columns dataType="CHAR" name="JMFOFN" length="2"/>
+  <columns dataType="CHAR" name="JMFTRK" length="1"/>
+  <columns dataType="CHAR" name="JMFSQN" length="1"/>
+  <columns dataType="DECIMAL" name="JMFDTD" length="8"/>
+  <columns dataType="CHAR" name="JMFTDO" length="3"/>
+  <columns dataType="CHAR" name="JMFORD" length="10"/>
+  <columns dataType="DECIMAL" name="JMFRIG" length="4"/>
+  <columns dataType="CHAR" name="JMFCMD" length="10"/>
+  <columns dataType="DECIMAL" name="JMFQTD" length="11" scale="3"/>
+  <columns dataType="CHAR" name="JMFTEN" length="3"/>
+  <columns dataType="CHAR" name="JMFCEN" length="15"/>
+  <columns dataType="DECIMAL" name="JMFRFN" length="9"/>
+  <columns dataType="DECIMAL" name="JMFDT1" length="8"/>
+  <columns dataType="DECIMAL" name="JMFDT2" length="8"/>
+  <columns dataType="DECIMAL" name="JMFQT1" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="JMFQT2" length="11" scale="3"/>
+  <columns dataType="CHAR" name="JMFCD1" length="15"/>
+  <columns dataType="CHAR" name="JMFCD2" length="15"/>
+  <columns dataType="CHAR" name="JMFFL1" length="1"/>
+  <columns dataType="CHAR" name="JMFFL2" length="1"/>
+  <columns dataType="CHAR" name="JMFFL3" length="1"/>
+  <columns dataType="CHAR" name="JMFFL4" length="1"/>
+  <columns dataType="CHAR" name="JMFFL5" length="1"/>
+  <columns dataType="CHAR" name="JMFPTH" length="60"/>
+</db-core:TableDef>

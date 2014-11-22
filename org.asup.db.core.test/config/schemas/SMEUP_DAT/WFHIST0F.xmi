@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFHIST0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="F3TREC" precision="1"/>
-  <columns dataType="CHAR" name="F3NURE" precision="10"/>
-  <columns dataType="CHAR" name="F3CLUO" precision="10"/>
-  <columns dataType="CHAR" name="F3TRAN" precision="10"/>
-  <columns dataType="CHAR" name="F3VALR" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFHIST0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="F3TREC" length="1"/>
+  <columns dataType="CHAR" name="F3NURE" length="10"/>
+  <columns dataType="CHAR" name="F3CLUO" length="10"/>
+  <columns dataType="CHAR" name="F3TRAN" length="10"/>
+  <columns dataType="CHAR" name="F3VALR" length="10"/>
+</db-core:TableDef>

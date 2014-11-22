@@ -15,37 +15,26 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.asup.db.core.QColumn;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QIndexColumn;
-import org.asup.db.core.QSchema;
-import org.asup.db.core.QTable;
-import org.asup.db.core.QTableColumn;
-import org.asup.db.core.QView;
-import org.asup.db.core.QViewColumn;
-import org.asup.il.data.DatetimeType;
+import org.asup.db.syntax.QSyntaxBuilder;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
-import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataStruct;
-import org.asup.il.data.QDatetimeDef;
-import org.asup.il.data.QDecimalDef;
-import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QString;
-import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QIndexDataSet;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.constraints.IndexMember;
 
 public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImpl<DS> implements QIndexDataSet<DS> {
 
-	protected QIndex index;
+	protected Index index;
 
 	protected List<String> _keys;
 	protected QBufferedDataDef<?>[] _fields;
 	
-	protected JDBCIndexDataSetImpl(QConnection databaseConnection, QIndex index, AccessMode accessMode, DS dataStruct) {
-		super(databaseConnection, accessMode, dataStruct);
+	protected JDBCIndexDataSetImpl(QConnection databaseConnection, QSyntaxBuilder syntaxBuilder, Index index, AccessMode accessMode, DS dataStruct) {
+		super(databaseConnection, syntaxBuilder, index.getTable(), accessMode, dataStruct);
 		if(index != null)
 			setIndex(index);
 	}
@@ -175,62 +164,15 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		
 	} 
 
-	private void setIndex(QIndex newIndex) {
+	@SuppressWarnings("unchecked")
+	private void setIndex(Index newIndex) {
 		index = newIndex;
 		
-		_fields = new QBufferedDataDef<?>[index.getColumns().size()];
+		_fields = new QBufferedDataDef<?>[index.getIncludedMembers().size()];
 		_keys = new ArrayList<>(_fields.length);
-		
-		int i=0;
-		for(QIndexColumn indexField: index.getColumns()) {
-			_keys.add(indexField.getName());
-			i++;
-		}
-
-		QSchema schema = index.getSchema();
-		
-		boolean objectFound = false;
-		
-		// table
-		for(QTable table: schema.getTables()) {
-			if (index.getObject().equals(table.getName())) {
-				objectFound = true;
-				i=0;
-				for(QTableColumn field: table.getColumns()) {
-					if(_keys.contains(field.getName())) {
-						_fields[i] = buildBufferedDef(field);
-						i++;
-					}
-				}
-				break;
-			}
-		}
-		if(objectFound)
-			return;
-		// view
-		for(QView view: schema.getViews()) {
-			if (index.getObject().equals(view.getName())) {
-				objectFound = true;
-				i=0;
-				for(QViewColumn field: view.getColumns()) {
-					if(_keys.contains(field.getName())) {
-						_fields[i] = buildBufferedDef(field);
-						i++;
-					}
-				}
-				break;
-			}
-		}
-		
-		if(objectFound)
-			return;
-
-		throw new RuntimeException("Object not found: "+index.getObject());
-	}
-
-	@Override
-	protected String buildEscapedTableName() {
-		return "["+index.getSchema().getName()+"].["+index.getObject().replaceFirst("\\.", "]\\.[")+"]";
+	
+		for(IndexMember indexKey: (List<IndexMember>)index.getIncludedMembers())
+			_keys.add(indexKey.getName());
 	}
 
 	@Override
@@ -258,19 +200,17 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		return sbWhere.toString();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	protected String buildOrderBy(OpDir dir) {
+		
+		QSyntaxBuilder syntaxBuilder = getSyntaxbuilder();
 		StringBuffer sbOrderBy = new StringBuffer();
 		
-		List<QIndexColumn> indexFields = index.getColumns();
-				
-		if(indexFields.isEmpty())
-			return sbOrderBy.toString();;
-				
-		for(QIndexColumn field: indexFields) {
+		for(IndexMember column: (List<IndexMember>)index.getIncludedMembers()) {
 			if(sbOrderBy.length() != 0)sbOrderBy.append(", ");
 			
-			sbOrderBy.append("["+field.getName()+"]");
+			sbOrderBy.append(syntaxBuilder.getIdentifierQuoteString()+column.getName()+syntaxBuilder.getIdentifierQuoteString());
 			if(dir == OpDir.B)
 				sbOrderBy.append(" DESC");
 		}
@@ -278,7 +218,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	private void buildWhereSet(Object[] keySet, StringBuffer sbWhere) {
-
+		
+		QSyntaxBuilder syntaxBuilder = getSyntaxbuilder();
+		
 		StringBuffer sbFields = new StringBuffer();
 		StringBuffer sbValues = new StringBuffer();
 		
@@ -291,9 +233,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 			
 			// append field
 			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbFields.append("["+_keys.get(i)+"]");
+				sbFields.append(syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString());
 			else 
-				sbFields.append("cast(["+_keys.get(i)+"] as CHARACTER)");
+				sbFields.append("cast("+syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString()+" as CHARACTER)");
 			
 			// append value
 			sbValues.append(keySet[i].toString());
@@ -337,6 +279,8 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 
 	private void buildWhereRead(Object[] keyRead, StringBuffer sbWhere) {
 
+		QSyntaxBuilder syntaxBuilder = getSyntaxbuilder();
+
 		if(keyRead == null)
 			return;
 		
@@ -358,68 +302,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 			
 			// append field
 			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbWhere.append("["+_keys.get(i)+"]").append("=").append("'"+value+"'");
+				sbWhere.append(syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString()).append("=").append("'"+value+"'");
 			else 
-				sbWhere.append("["+_keys.get(i)+"]").append("=").append(value);			
-			
+				sbWhere.append(syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString()).append("=").append(value);						
 		}
-	}
-
-	@SuppressWarnings("unchecked")
-	public <DD extends QUnaryAtomicDataDef<?>> DD buildBufferedDef(QColumn field) {
-		
-		DD definition = null;
-		QCharacterDef characterDefinition = null;
-		QDatetimeDef	dateTimeDefinition = null;
-		QDecimalDef decimalDefinition = null;
-		
-		switch (field.getDataType()) {
-		
-			case IDENTITY:
-				decimalDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDecimalDef();
-				decimalDefinition.setPrecision(9);
-				definition = (DD) decimalDefinition;
-				break;
-			case BOOLEAN:
-				characterDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createCharacterDef();
-				definition = (DD) characterDefinition;
-				break;
-			case CHARACTER:
-				characterDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createCharacterDef();
-				characterDefinition.setLength(field.getPrecision());
-				definition = (DD) characterDefinition;
-				break;
-			case VARCHAR:
-				characterDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createCharacterDef();
-				characterDefinition.setVarying(true);				
-				characterDefinition.setLength(field.getPrecision());
-				definition = (DD) characterDefinition;
-				break;				
-			case DATE:
-				dateTimeDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDatetimeDef();
-				dateTimeDefinition.setType(DatetimeType.DATE);
-				definition = (DD) dateTimeDefinition;
-				break;
-			case TIME:
-				dateTimeDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDatetimeDef();
-				dateTimeDefinition.setType(DatetimeType.TIME);
-				definition = (DD) dateTimeDefinition;
-				break;
-			case TIME_STAMP:
-				dateTimeDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDatetimeDef();
-				dateTimeDefinition.setType(DatetimeType.TIME_STAMP);
-				definition = (DD) dateTimeDefinition;
-				break;
-			case DECIMAL:
-				decimalDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDecimalDef();
-				decimalDefinition.setPrecision(field.getPrecision());
-				decimalDefinition.setScale(field.getScale());
-				definition = (DD) decimalDefinition;				
-				break;
-			default:
-				throw new UnsupportedOperationException("Unsupported cast "+field.getDataType().getName());
-		}
-		
-		return 	definition;
 	}
 }

@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5RITE0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="P5AZIE" precision="2"/>
-  <columns dataType="CHAR" name="P5DIVI" precision="3"/>
-  <columns dataType="CHAR" name="P5ESER" precision="10"/>
-  <columns dataType="CHAR" name="P5TPOR" precision="12"/>
-  <columns dataType="CHAR" name="P5CDOR" precision="15"/>
-  <columns dataType="CHAR" name="P5TPOG" precision="12"/>
-  <columns dataType="CHAR" name="P5CDOG" precision="15"/>
-  <columns dataType="CHAR" name="P5TPCN" precision="3"/>
-  <columns dataType="CHAR" name="P5SOGG" precision="15"/>
-  <columns dataType="CHAR" name="P5TSOG" precision="1"/>
-  <columns dataType="CHAR" name="P5LIVE" precision="1"/>
-  <columns dataType="CHAR" name="P5STAT" precision="2"/>
-  <columns dataType="CHAR" name="P5TRIB" precision="6"/>
-  <columns dataType="CHAR" name="P5CAPR" precision="4"/>
-  <columns dataType="CHAR" name="P5CRIT" precision="15"/>
-  <columns dataType="CHAR" name="P5CRPR" precision="15"/>
-  <columns dataType="CHAR" name="P5NDOC" precision="20"/>
-  <columns dataType="DECIMAL" name="P5DTDO" precision="8"/>
-  <columns dataType="DECIMAL" name="P5DTCO" precision="8"/>
-  <columns dataType="DECIMAL" name="P5DTVR" precision="8"/>
-  <columns dataType="DECIMAL" name="P5IMTT" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IMPA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IMSG" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IMNS" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RAP1" precision="5" scale="2"/>
-  <columns dataType="DECIMAL" name="P5IMRA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RAP2" precision="5" scale="2"/>
-  <columns dataType="DECIMAL" name="P5IMPO" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RPP1" precision="5" scale="2"/>
-  <columns dataType="DECIMAL" name="P5IMRP" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RPP2" precision="5" scale="2"/>
-  <columns dataType="DECIMAL" name="P5RIPR" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RPP3" precision="5" scale="2"/>
-  <columns dataType="DECIMAL" name="P5RPCP" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5ENCP" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5ENAZ" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5ENAN" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="P5VALU" precision="4"/>
-  <columns dataType="DECIMAL" name="P5CAMB" precision="12" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IVTT" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IVPA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IVSG" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IVNS" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IVRA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IMVA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5IVRP" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RIPV" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5RPCV" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5EVCP" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5EVAZ" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="P5EVAN" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="P5BANC" precision="3"/>
-  <columns dataType="CHAR" name="P5ABCB" precision="15"/>
-  <columns dataType="CHAR" name="P5NUVE" precision="10"/>
-  <columns dataType="CHAR" name="P5NUCE" precision="10"/>
-  <columns dataType="DECIMAL" name="P5DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="P5DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="P5DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="P5DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="P5DT05" precision="8"/>
-  <columns dataType="CHAR" name="P5AA01" precision="15"/>
-  <columns dataType="CHAR" name="P5AA02" precision="15"/>
-  <columns dataType="CHAR" name="P5AA03" precision="15"/>
-  <columns dataType="CHAR" name="P5AA04" precision="15"/>
-  <columns dataType="CHAR" name="P5AA05" precision="15"/>
-  <columns dataType="DECIMAL" name="P5NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P5NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P5NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P5NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P5NU05" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="P5FL01" precision="1"/>
-  <columns dataType="CHAR" name="P5FL02" precision="1"/>
-  <columns dataType="CHAR" name="P5FL03" precision="1"/>
-  <columns dataType="CHAR" name="P5FL04" precision="1"/>
-  <columns dataType="CHAR" name="P5FL05" precision="1"/>
-  <columns dataType="CHAR" name="P5FL06" precision="1"/>
-  <columns dataType="CHAR" name="P5FL07" precision="1"/>
-  <columns dataType="CHAR" name="P5FL08" precision="1"/>
-  <columns dataType="CHAR" name="P5FL09" precision="1"/>
-  <columns dataType="CHAR" name="P5FL10" precision="1"/>
-  <columns dataType="CHAR" name="P5FL11" precision="1"/>
-  <columns dataType="CHAR" name="P5FL12" precision="1"/>
-  <columns dataType="CHAR" name="P5FL13" precision="1"/>
-  <columns dataType="CHAR" name="P5FL14" precision="1"/>
-  <columns dataType="CHAR" name="P5FL15" precision="1"/>
-  <columns dataType="CHAR" name="P5FL16" precision="1"/>
-  <columns dataType="CHAR" name="P5FL17" precision="1"/>
-  <columns dataType="CHAR" name="P5FL18" precision="1"/>
-  <columns dataType="CHAR" name="P5FL19" precision="1"/>
-  <columns dataType="CHAR" name="P5FL20" precision="1"/>
-  <columns dataType="DECIMAL" name="P5DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="P5ORIN" precision="6"/>
-  <columns dataType="CHAR" name="P5USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="P5DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="P5ORAG" precision="6"/>
-  <columns dataType="CHAR" name="P5USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5RITE0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="P5AZIE" length="2"/>
+  <columns dataType="CHAR" name="P5DIVI" length="3"/>
+  <columns dataType="CHAR" name="P5ESER" length="10"/>
+  <columns dataType="CHAR" name="P5TPOR" length="12"/>
+  <columns dataType="CHAR" name="P5CDOR" length="15"/>
+  <columns dataType="CHAR" name="P5TPOG" length="12"/>
+  <columns dataType="CHAR" name="P5CDOG" length="15"/>
+  <columns dataType="CHAR" name="P5TPCN" length="3"/>
+  <columns dataType="CHAR" name="P5SOGG" length="15"/>
+  <columns dataType="CHAR" name="P5TSOG" length="1"/>
+  <columns dataType="CHAR" name="P5LIVE" length="1"/>
+  <columns dataType="CHAR" name="P5STAT" length="2"/>
+  <columns dataType="CHAR" name="P5TRIB" length="6"/>
+  <columns dataType="CHAR" name="P5CAPR" length="4"/>
+  <columns dataType="CHAR" name="P5CRIT" length="15"/>
+  <columns dataType="CHAR" name="P5CRPR" length="15"/>
+  <columns dataType="CHAR" name="P5NDOC" length="20"/>
+  <columns dataType="DECIMAL" name="P5DTDO" length="8"/>
+  <columns dataType="DECIMAL" name="P5DTCO" length="8"/>
+  <columns dataType="DECIMAL" name="P5DTVR" length="8"/>
+  <columns dataType="DECIMAL" name="P5IMTT" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IMPA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IMSG" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IMNS" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RAP1" length="5" scale="2"/>
+  <columns dataType="DECIMAL" name="P5IMRA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RAP2" length="5" scale="2"/>
+  <columns dataType="DECIMAL" name="P5IMPO" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RPP1" length="5" scale="2"/>
+  <columns dataType="DECIMAL" name="P5IMRP" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RPP2" length="5" scale="2"/>
+  <columns dataType="DECIMAL" name="P5RIPR" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RPP3" length="5" scale="2"/>
+  <columns dataType="DECIMAL" name="P5RPCP" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5ENCP" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5ENAZ" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5ENAN" length="21" scale="6"/>
+  <columns dataType="CHAR" name="P5VALU" length="4"/>
+  <columns dataType="DECIMAL" name="P5CAMB" length="12" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IVTT" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IVPA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IVSG" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IVNS" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IVRA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IMVA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5IVRP" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RIPV" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5RPCV" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5EVCP" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5EVAZ" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="P5EVAN" length="21" scale="6"/>
+  <columns dataType="CHAR" name="P5BANC" length="3"/>
+  <columns dataType="CHAR" name="P5ABCB" length="15"/>
+  <columns dataType="CHAR" name="P5NUVE" length="10"/>
+  <columns dataType="CHAR" name="P5NUCE" length="10"/>
+  <columns dataType="DECIMAL" name="P5DT01" length="8"/>
+  <columns dataType="DECIMAL" name="P5DT02" length="8"/>
+  <columns dataType="DECIMAL" name="P5DT03" length="8"/>
+  <columns dataType="DECIMAL" name="P5DT04" length="8"/>
+  <columns dataType="DECIMAL" name="P5DT05" length="8"/>
+  <columns dataType="CHAR" name="P5AA01" length="15"/>
+  <columns dataType="CHAR" name="P5AA02" length="15"/>
+  <columns dataType="CHAR" name="P5AA03" length="15"/>
+  <columns dataType="CHAR" name="P5AA04" length="15"/>
+  <columns dataType="CHAR" name="P5AA05" length="15"/>
+  <columns dataType="DECIMAL" name="P5NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P5NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P5NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P5NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="P5NU05" length="15" scale="5"/>
+  <columns dataType="CHAR" name="P5FL01" length="1"/>
+  <columns dataType="CHAR" name="P5FL02" length="1"/>
+  <columns dataType="CHAR" name="P5FL03" length="1"/>
+  <columns dataType="CHAR" name="P5FL04" length="1"/>
+  <columns dataType="CHAR" name="P5FL05" length="1"/>
+  <columns dataType="CHAR" name="P5FL06" length="1"/>
+  <columns dataType="CHAR" name="P5FL07" length="1"/>
+  <columns dataType="CHAR" name="P5FL08" length="1"/>
+  <columns dataType="CHAR" name="P5FL09" length="1"/>
+  <columns dataType="CHAR" name="P5FL10" length="1"/>
+  <columns dataType="CHAR" name="P5FL11" length="1"/>
+  <columns dataType="CHAR" name="P5FL12" length="1"/>
+  <columns dataType="CHAR" name="P5FL13" length="1"/>
+  <columns dataType="CHAR" name="P5FL14" length="1"/>
+  <columns dataType="CHAR" name="P5FL15" length="1"/>
+  <columns dataType="CHAR" name="P5FL16" length="1"/>
+  <columns dataType="CHAR" name="P5FL17" length="1"/>
+  <columns dataType="CHAR" name="P5FL18" length="1"/>
+  <columns dataType="CHAR" name="P5FL19" length="1"/>
+  <columns dataType="CHAR" name="P5FL20" length="1"/>
+  <columns dataType="DECIMAL" name="P5DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="P5ORIN" length="6"/>
+  <columns dataType="CHAR" name="P5USIN" length="10"/>
+  <columns dataType="DECIMAL" name="P5DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="P5ORAG" length="6"/>
+  <columns dataType="CHAR" name="P5USAG" length="10"/>
+</db-core:TableDef>

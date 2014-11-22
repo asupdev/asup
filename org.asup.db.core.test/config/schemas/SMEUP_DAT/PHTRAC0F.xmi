@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PHTRAC0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="P&#xa7;IDOJ" precision="10"/>
-  <columns dataType="CHAR" name="P&#xa7;USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="P&#xa7;DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="P&#xa7;ORIN" precision="6"/>
-  <columns dataType="CHAR" name="P&#xa7;ADUF" precision="2"/>
-  <columns dataType="CHAR" name="P&#xa7;ADUL" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;TIPO" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;EVEN" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;DATI" precision="510"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PHTRAC0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="P&#xa7;IDOJ" length="10"/>
+  <columns dataType="CHAR" name="P&#xa7;USIN" length="10"/>
+  <columns dataType="DECIMAL" name="P&#xa7;DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="P&#xa7;ORIN" length="6"/>
+  <columns dataType="CHAR" name="P&#xa7;ADUF" length="2"/>
+  <columns dataType="CHAR" name="P&#xa7;ADUL" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;TIPO" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;EVEN" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;DATI" length="510"/>
+</db-core:TableDef>

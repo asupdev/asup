@@ -8,25 +8,22 @@
 package org.asup.db.core;
 
 import org.asup.fw.core.QServiceConfig;
-
-
+import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Database Config</b></em>'.
+ * A representation of the model object '<em><b>Connection Config</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getDatabaseName <em>Database Name</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getDriver <em>Driver</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getPluginName <em>Plugin Name</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getUrl <em>Url</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#isUseCatalog <em>Use Catalog</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#isUsePool <em>Use Pool</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,82 +33,82 @@ import org.asup.fw.core.QServiceConfig;
  */
 public interface QConnectionConfig extends QServiceConfig {
 	/**
-	 * Returns the value of the '<em><b>Plugin Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Driver Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Plugin Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Driver Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Plugin Name</em>' attribute.
-	 * @see #setPluginName(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_PluginName()
+	 * @return the value of the '<em>Driver Name</em>' attribute.
+	 * @see #setDriverName(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_DriverName()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getPluginName();
+	String getDriverName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getPluginName <em>Plugin Name</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Plugin Name</em>' attribute.
-	 * @see #getPluginName()
+	 * @param value the new value of the '<em>Driver Name</em>' attribute.
+	 * @see #getDriverName()
 	 * @generated
 	 */
-	void setPluginName(String value);
+	void setDriverName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Database Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Product</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Database Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Product</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Database Name</em>' attribute.
-	 * @see #setDatabaseName(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_DatabaseName()
+	 * @return the value of the '<em>Product</em>' attribute.
+	 * @see #setProduct(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Product()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getDatabaseName();
+	String getProduct();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getDatabaseName <em>Database Name</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Database Name</em>' attribute.
-	 * @see #getDatabaseName()
+	 * @param value the new value of the '<em>Product</em>' attribute.
+	 * @see #getProduct()
 	 * @generated
 	 */
-	void setDatabaseName(String value);
+	void setProduct(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Driver</b></em>' attribute.
+	 * Returns the value of the '<em><b>Password</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Driver</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Password</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Driver</em>' attribute.
-	 * @see #setDriver(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Driver()
+	 * @return the value of the '<em>Password</em>' attribute.
+	 * @see #setPassword(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Password()
 	 * @model
 	 * @generated
 	 */
-	String getDriver();
+	String getPassword();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getDriver <em>Driver</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Driver</em>' attribute.
-	 * @see #getDriver()
+	 * @param value the new value of the '<em>Password</em>' attribute.
+	 * @see #getPassword()
 	 * @generated
 	 */
-	void setDriver(String value);
+	void setPassword(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute.
@@ -124,7 +121,7 @@ public interface QConnectionConfig extends QServiceConfig {
 	 * @return the value of the '<em>Url</em>' attribute.
 	 * @see #setUrl(String)
 	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Url()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getUrl();
@@ -166,81 +163,45 @@ public interface QConnectionConfig extends QServiceConfig {
 	void setUser(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Password</b></em>' attribute.
+	 * Returns the value of the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Password</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Password</em>' attribute.
-	 * @see #setPassword(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Password()
+	 * @return the value of the '<em>Version</em>' attribute.
+	 * @see #setVersion(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Version()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getPassword();
+	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Password</em>' attribute.
-	 * @see #getPassword()
+	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * @see #getVersion()
 	 * @generated
 	 */
-	void setPassword(String value);
+	void setVersion(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Use Catalog</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Use Catalog</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Use Catalog</em>' attribute.
-	 * @see #setUseCatalog(boolean)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_UseCatalog()
-	 * @model
+	 * @model kind="operation" type="org.asup.db.core.DatabaseDefinition" required="true"
 	 * @generated
 	 */
-	boolean isUseCatalog();
+	DatabaseDefinition getDatabaseDefinition();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isUseCatalog <em>Use Catalog</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Use Catalog</em>' attribute.
-	 * @see #isUseCatalog()
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	void setUseCatalog(boolean value);
+	String getDatabaseDefinitionID();
 
-	/**
-	 * Returns the value of the '<em><b>Use Pool</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Use Pool</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Use Pool</em>' attribute.
-	 * @see #setUsePool(boolean)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_UsePool()
-	 * @model
-	 * @generated
-	 */
-	boolean isUsePool();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isUsePool <em>Use Pool</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Use Pool</em>' attribute.
-	 * @see #isUsePool()
-	 * @generated
-	 */
-	void setUsePool(boolean value);
-
-} // DatabaseConfig
+} // QConnectionConfig

@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://www.asup.org/il/core ../../org.asup.il.core/model/il-core.ecore http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/os/type/cmd ../../org.asup.os.type.cmd/model/os-type-cmd.ecore"
     name="com.smeup.erp.mu.conv"
     text="Sme.UP ERP Multiplatform Conversion"
-    version="0.5.0"
+    version="0.5.3"
     vendor="www.smeup.com">
   <contents
       xsi:type="os-type-cmd:Command"

@@ -2,21 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Development Kit Compiler RPJ
 Bundle-SymbolicName: org.asup.dk.compiler.rpj
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.ecore.xmi.impl,
  org.eclipse.jdt.core.dom
-Require-Bundle: org.asup.dk.compiler;bundle-version="0.5.0",
+Require-Bundle: org.asup.dk.compiler;bundle-version="0.5.3",
  org.asup.il.flow,
  org.asup.il.expr,
- org.asup.os.data;bundle-version="0.5.0",
+ org.asup.os.data;bundle-version="0.5.3",
  org.asup.os.type,
  org.asup.os.type.file,
- org.asup.os.type.module;bundle-version="0.5.0",
- org.asup.os.type.pgm;bundle-version="0.5.0",
- org.asup.os.type.msgf;bundle-version="0.5.0",
- org.asup.dk.source;bundle-version="0.5.0",
+ org.asup.os.type.module;bundle-version="0.5.3",
+ org.asup.os.type.pgm;bundle-version="0.5.3",
+ org.asup.os.type.msgf;bundle-version="0.5.3",
+ org.asup.dk.source;bundle-version="0.5.3",
  org.asup.fw.util
 Export-Package: org.asup.dk.compiler.rpj,
  org.asup.dk.compiler.rpj.writer

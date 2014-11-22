@@ -7,14 +7,12 @@
  */
 package org.asup.db.core;
 
-import java.util.Dictionary;
-
+import java.sql.SQLException;
 import org.asup.fw.core.QService;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Connection Manager</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Connection Manager</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.asup.db.core.QDatabaseCorePackage#getConnectionManager()
@@ -25,18 +23,10 @@ public interface QConnectionManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dictionaryDataType="org.asup.fw.java.JavaDictionary<org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EJavaObject>" dictionaryRequired="true"
+	 * @model connectionConfigRequired="true"
 	 * @generated
 	 */
-	QConnectionConfig createConnectionConfig(Dictionary<String, Object> dictionary);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model configRequired="true"
-	 * @generated
-	 */
-	QConnection getDatabaseConnection(QConnectionConfig config);
+	QConnection createDatabaseConnection(QConnectionConfig connectionConfig) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,14 +34,14 @@ public interface QConnectionManager extends QService {
 	 * @model
 	 * @generated
 	 */
-	QConnection getDatabaseConnection(String name);
+	QConnection createDatabaseConnection(String name) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model nameRequired="true" configRequired="true"
+	 * @model nameRequired="true" connectionConfigRequired="true"
 	 * @generated
 	 */
-	void registerConnectionConfig(String name, QConnectionConfig config);
+	void registerConnectionConfig(String name, QConnectionConfig connectionConfig);
 
 } // QConnectionManager

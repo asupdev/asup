@@ -8,19 +8,25 @@
 package org.asup.db.syntax.impl;
 
 import java.io.InputStream;
+
+import java.sql.SQLException;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QQueryParser;
+
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
+
 import org.asup.fw.core.impl.PluginImpl;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParserException;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParserInternalException;
+
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -114,7 +120,18 @@ public abstract class QueryParserImpl extends PluginImpl implements QQueryParser
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SQLQueryParseResult parseQuery(InputStream stream) throws SQLParserException, SQLParserInternalException {
+	public SQLQueryParseResult parseQuery(InputStream stream) throws SQLException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SQLQueryParseResult parseQuery(String sql) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

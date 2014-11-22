@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFZSCH0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="SZSCDL" precision="6"/>
-  <columns dataType="CHAR" name="SZSMAC" precision="10"/>
-  <columns dataType="CHAR" name="SZSATT" precision="15"/>
-  <columns dataType="CHAR" name="SZTORI" precision="2"/>
-  <columns dataType="CHAR" name="SZTDOC" precision="3"/>
-  <columns dataType="CHAR" name="SZNDOC" precision="10"/>
-  <columns dataType="CHAR" name="SZSOPE" precision="6"/>
-  <columns dataType="CHAR" name="SZSSPL" precision="1"/>
-  <columns dataType="DECIMAL" name="SZSDIN" precision="8"/>
-  <columns dataType="DECIMAL" name="SZSDFI" precision="8"/>
-  <columns dataType="CHAR" name="SZSVAL" precision="62"/>
-  <columns dataType="DECIMAL" name="SZSPZP" precision="9" scale="2"/>
-  <columns dataType="CHAR" name="SZSPAG" precision="186"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFZSCH0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="SZSCDL" length="6"/>
+  <columns dataType="CHAR" name="SZSMAC" length="10"/>
+  <columns dataType="CHAR" name="SZSATT" length="15"/>
+  <columns dataType="CHAR" name="SZTORI" length="2"/>
+  <columns dataType="CHAR" name="SZTDOC" length="3"/>
+  <columns dataType="CHAR" name="SZNDOC" length="10"/>
+  <columns dataType="CHAR" name="SZSOPE" length="6"/>
+  <columns dataType="CHAR" name="SZSSPL" length="1"/>
+  <columns dataType="DECIMAL" name="SZSDIN" length="8"/>
+  <columns dataType="DECIMAL" name="SZSDFI" length="8"/>
+  <columns dataType="CHAR" name="SZSVAL" length="62"/>
+  <columns dataType="DECIMAL" name="SZSPZP" length="9" scale="2"/>
+  <columns dataType="CHAR" name="SZSPAG" length="186"/>
+</db-core:TableDef>

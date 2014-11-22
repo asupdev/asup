@@ -1,21 +1,22 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: As.UP Database Core
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.asup.db.core;singleton:=true
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: www.smeup.com
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: org.asup.db.core,
  org.asup.db.core.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.asup.fw.core;visibility:=reexport,
- org.eclipse.datatools.connectivity;bundle-version="1.2.11";visibility:=reexport,
- org.eclipse.datatools.sqltools.parsers.sql;bundle-version="1.0.2";visibility:=reexport,
- org.eclipse.datatools.sqltools.parsers.sql.lexer;bundle-version="1.0.1";visibility:=reexport,
- org.eclipse.datatools.sqltools.parsers.sql.query;bundle-version="1.2.1";visibility:=reexport,
- org.eclipse.datatools.connectivity.sqm.core;bundle-version="1.2.8";visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+ org.asup.fw.java;visibility:=reexport,
+ org.eclipse.datatools.modelbase.sql;visibility:=reexport,
+ org.eclipse.datatools.modelbase.dbdefinition;visibility:=reexport,
+ org.eclipse.datatools.connectivity;visibility:=reexport,
+ org.eclipse.datatools.connectivity.sqm.core;visibility:=reexport,
+ org.eclipse.datatools.connectivity.db.generic,
+ org.eclipse.datatools.connectivity.dbdefinition.genericJDBC;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Import-Package: org.osgi.service.jdbc
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

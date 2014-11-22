@@ -66,7 +66,7 @@ public class JDTProjectUtil {
 		attributes.putValue("Bundle-ManifestVersion", "2");
 		attributes.putValue("Bundle-Name", text);
 		attributes.putValue("Bundle-SymbolicName", name);		
-		attributes.putValue("Bundle-Version", "0.5.0.qualifier");
+		attributes.putValue("Bundle-Version", "0.5.3.qualifier");
 		attributes.putValue("Require-Bundle", "org.asup.os.core, org.asup.db.core, org.asup.il.data, org.asup.il.isam, org.asup.os.type.pgm, org.asup.os.type.file");
 		attributes.putValue("Bundle-RequiredExecutionEnvironment", "JavaSE-1.7");
 		attributes.putValue("Export-Package", ".");

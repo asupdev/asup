@@ -59,12 +59,6 @@ public class BaseSchemaAliasResolverImpl extends AliasResolverImpl {
 	}
 
 	@Override
-	public String getSchemaSeparator() {
-
-		return ".";
-	}
-
-	@Override
 	protected void analizeObject(EObject obj) {
 		if (obj instanceof TableInDatabase) {
 
@@ -108,5 +102,9 @@ public class BaseSchemaAliasResolverImpl extends AliasResolverImpl {
 			tableReferenceRight.setName(schemaWork+ getSchemaSeparator() + tableReferenceRight.getName());
 			
 		}
+	}
+	
+	private String getSchemaSeparator() {
+		return ".";
 	}
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D0ARDT0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="D&#xa7;TIPD" precision="3"/>
-  <columns dataType="CHAR" name="D&#xa7;CONF" precision="20"/>
-  <columns dataType="CHAR" name="D&#xa7;ARTI" precision="15"/>
-  <columns dataType="DECIMAL" name="D&#xa7;NRUT" precision="5"/>
-  <columns dataType="DECIMAL" name="D&#xa7;NRCO" precision="5"/>
-  <columns dataType="DECIMAL" name="D&#xa7;LOLE" precision="5"/>
-  <columns dataType="DECIMAL" name="D&#xa7;LOLW" precision="5"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D0ARDT0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="D&#xa7;TIPD" length="3"/>
+  <columns dataType="CHAR" name="D&#xa7;CONF" length="20"/>
+  <columns dataType="CHAR" name="D&#xa7;ARTI" length="15"/>
+  <columns dataType="DECIMAL" name="D&#xa7;NRUT" length="5"/>
+  <columns dataType="DECIMAL" name="D&#xa7;NRCO" length="5"/>
+  <columns dataType="DECIMAL" name="D&#xa7;LOLE" length="5"/>
+  <columns dataType="DECIMAL" name="D&#xa7;LOLW" length="5"/>
+</db-core:TableDef>

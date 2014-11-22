@@ -7,19 +7,27 @@
  */
 package org.asup.db.syntax.impl;
 
+import java.util.List;
+
 import org.asup.db.core.OrderingType;
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QIndexColumn;
-import org.asup.db.core.QSchema;
-import org.asup.db.core.QTable;
-import org.asup.db.core.QTableColumn;
-import org.asup.db.core.QView;
+import org.asup.db.core.QIndexColumnDef;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QSchemaDef;
+import org.asup.db.core.QTableColumnDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QSyntaxBuilder;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.tables.Column;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -27,9 +35,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Syntax Builder</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Syntax Builder</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -42,14 +49,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBuilder {
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfig()
 	 * @generated
 	 * @ordered
 	 */
 	protected QServiceConfig config;
 
+	protected ISQLObjectNameHelper sqlObjectNameHelper;
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,10 +66,13 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	protected SyntaxBuilderImpl() {
 		super();
 	}
-
+	
+	protected void setSQLObjectNameHelper(ISQLObjectNameHelper sqlObjectNameHelper) {
+		this.sqlObjectNameHelper = sqlObjectNameHelper;
+	} 
+	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -70,8 +81,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QServiceConfig getConfig() {
@@ -79,8 +89,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetConfig(QServiceConfig newConfig, NotificationChain msgs) {
@@ -94,8 +103,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConfig(QServiceConfig newConfig) {
@@ -113,102 +121,102 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String createSchema(QSchema schema) {
-		return "CREATE SCHEMA "+schema.getName();
+	public String createSchema(QSchemaDef schema) {
+		return "CREATE SCHEMA " + getNameInSQLFormat(schema);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String createTable(QTable table) {
+	public String createTable(Schema schema, QTableDef table) {
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
-		result.append(table.getFullName()+" (");
+		result.append(getNameInSQLFormat(schema)+"."+getNameInSQLFormat(table) + " (");
 
 		boolean pkey = false;
 		String pkey_name = null;
-		
-		boolean first = true;
-		for(QTableColumn field: table.getColumns()) {
 
-			if(!first)
+		boolean first = true;
+		for (QTableColumnDef column : table.getColumns()) {
+
+			if (!first)
 				result.append(", ");
-			
-			switch (field.getDataType()) {
+
+			switch (column.getDataType()) {
 				case IDENTITY:
-					result.append(field.getName()+" INT NOT NULL AUTO_INCREMENT");					
+					result.append(getNameInSQLFormat(column) + " INT NOT NULL AUTO_INCREMENT");
 					pkey = true;
-					pkey_name = field.getName();
+					pkey_name = getNameInSQLFormat(column);
 					break;
 				case CHARACTER:
-					result.append(field.getName()+" CHAR("+field.getPrecision()+")");
+					result.append(getNameInSQLFormat(column) + " CHAR(" + column.getLength() + ")");
 					break;
 				case VARCHAR:
-					result.append(field.getName()+" VARCHAR("+field.getPrecision()+")");
+					result.append(getNameInSQLFormat(column) + " VARCHAR(" + column.getLength() + ")");
 					break;
 				case DECIMAL:
-					if(field.getScale() != 0)
-						result.append(field.getName()+" DECIMAL("+field.getPrecision()+", "+field.getScale()+")");
+					if (column.getScale() != 0)
+						result.append(getNameInSQLFormat(column) + " DECIMAL(" + column.getLength() + ", " + column.getScale() + ")");
 					else
-						result.append(field.getName()+" DECIMAL("+field.getPrecision()+",  0)");
+						result.append(getNameInSQLFormat(column) + " DECIMAL(" + column.getLength() + ",  0)");
 					break;
 				case TEXT:
-					result.append(field.getName()+" BLOB");
+					result.append(getNameInSQLFormat(column) + " BLOB");
 					break;
 				default:
-					result.append(field.getName()+" "+field.getDataType().getName() .toUpperCase());
-			}			
+					result.append(getNameInSQLFormat(column) + " " + column.getDataType().getName().toUpperCase());
+			}
 			first = false;
 		}
-		if(pkey)
-			result.append(", PRIMARY KEY ("+pkey_name+")");
+		if (pkey)
+			result.append(", PRIMARY KEY (" + pkey_name + ")");
 		result.append(")");
 		return result.toString();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String createView(QView view) {
-		return view.getCreationCommand();		
+	public String createView(Schema schema, QViewDef view) {
+		return view.getCreationCommand();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String createIndex(QIndex index) {
+	public String createIndex(Table table, QIndexDef index) {
 		StringBuffer result = new StringBuffer("CREATE ");
-		if(index.isUnique()) {
-			result.append("UNIQUE ");			
+		if (index.isUnique()) {
+			result.append("UNIQUE ");
 		}
-		result.append("INDEX "+index.getName());
-		result.append(" ON "+index.getSchema().getName()+"."+index.getObject()+" (");
+		result.append("INDEX " + getQualifiedNameInSQLFormat(table)+"."+getNameInSQLFormat(index));
+		result.append(" ON " + getQualifiedNameInSQLFormat(table) + " (");
 
 		boolean first = true;
-		
-		for(QIndexColumn field: index.getColumns()) {			
-			
-			if(!first)
+
+		for (QIndexColumnDef column : index.getColumns()) {
+
+			if (!first)
 				result.append(", ");
 
-			result.append(field.getName());
-			
-			if(field.getOrdering() == OrderingType.DESCEND) 
+			result.append(getNameInSQLFormat(column));
+
+			if (column.getOrdering() == OrderingType.DESCEND)
 				result.append(" DESC");
 
 			first = false;
 		}
 		result.append(")");
-		return result.toString();		
+		return result.toString();
 	}
 
 	/**
@@ -216,90 +224,88 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public String dropSchema(QSchema schema) {
-		return "DROP SCHEMA "+schema.getName();		
+	public String dropSchema(Schema schema) {
+		return "DROP SCHEMA " + getNameInSQLFormat(schema);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String dropTable(QTable table) {
-		return "DROP TABLE "+table.getFullName();		
+	public String dropTable(Table table) {
+		return "DROP TABLE " + getQualifiedNameInSQLFormat(table);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String dropView(QView view) {
-		return "DROP VIEW "+view.getFullName();		
+	public String dropView(ViewTable view) {
+		return "DROP VIEW " + getQualifiedNameInSQLFormat(view);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String dropIndex(QIndex index) {
-		return "DROP INDEX "+index.getName() + " ON TABLE "+index.getSchema().getName()+"."+index.getObject();		
+	public String dropIndex(Index index) {
+		return "DROP INDEX " + getNameInSQLFormat(index) + " ON TABLE " + getQualifiedNameInSQLFormat(index.getTable());
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String deleteData(QTable table) {
-		return "DELETE FROM "+table.getFullName();		
+	public String deleteData(Table table) {
+		return "DELETE FROM " + getQualifiedNameInSQLFormat(table);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String selectData(QTable table) {
-		return "SELECT * FROM "+table.getFullName();		
+	public String selectData(Table table) {
+		return "SELECT * FROM "+getQualifiedNameInSQLFormat(table);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	public String insertData(QTable table, boolean prepare) {
-		StringBuffer result = new StringBuffer("INSERT INTO "+table.getFullName());
-		String tkn1 ="";
-		String tkn2 ="";
+	@SuppressWarnings("unchecked")
+	public String insertData(Table table) {
+		StringBuffer result = new StringBuffer("INSERT INTO " + getQualifiedNameInSQLFormat(table));
+		String tkn1 = "";
+		String tkn2 = "";
 		boolean first = true;
-		for(QTableColumn field: table.getColumns()) {
-			
-			if(field.getName().equals("QMUKEY")) 
+		for (Column column : (List<Column>)table.getColumns()) {
+
+			if (column.getName().equals("QMUKEY"))
 				continue;
 
-			if(!first) {
-				tkn1+=", ";
-				tkn2+=", ";
+			if (!first) {
+				tkn1 += ", ";
+				tkn2 += ", ";
 			}
-			
-			tkn1+= field.getName();
-			tkn2+="?";
+
+			tkn1 += getNameInSQLFormat(column);
+			tkn2 += "?";
 			first = false;
 		}
-		if(prepare)
-			result.append("("+tkn1+") VALUES("+tkn2+")");
-		else
-			result.append(" VALUES("+tkn1+")");
-		return result.toString();
+		result.append("(" + tkn1 + ") VALUES(" + tkn2 + ")");
 		
+		return result.toString();
+
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -312,8 +318,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -326,8 +331,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -341,8 +345,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -356,8 +359,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -370,8 +372,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -382,12 +383,16 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 				default: return -1;
 			}
 		}
+		if (baseClass == ISQLObjectNameHelper.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -398,7 +403,68 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 				default: return -1;
 			}
 		}
+		if (baseClass == ISQLObjectNameHelper.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-} //SyntaxBuilderImpl
+	protected String getNameInSQLFormat(QSchemaDef schema, QTableColumnDef table) {
+		return getNameInSQLFormat(schema)+"."+getNameInSQLFormat(table);
+	}
+	
+	protected String getNameInSQLFormat(Schema schema) {
+		return getIdentifierQuoteString()+schema.getName()+getIdentifierQuoteString();
+	}
+	
+	protected String getNameInSQLFormat(QSchemaDef schema) {
+		return getIdentifierQuoteString()+schema.getName()+getIdentifierQuoteString();
+	}
+	
+	protected String getNameInSQLFormat(QTableDef table) {
+		return getIdentifierQuoteString()+table.getName()+getIdentifierQuoteString();
+	}
+		
+	protected String getNameInSQLFormat(QIndexDef index) {
+		return getIdentifierQuoteString()+index.getName()+getIdentifierQuoteString();
+	}
+		
+	protected String getNameInSQLFormat(Index index) {
+		return getIdentifierQuoteString()+index.getName()+getIdentifierQuoteString();
+	}
+		
+	protected String getNameInSQLFormat(QTableColumnDef column) {
+		return getIdentifierQuoteString()+column.getName()+getIdentifierQuoteString();
+	}
+		
+	protected String getNameInSQLFormat(QIndexColumnDef column) {
+		return getIdentifierQuoteString()+column.getName()+getIdentifierQuoteString();
+	}
+	
+	@Override
+	public String getNameInSQLFormat(Column column) {
+		return sqlObjectNameHelper.getNameInSQLFormat(column);
+	}
+	@Override
+	public String getNameInSQLFormat(Table table) {
+		return sqlObjectNameHelper.getNameInSQLFormat(table);
+	}
+	@Override
+	public String getQualifiedNameInSQLFormat(Column column) {
+		return sqlObjectNameHelper.getNameInSQLFormat(column);
+	}
+	@Override
+	public String getQualifiedNameInSQLFormat(Table table) {
+		return sqlObjectNameHelper.getNameInSQLFormat(table);
+	}
+	@Override
+	public String getIdentifierQuoteString() {
+		return sqlObjectNameHelper.getIdentifierQuoteString();
+	}
+	@Override
+	public void setIdentifierQuoteString(String quoteString) {
+		sqlObjectNameHelper.setIdentifierQuoteString(quoteString);
+	}
+} // SyntaxBuilderImpl

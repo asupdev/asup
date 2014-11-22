@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.system.e4"
       label="As.UP Operating System E4"
-      version="0.5.0.qualifier"
+      version="0.5.3.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">

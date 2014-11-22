@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQCOEF0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DATI" precision="8"/>
-  <columns dataType="DECIMAL" name="F&#xa7;ORAI" precision="6"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DATM" precision="8"/>
-  <columns dataType="DECIMAL" name="F&#xa7;ORAM" precision="6"/>
-  <columns dataType="CHAR" name="F&#xa7;UTEN" precision="10"/>
-  <columns dataType="CHAR" name="F&#xa7;WKST" precision="10"/>
-  <columns dataType="CHAR" name="F&#xa7;PROG" precision="10"/>
-  <columns dataType="CHAR" name="F&#xa7;LOTI" precision="15"/>
-  <columns dataType="CHAR" name="F&#xa7;TIC1" precision="2"/>
-  <columns dataType="CHAR" name="F&#xa7;COD1" precision="15"/>
-  <columns dataType="CHAR" name="F&#xa7;CFAL" precision="6"/>
-  <columns dataType="CHAR" name="F&#xa7;CFAC" precision="6"/>
-  <columns dataType="CHAR" name="F&#xa7;ESMO" precision="2"/>
-  <columns dataType="CHAR" name="F&#xa7;TIEN" precision="2"/>
-  <columns dataType="CHAR" name="F&#xa7;COEN" precision="15"/>
-  <columns dataType="CHAR" name="F&#xa7;TIEC" precision="2"/>
-  <columns dataType="CHAR" name="F&#xa7;COEC" precision="15"/>
-  <columns dataType="DECIMAL" name="F&#xa7;QCNT" precision="9" scale="3"/>
-  <columns dataType="CHAR" name="F&#xa7;ESCO" precision="2"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DATC" precision="8"/>
-  <columns dataType="DECIMAL" name="F&#xa7;ORAC" precision="6"/>
-  <columns dataType="CHAR" name="F&#xa7;CLIB" precision="20"/>
-  <columns dataType="CHAR" name="F&#xa7;FLR1" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLR2" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLR3" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLG1" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLG2" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLG3" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLG4" precision="1"/>
-  <columns dataType="CHAR" name="F&#xa7;FLG5" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQCOEF0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="F&#xa7;DATI" length="8"/>
+  <columns dataType="DECIMAL" name="F&#xa7;ORAI" length="6"/>
+  <columns dataType="DECIMAL" name="F&#xa7;DATM" length="8"/>
+  <columns dataType="DECIMAL" name="F&#xa7;ORAM" length="6"/>
+  <columns dataType="CHAR" name="F&#xa7;UTEN" length="10"/>
+  <columns dataType="CHAR" name="F&#xa7;WKST" length="10"/>
+  <columns dataType="CHAR" name="F&#xa7;PROG" length="10"/>
+  <columns dataType="CHAR" name="F&#xa7;LOTI" length="15"/>
+  <columns dataType="CHAR" name="F&#xa7;TIC1" length="2"/>
+  <columns dataType="CHAR" name="F&#xa7;COD1" length="15"/>
+  <columns dataType="CHAR" name="F&#xa7;CFAL" length="6"/>
+  <columns dataType="CHAR" name="F&#xa7;CFAC" length="6"/>
+  <columns dataType="CHAR" name="F&#xa7;ESMO" length="2"/>
+  <columns dataType="CHAR" name="F&#xa7;TIEN" length="2"/>
+  <columns dataType="CHAR" name="F&#xa7;COEN" length="15"/>
+  <columns dataType="CHAR" name="F&#xa7;TIEC" length="2"/>
+  <columns dataType="CHAR" name="F&#xa7;COEC" length="15"/>
+  <columns dataType="DECIMAL" name="F&#xa7;QCNT" length="9" scale="3"/>
+  <columns dataType="CHAR" name="F&#xa7;ESCO" length="2"/>
+  <columns dataType="DECIMAL" name="F&#xa7;DATC" length="8"/>
+  <columns dataType="DECIMAL" name="F&#xa7;ORAC" length="6"/>
+  <columns dataType="CHAR" name="F&#xa7;CLIB" length="20"/>
+  <columns dataType="CHAR" name="F&#xa7;FLR1" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLR2" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLR3" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLG1" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLG2" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLG3" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLG4" length="1"/>
+  <columns dataType="CHAR" name="F&#xa7;FLG5" length="1"/>
+</db-core:TableDef>

@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRARES0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="E&#xa7;TIOG" precision="2"/>
-  <columns dataType="CHAR" name="E&#xa7;LIVE" precision="1"/>
-  <columns dataType="CHAR" name="E&#xa7;CDCF" precision="15"/>
-  <columns dataType="CHAR" name="E&#xa7;CODI" precision="15"/>
-  <columns dataType="CHAR" name="E&#xa7;CONF" precision="20"/>
-  <columns dataType="CHAR" name="E&#xa7;ARCF" precision="30"/>
-  <columns dataType="CHAR" name="E&#xa7;DEAR" precision="35"/>
-  <columns dataType="CHAR" name="E&#xa7;UNMS" precision="2"/>
-  <columns dataType="DECIMAL" name="E&#xa7;FATC" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E&#xa7;QUOC" precision="3" scale="1"/>
-  <columns dataType="DECIMAL" name="E&#xa7;ASQT" precision="10" scale="3"/>
-  <columns dataType="DECIMAL" name="E&#xa7;ASGG" precision="5" scale="1"/>
-  <columns dataType="CHAR" name="E&#xa7;APOL" precision="3"/>
-  <columns dataType="DECIMAL" name="E&#xa7;LTAD" precision="3"/>
-  <columns dataType="DECIMAL" name="E&#xa7;AQMV" precision="10" scale="3"/>
-  <columns dataType="DECIMAL" name="E&#xa7;AQPV" precision="10" scale="3"/>
-  <columns dataType="CHAR" name="E&#xa7;ACRD" precision="5"/>
-  <columns dataType="DECIMAL" name="E&#xa7;AICO" precision="8"/>
-  <columns dataType="DECIMAL" name="E&#xa7;AIVE" precision="8"/>
-  <columns dataType="CHAR" name="E&#xa7;ACVI" precision="5"/>
-  <columns dataType="DECIMAL" name="E&#xa7;AFSE" precision="8"/>
-  <columns dataType="DECIMAL" name="E&#xa7;APRI" precision="3"/>
-  <columns dataType="CHAR" name="E&#xa7;ASOS" precision="15"/>
-  <columns dataType="CHAR" name="E&#xa7;APGP" precision="3"/>
-  <columns dataType="DECIMAL" name="E&#xa7;CGTR" precision="3"/>
-  <columns dataType="DECIMAL" name="E&#xa7;CGRI" precision="3"/>
-  <columns dataType="CHAR" name="E&#xa7;CEPA" precision="1"/>
-  <columns dataType="CHAR" name="E&#xa7;CCAC" precision="3"/>
-  <columns dataType="CHAR" name="E&#xa7;CSVQ" precision="5"/>
-  <columns dataType="CHAR" name="E&#xa7;USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="E&#xa7;DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="E&#xa7;ORIN" precision="6"/>
-  <columns dataType="CHAR" name="E&#xa7;OGIN" precision="10"/>
-  <columns dataType="CHAR" name="E&#xa7;USAG" precision="10"/>
-  <columns dataType="DECIMAL" name="E&#xa7;DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="E&#xa7;ORAG" precision="6"/>
-  <columns dataType="CHAR" name="E&#xa7;OGAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRARES0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="E&#xa7;TIOG" length="2"/>
+  <columns dataType="CHAR" name="E&#xa7;LIVE" length="1"/>
+  <columns dataType="CHAR" name="E&#xa7;CDCF" length="15"/>
+  <columns dataType="CHAR" name="E&#xa7;CODI" length="15"/>
+  <columns dataType="CHAR" name="E&#xa7;CONF" length="20"/>
+  <columns dataType="CHAR" name="E&#xa7;ARCF" length="30"/>
+  <columns dataType="CHAR" name="E&#xa7;DEAR" length="35"/>
+  <columns dataType="CHAR" name="E&#xa7;UNMS" length="2"/>
+  <columns dataType="DECIMAL" name="E&#xa7;FATC" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E&#xa7;QUOC" length="3" scale="1"/>
+  <columns dataType="DECIMAL" name="E&#xa7;ASQT" length="10" scale="3"/>
+  <columns dataType="DECIMAL" name="E&#xa7;ASGG" length="5" scale="1"/>
+  <columns dataType="CHAR" name="E&#xa7;APOL" length="3"/>
+  <columns dataType="DECIMAL" name="E&#xa7;LTAD" length="3"/>
+  <columns dataType="DECIMAL" name="E&#xa7;AQMV" length="10" scale="3"/>
+  <columns dataType="DECIMAL" name="E&#xa7;AQPV" length="10" scale="3"/>
+  <columns dataType="CHAR" name="E&#xa7;ACRD" length="5"/>
+  <columns dataType="DECIMAL" name="E&#xa7;AICO" length="8"/>
+  <columns dataType="DECIMAL" name="E&#xa7;AIVE" length="8"/>
+  <columns dataType="CHAR" name="E&#xa7;ACVI" length="5"/>
+  <columns dataType="DECIMAL" name="E&#xa7;AFSE" length="8"/>
+  <columns dataType="DECIMAL" name="E&#xa7;APRI" length="3"/>
+  <columns dataType="CHAR" name="E&#xa7;ASOS" length="15"/>
+  <columns dataType="CHAR" name="E&#xa7;APGP" length="3"/>
+  <columns dataType="DECIMAL" name="E&#xa7;CGTR" length="3"/>
+  <columns dataType="DECIMAL" name="E&#xa7;CGRI" length="3"/>
+  <columns dataType="CHAR" name="E&#xa7;CEPA" length="1"/>
+  <columns dataType="CHAR" name="E&#xa7;CCAC" length="3"/>
+  <columns dataType="CHAR" name="E&#xa7;CSVQ" length="5"/>
+  <columns dataType="CHAR" name="E&#xa7;USIN" length="10"/>
+  <columns dataType="DECIMAL" name="E&#xa7;DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="E&#xa7;ORIN" length="6"/>
+  <columns dataType="CHAR" name="E&#xa7;OGIN" length="10"/>
+  <columns dataType="CHAR" name="E&#xa7;USAG" length="10"/>
+  <columns dataType="DECIMAL" name="E&#xa7;DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="E&#xa7;ORAG" length="6"/>
+  <columns dataType="CHAR" name="E&#xa7;OGAG" length="10"/>
+</db-core:TableDef>

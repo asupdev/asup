@@ -16,11 +16,11 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QStatement;
 import org.asup.db.syntax.QQueryConverter;
 import org.asup.db.syntax.QQueryConverterRegistry;
 import org.asup.db.syntax.QQueryParser;
@@ -62,7 +62,7 @@ public class SQLStatementRunner {
 
 	@SuppressWarnings("null")
 	@Entry
-	public void main(@DataDef(varying = true) QCharacter statement) {
+	public void main(@DataDef(varying = true) QCharacter sql) {
 
 		QObjectWriter objectWriter = outputManager.getDefaultWriter(job);
 		objectWriter.initialize();
@@ -71,24 +71,21 @@ public class SQLStatementRunner {
 				
 		// fileManager.getDatabaseConnection(job);
 
-		Statement stm = null;
+		QStatement statement = null;
 		try {
 
 			QQueryParser queryParser = queryParserRegistry.lookup("ibmi");
-			SQLQueryParseResult query = queryParser
-					.parseQuery(new ByteArrayInputStream(statement.asBytes()));
+			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(sql.asBytes()));
 
-			QQueryConverter queryConverter = queryConverterRegistry
-					.lookup(databaseConnection.getConnectionConfig()
-							.getPluginName());
+			QQueryConverter queryConverter = queryConverterRegistry.lookup(databaseConnection.getConnectionConfig());
 			String statementString = queryConverter.convertQuery(query);
 
 			statementString = statementString.replaceAll("\\[ ", "[");
 			statementString = statementString.replaceAll(" \\]", "]");
 
-			stm = databaseConnection.getConnection().createStatement();
+			statement = databaseConnection.createStatement();
 
-			ResultSet resultSet = stm.executeQuery(statementString);
+			ResultSet resultSet = statement.executeQuery(statementString);
 
 			EClass eClass = createEClass(resultSet);
 
@@ -120,7 +117,7 @@ public class SQLStatementRunner {
 
 			if (statement != null) {
 				try {
-					stm.close();
+					statement.close();
 				} catch (SQLException e) {
 					throw new OperatingSystemRuntimeProgramException(null, e);
 				}

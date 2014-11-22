@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5WKIM0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="QWNSES" precision="10"/>
-  <columns dataType="CHAR" name="QWTIMP" precision="3"/>
-  <columns dataType="CHAR" name="QWTORI" precision="2"/>
-  <columns dataType="CHAR" name="QWPACL" precision="3"/>
-  <columns dataType="CHAR" name="QWTDOC" precision="3"/>
-  <columns dataType="CHAR" name="QWNDOC" precision="10"/>
-  <columns dataType="CHAR" name="QWUSR1" precision="4"/>
-  <columns dataType="CHAR" name="QWCDMG" precision="3"/>
-  <columns dataType="CHAR" name="QWARTI" precision="15"/>
-  <columns dataType="CHAR" name="QWASSI" precision="15"/>
-  <columns dataType="CHAR" name="QWUSR2" precision="4"/>
-  <columns dataType="CHAR" name="QWOPER" precision="6"/>
-  <columns dataType="DECIMAL" name="QWDATI" precision="8"/>
-  <columns dataType="DECIMAL" name="QWQUAN" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="QWQTOT" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="QWCOEF" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="QWLTAD" precision="3"/>
-  <columns dataType="CHAR" name="QWSQCI" precision="6"/>
-  <columns dataType="CHAR" name="QWESMO" precision="2"/>
-  <columns dataType="CHAR" name="QWCONF" precision="20"/>
-  <columns dataType="CHAR" name="QWCOMM" precision="10"/>
-  <columns dataType="CHAR" name="QWLOTT" precision="15"/>
-  <columns dataType="CHAR" name="QWLOCN" precision="12"/>
-  <columns dataType="CHAR" name="QWTMAT" precision="3"/>
-  <columns dataType="CHAR" name="QWNMAT" precision="15"/>
-  <columns dataType="CHAR" name="QWTIEN" precision="3"/>
-  <columns dataType="CHAR" name="QWCOEN" precision="15"/>
-  <columns dataType="CHAR" name="QWTRIS" precision="3"/>
-  <columns dataType="CHAR" name="QWRISO" precision="15"/>
-  <columns dataType="CHAR" name="QWTIGE" precision="3"/>
-  <columns dataType="CHAR" name="QWLIVE" precision="1"/>
-  <columns dataType="CHAR" name="QWSTAT" precision="2"/>
-  <columns dataType="CHAR" name="QWFL01" precision="1"/>
-  <columns dataType="CHAR" name="QWFL02" precision="1"/>
-  <columns dataType="CHAR" name="QWFL03" precision="1"/>
-  <columns dataType="CHAR" name="QWFL04" precision="1"/>
-  <columns dataType="CHAR" name="QWFL05" precision="1"/>
-  <columns dataType="CHAR" name="QWFL06" precision="1"/>
-  <columns dataType="CHAR" name="QWFL07" precision="1"/>
-  <columns dataType="CHAR" name="QWFL08" precision="1"/>
-  <columns dataType="CHAR" name="QWFL09" precision="1"/>
-  <columns dataType="CHAR" name="QWFL10" precision="1"/>
-  <columns dataType="DECIMAL" name="QWDTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="QWDTAG" precision="8"/>
-  <columns dataType="CHAR" name="QWUSAG" precision="10"/>
-  <columns dataType="CHAR" name="QWNDOR" precision="10"/>
-  <columns dataType="CHAR" name="QWUOR1" precision="4"/>
-  <columns dataType="CHAR" name="QWUOR2" precision="4"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5WKIM0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="QWNSES" length="10"/>
+  <columns dataType="CHAR" name="QWTIMP" length="3"/>
+  <columns dataType="CHAR" name="QWTORI" length="2"/>
+  <columns dataType="CHAR" name="QWPACL" length="3"/>
+  <columns dataType="CHAR" name="QWTDOC" length="3"/>
+  <columns dataType="CHAR" name="QWNDOC" length="10"/>
+  <columns dataType="CHAR" name="QWUSR1" length="4"/>
+  <columns dataType="CHAR" name="QWCDMG" length="3"/>
+  <columns dataType="CHAR" name="QWARTI" length="15"/>
+  <columns dataType="CHAR" name="QWASSI" length="15"/>
+  <columns dataType="CHAR" name="QWUSR2" length="4"/>
+  <columns dataType="CHAR" name="QWOPER" length="6"/>
+  <columns dataType="DECIMAL" name="QWDATI" length="8"/>
+  <columns dataType="DECIMAL" name="QWQUAN" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="QWQTOT" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="QWCOEF" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="QWLTAD" length="3"/>
+  <columns dataType="CHAR" name="QWSQCI" length="6"/>
+  <columns dataType="CHAR" name="QWESMO" length="2"/>
+  <columns dataType="CHAR" name="QWCONF" length="20"/>
+  <columns dataType="CHAR" name="QWCOMM" length="10"/>
+  <columns dataType="CHAR" name="QWLOTT" length="15"/>
+  <columns dataType="CHAR" name="QWLOCN" length="12"/>
+  <columns dataType="CHAR" name="QWTMAT" length="3"/>
+  <columns dataType="CHAR" name="QWNMAT" length="15"/>
+  <columns dataType="CHAR" name="QWTIEN" length="3"/>
+  <columns dataType="CHAR" name="QWCOEN" length="15"/>
+  <columns dataType="CHAR" name="QWTRIS" length="3"/>
+  <columns dataType="CHAR" name="QWRISO" length="15"/>
+  <columns dataType="CHAR" name="QWTIGE" length="3"/>
+  <columns dataType="CHAR" name="QWLIVE" length="1"/>
+  <columns dataType="CHAR" name="QWSTAT" length="2"/>
+  <columns dataType="CHAR" name="QWFL01" length="1"/>
+  <columns dataType="CHAR" name="QWFL02" length="1"/>
+  <columns dataType="CHAR" name="QWFL03" length="1"/>
+  <columns dataType="CHAR" name="QWFL04" length="1"/>
+  <columns dataType="CHAR" name="QWFL05" length="1"/>
+  <columns dataType="CHAR" name="QWFL06" length="1"/>
+  <columns dataType="CHAR" name="QWFL07" length="1"/>
+  <columns dataType="CHAR" name="QWFL08" length="1"/>
+  <columns dataType="CHAR" name="QWFL09" length="1"/>
+  <columns dataType="CHAR" name="QWFL10" length="1"/>
+  <columns dataType="DECIMAL" name="QWDTIN" length="8"/>
+  <columns dataType="DECIMAL" name="QWDTAG" length="8"/>
+  <columns dataType="CHAR" name="QWUSAG" length="10"/>
+  <columns dataType="CHAR" name="QWNDOR" length="10"/>
+  <columns dataType="CHAR" name="QWUOR1" length="4"/>
+  <columns dataType="CHAR" name="QWUOR2" length="4"/>
+</db-core:TableDef>

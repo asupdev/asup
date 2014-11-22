@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.database"
       label="As.UP Database"
-      version="0.5.0.qualifier"
+      version="0.5.3.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">
@@ -121,6 +121,27 @@
 
    <plugin
          id="org.eclipse.datatools.modelbase.dbdefinition"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.datatools.connectivity.db.generic"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.datatools.connectivity.dbdefinition.genericJDBC"
          download-size="0"
          install-size="0"
          version="0.0.0"

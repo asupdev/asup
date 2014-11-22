@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;SVQU0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="Q&#xa3;TIPO" precision="3"/>
-  <columns dataType="CHAR" name="Q&#xa3;COD1" precision="15"/>
-  <columns dataType="CHAR" name="Q&#xa3;COD2" precision="15"/>
-  <columns dataType="CHAR" name="Q&#xa3;SIGN" precision="2"/>
-  <columns dataType="CHAR" name="C&#xa3;SVIL" precision="3"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT01" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT02" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT03" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT04" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT05" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT06" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT07" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT08" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT09" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT10" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT11" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT12" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT13" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT14" precision="7"/>
-  <columns dataType="DECIMAL" name="C&#xa3;QT15" precision="7"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;SVQU0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="Q&#xa3;TIPO" length="3"/>
+  <columns dataType="CHAR" name="Q&#xa3;COD1" length="15"/>
+  <columns dataType="CHAR" name="Q&#xa3;COD2" length="15"/>
+  <columns dataType="CHAR" name="Q&#xa3;SIGN" length="2"/>
+  <columns dataType="CHAR" name="C&#xa3;SVIL" length="3"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT01" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT02" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT03" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT04" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT05" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT06" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT07" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT08" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT09" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT10" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT11" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT12" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT13" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT14" length="7"/>
+  <columns dataType="DECIMAL" name="C&#xa3;QT15" length="7"/>
+</db-core:TableDef>

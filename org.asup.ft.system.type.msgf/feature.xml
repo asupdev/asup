@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.system.type.msgf"
       label="As.UP Operating System MessageFile"
-      version="0.5.0.qualifier"
+      version="0.5.3.qualifier"
       provider-name="www.smeup.cpm">
 
    <description url="http://www.example.com/description">

@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5BICR0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="R5AZIE" precision="2"/>
-  <columns dataType="CHAR" name="R5TIBC" precision="5"/>
-  <columns dataType="CHAR" name="R5ESER" precision="10"/>
-  <columns dataType="DECIMAL" name="R5DATA" precision="8"/>
-  <columns dataType="CHAR" name="R5SOCC" precision="3"/>
-  <columns dataType="CHAR" name="R5SOCD" precision="3"/>
-  <columns dataType="CHAR" name="R5TIIN" precision="1"/>
-  <columns dataType="CHAR" name="R5CONT" precision="15"/>
-  <columns dataType="CHAR" name="R5OGRI" precision="15"/>
-  <columns dataType="CHAR" name="R5VABI" precision="4"/>
-  <columns dataType="DECIMAL" name="R5IMBI" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="R5VAOR" precision="4"/>
-  <columns dataType="DECIMAL" name="R5IMOR" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="R5UNMS" precision="2"/>
-  <columns dataType="DECIMAL" name="R5QUAN" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IRBI" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IROR" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5QRAN" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="R5CAUS" precision="4"/>
-  <columns dataType="CHAR" name="R5AA01" precision="15"/>
-  <columns dataType="CHAR" name="R5AA02" precision="15"/>
-  <columns dataType="CHAR" name="R5AA03" precision="15"/>
-  <columns dataType="CHAR" name="R5AA04" precision="15"/>
-  <columns dataType="CHAR" name="R5AA05" precision="15"/>
-  <columns dataType="DECIMAL" name="R5NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU05" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="R5FL01" precision="1"/>
-  <columns dataType="CHAR" name="R5FL02" precision="1"/>
-  <columns dataType="CHAR" name="R5FL03" precision="1"/>
-  <columns dataType="CHAR" name="R5FL04" precision="1"/>
-  <columns dataType="CHAR" name="R5FL05" precision="1"/>
-  <columns dataType="CHAR" name="R5FL06" precision="1"/>
-  <columns dataType="CHAR" name="R5FL07" precision="1"/>
-  <columns dataType="CHAR" name="R5FL08" precision="1"/>
-  <columns dataType="CHAR" name="R5FL09" precision="1"/>
-  <columns dataType="CHAR" name="R5FL10" precision="1"/>
-  <columns dataType="CHAR" name="R5FL11" precision="1"/>
-  <columns dataType="CHAR" name="R5FL12" precision="1"/>
-  <columns dataType="CHAR" name="R5FL13" precision="1"/>
-  <columns dataType="CHAR" name="R5FL14" precision="1"/>
-  <columns dataType="CHAR" name="R5FL15" precision="1"/>
-  <columns dataType="CHAR" name="R5FL16" precision="1"/>
-  <columns dataType="CHAR" name="R5FL17" precision="1"/>
-  <columns dataType="CHAR" name="R5FL18" precision="1"/>
-  <columns dataType="CHAR" name="R5FL19" precision="1"/>
-  <columns dataType="CHAR" name="R5FL20" precision="1"/>
-  <columns dataType="DECIMAL" name="R5DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="R5ORIN" precision="6"/>
-  <columns dataType="DECIMAL" name="R5DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="R5ORAG" precision="6"/>
-  <columns dataType="CHAR" name="R5USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5BICR0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="R5AZIE" length="2"/>
+  <columns dataType="CHAR" name="R5TIBC" length="5"/>
+  <columns dataType="CHAR" name="R5ESER" length="10"/>
+  <columns dataType="DECIMAL" name="R5DATA" length="8"/>
+  <columns dataType="CHAR" name="R5SOCC" length="3"/>
+  <columns dataType="CHAR" name="R5SOCD" length="3"/>
+  <columns dataType="CHAR" name="R5TIIN" length="1"/>
+  <columns dataType="CHAR" name="R5CONT" length="15"/>
+  <columns dataType="CHAR" name="R5OGRI" length="15"/>
+  <columns dataType="CHAR" name="R5VABI" length="4"/>
+  <columns dataType="DECIMAL" name="R5IMBI" length="21" scale="6"/>
+  <columns dataType="CHAR" name="R5VAOR" length="4"/>
+  <columns dataType="DECIMAL" name="R5IMOR" length="21" scale="6"/>
+  <columns dataType="CHAR" name="R5UNMS" length="2"/>
+  <columns dataType="DECIMAL" name="R5QUAN" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="R5IRBI" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="R5IROR" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="R5QRAN" length="21" scale="6"/>
+  <columns dataType="CHAR" name="R5CAUS" length="4"/>
+  <columns dataType="CHAR" name="R5AA01" length="15"/>
+  <columns dataType="CHAR" name="R5AA02" length="15"/>
+  <columns dataType="CHAR" name="R5AA03" length="15"/>
+  <columns dataType="CHAR" name="R5AA04" length="15"/>
+  <columns dataType="CHAR" name="R5AA05" length="15"/>
+  <columns dataType="DECIMAL" name="R5NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R5NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R5NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R5NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="R5NU05" length="15" scale="5"/>
+  <columns dataType="CHAR" name="R5FL01" length="1"/>
+  <columns dataType="CHAR" name="R5FL02" length="1"/>
+  <columns dataType="CHAR" name="R5FL03" length="1"/>
+  <columns dataType="CHAR" name="R5FL04" length="1"/>
+  <columns dataType="CHAR" name="R5FL05" length="1"/>
+  <columns dataType="CHAR" name="R5FL06" length="1"/>
+  <columns dataType="CHAR" name="R5FL07" length="1"/>
+  <columns dataType="CHAR" name="R5FL08" length="1"/>
+  <columns dataType="CHAR" name="R5FL09" length="1"/>
+  <columns dataType="CHAR" name="R5FL10" length="1"/>
+  <columns dataType="CHAR" name="R5FL11" length="1"/>
+  <columns dataType="CHAR" name="R5FL12" length="1"/>
+  <columns dataType="CHAR" name="R5FL13" length="1"/>
+  <columns dataType="CHAR" name="R5FL14" length="1"/>
+  <columns dataType="CHAR" name="R5FL15" length="1"/>
+  <columns dataType="CHAR" name="R5FL16" length="1"/>
+  <columns dataType="CHAR" name="R5FL17" length="1"/>
+  <columns dataType="CHAR" name="R5FL18" length="1"/>
+  <columns dataType="CHAR" name="R5FL19" length="1"/>
+  <columns dataType="CHAR" name="R5FL20" length="1"/>
+  <columns dataType="DECIMAL" name="R5DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="R5ORIN" length="6"/>
+  <columns dataType="DECIMAL" name="R5DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="R5ORAG" length="6"/>
+  <columns dataType="CHAR" name="R5USAG" length="10"/>
+</db-core:TableDef>

@@ -7,7 +7,7 @@
     xsi:schemaLocation="http://www.asup.org/os/type/pgm ../../org.asup.os.type.pgm/model/os-type-pgm.ecore"
     name="dk-compiler-base"
     text="As.UP Development Kit Compiler"
-    version="0.5.0"
+    version="0.5.3"
     vendor="www.smeup.com"
     basePackage="org.asup.dk.compiler.base.api"
     scanPackage="true"/>

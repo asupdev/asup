@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;MODI0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="M&#xa7;APPL" precision="2"/>
-  <columns dataType="CHAR" name="M&#xa7;ASST" precision="5"/>
-  <columns dataType="CHAR" name="M&#xa7;ASK1" precision="15"/>
-  <columns dataType="CHAR" name="M&#xa7;ASK2" precision="15"/>
-  <columns dataType="CHAR" name="M&#xa7;ASK3" precision="15"/>
-  <columns dataType="CHAR" name="M&#xa7;COMT" precision="5"/>
-  <columns dataType="CHAR" name="M&#xa7;COK1" precision="15"/>
-  <columns dataType="CHAR" name="M&#xa7;COK2" precision="15"/>
-  <columns dataType="CHAR" name="M&#xa7;COK3" precision="15"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;MODI0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="M&#xa7;APPL" length="2"/>
+  <columns dataType="CHAR" name="M&#xa7;ASST" length="5"/>
+  <columns dataType="CHAR" name="M&#xa7;ASK1" length="15"/>
+  <columns dataType="CHAR" name="M&#xa7;ASK2" length="15"/>
+  <columns dataType="CHAR" name="M&#xa7;ASK3" length="15"/>
+  <columns dataType="CHAR" name="M&#xa7;COMT" length="5"/>
+  <columns dataType="CHAR" name="M&#xa7;COK1" length="15"/>
+  <columns dataType="CHAR" name="M&#xa7;COK2" length="15"/>
+  <columns dataType="CHAR" name="M&#xa7;COK3" length="15"/>
+</db-core:TableDef>

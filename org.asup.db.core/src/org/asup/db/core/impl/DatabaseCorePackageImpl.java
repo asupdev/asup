@@ -7,37 +7,38 @@
  */
 package org.asup.db.core.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 import org.asup.db.core.DataType;
 import org.asup.db.core.OrderingType;
-import org.asup.db.core.QColumn;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
-import org.asup.db.core.QDatabase;
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QDatabaseObject;
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QIndexColumn;
-import org.asup.db.core.QSchema;
-import org.asup.db.core.QTable;
-import org.asup.db.core.QTableColumn;
-import org.asup.db.core.QView;
-import org.asup.db.core.QViewColumn;
-import org.asup.db.core.StatementType;
-
+import org.asup.db.core.QDatabaseObjectDef;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QIndexColumnDef;
+import org.asup.db.core.QPreparedStatement;
+import org.asup.db.core.QSchemaDef;
+import org.asup.db.core.QStatement;
+import org.asup.db.core.QTableColumnDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
 import org.asup.fw.core.QFrameworkCorePackage;
-
-import org.asup.fw.java.QFrameworkJavaPackage;
-
+import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
+import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
+import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
+import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
+import org.eclipse.datatools.modelbase.sql.expressions.SQLExpressionsPackage;
+import org.eclipse.datatools.modelbase.sql.routines.SQLRoutinesPackage;
+import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
+import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.statements.SQLStatementsPackage;
+import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -46,28 +47,16 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.osgi.service.jdbc.DataSourceFactory;
-
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
+ * end-user-doc -->
  * @generated
  */
 public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCorePackage {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass columnEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionEClass = null;
@@ -80,22 +69,19 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EClass connectionConfigEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionFactoryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionFactoryRegistryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionManagerEClass = null;
@@ -105,11 +91,24 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass databaseEClass = null;
+	private EClass databaseDefinitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass databaseObjectDefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass databaseNameHelperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass databaseManagerEClass = null;
@@ -119,123 +118,92 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass databaseObjectEClass = null;
+	private EClass indexDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dataSourceFactoryEClass = null;
+	private EClass indexColumnDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass indexEClass = null;
+	private EClass preparedStatementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass indexColumnEClass = null;
+	private EClass schemaDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass schemaEClass = null;
+	private EClass statementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tableEClass = null;
+	private EClass tableDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tableColumnEClass = null;
+	private EClass tableColumnDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass viewEClass = null;
+	private EClass viewDefEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass viewColumnEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EEnum dataTypeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EEnum orderingTypeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum statementTypeEEnum = null;
+	private EDataType databaseExceptionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType jdbcConnectionEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType jdbcExceptionEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType jdbcStatementEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType preparedStatementEDataType = null;
+	private EDataType databaseResultSetEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+	 * package package URI value.
+	 * <p>
+	 * Note: the correct way to create the package is via the static factory
+	 * method {@link #init init()}, which also performs initialization of the
+	 * package, or returns the registered package, if one already exists. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.asup.db.core.QDatabaseCorePackage#eNS_URI
 	 * @see #init()
@@ -246,19 +214,21 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model,
+	 * and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link QDatabaseCorePackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link QDatabaseCorePackage#eINSTANCE}
+	 * when that field is accessed. Clients should not invoke it directly.
+	 * Instead, they should simply access that field to obtain the package. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -274,6 +244,14 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Initialize simple dependencies
 		QFrameworkCorePackage.eINSTANCE.eClass();
+		SQLSchemaPackage.eINSTANCE.eClass();
+		SQLConstraintsPackage.eINSTANCE.eClass();
+		SQLDataTypesPackage.eINSTANCE.eClass();
+		SQLExpressionsPackage.eINSTANCE.eClass();
+		SQLRoutinesPackage.eINSTANCE.eClass();
+		SQLStatementsPackage.eINSTANCE.eClass();
+		SQLTablesPackage.eINSTANCE.eClass();
+		SQLAccessControlPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDatabaseCorePackage.createPackageContents();
@@ -291,102 +269,11 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getColumn() {
-		return columnEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColumn_DataType() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColumn_Name() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColumn_Nullable() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColumn_Precision() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getColumn_Scale() {
-		return (EAttribute)columnEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnection() {
 		return connectionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnection_ConnectionConfig() {
-		return (EReference)connectionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnection_CurrentSchema() {
-		return (EReference)connectionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnection_Database() {
-		return (EReference)connectionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConnection_ConnectionFactory() {
-		return (EReference)connectionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -403,7 +290,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectionConfig_DatabaseName() {
+	public EAttribute getConnectionConfig_DriverName() {
 		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -412,7 +299,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectionConfig_Driver() {
+	public EAttribute getConnectionConfig_Product() {
 		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -430,7 +317,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectionConfig_PluginName() {
+	public EAttribute getConnectionConfig_Url() {
 		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -439,7 +326,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectionConfig_Url() {
+	public EAttribute getConnectionConfig_User() {
 		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -448,31 +335,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConnectionConfig_UseCatalog() {
+	public EAttribute getConnectionConfig_Version() {
 		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectionConfig_UsePool() {
-		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConnectionConfig_User() {
-		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnectionFactory() {
@@ -480,8 +348,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnectionFactoryRegistry() {
@@ -489,8 +356,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnectionManager() {
@@ -502,8 +368,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDatabase() {
-		return databaseEClass;
+	public EClass getDatabaseDefinition() {
+		return databaseDefinitionEClass;
 	}
 
 	/**
@@ -511,8 +377,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDatabase_Name() {
-		return (EAttribute)databaseEClass.getEStructuralFeatures().get(0);
+	public EClass getDatabaseObjectDef() {
+		return databaseObjectDefEClass;
 	}
 
 	/**
@@ -520,13 +386,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDatabase_Schemas() {
-		return (EReference)databaseEClass.getEStructuralFeatures().get(1);
+	public EClass getDatabaseNameHelper() {
+		return databaseNameHelperEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getDatabaseManager() {
@@ -538,8 +403,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDatabaseObject() {
-		return databaseObjectEClass;
+	public EClass getIndexDef() {
+		return indexDefEClass;
 	}
 
 	/**
@@ -547,8 +412,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDataSourceFactory() {
-		return dataSourceFactoryEClass;
+	public EReference getIndexDef_Columns() {
+		return (EReference)indexDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -556,8 +421,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIndex() {
-		return indexEClass;
+	public EAttribute getIndexDef_Name() {
+		return (EAttribute)indexDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -565,8 +430,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIndex_Columns() {
-		return (EReference)indexEClass.getEStructuralFeatures().get(0);
+	public EAttribute getIndexDef_Unique() {
+		return (EAttribute)indexDefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -574,8 +439,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndex_Name() {
-		return (EAttribute)indexEClass.getEStructuralFeatures().get(1);
+	public EClass getIndexColumnDef() {
+		return indexColumnDefEClass;
 	}
 
 	/**
@@ -583,8 +448,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndex_Object() {
-		return (EAttribute)indexEClass.getEStructuralFeatures().get(2);
+	public EReference getIndexColumnDef_Index() {
+		return (EReference)indexColumnDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -592,8 +457,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIndex_Schema() {
-		return (EReference)indexEClass.getEStructuralFeatures().get(3);
+	public EAttribute getIndexColumnDef_Name() {
+		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -601,8 +466,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndex_Unique() {
-		return (EAttribute)indexEClass.getEStructuralFeatures().get(4);
+	public EAttribute getIndexColumnDef_Ordering() {
+		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -610,8 +475,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIndexColumn() {
-		return indexColumnEClass;
+	public EAttribute getIndexColumnDef_Sequence() {
+		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -619,8 +484,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIndexColumn_Index() {
-		return (EReference)indexColumnEClass.getEStructuralFeatures().get(0);
+	public EClass getPreparedStatement() {
+		return preparedStatementEClass;
 	}
 
 	/**
@@ -628,8 +493,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndexColumn_Name() {
-		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(1);
+	public EClass getSchemaDef() {
+		return schemaDefEClass;
 	}
 
 	/**
@@ -637,8 +502,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndexColumn_Ordering() {
-		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSchemaDef_Name() {
+		return (EAttribute)schemaDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -646,8 +511,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndexColumn_Sequence() {
-		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(3);
+	public EClass getStatement() {
+		return statementEClass;
 	}
 
 	/**
@@ -655,8 +520,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSchema() {
-		return schemaEClass;
+	public EClass getTableDef() {
+		return tableDefEClass;
 	}
 
 	/**
@@ -664,8 +529,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Database() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(0);
+	public EReference getTableDef_Columns() {
+		return (EReference)tableDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -673,8 +538,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSchema_Name() {
-		return (EAttribute)schemaEClass.getEStructuralFeatures().get(1);
+	public EAttribute getTableDef_Name() {
+		return (EAttribute)tableDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -682,8 +547,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Tables() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(2);
+	public EClass getTableColumnDef() {
+		return tableColumnDefEClass;
 	}
 
 	/**
@@ -691,8 +556,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Views() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(3);
+	public EAttribute getTableColumnDef_DataType() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -700,8 +565,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSchema_Indexes() {
-		return (EReference)schemaEClass.getEStructuralFeatures().get(4);
+	public EAttribute getTableColumnDef_Name() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -709,8 +574,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTable() {
-		return tableEClass;
+	public EAttribute getTableColumnDef_Nullable() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -718,8 +583,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_Columns() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTableColumnDef_Length() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -727,8 +592,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTable_Name() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(1);
+	public EAttribute getTableColumnDef_Scale() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -736,8 +601,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_Schema() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(2);
+	public EClass getViewDef() {
+		return viewDefEClass;
 	}
 
 	/**
@@ -745,8 +610,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTableColumn() {
-		return tableColumnEClass;
+	public EAttribute getViewDef_CreationPlugin() {
+		return (EAttribute)viewDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -754,85 +619,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTableColumn_Table() {
-		return (EReference)tableColumnEClass.getEStructuralFeatures().get(0);
+	public EAttribute getViewDef_CreationCommand() {
+		return (EAttribute)viewDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getView() {
-		return viewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getView_Columns() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getView_CreationPlugin() {
-		return (EAttribute)viewEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getView_CreationCommand() {
-		return (EAttribute)viewEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getView_Name() {
-		return (EAttribute)viewEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getView_Schema() {
-		return (EReference)viewEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getViewColumn() {
-		return viewColumnEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getViewColumn_View() {
-		return (EReference)viewColumnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EEnum getDataType() {
@@ -840,8 +632,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EEnum getOrderingType() {
@@ -849,12 +640,11 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getStatementType() {
-		return statementTypeEEnum;
+	public EDataType getDatabaseException() {
+		return databaseExceptionEDataType;
 	}
 
 	/**
@@ -862,40 +652,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getJDBCConnection() {
-		return jdbcConnectionEDataType;
+	public EDataType getDatabaseResultSet() {
+		return databaseResultSetEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getJDBCException() {
-		return jdbcExceptionEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getJDBCStatement() {
-		return jdbcStatementEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getPreparedStatement() {
-		return preparedStatementEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QDatabaseCoreFactory getDatabaseCoreFactory() {
@@ -903,8 +665,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -921,28 +682,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		isCreated = true;
 
 		// Create classes and their features
-		columnEClass = createEClass(COLUMN);
-		createEAttribute(columnEClass, COLUMN__DATA_TYPE);
-		createEAttribute(columnEClass, COLUMN__NAME);
-		createEAttribute(columnEClass, COLUMN__NULLABLE);
-		createEAttribute(columnEClass, COLUMN__PRECISION);
-		createEAttribute(columnEClass, COLUMN__SCALE);
-
 		connectionEClass = createEClass(CONNECTION);
-		createEReference(connectionEClass, CONNECTION__CONNECTION_CONFIG);
-		createEReference(connectionEClass, CONNECTION__CURRENT_SCHEMA);
-		createEReference(connectionEClass, CONNECTION__DATABASE);
-		createEReference(connectionEClass, CONNECTION__CONNECTION_FACTORY);
 
 		connectionConfigEClass = createEClass(CONNECTION_CONFIG);
-		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__DATABASE_NAME);
-		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__DRIVER);
+		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__DRIVER_NAME);
+		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__PRODUCT);
 		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__PASSWORD);
-		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__PLUGIN_NAME);
 		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__URL);
-		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__USE_CATALOG);
-		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__USE_POOL);
 		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__USER);
+		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__VERSION);
 
 		connectionFactoryEClass = createEClass(CONNECTION_FACTORY);
 
@@ -950,78 +698,67 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		connectionManagerEClass = createEClass(CONNECTION_MANAGER);
 
-		databaseEClass = createEClass(DATABASE);
-		createEAttribute(databaseEClass, DATABASE__NAME);
-		createEReference(databaseEClass, DATABASE__SCHEMAS);
+		databaseDefinitionEClass = createEClass(DATABASE_DEFINITION);
+
+		databaseObjectDefEClass = createEClass(DATABASE_OBJECT_DEF);
+
+		databaseNameHelperEClass = createEClass(DATABASE_NAME_HELPER);
 
 		databaseManagerEClass = createEClass(DATABASE_MANAGER);
 
-		databaseObjectEClass = createEClass(DATABASE_OBJECT);
+		indexDefEClass = createEClass(INDEX_DEF);
+		createEReference(indexDefEClass, INDEX_DEF__COLUMNS);
+		createEAttribute(indexDefEClass, INDEX_DEF__NAME);
+		createEAttribute(indexDefEClass, INDEX_DEF__UNIQUE);
 
-		dataSourceFactoryEClass = createEClass(DATA_SOURCE_FACTORY);
+		indexColumnDefEClass = createEClass(INDEX_COLUMN_DEF);
+		createEReference(indexColumnDefEClass, INDEX_COLUMN_DEF__INDEX);
+		createEAttribute(indexColumnDefEClass, INDEX_COLUMN_DEF__NAME);
+		createEAttribute(indexColumnDefEClass, INDEX_COLUMN_DEF__ORDERING);
+		createEAttribute(indexColumnDefEClass, INDEX_COLUMN_DEF__SEQUENCE);
 
-		indexEClass = createEClass(INDEX);
-		createEReference(indexEClass, INDEX__COLUMNS);
-		createEAttribute(indexEClass, INDEX__NAME);
-		createEAttribute(indexEClass, INDEX__OBJECT);
-		createEReference(indexEClass, INDEX__SCHEMA);
-		createEAttribute(indexEClass, INDEX__UNIQUE);
+		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
 
-		indexColumnEClass = createEClass(INDEX_COLUMN);
-		createEReference(indexColumnEClass, INDEX_COLUMN__INDEX);
-		createEAttribute(indexColumnEClass, INDEX_COLUMN__NAME);
-		createEAttribute(indexColumnEClass, INDEX_COLUMN__ORDERING);
-		createEAttribute(indexColumnEClass, INDEX_COLUMN__SEQUENCE);
+		schemaDefEClass = createEClass(SCHEMA_DEF);
+		createEAttribute(schemaDefEClass, SCHEMA_DEF__NAME);
 
-		schemaEClass = createEClass(SCHEMA);
-		createEReference(schemaEClass, SCHEMA__DATABASE);
-		createEAttribute(schemaEClass, SCHEMA__NAME);
-		createEReference(schemaEClass, SCHEMA__TABLES);
-		createEReference(schemaEClass, SCHEMA__VIEWS);
-		createEReference(schemaEClass, SCHEMA__INDEXES);
+		statementEClass = createEClass(STATEMENT);
 
-		tableEClass = createEClass(TABLE);
-		createEReference(tableEClass, TABLE__COLUMNS);
-		createEAttribute(tableEClass, TABLE__NAME);
-		createEReference(tableEClass, TABLE__SCHEMA);
+		tableDefEClass = createEClass(TABLE_DEF);
+		createEReference(tableDefEClass, TABLE_DEF__COLUMNS);
+		createEAttribute(tableDefEClass, TABLE_DEF__NAME);
 
-		tableColumnEClass = createEClass(TABLE_COLUMN);
-		createEReference(tableColumnEClass, TABLE_COLUMN__TABLE);
+		tableColumnDefEClass = createEClass(TABLE_COLUMN_DEF);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__DATA_TYPE);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__NAME);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__NULLABLE);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__LENGTH);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__SCALE);
 
-		viewEClass = createEClass(VIEW);
-		createEReference(viewEClass, VIEW__COLUMNS);
-		createEAttribute(viewEClass, VIEW__CREATION_PLUGIN);
-		createEAttribute(viewEClass, VIEW__CREATION_COMMAND);
-		createEAttribute(viewEClass, VIEW__NAME);
-		createEReference(viewEClass, VIEW__SCHEMA);
-
-		viewColumnEClass = createEClass(VIEW_COLUMN);
-		createEReference(viewColumnEClass, VIEW_COLUMN__VIEW);
+		viewDefEClass = createEClass(VIEW_DEF);
+		createEAttribute(viewDefEClass, VIEW_DEF__CREATION_PLUGIN);
+		createEAttribute(viewDefEClass, VIEW_DEF__CREATION_COMMAND);
 
 		// Create enums
 		dataTypeEEnum = createEEnum(DATA_TYPE);
 		orderingTypeEEnum = createEEnum(ORDERING_TYPE);
-		statementTypeEEnum = createEEnum(STATEMENT_TYPE);
 
 		// Create data types
-		jdbcConnectionEDataType = createEDataType(JDBC_CONNECTION);
-		jdbcExceptionEDataType = createEDataType(JDBC_EXCEPTION);
-		jdbcStatementEDataType = createEDataType(JDBC_STATEMENT);
-		preparedStatementEDataType = createEDataType(PREPARED_STATEMENT);
+		databaseExceptionEDataType = createEDataType(DATABASE_EXCEPTION);
+		databaseResultSetEDataType = createEDataType(DATABASE_RESULT_SET);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This
+	 * method is guarded to have no affect on any invocation but its first. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -1035,69 +772,71 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
-		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
+		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
+		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
+		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		connectionEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
 		connectionConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
 		connectionFactoryEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		connectionFactoryEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
-		connectionFactoryEClass.getESuperTypes().add(this.getDataSourceFactory());
 		EGenericType g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
 		EGenericType g2 = createEGenericType(this.getConnectionFactory());
 		g1.getETypeArguments().add(g2);
 		connectionFactoryRegistryEClass.getEGenericSuperTypes().add(g1);
 		connectionManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		databaseManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
-		tableEClass.getESuperTypes().add(this.getDatabaseObject());
-		tableColumnEClass.getESuperTypes().add(this.getColumn());
-		viewEClass.getESuperTypes().add(this.getDatabaseObject());
-		viewColumnEClass.getESuperTypes().add(this.getColumn());
+		indexDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
+		indexColumnDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
+		schemaDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
+		tableDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
+		tableColumnDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
+		viewDefEClass.getESuperTypes().add(this.getTableDef());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(columnEClass, QColumn.class, "Column", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColumn_DataType(), this.getDataType(), "dataType", null, 1, 1, QColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumn_Name(), ecorePackage.getEString(), "name", null, 1, 1, QColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumn_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, QColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumn_Precision(), ecorePackage.getEInt(), "precision", null, 0, 1, QColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getColumn_Scale(), ecorePackage.getEInt(), "scale", null, 0, 1, QColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(connectionEClass, QConnection.class, "Connection", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(connectionEClass, QConnection.class, "Connection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConnection_ConnectionConfig(), this.getConnectionConfig(), null, "connectionConfig", null, 1, 1, QConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnection_CurrentSchema(), this.getSchema(), null, "currentSchema", null, 0, 1, QConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnection_Database(), this.getDatabase(), null, "database", null, 1, 1, QConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConnection_ConnectionFactory(), this.getConnectionFactory(), null, "connectionFactory", null, 1, 1, QConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(connectionEClass, ecorePackage.getEBoolean(), "close", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		EOperation op = addEOperation(connectionEClass, this.getJDBCStatement(), "createStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
-
-		op = addEOperation(connectionEClass, this.getJDBCStatement(), "createStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "update", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
-
-		op = addEOperation(connectionEClass, this.getJDBCConnection(), "getConnection", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		EOperation op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "sqlCommand", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "native_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(connectionEClass, this.getStatement(), "createStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(connectionEClass, this.getStatement(), "createStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "native_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		addEOperation(connectionEClass, this.getConnectionConfig(), "getConnectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(connectionEClass, this.getDatabaseDefinition(), "getDatabaseDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(connectionConfigEClass, QConnectionConfig.class, "ConnectionConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConnectionConfig_DatabaseName(), ecorePackage.getEString(), "databaseName", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectionConfig_Driver(), ecorePackage.getEString(), "driver", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectionConfig_Password(), ecorePackage.getEString(), "password", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectionConfig_PluginName(), ecorePackage.getEString(), "pluginName", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectionConfig_Url(), ecorePackage.getEString(), "url", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectionConfig_UseCatalog(), ecorePackage.getEBoolean(), "useCatalog", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConnectionConfig_UsePool(), ecorePackage.getEBoolean(), "usePool", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectionConfig_DriverName(), ecorePackage.getEString(), "driverName", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectionConfig_Product(), ecorePackage.getEString(), "product", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectionConfig_Password(), ecorePackage.getEString(), "password", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectionConfig_Url(), ecorePackage.getEString(), "url", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectionConfig_User(), ecorePackage.getEString(), "user", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectionConfig_Version(), ecorePackage.getEString(), "version", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(connectionConfigEClass, this.getDatabaseDefinition(), "getDatabaseDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(connectionConfigEClass, ecorePackage.getEString(), "getDatabaseDefinitionID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(connectionFactoryEClass, QConnectionFactory.class, "ConnectionFactory", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(connectionFactoryEClass, this.getConnection(), "createDatabaseConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(connectionFactoryRegistryEClass, QConnectionFactoryRegistry.class, "ConnectionFactoryRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1106,147 +845,169 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		initEClass(connectionManagerEClass, QConnectionManager.class, "ConnectionManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(connectionManagerEClass, this.getConnectionConfig(), "createConnectionConfig", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(theFrameworkJavaPackage.getJavaDictionary());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "dictionary", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(connectionManagerEClass, this.getConnection(), "createDatabaseConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(connectionManagerEClass, this.getConnection(), "getDatabaseConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getConnectionConfig(), "config", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(connectionManagerEClass, this.getConnection(), "getDatabaseConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(connectionManagerEClass, this.getConnection(), "createDatabaseConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(connectionManagerEClass, null, "registerConnectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getConnectionConfig(), "config", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(databaseEClass, QDatabase.class, "Database", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDatabase_Name(), ecorePackage.getEString(), "name", null, 1, 1, QDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabase_Schemas(), this.getSchema(), this.getSchema_Database(), "schemas", null, 0, -1, QDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(databaseDefinitionEClass, DatabaseDefinition.class, "DatabaseDefinition", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(databaseObjectDefEClass, QDatabaseObjectDef.class, "DatabaseObjectDef", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(databaseNameHelperEClass, ISQLObjectNameHelper.class, "DatabaseNameHelper", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(databaseManagerEClass, QDatabaseManager.class, "DatabaseManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(databaseManagerEClass, null, "createIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIndex(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIndexDef(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "createSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSchema(), "schema", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "deepCreation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, this.getSchemaDef(), "schema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "createTable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "deepCreation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTableDef(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "createView", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getView(), "view", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getViewDef(), "view", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "deleteData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "deleteData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "dropIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIndex(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLConstraintsPackage.getIndex(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "dropSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "dropTable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "dropView", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getView(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getJDBCException());
+		addEParameter(op, theSQLTablesPackage.getViewTable(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
-		op = addEOperation(databaseManagerEClass, this.getSchema(), "getSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLSchemaPackage.getDatabase(), "getDatabase", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(databaseManagerEClass, this.getTable(), "getTable", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(databaseManagerEClass, this.getIndex(), "getIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLConstraintsPackage.getIndex(), "getIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(databaseObjectEClass, QDatabaseObject.class, "DatabaseObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(databaseManagerEClass, theSQLSchemaPackage.getSchema(), "getSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(dataSourceFactoryEClass, DataSourceFactory.class, "DataSourceFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(databaseManagerEClass, theSQLTablesPackage.getTable(), "getTable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(indexEClass, QIndex.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIndex_Columns(), this.getIndexColumn(), this.getIndexColumn_Index(), "columns", null, 0, -1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndex_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndex_Object(), ecorePackage.getEString(), "object", null, 1, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIndex_Schema(), this.getSchema(), this.getSchema_Indexes(), "schema", null, 0, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndex_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLTablesPackage.getViewTable(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(indexEClass, ecorePackage.getEString(), "getFullName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(indexDefEClass, QIndexDef.class, "IndexDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIndexDef_Columns(), this.getIndexColumnDef(), this.getIndexColumnDef_Index(), "columns", null, 0, -1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexDef_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(indexColumnEClass, QIndexColumn.class, "IndexColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIndexColumn_Index(), this.getIndex(), this.getIndex_Columns(), "index", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getIndexColumn_Index().getEKeys().add(this.getIndex_Name());
-		initEAttribute(getIndexColumn_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndexColumn_Ordering(), this.getOrderingType(), "ordering", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndexColumn_Sequence(), ecorePackage.getEInt(), "sequence", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(indexColumnDefEClass, QIndexColumnDef.class, "IndexColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIndexColumnDef_Index(), this.getIndexDef(), this.getIndexDef_Columns(), "index", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getIndexColumnDef_Index().getEKeys().add(this.getIndexDef_Name());
+		initEAttribute(getIndexColumnDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexColumnDef_Ordering(), this.getOrderingType(), "ordering", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexColumnDef_Sequence(), ecorePackage.getEInt(), "sequence", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(schemaEClass, QSchema.class, "Schema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSchema_Database(), this.getDatabase(), this.getDatabase_Schemas(), "database", null, 1, 1, QSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSchema_Name(), ecorePackage.getEString(), "name", null, 1, 1, QSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchema_Tables(), this.getTable(), this.getTable_Schema(), "tables", null, 0, -1, QSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchema_Views(), this.getView(), this.getView_Schema(), "views", null, 0, -1, QSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchema_Indexes(), this.getIndex(), this.getIndex_Schema(), "indexes", null, 0, -1, QSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(preparedStatementEClass, QPreparedStatement.class, "PreparedStatement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(tableEClass, QTable.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTable_Columns(), this.getTableColumn(), this.getTableColumn_Table(), "columns", null, 0, -1, QTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_Schema(), this.getSchema(), this.getSchema_Tables(), "schema", null, 0, 1, QTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		addEOperation(preparedStatementEClass, null, "clearParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(tableEClass, ecorePackage.getEString(), "getFullName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(preparedStatementEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
-		initEClass(tableColumnEClass, QTableColumn.class, "TableColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTableColumn_Table(), this.getTable(), this.getTable_Columns(), "table", null, 1, 1, QTableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getTableColumn_Table().getEKeys().add(this.getTable_Name());
+		op = addEOperation(preparedStatementEClass, ecorePackage.getEBoolean(), "execute", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
-		initEClass(viewEClass, QView.class, "View", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getView_Columns(), this.getViewColumn(), this.getViewColumn_View(), "columns", null, 0, -1, QView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getView_CreationPlugin(), ecorePackage.getEString(), "creationPlugin", "IBMI", 0, 1, QView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getView_CreationCommand(), ecorePackage.getEString(), "creationCommand", null, 0, 1, QView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getView_Name(), ecorePackage.getEString(), "name", null, 1, 1, QView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getView_Schema(), this.getSchema(), this.getSchema_Views(), "schema", null, 0, 1, QView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = addEOperation(preparedStatementEClass, this.getDatabaseResultSet(), "executeQuery", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
-		addEOperation(viewEClass, ecorePackage.getEString(), "getFullName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(preparedStatementEClass, ecorePackage.getEInt(), "executeUpdate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
-		initEClass(viewColumnEClass, QViewColumn.class, "ViewColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getViewColumn_View(), this.getView(), this.getView_Columns(), "view", null, 1, 1, QViewColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getViewColumn_View().getEKeys().add(this.getView_Name());
+		op = addEOperation(preparedStatementEClass, null, "setInt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "position", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(preparedStatementEClass, null, "setString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "position", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(schemaDefEClass, QSchemaDef.class, "SchemaDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSchemaDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QSchemaDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(statementEClass, QStatement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(statementEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(statementEClass, ecorePackage.getEBoolean(), "execute", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(statementEClass, this.getDatabaseResultSet(), "executeQuery", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(statementEClass, ecorePackage.getEInt(), "executeUpdate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		initEClass(tableDefEClass, QTableDef.class, "TableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTableDef_Columns(), this.getTableColumnDef(), null, "columns", null, 0, -1, QTableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tableColumnDefEClass, QTableColumnDef.class, "TableColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableColumnDef_DataType(), this.getDataType(), "dataType", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_Scale(), ecorePackage.getEInt(), "scale", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(viewDefEClass, QViewDef.class, "ViewDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getViewDef_CreationPlugin(), ecorePackage.getEString(), "creationPlugin", "IBMI", 0, 1, QViewDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewDef_CreationCommand(), ecorePackage.getEString(), "creationCommand", null, 0, 1, QViewDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataTypeEEnum, DataType.class, "DataType");
@@ -1268,24 +1029,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEEnumLiteral(orderingTypeEEnum, OrderingType.ASCEND);
 		addEEnumLiteral(orderingTypeEEnum, OrderingType.DESCEND);
 
-		initEEnum(statementTypeEEnum, StatementType.class, "StatementType");
-		addEEnumLiteral(statementTypeEEnum, StatementType.DECLARE);
-		addEEnumLiteral(statementTypeEEnum, StatementType.PREPARE);
-		addEEnumLiteral(statementTypeEEnum, StatementType.OPEN);
-		addEEnumLiteral(statementTypeEEnum, StatementType.FETCH);
-		addEEnumLiteral(statementTypeEEnum, StatementType.INSERT);
-		addEEnumLiteral(statementTypeEEnum, StatementType.UPDATE);
-		addEEnumLiteral(statementTypeEEnum, StatementType.DELETE);
-		addEEnumLiteral(statementTypeEEnum, StatementType.CLOSE);
-
 		// Initialize data types
-		initEDataType(jdbcConnectionEDataType, Connection.class, "JDBCConnection", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(jdbcExceptionEDataType, SQLException.class, "JDBCException", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(jdbcStatementEDataType, Statement.class, "JDBCStatement", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(preparedStatementEDataType, PreparedStatement.class, "PreparedStatement", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(databaseExceptionEDataType, SQLException.class, "DatabaseException", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(databaseResultSetEDataType, ResultSet.class, "DatabaseResultSet", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
 	}
 
-} //DatabaseCorePackageImpl
+} // DatabaseCorePackageImpl

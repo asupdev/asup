@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D5RECO0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="M1TIPA" precision="12"/>
-  <columns dataType="CHAR" name="M1CODI" precision="15"/>
-  <columns dataType="CHAR" name="M1TROT" precision="3"/>
-  <columns dataType="CHAR" name="M1COD1" precision="15"/>
-  <columns dataType="CHAR" name="M1COD2" precision="15"/>
-  <columns dataType="CHAR" name="M1COD3" precision="15"/>
-  <columns dataType="CHAR" name="M1DTVA" precision="10"/>
-  <columns dataType="DECIMAL" name="M1NUME" precision="3"/>
-  <columns dataType="CHAR" name="M2TIPA" precision="12"/>
-  <columns dataType="CHAR" name="M2CODI" precision="15"/>
-  <columns dataType="CHAR" name="M2TROT" precision="3"/>
-  <columns dataType="CHAR" name="M2COD1" precision="15"/>
-  <columns dataType="CHAR" name="M2COD2" precision="15"/>
-  <columns dataType="CHAR" name="M2COD3" precision="15"/>
-  <columns dataType="CHAR" name="M2DTVA" precision="10"/>
-  <columns dataType="DECIMAL" name="M2NUME" precision="3"/>
-  <columns dataType="DECIMAL" name="M$NUME" precision="20" scale="6"/>
-  <columns dataType="DECIMAL" name="M$DTIN" precision="8"/>
-  <columns dataType="CHAR" name="M$USIN" precision="10"/>
-  <columns dataType="CHAR" name="M$FL01" precision="1"/>
-  <columns dataType="CHAR" name="M$FL02" precision="1"/>
-  <columns dataType="CHAR" name="M$FL03" precision="1"/>
-  <columns dataType="CHAR" name="M$FL04" precision="1"/>
-  <columns dataType="CHAR" name="M$FL05" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D5RECO0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="M1TIPA" length="12"/>
+  <columns dataType="CHAR" name="M1CODI" length="15"/>
+  <columns dataType="CHAR" name="M1TROT" length="3"/>
+  <columns dataType="CHAR" name="M1COD1" length="15"/>
+  <columns dataType="CHAR" name="M1COD2" length="15"/>
+  <columns dataType="CHAR" name="M1COD3" length="15"/>
+  <columns dataType="CHAR" name="M1DTVA" length="10"/>
+  <columns dataType="DECIMAL" name="M1NUME" length="3"/>
+  <columns dataType="CHAR" name="M2TIPA" length="12"/>
+  <columns dataType="CHAR" name="M2CODI" length="15"/>
+  <columns dataType="CHAR" name="M2TROT" length="3"/>
+  <columns dataType="CHAR" name="M2COD1" length="15"/>
+  <columns dataType="CHAR" name="M2COD2" length="15"/>
+  <columns dataType="CHAR" name="M2COD3" length="15"/>
+  <columns dataType="CHAR" name="M2DTVA" length="10"/>
+  <columns dataType="DECIMAL" name="M2NUME" length="3"/>
+  <columns dataType="DECIMAL" name="M$NUME" length="20" scale="6"/>
+  <columns dataType="DECIMAL" name="M$DTIN" length="8"/>
+  <columns dataType="CHAR" name="M$USIN" length="10"/>
+  <columns dataType="CHAR" name="M$FL01" length="1"/>
+  <columns dataType="CHAR" name="M$FL02" length="1"/>
+  <columns dataType="CHAR" name="M$FL03" length="1"/>
+  <columns dataType="CHAR" name="M$FL04" length="1"/>
+  <columns dataType="CHAR" name="M$FL05" length="1"/>
+</db-core:TableDef>

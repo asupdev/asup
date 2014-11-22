@@ -7,6 +7,7 @@
  */
 package org.asup.db.syntax.impl;
 
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
@@ -14,9 +15,8 @@ import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Query Parser Registry</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Query Parser Registry</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
@@ -24,8 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class QueryParserRegistryImpl extends PluginRegistryImpl<QQueryParser> implements QQueryParserRegistry {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected QueryParserRegistryImpl() {
@@ -33,8 +32,7 @@ public abstract class QueryParserRegistryImpl extends PluginRegistryImpl<QQueryP
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -42,4 +40,15 @@ public abstract class QueryParserRegistryImpl extends PluginRegistryImpl<QQueryP
 		return QDatabaseSyntaxPackage.Literals.QUERY_PARSER_REGISTRY;
 	}
 
-} //QueryParserRegistryImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QQueryParser lookup(QConnectionConfig connectionConfig) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+} // QueryParserRegistryImpl

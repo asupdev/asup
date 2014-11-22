@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="AUTOOG0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="AO&#xa3;CLA" precision="10"/>
-  <columns dataType="CHAR" name="AO&#xa3;TIP" precision="2"/>
-  <columns dataType="CHAR" name="AO&#xa3;PAR" precision="10"/>
-  <columns dataType="CHAR" name="AO&#xa3;COD" precision="15"/>
-  <columns dataType="CHAR" name="AO&#xa3;ATT" precision="15"/>
-  <columns dataType="CHAR" name="AO&#xa3;VAL" precision="256"/>
-  <columns dataType="CHAR" name="AO&#xa3;GRA" precision="40"/>
-  <columns dataType="CHAR" name="AO&#xa3;F01" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F02" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F03" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F04" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F05" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F06" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F07" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F08" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F09" precision="1"/>
-  <columns dataType="CHAR" name="AO&#xa3;F10" precision="1"/>
-  <columns dataType="DECIMAL" name="AO&#xa3;DTI" precision="8"/>
-  <columns dataType="DECIMAL" name="AO&#xa3;ORI" precision="6"/>
-  <columns dataType="CHAR" name="AO&#xa3;UTI" precision="10"/>
-  <columns dataType="CHAR" name="AO&#xa3;OGI" precision="10"/>
-  <columns dataType="DECIMAL" name="AO&#xa3;DTA" precision="8"/>
-  <columns dataType="DECIMAL" name="AO&#xa3;ORA" precision="6"/>
-  <columns dataType="CHAR" name="AO&#xa3;UTE" precision="10"/>
-  <columns dataType="CHAR" name="AO&#xa3;OGA" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="AUTOOG0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="AO&#xa3;CLA" length="10"/>
+  <columns dataType="CHAR" name="AO&#xa3;TIP" length="2"/>
+  <columns dataType="CHAR" name="AO&#xa3;PAR" length="10"/>
+  <columns dataType="CHAR" name="AO&#xa3;COD" length="15"/>
+  <columns dataType="CHAR" name="AO&#xa3;ATT" length="15"/>
+  <columns dataType="CHAR" name="AO&#xa3;VAL" length="256"/>
+  <columns dataType="CHAR" name="AO&#xa3;GRA" length="40"/>
+  <columns dataType="CHAR" name="AO&#xa3;F01" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F02" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F03" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F04" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F05" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F06" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F07" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F08" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F09" length="1"/>
+  <columns dataType="CHAR" name="AO&#xa3;F10" length="1"/>
+  <columns dataType="DECIMAL" name="AO&#xa3;DTI" length="8"/>
+  <columns dataType="DECIMAL" name="AO&#xa3;ORI" length="6"/>
+  <columns dataType="CHAR" name="AO&#xa3;UTI" length="10"/>
+  <columns dataType="CHAR" name="AO&#xa3;OGI" length="10"/>
+  <columns dataType="DECIMAL" name="AO&#xa3;DTA" length="8"/>
+  <columns dataType="DECIMAL" name="AO&#xa3;ORA" length="6"/>
+  <columns dataType="CHAR" name="AO&#xa3;UTE" length="10"/>
+  <columns dataType="CHAR" name="AO&#xa3;OGA" length="10"/>
+</db-core:TableDef>

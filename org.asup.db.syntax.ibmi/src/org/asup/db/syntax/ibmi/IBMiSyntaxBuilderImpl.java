@@ -11,8 +11,15 @@
  */
 package org.asup.db.syntax.ibmi;
 
+import javax.annotation.PostConstruct;
+
 import org.asup.db.syntax.impl.SyntaxBuilderImpl;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
 public class IBMiSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	
+	@PostConstruct
+	private void init() {
+		setSQLObjectNameHelper(new SQLObjectNameHelper());
+	}
 }

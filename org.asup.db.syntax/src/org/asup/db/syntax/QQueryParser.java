@@ -8,6 +8,7 @@
 package org.asup.db.syntax;
 
 import java.io.InputStream;
+import java.sql.SQLException;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
 import org.eclipse.datatools.sqltools.parsers.sql.SQLParserException;
@@ -28,9 +29,17 @@ public interface QQueryParser extends QPlugin, QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.db.syntax.QueryParseResult" streamDataType="org.asup.fw.java.JavaInputStream" streamRequired="true"
+	 * @model dataType="org.asup.db.syntax.QueryParseResult" exceptions="org.asup.db.core.DatabaseException" streamDataType="org.asup.fw.java.JavaInputStream" streamRequired="true"
 	 * @generated
 	 */
-	SQLQueryParseResult parseQuery(InputStream stream) throws SQLParserException, SQLParserInternalException;
+	SQLQueryParseResult parseQuery(InputStream stream) throws SQLParserException, SQLParserInternalException, SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.asup.db.syntax.QueryParseResult" exceptions="org.asup.db.core.DatabaseException" sqlRequired="true"
+	 * @generated
+	 */
+	SQLQueryParseResult parseQuery(String sql) throws SQLException;
 
 } // QueryParser

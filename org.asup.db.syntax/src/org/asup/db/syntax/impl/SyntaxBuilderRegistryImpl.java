@@ -15,9 +15,8 @@ import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Syntax Builder Registry</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Syntax Builder Registry</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
@@ -25,8 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class SyntaxBuilderRegistryImpl extends PluginRegistryImpl<QSyntaxBuilder> implements QSyntaxBuilderRegistry {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SyntaxBuilderRegistryImpl() {
@@ -34,8 +32,7 @@ public abstract class SyntaxBuilderRegistryImpl extends PluginRegistryImpl<QSynt
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -44,12 +41,10 @@ public abstract class SyntaxBuilderRegistryImpl extends PluginRegistryImpl<QSynt
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public QSyntaxBuilder lookup(QConnectionConfig connectionConfig) {
-		return lookup(connectionConfig.getPluginName());
+		return lookup(connectionConfig.getDatabaseDefinitionID());
 	}
-
-} //SyntaxBuilderRegistryImpl
+} // SyntaxBuilderRegistryImpl

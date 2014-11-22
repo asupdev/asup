@@ -3,20 +3,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/fw/core" nsPrefix="fw-core">
   <eClassifiers xsi:type="ecore:EDataType" name="FrameworkCoreException" instanceClassName="org.asup.fw.core.FrameworkCoreException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="FrameowrkCoreRuntimeException" instanceClassName="org.asup.fw.core.FrameworkCoreRuntimeException"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AdapterManager" abstract="true" eSuperTypes="#//Service">
-    <eOperations name="getAdapter">
-      <eGenericType eTypeParameter="#//AdapterManager/getAdapter/T"/>
-      <eTypeParameters name="T">
-        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      </eTypeParameters>
-      <eParameters name="source" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-      <eParameters name="target" lowerBound="1">
-        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-          <eTypeArguments eTypeParameter="#//AdapterManager/getAdapter/T"/>
-        </eGenericType>
-      </eParameters>
-    </eOperations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
         eType="#//ServiceHook" containment="true"/>
@@ -46,6 +32,7 @@
         eType="#//ServiceReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true">
+    <eOperations name="close" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException"/>
     <eOperations name="createChild" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException"/>
     <eOperations name="get" lowerBound="1">
       <eGenericType eTypeParameter="#//Context/get/T"/>
@@ -53,6 +40,18 @@
       <eParameters name="clazz" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//Context/get/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getAdapter">
+      <eGenericType eTypeParameter="#//Context/getAdapter/T"/>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="adaptable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="adapterType" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/getAdapter/T"/>
         </eGenericType>
       </eParameters>
     </eOperations>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGLEGA0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="L&#xa7;AREA" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;TEMA" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;LISI" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;PGM" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;PA01" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;PA02" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;PA03" precision="10"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DATI" precision="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DAUM" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;UTEN" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGLEGA0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="L&#xa7;AREA" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;TEMA" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;LISI" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;PGM" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;PA01" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;PA02" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;PA03" length="10"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DATI" length="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DAUM" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;UTEN" length="10"/>
+</db-core:TableDef>

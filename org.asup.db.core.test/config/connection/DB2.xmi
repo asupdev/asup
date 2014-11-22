@@ -5,9 +5,9 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:db-core="http://www.asup.org/db/core"
     xsi:schemaLocation="http://www.asup.org/db/core ../../../org.asup.db.core/model/db-core.ecore"
-    databaseName="*LOCAL"
-    driver="com.ibm.db2.jcc.DB2Driver"
-    password="asup2013"
-    pluginName="DB2"
-    url="jdbc:db2://172.16.3.22:50000/ASUP050"
-    user="asup"/>
+    driverName="com.ibm.db2.jcc.DB2Driver"
+    product="DB2 UDB"
+    password="asupxx2014"
+    url="jdbc:db2://asup-db1:50000/ASUP050:retrieveMessagesFromServerOnGetMessage=true;"
+    user="asup"
+    version="V10.5"/>

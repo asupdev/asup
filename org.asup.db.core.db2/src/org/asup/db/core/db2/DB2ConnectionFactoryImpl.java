@@ -1,86 +1,45 @@
 package org.asup.db.core.db2;
 
-import java.sql.Driver;
-import java.sql.SQLException;
-import java.util.Properties;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
-import javax.sql.ConnectionPoolDataSource;
-import javax.sql.DataSource;
-import javax.sql.XADataSource;
-
-import org.asup.db.core.db2.logging.*;
-import org.asup.db.core.db2.logging.LoggingDataSource.LoggingLevel;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
-import org.osgi.service.jdbc.DataSourceFactory;
+import org.asup.db.syntax.QQueryConverter;
+import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QQueryParser;
+import org.asup.db.syntax.QQueryParserRegistry;
+import org.asup.fw.core.QContext;
+import org.eclipse.core.internal.runtime.AdapterManager;
+import org.eclipse.core.runtime.IAdapterFactory;
 
-import com.ibm.db2.jcc.*;
-
+@SuppressWarnings("restriction")
 public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 
-	private static final LoggingLevel LOG_DB_LEVEL = LoggingLevel.ERROR;
+	@Inject
+	private QContext context;
+	@Inject
+	private QQueryParserRegistry queryParserRegistry;
+	@Inject
+	private QQueryConverterRegistry queryConverterRegistry;
 
-	@Override
-	public DataSource createDataSource(Properties props) throws SQLException {
-		return createNativeDataSource(props);
-	}
-
-	@Override
-	public ConnectionPoolDataSource createConnectionPoolDataSource(Properties props) throws SQLException {
-		return createNativeConnectionPoolDataSource(props);		
-	}
-
-	@Override
-	public XADataSource createXADataSource(Properties props) throws SQLException {
-		throw new IllegalStateException("Not implemented yet");
-	}
-
-	@Override
-	public Driver createDriver(Properties props) throws SQLException {
-		throw new IllegalStateException("Not implemented yet");
-	}
-
-	private DataSource createNativeDataSource(Properties props) {
-		try {
-			DB2Url db2Url = new DB2Url(props.getProperty(DataSourceFactory.JDBC_URL));
-			System.out.println("Connecting to " + db2Url.getHost() + " ...");
-			DB2SimpleDataSource ds = new DB2SimpleDataSource();
-			ds.setDriverType(4);
-			ds.setRetrieveMessagesFromServerOnGetMessage(true);
-			ds.setCursorSensitivity(2);
-			ds.setServerName (db2Url.getHost());		
-			ds.setPortNumber(db2Url.getPort());
-			ds.setDatabaseName(db2Url.getDatabaseName());
-			ds.setUser(props.getProperty(DataSourceFactory.JDBC_USER));
-			ds.setPassword(props.getProperty(DataSourceFactory.JDBC_PASSWORD));
-			if (LOG_DB_LEVEL != null) {
-				return LoggingDataSource.getInstance(ds, LOG_DB_LEVEL);
-			} else {
-				return ds;
-			}
-		} catch (Throwable e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
+	private QQueryParser queryParser;
 	
-	private ConnectionPoolDataSource createNativeConnectionPoolDataSource(Properties props) {
-		try {
-			DB2Url db2Url = new DB2Url(props.getProperty(DataSourceFactory.JDBC_URL));
-			System.out.println("Connecting....");
-			DB2ConnectionPoolDataSource ds = new DB2ConnectionPoolDataSource();
-			ds.setDriverType(4);
-			ds.setRetrieveMessagesFromServerOnGetMessage(true);
-			ds.setCursorSensitivity(2);
-			ds.setServerName (db2Url.getHost());		
-			ds.setPortNumber(db2Url.getPort());
-			ds.setDatabaseName(db2Url.getDatabaseName());
-			ds.setUser(props.getProperty(DataSourceFactory.JDBC_USER));
-			ds.setPassword(props.getProperty(DataSourceFactory.JDBC_PASSWORD));
-			return ds;
-		} catch (Throwable e) {
-			e.printStackTrace();
-			return null;
-		}
+	@PostConstruct
+	private void init() {
+		IAdapterFactory adapterFactory = new DB2ConnectionAdapterFactoryImpl();
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);	
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
+		
+		this.queryParser = this.queryParserRegistry.lookup("IBMI");
 	}
 
+	@Override
+	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) {
+		
+		QContext connectionContext = context.createChild();
+		QQueryConverter queryConverter = queryConverterRegistry.lookup(connectionConfig);		
+		return new DB2ConnectionImpl(connectionContext, connectionConfig, queryParser, queryConverter);
+	}
 }

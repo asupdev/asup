@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Operating System Core Eclipse E4
 Bundle-SymbolicName: org.asup.os.core.e4
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.asup.os.core.e4,
  org.asup.os.core.e4.hook
-Require-Bundle: org.asup.os.type.lib;bundle-version="0.5.0";visibility:=reexport,
- org.asup.os.type.jobd;bundle-version="0.5.0";visibility:=reexport,
- org.asup.os.type.usrprf;bundle-version="0.5.0";visibility:=reexport
+Require-Bundle: org.asup.os.type.lib;bundle-version="0.5.3";visibility:=reexport,
+ org.asup.os.type.jobd;bundle-version="0.5.3";visibility:=reexport,
+ org.asup.os.type.usrprf;bundle-version="0.5.3";visibility:=reexport
 Import-Package: org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore.xmi.impl

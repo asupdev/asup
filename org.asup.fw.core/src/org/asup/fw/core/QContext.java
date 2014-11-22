@@ -23,6 +23,14 @@ public interface QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException"
+	 * @generated
+	 */
+	void close() throws FrameworkCoreRuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException"
 	 * @generated
 	 */
@@ -35,6 +43,14 @@ public interface QContext {
 	 * @generated
 	 */
 	<T> T get(Class<T> clazz);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model adaptableRequired="true" adapterTypeRequired="true" TBounds="org.eclipse.emf.ecore.EJavaObject"
+	 * @generated
+	 */
+	<T extends Object> T getAdapter(Object adaptable, Class<T> adapterType);
 
 	/**
 	 * <!-- begin-user-doc -->

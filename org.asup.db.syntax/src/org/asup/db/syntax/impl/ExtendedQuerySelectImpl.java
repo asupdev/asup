@@ -8,6 +8,7 @@
 package org.asup.db.syntax.impl;
 
 import java.util.Collection;
+
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QExtendedQuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.GroupingSpecification;
@@ -27,9 +28,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Extended Query Select</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Extended Query Select</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -49,8 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl implements QExtendedQuerySelect {
 	/**
 	 * The default value of the '{@link #isDistinct() <em>Distinct</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isDistinct()
 	 * @generated
 	 * @ordered
@@ -59,8 +58,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #isDistinct() <em>Distinct</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isDistinct()
 	 * @generated
 	 * @ordered
@@ -79,8 +77,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 
 	/**
 	 * This is true if the Having Clause containment reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
@@ -88,8 +85,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #getWhereClause() <em>Where Clause</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getWhereClause()
 	 * @generated
 	 * @ordered
@@ -97,18 +93,19 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	protected QuerySearchCondition whereClause;
 
 	/**
-	 * This is true if the Where Clause containment reference has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * This is true if the Where Clause containment reference has been set. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	protected boolean whereClauseESet;
 
 	/**
-	 * The cached value of the '{@link #getGroupByClause() <em>Group By Clause</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getGroupByClause()
+	 * <em>Group By Clause</em>}' containment reference list. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getGroupByClause()
 	 * @generated
 	 * @ordered
@@ -117,8 +114,8 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #getSelectClause() <em>Select Clause</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
 	 * @see #getSelectClause()
 	 * @generated
 	 * @ordered
@@ -127,8 +124,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #getFromClause() <em>From Clause</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFromClause()
 	 * @generated
 	 * @ordered
@@ -137,8 +133,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #getIntoClause() <em>Into Clause</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getIntoClause()
 	 * @generated
 	 * @ordered
@@ -146,8 +141,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	protected EList intoClause;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ExtendedQuerySelectImpl() {
@@ -155,8 +149,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -165,8 +158,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isDistinct() {
@@ -174,8 +166,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setDistinct(boolean newDistinct) {
@@ -186,8 +177,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QuerySearchCondition getHavingClause() {
@@ -195,8 +185,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetHavingClause(QuerySearchCondition newHavingClause, NotificationChain msgs) {
@@ -212,8 +201,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setHavingClause(QuerySearchCondition newHavingClause) {
@@ -235,8 +223,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicUnsetHavingClause(NotificationChain msgs) {
@@ -252,8 +239,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetHavingClause() {
@@ -272,8 +258,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetHavingClause() {
@@ -281,8 +266,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QuerySearchCondition getWhereClause() {
@@ -290,8 +274,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetWhereClause(QuerySearchCondition newWhereClause, NotificationChain msgs) {
@@ -307,8 +290,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setWhereClause(QuerySearchCondition newWhereClause) {
@@ -330,8 +312,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicUnsetWhereClause(NotificationChain msgs) {
@@ -347,8 +328,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void unsetWhereClause() {
@@ -367,8 +347,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSetWhereClause() {
@@ -376,8 +355,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList getGroupByClause() {
@@ -388,8 +366,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList getSelectClause() {
@@ -400,8 +377,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList getFromClause() {
@@ -412,8 +388,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList getIntoClause() {
@@ -424,8 +399,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -453,8 +427,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -477,8 +450,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -503,8 +475,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -541,8 +512,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -574,8 +544,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -600,8 +569,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -622,8 +590,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -644,8 +611,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -659,4 +625,4 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 		return result.toString();
 	}
 
-} //ExtendedQuerySelectImpl
+} // ExtendedQuerySelectImpl
