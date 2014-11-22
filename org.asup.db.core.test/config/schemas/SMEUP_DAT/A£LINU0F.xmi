@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;LINU0F">
-  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="QMUKEY" length="20"/>
   <columns dataType="CHAR" name="AU&#xa3;KEY" length="7"/>
   <columns dataType="CHAR" name="AU&#xa3;OBJ" length="12"/>
   <columns dataType="CHAR" name="AU&#xa3;MEM" length="10"/>

@@ -16,6 +16,7 @@ import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseManager;
@@ -67,6 +68,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass connectionConfigEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectionContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -338,6 +346,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 */
 	public EAttribute getConnectionConfig_Version() {
 		return (EAttribute)connectionConfigEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConnectionContext() {
+		return connectionContextEClass;
 	}
 
 	/**
@@ -685,6 +702,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__USER);
 		createEAttribute(connectionConfigEClass, CONNECTION_CONFIG__VERSION);
 
+		connectionContextEClass = createEClass(CONNECTION_CONTEXT);
+
 		connectionFactoryEClass = createEClass(CONNECTION_FACTORY);
 
 		connectionFactoryRegistryEClass = createEClass(CONNECTION_FACTORY_REGISTRY);
@@ -763,9 +782,9 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
-		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
 		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
 
 		// Create type parameters
@@ -773,8 +792,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		connectionEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
 		connectionConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
+		connectionContextEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
 		connectionFactoryEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		connectionFactoryEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		EGenericType g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
@@ -793,13 +812,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Initialize classes and features; add operations and parameters
 		initEClass(connectionEClass, QConnection.class, "Connection", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getDatabaseException());
-
-		op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "native_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(connectionEClass, null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(connectionEClass, this.getStatement(), "createStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -811,7 +824,20 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		addEOperation(connectionEClass, this.getConnectionConfig(), "getConnectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(connectionEClass, this.getConnectionContext(), "getConnectionContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(connectionEClass, this.getDatabaseDefinition(), "getDatabaseDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(connectionEClass, theSQLSchemaPackage.getCatalog(), "getDefaultCatalog", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "native_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		initEClass(connectionConfigEClass, QConnectionConfig.class, "ConnectionConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnectionConfig_DriverName(), ecorePackage.getEString(), "driverName", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -824,6 +850,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEOperation(connectionConfigEClass, this.getDatabaseDefinition(), "getDatabaseDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(connectionConfigEClass, ecorePackage.getEString(), "getDatabaseDefinitionID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(connectionContextEClass, QConnectionContext.class, "ConnectionContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(connectionFactoryEClass, QConnectionFactory.class, "ConnectionFactory", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core JTDS
 Bundle-SymbolicName: org.asup.db.core.jtds;singleton:=true
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-ClassPath: .,
  lib/jtds-1.2.7.jar
 Bundle-Activator: org.asup.db.core.jtds.JtdsActivator$Activator
@@ -14,7 +14,7 @@ Export-Package: net.sourceforge.jtds.jdbc,
  net.sourceforge.jtds.ssl,
  net.sourceforge.jtds.util,
  org.asup.db.core.jtds
-Require-Bundle: org.asup.db.core;bundle-version="0.5.0";visibility:=reexport
+Require-Bundle: org.asup.db.core;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.net4j.db,

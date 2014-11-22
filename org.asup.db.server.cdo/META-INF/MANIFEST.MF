@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Server Eclipse CDO
 Bundle-SymbolicName: org.asup.db.server.cdo
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.emf.cdo.net4j;bundle-version="4.1.101",
@@ -11,4 +11,4 @@ Require-Bundle: org.eclipse.emf.cdo.net4j;bundle-version="4.1.101",
  org.eclipse.emf.cdo.server;bundle-version="4.2.1",
  org.eclipse.emf.cdo.server.net4j;bundle-version="4.1.1",
  org.eclipse.emf.cdo.server.db;bundle-version="4.2.1",
- org.asup.db.core;bundle-version="0.5.0"
+ org.asup.db.core

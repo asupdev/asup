@@ -5,6 +5,8 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionContext;
+import org.asup.db.core.base.BaseConnectionContextImpl;
 import org.asup.db.core.base.BaseConnectionImpl;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
 import org.asup.db.syntax.QQueryConverter;
@@ -39,7 +41,8 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	@Override
 	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) {
 
-		QContext connectionContext = context.createChild();
+		QContext delegateContext = context.createChild();
+		QConnectionContext connectionContext = new BaseConnectionContextImpl(delegateContext); 
 		QQueryConverter queryConverter = queryConverterRegistry.lookup(connectionConfig);
 		return new BaseConnectionImpl(connectionContext, connectionConfig, queryParser, queryConverter);
 	}

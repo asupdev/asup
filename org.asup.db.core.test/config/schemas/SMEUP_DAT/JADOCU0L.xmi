@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW JADOCU0L (&#xA;  J&#xa7;TIP1 ,&#xA;  J&#xa7;COD1 ,&#xA;  J&#xa7;TIP2 ,&#xA;  J&#xa7;COD2 ,&#xA;  J&#xa7;DOCU ,&#xA;  J&#xa7;DATI )&#xA;  AS&#xA;  SELECT&#xA;  J&#xa7;TIP1 ,&#xA;  J&#xa7;COD1 ,&#xA;  J&#xa7;TIP2 ,&#xA;  J&#xa7;COD2 ,&#xA;  J&#xa7;DOCU ,&#xA;  J&#xa7;DATI&#xA;  FROM JADOCU0F&#xA;  ;&#xA;&#xA;" name="JADOCU0L"/>

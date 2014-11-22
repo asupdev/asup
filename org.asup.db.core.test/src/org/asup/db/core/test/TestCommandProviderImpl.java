@@ -153,23 +153,23 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		} catch (Exception e) {
 		}
 
-		QSchemaDef schemaDef = connectionTo.getAdapter(schemaFrom, QSchemaDef.class);
+		QSchemaDef schemaDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QSchemaDef.class);
 		databaseManager.createSchema(connectionTo, schemaDef);
 		Schema schemaTo = databaseManager.getSchema(connectionTo, schemaDef.getName());
 
 		for (Table table : (List<Table>) schemaFrom.getTables()) {
 
 			if (table instanceof ViewTable) {
-				QViewDef viewDef = connectionTo.getAdapter(schemaFrom, QViewDef.class);
+				QViewDef viewDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QViewDef.class);
 				databaseManager.createView(connectionTo, schemaTo, viewDef);
 			} else {
-				QTableDef tableDef = connectionTo.getAdapter(table, QTableDef.class);
+				QTableDef tableDef = connectionTo.getConnectionContext().getAdapter(table, QTableDef.class);
 				databaseManager.createTable(connectionTo, schemaTo, tableDef);
 			}
 		}
 
 		for (Index index : (List<Index>) schemaFrom.getIndices()) {
-			QIndexDef indexDef = connectionTo.getAdapter(index, QIndexDef.class);
+			QIndexDef indexDef = connectionTo.getConnectionContext().getAdapter(index, QIndexDef.class);
 			Table tableTo = databaseManager.getTable(connectionTo, schemaTo.getName(), index.getName());
 			databaseManager.createIndex(connectionTo, tableTo, indexDef);
 		}
@@ -261,7 +261,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 			ViewTable view = (ViewTable) table;
 			if (view.getName().equals("A£LIND0L")) {
-				QViewDef viewDef = connectionFrom.getAdapter(view, QViewDef.class);
+				QViewDef viewDef = connectionFrom.getConnectionContext().getAdapter(view, QViewDef.class);
 				databaseManager.createView(connectionTo, schemaTo, viewDef);
 				break;
 			}

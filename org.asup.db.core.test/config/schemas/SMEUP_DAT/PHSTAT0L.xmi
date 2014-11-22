@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW PHSTAT0L (&#xA;  PHMAST ,&#xA;  PHSLAV ,&#xA;  PHDTIN ,&#xA;  PHHRIN ,&#xA;  PHUSIN )&#xA;  AS&#xA;  SELECT&#xA;  PHMAST ,&#xA;  PHSLAV ,&#xA;  PHDTIN ,&#xA;  PHHRIN ,&#xA;  PHUSIN&#xA;  FROM PHSTAT0F&#xA;  ;&#xA;&#xA;" name="PHSTAT0L"/>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PHSTAT0L" creationCommand=" CREATE VIEW PHSTAT0L (   PHMAST ,   PHSLAV ,   PHDTIN ,   PHHRIN ,   PHUSIN )   AS   SELECT   PHMAST ,   PHSLAV ,   PHDTIN ,   PHHRIN ,   PHUSIN   FROM PHSTAT0F   ;  "/>

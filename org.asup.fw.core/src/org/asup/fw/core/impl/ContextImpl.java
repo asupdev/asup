@@ -52,7 +52,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void close() throws FrameworkCoreRuntimeException {
+	public QContext createChild() throws FrameworkCoreRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -63,7 +63,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContext createChild() throws FrameworkCoreRuntimeException {
+	public void dispose() throws FrameworkCoreRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

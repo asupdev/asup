@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="&#xa3;UI_SRC">
+  <columns dataType="CHAR" name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="SRCSEQ" length="6" scale="2"/>
+  <columns dataType="DECIMAL" name="SRCDAT" length="6"/>
+  <columns dataType="CHAR" name="SRCDTA" length="100"/>
+</db-core:TableDef>

@@ -61,7 +61,8 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createSchema(QConnection connection, QSchemaDef schema) throws SQLException {

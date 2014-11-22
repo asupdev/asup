@@ -35,6 +35,7 @@ import org.asup.dk.parser.Parser;
 import org.asup.dk.parser.Token;
 import org.asup.dk.parser.TokenType;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
@@ -48,7 +49,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	@PostConstruct
 	private void init() {
 		this.queryConverter = new MsSQLQueryConverterImpl();
-		setSQLObjectNameHelper(new MsSQLNameHelper());
+		setSQLObjectNameHelper(new SQLObjectNameHelper());
 	}
 	
 	@Override
@@ -125,6 +126,8 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 			}
 			
 		}
+		else
+			System.err.println(command);
 		command = commandCreate + " WITH SCHEMABINDING  AS " + commandSelect;
 //		System.out.println(command);
 
@@ -137,11 +140,11 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 //		Table table = index.getTable();
 		StringBuffer result = new StringBuffer("CREATE ");
 		if(index.isUnique()) 	
-			result.append("UNIQUE ");			
+			result.append("UNIQUE CLUSTERED ");			
 		else 
 			result.append("NONCLUSTERED ");
 		
-		result.append("INDEX ["+index.getName()+"]");
+		result.append("INDEX "+getNameInSQLFormat(index));
 		result.append(" ON "+getQualifiedNameInSQLFormat(table)+" (");
 
 		boolean first = true;
@@ -188,10 +191,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 		} catch (Exception e) {
 			throw new SQLException(e);
 		} 
-		
-		commandWork = commandWork.replaceAll("\\[\\\"", "[");
-		commandWork = commandWork.replaceAll("\\\"\\]", "]");
-		
+				
 		return commandWork;
 	}
 	
@@ -309,27 +309,26 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 				parsedCommand.append(text);
 			}
 			else if(status.equals("CREATE_VIEW")) {
-				text = "["+schema.getName()+"].["+text+"]";
+				text = getNameInSQLFormat(schema)+"."+getIdentifierQuoteString()+text+getIdentifierQuoteString();
 				parsedCommand.append(text);
 				status = "COLUMN";
 				firstColumn = true;				
 			}
 			else if(status.equals("TABLE")) {
-				text = "["+schema.getName()+"].["+text+"]";
+				text = getNameInSQLFormat(schema)+"."+getIdentifierQuoteString()+text+getIdentifierQuoteString();
 				parsedCommand.append(text);
 				status = "COLUMN";
 			}
 			else if(status.equals("COLUMN")) {
 				if(firstColumn)
-					parsedCommand.append("[QMUKEY], ");
-				text = "["+text+"]";
+					parsedCommand.append(getIdentifierQuoteString()+"QMUKEY"+getIdentifierQuoteString()+", ");
+				text = getIdentifierQuoteString()+text+getIdentifierQuoteString();
 				parsedCommand.append(text);
 				firstColumn = false;
 			}
 			else {
 				parsedCommand.append(text);
 				System.out.println("Unknown token "+text+" parsing "+command);
-//					throw new SQLException("Unknown token "+text+" parsing "+command);
 			}
 		}
 

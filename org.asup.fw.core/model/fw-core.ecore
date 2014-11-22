@@ -32,8 +32,8 @@
         eType="#//ServiceReference" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true">
-    <eOperations name="close" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException"/>
     <eOperations name="createChild" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException"/>
+    <eOperations name="dispose" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException"/>
     <eOperations name="get" lowerBound="1">
       <eGenericType eTypeParameter="#//Context/get/T"/>
       <eTypeParameters name="T"/>

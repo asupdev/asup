@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5BICO0F">
-  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="QMUKEY" length="20"/>
   <columns dataType="CHAR" name="B5AZIE" length="2"/>
   <columns dataType="CHAR" name="B5TIBC" length="5"/>
   <columns dataType="CHAR" name="B5ESER" length="10"/>

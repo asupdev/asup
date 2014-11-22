@@ -175,7 +175,7 @@ public abstract class E4AbstractContextImpl extends ContextImpl {
 	}
 
 	@Override
-	public void close() throws FrameworkCoreRuntimeException {
+	public void dispose() throws FrameworkCoreRuntimeException {
 		getEclipseContext().dispose();
 	}
 }

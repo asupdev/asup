@@ -26,8 +26,13 @@ import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QSyntaxBuilder;
 import org.asup.db.syntax.QSyntaxBuilderRegistry;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
+import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
+import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
+import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableIndexLoader;
+import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableLoader;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.helper.DatabaseHelper;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
@@ -39,15 +44,22 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	private QSyntaxBuilderRegistry syntaxBuilderRegistry;
 	
 	@Override
-	public void createSchema(QConnection connection, QSchemaDef schema) throws SQLException {
+	public void createSchema(QConnection connection, QSchemaDef schemaDef) throws SQLException {
 
 		// Schema creation
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createSchema(schema);
-			statement.execute(command);			
+			String command = syntaxBuilder.createSchema(schemaDef);
+			statement.execute(command);
+			
+			// refresh schema
+			Catalog catalog = connection.getDefaultCatalog();
+			synchronized (catalog) {
+				JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) catalog);
+				schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
+			}
 		}
 		finally {
 			if(statement != null)
@@ -56,14 +68,20 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 
 	@Override
-	public void createTable(QConnection connection, Schema schema, QTableDef table) throws SQLException {
+	public void createTable(QConnection connection, Schema schema, QTableDef tableDef) throws SQLException {
 
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createTable(schema, table);
+			String command = syntaxBuilder.createTable(schema, tableDef);
 			statement.execute(command);
+
+			// refresh table
+			synchronized (schema) {
+				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
+				tableLoader.loadTables(schema.getTables(), schema.getTables());				
+			}
 		}
 		finally {
 			if(statement != null)
@@ -72,17 +90,23 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 
 	@Override
-	public void createView(QConnection connection, Schema schema, QViewDef view) throws SQLException {
+	public void createView(QConnection connection, Schema schema, QViewDef viewDef) throws SQLException {
 
 		QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
-		String command = syntaxBuilder.createView(schema, view);
+		String command = syntaxBuilder.createView(schema, viewDef);
 		if(command == null)
-			return;
+			throw new SQLException("Empty view creation command: "+viewDef);
 		
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
 			statement.execute(command);
+			
+			// refresh view
+			synchronized (schema) {
+				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
+				tableLoader.loadTables(schema.getTables(), schema.getTables());				
+			}
 		}
 		finally {
 			if(statement != null)
@@ -91,14 +115,20 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 	
 	@Override
-	public void createIndex(QConnection connection, Table table, QIndexDef index) throws SQLException {
+	public void createIndex(QConnection connection, Table table, QIndexDef indexDef) throws SQLException {
 		
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createIndex(table, index);
+			String command = syntaxBuilder.createIndex(table, indexDef);
 			statement.execute(command);
+			
+			// refresh schema
+			synchronized (table) {
+				JDBCTableIndexLoader indexLoader = new JDBCTableIndexLoader((ICatalogObject) table);
+				indexLoader.loadIndexes(table.getIndex(), table.getIndex());
+			}
 		}
 		finally {
 			if(statement != null)
@@ -120,7 +150,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			}
 		}
 
-		// Tables drop
+		// Tables view
 		for(Table table: (List<Table>)schema.getTables()) {
 			try {
 				if(table instanceof ViewTable)
@@ -133,20 +163,26 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			}
 		}
 
-		// Schema drop
+		// schema drop
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.dropSchema(schema);
 			statement.execute(command);
+			
+			// refresh schema
+			Catalog catalog = connection.getDefaultCatalog();
+			synchronized (catalog) {
+				JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) catalog);
+				schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
+			}
 		}
 		finally {
 			if(statement != null)
 				statement.close();
 		}
 
-//		connection.getDatabase().getSchemas().remove(schema);		
 		schema.setDatabase(null);
 	}
 
@@ -159,6 +195,12 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
 			String command = syntaxBuilder.dropTable(table);
 			statement.execute(command);
+			
+			// refresh table
+			Schema schema = table.getSchema();
+			synchronized (schema) {
+				schema.getTables().remove(table);
+			}
 		}
 		finally {
 			if(statement != null)
@@ -175,6 +217,12 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.dropView(view);
 			statement.execute(command);
+			
+			// refresh table
+			Schema schema = view.getSchema();
+			synchronized (schema) {
+				schema.getTables().remove(view);
+			}
 		}
 		finally {
 			if(statement != null)
@@ -191,6 +239,12 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.dropIndex(index);
 			statement.execute(command);
+						
+			// refresh schema
+			Schema schema = index.getSchema();
+			synchronized (schema) {
+				schema.getIndices().remove(index);
+			}
 		}
 		finally {
 			if(statement != null)
@@ -232,7 +286,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Override
 	public Database getDatabase(QConnection connection) {		
-		return connection.getAdapter(connection, ConnectionInfo.class).getSharedDatabase();
+		return connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class).getSharedDatabase();
 	}
 
 	@Override
@@ -266,5 +320,15 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public ViewTable getView(QConnection connection, String schemaName, String tableName) {
+		
+		Table table = getTable(connection, schemaName, tableName);
+		if(table instanceof ViewTable)
+			return (ViewTable) table;
+		else
+			return null; 
 	}
 }

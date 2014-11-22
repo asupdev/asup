@@ -23,18 +23,18 @@ public interface QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException"
-	 * @generated
-	 */
-	void close() throws FrameworkCoreRuntimeException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model required="true" exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException"
 	 * @generated
 	 */
 	QContext createChild() throws FrameworkCoreRuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException"
+	 * @generated
+	 */
+	void dispose() throws FrameworkCoreRuntimeException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -8,8 +8,8 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
-import org.asup.fw.core.QContext;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -20,7 +20,15 @@ import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QConnection extends QContext {
+public interface QConnection {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException"
+	 * @generated
+	 */
+	void close() throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,9 +73,25 @@ public interface QConnection extends QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	QConnectionContext getConnectionContext();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model kind="operation" type="org.asup.db.core.DatabaseDefinition" required="true"
 	 * @generated
 	 */
 	DatabaseDefinition getDatabaseDefinition();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	Catalog getDefaultCatalog();
 
 } // DatabaseConnection

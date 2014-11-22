@@ -16,8 +16,8 @@ public class CDOJobContextImpl extends JobContextImpl {
 	}
 	
 	@Override
-	public void close() throws FrameworkCoreRuntimeException {
-		this.delegate.close();
+	public void dispose() throws FrameworkCoreRuntimeException {
+		this.delegate.dispose();
 	}
 
 	@Override

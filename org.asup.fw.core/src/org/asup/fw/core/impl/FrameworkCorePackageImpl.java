@@ -779,10 +779,10 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 
 		initEClass(contextEClass, QContext.class, "Context", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(contextEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(contextEClass, this.getContext(), "createChild", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
-		op = addEOperation(contextEClass, this.getContext(), "createChild", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(contextEClass, null, "dispose", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
 		op = addEOperation(contextEClass, null, "get", 1, 1, IS_UNIQUE, IS_ORDERED);

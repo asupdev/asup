@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/db/core" nsPrefix="db-core">
-  <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" interface="true"
-      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context">
-    <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
-        eExceptions="#//DatabaseException">
-      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
-        eExceptions="#//DatabaseException">
-      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
+  <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" interface="true">
+    <eOperations name="close" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException">
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="getConnectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
+    <eOperations name="getConnectionContext" lowerBound="1" eType="#//ConnectionContext"/>
     <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
+    <eOperations name="getDefaultCatalog" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"/>
+    <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
+        eExceptions="#//DatabaseException">
+      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
+        eExceptions="#//DatabaseException">
+      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionConfig" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
     <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
@@ -32,6 +34,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionFactory" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createDatabaseConnection" eType="#//Connection">
       <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>

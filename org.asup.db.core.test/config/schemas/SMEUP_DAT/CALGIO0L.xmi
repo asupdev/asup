@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW CALGIO0L (&#xA;  CG&#xa3;TRI ,&#xA;  CG&#xa3;CRI ,&#xA;  CG&#xa3;DUC ,&#xA;  CG&#xa3;HUC ,&#xA;  CG&#xa3;DMN ,&#xA;  CG&#xa3;DMX ,&#xA;  CG&#xa3;VAL )&#xA;  AS&#xA;  SELECT&#xA;  CG&#xa3;TRI ,&#xA;  CG&#xa3;CRI ,&#xA;  CG&#xa3;DUC ,&#xA;  CG&#xa3;HUC ,&#xA;  CG&#xa3;DMN ,&#xA;  CG&#xa3;DMX ,&#xA;  CG&#xa3;VAL&#xA;  FROM CALGIO0F&#xA;  ;&#xA;&#xA;" name="CALGIO0L"/>

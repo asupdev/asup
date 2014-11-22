@@ -27,6 +27,7 @@ import org.asup.il.core.QOverlay;
 import org.asup.il.core.annotation.Overlay;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.DataDefType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
 import org.asup.il.data.FloatingType;
@@ -81,6 +82,7 @@ import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.annotation.DataType;
+import org.asup.il.data.impl.DataTermImpl;
 import org.asup.il.data.impl.EnumDefImpl;
 import org.asup.il.data.impl.ListDefImpl;
 import org.eclipse.emf.ecore.EClass;
@@ -695,7 +697,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 	}
 	
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private <DD extends QDataDef<?>> QDataTerm<DD> createDataTerm(Field field) {
 
 		// annotations field
@@ -709,21 +711,20 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 		if(elementDef instanceof QEnumDef) {
 			
-			System.err.println("Unexpected condition: hs5946f4fgva9sd7");
-			
-			QEnumDef<?, ?> enumDef = (QEnumDef<?, ?>) elementDef;
-			elementDef = (DD) enumDef.getDelegate();
-			
-/*			class MyTerm<ED extends QEnumDef<?, ?>> extends DataTermImpl<ED> {
+			class MyTerm<ED extends QEnumDef<?, ?>> extends DataTermImpl<ED> {
 
 				private static final long serialVersionUID = 1L;
 
+				@Override
+				public DataTermType getDataTermType() {
+					return DataTermType.UNARY_ATOMIC;
+				}
+
 			}
 			
-			elementTerm = new MyTerm();*/
-		}
-		
-		if (elementDef instanceof QMultipleCompoundDataDef) {
+			elementTerm = new MyTerm();
+		}		
+		else if (elementDef instanceof QMultipleCompoundDataDef) {
 			QMultipleCompoundDataTerm<?> multipleCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();
 			elementTerm = (QDataTerm<DD>) multipleCompoundDataTerm;
 		}
