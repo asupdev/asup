@@ -14,7 +14,11 @@
     <services
         name="MSSQL"
         text="Microsoft SQL Server"
-        version="0.5.4"
+<<<<<<< HEAD
+        version="0.5.3"
+=======
+        version="0.5.3"
+>>>>>>> branch 'master' of https://github.com/asupdev/asup.git
         vendor="www.smeup.com"
         className="org.asup.db.core.mssql.MsSQLConnectionFactoryImpl"/>
   </services>
@@ -29,7 +33,11 @@
     <services
         name="IBMI"
         text="IBMi Server"
-        version="0.5.4"
+<<<<<<< HEAD
+        version="0.5.3"
+=======
+        version="0.5.3"
+>>>>>>> branch 'master' of https://github.com/asupdev/asup.git
         vendor="www.smeup.com"
         className="org.asup.db.syntax.ibmi.IBMiQueryParserImpl"/>
   </services>
@@ -41,13 +49,23 @@
     <services
         name="MSSQL"
         text="Microsoft SQL Server"
-        version="0.5.4"
+<<<<<<< HEAD
+        version="0.5.3"
         vendor="www.smeup.com"
         className="org.asup.db.syntax.mssql.MsSQLSyntaxBuilderImpl"/>
     <services
         name="IBMI"
         text="IBMi Server"
-        version="0.5.4"
+        version="0.5.3"
+=======
+        version="0.5.3"
+        vendor="www.smeup.com"
+        className="org.asup.db.syntax.mssql.MsSQLSyntaxBuilderImpl"/>
+    <services
+        name="IBMI"
+        text="IBMi Server"
+        version="0.5.3"
+>>>>>>> branch 'master' of https://github.com/asupdev/asup.git
         vendor="www.smeup.com"
         className="org.asup.db.syntax.ibmi.IBMiSyntaxBuilderImpl"/>
   </services>
@@ -59,7 +77,11 @@
     <services
         name="MSSQL"
         text="Microsoft SQL Server"
-        version="0.5.4"
+<<<<<<< HEAD
+        version="0.5.3"
+=======
+        version="0.5.3"
+>>>>>>> branch 'master' of https://github.com/asupdev/asup.git
         vendor="www.smeup.com"
         className="org.asup.db.syntax.mssql.MsSQLQueryConverterImpl"/>
   </services>

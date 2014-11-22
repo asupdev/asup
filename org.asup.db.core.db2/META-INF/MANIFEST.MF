@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core DB2
 Bundle-SymbolicName: org.asup.db.core.db2
-Bundle-Version: 0.5.4.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore.xmi.impl
-Require-Bundle: org.asup.db.core;bundle-version="0.5.4",
+Require-Bundle: org.asup.db.core,
  org.eclipse.datatools.enablement.ibm;bundle-version="1.0.0",
  org.eclipse.datatools.enablement.ibm.db2;bundle-version="1.0.0",
  org.eclipse.datatools.enablement.ibm.db2.luw;bundle-version="1.0.3",

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core Base
 Bundle-SymbolicName: org.asup.db.core.base
-Bundle-Version: 0.5.4.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.db.core.base
 Require-Bundle: org.asup.db.core;visibility:=reexport,

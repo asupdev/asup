@@ -8,5 +8,9 @@
     driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
     password="asup2013"
     product="MSSQL"
-    url="jdbc:sqlserver://172.16.2.108:1433;databaseName=ASUP_0.5.4"
+<<<<<<< HEAD
+    url="jdbc:sqlserver://172.16.2.108:1433;databaseName=ASUP_0.5.3"
+=======
+    url="jdbc:sqlserver://172.16.2.108:1433;databaseName=ASUP_0.5.3"
+>>>>>>> branch 'master' of https://github.com/asupdev/asup.git
     user="asup"/>
