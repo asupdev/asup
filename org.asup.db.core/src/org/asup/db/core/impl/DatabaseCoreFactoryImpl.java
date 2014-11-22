@@ -76,8 +76,8 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case QDatabaseCorePackage.DATA_TYPE:
-				return createDataTypeFromString(eDataType, initialValue);
+			case QDatabaseCorePackage.DATABASE_DATA_TYPE:
+				return createDatabaseDataTypeFromString(eDataType, initialValue);
 			case QDatabaseCorePackage.ORDERING_TYPE:
 				return createOrderingTypeFromString(eDataType, initialValue);
 			default:
@@ -92,8 +92,8 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case QDatabaseCorePackage.DATA_TYPE:
-				return convertDataTypeToString(eDataType, instanceValue);
+			case QDatabaseCorePackage.DATABASE_DATA_TYPE:
+				return convertDatabaseDataTypeToString(eDataType, instanceValue);
 			case QDatabaseCorePackage.ORDERING_TYPE:
 				return convertOrderingTypeToString(eDataType, instanceValue);
 			default:
@@ -172,20 +172,22 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataType createDataTypeFromString(EDataType eDataType, String initialValue) {
-		DataType result = DataType.get(initialValue);
+	public DatabaseDataType createDatabaseDataTypeFromString(EDataType eDataType, String initialValue) {
+		DatabaseDataType result = DatabaseDataType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDataTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertDatabaseDataTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

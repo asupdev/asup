@@ -217,7 +217,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		// Manage default value
 		
 				
-		switch (dataTerm.getDataType()) {
+		switch (dataTerm.getDataTermType()) {
 
 		case MULTIPLE_ATOMIC:
 			
@@ -405,7 +405,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		if (value == null || value.isEmpty()) {
 			
 			String defValue = "";
-			if (dataTerm.getDataType().isUnary()) {							
+			if (dataTerm.getDataTermType().isUnary()) {							
 				defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();				
 			} else {				
 				if (((QMultipleDataTerm<?>) dataTerm).getDefault().size() > 0) {				
@@ -426,7 +426,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		
 		String defValue = null;
 			
-		if (dataTerm.getDataType().isUnary()) {				
+		if (dataTerm.getDataTermType().isUnary()) {				
 			defValue = ((QUnaryDataTerm<?>) dataTerm).getDefault();
 
 		} else {

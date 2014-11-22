@@ -28,6 +28,7 @@ import org.asup.os.core.impl.SystemManagerImpl;
 import org.asup.os.core.jobs.JobStatus;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobContext;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
@@ -41,7 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 public class CDOSystemManagerImpl extends SystemManagerImpl {
 
 	@Inject
-	private QContext frameworkContext;
+	private QContext context;
 
 	private static final String CDO_CORE = "os/core";
 	
@@ -217,7 +218,6 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 		query.setParameter("name", systemConfig.getSystem().getName());
 		query.setMaxResults(1);	
 		QSystem system = query.getResultValue(QSystem.class);
-		system.setContext(frameworkContext);
 		
 		return system;
 	}
@@ -261,5 +261,10 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 	@Override
 	protected QJob createJob(JobType jobType, String user) throws OperatingSystemException {
 		return super.createJob(jobType, user);
+	}
+
+	@Override
+	protected QJobContext createJobContext() throws OperatingSystemException {
+		return new CDOJobContextImpl(this.context.createChild());
 	}	
 }

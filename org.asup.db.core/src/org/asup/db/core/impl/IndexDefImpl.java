@@ -9,7 +9,6 @@ package org.asup.db.core.impl;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QIndexColumnDef;
@@ -19,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -124,23 +123,9 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 	 */
 	public List<QIndexColumnDef> getColumns() {
 		if (columns == null) {
-			columns = new EObjectContainmentWithInverseEList<QIndexColumnDef>(QIndexColumnDef.class, this, QDatabaseCorePackage.INDEX_DEF__COLUMNS, QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX);
+			columns = new EObjectContainmentEList<QIndexColumnDef>(QIndexColumnDef.class, this, QDatabaseCorePackage.INDEX_DEF__COLUMNS);
 		}
 		return columns;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_DEF__COLUMNS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColumns()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

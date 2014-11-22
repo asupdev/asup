@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QString;
 import org.asup.il.data.QStringDef;
@@ -54,5 +55,10 @@ public class StringDefImpl extends UnaryAtomicBufferedDataDefImpl<QString> imple
 	@Override
 	public Class<QString> getDataClass() {
 		return QString.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.STRING;
 	}
 } //StringDefImpl

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Development Kit Source
 Bundle-SymbolicName: org.asup.dk.source;singleton:=true
-Bundle-Version: 0.5.4.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: www.smeup.com
 Bundle-Localization: plugin
@@ -10,6 +10,6 @@ Export-Package: org.asup.dk.source,
  org.asup.dk.source.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.asup.os.type.lib;bundle-version="0.5.4"
+ org.asup.os.type.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

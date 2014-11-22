@@ -546,7 +546,7 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		String name = normalizeTypeName(dataTerm.getName());
 		
 		// multiple
-		if(dataTerm.getDataType().isMultiple() && name.endsWith("s"))
+		if(dataTerm.getDataTermType().isMultiple() && name.endsWith("s"))
 			name = removeLastChar(name);
 
 		return name;

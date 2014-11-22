@@ -9,6 +9,7 @@ package org.asup.il.data.impl;
 
 import java.util.List;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QList;
 import org.asup.il.data.QListDef;
@@ -181,9 +182,10 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 		return super.eIsSet(featureID);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Class<?> getDataClass() {
-		return QList.class;
+	public Class<D> getDataClass() {
+		return (Class<D>) QList.class;
 	}
 
 	@Override
@@ -191,4 +193,8 @@ public class ListDefImpl<D extends QList<?>> extends MultipleAtomicDataDefImpl<D
 		return List.class;
 	}
 
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.LIST;
+	}
 } //ListDefImpl

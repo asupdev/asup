@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.database.test"
       label="As.UP Database Test"
-      version="0.5.4.qualifier"
+      version="0.5.3.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">

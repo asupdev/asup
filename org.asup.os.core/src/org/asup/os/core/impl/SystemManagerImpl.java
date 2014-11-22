@@ -10,9 +10,6 @@ package org.asup.os.core.impl;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 
-import javax.inject.Inject;
-
-import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
@@ -25,6 +22,7 @@ import org.asup.os.core.QSystem;
 import org.asup.os.core.QSystemManager;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.jobs.QOperatingSystemJobsFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -57,9 +55,6 @@ public abstract class SystemManagerImpl extends EObjectImpl implements QSystemMa
 	 * @ordered
 	 */
 	protected QServiceConfig config;
-
-	@Inject
-	protected QContext frameworkContext;
 
 	protected static final SimpleDateFormat YYMMDD = new SimpleDateFormat("yyMMdd");
 	protected static final SimpleDateFormat YYYYMMDD = new SimpleDateFormat("yyyyMMdd");
@@ -300,14 +295,16 @@ public abstract class SystemManagerImpl extends EObjectImpl implements QSystemMa
 	    job.getLibraries().add(getSystem().getSystemLibrary());		
 
 	    // job context
-	    QContext jobContext = getSystem().getContext().createChild();
+	    QJobContext jobContext = createJobContext();
 	    job.setJobContext(jobContext);
-
+	    
 	    jobContext.set(QContextID.class, job);
 	    jobContext.set(QJob.class, job);
-	    
+
 		return job;	
 	}
 	
 	protected abstract int nextJobID() throws OperatingSystemException;
+	
+	protected abstract QJobContext createJobContext() throws OperatingSystemException;
 } //QSystemManagerImpl

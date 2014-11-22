@@ -1,4 +1,4 @@
-package org.asup.db.core.db2;
+package org.asup.db.core.base;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,11 +6,11 @@ import java.sql.Statement;
 
 import org.asup.db.core.QStatement;
 
-public class DB2NativeStatementImpl implements QStatement {
+public class BaseNativeStatementImpl implements QStatement {
 
 	private Statement statement;
 	
-	protected DB2NativeStatementImpl(Statement statement) {
+	protected BaseNativeStatementImpl(Statement statement) {
 		this.statement = statement;
 	}
 	

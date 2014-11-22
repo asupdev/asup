@@ -151,8 +151,6 @@
     <eLiterals name="AllUser" value="50" literal="*ALLUSR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"
-        transient="true" containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="installPath" lowerBound="1"
@@ -165,7 +163,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
         eType="#//SystemStatus" defaultValueLiteral="STP"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemDatabase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemLibrary" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemUser" lowerBound="1"
@@ -222,9 +219,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" lowerBound="1"
           eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="jobContext" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="jobContext" eType="#//jobs/JobContext"
           transient="true" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JobContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
     <eClassifiers xsi:type="ecore:EClass" name="JobLog" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entries" lowerBound="1"
           upperBound="-1" eType="#//jobs/JobLogEntry" containment="true"/>

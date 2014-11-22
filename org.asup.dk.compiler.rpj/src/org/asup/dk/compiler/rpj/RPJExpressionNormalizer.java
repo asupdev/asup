@@ -120,7 +120,7 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 			return super.visit(statement);
 		
 		// unary
-		if(dataTerm.getDataType().isUnary()) 
+		if(dataTerm.getDataTermType().isUnary()) 
 			return super.visit(statement);
 		
 		// multiple

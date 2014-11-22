@@ -8,6 +8,7 @@
 package org.asup.il.data;
 
 import java.io.Serializable;
+import java.lang.String;
 import java.util.List;
 
 
@@ -51,7 +52,7 @@ public interface QDataDef<D extends QData> extends Serializable {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	Class<?> getDataClass();
+	Class<D> getDataClass();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,4 +61,12 @@ public interface QDataDef<D extends QData> extends Serializable {
 	 * @generated
 	 */
 	Class<?> getJavaClass();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	DataDefType getDataDefType();
 } // QDataDef

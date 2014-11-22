@@ -10,11 +10,11 @@ package org.asup.os.core.jobs.impl;
 import java.util.Collection;
 import java.util.List;
 
-import org.asup.fw.core.QContext;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.jobs.JobStatus;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.impl.ObjectNameableImpl;
@@ -226,7 +226,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected transient QContext jobContext;
+	protected transient QJobContext jobContext;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -483,7 +483,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContext getJobContext() {
+	public QJobContext getJobContext() {
 		return jobContext;
 	}
 
@@ -492,8 +492,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetJobContext(QContext newJobContext, NotificationChain msgs) {
-		QContext oldJobContext = jobContext;
+	public NotificationChain basicSetJobContext(QJobContext newJobContext, NotificationChain msgs) {
+		QJobContext oldJobContext = jobContext;
 		jobContext = newJobContext;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB__JOB_CONTEXT, oldJobContext, newJobContext);
@@ -507,7 +507,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJobContext(QContext newJobContext) {
+	public void setJobContext(QJobContext newJobContext) {
 		if (newJobContext != jobContext) {
 			NotificationChain msgs = null;
 			if (jobContext != null)
@@ -623,7 +623,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 				setCreationInfo((QCreationInfo)newValue);
 				return;
 			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				setJobContext((QContext)newValue);
+				setJobContext((QJobContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -668,7 +668,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 				setCreationInfo((QCreationInfo)null);
 				return;
 			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				setJobContext((QContext)null);
+				setJobContext((QJobContext)null);
 				return;
 		}
 		super.eUnset(featureID);

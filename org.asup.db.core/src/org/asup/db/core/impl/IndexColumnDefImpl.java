@@ -9,15 +9,10 @@ package org.asup.db.core.impl;
 
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QDatabaseCorePackage;
-import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QIndexColumnDef;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -25,7 +20,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.IndexColumnDefImpl#getIndex <em>Index</em>}</li>
  *   <li>{@link org.asup.db.core.impl.IndexColumnDefImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.db.core.impl.IndexColumnDefImpl#getOrdering <em>Ordering</em>}</li>
  *   <li>{@link org.asup.db.core.impl.IndexColumnDefImpl#getSequence <em>Sequence</em>}</li>
@@ -167,90 +161,9 @@ public class IndexColumnDefImpl extends DatabaseObjectDefImpl implements QIndexC
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QIndexDef getIndex() {
-		if (eContainerFeatureID() != QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX) return null;
-		return (QIndexDef)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIndex(QIndexDef newIndex, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newIndex, QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIndex(QIndexDef newIndex) {
-		if (newIndex != eInternalContainer() || (eContainerFeatureID() != QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX && newIndex != null)) {
-			if (EcoreUtil.isAncestor(this, (EObject)newIndex))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newIndex != null)
-				msgs = ((InternalEObject)newIndex).eInverseAdd(this, QDatabaseCorePackage.INDEX_DEF__COLUMNS, QIndexDef.class, msgs);
-			msgs = basicSetIndex(newIndex, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX, newIndex, newIndex));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetIndex((QIndexDef)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				return basicSetIndex(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				return eInternalContainer().eInverseRemove(this, QDatabaseCorePackage.INDEX_DEF__COLUMNS, QIndexDef.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				return getIndex();
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF__NAME:
 				return getName();
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF__ORDERING:
@@ -268,9 +181,6 @@ public class IndexColumnDefImpl extends DatabaseObjectDefImpl implements QIndexC
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				setIndex((QIndexDef)newValue);
-				return;
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF__NAME:
 				setName((String)newValue);
 				return;
@@ -291,9 +201,6 @@ public class IndexColumnDefImpl extends DatabaseObjectDefImpl implements QIndexC
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				setIndex((QIndexDef)null);
-				return;
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -314,8 +221,6 @@ public class IndexColumnDefImpl extends DatabaseObjectDefImpl implements QIndexC
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.INDEX_COLUMN_DEF__INDEX:
-				return getIndex() != null;
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF__ORDERING:

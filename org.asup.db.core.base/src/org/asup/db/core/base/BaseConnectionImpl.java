@@ -1,4 +1,4 @@
-package org.asup.db.core.db2;
+package org.asup.db.core.base;
 
 import java.lang.annotation.Annotation;
 import java.sql.Connection;
@@ -19,7 +19,7 @@ import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 
-public class DB2ConnectionImpl implements QConnection {
+public class BaseConnectionImpl implements QConnection {
 
 	private QContext context;
 	private QConnectionConfig connectionConfig;
@@ -27,7 +27,7 @@ public class DB2ConnectionImpl implements QConnection {
 	private QQueryConverter queryConverter;
 	private IConnection iConnection;
 	
-	protected DB2ConnectionImpl(QContext context, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryConverter queryConverter) {
+	public BaseConnectionImpl(QContext context, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryConverter queryConverter) {
 		this.context = context;
 		this.connectionConfig = connectionConfig;
 		this.queryParser = queryParser;
@@ -121,9 +121,9 @@ public class DB2ConnectionImpl implements QConnection {
 		Connection connection = getAdapter(this, Connection.class);
 		QStatement statement = null;
 		if(native_)
-			statement = new DB2NativeStatementImpl(connection.createStatement());			
+			statement = new BaseNativeStatementImpl(connection.createStatement());			
 		else
-			statement = new DB2StatementImpl(connection.createStatement(), queryParser, queryConverter);
+			statement = new BaseStatementImpl(connection.createStatement(), queryParser, queryConverter);
 
 		return statement;
 	}

@@ -7,7 +7,7 @@
  */
 package org.asup.il.data.impl;
 
-import org.asup.il.data.DataType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.QDataTermVisitor;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QUnaryAtomicDataDef;
@@ -50,8 +50,8 @@ public class UnaryAtomicDataTermImpl<DD extends QUnaryAtomicDataDef<?>> extends 
 	}
 
 	@Override
-	public DataType getDataType() {
-		return DataType.UNARY_ATOMIC;
+	public DataTermType getDataTermType() {
+		return DataTermType.UNARY_ATOMIC;
 	}
 	
 	/**

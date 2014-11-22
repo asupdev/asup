@@ -8,7 +8,8 @@
 package org.asup.il.data.impl;
 
 import org.asup.il.data.BinaryType;
-import org.asup.il.data.DataType;
+import org.asup.il.data.DataDefType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
@@ -137,8 +138,10 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 		switch (eDataType.getClassifierID()) {
 			case QIntegratedLanguageDataPackage.BINARY_TYPE:
 				return createBinaryTypeFromString(eDataType, initialValue);
-			case QIntegratedLanguageDataPackage.DATA_TYPE:
-				return createDataTypeFromString(eDataType, initialValue);
+			case QIntegratedLanguageDataPackage.DATA_DEF_TYPE:
+				return createDataDefTypeFromString(eDataType, initialValue);
+			case QIntegratedLanguageDataPackage.DATA_TERM_TYPE:
+				return createDataTermTypeFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.DATETIME_TYPE:
 				return createDatetimeTypeFromString(eDataType, initialValue);
 			case QIntegratedLanguageDataPackage.DATE_FORMAT:
@@ -166,8 +169,10 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 		switch (eDataType.getClassifierID()) {
 			case QIntegratedLanguageDataPackage.BINARY_TYPE:
 				return convertBinaryTypeToString(eDataType, instanceValue);
-			case QIntegratedLanguageDataPackage.DATA_TYPE:
-				return convertDataTypeToString(eDataType, instanceValue);
+			case QIntegratedLanguageDataPackage.DATA_DEF_TYPE:
+				return convertDataDefTypeToString(eDataType, instanceValue);
+			case QIntegratedLanguageDataPackage.DATA_TERM_TYPE:
+				return convertDataTermTypeToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.DATETIME_TYPE:
 				return convertDatetimeTypeToString(eDataType, instanceValue);
 			case QIntegratedLanguageDataPackage.DATE_FORMAT:
@@ -440,8 +445,8 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataType createDataTypeFromString(EDataType eDataType, String initialValue) {
-		DataType result = DataType.get(initialValue);
+	public DataDefType createDataDefTypeFromString(EDataType eDataType, String initialValue) {
+		DataDefType result = DataDefType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -451,7 +456,27 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDataTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertDataDefTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataTermType createDataTermTypeFromString(EDataType eDataType, String initialValue) {
+		DataTermType result = DataTermType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDataTermTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

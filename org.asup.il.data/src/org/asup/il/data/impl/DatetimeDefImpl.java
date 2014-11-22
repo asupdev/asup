@@ -10,6 +10,7 @@ package org.asup.il.data.impl;
 import java.lang.String;
 import java.util.Date;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDatetimeDef;
@@ -231,7 +232,12 @@ public class DatetimeDefImpl extends UnaryAtomicBufferedDataDefImpl<QDatetime> i
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QDatetime> getDataClass() {
 		return QDatetime.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.DATETIME;
 	}
 } //DatetimeDefImpl

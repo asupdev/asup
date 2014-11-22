@@ -221,7 +221,7 @@ public interface QDataTerm<DD extends QDataDef<?>> extends QTerm {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	DataType getDataType();
+	DataTermType getDataTermType();
 
 	/**
 	 * <!-- begin-user-doc -->

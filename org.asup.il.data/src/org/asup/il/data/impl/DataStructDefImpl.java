@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -169,7 +170,12 @@ public class DataStructDefImpl extends UnaryCompoundDataDefImpl<QDataStruct>
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QDataStruct> getDataClass() {
 		return QDataStruct.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.DATA_STRUCT;
 	}
 }

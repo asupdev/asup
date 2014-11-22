@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.database.mssql"
       label="As.UP Database Microsoft SQL"
-      version="0.5.4.qualifier"
+      version="0.5.3.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">
@@ -18,7 +18,7 @@
    </license>
 
    <includes
-         id="org.asup.ft.database"
+         id="org.asup.ft.database.base"
          version="0.0.0"/>
 
    <plugin

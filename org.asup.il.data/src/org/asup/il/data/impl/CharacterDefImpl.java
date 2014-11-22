@@ -9,6 +9,7 @@ package org.asup.il.data.impl;
 
 import java.lang.Boolean;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -229,8 +230,12 @@ public class CharacterDefImpl extends UnaryAtomicBufferedDataDefImpl<QCharacter>
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QCharacter> getDataClass() {
 		return QCharacter.class;
 	}
 
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.CHARACTER;
+	}
 } //CharacterDefImpl

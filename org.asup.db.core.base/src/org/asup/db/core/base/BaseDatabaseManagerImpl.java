@@ -74,11 +74,14 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void createView(QConnection connection, Schema schema, QViewDef view) throws SQLException {
 
+		QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+		String command = syntaxBuilder.createView(schema, view);
+		if(command == null)
+			return;
+		
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createView(schema, view);
 			statement.execute(command);
 		}
 		finally {

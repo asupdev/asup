@@ -102,14 +102,19 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	public String createView(Schema schema, QViewDef view) {
 
 		String command = view.getCreationCommand();
+		if(command == null)
+			return null;
 		
 		String commandCreate = null;
 		String commandSelect = null;
 
-		int i = command.toUpperCase().indexOf("  AS\n  SELECT");
+		int i = command.toUpperCase().indexOf("AS\n  SELECT");
+		if(i<=0) {
+			i = command.toUpperCase().indexOf("AS   SELECT");
+		}
 		if(i>0) {
-			commandCreate = command.substring(0, i);			
-			commandSelect = command.substring(i+4);
+			commandCreate = command.substring(0, i).trim();			
+			commandSelect = command.substring(i+2).trim();
 			
 			try {
 				commandCreate = convertCreateCommand(schema, view, commandCreate);

@@ -7,7 +7,7 @@
  */
 package org.asup.db.core.impl;
 
-import org.asup.db.core.DataType;
+import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QTableColumnDef;
 import org.eclipse.emf.common.notify.Notification;
@@ -38,7 +38,7 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DataType DATA_TYPE_EDEFAULT = DataType.IDENTITY;
+	protected static final DatabaseDataType DATA_TYPE_EDEFAULT = DatabaseDataType.IDENTITY;
 	/**
 	 * The cached value of the '{@link #getDataType() <em>Data Type</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -46,7 +46,7 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	 * @generated
 	 * @ordered
 	 */
-	protected DataType dataType = DATA_TYPE_EDEFAULT;
+	protected DatabaseDataType dataType = DATA_TYPE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -133,7 +133,7 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataType getDataType() {
+	public DatabaseDataType getDataType() {
 		return dataType;
 	}
 
@@ -141,8 +141,8 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDataType(DataType newDataType) {
-		DataType oldDataType = dataType;
+	public void setDataType(DatabaseDataType newDataType) {
+		DatabaseDataType oldDataType = dataType;
 		dataType = newDataType == null ? DATA_TYPE_EDEFAULT : newDataType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.TABLE_COLUMN_DEF__DATA_TYPE, oldDataType, dataType));
@@ -253,7 +253,7 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QDatabaseCorePackage.TABLE_COLUMN_DEF__DATA_TYPE:
-				setDataType((DataType)newValue);
+				setDataType((DatabaseDataType)newValue);
 				return;
 			case QDatabaseCorePackage.TABLE_COLUMN_DEF__NAME:
 				setName((String)newValue);

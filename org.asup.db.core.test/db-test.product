@@ -30,15 +30,15 @@
    </plugins>
 
    <features>
-      <feature id="org.asup.ft.framework" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.framework.base" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.framework.e4" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.database" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.database.base" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.database.db2" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.database.ibmi" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.database.mssql" version="0.5.4.qualifier"/>
-      <feature id="org.asup.ft.database.test" version="0.5.4.qualifier"/>
+      <feature id="org.asup.ft.framework" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.framework.base" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.framework.e4" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.database" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.database.base" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.database.db2" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.database.ibmi" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.database.mssql" version="0.5.3.qualifier"/>
+      <feature id="org.asup.ft.database.test" version="0.5.3.qualifier"/>
    </features>
 
    <configurations>

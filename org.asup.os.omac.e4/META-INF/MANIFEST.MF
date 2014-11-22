@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Operating System OMAC Eclipse E4
 Bundle-SymbolicName: org.asup.os.omac.e4
-Bundle-Version: 0.5.4.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.os.type;bundle-version="0.5.4",
- org.asup.os.type.pgm;bundle-version="0.5.4",
- org.asup.os.type.cmd;bundle-version="0.5.4"
+Require-Bundle: org.asup.os.type,
+ org.asup.os.type.pgm,
+ org.asup.os.type.cmd
 Export-Package: org.asup.os.omac.e4

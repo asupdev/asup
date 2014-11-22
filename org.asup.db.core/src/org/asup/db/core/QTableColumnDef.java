@@ -31,7 +31,7 @@ package org.asup.db.core;
 public interface QTableColumnDef extends QDatabaseObjectDef {
 	/**
 	 * Returns the value of the '<em><b>Data Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.asup.db.core.DataType}.
+	 * The literals are from the enumeration {@link org.asup.db.core.DatabaseDataType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Data Type</em>' attribute isn't clear,
@@ -39,24 +39,24 @@ public interface QTableColumnDef extends QDatabaseObjectDef {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Type</em>' attribute.
-	 * @see org.asup.db.core.DataType
-	 * @see #setDataType(DataType)
+	 * @see org.asup.db.core.DatabaseDataType
+	 * @see #setDataType(DatabaseDataType)
 	 * @see org.asup.db.core.QDatabaseCorePackage#getTableColumnDef_DataType()
 	 * @model required="true"
 	 * @generated
 	 */
-	DataType getDataType();
+	DatabaseDataType getDataType();
 
 	/**
 	 * Sets the value of the '{@link org.asup.db.core.QTableColumnDef#getDataType <em>Data Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Data Type</em>' attribute.
-	 * @see org.asup.db.core.DataType
+	 * @see org.asup.db.core.DatabaseDataType
 	 * @see #getDataType()
 	 * @generated
 	 */
-	void setDataType(DataType value);
+	void setDataType(DatabaseDataType value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

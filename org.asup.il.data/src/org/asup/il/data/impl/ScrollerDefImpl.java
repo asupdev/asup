@@ -9,6 +9,7 @@ package org.asup.il.data.impl;
 
 import java.util.List;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QScroller;
@@ -54,8 +55,14 @@ public class ScrollerDefImpl<D extends QScroller<QBufferedData>> extends Multipl
 		return List.class;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Class<?> getDataClass() {
-		return QScroller.class;
+	public Class<D> getDataClass() {
+		return (Class<D>) QScroller.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.SCROLLER;
 	}
 } //ScrollerDefImpl

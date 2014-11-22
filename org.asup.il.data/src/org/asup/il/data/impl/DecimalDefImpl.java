@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.DecimalType;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QDecimalDef;
@@ -292,7 +293,12 @@ public class DecimalDefImpl extends UnaryAtomicBufferedDataDefImpl<QDecimal> imp
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QDecimal> getDataClass() {
 		return QDecimal.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.DECIMAL;
 	}
 } //DecimalDefImpl

@@ -271,22 +271,13 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	int SYSTEM = 8;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__CONTEXT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__CREATION_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 1;
+	int SYSTEM__CREATION_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Install Path</b></em>' attribute.
@@ -295,7 +286,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__INSTALL_PATH = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 2;
+	int SYSTEM__INSTALL_PATH = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Last Job Number</b></em>' attribute.
@@ -304,7 +295,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__LAST_JOB_NUMBER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
+	int SYSTEM__LAST_JOB_NUMBER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -313,7 +304,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__NAME = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
+	int SYSTEM__NAME = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -322,16 +313,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__STATUS = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>System Database</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__SYSTEM_DATABASE = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
+	int SYSTEM__STATUS = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>System Library</b></em>' attribute.
@@ -340,7 +322,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__SYSTEM_LIBRARY = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
+	int SYSTEM__SYSTEM_LIBRARY = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>System User</b></em>' attribute.
@@ -349,7 +331,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__SYSTEM_USER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 8;
+	int SYSTEM__SYSTEM_USER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -358,7 +340,7 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 9;
+	int SYSTEM_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.core.impl.SystemManagerImpl <em>System Manager</em>}' class.
@@ -595,17 +577,6 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	EClass getSystem();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.asup.os.core.QSystem#getContext <em>Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Context</em>'.
-	 * @see org.asup.os.core.QSystem#getContext()
-	 * @see #getSystem()
-	 * @generated
-	 */
-	EReference getSystem_Context();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.os.core.QSystem#getCreationInfo <em>Creation Info</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,17 +630,6 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSystem_Status();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.core.QSystem#getSystemDatabase <em>System Database</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>System Database</em>'.
-	 * @see org.asup.os.core.QSystem#getSystemDatabase()
-	 * @see #getSystem()
-	 * @generated
-	 */
-	EAttribute getSystem_SystemDatabase();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.os.core.QSystem#getSystemLibrary <em>System Library</em>}'.
@@ -918,14 +878,6 @@ public interface QOperatingSystemCorePackage extends EPackage {
 		EClass SYSTEM = eINSTANCE.getSystem();
 
 		/**
-		 * The meta object literal for the '<em><b>Context</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SYSTEM__CONTEXT = eINSTANCE.getSystem_Context();
-
-		/**
 		 * The meta object literal for the '<em><b>Creation Info</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -964,14 +916,6 @@ public interface QOperatingSystemCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SYSTEM__STATUS = eINSTANCE.getSystem_Status();
-
-		/**
-		 * The meta object literal for the '<em><b>System Database</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SYSTEM__SYSTEM_DATABASE = eINSTANCE.getSystem_SystemDatabase();
 
 		/**
 		 * The meta object literal for the '<em><b>System Library</b></em>' attribute feature.

@@ -19,7 +19,7 @@ import java.util.TreeSet;
 
 import javax.inject.Inject;
 
-import org.asup.db.core.DataType;
+import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
@@ -217,7 +217,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		for (int i = 1; i <= 3; i++) {
 			QTableColumnDef column = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 			column.setName("COL" + i);
-			column.setDataType(DataType.CHARACTER);
+			column.setDataType(DatabaseDataType.CHARACTER);
 			column.setLength(10);
 			tableDef.getColumns().add(column);
 		}

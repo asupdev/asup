@@ -11,7 +11,8 @@ import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.BinaryType;
-import org.asup.il.data.DataType;
+import org.asup.il.data.DataDefType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.DateFormat;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.DecimalType;
@@ -649,7 +650,14 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dataTypeEEnum = null;
+	private EEnum dataDefTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dataTermTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1744,8 +1752,17 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getDataType() {
-		return dataTypeEEnum;
+	public EEnum getDataDefType() {
+		return dataDefTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDataTermType() {
+		return dataTermTypeEEnum;
 	}
 
 	/**
@@ -2015,7 +2032,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		// Create enums
 		binaryTypeEEnum = createEEnum(BINARY_TYPE);
-		dataTypeEEnum = createEEnum(DATA_TYPE);
+		dataDefTypeEEnum = createEEnum(DATA_DEF_TYPE);
+		dataTermTypeEEnum = createEEnum(DATA_TERM_TYPE);
 		datetimeTypeEEnum = createEEnum(DATETIME_TYPE);
 		dateFormatEEnum = createEEnum(DATE_FORMAT);
 		decimalTypeEEnum = createEEnum(DECIMAL_TYPE);
@@ -2680,7 +2698,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(dataDefEClass, null, "getDataClass", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		g2 = createEGenericType();
+		g2 = createEGenericType(dataDefEClass_D);
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
@@ -2689,6 +2707,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
+
+		addEOperation(dataDefEClass, this.getDataDefType(), "getDataDefType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataDelegatorEClass, QDataDelegator.class, "DataDelegator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2911,7 +2931,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(dataTermEClass, null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDataTermVisitor(), "visitor", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(dataTermEClass, this.getDataType(), "getDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(dataTermEClass, this.getDataTermType(), "getDataTermType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataTermContainerEClass, QDataTermContainer.class, "DataTermContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3847,11 +3867,29 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEEnumLiteral(binaryTypeEEnum, BinaryType.INTEGER);
 		addEEnumLiteral(binaryTypeEEnum, BinaryType.LONG);
 
-		initEEnum(dataTypeEEnum, DataType.class, "DataType");
-		addEEnumLiteral(dataTypeEEnum, DataType.UNARY_ATOMIC);
-		addEEnumLiteral(dataTypeEEnum, DataType.UNARY_COMPOUND);
-		addEEnumLiteral(dataTypeEEnum, DataType.MULTIPLE_ATOMIC);
-		addEEnumLiteral(dataTypeEEnum, DataType.MULTIPLE_COMPOUND);
+		initEEnum(dataDefTypeEEnum, DataDefType.class, "DataDefType");
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.ADAPTER);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.ARRAY);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.BINARY);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.BUFFER);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.CHARACTER);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.DATA_STRUCT);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.DATETIME);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.DECIMAL);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.FLOATING);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.HEXADECIMAL);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.INDICATOR);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.LIST);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.POINTER);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.SCROLLER);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.STRING);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.STROLLER);
+
+		initEEnum(dataTermTypeEEnum, DataTermType.class, "DataTermType");
+		addEEnumLiteral(dataTermTypeEEnum, DataTermType.UNARY_ATOMIC);
+		addEEnumLiteral(dataTermTypeEEnum, DataTermType.UNARY_COMPOUND);
+		addEEnumLiteral(dataTermTypeEEnum, DataTermType.MULTIPLE_ATOMIC);
+		addEEnumLiteral(dataTermTypeEEnum, DataTermType.MULTIPLE_COMPOUND);
 
 		initEEnum(datetimeTypeEEnum, DatetimeType.class, "DatetimeType");
 		addEEnumLiteral(datetimeTypeEEnum, DatetimeType.DATE);

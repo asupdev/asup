@@ -5,6 +5,7 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.base.BaseConnectionImpl;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
 import org.asup.db.syntax.QQueryConverter;
 import org.asup.db.syntax.QQueryConverterRegistry;
@@ -25,21 +26,21 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	private QQueryConverterRegistry queryConverterRegistry;
 
 	private QQueryParser queryParser;
-	
+
 	@PostConstruct
 	private void init() {
 		IAdapterFactory adapterFactory = new DB2ConnectionAdapterFactoryImpl();
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);	
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);
 		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
-		
+
 		this.queryParser = this.queryParserRegistry.lookup("IBMI");
 	}
 
 	@Override
 	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) {
-		
+
 		QContext connectionContext = context.createChild();
-		QQueryConverter queryConverter = queryConverterRegistry.lookup(connectionConfig);		
-		return new DB2ConnectionImpl(connectionContext, connectionConfig, queryParser, queryConverter);
+		QQueryConverter queryConverter = queryConverterRegistry.lookup(connectionConfig);
+		return new BaseConnectionImpl(connectionContext, connectionConfig, queryParser, queryConverter);
 	}
 }

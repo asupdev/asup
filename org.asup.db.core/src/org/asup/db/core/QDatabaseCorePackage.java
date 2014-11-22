@@ -416,22 +416,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int INDEX_COLUMN_DEF = 10;
 
 	/**
-	 * The feature id for the '<em><b>Index</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_COLUMN_DEF__INDEX = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_COLUMN_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
+	int INDEX_COLUMN_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ordering</b></em>' attribute.
@@ -440,7 +431,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_COLUMN_DEF__ORDERING = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
+	int INDEX_COLUMN_DEF__ORDERING = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sequence</b></em>' attribute.
@@ -449,7 +440,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_COLUMN_DEF__SEQUENCE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 3;
+	int INDEX_COLUMN_DEF__SEQUENCE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Index Column Def</em>' class.
@@ -458,7 +449,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_COLUMN_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 4;
+	int INDEX_COLUMN_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.QPreparedStatement <em>Prepared Statement</em>}' class.
@@ -683,13 +674,14 @@ public interface QDatabaseCorePackage extends EPackage {
 	int VIEW_DEF_FEATURE_COUNT = TABLE_DEF_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.core.DataType <em>Data Type</em>}' enum.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see org.asup.db.core.DataType
-	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDataType()
+	 * The meta object id for the '{@link org.asup.db.core.DatabaseDataType <em>Database Data Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.DatabaseDataType
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 17;
+	int DATABASE_DATA_TYPE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.OrderingType
@@ -930,17 +922,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	EClass getIndexColumnDef();
 
 	/**
-	 * Returns the meta object for the container reference '{@link org.asup.db.core.QIndexColumnDef#getIndex <em>Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Index</em>'.
-	 * @see org.asup.db.core.QIndexColumnDef#getIndex()
-	 * @see #getIndexColumnDef()
-	 * @generated
-	 */
-	EReference getIndexColumnDef_Index();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.core.QIndexColumnDef#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1144,13 +1125,14 @@ public interface QDatabaseCorePackage extends EPackage {
 	EAttribute getViewDef_CreationCommand();
 
 	/**
-	 * Returns the meta object for enum '{@link org.asup.db.core.DataType <em>Data Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Data Type</em>'.
-	 * @see org.asup.db.core.DataType
+	 * Returns the meta object for enum '{@link org.asup.db.core.DatabaseDataType <em>Database Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Database Data Type</em>'.
+	 * @see org.asup.db.core.DatabaseDataType
 	 * @generated
 	 */
-	EEnum getDataType();
+	EEnum getDatabaseDataType();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.core.OrderingType <em>Ordering Type</em>}'.
@@ -1389,14 +1371,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		EClass INDEX_COLUMN_DEF = eINSTANCE.getIndexColumnDef();
 
 		/**
-		 * The meta object literal for the '<em><b>Index</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INDEX_COLUMN_DEF__INDEX = eINSTANCE.getIndexColumnDef_Index();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1561,15 +1535,14 @@ public interface QDatabaseCorePackage extends EPackage {
 		EAttribute VIEW_DEF__CREATION_COMMAND = eINSTANCE.getViewDef_CreationCommand();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.core.DataType
-		 * <em>Data Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc
-		 * -->
-		 * 
-		 * @see org.asup.db.core.DataType
-		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDataType()
+		 * The meta object literal for the '{@link org.asup.db.core.DatabaseDataType <em>Database Data Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.core.DatabaseDataType
+		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 		 * @generated
 		 */
-		EEnum DATA_TYPE = eINSTANCE.getDataType();
+		EEnum DATABASE_DATA_TYPE = eINSTANCE.getDatabaseDataType();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.OrderingType <em>Ordering Type</em>}' enum.

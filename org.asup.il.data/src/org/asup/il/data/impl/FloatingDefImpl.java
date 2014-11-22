@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.FloatingType;
 import org.asup.il.data.QFloating;
 import org.asup.il.data.QFloatingDef;
@@ -176,7 +177,12 @@ public class FloatingDefImpl extends UnaryAtomicBufferedDataDefImpl<QFloating> i
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QFloating> getDataClass() {
 		return QFloating.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.FLOATING;
 	}
 } //FloatingDefImpl

@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QPointer;
 import org.asup.il.data.QPointerDef;
@@ -52,7 +53,12 @@ public class PointerDefImpl extends UnaryAtomicBufferedDataDefImpl<QPointer> imp
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QPointer> getDataClass() {
 		return QPointer.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.POINTER;
 	}
 } //PointerDefImpl

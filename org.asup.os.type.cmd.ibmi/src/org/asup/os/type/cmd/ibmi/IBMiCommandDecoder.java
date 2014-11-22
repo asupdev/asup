@@ -60,7 +60,7 @@ public class IBMiCommandDecoder {
 
 	private static String writeDataTermString(String result, QDataTerm<?> dataTerm, QData data) {
 			
-		switch (dataTerm.getDataType()) {
+		switch (dataTerm.getDataTermType()) {
 			case MULTIPLE_ATOMIC:
 				QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
 				QList<?> list = (QList<?>)data;

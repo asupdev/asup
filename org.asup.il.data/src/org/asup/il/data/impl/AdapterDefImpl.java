@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QAdapter;
 import org.asup.il.data.QAdapterDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -47,13 +48,18 @@ public class AdapterDefImpl extends UnaryAtomicDataDefImpl<QAdapter> implements 
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QAdapter> getDataClass() {
 		return QAdapter.class;
 	}
 
 	@Override
 	public Class<?> getJavaClass() {
 		return Object.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.ADAPTER;
 	}
 
 } //AdapterDefImpl

@@ -295,7 +295,7 @@
     </eTypeParameters>
     <eOperations name="getDataClass" lowerBound="1">
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-        <eTypeArguments/>
+        <eTypeArguments eTypeParameter="#//DataDef/D"/>
       </eGenericType>
     </eOperations>
     <eOperations name="getJavaClass" lowerBound="1">
@@ -303,8 +303,27 @@
         <eTypeArguments/>
       </eGenericType>
     </eOperations>
+    <eOperations name="getDataDefType" lowerBound="1" eType="#//DataDefType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="formulas" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataDefType">
+    <eLiterals name="Adapter" value="10" literal="ADAPTER"/>
+    <eLiterals name="Array" value="20" literal="ARRAY"/>
+    <eLiterals name="Binary" value="30" literal="BINARY"/>
+    <eLiterals name="Buffer" value="40" literal="BUFFER"/>
+    <eLiterals name="Character" value="50" literal="CHAR"/>
+    <eLiterals name="DataStruct" value="60" literal="DATASTRUCT"/>
+    <eLiterals name="Datetime" value="70" literal="DATETIME"/>
+    <eLiterals name="Decimal" value="80" literal="DECIMAL"/>
+    <eLiterals name="Floating" value="90" literal="FLOAT"/>
+    <eLiterals name="Hexadecimal" value="100" literal="HEX"/>
+    <eLiterals name="Indicator" value="110" literal="IND"/>
+    <eLiterals name="List" value="120" literal="LIST"/>
+    <eLiterals name="Pointer" value="140" literal="POINTER"/>
+    <eLiterals name="Scroller" value="150" literal="SCROLLER"/>
+    <eLiterals name="String" value="160" literal="STRING"/>
+    <eLiterals name="Stroller" value="170" literal="STROLLER"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataDelegator" abstract="true" interface="true">
     <eTypeParameters name="D">
@@ -542,7 +561,7 @@
     <eOperations name="accept">
       <eParameters name="visitor" lowerBound="1" eType="#//DataTermVisitor"/>
     </eOperations>
-    <eOperations name="getDataType" lowerBound="1" eType="#//DataType"/>
+    <eOperations name="getDataTermType" lowerBound="1" eType="#//DataTermType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" containment="true">
       <eGenericType eTypeParameter="#//DataTerm/DD"/>
@@ -560,6 +579,12 @@
         <eTypeArguments/>
       </eTypeArguments>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataTermType">
+    <eLiterals name="UnaryAtomic" value="10" literal="UNARY_ATOM"/>
+    <eLiterals name="UnaryCompound" value="20" literal="UNARY_COMP"/>
+    <eLiterals name="MultipleAtomic" value="30" literal="MULT_ATOM"/>
+    <eLiterals name="MultipleCompound" value="40" literal="MULT_COMP"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTermVisitor" abstract="true">
     <eOperations name="endVisit">
@@ -632,12 +657,6 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
-    <eLiterals name="UnaryAtomic" value="10" literal="UNARY_ATOM"/>
-    <eLiterals name="UnaryCompound" value="20" literal="UNARY_COMP"/>
-    <eLiterals name="MultipleAtomic" value="30" literal="MULT_ATOM"/>
-    <eLiterals name="MultipleCompound" value="40" literal="MULT_COMP"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataVisitor" abstract="true">
     <eOperations name="endVisit">

@@ -9,6 +9,7 @@ package org.asup.il.data.impl;
 
 import java.nio.Buffer;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QBufferDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -49,7 +50,7 @@ public class BufferDefImpl extends UnaryAtomicBufferedDataDefImpl<QBufferedData>
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QBufferedData> getDataClass() {
 		return QBufferedData.class;
 	}
 
@@ -58,4 +59,8 @@ public class BufferDefImpl extends UnaryAtomicBufferedDataDefImpl<QBufferedData>
 		return Buffer.class;
 	}
 
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.BUFFER;
+	}
 } //BufferDefImpl

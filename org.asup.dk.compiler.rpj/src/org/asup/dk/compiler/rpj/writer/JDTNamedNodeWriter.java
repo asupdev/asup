@@ -107,7 +107,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		writeDataDefAnnotation(field, dataTerm.getDefinition());
 		
 		// default
-		if(dataTerm.getDataType().isUnary()) {
+		if(dataTerm.getDataTermType().isUnary()) {
 			QUnaryDataTerm<?> unaryDataTerm = (QUnaryDataTerm<?>)dataTerm;
 			if(unaryDataTerm.getDefault() != null && !unaryDataTerm.getDefault().isEmpty())
 				writeAnnotation(field, DataDef.class, "value", unaryDataTerm.getDefault());
@@ -156,7 +156,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 	@SuppressWarnings("unchecked")
 	public void writeInnerTerm(QDataTerm<?> dataTerm) throws IOException {
 		
-		switch (dataTerm.getDataType()) {
+		switch (dataTerm.getDataTermType()) {
 		
 			case UNARY_ATOMIC:
 				
@@ -502,7 +502,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		
 		Type type = null;
 	
-		switch (dataTerm.getDataType()) {
+		switch (dataTerm.getDataTermType()) {
 			case MULTIPLE_ATOMIC:
 				QMultipleAtomicDataDef<?> multipleAtomicDataDef = (QMultipleAtomicDataDef<?>) dataDef;
 				

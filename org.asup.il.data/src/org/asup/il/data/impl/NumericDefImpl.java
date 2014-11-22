@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QNumericDef;
@@ -52,8 +53,12 @@ public class NumericDefImpl extends UnaryAtomicBufferedDataDefImpl<QNumeric> imp
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QNumeric> getDataClass() {
 		return QNumeric.class;
 	}
 
+	@Override
+	public DataDefType getDataDefType() {
+		return null;
+	}
 } //NumericDefImpl

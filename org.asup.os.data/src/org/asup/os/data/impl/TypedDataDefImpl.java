@@ -7,6 +7,7 @@
  */
 package org.asup.os.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.impl.DataDefImpl;
 import org.asup.os.data.QOperatingSystemDataPackage;
 import org.asup.os.data.QTypedData;
@@ -176,7 +177,13 @@ public class TypedDataDefImpl extends DataDefImpl<QTypedData> implements QTypedD
 	}
 
 	@Override
-	public Class<?> getDataClass() {
-		return QTypedObject.class;
+	public Class<QTypedData> getDataClass() {
+		return QTypedData.class;
+	}
+	
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.DATA_STRUCT;
 	}
 } //TypedDataDefinitionImpl

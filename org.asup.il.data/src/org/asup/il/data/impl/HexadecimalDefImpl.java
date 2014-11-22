@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QHexadecimalDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -173,7 +174,12 @@ public class HexadecimalDefImpl extends UnaryAtomicBufferedDataDefImpl<QHexadeci
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QHexadecimal> getDataClass() {
 		return QHexadecimal.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.HEXADECIMAL;
 	}
 } //HexadecimalDefImpl

@@ -377,7 +377,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_Context() {
+	public EReference getSystem_CreationInfo() {
 		return (EReference)systemEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -386,17 +386,8 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_CreationInfo() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSystem_InstallPath() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -405,7 +396,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getSystem_LastJobNumber() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -414,7 +405,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getSystem_Name() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -423,16 +414,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getSystem_Status() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSystem_SystemDatabase() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -441,7 +423,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getSystem_SystemLibrary() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -450,7 +432,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getSystem_SystemUser() {
-		return (EAttribute)systemEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -566,13 +548,11 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		createEReference(objectContentEClass, OBJECT_CONTENT__WRITE_LOCK);
 
 		systemEClass = createEClass(SYSTEM);
-		createEReference(systemEClass, SYSTEM__CONTEXT);
 		createEReference(systemEClass, SYSTEM__CREATION_INFO);
 		createEAttribute(systemEClass, SYSTEM__INSTALL_PATH);
 		createEAttribute(systemEClass, SYSTEM__LAST_JOB_NUMBER);
 		createEAttribute(systemEClass, SYSTEM__NAME);
 		createEAttribute(systemEClass, SYSTEM__STATUS);
-		createEAttribute(systemEClass, SYSTEM__SYSTEM_DATABASE);
 		createEAttribute(systemEClass, SYSTEM__SYSTEM_LIBRARY);
 		createEAttribute(systemEClass, SYSTEM__SYSTEM_USER);
 
@@ -765,13 +745,11 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		initEReference(getObjectContent_WriteLock(), this.getContentLock(), null, "writeLock", null, 1, 1, QObjectContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(systemEClass, QSystem.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSystem_Context(), theFrameworkCorePackage.getContext(), null, "context", null, 0, 1, QSystem.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_CreationInfo(), theOperatingSystemOmacPackage.getCreationInfo(), null, "creationInfo", null, 0, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_InstallPath(), ecorePackage.getEString(), "installPath", null, 1, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_LastJobNumber(), ecorePackage.getEInt(), "lastJobNumber", null, 0, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_Name(), ecorePackage.getEString(), "name", null, 1, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_Status(), this.getSystemStatus(), "status", "STP", 1, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSystem_SystemDatabase(), ecorePackage.getEString(), "systemDatabase", null, 0, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_SystemLibrary(), ecorePackage.getEString(), "systemLibrary", null, 1, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_SystemUser(), ecorePackage.getEString(), "systemUser", null, 1, 1, QSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

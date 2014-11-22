@@ -11,6 +11,7 @@ import java.lang.String;
 import java.util.Collection;
 import java.util.List;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -83,7 +84,7 @@ public abstract class DataDefImpl<D extends QData> extends MinimalEObjectImpl.Co
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public abstract Class<?> getDataClass();
+	public abstract Class<D> getDataClass();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,6 +92,13 @@ public abstract class DataDefImpl<D extends QData> extends MinimalEObjectImpl.Co
 	 * @generated NOT
 	 */
 	public abstract Class<?> getJavaClass();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public abstract DataDefType getDataDefType();
 
 	/**
 	 * <!-- begin-user-doc -->

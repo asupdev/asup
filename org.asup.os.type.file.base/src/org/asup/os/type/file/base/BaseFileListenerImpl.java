@@ -37,19 +37,14 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 
 public class BaseFileListenerImpl extends ServiceImpl implements QResourceListener<QFile> {
 
-	private QDatabaseManager databaseManager = null;
-
+	@Inject
+	private QDatabaseManager databaseManager;
 	@Inject
 	private QResourceFactory resourceFactory;
 
 	@PostConstruct
 	public void init() {
 		resourceFactory.registerListener(QFile.class, this);
-	}
-
-	@Inject
-	public BaseFileListenerImpl(QDatabaseManager databaseManager) {
-		this.databaseManager = databaseManager;
 	}
 
 	@Override
@@ -94,10 +89,11 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		}
 
 		try {
-			Table table = databaseManager.getTable(databaseConnection, schema.getName(), file.getName());
 			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
-			if (index != null)
+			if (index != null) {
+				Table table = databaseManager.getTable(databaseConnection, schema.getName(), file.getName());
 				databaseManager.createIndex(databaseConnection, table, index);
+			}
 		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e.getMessage(), e);
 		}

@@ -7,9 +7,9 @@
  */
 package org.asup.il.data.impl;
 
-import java.lang.String;
 import java.util.List;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QStroller;
 import org.asup.il.data.QStrollerDef;
@@ -175,8 +175,14 @@ public class StrollerDefImpl<D extends QStroller<?>> extends MultipleCompoundDat
 		return List.class;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Class<?> getDataClass() {
-		return QStroller.class;
+	public Class<D> getDataClass() {
+		return (Class<D>) QStroller.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.STROLLER;
 	}
 } //StrollerDefImpl

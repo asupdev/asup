@@ -9,6 +9,7 @@ package org.asup.il.data.impl;
 
 import java.util.List;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QArrayDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -53,8 +54,14 @@ public class ArrayDefImpl<D extends QArray<?>> extends MultipleAtomicBufferedDat
 		return List.class;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Class<?> getDataClass() {
-		return QArray.class;
+	public Class<D> getDataClass() {
+		return (Class<D>) QArray.class;
+	}
+	
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.ARRAY;
 	}
 } //ArrayDefImpl

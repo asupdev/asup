@@ -10,6 +10,7 @@ package org.asup.il.data.impl;
 import java.lang.Boolean;
 
 import org.asup.il.data.BinaryType;
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QBinaryDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -258,7 +259,12 @@ public class BinaryDefImpl extends UnaryAtomicBufferedDataDefImpl<QBinary> imple
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QBinary> getDataClass() {
 		return QBinary.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.BINARY;
 	}
 } //BinaryDefImpl

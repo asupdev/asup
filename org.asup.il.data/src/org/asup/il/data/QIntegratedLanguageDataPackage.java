@@ -3040,14 +3040,24 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int BINARY_TYPE = 75;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.data.DataType <em>Data Type</em>}' enum.
+	 * The meta object id for the '{@link org.asup.il.data.DataDefType <em>Data Def Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.il.data.DataType
-	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataType()
+	 * @see org.asup.il.data.DataDefType
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataDefType()
 	 * @generated
 	 */
-	int DATA_TYPE = 76;
+	int DATA_DEF_TYPE = 76;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.data.DataTermType <em>Data Term Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.data.DataTermType
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataTermType()
+	 * @generated
+	 */
+	int DATA_TERM_TYPE = 77;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.DatetimeType <em>Datetime Type</em>}' enum.
@@ -3057,7 +3067,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDatetimeType()
 	 * @generated
 	 */
-	int DATETIME_TYPE = 77;
+	int DATETIME_TYPE = 78;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.DateFormat <em>Date Format</em>}' enum.
@@ -3067,7 +3077,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDateFormat()
 	 * @generated
 	 */
-	int DATE_FORMAT = 78;
+	int DATE_FORMAT = 79;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.DecimalType <em>Decimal Type</em>}' enum.
@@ -3077,7 +3087,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDecimalType()
 	 * @generated
 	 */
-	int DECIMAL_TYPE = 79;
+	int DECIMAL_TYPE = 80;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.FloatingType <em>Floating Type</em>}' enum.
@@ -3087,7 +3097,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getFloatingType()
 	 * @generated
 	 */
-	int FLOATING_TYPE = 80;
+	int FLOATING_TYPE = 81;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.data.TimeFormat <em>Time Format</em>}' enum.
@@ -3097,7 +3107,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getTimeFormat()
 	 * @generated
 	 */
-	int TIME_FORMAT = 81;
+	int TIME_FORMAT = 82;
 
 	/**
 	 * The meta object id for the '<em>Data Array</em>' data type.
@@ -3106,7 +3116,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataArray()
 	 * @generated
 	 */
-	int DATA_ARRAY = 82;
+	int DATA_ARRAY = 83;
 
 
 	/**
@@ -4233,14 +4243,24 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EEnum getBinaryType();
 
 	/**
-	 * Returns the meta object for enum '{@link org.asup.il.data.DataType <em>Data Type</em>}'.
+	 * Returns the meta object for enum '{@link org.asup.il.data.DataDefType <em>Data Def Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Data Type</em>'.
-	 * @see org.asup.il.data.DataType
+	 * @return the meta object for enum '<em>Data Def Type</em>'.
+	 * @see org.asup.il.data.DataDefType
 	 * @generated
 	 */
-	EEnum getDataType();
+	EEnum getDataDefType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.il.data.DataTermType <em>Data Term Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Data Term Type</em>'.
+	 * @see org.asup.il.data.DataTermType
+	 * @generated
+	 */
+	EEnum getDataTermType();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.il.data.DatetimeType <em>Datetime Type</em>}'.
@@ -5349,14 +5369,24 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		EEnum BINARY_TYPE = eINSTANCE.getBinaryType();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.il.data.DataType <em>Data Type</em>}' enum.
+		 * The meta object literal for the '{@link org.asup.il.data.DataDefType <em>Data Def Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.data.DataType
-		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataType()
+		 * @see org.asup.il.data.DataDefType
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataDefType()
 		 * @generated
 		 */
-		EEnum DATA_TYPE = eINSTANCE.getDataType();
+		EEnum DATA_DEF_TYPE = eINSTANCE.getDataDefType();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.data.DataTermType <em>Data Term Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.data.DataTermType
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataTermType()
+		 * @generated
+		 */
+		EEnum DATA_TERM_TYPE = eINSTANCE.getDataTermType();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.DatetimeType <em>Datetime Type</em>}' enum.

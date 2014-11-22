@@ -121,7 +121,7 @@ public class QOperatingSystemDataHelper {
 			dataTerm.setDefinition(dataDef);
 
 			// default
-			if(dataTerm.getDataType().isUnary())
+			if(dataTerm.getDataTermType().isUnary())
 				((QUnaryDataTerm<?>)dataTerm).setDefault(feature.getDefaultValueLiteral());
 			else {
 				((QMultipleDataTerm<?>)dataTerm).getDefault().add(feature.getDefaultValueLiteral());

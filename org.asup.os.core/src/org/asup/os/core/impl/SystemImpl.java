@@ -7,7 +7,6 @@
  */
 package org.asup.os.core.impl;
 
-import org.asup.fw.core.QContext;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.SystemStatus;
@@ -26,13 +25,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.core.impl.SystemImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getCreationInfo <em>Creation Info</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getInstallPath <em>Install Path</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getLastJobNumber <em>Last Job Number</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.asup.os.core.impl.SystemImpl#getSystemDatabase <em>System Database</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getSystemLibrary <em>System Library</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getSystemUser <em>System User</em>}</li>
  * </ul>
@@ -45,16 +42,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated NOT
-	 * @ordered
-	 */
-	protected transient QContext context;
 
 	/**
 	 * The cached value of the '{@link #getCreationInfo() <em>Creation Info</em>}' containment reference.
@@ -147,26 +134,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	protected SystemStatus status = STATUS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSystemDatabase() <em>System Database</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSystemDatabase()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SYSTEM_DATABASE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSystemDatabase() <em>System Database</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSystemDatabase()
-	 * @generated
-	 * @ordered
-	 */
-	protected String systemDatabase = SYSTEM_DATABASE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSystemLibrary() <em>System Library</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,16 +174,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	protected String systemUser = SYSTEM_USER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSystemContext() <em>System Context</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSystemContext()
-	 * @generated NOT
-	 * @ordered
-	 */
-	protected transient QContext systemContext;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -233,49 +190,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	protected EClass eStaticClass() {
 		return QOperatingSystemCorePackage.Literals.SYSTEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QContext getContext() {
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetContext(QContext newContext, NotificationChain msgs) {
-		QContext oldContext = context;
-		context = newContext;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemCorePackage.SYSTEM__CONTEXT, oldContext, newContext);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContext(QContext newContext) {
-		if (newContext != context) {
-			NotificationChain msgs = null;
-			if (context != null)
-				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCorePackage.SYSTEM__CONTEXT, null, msgs);
-			if (newContext != null)
-				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCorePackage.SYSTEM__CONTEXT, null, msgs);
-			msgs = basicSetContext(newContext, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCorePackage.SYSTEM__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -409,27 +323,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSystemDatabase() {
-		return systemDatabase;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSystemDatabase(String newSystemDatabase) {
-		String oldSystemDatabase = systemDatabase;
-		systemDatabase = newSystemDatabase;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCorePackage.SYSTEM__SYSTEM_DATABASE, oldSystemDatabase, systemDatabase));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QCreationInfo getCreationInfo() {
 		return creationInfo;
 	}
@@ -476,8 +369,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
-				return basicSetContext(null, msgs);
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				return basicSetCreationInfo(null, msgs);
 		}
@@ -492,8 +383,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
-				return getContext();
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				return getCreationInfo();
 			case QOperatingSystemCorePackage.SYSTEM__INSTALL_PATH:
@@ -504,8 +393,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 				return getName();
 			case QOperatingSystemCorePackage.SYSTEM__STATUS:
 				return getStatus();
-			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_DATABASE:
-				return getSystemDatabase();
 			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_LIBRARY:
 				return getSystemLibrary();
 			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_USER:
@@ -522,9 +409,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
-				setContext((QContext)newValue);
-				return;
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				setCreationInfo((QCreationInfo)newValue);
 				return;
@@ -539,9 +423,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 				return;
 			case QOperatingSystemCorePackage.SYSTEM__STATUS:
 				setStatus((SystemStatus)newValue);
-				return;
-			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_DATABASE:
-				setSystemDatabase((String)newValue);
 				return;
 			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_LIBRARY:
 				setSystemLibrary((String)newValue);
@@ -561,9 +442,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
-				setContext((QContext)null);
-				return;
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				setCreationInfo((QCreationInfo)null);
 				return;
@@ -578,9 +456,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 				return;
 			case QOperatingSystemCorePackage.SYSTEM__STATUS:
 				setStatus(STATUS_EDEFAULT);
-				return;
-			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_DATABASE:
-				setSystemDatabase(SYSTEM_DATABASE_EDEFAULT);
 				return;
 			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_LIBRARY:
 				setSystemLibrary(SYSTEM_LIBRARY_EDEFAULT);
@@ -600,8 +475,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
-				return context != null;
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				return creationInfo != null;
 			case QOperatingSystemCorePackage.SYSTEM__INSTALL_PATH:
@@ -612,8 +485,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case QOperatingSystemCorePackage.SYSTEM__STATUS:
 				return status != STATUS_EDEFAULT;
-			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_DATABASE:
-				return SYSTEM_DATABASE_EDEFAULT == null ? systemDatabase != null : !SYSTEM_DATABASE_EDEFAULT.equals(systemDatabase);
 			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_LIBRARY:
 				return SYSTEM_LIBRARY_EDEFAULT == null ? systemLibrary != null : !SYSTEM_LIBRARY_EDEFAULT.equals(systemLibrary);
 			case QOperatingSystemCorePackage.SYSTEM__SYSTEM_USER:
@@ -640,8 +511,6 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 		result.append(name);
 		result.append(", status: ");
 		result.append(status);
-		result.append(", systemDatabase: ");
-		result.append(systemDatabase);
 		result.append(", systemLibrary: ");
 		result.append(systemLibrary);
 		result.append(", systemUser: ");

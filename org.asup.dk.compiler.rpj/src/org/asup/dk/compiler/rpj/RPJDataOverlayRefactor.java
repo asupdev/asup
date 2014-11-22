@@ -26,7 +26,7 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 			if(overlayTerm == null)
 				throw new RuntimeException("Unexpected condition: 57asdftgasd8764xm04372");
 			
-			if(overlayTerm.getDataType().isMultiple())
+			if(overlayTerm.getDataTermType().isMultiple())
 				setDataTerm(buildMultipleDataTerm(term, overlayTerm));
 			else
 				super.visit(term);
@@ -48,7 +48,7 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 			if(overlayTerm == null)
 				throw new RuntimeException("Unexpected condition: 57asdftgasd8764xm04372");			
 			
-			if(overlayTerm.getDataType().isMultiple())
+			if(overlayTerm.getDataTermType().isMultiple())
 				setDataTerm(buildMultipleDataTerm(term, overlayTerm));
 			else
 				super.visit(term);

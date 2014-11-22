@@ -17,11 +17,11 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '
  * <em><b>Data Type</b></em>', and utility methods for working with them. <!--
  * end-user-doc -->
- * @see org.asup.db.core.QDatabaseCorePackage#getDataType()
+ * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseDataType()
  * @model
  * @generated
  */
-public enum DataType implements Enumerator {
+public enum DatabaseDataType implements Enumerator {
 	/**
 	 * The '<em><b>Identity</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -353,7 +353,7 @@ public enum DataType implements Enumerator {
 	 * 
 	 * @generated
 	 */
-	private static final DataType[] VALUES_ARRAY = new DataType[] {
+	private static final DatabaseDataType[] VALUES_ARRAY = new DatabaseDataType[] {
 			IDENTITY,
 			CHARACTER,
 			VARCHAR,
@@ -370,20 +370,20 @@ public enum DataType implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Data Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Database Data Type</b></em>' enumerators.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<DataType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DatabaseDataType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Data Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Database Data Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static DataType get(String literal) {
+	public static DatabaseDataType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			DataType result = VALUES_ARRAY[i];
+			DatabaseDataType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -392,13 +392,13 @@ public enum DataType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Data Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Database Data Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static DataType getByName(String name) {
+	public static DatabaseDataType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			DataType result = VALUES_ARRAY[i];
+			DatabaseDataType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -407,11 +407,11 @@ public enum DataType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Data Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Database Data Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static DataType get(int value) {
+	public static DatabaseDataType get(int value) {
 		switch (value) {
 			case IDENTITY_VALUE: return IDENTITY;
 			case CHARACTER_VALUE: return CHARACTER;
@@ -454,7 +454,7 @@ public enum DataType implements Enumerator {
 	 * end-user-doc -->
 	 * @generated
 	 */
-	private DataType(int value, String name, String literal) {
+	private DatabaseDataType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -494,4 +494,4 @@ public enum DataType implements Enumerator {
 		return literal;
 	}
 
-} // DataType
+} // DatabaseDataType

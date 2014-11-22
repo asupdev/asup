@@ -182,6 +182,25 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	int JOB_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 11;
 
 	/**
+	 * The meta object id for the '{@link org.asup.os.core.jobs.impl.JobContextImpl <em>Job Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.core.jobs.impl.JobContextImpl
+	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobContext()
+	 * @generated
+	 */
+	int JOB_CONTEXT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Job Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONTEXT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.os.core.jobs.impl.JobLogImpl <em>Job Log</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,7 +208,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobLog()
 	 * @generated
 	 */
-	int JOB_LOG = 1;
+	int JOB_LOG = 2;
 
 	/**
 	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
@@ -226,7 +245,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobLogEntry()
 	 * @generated
 	 */
-	int JOB_LOG_ENTRY = 2;
+	int JOB_LOG_ENTRY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Gravity</b></em>' attribute.
@@ -263,7 +282,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobLogManager()
 	 * @generated
 	 */
-	int JOB_LOG_MANAGER = 3;
+	int JOB_LOG_MANAGER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -291,7 +310,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobManager()
 	 * @generated
 	 */
-	int JOB_MANAGER = 4;
+	int JOB_MANAGER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -319,7 +338,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getLog()
 	 * @generated
 	 */
-	int LOG = 5;
+	int LOG = 6;
 
 	/**
 	 * The number of structural features of the '<em>Log</em>' class.
@@ -338,7 +357,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobStatus()
 	 * @generated
 	 */
-	int JOB_STATUS = 6;
+	int JOB_STATUS = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.core.jobs.JobType <em>Job Type</em>}' enum.
@@ -348,7 +367,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobType()
 	 * @generated
 	 */
-	int JOB_TYPE = 7;
+	int JOB_TYPE = 8;
 
 
 	/**
@@ -481,6 +500,16 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getJob_JobContext();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.os.core.jobs.QJobContext <em>Job Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Job Context</em>'.
+	 * @see org.asup.os.core.jobs.QJobContext
+	 * @generated
+	 */
+	EClass getJobContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.core.jobs.QJobLog <em>Job Log</em>}'.
@@ -715,6 +744,16 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JOB__JOB_CONTEXT = eINSTANCE.getJob_JobContext();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.core.jobs.impl.JobContextImpl <em>Job Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.core.jobs.impl.JobContextImpl
+		 * @see org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl#getJobContext()
+		 * @generated
+		 */
+		EClass JOB_CONTEXT = eINSTANCE.getJobContext();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.core.jobs.impl.JobLogImpl <em>Job Log</em>}' class.

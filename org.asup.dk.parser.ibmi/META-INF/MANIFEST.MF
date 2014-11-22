@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Devolopment Kit Parser IBMi
 Bundle-SymbolicName: org.asup.dk.parser.ibmi
-Bundle-Version: 0.5.4.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.dk.parser.ibmi.cl,
@@ -13,6 +13,6 @@ Export-Package: org.asup.dk.parser.ibmi.cl,
  org.asup.dk.parser.ibmi.cl.test,
  org.asup.dk.parser.ibmi.cl.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.dk.parser;bundle-version="0.5.4";visibility:=reexport,
+Require-Bundle: org.asup.dk.parser;visibility:=reexport,
  org.asup.il.expr,
  org.asup.il.expr.base

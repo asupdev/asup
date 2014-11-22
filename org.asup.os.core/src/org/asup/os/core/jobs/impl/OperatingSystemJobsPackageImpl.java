@@ -16,6 +16,7 @@ import org.asup.os.core.impl.OperatingSystemCorePackageImpl;
 import org.asup.os.core.jobs.JobStatus;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.jobs.QJobLog;
 import org.asup.os.core.jobs.QJobLogEntry;
 import org.asup.os.core.jobs.QJobLogManager;
@@ -50,6 +51,13 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	private EClass jobEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jobContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,6 +300,15 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJobContext() {
+		return jobContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJobLog() {
 		return jobLogEClass;
 	}
@@ -427,6 +444,8 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		createEReference(jobEClass, JOB__CREATION_INFO);
 		createEReference(jobEClass, JOB__JOB_CONTEXT);
 
+		jobContextEClass = createEClass(JOB_CONTEXT);
+
 		jobLogEClass = createEClass(JOB_LOG);
 		createEReference(jobLogEClass, JOB_LOG__ENTRIES);
 		createEAttribute(jobLogEClass, JOB_LOG__JOB_ID);
@@ -481,6 +500,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		// Add supertypes to classes
 		jobEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObjectNameable());
 		jobEClass.getESuperTypes().add(theFrameworkCorePackage.getContextID());
+		jobContextEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
 		jobLogEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObjectNameable());
 		jobLogEntryEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
 		jobLogManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
@@ -499,7 +519,9 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		initEAttribute(getJob_Messages(), ecorePackage.getEString(), "messages", null, 0, -1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_System(), theOperatingSystemCorePackage.getSystem(), null, "system", null, 1, 1, QJob.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_CreationInfo(), theOperatingSystemOmacPackage.getCreationInfo(), null, "creationInfo", null, 1, 1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJob_JobContext(), theFrameworkCorePackage.getContext(), null, "jobContext", null, 0, 1, QJob.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJob_JobContext(), this.getJobContext(), null, "jobContext", null, 0, 1, QJob.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(jobContextEClass, QJobContext.class, "JobContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jobLogEClass, QJobLog.class, "JobLog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobLog_Entries(), this.getJobLogEntry(), null, "entries", null, 1, -1, QJobLog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

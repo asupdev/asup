@@ -57,14 +57,14 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 	
 	protected QDataTerm<?> buildUnaryDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
 
-		if(termFrom.getDataType().isAtomic()) {
+		if(termFrom.getDataTermType().isAtomic()) {
 		
 			// term
 			QUnaryAtomicDataTerm<QUnaryAtomicDataDef<?>> unaryAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryAtomicDataTerm();
 			copyDataTerm(termTo, unaryAtomicDataTerm);
 						
 			// unary definition
-			if(termFrom.getDataType().isUnary()) {
+			if(termFrom.getDataTermType().isUnary()) {
 				QUnaryAtomicBufferedDataDef<?> unaryAtomicBufferedDataDef = (QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition());
 				unaryAtomicDataTerm.setDefinition(unaryAtomicBufferedDataDef);
 			}
@@ -93,7 +93,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 	
 	protected QDataTerm<?> buildMultipleDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
 		
-		if(termFrom.getDataType().isAtomic()) {
+		if(termFrom.getDataTermType().isAtomic()) {
 			
 			// term
 			QMultipleAtomicDataTerm<QMultipleAtomicDataDef<?>> multipleAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();
@@ -103,7 +103,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 			if(termFrom.getDefinition() instanceof QBufferedDataDef) {
 				
 				// unary
-				if(termFrom.getDataType().isUnary()) {
+				if(termFrom.getDataTermType().isUnary()) {
 					QMultipleAtomicBufferedDataDef<?> multipleAtomicDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
 					multipleAtomicDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition()));
 					multipleAtomicDataTerm.setDefinition(multipleAtomicDataDef);

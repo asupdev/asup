@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.database.db2"
       label="As.UP Database DB2"
-      version="0.5.4.qualifier"
+      version="0.5.3.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">
@@ -18,7 +18,7 @@
    </license>
 
    <includes
-         id="org.asup.ft.database"
+         id="org.asup.ft.database.base"
          version="0.0.0"/>
 
    <plugin
@@ -65,6 +65,20 @@
 
    <plugin
          id="org.eclipse.datatools.sqltools.data.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.datatools.sqltools.result"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.help"
          download-size="0"
          install-size="0"
          version="0.0.0"

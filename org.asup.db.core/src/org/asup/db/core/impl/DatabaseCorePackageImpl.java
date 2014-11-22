@@ -9,7 +9,7 @@ package org.asup.db.core.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.asup.db.core.DataType;
+import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionFactory;
@@ -170,10 +170,11 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EClass viewDefEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dataTypeEEnum = null;
+	private EEnum databaseDataTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -448,17 +449,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIndexColumnDef_Index() {
-		return (EReference)indexColumnDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIndexColumnDef_Name() {
-		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -467,7 +459,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getIndexColumnDef_Ordering() {
-		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -476,7 +468,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getIndexColumnDef_Sequence() {
-		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)indexColumnDefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -624,11 +616,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getDataType() {
-		return dataTypeEEnum;
+	public EEnum getDatabaseDataType() {
+		return databaseDataTypeEEnum;
 	}
 
 	/**
@@ -712,7 +705,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		createEAttribute(indexDefEClass, INDEX_DEF__UNIQUE);
 
 		indexColumnDefEClass = createEClass(INDEX_COLUMN_DEF);
-		createEReference(indexColumnDefEClass, INDEX_COLUMN_DEF__INDEX);
 		createEAttribute(indexColumnDefEClass, INDEX_COLUMN_DEF__NAME);
 		createEAttribute(indexColumnDefEClass, INDEX_COLUMN_DEF__ORDERING);
 		createEAttribute(indexColumnDefEClass, INDEX_COLUMN_DEF__SEQUENCE);
@@ -740,7 +732,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		createEAttribute(viewDefEClass, VIEW_DEF__CREATION_COMMAND);
 
 		// Create enums
-		dataTypeEEnum = createEEnum(DATA_TYPE);
+		databaseDataTypeEEnum = createEEnum(DATABASE_DATA_TYPE);
 		orderingTypeEEnum = createEEnum(ORDERING_TYPE);
 
 		// Create data types
@@ -939,13 +931,11 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(indexDefEClass, QIndexDef.class, "IndexDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIndexDef_Columns(), this.getIndexColumnDef(), this.getIndexColumnDef_Index(), "columns", null, 0, -1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIndexDef_Columns(), this.getIndexColumnDef(), null, "columns", null, 0, -1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndexDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndexDef_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(indexColumnDefEClass, QIndexColumnDef.class, "IndexColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIndexColumnDef_Index(), this.getIndexDef(), this.getIndexDef_Columns(), "index", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getIndexColumnDef_Index().getEKeys().add(this.getIndexDef_Name());
 		initEAttribute(getIndexColumnDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndexColumnDef_Ordering(), this.getOrderingType(), "ordering", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndexColumnDef_Sequence(), ecorePackage.getEInt(), "sequence", null, 1, 1, QIndexColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -999,7 +989,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		initEAttribute(getTableDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableColumnDefEClass, QTableColumnDef.class, "TableColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableColumnDef_DataType(), this.getDataType(), "dataType", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_DataType(), this.getDatabaseDataType(), "dataType", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnDef_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1010,20 +1000,20 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		initEAttribute(getViewDef_CreationCommand(), ecorePackage.getEString(), "creationCommand", null, 0, 1, QViewDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(dataTypeEEnum, DataType.class, "DataType");
-		addEEnumLiteral(dataTypeEEnum, DataType.IDENTITY);
-		addEEnumLiteral(dataTypeEEnum, DataType.CHARACTER);
-		addEEnumLiteral(dataTypeEEnum, DataType.VARCHAR);
-		addEEnumLiteral(dataTypeEEnum, DataType.DECIMAL);
-		addEEnumLiteral(dataTypeEEnum, DataType.BOOLEAN);
-		addEEnumLiteral(dataTypeEEnum, DataType.DATE);
-		addEEnumLiteral(dataTypeEEnum, DataType.TIME);
-		addEEnumLiteral(dataTypeEEnum, DataType.TIME_STAMP);
-		addEEnumLiteral(dataTypeEEnum, DataType.INTEGER);
-		addEEnumLiteral(dataTypeEEnum, DataType.FLOAT);
-		addEEnumLiteral(dataTypeEEnum, DataType.GRAPHICAL);
-		addEEnumLiteral(dataTypeEEnum, DataType.TEXT);
-		addEEnumLiteral(dataTypeEEnum, DataType.BLOB);
+		initEEnum(databaseDataTypeEEnum, DatabaseDataType.class, "DatabaseDataType");
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.IDENTITY);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.CHARACTER);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.VARCHAR);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.DECIMAL);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.BOOLEAN);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.DATE);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.TIME);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.TIME_STAMP);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.INTEGER);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.FLOAT);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.GRAPHICAL);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.TEXT);
+		addEEnumLiteral(databaseDataTypeEEnum, DatabaseDataType.BLOB);
 
 		initEEnum(orderingTypeEEnum, OrderingType.class, "OrderingType");
 		addEEnumLiteral(orderingTypeEEnum, OrderingType.ASCEND);

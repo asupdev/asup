@@ -10,7 +10,6 @@ package org.asup.os.core.jobs;
 import java.util.List;
 
 import org.asup.fw.core.QContextID;
-import org.asup.fw.core.QContext;
 import org.asup.os.core.QSystem;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QObjectNameable;
@@ -298,12 +297,12 @@ public interface QJob extends QObjectNameable, QContextID {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Job Context</em>' containment reference.
-	 * @see #setJobContext(QContext)
+	 * @see #setJobContext(QJobContext)
 	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJob_JobContext()
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	QContext getJobContext();
+	QJobContext getJobContext();
 
 	/**
 	 * Sets the value of the '{@link org.asup.os.core.jobs.QJob#getJobContext <em>Job Context</em>}' containment reference.
@@ -313,6 +312,6 @@ public interface QJob extends QObjectNameable, QContextID {
 	 * @see #getJobContext()
 	 * @generated
 	 */
-	void setJobContext(QContext value);
+	void setJobContext(QJobContext value);
 
 } // QJob

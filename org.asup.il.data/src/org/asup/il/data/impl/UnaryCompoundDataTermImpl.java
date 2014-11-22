@@ -7,7 +7,7 @@
  */
 package org.asup.il.data.impl;
 
-import org.asup.il.data.DataType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDataTermVisitor;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -62,8 +62,8 @@ public class UnaryCompoundDataTermImpl<DD extends QUnaryCompoundDataDef<?>> exte
 	}
 
 	@Override
-	public DataType getDataType() {
-		return DataType.UNARY_COMPOUND;
+	public DataTermType getDataTermType() {
+		return DataTermType.UNARY_COMPOUND;
 	}
 	
 	/**

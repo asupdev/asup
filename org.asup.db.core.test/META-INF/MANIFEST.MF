@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core Test
 Bundle-SymbolicName: org.asup.db.core.test
-Bundle-Version: 0.5.4.qualifier
+Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.db.core;bundle-version="0.5.4",
- org.asup.db.syntax;bundle-version="0.5.4",
+Require-Bundle: org.asup.db.core,
+ org.asup.db.syntax,
  org.eclipse.datatools.enablement.msft.sqlserver;bundle-version="1.0.3",
  org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition;bundle-version="1.0.1",
  org.eclipse.datatools.enablement.ibm.db2.luw;bundle-version="1.0.3",

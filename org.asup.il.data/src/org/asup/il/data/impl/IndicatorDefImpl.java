@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QIndicator;
 import org.asup.il.data.QIndicatorDef;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
@@ -52,7 +53,12 @@ public class IndicatorDefImpl extends UnaryAtomicBufferedDataDefImpl<QIndicator>
 	}
 
 	@Override
-	public Class<?> getDataClass() {
+	public Class<QIndicator> getDataClass() {
 		return QIndicator.class;
+	}
+
+	@Override
+	public DataDefType getDataDefType() {
+		return DataDefType.INDICATOR;
 	}
 } //IndicatorDefImpl

@@ -1,4 +1,4 @@
-package org.asup.db.core.db2;
+package org.asup.db.core.base;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,13 +11,13 @@ import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
-public class DB2StatementImpl implements QStatement {
+public class BaseStatementImpl implements QStatement {
 
 	private Statement statement;
 	private QQueryParser queryParser;
 	private QQueryConverter queryConverter;
 	
-	protected DB2StatementImpl(Statement statement, QQueryParser queryParser, QQueryConverter queryConverter) {
+	protected BaseStatementImpl(Statement statement, QQueryParser queryParser, QQueryConverter queryConverter) {
 		this.statement = statement;
 		this.queryParser = queryParser;
 		this.queryConverter = queryConverter;

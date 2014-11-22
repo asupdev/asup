@@ -18,22 +18,24 @@ import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.os.core.OperatingSystemRuntimeException;
-import org.asup.os.core.QSystemManager;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.impl.FileManagerImpl;
+import org.eclipse.core.internal.runtime.AdapterManager;
+import org.eclipse.core.runtime.IAdapterFactory;
 
+@SuppressWarnings("restriction")
 public class BaseFileManagerImpl extends FileManagerImpl {
 
-	@Inject
-	private QSystemManager systemManager;
 	@Inject
 	private QConnectionManager connectionManager;
 	
 	@ServiceRegistration
 	public void init() {		
-		QConnectionConfig connectionConfig = (QConnectionConfig) getConfig();
-		connectionManager.registerConnectionConfig(systemManager.getSystem().getSystemDatabase(), connectionConfig);
+		IAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager, (QConnectionConfig) getConfig());
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QJob.class);	
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QDatabaseFile.class);
 	}
 	
 //	@Override

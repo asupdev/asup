@@ -7,7 +7,7 @@
  */
 package org.asup.il.data.impl;
 
-import org.asup.il.data.DataType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.QDataTermVisitor;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.QMultipleAtomicDataDef;
@@ -49,8 +49,8 @@ public class MultipleAtomicDataTermImpl<DD extends QMultipleAtomicDataDef<?>> ex
 	}
 
 	@Override
-	public DataType getDataType() {
-		return DataType.MULTIPLE_ATOMIC;
+	public DataTermType getDataTermType() {
+		return DataTermType.MULTIPLE_ATOMIC;
 	}
 	
 	/**

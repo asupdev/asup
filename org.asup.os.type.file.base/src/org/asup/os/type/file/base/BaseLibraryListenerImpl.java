@@ -31,19 +31,14 @@ import org.eclipse.datatools.modelbase.sql.schema.Schema;
 
 public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceListener<QLibrary> {
 
-	private QDatabaseManager databaseManager = null;
-
+	@Inject
+	private QDatabaseManager databaseManager;
 	@Inject
 	private QResourceFactory resourceFactory;
 
 	@PostConstruct
 	public void init() {
 		resourceFactory.registerListener(QLibrary.class, this);
-	}
-
-	@Inject
-	public BaseLibraryListenerImpl(QDatabaseManager databaseManager) {
-		this.databaseManager = databaseManager;
 	}
 
 	@Override
@@ -71,10 +66,9 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 	private void createSchema(QJob job, QLibrary library) throws OperatingSystemRuntimeException {
 
 		// database connection
-		String databaseName = job.getSystem().getSystemDatabase();
 		QConnection databaseConnection = job.getJobContext().getAdapter(job, QConnection.class);
 		if (databaseConnection == null)
-			throw new OperatingSystemRuntimeException("Database connection not found: " + databaseName);
+			throw new OperatingSystemRuntimeException("Database connection not found: " + job);
 
 		// schema
 		Schema schema = databaseManager.getSchema(databaseConnection, library.getName());
@@ -95,10 +89,9 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 	private void dropSchema(QJob job, QLibrary library) throws OperatingSystemRuntimeException {
 
 		// database connection
-		String databaseName = job.getSystem().getSystemDatabase();
 		QConnection databaseConnection = job.getJobContext().getAdapter(job, QConnection.class);
 		if (databaseConnection == null)
-			throw new OperatingSystemRuntimeException("Database connection not found: " + databaseName);
+			throw new OperatingSystemRuntimeException("Database connection not found: " + job);
 
 		// schema
 		Schema schema = databaseManager.getSchema(databaseConnection, library.getName());

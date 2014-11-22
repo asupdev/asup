@@ -133,7 +133,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseResultSet" instanceClassName="java.sql.ResultSet"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+  <eClassifiers xsi:type="ecore:EEnum" name="DatabaseDataType">
     <eLiterals name="Identity" value="10" literal="IDENTITY"/>
     <eLiterals name="Character" value="20" literal="CHAR"/>
     <eLiterals name="Varchar" value="30" literal="VARCHAR"/>
@@ -150,13 +150,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndexDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//IndexColumnDef" containment="true" eOpposite="#//IndexColumnDef/index"/>
+        eType="#//IndexColumnDef" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndexColumnDef" eSuperTypes="#//DatabaseObjectDef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="index" lowerBound="1" eType="#//IndexDef"
-        eOpposite="#//IndexDef/columns" eKeys="#//IndexDef/name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ordering" lowerBound="1"
         eType="#//OrderingType"/>
@@ -208,7 +206,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableColumnDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"
-        eType="#//DataType"/>
+        eType="#//DatabaseDataType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

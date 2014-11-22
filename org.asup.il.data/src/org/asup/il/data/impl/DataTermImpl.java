@@ -10,7 +10,7 @@ package org.asup.il.data.impl;
 import java.lang.Boolean;
 import java.lang.String;
 import org.asup.il.core.impl.TermImpl;
-import org.asup.il.data.DataType;
+import org.asup.il.data.DataTermType;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDataTermVisitor;
@@ -367,13 +367,9 @@ public abstract class DataTermImpl<DD extends QDataDef<?>> extends TermImpl impl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public DataType getDataType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public abstract DataTermType getDataTermType();
 
 	/**
 	 * <!-- begin-user-doc -->
