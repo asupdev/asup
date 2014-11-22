@@ -12,49 +12,32 @@
 package org.asup.db.server.cdo;
 
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
 
 import javax.inject.Inject;
-import javax.sql.DataSource;
 
-import org.asup.db.core.QConnectionConfig;
-import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.impl.ServiceImpl;
-import org.eclipse.emf.cdo.server.CDOServerUtil;
-import org.eclipse.emf.cdo.server.IRepository;
-import org.eclipse.emf.cdo.server.db.CDODBUtil;
-import org.eclipse.emf.cdo.server.db.IDBStore;
-import org.eclipse.emf.cdo.server.db.mapping.IMappingStrategy;
 import org.eclipse.emf.cdo.server.internal.db.mapping.horizontal.HorizontalNonAuditMappingStrategy;
-import org.eclipse.emf.cdo.server.net4j.CDONet4jServerUtil;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.net4j.Net4jUtil;
-import org.eclipse.net4j.db.DBUtil;
-import org.eclipse.net4j.db.IDBAdapter;
-import org.eclipse.net4j.db.IDBConnectionProvider;
-import org.eclipse.net4j.tcp.TCPUtil;
-import org.eclipse.net4j.util.container.IPluginContainer;
-import org.eclipse.net4j.util.om.OMPlatform;
 
 @SuppressWarnings("restriction")
 public class CDODatabaseActivatorHook extends ServiceImpl {
 
+	@SuppressWarnings("unused")
 	@Inject
 	private QConnectionFactoryRegistry connectionFactoryRegistry;
+	@SuppressWarnings("unused")
 	@Inject
 	private QConnectionManager connectionManager;
 	
 	@LevelStarted
 	public void start() throws SQLException {
-
+/*
 		OMPlatform.INSTANCE.setDebugging(true); 
 		OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
 		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
@@ -78,10 +61,6 @@ public class CDODatabaseActivatorHook extends ServiceImpl {
 		dataSourceProps.put("user", connectionConfig.getUser());
 		dataSourceProps.put("password", connectionConfig.getPassword());
 
-/*		dataSourceProps.put("class", "com.mysql.jdbc.jdbc2.optional.MysqlDataSource");
-		dataSourceProps.put("url", "jdbc:mysql://localhost/asup_cdo?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8");
-		dataSourceProps.put("user", "root");
-		dataSourceProps.put("password", "asup2013");*/
 		DataSource dataSource = connectionFactory.createDataSource(dataSourceProps);		
 		IDBConnectionProvider provider = DBUtil.createConnectionProvider(dataSource); 
 
@@ -109,9 +88,10 @@ public class CDODatabaseActivatorHook extends ServiceImpl {
 		IRepository repository = CDOServerUtil.createRepository("AS400A", store, repositoryProps); 
 		CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
 		
-		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", "0.0.0.0:2036");
+		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", "0.0.0.0:2036");*/
 	}
 	
+	@SuppressWarnings("unused")
 	private class InternalMappingStrategy extends HorizontalNonAuditMappingStrategy {
 
 		@Override

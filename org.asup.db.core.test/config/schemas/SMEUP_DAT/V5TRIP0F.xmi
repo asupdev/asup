@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5TRIP0F">
-  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="QMUKEY" length="20"/>
   <columns dataType="CHAR" name="V$CDVG" length="15"/>
   <columns dataType="CHAR" name="V$DEVG" length="35"/>
   <columns dataType="CHAR" name="V$TIVG" length="3"/>

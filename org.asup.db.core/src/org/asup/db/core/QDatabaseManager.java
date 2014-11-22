@@ -35,7 +35,8 @@ public interface QDatabaseManager extends QService {
 	void createIndex(QConnection connection, Table table, QIndexDef index) throws SQLException;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */

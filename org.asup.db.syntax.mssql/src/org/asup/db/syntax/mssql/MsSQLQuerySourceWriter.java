@@ -31,6 +31,7 @@ import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceWriter;
 import org.eclipse.datatools.modelbase.sql.schema.SQLObject;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 @SuppressWarnings("rawtypes")
@@ -50,7 +51,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 */
 	@Override
 	protected char getDelimitedIdentifierQuote() {
-		return '"';
+		return super.getDelimitedIdentifierQuote();
 	}
 
 	/*
@@ -59,23 +60,20 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * @see org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceWriter#
 	 * convertCatalogIdentifierToSQLFormat(java.lang.String, char)
 	 */
-	protected String convertCatalogIdentifierToSQLFormat(
-			String catalogIdentifier, char idDelimiterQuote) {
+	protected String convertCatalogIdentifierToSQLFormat(String catalogIdentifier, char idDelimiterQuote) {
 
-		String name = StatementHelper.convertCatalogIdentifierToSQLFormat(
-				catalogIdentifier, idDelimiterQuote);
-		if (name.startsWith(getDelimitedIdentifierQuote() + "")
-				&& name.endsWith(getDelimitedIdentifierQuote() + "")) {
+		return super.convertCatalogIdentifierToSQLFormat(catalogIdentifier, idDelimiterQuote);
+/*		String name = StatementHelper.convertCatalogIdentifierToSQLFormat(catalogIdentifier, idDelimiterQuote);
+		if (name.startsWith(getDelimitedIdentifierQuote() + "") && name.endsWith(getDelimitedIdentifierQuote() + "")) {
 			name = name.substring(1, name.length() - 1);
 		}
-		return name;
+		return name;*/
 	}
 
 	/**
 	 * @see org.eclipse.datatools.modelbase.sql.query.QuerySelect#getSQL()
 	 */
-	protected void appendSpecificSQL(QExtendedQuerySelect select,
-			StringBuffer sb) {
+	protected void appendSpecificSQL(QExtendedQuerySelect select, StringBuffer sb) {
 		if (select != null) {
 			StringBuffer sbSelect = new StringBuffer();
 
@@ -127,8 +125,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 			List fromClauseList = select.getFromClause();
 			if (fromClauseList != null && fromClauseList.size() > 0) {
 				int lastTableStartIndex = sbSelect.length();
-				for (Iterator fromIt = select.getFromClause().iterator(); fromIt
-						.hasNext();) {
+				for (Iterator fromIt = select.getFromClause().iterator(); fromIt.hasNext();) {
 					TableReference tableRef = (TableReference) fromIt.next();
 
 					appendSQLForTableExpression(tableRef, sbSelect);
@@ -140,8 +137,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 
 					if (getLastLineLength(sbSelect) > displayWidth) {
 						sbSelect.insert(lastTableStartIndex - 1, spacer4);
-						sbSelect.insert(lastTableStartIndex - 1,
-								sbClauseIndent.toString());
+						sbSelect.insert(lastTableStartIndex - 1, sbClauseIndent.toString());
 						sbSelect.insert(lastTableStartIndex - 1, NEW_LINE);
 					}
 
@@ -190,8 +186,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 
 			// ORDER BY clause
 			List sortSpecList = select.getSortSpecList();
-			if (StatementHelper
-					.isOrderByClauseContainsValidOrderBySpecification(sortSpecList)) {
+			if (StatementHelper.isOrderByClauseContainsValidOrderBySpecification(sortSpecList)) {
 				appendNewLine(sbSelect);
 				appendStringBuffer(sbSelect, sbClauseIndent);
 				appendSQLForOrderByClause(sortSpecList, sbSelect);
@@ -216,9 +211,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 
 			// if select is nested select (not the top select stmt)
 			// and its source is very short we don't break lines
-			if (!(select.eContainer() instanceof QueryExpressionRoot && select
-					.eContainer().eContainer() instanceof QuerySelectStatement)
-					&& sbSelect.length() < 0) {
+			if (!(select.eContainer() instanceof QueryExpressionRoot && select.eContainer().eContainer() instanceof QuerySelectStatement) && sbSelect.length() < 0) {
 				trimWhiteSpace(sbSelect);
 			}
 
@@ -235,8 +228,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * @param sb
 	 *            the string buffer to which the clause should be appended
 	 */
-	protected void appendSQLForOptimizeClause(int aRowOptimizeLimit,
-			StringBuffer sb) {
+	protected void appendSQLForOptimizeClause(int aRowOptimizeLimit, StringBuffer sb) {
 		if (aRowOptimizeLimit > 0) {
 			appendKeyword(sb, "LIMIT(1,");
 			appendInt(sb, aRowOptimizeLimit);
@@ -248,22 +240,20 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * Manage columns for value expressions (for example, COUNT, DIGITS, AVG ecc
 	 * ecc
 	 */
-	protected void appendSpecificSQL(ValueExpressionColumn valExprCol,
-			StringBuffer sb) {
-/*		
-		appendString(sb, "[");
+	protected void appendSpecificSQL(ValueExpressionColumn valExprCol, StringBuffer sb) {
+		/*
+		 * appendString(sb, "["); super.appendSpecificSQL(valExprCol, sb);
+		 * appendString(sb, "]");
+		 */
+		// TODO verificare con mattia
+		// StringBuffer sb_column = new StringBuffer();
 		super.appendSpecificSQL(valExprCol, sb);
-		appendString(sb, "]");
-*/
-		//TODO verificare con mattia
-		StringBuffer sb_column = new StringBuffer();
-		super.appendSpecificSQL(valExprCol, sb_column);
-		String field = sb_column.toString();
-//		System.out.println(field);
-		field = field.replaceAll("\\.", "].[");
-		appendString(sb, "[");
-		appendString(sb, field);
-		appendString(sb, "]");
+		// String field = sb_column.toString();
+		// System.out.println(field);
+		// field = field.replaceAll("\\.", "].[");
+		// appendString(sb, "[");
+		// appendString(sb, field);
+		// appendString(sb, "]");
 	}
 
 	/**
@@ -271,29 +261,28 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * 
 	 * @see org.eclipse.datatools.modelbase.sql.query.ValueExpressionCombinedOperator#getSQL()
 	 */
-	protected void appendSpecificSQL(ValueExpressionCombinedOperator op,
-			StringBuffer sb) {
+	protected void appendSpecificSQL(ValueExpressionCombinedOperator op, StringBuffer sb) {
 		if (op != null) {
 			int operator = op.getValue();
 
 			switch (operator) {
-			case ValueExpressionCombinedOperator.ADD:
-				appendOperator(sb, ADD);
-				break;
-			case ValueExpressionCombinedOperator.SUBTRACT:
-				appendOperator(sb, SUBTRACT);
-				break;
-			case ValueExpressionCombinedOperator.MULTIPLY:
-				appendOperator(sb, MULTIPLY);
-				break;
-			case ValueExpressionCombinedOperator.DIVIDE:
-				appendOperator(sb, DIVIDE);
-				break;
-			case ValueExpressionCombinedOperator.CONCATENATE:
-				appendOperator(sb, SQL_SERVER_CONCATENATE);
-				break;
-			default:
-				break;
+				case ValueExpressionCombinedOperator.ADD:
+					appendOperator(sb, ADD);
+					break;
+				case ValueExpressionCombinedOperator.SUBTRACT:
+					appendOperator(sb, SUBTRACT);
+					break;
+				case ValueExpressionCombinedOperator.MULTIPLY:
+					appendOperator(sb, MULTIPLY);
+					break;
+				case ValueExpressionCombinedOperator.DIVIDE:
+					appendOperator(sb, DIVIDE);
+					break;
+				case ValueExpressionCombinedOperator.CONCATENATE:
+					appendOperator(sb, SQL_SERVER_CONCATENATE);
+					break;
+				default:
+					break;
 			}
 		}
 	}
@@ -309,8 +298,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * java.lang.StringBuffer)
 	 */
 	@SuppressWarnings("unused")
-	protected void appendSQLForTableInDatabase(TableInDatabase tableInDB,
-			StringBuffer sb) {
+	protected void appendSQLForTableInDatabase(TableInDatabase tableInDB, StringBuffer sb) {
 		if (tableInDB != null) {
 			String tableName = tableInDB.getName();
 			Schema schema = null;
@@ -320,7 +308,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 				schema = tableInDB.getDatabaseTable().getSchema();
 			}
 
-			ISQLObjectNameHelper nameHelper = new MsSQLNameHelper();
+			ISQLObjectNameHelper nameHelper = new SQLObjectNameHelper();
 
 			/*
 			 * Determine whether or not we should qualify the table name with a
@@ -328,15 +316,13 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 			 * and the source format setting.
 			 */
 			boolean qualify = false;
-			if (schema != null && schema.getName() != null
-					&& schema.getName().length() > 0) {
+			if (schema != null && schema.getName() != null && schema.getName().length() > 0) {
 				qualify = true;
 
 				SQLQuerySourceInfo sourceInfo = tableInDB.getSourceInfo();
 				SQLQuerySourceFormat sourceFormat = sourceInfo.getSqlFormat();
 				int qualifySpec = sourceFormat.getQualifyIdentifiers();
-				if (qualifySpec == SQLQuerySourceFormat.QUALIFY_IDENTIFIERS_NEVER
-						|| qualifySpec == SQLQuerySourceFormat.QUALIFY_IDENTIFIERS_WITH_TABLE_NAMES) {
+				if (qualifySpec == SQLQuerySourceFormat.QUALIFY_IDENTIFIERS_NEVER || qualifySpec == SQLQuerySourceFormat.QUALIFY_IDENTIFIERS_WITH_TABLE_NAMES) {
 					qualify = false;
 				} else if (qualifySpec == SQLQuerySourceFormat.QUALIFY_IDENTIFIERS_WITH_SCHEMA_NAMES) {
 					qualify = true;
@@ -365,8 +351,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * (org.eclipse.datatools.modelbase.sql.query.ValueExpressionFunction,
 	 * java.lang.StringBuffer)
 	 */
-	protected void appendSpecificSQL(ValueExpressionFunction valExprFunc,
-			StringBuffer sb) {
+	protected void appendSpecificSQL(ValueExpressionFunction valExprFunc, StringBuffer sb) {
 		String funcName = valExprFunc.getName();
 
 		if (funcName.equalsIgnoreCase("DIGITS")) {
@@ -390,8 +375,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * appendSQLForFetchFirstClause(int, java.lang.StringBuffer)
 	 */
 	@Override
-	protected void appendSQLForFetchFirstClause(int aRowFetchLimit,
-			StringBuffer sb) {
+	protected void appendSQLForFetchFirstClause(int aRowFetchLimit, StringBuffer sb) {
 		if (aRowFetchLimit > 0) {
 			appendKeyword(sb, "TOP");
 			appendSpace(sb);
@@ -408,8 +392,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * 
 	 * TODO: choose precision in relation to FIELD_NAME datatype.
 	 */
-	private void appendFunctionSQL_DIGITS(ValueExpressionFunction valExprFunc,
-			StringBuffer sb) {
+	private void appendFunctionSQL_DIGITS(ValueExpressionFunction valExprFunc, StringBuffer sb) {
 
 		StringBuffer sbExpr = new StringBuffer();
 
@@ -439,8 +422,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * 
 	 * TODO: choose precision in relation to FIELD_NAME datatype.
 	 */
-	private void appendFunctionSQL_UCASE(ValueExpressionFunction valExprFunc,
-			StringBuffer sb) {
+	private void appendFunctionSQL_UCASE(ValueExpressionFunction valExprFunc, StringBuffer sb) {
 
 		StringBuffer sbExpr = new StringBuffer();
 
@@ -461,8 +443,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * 
 	 * TODO: choose precision in relation to FIELD_NAME datatype.
 	 */
-	private void appendFunctionSQL_TRIM(ValueExpressionFunction valExprFunc,
-			StringBuffer sb) {
+	private void appendFunctionSQL_TRIM(ValueExpressionFunction valExprFunc, StringBuffer sb) {
 
 		StringBuffer sbExpr = new StringBuffer();
 
@@ -486,8 +467,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 	 * 
 	 * TODO: choose precision in relation to FIELD_NAME datatype.
 	 */
-	private void appendFunctionSQL_RRN(ValueExpressionFunction valExprFunc,
-			StringBuffer sb) {
+	private void appendFunctionSQL_RRN(ValueExpressionFunction valExprFunc, StringBuffer sb) {
 
 		StringBuffer sbExpr = new StringBuffer();
 
@@ -502,7 +482,6 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 		appendStringBuffer(sb, sbExpr);
 	}
 
-	
 	static String getInterfaceName(Class sqlObjectClass) {
 		if (sqlObjectClass == null) {
 			return null;
@@ -526,15 +505,14 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 
 		interfaceName = className.toString();
 
-		if(interfaceName.equals("org.asup.db.syntax.ExtendedQuerySelect"))
+		if (interfaceName.equals("org.asup.db.syntax.ExtendedQuerySelect"))
 			interfaceName = "org.asup.db.syntax.QExtendedQuerySelect";
-		
+
 		return interfaceName;
 	}
 
 	@Override
-	protected Method getSpecificAppendSQLMethod(Class sourceWriterClass,
-			SQLObject sqlObject) throws NoSuchMethodException {
+	protected Method getSpecificAppendSQLMethod(Class sourceWriterClass, SQLObject sqlObject) throws NoSuchMethodException {
 		if (sqlObject == null) {
 			return null;
 		}
@@ -562,15 +540,13 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 				}
 			}
 		}
-		appendSQL = getSpecificAppendSQLMethod(sourceWriterClass,
-				sqlObjectInterfaceClass);
+		appendSQL = getSpecificAppendSQLMethod(sourceWriterClass, sqlObjectInterfaceClass);
 
 		return appendSQL;
 	}
 
 	@SuppressWarnings("unchecked")
-	static Method getSpecificAppendSQLMethod(Class sourceWriterClass,
-			Class queryObjectInterfaceClass) throws NoSuchMethodException {
+	static Method getSpecificAppendSQLMethod(Class sourceWriterClass, Class queryObjectInterfaceClass) throws NoSuchMethodException {
 		if (queryObjectInterfaceClass == null || sourceWriterClass == null) {
 			return null;
 		}
@@ -579,10 +555,8 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 
 		try {
 			Class stringBufferClass = StringBuffer.class;
-			Class[] methodArgTypes = new Class[] { queryObjectInterfaceClass,
-					stringBufferClass };
-			appendSQL = sourceWriterClass.getDeclaredMethod(
-					"appendSpecificSQL", //$NON-NLS-1$
+			Class[] methodArgTypes = new Class[] { queryObjectInterfaceClass, stringBufferClass };
+			appendSQL = sourceWriterClass.getDeclaredMethod("appendSpecificSQL", //$NON-NLS-1$
 					methodArgTypes);
 		} catch (NoSuchMethodException nsme) {
 			// StatementHelper.logError(NEW_LINE + sourceWriterClass.getName()
@@ -594,10 +568,8 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 			// does this class extend a SourceWriter that has the method?
 			// walk up the inheritance hierarchy
 			Class superClass = sourceWriterClass.getSuperclass();
-			if (superClass != null
-					&& SQLQuerySourceWriter.class.isAssignableFrom(superClass)) {
-				appendSQL = getSpecificAppendSQLMethod(superClass,
-						queryObjectInterfaceClass);
+			if (superClass != null && SQLQuerySourceWriter.class.isAssignableFrom(superClass)) {
+				appendSQL = getSpecificAppendSQLMethod(superClass, queryObjectInterfaceClass);
 			} else {
 				throw nsme;
 			}

@@ -10,6 +10,7 @@ package org.asup.db.core;
 import java.sql.SQLException;
 import org.asup.fw.core.QContext;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -69,5 +70,13 @@ public interface QConnection extends QContext {
 	 * @generated
 	 */
 	DatabaseDefinition getDatabaseDefinition();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	Catalog getDefaultCatalog();
 
 } // DatabaseConnection

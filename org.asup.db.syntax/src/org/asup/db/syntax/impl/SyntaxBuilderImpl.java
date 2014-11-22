@@ -453,11 +453,11 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	}
 	@Override
 	public String getQualifiedNameInSQLFormat(Column column) {
-		return sqlObjectNameHelper.getNameInSQLFormat(column);
+		return sqlObjectNameHelper.getQualifiedNameInSQLFormat(column);
 	}
 	@Override
 	public String getQualifiedNameInSQLFormat(Table table) {
-		return sqlObjectNameHelper.getNameInSQLFormat(table);
+		return sqlObjectNameHelper.getQualifiedNameInSQLFormat(table);
 	}
 	@Override
 	public String getIdentifierQuoteString() {

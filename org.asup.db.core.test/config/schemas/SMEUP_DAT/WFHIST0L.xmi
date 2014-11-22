@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW WFHIST0L (&#xA;  F3TREC ,&#xA;  F3NURE ,&#xA;  F3CLUO ,&#xA;  F3TRAN ,&#xA;  F3VALR )&#xA;  AS&#xA;  SELECT&#xA;  F3TREC ,&#xA;  F3NURE ,&#xA;  F3CLUO ,&#xA;  F3TRAN ,&#xA;  F3VALR&#xA;  FROM WFHIST0F&#xA;  ;&#xA;&#xA;" name="WFHIST0L"/>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFHIST0L" creationCommand=" CREATE VIEW WFHIST0L (   F3TREC ,   F3NURE ,   F3CLUO ,   F3TRAN ,   F3VALR )   AS   SELECT   F3TREC ,   F3NURE ,   F3CLUO ,   F3TRAN ,   F3VALR   FROM WFHIST0F   ;  "/>

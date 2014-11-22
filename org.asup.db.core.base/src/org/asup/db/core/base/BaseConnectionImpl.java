@@ -3,6 +3,7 @@ package org.asup.db.core.base;
 import java.lang.annotation.Annotation;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
@@ -18,6 +19,7 @@ import org.eclipse.datatools.connectivity.IConnectionFactoryProvider;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 public class BaseConnectionImpl implements QConnection {
 
@@ -137,5 +139,17 @@ public class BaseConnectionImpl implements QConnection {
 		}
 		
 		return (ConnectionInfo) iConnection.getRawConnection();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Catalog getDefaultCatalog() {
+		
+		for(Catalog catalog: (List<Catalog>)getConnectionInfo().getSharedDatabase().getCatalogs()) {
+			if(connectionConfig.getUrl().contains(catalog.getName()))
+				return catalog;
+		}
+		
+		return null;
 	}
 }

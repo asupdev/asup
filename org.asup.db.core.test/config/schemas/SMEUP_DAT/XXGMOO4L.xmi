@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" creationCommand="&#xA;CREATE VIEW XXGMOO4L (&#xA;  GXCOD1 ,&#xA;  GXCOD2 ,&#xA;  GXCOD3 ,&#xA;  GXCOD4 ,&#xA;  GXCOD5 ,&#xA;  GXCOD6 ,&#xA;  GXCOD7 ,&#xA;  GXCOD8 ,&#xA;  GXCOD9 ,&#xA;  G&#xa7;STAT ,&#xA;  G&#xa7;QTGZ ,&#xA;  G&#xa7;QTAL ,&#xA;  G&#xa7;QTAT )&#xA;  AS&#xA;  SELECT&#xA;  G&#xa7;NCOL ,&#xA;  CAST (  G&#xa7;CDMG AS CHAR(15) ) ,&#xA;  G&#xa7;ARTI ,&#xA;  CAST (  G&#xa7;TIGC AS CHAR(15) ) ,&#xA;  CAST (  G&#xa7;SOGC AS CHAR(15) ) ,&#xA;  G&#xa7;COD1 ,&#xA;  G&#xa7;COD2 ,&#xA;  G&#xa7;COD3 ,&#xA;  G&#xa7;COD4 ,&#xA;  G&#xa7;STAT ,&#xA;  G&#xa7;QTGZ ,&#xA;  G&#xa7;QTAL ,&#xA;  G&#xa7;QTAT&#xA;  FROM GMQUAN0F&#xA;  ;&#xA;&#xA;" name="XXGMOO4L"/>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="XXGMOO4L" creationCommand=" CREATE VIEW XXGMOO4L (   GXCOD1 ,   GXCOD2 ,   GXCOD3 ,   GXCOD4 ,   GXCOD5 ,   GXCOD6 ,   GXCOD7 ,   GXCOD8 ,   GXCOD9 ,   G&#xa7;STAT ,   G&#xa7;QTGZ ,   G&#xa7;QTAL ,   G&#xa7;QTAT )   AS   SELECT   G&#xa7;NCOL ,   CAST (  G&#xa7;CDMG AS CHAR(15) ) ,   G&#xa7;ARTI ,   CAST (  G&#xa7;TIGC AS CHAR(15) ) ,   CAST (  G&#xa7;SOGC AS CHAR(15) ) ,   G&#xa7;COD1 ,   G&#xa7;COD2 ,   G&#xa7;COD3 ,   G&#xa7;COD4 ,   G&#xa7;STAT ,   G&#xa7;QTGZ ,   G&#xa7;QTAL ,   G&#xa7;QTAT   FROM GMQUAN0F   ;  ">
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="15"/>
+  <columns dataType="CHAR" length="2"/>
+  <columns dataType="DECIMAL" length="11" scale="3"/>
+  <columns dataType="DECIMAL" length="11" scale="3"/>
+  <columns dataType="DECIMAL" length="11" scale="3"/>
+</db-core:ViewDef>

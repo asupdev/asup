@@ -134,7 +134,7 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 			return null;
 		
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-		indexDef.setName(databaseFileFormat.getName());
+		indexDef.setName(file.getName());
 		indexDef.setUnique(databaseFileFormat.isUnique());
 
 		int i=1;

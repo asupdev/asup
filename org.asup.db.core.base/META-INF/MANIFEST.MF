@@ -7,6 +7,5 @@ Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.db.core.base
 Require-Bundle: org.asup.db.core;visibility:=reexport,
  org.asup.db.syntax;visibility:=reexport,
- org.eclipse.datatools.connectivity.sqm.core;visibility:=reexport,
  org.asup.db.syntax.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

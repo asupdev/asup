@@ -764,8 +764,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
-		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
 		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
+		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
 		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
 
 		// Create type parameters
@@ -812,6 +812,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEOperation(connectionEClass, this.getConnectionConfig(), "getConnectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(connectionEClass, this.getDatabaseDefinition(), "getDatabaseDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(connectionEClass, theSQLSchemaPackage.getCatalog(), "getDefaultCatalog", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(connectionConfigEClass, QConnectionConfig.class, "ConnectionConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConnectionConfig_DriverName(), ecorePackage.getEString(), "driverName", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
