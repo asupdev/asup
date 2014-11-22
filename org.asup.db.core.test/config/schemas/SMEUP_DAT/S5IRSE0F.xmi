@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="S5IRSE0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="S4SCEN" precision="10"/>
-  <columns dataType="CHAR" name="S4TORI" precision="2"/>
-  <columns dataType="CHAR" name="S4TDOC" precision="3"/>
-  <columns dataType="CHAR" name="S4NDOC" precision="10"/>
-  <columns dataType="DECIMAL" name="S4NRIG" precision="4"/>
-  <columns dataType="CHAR" name="S4OPER" precision="6"/>
-  <columns dataType="CHAR" name="S4IDOJ" precision="10"/>
-  <columns dataType="CHAR" name="S4CDRS" precision="10"/>
-  <columns dataType="CHAR" name="S4TIPA" precision="12"/>
-  <columns dataType="CHAR" name="S4CODI" precision="15"/>
-  <columns dataType="CHAR" name="S4TBRK" precision="3"/>
-  <columns dataType="CHAR" name="S4TTRG" precision="3"/>
-  <columns dataType="CHAR" name="S4MAGC" precision="3"/>
-  <columns dataType="CHAR" name="S4COMS" precision="15"/>
-  <columns dataType="CHAR" name="S4CODA" precision="15"/>
-  <columns dataType="CHAR" name="S4CODB" precision="15"/>
-  <columns dataType="CHAR" name="S4CODC" precision="15"/>
-  <columns dataType="DECIMAL" name="S4NUMA" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NUMB" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NUMC" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="S4NOTA" precision="50"/>
-  <columns dataType="DECIMAL" name="S4HRCI" precision="7" scale="2"/>
-  <columns dataType="DECIMAL" name="S4HRCF" precision="7" scale="2"/>
-  <columns dataType="DECIMAL" name="S4DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HRIN" precision="6"/>
-  <columns dataType="DECIMAL" name="S4DTFI" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HRFI" precision="6"/>
-  <columns dataType="DECIMAL" name="S4DISC" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HISC" precision="6"/>
-  <columns dataType="DECIMAL" name="S4DFSC" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HFSC" precision="6"/>
-  <columns dataType="DECIMAL" name="S4DIST" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HIST" precision="6"/>
-  <columns dataType="DECIMAL" name="S4DFST" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HFST" precision="6"/>
-  <columns dataType="DECIMAL" name="S4DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="S4DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="S4DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="S4DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="S4DT05" precision="8"/>
-  <columns dataType="CHAR" name="S4TP01" precision="12"/>
-  <columns dataType="CHAR" name="S4AA01" precision="15"/>
-  <columns dataType="CHAR" name="S4TP02" precision="12"/>
-  <columns dataType="CHAR" name="S4AA02" precision="15"/>
-  <columns dataType="CHAR" name="S4TP03" precision="12"/>
-  <columns dataType="CHAR" name="S4AA03" precision="15"/>
-  <columns dataType="CHAR" name="S4TP04" precision="12"/>
-  <columns dataType="CHAR" name="S4AA04" precision="15"/>
-  <columns dataType="CHAR" name="S4TP05" precision="12"/>
-  <columns dataType="CHAR" name="S4AA05" precision="15"/>
-  <columns dataType="CHAR" name="S4TP06" precision="12"/>
-  <columns dataType="CHAR" name="S4AA06" precision="15"/>
-  <columns dataType="CHAR" name="S4TP07" precision="12"/>
-  <columns dataType="CHAR" name="S4AA07" precision="15"/>
-  <columns dataType="CHAR" name="S4TP08" precision="12"/>
-  <columns dataType="CHAR" name="S4AA08" precision="15"/>
-  <columns dataType="CHAR" name="S4TP09" precision="12"/>
-  <columns dataType="CHAR" name="S4AA09" precision="15"/>
-  <columns dataType="CHAR" name="S4TP10" precision="12"/>
-  <columns dataType="CHAR" name="S4AA10" precision="15"/>
-  <columns dataType="DECIMAL" name="S4NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU05" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU06" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU07" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU08" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU09" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S4NU10" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="S4LVRI" precision="2"/>
-  <columns dataType="CHAR" name="S4TPOR" precision="12"/>
-  <columns dataType="CHAR" name="S4CDOR" precision="15"/>
-  <columns dataType="CHAR" name="S4FL01" precision="1"/>
-  <columns dataType="CHAR" name="S4FL02" precision="1"/>
-  <columns dataType="CHAR" name="S4FL03" precision="1"/>
-  <columns dataType="CHAR" name="S4FL04" precision="1"/>
-  <columns dataType="CHAR" name="S4FL05" precision="1"/>
-  <columns dataType="CHAR" name="S4FL06" precision="1"/>
-  <columns dataType="CHAR" name="S4FL07" precision="1"/>
-  <columns dataType="CHAR" name="S4FL08" precision="1"/>
-  <columns dataType="CHAR" name="S4FL09" precision="1"/>
-  <columns dataType="CHAR" name="S4FL10" precision="1"/>
-  <columns dataType="CHAR" name="S4FL11" precision="1"/>
-  <columns dataType="CHAR" name="S4FL12" precision="1"/>
-  <columns dataType="CHAR" name="S4FL13" precision="1"/>
-  <columns dataType="CHAR" name="S4FL14" precision="1"/>
-  <columns dataType="CHAR" name="S4FL15" precision="1"/>
-  <columns dataType="CHAR" name="S4FL16" precision="1"/>
-  <columns dataType="CHAR" name="S4FL17" precision="1"/>
-  <columns dataType="CHAR" name="S4FL18" precision="1"/>
-  <columns dataType="CHAR" name="S4FL19" precision="1"/>
-  <columns dataType="CHAR" name="S4FL20" precision="1"/>
-  <columns dataType="DECIMAL" name="S4DTCR" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HRCR" precision="6"/>
-  <columns dataType="CHAR" name="S4USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="S4DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="S4HRAG" precision="6"/>
-  <columns dataType="CHAR" name="S4USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="S5IRSE0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="S4SCEN" length="10"/>
+  <columns dataType="CHAR" name="S4TORI" length="2"/>
+  <columns dataType="CHAR" name="S4TDOC" length="3"/>
+  <columns dataType="CHAR" name="S4NDOC" length="10"/>
+  <columns dataType="DECIMAL" name="S4NRIG" length="4"/>
+  <columns dataType="CHAR" name="S4OPER" length="6"/>
+  <columns dataType="CHAR" name="S4IDOJ" length="10"/>
+  <columns dataType="CHAR" name="S4CDRS" length="10"/>
+  <columns dataType="CHAR" name="S4TIPA" length="12"/>
+  <columns dataType="CHAR" name="S4CODI" length="15"/>
+  <columns dataType="CHAR" name="S4TBRK" length="3"/>
+  <columns dataType="CHAR" name="S4TTRG" length="3"/>
+  <columns dataType="CHAR" name="S4MAGC" length="3"/>
+  <columns dataType="CHAR" name="S4COMS" length="15"/>
+  <columns dataType="CHAR" name="S4CODA" length="15"/>
+  <columns dataType="CHAR" name="S4CODB" length="15"/>
+  <columns dataType="CHAR" name="S4CODC" length="15"/>
+  <columns dataType="DECIMAL" name="S4NUMA" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NUMB" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NUMC" length="15" scale="5"/>
+  <columns dataType="CHAR" name="S4NOTA" length="50"/>
+  <columns dataType="DECIMAL" name="S4HRCI" length="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S4HRCF" length="7" scale="2"/>
+  <columns dataType="DECIMAL" name="S4DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="S4HRIN" length="6"/>
+  <columns dataType="DECIMAL" name="S4DTFI" length="8"/>
+  <columns dataType="DECIMAL" name="S4HRFI" length="6"/>
+  <columns dataType="DECIMAL" name="S4DISC" length="8"/>
+  <columns dataType="DECIMAL" name="S4HISC" length="6"/>
+  <columns dataType="DECIMAL" name="S4DFSC" length="8"/>
+  <columns dataType="DECIMAL" name="S4HFSC" length="6"/>
+  <columns dataType="DECIMAL" name="S4DIST" length="8"/>
+  <columns dataType="DECIMAL" name="S4HIST" length="6"/>
+  <columns dataType="DECIMAL" name="S4DFST" length="8"/>
+  <columns dataType="DECIMAL" name="S4HFST" length="6"/>
+  <columns dataType="DECIMAL" name="S4DT01" length="8"/>
+  <columns dataType="DECIMAL" name="S4DT02" length="8"/>
+  <columns dataType="DECIMAL" name="S4DT03" length="8"/>
+  <columns dataType="DECIMAL" name="S4DT04" length="8"/>
+  <columns dataType="DECIMAL" name="S4DT05" length="8"/>
+  <columns dataType="CHAR" name="S4TP01" length="12"/>
+  <columns dataType="CHAR" name="S4AA01" length="15"/>
+  <columns dataType="CHAR" name="S4TP02" length="12"/>
+  <columns dataType="CHAR" name="S4AA02" length="15"/>
+  <columns dataType="CHAR" name="S4TP03" length="12"/>
+  <columns dataType="CHAR" name="S4AA03" length="15"/>
+  <columns dataType="CHAR" name="S4TP04" length="12"/>
+  <columns dataType="CHAR" name="S4AA04" length="15"/>
+  <columns dataType="CHAR" name="S4TP05" length="12"/>
+  <columns dataType="CHAR" name="S4AA05" length="15"/>
+  <columns dataType="CHAR" name="S4TP06" length="12"/>
+  <columns dataType="CHAR" name="S4AA06" length="15"/>
+  <columns dataType="CHAR" name="S4TP07" length="12"/>
+  <columns dataType="CHAR" name="S4AA07" length="15"/>
+  <columns dataType="CHAR" name="S4TP08" length="12"/>
+  <columns dataType="CHAR" name="S4AA08" length="15"/>
+  <columns dataType="CHAR" name="S4TP09" length="12"/>
+  <columns dataType="CHAR" name="S4AA09" length="15"/>
+  <columns dataType="CHAR" name="S4TP10" length="12"/>
+  <columns dataType="CHAR" name="S4AA10" length="15"/>
+  <columns dataType="DECIMAL" name="S4NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU05" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU06" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU07" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU08" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU09" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S4NU10" length="15" scale="5"/>
+  <columns dataType="CHAR" name="S4LVRI" length="2"/>
+  <columns dataType="CHAR" name="S4TPOR" length="12"/>
+  <columns dataType="CHAR" name="S4CDOR" length="15"/>
+  <columns dataType="CHAR" name="S4FL01" length="1"/>
+  <columns dataType="CHAR" name="S4FL02" length="1"/>
+  <columns dataType="CHAR" name="S4FL03" length="1"/>
+  <columns dataType="CHAR" name="S4FL04" length="1"/>
+  <columns dataType="CHAR" name="S4FL05" length="1"/>
+  <columns dataType="CHAR" name="S4FL06" length="1"/>
+  <columns dataType="CHAR" name="S4FL07" length="1"/>
+  <columns dataType="CHAR" name="S4FL08" length="1"/>
+  <columns dataType="CHAR" name="S4FL09" length="1"/>
+  <columns dataType="CHAR" name="S4FL10" length="1"/>
+  <columns dataType="CHAR" name="S4FL11" length="1"/>
+  <columns dataType="CHAR" name="S4FL12" length="1"/>
+  <columns dataType="CHAR" name="S4FL13" length="1"/>
+  <columns dataType="CHAR" name="S4FL14" length="1"/>
+  <columns dataType="CHAR" name="S4FL15" length="1"/>
+  <columns dataType="CHAR" name="S4FL16" length="1"/>
+  <columns dataType="CHAR" name="S4FL17" length="1"/>
+  <columns dataType="CHAR" name="S4FL18" length="1"/>
+  <columns dataType="CHAR" name="S4FL19" length="1"/>
+  <columns dataType="CHAR" name="S4FL20" length="1"/>
+  <columns dataType="DECIMAL" name="S4DTCR" length="8"/>
+  <columns dataType="DECIMAL" name="S4HRCR" length="6"/>
+  <columns dataType="CHAR" name="S4USIN" length="10"/>
+  <columns dataType="DECIMAL" name="S4DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="S4HRAG" length="6"/>
+  <columns dataType="CHAR" name="S4USAG" length="10"/>
+</db-core:TableDef>

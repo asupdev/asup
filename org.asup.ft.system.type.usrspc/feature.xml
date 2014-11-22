@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.system.type.usrspc"
       label="As.UP Operating System UserSpace"
-      version="0.5.0.qualifier"
+      version="0.5.4.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">

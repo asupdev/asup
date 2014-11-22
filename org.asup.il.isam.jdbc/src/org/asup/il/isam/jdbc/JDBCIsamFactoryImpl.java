@@ -18,14 +18,12 @@ import java.util.List;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QIndex;
 import org.asup.db.syntax.QAliasResolver;
-import org.asup.il.data.QBufferedData;
+import org.asup.db.syntax.QSyntaxBuilder;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
-import org.asup.il.data.QIndicator;
 import org.asup.il.data.annotation.FileDef;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
@@ -33,18 +31,22 @@ import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIsamFactory;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCIsamFactoryImpl implements QIsamFactory {
 
+	private QDatabaseManager databaseManager;
 	private QConnection connection;
+	private QSyntaxBuilder syntaxBuilder;
 	private QAliasResolver aliasAliasResolver;
 	private QDataFactory dataFactory;
-	private QDatabaseManager databaseManager;
 	
-	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
+	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, QSyntaxBuilder syntaxBuilder, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
 
 		this.connection = connection;
 		this.databaseManager = databaseManager;
+		this.syntaxBuilder = syntaxBuilder;
 		this.aliasAliasResolver = aliasResolver;
 		this.dataFactory = dataFactory;
 	}
@@ -52,18 +54,16 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	@Override
 	public QDataSet<?> createDataSet(QDataSetTerm dataSetTerm) {
 
-		if(dataSetTerm.getFileName().equalsIgnoreCase("PRT198"))
-			return new DummyDataSet();
-		
-
 		QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
 		
 		if(dataSetTerm.isKeyedAccess()) {
-			QIndex index = getIndex(dataSetTerm.getFileName());
-			return new JDBCIndexDataSetImpl<QDataStruct>(connection, index, AccessMode.UPDATE, dataStruct);
+			Index index = getIndex(dataSetTerm.getFileName());
+			return new JDBCIndexDataSetImpl<QDataStruct>(connection, syntaxBuilder, index, AccessMode.UPDATE, dataStruct);
 		}
-		else
-			return new JDBCTableDataSetImpl<QDataStruct>(connection, AccessMode.UPDATE, dataStruct);
+		else {
+			Table table = getTable(dataSetTerm.getFileName());
+			return new JDBCTableDataSetImpl<QDataStruct>(connection, syntaxBuilder, table, AccessMode.UPDATE, dataStruct);
+		}
 		
 	}
 
@@ -114,185 +114,20 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		return dataSetTerm;
 	}
 
-	@SuppressWarnings("rawtypes")
-	private class DummyDataSet implements QIndexDataSet {
-
-		@Override
-		public void clear() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void close() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void delete() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public boolean isEndOfData() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public boolean isFound() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public void open() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public boolean read() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public boolean readp() {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public void unlock() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void update() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void write() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public QDataStruct get() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public boolean chain(QBufferedData[] keyList) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public boolean chain(Object keyField) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public boolean reade(QBufferedData[] keyList) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public void reade(Object key) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public boolean readpe(QBufferedData[] keyList) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public void readpe(Object key) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setll(QBufferedData[] keyList) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setll(Object key) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setgt(QBufferedData[] keyList) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setgt(Object key) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setll(Enum key) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void setgt(Enum key) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public boolean read(QIndicator endOfRecord) {
-			// TODO Auto-generated method stub
-			return false;
-		}
-
-		@Override
-		public boolean readp(QIndicator endOfRecord) {
-			// TODO Auto-generated method stub
-			return false;
-		}
+	public Table getTable(String name) {
 		
+		Table table = databaseManager.getTable(connection, null, name);
+		if(aliasAliasResolver != null)
+			table = aliasAliasResolver.getAliasForTable(table);
+		
+		return table;
 	}
 	
-	
-	public QIndex getIndex(String name) {
+	public Index getIndex(String name) {
 		
-		QIndex index = null;
+		Index index = null;
 		if(aliasAliasResolver != null)
 			index = aliasAliasResolver.getIndex(connection, name);
-		
-		if(index == null)
-			index = databaseManager.getIndex(connection, "P_MULT", "MUTEST0F", "MUTEST0L");
-/* 		QFile file = fileManager.getOverridedDatabaseFile((QJob) contextID, name);
-		if(file == null)
-			file = fileReader.lookup(name);
-
-		if(file instanceof QLogicalFile) {
-			QLogicalFile logicalFile = (QLogicalFile) file;
-			QIndex index = databaseManager.getIndex(connection, file.getLibrary(), logicalFile.getIndex().getObject(), logicalFile.getName());
-			return index;
-		}*/
 		
 		return index;
 	}

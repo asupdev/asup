@@ -7,6 +7,7 @@
  */
 package org.asup.db.syntax;
 
+import org.asup.db.core.QConnectionConfig;
 import org.asup.fw.core.QPluginRegistry;
 
 /**
@@ -20,4 +21,12 @@ import org.asup.fw.core.QPluginRegistry;
  * @generated
  */
 public interface QQueryParserRegistry extends QPluginRegistry<QQueryParser> {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" connectionConfigRequired="true"
+	 * @generated
+	 */
+	QQueryParser lookup(QConnectionConfig connectionConfig);
 } // QueryParserRegistry

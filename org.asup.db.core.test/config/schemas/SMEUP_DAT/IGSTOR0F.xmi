@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGSTOR0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="I$STAT" precision="1"/>
-  <columns dataType="CHAR" name="I$UTEN" precision="10"/>
-  <columns dataType="DECIMAL" name="I$DATI" precision="6"/>
-  <columns dataType="DECIMAL" name="I$DAUM" precision="6"/>
-  <columns dataType="CHAR" name="I$AREA" precision="3"/>
-  <columns dataType="CHAR" name="I$TEMA" precision="3"/>
-  <columns dataType="CHAR" name="I$LISI" precision="3"/>
-  <columns dataType="CHAR" name="I$TIC1" precision="2"/>
-  <columns dataType="CHAR" name="I$COD1" precision="15"/>
-  <columns dataType="CHAR" name="I$DES1" precision="35"/>
-  <columns dataType="CHAR" name="I$TIC2" precision="2"/>
-  <columns dataType="CHAR" name="I$COD2" precision="15"/>
-  <columns dataType="CHAR" name="I$DES2" precision="35"/>
-  <columns dataType="CHAR" name="I$TIC3" precision="2"/>
-  <columns dataType="CHAR" name="I$COD3" precision="15"/>
-  <columns dataType="CHAR" name="I$DES3" precision="35"/>
-  <columns dataType="CHAR" name="I$PERI" precision="10"/>
-  <columns dataType="CHAR" name="I$PERP" precision="10"/>
-  <columns dataType="DECIMAL" name="I$VA01" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA02" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA03" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA04" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA05" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA06" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA07" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA08" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA09" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA10" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA11" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA12" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA13" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA14" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA15" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA16" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA17" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA18" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA19" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA20" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA21" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA22" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA23" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA24" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA25" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA26" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA27" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA28" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA29" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I$VA30" precision="15" scale="3"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGSTOR0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="I$STAT" length="1"/>
+  <columns dataType="CHAR" name="I$UTEN" length="10"/>
+  <columns dataType="DECIMAL" name="I$DATI" length="6"/>
+  <columns dataType="DECIMAL" name="I$DAUM" length="6"/>
+  <columns dataType="CHAR" name="I$AREA" length="3"/>
+  <columns dataType="CHAR" name="I$TEMA" length="3"/>
+  <columns dataType="CHAR" name="I$LISI" length="3"/>
+  <columns dataType="CHAR" name="I$TIC1" length="2"/>
+  <columns dataType="CHAR" name="I$COD1" length="15"/>
+  <columns dataType="CHAR" name="I$DES1" length="35"/>
+  <columns dataType="CHAR" name="I$TIC2" length="2"/>
+  <columns dataType="CHAR" name="I$COD2" length="15"/>
+  <columns dataType="CHAR" name="I$DES2" length="35"/>
+  <columns dataType="CHAR" name="I$TIC3" length="2"/>
+  <columns dataType="CHAR" name="I$COD3" length="15"/>
+  <columns dataType="CHAR" name="I$DES3" length="35"/>
+  <columns dataType="CHAR" name="I$PERI" length="10"/>
+  <columns dataType="CHAR" name="I$PERP" length="10"/>
+  <columns dataType="DECIMAL" name="I$VA01" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA02" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA03" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA04" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA05" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA06" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA07" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA08" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA09" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA10" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA11" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA12" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA13" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA14" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA15" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA16" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA17" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA18" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA19" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA20" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA21" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA22" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA23" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA24" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA25" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA26" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA27" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA28" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA29" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I$VA30" length="15" scale="3"/>
+</db-core:TableDef>

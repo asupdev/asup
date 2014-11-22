@@ -44,20 +44,68 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		 */
 		private static final long serialVersionUID = 1L;
 
+		@Overlay(name = "IN", position = "01")
+		public QIndicator qIN01;
+		@Overlay(name = "IN", position = "02")
+		public QIndicator qIN02;
+		@Overlay(name = "IN", position = "03")
+		public QIndicator qIN03;
+		@Overlay(name = "IN", position = "04")
+		public QIndicator qIN04;
+		@Overlay(name = "IN", position = "05")
+		public QIndicator qIN05;
+		@Overlay(name = "IN", position = "06")
+		public QIndicator qIN06;
+		@Overlay(name = "IN", position = "07")
+		public QIndicator qIN07;
+		@Overlay(name = "IN", position = "08")
+		public QIndicator qIN08;
+		@Overlay(name = "IN", position = "09")
+		public QIndicator qIN09;
 		@Overlay(name = "IN", position = "10")
 		public QIndicator qIN10;
+		@Overlay(name = "IN", position = "20")
+		public QIndicator qIN20;
+		@Overlay(name = "IN", position = "21")
+		public QIndicator qIN21;
+		@Overlay(name = "IN", position = "22")
+		public QIndicator qIN22;
+		@Overlay(name = "IN", position = "23")
+		public QIndicator qIN23;
+		@Overlay(name = "IN", position = "24")
+		public QIndicator qIN24;
 		@Overlay(name = "IN", position = "25")
 		public QIndicator qIN25;
 		@Overlay(name = "IN", position = "26")
 		public QIndicator qIN26;
 		@Overlay(name = "IN", position = "27")
 		public QIndicator qIN27;
+		@Overlay(name = "IN", position = "28")
+		public QIndicator qIN28;
+		@Overlay(name = "IN", position = "29")
+		public QIndicator qIN29;
+		@Overlay(name = "IN", position = "30")
+		public QIndicator qIN30;
+		@Overlay(name = "IN", position = "31")
+		public QIndicator qIN31;
+		@Overlay(name = "IN", position = "32")
+		public QIndicator qIN32;
+		@Overlay(name = "IN", position = "33")
+		public QIndicator qIN33;
+		@Overlay(name = "IN", position = "34")
+		public QIndicator qIN34;
 		@Overlay(name = "IN", position = "35")
 		public QIndicator qIN35;
 		@Overlay(name = "IN", position = "36")
 		public QIndicator qIN36;
 		@Overlay(name = "IN", position = "37")
 		public QIndicator qIN37;
+		@Overlay(name = "IN", position = "38")
+		public QIndicator qIN38;
+		@Overlay(name = "IN", position = "39")
+		public QIndicator qIN39;
+		@Overlay(name = "IN", position = "40")
+		public QIndicator qIN40;
 		@Overlay(name = "IN", position = "41")
 		public QIndicator qIN41;
 		@Overlay(name = "IN", position = "42")
@@ -80,7 +128,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		public QIndicator qIN55;
 		@Overlay(name = "IN", position = "60")
 		public QIndicator qIN60;
-
+		@Overlay(name = "IN", position = "81")
+		public QIndicator qIN81;
+		@Overlay(name = "IN", position = "90")
+		public QIndicator qIN90;
 		public QIndicator get(Integer index) {
 			return null;
 		}
@@ -177,6 +228,14 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	
 	public QString qChar(QNumeric numeric) {
 		return qBox(numeric.asString());
+	}
+	
+	public QString qChar(int number) {
+		
+		QCharacter character = qDF.createCharacter(19, true, true);
+		character.eval(Integer.toString(number));
+		
+		return character;
 	}
 
 	public QDecimal qCheck(String comparator, QString base, Integer start) {

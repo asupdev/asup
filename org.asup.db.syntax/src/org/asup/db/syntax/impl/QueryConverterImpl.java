@@ -21,9 +21,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Query Converter</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Query Converter</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -36,8 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public abstract class QueryConverterImpl extends PluginImpl implements QQueryConverter {
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfig()
 	 * @generated
 	 * @ordered
@@ -45,8 +43,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	protected QServiceConfig config;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected QueryConverterImpl() {
@@ -54,8 +51,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -64,8 +60,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QServiceConfig getConfig() {
@@ -73,8 +68,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetConfig(QServiceConfig newConfig, NotificationChain msgs) {
@@ -88,8 +82,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConfig(QServiceConfig newConfig) {
@@ -107,8 +100,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String convertQuery(SQLQueryParseResult query) {
@@ -118,8 +110,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -132,8 +123,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -146,8 +136,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -161,8 +150,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -176,8 +164,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -190,8 +177,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -206,8 +192,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -221,4 +206,4 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-} //QueryConverterImpl
+} // QueryConverterImpl

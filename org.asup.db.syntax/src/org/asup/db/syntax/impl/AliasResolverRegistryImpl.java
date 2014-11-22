@@ -7,7 +7,7 @@
  */
 package org.asup.db.syntax.impl;
 
-
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QAliasResolverRegistry;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
@@ -15,9 +15,8 @@ import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Alias Resolver Registry</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Alias Resolver Registry</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
@@ -25,8 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAliasResolver> implements QAliasResolverRegistry {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AliasResolverRegistryImpl() {
@@ -34,8 +32,7 @@ public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAlia
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -43,4 +40,15 @@ public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAlia
 		return QDatabaseSyntaxPackage.Literals.ALIAS_RESOLVER_REGISTRY;
 	}
 
-} //AliasResolverRegistryImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QAliasResolver lookup(QConnectionConfig connectionConfig) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+} // AliasResolverRegistryImpl

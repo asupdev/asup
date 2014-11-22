@@ -14,10 +14,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Data Type</b></em>',
- * and utility methods for working with them.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration '
+ * <em><b>Data Type</b></em>', and utility methods for working with them. <!--
+ * end-user-doc -->
  * @see org.asup.db.core.QDatabaseCorePackage#getDataType()
  * @model
  * @generated
@@ -75,8 +74,8 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * The '<em><b>Date</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #DATE_VALUE
 	 * @generated
 	 * @ordered
@@ -85,8 +84,8 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * The '<em><b>Time</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #TIME_VALUE
 	 * @generated
 	 * @ordered
@@ -115,8 +114,8 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * The '<em><b>Float</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #FLOAT_VALUE
 	 * @generated
 	 * @ordered
@@ -135,8 +134,8 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * The '<em><b>Text</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #TEXT_VALUE
 	 * @generated
 	 * @ordered
@@ -145,8 +144,8 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * The '<em><b>Blob</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #BLOB_VALUE
 	 * @generated
 	 * @ordered
@@ -262,8 +261,8 @@ public enum DataType implements Enumerator {
 	 * The '<em><b>Time Stamp</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Time Stamp</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
+	 * If the meaning of '<em><b>Time Stamp</b></em>' literal object isn't
+	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TIME_STAMP
@@ -349,13 +348,12 @@ public enum DataType implements Enumerator {
 	public static final int BLOB_VALUE = 130;
 
 	/**
-	 * An array of all the '<em><b>Data Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * An array of all the '<em><b>Data Type</b></em>' enumerators. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	private static final DataType[] VALUES_ARRAY =
-		new DataType[] {
+	private static final DataType[] VALUES_ARRAY = new DataType[] {
 			IDENTITY,
 			CHARACTER,
 			VARCHAR,
@@ -373,16 +371,14 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * A public read-only list of all the '<em><b>Data Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final List<DataType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Data Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static DataType get(String literal) {
@@ -397,8 +393,7 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Data Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static DataType getByName(String name) {
@@ -413,8 +408,7 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * Returns the '<em><b>Data Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static DataType get(int value) {
@@ -437,30 +431,27 @@ public enum DataType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	private DataType(int value, String name, String literal) {
@@ -470,8 +461,7 @@ public enum DataType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getValue() {
@@ -479,8 +469,7 @@ public enum DataType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getName() {
@@ -488,8 +477,7 @@ public enum DataType implements Enumerator {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getLiteral() {
@@ -498,13 +486,12 @@ public enum DataType implements Enumerator {
 
 	/**
 	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String toString() {
 		return literal;
 	}
-	
-} //DataType
+
+} // DataType

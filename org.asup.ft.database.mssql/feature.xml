@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.database.mssql"
       label="As.UP Database Microsoft SQL"
-      version="0.5.0.qualifier"
+      version="0.5.4.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">
@@ -22,21 +22,7 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.asup.db.core.jtds"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.asup.db.core.mssql"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.asup.db.syntax.jtds"
          download-size="0"
          install-size="0"
          version="0.0.0"

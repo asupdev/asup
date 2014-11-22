@@ -10,75 +10,71 @@ package org.asup.db.core.impl;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.ServiceConfigImpl;
+import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
+import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Database Config</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Connection Profile</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDatabaseName <em>Database Name</em>}</li>
- *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDriver <em>Driver</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDriverName <em>Driver Name</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getPassword <em>Password</em>}</li>
- *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getPluginName <em>Plugin Name</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isUseCatalog <em>Use Catalog</em>}</li>
- *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isUsePool <em>Use Pool</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnectionConfig {
-
 	/**
-	 * The default value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDatabaseName()
+	 * The default value of the '{@link #getDriverName() <em>Driver Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getDriverName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DATABASE_NAME_EDEFAULT = null;
+	protected static final String DRIVER_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDatabaseName()
+	 * The cached value of the '{@link #getDriverName() <em>Driver Name</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getDriverName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String databaseName = DATABASE_NAME_EDEFAULT;
+	protected String driverName = DRIVER_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDriver() <em>Driver</em>}' attribute.
+	 * The default value of the '{@link #getProduct() <em>Product</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDriver()
+	 * @see #getProduct()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DRIVER_EDEFAULT = null;
+	protected static final String PRODUCT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDriver() <em>Driver</em>}' attribute.
+	 * The cached value of the '{@link #getProduct() <em>Product</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDriver()
+	 * @see #getProduct()
 	 * @generated
 	 * @ordered
 	 */
-	protected String driver = DRIVER_EDEFAULT;
+	protected String product = PRODUCT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPassword()
 	 * @generated
 	 * @ordered
@@ -87,8 +83,7 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 
 	/**
 	 * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPassword()
 	 * @generated
 	 * @ordered
@@ -96,29 +91,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	protected String password = PASSWORD_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPluginName() <em>Plugin Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPluginName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PLUGIN_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPluginName() <em>Plugin Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPluginName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String pluginName = PLUGIN_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -126,9 +101,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getUrl()
 	 * @generated
 	 * @ordered
@@ -136,49 +111,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	protected String url = URL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isUseCatalog() <em>Use Catalog</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseCatalog()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean USE_CATALOG_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isUseCatalog() <em>Use Catalog</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUseCatalog()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean useCatalog = USE_CATALOG_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isUsePool() <em>Use Pool</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUsePool()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean USE_POOL_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isUsePool() <em>Use Pool</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isUsePool()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean usePool = USE_POOL_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getUser() <em>User</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getUser()
 	 * @generated
 	 * @ordered
@@ -187,8 +121,7 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 
 	/**
 	 * The cached value of the '{@link #getUser() <em>User</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getUser()
 	 * @generated
 	 * @ordered
@@ -196,8 +129,27 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	protected String user = USER_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VERSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
+	protected String version = VERSION_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ConnectionConfigImpl() {
@@ -205,8 +157,7 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -215,24 +166,22 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPluginName() {
-		return pluginName;
+	public String getDriverName() {
+		return driverName;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPluginName(String newPluginName) {
-		String oldPluginName = pluginName;
-		pluginName = newPluginName;
+	public void setDriverName(String newDriverName) {
+		String oldDriverName = driverName;
+		driverName = newDriverName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PLUGIN_NAME, oldPluginName, pluginName));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME, oldDriverName, driverName));
 	}
 
 	/**
@@ -240,8 +189,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDatabaseName() {
-		return databaseName;
+	public String getProduct() {
+		return product;
 	}
 
 	/**
@@ -249,37 +198,34 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDatabaseName(String newDatabaseName) {
-		String oldDatabaseName = databaseName;
-		databaseName = newDatabaseName;
+	public void setProduct(String newProduct) {
+		String oldProduct = product;
+		product = newProduct;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__DATABASE_NAME, oldDatabaseName, databaseName));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT, oldProduct, product));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getDriver() {
-		return driver;
+	public String getPassword() {
+		return password;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDriver(String newDriver) {
-		String oldDriver = driver;
-		driver = newDriver;
+	public void setPassword(String newPassword) {
+		String oldPassword = password;
+		password = newPassword;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER, oldDriver, driver));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD, oldPassword, password));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getUrl() {
@@ -287,8 +233,7 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setUrl(String newUrl) {
@@ -299,8 +244,7 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getUser() {
@@ -308,8 +252,7 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setUser(String newUser) {
@@ -324,8 +267,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPassword() {
-		return password;
+	public String getVersion() {
+		return version;
 	}
 
 	/**
@@ -333,186 +276,137 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPassword(String newPassword) {
-		String oldPassword = password;
-		password = newPassword;
+	public void setVersion(String newVersion) {
+		String oldVersion = version;
+		version = newVersion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD, oldPassword, password));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__VERSION, oldVersion, version));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean isUseCatalog() {
-		return useCatalog;
+	public DatabaseDefinition getDatabaseDefinition() {
+		return SQMServices.getDatabaseDefinitionRegistry().getDefinition(getProduct(), getVersion()); 
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public void setUseCatalog(boolean newUseCatalog) {
-		boolean oldUseCatalog = useCatalog;
-		useCatalog = newUseCatalog;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__USE_CATALOG, oldUseCatalog, useCatalog));
+	public String getDatabaseDefinitionID() {
+		return getProduct().trim()+"/"+getVersion().trim(); 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isUsePool() {
-		return usePool;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUsePool(boolean newUsePool) {
-		boolean oldUsePool = usePool;
-		usePool = newUsePool;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__USE_POOL, oldUsePool, usePool));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DATABASE_NAME:
-				return getDatabaseName();
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER:
-				return getDriver();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
+				return getDriverName();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
+				return getProduct();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				return getPassword();
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PLUGIN_NAME:
-				return getPluginName();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__URL:
 				return getUrl();
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_CATALOG:
-				return isUseCatalog();
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_POOL:
-				return isUsePool();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				return getUser();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
+				return getVersion();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DATABASE_NAME:
-				setDatabaseName((String)newValue);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
+				setDriverName((String)newValue);
 				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER:
-				setDriver((String)newValue);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
+				setProduct((String)newValue);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				setPassword((String)newValue);
 				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PLUGIN_NAME:
-				setPluginName((String)newValue);
-				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__URL:
 				setUrl((String)newValue);
 				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_CATALOG:
-				setUseCatalog((Boolean)newValue);
-				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_POOL:
-				setUsePool((Boolean)newValue);
-				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				setUser((String)newValue);
+				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
+				setVersion((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DATABASE_NAME:
-				setDatabaseName(DATABASE_NAME_EDEFAULT);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
+				setDriverName(DRIVER_NAME_EDEFAULT);
 				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER:
-				setDriver(DRIVER_EDEFAULT);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
+				setProduct(PRODUCT_EDEFAULT);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				setPassword(PASSWORD_EDEFAULT);
 				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PLUGIN_NAME:
-				setPluginName(PLUGIN_NAME_EDEFAULT);
-				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__URL:
 				setUrl(URL_EDEFAULT);
 				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_CATALOG:
-				setUseCatalog(USE_CATALOG_EDEFAULT);
-				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_POOL:
-				setUsePool(USE_POOL_EDEFAULT);
-				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				setUser(USER_EDEFAULT);
+				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
+				setVersion(VERSION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DATABASE_NAME:
-				return DATABASE_NAME_EDEFAULT == null ? databaseName != null : !DATABASE_NAME_EDEFAULT.equals(databaseName);
-			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER:
-				return DRIVER_EDEFAULT == null ? driver != null : !DRIVER_EDEFAULT.equals(driver);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
+				return DRIVER_NAME_EDEFAULT == null ? driverName != null : !DRIVER_NAME_EDEFAULT.equals(driverName);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
+				return PRODUCT_EDEFAULT == null ? product != null : !PRODUCT_EDEFAULT.equals(product);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PLUGIN_NAME:
-				return PLUGIN_NAME_EDEFAULT == null ? pluginName != null : !PLUGIN_NAME_EDEFAULT.equals(pluginName);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_CATALOG:
-				return useCatalog != USE_CATALOG_EDEFAULT;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__USE_POOL:
-				return usePool != USE_POOL_EDEFAULT;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				return USER_EDEFAULT == null ? user != null : !USER_EDEFAULT.equals(user);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -520,24 +414,20 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (databaseName: ");
-		result.append(databaseName);
-		result.append(", driver: ");
-		result.append(driver);
+		result.append(" (driverName: ");
+		result.append(driverName);
+		result.append(", product: ");
+		result.append(product);
 		result.append(", password: ");
 		result.append(password);
-		result.append(", pluginName: ");
-		result.append(pluginName);
 		result.append(", url: ");
 		result.append(url);
-		result.append(", useCatalog: ");
-		result.append(useCatalog);
-		result.append(", usePool: ");
-		result.append(usePool);
 		result.append(", user: ");
 		result.append(user);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}
 
-} //DatabaseConfigImpl
+} // ConnectionConfigImpl

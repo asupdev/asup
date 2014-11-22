@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARE0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="E$TCOS" precision="3"/>
-  <columns dataType="CHAR" name="E$ASSI" precision="15"/>
-  <columns dataType="CHAR" name="E$COMP" precision="15"/>
-  <columns dataType="CHAR" name="E$FASE" precision="4"/>
-  <columns dataType="CHAR" name="E$COER" precision="5"/>
-  <columns dataType="CHAR" name="E$TIER" precision="2"/>
-  <columns dataType="DECIMAL" name="E$GRER" precision="2"/>
-  <columns dataType="DECIMAL" name="E$TOER" precision="3"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARE0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="E$TCOS" length="3"/>
+  <columns dataType="CHAR" name="E$ASSI" length="15"/>
+  <columns dataType="CHAR" name="E$COMP" length="15"/>
+  <columns dataType="CHAR" name="E$FASE" length="4"/>
+  <columns dataType="CHAR" name="E$COER" length="5"/>
+  <columns dataType="CHAR" name="E$TIER" length="2"/>
+  <columns dataType="DECIMAL" name="E$GRER" length="2"/>
+  <columns dataType="DECIMAL" name="E$TOER" length="3"/>
+</db-core:TableDef>

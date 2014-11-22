@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.asup.co.shell;singleton:=true
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -12,11 +12,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.asup.fw.core;visibility:=reexport,
  org.asup.fw.java;visibility:=reexport,
  org.asup.fw.util,
- org.asup.il.data;bundle-version="0.5.0",
- org.asup.os.core;bundle-version="0.5.0",
- org.asup.os.data;bundle-version="0.5.0",
- org.asup.os.type.cmd;bundle-version="0.5.0",
- org.asup.co.core;bundle-version="0.5.0";visibility:=reexport
+ org.asup.il.data;bundle-version="0.5.4",
+ org.asup.os.core;bundle-version="0.5.4",
+ org.asup.os.data;bundle-version="0.5.4",
+ org.asup.os.type.cmd;bundle-version="0.5.4",
+ org.asup.co.core;bundle-version="0.5.4";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: org.asup.co.shell,
  org.asup.co.shell.impl,

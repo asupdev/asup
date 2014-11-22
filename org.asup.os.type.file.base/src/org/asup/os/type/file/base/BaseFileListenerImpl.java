@@ -15,14 +15,14 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QTable;
-import org.asup.db.core.QView;
-import org.asup.fw.core.QAdapterManager;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
@@ -30,128 +30,107 @@ import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 
 public class BaseFileListenerImpl extends ServiceImpl implements QResourceListener<QFile> {
 
+	private QDatabaseManager databaseManager = null;
 
-	private QConnectionManager connectionManager = null;
-	private QDatabaseManager databaseManager = null;	
-	private QAdapterManager adapterManager;
-	
 	@Inject
 	private QResourceFactory resourceFactory;
-	
+
 	@PostConstruct
 	public void init() {
 		resourceFactory.registerListener(QFile.class, this);
 	}
 
 	@Inject
-	public BaseFileListenerImpl(QConnectionManager connectionManager, QDatabaseManager databaseManager, QAdapterManager adapterManager) {
-		this.connectionManager = connectionManager;
+	public BaseFileListenerImpl(QDatabaseManager databaseManager) {
 		this.databaseManager = databaseManager;
-		this.adapterManager = adapterManager;
 	}
-	
+
 	@Override
 	public void handleEvent(QResourceEvent<QFile> event) {
-		
+
 		switch (event.getType()) {
-		case PRE_SAVE:			
-			createFile(event);
-			break;
-		case PRE_DELETE:
-			deleteFile(event);
-		default:
-			break;
+			case PRE_SAVE:
+				createFile(event);
+				break;
+			case PRE_DELETE:
+				deleteFile(event);
+			default:
+				break;
 		}
 	}
 
 	private void createFile(QResourceEvent<QFile> event) throws OperatingSystemRuntimeException {
 
-		QFile file = event.getSource();
-   		file.setLibrary(((QResourceWriter<QFile>)event.getResource()).getContainer());
+		QJob job = event.getResource().getJob();
+		QContext jobContext = job.getJobContext();
 
-   		String databaseName = event.getResource().getJob().getSystem().getSystemDatabase();
-   		QConnection databaseConnection = connectionManager.getDatabaseConnection(databaseName);
-		if(databaseConnection == null)
-			throw new OperatingSystemRuntimeException("Install schema error: "+file.getLibrary());
+		QFile file = event.getSource();
+		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
+
+		QConnection databaseConnection = jobContext.getAdapter(job, QConnection.class);
+		Schema schema = databaseManager.getSchema(databaseConnection, file.getLibrary());
 
 		try {
-			if(file instanceof QPhysicalFile) {
-				QPhysicalFile physicalFile = (QPhysicalFile)file;
-				
-				QTable table = adapterManager.getAdapter(physicalFile, QTable.class);
-				databaseManager.createTable(databaseConnection, table, false);				
-				
-				QIndex index = adapterManager.getAdapter(physicalFile, QIndex.class);
-				if(index != null)
-					databaseManager.createIndex(databaseConnection, index);
+			if (file instanceof QPhysicalFile) {
+				QPhysicalFile physicalFile = (QPhysicalFile) file;
+
+				QTableDef tableDef = jobContext.getAdapter(physicalFile, QTableDef.class);
+				databaseManager.createTable(databaseConnection, schema, tableDef);
+			} else if (file instanceof QLogicalFile) {
+				QLogicalFile logicalFile = (QLogicalFile) file;
+
+				QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
+				databaseManager.createView(databaseConnection, schema, viewDef);
 			}
-			else if(file instanceof QLogicalFile) {
-				QLogicalFile logicalFile = (QLogicalFile)file;
-				
-				QView view = adapterManager.getAdapter(logicalFile, QView.class);
-				databaseManager.createView(databaseConnection, view);
-				
-				QIndex index = adapterManager.getAdapter(logicalFile, QIndex.class);
-				if(index != null)
-					databaseManager.createIndex(databaseConnection, index);
-			}
+		} catch (Exception e) {
+			throw new OperatingSystemRuntimeException(e.getMessage(), e);
 		}
-		catch (Exception e) {
+
+		try {
+			Table table = databaseManager.getTable(databaseConnection, schema.getName(), file.getName());
+			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
+			if (index != null)
+				databaseManager.createIndex(databaseConnection, table, index);
+		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e.getMessage(), e);
 		}
 	}
 
 	private void deleteFile(QResourceEvent<QFile> event) throws OperatingSystemRuntimeException {
-		
-/*		
+
+		QJob job = event.getResource().getJob();
+		QContext jobContext = job.getJobContext();
+
 		QFile file = event.getSource();
-   		file.setLibrary(((QResourceWriter<QFile>)event.getResource()).getContainer());
+		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
 
-   		String databaseName = event.getResource().getJob().getSystem().getSystemDatabase();
-   		QConnection databaseConnection = connectionManager.getDatabaseConnection(databaseName);
-		if(databaseConnection == null)
-			throw new OperatingSystemRuntimeException("Install schema error: "+file.getLibrary());
+		QConnection databaseConnection = jobContext.getAdapter(job, QConnection.class);
+		Schema schema = databaseManager.getSchema(databaseConnection, file.getLibrary());
 
-		QSchema schema = databaseManager.getSchema(databaseConnection, file.getLibrary());
-
-		if(file instanceof QPhysicalFile) {
-			QPhysicalFile physicalFile = (QPhysicalFile)file;
-			QTable table = physicalFile.getTable();
-			
-			table = (QTable) EcoreUtil.copy((EObject)table);
-			table.setSchema(schema);
-			try {
-				databaseManager.dropTable(databaseConnection, table);
-			}
-			catch (Exception e) {
-				throw new OperatingSystemRuntimeException(e.getMessage(), e);
-			}
+		try {
+			Index index = databaseManager.getIndex(databaseConnection, schema.getName(), file.getName());
+			databaseManager.dropIndex(databaseConnection, index);
+		} catch (Exception e) {
+			throw new OperatingSystemRuntimeException(e.getMessage(), e);
 		}
-		else if(file instanceof QLogicalFile) {
-			QLogicalFile logicalFile = (QLogicalFile)file;
-			QIndex index = logicalFile.getIndex();
-			
-			index = (QIndex) EcoreUtil.copy((EObject)index);
-			index.setSchema(schema);
-			try {
-				databaseManager.dropIndex(databaseConnection, index);
-			}
-			catch (Exception e) {
-				throw new OperatingSystemRuntimeException(e.getMessage(), e);
-			}
 
-			QView view = logicalFile.getView();
-			view = (QView) EcoreUtil.copy((EObject)view);
-			view.setSchema(schema);
-			try {
+		try {
+			if (file instanceof QPhysicalFile) {
+				Table table = databaseManager.getTable(databaseConnection, schema.getName(), file.getName());
+				databaseManager.dropTable(databaseConnection, table);
+			} else if (file instanceof QLogicalFile) {
+				ViewTable view = databaseManager.getView(databaseConnection, schema.getName(), file.getName());
 				databaseManager.dropView(databaseConnection, view);
 			}
-			catch (Exception e) {
-				throw new OperatingSystemRuntimeException(e.getMessage(), e);
-			}					
-		}*/
+		} catch (Exception e) {
+			throw new OperatingSystemRuntimeException(e.getMessage(), e);
+		}
 	}
 }

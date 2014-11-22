@@ -7,7 +7,6 @@
  */
 package org.asup.il.data;
 
-import java.lang.String;
 import java.util.List;
 
 import org.asup.fw.core.QContextID;

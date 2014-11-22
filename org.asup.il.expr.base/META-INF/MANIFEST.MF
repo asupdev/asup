@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Integrated Language Expression Base
 Bundle-SymbolicName: org.asup.il.expr.base
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.il.expr;bundle-version="0.5.0",
- org.asup.fw.core;bundle-version="0.5.0",
- org.asup.dk.parser;bundle-version="0.5.0"
+Require-Bundle: org.asup.il.expr;bundle-version="0.5.4",
+ org.asup.fw.core;bundle-version="0.5.4",
+ org.asup.dk.parser;bundle-version="0.5.4"
 Export-Package: org.asup.il.expr.base,
  org.asup.il.expr.base.antlr.cl,
  org.asup.il.expr.base.antlr.rpg,

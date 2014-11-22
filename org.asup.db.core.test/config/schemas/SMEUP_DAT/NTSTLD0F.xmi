@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NTSTLD0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="L$TIPC" precision="3"/>
-  <columns dataType="CHAR" name="L$KYC1" precision="15"/>
-  <columns dataType="CHAR" name="L$KYC2" precision="15"/>
-  <columns dataType="CHAR" name="L$KYC3" precision="15"/>
-  <columns dataType="CHAR" name="L$TIPI" precision="3"/>
-  <columns dataType="CHAR" name="L$SSLD" precision="2"/>
-  <columns dataType="CHAR" name="L$TCEL" precision="2"/>
-  <columns dataType="CHAR" name="L$PCEL" precision="10"/>
-  <columns dataType="CHAR" name="L$COEL" precision="15"/>
-  <columns dataType="CHAR" name="L$RIRI" precision="2"/>
-  <columns dataType="DECIMAL" name="L$DRIC" precision="6"/>
-  <columns dataType="DECIMAL" name="L$DRIS" precision="6"/>
-  <columns dataType="CHAR" name="L$ESIT" precision="2"/>
-  <columns dataType="CHAR" name="L$CDOR" precision="15"/>
-  <columns dataType="CHAR" name="L$NOT1" precision="40"/>
-  <columns dataType="CHAR" name="L$UTCR" precision="10"/>
-  <columns dataType="DECIMAL" name="L$DTCR" precision="6"/>
-  <columns dataType="CHAR" name="L$UTAG" precision="10"/>
-  <columns dataType="DECIMAL" name="L$DTAG" precision="6"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NTSTLD0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="L$TIPC" length="3"/>
+  <columns dataType="CHAR" name="L$KYC1" length="15"/>
+  <columns dataType="CHAR" name="L$KYC2" length="15"/>
+  <columns dataType="CHAR" name="L$KYC3" length="15"/>
+  <columns dataType="CHAR" name="L$TIPI" length="3"/>
+  <columns dataType="CHAR" name="L$SSLD" length="2"/>
+  <columns dataType="CHAR" name="L$TCEL" length="2"/>
+  <columns dataType="CHAR" name="L$PCEL" length="10"/>
+  <columns dataType="CHAR" name="L$COEL" length="15"/>
+  <columns dataType="CHAR" name="L$RIRI" length="2"/>
+  <columns dataType="DECIMAL" name="L$DRIC" length="6"/>
+  <columns dataType="DECIMAL" name="L$DRIS" length="6"/>
+  <columns dataType="CHAR" name="L$ESIT" length="2"/>
+  <columns dataType="CHAR" name="L$CDOR" length="15"/>
+  <columns dataType="CHAR" name="L$NOT1" length="40"/>
+  <columns dataType="CHAR" name="L$UTCR" length="10"/>
+  <columns dataType="DECIMAL" name="L$DTCR" length="6"/>
+  <columns dataType="CHAR" name="L$UTAG" length="10"/>
+  <columns dataType="DECIMAL" name="L$DTAG" length="6"/>
+</db-core:TableDef>

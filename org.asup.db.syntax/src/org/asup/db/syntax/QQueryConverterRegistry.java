@@ -7,6 +7,7 @@
  */
 package org.asup.db.syntax;
 
+import org.asup.db.core.QConnectionConfig;
 import org.asup.fw.core.QPluginRegistry;
 
 /**
@@ -20,4 +21,12 @@ import org.asup.fw.core.QPluginRegistry;
  * @generated
  */
 public interface QQueryConverterRegistry extends QPluginRegistry<QQueryConverter> {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" connectionConfigRequired="true"
+	 * @generated
+	 */
+	QQueryConverter lookup(QConnectionConfig connectionConfig);
 } // QueryConverterRegistry

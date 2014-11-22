@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5BICO0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="B5AZIE" precision="2"/>
-  <columns dataType="CHAR" name="B5TIBC" precision="5"/>
-  <columns dataType="CHAR" name="B5ESER" precision="10"/>
-  <columns dataType="DECIMAL" name="B5DATA" precision="8"/>
-  <columns dataType="CHAR" name="B5SOCE" precision="3"/>
-  <columns dataType="CHAR" name="B5CONT" precision="15"/>
-  <columns dataType="CHAR" name="B5SOCO" precision="3"/>
-  <columns dataType="CHAR" name="B5OGRI" precision="15"/>
-  <columns dataType="CHAR" name="B5VALU" precision="4"/>
-  <columns dataType="DECIMAL" name="B5IMPO" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="B5SEGN" precision="1"/>
-  <columns dataType="CHAR" name="B5UNMS" precision="2"/>
-  <columns dataType="DECIMAL" name="B5QUAN" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="B5AA01" precision="15"/>
-  <columns dataType="CHAR" name="B5AA02" precision="15"/>
-  <columns dataType="CHAR" name="B5AA03" precision="15"/>
-  <columns dataType="CHAR" name="B5AA04" precision="15"/>
-  <columns dataType="CHAR" name="B5AA05" precision="15"/>
-  <columns dataType="DECIMAL" name="B5NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="B5NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="B5NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="B5NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="B5NU05" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="B5FL01" precision="1"/>
-  <columns dataType="CHAR" name="B5FL02" precision="1"/>
-  <columns dataType="CHAR" name="B5FL03" precision="1"/>
-  <columns dataType="CHAR" name="B5FL04" precision="1"/>
-  <columns dataType="CHAR" name="B5FL05" precision="1"/>
-  <columns dataType="CHAR" name="B5FL06" precision="1"/>
-  <columns dataType="CHAR" name="B5FL07" precision="1"/>
-  <columns dataType="CHAR" name="B5FL08" precision="1"/>
-  <columns dataType="CHAR" name="B5FL09" precision="1"/>
-  <columns dataType="CHAR" name="B5FL10" precision="1"/>
-  <columns dataType="CHAR" name="B5FL11" precision="1"/>
-  <columns dataType="CHAR" name="B5FL12" precision="1"/>
-  <columns dataType="CHAR" name="B5FL13" precision="1"/>
-  <columns dataType="CHAR" name="B5FL14" precision="1"/>
-  <columns dataType="CHAR" name="B5FL15" precision="1"/>
-  <columns dataType="CHAR" name="B5FL16" precision="1"/>
-  <columns dataType="CHAR" name="B5FL17" precision="1"/>
-  <columns dataType="CHAR" name="B5FL18" precision="1"/>
-  <columns dataType="CHAR" name="B5FL19" precision="1"/>
-  <columns dataType="CHAR" name="B5FL20" precision="1"/>
-  <columns dataType="DECIMAL" name="B5DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="B5ORIN" precision="6"/>
-  <columns dataType="DECIMAL" name="B5DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="B5ORAG" precision="6"/>
-  <columns dataType="CHAR" name="B5USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5BICO0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="B5AZIE" length="2"/>
+  <columns dataType="CHAR" name="B5TIBC" length="5"/>
+  <columns dataType="CHAR" name="B5ESER" length="10"/>
+  <columns dataType="DECIMAL" name="B5DATA" length="8"/>
+  <columns dataType="CHAR" name="B5SOCE" length="3"/>
+  <columns dataType="CHAR" name="B5CONT" length="15"/>
+  <columns dataType="CHAR" name="B5SOCO" length="3"/>
+  <columns dataType="CHAR" name="B5OGRI" length="15"/>
+  <columns dataType="CHAR" name="B5VALU" length="4"/>
+  <columns dataType="DECIMAL" name="B5IMPO" length="21" scale="6"/>
+  <columns dataType="CHAR" name="B5SEGN" length="1"/>
+  <columns dataType="CHAR" name="B5UNMS" length="2"/>
+  <columns dataType="DECIMAL" name="B5QUAN" length="21" scale="6"/>
+  <columns dataType="CHAR" name="B5AA01" length="15"/>
+  <columns dataType="CHAR" name="B5AA02" length="15"/>
+  <columns dataType="CHAR" name="B5AA03" length="15"/>
+  <columns dataType="CHAR" name="B5AA04" length="15"/>
+  <columns dataType="CHAR" name="B5AA05" length="15"/>
+  <columns dataType="DECIMAL" name="B5NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="B5NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="B5NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="B5NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="B5NU05" length="15" scale="5"/>
+  <columns dataType="CHAR" name="B5FL01" length="1"/>
+  <columns dataType="CHAR" name="B5FL02" length="1"/>
+  <columns dataType="CHAR" name="B5FL03" length="1"/>
+  <columns dataType="CHAR" name="B5FL04" length="1"/>
+  <columns dataType="CHAR" name="B5FL05" length="1"/>
+  <columns dataType="CHAR" name="B5FL06" length="1"/>
+  <columns dataType="CHAR" name="B5FL07" length="1"/>
+  <columns dataType="CHAR" name="B5FL08" length="1"/>
+  <columns dataType="CHAR" name="B5FL09" length="1"/>
+  <columns dataType="CHAR" name="B5FL10" length="1"/>
+  <columns dataType="CHAR" name="B5FL11" length="1"/>
+  <columns dataType="CHAR" name="B5FL12" length="1"/>
+  <columns dataType="CHAR" name="B5FL13" length="1"/>
+  <columns dataType="CHAR" name="B5FL14" length="1"/>
+  <columns dataType="CHAR" name="B5FL15" length="1"/>
+  <columns dataType="CHAR" name="B5FL16" length="1"/>
+  <columns dataType="CHAR" name="B5FL17" length="1"/>
+  <columns dataType="CHAR" name="B5FL18" length="1"/>
+  <columns dataType="CHAR" name="B5FL19" length="1"/>
+  <columns dataType="CHAR" name="B5FL20" length="1"/>
+  <columns dataType="DECIMAL" name="B5DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="B5ORIN" length="6"/>
+  <columns dataType="DECIMAL" name="B5DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="B5ORAG" length="6"/>
+  <columns dataType="CHAR" name="B5USAG" length="10"/>
+</db-core:TableDef>

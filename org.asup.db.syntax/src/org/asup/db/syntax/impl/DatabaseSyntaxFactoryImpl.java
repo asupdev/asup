@@ -7,7 +7,10 @@
  */
 package org.asup.db.syntax.impl;
 
-import org.asup.db.syntax.*;
+import org.asup.db.syntax.QDatabaseSyntaxFactory;
+import org.asup.db.syntax.QDatabaseSyntaxPackage;
+import org.asup.db.syntax.QExtendedQueryExpressionBody;
+import org.asup.db.syntax.QExtendedQuerySelect;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -17,16 +20,15 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
+ * end-user-doc -->
  * @generated
  */
 public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabaseSyntaxFactory {
 	/**
 	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public static QDatabaseSyntaxFactory init() {
@@ -44,8 +46,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 
 	/**
 	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	public DatabaseSyntaxFactoryImpl() {
@@ -53,8 +55,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -68,8 +69,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -83,8 +83,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -98,8 +97,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QExtendedQueryExpressionBody createExtendedQueryExpressionBody() {
@@ -108,8 +106,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QExtendedQuerySelect createExtendedQuerySelect() {
@@ -118,8 +115,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SQLQueryParseResult createQueryParseResultFromString(EDataType eDataType, String initialValue) {
@@ -127,8 +123,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String convertQueryParseResultToString(EDataType eDataType, Object instanceValue) {
@@ -136,8 +131,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QDatabaseSyntaxPackage getDatabaseSyntaxPackage() {
@@ -145,8 +139,7 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @deprecated
 	 * @generated
 	 */
@@ -155,4 +148,4 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 		return QDatabaseSyntaxPackage.eINSTANCE;
 	}
 
-} //DBSyntaxFactoryImpl
+} // DBSyntaxFactoryImpl

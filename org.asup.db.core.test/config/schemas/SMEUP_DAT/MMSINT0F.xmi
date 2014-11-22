@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMSINT0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="I&#xa3;PROG" precision="7"/>
-  <columns dataType="CHAR" name="I&#xa3;TREC" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;CODI" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;COIN" precision="5"/>
-  <columns dataType="CHAR" name="I&#xa3;DEIN" precision="30"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DINZ" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DFIN" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DESE" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;HRIN" precision="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;HRFI" precision="6"/>
-  <columns dataType="CHAR" name="I&#xa3;TIPO" precision="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;TEIN" precision="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I&#xa3;FEMA" precision="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NUPE" precision="2"/>
-  <columns dataType="CHAR" name="I&#xa3;TIWR" precision="2"/>
-  <columns dataType="CHAR" name="I&#xa3;WRKR" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;OPER" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;CIIN" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;CIES" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;CMAT" precision="15" scale="3"/>
-  <columns dataType="CHAR" name="I&#xa3;CAUS" precision="4"/>
-  <columns dataType="CHAR" name="I&#xa3;TIDO" precision="4"/>
-  <columns dataType="CHAR" name="I&#xa3;DOCU" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;ARAL" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;ORIC" precision="10"/>
-  <columns dataType="CHAR" name="I&#xa3;ESCO" precision="2"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL01" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL02" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL03" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL04" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL05" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL06" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL07" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL08" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL09" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL10" precision="8"/>
-  <columns dataType="CHAR" name="I&#xa3;CD01" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD02" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD03" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD04" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD05" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD06" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD07" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD08" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD09" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CD10" precision="15"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR05" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR06" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR07" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR08" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR09" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NR10" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ID01" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;IH01" precision="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ID02" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;IH02" precision="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ID03" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;IH03" precision="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ID04" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;IH04" precision="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ID05" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;IH05" precision="6"/>
-  <columns dataType="CHAR" name="I&#xa3;FL01" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL02" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL03" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL04" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL05" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL06" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL07" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL08" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL09" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL10" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL11" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL12" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL13" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL14" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL15" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL16" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL17" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL18" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL19" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL20" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL21" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL22" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL23" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL24" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL25" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL26" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL27" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL28" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL29" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL30" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL31" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL32" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL33" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL34" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL35" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL36" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL37" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL38" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL39" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL40" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ORIN" precision="6"/>
-  <columns dataType="CHAR" name="I&#xa3;OGIN" precision="10"/>
-  <columns dataType="CHAR" name="I&#xa3;USAG" precision="10"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ORAG" precision="6"/>
-  <columns dataType="CHAR" name="I&#xa3;OGAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMSINT0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="I&#xa3;PROG" length="7"/>
+  <columns dataType="CHAR" name="I&#xa3;TREC" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;CODI" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;COIN" length="5"/>
+  <columns dataType="CHAR" name="I&#xa3;DEIN" length="30"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DINZ" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DFIN" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DESE" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;HRIN" length="6"/>
+  <columns dataType="DECIMAL" name="I&#xa3;HRFI" length="6"/>
+  <columns dataType="CHAR" name="I&#xa3;TIPO" length="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;TEIN" length="6" scale="2"/>
+  <columns dataType="DECIMAL" name="I&#xa3;FEMA" length="6" scale="2"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NUPE" length="2"/>
+  <columns dataType="CHAR" name="I&#xa3;TIWR" length="2"/>
+  <columns dataType="CHAR" name="I&#xa3;WRKR" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;OPER" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;CIIN" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;CIES" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;CMAT" length="15" scale="3"/>
+  <columns dataType="CHAR" name="I&#xa3;CAUS" length="4"/>
+  <columns dataType="CHAR" name="I&#xa3;TIDO" length="4"/>
+  <columns dataType="CHAR" name="I&#xa3;DOCU" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;ARAL" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;ORIC" length="10"/>
+  <columns dataType="CHAR" name="I&#xa3;ESCO" length="2"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL01" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL02" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL03" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL04" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL05" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL06" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL07" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL08" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL09" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DL10" length="8"/>
+  <columns dataType="CHAR" name="I&#xa3;CD01" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD02" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD03" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD04" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD05" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD06" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD07" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD08" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD09" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;CD10" length="15"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR05" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR06" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR07" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR08" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR09" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;NR10" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ID01" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;IH01" length="6"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ID02" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;IH02" length="6"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ID03" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;IH03" length="6"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ID04" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;IH04" length="6"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ID05" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;IH05" length="6"/>
+  <columns dataType="CHAR" name="I&#xa3;FL01" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL02" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL03" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL04" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL05" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL06" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL07" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL08" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL09" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL10" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL11" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL12" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL13" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL14" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL15" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL16" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL17" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL18" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL19" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL20" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL21" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL22" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL23" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL24" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL25" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL26" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL27" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL28" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL29" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL30" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL31" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL32" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL33" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL34" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL35" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL36" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL37" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL38" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL39" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;FL40" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;USIN" length="10"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ORIN" length="6"/>
+  <columns dataType="CHAR" name="I&#xa3;OGIN" length="10"/>
+  <columns dataType="CHAR" name="I&#xa3;USAG" length="10"/>
+  <columns dataType="DECIMAL" name="I&#xa3;DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="I&#xa3;ORAG" length="6"/>
+  <columns dataType="CHAR" name="I&#xa3;OGAG" length="10"/>
+</db-core:TableDef>

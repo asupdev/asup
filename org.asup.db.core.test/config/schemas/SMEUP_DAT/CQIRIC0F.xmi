@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQIRIC0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="I&#xa7;ANNU" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa7;GRUP" precision="2"/>
-  <columns dataType="CHAR" name="I&#xa7;ERIF" precision="2"/>
-  <columns dataType="CHAR" name="I&#xa7;ETIP" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;EKY1" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;EKY2" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;EKY3" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;EANN" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa7;ORIF" precision="2"/>
-  <columns dataType="CHAR" name="I&#xa7;OTIP" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;OKY1" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;OKY2" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;OKY3" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa7;OANN" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQIRIC0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="I&#xa7;ANNU" length="1"/>
+  <columns dataType="CHAR" name="I&#xa7;GRUP" length="2"/>
+  <columns dataType="CHAR" name="I&#xa7;ERIF" length="2"/>
+  <columns dataType="CHAR" name="I&#xa7;ETIP" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;EKY1" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;EKY2" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;EKY3" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;EANN" length="1"/>
+  <columns dataType="CHAR" name="I&#xa7;ORIF" length="2"/>
+  <columns dataType="CHAR" name="I&#xa7;OTIP" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;OKY1" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;OKY2" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;OKY3" length="15"/>
+  <columns dataType="CHAR" name="I&#xa7;OANN" length="1"/>
+</db-core:TableDef>

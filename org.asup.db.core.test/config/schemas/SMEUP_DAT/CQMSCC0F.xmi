@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQMSCC0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="S&#xa7;MMTR" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;MCST" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;MFOR" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;TIES" precision="2"/>
-  <columns dataType="CHAR" name="S&#xa7;COES" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;MMRC" precision="15"/>
-  <columns dataType="DECIMAL" name="S&#xa7;MDTI" precision="8"/>
-  <columns dataType="CHAR" name="S&#xa7;MCLC" precision="15"/>
-  <columns dataType="DECIMAL" name="S&#xa7;MCOS" precision="10"/>
-  <columns dataType="DECIMAL" name="S&#xa7;MDTR" precision="8"/>
-  <columns dataType="DECIMAL" name="S&#xa7;MDPC" precision="8"/>
-  <columns dataType="CHAR" name="S&#xa7;MUBI" precision="12"/>
-  <columns dataType="CHAR" name="S&#xa7;MMTF" precision="15"/>
-  <columns dataType="CHAR" name="S&#xa7;CERT" precision="15"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DTCR" precision="8"/>
-  <columns dataType="CHAR" name="S&#xa7;UTEN" precision="10"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DTMR" precision="8"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQMSCC0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="S&#xa7;MMTR" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;MCST" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;MFOR" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;TIES" length="2"/>
+  <columns dataType="CHAR" name="S&#xa7;COES" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;MMRC" length="15"/>
+  <columns dataType="DECIMAL" name="S&#xa7;MDTI" length="8"/>
+  <columns dataType="CHAR" name="S&#xa7;MCLC" length="15"/>
+  <columns dataType="DECIMAL" name="S&#xa7;MCOS" length="10"/>
+  <columns dataType="DECIMAL" name="S&#xa7;MDTR" length="8"/>
+  <columns dataType="DECIMAL" name="S&#xa7;MDPC" length="8"/>
+  <columns dataType="CHAR" name="S&#xa7;MUBI" length="12"/>
+  <columns dataType="CHAR" name="S&#xa7;MMTF" length="15"/>
+  <columns dataType="CHAR" name="S&#xa7;CERT" length="15"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DTCR" length="8"/>
+  <columns dataType="CHAR" name="S&#xa7;UTEN" length="10"/>
+  <columns dataType="DECIMAL" name="S&#xa7;DTMR" length="8"/>
+</db-core:TableDef>

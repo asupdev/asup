@@ -7,6 +7,8 @@
  */
 package org.asup.db.core.impl;
 
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.QFrameworkCorePackage;
@@ -18,12 +20,10 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.osgi.service.jdbc.DataSourceFactory;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Connection Factory</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Connection Factory</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -36,8 +36,7 @@ import org.osgi.service.jdbc.DataSourceFactory;
 public abstract class ConnectionFactoryImpl extends PluginImpl implements QConnectionFactory {
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfig()
 	 * @generated
 	 * @ordered
@@ -45,8 +44,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	protected QServiceConfig config;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ConnectionFactoryImpl() {
@@ -54,8 +52,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -64,8 +61,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QServiceConfig getConfig() {
@@ -73,8 +69,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetConfig(QServiceConfig newConfig, NotificationChain msgs) {
@@ -88,8 +83,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConfig(QServiceConfig newConfig) {
@@ -111,6 +105,16 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -121,8 +125,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -135,8 +138,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -150,8 +152,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -165,8 +166,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -179,8 +179,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -191,17 +190,11 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 				default: return -1;
 			}
 		}
-		if (baseClass == DataSourceFactory.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -212,12 +205,7 @@ public abstract class ConnectionFactoryImpl extends PluginImpl implements QConne
 				default: return -1;
 			}
 		}
-		if (baseClass == DataSourceFactory.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-} //ConnectionFactoryImpl
+} // ConnectionFactoryImpl

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SUPS0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="STSSID" precision="52"/>
-  <columns dataType="CHAR" name="STTPRC" precision="10"/>
-  <columns dataType="DECIMAL" name="STINDX" precision="5"/>
-  <columns dataType="CHAR" name="STLIBE" precision="2562"/>
-  <columns dataType="CHAR" name="STIDUS" precision="15"/>
-  <columns dataType="DECIMAL" name="STDTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="STORIN" precision="6"/>
-  <columns dataType="CHAR" name="STUSIN" precision="10"/>
-  <columns dataType="CHAR" name="STOGIN" precision="10"/>
-  <columns dataType="DECIMAL" name="STDTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="STORAG" precision="6"/>
-  <columns dataType="CHAR" name="STUSAG" precision="10"/>
-  <columns dataType="CHAR" name="STOGAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SUPS0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="STSSID" length="52"/>
+  <columns dataType="CHAR" name="STTPRC" length="10"/>
+  <columns dataType="DECIMAL" name="STINDX" length="5"/>
+  <columns dataType="CHAR" name="STLIBE" length="2562"/>
+  <columns dataType="CHAR" name="STIDUS" length="15"/>
+  <columns dataType="DECIMAL" name="STDTIN" length="8"/>
+  <columns dataType="DECIMAL" name="STORIN" length="6"/>
+  <columns dataType="CHAR" name="STUSIN" length="10"/>
+  <columns dataType="CHAR" name="STOGIN" length="10"/>
+  <columns dataType="DECIMAL" name="STDTAG" length="8"/>
+  <columns dataType="DECIMAL" name="STORAG" length="6"/>
+  <columns dataType="CHAR" name="STUSAG" length="10"/>
+  <columns dataType="CHAR" name="STOGAG" length="10"/>
+</db-core:TableDef>

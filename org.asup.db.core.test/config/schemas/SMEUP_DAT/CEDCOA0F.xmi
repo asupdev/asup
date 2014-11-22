@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CEDCOA0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="C$ANNU" precision="1"/>
-  <columns dataType="CHAR" name="C$CDC" precision="6"/>
-  <columns dataType="CHAR" name="C$TICO" precision="3"/>
-  <columns dataType="DECIMAL" name="C$ALI1" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="C$ALI2" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="C$ALI3" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="C$ALI4" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="C$ALI5" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="C$ALI6" precision="11" scale="3"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CEDCOA0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="C$ANNU" length="1"/>
+  <columns dataType="CHAR" name="C$CDC" length="6"/>
+  <columns dataType="CHAR" name="C$TICO" length="3"/>
+  <columns dataType="DECIMAL" name="C$ALI1" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="C$ALI2" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="C$ALI3" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="C$ALI4" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="C$ALI5" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="C$ALI6" length="11" scale="3"/>
+</db-core:TableDef>

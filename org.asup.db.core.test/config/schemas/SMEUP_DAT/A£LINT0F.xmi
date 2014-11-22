@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;LINT0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="AT&#xa3;KEY" precision="7"/>
-  <columns dataType="CHAR" name="AT&#xa3;LIN" precision="3"/>
-  <columns dataType="CHAR" name="AT&#xa3;DES" precision="80"/>
-  <columns dataType="CHAR" name="AT&#xa3;STA" precision="2"/>
-  <columns dataType="CHAR" name="AT&#xa3;LIV" precision="1"/>
-  <columns dataType="CHAR" name="AT&#xa3;USI" precision="10"/>
-  <columns dataType="DECIMAL" name="AT&#xa3;DTI" precision="8"/>
-  <columns dataType="DECIMAL" name="AT&#xa3;ORI" precision="6"/>
-  <columns dataType="CHAR" name="AT&#xa3;USA" precision="10"/>
-  <columns dataType="DECIMAL" name="AT&#xa3;DTA" precision="8"/>
-  <columns dataType="DECIMAL" name="AT&#xa3;ORA" precision="6"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;LINT0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="AT&#xa3;KEY" length="7"/>
+  <columns dataType="CHAR" name="AT&#xa3;LIN" length="3"/>
+  <columns dataType="CHAR" name="AT&#xa3;DES" length="80"/>
+  <columns dataType="CHAR" name="AT&#xa3;STA" length="2"/>
+  <columns dataType="CHAR" name="AT&#xa3;LIV" length="1"/>
+  <columns dataType="CHAR" name="AT&#xa3;USI" length="10"/>
+  <columns dataType="DECIMAL" name="AT&#xa3;DTI" length="8"/>
+  <columns dataType="DECIMAL" name="AT&#xa3;ORI" length="6"/>
+  <columns dataType="CHAR" name="AT&#xa3;USA" length="10"/>
+  <columns dataType="DECIMAL" name="AT&#xa3;DTA" length="8"/>
+  <columns dataType="DECIMAL" name="AT&#xa3;ORA" length="6"/>
+</db-core:TableDef>

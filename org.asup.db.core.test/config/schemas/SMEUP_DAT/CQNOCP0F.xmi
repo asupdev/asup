@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQNOCP0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="P&#xa7;DATI" precision="8"/>
-  <columns dataType="DECIMAL" name="P&#xa7;ORAI" precision="6"/>
-  <columns dataType="DECIMAL" name="P&#xa7;DATM" precision="8"/>
-  <columns dataType="DECIMAL" name="P&#xa7;ORAM" precision="6"/>
-  <columns dataType="CHAR" name="P&#xa7;UTEN" precision="10"/>
-  <columns dataType="CHAR" name="P&#xa7;WKST" precision="10"/>
-  <columns dataType="CHAR" name="P&#xa7;PROG" precision="10"/>
-  <columns dataType="CHAR" name="P&#xa7;FLR1" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLR2" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLR3" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;NUDO" precision="10"/>
-  <columns dataType="CHAR" name="P&#xa7;ARTI" precision="15"/>
-  <columns dataType="CHAR" name="P&#xa7;LOTI" precision="15"/>
-  <columns dataType="CHAR" name="P&#xa7;CFAL" precision="6"/>
-  <columns dataType="CHAR" name="P&#xa7;CFAC" precision="6"/>
-  <columns dataType="DECIMAL" name="P&#xa7;TINT" precision="3"/>
-  <columns dataType="CHAR" name="P&#xa7;NSCA" precision="4"/>
-  <columns dataType="CHAR" name="P&#xa7;NORD" precision="10"/>
-  <columns dataType="CHAR" name="P&#xa7;NUCO" precision="20"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG1" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG2" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG4" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG5" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG6" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG7" precision="1"/>
-  <columns dataType="CHAR" name="P&#xa7;FLG8" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQNOCP0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="P&#xa7;DATI" length="8"/>
+  <columns dataType="DECIMAL" name="P&#xa7;ORAI" length="6"/>
+  <columns dataType="DECIMAL" name="P&#xa7;DATM" length="8"/>
+  <columns dataType="DECIMAL" name="P&#xa7;ORAM" length="6"/>
+  <columns dataType="CHAR" name="P&#xa7;UTEN" length="10"/>
+  <columns dataType="CHAR" name="P&#xa7;WKST" length="10"/>
+  <columns dataType="CHAR" name="P&#xa7;PROG" length="10"/>
+  <columns dataType="CHAR" name="P&#xa7;FLR1" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLR2" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLR3" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;NUDO" length="10"/>
+  <columns dataType="CHAR" name="P&#xa7;ARTI" length="15"/>
+  <columns dataType="CHAR" name="P&#xa7;LOTI" length="15"/>
+  <columns dataType="CHAR" name="P&#xa7;CFAL" length="6"/>
+  <columns dataType="CHAR" name="P&#xa7;CFAC" length="6"/>
+  <columns dataType="DECIMAL" name="P&#xa7;TINT" length="3"/>
+  <columns dataType="CHAR" name="P&#xa7;NSCA" length="4"/>
+  <columns dataType="CHAR" name="P&#xa7;NORD" length="10"/>
+  <columns dataType="CHAR" name="P&#xa7;NUCO" length="20"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG1" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG2" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG4" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG5" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG6" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG7" length="1"/>
+  <columns dataType="CHAR" name="P&#xa7;FLG8" length="1"/>
+</db-core:TableDef>

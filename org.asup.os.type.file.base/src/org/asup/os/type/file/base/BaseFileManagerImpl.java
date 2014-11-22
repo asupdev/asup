@@ -18,6 +18,7 @@ import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.asup.os.core.QSystemManager;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.impl.FileManagerImpl;
@@ -25,12 +26,14 @@ import org.asup.os.type.file.impl.FileManagerImpl;
 public class BaseFileManagerImpl extends FileManagerImpl {
 
 	@Inject
+	private QSystemManager systemManager;
+	@Inject
 	private QConnectionManager connectionManager;
 	
-		@ServiceRegistration
+	@ServiceRegistration
 	public void init() {		
 		QConnectionConfig connectionConfig = (QConnectionConfig) getConfig();
-		connectionManager.registerConnectionConfig(connectionConfig.getDatabaseName(), connectionConfig);
+		connectionManager.registerConnectionConfig(systemManager.getSystem().getSystemDatabase(), connectionConfig);
 	}
 	
 //	@Override

@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V9ATES0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="E$TVER" precision="5"/>
-  <columns dataType="CHAR" name="E$NVER" precision="10"/>
-  <columns dataType="DECIMAL" name="E$DVER" precision="8"/>
-  <columns dataType="CHAR" name="E$TIP1" precision="12"/>
-  <columns dataType="CHAR" name="E$OGG1" precision="15"/>
-  <columns dataType="CHAR" name="E$TIP2" precision="12"/>
-  <columns dataType="CHAR" name="E$OGG2" precision="15"/>
-  <columns dataType="CHAR" name="E$ATTI" precision="5"/>
-  <columns dataType="CHAR" name="E$TPES" precision="12"/>
-  <columns dataType="CHAR" name="E$ESEC" precision="15"/>
-  <columns dataType="DECIMAL" name="E$DTES" precision="8"/>
-  <columns dataType="DECIMAL" name="E$ORES" precision="6"/>
-  <columns dataType="CHAR" name="E$TPLG" precision="12"/>
-  <columns dataType="CHAR" name="E$LUOG" precision="15"/>
-  <columns dataType="CHAR" name="E$UMTP" precision="4"/>
-  <columns dataType="DECIMAL" name="E$TEMP" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$COTP" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$CFTP" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="E$UMVG" precision="4"/>
-  <columns dataType="DECIMAL" name="E$TEVG" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="E$UMQV" precision="4"/>
-  <columns dataType="DECIMAL" name="E$TEQV" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$COVG" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$SPVG" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$SPVF" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$CFVG" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="E$TPFT" precision="1"/>
-  <columns dataType="CHAR" name="E$FL01" precision="1"/>
-  <columns dataType="CHAR" name="E$FL02" precision="1"/>
-  <columns dataType="CHAR" name="E$FL03" precision="1"/>
-  <columns dataType="CHAR" name="E$FL04" precision="1"/>
-  <columns dataType="CHAR" name="E$FL05" precision="1"/>
-  <columns dataType="CHAR" name="E$FL06" precision="1"/>
-  <columns dataType="CHAR" name="E$FL07" precision="1"/>
-  <columns dataType="CHAR" name="E$FL08" precision="1"/>
-  <columns dataType="CHAR" name="E$FL09" precision="1"/>
-  <columns dataType="CHAR" name="E$FL10" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V9ATES0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="E$TVER" length="5"/>
+  <columns dataType="CHAR" name="E$NVER" length="10"/>
+  <columns dataType="DECIMAL" name="E$DVER" length="8"/>
+  <columns dataType="CHAR" name="E$TIP1" length="12"/>
+  <columns dataType="CHAR" name="E$OGG1" length="15"/>
+  <columns dataType="CHAR" name="E$TIP2" length="12"/>
+  <columns dataType="CHAR" name="E$OGG2" length="15"/>
+  <columns dataType="CHAR" name="E$ATTI" length="5"/>
+  <columns dataType="CHAR" name="E$TPES" length="12"/>
+  <columns dataType="CHAR" name="E$ESEC" length="15"/>
+  <columns dataType="DECIMAL" name="E$DTES" length="8"/>
+  <columns dataType="DECIMAL" name="E$ORES" length="6"/>
+  <columns dataType="CHAR" name="E$TPLG" length="12"/>
+  <columns dataType="CHAR" name="E$LUOG" length="15"/>
+  <columns dataType="CHAR" name="E$UMTP" length="4"/>
+  <columns dataType="DECIMAL" name="E$TEMP" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$COTP" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$CFTP" length="15" scale="5"/>
+  <columns dataType="CHAR" name="E$UMVG" length="4"/>
+  <columns dataType="DECIMAL" name="E$TEVG" length="15" scale="5"/>
+  <columns dataType="CHAR" name="E$UMQV" length="4"/>
+  <columns dataType="DECIMAL" name="E$TEQV" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$COVG" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$SPVG" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$SPVF" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$CFVG" length="15" scale="5"/>
+  <columns dataType="CHAR" name="E$TPFT" length="1"/>
+  <columns dataType="CHAR" name="E$FL01" length="1"/>
+  <columns dataType="CHAR" name="E$FL02" length="1"/>
+  <columns dataType="CHAR" name="E$FL03" length="1"/>
+  <columns dataType="CHAR" name="E$FL04" length="1"/>
+  <columns dataType="CHAR" name="E$FL05" length="1"/>
+  <columns dataType="CHAR" name="E$FL06" length="1"/>
+  <columns dataType="CHAR" name="E$FL07" length="1"/>
+  <columns dataType="CHAR" name="E$FL08" length="1"/>
+  <columns dataType="CHAR" name="E$FL09" length="1"/>
+  <columns dataType="CHAR" name="E$FL10" length="1"/>
+</db-core:TableDef>

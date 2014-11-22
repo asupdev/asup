@@ -1,137 +1,137 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5RATE0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="S5AZIE" precision="2"/>
-  <columns dataType="CHAR" name="S5DIVI" precision="3"/>
-  <columns dataType="CHAR" name="S5ESER" precision="10"/>
-  <columns dataType="CHAR" name="S5LIVE" precision="1"/>
-  <columns dataType="CHAR" name="S5STAT" precision="2"/>
-  <columns dataType="CHAR" name="S5SOCI" precision="3"/>
-  <columns dataType="CHAR" name="S5SOCO" precision="3"/>
-  <columns dataType="CHAR" name="S5IDOJ" precision="10"/>
-  <columns dataType="CHAR" name="S5TPRT" precision="3"/>
-  <columns dataType="CHAR" name="S5DESC" precision="30"/>
-  <columns dataType="CHAR" name="S5CAUS" precision="3"/>
-  <columns dataType="CHAR" name="S5TIMO" precision="2"/>
-  <columns dataType="CHAR" name="S5TPPA" precision="3"/>
-  <columns dataType="CHAR" name="S5COPA" precision="3"/>
-  <columns dataType="CHAR" name="S5NDOR" precision="20"/>
-  <columns dataType="CHAR" name="S5NPAR" precision="20"/>
-  <columns dataType="CHAR" name="S5NRIF" precision="10"/>
-  <columns dataType="CHAR" name="S5TPRO" precision="12"/>
-  <columns dataType="CHAR" name="S5NPRO" precision="15"/>
-  <columns dataType="CHAR" name="S5TPOR" precision="12"/>
-  <columns dataType="CHAR" name="S5CDOR" precision="15"/>
-  <columns dataType="CHAR" name="S5TPOG" precision="12"/>
-  <columns dataType="CHAR" name="S5CDOG" precision="15"/>
-  <columns dataType="CHAR" name="S5TPOC" precision="12"/>
-  <columns dataType="CHAR" name="S5CDOC" precision="15"/>
-  <columns dataType="CHAR" name="S5IDPA" precision="10"/>
-  <columns dataType="DECIMAL" name="S5DREG" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DTVA" precision="8"/>
-  <columns dataType="DECIMAL" name="S5SCAD" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DDOR" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DPAR" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DRIF" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DPRO" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DOPE" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DTES" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DTSA" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DTRI" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DTVB" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DTFI" precision="8"/>
-  <columns dataType="CHAR" name="S5DAAV" precision="1"/>
-  <columns dataType="CHAR" name="S5VALU" precision="4"/>
-  <columns dataType="DECIMAL" name="S5CAMB" precision="12" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMPO" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMVA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMPA" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMPV" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMPP" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMFT" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5IMFV" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5RITE" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="S5RPCP" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="S5BANC" precision="3"/>
-  <columns dataType="CHAR" name="S5RABA" precision="15"/>
-  <columns dataType="CHAR" name="S5CCOR" precision="15"/>
-  <columns dataType="CHAR" name="S5NRID" precision="20"/>
-  <columns dataType="CHAR" name="S5ABCB" precision="15"/>
-  <columns dataType="CHAR" name="S5DBAP" precision="35"/>
-  <columns dataType="CHAR" name="S5IBAN" precision="35"/>
-  <columns dataType="CHAR" name="S5SWIF" precision="11"/>
-  <columns dataType="CHAR" name="S5NUTI" precision="30"/>
-  <columns dataType="DECIMAL" name="S5DTTI" precision="8"/>
-  <columns dataType="DECIMAL" name="S5NRTI" precision="5"/>
-  <columns dataType="CHAR" name="S5DEBI" precision="30"/>
-  <columns dataType="CHAR" name="S5PIAZ" precision="30"/>
-  <columns dataType="CHAR" name="S5TICE" precision="3"/>
-  <columns dataType="CHAR" name="S5CECE" precision="15"/>
-  <columns dataType="DECIMAL" name="S5BOLL" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="S5AVVI" precision="35"/>
-  <columns dataType="CHAR" name="S5TIAV" precision="3"/>
-  <columns dataType="DECIMAL" name="S5SPBI" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="S5NRDE" precision="10"/>
-  <columns dataType="CHAR" name="S5NROR" precision="10"/>
-  <columns dataType="DECIMAL" name="S5DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="S5DT05" precision="8"/>
-  <columns dataType="CHAR" name="S5AA01" precision="15"/>
-  <columns dataType="CHAR" name="S5AA02" precision="15"/>
-  <columns dataType="CHAR" name="S5AA03" precision="15"/>
-  <columns dataType="CHAR" name="S5AA04" precision="15"/>
-  <columns dataType="CHAR" name="S5AA05" precision="15"/>
-  <columns dataType="DECIMAL" name="S5NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S5NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S5NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S5NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="S5NU05" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="S5FL01" precision="1"/>
-  <columns dataType="CHAR" name="S5FL02" precision="1"/>
-  <columns dataType="CHAR" name="S5FL03" precision="1"/>
-  <columns dataType="CHAR" name="S5FL04" precision="1"/>
-  <columns dataType="CHAR" name="S5FL05" precision="1"/>
-  <columns dataType="CHAR" name="S5FL06" precision="1"/>
-  <columns dataType="CHAR" name="S5FL07" precision="1"/>
-  <columns dataType="CHAR" name="S5FL08" precision="1"/>
-  <columns dataType="CHAR" name="S5FL09" precision="1"/>
-  <columns dataType="CHAR" name="S5FL10" precision="1"/>
-  <columns dataType="CHAR" name="S5FL11" precision="1"/>
-  <columns dataType="CHAR" name="S5FL12" precision="1"/>
-  <columns dataType="CHAR" name="S5FL13" precision="1"/>
-  <columns dataType="CHAR" name="S5FL14" precision="1"/>
-  <columns dataType="CHAR" name="S5FL15" precision="1"/>
-  <columns dataType="CHAR" name="S5FL16" precision="1"/>
-  <columns dataType="CHAR" name="S5FL17" precision="1"/>
-  <columns dataType="CHAR" name="S5FL18" precision="1"/>
-  <columns dataType="CHAR" name="S5FL19" precision="1"/>
-  <columns dataType="CHAR" name="S5FL20" precision="1"/>
-  <columns dataType="CHAR" name="S5FL21" precision="1"/>
-  <columns dataType="CHAR" name="S5FL22" precision="1"/>
-  <columns dataType="CHAR" name="S5FL23" precision="1"/>
-  <columns dataType="CHAR" name="S5FL24" precision="1"/>
-  <columns dataType="CHAR" name="S5FL25" precision="1"/>
-  <columns dataType="CHAR" name="S5FL26" precision="1"/>
-  <columns dataType="CHAR" name="S5FL27" precision="1"/>
-  <columns dataType="CHAR" name="S5FL28" precision="1"/>
-  <columns dataType="CHAR" name="S5FL29" precision="1"/>
-  <columns dataType="CHAR" name="S5FL30" precision="1"/>
-  <columns dataType="CHAR" name="S5FL31" precision="1"/>
-  <columns dataType="CHAR" name="S5FL32" precision="1"/>
-  <columns dataType="CHAR" name="S5FL33" precision="1"/>
-  <columns dataType="CHAR" name="S5FL34" precision="1"/>
-  <columns dataType="CHAR" name="S5FL35" precision="1"/>
-  <columns dataType="CHAR" name="S5FL36" precision="1"/>
-  <columns dataType="CHAR" name="S5FL37" precision="1"/>
-  <columns dataType="CHAR" name="S5FL38" precision="1"/>
-  <columns dataType="CHAR" name="S5FL39" precision="1"/>
-  <columns dataType="CHAR" name="S5FL40" precision="1"/>
-  <columns dataType="DECIMAL" name="S5DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="S5ORIN" precision="6"/>
-  <columns dataType="CHAR" name="S5USIN" precision="10"/>
-  <columns dataType="DECIMAL" name="S5DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="S5ORAG" precision="6"/>
-  <columns dataType="CHAR" name="S5USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5RATE0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="S5AZIE" length="2"/>
+  <columns dataType="CHAR" name="S5DIVI" length="3"/>
+  <columns dataType="CHAR" name="S5ESER" length="10"/>
+  <columns dataType="CHAR" name="S5LIVE" length="1"/>
+  <columns dataType="CHAR" name="S5STAT" length="2"/>
+  <columns dataType="CHAR" name="S5SOCI" length="3"/>
+  <columns dataType="CHAR" name="S5SOCO" length="3"/>
+  <columns dataType="CHAR" name="S5IDOJ" length="10"/>
+  <columns dataType="CHAR" name="S5TPRT" length="3"/>
+  <columns dataType="CHAR" name="S5DESC" length="30"/>
+  <columns dataType="CHAR" name="S5CAUS" length="3"/>
+  <columns dataType="CHAR" name="S5TIMO" length="2"/>
+  <columns dataType="CHAR" name="S5TPPA" length="3"/>
+  <columns dataType="CHAR" name="S5COPA" length="3"/>
+  <columns dataType="CHAR" name="S5NDOR" length="20"/>
+  <columns dataType="CHAR" name="S5NPAR" length="20"/>
+  <columns dataType="CHAR" name="S5NRIF" length="10"/>
+  <columns dataType="CHAR" name="S5TPRO" length="12"/>
+  <columns dataType="CHAR" name="S5NPRO" length="15"/>
+  <columns dataType="CHAR" name="S5TPOR" length="12"/>
+  <columns dataType="CHAR" name="S5CDOR" length="15"/>
+  <columns dataType="CHAR" name="S5TPOG" length="12"/>
+  <columns dataType="CHAR" name="S5CDOG" length="15"/>
+  <columns dataType="CHAR" name="S5TPOC" length="12"/>
+  <columns dataType="CHAR" name="S5CDOC" length="15"/>
+  <columns dataType="CHAR" name="S5IDPA" length="10"/>
+  <columns dataType="DECIMAL" name="S5DREG" length="8"/>
+  <columns dataType="DECIMAL" name="S5DTVA" length="8"/>
+  <columns dataType="DECIMAL" name="S5SCAD" length="8"/>
+  <columns dataType="DECIMAL" name="S5DDOR" length="8"/>
+  <columns dataType="DECIMAL" name="S5DPAR" length="8"/>
+  <columns dataType="DECIMAL" name="S5DRIF" length="8"/>
+  <columns dataType="DECIMAL" name="S5DPRO" length="8"/>
+  <columns dataType="DECIMAL" name="S5DOPE" length="8"/>
+  <columns dataType="DECIMAL" name="S5DTES" length="8"/>
+  <columns dataType="DECIMAL" name="S5DTSA" length="8"/>
+  <columns dataType="DECIMAL" name="S5DTRI" length="8"/>
+  <columns dataType="DECIMAL" name="S5DTVB" length="8"/>
+  <columns dataType="DECIMAL" name="S5DTFI" length="8"/>
+  <columns dataType="CHAR" name="S5DAAV" length="1"/>
+  <columns dataType="CHAR" name="S5VALU" length="4"/>
+  <columns dataType="DECIMAL" name="S5CAMB" length="12" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMPO" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMVA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMPA" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMPV" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMPP" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMFT" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5IMFV" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5RITE" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="S5RPCP" length="21" scale="6"/>
+  <columns dataType="CHAR" name="S5BANC" length="3"/>
+  <columns dataType="CHAR" name="S5RABA" length="15"/>
+  <columns dataType="CHAR" name="S5CCOR" length="15"/>
+  <columns dataType="CHAR" name="S5NRID" length="20"/>
+  <columns dataType="CHAR" name="S5ABCB" length="15"/>
+  <columns dataType="CHAR" name="S5DBAP" length="35"/>
+  <columns dataType="CHAR" name="S5IBAN" length="35"/>
+  <columns dataType="CHAR" name="S5SWIF" length="11"/>
+  <columns dataType="CHAR" name="S5NUTI" length="30"/>
+  <columns dataType="DECIMAL" name="S5DTTI" length="8"/>
+  <columns dataType="DECIMAL" name="S5NRTI" length="5"/>
+  <columns dataType="CHAR" name="S5DEBI" length="30"/>
+  <columns dataType="CHAR" name="S5PIAZ" length="30"/>
+  <columns dataType="CHAR" name="S5TICE" length="3"/>
+  <columns dataType="CHAR" name="S5CECE" length="15"/>
+  <columns dataType="DECIMAL" name="S5BOLL" length="21" scale="6"/>
+  <columns dataType="CHAR" name="S5AVVI" length="35"/>
+  <columns dataType="CHAR" name="S5TIAV" length="3"/>
+  <columns dataType="DECIMAL" name="S5SPBI" length="21" scale="6"/>
+  <columns dataType="CHAR" name="S5NRDE" length="10"/>
+  <columns dataType="CHAR" name="S5NROR" length="10"/>
+  <columns dataType="DECIMAL" name="S5DT01" length="8"/>
+  <columns dataType="DECIMAL" name="S5DT02" length="8"/>
+  <columns dataType="DECIMAL" name="S5DT03" length="8"/>
+  <columns dataType="DECIMAL" name="S5DT04" length="8"/>
+  <columns dataType="DECIMAL" name="S5DT05" length="8"/>
+  <columns dataType="CHAR" name="S5AA01" length="15"/>
+  <columns dataType="CHAR" name="S5AA02" length="15"/>
+  <columns dataType="CHAR" name="S5AA03" length="15"/>
+  <columns dataType="CHAR" name="S5AA04" length="15"/>
+  <columns dataType="CHAR" name="S5AA05" length="15"/>
+  <columns dataType="DECIMAL" name="S5NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S5NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S5NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S5NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="S5NU05" length="15" scale="5"/>
+  <columns dataType="CHAR" name="S5FL01" length="1"/>
+  <columns dataType="CHAR" name="S5FL02" length="1"/>
+  <columns dataType="CHAR" name="S5FL03" length="1"/>
+  <columns dataType="CHAR" name="S5FL04" length="1"/>
+  <columns dataType="CHAR" name="S5FL05" length="1"/>
+  <columns dataType="CHAR" name="S5FL06" length="1"/>
+  <columns dataType="CHAR" name="S5FL07" length="1"/>
+  <columns dataType="CHAR" name="S5FL08" length="1"/>
+  <columns dataType="CHAR" name="S5FL09" length="1"/>
+  <columns dataType="CHAR" name="S5FL10" length="1"/>
+  <columns dataType="CHAR" name="S5FL11" length="1"/>
+  <columns dataType="CHAR" name="S5FL12" length="1"/>
+  <columns dataType="CHAR" name="S5FL13" length="1"/>
+  <columns dataType="CHAR" name="S5FL14" length="1"/>
+  <columns dataType="CHAR" name="S5FL15" length="1"/>
+  <columns dataType="CHAR" name="S5FL16" length="1"/>
+  <columns dataType="CHAR" name="S5FL17" length="1"/>
+  <columns dataType="CHAR" name="S5FL18" length="1"/>
+  <columns dataType="CHAR" name="S5FL19" length="1"/>
+  <columns dataType="CHAR" name="S5FL20" length="1"/>
+  <columns dataType="CHAR" name="S5FL21" length="1"/>
+  <columns dataType="CHAR" name="S5FL22" length="1"/>
+  <columns dataType="CHAR" name="S5FL23" length="1"/>
+  <columns dataType="CHAR" name="S5FL24" length="1"/>
+  <columns dataType="CHAR" name="S5FL25" length="1"/>
+  <columns dataType="CHAR" name="S5FL26" length="1"/>
+  <columns dataType="CHAR" name="S5FL27" length="1"/>
+  <columns dataType="CHAR" name="S5FL28" length="1"/>
+  <columns dataType="CHAR" name="S5FL29" length="1"/>
+  <columns dataType="CHAR" name="S5FL30" length="1"/>
+  <columns dataType="CHAR" name="S5FL31" length="1"/>
+  <columns dataType="CHAR" name="S5FL32" length="1"/>
+  <columns dataType="CHAR" name="S5FL33" length="1"/>
+  <columns dataType="CHAR" name="S5FL34" length="1"/>
+  <columns dataType="CHAR" name="S5FL35" length="1"/>
+  <columns dataType="CHAR" name="S5FL36" length="1"/>
+  <columns dataType="CHAR" name="S5FL37" length="1"/>
+  <columns dataType="CHAR" name="S5FL38" length="1"/>
+  <columns dataType="CHAR" name="S5FL39" length="1"/>
+  <columns dataType="CHAR" name="S5FL40" length="1"/>
+  <columns dataType="DECIMAL" name="S5DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="S5ORIN" length="6"/>
+  <columns dataType="CHAR" name="S5USIN" length="10"/>
+  <columns dataType="DECIMAL" name="S5DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="S5ORAG" length="6"/>
+  <columns dataType="CHAR" name="S5USAG" length="10"/>
+</db-core:TableDef>

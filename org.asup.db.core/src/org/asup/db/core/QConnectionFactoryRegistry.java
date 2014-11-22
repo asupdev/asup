@@ -10,9 +10,8 @@ package org.asup.db.core;
 import org.asup.fw.core.QPluginRegistry;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Connection Factory Registry</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Connection Factory Registry</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see org.asup.db.core.QDatabaseCorePackage#getConnectionFactoryRegistry()
@@ -21,8 +20,7 @@ import org.asup.fw.core.QPluginRegistry;
  */
 public interface QConnectionFactoryRegistry extends QPluginRegistry<QConnectionFactory> {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @model required="true" connectionConfigRequired="true"
 	 * @generated
 	 */

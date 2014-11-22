@@ -15,9 +15,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Extended Query Expression Body</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Extended Query Expression Body</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -30,8 +29,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl implements QExtendedQueryExpressionBody {
 	/**
 	 * The default value of the '{@link #getRowOptimizeLimit() <em>Row Optimize Limit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRowOptimizeLimit()
 	 * @generated
 	 * @ordered
@@ -40,8 +39,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #getRowOptimizeLimit() <em>Row Optimize Limit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRowOptimizeLimit()
 	 * @generated
 	 * @ordered
@@ -49,8 +48,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	protected int rowOptimizeLimit = ROW_OPTIMIZE_LIMIT_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ExtendedQueryExpressionBodyImpl() {
@@ -58,8 +56,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -68,8 +65,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getRowOptimizeLimit() {
@@ -77,8 +73,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRowOptimizeLimit(int newRowOptimizeLimit) {
@@ -89,8 +84,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -103,8 +97,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -118,8 +111,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -133,8 +125,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -147,8 +138,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -162,4 +152,4 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 		return result.toString();
 	}
 
-} //ExtendedQueryExpressionBodyImpl
+} // ExtendedQueryExpressionBodyImpl

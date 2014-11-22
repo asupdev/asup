@@ -19,11 +19,11 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.db.core.OrderingType;
-import org.asup.db.core.QIndex;
-import org.asup.db.core.QIndexColumn;
-import org.asup.db.core.QTable;
-import org.asup.db.core.QTableColumn;
-import org.asup.db.core.QView;
+import org.asup.db.core.QIndexColumnDef;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QTableColumnDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QQueryConverter;
 import org.asup.db.syntax.QQueryParser;
@@ -34,11 +34,12 @@ import org.asup.dk.parser.InvalidExpressionException;
 import org.asup.dk.parser.Parser;
 import org.asup.dk.parser.Token;
 import org.asup.dk.parser.TokenType;
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 
-	
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;
 
@@ -47,53 +48,49 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	@PostConstruct
 	private void init() {
 		this.queryConverter = new MsSQLQueryConverterImpl();
+		setSQLObjectNameHelper(new MsSQLNameHelper());
 	}
 	
 	@Override
-	public String dropTable(QTable table) {
-		return "DROP TABLE "+buildEscapedTableName(table);
-	}
-	
-	@Override
-	public String createTable(QTable table) {
+	public String createTable(Schema schema, QTableDef table) {
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
-		result.append(buildEscapedTableName(table)+" (");
+		result.append(getNameInSQLFormat(schema)+"."+getNameInSQLFormat(table)+" (");
 
 		boolean first = true;
-		for(QTableColumn field: table.getColumns()) {
+		for(QTableColumnDef column: table.getColumns()) {
 
 			if(!first)
 				result.append(", ");
 			
-			String fieldName = "["+field.getName()+"]";
+			String columnName = getNameInSQLFormat(column);
 			
-			switch (field.getDataType()) {
+			switch (column.getDataType()) {
 				case IDENTITY:
-					result.append(fieldName+" INT PRIMARY KEY IDENTITY");					
+					result.append(columnName+" INT PRIMARY KEY IDENTITY");					
 					break;
 				case CHARACTER:
-					result.append(fieldName+" CHAR("+field.getPrecision()+")");
+					result.append(columnName+" CHAR("+column.getLength()+")");
 					break;
 				case VARCHAR:
-					if(field.getPrecision()>8000)
-						result.append(fieldName+" TEXT");
+					if(column.getLength()>8000)
+						result.append(columnName+" TEXT");
 					else
-						result.append(fieldName+" VARCHAR("+field.getPrecision()+")");
+						result.append(columnName+" VARCHAR("+column.getLength()+")");
 					break;
 				case DECIMAL:
-					if(field.getScale() != 0)
-						result.append(fieldName+" DECIMAL("+field.getPrecision()+", "+field.getScale()+")");
+					if(column.getScale() != 0)
+						result.append(columnName+" DECIMAL("+column.getLength()+", "+column.getScale()+")");
 					else
-						result.append(fieldName+" DECIMAL("+field.getPrecision()+",  0)");
+						result.append(columnName+" DECIMAL("+column.getLength()+",  0)");
 					break;
 				case BLOB:
-					result.append(fieldName+" TEXT");
+					result.append(columnName+" TEXT");
 					break;
 				case TEXT:
-					result.append(fieldName+" TEXT");
+					result.append(columnName+" TEXT");
 					break;
 				default:
-					result.append(fieldName+" "+field.getDataType().getName() .toUpperCase());
+					result.append(columnName+" "+column.getDataType().getName() .toUpperCase());
 			}			
 			first = false;
 		}
@@ -102,7 +99,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	}
 
 	@Override
-	public String createView(QView view) {
+	public String createView(Schema schema, QViewDef view) {
 
 		String command = view.getCreationCommand();
 		
@@ -115,8 +112,8 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 			commandSelect = command.substring(i+4);
 			
 			try {
-				commandCreate = convertCreateCommand(view, commandCreate);
-				commandSelect = convertSelectCommand(view, commandSelect);
+				commandCreate = convertCreateCommand(schema, view, commandCreate);
+				commandSelect = convertSelectCommand(schema, view, commandSelect);
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return null;
@@ -129,41 +126,29 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return command;
 	}
 	
-	
-	@Override
-	public String dropIndex(QIndex index) {
-		return "DROP INDEX "+"["+index.getName()+"]"+ " ON "+"["+index.getSchema().getName()+"].["+index.getObject()+"]";
-	}
-	
-	@Override
-	public String dropView(QView view) {
-		return "DROP VIEW "+"["+view.getSchema().getName()+"].["+view.getName()+"]";
-	}
 
 	@Override
-	public String createIndex(QIndex index) {
+	public String createIndex(Table table, QIndexDef index) {
 //		Table table = index.getTable();
 		StringBuffer result = new StringBuffer("CREATE ");
-		if(index.isUnique()) 
-//			result.append("UNIQUE CLUSTERED ");			
+		if(index.isUnique()) 	
 			result.append("UNIQUE ");			
-		else {
+		else 
 			result.append("NONCLUSTERED ");
-		}
 		
 		result.append("INDEX ["+index.getName()+"]");
-		result.append(" ON "+"["+index.getSchema().getName()+"].["+index.getObject()+"]"+" (");
+		result.append(" ON "+getQualifiedNameInSQLFormat(table)+" (");
 
 		boolean first = true;
 		
-		for(QIndexColumn field: index.getColumns()) {			
+		for(QIndexColumnDef column: index.getColumns()) {			
 			
 			if(!first)
 				result.append(", ");
 
-			result.append("["+field.getName()+"]");
+			result.append(getNameInSQLFormat(column));
 			
-			if(field.getOrdering() == OrderingType.DESCEND) 
+			if(column.getOrdering() == OrderingType.DESCEND) 
 				result.append(" DESC");
 
 			first = false;
@@ -173,52 +158,11 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	}
 	
 	@Override
-	public String deleteData(QTable table) {
-		return "TRUNCATE TABLE "+buildEscapedTableName(table);
-	}
-	
-	@Override
-	public String selectData(QTable table) {
-		return "SELECT * FROM "+buildEscapedTableName(table);
+	public String deleteData(Table table) {
+		return "TRUNCATE TABLE "+getQualifiedNameInSQLFormat(table);
 	}
 
-	@Override
-	public String insertData(QTable table, boolean prepare) {
-		StringBuffer result = new StringBuffer("INSERT INTO "+buildEscapedTableName(table));
-		String tkn1 ="";
-		String tkn2 ="";
-		boolean first = true;
-		for(QTableColumn field: table.getColumns()) {
-			
-			if(field.getName().equals("QMUKEY")) 
-				continue;
-
-			if(!first) {
-				tkn1+=", ";
-				tkn2+=", ";
-			}
-			if(prepare) {
-				tkn1+= "["+field.getName()+"]";
-				tkn2+="?";
-			}
-			else {
-				tkn1+= field.getName();
-			}
-			first = false;
-		}
-		if(prepare)
-			result.append(" ("+tkn1+") VALUES("+tkn2+")");
-		else
-			result.append(" VALUES("+tkn1+")");
-		return result.toString();
-	}
-	
-	private String buildEscapedTableName(QTable table) {
-		return "["+table.getSchema().getName()+"].["+table.getName()+"]";
-	}
-	
-
-	private String convertSelectCommand(QView view, String command) throws SQLException {
+	private String convertSelectCommand(Schema schema, QViewDef view, String command) throws SQLException {
 		
 		String commandWork = null;
 		
@@ -231,7 +175,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 			
 			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(commandWork.getBytes()));
 			
-			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(view.getSchema().getName());
+			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 			
 			commandWork = queryConverter.convertQuery(query);			
@@ -246,7 +190,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 		return commandWork;
 	}
 	
-	private String convertCreateCommand(QView view, String command) throws SQLException {
+	private String convertCreateCommand(Schema schema, QViewDef view, String command) throws SQLException {
 		
 		Parser parser = Parser.buildParser("db2400");
 		Iterator<Token> tokens;
@@ -360,13 +304,13 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 				parsedCommand.append(text);
 			}
 			else if(status.equals("CREATE_VIEW")) {
-				text = "["+view.getSchema().getName()+"].["+text+"]";
+				text = "["+schema.getName()+"].["+text+"]";
 				parsedCommand.append(text);
 				status = "COLUMN";
 				firstColumn = true;				
 			}
 			else if(status.equals("TABLE")) {
-				text = "["+view.getSchema().getName()+"].["+text+"]";
+				text = "["+schema.getName()+"].["+text+"]";
 				parsedCommand.append(text);
 				status = "COLUMN";
 			}

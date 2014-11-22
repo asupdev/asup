@@ -13,7 +13,6 @@ package org.asup.co.shell;
 
 import java.io.IOException;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
@@ -53,13 +52,6 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	private QDataFactory dataFactory = null;
 	
 	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
-	
-//	private OutputStreamWriter sysout;
-	
-	@PostConstruct
-	public void init() {
-//		sysout = new OutputStreamWriter(System.out);
-	}
 	
 	@Override
 	public synchronized void write(QObject object) throws IOException {

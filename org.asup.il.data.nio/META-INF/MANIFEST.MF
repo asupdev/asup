@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Integrated Language Data NIO
 Bundle-SymbolicName: org.asup.il.data.nio
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.il.data;bundle-version="0.5.0";visibility:=reexport
+Require-Bundle: org.asup.il.data;bundle-version="0.5.4";visibility:=reexport
 Export-Package: org.asup.il.data.nio
 Import-Package: org.eclipse.e4.core.contexts,
  org.eclipse.e4.core.di,

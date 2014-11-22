@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Operating System Program ASM
 Bundle-SymbolicName: org.asup.os.type.pgm.asm
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-ClassPath: lib/asm-all-3.3.1.jar,
  .
 Bundle-Vendor: www.smeup.com
-Export-Package: org.asup.os.type.pgm.asm;version="0.5.0.qualifier"
-Require-Bundle: org.asup.fw.core;bundle-version="0.5.0"
+Export-Package: org.asup.os.type.pgm.asm;version="0.5.4.qualifier"
+Require-Bundle: org.asup.fw.core;bundle-version="0.5.4"
 Premain-Class: org.asup.test.jump.GotoAgent
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.osgi.framework;version="1.8.0",

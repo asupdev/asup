@@ -8,15 +8,14 @@
 package org.asup.db.syntax.impl;
 
 import java.util.Iterator;
-
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QIndex;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
@@ -28,9 +27,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Alias Resolver</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Alias Resolver</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -43,8 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public abstract class AliasResolverImpl extends PluginImpl implements QAliasResolver {
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getConfig()
 	 * @generated
 	 * @ordered
@@ -52,8 +49,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	protected QServiceConfig config;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected AliasResolverImpl() {
@@ -61,8 +57,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -71,8 +66,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QServiceConfig getConfig() {
@@ -80,8 +74,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetConfig(QServiceConfig newConfig, NotificationChain msgs) {
@@ -95,8 +88,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setConfig(QServiceConfig newConfig) {
@@ -114,8 +106,8 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public QueryStatement resolveAlias(QueryStatement query) {
@@ -123,22 +115,19 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 		nodeIterator(query);
 		return query;
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAliasForColumn(Table table, String nomeColonna) {
+	public String getAliasForColumn(Table table, String column) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Table getAliasForTable(Table table) {
@@ -146,33 +135,19 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-	
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSchemaSeparator() {
+	public Index getIndex(QConnection connection, String index) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QIndex getIndex(QConnection connection, String index) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -185,8 +160,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -199,8 +173,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -214,8 +187,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -229,8 +201,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -243,8 +214,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -259,8 +229,7 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -274,34 +243,35 @@ public abstract class AliasResolverImpl extends PluginImpl implements QAliasReso
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	protected boolean isTableQualified(Table table){		
-            
-            Schema schema = null;
-                                    
-            if (table != null) {
-                schema = table.getSchema();                              
-            }
+	protected boolean isTableQualified(Table table) {
 
-            /* Determine whether or not we should qualify the table name with a schema name, based on the 
-             * presence or absence of a schema object and the source format setting. */
-            boolean qualify = false;
-            if (schema != null && schema.getName() != null && schema.getName().length() > 0) {
-                qualify = true;   
-            }
-            
-            return qualify;
+		Schema schema = null;
+
+		if (table != null) {
+			schema = table.getSchema();
+		}
+
+		/*
+		 * Determine whether or not we should qualify the table name with a
+		 * schema name, based on the presence or absence of a schema object and
+		 * the source format setting.
+		 */
+		boolean qualify = false;
+		if (schema != null && schema.getName() != null && schema.getName().length() > 0) {
+			qualify = true;
+		}
+
+		return qualify;
 
 	}
-	
-	
-	private void nodeIterator(EObject obj){	
+
+	private void nodeIterator(EObject obj) {
 		analizeObject(obj);
-		for (Iterator<EObject> iter = obj.eContents().iterator(); iter.hasNext();){
+		for (Iterator<EObject> iter = obj.eContents().iterator(); iter.hasNext();) {
 			nodeIterator(iter.next());
-		}		
+		}
 	}
 
 	protected abstract void analizeObject(EObject obj);
-	
-	
-} //AliasResolverImpl
+
+} // AliasResolverImpl

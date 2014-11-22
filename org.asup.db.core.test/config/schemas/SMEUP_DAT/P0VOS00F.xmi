@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0VOS00F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="C&#xa7;CODV" precision="15"/>
-  <columns dataType="CHAR" name="C&#xa7;NOME" precision="30"/>
-  <columns dataType="CHAR" name="C&#xa7;TIAP" precision="3"/>
-  <columns dataType="CHAR" name="C&#xa7;CODT" precision="15"/>
-  <columns dataType="CHAR" name="C&#xa7;DECT" precision="30"/>
-  <columns dataType="CHAR" name="C&#xa7;AUTO" precision="3"/>
-  <columns dataType="CHAR" name="C&#xa7;NOTE" precision="30"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DINA" precision="8"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DFNA" precision="8"/>
-  <columns dataType="CHAR" name="C&#xa7;CONI" precision="15"/>
-  <columns dataType="CHAR" name="C&#xa7;DECI" precision="30"/>
-  <columns dataType="CHAR" name="C&#xa7;CATE" precision="3"/>
-  <columns dataType="CHAR" name="C&#xa7;IDAU" precision="20"/>
-  <columns dataType="CHAR" name="C&#xa7;DOCU" precision="40"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0VOS00F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="C&#xa7;CODV" length="15"/>
+  <columns dataType="CHAR" name="C&#xa7;NOME" length="30"/>
+  <columns dataType="CHAR" name="C&#xa7;TIAP" length="3"/>
+  <columns dataType="CHAR" name="C&#xa7;CODT" length="15"/>
+  <columns dataType="CHAR" name="C&#xa7;DECT" length="30"/>
+  <columns dataType="CHAR" name="C&#xa7;AUTO" length="3"/>
+  <columns dataType="CHAR" name="C&#xa7;NOTE" length="30"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DINA" length="8"/>
+  <columns dataType="DECIMAL" name="C&#xa7;DFNA" length="8"/>
+  <columns dataType="CHAR" name="C&#xa7;CONI" length="15"/>
+  <columns dataType="CHAR" name="C&#xa7;DECI" length="30"/>
+  <columns dataType="CHAR" name="C&#xa7;CATE" length="3"/>
+  <columns dataType="CHAR" name="C&#xa7;IDAU" length="20"/>
+  <columns dataType="CHAR" name="C&#xa7;DOCU" length="40"/>
+</db-core:TableDef>

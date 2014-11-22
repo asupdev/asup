@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQCCOL0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DATI" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;ORAI" precision="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DATM" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;ORAM" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;UTEN" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;WKST" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;PROG" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;FLR1" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLR2" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLR3" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;ANNU" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;ARTI" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CFAL" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;CFAC" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;CLIV" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;CLIS" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;CDCC" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;CDSC" precision="30"/>
-  <columns dataType="CHAR" name="L&#xa7;CIMP" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;MUNM" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;VAL1" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;VAL2" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;VAL3" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;VAL4" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;MCST" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CATT" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;COBB" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;CFAR" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;CTIP" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;CTCO" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;CPDC" precision="4"/>
-  <columns dataType="CHAR" name="L&#xa7;LPDC" precision="4"/>
-  <columns dataType="DECIMAL" name="L&#xa7;CLQA" precision="6" scale="3"/>
-  <columns dataType="CHAR" name="L&#xa7;APRO" precision="15"/>
-  <columns dataType="DECIMAL" name="L&#xa7;CFR1" precision="5"/>
-  <columns dataType="DECIMAL" name="L&#xa7;CFR2" precision="5"/>
-  <columns dataType="CHAR" name="L&#xa7;DCOD" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;CCAR" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;UMN1" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;UMN2" precision="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DAEE" precision="8"/>
-  <columns dataType="CHAR" name="L&#xa7;MQRL" precision="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;ROPR" precision="7" scale="4"/>
-  <columns dataType="DECIMAL" name="L&#xa7;VAPR" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="L&#xa7;ROAT" precision="7" scale="4"/>
-  <columns dataType="CHAR" name="L&#xa7;RWRC" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CCGR" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CCGF" precision="20"/>
-  <columns dataType="CHAR" name="L&#xa7;CCRR" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CCFR" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;CCFC" precision="6"/>
-  <columns dataType="CHAR" name="L&#xa7;CCFG" precision="20"/>
-  <columns dataType="CHAR" name="L&#xa7;CCGA" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;ESMO" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;TIEN" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;COEN" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;MTRD" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;ARAL" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;ORIC" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG1" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG2" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG3" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG4" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG5" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQCCOL0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DATI" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;ORAI" length="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DATM" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;ORAM" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;UTEN" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;WKST" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;PROG" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;FLR1" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FLR2" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FLR3" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;ANNU" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;ARTI" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CFAL" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;CFAC" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;CLIV" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;CLIS" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;CDCC" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;CDSC" length="30"/>
+  <columns dataType="CHAR" name="L&#xa7;CIMP" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;MUNM" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;VAL1" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;VAL2" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;VAL3" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;VAL4" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;MCST" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CATT" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;COBB" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;CFAR" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;CTIP" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;CTCO" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;CPDC" length="4"/>
+  <columns dataType="CHAR" name="L&#xa7;LPDC" length="4"/>
+  <columns dataType="DECIMAL" name="L&#xa7;CLQA" length="6" scale="3"/>
+  <columns dataType="CHAR" name="L&#xa7;APRO" length="15"/>
+  <columns dataType="DECIMAL" name="L&#xa7;CFR1" length="5"/>
+  <columns dataType="DECIMAL" name="L&#xa7;CFR2" length="5"/>
+  <columns dataType="CHAR" name="L&#xa7;DCOD" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;CCAR" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;UMN1" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;UMN2" length="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DAEE" length="8"/>
+  <columns dataType="CHAR" name="L&#xa7;MQRL" length="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;ROPR" length="7" scale="4"/>
+  <columns dataType="DECIMAL" name="L&#xa7;VAPR" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="L&#xa7;ROAT" length="7" scale="4"/>
+  <columns dataType="CHAR" name="L&#xa7;RWRC" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CCGR" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CCGF" length="20"/>
+  <columns dataType="CHAR" name="L&#xa7;CCRR" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CCFR" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;CCFC" length="6"/>
+  <columns dataType="CHAR" name="L&#xa7;CCFG" length="20"/>
+  <columns dataType="CHAR" name="L&#xa7;CCGA" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;ESMO" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;TIEN" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;COEN" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;MTRD" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;ARAL" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;ORIC" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;FLG1" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FLG2" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FLG3" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FLG4" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FLG5" length="1"/>
+</db-core:TableDef>

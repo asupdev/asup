@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MTEVAR0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DATI" precision="8"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ORAI" precision="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DATM" precision="8"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ORAM" precision="6"/>
-  <columns dataType="CHAR" name="MR&#xa7;UTIN" precision="10"/>
-  <columns dataType="CHAR" name="MR&#xa7;UTEN" precision="10"/>
-  <columns dataType="CHAR" name="MR&#xa7;WKST" precision="10"/>
-  <columns dataType="CHAR" name="MR&#xa7;PROG" precision="10"/>
-  <columns dataType="CHAR" name="MR&#xa7;TIMO" precision="4"/>
-  <columns dataType="CHAR" name="MR&#xa7;NUMO" precision="15"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;SEQE" precision="5"/>
-  <columns dataType="CHAR" name="MR&#xa7;CODI" precision="15"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;GCQ" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;GCV" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;WPQ" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;WPV" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ICQ1" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ICV1" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;IPQ1" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;IPV1" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OPQ1" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OPV1" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OAQ1" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OAV1" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ICQ2" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ICV2" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;IPQ2" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;IPV2" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OPQ2" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OPV2" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OAQ2" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OAV2" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ICQ3" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;ICV3" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;IPQ3" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;IPV3" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OPQ3" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OPV3" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OAQ3" precision="15" scale="6"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;OAV3" precision="21" scale="6"/>
-  <columns dataType="CHAR" name="MR&#xa7;ATCO" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;DSAR" precision="100"/>
-  <columns dataType="CHAR" name="MR&#xa7;CD01" precision="15"/>
-  <columns dataType="CHAR" name="MR&#xa7;CD02" precision="15"/>
-  <columns dataType="CHAR" name="MR&#xa7;CD03" precision="15"/>
-  <columns dataType="CHAR" name="MR&#xa7;CD04" precision="15"/>
-  <columns dataType="CHAR" name="MR&#xa7;CD05" precision="15"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;NU05" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="MR&#xa7;DT05" precision="8"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL01" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL02" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL03" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL04" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL05" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL06" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL07" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL08" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL09" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL10" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL11" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL12" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL13" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL14" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL15" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL16" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL17" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL18" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL19" precision="1"/>
-  <columns dataType="CHAR" name="MR&#xa7;FL20" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MTEVAR0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DATI" length="8"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ORAI" length="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DATM" length="8"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ORAM" length="6"/>
+  <columns dataType="CHAR" name="MR&#xa7;UTIN" length="10"/>
+  <columns dataType="CHAR" name="MR&#xa7;UTEN" length="10"/>
+  <columns dataType="CHAR" name="MR&#xa7;WKST" length="10"/>
+  <columns dataType="CHAR" name="MR&#xa7;PROG" length="10"/>
+  <columns dataType="CHAR" name="MR&#xa7;TIMO" length="4"/>
+  <columns dataType="CHAR" name="MR&#xa7;NUMO" length="15"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;SEQE" length="5"/>
+  <columns dataType="CHAR" name="MR&#xa7;CODI" length="15"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;GCQ" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;GCV" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;WPQ" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;WPV" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ICQ1" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ICV1" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;IPQ1" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;IPV1" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OPQ1" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OPV1" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OAQ1" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OAV1" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ICQ2" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ICV2" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;IPQ2" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;IPV2" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OPQ2" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OPV2" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OAQ2" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OAV2" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ICQ3" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;ICV3" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;IPQ3" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;IPV3" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OPQ3" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OPV3" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OAQ3" length="15" scale="6"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;OAV3" length="21" scale="6"/>
+  <columns dataType="CHAR" name="MR&#xa7;ATCO" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;DSAR" length="100"/>
+  <columns dataType="CHAR" name="MR&#xa7;CD01" length="15"/>
+  <columns dataType="CHAR" name="MR&#xa7;CD02" length="15"/>
+  <columns dataType="CHAR" name="MR&#xa7;CD03" length="15"/>
+  <columns dataType="CHAR" name="MR&#xa7;CD04" length="15"/>
+  <columns dataType="CHAR" name="MR&#xa7;CD05" length="15"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;NU05" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DT01" length="8"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DT02" length="8"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DT03" length="8"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DT04" length="8"/>
+  <columns dataType="DECIMAL" name="MR&#xa7;DT05" length="8"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL01" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL02" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL03" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL04" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL05" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL06" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL07" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL08" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL09" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL10" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL11" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL12" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL13" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL14" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL15" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL16" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL17" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL18" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL19" length="1"/>
+  <columns dataType="CHAR" name="MR&#xa7;FL20" length="1"/>
+</db-core:TableDef>

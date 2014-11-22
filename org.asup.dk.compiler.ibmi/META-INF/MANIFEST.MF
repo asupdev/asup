@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Development Kit Compiler IBMi
 Bundle-SymbolicName: org.asup.dk.compiler.ibmi
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.asup.dk.compiler.ibmi,
@@ -10,7 +10,7 @@ Export-Package: org.asup.dk.compiler.ibmi,
 Import-Package: javax.inject;version="1.0.0",
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.ecore.xmi.impl
-Require-Bundle: org.asup.fw.util;bundle-version="0.5.0",
- org.asup.dk.source;bundle-version="0.5.0",
- org.asup.dk.compiler;bundle-version="0.5.0",
+Require-Bundle: org.asup.fw.util;bundle-version="0.5.4",
+ org.asup.dk.source;bundle-version="0.5.4",
+ org.asup.dk.compiler;bundle-version="0.5.4",
  org.asup.dk.parser.ibmi

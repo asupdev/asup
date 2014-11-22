@@ -7,19 +7,17 @@
  */
 package org.asup.db.core.impl;
 
-import java.util.Dictionary;
-
+import java.sql.SQLException;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Connection Manager</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Connection Manager</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
@@ -27,8 +25,7 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class ConnectionManagerImpl extends ServiceImpl implements QConnectionManager {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ConnectionManagerImpl() {
@@ -36,8 +33,7 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -50,7 +46,7 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnectionConfig createConnectionConfig(Dictionary<String, Object> dictionary) {
+	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -61,7 +57,7 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnection getDatabaseConnection(QConnectionConfig config) {
+	public QConnection createDatabaseConnection(String name) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -72,21 +68,10 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnection getDatabaseConnection(String name) {
+	public void registerConnectionConfig(String name, QConnectionConfig connectionConfig) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void registerConnectionConfig(String name, QConnectionConfig config) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-} //ConnectionManagerImpl
+} // ConnectionManagerImpl

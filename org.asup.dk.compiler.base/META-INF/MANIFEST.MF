@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Development Kit Compiler Base
 Bundle-SymbolicName: org.asup.dk.compiler.base
-Bundle-Version: 0.5.0.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.dk.compiler;bundle-version="0.5.0",
+Require-Bundle: org.asup.dk.compiler;bundle-version="0.5.4",
  org.asup.dk.source,
  org.asup.os.data,
  org.asup.os.type.msgf

@@ -141,7 +141,6 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 				
 				dataSetTerm = d;
 			}	
-						
 
 		}		
 		

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQMCSM0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="M&#xa7;MCST" precision="15"/>
-  <columns dataType="CHAR" name="M&#xa7;MDST" precision="35"/>
-  <columns dataType="CHAR" name="M&#xa7;MTPS" precision="3"/>
-  <columns dataType="CHAR" name="M&#xa7;MCLP" precision="4"/>
-  <columns dataType="CHAR" name="M&#xa7;MGRD" precision="10"/>
-  <columns dataType="CHAR" name="M&#xa7;MUNM" precision="6"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MICN" precision="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MSNS" precision="8" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MINS" precision="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MFDS" precision="9" scale="4"/>
-  <columns dataType="CHAR" name="M&#xa7;APRO" precision="15"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MQ1P" precision="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MQ2P" precision="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MQ3P" precision="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MQ4P" precision="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MQ5P" precision="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DTCR" precision="8"/>
-  <columns dataType="CHAR" name="M&#xa7;UTEN" precision="10"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DTMR" precision="8"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQMCSM0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="M&#xa7;MCST" length="15"/>
+  <columns dataType="CHAR" name="M&#xa7;MDST" length="35"/>
+  <columns dataType="CHAR" name="M&#xa7;MTPS" length="3"/>
+  <columns dataType="CHAR" name="M&#xa7;MCLP" length="4"/>
+  <columns dataType="CHAR" name="M&#xa7;MGRD" length="10"/>
+  <columns dataType="CHAR" name="M&#xa7;MUNM" length="6"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MICN" length="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MSNS" length="8" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MINS" length="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MFDS" length="9" scale="4"/>
+  <columns dataType="CHAR" name="M&#xa7;APRO" length="15"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ1P" length="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ2P" length="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ3P" length="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ4P" length="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;MQ5P" length="9" scale="4"/>
+  <columns dataType="DECIMAL" name="M&#xa7;DTCR" length="8"/>
+  <columns dataType="CHAR" name="M&#xa7;UTEN" length="10"/>
+  <columns dataType="DECIMAL" name="M&#xa7;DTMR" length="8"/>
+</db-core:TableDef>

@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5PROM0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="PMPROV" precision="10"/>
-  <columns dataType="DECIMAL" name="PMRIGA" precision="4"/>
-  <columns dataType="CHAR" name="PMLIVE" precision="1"/>
-  <columns dataType="CHAR" name="PMSTAT" precision="2"/>
-  <columns dataType="DECIMAL" name="PMDTCA" precision="8"/>
-  <columns dataType="DECIMAL" name="PMDTLQ" precision="8"/>
-  <columns dataType="CHAR" name="PMTDOC" precision="3"/>
-  <columns dataType="CHAR" name="PMNDOC" precision="10"/>
-  <columns dataType="DECIMAL" name="PMLIQ1" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMLIQ2" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA01" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA02" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA03" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA04" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA05" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA06" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA07" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA08" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA09" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA10" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA11" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA12" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA13" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA14" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMVA15" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="PMDAT1" precision="8"/>
-  <columns dataType="DECIMAL" name="PMDAT2" precision="8"/>
-  <columns dataType="DECIMAL" name="PMDAT3" precision="8"/>
-  <columns dataType="DECIMAL" name="PMDAT4" precision="8"/>
-  <columns dataType="DECIMAL" name="PMDAT5" precision="8"/>
-  <columns dataType="CHAR" name="PMCOD1" precision="15"/>
-  <columns dataType="CHAR" name="PMCOD2" precision="15"/>
-  <columns dataType="CHAR" name="PMCOD3" precision="15"/>
-  <columns dataType="CHAR" name="PMCOD4" precision="15"/>
-  <columns dataType="CHAR" name="PMCOD5" precision="15"/>
-  <columns dataType="DECIMAL" name="PMNUM1" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="PMNUM2" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="PMNUM3" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="PMNUM4" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="PMNUM5" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="PMNOTA" precision="50"/>
-  <columns dataType="CHAR" name="PMFL01" precision="1"/>
-  <columns dataType="CHAR" name="PMFL02" precision="1"/>
-  <columns dataType="CHAR" name="PMFL03" precision="1"/>
-  <columns dataType="CHAR" name="PMFL04" precision="1"/>
-  <columns dataType="CHAR" name="PMFL05" precision="1"/>
-  <columns dataType="CHAR" name="PMFL06" precision="1"/>
-  <columns dataType="CHAR" name="PMFL07" precision="1"/>
-  <columns dataType="CHAR" name="PMFL08" precision="1"/>
-  <columns dataType="CHAR" name="PMFL09" precision="1"/>
-  <columns dataType="CHAR" name="PMFL10" precision="1"/>
-  <columns dataType="CHAR" name="PMFL11" precision="1"/>
-  <columns dataType="CHAR" name="PMFL12" precision="1"/>
-  <columns dataType="CHAR" name="PMFL13" precision="1"/>
-  <columns dataType="CHAR" name="PMFL14" precision="1"/>
-  <columns dataType="CHAR" name="PMFL15" precision="1"/>
-  <columns dataType="CHAR" name="PMFL16" precision="1"/>
-  <columns dataType="CHAR" name="PMFL17" precision="1"/>
-  <columns dataType="CHAR" name="PMFL18" precision="1"/>
-  <columns dataType="CHAR" name="PMFL19" precision="1"/>
-  <columns dataType="CHAR" name="PMFL20" precision="1"/>
-  <columns dataType="CHAR" name="PMFL21" precision="1"/>
-  <columns dataType="CHAR" name="PMFL22" precision="1"/>
-  <columns dataType="CHAR" name="PMFL23" precision="1"/>
-  <columns dataType="CHAR" name="PMFL24" precision="1"/>
-  <columns dataType="CHAR" name="PMFL25" precision="1"/>
-  <columns dataType="CHAR" name="PMFL26" precision="1"/>
-  <columns dataType="CHAR" name="PMFL27" precision="1"/>
-  <columns dataType="CHAR" name="PMFL28" precision="1"/>
-  <columns dataType="CHAR" name="PMFL29" precision="1"/>
-  <columns dataType="CHAR" name="PMFL30" precision="1"/>
-  <columns dataType="DECIMAL" name="PMDTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="PMORIN" precision="6"/>
-  <columns dataType="CHAR" name="PMUSIN" precision="10"/>
-  <columns dataType="DECIMAL" name="PMDTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="PMORAG" precision="6"/>
-  <columns dataType="CHAR" name="PMUSAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5PROM0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="PMPROV" length="10"/>
+  <columns dataType="DECIMAL" name="PMRIGA" length="4"/>
+  <columns dataType="CHAR" name="PMLIVE" length="1"/>
+  <columns dataType="CHAR" name="PMSTAT" length="2"/>
+  <columns dataType="DECIMAL" name="PMDTCA" length="8"/>
+  <columns dataType="DECIMAL" name="PMDTLQ" length="8"/>
+  <columns dataType="CHAR" name="PMTDOC" length="3"/>
+  <columns dataType="CHAR" name="PMNDOC" length="10"/>
+  <columns dataType="DECIMAL" name="PMLIQ1" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMLIQ2" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA01" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA02" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA03" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA04" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA05" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA06" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA07" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA08" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA09" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA10" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA11" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA12" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA13" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA14" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMVA15" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="PMDAT1" length="8"/>
+  <columns dataType="DECIMAL" name="PMDAT2" length="8"/>
+  <columns dataType="DECIMAL" name="PMDAT3" length="8"/>
+  <columns dataType="DECIMAL" name="PMDAT4" length="8"/>
+  <columns dataType="DECIMAL" name="PMDAT5" length="8"/>
+  <columns dataType="CHAR" name="PMCOD1" length="15"/>
+  <columns dataType="CHAR" name="PMCOD2" length="15"/>
+  <columns dataType="CHAR" name="PMCOD3" length="15"/>
+  <columns dataType="CHAR" name="PMCOD4" length="15"/>
+  <columns dataType="CHAR" name="PMCOD5" length="15"/>
+  <columns dataType="DECIMAL" name="PMNUM1" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="PMNUM2" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="PMNUM3" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="PMNUM4" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="PMNUM5" length="15" scale="5"/>
+  <columns dataType="CHAR" name="PMNOTA" length="50"/>
+  <columns dataType="CHAR" name="PMFL01" length="1"/>
+  <columns dataType="CHAR" name="PMFL02" length="1"/>
+  <columns dataType="CHAR" name="PMFL03" length="1"/>
+  <columns dataType="CHAR" name="PMFL04" length="1"/>
+  <columns dataType="CHAR" name="PMFL05" length="1"/>
+  <columns dataType="CHAR" name="PMFL06" length="1"/>
+  <columns dataType="CHAR" name="PMFL07" length="1"/>
+  <columns dataType="CHAR" name="PMFL08" length="1"/>
+  <columns dataType="CHAR" name="PMFL09" length="1"/>
+  <columns dataType="CHAR" name="PMFL10" length="1"/>
+  <columns dataType="CHAR" name="PMFL11" length="1"/>
+  <columns dataType="CHAR" name="PMFL12" length="1"/>
+  <columns dataType="CHAR" name="PMFL13" length="1"/>
+  <columns dataType="CHAR" name="PMFL14" length="1"/>
+  <columns dataType="CHAR" name="PMFL15" length="1"/>
+  <columns dataType="CHAR" name="PMFL16" length="1"/>
+  <columns dataType="CHAR" name="PMFL17" length="1"/>
+  <columns dataType="CHAR" name="PMFL18" length="1"/>
+  <columns dataType="CHAR" name="PMFL19" length="1"/>
+  <columns dataType="CHAR" name="PMFL20" length="1"/>
+  <columns dataType="CHAR" name="PMFL21" length="1"/>
+  <columns dataType="CHAR" name="PMFL22" length="1"/>
+  <columns dataType="CHAR" name="PMFL23" length="1"/>
+  <columns dataType="CHAR" name="PMFL24" length="1"/>
+  <columns dataType="CHAR" name="PMFL25" length="1"/>
+  <columns dataType="CHAR" name="PMFL26" length="1"/>
+  <columns dataType="CHAR" name="PMFL27" length="1"/>
+  <columns dataType="CHAR" name="PMFL28" length="1"/>
+  <columns dataType="CHAR" name="PMFL29" length="1"/>
+  <columns dataType="CHAR" name="PMFL30" length="1"/>
+  <columns dataType="DECIMAL" name="PMDTIN" length="8"/>
+  <columns dataType="DECIMAL" name="PMORIN" length="6"/>
+  <columns dataType="CHAR" name="PMUSIN" length="10"/>
+  <columns dataType="DECIMAL" name="PMDTAG" length="8"/>
+  <columns dataType="DECIMAL" name="PMORAG" length="6"/>
+  <columns dataType="CHAR" name="PMUSAG" length="10"/>
+</db-core:TableDef>

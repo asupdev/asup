@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMMOAR0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="B&#xa7;NURE" precision="9"/>
-  <columns dataType="CHAR" name="B&#xa7;ARTI" precision="15"/>
-  <columns dataType="CHAR" name="B&#xa7;CDMG" precision="3"/>
-  <columns dataType="CHAR" name="B&#xa7;CAMO" precision="4"/>
-  <columns dataType="CHAR" name="B&#xa7;GRAR" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa7;ENUS" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;TIGC" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa7;ARES" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;ARPT" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;SOGC" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa7;SOSE" precision="1"/>
-  <columns dataType="DECIMAL" name="B&#xa7;DTRE" precision="8"/>
-  <columns dataType="DECIMAL" name="B&#xa7;NPRO" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa7;FL01" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FL02" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FL03" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FL04" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FL05" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMMOAR0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="B&#xa7;NURE" length="9"/>
+  <columns dataType="CHAR" name="B&#xa7;ARTI" length="15"/>
+  <columns dataType="CHAR" name="B&#xa7;CDMG" length="3"/>
+  <columns dataType="CHAR" name="B&#xa7;CAMO" length="4"/>
+  <columns dataType="CHAR" name="B&#xa7;GRAR" length="2"/>
+  <columns dataType="CHAR" name="B&#xa7;ENUS" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;TIGC" length="2"/>
+  <columns dataType="CHAR" name="B&#xa7;ARES" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;ARPT" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;SOGC" length="2"/>
+  <columns dataType="CHAR" name="B&#xa7;SOSE" length="1"/>
+  <columns dataType="DECIMAL" name="B&#xa7;DTRE" length="8"/>
+  <columns dataType="DECIMAL" name="B&#xa7;NPRO" length="2"/>
+  <columns dataType="CHAR" name="B&#xa7;FL01" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;FL02" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;FL03" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;FL04" length="1"/>
+  <columns dataType="CHAR" name="B&#xa7;FL05" length="1"/>
+</db-core:TableDef>

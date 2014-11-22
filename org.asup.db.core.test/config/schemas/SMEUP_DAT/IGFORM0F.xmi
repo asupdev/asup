@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGFORM0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="F&#xa7;TEMA" precision="3"/>
-  <columns dataType="CHAR" name="F&#xa7;INDI" precision="2"/>
-  <columns dataType="CHAR" name="F&#xa7;DESC" precision="40"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR1" precision="78"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR2" precision="78"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR3" precision="78"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR4" precision="78"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DATI" precision="6"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DAUM" precision="6"/>
-  <columns dataType="CHAR" name="F&#xa7;UTEN" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGFORM0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="F&#xa7;TEMA" length="3"/>
+  <columns dataType="CHAR" name="F&#xa7;INDI" length="2"/>
+  <columns dataType="CHAR" name="F&#xa7;DESC" length="40"/>
+  <columns dataType="CHAR" name="F&#xa7;FOR1" length="78"/>
+  <columns dataType="CHAR" name="F&#xa7;FOR2" length="78"/>
+  <columns dataType="CHAR" name="F&#xa7;FOR3" length="78"/>
+  <columns dataType="CHAR" name="F&#xa7;FOR4" length="78"/>
+  <columns dataType="DECIMAL" name="F&#xa7;DATI" length="6"/>
+  <columns dataType="DECIMAL" name="F&#xa7;DAUM" length="6"/>
+  <columns dataType="CHAR" name="F&#xa7;UTEN" length="10"/>
+</db-core:TableDef>

@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQAZIC0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="Z&#xa7;ANNU" precision="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;NUDO" precision="10"/>
-  <columns dataType="CHAR" name="Z&#xa7;ATRI" precision="4"/>
-  <columns dataType="CHAR" name="Z&#xa7;ATGR" precision="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACO1" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACO2" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACO3" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIEC" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COEC" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;AIMP" precision="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;AOBB" precision="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;APRP" precision="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;APRO" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ASOL" precision="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;APUN" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACOR" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIEN" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COEN" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;RINT" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIES" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COES" precision="15"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DADO" precision="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DAEV" precision="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;ADPR" precision="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DAEE" precision="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;QLOT" precision="9" scale="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;AUNM" precision="6"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;ROPR" precision="7" scale="4"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;ROCN" precision="7" scale="4"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;VAPR" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;VACN" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;VAVA" precision="15" scale="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;RWRC" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIEA" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COEA" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;RAPP" precision="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;ARAL" precision="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ORIC" precision="10"/>
-  <columns dataType="CHAR" name="Z&#xa7;LIST" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;RISP" precision="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;FDBK" precision="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;MQTD" precision="4"/>
-  <columns dataType="CHAR" name="Z&#xa7;NPRG" precision="10"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG1" precision="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG2" precision="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG3" precision="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG4" precision="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG5" precision="1"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DTCR" precision="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DTMR" precision="8"/>
-  <columns dataType="CHAR" name="Z&#xa7;UTEN" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQAZIC0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="Z&#xa7;ANNU" length="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;NUDO" length="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;ATRI" length="4"/>
+  <columns dataType="CHAR" name="Z&#xa7;ATGR" length="3"/>
+  <columns dataType="CHAR" name="Z&#xa7;ACO1" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;ACO2" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;ACO3" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;TIEC" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;COEC" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;AIMP" length="3"/>
+  <columns dataType="CHAR" name="Z&#xa7;AOBB" length="50"/>
+  <columns dataType="CHAR" name="Z&#xa7;APRP" length="50"/>
+  <columns dataType="CHAR" name="Z&#xa7;APRO" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;ASOL" length="50"/>
+  <columns dataType="CHAR" name="Z&#xa7;APUN" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;ACOR" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;TIEN" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;COEN" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;RINT" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;TIES" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;COES" length="15"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DADO" length="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DAEV" length="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;ADPR" length="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DAEE" length="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;QLOT" length="9" scale="3"/>
+  <columns dataType="CHAR" name="Z&#xa7;AUNM" length="6"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;ROPR" length="7" scale="4"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;ROCN" length="7" scale="4"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;VAPR" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;VACN" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;VAVA" length="15" scale="3"/>
+  <columns dataType="CHAR" name="Z&#xa7;RWRC" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;TIEA" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;COEA" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;RAPP" length="50"/>
+  <columns dataType="CHAR" name="Z&#xa7;ARAL" length="15"/>
+  <columns dataType="CHAR" name="Z&#xa7;ORIC" length="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;LIST" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;RISP" length="2"/>
+  <columns dataType="CHAR" name="Z&#xa7;FDBK" length="50"/>
+  <columns dataType="CHAR" name="Z&#xa7;MQTD" length="4"/>
+  <columns dataType="CHAR" name="Z&#xa7;NPRG" length="10"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG1" length="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG2" length="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG3" length="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG4" length="1"/>
+  <columns dataType="CHAR" name="Z&#xa7;FLG5" length="1"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DTCR" length="8"/>
+  <columns dataType="DECIMAL" name="Z&#xa7;DTMR" length="8"/>
+  <columns dataType="CHAR" name="Z&#xa7;UTEN" length="10"/>
+</db-core:TableDef>

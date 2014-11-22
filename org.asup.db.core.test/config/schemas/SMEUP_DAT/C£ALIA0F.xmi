@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;ALIA0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="E$TIP1" precision="12"/>
-  <columns dataType="CHAR" name="E$COD1" precision="15"/>
-  <columns dataType="CHAR" name="E$TIP2" precision="12"/>
-  <columns dataType="CHAR" name="E$COD2" precision="15"/>
-  <columns dataType="CHAR" name="E$SCD2" precision="15"/>
-  <columns dataType="CHAR" name="E$LIVE" precision="1"/>
-  <columns dataType="CHAR" name="E$STAT" precision="2"/>
-  <columns dataType="CHAR" name="E$CONT" precision="15"/>
-  <columns dataType="CHAR" name="E$ALIA" precision="50"/>
-  <columns dataType="CHAR" name="E$DESC" precision="70"/>
-  <columns dataType="CHAR" name="E$CD01" precision="15"/>
-  <columns dataType="CHAR" name="E$CD02" precision="15"/>
-  <columns dataType="CHAR" name="E$CD03" precision="15"/>
-  <columns dataType="CHAR" name="E$CD04" precision="15"/>
-  <columns dataType="CHAR" name="E$CD05" precision="15"/>
-  <columns dataType="DECIMAL" name="E$NUM1" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$NUM2" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$NUM3" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$NUM4" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="E$NUM5" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="E$FLG0" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG1" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG2" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG3" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG4" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG5" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG6" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG7" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG8" precision="1"/>
-  <columns dataType="CHAR" name="E$FLG9" precision="1"/>
-  <columns dataType="DECIMAL" name="E$DTIN" precision="8"/>
-  <columns dataType="DECIMAL" name="E$ORIN" precision="6"/>
-  <columns dataType="CHAR" name="E$USIN" precision="10"/>
-  <columns dataType="CHAR" name="E$OGIN" precision="10"/>
-  <columns dataType="DECIMAL" name="E$DTAG" precision="8"/>
-  <columns dataType="DECIMAL" name="E$ORAG" precision="6"/>
-  <columns dataType="CHAR" name="E$USAG" precision="10"/>
-  <columns dataType="CHAR" name="E$OGAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;ALIA0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="E$TIP1" length="12"/>
+  <columns dataType="CHAR" name="E$COD1" length="15"/>
+  <columns dataType="CHAR" name="E$TIP2" length="12"/>
+  <columns dataType="CHAR" name="E$COD2" length="15"/>
+  <columns dataType="CHAR" name="E$SCD2" length="15"/>
+  <columns dataType="CHAR" name="E$LIVE" length="1"/>
+  <columns dataType="CHAR" name="E$STAT" length="2"/>
+  <columns dataType="CHAR" name="E$CONT" length="15"/>
+  <columns dataType="CHAR" name="E$ALIA" length="50"/>
+  <columns dataType="CHAR" name="E$DESC" length="70"/>
+  <columns dataType="CHAR" name="E$CD01" length="15"/>
+  <columns dataType="CHAR" name="E$CD02" length="15"/>
+  <columns dataType="CHAR" name="E$CD03" length="15"/>
+  <columns dataType="CHAR" name="E$CD04" length="15"/>
+  <columns dataType="CHAR" name="E$CD05" length="15"/>
+  <columns dataType="DECIMAL" name="E$NUM1" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$NUM2" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$NUM3" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$NUM4" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="E$NUM5" length="15" scale="5"/>
+  <columns dataType="CHAR" name="E$FLG0" length="1"/>
+  <columns dataType="CHAR" name="E$FLG1" length="1"/>
+  <columns dataType="CHAR" name="E$FLG2" length="1"/>
+  <columns dataType="CHAR" name="E$FLG3" length="1"/>
+  <columns dataType="CHAR" name="E$FLG4" length="1"/>
+  <columns dataType="CHAR" name="E$FLG5" length="1"/>
+  <columns dataType="CHAR" name="E$FLG6" length="1"/>
+  <columns dataType="CHAR" name="E$FLG7" length="1"/>
+  <columns dataType="CHAR" name="E$FLG8" length="1"/>
+  <columns dataType="CHAR" name="E$FLG9" length="1"/>
+  <columns dataType="DECIMAL" name="E$DTIN" length="8"/>
+  <columns dataType="DECIMAL" name="E$ORIN" length="6"/>
+  <columns dataType="CHAR" name="E$USIN" length="10"/>
+  <columns dataType="CHAR" name="E$OGIN" length="10"/>
+  <columns dataType="DECIMAL" name="E$DTAG" length="8"/>
+  <columns dataType="DECIMAL" name="E$ORAG" length="6"/>
+  <columns dataType="CHAR" name="E$USAG" length="10"/>
+  <columns dataType="CHAR" name="E$OGAG" length="10"/>
+</db-core:TableDef>

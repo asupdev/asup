@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="INTER00F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="I&#xa3;STA" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;C01" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C02" precision="35"/>
-  <columns dataType="CHAR" name="I&#xa3;C03" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C04" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C05" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C06" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C07" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C08" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C09" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C10" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C11" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C12" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C13" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C14" precision="15"/>
-  <columns dataType="CHAR" name="I&#xa3;C15" precision="15"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C16" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C17" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C18" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C19" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C20" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C21" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C22" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C23" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C24" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C25" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C26" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C27" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C28" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C29" precision="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;C30" precision="15" scale="3"/>
-  <columns dataType="CHAR" name="I&#xa3;KRI" precision="50"/>
-  <columns dataType="CHAR" name="I&#xa3;KNP" precision="4"/>
-  <columns dataType="CHAR" name="I&#xa3;KFT" precision="1"/>
-  <columns dataType="CHAR" name="I&#xa3;PPP" precision="30"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="INTER00F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="I&#xa3;STA" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;C01" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C02" length="35"/>
+  <columns dataType="CHAR" name="I&#xa3;C03" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C04" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C05" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C06" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C07" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C08" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C09" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C10" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C11" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C12" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C13" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C14" length="15"/>
+  <columns dataType="CHAR" name="I&#xa3;C15" length="15"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C16" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C17" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C18" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C19" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C20" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C21" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C22" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C23" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C24" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C25" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C26" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C27" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C28" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C29" length="15" scale="3"/>
+  <columns dataType="DECIMAL" name="I&#xa3;C30" length="15" scale="3"/>
+  <columns dataType="CHAR" name="I&#xa3;KRI" length="50"/>
+  <columns dataType="CHAR" name="I&#xa3;KNP" length="4"/>
+  <columns dataType="CHAR" name="I&#xa3;KFT" length="1"/>
+  <columns dataType="CHAR" name="I&#xa3;PPP" length="30"/>
+</db-core:TableDef>

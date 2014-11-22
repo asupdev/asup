@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;LIST0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="L&#xa7;IDLI" precision="10"/>
-  <columns dataType="CHAR" name="L&#xa7;CDSS" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;CDLI" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;CDSL" precision="3"/>
-  <columns dataType="CHAR" name="L&#xa7;LIVE" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;STAT" precision="2"/>
-  <columns dataType="CHAR" name="L&#xa7;COD1" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;COD2" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;COD3" precision="15"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DTVA" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DTAA" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;LTVA" precision="7"/>
-  <columns dataType="CHAR" name="L&#xa7;CDVA" precision="4"/>
-  <columns dataType="DECIMAL" name="L&#xa7;VA01" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;VA02" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;VA03" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;VA04" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;VA05" precision="21" scale="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;QRIV" precision="11" scale="3"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DT01" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DT02" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DT03" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DT04" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DT05" precision="8"/>
-  <columns dataType="CHAR" name="L&#xa7;CL01" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CL02" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CL03" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CL04" precision="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CL05" precision="15"/>
-  <columns dataType="DECIMAL" name="L&#xa7;NU01" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L&#xa7;NU02" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L&#xa7;NU03" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L&#xa7;NU04" precision="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L&#xa7;NU05" precision="15" scale="5"/>
-  <columns dataType="CHAR" name="L&#xa7;FL01" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL02" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL03" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL04" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL05" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL06" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL07" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL08" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL09" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL10" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL11" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL12" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL13" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL14" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL15" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL16" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL17" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL18" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL19" precision="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FL20" precision="1"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DTCR" precision="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DTAG" precision="8"/>
-  <columns dataType="CHAR" name="L&#xa7;USAG" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;LIST0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="L&#xa7;IDLI" length="10"/>
+  <columns dataType="CHAR" name="L&#xa7;CDSS" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;CDLI" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;CDSL" length="3"/>
+  <columns dataType="CHAR" name="L&#xa7;LIVE" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;STAT" length="2"/>
+  <columns dataType="CHAR" name="L&#xa7;COD1" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;COD2" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;COD3" length="15"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DTVA" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DTAA" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;LTVA" length="7"/>
+  <columns dataType="CHAR" name="L&#xa7;CDVA" length="4"/>
+  <columns dataType="DECIMAL" name="L&#xa7;VA01" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;VA02" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;VA03" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;VA04" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;VA05" length="21" scale="6"/>
+  <columns dataType="DECIMAL" name="L&#xa7;QRIV" length="11" scale="3"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DT01" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DT02" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DT03" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DT04" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DT05" length="8"/>
+  <columns dataType="CHAR" name="L&#xa7;CL01" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CL02" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CL03" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CL04" length="15"/>
+  <columns dataType="CHAR" name="L&#xa7;CL05" length="15"/>
+  <columns dataType="DECIMAL" name="L&#xa7;NU01" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="L&#xa7;NU02" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="L&#xa7;NU03" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="L&#xa7;NU04" length="15" scale="5"/>
+  <columns dataType="DECIMAL" name="L&#xa7;NU05" length="15" scale="5"/>
+  <columns dataType="CHAR" name="L&#xa7;FL01" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL02" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL03" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL04" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL05" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL06" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL07" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL08" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL09" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL10" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL11" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL12" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL13" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL14" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL15" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL16" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL17" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL18" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL19" length="1"/>
+  <columns dataType="CHAR" name="L&#xa7;FL20" length="1"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DTCR" length="8"/>
+  <columns dataType="DECIMAL" name="L&#xa7;DTAG" length="8"/>
+  <columns dataType="CHAR" name="L&#xa7;USAG" length="10"/>
+</db-core:TableDef>

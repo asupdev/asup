@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRCAMB0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="C&#xa3;STAT" precision="1"/>
-  <columns dataType="CHAR" name="C&#xa3;DIVI" precision="4"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DATA" precision="8"/>
-  <columns dataType="CHAR" name="C&#xa3;TIPO" precision="3"/>
-  <columns dataType="DECIMAL" name="C&#xa3;CAMB" precision="12" scale="6"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DFIC" precision="5"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRCAMB0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="C&#xa3;STAT" length="1"/>
+  <columns dataType="CHAR" name="C&#xa3;DIVI" length="4"/>
+  <columns dataType="DECIMAL" name="C&#xa3;DATA" length="8"/>
+  <columns dataType="CHAR" name="C&#xa3;TIPO" length="3"/>
+  <columns dataType="DECIMAL" name="C&#xa3;CAMB" length="12" scale="6"/>
+  <columns dataType="DECIMAL" name="C&#xa3;DFIC" length="5"/>
+</db-core:TableDef>

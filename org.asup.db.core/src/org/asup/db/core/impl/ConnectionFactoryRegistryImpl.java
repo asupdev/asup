@@ -7,17 +7,16 @@
  */
 package org.asup.db.core.impl;
 
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Connection Factory Registry</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Connection Factory Registry</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
@@ -25,8 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class ConnectionFactoryRegistryImpl extends PluginRegistryImpl<QConnectionFactory> implements QConnectionFactoryRegistry {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ConnectionFactoryRegistryImpl() {
@@ -34,8 +32,7 @@ public abstract class ConnectionFactoryRegistryImpl extends PluginRegistryImpl<Q
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -44,12 +41,12 @@ public abstract class ConnectionFactoryRegistryImpl extends PluginRegistryImpl<Q
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public QConnectionFactory lookup(QConnectionConfig connectionConfig) {
-		return lookup(connectionConfig.getPluginName());
+		return lookup(connectionConfig.getDatabaseDefinitionID());
 	}
 
-} //ConnectionFactoryRegistryImpl
+} // ConnectionFactoryRegistryImpl

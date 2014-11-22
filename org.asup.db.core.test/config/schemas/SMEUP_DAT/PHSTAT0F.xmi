@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PHSTAT0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="DECIMAL" name="PHMAST" precision="3"/>
-  <columns dataType="DECIMAL" name="PHSLAV" precision="3"/>
-  <columns dataType="DECIMAL" name="PHDTIN" precision="8"/>
-  <columns dataType="CHAR" name="PHHRIN" precision="8"/>
-  <columns dataType="CHAR" name="PHUSIN" precision="10"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="PHSTAT0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="DECIMAL" name="PHMAST" length="3"/>
+  <columns dataType="DECIMAL" name="PHSLAV" length="3"/>
+  <columns dataType="DECIMAL" name="PHDTIN" length="8"/>
+  <columns dataType="CHAR" name="PHHRIN" length="8"/>
+  <columns dataType="CHAR" name="PHUSIN" length="10"/>
+</db-core:TableDef>

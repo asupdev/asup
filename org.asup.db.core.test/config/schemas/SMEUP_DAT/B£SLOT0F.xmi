@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SLOT0F">
-  <columns name="QMUKEY" precision="20"/>
-  <columns dataType="CHAR" name="B&#xa3;TOGG" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa3;POGG" precision="10"/>
-  <columns dataType="CHAR" name="B&#xa3;TOGS" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa3;POGS" precision="10"/>
-  <columns dataType="CHAR" name="B&#xa3;AOGG" precision="15"/>
-  <columns dataType="CHAR" name="B&#xa3;DAOG" precision="35"/>
-  <columns dataType="CHAR" name="B&#xa3;TAOG" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa3;PAOG" precision="10"/>
-  <columns dataType="DECIMAL" name="B&#xa3;CLPR" precision="2"/>
-  <columns dataType="CHAR" name="B&#xa3;CATE" precision="10"/>
-  <columns dataType="CHAR" name="B&#xa3;DEVI" precision="15"/>
-  <columns dataType="CHAR" name="B&#xa3;PGMC" precision="10"/>
-  <columns dataType="CHAR" name="B&#xa3;PARC" precision="10"/>
-  <columns dataType="CHAR" name="B&#xa3;FL01" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa3;FL02" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa3;FL03" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa3;FL04" precision="1"/>
-  <columns dataType="CHAR" name="B&#xa3;FL05" precision="1"/>
-</db-core:Table>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SLOT0F">
+  <columns name="QMUKEY" length="20"/>
+  <columns dataType="CHAR" name="B&#xa3;TOGG" length="2"/>
+  <columns dataType="CHAR" name="B&#xa3;POGG" length="10"/>
+  <columns dataType="CHAR" name="B&#xa3;TOGS" length="2"/>
+  <columns dataType="CHAR" name="B&#xa3;POGS" length="10"/>
+  <columns dataType="CHAR" name="B&#xa3;AOGG" length="15"/>
+  <columns dataType="CHAR" name="B&#xa3;DAOG" length="35"/>
+  <columns dataType="CHAR" name="B&#xa3;TAOG" length="2"/>
+  <columns dataType="CHAR" name="B&#xa3;PAOG" length="10"/>
+  <columns dataType="DECIMAL" name="B&#xa3;CLPR" length="2"/>
+  <columns dataType="CHAR" name="B&#xa3;CATE" length="10"/>
+  <columns dataType="CHAR" name="B&#xa3;DEVI" length="15"/>
+  <columns dataType="CHAR" name="B&#xa3;PGMC" length="10"/>
+  <columns dataType="CHAR" name="B&#xa3;PARC" length="10"/>
+  <columns dataType="CHAR" name="B&#xa3;FL01" length="1"/>
+  <columns dataType="CHAR" name="B&#xa3;FL02" length="1"/>
+  <columns dataType="CHAR" name="B&#xa3;FL03" length="1"/>
+  <columns dataType="CHAR" name="B&#xa3;FL04" length="1"/>
+  <columns dataType="CHAR" name="B&#xa3;FL05" length="1"/>
+</db-core:TableDef>
