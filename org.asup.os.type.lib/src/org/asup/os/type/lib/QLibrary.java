@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.lib;
 
+import java.util.List;
 import org.asup.os.type.QTypedObject;
 
 /**
@@ -17,6 +18,7 @@ import org.asup.os.type.QTypedObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.os.type.lib.QLibrary#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.asup.os.type.lib.QLibrary#getParentLibrary <em>Parent Library</em>}</li>
  * </ul>
  * </p>
@@ -33,6 +35,22 @@ public interface QLibrary extends QTypedObject {
 	 * @generated
 	 */
 	String copyright = "Copyright (c) 2012, 2014 Sme.UP and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html";
+
+	/**
+	 * Returns the value of the '<em><b>Dependencies</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependencies</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependencies</em>' attribute list.
+	 * @see org.asup.os.type.lib.QOperatingSystemLibraryPackage#getLibrary_Dependencies()
+	 * @model
+	 * @generated
+	 */
+	List<String> getDependencies();
 
 	/**
 	 * Returns the value of the '<em><b>Parent Library</b></em>' attribute.

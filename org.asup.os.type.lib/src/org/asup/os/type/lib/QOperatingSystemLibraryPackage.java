@@ -196,13 +196,22 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	int LIBRARY__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
+	 * The feature id for the '<em><b>Dependencies</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__DEPENDENCIES = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Parent Library</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIBRARY__PARENT_LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+	int LIBRARY__PARENT_LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Library</em>' class.
@@ -211,7 +220,7 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIBRARY_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+	int LIBRARY_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.lib.QLibraryManager <em>Library Manager</em>}'.
@@ -232,6 +241,17 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLibrary();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.asup.os.type.lib.QLibrary#getDependencies <em>Dependencies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Dependencies</em>'.
+	 * @see org.asup.os.type.lib.QLibrary#getDependencies()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EAttribute getLibrary_Dependencies();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.os.type.lib.QLibrary#getParentLibrary <em>Parent Library</em>}'.
@@ -285,6 +305,14 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LIBRARY = eINSTANCE.getLibrary();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependencies</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIBRARY__DEPENDENCIES = eINSTANCE.getLibrary_Dependencies();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent Library</b></em>' attribute feature.
