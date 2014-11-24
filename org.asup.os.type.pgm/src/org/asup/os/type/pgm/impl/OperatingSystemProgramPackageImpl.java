@@ -635,6 +635,15 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, this.getParameterList(), "params", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getOperatingSystemRuntimeProgramException());
 
+		op = addEOperation(programManagerEClass, null, "callProgram", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "klass", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameterList(), "params", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getOperatingSystemRuntimeProgramException());
+
 		op = addEOperation(programManagerEClass, this.getCallableProgram(), "getCaller", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCallableProgram(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -643,9 +652,17 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(programManagerEClass, this.getCallableProgram(), "loadProgram", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getProgram(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theOperatingSystemCorePackage.getOperatingSystemException());
+		addEException(op, this.getOperatingSystemRuntimeProgramException());
+
+		op = addEOperation(programManagerEClass, this.getCallableProgram(), "loadProgram", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "klass", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getOperatingSystemRuntimeProgramException());
 
 		initEClass(programSourceEClass, QProgramSource.class, "ProgramSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgramSource_Type(), ecorePackage.getEString(), "type", "ASUP", 0, 1, QProgramSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

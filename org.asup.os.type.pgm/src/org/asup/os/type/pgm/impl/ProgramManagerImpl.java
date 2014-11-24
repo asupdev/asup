@@ -10,6 +10,7 @@ package org.asup.os.type.pgm.impl;
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QData;
 import org.asup.os.core.OperatingSystemException;
+import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.impl.TypedManagerImpl;
 import org.asup.os.type.pgm.OperatingSystemRuntimeProgramException;
 import org.asup.os.type.pgm.QCallableProgram;
@@ -74,6 +75,17 @@ public abstract class ProgramManagerImpl extends TypedManagerImpl<QProgram> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void callProgram(QJob job, Class<?> klass, QData[] params) throws OperatingSystemRuntimeProgramException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QCallableProgram getCaller(QContextID contextID, QCallableProgram context) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -96,7 +108,18 @@ public abstract class ProgramManagerImpl extends TypedManagerImpl<QProgram> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCallableProgram loadProgram(QContextID contextID, QProgram program) throws OperatingSystemException {
+	public QCallableProgram loadProgram(QJob job, QProgram program) throws OperatingSystemException, OperatingSystemRuntimeProgramException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCallableProgram loadProgram(QJob job, Class<?> klass) throws OperatingSystemException, OperatingSystemRuntimeProgramException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -10,6 +10,7 @@ package org.asup.os.type.pgm;
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QData;
 import org.asup.os.core.OperatingSystemException;
+import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.QTypedManager;
 
 /**
@@ -34,6 +35,14 @@ public interface QProgramManager extends QTypedManager<QProgram> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.os.type.pgm.OperatingSystemRuntimeProgramException" paramsDataType="org.asup.os.type.pgm.ParameterList"
+	 * @generated
+	 */
+	void callProgram(QJob job, Class<?> klass, QData[] params) throws OperatingSystemRuntimeProgramException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model contextRequired="true"
 	 * @generated
 	 */
@@ -50,9 +59,17 @@ public interface QProgramManager extends QTypedManager<QProgram> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.os.core.OperatingSystemException" programRequired="true"
+	 * @model exceptions="org.asup.os.type.pgm.OperatingSystemRuntimeProgramException" programRequired="true"
 	 * @generated
 	 */
-	QCallableProgram loadProgram(QContextID contextID, QProgram program) throws OperatingSystemException;
+	QCallableProgram loadProgram(QJob job, QProgram program) throws OperatingSystemException, OperatingSystemRuntimeProgramException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.os.type.pgm.OperatingSystemRuntimeProgramException"
+	 * @generated
+	 */
+	QCallableProgram loadProgram(QJob job, Class<?> klass) throws OperatingSystemException, OperatingSystemRuntimeProgramException;
 
 } // QProgramManager

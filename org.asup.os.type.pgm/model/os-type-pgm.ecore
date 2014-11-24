@@ -77,6 +77,15 @@
       <eParameters name="program" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="params" eType="#//ParameterList"/>
     </eOperations>
+    <eOperations name="callProgram" eExceptions="#//OperatingSystemRuntimeProgramException">
+      <eParameters name="job" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="klass">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="params" eType="#//ParameterList"/>
+    </eOperations>
     <eOperations name="getCaller" eType="#//CallableProgram">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
       <eParameters name="context" lowerBound="1" eType="#//CallableProgram"/>
@@ -84,9 +93,17 @@
     <eOperations name="getProgramStack" eType="#//ProgramStack">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
     </eOperations>
-    <eOperations name="loadProgram" eType="#//CallableProgram" eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemException">
-      <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+    <eOperations name="loadProgram" eType="#//CallableProgram" eExceptions="#//OperatingSystemRuntimeProgramException">
+      <eParameters name="job" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
       <eParameters name="program" lowerBound="1" eType="#//Program"/>
+    </eOperations>
+    <eOperations name="loadProgram" eType="#//CallableProgram" eExceptions="#//OperatingSystemRuntimeProgramException">
+      <eParameters name="job" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="klass">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedManager">
       <eTypeArguments eClassifier="#//Program"/>
