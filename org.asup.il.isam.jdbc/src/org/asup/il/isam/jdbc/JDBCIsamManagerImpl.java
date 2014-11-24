@@ -11,17 +11,15 @@
  */
 package org.asup.il.isam.jdbc;
 
-import java.sql.SQLException;
-
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QAliasResolverRegistry;
 import org.asup.db.syntax.QSyntaxBuilder;
 import org.asup.db.syntax.QSyntaxBuilderRegistry;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.il.data.QDataFactory;
@@ -32,8 +30,6 @@ import org.asup.il.isam.QIsamManager;
 public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 
 	@Inject
-	private QConnectionManager connectionManager;
-	@Inject
 	private QDatabaseManager databaseManager;
 	@Inject
 	private QDataManager dataManager;
@@ -43,17 +39,11 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 	private QAliasResolverRegistry aliasResolverRegistry;
 	
 	@Override
-	public QIsamFactory createFactory(QContextID contextID) {
+	public QIsamFactory createFactory(QContext context, QContextID contextID) {
 				
+		QConnection connection = context.getAdapter(contextID, QConnection.class);
 		QDataFactory dataFactory = dataManager.createFactory(contextID);
-		QConnection connection;
-		try {
-			connection = connectionManager.createDatabaseConnection("*LOCAL");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-
+		
 		QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
 		QAliasResolver aliasResolver = aliasResolverRegistry.lookup("*JOB");
 		

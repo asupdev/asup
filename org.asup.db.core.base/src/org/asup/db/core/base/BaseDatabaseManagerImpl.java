@@ -16,17 +16,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.asup.db.core.DatabaseDataType;
-import org.asup.db.core.OrderingType;
-import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseCoreFactory;
-import org.asup.db.core.QIndexColumnDef;
-import org.asup.db.core.QIndexDef;
-import org.asup.db.core.QSchemaDef;
-import org.asup.db.core.QStatement;
-import org.asup.db.core.QTableColumnDef;
-import org.asup.db.core.QTableDef;
-import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QSyntaxBuilder;
 import org.asup.db.syntax.QSyntaxBuilderRegistry;
@@ -45,14 +34,22 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+//github.com/asupdev/asup.git
+import org.asup.db.core.DatabaseDataType;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QSchemaDef;
+import org.asup.db.core.QStatement;
+import org.asup.db.core.QTableColumnDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
+//github.com/asupdev/asup.git
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
 	private QSyntaxBuilderRegistry syntaxBuilderRegistry;
 
-	private static final String TABLE_COLUMN_PRIMARY_KEY_NAME = "QASRRN"; 
-	
 	@Override
 	public void createSchema(QConnection connection, QSchemaDef schemaDef) throws SQLException {
 
@@ -108,21 +105,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			synchronized (schema) {
 				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
 				tableLoader.loadTables(schema.getTables(), schema.getTables());				
-			}
-			
-			if(databaseDefinition.supportsIdentityColumns()) {
-				Table table = getTable(connection, schema.getName(), tableDef.getName());
-				
-				QIndexDef uniqueIndex = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-				uniqueIndex.setName("QAS_"+tableDef.getName()+"_RRN_IDX");
-				uniqueIndex.setUnique(true);
-				QIndexColumnDef uniqueIndexColumn = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
-				uniqueIndexColumn.setName(TABLE_COLUMN_PRIMARY_KEY_NAME);
-				uniqueIndexColumn.setOrdering(OrderingType.ASCEND);
-				uniqueIndexColumn.setSequence(1);
-				uniqueIndex.getColumns().add(uniqueIndexColumn);
-				
-				createIndex(connection, table, uniqueIndex);
 			}
 
 		}
@@ -329,7 +311,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Override
 	public Database getDatabase(QConnection connection) {		
-		return connection.getAdapter(connection, ConnectionInfo.class).getSharedDatabase();
+		return connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class).getSharedDatabase();
 	}
 
 	@Override
@@ -374,4 +356,5 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		else
 			return null; 
 	}
+
 }

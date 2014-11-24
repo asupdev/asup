@@ -18,6 +18,7 @@ import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#isAutoCommit <em>Auto Commit</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}</li>
@@ -32,6 +33,33 @@ import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition
  * @generated
  */
 public interface QConnectionConfig extends QServiceConfig {
+	/**
+	 * Returns the value of the '<em><b>Auto Commit</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Auto Commit</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Auto Commit</em>' attribute.
+	 * @see #setAutoCommit(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_AutoCommit()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isAutoCommit();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isAutoCommit <em>Auto Commit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Auto Commit</em>' attribute.
+	 * @see #isAutoCommit()
+	 * @generated
+	 */
+	void setAutoCommit(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Driver Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

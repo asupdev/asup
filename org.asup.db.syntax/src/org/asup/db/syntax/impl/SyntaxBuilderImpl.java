@@ -195,10 +195,13 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	 */
 	public String createIndex(Table table, QIndexDef index) {
 		StringBuffer result = new StringBuffer("CREATE ");
-		if (index.isUnique()) {
+		if (index.isUnique())
 			result.append("UNIQUE ");
-		}
-		result.append("INDEX " + getQualifiedNameInSQLFormat(table)+"."+getNameInSQLFormat(index));
+		
+		if (index.isUnique())
+			result.append("CLUSTERED ");
+		
+		result.append("INDEX " + getNameInSQLFormat(index));
 		result.append(" ON " + getQualifiedNameInSQLFormat(table) + " (");
 
 		boolean first = true;

@@ -18,12 +18,10 @@ import java.util.Iterator;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.asup.db.core.OrderingType;
-import org.asup.db.core.QIndexColumnDef;
-import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
+import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QQueryConverter;
 import org.asup.db.syntax.QQueryParser;
@@ -45,54 +43,55 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	private QQueryParserRegistry queryParserRegistry;
 
 	private QQueryConverter queryConverter;
-	
+
 	@PostConstruct
 	private void init() {
 		this.queryConverter = new MsSQLQueryConverterImpl();
 		setSQLObjectNameHelper(new SQLObjectNameHelper());
 	}
-	
+
 	@Override
 	public String createTable(Schema schema, QTableDef table) {
+		
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
-		result.append(getNameInSQLFormat(schema)+"."+getNameInSQLFormat(table)+" (");
+		result.append(getNameInSQLFormat(schema) + "." + getNameInSQLFormat(table) + " (");
 
 		boolean first = true;
-		for(QTableColumnDef column: table.getColumns()) {
+		for (QTableColumnDef column : table.getColumns()) {
 
-			if(!first)
+			if (!first)
 				result.append(", ");
-			
+
 			String columnName = getNameInSQLFormat(column);
-			
+
 			switch (column.getDataType()) {
-				case IDENTITY:
-					result.append(columnName+" INT PRIMARY KEY IDENTITY");					
-					break;
-				case CHARACTER:
-					result.append(columnName+" CHAR("+column.getLength()+")");
-					break;
-				case VARCHAR:
-					if(column.getLength()>8000)
-						result.append(columnName+" TEXT");
-					else
-						result.append(columnName+" VARCHAR("+column.getLength()+")");
-					break;
-				case DECIMAL:
-					if(column.getScale() != 0)
-						result.append(columnName+" DECIMAL("+column.getLength()+", "+column.getScale()+")");
-					else
-						result.append(columnName+" DECIMAL("+column.getLength()+",  0)");
-					break;
-				case BLOB:
-					result.append(columnName+" TEXT");
-					break;
-				case TEXT:
-					result.append(columnName+" TEXT");
-					break;
-				default:
-					result.append(columnName+" "+column.getDataType().getName() .toUpperCase());
-			}			
+			case IDENTITY:
+				result.append(columnName + " INT PRIMARY KEY IDENTITY");
+				break;
+			case CHARACTER:
+				result.append(columnName + " CHAR(" + column.getLength() + ")");
+				break;
+			case VARCHAR:
+				if (column.getLength() > 8000)
+					result.append(columnName + " TEXT");
+				else
+					result.append(columnName + " VARCHAR(" + column.getLength() + ")");
+				break;
+			case DECIMAL:
+				if (column.getScale() != 0)
+					result.append(columnName + " DECIMAL(" + column.getLength() + ", " + column.getScale() + ")");
+				else
+					result.append(columnName + " DECIMAL(" + column.getLength() + ",  0)");
+				break;
+			case BLOB:
+				result.append(columnName + " TEXT");
+				break;
+			case TEXT:
+				result.append(columnName + " TEXT");
+				break;
+			default:
+				result.append(columnName + " " + column.getDataType().getName().toUpperCase());
+			}
 			first = false;
 		}
 		result.append(")");
@@ -103,20 +102,20 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 	public String createView(Schema schema, QViewDef view) {
 
 		String command = view.getCreationCommand();
-		if(command == null)
+		if (command == null)
 			return null;
-		
+
 		String commandCreate = null;
 		String commandSelect = null;
 
 		int i = command.toUpperCase().indexOf("AS\n  SELECT");
-		if(i<=0) {
+		if (i <= 0) {
 			i = command.toUpperCase().indexOf("AS   SELECT");
 		}
-		if(i>0) {
-			commandCreate = command.substring(0, i).trim();			
-			commandSelect = command.substring(i+2).trim();
-			
+		if (i > 0) {
+			commandCreate = command.substring(0, i).trim();
+			commandSelect = command.substring(i + 2).trim();
+
 			try {
 				commandCreate = convertCreateCommand(schema, view, commandCreate);
 				commandSelect = convertSelectCommand(schema, view, commandSelect);
@@ -124,76 +123,44 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 				e.printStackTrace();
 				return null;
 			}
-			
-		}
-		else
+
+		} else
 			System.err.println(command);
 		command = commandCreate + " WITH SCHEMABINDING  AS " + commandSelect;
-//		System.out.println(command);
+		// System.out.println(command);
 
 		return command;
 	}
-	
 
-	@Override
-	public String createIndex(Table table, QIndexDef index) {
-//		Table table = index.getTable();
-		StringBuffer result = new StringBuffer("CREATE ");
-		if(index.isUnique()) 	
-			result.append("UNIQUE CLUSTERED ");			
-		else 
-			result.append("NONCLUSTERED ");
-		
-		result.append("INDEX "+getNameInSQLFormat(index));
-		result.append(" ON "+getQualifiedNameInSQLFormat(table)+" (");
-
-		boolean first = true;
-		
-		for(QIndexColumnDef column: index.getColumns()) {			
-			
-			if(!first)
-				result.append(", ");
-
-			result.append(getNameInSQLFormat(column));
-			
-			if(column.getOrdering() == OrderingType.DESCEND) 
-				result.append(" DESC");
-
-			first = false;
-		}
-		result.append(")");
-		return result.toString();
-	}
-	
 	@Override
 	public String deleteData(Table table) {
-		return "TRUNCATE TABLE "+getQualifiedNameInSQLFormat(table);
+		return "TRUNCATE TABLE " + getQualifiedNameInSQLFormat(table);
 	}
 
 	private String convertSelectCommand(Schema schema, QViewDef view, String command) throws SQLException {
-		
+
 		try {
 			QQueryParser queryParser = queryParserRegistry.lookup(view.getCreationPlugin());
-			
-//			commandWork = command.replaceFirst("SELECT", "SELECT QMUKEY,");			
-//			System.out.println(commandWork);
-			
+
+			command = command.replaceFirst("SELECT", "SELECT " + getIdentifierQuoteString()
+					+ DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME + getIdentifierQuoteString() + ",");
+
 			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(command.getBytes()));
-			
+
 			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
-			
-			command = queryConverter.convertQuery(query);			
-						
+
+			command = queryConverter.convertQuery(query);
+
 		} catch (Exception e) {
 			throw new SQLException(e);
-		} 
-				
+		}
+
 		return command;
 	}
-	
+
 	private String convertCreateCommand(Schema schema, QViewDef view, String command) throws SQLException {
-		
+
 		Parser parser = Parser.buildParser("db2400");
 		Iterator<Token> tokens;
 		try {
@@ -203,132 +170,101 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 		}
 
 		String status = "INIT";
-		StringBuffer parsedCommand = new StringBuffer();		
-		
-//		boolean firstColumn = false;
-		
-		while(tokens.hasNext()) {
+		StringBuffer parsedCommand = new StringBuffer();
+
+		boolean firstColumn = false;
+
+		while (tokens.hasNext()) {
 			Token token = tokens.next();
 			String text = token.getText();
 
-			if(text.trim().isEmpty()) {
+			if (text.trim().isEmpty()) {
 				parsedCommand.append(" ");
-			}
-			else if(text.equals(";")) {
+			} else if (text.equals(";")) {
 				parsedCommand.append(text);
-			}
-			else if(token.getType().equals(TokenType.STRING)) {
-				parsedCommand.append("'"+text+"'");
-			}
-			else if(token.getType().equals(TokenType.NUMBER)) {
+			} else if (token.getType().equals(TokenType.STRING)) {
+				parsedCommand.append("'" + text + "'");
+			} else if (token.getType().equals(TokenType.NUMBER)) {
 				parsedCommand.append(text);
-			}
-			else if(token.getType().equals(TokenType.COMMA)) {
+			} else if (token.getType().equals(TokenType.COMMA)) {
 				parsedCommand.append(text);
-			}
-			else if(token.getType().equals(TokenType.EXP_OPEN)) {
+			} else if (token.getType().equals(TokenType.EXP_OPEN)) {
 				parsedCommand.append(text);
-			}
-			else if(token.getType().equals(TokenType.EXP_CLOSE)) {
+			} else if (token.getType().equals(TokenType.EXP_CLOSE)) {
 				parsedCommand.append(text);
-			}
-			else if(token.getType().equals(TokenType.NOT)) {
+			} else if (token.getType().equals(TokenType.NOT)) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("IS")) {
+			} else if (text.equals("IS")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("CAST")) {
+			} else if (text.equals("CAST")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("NULL")) {
+			} else if (text.equals("NULL")) {
 				parsedCommand.append(text);
-			}			
-			else if(text.equals("IN")) {
+			} else if (text.equals("IN")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("OR")) {
+			} else if (text.equals("OR")) {
 				parsedCommand.append(text);
-			}			
-			else if(text.equals("AND")) {
+			} else if (text.equals("AND")) {
 				parsedCommand.append(text);
-			}			
-			else if(text.equals("LIKE")) {
+			} else if (text.equals("LIKE")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("=")) {
+			} else if (text.equals("=")) {
 				parsedCommand.append(text);
-			}			
-			else if(text.equals(">")) {
+			} else if (text.equals(">")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals(">=")) {
+			} else if (text.equals(">=")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("<=")) {
+			} else if (text.equals("<=")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("<=")) {				
+			} else if (text.equals("<=")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("<>")) {				
+			} else if (text.equals("<>")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("BEETWEN")) {
+			} else if (text.equals("BEETWEN")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("SUBSTRING")) {
+			} else if (text.equals("SUBSTRING")) {
 				parsedCommand.append(text);
-			}
-			else if(text.equals("AS")) {
+			} else if (text.equals("AS")) {
 				status = "INIT";
-				parsedCommand.append(" WITH SCHEMABINDING "+text);
-			}
-			else if(text.equals("FROM")) {
+				parsedCommand.append(" WITH SCHEMABINDING " + text);
+			} else if (text.equals("FROM")) {
 				status = "TABLE";
 				parsedCommand.append(text);
-			}
-			else if(text.equals("SELECT")) {
+			} else if (text.equals("SELECT")) {
 				status = "COLUMN";
 //				firstColumn = true;
 				parsedCommand.append(text);
-			}
-			else if(text.equals("CREATE")) {
+			} else if (text.equals("CREATE")) {
 				status = "CREATE";
 				parsedCommand.append(text);
-			}
-			else if(text.equals("WHERE")) {
+			} else if (text.equals("WHERE")) {
 				status = "COLUMN";
 				parsedCommand.append(text);
-			}		
-			else if(status.equals("CREATE") && text.equals("VIEW")) {
+			} else if (status.equals("CREATE") && text.equals("VIEW")) {
 				status = "CREATE_VIEW";
 				parsedCommand.append(text);
-			}
-			else if(status.equals("CREATE_VIEW")) {
-				text = getNameInSQLFormat(schema)+"."+getIdentifierQuoteString()+text+getIdentifierQuoteString();
+			} else if (status.equals("CREATE_VIEW")) {
+				text = getNameInSQLFormat(schema) + "." + getIdentifierQuoteString() + text + getIdentifierQuoteString();
 				parsedCommand.append(text);
 				status = "COLUMN";
-//				firstColumn = true;				
-			}
-			else if(status.equals("TABLE")) {
-				text = getNameInSQLFormat(schema)+"."+getIdentifierQuoteString()+text+getIdentifierQuoteString();
+				firstColumn = true;
+			} else if (status.equals("TABLE")) {
+				text = getNameInSQLFormat(schema) + "." + getIdentifierQuoteString() + text + getIdentifierQuoteString();
 				parsedCommand.append(text);
 				status = "COLUMN";
-			}
-			else if(status.equals("COLUMN")) {
-//				if(firstColumn)
-//					parsedCommand.append(getIdentifierQuoteString()+"QMUKEY"+getIdentifierQuoteString()+", ");
-				text = getIdentifierQuoteString()+text+getIdentifierQuoteString();
+			} else if (status.equals("COLUMN")) {
+				if (firstColumn)
+					parsedCommand.append(getIdentifierQuoteString() + DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME
+							+ getIdentifierQuoteString() + ", ");
+				text = getIdentifierQuoteString() + text + getIdentifierQuoteString();
 				parsedCommand.append(text);
-//				firstColumn = false;
-			}
-			else {
+				firstColumn = false;
+			} else {
 				parsedCommand.append(text);
-				System.out.println("Unknown token "+text+" parsing "+command);
+				System.out.println("Unknown token " + text + " parsing " + command);
 			}
 		}
 
 		return parsedCommand.toString();
-	}	
+	}
 }

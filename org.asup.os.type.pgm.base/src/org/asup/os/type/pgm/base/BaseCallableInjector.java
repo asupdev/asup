@@ -148,7 +148,7 @@ public class BaseCallableInjector {
 				
 				QIsamFactory isamFactory = job.getJobContext().get(QIsamFactory.class);
 				if(isamFactory == null) {
-					isamFactory = isamManager.createFactory(job);
+					isamFactory = isamManager.createFactory(job.getJobContext(), job);
 					job.getJobContext().set(QIsamFactory.class, isamFactory);
 				}
 				

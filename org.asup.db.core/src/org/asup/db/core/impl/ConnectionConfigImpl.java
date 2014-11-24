@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isAutoCommit <em>Auto Commit</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDriverName <em>Driver Name</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getPassword <em>Password</em>}</li>
@@ -34,6 +35,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnectionConfig {
+	/**
+	 * The default value of the '{@link #isAutoCommit() <em>Auto Commit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutoCommit()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AUTO_COMMIT_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isAutoCommit() <em>Auto Commit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutoCommit()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean autoCommit = AUTO_COMMIT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getDriverName() <em>Driver Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -163,6 +184,27 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	@Override
 	protected EClass eStaticClass() {
 		return QDatabaseCorePackage.Literals.CONNECTION_CONFIG;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isAutoCommit() {
+		return autoCommit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAutoCommit(boolean newAutoCommit) {
+		boolean oldAutoCommit = autoCommit;
+		autoCommit = newAutoCommit;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT, oldAutoCommit, autoCommit));
 	}
 
 	/**
@@ -308,6 +350,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
+				return isAutoCommit();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				return getDriverName();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
@@ -331,6 +375,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
+				setAutoCommit((Boolean)newValue);
+				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				setDriverName((String)newValue);
 				return;
@@ -360,6 +407,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
+				setAutoCommit(AUTO_COMMIT_EDEFAULT);
+				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				setDriverName(DRIVER_NAME_EDEFAULT);
 				return;
@@ -389,6 +439,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
+				return autoCommit != AUTO_COMMIT_EDEFAULT;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				return DRIVER_NAME_EDEFAULT == null ? driverName != null : !DRIVER_NAME_EDEFAULT.equals(driverName);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
@@ -414,7 +466,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (driverName: ");
+		result.append(" (autoCommit: ");
+		result.append(autoCommit);
+		result.append(", driverName: ");
 		result.append(driverName);
 		result.append(", product: ");
 		result.append(product);

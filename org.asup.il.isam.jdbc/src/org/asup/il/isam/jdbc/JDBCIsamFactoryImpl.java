@@ -58,10 +58,16 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		
 		if(dataSetTerm.isKeyedAccess()) {
 			Index index = getIndex(dataSetTerm.getFileName());
+			if(index == null)
+				return null;
+			
 			return new JDBCIndexDataSetImpl<QDataStruct>(connection, syntaxBuilder, index, AccessMode.UPDATE, dataStruct);
 		}
 		else {
 			Table table = getTable(dataSetTerm.getFileName());
+			if(table == null)
+				return null;
+			
 			return new JDBCTableDataSetImpl<QDataStruct>(connection, syntaxBuilder, table, AccessMode.UPDATE, dataStruct);
 		}
 		

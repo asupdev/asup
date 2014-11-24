@@ -8,7 +8,7 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QContextID;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
@@ -21,7 +21,23 @@ import org.eclipse.datatools.modelbase.sql.schema.Catalog;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QConnection extends QContext {
+public interface QConnection extends QContextID {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException"
+	 * @generated
+	 */
+	void close() throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException"
+	 * @generated
+	 */
+	void commit() throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -38,6 +54,22 @@ public interface QConnection extends QContext {
 	 * @generated
 	 */
 	QPreparedStatement prepareStatement(String sql, boolean native_) throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException"
+	 * @generated
+	 */
+	void rollback() throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException" autoCommitRequired="true"
+	 * @generated
+	 */
+	void setAutoCommit(boolean autoCommit) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,6 +94,14 @@ public interface QConnection extends QContext {
 	 * @generated
 	 */
 	QConnectionConfig getConnectionConfig();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	QConnectionContext getConnectionContext();
 
 	/**
 	 * <!-- begin-user-doc -->

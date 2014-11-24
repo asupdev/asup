@@ -22,8 +22,9 @@ public abstract class BaseConnectionAdapterFactoryImpl implements IAdapterFactor
 			BaseConnectionImpl connection = (BaseConnectionImpl) adaptableObject;
 			if(ConnectionInfo.class.isAssignableFrom(adapterType))
 				adaptee = connection.getConnectionInfo();
-			else if(Connection.class.isAssignableFrom(adapterType)) 
+			else if(Connection.class.isAssignableFrom(adapterType)) { 
 				adaptee = connection.getConnectionInfo().getSharedConnection();
+			}
 		}
 
 		return adaptee;

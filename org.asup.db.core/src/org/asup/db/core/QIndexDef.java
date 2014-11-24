@@ -16,6 +16,7 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.db.core.QIndexDef#isClustered <em>Clustered</em>}</li>
  *   <li>{@link org.asup.db.core.QIndexDef#getColumns <em>Columns</em>}</li>
  *   <li>{@link org.asup.db.core.QIndexDef#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.db.core.QIndexDef#isUnique <em>Unique</em>}</li>
@@ -27,6 +28,32 @@ import java.util.List;
  * @generated
  */
 public interface QIndexDef extends QDatabaseObjectDef {
+	/**
+	 * Returns the value of the '<em><b>Clustered</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Clustered</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Clustered</em>' attribute.
+	 * @see #setClustered(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getIndexDef_Clustered()
+	 * @model
+	 * @generated
+	 */
+	boolean isClustered();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QIndexDef#isClustered <em>Clustered</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Clustered</em>' attribute.
+	 * @see #isClustered()
+	 * @generated
+	 */
+	void setClustered(boolean value);
+
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute. <!--
 	 * begin-user-doc -->

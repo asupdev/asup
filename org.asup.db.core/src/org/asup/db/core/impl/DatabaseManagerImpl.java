@@ -8,6 +8,7 @@
 package org.asup.db.core.impl;
 
 import java.sql.SQLException;
+
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseManager;
@@ -32,6 +33,12 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public abstract class DatabaseManagerImpl extends ServiceImpl implements QDatabaseManager {
+	
+	/*
+	 * @generated NOT
+	 */
+	public static final String TABLE_COLUMN_PRIMARY_KEY_NAME = "QASRRN"; 
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
