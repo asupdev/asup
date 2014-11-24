@@ -14,7 +14,7 @@ package org.asup.os.core.base.api;
 import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -92,7 +92,7 @@ public class FileMemberRunner {
 		}
 	}
 
-	public static class SourceFile extends QDataStructureHandler {
+	public static class SourceFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;

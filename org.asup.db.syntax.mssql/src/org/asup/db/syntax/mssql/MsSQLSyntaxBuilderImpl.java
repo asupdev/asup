@@ -172,27 +172,24 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 
 	private String convertSelectCommand(Schema schema, QViewDef view, String command) throws SQLException {
 		
-		String commandWork = null;
-		
 		try {
 			QQueryParser queryParser = queryParserRegistry.lookup(view.getCreationPlugin());
 			
-			commandWork = command.replaceFirst("SELECT", "SELECT QMUKEY,");
-			
+//			commandWork = command.replaceFirst("SELECT", "SELECT QMUKEY,");			
 //			System.out.println(commandWork);
 			
-			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(commandWork.getBytes()));
+			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(command.getBytes()));
 			
 			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 			
-			commandWork = queryConverter.convertQuery(query);			
+			command = queryConverter.convertQuery(query);			
 						
 		} catch (Exception e) {
 			throw new SQLException(e);
 		} 
 				
-		return commandWork;
+		return command;
 	}
 	
 	private String convertCreateCommand(Schema schema, QViewDef view, String command) throws SQLException {
@@ -208,7 +205,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 		String status = "INIT";
 		StringBuffer parsedCommand = new StringBuffer();		
 		
-		boolean firstColumn = false;
+//		boolean firstColumn = false;
 		
 		while(tokens.hasNext()) {
 			Token token = tokens.next();
@@ -293,7 +290,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 			}
 			else if(text.equals("SELECT")) {
 				status = "COLUMN";
-				firstColumn = true;
+//				firstColumn = true;
 				parsedCommand.append(text);
 			}
 			else if(text.equals("CREATE")) {
@@ -312,7 +309,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 				text = getNameInSQLFormat(schema)+"."+getIdentifierQuoteString()+text+getIdentifierQuoteString();
 				parsedCommand.append(text);
 				status = "COLUMN";
-				firstColumn = true;				
+//				firstColumn = true;				
 			}
 			else if(status.equals("TABLE")) {
 				text = getNameInSQLFormat(schema)+"."+getIdentifierQuoteString()+text+getIdentifierQuoteString();
@@ -320,11 +317,11 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 				status = "COLUMN";
 			}
 			else if(status.equals("COLUMN")) {
-				if(firstColumn)
-					parsedCommand.append(getIdentifierQuoteString()+"QMUKEY"+getIdentifierQuoteString()+", ");
+//				if(firstColumn)
+//					parsedCommand.append(getIdentifierQuoteString()+"QMUKEY"+getIdentifierQuoteString()+", ");
 				text = getIdentifierQuoteString()+text+getIdentifierQuoteString();
 				parsedCommand.append(text);
-				firstColumn = false;
+//				firstColumn = false;
 			}
 			else {
 				parsedCommand.append(text);

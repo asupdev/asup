@@ -31,7 +31,7 @@ public class JDBCTableDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	protected String buildOrderBy(OpDir dir) {
 		
 		StringBuffer sbOrderBy = new StringBuffer();
-		sbOrderBy.append("QMUKEY");
+//		sbOrderBy.append("QMUKEY");
 		
 		return sbOrderBy.toString();
 	}

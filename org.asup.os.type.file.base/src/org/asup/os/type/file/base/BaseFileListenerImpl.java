@@ -14,11 +14,8 @@ package org.asup.os.type.file.base;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.asup.db.core.OrderingType;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QIndexColumnDef;
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
@@ -98,21 +95,6 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			if (index != null) {
 
 				Table table = databaseManager.getTable(databaseConnection, schema.getName(), file.getName());
-
-				// unique index
-				if(!index.isUnique()) {
-					QIndexDef uniqueIndex = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-					uniqueIndex.setName("PK_"+index.getName());
-					uniqueIndex.setUnique(true);
-					QIndexColumnDef uniqueIndexColumn = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
-					uniqueIndexColumn.setName("QMUKEY");
-					uniqueIndexColumn.setOrdering(OrderingType.ASCEND);
-					uniqueIndexColumn.setSequence(1);
-					uniqueIndex.getColumns().add(uniqueIndexColumn);
-					databaseManager.createIndex(databaseConnection, table, uniqueIndex);
-				}
-
-				
 				databaseManager.createIndex(databaseConnection, table, index);
 			}
 		} catch (Exception e) {

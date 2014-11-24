@@ -8,7 +8,7 @@ import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDecimalDef;
 import org.asup.il.data.QEnum;
@@ -200,7 +200,7 @@ public class MessageDescriptionAdder {
 		CPF2407, CPF2412
 	}
 	
-	public static class MessageFile extends QDataStructureHandler {
+	public static class MessageFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -217,7 +217,7 @@ public class MessageDescriptionAdder {
 		NONE, OTHER
 	}
 
-	public static class MessageDataFieldsFormat extends QDataStructureHandler {
+	public static class MessageDataFieldsFormat extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
 		public QEnum<DataTypeEnum, QHexadecimal> dataType;
@@ -264,7 +264,7 @@ public class MessageDescriptionAdder {
 		NONE
 	}
 
-	public static class MaximumReplyLength extends QDataStructureHandler {
+	public static class MaximumReplyLength extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(binaryType = BinaryType.SHORT)
 		public QBinary length;
@@ -282,7 +282,7 @@ public class MessageDescriptionAdder {
 		NONE, OTHER
 	}
 
-	public static class SpecialReplyValue extends QDataStructureHandler {
+	public static class SpecialReplyValue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 32)
 		public QCharacter originalFromValue;
@@ -294,7 +294,7 @@ public class MessageDescriptionAdder {
 		NONE, OTHER
 	}
 
-	public static class RangeOfReplyValues extends QDataStructureHandler {
+	public static class RangeOfReplyValues extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 32)
 		public QCharacter lowerValue;
@@ -307,7 +307,7 @@ public class MessageDescriptionAdder {
 	}
 
 	public static class RelationshipForValidReplies extends
-			QDataStructureHandler {
+			QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
 		public QEnum<RelationalOperatorEnum, QHexadecimal> relationalOperator;
@@ -336,7 +336,7 @@ public class MessageDescriptionAdder {
 		NONE, OTHER
 	}
 
-	public static class DefaultProgramToCall extends QDataStructureHandler {
+	public static class DefaultProgramToCall extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -360,7 +360,7 @@ public class MessageDescriptionAdder {
 		JOBDMP, OTHER
 	}
 
-	public static class LevelOfMessage extends QDataStructureHandler {
+	public static class LevelOfMessage extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(datetimeType = DatetimeType.DATE, value = "*CURRENT")
 		public QEnum<CreationDateEnum, QDatetime> creationDate;
@@ -373,7 +373,7 @@ public class MessageDescriptionAdder {
 		}
 	}
 
-	public static class AlertOptions extends QDataStructureHandler {
+	public static class AlertOptions extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1, value = "*NO")
 		public QEnum<AlertTypeEnum, QCharacter> alertType;

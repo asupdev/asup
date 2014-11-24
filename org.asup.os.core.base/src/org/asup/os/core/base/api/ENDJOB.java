@@ -4,7 +4,7 @@ import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -22,7 +22,7 @@ public @ToDo @Program(name = "ENDJOB") class ENDJOB {
 			@ToDo @DataDef(length = 10) QEnum<DuplicateJobOptionEnum, QCharacter> duplicateJobOption) {
 	}
 
-	public static class JobName extends QDataStructureHandler {
+	public static class JobName extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;

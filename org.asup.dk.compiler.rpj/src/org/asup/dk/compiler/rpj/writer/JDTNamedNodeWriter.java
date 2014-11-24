@@ -22,7 +22,7 @@ import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
@@ -170,7 +170,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 
-					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), QDataStructureHandler.class, true);
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), QDataStructDelegator.class, true);
 					dataStructureWriter.writeDataStructure(unaryCompoundDataTerm.getDefinition());
 				}
 				else {
@@ -205,7 +205,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 					
 					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
 
-					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), QDataStructureHandler.class, true);
+					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), QDataStructDelegator.class, true);
 					dataStructureWriter.writeDataStructure(multipleCompoundDataTerm.getDefinition());
 				}
 				else {

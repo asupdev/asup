@@ -286,7 +286,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 		boolean first = true;
 		for (Column column : (List<Column>)table.getColumns()) {
 
-			if (column.getName().equals("QMUKEY"))
+			if (column.getIdentitySpecifier() != null)
 				continue;
 
 			if (!first) {

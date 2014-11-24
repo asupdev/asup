@@ -11,11 +11,11 @@
  */
 package org.asup.os.type.dtaq.base.data;
 
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.annotation.DataDef;
 
-public class DataQueue extends QDataStructureHandler {
+public class DataQueue extends QDataStructDelegator {
 	private static final long serialVersionUID = 1L;
 	@DataDef(length = 10)
 	public QCharacter name;

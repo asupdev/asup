@@ -18,7 +18,7 @@ import javax.inject.Inject;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -94,7 +94,7 @@ public class JobLogDisplayer {
 		objectWriter.flush();
 	}
 
-	public static class JobName extends QDataStructureHandler {
+	public static class JobName extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameEnum, QCharacter> name;
@@ -117,7 +117,7 @@ public class JobLogDisplayer {
 		OUTFILE
 	}
 
-	public static class FileToReceiveOutput extends QDataStructureHandler {
+	public static class FileToReceiveOutput extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -129,7 +129,7 @@ public class JobLogDisplayer {
 		}
 	}
 
-	public static class OutputMemberOptions extends QDataStructureHandler {
+	public static class OutputMemberOptions extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10, value = "*FIRST")
 		public QEnum<MemberToReceiveOutputEnum, QCharacter> memberToReceiveOutput;

@@ -22,7 +22,7 @@ import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIndicator;
@@ -37,7 +37,7 @@ import org.asup.os.type.pgm.impl.CallableProgramImpl;
 
 public class RPJProgramSupport extends CallableProgramImpl {
 
-	public static class Indicators extends QDataStructureHandler {
+	public static class Indicators extends QDataStructDelegator {
 
 		/**
 		 * 
@@ -141,7 +141,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		}
 	}
 
-	public static class ProgramStatus extends QDataStructureHandler {
+	public static class ProgramStatus extends QDataStructDelegator {
 
 		private static final long serialVersionUID = 1L;
 

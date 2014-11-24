@@ -8,7 +8,7 @@ import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QAdapter;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QList;
 import org.asup.il.data.annotation.DataDef;
@@ -38,7 +38,7 @@ public class ProgramCaller {
 	}
 	
 
-	public static class Program extends QDataStructureHandler {
+	public static class Program extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;

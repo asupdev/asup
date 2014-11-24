@@ -8,7 +8,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QScroller;
@@ -189,7 +189,7 @@ public  class JobDescriptionCreator {
 			e.printStackTrace();
 		}		
 	}
-	public static class JobDescription extends QDataStructureHandler {
+	public static class JobDescription extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -201,7 +201,7 @@ public  class JobDescriptionCreator {
 		}
 	}
 
-	public static class JobQueue extends QDataStructureHandler {
+	public static class JobQueue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10, value = "QBATCH")
 		public QCharacter name;
@@ -218,7 +218,7 @@ public  class JobDescriptionCreator {
 		USRPRF, SYSVAL, WRKSTN, OTHER
 	}
 
-	public static class OutputQueue extends QDataStructureHandler {
+	public static class OutputQueue extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -268,7 +268,7 @@ public  class JobDescriptionCreator {
 		NONE, OTHER
 	}
 
-	public static class MessageLogging extends QDataStructureHandler {
+	public static class MessageLogging extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1, value = "4")
 		public QCharacter level;

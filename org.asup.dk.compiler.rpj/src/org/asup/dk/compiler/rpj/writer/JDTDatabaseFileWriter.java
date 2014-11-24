@@ -8,14 +8,14 @@ import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.il.data.QDataTerm;
 import org.asup.os.type.file.QDatabaseFile;
-import org.asup.os.type.file.QDatabaseFileHandler;
+import org.asup.os.type.file.QDatabaseFileDelegator;
 import org.eclipse.jdt.core.dom.Modifier;
 
 public class JDTDatabaseFileWriter extends JDTDataStructureWriter {
 
 	@SuppressWarnings("unchecked")
 	public JDTDatabaseFileWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
-		super(root, compilationContext, compilationSetup, name, QDatabaseFileHandler.class, false);
+		super(root, compilationContext, compilationSetup, name, QDatabaseFileDelegator.class, false);
 
 		if(root != null)
 			getTarget().modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));

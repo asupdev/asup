@@ -24,7 +24,7 @@ import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.annotation.DataDef;
@@ -119,7 +119,7 @@ public class TestDataStructure {
 		testAsserter.assertEquals("Evaluation elements", true, true);
 	}
 	
-	public static class DataStructure extends QDataStructureHandler {
+	public static class DataStructure extends QDataStructDelegator {
 		
 		private static final long serialVersionUID = 1L;
 

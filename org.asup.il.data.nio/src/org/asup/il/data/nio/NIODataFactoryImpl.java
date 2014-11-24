@@ -48,7 +48,7 @@ import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDatetimeDef;
@@ -240,7 +240,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 		QDataDef<?> dataDef = null;
 
 		// dataStructureDelegator
-		if (QDataStructureHandler.class.isAssignableFrom(klass)) {
+		if (QDataStructDelegator.class.isAssignableFrom(klass)) {
 			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
 			
 			// delegator			
@@ -423,7 +423,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 			return null;
 		}
 
-		NIODataStructWrapperImpl dataStructureDelegate = new NIODataStructWrapperImpl(length, (QDataStructureHandler) dataStructure);		
+		NIODataStructWrapper dataStructureDelegate = new NIODataStructWrapper(length, (QDataStructDelegator) dataStructure);		
 		
 		int p = 1;
 		for (Field field : classDelegator.getFields()) {
@@ -449,7 +449,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 			p += dataElement.size();
 		}		
 				
-		((QDataStructureHandler)dataStructure).setDelegate(dataStructureDelegate);
+		((QDataStructDelegator)dataStructure).setDelegate(dataStructureDelegate);
 
 		if(initialize)
 			initialize(dataStructure);

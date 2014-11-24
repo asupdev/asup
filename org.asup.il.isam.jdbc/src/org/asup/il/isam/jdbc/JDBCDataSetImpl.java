@@ -228,8 +228,7 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 		_isEndOfData = false;
 		if (_result.next()) {
 
-			// skip first field (PKEY)
-			for (int x = 1; record.getElements().size() >= x; x++) {
+			for (int x = 1; record.getElements().size() > x; x++) {
 				record.getElement(x).accept(evaluator.set(_result.getString(x)));
 			}
 			_opSet = null;
@@ -255,7 +254,9 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 			_queySelect.append(" WHERE " + buildWhere(_keySet, _keyRead));
 
 		// ORDER
-		_queySelect.append(" ORDER BY " + buildOrderBy(_opDir));
+		String orderBy = buildOrderBy(_opDir);
+		if(orderBy != null && !orderBy.isEmpty())
+			_queySelect.append(" ORDER BY " + buildOrderBy(_opDir));
 	}
 
 	protected abstract String buildWhere(Object[] keySet, Object[] keyRead);

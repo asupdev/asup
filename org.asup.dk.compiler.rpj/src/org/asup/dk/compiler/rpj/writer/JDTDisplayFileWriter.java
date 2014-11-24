@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataTerm;
 import org.asup.os.type.file.QDisplayFile;
 import org.asup.os.type.file.QDisplayFileFormat;
@@ -31,7 +31,7 @@ public class JDTDisplayFileWriter extends JDTNamedNodeWriter {
 			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 			elements.addAll(displayFileFormat.getFields());
 					
-			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), getCompilationSetup(), displayFileFormat.getName(), QDataStructureHandler.class, true);			
+			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), getCompilationSetup(), displayFileFormat.getName(), QDataStructDelegator.class, true);			
 			dataStructureWriter.writeElements(elements);
 		}
 		

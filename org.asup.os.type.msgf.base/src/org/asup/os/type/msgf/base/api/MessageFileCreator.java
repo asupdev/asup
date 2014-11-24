@@ -6,7 +6,7 @@ import org.asup.fw.core.annotation.Supported;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -81,7 +81,7 @@ public class MessageFileCreator {
 		}
 	}
 
-	public static class MessageFile extends QDataStructureHandler {
+	public static class MessageFile extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -98,7 +98,7 @@ public class MessageFileCreator {
 		BLANK, OTHER
 	}
 
-	public static class FileSize extends QDataStructureHandler {
+	public static class FileSize extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(binaryType = BinaryType.SHORT, value = "10")
 		public QBinary initialStorageSize;

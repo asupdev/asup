@@ -15,7 +15,7 @@ import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructureHandler;
+import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QStroller;
 import org.asup.il.data.annotation.DataDef;
@@ -68,7 +68,7 @@ public class ObjectAllocator {
 		}
 		
 	}
-	public static class ObjectSpecification extends QDataStructureHandler {
+	public static class ObjectSpecification extends QDataStructDelegator {
 		private static final long serialVersionUID = 1L;
 		@DataDef(qualified = true)
 		public Object object;
@@ -79,7 +79,7 @@ public class ObjectAllocator {
 		@DataDef(length = 10)
 		public QEnum<MemberIfDataBaseFileEnum, QCharacter> memberIfDataBaseFile;
 
-		public static class Object extends QDataStructureHandler {
+		public static class Object extends QDataStructDelegator {
 			private static final long serialVersionUID = 1L;
 			@DataDef(length = 10)
 			public QCharacter name;
