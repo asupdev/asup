@@ -35,15 +35,8 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 //github.com/asupdev/asup.git
-import org.asup.db.core.DatabaseDataType;
-import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseCoreFactory;
-import org.asup.db.core.QIndexDef;
-import org.asup.db.core.QSchemaDef;
-import org.asup.db.core.QStatement;
-import org.asup.db.core.QTableColumnDef;
-import org.asup.db.core.QTableDef;
-import org.asup.db.core.QViewDef;
+//github.com/asupdev/asup.git
+import org.asup.db.core.*;
 //github.com/asupdev/asup.git
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
@@ -61,12 +54,8 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			String command = syntaxBuilder.createSchema(schemaDef);
 			statement.execute(command);
 			
-			// refresh schema
-			Catalog catalog = connection.getDefaultCatalog();
-			synchronized (catalog) {
-				JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) catalog);
-				schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
-			}
+			// refresh schemas
+			refreshSchemas(connection);
 		}
 		finally {
 			if(statement != null)
@@ -197,11 +186,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 			
 			// refresh schema
-			Catalog catalog = connection.getDefaultCatalog();
-			synchronized (catalog) {
-				JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) catalog);
-				schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
-			}
+			refreshSchemas(connection);
 		}
 		finally {
 			if(statement != null)
@@ -357,4 +342,28 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			return null; 
 	}
 
+	@SuppressWarnings("unchecked")
+	private synchronized void refreshSchemas(QConnection connection) throws SQLException {
+		
+		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);		
+		Database database = connectionInfo.getSharedDatabase();
+		
+		// DB2
+		if(database.getCatalogs().isEmpty()) {
+			JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) database);
+			schemaLoader.loadSchemas(database.getSchemas(), database.getSchemas());
+			return;
+		}
+		
+		// SQLServer
+		QConnectionConfig connectionConfig = connection.getConnectionConfig();
+		for(Catalog catalog: (List<Catalog>)database.getCatalogs()) {
+			if(connectionConfig.getUrl().contains(catalog.getName())) {
+				JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) catalog);
+				schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
+				return;
+				
+			}
+		}
+	}
 }

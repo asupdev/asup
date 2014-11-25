@@ -305,6 +305,25 @@ public interface QDatabaseCorePackage extends EPackage {
 	int CONNECTION_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.core.QDatabaseCatalog <em>Database Catalog</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.QDatabaseCatalog
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseCatalog()
+	 * @generated
+	 */
+	int DATABASE_CATALOG = 6;
+
+	/**
+	 * The number of structural features of the '<em>Database Catalog</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_CATALOG_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition <em>Database Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -312,7 +331,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDefinition()
 	 * @generated
 	 */
-	int DATABASE_DEFINITION = 6;
+	int DATABASE_DEFINITION = 7;
 
 	/**
 	 * The number of structural features of the '<em>Database Definition</em>' class.
@@ -331,7 +350,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseObjectDef()
 	 * @generated
 	 */
-	int DATABASE_OBJECT_DEF = 7;
+	int DATABASE_OBJECT_DEF = 8;
 
 	/**
 	 * The number of structural features of the '<em>Database Object Def</em>' class.
@@ -350,7 +369,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseNameHelper()
 	 * @generated
 	 */
-	int DATABASE_NAME_HELPER = 8;
+	int DATABASE_NAME_HELPER = 9;
 
 	/**
 	 * The number of structural features of the '<em>Database Name Helper</em>' class.
@@ -369,7 +388,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseManager()
 	 * @generated
 	 */
-	int DATABASE_MANAGER = 9;
+	int DATABASE_MANAGER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -395,7 +414,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexDef()
 	 * @generated
 	 */
-	int INDEX_DEF = 10;
+	int INDEX_DEF = 11;
 
 	/**
 	 * The feature id for the '<em><b>Clustered</b></em>' attribute.
@@ -450,7 +469,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexColumnDef()
 	 * @generated
 	 */
-	int INDEX_COLUMN_DEF = 11;
+	int INDEX_COLUMN_DEF = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -496,7 +515,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getPreparedStatement()
 	 * @generated
 	 */
-	int PREPARED_STATEMENT = 12;
+	int PREPARED_STATEMENT = 13;
 
 	/**
 	 * The number of structural features of the '<em>Prepared Statement</em>' class.
@@ -515,7 +534,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getSchemaDef()
 	 * @generated
 	 */
-	int SCHEMA_DEF = 13;
+	int SCHEMA_DEF = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -543,7 +562,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 14;
+	int STATEMENT = 15;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -562,7 +581,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableDef()
 	 * @generated
 	 */
-	int TABLE_DEF = 15;
+	int TABLE_DEF = 16;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -599,7 +618,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableColumnDef()
 	 * @generated
 	 */
-	int TABLE_COLUMN_DEF = 16;
+	int TABLE_COLUMN_DEF = 17;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -663,7 +682,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getViewDef()
 	 * @generated
 	 */
-	int VIEW_DEF = 17;
+	int VIEW_DEF = 18;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -718,7 +737,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 	 * @generated
 	 */
-	int DATABASE_DATA_TYPE = 18;
+	int DATABASE_DATA_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.OrderingType
@@ -729,7 +748,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getOrderingType()
 	 * @generated
 	 */
-	int ORDERING_TYPE = 19;
+	int ORDERING_TYPE = 20;
 
 	/**
 	 * The meta object id for the '<em>Database Exception</em>' data type. <!--
@@ -739,7 +758,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseException()
 	 * @generated
 	 */
-	int DATABASE_EXCEPTION = 20;
+	int DATABASE_EXCEPTION = 21;
 
 	/**
 	 * The meta object id for the '<em>Database Result Set</em>' data type.
@@ -749,7 +768,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseResultSet()
 	 * @generated
 	 */
-	int DATABASE_RESULT_SET = 21;
+	int DATABASE_RESULT_SET = 22;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QConnection <em>Connection</em>}'.
@@ -884,6 +903,16 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConnectionManager();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.core.QDatabaseCatalog <em>Database Catalog</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Database Catalog</em>'.
+	 * @see org.asup.db.core.QDatabaseCatalog
+	 * @generated
+	 */
+	EClass getDatabaseCatalog();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition <em>Database Definition</em>}'.
@@ -1372,6 +1401,16 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONNECTION_MANAGER = eINSTANCE.getConnectionManager();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.core.QDatabaseCatalog <em>Database Catalog</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.core.QDatabaseCatalog
+		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseCatalog()
+		 * @generated
+		 */
+		EClass DATABASE_CATALOG = eINSTANCE.getDatabaseCatalog();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition <em>Database Definition</em>}' class.

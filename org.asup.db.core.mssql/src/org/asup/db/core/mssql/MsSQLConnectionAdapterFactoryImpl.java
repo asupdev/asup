@@ -24,8 +24,6 @@ public class MsSQLConnectionAdapterFactoryImpl extends BaseConnectionAdapterFact
 		if(adaptableObject instanceof QConnectionConfig) {
 			Object adaptee = null;
 			QConnectionConfig connectionConfig = (QConnectionConfig)adaptableObject;
-			if(!connectionConfig.getProduct().equals("SQL Server"))
-				return null;			
 
 			if(IConnectionProfile.class.isAssignableFrom(adapterType)) {
 				try {

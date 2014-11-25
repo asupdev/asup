@@ -1,22 +1,12 @@
 package org.asup.db.core.base;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
+import java.sql.*;
 
-import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
-import org.asup.db.core.QConnectionContext;
-import org.asup.db.core.QPreparedStatement;
-import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QQueryConverter;
-import org.asup.db.syntax.QQueryParser;
-import org.eclipse.datatools.connectivity.IConnection;
-import org.eclipse.datatools.connectivity.IConnectionFactoryProvider;
-import org.eclipse.datatools.connectivity.IConnectionProfile;
+import org.asup.db.core.*;
+import org.asup.db.syntax.*;
+import org.eclipse.datatools.connectivity.*;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
-import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 public class BaseConnectionImpl implements QConnection {
 
@@ -83,18 +73,6 @@ public class BaseConnectionImpl implements QConnection {
 		}
 		
 		return (ConnectionInfo) iConnection.getRawConnection();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public Catalog getDefaultCatalog() {
-		
-		for(Catalog catalog: (List<Catalog>)getConnectionInfo().getSharedDatabase().getCatalogs()) {
-			if(connectionConfig.getUrl().contains(catalog.getName()))
-				return catalog;
-		}
-		
-		return null;
 	}
 
 	@Override

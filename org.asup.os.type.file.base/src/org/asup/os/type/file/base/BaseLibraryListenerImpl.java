@@ -78,8 +78,20 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 
 			// create
 			try {
+				databaseConnection.setAutoCommit(false);
+				
 				databaseManager.createSchema(databaseConnection, schemaDef);
-			} catch (SQLException e) {
+				
+				databaseConnection.commit();
+			} catch (Exception e) {
+				
+				try {
+					// TODO rollback on DTP graph
+					databaseConnection.rollback();
+				} catch (SQLException e1) {
+					throw new OperatingSystemRuntimeException(e1);
+				}
+				
 				throw new OperatingSystemRuntimeException(e);
 			}
 		} else

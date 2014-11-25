@@ -12,7 +12,6 @@
     <eOperations name="getConnectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
     <eOperations name="getConnectionContext" eType="#//ConnectionContext"/>
     <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
-    <eOperations name="getDefaultCatalog" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -68,6 +67,7 @@
       <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseCatalog" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseDefinition" instanceClassName="org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseObjectDef" abstract="true"/>

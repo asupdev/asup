@@ -24,8 +24,6 @@ public class DB2ConnectionAdapterFactoryImpl extends BaseConnectionAdapterFactor
 		if(adaptableObject instanceof QConnectionConfig) {
 			Object adaptee = null;
 			QConnectionConfig connectionConfig = (QConnectionConfig)adaptableObject;
-			if(!connectionConfig.getProduct().equals("UDB DB2"))
-				return null;
 			
 			if(IConnectionProfile.class.isAssignableFrom(adapterType)) {
 				try {

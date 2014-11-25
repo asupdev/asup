@@ -15,6 +15,7 @@ import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QDatabaseCatalog;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QDatabaseCoreFactory;
@@ -93,6 +94,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass connectionManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass databaseCatalogEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,6 +396,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 */
 	public EClass getConnectionManager() {
 		return connectionManagerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDatabaseCatalog() {
+		return databaseCatalogEClass;
 	}
 
 	/**
@@ -729,6 +746,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		connectionManagerEClass = createEClass(CONNECTION_MANAGER);
 
+		databaseCatalogEClass = createEClass(DATABASE_CATALOG);
+
 		databaseDefinitionEClass = createEClass(DATABASE_DEFINITION);
 
 		databaseObjectDefEClass = createEClass(DATABASE_OBJECT_DEF);
@@ -803,8 +822,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
-		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
 		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
+		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
 		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
 
 		// Create type parameters
@@ -851,8 +870,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEOperation(connectionEClass, this.getConnectionContext(), "getConnectionContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(connectionEClass, this.getDatabaseDefinition(), "getDatabaseDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(connectionEClass, theSQLSchemaPackage.getCatalog(), "getDefaultCatalog", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -906,6 +923,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		op = addEOperation(connectionManagerEClass, null, "registerConnectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(databaseCatalogEClass, QDatabaseCatalog.class, "DatabaseCatalog", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(databaseDefinitionEClass, DatabaseDefinition.class, "DatabaseDefinition", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
