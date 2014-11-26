@@ -10,14 +10,13 @@ import org.asup.db.core.base.BaseConnectionAdapterFactoryImpl;
 import org.asup.db.core.base.BaseConnectionContextImpl;
 import org.asup.db.core.base.BaseConnectionImpl;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
-import org.asup.db.syntax.QQueryWriter;
-import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
+import org.asup.db.syntax.QQueryWriter;
+import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.fw.core.QContext;
 import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.IAdapterFactory;
-import org.eclipse.datatools.enablement.ibm.db2.luw.catalog.LUWCatalogDatabase;
 
 @SuppressWarnings("restriction")
 public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {

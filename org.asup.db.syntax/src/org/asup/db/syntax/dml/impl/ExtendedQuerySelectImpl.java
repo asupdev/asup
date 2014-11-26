@@ -11,7 +11,6 @@ import java.util.Collection;
 
 import org.asup.db.syntax.dml.QDmlPackage;
 import org.asup.db.syntax.dml.QExtendedQuerySelect;
-
 import org.eclipse.datatools.modelbase.sql.query.GroupingSpecification;
 import org.eclipse.datatools.modelbase.sql.query.QueryResultSpecification;
 import org.eclipse.datatools.modelbase.sql.query.QuerySearchCondition;
@@ -19,19 +18,16 @@ import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
 import org.eclipse.datatools.modelbase.sql.query.TableReference;
 import org.eclipse.datatools.modelbase.sql.query.ValueExpressionVariable;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+@SuppressWarnings("rawtypes")
 
 /**
  * <!-- begin-user-doc -->
@@ -119,6 +115,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	 * @generated
 	 * @ordered
 	 */
+	
 	protected EList groupByClause;
 
 	/**
