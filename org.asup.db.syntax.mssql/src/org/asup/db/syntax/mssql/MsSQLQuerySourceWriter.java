@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
 
-import org.asup.db.syntax.QExtendedQuerySelect;
+import org.asup.db.syntax.dml.QExtendedQuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.QueryExpressionRoot;
 import org.eclipse.datatools.modelbase.sql.query.QuerySearchCondition;
 import org.eclipse.datatools.modelbase.sql.query.QuerySelectStatement;

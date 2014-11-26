@@ -9,25 +9,25 @@ package org.asup.db.syntax.impl;
 
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QQueryConverter;
-import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QDefinitionWriter;
+import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Query Converter Registry</b></em>'. <!-- end-user-doc -->
+ * <em><b>Syntax Builder Registry</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class QueryConverterRegistryImpl extends PluginRegistryImpl<QQueryConverter> implements QQueryConverterRegistry {
+public abstract class DefinitionWriterRegistryImpl extends PluginRegistryImpl<QDefinitionWriter> implements QDefinitionWriterRegistry {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected QueryConverterRegistryImpl() {
+	protected DefinitionWriterRegistryImpl() {
 		super();
 	}
 
@@ -37,16 +37,14 @@ public abstract class QueryConverterRegistryImpl extends PluginRegistryImpl<QQue
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseSyntaxPackage.Literals.QUERY_CONVERTER_REGISTRY;
+		return QDatabaseSyntaxPackage.Literals.DEFINITION_WRITER_REGISTRY;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QQueryConverter lookup(QConnectionConfig connectionConfig) {
+	public QDefinitionWriter lookup(QConnectionConfig connectionConfig) {
 		return lookup(connectionConfig.getDatabaseDefinitionID());
 	}
-
-} // QueryConverterRegistryImpl
+} // SyntaxBuilderRegistryImpl

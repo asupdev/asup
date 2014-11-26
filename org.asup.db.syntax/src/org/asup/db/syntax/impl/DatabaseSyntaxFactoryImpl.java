@@ -7,10 +7,7 @@
  */
 package org.asup.db.syntax.impl;
 
-import org.asup.db.syntax.QDatabaseSyntaxFactory;
-import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QExtendedQueryExpressionBody;
-import org.asup.db.syntax.QExtendedQuerySelect;
+import org.asup.db.syntax.*;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -61,8 +58,6 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QDatabaseSyntaxPackage.EXTENDED_QUERY_EXPRESSION_BODY: return createExtendedQueryExpressionBody();
-			case QDatabaseSyntaxPackage.EXTENDED_QUERY_SELECT: return createExtendedQuerySelect();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,24 +89,6 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QExtendedQueryExpressionBody createExtendedQueryExpressionBody() {
-		ExtendedQueryExpressionBodyImpl extendedQueryExpressionBody = new ExtendedQueryExpressionBodyImpl();
-		return extendedQueryExpressionBody;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QExtendedQuerySelect createExtendedQuerySelect() {
-		ExtendedQuerySelectImpl extendedQuerySelect = new ExtendedQuerySelectImpl();
-		return extendedQuerySelect;
 	}
 
 	/**

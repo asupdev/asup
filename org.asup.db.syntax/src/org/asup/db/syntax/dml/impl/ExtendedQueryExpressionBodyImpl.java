@@ -5,22 +5,27 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax.impl;
+package org.asup.db.syntax.dml.impl;
 
-import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QExtendedQueryExpressionBody;
+import org.asup.db.syntax.dml.QDmlPackage;
+import org.asup.db.syntax.dml.QExtendedQueryExpressionBody;
+
 import org.eclipse.datatools.modelbase.sql.query.impl.QueryExpressionBodyImpl;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Extended Query Expression Body</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Extended Query Expression Body</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.impl.ExtendedQueryExpressionBodyImpl#getRowOptimizeLimit <em>Row Optimize Limit</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dml.impl.ExtendedQueryExpressionBodyImpl#getRowOptimizeLimit <em>Row Optimize Limit</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,8 +34,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl implements QExtendedQueryExpressionBody {
 	/**
 	 * The default value of the '{@link #getRowOptimizeLimit() <em>Row Optimize Limit</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRowOptimizeLimit()
 	 * @generated
 	 * @ordered
@@ -39,8 +44,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 
 	/**
 	 * The cached value of the '{@link #getRowOptimizeLimit() <em>Row Optimize Limit</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getRowOptimizeLimit()
 	 * @generated
 	 * @ordered
@@ -48,7 +53,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	protected int rowOptimizeLimit = ROW_OPTIMIZE_LIMIT_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ExtendedQueryExpressionBodyImpl() {
@@ -56,16 +62,18 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseSyntaxPackage.Literals.EXTENDED_QUERY_EXPRESSION_BODY;
+		return QDmlPackage.Literals.EXTENDED_QUERY_EXPRESSION_BODY;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getRowOptimizeLimit() {
@@ -73,37 +81,40 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRowOptimizeLimit(int newRowOptimizeLimit) {
 		int oldRowOptimizeLimit = rowOptimizeLimit;
 		rowOptimizeLimit = newRowOptimizeLimit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT, oldRowOptimizeLimit, rowOptimizeLimit));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT, oldRowOptimizeLimit, rowOptimizeLimit));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
 				return getRowOptimizeLimit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
 				setRowOptimizeLimit((Integer)newValue);
 				return;
 		}
@@ -111,13 +122,14 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
 				setRowOptimizeLimit(ROW_OPTIMIZE_LIMIT_EDEFAULT);
 				return;
 		}
@@ -125,20 +137,22 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
 				return rowOptimizeLimit != ROW_OPTIMIZE_LIMIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -152,4 +166,4 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 		return result.toString();
 	}
 
-} // ExtendedQueryExpressionBodyImpl
+} //ExtendedQueryExpressionBodyImpl

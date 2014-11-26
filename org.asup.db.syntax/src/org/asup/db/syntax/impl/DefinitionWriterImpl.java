@@ -17,7 +17,7 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QSyntaxBuilder;
+import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
@@ -40,13 +40,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.impl.SyntaxBuilderImpl#getConfig <em>Config</em>}</li>
+ *   <li>{@link org.asup.db.syntax.impl.DefinitionWriterImpl#getConfig <em>Config</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBuilder {
+public abstract class DefinitionWriterImpl extends PluginImpl implements QDefinitionWriter {
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -63,7 +63,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SyntaxBuilderImpl() {
+	protected DefinitionWriterImpl() {
 		super();
 	}
 	
@@ -77,7 +77,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseSyntaxPackage.Literals.SYNTAX_BUILDER;
+		return QDatabaseSyntaxPackage.Literals.DEFINITION_WRITER;
 	}
 
 	/**
@@ -96,7 +96,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 		QServiceConfig oldConfig = config;
 		config = newConfig;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG, oldConfig, newConfig);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG, oldConfig, newConfig);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -110,14 +110,14 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 		if (newConfig != config) {
 			NotificationChain msgs = null;
 			if (config != null)
-				msgs = ((InternalEObject)config).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG, null, msgs);
+				msgs = ((InternalEObject)config).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG, null, msgs);
 			if (newConfig != null)
-				msgs = ((InternalEObject)newConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG, null, msgs);
+				msgs = ((InternalEObject)newConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG, null, msgs);
 			msgs = basicSetConfig(newConfig, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG, newConfig, newConfig));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG, newConfig, newConfig));
 	}
 
 	/**
@@ -314,7 +314,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG:
+			case QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG:
 				return basicSetConfig(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -327,7 +327,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG:
+			case QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG:
 				return getConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -340,7 +340,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG:
+			case QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG:
 				setConfig((QServiceConfig)newValue);
 				return;
 		}
@@ -354,7 +354,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG:
+			case QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG:
 				setConfig((QServiceConfig)null);
 				return;
 		}
@@ -368,7 +368,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG:
+			case QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG:
 				return config != null;
 		}
 		return super.eIsSet(featureID);
@@ -382,7 +382,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == QService.class) {
 			switch (derivedFeatureID) {
-				case QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG: return QFrameworkCorePackage.SERVICE__CONFIG;
+				case QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG: return QFrameworkCorePackage.SERVICE__CONFIG;
 				default: return -1;
 			}
 		}
@@ -402,7 +402,7 @@ public abstract class SyntaxBuilderImpl extends PluginImpl implements QSyntaxBui
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == QService.class) {
 			switch (baseFeatureID) {
-				case QFrameworkCorePackage.SERVICE__CONFIG: return QDatabaseSyntaxPackage.SYNTAX_BUILDER__CONFIG;
+				case QFrameworkCorePackage.SERVICE__CONFIG: return QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG;
 				default: return -1;
 			}
 		}

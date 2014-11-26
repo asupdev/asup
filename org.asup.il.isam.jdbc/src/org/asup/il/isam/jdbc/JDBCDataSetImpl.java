@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QSyntaxBuilder;
+import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
@@ -28,7 +28,7 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSet<DS> {
 
 	private QConnection databaseConnection;
-	private QSyntaxBuilder syntaxBuilder;
+	private QDefinitionWriter syntaxBuilder;
 	private AccessMode accessMode;
 	private DS record;
 
@@ -65,14 +65,14 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 
 	protected boolean _isEndOfData;
 
-	protected JDBCDataSetImpl(QConnection databaseConnection, QSyntaxBuilder syntaxBuilder, Table table, AccessMode accessMode, DS dataStruct) {
+	protected JDBCDataSetImpl(QConnection databaseConnection, QDefinitionWriter syntaxBuilder, Table table, AccessMode accessMode, DS dataStruct) {
 		this.databaseConnection = databaseConnection;
 		this.syntaxBuilder = syntaxBuilder;
 		this.accessMode = accessMode;
 		this.record = dataStruct;
 	}
 
-	protected QSyntaxBuilder getSyntaxbuilder() {
+	protected QDefinitionWriter getSyntaxbuilder() {
 		return this.syntaxBuilder;
 	}
 	

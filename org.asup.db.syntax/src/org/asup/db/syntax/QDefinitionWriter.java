@@ -27,11 +27,11 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getSyntaxBuilder()
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionWriter()
  * @model abstract="true" superTypes="org.asup.fw.core.Plugin org.asup.fw.core.Service org.asup.db.core.DatabaseNameHelper"
  * @generated
  */
-public interface QSyntaxBuilder extends QPlugin, QService, ISQLObjectNameHelper {
+public interface QDefinitionWriter extends QPlugin, QService, ISQLObjectNameHelper {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

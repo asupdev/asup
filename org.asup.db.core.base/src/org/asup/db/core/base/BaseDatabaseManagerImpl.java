@@ -17,8 +17,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.db.core.impl.DatabaseManagerImpl;
-import org.asup.db.syntax.QSyntaxBuilder;
-import org.asup.db.syntax.QSyntaxBuilderRegistry;
+import org.asup.db.syntax.QDefinitionWriter;
+import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
@@ -41,7 +41,7 @@ import org.asup.db.core.*;
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
-	private QSyntaxBuilderRegistry syntaxBuilderRegistry;
+	private QDefinitionWriterRegistry syntaxBuilderRegistry;
 
 	@Override
 	public void createSchema(QConnection connection, QSchemaDef schemaDef) throws SQLException {
@@ -50,7 +50,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.createSchema(schemaDef);
 			statement.execute(command);
 			
@@ -86,7 +86,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 				}
 			}
 			
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.createTable(schema, tableDef);
 			statement.execute(command);
 
@@ -106,7 +106,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void createView(QConnection connection, Schema schema, QViewDef viewDef) throws SQLException {
 
-		QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+		QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 		String command = syntaxBuilder.createView(schema, viewDef);
 		if(command == null)
 			throw new SQLException("Empty view creation command: "+viewDef);
@@ -134,7 +134,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.createIndex(table, indexDef);
 			statement.execute(command);
 			
@@ -181,7 +181,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.dropSchema(schema);
 			statement.execute(command);
 			
@@ -202,7 +202,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
 			String command = syntaxBuilder.dropTable(table);
 			statement.execute(command);
 			
@@ -224,7 +224,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.dropView(view);
 			statement.execute(command);
 			
@@ -246,7 +246,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.dropIndex(index);
 			statement.execute(command);
 						
@@ -283,7 +283,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
+			QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
 			String command = syntaxBuilder.deleteData(table);
 			statement.execute(command);
 		}

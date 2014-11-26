@@ -23,11 +23,11 @@ import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QQueryConverter;
+import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
-import org.asup.db.syntax.impl.SyntaxBuilderImpl;
+import org.asup.db.syntax.impl.DefinitionWriterImpl;
 import org.asup.dk.parser.InvalidExpressionException;
 import org.asup.dk.parser.Parser;
 import org.asup.dk.parser.Token;
@@ -37,16 +37,16 @@ import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
-public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
+public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
 
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;
 
-	private QQueryConverter queryConverter;
+	private QQueryWriter queryConverter;
 
 	@PostConstruct
 	private void init() {
-		this.queryConverter = new MsSQLQueryConverterImpl();
+		this.queryConverter = new MsSQLQueryWriterImpl();
 		setSQLObjectNameHelper(new SQLObjectNameHelper());
 	}
 
@@ -150,7 +150,7 @@ public class MsSQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
 			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 
-			command = queryConverter.convertQuery(query);
+			command = queryConverter.convertQuery(query.getQueryStatement());
 
 		} catch (Exception e) {
 			throw new SQLException(e);

@@ -27,24 +27,6 @@ public interface QDatabaseSyntaxFactory extends EFactory {
 	QDatabaseSyntaxFactory eINSTANCE = org.asup.db.syntax.impl.DatabaseSyntaxFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Extended Query Expression Body</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extended Query Expression Body</em>'.
-	 * @generated
-	 */
-	QExtendedQueryExpressionBody createExtendedQueryExpressionBody();
-
-	/**
-	 * Returns a new object of class '<em>Extended Query Select</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Extended Query Select</em>'.
-	 * @generated
-	 */
-	QExtendedQuerySelect createExtendedQuerySelect();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

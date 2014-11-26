@@ -16,11 +16,11 @@ import org.asup.fw.core.QPluginRegistry;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getSyntaxBuilderRegistry()
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionWriterRegistry()
  * @model abstract="true"
  * @generated
  */
-public interface QSyntaxBuilderRegistry extends QPluginRegistry<QSyntaxBuilder> {
+public interface QDefinitionWriterRegistry extends QPluginRegistry<QDefinitionWriter> {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,5 +28,5 @@ public interface QSyntaxBuilderRegistry extends QPluginRegistry<QSyntaxBuilder> 
 	 * @model required="true" connectionConfigRequired="true"
 	 * @generated
 	 */
-	QSyntaxBuilder lookup(QConnectionConfig connectionConfig);
+	QDefinitionWriter lookup(QConnectionConfig connectionConfig);
 } // SyntaxBuilderRegistry

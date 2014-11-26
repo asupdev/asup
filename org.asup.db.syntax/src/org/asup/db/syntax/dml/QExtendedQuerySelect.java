@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax;
+package org.asup.db.syntax.dml;
 
 import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
 
@@ -15,7 +15,7 @@ import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getExtendedQuerySelect()
+ * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQuerySelect()
  * @model
  * @generated
  */

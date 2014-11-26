@@ -8,12 +8,12 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QQueryConverter;
+import org.asup.db.syntax.QQueryWriter;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
-import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -26,13 +26,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.impl.QueryConverterImpl#getConfig <em>Config</em>}</li>
+ *   <li>{@link org.asup.db.syntax.impl.QueryWriterImpl#getConfig <em>Config</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class QueryConverterImpl extends PluginImpl implements QQueryConverter {
+public abstract class QueryWriterImpl extends PluginImpl implements QQueryWriter {
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -46,7 +46,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected QueryConverterImpl() {
+	protected QueryWriterImpl() {
 		super();
 	}
 
@@ -56,7 +56,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseSyntaxPackage.Literals.QUERY_CONVERTER;
+		return QDatabaseSyntaxPackage.Literals.QUERY_WRITER;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 		QServiceConfig oldConfig = config;
 		config = newConfig;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG, oldConfig, newConfig);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG, oldConfig, newConfig);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -89,21 +89,22 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 		if (newConfig != config) {
 			NotificationChain msgs = null;
 			if (config != null)
-				msgs = ((InternalEObject)config).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG, null, msgs);
+				msgs = ((InternalEObject)config).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG, null, msgs);
 			if (newConfig != null)
-				msgs = ((InternalEObject)newConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG, null, msgs);
+				msgs = ((InternalEObject)newConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG, null, msgs);
 			msgs = basicSetConfig(newConfig, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG, newConfig, newConfig));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG, newConfig, newConfig));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertQuery(SQLQueryParseResult query) {
+	public String convertQuery(QueryStatement query) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -116,7 +117,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG:
+			case QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG:
 				return basicSetConfig(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -129,7 +130,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG:
+			case QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG:
 				return getConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -142,7 +143,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG:
+			case QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG:
 				setConfig((QServiceConfig)newValue);
 				return;
 		}
@@ -156,7 +157,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG:
+			case QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG:
 				setConfig((QServiceConfig)null);
 				return;
 		}
@@ -170,7 +171,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG:
+			case QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG:
 				return config != null;
 		}
 		return super.eIsSet(featureID);
@@ -184,7 +185,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == QService.class) {
 			switch (derivedFeatureID) {
-				case QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG: return QFrameworkCorePackage.SERVICE__CONFIG;
+				case QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG: return QFrameworkCorePackage.SERVICE__CONFIG;
 				default: return -1;
 			}
 		}
@@ -199,7 +200,7 @@ public abstract class QueryConverterImpl extends PluginImpl implements QQueryCon
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == QService.class) {
 			switch (baseFeatureID) {
-				case QFrameworkCorePackage.SERVICE__CONFIG: return QDatabaseSyntaxPackage.QUERY_CONVERTER__CONFIG;
+				case QFrameworkCorePackage.SERVICE__CONFIG: return QDatabaseSyntaxPackage.QUERY_WRITER__CONFIG;
 				default: return -1;
 			}
 		}

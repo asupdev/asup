@@ -13,19 +13,18 @@ package org.asup.db.syntax.base;
 
 import javax.inject.Inject;
 
-import org.asup.db.syntax.QSyntaxBuilder;
-import org.asup.db.syntax.impl.SyntaxBuilderRegistryImpl;
+import org.asup.db.syntax.QQueryWriter;
+import org.asup.db.syntax.impl.QueryWriterRegistryImpl;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QPluginRegistry;
 import org.asup.fw.core.QPluginRegistryFactory;
 
-public class BaseSyntaxBuilderRegistryImpl extends SyntaxBuilderRegistryImpl {
-
+public class BaseQueryWriterRegistryImpl extends QueryWriterRegistryImpl {
 
 	@SuppressWarnings("unchecked")
 	@Inject
-	public BaseSyntaxBuilderRegistryImpl(QPluginRegistryFactory pluginRegistryFactory) {
-		QPluginRegistry<? extends QPlugin> pluginRegistry = pluginRegistryFactory.createPluginRegistry(QSyntaxBuilder.class);
-		setStore((QPluginRegistry<QSyntaxBuilder>) pluginRegistry);
+	public BaseQueryWriterRegistryImpl(QPluginRegistryFactory pluginRegistryFactory) {
+		QPluginRegistry<? extends QPlugin> pluginRegistry = pluginRegistryFactory.createPluginRegistry(QQueryWriter.class);
+		setStore((QPluginRegistry<QQueryWriter>) pluginRegistry);
 	}
 }

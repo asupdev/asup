@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.syntax.QSyntaxBuilder;
+import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QDataStruct;
@@ -33,7 +33,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	protected List<String> _keys;
 	protected QBufferedDataDef<?>[] _fields;
 	
-	protected JDBCIndexDataSetImpl(QConnection databaseConnection, QSyntaxBuilder syntaxBuilder, Index index, AccessMode accessMode, DS dataStruct) {
+	protected JDBCIndexDataSetImpl(QConnection databaseConnection, QDefinitionWriter syntaxBuilder, Index index, AccessMode accessMode, DS dataStruct) {
 		super(databaseConnection, syntaxBuilder, index.getTable(), accessMode, dataStruct);
 		if(index != null)
 			setIndex(index);
@@ -204,7 +204,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	@Override
 	protected String buildOrderBy(OpDir dir) {
 		
-		QSyntaxBuilder syntaxBuilder = getSyntaxbuilder();
+		QDefinitionWriter syntaxBuilder = getSyntaxbuilder();
 		StringBuffer sbOrderBy = new StringBuffer();
 		
 		for(IndexMember column: (List<IndexMember>)index.getIncludedMembers()) {
@@ -219,7 +219,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 
 	private void buildWhereSet(Object[] keySet, StringBuffer sbWhere) {
 		
-		QSyntaxBuilder syntaxBuilder = getSyntaxbuilder();
+		QDefinitionWriter syntaxBuilder = getSyntaxbuilder();
 		
 		StringBuffer sbFields = new StringBuffer();
 		StringBuffer sbValues = new StringBuffer();
@@ -279,7 +279,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 
 	private void buildWhereRead(Object[] keyRead, StringBuffer sbWhere) {
 
-		QSyntaxBuilder syntaxBuilder = getSyntaxbuilder();
+		QDefinitionWriter syntaxBuilder = getSyntaxbuilder();
 
 		if(keyRead == null)
 			return;

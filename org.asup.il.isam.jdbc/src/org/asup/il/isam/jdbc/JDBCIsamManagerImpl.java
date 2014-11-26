@@ -17,8 +17,8 @@ import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QAliasResolverRegistry;
-import org.asup.db.syntax.QSyntaxBuilder;
-import org.asup.db.syntax.QSyntaxBuilderRegistry;
+import org.asup.db.syntax.QDefinitionWriter;
+import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
@@ -34,7 +34,7 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 	@Inject
 	private QDataManager dataManager;
 	@Inject
-	private QSyntaxBuilderRegistry syntaxBuilderRegistry;
+	private QDefinitionWriterRegistry syntaxBuilderRegistry;
 	@Inject
 	private QAliasResolverRegistry aliasResolverRegistry;
 	
@@ -44,7 +44,7 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 		QConnection connection = context.getAdapter(contextID, QConnection.class);
 		QDataFactory dataFactory = dataManager.createFactory(contextID);
 		
-		QSyntaxBuilder syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
+		QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
 		QAliasResolver aliasResolver = aliasResolverRegistry.lookup("*JOB");
 		
 		return new JDBCIsamFactoryImpl(connection, databaseManager, syntaxBuilder, aliasResolver, dataFactory);

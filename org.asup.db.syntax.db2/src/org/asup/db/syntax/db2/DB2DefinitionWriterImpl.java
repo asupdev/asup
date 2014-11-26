@@ -4,11 +4,11 @@ import javax.annotation.PostConstruct;
 
 import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
-import org.asup.db.syntax.impl.SyntaxBuilderImpl;
+import org.asup.db.syntax.impl.DefinitionWriterImpl;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
-public class DB2SyntaxBuilderImpl extends SyntaxBuilderImpl {
+public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
 
 	@PostConstruct
 	private void init() {
