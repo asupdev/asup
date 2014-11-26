@@ -3,21 +3,15 @@ Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core MsSql
 Bundle-SymbolicName: org.asup.db.core.mssql;singleton:=true
 Bundle-Version: 0.5.3.qualifier
-Bundle-ClassPath: lib/jtds-1.2.7.jar,
- lib/sqljdbc4.jar,
+Bundle-ClassPath: lib/sqljdbc4.jar,
  .
 Bundle-Activator: org.asup.db.core.mssql.MsSQLActivator$Activator
 Bundle-Vendor: www.smeup.com
 Export-Package: com.microsoft.sqlserver.jdbc,
- microsoft.sql,
- net.sourceforge.jtds.jdbc,
- net.sourceforge.jtds.jdbc.cache,
- net.sourceforge.jtds.jdbcx,
- net.sourceforge.jtds.jdbcx.proxy,
- net.sourceforge.jtds.ssl,
- net.sourceforge.jtds.util,
- org.asup.db.core.mssql
-Require-Bundle: org.asup.db.core.base
+ microsoft.sql
+Require-Bundle: org.asup.db.core.base,
+ org.eclipse.datatools.enablement.msft.sqlserver;bundle-version="1.0.3",
+ org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition;bundle-version="1.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: com.microsoft.sqlserver.jdbc,

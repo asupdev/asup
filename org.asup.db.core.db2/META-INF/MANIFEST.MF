@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core DB2
-Bundle-SymbolicName: org.asup.db.core.db2
+Bundle-SymbolicName: org.asup.db.core.db2;singleton:=true
 Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -12,6 +12,8 @@ Require-Bundle: org.asup.db.core.base,
  org.eclipse.datatools.enablement.ibm.db2;bundle-version="1.0.0",
  org.eclipse.datatools.enablement.ibm.db2.luw;bundle-version="1.0.3",
  org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition;bundle-version="1.0.7"
-Bundle-ClassPath: ., lib/db2jcc.jar,
- lib/db2jcc_license_cu.jar
+Bundle-ClassPath: .,
+ lib/db2jcc_license_cu.jar,
+ lib/db2jcc.jar
 Export-Package: com.ibm.db2.jcc
+Bundle-ActivationPolicy: lazy

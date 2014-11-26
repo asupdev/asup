@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionContext;
+import org.asup.db.core.base.BaseConnectionAdapterFactoryImpl;
 import org.asup.db.core.base.BaseConnectionContextImpl;
 import org.asup.db.core.base.BaseConnectionImpl;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
@@ -31,7 +32,8 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 
 	@PostConstruct
 	private void init() {
-		IAdapterFactory adapterFactory = new DB2ConnectionAdapterFactoryImpl();
+		IAdapterFactory adapterFactory = new BaseConnectionAdapterFactoryImpl();
+		
 		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);
 		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
 

@@ -25,10 +25,7 @@ import org.asup.db.syntax.QQueryConverterRegistry;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.fw.core.QContext;
-import org.eclipse.core.internal.runtime.AdapterManager;
-import org.eclipse.core.runtime.IAdapterFactory;
 
-@SuppressWarnings("restriction")
 public class MsSQLConnectionFactoryImpl extends ConnectionFactoryImpl {
 	@Inject
 	private QContext context;
@@ -41,10 +38,6 @@ public class MsSQLConnectionFactoryImpl extends ConnectionFactoryImpl {
 
 	@PostConstruct
 	private void init() {
-		IAdapterFactory adapterFactory = new MsSQLConnectionAdapterFactoryImpl();
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
-
 		this.queryParser = this.queryParserRegistry.lookup("IBMI");
 	}
 

@@ -22,7 +22,10 @@ import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.impl.ConnectionManagerImpl;
+import org.eclipse.core.internal.runtime.AdapterManager;
+import org.eclipse.core.runtime.IAdapterFactory;
 
+@SuppressWarnings("restriction")
 public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 
 	@Inject
@@ -30,9 +33,15 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 
 	private Map<String, QConnectionConfig> connectionConfigs;
 
+
 	@PostConstruct
 	public void init() {
 		this.connectionConfigs = new HashMap<String, QConnectionConfig>();
+		
+		IAdapterFactory adapterFactory = new BaseConnectionAdapterFactoryImpl();
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);
+		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
+
 	}
 
 	@Override
