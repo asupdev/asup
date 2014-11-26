@@ -49,7 +49,8 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	protected DatabaseDataType dataType = DATA_TYPE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -57,7 +58,8 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	protected static final String NAME_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -149,7 +151,8 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getName() {
@@ -157,7 +160,8 @@ public class TableColumnDefImpl extends DatabaseObjectDefImpl implements QTableC
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setName(String newName) {

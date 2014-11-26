@@ -79,20 +79,24 @@
     <eOperations name="createIndex" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="index" lowerBound="1" eType="#//IndexDef"/>
     </eOperations>
     <eOperations name="createSchema" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="schema" eType="#//SchemaDef"/>
     </eOperations>
     <eOperations name="createTable" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="table" lowerBound="1" eType="#//TableDef"/>
     </eOperations>
     <eOperations name="createView" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="view" eType="#//ViewDef"/>
     </eOperations>
     <eOperations name="deleteData" eExceptions="#//DatabaseException">
@@ -163,7 +167,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="clustered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//IndexColumnDef" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndexColumnDef" eSuperTypes="#//DatabaseObjectDef">
@@ -194,9 +197,7 @@
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SchemaDef" eSuperTypes="#//DatabaseObjectDef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaDef" eSuperTypes="#//DatabaseObjectDef"/>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true">
     <eOperations name="close" lowerBound="1" eExceptions="#//DatabaseException"/>
     <eOperations name="execute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -214,7 +215,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="TableDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//TableColumnDef" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableColumnDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"

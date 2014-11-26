@@ -474,17 +474,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndexDef_Name() {
-		return (EAttribute)indexDefEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIndexDef_Unique() {
-		return (EAttribute)indexDefEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)indexDefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -546,15 +537,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSchemaDef_Name() {
-		return (EAttribute)schemaDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getStatement() {
 		return statementEClass;
 	}
@@ -575,15 +557,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 */
 	public EReference getTableDef_Columns() {
 		return (EReference)tableDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableDef_Name() {
-		return (EAttribute)tableDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -759,7 +732,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		indexDefEClass = createEClass(INDEX_DEF);
 		createEAttribute(indexDefEClass, INDEX_DEF__CLUSTERED);
 		createEReference(indexDefEClass, INDEX_DEF__COLUMNS);
-		createEAttribute(indexDefEClass, INDEX_DEF__NAME);
 		createEAttribute(indexDefEClass, INDEX_DEF__UNIQUE);
 
 		indexColumnDefEClass = createEClass(INDEX_COLUMN_DEF);
@@ -770,13 +742,11 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
 
 		schemaDefEClass = createEClass(SCHEMA_DEF);
-		createEAttribute(schemaDefEClass, SCHEMA_DEF__NAME);
 
 		statementEClass = createEClass(STATEMENT);
 
 		tableDefEClass = createEClass(TABLE_DEF);
 		createEReference(tableDefEClass, TABLE_DEF__COLUMNS);
-		createEAttribute(tableDefEClass, TABLE_DEF__NAME);
 
 		tableColumnDefEClass = createEClass(TABLE_COLUMN_DEF);
 		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__DATA_TYPE);
@@ -937,23 +907,27 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		op = addEOperation(databaseManagerEClass, null, "createIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIndexDef(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "createSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSchemaDef(), "schema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "createTable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTableDef(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "createView", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getViewDef(), "view", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
@@ -1012,7 +986,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		initEClass(indexDefEClass, QIndexDef.class, "IndexDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIndexDef_Clustered(), ecorePackage.getEBoolean(), "clustered", null, 0, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIndexDef_Columns(), this.getIndexColumnDef(), null, "columns", null, 0, -1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndexDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndexDef_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(indexColumnDefEClass, QIndexColumnDef.class, "IndexColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1045,7 +1018,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, ecorePackage.getEString(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(schemaDefEClass, QSchemaDef.class, "SchemaDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSchemaDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QSchemaDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementEClass, QStatement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1066,7 +1038,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		initEClass(tableDefEClass, QTableDef.class, "TableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableDef_Columns(), this.getTableColumnDef(), null, "columns", null, 0, -1, QTableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTableDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableColumnDefEClass, QTableColumnDef.class, "TableColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumnDef_DataType(), this.getDatabaseDataType(), "dataType", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

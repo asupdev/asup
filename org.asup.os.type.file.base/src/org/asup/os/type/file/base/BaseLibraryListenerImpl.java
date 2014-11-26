@@ -74,13 +74,12 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 		Schema schema = databaseManager.getSchema(databaseConnection, library.getName());
 		if (schema == null) {
 			QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
-			schemaDef.setName(library.getName());
 
 			// create
 			try {
 				databaseConnection.setAutoCommit(false);
 				
-				databaseManager.createSchema(databaseConnection, schemaDef);
+				databaseManager.createSchema(databaseConnection, library.getName(), schemaDef);
 				
 				databaseConnection.commit();
 			} catch (Exception e) {

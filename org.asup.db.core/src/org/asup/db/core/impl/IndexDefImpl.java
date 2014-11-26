@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.asup.db.core.impl.IndexDefImpl#isClustered <em>Clustered</em>}</li>
  *   <li>{@link org.asup.db.core.impl.IndexDefImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.asup.db.core.impl.IndexDefImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.db.core.impl.IndexDefImpl#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
@@ -65,24 +64,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 	 * @ordered
 	 */
 	protected EList<QIndexColumnDef> columns;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
@@ -144,25 +125,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.INDEX_DEF__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public List<QIndexColumnDef> getColumns() {
 		if (columns == null) {
 			columns = new EObjectContainmentEList<QIndexColumnDef>(QIndexColumnDef.class, this, QDatabaseCorePackage.INDEX_DEF__COLUMNS);
@@ -213,8 +175,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 				return isClustered();
 			case QDatabaseCorePackage.INDEX_DEF__COLUMNS:
 				return getColumns();
-			case QDatabaseCorePackage.INDEX_DEF__NAME:
-				return getName();
 			case QDatabaseCorePackage.INDEX_DEF__UNIQUE:
 				return isUnique();
 		}
@@ -236,9 +196,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 				getColumns().clear();
 				getColumns().addAll((Collection<? extends QIndexColumnDef>)newValue);
 				return;
-			case QDatabaseCorePackage.INDEX_DEF__NAME:
-				setName((String)newValue);
-				return;
 			case QDatabaseCorePackage.INDEX_DEF__UNIQUE:
 				setUnique((Boolean)newValue);
 				return;
@@ -259,9 +216,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 			case QDatabaseCorePackage.INDEX_DEF__COLUMNS:
 				getColumns().clear();
 				return;
-			case QDatabaseCorePackage.INDEX_DEF__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case QDatabaseCorePackage.INDEX_DEF__UNIQUE:
 				setUnique(UNIQUE_EDEFAULT);
 				return;
@@ -280,8 +234,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 				return clustered != CLUSTERED_EDEFAULT;
 			case QDatabaseCorePackage.INDEX_DEF__COLUMNS:
 				return columns != null && !columns.isEmpty();
-			case QDatabaseCorePackage.INDEX_DEF__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case QDatabaseCorePackage.INDEX_DEF__UNIQUE:
 				return unique != UNIQUE_EDEFAULT;
 		}
@@ -299,8 +251,6 @@ public class IndexDefImpl extends DatabaseObjectDefImpl implements QIndexDef {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (clustered: ");
 		result.append(clustered);
-		result.append(", name: ");
-		result.append(name);
 		result.append(", unique: ");
 		result.append(unique);
 		result.append(')');

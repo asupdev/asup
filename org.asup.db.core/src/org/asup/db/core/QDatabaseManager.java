@@ -29,34 +29,34 @@ public interface QDatabaseManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException" tableRequired="true" indexRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException" tableRequired="true" nameRequired="true" indexRequired="true"
 	 * @generated
 	 */
-	void createIndex(QConnection connection, Table table, QIndexDef index) throws SQLException;
+	void createIndex(QConnection connection, Table table, String name, QIndexDef index) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException"
+	 * @model exceptions="org.asup.db.core.DatabaseException" nameRequired="true"
 	 * @generated
 	 */
-	void createSchema(QConnection connection, QSchemaDef schema) throws SQLException;
+	void createSchema(QConnection connection, String name, QSchemaDef schema) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true" tableRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true" nameRequired="true" tableRequired="true"
 	 * @generated
 	 */
-	void createTable(QConnection connection, Schema schema, QTableDef table) throws SQLException;
+	void createTable(QConnection connection, Schema schema, String name, QTableDef table) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true" nameRequired="true"
 	 * @generated
 	 */
-	void createView(QConnection connection, Schema schema, QViewDef view) throws SQLException;
+	void createView(QConnection connection, Schema schema, String name, QViewDef view) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->

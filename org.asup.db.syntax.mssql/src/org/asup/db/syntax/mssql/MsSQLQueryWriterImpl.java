@@ -13,7 +13,6 @@ package org.asup.db.syntax.mssql;
 
 import org.asup.db.syntax.impl.QueryWriterImpl;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
-import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class MsSQLQueryWriterImpl extends QueryWriterImpl {
 

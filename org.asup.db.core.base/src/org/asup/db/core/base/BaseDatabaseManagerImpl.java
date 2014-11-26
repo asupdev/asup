@@ -41,7 +41,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	private QDefinitionWriterRegistry definiwtionWriterRegistry;
 
 	@Override
-	public void createSchema(QConnection connection, QSchemaDef schemaDef) throws SQLException {
+	public void createSchema(QConnection connection, String name, QSchemaDef schemaDef) throws SQLException {
 
 		// Schema creation
 		QStatement statement = null;
@@ -61,7 +61,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 
 	@Override
-	public void createTable(QConnection connection, Schema schema, QTableDef tableDef) throws SQLException {
+	public void createTable(QConnection connection, Schema schema, String name, QTableDef tableDef) throws SQLException {
 
 		DatabaseDefinition databaseDefinition = connection.getDatabaseDefinition();
 		
@@ -101,7 +101,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 
 	@Override
-	public void createView(QConnection connection, Schema schema, QViewDef viewDef) throws SQLException {
+	public void createView(QConnection connection, Schema schema, String name, QViewDef viewDef) throws SQLException {
 
 		QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
 		String command = syntaxBuilder.createView(schema, viewDef);
@@ -126,7 +126,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 	
 	@Override
-	public void createIndex(QConnection connection, Table table, QIndexDef indexDef) throws SQLException {
+	public void createIndex(QConnection connection, Table table, String name, QIndexDef indexDef) throws SQLException {
 		
 		QStatement statement = null;
 		try {

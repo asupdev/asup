@@ -435,22 +435,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int INDEX_DEF__COLUMNS = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Unique</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_DEF__UNIQUE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 3;
+	int INDEX_DEF__UNIQUE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Index Def</em>' class.
@@ -459,7 +450,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 4;
+	int INDEX_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.IndexColumnDefImpl <em>Index Column Def</em>}' class.
@@ -537,22 +528,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int SCHEMA_DEF = 14;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEMA_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Schema Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
+	int SCHEMA_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.QStatement <em>Statement</em>}' class.
@@ -593,22 +575,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int TABLE_DEF__COLUMNS = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Table Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
+	int TABLE_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.TableColumnDefImpl <em>Table Column Def</em>}' class.
@@ -692,15 +665,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEW_DEF__COLUMNS = TABLE_DEF__COLUMNS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_DEF__NAME = TABLE_DEF__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Creation Plugin</b></em>' attribute.
@@ -988,17 +952,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	EReference getIndexDef_Columns();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QIndexDef#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.asup.db.core.QIndexDef#getName()
-	 * @see #getIndexDef()
-	 * @generated
-	 */
-	EAttribute getIndexDef_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.core.QIndexDef#isUnique <em>Unique</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1073,17 +1026,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	EClass getSchemaDef();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QSchemaDef#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.asup.db.core.QSchemaDef#getName()
-	 * @see #getSchemaDef()
-	 * @generated
-	 */
-	EAttribute getSchemaDef_Name();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QStatement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1113,17 +1055,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTableDef_Columns();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QTableDef#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.asup.db.core.QTableDef#getName()
-	 * @see #getTableDef()
-	 * @generated
-	 */
-	EAttribute getTableDef_Name();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QTableColumnDef <em>Table Column Def</em>}'.
@@ -1479,14 +1410,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		EReference INDEX_DEF__COLUMNS = eINSTANCE.getIndexDef_Columns();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INDEX_DEF__NAME = eINSTANCE.getIndexDef_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1549,14 +1472,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		EClass SCHEMA_DEF = eINSTANCE.getSchemaDef();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEMA_DEF__NAME = eINSTANCE.getSchemaDef_Name();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.db.core.QStatement <em>Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1583,14 +1498,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_DEF__COLUMNS = eINSTANCE.getTableDef_Columns();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_DEF__NAME = eINSTANCE.getTableDef_Name();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.impl.TableColumnDefImpl <em>Table Column Def</em>}' class.

@@ -67,8 +67,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		dropDB2Schema(connection, schemaName);
 
 		QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
-		schemaDef.setName(schemaName);
-		databaseManager.createSchema(connection, schemaDef);
+		databaseManager.createSchema(connection, schemaName, schemaDef);
 
 		Schema schema = databaseManager.getSchema(connection, schemaName);
 
@@ -88,14 +87,14 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 			try {
 				if (file instanceof QTableDef) {
 					QTableDef tableDef = (QTableDef) file;
-					databaseManager.createTable(connection, schema, tableDef);
+					databaseManager.createTable(connection, schema, fileName, tableDef);
 				} else if (file instanceof QViewDef) {
 					QViewDef viewDef = (QViewDef) file;
-					databaseManager.createView(connection, schema, viewDef);
+					databaseManager.createView(connection, schema, fileName, viewDef);
 				} else if (file instanceof QIndexDef) {
 					QIndexDef indexDef = (QIndexDef) file;
-					Table table = databaseManager.getTable(connection, schemaName, ((QIndexDef) file).getName());
-					databaseManager.createIndex(connection, table, indexDef);
+					Table table = databaseManager.getTable(connection, schemaName, fileName);
+					databaseManager.createIndex(connection, table, fileName, indexDef);
 				}
 			} catch (SQLException e) {
 				System.err.println(e.toString());
@@ -154,24 +153,24 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		}
 
 		QSchemaDef schemaDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QSchemaDef.class);
-		databaseManager.createSchema(connectionTo, schemaDef);
-		Schema schemaTo = databaseManager.getSchema(connectionTo, schemaDef.getName());
+		databaseManager.createSchema(connectionTo, schemaFrom.getName(), schemaDef);
+		Schema schemaTo = databaseManager.getSchema(connectionTo, schemaFrom.getName());
 
 		for (Table table : (List<Table>) schemaFrom.getTables()) {
 
 			if (table instanceof ViewTable) {
 				QViewDef viewDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QViewDef.class);
-				databaseManager.createView(connectionTo, schemaTo, viewDef);
+				databaseManager.createView(connectionTo, schemaTo, table.getName(), viewDef);
 			} else {
 				QTableDef tableDef = connectionTo.getConnectionContext().getAdapter(table, QTableDef.class);
-				databaseManager.createTable(connectionTo, schemaTo, tableDef);
+				databaseManager.createTable(connectionTo, schemaTo, table.getName(), tableDef);
 			}
 		}
 
 		for (Index index : (List<Index>) schemaFrom.getIndices()) {
 			QIndexDef indexDef = connectionTo.getConnectionContext().getAdapter(index, QIndexDef.class);
 			Table tableTo = databaseManager.getTable(connectionTo, schemaTo.getName(), index.getName());
-			databaseManager.createIndex(connectionTo, tableTo, indexDef);
+			databaseManager.createIndex(connectionTo, tableTo, index.getName(), indexDef);
 		}
 
 		return null;
@@ -207,12 +206,10 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 			dropDB2Schema(connection, schemaName);
 
 		QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
-		schemaDef.setName(schemaName);
-		databaseManager.createSchema(connection, schemaDef);
+		databaseManager.createSchema(connection, schemaName, schemaDef);
 		schema = databaseManager.getSchema(connection, schemaName);
 
 		QTableDef tableDef = QDatabaseCoreFactory.eINSTANCE.createTableDef();
-		tableDef.setName(tableName);
 
 		for (int i = 1; i <= 3; i++) {
 			QTableColumnDef column = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
@@ -222,11 +219,10 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 			tableDef.getColumns().add(column);
 		}
 
-		databaseManager.createTable(connection, schema, tableDef);
+		databaseManager.createTable(connection, schema, tableName, tableDef);
 		Table table = databaseManager.getTable(connection, schema.getName(), tableName);
 
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-		indexDef.setName(indexName);
 
 		QIndexColumnDef indexColumn = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
 		indexColumn.setName("COL2");
@@ -235,7 +231,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 		indexDef.getColumns().add(indexColumn);
 
-		databaseManager.createIndex(connection, table, indexDef);
+		databaseManager.createIndex(connection, table, indexName, indexDef);
 
 		return null;
 	}
@@ -262,7 +258,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 			ViewTable view = (ViewTable) table;
 			if (view.getName().equals("A£LIND0L")) {
 				QViewDef viewDef = connectionFrom.getConnectionContext().getAdapter(view, QViewDef.class);
-				databaseManager.createView(connectionTo, schemaTo, viewDef);
+				databaseManager.createView(connectionTo, schemaTo, view.getName(), viewDef);
 				break;
 			}
 		}

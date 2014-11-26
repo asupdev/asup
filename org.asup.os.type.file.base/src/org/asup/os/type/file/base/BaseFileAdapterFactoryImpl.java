@@ -89,7 +89,6 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 	private QTableDef adaptDatabaseFileToTableDef(QDatabaseFile file) {
 		
 		QTableDef tableDef = QDatabaseCoreFactory.eINSTANCE.createTableDef();
-		tableDef.setName(file.getName());
 		
 		QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
 		for(QDatabaseFileField field: databaseFileFormat.getFields()) {
@@ -109,7 +108,6 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 	private QViewDef adaptDatabaseFileToViewDef(QLogicalFile file) {
 		
 		QViewDef viewDef = QDatabaseCoreFactory.eINSTANCE.createViewDef();
-		viewDef.setName(file.getName());
 		
 		QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
 		for(QDatabaseFileField field: databaseFileFormat.getFields()) {
@@ -134,7 +132,6 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 			return null;
 		
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-		indexDef.setName(file.getName());
 		indexDef.setUnique(databaseFileFormat.isUnique());
 
 		int i=1;

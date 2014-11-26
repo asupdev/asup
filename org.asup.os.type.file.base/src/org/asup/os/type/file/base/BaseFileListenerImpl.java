@@ -88,12 +88,12 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 				QPhysicalFile physicalFile = (QPhysicalFile) file;
 
 				QTableDef tableDef = jobContext.getAdapter(physicalFile, QTableDef.class);
-				databaseManager.createTable(connection, schema, tableDef);
+				databaseManager.createTable(connection, schema, file.getName(), tableDef);
 			} else if (file instanceof QLogicalFile) {
 				QLogicalFile logicalFile = (QLogicalFile) file;
 
 				QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
-				databaseManager.createView(connection, schema, viewDef);
+				databaseManager.createView(connection, schema, file.getName(), viewDef);
 			}
 
 			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
@@ -106,17 +106,16 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 					QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
 					pkIndexDef.setClustered(true);
 					pkIndexDef.setUnique(true);
-					pkIndexDef.setName("QAS_"+table.getName()+"_RRN_IDX");
 					
 					QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
 					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
 					pkIndexColumnDef.setSequence(1);					
 					pkIndexDef.getColumns().add(pkIndexColumnDef);
 					
-					databaseManager.createIndex(connection, table, pkIndexDef);
+					databaseManager.createIndex(connection, table, "QAS_"+table.getName()+"_RRN_IDX", pkIndexDef);
 				}
 				
-				databaseManager.createIndex(connection, table, index);
+				databaseManager.createIndex(connection, table, file.getName(), index);
 			}
 			
 			try {

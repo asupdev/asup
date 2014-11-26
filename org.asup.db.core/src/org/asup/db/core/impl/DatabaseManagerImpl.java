@@ -61,7 +61,7 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createIndex(QConnection connection, Table table, QIndexDef index) throws SQLException {
+	public void createIndex(QConnection connection, Table table, String name, QIndexDef index) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -72,7 +72,7 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createSchema(QConnection connection, QSchemaDef schema) throws SQLException {
+	public void createSchema(QConnection connection, String name, QSchemaDef schema) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -83,7 +83,7 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createTable(QConnection connection, Schema schema, QTableDef table) throws SQLException {
+	public void createTable(QConnection connection, Schema schema, String name, QTableDef table) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -94,7 +94,7 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createView(QConnection connection, Schema schema, QViewDef view) throws SQLException {
+	public void createView(QConnection connection, Schema schema, String name, QViewDef view) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
