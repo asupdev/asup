@@ -9,7 +9,6 @@ package org.asup.db.core;
 
 import java.sql.SQLException;
 import org.asup.fw.core.QContextID;
-import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -105,9 +104,17 @@ public interface QConnection extends QContextID {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" type="org.asup.db.core.DatabaseDefinition" required="true"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	DatabaseDefinition getDatabaseDefinition();
+	QDatabaseDefinition getDatabaseDefinition();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	QDatabaseCatalog getDefaultCatalog();
 
 } // DatabaseConnection

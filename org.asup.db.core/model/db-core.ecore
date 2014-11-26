@@ -12,6 +12,7 @@
     <eOperations name="getConnectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
     <eOperations name="getConnectionContext" eType="#//ConnectionContext"/>
     <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
+    <eOperations name="getDefaultCatalog" lowerBound="1" eType="#//DatabaseCatalog"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -27,8 +28,6 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionConfig" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
-    <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
-    <eOperations name="getDatabaseDefinitionID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoCommit" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" lowerBound="1"
@@ -68,13 +67,13 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseCatalog" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DatabaseDefinition" instanceClassName="org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition"
-      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseDefinition" abstract="true"
+      interface="true">
+    <eOperations name="supportsIdentityColumns" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseObjectDef" abstract="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseException" instanceClassName="java.sql.SQLException"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DatabaseNameHelper" instanceClassName="org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper"
-      abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createIndex" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>

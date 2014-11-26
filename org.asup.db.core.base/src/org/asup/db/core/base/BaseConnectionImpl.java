@@ -1,10 +1,21 @@
 package org.asup.db.core.base;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-import org.asup.db.core.*;
-import org.asup.db.syntax.*;
-import org.eclipse.datatools.connectivity.*;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionContext;
+import org.asup.db.core.QDatabaseCatalog;
+import org.asup.db.core.QDatabaseDefinition;
+import org.asup.db.core.QPreparedStatement;
+import org.asup.db.core.QStatement;
+import org.asup.db.syntax.QQueryParser;
+import org.asup.db.syntax.QQueryWriter;
+import org.eclipse.datatools.connectivity.IConnection;
+import org.eclipse.datatools.connectivity.IConnectionFactoryProvider;
+import org.eclipse.datatools.connectivity.IConnectionProfile;
+import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 
@@ -15,7 +26,8 @@ public class BaseConnectionImpl implements QConnection {
 	private QConnectionConfig connectionConfig;
 	private QQueryParser queryParser;
 	private QQueryWriter queryConverter;
-
+	
+	private QDatabaseDefinition databaseDefinition; 
 	
 	public BaseConnectionImpl(QConnectionContext connectionContext, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
 		this.connectionContext = connectionContext;
@@ -24,11 +36,6 @@ public class BaseConnectionImpl implements QConnection {
 		this.queryConverter = queryConverter;
 	}
 	
-	@Override
-	public DatabaseDefinition getDatabaseDefinition() {
-		return getConnectionContext().getAdapter(this, ConnectionInfo.class).getDatabaseDefinition();
-	}
-
 	@Override
 	public QConnectionConfig getConnectionConfig() {
 		return connectionConfig;
@@ -96,11 +103,6 @@ public class BaseConnectionImpl implements QConnection {
 	}
 
 	@Override
-	public String getID() {
-		return getConnectionConfig().getDatabaseDefinitionID();
-	}
-
-	@Override
 	public QConnectionContext getConnectionContext() {
 		return connectionContext;
 	}
@@ -110,5 +112,28 @@ public class BaseConnectionImpl implements QConnection {
 		if(iConnection != null)
 			iConnection.close();
 		getConnectionContext().close();
+	}
+
+	@Override
+	public String getID() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public QDatabaseDefinition getDatabaseDefinition() {
+
+		if(this.databaseDefinition == null) {
+			DatabaseDefinition dtpDatabaseDefinition = SQMServices.getDatabaseDefinitionRegistry().getDefinition(getConnectionConfig().getProduct(), getConnectionConfig().getVersion());
+			this.databaseDefinition = new BaseDatabaseDefinitionImpl(dtpDatabaseDefinition);
+		}
+		
+		return this.databaseDefinition;
+	}
+
+	@Override
+	public QDatabaseCatalog getDefaultCatalog() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

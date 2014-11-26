@@ -16,11 +16,21 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.asup.db.core.DatabaseDataType;
+import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QDatabaseDefinition;
+import org.asup.db.core.QIndexDef;
+import org.asup.db.core.QSchemaDef;
+import org.asup.db.core.QStatement;
+import org.asup.db.core.QTableColumnDef;
+import org.asup.db.core.QTableDef;
+import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
-import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
 import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
 import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableIndexLoader;
@@ -34,7 +44,6 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.asup.db.core.*;
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
@@ -63,7 +72,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void createTable(QConnection connection, Schema schema, String name, QTableDef tableDef) throws SQLException {
 
-		DatabaseDefinition databaseDefinition = connection.getDatabaseDefinition();
+		QDatabaseDefinition databaseDefinition = connection.getDatabaseDefinition();
 		
 		QStatement statement = null;
 		try {

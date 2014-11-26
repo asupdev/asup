@@ -324,10 +324,10 @@ public interface QDatabaseCorePackage extends EPackage {
 	int DATABASE_CATALOG_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition <em>Database Definition</em>}' class.
+	 * The meta object id for the '{@link org.asup.db.core.QDatabaseDefinition <em>Database Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition
+	 * @see org.asup.db.core.QDatabaseDefinition
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDefinition()
 	 * @generated
 	 */
@@ -362,25 +362,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	int DATABASE_OBJECT_DEF_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper <em>Database Name Helper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper
-	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseNameHelper()
-	 * @generated
-	 */
-	int DATABASE_NAME_HELPER = 9;
-
-	/**
-	 * The number of structural features of the '<em>Database Name Helper</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_NAME_HELPER_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.DatabaseManagerImpl <em>Database Manager</em>}' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -388,7 +369,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseManager()
 	 * @generated
 	 */
-	int DATABASE_MANAGER = 10;
+	int DATABASE_MANAGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -414,7 +395,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexDef()
 	 * @generated
 	 */
-	int INDEX_DEF = 11;
+	int INDEX_DEF = 10;
 
 	/**
 	 * The feature id for the '<em><b>Clustered</b></em>' attribute.
@@ -460,7 +441,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexColumnDef()
 	 * @generated
 	 */
-	int INDEX_COLUMN_DEF = 12;
+	int INDEX_COLUMN_DEF = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -506,7 +487,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getPreparedStatement()
 	 * @generated
 	 */
-	int PREPARED_STATEMENT = 13;
+	int PREPARED_STATEMENT = 12;
 
 	/**
 	 * The number of structural features of the '<em>Prepared Statement</em>' class.
@@ -525,7 +506,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getSchemaDef()
 	 * @generated
 	 */
-	int SCHEMA_DEF = 14;
+	int SCHEMA_DEF = 13;
 
 	/**
 	 * The number of structural features of the '<em>Schema Def</em>' class.
@@ -544,7 +525,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 15;
+	int STATEMENT = 14;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -563,7 +544,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableDef()
 	 * @generated
 	 */
-	int TABLE_DEF = 16;
+	int TABLE_DEF = 15;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -591,7 +572,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableColumnDef()
 	 * @generated
 	 */
-	int TABLE_COLUMN_DEF = 17;
+	int TABLE_COLUMN_DEF = 16;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -655,7 +636,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getViewDef()
 	 * @generated
 	 */
-	int VIEW_DEF = 18;
+	int VIEW_DEF = 17;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -701,7 +682,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 	 * @generated
 	 */
-	int DATABASE_DATA_TYPE = 19;
+	int DATABASE_DATA_TYPE = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.OrderingType
@@ -712,7 +693,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getOrderingType()
 	 * @generated
 	 */
-	int ORDERING_TYPE = 20;
+	int ORDERING_TYPE = 19;
 
 	/**
 	 * The meta object id for the '<em>Database Exception</em>' data type. <!--
@@ -722,7 +703,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseException()
 	 * @generated
 	 */
-	int DATABASE_EXCEPTION = 21;
+	int DATABASE_EXCEPTION = 20;
 
 	/**
 	 * The meta object id for the '<em>Database Result Set</em>' data type.
@@ -732,7 +713,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseResultSet()
 	 * @generated
 	 */
-	int DATABASE_RESULT_SET = 22;
+	int DATABASE_RESULT_SET = 21;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QConnection <em>Connection</em>}'.
@@ -879,12 +860,11 @@ public interface QDatabaseCorePackage extends EPackage {
 	EClass getDatabaseCatalog();
 
 	/**
-	 * Returns the meta object for class '{@link org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition <em>Database Definition</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.core.QDatabaseDefinition <em>Database Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Database Definition</em>'.
-	 * @see org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition
-	 * @model instanceClass="org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition"
+	 * @see org.asup.db.core.QDatabaseDefinition
 	 * @generated
 	 */
 	EClass getDatabaseDefinition();
@@ -898,17 +878,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDatabaseObjectDef();
-
-	/**
-	 * Returns the meta object for class '{@link org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper <em>Database Name Helper</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Database Name Helper</em>'.
-	 * @see org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper
-	 * @model instanceClass="org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper"
-	 * @generated
-	 */
-	EClass getDatabaseNameHelper();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QDatabaseManager <em>Database Manager</em>}'.
@@ -1344,10 +1313,10 @@ public interface QDatabaseCorePackage extends EPackage {
 		EClass DATABASE_CATALOG = eINSTANCE.getDatabaseCatalog();
 
 		/**
-		 * The meta object literal for the '{@link org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition <em>Database Definition</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.core.QDatabaseDefinition <em>Database Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition
+		 * @see org.asup.db.core.QDatabaseDefinition
 		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDefinition()
 		 * @generated
 		 */
@@ -1362,16 +1331,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATABASE_OBJECT_DEF = eINSTANCE.getDatabaseObjectDef();
-
-		/**
-		 * The meta object literal for the '{@link org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper <em>Database Name Helper</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper
-		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseNameHelper()
-		 * @generated
-		 */
-		EClass DATABASE_NAME_HELPER = eINSTANCE.getDatabaseNameHelper();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.impl.DatabaseManagerImpl <em>Database Manager</em>}' class.

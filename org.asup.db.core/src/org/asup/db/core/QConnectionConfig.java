@@ -8,7 +8,6 @@
 package org.asup.db.core;
 
 import org.asup.fw.core.QServiceConfig;
-import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 
 /**
  * <!-- begin-user-doc -->
@@ -215,21 +214,5 @@ public interface QConnectionConfig extends QServiceConfig {
 	 * @generated
 	 */
 	void setVersion(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" type="org.asup.db.core.DatabaseDefinition" required="true"
-	 * @generated
-	 */
-	DatabaseDefinition getDatabaseDefinition();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	String getDatabaseDefinitionID();
 
 } // QConnectionConfig

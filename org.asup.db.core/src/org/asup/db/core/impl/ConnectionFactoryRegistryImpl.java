@@ -7,9 +7,9 @@
  */
 package org.asup.db.core.impl;
 
+import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
@@ -42,11 +42,10 @@ public abstract class ConnectionFactoryRegistryImpl extends PluginRegistryImpl<Q
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated NOT
 	 */
+	@Override
 	public QConnectionFactory lookup(QConnectionConfig connectionConfig) {
-		return lookup(connectionConfig.getDatabaseDefinitionID());
+		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
 	}
-
 } // ConnectionFactoryRegistryImpl

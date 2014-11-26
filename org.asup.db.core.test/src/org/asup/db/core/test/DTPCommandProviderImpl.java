@@ -8,7 +8,6 @@ import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseManager;
-import org.eclipse.datatools.connectivity.ConnectionProfileException;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 
@@ -19,7 +18,7 @@ public class DTPCommandProviderImpl extends AbstractCommandProviderImpl {
 	@Inject
 	private QDatabaseManager databaseManager;
 	
-	public void _connect(CommandInterpreter interpreter) throws ConnectionProfileException, SQLException {
+	public void _connect(CommandInterpreter interpreter) throws SQLException {
 
 		QConnectionConfig config = loadConfig(interpreter.nextArgument());
 

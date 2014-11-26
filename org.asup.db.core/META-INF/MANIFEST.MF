@@ -12,11 +12,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.asup.fw.core;visibility:=reexport,
  org.asup.fw.java;visibility:=reexport,
- org.eclipse.datatools.modelbase.sql;visibility:=reexport,
- org.eclipse.datatools.modelbase.dbdefinition;visibility:=reexport,
- org.eclipse.datatools.connectivity;visibility:=reexport,
- org.eclipse.datatools.connectivity.sqm.core;visibility:=reexport,
- org.eclipse.datatools.connectivity.db.generic,
- org.eclipse.datatools.connectivity.dbdefinition.genericJDBC;visibility:=reexport
+ org.eclipse.datatools.modelbase.sql;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

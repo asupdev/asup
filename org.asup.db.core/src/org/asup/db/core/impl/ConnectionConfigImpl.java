@@ -10,8 +10,6 @@ package org.asup.db.core.impl;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.ServiceConfigImpl;
-import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
-import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -323,15 +321,6 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		version = newVersion;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__VERSION, oldVersion, version));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public DatabaseDefinition getDatabaseDefinition() {
-		return SQMServices.getDatabaseDefinitionRegistry().getDefinition(getProduct(), getVersion()); 
 	}
 
 	/**
