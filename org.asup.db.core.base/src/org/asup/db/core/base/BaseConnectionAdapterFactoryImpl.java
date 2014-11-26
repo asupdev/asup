@@ -1,24 +1,30 @@
 package org.asup.db.core.base;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.util.Properties;
 
 import org.asup.db.core.QConnectionConfig;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.datatools.connectivity.ConnectionProfileConstants;
 import org.eclipse.datatools.connectivity.ConnectionProfileException;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.ProfileManager;
 import org.eclipse.datatools.connectivity.drivers.DriverInstance;
 import org.eclipse.datatools.connectivity.drivers.DriverManager;
+import org.eclipse.datatools.connectivity.drivers.IDriverMgmtConstants;
 import org.eclipse.datatools.connectivity.drivers.jdbc.IJDBCConnectionProfileConstants;
 import org.eclipse.datatools.connectivity.drivers.jdbc.IJDBCDriverDefinitionConstants;
 import org.eclipse.datatools.connectivity.drivers.models.TemplateDescriptor;
 import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.mappings.ProviderIDMappingRegistry;
+import org.osgi.framework.Bundle;
 
 public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 
@@ -73,7 +79,7 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 							if(driverClass == null ||driverClass.isEmpty())
 								driverClass = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DRIVER_CLASS_PROP_ID);
 							properties.setProperty(IJDBCDriverDefinitionConstants.DRIVER_CLASS_PROP_ID, driverClass);
-//							properties.setProperty(IDriverMgmtConstants.PROP_DEFN_JARLIST, getJarList(templateDescriptor));
+							properties.setProperty(IDriverMgmtConstants.PROP_DEFN_JARLIST, getJarList(templateDescriptor));
 							
 							properties.setProperty(IJDBCDriverDefinitionConstants.URL_PROP_ID, connectionConfig.getUrl());
 							properties.setProperty(IJDBCDriverDefinitionConstants.USERNAME_PROP_ID, connectionConfig.getUser());
@@ -85,7 +91,7 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 					}
 
 					adaptee = profileManager.createTransientProfile(providerID, properties);
-				} catch (ConnectionProfileException e) {
+				} catch (ConnectionProfileException | IOException e) {
 					throw new FrameworkCoreRuntimeException(e);
 				}
 			}
@@ -105,15 +111,15 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 
 		StringBuffer jarList = new StringBuffer();
 		
-/*		Bundle bundle = Platform.getBundle(templateDescriptor.getElement().getDeclaringExtension().getNamespaceIdentifier()); 
+		Bundle bundle = Platform.getBundle(templateDescriptor.getElement().getDeclaringExtension().getNamespaceIdentifier()); 
 		
 		String paths[] = templateDescriptor.getJarList().split(";");
 		for(int i=0; i<paths.length; i++) {
 			if(i>0)
-				jarList.append(";");
+				jarList.append(System.getProperty("path.separator"));
 			URL pathURL = bundle.getEntry(paths[i].trim());
 			jarList.append(new Path(FileLocator.toFileURL(pathURL).getFile()).toOSString());
-		}*/
+		}
 
 		return jarList.toString();
 	}

@@ -17,6 +17,7 @@ import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.fw.core.QContext;
 import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.datatools.enablement.ibm.db2.luw.catalog.LUWCatalogDatabase;
 
 @SuppressWarnings("restriction")
 public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
@@ -38,6 +39,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
 
 		this.queryParser = this.queryParserRegistry.lookup("IBMI");
+		
 	}
 
 	@Override

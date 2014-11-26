@@ -16,7 +16,7 @@
             createDefault="false"
             emptyJarListIsOK="false"
             id="org.eclipse.datatools.enablement.ibm.db2.luw.asup.driverTemplate"
-            jarList="[org.asup.db.core.db2]/lib/db2jcc4.jar"
+            jarList="lib/db2jcc4.jar"
             name="IBM Data Server Driver for As.UP"
             parentCategory="org.eclipse.datatools.enablement.ibm.db2.driverCategory"
             valuesProvider="org.eclipse.datatools.enablement.ibm.db2.luw.DB2LUWJDBC4DriverValuesProvider">
