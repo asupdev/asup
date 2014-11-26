@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.dml.impl.ExtendedQueryExpressionBodyImpl#getRowOptimizeLimit <em>Row Optimize Limit</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dml.impl.ExtendedQueryExpressionBodyImpl#getOptimizeRecordsNumber <em>Optimize Records Number</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,24 +33,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl implements QExtendedQueryExpressionBody {
 	/**
-	 * The default value of the '{@link #getRowOptimizeLimit() <em>Row Optimize Limit</em>}' attribute.
+	 * The default value of the '{@link #getOptimizeRecordsNumber() <em>Optimize Records Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRowOptimizeLimit()
+	 * @see #getOptimizeRecordsNumber()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int ROW_OPTIMIZE_LIMIT_EDEFAULT = 0;
+	protected static final int OPTIMIZE_RECORDS_NUMBER_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getRowOptimizeLimit() <em>Row Optimize Limit</em>}' attribute.
+	 * The cached value of the '{@link #getOptimizeRecordsNumber() <em>Optimize Records Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRowOptimizeLimit()
+	 * @see #getOptimizeRecordsNumber()
 	 * @generated
 	 * @ordered
 	 */
-	protected int rowOptimizeLimit = ROW_OPTIMIZE_LIMIT_EDEFAULT;
+	protected int optimizeRecordsNumber = OPTIMIZE_RECORDS_NUMBER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +76,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getRowOptimizeLimit() {
-		return rowOptimizeLimit;
+	public int getOptimizeRecordsNumber() {
+		return optimizeRecordsNumber;
 	}
 
 	/**
@@ -85,11 +85,11 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRowOptimizeLimit(int newRowOptimizeLimit) {
-		int oldRowOptimizeLimit = rowOptimizeLimit;
-		rowOptimizeLimit = newRowOptimizeLimit;
+	public void setOptimizeRecordsNumber(int newOptimizeRecordsNumber) {
+		int oldOptimizeRecordsNumber = optimizeRecordsNumber;
+		optimizeRecordsNumber = newOptimizeRecordsNumber;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT, oldRowOptimizeLimit, rowOptimizeLimit));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER, oldOptimizeRecordsNumber, optimizeRecordsNumber));
 	}
 
 	/**
@@ -100,8 +100,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
-				return getRowOptimizeLimit();
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+				return getOptimizeRecordsNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,8 +114,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
-				setRowOptimizeLimit((Integer)newValue);
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+				setOptimizeRecordsNumber((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,8 +129,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
-				setRowOptimizeLimit(ROW_OPTIMIZE_LIMIT_EDEFAULT);
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+				setOptimizeRecordsNumber(OPTIMIZE_RECORDS_NUMBER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -144,8 +144,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT:
-				return rowOptimizeLimit != ROW_OPTIMIZE_LIMIT_EDEFAULT;
+			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+				return optimizeRecordsNumber != OPTIMIZE_RECORDS_NUMBER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -160,8 +160,8 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rowOptimizeLimit: ");
-		result.append(rowOptimizeLimit);
+		result.append(" (optimizeRecordsNumber: ");
+		result.append(optimizeRecordsNumber);
 		result.append(')');
 		return result.toString();
 	}

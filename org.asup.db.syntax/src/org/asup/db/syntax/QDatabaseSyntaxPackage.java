@@ -263,6 +263,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int DEFINITION_PARSER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '<em>Definition Parse Result</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParseResult()
+	 * @generated
+	 */
+	int DEFINITION_PARSE_RESULT = 11;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionWriterImpl <em>Definition Writer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -364,6 +374,25 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int DEFINITION_WRITER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.QDefinitionStatement <em>Definition Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.QDefinitionStatement
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionStatement()
+	 * @generated
+	 */
+	int DEFINITION_STATEMENT = 6;
+
+	/**
+	 * The number of structural features of the '<em>Definition Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_STATEMENT_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.QueryWriterImpl <em>Query Writer</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,7 +400,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriter()
 	 * @generated
 	 */
-	int QUERY_WRITER = 6;
+	int QUERY_WRITER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -435,7 +464,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriterRegistry()
 	 * @generated
 	 */
-	int QUERY_WRITER_REGISTRY = 7;
+	int QUERY_WRITER_REGISTRY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -472,7 +501,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParser()
 	 * @generated
 	 */
-	int QUERY_PARSER = 8;
+	int QUERY_PARSER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -536,7 +565,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParserRegistry()
 	 * @generated
 	 */
-	int QUERY_PARSER_REGISTRY = 9;
+	int QUERY_PARSER_REGISTRY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -573,7 +602,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParseResult()
 	 * @generated
 	 */
-	int QUERY_PARSE_RESULT = 10;
+	int QUERY_PARSE_RESULT = 12;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QAliasResolver <em>Alias Resolver</em>}'.
@@ -616,6 +645,17 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	EClass getDefinitionParserRegistry();
 
 	/**
+	 * Returns the meta object for data type '{@link org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult <em>Definition Parse Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Definition Parse Result</em>'.
+	 * @see org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult
+	 * @model instanceClass="org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult"
+	 * @generated
+	 */
+	EDataType getDefinitionParseResult();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionWriter <em>Definition Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,6 +674,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDefinitionWriterRegistry();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionStatement <em>Definition Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Definition Statement</em>'.
+	 * @see org.asup.db.syntax.QDefinitionStatement
+	 * @generated
+	 */
+	EClass getDefinitionStatement();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QQueryWriter <em>Query Writer</em>}'.
@@ -749,6 +799,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		EClass DEFINITION_PARSER_REGISTRY = eINSTANCE.getDefinitionParserRegistry();
 
 		/**
+		 * The meta object literal for the '<em>Definition Parse Result</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParseResult()
+		 * @generated
+		 */
+		EDataType DEFINITION_PARSE_RESULT = eINSTANCE.getDefinitionParseResult();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionWriterImpl <em>Definition Writer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -767,6 +827,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DEFINITION_WRITER_REGISTRY = eINSTANCE.getDefinitionWriterRegistry();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.QDefinitionStatement <em>Definition Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.QDefinitionStatement
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionStatement()
+		 * @generated
+		 */
+		EClass DEFINITION_STATEMENT = eINSTANCE.getDefinitionStatement();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.QueryWriterImpl <em>Query Writer</em>}' class.

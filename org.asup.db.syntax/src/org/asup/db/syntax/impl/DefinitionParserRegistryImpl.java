@@ -8,13 +8,10 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.core.QConnectionConfig;
-
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QDefinitionParser;
 import org.asup.db.syntax.QDefinitionParserRegistry;
-
 import org.asup.fw.core.impl.PluginRegistryImpl;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -49,12 +46,9 @@ public abstract class DefinitionParserRegistryImpl extends PluginRegistryImpl<QD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public QDefinitionParser lookup(QConnectionConfig connectionConfig) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
 	}
-
 } //DefinitionParserRegistryImpl

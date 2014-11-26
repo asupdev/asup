@@ -14,9 +14,7 @@ import org.asup.db.core.QViewDef;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
-import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 
@@ -29,10 +27,10 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  *
  *
  * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionWriter()
- * @model abstract="true" superTypes="org.asup.fw.core.Plugin org.asup.fw.core.Service org.asup.db.core.DatabaseNameHelper"
+ * @model abstract="true"
  * @generated
  */
-public interface QDefinitionWriter extends QPlugin, QService, ISQLObjectNameHelper {
+public interface QDefinitionWriter extends QPlugin, QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,10 +114,10 @@ public interface QDefinitionWriter extends QPlugin, QService, ISQLObjectNameHelp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model queryRequired="true"
+	 * @model statementRequired="true"
 	 * @generated
 	 */
-	String writeDefinition(QueryStatement query);
+	String writeDefinition(QDefinitionStatement statement);
 
 	/**
 	 * <!-- begin-user-doc -->

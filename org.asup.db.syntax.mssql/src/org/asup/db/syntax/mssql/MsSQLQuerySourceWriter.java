@@ -193,7 +193,7 @@ public class MsSQLQuerySourceWriter extends SQLQuerySourceWriter {
 			}
 
 			// OPTIMIZE n ROWS clause
-			int rowOptimizeLimit = select.getRowOptimizeLimit();
+			int rowOptimizeLimit = select.getOptimizeRecordsNumber();
 			if (rowOptimizeLimit > 0) {
 				appendNewLine(sbSelect);
 				appendStringBuffer(sbSelect, sbClauseIndent);

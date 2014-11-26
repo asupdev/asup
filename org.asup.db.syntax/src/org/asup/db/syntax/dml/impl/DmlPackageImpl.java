@@ -141,7 +141,7 @@ public class DmlPackageImpl extends EPackageImpl implements QDmlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExtendedQueryExpressionBody_RowOptimizeLimit() {
+	public EAttribute getExtendedQueryExpressionBody_OptimizeRecordsNumber() {
 		return (EAttribute)extendedQueryExpressionBodyEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -176,7 +176,7 @@ public class DmlPackageImpl extends EPackageImpl implements QDmlPackage {
 		extendedQuerySelectEClass = createEClass(EXTENDED_QUERY_SELECT);
 
 		extendedQueryExpressionBodyEClass = createEClass(EXTENDED_QUERY_EXPRESSION_BODY);
-		createEAttribute(extendedQueryExpressionBodyEClass, EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT);
+		createEAttribute(extendedQueryExpressionBodyEClass, EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER);
 	}
 
 	/**
@@ -219,7 +219,7 @@ public class DmlPackageImpl extends EPackageImpl implements QDmlPackage {
 		initEClass(extendedQuerySelectEClass, QExtendedQuerySelect.class, "ExtendedQuerySelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(extendedQueryExpressionBodyEClass, QExtendedQueryExpressionBody.class, "ExtendedQueryExpressionBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExtendedQueryExpressionBody_RowOptimizeLimit(), theEcorePackage.getEInt(), "rowOptimizeLimit", null, 0, 1, QExtendedQueryExpressionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExtendedQueryExpressionBody_OptimizeRecordsNumber(), theEcorePackage.getEInt(), "optimizeRecordsNumber", null, 0, 1, QExtendedQueryExpressionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 
 } //DmlPackageImpl

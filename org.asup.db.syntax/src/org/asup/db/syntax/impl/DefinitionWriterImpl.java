@@ -8,7 +8,6 @@
 package org.asup.db.syntax.impl;
 
 import java.util.List;
-
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QIndexColumnDef;
 import org.asup.db.core.QIndexDef;
@@ -17,13 +16,13 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
+import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Column;
@@ -282,7 +281,7 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String writeDefinition(QueryStatement query) {
+	public String writeDefinition(QDefinitionStatement statement) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -398,11 +397,6 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 				default: return -1;
 			}
 		}
-		if (baseClass == ISQLObjectNameHelper.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -415,11 +409,6 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 		if (baseClass == QService.class) {
 			switch (baseFeatureID) {
 				case QFrameworkCorePackage.SERVICE__CONFIG: return QDatabaseSyntaxPackage.DEFINITION_WRITER__CONFIG;
-				default: return -1;
-			}
-		}
-		if (baseClass == ISQLObjectNameHelper.class) {
-			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

@@ -89,7 +89,7 @@ public class IBMiQueryParserFactory extends SQLQueryParserFactory {
 		}
 		qrySel.setRowFetchLimit(aRowFetchLimit);
 
-		qrySel.setRowOptimizeLimit(aRowOptimizeLimit);
+		qrySel.setOptimizeRecordsNumber(aRowOptimizeLimit);
 
 		return qrySel;
 	}

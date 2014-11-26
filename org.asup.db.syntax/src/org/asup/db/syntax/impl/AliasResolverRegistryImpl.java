@@ -43,12 +43,10 @@ public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAlia
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public QAliasResolver lookup(QConnectionConfig connectionConfig) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
 	}
 
 } // AliasResolverRegistryImpl

@@ -17,7 +17,7 @@ import org.eclipse.datatools.modelbase.sql.query.QueryExpressionBody;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getOptimizeRecordsNumber <em>Optimize Records Number</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +27,29 @@ import org.eclipse.datatools.modelbase.sql.query.QueryExpressionBody;
  */
 public interface QExtendedQueryExpressionBody extends QueryExpressionBody {
 	/**
-	 * Returns the value of the '<em><b>Row Optimize Limit</b></em>' attribute.
+	 * Returns the value of the '<em><b>Optimize Records Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Row Optimize Limit</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Optimize Records Number</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Row Optimize Limit</em>' attribute.
-	 * @see #setRowOptimizeLimit(int)
-	 * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQueryExpressionBody_RowOptimizeLimit()
+	 * @return the value of the '<em>Optimize Records Number</em>' attribute.
+	 * @see #setOptimizeRecordsNumber(int)
+	 * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQueryExpressionBody_OptimizeRecordsNumber()
 	 * @model
 	 * @generated
 	 */
-	int getRowOptimizeLimit();
+	int getOptimizeRecordsNumber();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getOptimizeRecordsNumber <em>Optimize Records Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Row Optimize Limit</em>' attribute.
-	 * @see #getRowOptimizeLimit()
+	 * @param value the new value of the '<em>Optimize Records Number</em>' attribute.
+	 * @see #getOptimizeRecordsNumber()
 	 * @generated
 	 */
-	void setRowOptimizeLimit(int value);
+	void setOptimizeRecordsNumber(int value);
 
 } // QExtendedQueryExpressionBody

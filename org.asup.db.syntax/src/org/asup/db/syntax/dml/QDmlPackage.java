@@ -315,13 +315,13 @@ public interface QDmlPackage extends EPackage {
 	int EXTENDED_QUERY_EXPRESSION_BODY__SORT_SPEC_LIST = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__SORT_SPEC_LIST;
 
 	/**
-	 * The feature id for the '<em><b>Row Optimize Limit</b></em>' attribute.
+	 * The feature id for the '<em><b>Optimize Records Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY_FEATURE_COUNT + 0;
+	int EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER = SQLQueryModelPackage.QUERY_EXPRESSION_BODY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Extended Query Expression Body</em>' class.
@@ -586,13 +586,13 @@ public interface QDmlPackage extends EPackage {
 	int EXTENDED_QUERY_SELECT__SORT_SPEC_LIST = EXTENDED_QUERY_EXPRESSION_BODY__SORT_SPEC_LIST;
 
 	/**
-	 * The feature id for the '<em><b>Row Optimize Limit</b></em>' attribute.
+	 * The feature id for the '<em><b>Optimize Records Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENDED_QUERY_SELECT__ROW_OPTIMIZE_LIMIT = EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT;
+	int EXTENDED_QUERY_SELECT__OPTIMIZE_RECORDS_NUMBER = EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER;
 
 	/**
 	 * The feature id for the '<em><b>Distinct</b></em>' attribute.
@@ -688,15 +688,15 @@ public interface QDmlPackage extends EPackage {
 	EClass getExtendedQueryExpressionBody();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getOptimizeRecordsNumber <em>Optimize Records Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Row Optimize Limit</em>'.
-	 * @see org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getRowOptimizeLimit()
+	 * @return the meta object for the attribute '<em>Optimize Records Number</em>'.
+	 * @see org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getOptimizeRecordsNumber()
 	 * @see #getExtendedQueryExpressionBody()
 	 * @generated
 	 */
-	EAttribute getExtendedQueryExpressionBody_RowOptimizeLimit();
+	EAttribute getExtendedQueryExpressionBody_OptimizeRecordsNumber();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -741,12 +741,12 @@ public interface QDmlPackage extends EPackage {
 		EClass EXTENDED_QUERY_EXPRESSION_BODY = eINSTANCE.getExtendedQueryExpressionBody();
 
 		/**
-		 * The meta object literal for the '<em><b>Row Optimize Limit</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Optimize Records Number</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT = eINSTANCE.getExtendedQueryExpressionBody_RowOptimizeLimit();
+		EAttribute EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER = eINSTANCE.getExtendedQueryExpressionBody_OptimizeRecordsNumber();
 
 	}
 
