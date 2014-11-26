@@ -19,12 +19,14 @@ public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
 	public String dropSchema(Schema schema) {
 		return "DROP SCHEMA " + getNameInSQLFormat(schema) + " RESTRICT";
 	}
+	
+	
 
 	@Override
-	public String createTable(Schema schema, QTableDef table) {
+	public String createTable(Schema schema, String name, QTableDef table) {
 
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
-		result.append(getNameInSQLFormat(schema) + "." + getNameInSQLFormat(table) + " (");
+		result.append(getNameInSQLFormat(schema) + "." + getNameInSQLFormat(name) + " (");
 
 		String pkey_name = null;
 
@@ -69,4 +71,5 @@ public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
 		result.append(")");
 		return result.toString();
 	}
+
 }

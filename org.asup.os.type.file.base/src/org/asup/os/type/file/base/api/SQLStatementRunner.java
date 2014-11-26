@@ -78,7 +78,7 @@ public class SQLStatementRunner {
 			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(sql.asBytes()));
 
 			QQueryWriter queryConverter = queryConverterRegistry.lookup(databaseConnection.getConnectionConfig());
-			String statementString = queryConverter.convertQuery(query.getQueryStatement());
+			String statementString = queryConverter.writeQuery(query.getQueryStatement());
 
 			statementString = statementString.replaceAll("\\[ ", "[");
 			statementString = statementString.replaceAll(" \\]", "]");

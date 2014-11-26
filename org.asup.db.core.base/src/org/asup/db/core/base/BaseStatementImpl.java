@@ -56,7 +56,7 @@ public class BaseStatementImpl implements QStatement {
 			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl("SMEUP_DAT");
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 			
-			sql = queryConverter.convertQuery(query.getQueryStatement());
+			sql = queryConverter.writeQuery(query.getQueryStatement());
 		} catch (Exception e) {
 			throw new SQLException(e);
 		}

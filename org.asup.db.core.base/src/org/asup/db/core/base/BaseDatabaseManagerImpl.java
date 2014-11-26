@@ -48,7 +48,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		try {
 			statement = connection.createStatement(true);
 			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createSchema(schemaDef);
+			String command = syntaxBuilder.createSchema(name, schemaDef);
 			statement.execute(command);
 			
 			// refresh schemas
@@ -84,7 +84,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			}
 			
 			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createTable(schema, tableDef);
+			String command = syntaxBuilder.createTable(schema, name, tableDef);
 			statement.execute(command);
 
 			// refresh table
@@ -104,7 +104,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	public void createView(QConnection connection, Schema schema, String name, QViewDef viewDef) throws SQLException {
 
 		QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
-		String command = syntaxBuilder.createView(schema, viewDef);
+		String command = syntaxBuilder.createView(schema, name, viewDef);
 		if(command == null)
 			throw new SQLException("Empty view creation command: "+viewDef);
 		
@@ -132,7 +132,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		try {
 			statement = connection.createStatement(true);
 			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.createIndex(table, indexDef);
+			String command = syntaxBuilder.createIndex(table, name, indexDef);
 			statement.execute(command);
 			
 			// refresh schema

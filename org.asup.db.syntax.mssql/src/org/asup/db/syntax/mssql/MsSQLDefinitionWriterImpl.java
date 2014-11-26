@@ -51,10 +51,10 @@ public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
 	}
 
 	@Override
-	public String createTable(Schema schema, QTableDef table) {
+	public String createTable(Schema schema, String name,  QTableDef table) {
 		
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
-		result.append(getNameInSQLFormat(schema) + "." + getNameInSQLFormat(table) + " (");
+		result.append(getNameInSQLFormat(schema) + "." + getNameInSQLFormat(name) + " (");
 
 		boolean first = true;
 		for (QTableColumnDef column : table.getColumns()) {
@@ -99,7 +99,7 @@ public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
 	}
 
 	@Override
-	public String createView(Schema schema, QViewDef view) {
+	public String createView(Schema schema, String name, QViewDef view) {
 
 		String command = view.getCreationCommand();
 		if (command == null)
@@ -150,7 +150,7 @@ public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
 			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 
-			command = queryConverter.convertQuery(query.getQueryStatement());
+			command = queryConverter.writeQuery(query.getQueryStatement());
 
 		} catch (Exception e) {
 			throw new SQLException(e);

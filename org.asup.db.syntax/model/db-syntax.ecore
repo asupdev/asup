@@ -43,18 +43,22 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service ../../org.asup.db.core/model/db-core.ecore#//DatabaseNameHelper">
     <eOperations name="createSchema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//SchemaDef"/>
     </eOperations>
     <eOperations name="createTable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//TableDef"/>
     </eOperations>
     <eOperations name="createView" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//ViewDef"/>
     </eOperations>
     <eOperations name="createIndex" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="index" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//IndexDef"/>
     </eOperations>
     <eOperations name="dropSchema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -78,6 +82,9 @@
     <eOperations name="selectData" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
     </eOperations>
+    <eOperations name="writeDefinition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="query" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionWriterRegistry" abstract="true">
     <eOperations name="lookup" lowerBound="1" eType="#//DefinitionWriter">
@@ -89,7 +96,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="QueryParseResult" instanceClassName="org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult"/>
   <eClassifiers xsi:type="ecore:EClass" name="QueryWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="convertQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eOperations name="writeQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="query" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement"/>
     </eOperations>
   </eClassifiers>

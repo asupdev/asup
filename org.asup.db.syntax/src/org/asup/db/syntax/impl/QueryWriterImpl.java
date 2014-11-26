@@ -104,7 +104,7 @@ public abstract class QueryWriterImpl extends PluginImpl implements QQueryWriter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertQuery(QueryStatement query) {
+	public String writeQuery(QueryStatement query) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

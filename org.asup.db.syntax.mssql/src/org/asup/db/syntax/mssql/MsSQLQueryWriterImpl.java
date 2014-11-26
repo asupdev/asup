@@ -23,7 +23,7 @@ public class MsSQLQueryWriterImpl extends QueryWriterImpl {
 	}
 
 	@Override
-	public String convertQuery(QueryStatement query) {
+	public String writeQuery(QueryStatement query) {
 
 		return querySourceWriter.getSQL(query);
 	}

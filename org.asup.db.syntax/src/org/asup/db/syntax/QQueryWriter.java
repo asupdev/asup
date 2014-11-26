@@ -28,6 +28,6 @@ public interface QQueryWriter extends QPlugin, QService {
 	 * @model queryRequired="true"
 	 * @generated
 	 */
-	String convertQuery(QueryStatement query);
+	String writeQuery(QueryStatement query);
 
 } // QueryConverter

@@ -14,6 +14,7 @@ import org.asup.db.core.QViewDef;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
@@ -32,6 +33,38 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  * @generated
  */
 public interface QDefinitionWriter extends QPlugin, QService, ISQLObjectNameHelper {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true" schemaRequired="true"
+	 * @generated
+	 */
+	String createSchema(String name, QSchemaDef schema);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" schemaRequired="true" nameRequired="true" tableRequired="true"
+	 * @generated
+	 */
+	String createTable(Schema schema, String name, QTableDef table);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" schemaRequired="true" nameRequired="true" viewRequired="true"
+	 * @generated
+	 */
+	String createView(Schema schema, String name, QViewDef view);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" tableRequired="true" nameRequired="true" indexRequired="true"
+	 * @generated
+	 */
+	String createIndex(Table table, String name, QIndexDef index);
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,41 +116,17 @@ public interface QDefinitionWriter extends QPlugin, QService, ISQLObjectNameHelp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model queryRequired="true"
+	 * @generated
+	 */
+	String writeDefinition(QueryStatement query);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" tableRequired="true"
 	 * @generated
 	 */
 	String insertData(Table table);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" schemaRequired="true"
-	 * @generated
-	 */
-	String createSchema(QSchemaDef schema);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" schemaRequired="true" tableRequired="true"
-	 * @generated
-	 */
-	String createTable(Schema schema, QTableDef table);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" schemaRequired="true" viewRequired="true"
-	 * @generated
-	 */
-	String createView(Schema schema, QViewDef view);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" tableRequired="true" indexRequired="true"
-	 * @generated
-	 */
-	String createIndex(Table table, QIndexDef index);
 
 } // SyntaxBuilder

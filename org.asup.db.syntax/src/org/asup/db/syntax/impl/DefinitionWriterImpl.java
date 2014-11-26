@@ -23,6 +23,7 @@ import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Column;
@@ -125,8 +126,8 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 * 
 	 * @generated NOT
 	 */
-	public String createSchema(QSchemaDef schema) {
-		return "CREATE SCHEMA " + getNameInSQLFormat(schema);
+	public String createSchema(String name, QSchemaDef schema) {
+		return "CREATE SCHEMA " + getNameInSQLFormat(name);
 	}
 
 	/**
@@ -134,9 +135,9 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 * 
 	 * @generated NOT
 	 */
-	public String createTable(Schema schema, QTableDef table) {
+	public String createTable(Schema schema, String name, QTableDef table) {
 		StringBuffer result = new StringBuffer("CREATE TABLE ");
-		result.append(getNameInSQLFormat(schema)+"."+getNameInSQLFormat(table) + " (");
+		result.append(getNameInSQLFormat(schema)+"."+getNameInSQLFormat(name) + " (");
 
 		boolean pkey = false;
 		String pkey_name = null;
@@ -184,7 +185,7 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 * 
 	 * @generated NOT
 	 */
-	public String createView(Schema schema, QViewDef view) {
+	public String createView(Schema schema, String name, QViewDef view) {
 		return view.getCreationCommand();
 	}
 
@@ -193,7 +194,7 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 * 
 	 * @generated NOT
 	 */
-	public String createIndex(Table table, QIndexDef index) {
+	public String createIndex(Table table, String name, QIndexDef index) {
 		StringBuffer result = new StringBuffer("CREATE ");
 		if (index.isUnique())
 			result.append("UNIQUE ");
@@ -201,7 +202,7 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 		if (index.isUnique())
 			result.append("CLUSTERED ");
 		
-		result.append("INDEX " + getNameInSQLFormat(index));
+		result.append("INDEX " + getNameInSQLFormat(name));
 		result.append(" ON " + getQualifiedNameInSQLFormat(table) + " (");
 
 		boolean first = true;
@@ -274,6 +275,17 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 */
 	public String selectData(Table table) {
 		return "SELECT * FROM "+getQualifiedNameInSQLFormat(table);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String writeDefinition(QueryStatement query) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -414,7 +426,7 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
-	protected String getNameInSQLFormat(QSchemaDef schema, QTableColumnDef table) {
+	protected String getNameInSQLFormat(String schema, QTableColumnDef table) {
 		return getNameInSQLFormat(schema)+"."+getNameInSQLFormat(table);
 	}
 	
@@ -422,18 +434,10 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 		return getIdentifierQuoteString()+schema.getName()+getIdentifierQuoteString();
 	}
 	
-	protected String getNameInSQLFormat(QSchemaDef schema) {
-		return getIdentifierQuoteString()+schema.getName()+getIdentifierQuoteString();
+	protected String getNameInSQLFormat(String name) {
+		return getIdentifierQuoteString()+name+getIdentifierQuoteString();
 	}
-	
-	protected String getNameInSQLFormat(QTableDef table) {
-		return getIdentifierQuoteString()+table.getName()+getIdentifierQuoteString();
-	}
-		
-	protected String getNameInSQLFormat(QIndexDef index) {
-		return getIdentifierQuoteString()+index.getName()+getIdentifierQuoteString();
-	}
-		
+			
 	protected String getNameInSQLFormat(Index index) {
 		return getIdentifierQuoteString()+index.getName()+getIdentifierQuoteString();
 	}
