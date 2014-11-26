@@ -108,4 +108,16 @@ public class E4PluginRegistryImpl<T extends QPlugin> extends PluginRegistryImpl<
 		
 		return plugins;
 	}
+
+	@Override
+	public T lookupByVendorVersion(String vendor, String version) {
+
+		for(T plugin: list()) {
+			if(plugin.getVendor().equals(vendor) &&
+			   plugin.getVersion().equals(version))
+				return plugin;
+		}
+		
+		return null;
+	}
 }

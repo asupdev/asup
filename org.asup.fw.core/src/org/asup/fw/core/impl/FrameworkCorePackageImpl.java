@@ -902,6 +902,12 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		g1 = createEGenericType(pluginRegistryEClass_T);
 		initEOperation(op, g1);
 
+		op = addEOperation(pluginRegistryEClass, null, "lookupByVendorVersion", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "vendor", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "version", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(pluginRegistryEClass_T);
+		initEOperation(op, g1);
+
 		op = addEOperation(pluginRegistryEClass, null, "list", 1, -1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(pluginRegistryEClass_T);
 		initEOperation(op, g1);

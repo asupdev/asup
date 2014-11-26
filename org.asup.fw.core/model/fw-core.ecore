@@ -146,6 +146,11 @@
       <eGenericType eTypeParameter="#//PluginRegistry/T"/>
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="lookupByVendorVersion" lowerBound="1">
+      <eGenericType eTypeParameter="#//PluginRegistry/T"/>
+      <eParameters name="vendor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="version" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="list" lowerBound="1" upperBound="-1">
       <eGenericType eTypeParameter="#//PluginRegistry/T"/>
     </eOperations>

@@ -120,6 +120,17 @@ public abstract class PluginRegistryImpl<T extends QPlugin> extends ServiceImpl 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	public T lookupByVendorVersion(String product, String version) {
+		if(getStore() != null)
+			return getStore().lookupByVendorVersion(product, version);
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	public List<T> list() {
 		if(getStore() != null)
 			return getStore().list();

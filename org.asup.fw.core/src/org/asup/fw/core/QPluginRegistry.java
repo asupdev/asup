@@ -63,6 +63,14 @@ public interface QPluginRegistry<T extends QPlugin> extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" vendorRequired="true" versionRequired="true"
+	 * @generated
+	 */
+	T lookupByVendorVersion(String vendor, String version);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
 	 */

@@ -47,12 +47,32 @@ public abstract class ObjectWriterFactoryRegistryImpl extends PluginRegistryImpl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public QObjectWriterFactory lookup(JobType jobType) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		QObjectWriterFactory objectWriterFactory = null;
+
+		switch (jobType) {
+		case BATCH:
+
+			objectWriterFactory = lookup("D");
+
+			break;
+
+		case INTERACTIVE:
+
+			objectWriterFactory = lookup("D");
+
+			break;
+
+		case KERNEL:
+			break;
+
+		default:
+			break;
+		}
+
+		return objectWriterFactory;
 	}
 
 } //QObjectWriterFactoryRegistryImpl
