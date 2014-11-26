@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax;
+package org.asup.db.syntax.dml;
 
 import org.eclipse.datatools.modelbase.sql.query.QueryExpressionBody;
 
@@ -17,11 +17,11 @@ import org.eclipse.datatools.modelbase.sql.query.QueryExpressionBody;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.syntax.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getExtendedQueryExpressionBody()
+ * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQueryExpressionBody()
  * @model
  * @generated
  */
@@ -36,14 +36,14 @@ public interface QExtendedQueryExpressionBody extends QueryExpressionBody {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Row Optimize Limit</em>' attribute.
 	 * @see #setRowOptimizeLimit(int)
-	 * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getExtendedQueryExpressionBody_RowOptimizeLimit()
+	 * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQueryExpressionBody_RowOptimizeLimit()
 	 * @model
 	 * @generated
 	 */
 	int getRowOptimizeLimit();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.syntax.dml.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Row Optimize Limit</em>' attribute.

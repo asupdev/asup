@@ -10,8 +10,8 @@ import org.asup.db.core.base.BaseConnectionAdapterFactoryImpl;
 import org.asup.db.core.base.BaseConnectionContextImpl;
 import org.asup.db.core.base.BaseConnectionImpl;
 import org.asup.db.core.impl.ConnectionFactoryImpl;
-import org.asup.db.syntax.QQueryConverter;
-import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QQueryWriter;
+import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.fw.core.QContext;
@@ -26,7 +26,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;
 	@Inject
-	private QQueryConverterRegistry queryConverterRegistry;
+	private QQueryWriterRegistry queryConverterRegistry;
 
 	private QQueryParser queryParser;
 
@@ -44,7 +44,7 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) {
 
 		QConnectionContext connectionContext = new BaseConnectionContextImpl(context.createChild());
-		QQueryConverter queryConverter = queryConverterRegistry.lookup(connectionConfig);
+		QQueryWriter queryConverter = queryConverterRegistry.lookup(connectionConfig);
 		return new BaseConnectionImpl(connectionContext, connectionConfig, queryParser, queryConverter);
 	}
 }

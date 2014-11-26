@@ -8,8 +8,6 @@
 package org.asup.db.syntax;
 
 import org.asup.fw.core.QFrameworkCorePackage;
-import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
@@ -164,23 +162,14 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int ALIAS_RESOLVER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.impl.ExtendedQueryExpressionBodyImpl <em>Extended Query Expression Body</em>}' class.
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionParserImpl <em>Definition Parser</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.impl.ExtendedQueryExpressionBodyImpl
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getExtendedQueryExpressionBody()
+	 * @see org.asup.db.syntax.impl.DefinitionParserImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParser()
 	 * @generated
 	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY = 2;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__EANNOTATIONS = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__EANNOTATIONS;
+	int DEFINITION_PARSER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -189,603 +178,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__NAME = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Dependencies</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__DEPENDENCIES = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__DEPENDENCIES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__DESCRIPTION = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__LABEL = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Comments</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__COMMENTS = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__COMMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__EXTENSIONS = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__EXTENSIONS;
-
-	/**
-	 * The feature id for the '<em><b>Privileges</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__PRIVILEGES = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__PRIVILEGES;
-
-	/**
-	 * The feature id for the '<em><b>Table Joined Right</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__TABLE_JOINED_RIGHT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__TABLE_JOINED_RIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Table Joined Left</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__TABLE_JOINED_LEFT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__TABLE_JOINED_LEFT;
-
-	/**
-	 * The feature id for the '<em><b>Query Select</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__QUERY_SELECT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__QUERY_SELECT;
-
-	/**
-	 * The feature id for the '<em><b>Nest</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__NEST = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__NEST;
-
-	/**
-	 * The feature id for the '<em><b>Merge Source Table</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__MERGE_SOURCE_TABLE = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__MERGE_SOURCE_TABLE;
-
-	/**
-	 * The feature id for the '<em><b>Column List</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__COLUMN_LIST = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__COLUMN_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Table Correlation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__TABLE_CORRELATION = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__TABLE_CORRELATION;
-
-	/**
-	 * The feature id for the '<em><b>Result Table All Columns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__RESULT_TABLE_ALL_COLUMNS = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__RESULT_TABLE_ALL_COLUMNS;
-
-	/**
-	 * The feature id for the '<em><b>Value Expr Columns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__VALUE_EXPR_COLUMNS = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__VALUE_EXPR_COLUMNS;
-
-	/**
-	 * The feature id for the '<em><b>Merge Target Table</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__MERGE_TARGET_TABLE = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__MERGE_TARGET_TABLE;
-
-	/**
-	 * The feature id for the '<em><b>Row Fetch Limit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__ROW_FETCH_LIMIT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__ROW_FETCH_LIMIT;
-
-	/**
-	 * The feature id for the '<em><b>Query Expression</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__QUERY_EXPRESSION = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__QUERY_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Combined Left</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__COMBINED_LEFT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__COMBINED_LEFT;
-
-	/**
-	 * The feature id for the '<em><b>Combined Right</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__COMBINED_RIGHT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__COMBINED_RIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Predicate Exists</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__PREDICATE_EXISTS = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__PREDICATE_EXISTS;
-
-	/**
-	 * The feature id for the '<em><b>Update Source Query</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__UPDATE_SOURCE_QUERY = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__UPDATE_SOURCE_QUERY;
-
-	/**
-	 * The feature id for the '<em><b>With Table Specification</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__WITH_TABLE_SPECIFICATION = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__WITH_TABLE_SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Query Nest</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__QUERY_NEST = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__QUERY_NEST;
-
-	/**
-	 * The feature id for the '<em><b>Sort Spec List</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__SORT_SPEC_LIST = SQLQueryModelPackage.QUERY_EXPRESSION_BODY__SORT_SPEC_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Row Optimize Limit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Extended Query Expression Body</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT = SQLQueryModelPackage.QUERY_EXPRESSION_BODY_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.impl.ExtendedQuerySelectImpl <em>Extended Query Select</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.impl.ExtendedQuerySelectImpl
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getExtendedQuerySelect()
-	 * @generated
-	 */
-	int EXTENDED_QUERY_SELECT = 3;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__EANNOTATIONS = EXTENDED_QUERY_EXPRESSION_BODY__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__NAME = EXTENDED_QUERY_EXPRESSION_BODY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Dependencies</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__DEPENDENCIES = EXTENDED_QUERY_EXPRESSION_BODY__DEPENDENCIES;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__DESCRIPTION = EXTENDED_QUERY_EXPRESSION_BODY__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__LABEL = EXTENDED_QUERY_EXPRESSION_BODY__LABEL;
-
-	/**
-	 * The feature id for the '<em><b>Comments</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__COMMENTS = EXTENDED_QUERY_EXPRESSION_BODY__COMMENTS;
-
-	/**
-	 * The feature id for the '<em><b>Extensions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__EXTENSIONS = EXTENDED_QUERY_EXPRESSION_BODY__EXTENSIONS;
-
-	/**
-	 * The feature id for the '<em><b>Privileges</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__PRIVILEGES = EXTENDED_QUERY_EXPRESSION_BODY__PRIVILEGES;
-
-	/**
-	 * The feature id for the '<em><b>Table Joined Right</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__TABLE_JOINED_RIGHT = EXTENDED_QUERY_EXPRESSION_BODY__TABLE_JOINED_RIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Table Joined Left</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__TABLE_JOINED_LEFT = EXTENDED_QUERY_EXPRESSION_BODY__TABLE_JOINED_LEFT;
-
-	/**
-	 * The feature id for the '<em><b>Query Select</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__QUERY_SELECT = EXTENDED_QUERY_EXPRESSION_BODY__QUERY_SELECT;
-
-	/**
-	 * The feature id for the '<em><b>Nest</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__NEST = EXTENDED_QUERY_EXPRESSION_BODY__NEST;
-
-	/**
-	 * The feature id for the '<em><b>Merge Source Table</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__MERGE_SOURCE_TABLE = EXTENDED_QUERY_EXPRESSION_BODY__MERGE_SOURCE_TABLE;
-
-	/**
-	 * The feature id for the '<em><b>Column List</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__COLUMN_LIST = EXTENDED_QUERY_EXPRESSION_BODY__COLUMN_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Table Correlation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__TABLE_CORRELATION = EXTENDED_QUERY_EXPRESSION_BODY__TABLE_CORRELATION;
-
-	/**
-	 * The feature id for the '<em><b>Result Table All Columns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__RESULT_TABLE_ALL_COLUMNS = EXTENDED_QUERY_EXPRESSION_BODY__RESULT_TABLE_ALL_COLUMNS;
-
-	/**
-	 * The feature id for the '<em><b>Value Expr Columns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__VALUE_EXPR_COLUMNS = EXTENDED_QUERY_EXPRESSION_BODY__VALUE_EXPR_COLUMNS;
-
-	/**
-	 * The feature id for the '<em><b>Merge Target Table</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__MERGE_TARGET_TABLE = EXTENDED_QUERY_EXPRESSION_BODY__MERGE_TARGET_TABLE;
-
-	/**
-	 * The feature id for the '<em><b>Row Fetch Limit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__ROW_FETCH_LIMIT = EXTENDED_QUERY_EXPRESSION_BODY__ROW_FETCH_LIMIT;
-
-	/**
-	 * The feature id for the '<em><b>Query Expression</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__QUERY_EXPRESSION = EXTENDED_QUERY_EXPRESSION_BODY__QUERY_EXPRESSION;
-
-	/**
-	 * The feature id for the '<em><b>Combined Left</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__COMBINED_LEFT = EXTENDED_QUERY_EXPRESSION_BODY__COMBINED_LEFT;
-
-	/**
-	 * The feature id for the '<em><b>Combined Right</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__COMBINED_RIGHT = EXTENDED_QUERY_EXPRESSION_BODY__COMBINED_RIGHT;
-
-	/**
-	 * The feature id for the '<em><b>Predicate Exists</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__PREDICATE_EXISTS = EXTENDED_QUERY_EXPRESSION_BODY__PREDICATE_EXISTS;
-
-	/**
-	 * The feature id for the '<em><b>Update Source Query</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__UPDATE_SOURCE_QUERY = EXTENDED_QUERY_EXPRESSION_BODY__UPDATE_SOURCE_QUERY;
-
-	/**
-	 * The feature id for the '<em><b>With Table Specification</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__WITH_TABLE_SPECIFICATION = EXTENDED_QUERY_EXPRESSION_BODY__WITH_TABLE_SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Query Nest</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__QUERY_NEST = EXTENDED_QUERY_EXPRESSION_BODY__QUERY_NEST;
-
-	/**
-	 * The feature id for the '<em><b>Sort Spec List</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__SORT_SPEC_LIST = EXTENDED_QUERY_EXPRESSION_BODY__SORT_SPEC_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Row Optimize Limit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__ROW_OPTIMIZE_LIMIT = EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT;
-
-	/**
-	 * The feature id for the '<em><b>Distinct</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__DISTINCT = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Having Clause</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__HAVING_CLAUSE = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Where Clause</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__WHERE_CLAUSE = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Group By Clause</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Select Clause</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__SELECT_CLAUSE = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>From Clause</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__FROM_CLAUSE = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Into Clause</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT__INTO_CLAUSE = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>Extended Query Select</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXTENDED_QUERY_SELECT_FEATURE_COUNT = EXTENDED_QUERY_EXPRESSION_BODY_FEATURE_COUNT + 7;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.impl.QueryConverterImpl <em>Query Converter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.impl.QueryConverterImpl
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryConverter()
-	 * @generated
-	 */
-	int QUERY_CONVERTER = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUERY_CONVERTER__NAME = QFrameworkCorePackage.PLUGIN__NAME;
+	int DEFINITION_PARSER__NAME = QFrameworkCorePackage.PLUGIN__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -794,7 +187,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER__TEXT = QFrameworkCorePackage.PLUGIN__TEXT;
+	int DEFINITION_PARSER__TEXT = QFrameworkCorePackage.PLUGIN__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -803,7 +196,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER__VERSION = QFrameworkCorePackage.PLUGIN__VERSION;
+	int DEFINITION_PARSER__VERSION = QFrameworkCorePackage.PLUGIN__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
@@ -812,7 +205,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER__VENDOR = QFrameworkCorePackage.PLUGIN__VENDOR;
+	int DEFINITION_PARSER__VENDOR = QFrameworkCorePackage.PLUGIN__VENDOR;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -821,26 +214,26 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER__CONFIG = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 0;
+	int DEFINITION_PARSER__CONFIG = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Query Converter</em>' class.
+	 * The number of structural features of the '<em>Definition Parser</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
+	int DEFINITION_PARSER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.impl.QueryConverterRegistryImpl <em>Query Converter Registry</em>}' class.
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionParserRegistryImpl <em>Definition Parser Registry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.impl.QueryConverterRegistryImpl
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryConverterRegistry()
+	 * @see org.asup.db.syntax.impl.DefinitionParserRegistryImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserRegistry()
 	 * @generated
 	 */
-	int QUERY_CONVERTER_REGISTRY = 5;
+	int DEFINITION_PARSER_REGISTRY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -849,7 +242,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER_REGISTRY__CONFIG = QFrameworkCorePackage.PLUGIN_REGISTRY__CONFIG;
+	int DEFINITION_PARSER_REGISTRY__CONFIG = QFrameworkCorePackage.PLUGIN_REGISTRY__CONFIG;
 
 	/**
 	 * The feature id for the '<em><b>Store</b></em>' reference.
@@ -858,16 +251,218 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER_REGISTRY__STORE = QFrameworkCorePackage.PLUGIN_REGISTRY__STORE;
+	int DEFINITION_PARSER_REGISTRY__STORE = QFrameworkCorePackage.PLUGIN_REGISTRY__STORE;
 
 	/**
-	 * The number of structural features of the '<em>Query Converter Registry</em>' class.
+	 * The number of structural features of the '<em>Definition Parser Registry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_CONVERTER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
+	int DEFINITION_PARSER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionWriterImpl <em>Definition Writer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.impl.DefinitionWriterImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriter()
+	 * @generated
+	 */
+	int DEFINITION_WRITER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER__NAME = QFrameworkCorePackage.PLUGIN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER__TEXT = QFrameworkCorePackage.PLUGIN__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER__VERSION = QFrameworkCorePackage.PLUGIN__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER__VENDOR = QFrameworkCorePackage.PLUGIN__VENDOR;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER__CONFIG = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Definition Writer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionWriterRegistryImpl <em>Definition Writer Registry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.impl.DefinitionWriterRegistryImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriterRegistry()
+	 * @generated
+	 */
+	int DEFINITION_WRITER_REGISTRY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER_REGISTRY__CONFIG = QFrameworkCorePackage.PLUGIN_REGISTRY__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Store</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER_REGISTRY__STORE = QFrameworkCorePackage.PLUGIN_REGISTRY__STORE;
+
+	/**
+	 * The number of structural features of the '<em>Definition Writer Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_WRITER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.QueryWriterImpl <em>Query Writer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.impl.QueryWriterImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriter()
+	 * @generated
+	 */
+	int QUERY_WRITER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER__NAME = QFrameworkCorePackage.PLUGIN__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER__TEXT = QFrameworkCorePackage.PLUGIN__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER__VERSION = QFrameworkCorePackage.PLUGIN__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER__VENDOR = QFrameworkCorePackage.PLUGIN__VENDOR;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER__CONFIG = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Query Writer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.QueryWriterRegistryImpl <em>Query Writer Registry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.impl.QueryWriterRegistryImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriterRegistry()
+	 * @generated
+	 */
+	int QUERY_WRITER_REGISTRY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER_REGISTRY__CONFIG = QFrameworkCorePackage.PLUGIN_REGISTRY__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Store</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER_REGISTRY__STORE = QFrameworkCorePackage.PLUGIN_REGISTRY__STORE;
+
+	/**
+	 * The number of structural features of the '<em>Query Writer Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_WRITER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.QueryParserImpl <em>Query Parser</em>}' class.
@@ -877,7 +472,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParser()
 	 * @generated
 	 */
-	int QUERY_PARSER = 6;
+	int QUERY_PARSER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -941,7 +536,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParserRegistry()
 	 * @generated
 	 */
-	int QUERY_PARSER_REGISTRY = 7;
+	int QUERY_PARSER_REGISTRY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -969,107 +564,6 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @ordered
 	 */
 	int QUERY_PARSER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.impl.SyntaxBuilderImpl <em>Syntax Builder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.impl.SyntaxBuilderImpl
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSyntaxBuilder()
-	 * @generated
-	 */
-	int SYNTAX_BUILDER = 8;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER__NAME = QFrameworkCorePackage.PLUGIN__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER__TEXT = QFrameworkCorePackage.PLUGIN__TEXT;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER__VERSION = QFrameworkCorePackage.PLUGIN__VERSION;
-
-	/**
-	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER__VENDOR = QFrameworkCorePackage.PLUGIN__VENDOR;
-
-	/**
-	 * The feature id for the '<em><b>Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER__CONFIG = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Syntax Builder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.impl.SyntaxBuilderRegistryImpl <em>Syntax Builder Registry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.impl.SyntaxBuilderRegistryImpl
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSyntaxBuilderRegistry()
-	 * @generated
-	 */
-	int SYNTAX_BUILDER_REGISTRY = 9;
-
-	/**
-	 * The feature id for the '<em><b>Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER_REGISTRY__CONFIG = QFrameworkCorePackage.PLUGIN_REGISTRY__CONFIG;
-
-	/**
-	 * The feature id for the '<em><b>Store</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER_REGISTRY__STORE = QFrameworkCorePackage.PLUGIN_REGISTRY__STORE;
-
-	/**
-	 * The number of structural features of the '<em>Syntax Builder Registry</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYNTAX_BUILDER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '<em>Query Parse Result</em>' data type.
@@ -1102,55 +596,64 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	EClass getAliasResolverRegistry();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.QExtendedQueryExpressionBody <em>Extended Query Expression Body</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionParser <em>Definition Parser</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extended Query Expression Body</em>'.
-	 * @see org.asup.db.syntax.QExtendedQueryExpressionBody
+	 * @return the meta object for class '<em>Definition Parser</em>'.
+	 * @see org.asup.db.syntax.QDefinitionParser
 	 * @generated
 	 */
-	EClass getExtendedQueryExpressionBody();
+	EClass getDefinitionParser();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.QExtendedQueryExpressionBody#getRowOptimizeLimit <em>Row Optimize Limit</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionParserRegistry <em>Definition Parser Registry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Row Optimize Limit</em>'.
-	 * @see org.asup.db.syntax.QExtendedQueryExpressionBody#getRowOptimizeLimit()
-	 * @see #getExtendedQueryExpressionBody()
+	 * @return the meta object for class '<em>Definition Parser Registry</em>'.
+	 * @see org.asup.db.syntax.QDefinitionParserRegistry
 	 * @generated
 	 */
-	EAttribute getExtendedQueryExpressionBody_RowOptimizeLimit();
+	EClass getDefinitionParserRegistry();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.QExtendedQuerySelect <em>Extended Query Select</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionWriter <em>Definition Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Extended Query Select</em>'.
-	 * @see org.asup.db.syntax.QExtendedQuerySelect
+	 * @return the meta object for class '<em>Definition Writer</em>'.
+	 * @see org.asup.db.syntax.QDefinitionWriter
 	 * @generated
 	 */
-	EClass getExtendedQuerySelect();
+	EClass getDefinitionWriter();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.QQueryConverter <em>Query Converter</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionWriterRegistry <em>Definition Writer Registry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Query Converter</em>'.
-	 * @see org.asup.db.syntax.QQueryConverter
+	 * @return the meta object for class '<em>Definition Writer Registry</em>'.
+	 * @see org.asup.db.syntax.QDefinitionWriterRegistry
 	 * @generated
 	 */
-	EClass getQueryConverter();
+	EClass getDefinitionWriterRegistry();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.QQueryConverterRegistry <em>Query Converter Registry</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QQueryWriter <em>Query Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Query Converter Registry</em>'.
-	 * @see org.asup.db.syntax.QQueryConverterRegistry
+	 * @return the meta object for class '<em>Query Writer</em>'.
+	 * @see org.asup.db.syntax.QQueryWriter
 	 * @generated
 	 */
-	EClass getQueryConverterRegistry();
+	EClass getQueryWriter();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QQueryWriterRegistry <em>Query Writer Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Query Writer Registry</em>'.
+	 * @see org.asup.db.syntax.QQueryWriterRegistry
+	 * @generated
+	 */
+	EClass getQueryWriterRegistry();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QQueryParser <em>Query Parser</em>}'.
@@ -1171,26 +674,6 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getQueryParserRegistry();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.QSyntaxBuilder <em>Syntax Builder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Syntax Builder</em>'.
-	 * @see org.asup.db.syntax.QSyntaxBuilder
-	 * @generated
-	 */
-	EClass getSyntaxBuilder();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.QSyntaxBuilderRegistry <em>Syntax Builder Registry</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Syntax Builder Registry</em>'.
-	 * @see org.asup.db.syntax.QSyntaxBuilderRegistry
-	 * @generated
-	 */
-	EClass getSyntaxBuilderRegistry();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult <em>Query Parse Result</em>}'.
@@ -1246,52 +729,64 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		EClass ALIAS_RESOLVER_REGISTRY = eINSTANCE.getAliasResolverRegistry();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.impl.ExtendedQueryExpressionBodyImpl <em>Extended Query Expression Body</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionParserImpl <em>Definition Parser</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.impl.ExtendedQueryExpressionBodyImpl
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getExtendedQueryExpressionBody()
+		 * @see org.asup.db.syntax.impl.DefinitionParserImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParser()
 		 * @generated
 		 */
-		EClass EXTENDED_QUERY_EXPRESSION_BODY = eINSTANCE.getExtendedQueryExpressionBody();
+		EClass DEFINITION_PARSER = eINSTANCE.getDefinitionParser();
 
 		/**
-		 * The meta object literal for the '<em><b>Row Optimize Limit</b></em>' attribute feature.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionParserRegistryImpl <em>Definition Parser Registry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.impl.DefinitionParserRegistryImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserRegistry()
 		 * @generated
 		 */
-		EAttribute EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT = eINSTANCE.getExtendedQueryExpressionBody_RowOptimizeLimit();
+		EClass DEFINITION_PARSER_REGISTRY = eINSTANCE.getDefinitionParserRegistry();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.impl.ExtendedQuerySelectImpl <em>Extended Query Select</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionWriterImpl <em>Definition Writer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.impl.ExtendedQuerySelectImpl
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getExtendedQuerySelect()
+		 * @see org.asup.db.syntax.impl.DefinitionWriterImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriter()
 		 * @generated
 		 */
-		EClass EXTENDED_QUERY_SELECT = eINSTANCE.getExtendedQuerySelect();
+		EClass DEFINITION_WRITER = eINSTANCE.getDefinitionWriter();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.impl.QueryConverterImpl <em>Query Converter</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionWriterRegistryImpl <em>Definition Writer Registry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.impl.QueryConverterImpl
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryConverter()
+		 * @see org.asup.db.syntax.impl.DefinitionWriterRegistryImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriterRegistry()
 		 * @generated
 		 */
-		EClass QUERY_CONVERTER = eINSTANCE.getQueryConverter();
+		EClass DEFINITION_WRITER_REGISTRY = eINSTANCE.getDefinitionWriterRegistry();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.impl.QueryConverterRegistryImpl <em>Query Converter Registry</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.QueryWriterImpl <em>Query Writer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.impl.QueryConverterRegistryImpl
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryConverterRegistry()
+		 * @see org.asup.db.syntax.impl.QueryWriterImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriter()
 		 * @generated
 		 */
-		EClass QUERY_CONVERTER_REGISTRY = eINSTANCE.getQueryConverterRegistry();
+		EClass QUERY_WRITER = eINSTANCE.getQueryWriter();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.QueryWriterRegistryImpl <em>Query Writer Registry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.impl.QueryWriterRegistryImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriterRegistry()
+		 * @generated
+		 */
+		EClass QUERY_WRITER_REGISTRY = eINSTANCE.getQueryWriterRegistry();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.QueryParserImpl <em>Query Parser</em>}' class.
@@ -1312,26 +807,6 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUERY_PARSER_REGISTRY = eINSTANCE.getQueryParserRegistry();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.impl.SyntaxBuilderImpl <em>Syntax Builder</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.impl.SyntaxBuilderImpl
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSyntaxBuilder()
-		 * @generated
-		 */
-		EClass SYNTAX_BUILDER = eINSTANCE.getSyntaxBuilder();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.impl.SyntaxBuilderRegistryImpl <em>Syntax Builder Registry</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.impl.SyntaxBuilderRegistryImpl
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSyntaxBuilderRegistry()
-		 * @generated
-		 */
-		EClass SYNTAX_BUILDER_REGISTRY = eINSTANCE.getSyntaxBuilderRegistry();
 
 		/**
 		 * The meta object literal for the '<em>Query Parse Result</em>' data type.

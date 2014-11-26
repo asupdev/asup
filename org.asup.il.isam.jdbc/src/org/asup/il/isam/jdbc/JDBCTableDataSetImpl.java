@@ -12,7 +12,7 @@
 package org.asup.il.isam.jdbc;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.syntax.QSyntaxBuilder;
+import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
 import org.asup.il.isam.AccessMode;
@@ -23,7 +23,7 @@ public class JDBCTableDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 
 	protected Table table;
 
-	protected JDBCTableDataSetImpl(QConnection databaseConnection, QSyntaxBuilder syntaxBuilder, Table table, AccessMode accessMode, DS dataStruct) {
+	protected JDBCTableDataSetImpl(QConnection databaseConnection, QDefinitionWriter syntaxBuilder, Table table, AccessMode accessMode, DS dataStruct) {
 		super(databaseConnection, syntaxBuilder, table, accessMode, dataStruct);
 	}
 

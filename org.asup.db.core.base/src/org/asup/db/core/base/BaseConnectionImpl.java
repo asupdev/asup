@@ -14,10 +14,10 @@ public class BaseConnectionImpl implements QConnection {
 	private IConnection iConnection;
 	private QConnectionConfig connectionConfig;
 	private QQueryParser queryParser;
-	private QQueryConverter queryConverter;
+	private QQueryWriter queryConverter;
 
 	
-	public BaseConnectionImpl(QConnectionContext connectionContext, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryConverter queryConverter) {
+	public BaseConnectionImpl(QConnectionContext connectionContext, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
 		this.connectionContext = connectionContext;
 		this.connectionConfig = connectionConfig;
 		this.queryParser = queryParser;

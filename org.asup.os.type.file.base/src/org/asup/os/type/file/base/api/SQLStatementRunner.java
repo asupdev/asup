@@ -21,8 +21,8 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QQueryConverter;
-import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QQueryWriter;
+import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.il.data.QCharacter;
@@ -55,7 +55,7 @@ public class SQLStatementRunner {
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;
 	@Inject
-	private QQueryConverterRegistry queryConverterRegistry;
+	private QQueryWriterRegistry queryConverterRegistry;
 
 	@Inject
 	private QJob job;
@@ -77,8 +77,8 @@ public class SQLStatementRunner {
 			QQueryParser queryParser = queryParserRegistry.lookup("ibmi");
 			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(sql.asBytes()));
 
-			QQueryConverter queryConverter = queryConverterRegistry.lookup(databaseConnection.getConnectionConfig());
-			String statementString = queryConverter.convertQuery(query);
+			QQueryWriter queryConverter = queryConverterRegistry.lookup(databaseConnection.getConnectionConfig());
+			String statementString = queryConverter.convertQuery(query.getQueryStatement());
 
 			statementString = statementString.replaceAll("\\[ ", "[");
 			statementString = statementString.replaceAll(" \\]", "]");

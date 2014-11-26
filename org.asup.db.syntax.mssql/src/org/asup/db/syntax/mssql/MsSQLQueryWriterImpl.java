@@ -11,21 +11,22 @@
  */
 package org.asup.db.syntax.mssql;
 
-import org.asup.db.syntax.impl.QueryConverterImpl;
+import org.asup.db.syntax.impl.QueryWriterImpl;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
-public class MsSQLQueryConverterImpl extends QueryConverterImpl {
+public class MsSQLQueryWriterImpl extends QueryWriterImpl {
 
 	private MsSQLQuerySourceWriter querySourceWriter;
 
-	public MsSQLQueryConverterImpl(){
+	public MsSQLQueryWriterImpl(){
 		querySourceWriter = new MsSQLQuerySourceWriter();
 	}
 
 	@Override
-	public String convertQuery(SQLQueryParseResult query) {
+	public String convertQuery(QueryStatement query) {
 
-		return querySourceWriter.getSQL(query.getQueryStatement());
+		return querySourceWriter.getSQL(query);
 	}
 
 }

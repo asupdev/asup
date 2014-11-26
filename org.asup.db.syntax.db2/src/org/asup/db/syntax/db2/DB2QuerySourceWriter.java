@@ -4,7 +4,7 @@ package org.asup.db.syntax.db2;
 import java.lang.reflect.Method;
 import java.util.*;
 
-import org.asup.db.syntax.QExtendedQuerySelect;
+import org.asup.db.syntax.dml.QExtendedQuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.*;
 import org.eclipse.datatools.modelbase.sql.query.helper.StatementHelper;
 import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceWriter;

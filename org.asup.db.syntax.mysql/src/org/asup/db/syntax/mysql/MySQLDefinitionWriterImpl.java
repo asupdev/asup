@@ -11,8 +11,8 @@
  */
 package org.asup.db.syntax.mysql;
 
-import org.asup.db.syntax.impl.SyntaxBuilderImpl;
+import org.asup.db.syntax.impl.DefinitionWriterImpl;
 
 
-public class MySQLSyntaxBuilderImpl extends SyntaxBuilderImpl {
+public class MySQLDefinitionWriterImpl extends DefinitionWriterImpl {
 }

@@ -16,11 +16,11 @@ import org.asup.fw.core.QPluginRegistry;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getQueryConverterRegistry()
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getQueryWriterRegistry()
  * @model abstract="true"
  * @generated
  */
-public interface QQueryConverterRegistry extends QPluginRegistry<QQueryConverter> {
+public interface QQueryWriterRegistry extends QPluginRegistry<QQueryWriter> {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,5 +28,5 @@ public interface QQueryConverterRegistry extends QPluginRegistry<QQueryConverter
 	 * @model required="true" connectionConfigRequired="true"
 	 * @generated
 	 */
-	QQueryConverter lookup(QConnectionConfig connectionConfig);
+	QQueryWriter lookup(QConnectionConfig connectionConfig);
 } // QueryConverterRegistry

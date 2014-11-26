@@ -13,7 +13,8 @@ package org.asup.db.syntax.ibmi.parser;
 import java.util.List;
 
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
-import org.asup.db.syntax.QExtendedQuerySelect;
+import org.asup.db.syntax.dml.QDmlFactory;
+import org.asup.db.syntax.dml.QExtendedQuerySelect;
 import org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl;
 import org.eclipse.datatools.modelbase.sql.query.QuerySearchCondition;
 import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceFormat;
@@ -22,7 +23,7 @@ import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParserFactory;
 @SuppressWarnings("rawtypes")
 public class IBMiQueryParserFactory extends SQLQueryParserFactory {
 
-	static QDatabaseSyntaxFactory dbSyntaxFactory = null;
+	static QDmlFactory dbSyntaxFactory = null;
 
 	/**
      *
@@ -47,7 +48,7 @@ public class IBMiQueryParserFactory extends SQLQueryParserFactory {
 		if (QDatabaseSyntaxFactory.eINSTANCE == null) {
 			DatabaseSyntaxPackageImpl.init();
 		}
-		dbSyntaxFactory = QDatabaseSyntaxFactory.eINSTANCE;
+		dbSyntaxFactory = QDmlFactory.eINSTANCE;
 	}
 
 	public QExtendedQuerySelect createQExtendedQuerySelect(String optAllOrDistinct,

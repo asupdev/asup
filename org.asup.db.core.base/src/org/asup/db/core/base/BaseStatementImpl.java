@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import org.asup.db.core.QStatement;
 import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QQueryConverter;
+import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
@@ -15,9 +15,9 @@ public class BaseStatementImpl implements QStatement {
 
 	private Statement statement;
 	private QQueryParser queryParser;
-	private QQueryConverter queryConverter;
+	private QQueryWriter queryConverter;
 	
-	protected BaseStatementImpl(Statement statement, QQueryParser queryParser, QQueryConverter queryConverter) {
+	protected BaseStatementImpl(Statement statement, QQueryParser queryParser, QQueryWriter queryConverter) {
 		this.statement = statement;
 		this.queryParser = queryParser;
 		this.queryConverter = queryConverter;
@@ -56,7 +56,7 @@ public class BaseStatementImpl implements QStatement {
 			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl("SMEUP_DAT");
 			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 			
-			sql = queryConverter.convertQuery(query);
+			sql = queryConverter.convertQuery(query.getQueryStatement());
 		} catch (Exception e) {
 			throw new SQLException(e);
 		}

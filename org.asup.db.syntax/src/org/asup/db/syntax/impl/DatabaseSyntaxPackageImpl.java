@@ -12,14 +12,16 @@ import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QAliasResolverRegistry;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QExtendedQueryExpressionBody;
-import org.asup.db.syntax.QExtendedQuerySelect;
-import org.asup.db.syntax.QQueryConverter;
-import org.asup.db.syntax.QQueryConverterRegistry;
+import org.asup.db.syntax.QDefinitionParser;
+import org.asup.db.syntax.QDefinitionParserRegistry;
+import org.asup.db.syntax.QQueryWriter;
+import org.asup.db.syntax.QQueryWriterRegistry;
+import org.asup.db.syntax.dml.QDmlPackage;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
-import org.asup.db.syntax.QSyntaxBuilder;
-import org.asup.db.syntax.QSyntaxBuilderRegistry;
+import org.asup.db.syntax.QDefinitionWriter;
+import org.asup.db.syntax.QDefinitionWriterRegistry;
+import org.asup.db.syntax.dml.impl.DmlPackageImpl;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
@@ -27,13 +29,11 @@ import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
 import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -55,28 +55,46 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	private EClass aliasResolverRegistryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass extendedQueryExpressionBodyEClass = null;
+	private EClass definitionParserEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass extendedQuerySelectEClass = null;
+	private EClass definitionParserRegistryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass queryConverterEClass = null;
+	private EClass definitionWriterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass queryConverterRegistryEClass = null;
+	private EClass definitionWriterRegistryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass queryWriterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass queryWriterRegistryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -89,18 +107,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * @generated
 	 */
 	private EClass queryParserRegistryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass syntaxBuilderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass syntaxBuilderRegistryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -157,11 +163,16 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		QDatabaseCorePackage.eINSTANCE.eClass();
 		SQLQueryModelPackage.eINSTANCE.eClass();
 
+		// Obtain or create and register interdependencies
+		DmlPackageImpl theDmlPackage = (DmlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDmlPackage.eNS_URI) instanceof DmlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDmlPackage.eNS_URI) : QDmlPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theDatabaseSyntaxPackage.createPackageContents();
+		theDmlPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatabaseSyntaxPackage.initializePackageContents();
+		theDmlPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatabaseSyntaxPackage.freeze();
@@ -189,43 +200,57 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExtendedQueryExpressionBody() {
-		return extendedQueryExpressionBodyEClass;
+	public EClass getDefinitionParser() {
+		return definitionParserEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExtendedQueryExpressionBody_RowOptimizeLimit() {
-		return (EAttribute)extendedQueryExpressionBodyEClass.getEStructuralFeatures().get(0);
+	public EClass getDefinitionParserRegistry() {
+		return definitionParserRegistryEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExtendedQuerySelect() {
-		return extendedQuerySelectEClass;
+	public EClass getDefinitionWriter() {
+		return definitionWriterEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getQueryConverter() {
-		return queryConverterEClass;
+	public EClass getDefinitionWriterRegistry() {
+		return definitionWriterRegistryEClass;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getQueryConverterRegistry() {
-		return queryConverterRegistryEClass;
+	public EClass getQueryWriter() {
+		return queryWriterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQueryWriterRegistry() {
+		return queryWriterRegistryEClass;
 	}
 
 	/**
@@ -242,22 +267,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 */
 	public EClass getQueryParserRegistry() {
 		return queryParserRegistryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSyntaxBuilder() {
-		return syntaxBuilderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSyntaxBuilderRegistry() {
-		return syntaxBuilderRegistryEClass;
 	}
 
 	/**
@@ -298,22 +307,21 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		aliasResolverRegistryEClass = createEClass(ALIAS_RESOLVER_REGISTRY);
 
-		extendedQueryExpressionBodyEClass = createEClass(EXTENDED_QUERY_EXPRESSION_BODY);
-		createEAttribute(extendedQueryExpressionBodyEClass, EXTENDED_QUERY_EXPRESSION_BODY__ROW_OPTIMIZE_LIMIT);
+		definitionParserEClass = createEClass(DEFINITION_PARSER);
 
-		extendedQuerySelectEClass = createEClass(EXTENDED_QUERY_SELECT);
+		definitionParserRegistryEClass = createEClass(DEFINITION_PARSER_REGISTRY);
 
-		queryConverterEClass = createEClass(QUERY_CONVERTER);
+		definitionWriterEClass = createEClass(DEFINITION_WRITER);
 
-		queryConverterRegistryEClass = createEClass(QUERY_CONVERTER_REGISTRY);
+		definitionWriterRegistryEClass = createEClass(DEFINITION_WRITER_REGISTRY);
+
+		queryWriterEClass = createEClass(QUERY_WRITER);
+
+		queryWriterRegistryEClass = createEClass(QUERY_WRITER_REGISTRY);
 
 		queryParserEClass = createEClass(QUERY_PARSER);
 
 		queryParserRegistryEClass = createEClass(QUERY_PARSER_REGISTRY);
-
-		syntaxBuilderEClass = createEClass(SYNTAX_BUILDER);
-
-		syntaxBuilderRegistryEClass = createEClass(SYNTAX_BUILDER_REGISTRY);
 
 		// Create data types
 		queryParseResultEDataType = createEDataType(QUERY_PARSE_RESULT);
@@ -342,14 +350,17 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		QDmlPackage theDmlPackage = (QDmlPackage)EPackage.Registry.INSTANCE.getEPackage(QDmlPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 		SQLQueryModelPackage theSQLQueryModelPackage = (SQLQueryModelPackage)EPackage.Registry.INSTANCE.getEPackage(SQLQueryModelPackage.eNS_URI);
 		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
 		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
 		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theDmlPackage);
 
 		// Create type parameters
 
@@ -362,28 +373,31 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		EGenericType g2 = createEGenericType(this.getAliasResolver());
 		g1.getETypeArguments().add(g2);
 		aliasResolverRegistryEClass.getEGenericSuperTypes().add(g1);
-		extendedQueryExpressionBodyEClass.getESuperTypes().add(theSQLQueryModelPackage.getQueryExpressionBody());
-		extendedQuerySelectEClass.getESuperTypes().add(this.getExtendedQueryExpressionBody());
-		extendedQuerySelectEClass.getESuperTypes().add(theSQLQueryModelPackage.getQuerySelect());
-		queryConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
-		queryConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
+		definitionParserEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
+		definitionParserEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
-		g2 = createEGenericType(this.getQueryConverter());
+		g2 = createEGenericType(this.getDefinitionParser());
 		g1.getETypeArguments().add(g2);
-		queryConverterRegistryEClass.getEGenericSuperTypes().add(g1);
+		definitionParserRegistryEClass.getEGenericSuperTypes().add(g1);
+		definitionWriterEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
+		definitionWriterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
+		definitionWriterEClass.getESuperTypes().add(theDatabaseCorePackage.getDatabaseNameHelper());
+		g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
+		g2 = createEGenericType(this.getDefinitionWriter());
+		g1.getETypeArguments().add(g2);
+		definitionWriterRegistryEClass.getEGenericSuperTypes().add(g1);
+		queryWriterEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
+		queryWriterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
+		g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
+		g2 = createEGenericType(this.getQueryWriter());
+		g1.getETypeArguments().add(g2);
+		queryWriterRegistryEClass.getEGenericSuperTypes().add(g1);
 		queryParserEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		queryParserEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
 		g2 = createEGenericType(this.getQueryParser());
 		g1.getETypeArguments().add(g2);
 		queryParserRegistryEClass.getEGenericSuperTypes().add(g1);
-		syntaxBuilderEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
-		syntaxBuilderEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
-		syntaxBuilderEClass.getESuperTypes().add(theDatabaseCorePackage.getDatabaseNameHelper());
-		g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
-		g2 = createEGenericType(this.getSyntaxBuilder());
-		g1.getETypeArguments().add(g2);
-		syntaxBuilderRegistryEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(aliasResolverEClass, QAliasResolver.class, "AliasResolver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -407,19 +421,72 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		op = addEOperation(aliasResolverRegistryEClass, this.getAliasResolver(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(extendedQueryExpressionBodyEClass, QExtendedQueryExpressionBody.class, "ExtendedQueryExpressionBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExtendedQueryExpressionBody_RowOptimizeLimit(), theEcorePackage.getEInt(), "rowOptimizeLimit", null, 0, 1, QExtendedQueryExpressionBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(definitionParserEClass, QDefinitionParser.class, "DefinitionParser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(extendedQuerySelectEClass, QExtendedQuerySelect.class, "ExtendedQuerySelect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(definitionParserEClass, this.getQueryParseResult(), "parseDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaInputStream(), "stream", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theDatabaseCorePackage.getDatabaseException());
 
-		initEClass(queryConverterEClass, QQueryConverter.class, "QueryConverter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(definitionParserEClass, this.getQueryParseResult(), "parseDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theDatabaseCorePackage.getDatabaseException());
 
-		op = addEOperation(queryConverterEClass, ecorePackage.getEString(), "convertQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getQueryParseResult(), "query", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(definitionParserRegistryEClass, QDefinitionParserRegistry.class, "DefinitionParserRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(queryConverterRegistryEClass, QQueryConverterRegistry.class, "QueryConverterRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		op = addEOperation(definitionParserRegistryEClass, this.getDefinitionParser(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(queryConverterRegistryEClass, this.getQueryConverter(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(definitionWriterEClass, QDefinitionWriter.class, "DefinitionWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "createSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getSchemaDef(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "createTable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getTableDef(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "createView", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getViewDef(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "createIndex", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getIndexDef(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "dropSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "dropTable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "dropView", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getViewTable(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "dropIndex", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLConstraintsPackage.getIndex(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "deleteData", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "insertData", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "selectData", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(definitionWriterRegistryEClass, QDefinitionWriterRegistry.class, "DefinitionWriterRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(definitionWriterRegistryEClass, this.getDefinitionWriter(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(queryWriterEClass, QQueryWriter.class, "QueryWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(queryWriterEClass, ecorePackage.getEString(), "convertQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLQueryModelPackage.getQueryStatement(), "query", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(queryWriterRegistryEClass, QQueryWriterRegistry.class, "QueryWriterRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(queryWriterRegistryEClass, this.getQueryWriter(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(queryParserEClass, QQueryParser.class, "QueryParser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -435,49 +502,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		initEClass(queryParserRegistryEClass, QQueryParserRegistry.class, "QueryParserRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(queryParserRegistryEClass, this.getQueryParser(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(syntaxBuilderEClass, QSyntaxBuilder.class, "SyntaxBuilder", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "createSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatabaseCorePackage.getSchemaDef(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "createTable", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatabaseCorePackage.getTableDef(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "createView", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatabaseCorePackage.getViewDef(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "createIndex", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatabaseCorePackage.getIndexDef(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "dropSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "dropTable", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "dropView", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getViewTable(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "dropIndex", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLConstraintsPackage.getIndex(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "deleteData", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "insertData", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(syntaxBuilderEClass, ecorePackage.getEString(), "selectData", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(syntaxBuilderRegistryEClass, QSyntaxBuilderRegistry.class, "SyntaxBuilderRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(syntaxBuilderRegistryEClass, this.getSyntaxBuilder(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types

@@ -19,7 +19,7 @@ import java.util.List;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QSyntaxBuilder;
+import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
@@ -38,11 +38,11 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 
 	private QDatabaseManager databaseManager;
 	private QConnection connection;
-	private QSyntaxBuilder syntaxBuilder;
+	private QDefinitionWriter syntaxBuilder;
 	private QAliasResolver aliasAliasResolver;
 	private QDataFactory dataFactory;
 	
-	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, QSyntaxBuilder syntaxBuilder, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
+	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, QDefinitionWriter syntaxBuilder, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
 
 		this.connection = connection;
 		this.databaseManager = databaseManager;

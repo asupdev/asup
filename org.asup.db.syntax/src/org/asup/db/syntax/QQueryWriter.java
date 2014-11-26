@@ -9,7 +9,7 @@ package org.asup.db.syntax;
 
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
-import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,17 +17,17 @@ import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getQueryConverter()
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getQueryWriter()
  * @model abstract="true"
  * @generated
  */
-public interface QQueryConverter extends QPlugin, QService {
+public interface QQueryWriter extends QPlugin, QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model queryDataType="org.asup.db.syntax.QueryParseResult" queryRequired="true"
+	 * @model queryRequired="true"
 	 * @generated
 	 */
-	String convertQuery(SQLQueryParseResult query);
+	String convertQuery(QueryStatement query);
 
 } // QueryConverter
