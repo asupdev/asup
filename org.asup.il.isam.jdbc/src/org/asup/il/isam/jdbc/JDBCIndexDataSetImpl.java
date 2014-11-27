@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QDataStruct;
@@ -25,6 +24,7 @@ import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QIndexDataSet;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.constraints.IndexMember;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
 public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImpl<DS> implements QIndexDataSet<DS> {
 
@@ -33,8 +33,8 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	protected List<String> _keys;
 	protected QBufferedDataDef<?>[] _fields;
 	
-	protected JDBCIndexDataSetImpl(QConnection databaseConnection, QDefinitionWriter syntaxBuilder, Index index, AccessMode accessMode, DS dataStruct) {
-		super(databaseConnection, syntaxBuilder, index.getTable(), accessMode, dataStruct);
+	protected JDBCIndexDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqkObjectNameHelper, Index index, AccessMode accessMode, DS dataStruct) {
+		super(databaseConnection, sqkObjectNameHelper, index.getTable(), accessMode, dataStruct);
 		if(index != null)
 			setIndex(index);
 	}
@@ -204,13 +204,12 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	@Override
 	protected String buildOrderBy(OpDir dir) {
 		
-		QDefinitionWriter syntaxBuilder = getSyntaxbuilder();
 		StringBuffer sbOrderBy = new StringBuffer();
 		
 		for(IndexMember column: (List<IndexMember>)index.getIncludedMembers()) {
 			if(sbOrderBy.length() != 0)sbOrderBy.append(", ");
 			
-			sbOrderBy.append(syntaxBuilder.getIdentifierQuoteString()+column.getName()+syntaxBuilder.getIdentifierQuoteString());
+			sbOrderBy.append(getSQLObjectNameHelper().getIdentifierQuoteString()+column.getName()+getSQLObjectNameHelper().getIdentifierQuoteString());
 			if(dir == OpDir.B)
 				sbOrderBy.append(" DESC");
 		}
@@ -218,8 +217,6 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	}
 
 	private void buildWhereSet(Object[] keySet, StringBuffer sbWhere) {
-		
-		QDefinitionWriter syntaxBuilder = getSyntaxbuilder();
 		
 		StringBuffer sbFields = new StringBuffer();
 		StringBuffer sbValues = new StringBuffer();
@@ -233,9 +230,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 			
 			// append field
 			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbFields.append(syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString());
+				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString());
 			else 
-				sbFields.append("cast("+syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString()+" as CHARACTER)");
+				sbFields.append("cast("+getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()+" as CHARACTER)");
 			
 			// append value
 			sbValues.append(keySet[i].toString());
@@ -279,8 +276,6 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 
 	private void buildWhereRead(Object[] keyRead, StringBuffer sbWhere) {
 
-		QDefinitionWriter syntaxBuilder = getSyntaxbuilder();
-
 		if(keyRead == null)
 			return;
 		
@@ -302,9 +297,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 			
 			// append field
 			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbWhere.append(syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString()).append("=").append("'"+value+"'");
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'"+value+"'");
 			else 
-				sbWhere.append(syntaxBuilder.getIdentifierQuoteString()+_keys.get(i)+syntaxBuilder.getIdentifierQuoteString()).append("=").append(value);						
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);						
 		}
 	}
 }

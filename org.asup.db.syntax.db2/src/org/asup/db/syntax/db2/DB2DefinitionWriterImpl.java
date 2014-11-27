@@ -10,6 +10,10 @@ import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
 public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
 
+	public DB2DefinitionWriterImpl() {
+		super(new SQLObjectNameHelper());
+	}
+
 	@PostConstruct
 	private void init() {
 		setSQLObjectNameHelper(new SQLObjectNameHelper());

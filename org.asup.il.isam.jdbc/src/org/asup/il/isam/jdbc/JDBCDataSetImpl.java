@@ -16,19 +16,19 @@ import java.sql.SQLException;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSet<DS> {
 
 	private QConnection databaseConnection;
-	private QDefinitionWriter syntaxBuilder;
+	private SQLObjectNameHelper sqlObjectNameHelper;
 	private AccessMode accessMode;
 	private DS record;
 
@@ -65,15 +65,15 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 
 	protected boolean _isEndOfData;
 
-	protected JDBCDataSetImpl(QConnection databaseConnection, QDefinitionWriter syntaxBuilder, Table table, AccessMode accessMode, DS dataStruct) {
+	protected JDBCDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqlObjectNameHelper, Table table, AccessMode accessMode, DS dataStruct) {
 		this.databaseConnection = databaseConnection;
-		this.syntaxBuilder = syntaxBuilder;
+		this.sqlObjectNameHelper = sqlObjectNameHelper;
 		this.accessMode = accessMode;
 		this.record = dataStruct;
 	}
 
-	protected QDefinitionWriter getSyntaxbuilder() {
-		return this.syntaxBuilder;
+	protected SQLObjectNameHelper getSQLObjectNameHelper() {
+		return this.sqlObjectNameHelper;
 	}
 	
 	@Override
@@ -244,10 +244,10 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 		_queySelect = new StringBuffer();
 
 		// SELECT
-		_queySelect.append("SELECT " + syntaxBuilder.getQualifiedNameInSQLFormat(table) + ".*");
+		_queySelect.append("SELECT " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) + ".*");
 
 		// FROM
-		_queySelect.append(" FROM " + syntaxBuilder.getQualifiedNameInSQLFormat(table));
+		_queySelect.append(" FROM " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table));
 
 		// WHERE
 		if (_keySet != null || _keyRead != null)

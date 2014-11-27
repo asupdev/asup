@@ -23,9 +23,9 @@ import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
+import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.asup.db.syntax.impl.DefinitionWriterImpl;
 import org.asup.dk.parser.InvalidExpressionException;
@@ -38,6 +38,10 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
+
+	protected MsSQLDefinitionWriterImpl() {
+		super(new SQLObjectNameHelper());
+	}
 
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;

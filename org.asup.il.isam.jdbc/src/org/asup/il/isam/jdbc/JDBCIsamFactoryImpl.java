@@ -19,7 +19,6 @@ import java.util.List;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
@@ -32,21 +31,22 @@ import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIsamFactory;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCIsamFactoryImpl implements QIsamFactory {
 
 	private QDatabaseManager databaseManager;
 	private QConnection connection;
-	private QDefinitionWriter syntaxBuilder;
+	private SQLObjectNameHelper sqlObjectNameHelper;
 	private QAliasResolver aliasAliasResolver;
 	private QDataFactory dataFactory;
 	
-	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, QDefinitionWriter syntaxBuilder, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
+	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, SQLObjectNameHelper sqlObjectNameHelper, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
 
 		this.connection = connection;
 		this.databaseManager = databaseManager;
-		this.syntaxBuilder = syntaxBuilder;
+		this.sqlObjectNameHelper = sqlObjectNameHelper;
 		this.aliasAliasResolver = aliasResolver;
 		this.dataFactory = dataFactory;
 	}
@@ -61,14 +61,14 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			if(index == null)
 				return null;
 			
-			return new JDBCIndexDataSetImpl<QDataStruct>(connection, syntaxBuilder, index, AccessMode.UPDATE, dataStruct);
+			return new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, index, AccessMode.UPDATE, dataStruct);
 		}
 		else {
 			Table table = getTable(dataSetTerm.getFileName());
 			if(table == null)
 				return null;
 			
-			return new JDBCTableDataSetImpl<QDataStruct>(connection, syntaxBuilder, table, AccessMode.UPDATE, dataStruct);
+			return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
 		}
 		
 	}
