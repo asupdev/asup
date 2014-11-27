@@ -12,19 +12,19 @@
 package org.asup.il.isam.jdbc;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QTableDataSet;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCTableDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImpl<DS> implements QTableDataSet<DS> {
 
 	protected Table table;
 
-	protected JDBCTableDataSetImpl(QConnection databaseConnection, QDefinitionWriter syntaxBuilder, Table table, AccessMode accessMode, DS dataStruct) {
-		super(databaseConnection, syntaxBuilder, table, accessMode, dataStruct);
+	protected JDBCTableDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqlObjectNameHelper, Table table, AccessMode accessMode, DS dataStruct) {
+		super(databaseConnection, sqlObjectNameHelper, table, accessMode, dataStruct);
 	}
 
 	@Override

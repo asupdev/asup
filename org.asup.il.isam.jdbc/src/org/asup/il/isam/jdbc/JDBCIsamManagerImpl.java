@@ -17,8 +17,6 @@ import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QAliasResolverRegistry;
-import org.asup.db.syntax.QDefinitionWriter;
-import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
@@ -26,6 +24,7 @@ import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
 public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 
@@ -33,8 +32,6 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 	private QDatabaseManager databaseManager;
 	@Inject
 	private QDataManager dataManager;
-	@Inject
-	private QDefinitionWriterRegistry syntaxBuilderRegistry;
 	@Inject
 	private QAliasResolverRegistry aliasResolverRegistry;
 	
@@ -44,10 +41,10 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 		QConnection connection = context.getAdapter(contextID, QConnection.class);
 		QDataFactory dataFactory = dataManager.createFactory(contextID);
 		
-		QDefinitionWriter syntaxBuilder = syntaxBuilderRegistry.lookup(connection.getConnectionConfig());
+		SQLObjectNameHelper sqlObjectNameHelper = new SQLObjectNameHelper();
 		QAliasResolver aliasResolver = aliasResolverRegistry.lookup("*JOB");
 		
-		return new JDBCIsamFactoryImpl(connection, databaseManager, syntaxBuilder, aliasResolver, dataFactory);
+		return new JDBCIsamFactoryImpl(connection, databaseManager, sqlObjectNameHelper, aliasResolver, dataFactory);
 	}
 
 }

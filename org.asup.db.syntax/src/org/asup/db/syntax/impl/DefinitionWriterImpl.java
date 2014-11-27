@@ -63,8 +63,9 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DefinitionWriterImpl() {
+	protected DefinitionWriterImpl(ISQLObjectNameHelper sqlObjectNameHelper) {
 		super();
+		this.sqlObjectNameHelper = sqlObjectNameHelper;
 	}
 	
 	protected void setSQLObjectNameHelper(ISQLObjectNameHelper sqlObjectNameHelper) {
@@ -439,28 +440,24 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 		return getIdentifierQuoteString()+column.getName()+getIdentifierQuoteString();
 	}
 	
-	@Override
-	public String getNameInSQLFormat(Column column) {
+	protected String getNameInSQLFormat(Column column) {
 		return sqlObjectNameHelper.getNameInSQLFormat(column);
 	}
-	@Override
-	public String getNameInSQLFormat(Table table) {
+
+	protected String getNameInSQLFormat(Table table) {
 		return sqlObjectNameHelper.getNameInSQLFormat(table);
 	}
-	@Override
-	public String getQualifiedNameInSQLFormat(Column column) {
+
+	protected String getQualifiedNameInSQLFormat(Column column) {
 		return sqlObjectNameHelper.getQualifiedNameInSQLFormat(column);
 	}
-	@Override
-	public String getQualifiedNameInSQLFormat(Table table) {
+
+	protected String getQualifiedNameInSQLFormat(Table table) {
 		return sqlObjectNameHelper.getQualifiedNameInSQLFormat(table);
 	}
-	@Override
-	public String getIdentifierQuoteString() {
+	
+	protected String getIdentifierQuoteString() {
 		return sqlObjectNameHelper.getIdentifierQuoteString();
 	}
-	@Override
-	public void setIdentifierQuoteString(String quoteString) {
-		sqlObjectNameHelper.setIdentifierQuoteString(quoteString);
-	}
+
 } // SyntaxBuilderImpl
