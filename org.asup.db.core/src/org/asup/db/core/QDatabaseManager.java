@@ -8,10 +8,8 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
-
 import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
@@ -105,14 +103,6 @@ public interface QDatabaseManager extends QService {
 	 * @generated
 	 */
 	void dropView(QConnection connection, ViewTable view) throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true"
-	 * @generated
-	 */
-	Database getDatabase(QConnection connection);
 
 	/**
 	 * <!-- begin-user-doc -->

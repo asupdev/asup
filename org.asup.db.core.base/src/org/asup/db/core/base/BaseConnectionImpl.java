@@ -1,12 +1,23 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi - Initial API and implementation 
+ */
 package org.asup.db.core.base;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Iterator;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionContext;
-import org.asup.db.core.QDatabaseCatalog;
 import org.asup.db.core.QDatabaseDefinition;
 import org.asup.db.core.QPreparedStatement;
 import org.asup.db.core.QStatement;
@@ -18,6 +29,8 @@ import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
+import org.eclipse.datatools.connectivity.sqm.core.util.CatalogLoaderOverrideManager;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 public class BaseConnectionImpl implements QConnection {
 
@@ -27,7 +40,8 @@ public class BaseConnectionImpl implements QConnection {
 	private QQueryParser queryParser;
 	private QQueryWriter queryConverter;
 	
-	private QDatabaseDefinition databaseDefinition; 
+	private QDatabaseDefinition databaseDefinition;
+	private Catalog defaultCatalog;
 	
 	public BaseConnectionImpl(QConnectionContext connectionContext, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
 		this.connectionContext = connectionContext;
@@ -61,7 +75,7 @@ public class BaseConnectionImpl implements QConnection {
 	@Override
 	public QStatement createStatement(boolean native_) throws SQLException {
 		
-		Connection connection = getConnectionContext().getAdapter(this, Connection.class);
+		Connection connection = getConnectionInfo().getSharedConnection();
 		QStatement statement = null;
 		if(native_)
 			statement = new BaseNativeStatementImpl(connection.createStatement());			
@@ -84,21 +98,21 @@ public class BaseConnectionImpl implements QConnection {
 
 	@Override
 	public void commit() throws SQLException {
-		Connection connection = getConnectionContext().getAdapter(this, Connection.class);
+		Connection connection = getConnectionInfo().getSharedConnection();
 		connection.commit();
 		connection.setAutoCommit(getConnectionConfig().isAutoCommit());
 	}
 
 	@Override
 	public void rollback() throws SQLException {
-		Connection connection = getConnectionContext().getAdapter(this, Connection.class);
+		Connection connection = getConnectionInfo().getSharedConnection();
 		connection.rollback();		
 		connection.setAutoCommit(getConnectionConfig().isAutoCommit());
 	}
 
 	@Override
 	public void setAutoCommit(boolean autoCommit) throws SQLException {
-		Connection connection = getConnectionContext().getAdapter(this, Connection.class);
+		Connection connection = getConnectionInfo().getSharedConnection();
 		connection.setAutoCommit(autoCommit);		
 	}
 
@@ -132,8 +146,24 @@ public class BaseConnectionImpl implements QConnection {
 	}
 
 	@Override
-	public QDatabaseCatalog getDefaultCatalog() {
-		// TODO Auto-generated method stub
-		return null;
+	public Catalog getDefaultCatalog() {
+		
+		if(defaultCatalog == null) {
+			synchronized (this) {
+
+//				DatabaseDefinition dtpDatabaseDefinition = SQMServices.getDatabaseDefinitionRegistry().getDefinition(getConnectionConfig().getProduct(), getConnectionConfig().getVersion());
+				
+				CatalogLoaderOverrideManager catalogLoader = CatalogLoaderOverrideManager.INSTANCE;
+				@SuppressWarnings("unchecked")
+				Iterator<DatabaseDefinition> defns = catalogLoader.getDbDefinitions();
+				while(defns.hasNext()) {
+					DatabaseDefinition databaseDefinition = defns.next();
+					System.out.println(databaseDefinition.getProduct()+databaseDefinition.getVersion());
+				}
+				
+			}
+				
+		}
+		return defaultCatalog;
 	}
 }

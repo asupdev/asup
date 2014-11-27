@@ -18,7 +18,6 @@ import javax.inject.Inject;
 
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseDefinition;
 import org.asup.db.core.QIndexDef;
@@ -30,15 +29,12 @@ import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
-import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
 import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
 import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableIndexLoader;
 import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableLoader;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.query.helper.DatabaseHelper;
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
-import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
@@ -60,8 +56,14 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			String command = syntaxBuilder.createSchema(name, schemaDef);
 			statement.execute(command);
 			
-			// refresh schemas
-			refreshSchemas(connection);
+			// refresh schema
+			Catalog catalog = connection.getDefaultCatalog();
+			if(catalog instanceof ICatalogObject && catalog instanceof Catalog) {
+				synchronized (catalog) {
+					JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject)catalog);
+					schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
+				}
+			}
 		}
 		finally {
 			if(statement != null)
@@ -101,7 +103,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
 				tableLoader.loadTables(schema.getTables(), schema.getTables());				
 			}
-
 		}
 		finally {
 			if(statement != null)
@@ -144,7 +145,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			String command = syntaxBuilder.createIndex(table, name, indexDef);
 			statement.execute(command);
 			
-			// refresh schema
+			// refresh table
 			synchronized (table) {
 				JDBCTableIndexLoader indexLoader = new JDBCTableIndexLoader((ICatalogObject) table);
 				indexLoader.loadIndexes(table.getIndex(), table.getIndex());
@@ -191,8 +192,13 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			String command = syntaxBuilder.dropSchema(schema);
 			statement.execute(command);
 			
+			
 			// refresh schema
-			refreshSchemas(connection);
+			Catalog catalog = connection.getDefaultCatalog();
+			synchronized (catalog) {
+				catalog.getSchemas().remove(schema);
+			}
+			
 		}
 		finally {
 			if(statement != null)
@@ -299,22 +305,21 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 	}
 
-
-	@Override
-	public Database getDatabase(QConnection connection) {		
-		return connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class).getSharedDatabase();
-	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public Schema getSchema(QConnection connection, String schemaName) {
 
-		Database database = getDatabase(connection);
-		if(database == null)
-			return null;
+		Catalog catalog = connection.getDefaultCatalog();
 		
-		return DatabaseHelper.findSchema(database, schemaName);
+		for(Schema schema: (List<Schema>)catalog.getSchemas()) {
+			if(schema.getName().equals(schemaName))
+				return schema;
+		}
+		
+		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Table getTable(QConnection connection, String schemaName, String tableName) {
 		
@@ -322,7 +327,12 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		if(schema == null)
 			return null;
 
-		return DatabaseHelper.findTable(schema, tableName);
+		for(Table table: (List<Table>)schema.getTables()) {
+			if(table.getName().equals(tableName))
+				return table;
+		}
+		
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -346,30 +356,5 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			return (ViewTable) table;
 		else
 			return null; 
-	}
-
-	@SuppressWarnings("unchecked")
-	private synchronized void refreshSchemas(QConnection connection) throws SQLException {
-		
-		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);		
-		Database database = connectionInfo.getSharedDatabase();
-		
-		// DB2
-		if(database.getCatalogs().isEmpty()) {
-			JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) database);
-			schemaLoader.loadSchemas(database.getSchemas(), database.getSchemas());
-			return;
-		}
-		
-		// SQLServer
-		QConnectionConfig connectionConfig = connection.getConnectionConfig();
-		for(Catalog catalog: (List<Catalog>)database.getCatalogs()) {
-			if(connectionConfig.getUrl().contains(catalog.getName())) {
-				JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject) catalog);
-				schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
-				return;
-				
-			}
-		}
 	}
 }
