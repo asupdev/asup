@@ -18,6 +18,7 @@ import org.asup.fw.core.QServiceConfig;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QConnectionConfig#isAutoCommit <em>Auto Commit</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getDefaultCatalog <em>Default Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}</li>
@@ -58,6 +59,32 @@ public interface QConnectionConfig extends QServiceConfig {
 	 * @generated
 	 */
 	void setAutoCommit(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Catalog</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Catalog</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Catalog</em>' attribute.
+	 * @see #setDefaultCatalog(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_DefaultCatalog()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getDefaultCatalog();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getDefaultCatalog <em>Default Catalog</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Catalog</em>' attribute.
+	 * @see #getDefaultCatalog()
+	 * @generated
+	 */
+	void setDefaultCatalog(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Driver Name</b></em>' attribute.

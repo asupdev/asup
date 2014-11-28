@@ -9,6 +9,7 @@ package org.asup.db.core;
 
 import java.sql.SQLException;
 import org.asup.fw.core.QContextID;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -115,6 +116,6 @@ public interface QConnection extends QContextID {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QDatabaseCatalog getDefaultCatalog();
+	Catalog getDefaultCatalog();
 
 } // DatabaseConnection

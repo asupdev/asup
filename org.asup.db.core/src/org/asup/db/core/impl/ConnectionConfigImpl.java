@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isAutoCommit <em>Auto Commit</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDefaultCatalog <em>Default Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDriverName <em>Driver Name</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getPassword <em>Password</em>}</li>
@@ -52,6 +53,26 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * @ordered
 	 */
 	protected boolean autoCommit = AUTO_COMMIT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDefaultCatalog() <em>Default Catalog</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultCatalog()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEFAULT_CATALOG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDefaultCatalog() <em>Default Catalog</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultCatalog()
+	 * @generated
+	 * @ordered
+	 */
+	protected String defaultCatalog = DEFAULT_CATALOG_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDriverName() <em>Driver Name</em>}' attribute.
@@ -206,6 +227,27 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDefaultCatalog() {
+		return defaultCatalog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultCatalog(String newDefaultCatalog) {
+		String oldDefaultCatalog = defaultCatalog;
+		defaultCatalog = newDefaultCatalog;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG, oldDefaultCatalog, defaultCatalog));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -341,6 +383,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				return isAutoCommit();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
+				return getDefaultCatalog();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				return getDriverName();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
@@ -366,6 +410,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				setAutoCommit((Boolean)newValue);
+				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
+				setDefaultCatalog((String)newValue);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				setDriverName((String)newValue);
@@ -399,6 +446,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				setAutoCommit(AUTO_COMMIT_EDEFAULT);
 				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
+				setDefaultCatalog(DEFAULT_CATALOG_EDEFAULT);
+				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				setDriverName(DRIVER_NAME_EDEFAULT);
 				return;
@@ -430,6 +480,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				return autoCommit != AUTO_COMMIT_EDEFAULT;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
+				return DEFAULT_CATALOG_EDEFAULT == null ? defaultCatalog != null : !DEFAULT_CATALOG_EDEFAULT.equals(defaultCatalog);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				return DRIVER_NAME_EDEFAULT == null ? driverName != null : !DRIVER_NAME_EDEFAULT.equals(driverName);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
@@ -457,6 +509,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (autoCommit: ");
 		result.append(autoCommit);
+		result.append(", defaultCatalog: ");
+		result.append(defaultCatalog);
 		result.append(", driverName: ");
 		result.append(driverName);
 		result.append(", product: ");
