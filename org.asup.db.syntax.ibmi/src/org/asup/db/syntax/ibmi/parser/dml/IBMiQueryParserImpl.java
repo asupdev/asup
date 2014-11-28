@@ -9,14 +9,13 @@
  * Contributors: 
  *   Dario Foresti - Initial API and implementation 
  */
-package org.asup.db.syntax.ibmi;
+package org.asup.db.syntax.ibmi.parser.dml;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 
-import org.asup.db.syntax.ibmi.parser.IBMiQueryParserManagerImpl;
 import org.asup.db.syntax.impl.QueryParserImpl;
 import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceFormat;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;

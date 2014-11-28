@@ -6,7 +6,7 @@
 * http://www.eclipse.org/legal/epl-v10.html
 */
 
-package org.asup.db.syntax.ibmi.parser;
+package org.asup.db.syntax.ibmi.parser.dml;
 
 public class IBMiQueryParserprs implements lpg.lpgjavaruntime.ParseTable, IBMiQueryParsersym {
 

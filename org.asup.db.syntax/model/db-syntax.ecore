@@ -26,13 +26,15 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionParser" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="parseDefinition" eType="#//DefinitionParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+    <eOperations name="parseDefinition" eType="#//DefinitionParserResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="stream" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaInputStream"/>
     </eOperations>
-    <eOperations name="parseDefinition" eType="#//DefinitionParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+    <eOperations name="parseDefinition" eType="#//DefinitionParserResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParserError" abstract="true"
+      interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionParserRegistry" abstract="true">
     <eOperations name="lookup" lowerBound="1" eType="#//DefinitionParser">
       <eParameters name="connectionConfig" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//ConnectionConfig"/>
@@ -41,7 +43,11 @@
       <eTypeArguments eClassifier="#//DefinitionParser"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="DefinitionParseResult" instanceClassName="org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParserResult" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitionStatement" eType="#//DefinitionStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorList" upperBound="-1"
+        eType="#//DefinitionParserError"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createSchema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>

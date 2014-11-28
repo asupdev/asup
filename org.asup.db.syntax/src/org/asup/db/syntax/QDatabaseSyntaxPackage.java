@@ -11,6 +11,7 @@ import org.asup.fw.core.QFrameworkCorePackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -226,6 +227,25 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int DEFINITION_PARSER_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.QDefinitionParserError <em>Definition Parser Error</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.QDefinitionParserError
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserError()
+	 * @generated
+	 */
+	int DEFINITION_PARSER_ERROR = 3;
+
+	/**
+	 * The number of structural features of the '<em>Definition Parser Error</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_PARSER_ERROR_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionParserRegistryImpl <em>Definition Parser Registry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,7 +253,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserRegistry()
 	 * @generated
 	 */
-	int DEFINITION_PARSER_REGISTRY = 3;
+	int DEFINITION_PARSER_REGISTRY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -263,14 +283,41 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int DEFINITION_PARSER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '<em>Definition Parse Result</em>' data type.
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionParserResultImpl <em>Definition Parser Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult
-	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParseResult()
+	 * @see org.asup.db.syntax.impl.DefinitionParserResultImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserResult()
 	 * @generated
 	 */
-	int DEFINITION_PARSE_RESULT = 11;
+	int DEFINITION_PARSER_RESULT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Definition Statement</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Error List</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_PARSER_RESULT__ERROR_LIST = 1;
+
+	/**
+	 * The number of structural features of the '<em>Definition Parser Result</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_PARSER_RESULT_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionWriterImpl <em>Definition Writer</em>}' class.
@@ -280,7 +327,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriter()
 	 * @generated
 	 */
-	int DEFINITION_WRITER = 4;
+	int DEFINITION_WRITER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -344,7 +391,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriterRegistry()
 	 * @generated
 	 */
-	int DEFINITION_WRITER_REGISTRY = 5;
+	int DEFINITION_WRITER_REGISTRY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -381,7 +428,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionStatement()
 	 * @generated
 	 */
-	int DEFINITION_STATEMENT = 6;
+	int DEFINITION_STATEMENT = 8;
 
 	/**
 	 * The number of structural features of the '<em>Definition Statement</em>' class.
@@ -400,7 +447,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriter()
 	 * @generated
 	 */
-	int QUERY_WRITER = 7;
+	int QUERY_WRITER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -464,7 +511,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriterRegistry()
 	 * @generated
 	 */
-	int QUERY_WRITER_REGISTRY = 8;
+	int QUERY_WRITER_REGISTRY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -501,7 +548,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParser()
 	 * @generated
 	 */
-	int QUERY_PARSER = 9;
+	int QUERY_PARSER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -565,7 +612,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParserRegistry()
 	 * @generated
 	 */
-	int QUERY_PARSER_REGISTRY = 10;
+	int QUERY_PARSER_REGISTRY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -602,7 +649,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParseResult()
 	 * @generated
 	 */
-	int QUERY_PARSE_RESULT = 12;
+	int QUERY_PARSE_RESULT = 13;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QAliasResolver <em>Alias Resolver</em>}'.
@@ -635,6 +682,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	EClass getDefinitionParser();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionParserError <em>Definition Parser Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Definition Parser Error</em>'.
+	 * @see org.asup.db.syntax.QDefinitionParserError
+	 * @generated
+	 */
+	EClass getDefinitionParserError();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionParserRegistry <em>Definition Parser Registry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -645,15 +702,36 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	EClass getDefinitionParserRegistry();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult <em>Definition Parse Result</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionParserResult <em>Definition Parser Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Definition Parse Result</em>'.
-	 * @see org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult
-	 * @model instanceClass="org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult"
+	 * @return the meta object for class '<em>Definition Parser Result</em>'.
+	 * @see org.asup.db.syntax.QDefinitionParserResult
 	 * @generated
 	 */
-	EDataType getDefinitionParseResult();
+	EClass getDefinitionParserResult();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.asup.db.syntax.QDefinitionParserResult#getDefinitionStatement <em>Definition Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Definition Statement</em>'.
+	 * @see org.asup.db.syntax.QDefinitionParserResult#getDefinitionStatement()
+	 * @see #getDefinitionParserResult()
+	 * @generated
+	 */
+	EReference getDefinitionParserResult_DefinitionStatement();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.asup.db.syntax.QDefinitionParserResult#getErrorList <em>Error List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Error List</em>'.
+	 * @see org.asup.db.syntax.QDefinitionParserResult#getErrorList()
+	 * @see #getDefinitionParserResult()
+	 * @generated
+	 */
+	EReference getDefinitionParserResult_ErrorList();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionWriter <em>Definition Writer</em>}'.
@@ -789,6 +867,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		EClass DEFINITION_PARSER = eINSTANCE.getDefinitionParser();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.QDefinitionParserError <em>Definition Parser Error</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.QDefinitionParserError
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserError()
+		 * @generated
+		 */
+		EClass DEFINITION_PARSER_ERROR = eINSTANCE.getDefinitionParserError();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionParserRegistryImpl <em>Definition Parser Registry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -799,14 +887,30 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		EClass DEFINITION_PARSER_REGISTRY = eINSTANCE.getDefinitionParserRegistry();
 
 		/**
-		 * The meta object literal for the '<em>Definition Parse Result</em>' data type.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionParserResultImpl <em>Definition Parser Result</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult
-		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParseResult()
+		 * @see org.asup.db.syntax.impl.DefinitionParserResultImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserResult()
 		 * @generated
 		 */
-		EDataType DEFINITION_PARSE_RESULT = eINSTANCE.getDefinitionParseResult();
+		EClass DEFINITION_PARSER_RESULT = eINSTANCE.getDefinitionParserResult();
+
+		/**
+		 * The meta object literal for the '<em><b>Definition Statement</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT = eINSTANCE.getDefinitionParserResult_DefinitionStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Error List</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEFINITION_PARSER_RESULT__ERROR_LIST = eINSTANCE.getDefinitionParserResult_ErrorList();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionWriterImpl <em>Definition Writer</em>}' class.

@@ -8,7 +8,6 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.syntax.*;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -71,8 +70,6 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT:
-				return createDefinitionParseResultFromString(eDataType, initialValue);
 			case QDatabaseSyntaxPackage.QUERY_PARSE_RESULT:
 				return createQueryParseResultFromString(eDataType, initialValue);
 			default:
@@ -87,31 +84,11 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT:
-				return convertDefinitionParseResultToString(eDataType, instanceValue);
 			case QDatabaseSyntaxPackage.QUERY_PARSE_RESULT:
 				return convertQueryParseResultToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SQLParseResult createDefinitionParseResultFromString(EDataType eDataType, String initialValue) {
-		return (SQLParseResult)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertDefinitionParseResultToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

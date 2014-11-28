@@ -15,7 +15,7 @@
 %options single-productions
 %options noserialize  --serialize for large grammar (65k+), makes it faster after load overhead, creates a .dcl file in dat directory
 %options ParseTable=lpg.lpgjavaruntime.ParseTable
-%options package=org.asup.db.syntax.ibmi.parser
+%options package=org.asup.db.syntax.ibmi.parser.dml
 %options template=sqlparserTemplate.lpg
 
 

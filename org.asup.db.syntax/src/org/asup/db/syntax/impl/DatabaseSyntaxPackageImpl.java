@@ -13,7 +13,9 @@ import org.asup.db.syntax.QAliasResolverRegistry;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QDefinitionParser;
+import org.asup.db.syntax.QDefinitionParserError;
 import org.asup.db.syntax.QDefinitionParserRegistry;
+import org.asup.db.syntax.QDefinitionParserResult;
 import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryWriterRegistry;
@@ -29,13 +31,13 @@ import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
 import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
 import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -69,7 +71,21 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass definitionParserErrorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass definitionParserRegistryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass definitionParserResultEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,13 +133,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * @generated
 	 */
 	private EClass queryParserRegistryEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType definitionParseResultEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -230,6 +239,15 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDefinitionParserError() {
+		return definitionParserErrorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDefinitionParserRegistry() {
 		return definitionParserRegistryEClass;
 	}
@@ -239,8 +257,26 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getDefinitionParseResult() {
-		return definitionParseResultEDataType;
+	public EClass getDefinitionParserResult() {
+		return definitionParserResultEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDefinitionParserResult_DefinitionStatement() {
+		return (EReference)definitionParserResultEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDefinitionParserResult_ErrorList() {
+		return (EReference)definitionParserResultEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -344,7 +380,13 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		definitionParserEClass = createEClass(DEFINITION_PARSER);
 
+		definitionParserErrorEClass = createEClass(DEFINITION_PARSER_ERROR);
+
 		definitionParserRegistryEClass = createEClass(DEFINITION_PARSER_REGISTRY);
+
+		definitionParserResultEClass = createEClass(DEFINITION_PARSER_RESULT);
+		createEReference(definitionParserResultEClass, DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT);
+		createEReference(definitionParserResultEClass, DEFINITION_PARSER_RESULT__ERROR_LIST);
 
 		definitionWriterEClass = createEClass(DEFINITION_WRITER);
 
@@ -361,7 +403,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		queryParserRegistryEClass = createEClass(QUERY_PARSER_REGISTRY);
 
 		// Create data types
-		definitionParseResultEDataType = createEDataType(DEFINITION_PARSE_RESULT);
 		queryParseResultEDataType = createEDataType(QUERY_PARSE_RESULT);
 	}
 
@@ -461,18 +502,24 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		initEClass(definitionParserEClass, QDefinitionParser.class, "DefinitionParser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(definitionParserEClass, this.getDefinitionParseResult(), "parseDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(definitionParserEClass, this.getDefinitionParserResult(), "parseDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaInputStream(), "stream", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theDatabaseCorePackage.getDatabaseException());
 
-		op = addEOperation(definitionParserEClass, this.getDefinitionParseResult(), "parseDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(definitionParserEClass, this.getDefinitionParserResult(), "parseDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theDatabaseCorePackage.getDatabaseException());
+
+		initEClass(definitionParserErrorEClass, QDefinitionParserError.class, "DefinitionParserError", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(definitionParserRegistryEClass, QDefinitionParserRegistry.class, "DefinitionParserRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(definitionParserRegistryEClass, this.getDefinitionParser(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(definitionParserResultEClass, QDefinitionParserResult.class, "DefinitionParserResult", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDefinitionParserResult_DefinitionStatement(), this.getDefinitionStatement(), null, "definitionStatement", null, 0, 1, QDefinitionParserResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDefinitionParserResult_ErrorList(), this.getDefinitionParserError(), null, "errorList", null, 0, -1, QDefinitionParserResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(definitionWriterEClass, QDefinitionWriter.class, "DefinitionWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -552,7 +599,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
-		initEDataType(definitionParseResultEDataType, SQLParseResult.class, "DefinitionParseResult", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryParseResultEDataType, SQLQueryParseResult.class, "QueryParseResult", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

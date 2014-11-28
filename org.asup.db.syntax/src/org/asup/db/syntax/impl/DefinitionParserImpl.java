@@ -11,11 +11,11 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QDefinitionParser;
+import org.asup.db.syntax.QDefinitionParserResult;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -113,7 +113,7 @@ public abstract class DefinitionParserImpl extends PluginImpl implements QDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SQLParseResult parseDefinition(InputStream stream) throws SQLException {
+	public QDefinitionParserResult parseDefinition(InputStream stream) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -124,7 +124,7 @@ public abstract class DefinitionParserImpl extends PluginImpl implements QDefini
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SQLParseResult parseDefinition(String sql) throws SQLException {
+	public QDefinitionParserResult parseDefinition(String sql) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

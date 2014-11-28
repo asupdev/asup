@@ -61,7 +61,7 @@ public abstract class DefinitionWriterImpl extends PluginImpl implements QDefini
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected DefinitionWriterImpl(ISQLObjectNameHelper sqlObjectNameHelper) {
 		super();

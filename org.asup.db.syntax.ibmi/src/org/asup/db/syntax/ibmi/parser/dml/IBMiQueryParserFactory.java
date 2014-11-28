@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package org.asup.db.syntax.ibmi.parser;
+package org.asup.db.syntax.ibmi.parser.dml;
 
 import java.util.List;
 

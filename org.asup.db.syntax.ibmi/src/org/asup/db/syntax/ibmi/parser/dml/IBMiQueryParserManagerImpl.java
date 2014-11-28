@@ -1,7 +1,8 @@
-package org.asup.db.syntax.ibmi.parser;
+package org.asup.db.syntax.ibmi.parser.dml;
 
 import java.util.List;
 
+import org.asup.db.syntax.ibmi.parser.dml.IBMiQueryParser;
 import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceFormat;
 import org.eclipse.datatools.sqltools.parsers.sql.SQLParser;
 import org.eclipse.datatools.sqltools.parsers.sql.SQLParserFactory;
