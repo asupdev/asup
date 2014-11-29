@@ -9,7 +9,6 @@ Bundle-Localization: plugin
 Export-Package: org.asup.db.syntax,
  org.asup.db.syntax.dml,
  org.asup.db.syntax.dml.impl,
- org.asup.db.syntax.dml.util,
  org.asup.db.syntax.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

@@ -18,7 +18,7 @@
       <!-- @generated db-syntax -->
       <package
             uri="http://www.asup.org/db/syntax/dml"
-            class="org.asup.db.syntax.dml.QDmlPackage"
+            class="org.asup.db.syntax.dml.QDatabaseDMLPackage"
             genModel="model/db-syntax.genmodel"/>
    </extension>
 

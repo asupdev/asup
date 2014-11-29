@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Data Tools Platform As.UP UI
+Bundle-SymbolicName: org.eclipse.datatools.enablement.asup.ui;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.datatools.connectivity;bundle-version="1.2.11",
+ org.eclipse.datatools.connectivity.ui;bundle-version="1.2.4",
+ org.eclipse.jface;bundle-version="3.10.0",
+ org.eclipse.ui;bundle-version="3.106.0",
+ org.eclipse.datatools.enablement.asup;bundle-version="0.5.3",
+ org.eclipse.datatools.enablement.asup.dbdefinition;bundle-version="0.5.3",
+ org.eclipse.datatools.help;bundle-version="1.5.0",
+ org.eclipse.core.runtime;bundle-version="3.10.0",
+ org.eclipse.equinox.registry,
+ org.eclipse.datatools.connectivity.ui.dse;bundle-version="1.1.5"
+Import-Package: org.osgi.framework;version="1.8.0"

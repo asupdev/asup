@@ -29,12 +29,11 @@ import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
-import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableIndexLoader;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableLoader;
+import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.query.helper.DatabaseHelper;
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
+import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
@@ -48,6 +47,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void createSchema(QConnection connection, String name, QSchemaDef schemaDef) throws SQLException {
 
+		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);
+		Database database = connectionInfo.getSharedDatabase();
+
+		System.out.println(database.getSchemas().size());
 		// Schema creation
 		QStatement statement = null;
 		try {
@@ -55,15 +58,28 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
 			String command = syntaxBuilder.createSchema(name, schemaDef);
 			statement.execute(command);
+
+			
+/*			ICatalogObject catalogObject = new DTPCatalogAdapter(database);
+			ConnectionFilterProvider connectionFilterProvider = new DTPConnectionFilterProvider();
+			
+			JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader(catalogObject, connectionFilterProvider);
+			schemaLoader.loadSchemas(database.getSchemas(), database.getSchemas());*/
+			
+			System.out.println(database.getSchemas().size());
+			
+			//((ICatalogObject) database).refresh();
+			
+//			RefreshManager.getInstance().referesh((ICatalogObject) database);
 			
 			// refresh schema
-			Catalog catalog = connection.getDefaultCatalog();
+/*			Catalog catalog = connection.getDefaultCatalog();
 			if(catalog instanceof ICatalogObject && catalog instanceof Catalog) {
 				synchronized (catalog) {
 					JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject)catalog);
 					schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
 				}
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -80,18 +96,15 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		try {
 			statement = connection.createStatement(true);
 			
-			if(databaseDefinition.supportsIdentityColumns()) {
+			// relative record number support
+			if(databaseDefinition.supportsRelativeRecordNumber()) {
+				tableDef = (QTableDef) EcoreUtil.copy((EObject)tableDef);
 				
-				// identity column support
-				if(databaseDefinition.supportsIdentityColumns()) {
-					tableDef = (QTableDef) EcoreUtil.copy((EObject)tableDef);
-					
-					QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
-					pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
-					pkTableComColumnDef.setName(TABLE_COLUMN_PRIMARY_KEY_NAME);
+				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
+				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
+				pkTableComColumnDef.setName(TABLE_COLUMN_PRIMARY_KEY_NAME);
 
-					tableDef.getColumns().add(pkTableComColumnDef);
-				}
+				tableDef.getColumns().add(pkTableComColumnDef);
 			}
 			
 			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
@@ -99,10 +112,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 
 			// refresh table
-			synchronized (schema) {
+/*			synchronized (schema) {
 				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
 				tableLoader.loadTables(schema.getTables(), schema.getTables());				
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -124,10 +137,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 			
 			// refresh view
-			synchronized (schema) {
+/*			synchronized (schema) {
 				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
 				tableLoader.loadTables(schema.getTables(), schema.getTables());				
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -146,10 +159,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 			
 			// refresh table
-			synchronized (table) {
+/*			synchronized (table) {
 				JDBCTableIndexLoader indexLoader = new JDBCTableIndexLoader((ICatalogObject) table);
 				indexLoader.loadIndexes(table.getIndex(), table.getIndex());
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -161,6 +174,12 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void dropSchema(QConnection connection, Schema schema) throws SQLException {
 
+		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);
+		Database database = connectionInfo.getSharedDatabase();
+
+		System.out.println(database.getSchemas().size());
+
+		
 		// drop index
 		for(Index index: (List<Index>)schema.getIndices()) {
 			try {
@@ -188,16 +207,23 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
-			String command = syntaxBuilder.dropSchema(schema);
+			QDefinitionWriter definitionWriter = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
+			String command = definitionWriter.dropSchema(schema);
 			statement.execute(command);
+
+			System.out.println(database.getSchemas().size());
 			
+/*			ICatalogObject catalogObject = new DTPCatalogAdapter(database);
 			
+			JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader(catalogObject);
+			schemaLoader.loadSchemas(database.getSchemas(), database.getSchemas());*/
+			
+			System.out.println(database.getSchemas().size());
 			// refresh schema
-			Catalog catalog = connection.getDefaultCatalog();
+/*			Catalog catalog = connection.getDefaultCatalog();
 			synchronized (catalog) {
 				catalog.getSchemas().remove(schema);
-			}
+			}*/
 			
 		}
 		finally {
@@ -205,6 +231,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 				statement.close();
 		}
 
+		schema.setCatalog(null);
 		schema.setDatabase(null);
 	}
 
@@ -305,18 +332,33 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Schema getSchema(QConnection connection, String schemaName) {
 
-		Catalog catalog = connection.getDefaultCatalog();
+		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);
+		System.out.println(connectionInfo.getDatabaseName());
+
+		Database database = connectionInfo.getSharedDatabase();
+		System.out.println(database);
+
+		// TODO optimize for SQL Server
+		Schema schema = DatabaseHelper.findSchema(database, schemaName);
+		
+		@SuppressWarnings("unchecked")
+		List<Catalog> catalogs = database.getCatalogs();
+		for(Catalog catalog: catalogs) {
+			if(!catalog.getName().equals(connection.getConnectionConfig().getDefaultCatalog()))
+				continue;
+		}
+		
+/*		Catalog catalog = connection.getDefaultCatalog();
 		
 		for(Schema schema: (List<Schema>)catalog.getSchemas()) {
 			if(schema.getName().equals(schemaName))
 				return schema;
-		}
+		}*/
 		
-		return null;
+		return schema;
 	}
 
 	@SuppressWarnings("unchecked")

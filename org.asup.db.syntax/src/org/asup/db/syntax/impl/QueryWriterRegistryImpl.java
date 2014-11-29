@@ -46,6 +46,6 @@ public abstract class QueryWriterRegistryImpl extends PluginRegistryImpl<QQueryW
 	 * @generated NOT
 	 */
 	public QQueryWriter lookup(QConnectionConfig connectionConfig) {
-		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+		return lookupByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 	}
 } // QueryConverterRegistryImpl

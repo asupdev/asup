@@ -110,8 +110,21 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 			throw new OperatingSystemRuntimeException("Schema not found: " + library.getName());
 
 		try {
+			databaseConnection.setAutoCommit(false);
+			
 			databaseManager.dropSchema(databaseConnection, schema);
+			
+			databaseConnection.commit();
+			
 		} catch (SQLException e) {
+			
+			try {
+				// TODO rollback on DTP graph
+				databaseConnection.rollback();
+			} catch (SQLException e1) {
+				throw new OperatingSystemRuntimeException(e1);
+			}
+			
 			throw new OperatingSystemRuntimeException(e);
 		}
 	}

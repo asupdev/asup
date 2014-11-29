@@ -21,7 +21,7 @@ import org.eclipse.datatools.modelbase.sql.query.QueryExpressionBody;
  * </ul>
  * </p>
  *
- * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQueryExpressionBody()
+ * @see org.asup.db.syntax.dml.QDatabaseDMLPackage#getExtendedQueryExpressionBody()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface QExtendedQueryExpressionBody extends QueryExpressionBody {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Optimize Records Number</em>' attribute.
 	 * @see #setOptimizeRecordsNumber(int)
-	 * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQueryExpressionBody_OptimizeRecordsNumber()
+	 * @see org.asup.db.syntax.dml.QDatabaseDMLPackage#getExtendedQueryExpressionBody_OptimizeRecordsNumber()
 	 * @model
 	 * @generated
 	 */

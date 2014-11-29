@@ -13,7 +13,6 @@ package org.asup.db.core.base;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.Properties;
 
 import org.asup.db.core.QConnectionConfig;
@@ -45,53 +44,46 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 
 		Object adaptee = null;
 
-		if (adaptableObject instanceof BaseConnectionImpl) {
-			BaseConnectionImpl connection = (BaseConnectionImpl) adaptableObject;
-
-			if (ConnectionInfo.class.isAssignableFrom(adapterType))
+		if (ConnectionInfo.class.isAssignableFrom(adapterType)) {
+			if (adaptableObject instanceof BaseConnectionImpl) {
+				BaseConnectionImpl connection = (BaseConnectionImpl) adaptableObject;
 				adaptee = connection.getConnectionInfo();
-//			else if (Connection.class.isAssignableFrom(adapterType)) {
-//				adaptee = connection.getConnectionInfo().getSharedConnection();
-//			}
-		} else if (adaptableObject instanceof QConnectionConfig) {
-			QConnectionConfig connectionConfig = (QConnectionConfig) adaptableObject;
+			}
+		}
+		else if (IConnectionProfile.class.isAssignableFrom(adapterType)) {
 
-			if (IConnectionProfile.class.isAssignableFrom(adapterType)) {
+			if (adaptableObject instanceof QConnectionConfig) {
+				QConnectionConfig connectionConfig = (QConnectionConfig) adaptableObject;
+
 				try {
 					ProfileManager profileManager = ProfileManager.getInstance();
 
 					ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
-					String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+					String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 					if (providerID == null)
 						providerID = "org.eclipse.datatools.connectivity.db.generic.connectionProfile";
-					
-					// String providerID =
-					// "org.eclipse.datatools.enablement.msft.sqlserver.connectionProfile";
-					// String providerID =
-					// "org.eclipse.datatools.enablement.ibm.db2.luw.connectionProfile";
 
 					Properties properties = new Properties();
 					for (TemplateDescriptor templateDescriptor : TemplateDescriptor.getDriverTemplateDescriptors()) {
 
 						String vendor = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID);
 						String version = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID);
-						
-						if(vendor != null && vendor.equals(connectionConfig.getProduct()) &&
-						   version != null && version.equals(connectionConfig.getVersion())) {
-							
+
+						if (vendor != null && vendor.equals(connectionConfig.getVendor()) && version != null && version.equals(connectionConfig.getVersion())) {
+
 							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID, vendor);
 							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID, version);
 
-//							System.out.println(templateDescriptor.getId());
+							// System.out.println(templateDescriptor.getId());
 							DriverInstance driverInstances[] = DriverManager.getInstance().getDriverInstancesByTemplate(templateDescriptor.getId());
-							if(driverInstances.length>0)
+							if (driverInstances.length > 0)
 								properties.setProperty(ConnectionProfileConstants.PROP_DRIVER_DEFINITION_ID, driverInstances[0].getId());
 							String driverClass = connectionConfig.getDriverName();
-							if(driverClass == null ||driverClass.isEmpty())
+							if (driverClass == null || driverClass.isEmpty())
 								driverClass = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DRIVER_CLASS_PROP_ID);
 							properties.setProperty(IJDBCDriverDefinitionConstants.DRIVER_CLASS_PROP_ID, driverClass);
 							properties.setProperty(IDriverMgmtConstants.PROP_DEFN_JARLIST, getJarList(templateDescriptor));
-							
+
 							properties.setProperty(IJDBCDriverDefinitionConstants.URL_PROP_ID, connectionConfig.getUrl());
 							properties.setProperty(IJDBCDriverDefinitionConstants.USERNAME_PROP_ID, connectionConfig.getUser());
 							properties.setProperty(IJDBCDriverDefinitionConstants.PASSWORD_PROP_ID, connectionConfig.getPassword());
@@ -106,7 +98,7 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 					throw new FrameworkCoreRuntimeException(e);
 				}
 			}
-			return adaptee;
+
 		}
 
 		return adaptee;
@@ -114,19 +106,18 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 
 	@Override
 	public Class<?>[] getAdapterList() {
-		return new Class[] { ConnectionInfo.class, IConnectionProfile.class, Connection.class };
+		return new Class[] { ConnectionInfo.class, IConnectionProfile.class};
 	}
-
 
 	protected String getJarList(TemplateDescriptor templateDescriptor) throws IOException {
 
 		StringBuffer jarList = new StringBuffer();
-		
-		Bundle bundle = Platform.getBundle(templateDescriptor.getElement().getDeclaringExtension().getNamespaceIdentifier()); 
-		
+
+		Bundle bundle = Platform.getBundle(templateDescriptor.getElement().getDeclaringExtension().getNamespaceIdentifier());
+
 		String paths[] = templateDescriptor.getJarList().split(";");
-		for(int i=0; i<paths.length; i++) {
-			if(i>0)
+		for (int i = 0; i < paths.length; i++) {
+			if (i > 0)
 				jarList.append(System.getProperty("path.separator"));
 			URL pathURL = bundle.getEntry(paths[i].trim());
 			jarList.append(new Path(FileLocator.toFileURL(pathURL).getFile()).toOSString());

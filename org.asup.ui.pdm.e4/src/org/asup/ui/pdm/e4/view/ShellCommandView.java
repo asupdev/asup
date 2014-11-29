@@ -75,7 +75,7 @@ public class ShellCommandView extends ViewPart {
 		
 	} 
 
-	private Composite buildControl(final Composite parent) {
+	private void buildControl(final Composite parent) {
 		
 		GridLayout layout = new GridLayout(1,false);
 		parent.setLayout(layout);
@@ -197,7 +197,6 @@ public class ShellCommandView extends ViewPart {
 
 			}
 		});
-		return parent;
 	}
 
 	private String getPrevious() {

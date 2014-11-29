@@ -13,7 +13,6 @@ package org.asup.db.core.base;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Iterator;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
@@ -29,8 +28,6 @@ import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
-import org.eclipse.datatools.connectivity.sqm.core.util.CatalogLoaderOverrideManager;
-import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 public class BaseConnectionImpl implements QConnection {
 
@@ -41,7 +38,6 @@ public class BaseConnectionImpl implements QConnection {
 	private QQueryWriter queryConverter;
 	
 	private QDatabaseDefinition databaseDefinition;
-	private Catalog defaultCatalog;
 	
 	public BaseConnectionImpl(QConnectionContext connectionContext, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
 		this.connectionContext = connectionContext;
@@ -138,32 +134,10 @@ public class BaseConnectionImpl implements QConnection {
 	public QDatabaseDefinition getDatabaseDefinition() {
 
 		if(this.databaseDefinition == null) {
-			DatabaseDefinition dtpDatabaseDefinition = SQMServices.getDatabaseDefinitionRegistry().getDefinition(getConnectionConfig().getProduct(), getConnectionConfig().getVersion());
+			DatabaseDefinition dtpDatabaseDefinition = SQMServices.getDatabaseDefinitionRegistry().getDefinition(getConnectionConfig().getVendor(), getConnectionConfig().getVersion());
 			this.databaseDefinition = new BaseDatabaseDefinitionImpl(dtpDatabaseDefinition);
 		}
 		
 		return this.databaseDefinition;
-	}
-
-	@Override
-	public Catalog getDefaultCatalog() {
-		
-		if(defaultCatalog == null) {
-			synchronized (this) {
-
-//				DatabaseDefinition dtpDatabaseDefinition = SQMServices.getDatabaseDefinitionRegistry().getDefinition(getConnectionConfig().getProduct(), getConnectionConfig().getVersion());
-				
-				CatalogLoaderOverrideManager catalogLoader = CatalogLoaderOverrideManager.INSTANCE;
-				@SuppressWarnings("unchecked")
-				Iterator<DatabaseDefinition> defns = catalogLoader.getDbDefinitions();
-				while(defns.hasNext()) {
-					DatabaseDefinition databaseDefinition = defns.next();
-					System.out.println(databaseDefinition.getProduct()+databaseDefinition.getVersion());
-				}
-				
-			}
-				
-		}
-		return defaultCatalog;
 	}
 }

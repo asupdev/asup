@@ -68,7 +68,6 @@ public class E4ApplicationImpl implements IApplication {
 
 	    System.out.println("Starting "+application);
 	    
-    	
     	BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
     	ServiceReference<QApplicationManager> applicationManagerReference = bundleContext.getServiceReference(QApplicationManager.class);
     	

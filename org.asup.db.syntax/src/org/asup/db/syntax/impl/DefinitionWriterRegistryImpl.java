@@ -46,6 +46,6 @@ public abstract class DefinitionWriterRegistryImpl extends PluginRegistryImpl<QD
 	 * @generated NOT
 	 */
 	public QDefinitionWriter lookup(QConnectionConfig connectionConfig) {
-		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+		return lookupByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 	}
 } // SyntaxBuilderRegistryImpl

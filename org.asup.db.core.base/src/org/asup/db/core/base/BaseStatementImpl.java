@@ -16,10 +16,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryParser;
-import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
+import org.asup.db.syntax.QQueryWriter;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class BaseStatementImpl implements QStatement {
@@ -63,9 +61,10 @@ public class BaseStatementImpl implements QStatement {
 		sql.replace(";", semicolonReplacement);
 		try {
 			SQLQueryParseResult query = queryParser.parseQuery(sql);
-			
-			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl("SMEUP_DAT");
-			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
+	
+			// TODO
+//			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl("SMEUP_DAT");
+//			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 			
 			sql = queryConverter.writeQuery(query.getQueryStatement());
 		} catch (Exception e) {

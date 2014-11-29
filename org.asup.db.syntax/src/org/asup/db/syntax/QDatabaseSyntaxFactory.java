@@ -27,6 +27,24 @@ public interface QDatabaseSyntaxFactory extends EFactory {
 	QDatabaseSyntaxFactory eINSTANCE = org.asup.db.syntax.impl.DatabaseSyntaxFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Definition Parse Error</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Definition Parse Error</em>'.
+	 * @generated
+	 */
+	QDefinitionParseError createDefinitionParseError();
+
+	/**
+	 * Returns a new object of class '<em>Definition Parse Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Definition Parse Result</em>'.
+	 * @generated
+	 */
+	QDefinitionParseResult createDefinitionParseResult();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

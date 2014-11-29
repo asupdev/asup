@@ -8,28 +8,7 @@
   <foreignModel>db-syntax.ecore</foreignModel>
   <genPackages prefix="DatabaseSyntax" basePackage="org.asup.db" disposableProviderFactory="true"
       adapterFactory="false" ecorePackage="db-syntax.ecore#/">
-    <genDataTypes ecoreDataType="db-syntax.ecore#//QueryParseResult"/>
-    <genClasses image="false" ecoreClass="db-syntax.ecore#//AliasResolver">
-      <genOperations ecoreOperation="db-syntax.ecore#//AliasResolver/resolveAlias">
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolver/resolveAlias/query"/>
-      </genOperations>
-      <genOperations ecoreOperation="db-syntax.ecore#//AliasResolver/getAliasForColumn">
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolver/getAliasForColumn/table"/>
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolver/getAliasForColumn/column"/>
-      </genOperations>
-      <genOperations ecoreOperation="db-syntax.ecore#//AliasResolver/getAliasForTable">
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolver/getAliasForTable/table"/>
-      </genOperations>
-      <genOperations ecoreOperation="db-syntax.ecore#//AliasResolver/getIndex">
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolver/getIndex/connection"/>
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolver/getIndex/index"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="db-syntax.ecore#//AliasResolverRegistry">
-      <genOperations ecoreOperation="db-syntax.ecore#//AliasResolverRegistry/lookup">
-        <genParameters ecoreParameter="db-syntax.ecore#//AliasResolverRegistry/lookup/connectionConfig"/>
-      </genOperations>
-    </genClasses>
+    <genDataTypes ecoreDataType="db-syntax.ecore#//SQLQueryParseResult"/>
     <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParser">
       <genOperations ecoreOperation="db-syntax.ecore#//DefinitionParser/parseDefinition">
         <genParameters ecoreParameter="db-syntax.ecore#//DefinitionParser/parseDefinition/stream"/>
@@ -38,10 +17,15 @@
         <genParameters ecoreParameter="db-syntax.ecore#//DefinitionParser/parseDefinition.1/sql"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParserError"/>
     <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParserRegistry">
       <genOperations ecoreOperation="db-syntax.ecore#//DefinitionParserRegistry/lookup">
         <genParameters ecoreParameter="db-syntax.ecore#//DefinitionParserRegistry/lookup/connectionConfig"/>
       </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParserResult">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference db-syntax.ecore#//DefinitionParserResult/definitionStatement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference db-syntax.ecore#//DefinitionParserResult/errorList"/>
     </genClasses>
     <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionWriter">
       <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/createSchema">
@@ -85,7 +69,7 @@
         <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/selectData/table"/>
       </genOperations>
       <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/writeDefinition">
-        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/writeDefinition/query"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/writeDefinition/statement"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionWriterRegistry">
@@ -93,9 +77,31 @@
         <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriterRegistry/lookup/connectionConfig"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionStatement"/>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//NameHelper">
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/resolveAlias">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/resolveAlias/query"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/getAliasForColumn">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getAliasForColumn/table"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getAliasForColumn/column"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/getAliasForTable">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getAliasForTable/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/getIndex">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getIndex/connection"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getIndex/index"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//NameHelperRegistry">
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelperRegistry/lookup">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelperRegistry/lookup/connectionConfig"/>
+      </genOperations>
+    </genClasses>
     <genClasses image="false" ecoreClass="db-syntax.ecore#//QueryWriter">
       <genOperations ecoreOperation="db-syntax.ecore#//QueryWriter/writeQuery">
-        <genParameters ecoreParameter="db-syntax.ecore#//QueryWriter/writeQuery/query"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//QueryWriter/writeQuery/statement"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="db-syntax.ecore#//QueryWriterRegistry">
@@ -116,13 +122,14 @@
         <genParameters ecoreParameter="db-syntax.ecore#//QueryParserRegistry/lookup/connectionConfig"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//SQLObjectNameHelper"/>
     <nestedGenPackages prefix="Ddl" basePackage="org.asup.db.syntax" disposableProviderFactory="true"
         ecorePackage="db-syntax.ecore#//ddl"/>
-    <nestedGenPackages prefix="Dml" basePackage="org.asup.db.syntax" disposableProviderFactory="true"
-        ecorePackage="db-syntax.ecore#//dml">
+    <nestedGenPackages prefix="DatabaseDML" basePackage="org.asup.db.syntax" disposableProviderFactory="true"
+        adapterFactory="false" contentTypeIdentifier="" ecorePackage="db-syntax.ecore#//dml">
       <genClasses ecoreClass="db-syntax.ecore#//dml/ExtendedQuerySelect"/>
       <genClasses ecoreClass="db-syntax.ecore#//dml/ExtendedQueryExpressionBody">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute db-syntax.ecore#//dml/ExtendedQueryExpressionBody/rowOptimizeLimit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute db-syntax.ecore#//dml/ExtendedQueryExpressionBody/optimizeRecordsNumber"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

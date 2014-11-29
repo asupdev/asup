@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>  
+	<extension point="org.eclipse.datatools.connectivity.connectionProfile">
+  <newWizard
+        class="org.eclipse.datatools.enablement.asup.ui.DTPConnectionWizard"
+        icon="icons/jdbc_16.png"
+        id="org.eclipse.datatools.connectivity.ui.wizards.ConnectionProfileDetailsPage"
+        name="AsUP Database 053"
+        profile="org.eclipse.datatools.enablement.asup.connectionProfile">
+  </newWizard>
+	</extension>
+	
+   
+</plugin>

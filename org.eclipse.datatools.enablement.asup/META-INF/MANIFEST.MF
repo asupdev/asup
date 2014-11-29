@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Data Tools Platform As.UP Core
+Bundle-SymbolicName: org.eclipse.datatools.enablement.asup;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.datatools.enablement.asup
+Require-Bundle: org.asup.db.core,
+ org.eclipse.datatools.connectivity.sqm.core,
+ org.eclipse.datatools.connectivity;bundle-version="1.2.11"

@@ -11,8 +11,6 @@ import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QSchemaDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
-import org.asup.fw.core.QPlugin;
-import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
@@ -30,7 +28,7 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  * @model abstract="true"
  * @generated
  */
-public interface QDefinitionWriter extends QPlugin, QService {
+public interface QDefinitionWriter extends QStatementWriter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

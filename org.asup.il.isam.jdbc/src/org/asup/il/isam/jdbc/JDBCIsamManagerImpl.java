@@ -15,8 +15,8 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QAliasResolverRegistry;
+import org.asup.db.syntax.QNameHelper;
+import org.asup.db.syntax.QNameHelperRegistry;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
@@ -33,7 +33,7 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 	@Inject
 	private QDataManager dataManager;
 	@Inject
-	private QAliasResolverRegistry aliasResolverRegistry;
+	private QNameHelperRegistry nameHelperRegistry;
 	
 	@Override
 	public QIsamFactory createFactory(QContext context, QContextID contextID) {
@@ -42,9 +42,9 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 		QDataFactory dataFactory = dataManager.createFactory(contextID);
 		
 		SQLObjectNameHelper sqlObjectNameHelper = new SQLObjectNameHelper();
-		QAliasResolver aliasResolver = aliasResolverRegistry.lookup("*JOB");
+		QNameHelper nameHelper = nameHelperRegistry.lookup("*JOB");
 		
-		return new JDBCIsamFactoryImpl(connection, databaseManager, sqlObjectNameHelper, aliasResolver, dataFactory);
+		return new JDBCIsamFactoryImpl(connection, databaseManager, sqlObjectNameHelper, nameHelper, dataFactory);
 	}
 
 }

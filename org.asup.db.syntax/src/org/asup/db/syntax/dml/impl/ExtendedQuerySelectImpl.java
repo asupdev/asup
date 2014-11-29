@@ -8,8 +8,7 @@
 package org.asup.db.syntax.dml.impl;
 
 import java.util.Collection;
-
-import org.asup.db.syntax.dml.QDmlPackage;
+import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.QExtendedQuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.GroupingSpecification;
 import org.eclipse.datatools.modelbase.sql.query.QueryResultSpecification;
@@ -164,7 +163,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDmlPackage.Literals.EXTENDED_QUERY_SELECT;
+		return QDatabaseDMLPackage.Literals.EXTENDED_QUERY_SELECT;
 	}
 
 	/**
@@ -185,7 +184,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 		boolean oldDistinct = distinct;
 		distinct = newDistinct;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT, oldDistinct, distinct));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT, oldDistinct, distinct));
 	}
 
 	/**
@@ -208,7 +207,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 		boolean oldHavingClauseESet = havingClauseESet;
 		havingClauseESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, oldHavingClause, newHavingClause, !oldHavingClauseESet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, oldHavingClause, newHavingClause, !oldHavingClauseESet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -233,7 +232,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 			boolean oldHavingClauseESet = havingClauseESet;
 			havingClauseESet = true;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, newHavingClause, newHavingClause, !oldHavingClauseESet));
+				eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, newHavingClause, newHavingClause, !oldHavingClauseESet));
 		}
 	}
 
@@ -248,7 +247,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 		boolean oldHavingClauseESet = havingClauseESet;
 		havingClauseESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, oldHavingClause, null, oldHavingClauseESet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, oldHavingClause, null, oldHavingClauseESet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -270,7 +269,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 			boolean oldHavingClauseESet = havingClauseESet;
 			havingClauseESet = false;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.UNSET, QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, null, null, oldHavingClauseESet));
+				eNotify(new ENotificationImpl(this, Notification.UNSET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, null, null, oldHavingClauseESet));
 		}
 	}
 
@@ -303,7 +302,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 		boolean oldWhereClauseESet = whereClauseESet;
 		whereClauseESet = true;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, oldWhereClause, newWhereClause, !oldWhereClauseESet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, oldWhereClause, newWhereClause, !oldWhereClauseESet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -328,7 +327,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 			boolean oldWhereClauseESet = whereClauseESet;
 			whereClauseESet = true;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, newWhereClause, newWhereClause, !oldWhereClauseESet));
+				eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, newWhereClause, newWhereClause, !oldWhereClauseESet));
 		}
 	}
 
@@ -343,7 +342,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 		boolean oldWhereClauseESet = whereClauseESet;
 		whereClauseESet = false;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, oldWhereClause, null, oldWhereClauseESet);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.UNSET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, oldWhereClause, null, oldWhereClauseESet);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -365,7 +364,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 			boolean oldWhereClauseESet = whereClauseESet;
 			whereClauseESet = false;
 			if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.UNSET, QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, null, null, oldWhereClauseESet));
+				eNotify(new ENotificationImpl(this, Notification.UNSET, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, null, null, oldWhereClauseESet));
 		}
 	}
 
@@ -385,7 +384,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	 */
 	public EList getGroupByClause() {
 		if (groupByClause == null) {
-			groupByClause = new EObjectContainmentWithInverseEList<GroupingSpecification>(GroupingSpecification.class, this, QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE, SQLQueryModelPackage.GROUPING_SPECIFICATION__QUERY_SELECT);
+			groupByClause = new EObjectContainmentWithInverseEList<GroupingSpecification>(GroupingSpecification.class, this, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE, SQLQueryModelPackage.GROUPING_SPECIFICATION__QUERY_SELECT);
 		}
 		return groupByClause;
 	}
@@ -397,7 +396,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	 */
 	public EList getSelectClause() {
 		if (selectClause == null) {
-			selectClause = new EObjectContainmentWithInverseEList<QueryResultSpecification>(QueryResultSpecification.class, this, QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE, SQLQueryModelPackage.QUERY_RESULT_SPECIFICATION__QUERY_SELECT);
+			selectClause = new EObjectContainmentWithInverseEList<QueryResultSpecification>(QueryResultSpecification.class, this, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE, SQLQueryModelPackage.QUERY_RESULT_SPECIFICATION__QUERY_SELECT);
 		}
 		return selectClause;
 	}
@@ -409,7 +408,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	 */
 	public EList getFromClause() {
 		if (fromClause == null) {
-			fromClause = new EObjectContainmentWithInverseEList<TableReference>(TableReference.class, this, QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE, SQLQueryModelPackage.TABLE_REFERENCE__QUERY_SELECT);
+			fromClause = new EObjectContainmentWithInverseEList<TableReference>(TableReference.class, this, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE, SQLQueryModelPackage.TABLE_REFERENCE__QUERY_SELECT);
 		}
 		return fromClause;
 	}
@@ -421,7 +420,7 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	 */
 	public EList getIntoClause() {
 		if (intoClause == null) {
-			intoClause = new EObjectContainmentWithInverseEList<ValueExpressionVariable>(ValueExpressionVariable.class, this, QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE, SQLQueryModelPackage.VALUE_EXPRESSION_VARIABLE__QUERY_SELECT);
+			intoClause = new EObjectContainmentWithInverseEList<ValueExpressionVariable>(ValueExpressionVariable.class, this, QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE, SQLQueryModelPackage.VALUE_EXPRESSION_VARIABLE__QUERY_SELECT);
 		}
 		return intoClause;
 	}
@@ -435,21 +434,21 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
 				if (havingClause != null)
-					msgs = ((InternalEObject)havingClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, null, msgs);
+					msgs = ((InternalEObject)havingClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE, null, msgs);
 				return basicSetHavingClause((QuerySearchCondition)otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
 				if (whereClause != null)
-					msgs = ((InternalEObject)whereClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, null, msgs);
+					msgs = ((InternalEObject)whereClause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE, null, msgs);
 				return basicSetWhereClause((QuerySearchCondition)otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGroupByClause()).basicAdd(otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSelectClause()).basicAdd(otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromClause()).basicAdd(otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIntoClause()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -463,17 +462,17 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
 				return basicUnsetHavingClause(msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
 				return basicUnsetWhereClause(msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
 				return ((InternalEList<?>)getGroupByClause()).basicRemove(otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
 				return ((InternalEList<?>)getSelectClause()).basicRemove(otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
 				return ((InternalEList<?>)getFromClause()).basicRemove(otherEnd, msgs);
-			case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
 				return ((InternalEList<?>)getIntoClause()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -487,19 +486,19 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT:
 				return isDistinct();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
 				return getHavingClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
 				return getWhereClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
 				return getGroupByClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
 				return getSelectClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
 				return getFromClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
 				return getIntoClause();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -514,28 +513,28 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT:
 				setDistinct((Boolean)newValue);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
 				setHavingClause((QuerySearchCondition)newValue);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
 				setWhereClause((QuerySearchCondition)newValue);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
 				getGroupByClause().clear();
 				getGroupByClause().addAll((Collection<? extends GroupingSpecification>)newValue);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
 				getSelectClause().clear();
 				getSelectClause().addAll((Collection<? extends QueryResultSpecification>)newValue);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
 				getFromClause().clear();
 				getFromClause().addAll((Collection<? extends TableReference>)newValue);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
 				getIntoClause().clear();
 				getIntoClause().addAll((Collection<? extends ValueExpressionVariable>)newValue);
 				return;
@@ -551,25 +550,25 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT:
 				setDistinct(DISTINCT_EDEFAULT);
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
 				unsetHavingClause();
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
 				unsetWhereClause();
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
 				getGroupByClause().clear();
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
 				getSelectClause().clear();
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
 				getFromClause().clear();
 				return;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
 				getIntoClause().clear();
 				return;
 		}
@@ -584,19 +583,19 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT:
 				return distinct != DISTINCT_EDEFAULT;
-			case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE:
 				return isSetHavingClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE:
 				return isSetWhereClause();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE:
 				return groupByClause != null && !groupByClause.isEmpty();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE:
 				return selectClause != null && !selectClause.isEmpty();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE:
 				return fromClause != null && !fromClause.isEmpty();
-			case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE:
 				return intoClause != null && !intoClause.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -611,13 +610,13 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == QuerySelect.class) {
 			switch (derivedFeatureID) {
-				case QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT: return SQLQueryModelPackage.QUERY_SELECT__DISTINCT;
-				case QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__HAVING_CLAUSE;
-				case QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__WHERE_CLAUSE;
-				case QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__GROUP_BY_CLAUSE;
-				case QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__SELECT_CLAUSE;
-				case QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__FROM_CLAUSE;
-				case QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__INTO_CLAUSE;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT: return SQLQueryModelPackage.QUERY_SELECT__DISTINCT;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__HAVING_CLAUSE;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__WHERE_CLAUSE;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__GROUP_BY_CLAUSE;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__SELECT_CLAUSE;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__FROM_CLAUSE;
+				case QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE: return SQLQueryModelPackage.QUERY_SELECT__INTO_CLAUSE;
 				default: return -1;
 			}
 		}
@@ -633,13 +632,13 @@ public class ExtendedQuerySelectImpl extends ExtendedQueryExpressionBodyImpl imp
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == QuerySelect.class) {
 			switch (baseFeatureID) {
-				case SQLQueryModelPackage.QUERY_SELECT__DISTINCT: return QDmlPackage.EXTENDED_QUERY_SELECT__DISTINCT;
-				case SQLQueryModelPackage.QUERY_SELECT__HAVING_CLAUSE: return QDmlPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE;
-				case SQLQueryModelPackage.QUERY_SELECT__WHERE_CLAUSE: return QDmlPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE;
-				case SQLQueryModelPackage.QUERY_SELECT__GROUP_BY_CLAUSE: return QDmlPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE;
-				case SQLQueryModelPackage.QUERY_SELECT__SELECT_CLAUSE: return QDmlPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE;
-				case SQLQueryModelPackage.QUERY_SELECT__FROM_CLAUSE: return QDmlPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE;
-				case SQLQueryModelPackage.QUERY_SELECT__INTO_CLAUSE: return QDmlPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE;
+				case SQLQueryModelPackage.QUERY_SELECT__DISTINCT: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__DISTINCT;
+				case SQLQueryModelPackage.QUERY_SELECT__HAVING_CLAUSE: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__HAVING_CLAUSE;
+				case SQLQueryModelPackage.QUERY_SELECT__WHERE_CLAUSE: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__WHERE_CLAUSE;
+				case SQLQueryModelPackage.QUERY_SELECT__GROUP_BY_CLAUSE: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__GROUP_BY_CLAUSE;
+				case SQLQueryModelPackage.QUERY_SELECT__SELECT_CLAUSE: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__SELECT_CLAUSE;
+				case SQLQueryModelPackage.QUERY_SELECT__FROM_CLAUSE: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__FROM_CLAUSE;
+				case SQLQueryModelPackage.QUERY_SELECT__INTO_CLAUSE: return QDatabaseDMLPackage.EXTENDED_QUERY_SELECT__INTO_CLAUSE;
 				default: return -1;
 			}
 		}

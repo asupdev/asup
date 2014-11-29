@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:DatabaseContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:db-core="http://www.asup.org/db/core"
+    xsi:schemaLocation="http://www.asup.org/db/core db-core.ecore">
+  <database
+      name="As.UP"
+      vendor=""/>
+  <catalogs
+      name="*LOCAL"
+      label="As.UP Local Database"/>
+</db-core:DatabaseContainer>
