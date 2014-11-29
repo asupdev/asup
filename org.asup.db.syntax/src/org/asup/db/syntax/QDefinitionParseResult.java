@@ -17,16 +17,16 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.syntax.QDefinitionParserResult#getDefinitionStatement <em>Definition Statement</em>}</li>
- *   <li>{@link org.asup.db.syntax.QDefinitionParserResult#getErrorList <em>Error List</em>}</li>
+ *   <li>{@link org.asup.db.syntax.QDefinitionParseResult#getDefinitionStatement <em>Definition Statement</em>}</li>
+ *   <li>{@link org.asup.db.syntax.QDefinitionParseResult#getErrorList <em>Error List</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParserResult()
- * @model abstract="true"
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParseResult()
+ * @model
  * @generated
  */
-public interface QDefinitionParserResult {
+public interface QDefinitionParseResult {
 	/**
 	 * Returns the value of the '<em><b>Definition Statement</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -37,14 +37,14 @@ public interface QDefinitionParserResult {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Definition Statement</em>' reference.
 	 * @see #setDefinitionStatement(QDefinitionStatement)
-	 * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParserResult_DefinitionStatement()
+	 * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParseResult_DefinitionStatement()
 	 * @model
 	 * @generated
 	 */
 	QDefinitionStatement getDefinitionStatement();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.QDefinitionParserResult#getDefinitionStatement <em>Definition Statement</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.QDefinitionParseResult#getDefinitionStatement <em>Definition Statement</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Definition Statement</em>' reference.
@@ -55,7 +55,7 @@ public interface QDefinitionParserResult {
 
 	/**
 	 * Returns the value of the '<em><b>Error List</b></em>' reference list.
-	 * The list contents are of type {@link org.asup.db.syntax.QDefinitionParserError}.
+	 * The list contents are of type {@link org.asup.db.syntax.QDefinitionParseError}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Error List</em>' reference isn't clear,
@@ -63,10 +63,10 @@ public interface QDefinitionParserResult {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Error List</em>' reference list.
-	 * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParserResult_ErrorList()
+	 * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParseResult_ErrorList()
 	 * @model
 	 * @generated
 	 */
-	List<QDefinitionParserError> getErrorList();
+	List<QDefinitionParseError> getErrorList();
 
 } // QDefinitionParserResult

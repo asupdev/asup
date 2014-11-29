@@ -12,7 +12,6 @@
     <eOperations name="getConnectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
     <eOperations name="getConnectionContext" eType="#//ConnectionContext"/>
     <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
-    <eOperations name="getDefaultCatalog" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -34,11 +33,11 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="product" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vendor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -70,7 +69,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseDefinition" abstract="true"
       interface="true">
-    <eOperations name="supportsIdentityColumns" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="supportsRelativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseObjectDef" abstract="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseException" instanceClassName="java.sql.SQLException"

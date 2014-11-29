@@ -14,9 +14,9 @@ package org.asup.db.syntax;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParserError()
- * @model interface="true" abstract="true"
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionParseError()
+ * @model
  * @generated
  */
-public interface QDefinitionParserError {
+public interface QDefinitionParseError {
 } // QDefinitionParserError

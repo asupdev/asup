@@ -11,8 +11,8 @@ import java.util.Collection;
 import java.util.List;
 
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-import org.asup.db.syntax.QDefinitionParserError;
-import org.asup.db.syntax.QDefinitionParserResult;
+import org.asup.db.syntax.QDefinitionParseError;
+import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.QDefinitionStatement;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,14 +33,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.impl.DefinitionParserResultImpl#getDefinitionStatement <em>Definition Statement</em>}</li>
- *   <li>{@link org.asup.db.syntax.impl.DefinitionParserResultImpl#getErrorList <em>Error List</em>}</li>
+ *   <li>{@link org.asup.db.syntax.impl.DefinitionParseResultImpl#getDefinitionStatement <em>Definition Statement</em>}</li>
+ *   <li>{@link org.asup.db.syntax.impl.DefinitionParseResultImpl#getErrorList <em>Error List</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class DefinitionParserResultImpl extends EObjectImpl implements QDefinitionParserResult {
+public class DefinitionParseResultImpl extends EObjectImpl implements QDefinitionParseResult {
 	/**
 	 * The cached value of the '{@link #getDefinitionStatement() <em>Definition Statement</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -59,14 +59,14 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QDefinitionParserError> errorList;
+	protected EList<QDefinitionParseError> errorList;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DefinitionParserResultImpl() {
+	protected DefinitionParseResultImpl() {
 		super();
 	}
 
@@ -77,7 +77,7 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseSyntaxPackage.Literals.DEFINITION_PARSER_RESULT;
+		return QDatabaseSyntaxPackage.Literals.DEFINITION_PARSE_RESULT;
 	}
 
 	/**
@@ -91,7 +91,7 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 			definitionStatement = (QDefinitionStatement)eResolveProxy(oldDefinitionStatement);
 			if (definitionStatement != oldDefinitionStatement) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT, oldDefinitionStatement, definitionStatement));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__DEFINITION_STATEMENT, oldDefinitionStatement, definitionStatement));
 			}
 		}
 		return definitionStatement;
@@ -115,7 +115,7 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 		QDefinitionStatement oldDefinitionStatement = definitionStatement;
 		definitionStatement = newDefinitionStatement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT, oldDefinitionStatement, definitionStatement));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__DEFINITION_STATEMENT, oldDefinitionStatement, definitionStatement));
 	}
 
 	/**
@@ -123,10 +123,9 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	public List<QDefinitionParserError> getErrorList() {
+	public List<QDefinitionParseError> getErrorList() {
 		if (errorList == null) {
-			errorList = new EObjectResolvingEList<QDefinitionParserError>(QDefinitionParserError.class, this, QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__ERROR_LIST);
+			errorList = new EObjectResolvingEList<QDefinitionParseError>(QDefinitionParseError.class, this, QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__ERROR_LIST);
 		}
 		return errorList;
 	}
@@ -139,10 +138,10 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__DEFINITION_STATEMENT:
 				if (resolve) return getDefinitionStatement();
 				return basicGetDefinitionStatement();
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__ERROR_LIST:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__ERROR_LIST:
 				return getErrorList();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -157,12 +156,12 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__DEFINITION_STATEMENT:
 				setDefinitionStatement((QDefinitionStatement)newValue);
 				return;
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__ERROR_LIST:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__ERROR_LIST:
 				getErrorList().clear();
-				getErrorList().addAll((Collection<? extends QDefinitionParserError>)newValue);
+				getErrorList().addAll((Collection<? extends QDefinitionParseError>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,10 +175,10 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__DEFINITION_STATEMENT:
 				setDefinitionStatement((QDefinitionStatement)null);
 				return;
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__ERROR_LIST:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__ERROR_LIST:
 				getErrorList().clear();
 				return;
 		}
@@ -194,9 +193,9 @@ public abstract class DefinitionParserResultImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__DEFINITION_STATEMENT:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__DEFINITION_STATEMENT:
 				return definitionStatement != null;
-			case QDatabaseSyntaxPackage.DEFINITION_PARSER_RESULT__ERROR_LIST:
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT__ERROR_LIST:
 				return errorList != null && !errorList.isEmpty();
 		}
 		return super.eIsSet(featureID);

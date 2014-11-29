@@ -8,25 +8,26 @@
 package org.asup.db.syntax;
 
 import org.asup.db.core.QConnectionConfig;
+
 import org.asup.fw.core.QPluginRegistry;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>QAlias Resolver Registry</b></em>'.
+ * A representation of the model object '<em><b>Name Helper Registry</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getAliasResolverRegistry()
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getNameHelperRegistry()
  * @model abstract="true"
  * @generated
  */
-public interface QAliasResolverRegistry extends QPluginRegistry<QAliasResolver> {
-
+public interface QNameHelperRegistry extends QPluginRegistry<QNameHelper> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model required="true" connectionConfigRequired="true"
 	 * @generated
 	 */
-	QAliasResolver lookup(QConnectionConfig connectionConfig);
-} // QAliasResolverRegistry
+	QNameHelper lookup(QConnectionConfig connectionConfig);
+
+} // QNameHelperRegistry

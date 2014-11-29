@@ -49,6 +49,6 @@ public abstract class DefinitionParserRegistryImpl extends PluginRegistryImpl<QD
 	 * @generated NOT
 	 */
 	public QDefinitionParser lookup(QConnectionConfig connectionConfig) {
-		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+		return lookupByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 	}
 } //DefinitionParserRegistryImpl

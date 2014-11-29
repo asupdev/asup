@@ -61,7 +61,7 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 					ProfileManager profileManager = ProfileManager.getInstance();
 
 					ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
-					String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+					String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 					if (providerID == null)
 						providerID = "org.eclipse.datatools.connectivity.db.generic.connectionProfile";
 					
@@ -76,7 +76,7 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 						String vendor = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID);
 						String version = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID);
 						
-						if(vendor != null && vendor.equals(connectionConfig.getProduct()) &&
+						if(vendor != null && vendor.equals(connectionConfig.getVendor()) &&
 						   version != null && version.equals(connectionConfig.getVersion())) {
 							
 							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID, vendor);

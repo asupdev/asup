@@ -7,8 +7,6 @@
  */
 package org.asup.db.syntax;
 
-import org.asup.fw.core.QPlugin;
-import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 
 /**
@@ -21,7 +19,7 @@ import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
  * @model abstract="true"
  * @generated
  */
-public interface QQueryWriter extends QPlugin, QService {
+public interface QQueryWriter extends QStatementWriter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

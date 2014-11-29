@@ -18,7 +18,7 @@ import java.util.List;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.syntax.QAliasResolver;
+import org.asup.db.syntax.QNameHelper;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStruct;
@@ -39,15 +39,16 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	private QDatabaseManager databaseManager;
 	private QConnection connection;
 	private SQLObjectNameHelper sqlObjectNameHelper;
-	private QAliasResolver aliasAliasResolver;
+	@SuppressWarnings("unused")
+	private QNameHelper nameHelper;
 	private QDataFactory dataFactory;
 	
-	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, SQLObjectNameHelper sqlObjectNameHelper, QAliasResolver aliasResolver, QDataFactory dataFactory) { 
+	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, SQLObjectNameHelper sqlObjectNameHelper, QNameHelper nameHelper, QDataFactory dataFactory) { 
 
 		this.connection = connection;
 		this.databaseManager = databaseManager;
 		this.sqlObjectNameHelper = sqlObjectNameHelper;
-		this.aliasAliasResolver = aliasResolver;
+		this.nameHelper = nameHelper;
 		this.dataFactory = dataFactory;
 	}
 
@@ -123,8 +124,6 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	public Table getTable(String name) {
 		
 		Table table = databaseManager.getTable(connection, null, name);
-		if(aliasAliasResolver != null)
-			table = aliasAliasResolver.getAliasForTable(table);
 		
 		return table;
 	}
@@ -132,8 +131,6 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	public Index getIndex(String name) {
 		
 		Index index = null;
-		if(aliasAliasResolver != null)
-			index = aliasAliasResolver.getIndex(connection, name);
 		
 		return index;
 	}

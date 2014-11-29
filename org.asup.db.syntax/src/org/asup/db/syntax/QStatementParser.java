@@ -5,19 +5,20 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax.dml;
+package org.asup.db.syntax;
 
-import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
+import org.asup.fw.core.QPlugin;
+import org.asup.fw.core.QService;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>QExtended Query Select</b></em>'.
+ * A representation of the model object '<em><b>Statement Parser</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.dml.QDatabaseDMLPackage#getExtendedQuerySelect()
- * @model
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getStatementParser()
+ * @model abstract="true"
  * @generated
  */
-public interface QExtendedQuerySelect extends QExtendedQueryExpressionBody, QuerySelect {
-} // QExtendedQuerySelect
+public interface QStatementParser extends QPlugin, QService {
+} // QStatementParser

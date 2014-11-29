@@ -23,9 +23,8 @@ public class BaseDatabaseDefinitionImpl implements QDatabaseDefinition {
 	}
 
 	@Override
-	public boolean supportsIdentityColumns() {
+	public boolean supportsRelativeRecordNumber() {
 		return this.dtpDatabaseDefinition.supportsIdentityColumns();
 	}
-	
 
 }

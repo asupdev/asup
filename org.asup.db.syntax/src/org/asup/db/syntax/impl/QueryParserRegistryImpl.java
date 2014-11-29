@@ -46,6 +46,6 @@ public abstract class QueryParserRegistryImpl extends PluginRegistryImpl<QQueryP
 	 * @generated NOT
 	 */
 	public QQueryParser lookup(QConnectionConfig connectionConfig) {
-		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+		return lookupByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 	}
 } // QueryParserRegistryImpl

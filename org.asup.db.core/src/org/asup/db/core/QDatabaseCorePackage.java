@@ -117,22 +117,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int CONNECTION_CONFIG__DRIVER_NAME = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Product</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECTION_CONFIG__PRODUCT = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Password</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION_CONFIG__PASSWORD = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 4;
+	int CONNECTION_CONFIG__PASSWORD = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -141,7 +132,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION_CONFIG__URL = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 5;
+	int CONNECTION_CONFIG__URL = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -150,7 +141,16 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTION_CONFIG__USER = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 6;
+	int CONNECTION_CONFIG__USER = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTION_CONFIG__VENDOR = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -758,17 +758,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	EAttribute getConnectionConfig_DriverName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Product</em>'.
-	 * @see org.asup.db.core.QConnectionConfig#getProduct()
-	 * @see #getConnectionConfig()
-	 * @generated
-	 */
-	EAttribute getConnectionConfig_Product();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -800,6 +789,17 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConnectionConfig_User();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.core.QConnectionConfig#getVendor <em>Vendor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Vendor</em>'.
+	 * @see org.asup.db.core.QConnectionConfig#getVendor()
+	 * @see #getConnectionConfig()
+	 * @generated
+	 */
+	EAttribute getConnectionConfig_Vendor();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.core.QConnectionConfig#getVersion <em>Version</em>}'.
@@ -1222,14 +1222,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		EAttribute CONNECTION_CONFIG__DRIVER_NAME = eINSTANCE.getConnectionConfig_DriverName();
 
 		/**
-		 * The meta object literal for the '<em><b>Product</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONNECTION_CONFIG__PRODUCT = eINSTANCE.getConnectionConfig_Product();
-
-		/**
 		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1252,6 +1244,14 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONNECTION_CONFIG__USER = eINSTANCE.getConnectionConfig_User();
+
+		/**
+		 * The meta object literal for the '<em><b>Vendor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTION_CONFIG__VENDOR = eINSTANCE.getConnectionConfig_Vendor();
 
 		/**
 		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.

@@ -8,9 +8,9 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.core.QConnectionConfig;
-import org.asup.db.syntax.QAliasResolver;
-import org.asup.db.syntax.QAliasResolverRegistry;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
+import org.asup.db.syntax.QNameHelper;
+import org.asup.db.syntax.QNameHelperRegistry;
 import org.asup.fw.core.impl.PluginRegistryImpl;
 import org.eclipse.emf.ecore.EClass;
 
@@ -22,12 +22,12 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAliasResolver> implements QAliasResolverRegistry {
+public abstract class NameHelperRegistryImpl extends PluginRegistryImpl<QNameHelper> implements QNameHelperRegistry {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AliasResolverRegistryImpl() {
+	protected NameHelperRegistryImpl() {
 		super();
 	}
 
@@ -37,7 +37,7 @@ public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAlia
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseSyntaxPackage.Literals.ALIAS_RESOLVER_REGISTRY;
+		return QDatabaseSyntaxPackage.Literals.NAME_HELPER_REGISTRY;
 	}
 
 	/**
@@ -45,8 +45,8 @@ public abstract class AliasResolverRegistryImpl extends PluginRegistryImpl<QAlia
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QAliasResolver lookup(QConnectionConfig connectionConfig) {
-		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+	public QNameHelper lookup(QConnectionConfig connectionConfig) {
+		return lookupByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 	}
 
 } // AliasResolverRegistryImpl

@@ -29,12 +29,7 @@ import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
-import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableIndexLoader;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCTableLoader;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
@@ -57,13 +52,13 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 			
 			// refresh schema
-			Catalog catalog = connection.getDefaultCatalog();
+/*			Catalog catalog = connection.getDefaultCatalog();
 			if(catalog instanceof ICatalogObject && catalog instanceof Catalog) {
 				synchronized (catalog) {
 					JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader((ICatalogObject)catalog);
 					schemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
 				}
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -80,18 +75,15 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		try {
 			statement = connection.createStatement(true);
 			
-			if(databaseDefinition.supportsIdentityColumns()) {
+			// relative record number support
+			if(databaseDefinition.supportsRelativeRecordNumber()) {
+				tableDef = (QTableDef) EcoreUtil.copy((EObject)tableDef);
 				
-				// identity column support
-				if(databaseDefinition.supportsIdentityColumns()) {
-					tableDef = (QTableDef) EcoreUtil.copy((EObject)tableDef);
-					
-					QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
-					pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
-					pkTableComColumnDef.setName(TABLE_COLUMN_PRIMARY_KEY_NAME);
+				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
+				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
+				pkTableComColumnDef.setName(TABLE_COLUMN_PRIMARY_KEY_NAME);
 
-					tableDef.getColumns().add(pkTableComColumnDef);
-				}
+				tableDef.getColumns().add(pkTableComColumnDef);
 			}
 			
 			QDefinitionWriter syntaxBuilder = definiwtionWriterRegistry.lookup(connection.getConnectionConfig()); 
@@ -99,10 +91,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 
 			// refresh table
-			synchronized (schema) {
+/*			synchronized (schema) {
 				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
 				tableLoader.loadTables(schema.getTables(), schema.getTables());				
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -124,10 +116,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 			
 			// refresh view
-			synchronized (schema) {
+/*			synchronized (schema) {
 				JDBCTableLoader tableLoader = new JDBCTableLoader((ICatalogObject) schema);
 				tableLoader.loadTables(schema.getTables(), schema.getTables());				
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -146,10 +138,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			statement.execute(command);
 			
 			// refresh table
-			synchronized (table) {
+/*			synchronized (table) {
 				JDBCTableIndexLoader indexLoader = new JDBCTableIndexLoader((ICatalogObject) table);
 				indexLoader.loadIndexes(table.getIndex(), table.getIndex());
-			}
+			}*/
 		}
 		finally {
 			if(statement != null)
@@ -194,10 +186,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			
 			
 			// refresh schema
-			Catalog catalog = connection.getDefaultCatalog();
+/*			Catalog catalog = connection.getDefaultCatalog();
 			synchronized (catalog) {
 				catalog.getSchemas().remove(schema);
-			}
+			}*/
 			
 		}
 		finally {
@@ -305,16 +297,15 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Schema getSchema(QConnection connection, String schemaName) {
 
-		Catalog catalog = connection.getDefaultCatalog();
+/*		Catalog catalog = connection.getDefaultCatalog();
 		
 		for(Schema schema: (List<Schema>)catalog.getSchemas()) {
 			if(schema.getName().equals(schemaName))
 				return schema;
-		}
+		}*/
 		
 		return null;
 	}

@@ -1,40 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="syntax" nsURI="http://www.asup.org/db/syntax" nsPrefix="db-syntax">
-  <eClassifiers xsi:type="ecore:EClass" name="AliasResolver" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="resolveAlias" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement">
-      <eParameters name="query" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement"/>
-    </eOperations>
-    <eOperations name="getAliasForColumn" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
-      <eParameters name="column" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="getAliasForTable" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table">
-      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
-    </eOperations>
-    <eOperations name="getIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
-      <eParameters name="connection" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Connection"/>
-      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AliasResolverRegistry" abstract="true">
-    <eOperations name="lookup" lowerBound="1" eType="#//AliasResolver">
-      <eParameters name="connectionConfig" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//ConnectionConfig"/>
-    </eOperations>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
-      <eTypeArguments eClassifier="#//AliasResolver"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParser" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="parseDefinition" eType="#//DefinitionParserResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParser" abstract="true" eSuperTypes="#//StatementParser">
+    <eOperations name="parseDefinition" eType="#//DefinitionParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="stream" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaInputStream"/>
     </eOperations>
-    <eOperations name="parseDefinition" eType="#//DefinitionParserResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+    <eOperations name="parseDefinition" eType="#//DefinitionParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParserError" abstract="true"
-      interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionParserRegistry" abstract="true">
     <eOperations name="lookup" lowerBound="1" eType="#//DefinitionParser">
       <eParameters name="connectionConfig" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//ConnectionConfig"/>
@@ -43,12 +17,13 @@
       <eTypeArguments eClassifier="#//DefinitionParser"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParserResult" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParseError"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionParseResult">
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitionStatement" eType="#//DefinitionStatement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="errorList" upperBound="-1"
-        eType="#//DefinitionParserError"/>
+        eType="#//DefinitionParseError"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionWriter" abstract="true" eSuperTypes="#//StatementWriter">
     <eOperations name="createSchema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//SchemaDef"/>
@@ -103,8 +78,31 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatement" abstract="true"
       interface="true"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="QueryParseResult" instanceClassName="org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult"/>
-  <eClassifiers xsi:type="ecore:EClass" name="QueryWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
+  <eClassifiers xsi:type="ecore:EClass" name="NameHelper" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service #//SQLObjectNameHelper">
+    <eOperations name="resolveAlias" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement">
+      <eParameters name="query" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement"/>
+    </eOperations>
+    <eOperations name="getAliasForColumn" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
+      <eParameters name="column" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getAliasForTable" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table">
+      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
+    </eOperations>
+    <eOperations name="getIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
+      <eParameters name="connection" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//Connection"/>
+      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameHelperRegistry" abstract="true">
+    <eOperations name="lookup" lowerBound="1" eType="#//NameHelper">
+      <eParameters name="connectionConfig" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//ConnectionConfig"/>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
+      <eTypeArguments eClassifier="#//NameHelper"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QueryWriter" abstract="true" eSuperTypes="#//StatementWriter">
     <eOperations name="writeQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="statement" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement"/>
     </eOperations>
@@ -117,11 +115,11 @@
       <eTypeArguments eClassifier="#//QueryWriter"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QueryParser" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="parseQuery" eType="#//QueryParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+  <eClassifiers xsi:type="ecore:EClass" name="QueryParser" abstract="true" eSuperTypes="#//StatementParser">
+    <eOperations name="parseQuery" eType="#//SQLQueryParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="stream" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaInputStream"/>
     </eOperations>
-    <eOperations name="parseQuery" eType="#//QueryParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+    <eOperations name="parseQuery" eType="#//SQLQueryParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
@@ -133,6 +131,13 @@
       <eTypeArguments eClassifier="#//QueryParser"/>
     </eGenericSuperTypes>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SQLObjectNameHelper" instanceClassName="org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="SQLQueryParseResult" instanceClassName="org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StatementWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nameHelper" eType="#//NameHelper"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatementParser" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
   <eSubpackages name="ddl" nsURI="http://www.asup.org/db/syntax/ddl" nsPrefix="db-syntax-ddl"/>
   <eSubpackages name="dml" nsURI="http://www.asup.org/db/syntax/dml" nsPrefix="db-syntax-dml">
     <eClassifiers xsi:type="ecore:EClass" name="ExtendedQuerySelect" eSuperTypes="#//dml/ExtendedQueryExpressionBody ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QuerySelect"/>
