@@ -70,7 +70,6 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 						String version = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID);
 
 						if (vendor != null && vendor.equals(connectionConfig.getVendor()) && version != null && version.equals(connectionConfig.getVersion())) {
-
 							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID, vendor);
 							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID, version);
 
