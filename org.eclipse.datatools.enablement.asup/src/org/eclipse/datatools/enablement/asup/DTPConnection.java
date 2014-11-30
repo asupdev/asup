@@ -3,15 +3,19 @@ package org.eclipse.datatools.enablement.asup;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.asup.db.core.QConnection;
 import org.eclipse.datatools.connectivity.DriverConnectionBase;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.Version;
 
 public class DTPConnection extends DriverConnectionBase {
 
-	public DTPConnection(IConnectionProfile profile, Class<?> factoryClass) {
+	private QConnection connection;
+		
+	public DTPConnection(QConnection connection, Exception connectionException, IConnectionProfile profile, Class<?> factoryClass) {
 		super(profile, factoryClass);
-		// TODO Auto-generated constructor stub
+		this.connection = connection;
+		this.mConnectException = connectionException;
 	}
 
 	@Override
@@ -20,9 +24,39 @@ public class DTPConnection extends DriverConnectionBase {
 			close();
 		}
 
-		mConnection = null;
-		mConnectException = null;
+		mConnection = connection;
+		
+		if(mConnectException != null) 
+			return;
 
+		try {
+						
+/*			System.out.println(connectionProfile.getInstanceID());
+			System.out.println(connectionProfile.getName());
+			System.out.println(connectionProfile.getProviderId());
+			System.out.println(connectionProfile.getProviderName());*/
+			
+			
+/*			DriverInstance driver = getDriverDefinition();
+			ClassLoader parentCL = getParentClassLoader();
+			ClassLoader driverCL = parentCL == null ? driver.getClassLoader()
+					: driver.createClassLoader(parentCL);
+			
+			mConnection = createConnection(driverCL);
+
+			if (mConnection == null) {
+				// Connect attempt failed without throwing an exception.
+				// We'll generate one for them.
+				throw new Exception(ConnectivityPlugin.getDefault().getResourceString("DriverConnectionBase.error.unknown")); //$NON-NLS-1$
+			}
+*/
+//			initVersions();
+//			updateVersionCache();
+		}
+		catch (Throwable t) {
+			mConnectException = t;
+			clearVersionCache();
+		}
 		// TODO
 	}
 
@@ -38,6 +72,15 @@ public class DTPConnection extends DriverConnectionBase {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	protected Object createConnection(ClassLoader cl) throws Throwable {
+		// TODO Auto-generated method stub
+		
+		cl.toString();
+		
+		return null;
 	}
 
 	@Override
@@ -65,15 +108,9 @@ public class DTPConnection extends DriverConnectionBase {
 	}
 
 	@Override
-	protected Object createConnection(ClassLoader cl) throws Throwable {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	protected void initVersions() {
 		// TODO Auto-generated method stub
-		System.out.println("ecchime");
+		
 	}
 
 	@Override
@@ -81,5 +118,4 @@ public class DTPConnection extends DriverConnectionBase {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

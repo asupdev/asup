@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isAutoCommit <em>Auto Commit</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isPersistent <em>Persistent</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDefaultCatalog <em>Default Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDriverName <em>Driver Name</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getPassword <em>Password</em>}</li>
@@ -53,6 +54,26 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * @ordered
 	 */
 	protected boolean autoCommit = AUTO_COMMIT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPersistent() <em>Persistent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPersistent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PERSISTENT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPersistent() <em>Persistent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPersistent()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean persistent = PERSISTENT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDefaultCatalog() <em>Default Catalog</em>}' attribute.
@@ -231,6 +252,27 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isPersistent() {
+		return persistent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPersistent(boolean newPersistent) {
+		boolean oldPersistent = persistent;
+		persistent = newPersistent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT, oldPersistent, persistent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getDefaultCatalog() {
 		return defaultCatalog;
 	}
@@ -374,6 +416,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				return isAutoCommit();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				return isPersistent();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
 				return getDefaultCatalog();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
@@ -401,6 +445,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				setAutoCommit((Boolean)newValue);
+				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				setPersistent((Boolean)newValue);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
 				setDefaultCatalog((String)newValue);
@@ -437,6 +484,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				setAutoCommit(AUTO_COMMIT_EDEFAULT);
 				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				setPersistent(PERSISTENT_EDEFAULT);
+				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
 				setDefaultCatalog(DEFAULT_CATALOG_EDEFAULT);
 				return;
@@ -471,6 +521,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				return autoCommit != AUTO_COMMIT_EDEFAULT;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				return persistent != PERSISTENT_EDEFAULT;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DEFAULT_CATALOG:
 				return DEFAULT_CATALOG_EDEFAULT == null ? defaultCatalog != null : !DEFAULT_CATALOG_EDEFAULT.equals(defaultCatalog);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
@@ -500,6 +552,8 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (autoCommit: ");
 		result.append(autoCommit);
+		result.append(", persistent: ");
+		result.append(persistent);
 		result.append(", defaultCatalog: ");
 		result.append(defaultCatalog);
 		result.append(", driverName: ");

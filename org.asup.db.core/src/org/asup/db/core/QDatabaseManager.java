@@ -107,6 +107,14 @@ public interface QDatabaseManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	QDatabaseContainer getDatabaseContainer();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model schemaRequired="true" indexRequired="true"
 	 * @generated
 	 */
@@ -138,5 +146,13 @@ public interface QDatabaseManager extends QService {
 	 * @generated
 	 */
 	ViewTable getView(QConnection connection, String schema, String table);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	boolean isStarted();
 
 } // DatabaseManager

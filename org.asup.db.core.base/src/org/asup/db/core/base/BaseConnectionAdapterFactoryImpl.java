@@ -92,7 +92,14 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 						}
 					}
 
-					adaptee = profileManager.createTransientProfile(providerID, properties);
+					if(connectionConfig.isPersistent()) {
+						String profileID = "ASUP_"+connectionConfig.getVendor()+"_"+connectionConfig.getVersion();
+						adaptee = profileManager.getProfileByName(profileID);
+						if(adaptee == null)
+							adaptee = profileManager.createProfile(profileID, connectionConfig.getVendor()+"("+connectionConfig.getVersion()+")", providerID, properties);
+					}
+					else
+						adaptee = profileManager.createTransientProfile(providerID, properties);
 				} catch (ConnectionProfileException | IOException e) {
 					throw new FrameworkCoreRuntimeException(e);
 				}

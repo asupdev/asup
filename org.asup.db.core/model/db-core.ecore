@@ -29,6 +29,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionConfig" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoCommit" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistent" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultCatalog" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" lowerBound="1"
@@ -68,6 +70,8 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseContainer" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultConfig" lowerBound="1"
+        eType="#//ConnectionConfig" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Database"
         containment="true"/>
@@ -130,6 +134,7 @@
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"/>
     </eOperations>
+    <eOperations name="getDatabaseContainer" lowerBound="1" eType="#//DatabaseContainer"/>
     <eOperations name="getIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -149,6 +154,7 @@
       <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="isStarted" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseResultSet" instanceClassName="java.sql.ResultSet"
       serializable="false"/>

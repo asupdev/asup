@@ -18,6 +18,9 @@ import javax.inject.Inject;
 
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseDefinition;
 import org.asup.db.core.QIndexDef;
@@ -30,8 +33,10 @@ import org.asup.db.core.impl.DatabaseManagerImpl;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
+import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
+import org.eclipse.datatools.connectivity.sqm.loader.IConnectionFilterProvider;
+import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.query.helper.DatabaseHelper;
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
@@ -42,8 +47,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
+	private QConnectionManager connectionManager;
+	
+	@Inject
 	private QDefinitionWriterRegistry definiwtionWriterRegistry;
-
+	
+	private QDatabaseContainer databaseContainer;
+	
 	@Override
 	public void createSchema(QConnection connection, String name, QSchemaDef schemaDef) throws SQLException {
 
@@ -333,34 +343,27 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public Schema getSchema(QConnection connection, String schemaName) {
 
-		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);
-		System.out.println(connectionInfo.getDatabaseName());
-
-		Database database = connectionInfo.getSharedDatabase();
+		Database database = getDatabaseContainer().getDatabase();
 		System.out.println(database);
 
-		// TODO optimize for SQL Server
-		Schema schema = DatabaseHelper.findSchema(database, schemaName);
-		
-		@SuppressWarnings("unchecked")
-		List<Catalog> catalogs = database.getCatalogs();
-		for(Catalog catalog: catalogs) {
-			if(!catalog.getName().equals(connection.getConnectionConfig().getDefaultCatalog()))
-				continue;
+		for(Catalog catalog: (List<Catalog>)database.getCatalogs()) {
+			
+			// default catalog
+			if(catalog.getName().equals(connection.getConnectionConfig().getDefaultCatalog())) {
+				
+				for(Schema schema: (List<Schema>)catalog.getSchemas()) {
+					if(schema.getName().equals(schemaName))
+						return schema;
+				}
+			}
 		}
 		
-/*		Catalog catalog = connection.getDefaultCatalog();
-		
-		for(Schema schema: (List<Schema>)catalog.getSchemas()) {
-			if(schema.getName().equals(schemaName))
-				return schema;
-		}*/
-		
-		return schema;
+		return null;
 	}
-
+		
 	@SuppressWarnings("unchecked")
 	@Override
 	public Table getTable(QConnection connection, String schemaName, String tableName) {
@@ -398,5 +401,52 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			return (ViewTable) table;
 		else
 			return null; 
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void start() {
+		
+		this.databaseContainer = (QDatabaseContainer) getConfig();
+
+		QConnectionConfig connectionConfig = this.databaseContainer.getDefaultConfig();
+
+	
+		try {
+			for(Catalog catalog: this.databaseContainer.getCatalogs()) {
+				if(catalog.getName().equals(connectionConfig.getDefaultCatalog())) {
+
+					QConnection qConnection = connectionManager.createDatabaseConnection(connectionConfig);
+
+					ConnectionInfo connectionInfo = qConnection.getConnectionContext().getAdapter(qConnection, ConnectionInfo.class);
+
+					ICatalogObject iCatalogObject = new BaseCatalogAdapter(connectionInfo.getSharedConnection(), catalog);
+					catalog.getEAnnotations();
+					
+					IConnectionFilterProvider iConnectionFilterProvider = new BaseConnectionFilterProvider();
+					JDBCSchemaLoader jdbcSchemaLoader = new JDBCSchemaLoader(iCatalogObject, iConnectionFilterProvider);
+					jdbcSchemaLoader.loadSchemas(catalog.getSchemas(), catalog.getSchemas());
+
+					for(Schema schema: (List<Schema>)catalog.getSchemas()) {
+						System.out.println(schema.getName());
+					}
+					
+				}
+			}
+//			connection = getConnectionManager().createDatabaseConnection(connectionConfig);
+		} catch (SQLException e) {
+			e.printStackTrace();
+//			connectionException = e;
+		}
+
+	}
+
+	@Override
+	public boolean isStarted() {
+		return this.databaseContainer != null;
+	}
+
+	@Override
+	public QDatabaseContainer getDatabaseContainer() {
+		return this.databaseContainer;
 	}
 }

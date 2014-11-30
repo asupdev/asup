@@ -9,6 +9,7 @@ package org.asup.db.core.impl;
 
 import java.sql.SQLException;
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndexDef;
@@ -169,6 +170,17 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QDatabaseContainer getDatabaseContainer() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Index getIndex(QConnection connection, String schema, String index) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -201,6 +213,17 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * @generated
 	 */
 	public ViewTable getView(QConnection connection, String schema, String table) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isStarted() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

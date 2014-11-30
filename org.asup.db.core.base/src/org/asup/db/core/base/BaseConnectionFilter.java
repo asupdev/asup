@@ -1,4 +1,4 @@
-package org.eclipse.datatools.enablement.asup;
+package org.asup.db.core.base;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import org.eclipse.datatools.connectivity.sqm.internal.core.connection.Connectio
 
 
 @SuppressWarnings("rawtypes")
-public class DTPConnectionFilter implements ConnectionFilter {
+public class BaseConnectionFilter implements ConnectionFilter {
 
 	/**
 	 * 

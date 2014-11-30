@@ -17,8 +17,7 @@
         propertiesPersistenceHook="org.eclipse.datatools.enablement.asup.DTPPropertiesPersistenceHook"/>
 		<connectionFactory
 			class="org.eclipse.datatools.enablement.asup.DTPConnectionFactory"
-			id="java.sql.Connection" 
-			name="JDBC Connection"
+			id="java.sql.Connection"
 			profile="org.eclipse.datatools.enablement.asup.connectionProfile" />
   <connectionFactory
         class="org.eclipse.datatools.enablement.asup.DTPPingConnectionFactory"
