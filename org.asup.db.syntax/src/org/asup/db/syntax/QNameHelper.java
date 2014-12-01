@@ -7,13 +7,10 @@
  */
 package org.asup.db.syntax;
 
-import org.asup.db.core.QConnection;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QService;
-import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
-import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,33 +26,9 @@ public interface QNameHelper extends QPlugin, QService, ISQLObjectNameHelper {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" queryRequired="true"
+	 * @model queryRequired="true"
 	 * @generated
 	 */
-	QueryStatement resolveAlias(QueryStatement query);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" tableRequired="true" columnRequired="true"
-	 * @generated
-	 */
-	String getAliasForColumn(Table table, String column);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" tableRequired="true"
-	 * @generated
-	 */
-	Table getAliasForTable(Table table);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model indexRequired="true"
-	 * @generated
-	 */
-	Index getIndex(QConnection connection, String index);
+	void resolveContainers(QueryStatement query);
 
 } // QNameHelper

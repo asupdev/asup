@@ -50,6 +50,7 @@ tokens {
   EMPTY_GROUPING_SET;
   FIELD_NAME;
   FIELD_DEF;
+  FIELD_TYPE;
   FUNCTION;
   FUNC_ARGS;
   GROUP_BY;
@@ -572,7 +573,7 @@ table_elements
   ;
   
 field_element
-  : Identifier (FOR COLUMN c=Identifier)? field_type (not_null)? (with_default)?-> ^(FIELD_DEF Identifier ^(FOR_COLUMN $c)? field_type (not_null)? (with_default)?)
+  : Identifier (FOR COLUMN c=Identifier)? field_type (not_null)? (with_default)?-> ^(FIELD_DEF ^(FIELD_NAME Identifier) ^(FOR_COLUMN $c)? ^(FIELD_TYPE field_type) (not_null)? (with_default)?)
   ;
   
 not_null:

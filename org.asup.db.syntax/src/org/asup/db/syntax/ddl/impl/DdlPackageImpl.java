@@ -1,0 +1,646 @@
+/**
+ * Copyright (c) 2012, 2014 Sme.UP and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+package org.asup.db.syntax.ddl.impl;
+
+import org.asup.db.core.QDatabaseCorePackage;
+import org.asup.db.syntax.QDatabaseSyntaxPackage;
+import org.asup.db.syntax.ddl.DropRange;
+import org.asup.db.syntax.ddl.QCommitStatement;
+import org.asup.db.syntax.ddl.QConnectStatement;
+import org.asup.db.syntax.ddl.QCreateAliasStatement;
+import org.asup.db.syntax.ddl.QCreateIndexStatement;
+import org.asup.db.syntax.ddl.QCreateTableStatement;
+import org.asup.db.syntax.ddl.QDdlFactory;
+import org.asup.db.syntax.ddl.QDdlPackage;
+import org.asup.db.syntax.ddl.QDisconnectStatement;
+import org.asup.db.syntax.ddl.QDropAliasStatement;
+import org.asup.db.syntax.ddl.QDropIndexStatement;
+import org.asup.db.syntax.ddl.QDropTableStatement;
+import org.asup.db.syntax.ddl.QDropViewStatement;
+import org.asup.db.syntax.ddl.TargetItem;
+import org.asup.db.syntax.dml.QDatabaseDMLPackage;
+import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
+import org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl;
+import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Package</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commitStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass createAliasStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass createIndexStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass createTableStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass disconnectStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dropAliasStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dropIndexStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dropTableStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dropViewStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dropRangeEEnum = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum targetItemEEnum = null;
+	/**
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecore.EPackage.Registry
+	 * @see org.asup.db.syntax.ddl.QDdlPackage#eNS_URI
+	 * @see #init()
+	 * @generated
+	 */
+	private DdlPackageImpl() {
+		super(eNS_URI, QDdlFactory.eINSTANCE);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static boolean isInited = false;
+
+	/**
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 * 
+	 * <p>This method is used to initialize {@link QDdlPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #eNS_URI
+	 * @see #createPackageContents()
+	 * @see #initializePackageContents()
+	 * @generated
+	 */
+	public static QDdlPackage init() {
+		if (isInited) return (QDdlPackage)EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI);
+
+		// Obtain or create and register package
+		DdlPackageImpl theDdlPackage = (DdlPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DdlPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DdlPackageImpl());
+
+		isInited = true;
+
+		// Initialize simple dependencies
+		QDatabaseCorePackage.eINSTANCE.eClass();
+		SQLQueryModelPackage.eINSTANCE.eClass();
+
+		// Obtain or create and register interdependencies
+		DatabaseSyntaxPackageImpl theDatabaseSyntaxPackage = (DatabaseSyntaxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) instanceof DatabaseSyntaxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) : QDatabaseSyntaxPackage.eINSTANCE);
+		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) : QDatabaseDMLPackage.eINSTANCE);
+
+		// Create package meta-data objects
+		theDdlPackage.createPackageContents();
+		theDatabaseSyntaxPackage.createPackageContents();
+		theDatabaseDMLPackage.createPackageContents();
+
+		// Initialize created meta-data
+		theDdlPackage.initializePackageContents();
+		theDatabaseSyntaxPackage.initializePackageContents();
+		theDatabaseDMLPackage.initializePackageContents();
+
+		// Mark meta-data to indicate it can't be changed
+		theDdlPackage.freeze();
+
+  
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(QDdlPackage.eNS_URI, theDdlPackage);
+		return theDdlPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCommitStatement() {
+		return commitStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommitStatement_Hold() {
+		return (EAttribute)commitStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConnectStatement() {
+		return connectStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectStatement_Pwd() {
+		return (EAttribute)connectStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectStatement_Reset() {
+		return (EAttribute)connectStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectStatement_To() {
+		return (EAttribute)connectStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectStatement_User() {
+		return (EAttribute)connectStatementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCreateAliasStatement() {
+		return createAliasStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateAliasStatement_AliasName() {
+		return (EReference)createAliasStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateAliasStatement_TableName() {
+		return (EReference)createAliasStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCreateIndexStatement() {
+		return createIndexStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateIndexStatement_IndexName() {
+		return (EReference)createIndexStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateIndexStatement_OnTable() {
+		return (EReference)createIndexStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateIndexStatement_SortBy() {
+		return (EReference)createIndexStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCreateIndexStatement_Unique() {
+		return (EAttribute)createIndexStatementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCreateTableStatement() {
+		return createTableStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateTableStatement_TableName() {
+		return (EReference)createTableStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateTableStatement_Fields() {
+		return (EReference)createTableStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDisconnectStatement() {
+		return disconnectStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDisconnectStatement_Target() {
+		return (EAttribute)disconnectStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDropAliasStatement() {
+		return dropAliasStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDropAliasStatement_AliasName() {
+		return (EReference)dropAliasStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDropIndexStatement() {
+		return dropIndexStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDropIndexStatement_IndexName() {
+		return (EReference)dropIndexStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDropTableStatement() {
+		return dropTableStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDropTableStatement_TableName() {
+		return (EReference)dropTableStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDropTableStatement_Range() {
+		return (EAttribute)dropTableStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDropViewStatement() {
+		return dropViewStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDropViewStatement_ViewName() {
+		return (EReference)dropViewStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDropViewStatement_Range() {
+		return (EAttribute)dropViewStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDropRange() {
+		return dropRangeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTargetItem() {
+		return targetItemEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDdlFactory getDdlFactory() {
+		return (QDdlFactory)getEFactoryInstance();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean isCreated = false;
+
+	/**
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void createPackageContents() {
+		if (isCreated) return;
+		isCreated = true;
+
+		// Create classes and their features
+		commitStatementEClass = createEClass(COMMIT_STATEMENT);
+		createEAttribute(commitStatementEClass, COMMIT_STATEMENT__HOLD);
+
+		connectStatementEClass = createEClass(CONNECT_STATEMENT);
+		createEAttribute(connectStatementEClass, CONNECT_STATEMENT__PWD);
+		createEAttribute(connectStatementEClass, CONNECT_STATEMENT__RESET);
+		createEAttribute(connectStatementEClass, CONNECT_STATEMENT__TO);
+		createEAttribute(connectStatementEClass, CONNECT_STATEMENT__USER);
+
+		createAliasStatementEClass = createEClass(CREATE_ALIAS_STATEMENT);
+		createEReference(createAliasStatementEClass, CREATE_ALIAS_STATEMENT__ALIAS_NAME);
+		createEReference(createAliasStatementEClass, CREATE_ALIAS_STATEMENT__TABLE_NAME);
+
+		createIndexStatementEClass = createEClass(CREATE_INDEX_STATEMENT);
+		createEReference(createIndexStatementEClass, CREATE_INDEX_STATEMENT__INDEX_NAME);
+		createEReference(createIndexStatementEClass, CREATE_INDEX_STATEMENT__ON_TABLE);
+		createEReference(createIndexStatementEClass, CREATE_INDEX_STATEMENT__SORT_BY);
+		createEAttribute(createIndexStatementEClass, CREATE_INDEX_STATEMENT__UNIQUE);
+
+		createTableStatementEClass = createEClass(CREATE_TABLE_STATEMENT);
+		createEReference(createTableStatementEClass, CREATE_TABLE_STATEMENT__TABLE_NAME);
+		createEReference(createTableStatementEClass, CREATE_TABLE_STATEMENT__FIELDS);
+
+		disconnectStatementEClass = createEClass(DISCONNECT_STATEMENT);
+		createEAttribute(disconnectStatementEClass, DISCONNECT_STATEMENT__TARGET);
+
+		dropAliasStatementEClass = createEClass(DROP_ALIAS_STATEMENT);
+		createEReference(dropAliasStatementEClass, DROP_ALIAS_STATEMENT__ALIAS_NAME);
+
+		dropIndexStatementEClass = createEClass(DROP_INDEX_STATEMENT);
+		createEReference(dropIndexStatementEClass, DROP_INDEX_STATEMENT__INDEX_NAME);
+
+		dropTableStatementEClass = createEClass(DROP_TABLE_STATEMENT);
+		createEReference(dropTableStatementEClass, DROP_TABLE_STATEMENT__TABLE_NAME);
+		createEAttribute(dropTableStatementEClass, DROP_TABLE_STATEMENT__RANGE);
+
+		dropViewStatementEClass = createEClass(DROP_VIEW_STATEMENT);
+		createEReference(dropViewStatementEClass, DROP_VIEW_STATEMENT__VIEW_NAME);
+		createEAttribute(dropViewStatementEClass, DROP_VIEW_STATEMENT__RANGE);
+
+		// Create enums
+		dropRangeEEnum = createEEnum(DROP_RANGE);
+		targetItemEEnum = createEEnum(TARGET_ITEM);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean isInitialized = false;
+
+	/**
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void initializePackageContents() {
+		if (isInitialized) return;
+		isInitialized = true;
+
+		// Initialize package
+		setName(eNAME);
+		setNsPrefix(eNS_PREFIX);
+		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		QDatabaseSyntaxPackage theDatabaseSyntaxPackage = (QDatabaseSyntaxPackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
+
+		// Create type parameters
+
+		// Set bounds for type parameters
+
+		// Add supertypes to classes
+		commitStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		connectStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		createAliasStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		createIndexStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		createTableStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		disconnectStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		dropAliasStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		dropIndexStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		dropTableStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		dropViewStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+
+		// Initialize classes and features; add operations and parameters
+		initEClass(commitStatementEClass, QCommitStatement.class, "CommitStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommitStatement_Hold(), theEcorePackage.getEBoolean(), "hold", null, 0, 1, QCommitStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(connectStatementEClass, QConnectStatement.class, "ConnectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConnectStatement_Pwd(), theEcorePackage.getEString(), "pwd", null, 0, 1, QConnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectStatement_Reset(), theEcorePackage.getEBoolean(), "reset", null, 0, 1, QConnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectStatement_To(), theEcorePackage.getEString(), "to", null, 0, 1, QConnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectStatement_User(), theEcorePackage.getEString(), "user", null, 0, 1, QConnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(createAliasStatementEClass, QCreateAliasStatement.class, "CreateAliasStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCreateAliasStatement_AliasName(), theDatabaseCorePackage.getQualifiedName(), null, "aliasName", null, 0, 1, QCreateAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateAliasStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(createIndexStatementEClass, QCreateIndexStatement.class, "CreateIndexStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCreateIndexStatement_IndexName(), theDatabaseCorePackage.getQualifiedName(), null, "indexName", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateIndexStatement_OnTable(), theDatabaseCorePackage.getQualifiedName(), null, "onTable", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateIndexStatement_SortBy(), theDatabaseCorePackage.getIndexDef(), null, "sortBy", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreateIndexStatement_Unique(), theEcorePackage.getEBoolean(), "unique", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(createTableStatementEClass, QCreateTableStatement.class, "CreateTableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCreateTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateTableStatement_Fields(), theDatabaseCorePackage.getTableFieldDef(), null, "fields", null, 1, -1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(disconnectStatementEClass, QDisconnectStatement.class, "DisconnectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDisconnectStatement_Target(), this.getTargetItem(), "target", null, 0, 0, QDisconnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dropAliasStatementEClass, QDropAliasStatement.class, "DropAliasStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDropAliasStatement_AliasName(), theDatabaseCorePackage.getQualifiedName(), null, "aliasName", null, 0, 1, QDropAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dropIndexStatementEClass, QDropIndexStatement.class, "DropIndexStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDropIndexStatement_IndexName(), theDatabaseCorePackage.getQualifiedName(), null, "indexName", null, 0, 1, QDropIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dropTableStatementEClass, QDropTableStatement.class, "DropTableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDropTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QDropTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDropTableStatement_Range(), this.getDropRange(), "range", "", 0, 0, QDropTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dropViewStatementEClass, QDropViewStatement.class, "DropViewStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDropViewStatement_ViewName(), theDatabaseCorePackage.getQualifiedName(), null, "viewName", null, 0, 1, QDropViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDropViewStatement_Range(), this.getDropRange(), "range", "", 0, 0, QDropViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(dropRangeEEnum, DropRange.class, "DropRange");
+		addEEnumLiteral(dropRangeEEnum, DropRange.RESTRICT);
+		addEEnumLiteral(dropRangeEEnum, DropRange.CASCADE);
+
+		initEEnum(targetItemEEnum, TargetItem.class, "TargetItem");
+		addEEnumLiteral(targetItemEEnum, TargetItem.ALL);
+		addEEnumLiteral(targetItemEEnum, TargetItem.CURRENT);
+	}
+
+} //DdlPackageImpl

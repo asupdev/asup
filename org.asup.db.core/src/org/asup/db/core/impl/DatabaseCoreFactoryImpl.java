@@ -61,10 +61,12 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 			case QDatabaseCorePackage.DATABASE_CONTAINER: return (EObject)createDatabaseContainer();
 			case QDatabaseCorePackage.INDEX_DEF: return (EObject)createIndexDef();
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF: return (EObject)createIndexColumnDef();
+			case QDatabaseCorePackage.QUALIFIED_NAME: return (EObject)createQualifiedName();
 			case QDatabaseCorePackage.SCHEMA_DEF: return (EObject)createSchemaDef();
 			case QDatabaseCorePackage.TABLE_DEF: return (EObject)createTableDef();
 			case QDatabaseCorePackage.TABLE_COLUMN_DEF: return (EObject)createTableColumnDef();
 			case QDatabaseCorePackage.VIEW_DEF: return (EObject)createViewDef();
+			case QDatabaseCorePackage.TABLE_FIELD_DEF: return (EObject)createTableFieldDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -147,6 +149,16 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QQualifiedName createQualifiedName() {
+		QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
+		return qualifiedName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QSchemaDef createSchemaDef() {
 		SchemaDefImpl schemaDef = new SchemaDefImpl();
 		return schemaDef;
@@ -180,6 +192,16 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	public QViewDef createViewDef() {
 		ViewDefImpl viewDef = new ViewDefImpl();
 		return viewDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QTableFieldDef createTableFieldDef() {
+		TableFieldDefImpl tableFieldDef = new TableFieldDefImpl();
+		return tableFieldDef;
 	}
 
 	/**

@@ -7,17 +7,14 @@
  */
 package org.asup.db.syntax.impl;
 
-import org.asup.db.core.QConnection;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.QNameHelper;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
 import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
-import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
-import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -115,40 +112,7 @@ public abstract class NameHelperImpl extends PluginImpl implements QNameHelper {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QueryStatement resolveAlias(QueryStatement query) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getAliasForColumn(Table table, String column) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Table getAliasForTable(Table table) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Index getIndex(QConnection connection, String index) {
+	public void resolveContainers(QueryStatement query) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

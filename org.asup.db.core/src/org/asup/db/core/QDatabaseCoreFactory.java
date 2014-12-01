@@ -61,6 +61,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	QIndexColumnDef createIndexColumnDef();
 
 	/**
+	 * Returns a new object of class '<em>Qualified Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Qualified Name</em>'.
+	 * @generated
+	 */
+	QQualifiedName createQualifiedName();
+
+	/**
 	 * Returns a new object of class '<em>Schema Def</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,6 +104,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	 * @generated
 	 */
 	QViewDef createViewDef();
+
+	/**
+	 * Returns a new object of class '<em>Table Field Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Table Field Def</em>'.
+	 * @generated
+	 */
+	QTableFieldDef createTableFieldDef();
 
 	/**
 	 * Returns the package supported by this factory.
