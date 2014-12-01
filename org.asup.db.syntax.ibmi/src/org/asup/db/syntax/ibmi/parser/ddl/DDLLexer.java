@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 DDL.g 2014-11-28 16:31:51
+// $ANTLR 3.5.1 DDL.g 2014-12-01 10:28:31
 
 package org.asup.db.syntax.ibmi.parser.ddl;
 

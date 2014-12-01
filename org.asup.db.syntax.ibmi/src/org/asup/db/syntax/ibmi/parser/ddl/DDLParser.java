@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 DDL.g 2014-11-28 16:31:50
+// $ANTLR 3.5.1 DDL.g 2014-12-01 10:28:30
 
 package org.asup.db.syntax.ibmi.parser.ddl;
 import java.util.List;
@@ -2658,7 +2658,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: FLOAT, type_length
+			// elements: type_length, FLOAT
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -2968,7 +2968,7 @@ public class DDLParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: precision_param, NUMERIC
+					// elements: NUMERIC, precision_param
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -5576,7 +5576,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: t, ON, p, u, s, n
+			// elements: ON, n, t, s, p, u
 			// token labels: u
 			// rule labels: retval, t, s, p, n
 			// token list labels: 
@@ -5924,7 +5924,7 @@ public class DDLParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: EXTERNAL, f, path, def, t, USING, p, LOCATION
+					// elements: t, USING, LOCATION, EXTERNAL, path, def, f, p
 					// token labels: f, path
 					// rule labels: retval, t, def, p
 					// token list labels: 
@@ -6095,7 +6095,7 @@ public class DDLParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: def, s, USING, q, p, t, AS
+					// elements: t, USING, def, AS, s, q, p
 					// token labels: s
 					// rule labels: retval, t, def, q, p
 					// token list labels: 
@@ -6139,7 +6139,7 @@ public class DDLParser extends Parser {
 						stream_def.reset();
 
 						// DDL.g:567:71: ( ^( USING $s) )?
-						if ( stream_s.hasNext()||stream_USING.hasNext() ) {
+						if ( stream_USING.hasNext()||stream_s.hasNext() ) {
 							// DDL.g:567:71: ^( USING $s)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
@@ -6149,8 +6149,8 @@ public class DDLParser extends Parser {
 							}
 
 						}
-						stream_s.reset();
 						stream_USING.reset();
+						stream_s.reset();
 
 						// DDL.g:567:85: ( $p)?
 						if ( stream_p.hasNext() ) {
@@ -6159,7 +6159,7 @@ public class DDLParser extends Parser {
 						stream_p.reset();
 
 						// DDL.g:567:88: ( ^( AS $q) )?
-						if ( stream_q.hasNext()||stream_AS.hasNext() ) {
+						if ( stream_AS.hasNext()||stream_q.hasNext() ) {
 							// DDL.g:567:88: ^( AS $q)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
@@ -6169,8 +6169,8 @@ public class DDLParser extends Parser {
 							}
 
 						}
-						stream_q.reset();
 						stream_AS.reset();
+						stream_q.reset();
 
 						adaptor.addChild(root_0, root_1);
 						}
@@ -6449,7 +6449,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: field_type, with_default, not_null, c, Identifier
+			// elements: with_default, c, not_null, field_type, Identifier
 			// token labels: c
 			// rule labels: retval
 			// token list labels: 
@@ -6825,7 +6825,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: col, t
+			// elements: t, col
 			// token labels: 
 			// rule labels: retval, col, t
 			// token list labels: 
@@ -6976,7 +6976,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(m.getTree());
 			// AST REWRITE
-			// elements: m, or_replace, t
+			// elements: m, t, or_replace
 			// token labels: 
 			// rule labels: retval, t, m
 			// token list labels: 
@@ -7496,7 +7496,7 @@ public class DDLParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: s, p, USING, USER, TO, u
+					// elements: p, TO, USING, u, s, USER
 					// token labels: u, s, p
 					// rule labels: retval
 					// token list labels: 
@@ -7517,7 +7517,7 @@ public class DDLParser extends Parser {
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CONNECT_STATEMENT, "CONNECT_STATEMENT"), root_1);
 						// DDL.g:615:108: ( ^( TO $s) ^( USER $u) ^( USING $p) )?
-						if ( stream_s.hasNext()||stream_p.hasNext()||stream_USING.hasNext()||stream_USER.hasNext()||stream_TO.hasNext()||stream_u.hasNext() ) {
+						if ( stream_p.hasNext()||stream_TO.hasNext()||stream_USING.hasNext()||stream_u.hasNext()||stream_s.hasNext()||stream_USER.hasNext() ) {
 							// DDL.g:615:109: ^( TO $s)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
@@ -7543,12 +7543,12 @@ public class DDLParser extends Parser {
 							}
 
 						}
-						stream_s.reset();
 						stream_p.reset();
-						stream_USING.reset();
-						stream_USER.reset();
 						stream_TO.reset();
+						stream_USING.reset();
 						stream_u.reset();
+						stream_s.reset();
+						stream_USER.reset();
 
 						adaptor.addChild(root_0, root_1);
 						}
@@ -8155,7 +8155,7 @@ public class DDLParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_restrict.add(restrict196.getTree());
 					// AST REWRITE
-					// elements: t, restrict
+					// elements: restrict, t
 					// token labels: 
 					// rule labels: retval, t
 					// token list labels: 
@@ -8213,7 +8213,7 @@ public class DDLParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_cascade.add(cascade199.getTree());
 					// AST REWRITE
-					// elements: cascade, t
+					// elements: t, cascade
 					// token labels: 
 					// rule labels: retval, t
 					// token list labels: 
@@ -8593,7 +8593,7 @@ public class DDLParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_restrict.add(restrict204.getTree());
 					// AST REWRITE
-					// elements: restrict, v
+					// elements: v, restrict
 					// token labels: 
 					// rule labels: v, retval
 					// token list labels: 
@@ -9187,7 +9187,7 @@ public class DDLParser extends Parser {
 					if ( state.backtracking==0 ) stream_MODE.add(MODE214);
 
 					// AST REWRITE
-					// elements: t, SHARE
+					// elements: SHARE, t
 					// token labels: 
 					// rule labels: retval, t
 					// token list labels: 
@@ -9275,7 +9275,7 @@ public class DDLParser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: EXCLUSIVE, t, allow_read
+					// elements: t, allow_read, EXCLUSIVE
 					// token labels: 
 					// rule labels: retval, t
 					// token list labels: 
@@ -9515,7 +9515,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_Identifier.add(s);
 
 			// AST REWRITE
-			// elements: SYSTEM, n, s, t
+			// elements: n, s, t, SYSTEM
 			// token labels: s, n
 			// rule labels: retval, t
 			// token list labels: 
@@ -9671,7 +9671,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_Identifier.add(s);
 
 			// AST REWRITE
-			// elements: SYSTEM, s, n, t
+			// elements: n, SYSTEM, t, s
 			// token labels: s, n
 			// rule labels: retval, t
 			// token list labels: 
@@ -10256,7 +10256,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: r, i
+			// elements: i, r
 			// token labels: 
 			// rule labels: retval, r, i
 			// token list labels: 
@@ -11209,7 +11209,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: i, funcArgs
+			// elements: funcArgs, i
 			// token labels: 
 			// rule labels: retval, i
 			// token list labels: 
@@ -11372,7 +11372,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_array.add(array278.getTree());
 			// AST REWRITE
-			// elements: array, column_reference_list, table, INSERT
+			// elements: table, column_reference_list, array, INSERT
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -12592,7 +12592,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: from_clause, select_list, where_clause, groupby_clause, having_clause, limit_clause, orderby_clause, set_qualifier, SELECT
+			// elements: SELECT, limit_clause, set_qualifier, select_list, where_clause, groupby_clause, orderby_clause, having_clause, from_clause
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -13640,7 +13640,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: f, m, l
+			// elements: m, l, f
 			// token labels: f, l, m
 			// rule labels: retval
 			// token list labels: 
@@ -13760,7 +13760,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN337);
 
 			// AST REWRITE
-			// elements: f, l, m
+			// elements: l, f, m
 			// token labels: f, l, m
 			// rule labels: retval
 			// token list labels: 
@@ -15289,7 +15289,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_join_specification.add(s.getTree());
 			// AST REWRITE
-			// elements: t, JOIN, s, r
+			// elements: s, JOIN, r, t
 			// token labels: 
 			// rule labels: retval, t, s, r
 			// token list labels: 
@@ -15416,7 +15416,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table_primary.add(r.getTree());
 			// AST REWRITE
-			// elements: r, t, NATURAL, JOIN
+			// elements: t, NATURAL, JOIN, r
 			// token labels: 
 			// rule labels: retval, t, r
 			// token list labels: 
@@ -15520,7 +15520,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table_primary.add(r.getTree());
 			// AST REWRITE
-			// elements: r, UNION, JOIN
+			// elements: UNION, r, JOIN
 			// token labels: 
 			// rule labels: retval, r
 			// token list labels: 
@@ -15665,7 +15665,7 @@ public class DDLParser extends Parser {
 					if ( state.backtracking==0 ) stream_OUTER.add(OUTER362);
 
 					// AST REWRITE
-					// elements: t, OUTER
+					// elements: OUTER, t
 					// token labels: 
 					// rule labels: retval, t
 					// token list labels: 
@@ -16032,7 +16032,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN370);
 
 			// AST REWRITE
-			// elements: f, USING
+			// elements: USING, f
 			// token labels: 
 			// rule labels: f, retval
 			// token list labels: 
@@ -16158,7 +16158,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: a, table
+			// elements: table, a
 			// token labels: a
 			// rule labels: retval
 			// token list labels: 
@@ -17202,7 +17202,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN405);
 
 			// AST REWRITE
-			// elements: ROLLUP, c
+			// elements: c, ROLLUP
 			// token labels: 
 			// rule labels: retval, c
 			// token list labels: 
@@ -17304,7 +17304,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN408);
 
 			// AST REWRITE
-			// elements: c, CUBE
+			// elements: CUBE, c
 			// token labels: 
 			// rule labels: retval, c
 			// token list labels: 
@@ -17803,7 +17803,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: o, a, fn
+			// elements: a, fn, o
 			// token labels: 
 			// rule labels: retval, a, o, fn
 			// token list labels: 
@@ -18912,7 +18912,7 @@ public class DDLParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_boolean_test.add(boolean_test443.getTree());
 					// AST REWRITE
-					// elements: NOT, boolean_test
+					// elements: boolean_test, NOT
 					// token labels: 
 					// rule labels: retval
 					// token list labels: 
@@ -19104,7 +19104,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_truth_value.add(t.getTree());
 			// AST REWRITE
-			// elements: t, IS, NOT
+			// elements: NOT, t, IS
 			// token labels: 
 			// rule labels: retval, t
 			// token list labels: 
@@ -19989,7 +19989,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_in_predicate_value.add(a.getTree());
 			// AST REWRITE
-			// elements: v, IN, NOT, a
+			// elements: IN, a, v, NOT
 			// token labels: 
 			// rule labels: v, retval, a
 			// token list labels: 
@@ -20294,7 +20294,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_Character_String_Literal.add(s);
 
 			// AST REWRITE
-			// elements: LIKE, s, NOT, f
+			// elements: s, f, LIKE, NOT
 			// token labels: s
 			// rule labels: f, retval
 			// token list labels: 
@@ -20419,7 +20419,7 @@ public class DDLParser extends Parser {
 			if ( state.backtracking==0 ) stream_NULL.add(NULL471);
 
 			// AST REWRITE
-			// elements: n, IS, NULL, f
+			// elements: NULL, n, f, IS
 			// token labels: n
 			// rule labels: f, retval
 			// token list labels: 
@@ -22106,7 +22106,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_result.add(r.getTree());
 			// AST REWRITE
-			// elements: WHEN, r, c
+			// elements: r, c, WHEN
 			// token labels: 
 			// rule labels: retval, c, r
 			// token list labels: 
@@ -22198,7 +22198,7 @@ public class DDLParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_result.add(r.getTree());
 			// AST REWRITE
-			// elements: ELSE, r
+			// elements: r, ELSE
 			// token labels: 
 			// rule labels: retval, r
 			// token list labels: 
