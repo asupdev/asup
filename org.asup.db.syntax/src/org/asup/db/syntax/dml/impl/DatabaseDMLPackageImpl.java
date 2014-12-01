@@ -11,6 +11,8 @@ import org.asup.db.core.QDatabaseCorePackage;
 
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 
+import org.asup.db.syntax.ddl.QDdlPackage;
+import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
 import org.asup.db.syntax.dml.QDatabaseDMLFactory;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.QExtendedQueryExpressionBody;
@@ -100,14 +102,17 @@ public class DatabaseDMLPackageImpl extends EPackageImpl implements QDatabaseDML
 
 		// Obtain or create and register interdependencies
 		DatabaseSyntaxPackageImpl theDatabaseSyntaxPackage = (DatabaseSyntaxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) instanceof DatabaseSyntaxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) : QDatabaseSyntaxPackage.eINSTANCE);
+		DdlPackageImpl theDdlPackage = (DdlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) instanceof DdlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) : QDdlPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDatabaseDMLPackage.createPackageContents();
 		theDatabaseSyntaxPackage.createPackageContents();
+		theDdlPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatabaseDMLPackage.initializePackageContents();
 		theDatabaseSyntaxPackage.initializePackageContents();
+		theDdlPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatabaseDMLPackage.freeze();

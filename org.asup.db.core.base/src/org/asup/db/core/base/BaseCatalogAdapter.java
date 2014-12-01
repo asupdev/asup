@@ -46,7 +46,8 @@ public class BaseCatalogAdapter implements Catalog, ICatalogObject {
 	}
 
 	public String getName() {
-		return catalog.getName();
+		return "";
+//		return catalog.getName();
 	}
 
 	public void eSetDeliver(boolean deliver) {
@@ -187,7 +188,6 @@ public class BaseCatalogAdapter implements Catalog, ICatalogObject {
 
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
 		"".toCharArray();
 	}
 

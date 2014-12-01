@@ -1,21 +1,14 @@
 package org.eclipse.datatools.enablement.asup;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import org.asup.db.core.QConnection;
 import org.eclipse.datatools.connectivity.DriverConnectionBase;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.Version;
+import org.eclipse.datatools.connectivity.drivers.DriverInstance;
 
-public class DTPConnection extends DriverConnectionBase {
+public abstract class ASUPConnection extends DriverConnectionBase {
 
-	private QConnection connection;
-		
-	public DTPConnection(QConnection connection, Exception connectionException, IConnectionProfile profile, Class<?> factoryClass) {
+	public ASUPConnection(IConnectionProfile profile, Class<?> factoryClass) {
 		super(profile, factoryClass);
-		this.connection = connection;
-		this.mConnectException = connectionException;
 	}
 
 	@Override
@@ -24,11 +17,14 @@ public class DTPConnection extends DriverConnectionBase {
 			close();
 		}
 
-		mConnection = connection;
+		mConnection = null;
+		mConnectException = null;
 		
 		if(mConnectException != null) 
 			return;
 
+		super.open();
+		
 		try {
 						
 /*			System.out.println(connectionProfile.getInstanceID());
@@ -62,25 +58,14 @@ public class DTPConnection extends DriverConnectionBase {
 
 	@Override
 	public void close() {
-		Connection connection = (Connection) getRawConnection();
-		if (connection != null) {
-			try {
-				connection.close();
-			}
-			catch (SQLException e) {
-				// RJC Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		if (mConnection != null)
+			mConnection = null;
 	}
 
 	@Override
 	protected Object createConnection(ClassLoader cl) throws Throwable {
-		// TODO Auto-generated method stub
-		
-		cl.toString();
-		
-		return null;
+
+		return new ASUPConnectionInfo(getConnectionProfile(), getConnectionFactoryClass());
 	}
 
 	@Override
@@ -117,5 +102,58 @@ public class DTPConnection extends DriverConnectionBase {
 	protected String getTechnologyRootKey() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Object getRawConnection() {
+		// TODO Auto-generated method stub
+		return super.getRawConnection();
+	}
+
+	@Override
+	public Throwable getConnectException() {
+		// TODO Auto-generated method stub
+		return super.getConnectException();
+	}
+
+	@Override
+	protected ClassLoader getParentClassLoader() {
+		// TODO Auto-generated method stub
+		return super.getParentClassLoader();
+	}
+
+	@Override
+	protected DriverInstance getDriverDefinition() throws Exception {
+		// TODO Auto-generated method stub
+		return super.getDriverDefinition();
+	}
+
+	@Override
+	protected String getDriverDefinitionId() {
+		// TODO Auto-generated method stub
+		return super.getDriverDefinitionId();
+	}
+
+	@Override
+	public IConnectionProfile getConnectionProfile() {
+		// TODO Auto-generated method stub
+		return super.getConnectionProfile();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Class<ASUPConnectionFactory> getConnectionFactoryClass() {
+		return super.getConnectionFactoryClass();
+	}
+
+	@Override
+	protected void updateVersionCache() {
+		return;
+	}
+
+	@Override
+	protected void clearVersionCache() {
+		// TODO Auto-generated method stub
+		super.clearVersionCache();
 	}
 }

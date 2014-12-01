@@ -19,6 +19,8 @@ import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.db.syntax.QStatementParser;
 import org.asup.db.syntax.QStatementWriter;
+import org.asup.db.syntax.ddl.QDdlPackage;
+import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
 import org.asup.db.syntax.QQueryParser;
@@ -217,14 +219,17 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		SQLQueryModelPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
+		DdlPackageImpl theDdlPackage = (DdlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) instanceof DdlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) : QDdlPackage.eINSTANCE);
 		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) : QDatabaseDMLPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDatabaseSyntaxPackage.createPackageContents();
+		theDdlPackage.createPackageContents();
 		theDatabaseDMLPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatabaseSyntaxPackage.initializePackageContents();
+		theDdlPackage.initializePackageContents();
 		theDatabaseDMLPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -502,6 +507,7 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		QDdlPackage theDdlPackage = (QDdlPackage)EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI);
 		QDatabaseDMLPackage theDatabaseDMLPackage = (QDatabaseDMLPackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
@@ -513,6 +519,7 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		SQLQueryModelPackage theSQLQueryModelPackage = (SQLQueryModelPackage)EPackage.Registry.INSTANCE.getEPackage(SQLQueryModelPackage.eNS_URI);
 
 		// Add subpackages
+		getESubpackages().add(theDdlPackage);
 		getESubpackages().add(theDatabaseDMLPackage);
 
 		// Create type parameters
@@ -628,19 +635,8 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		initEClass(nameHelperEClass, QNameHelper.class, "NameHelper", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(nameHelperEClass, theSQLQueryModelPackage.getQueryStatement(), "resolveAlias", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(nameHelperEClass, null, "resolveContainers", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLQueryModelPackage.getQueryStatement(), "query", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(nameHelperEClass, ecorePackage.getEString(), "getAliasForColumn", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "column", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(nameHelperEClass, theSQLTablesPackage.getTable(), "getAliasForTable", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(nameHelperEClass, theSQLConstraintsPackage.getIndex(), "getIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatabaseCorePackage.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(nameHelperRegistryEClass, QNameHelperRegistry.class, "NameHelperRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

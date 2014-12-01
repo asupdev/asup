@@ -1,6 +1,7 @@
 package org.eclipse.datatools.enablement.asup;
 
 import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QApplication;
@@ -11,7 +12,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
 
-public abstract class DTPAbstractConnectionFactory  implements IConnectionFactory {
+public abstract class ASUPConnectionFactory  implements IConnectionFactory {
 
 	private QDatabaseManager databaseManager;
 	private QConnectionManager connectionManager;
@@ -45,6 +46,9 @@ public abstract class DTPAbstractConnectionFactory  implements IConnectionFactor
 		}
     	if(!databaseManager.isStarted())
     		throw new FrameworkCoreRuntimeException("Database Manager not started");
+    	
+		QDatabaseContainer databaseContainer = databaseManager.getDatabaseContainer();
+		ASUPCatalogProvider.database = databaseContainer.getDatabase();
     	
     	if(connectionManager == null) {
         	ServiceReference<QConnectionManager> connectionManagaer = bundleContext.getServiceReference(QConnectionManager.class);

@@ -13,7 +13,7 @@ import org.eclipse.datatools.connectivity.drivers.IDriverValuesProvider;
 import org.eclipse.datatools.connectivity.drivers.jdbc.IJDBCDriverDefinitionConstants;
 import org.osgi.framework.Bundle;
 
-public class DTPDriverValuesProvider extends DefaultDriverValuesProvider {
+public class ASUPDriverValuesProvider extends DefaultDriverValuesProvider {
 
 	public String getDriverDirName() {
 		return "lib/AsUP_053";

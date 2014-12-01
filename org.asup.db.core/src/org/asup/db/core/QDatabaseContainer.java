@@ -8,10 +8,7 @@
 package org.asup.db.core;
 
 import java.util.List;
-
 import org.asup.fw.core.QServiceConfig;
-
-import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 
 /**
@@ -22,8 +19,8 @@ import org.eclipse.datatools.modelbase.sql.schema.Database;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getDefaultConfig <em>Default Config</em>}</li>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getDatabase <em>Database</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getLocalCatalog <em>Local Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getCatalogs <em>Catalogs</em>}</li>
  * </ul>
  * </p>
@@ -60,8 +57,35 @@ public interface QDatabaseContainer extends QServiceConfig {
 	void setDatabase(Database value);
 
 	/**
+	 * Returns the value of the '<em><b>Local Catalog</b></em>' attribute.
+	 * The default value is <code>"LOCAL"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Local Catalog</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Local Catalog</em>' attribute.
+	 * @see #setLocalCatalog(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_LocalCatalog()
+	 * @model default="LOCAL" required="true"
+	 * @generated
+	 */
+	String getLocalCatalog();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getLocalCatalog <em>Local Catalog</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Local Catalog</em>' attribute.
+	 * @see #getLocalCatalog()
+	 * @generated
+	 */
+	void setLocalCatalog(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Catalogs</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.datatools.modelbase.sql.schema.Catalog}.
+	 * The list contents are of type {@link org.asup.db.core.QCatalogContainer}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Catalogs</em>' containment reference list isn't clear,
@@ -73,32 +97,6 @@ public interface QDatabaseContainer extends QServiceConfig {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	List<Catalog> getCatalogs();
-
-	/**
-	 * Returns the value of the '<em><b>Default Config</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Default Config</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Config</em>' containment reference.
-	 * @see #setDefaultConfig(QConnectionConfig)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_DefaultConfig()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	QConnectionConfig getDefaultConfig();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getDefaultConfig <em>Default Config</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Config</em>' containment reference.
-	 * @see #getDefaultConfig()
-	 * @generated
-	 */
-	void setDefaultConfig(QConnectionConfig value);
+	List<QCatalogContainer> getCatalogs();
 
 } // QDatabaseContainer

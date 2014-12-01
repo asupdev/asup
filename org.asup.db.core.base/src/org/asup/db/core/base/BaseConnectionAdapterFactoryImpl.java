@@ -16,18 +16,15 @@ import java.net.URL;
 import java.util.Properties;
 
 import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.util.QConnectionHelper;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.datatools.connectivity.ConnectionProfileConstants;
 import org.eclipse.datatools.connectivity.ConnectionProfileException;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.ProfileManager;
-import org.eclipse.datatools.connectivity.drivers.DriverInstance;
-import org.eclipse.datatools.connectivity.drivers.DriverManager;
-import org.eclipse.datatools.connectivity.drivers.IDriverMgmtConstants;
 import org.eclipse.datatools.connectivity.drivers.jdbc.IJDBCConnectionProfileConstants;
 import org.eclipse.datatools.connectivity.drivers.jdbc.IJDBCDriverDefinitionConstants;
 import org.eclipse.datatools.connectivity.drivers.models.TemplateDescriptor;
@@ -47,7 +44,8 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 		if (ConnectionInfo.class.isAssignableFrom(adapterType)) {
 			if (adaptableObject instanceof BaseConnectionImpl) {
 				BaseConnectionImpl connection = (BaseConnectionImpl) adaptableObject;
-				adaptee = connection.getConnectionInfo();
+				connection.toString();
+//				adaptee = connection.getConnectionInfo();
 			}
 		}
 		else if (IConnectionProfile.class.isAssignableFrom(adapterType)) {
@@ -56,51 +54,35 @@ public class BaseConnectionAdapterFactoryImpl implements IAdapterFactory {
 				QConnectionConfig connectionConfig = (QConnectionConfig) adaptableObject;
 
 				try {
-					ProfileManager profileManager = ProfileManager.getInstance();
 
 					ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
 					String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 					if (providerID == null)
 						providerID = "org.eclipse.datatools.connectivity.db.generic.connectionProfile";
 
-					Properties properties = new Properties();
-					for (TemplateDescriptor templateDescriptor : TemplateDescriptor.getDriverTemplateDescriptors()) {
+					Properties properties = QConnectionHelper.buildDTPPropertiesByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 
-						String vendor = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID);
-						String version = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID);
+					// configuration overrides template
+					if(connectionConfig.getUrl() != null)
+						properties.setProperty(IJDBCDriverDefinitionConstants.URL_PROP_ID, connectionConfig.getUrl());
+					if(connectionConfig.getUser() != null)
+						properties.setProperty(IJDBCDriverDefinitionConstants.USERNAME_PROP_ID, connectionConfig.getUser());
+					if(connectionConfig.getPassword() != null)
+						properties.setProperty(IJDBCDriverDefinitionConstants.PASSWORD_PROP_ID, connectionConfig.getPassword());
+					
+					properties.setProperty(IJDBCConnectionProfileConstants.SAVE_PASSWORD_PROP_ID, Boolean.FALSE.toString());
 
-						if (vendor != null && vendor.equals(connectionConfig.getVendor()) && version != null && version.equals(connectionConfig.getVersion())) {
-							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID, vendor);
-							properties.setProperty(IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID, version);
-
-							// System.out.println(templateDescriptor.getId());
-							DriverInstance driverInstances[] = DriverManager.getInstance().getDriverInstancesByTemplate(templateDescriptor.getId());
-							if (driverInstances.length > 0)
-								properties.setProperty(ConnectionProfileConstants.PROP_DRIVER_DEFINITION_ID, driverInstances[0].getId());
-							String driverClass = connectionConfig.getDriverName();
-							if (driverClass == null || driverClass.isEmpty())
-								driverClass = templateDescriptor.getPropertyValueFromId(IJDBCDriverDefinitionConstants.DRIVER_CLASS_PROP_ID);
-							properties.setProperty(IJDBCDriverDefinitionConstants.DRIVER_CLASS_PROP_ID, driverClass);
-							properties.setProperty(IDriverMgmtConstants.PROP_DEFN_JARLIST, getJarList(templateDescriptor));
-
-							properties.setProperty(IJDBCDriverDefinitionConstants.URL_PROP_ID, connectionConfig.getUrl());
-							properties.setProperty(IJDBCDriverDefinitionConstants.USERNAME_PROP_ID, connectionConfig.getUser());
-							properties.setProperty(IJDBCDriverDefinitionConstants.PASSWORD_PROP_ID, connectionConfig.getPassword());
-							properties.setProperty(IJDBCConnectionProfileConstants.SAVE_PASSWORD_PROP_ID, Boolean.FALSE.toString());
-
-							break;
-						}
-					}
-
+					
+					ProfileManager profileManager = ProfileManager.getInstance();
 					if(connectionConfig.isPersistent()) {
-						String profileID = "ASUP_"+connectionConfig.getVendor()+"_"+connectionConfig.getVersion();
+						String profileID = "DTP_"+connectionConfig.getVendor()+"_"+connectionConfig.getVersion();
 						adaptee = profileManager.getProfileByName(profileID);
 						if(adaptee == null)
 							adaptee = profileManager.createProfile(profileID, connectionConfig.getVendor()+"("+connectionConfig.getVersion()+")", providerID, properties);
 					}
 					else
 						adaptee = profileManager.createTransientProfile(providerID, properties);
-				} catch (ConnectionProfileException | IOException e) {
+				} catch (ConnectionProfileException e) {
 					throw new FrameworkCoreRuntimeException(e);
 				}
 			}

@@ -9,11 +9,10 @@ package org.asup.db.core.impl;
 
 import java.util.Collection;
 import java.util.List;
-import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.ServiceConfigImpl;
-import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -31,8 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getDefaultConfig <em>Default Config</em>}</li>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getDatabase <em>Database</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getLocalCatalog <em>Local Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getCatalogs <em>Catalogs</em>}</li>
  * </ul>
  * </p>
@@ -40,16 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabaseContainer {
-	/**
-	 * The cached value of the '{@link #getDefaultConfig() <em>Default Config</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDefaultConfig()
-	 * @generated
-	 * @ordered
-	 */
-	protected QConnectionConfig defaultConfig;
-
 	/**
 	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -61,6 +50,26 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	protected Database database;
 
 	/**
+	 * The default value of the '{@link #getLocalCatalog() <em>Local Catalog</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalCatalog()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOCAL_CATALOG_EDEFAULT = "LOCAL";
+
+	/**
+	 * The cached value of the '{@link #getLocalCatalog() <em>Local Catalog</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalCatalog()
+	 * @generated
+	 * @ordered
+	 */
+	protected String localCatalog = LOCAL_CATALOG_EDEFAULT;
+
+	/**
 	 * The cached value of the '{@link #getCatalogs() <em>Catalogs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,7 +77,7 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Catalog> catalogs;
+	protected EList<QCatalogContainer> catalogs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,54 +146,32 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<Catalog> getCatalogs() {
+	public String getLocalCatalog() {
+		return localCatalog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocalCatalog(String newLocalCatalog) {
+		String oldLocalCatalog = localCatalog;
+		localCatalog = newLocalCatalog;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG, oldLocalCatalog, localCatalog));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<QCatalogContainer> getCatalogs() {
 		if (catalogs == null) {
-			catalogs = new EObjectContainmentEList<Catalog>(Catalog.class, this, QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS);
+			catalogs = new EObjectContainmentEList<QCatalogContainer>(QCatalogContainer.class, this, QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS);
 		}
 		return catalogs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QConnectionConfig getDefaultConfig() {
-		return defaultConfig;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDefaultConfig(QConnectionConfig newDefaultConfig, NotificationChain msgs) {
-		QConnectionConfig oldDefaultConfig = defaultConfig;
-		defaultConfig = newDefaultConfig;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG, oldDefaultConfig, newDefaultConfig);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDefaultConfig(QConnectionConfig newDefaultConfig) {
-		if (newDefaultConfig != defaultConfig) {
-			NotificationChain msgs = null;
-			if (defaultConfig != null)
-				msgs = ((InternalEObject)defaultConfig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG, null, msgs);
-			if (newDefaultConfig != null)
-				msgs = ((InternalEObject)newDefaultConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG, null, msgs);
-			msgs = basicSetDefaultConfig(newDefaultConfig, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG, newDefaultConfig, newDefaultConfig));
 	}
 
 	/**
@@ -195,8 +182,6 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG:
-				return basicSetDefaultConfig(null, msgs);
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				return basicSetDatabase(null, msgs);
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
@@ -213,10 +198,10 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG:
-				return getDefaultConfig();
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				return getDatabase();
+			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
+				return getLocalCatalog();
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				return getCatalogs();
 		}
@@ -232,15 +217,15 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG:
-				setDefaultConfig((QConnectionConfig)newValue);
-				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				setDatabase((Database)newValue);
 				return;
+			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
+				setLocalCatalog((String)newValue);
+				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				getCatalogs().clear();
-				getCatalogs().addAll((Collection<? extends Catalog>)newValue);
+				getCatalogs().addAll((Collection<? extends QCatalogContainer>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,11 +239,11 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG:
-				setDefaultConfig((QConnectionConfig)null);
-				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				setDatabase((Database)null);
+				return;
+			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
+				setLocalCatalog(LOCAL_CATALOG_EDEFAULT);
 				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				getCatalogs().clear();
@@ -275,14 +260,30 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CONFIG:
-				return defaultConfig != null;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				return database != null;
+			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
+				return LOCAL_CATALOG_EDEFAULT == null ? localCatalog != null : !LOCAL_CATALOG_EDEFAULT.equals(localCatalog);
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				return catalogs != null && !catalogs.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (localCatalog: ");
+		result.append(localCatalog);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DatabaseContainerImpl

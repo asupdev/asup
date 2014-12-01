@@ -4,7 +4,7 @@
 	<extension
          point="org.eclipse.datatools.connectivity.sqm.core.databaseRecognition">
       <recognizer
-            class="org.eclipse.datatools.enablement.asup.DTPDatabaseRecognizer">
+            class="org.eclipse.datatools.enablement.asup.ASUPDatabaseRecognizer">
       </recognizer>
 	</extension>
 	<extension point="org.eclipse.datatools.connectivity.connectionProfile">
@@ -13,15 +13,20 @@
         icon="icons/jdbc_16.png"
         id="org.eclipse.datatools.enablement.asup.connectionProfile"
         name="AsUP"
-        pingFactory="org.eclipse.datatools.enablement.asup.DTPPingConnectionFactory"
-        propertiesPersistenceHook="org.eclipse.datatools.enablement.asup.DTPPropertiesPersistenceHook"/>
+        pingFactory="org.eclipse.datatools.enablement.asup.ASUPConnectionPingFactory"
+        propertiesPersistenceHook="org.eclipse.datatools.enablement.asup.ASUPPropertiesPersistenceHook"/>
+  <connectionFactory
+        class="org.eclipse.datatools.enablement.asup.ASUPConnectionPingFactory"
+        id="org.eclipse.datatools.connectivity.pingFactory"
+        profile="org.eclipse.datatools.enablement.asup.connectionProfile">
+  </connectionFactory>
 		<connectionFactory
-			class="org.eclipse.datatools.enablement.asup.DTPConnectionFactory"
-			id="java.sql.Connection"
+			class="org.eclipse.datatools.enablement.asup.ASUPConnectionInfoFactory"
+			id="org.eclipse.datatools.enablement.asup.connectionFactory"
 			profile="org.eclipse.datatools.enablement.asup.connectionProfile" />
   <connectionFactory
-        class="org.eclipse.datatools.enablement.asup.DTPPingConnectionFactory"
-        id="org.eclipse.datatools.connectivity.pingFactory"
+        class="org.eclipse.datatools.enablement.asup.ASUPConnectionJDBCFactory"
+        id="java.sql.Connection"
         profile="org.eclipse.datatools.enablement.asup.connectionProfile">
   </connectionFactory>
 	</extension>
@@ -37,7 +42,7 @@
 			id="org.eclipse.datatools.enablement.asup.053.driverTemplate"
 			name="AsUP 053 JDBC Driver"
 			parentCategory="org.eclipse.datatools.enablement.asup.053.driverCategory"
-			valuesProvider="org.eclipse.datatools.enablement.asup.DTPDriverValuesProvider">
+			valuesProvider="org.eclipse.datatools.enablement.asup.ASUPDriverValuesProvider">
 			<properties>
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.driverClass" name="Driver Class"
@@ -66,10 +71,11 @@
 	</extension>
 	<extension point="org.eclipse.datatools.connectivity.sqm.core.catalog">
 		<overrideLoader
-			provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader"
-			eclass="org.eclipse.datatools.modelbase.sql.schema.Schema" 
-			product="AsUP"
-			version="053" />
+        eclass="org.eclipse.datatools.modelbase.sql.schema.Schema"
+        product="AsUP"
+        provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader"
+        version="053">
+  </overrideLoader>
   <overrideLoader
         eclass="org.eclipse.datatools.modelbase.sql.tables.Table"
         product="AsUP"
@@ -96,14 +102,15 @@
 			product="AsUP"
 			version="053" />
 	</extension>
-	<extension point="org.eclipse.datatools.connectivity.sqm.core.ddlGeneration">
-			<generator
-			class="org.eclipse.datatools.enablement.asup.DTPDdlGenerator"
-			product="AsUP"
-			version="053">
-		</generator>
-	</extension>
-	
+<extension
+       point="org.eclipse.datatools.connectivity.sqm.core.catalog">
+    <catalog
+          priority="1"
+          product="AsUP"
+          provider="org.eclipse.datatools.enablement.asup.ASUPCatalogProvider"
+          version="053">
+    </catalog>
+ </extension>
 	<extension
          point="org.eclipse.datatools.connectivity.sqm.core.mappings">
       <providerIDtoDriverCategoryID

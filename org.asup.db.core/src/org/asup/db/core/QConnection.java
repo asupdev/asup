@@ -107,6 +107,14 @@ public interface QConnection extends QContextID {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
+	String getCurrentCatalog();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
 	QDatabaseDefinition getDatabaseDefinition();
 
 } // DatabaseConnection

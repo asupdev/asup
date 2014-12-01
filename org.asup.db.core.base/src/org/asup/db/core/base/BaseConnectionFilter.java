@@ -69,7 +69,7 @@ public class BaseConnectionFilter implements ConnectionFilter {
 
 	@Override
 	public boolean isFiltered(String name) {
-		return true;
+		return false;
 	}
 
 	@Override
