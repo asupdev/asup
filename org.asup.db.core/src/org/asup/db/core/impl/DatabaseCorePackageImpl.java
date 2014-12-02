@@ -9,7 +9,6 @@ package org.asup.db.core.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QCatalogContainer;
@@ -33,27 +32,16 @@ import org.asup.db.core.QSchemaDef;
 import org.asup.db.core.QStatement;
 import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
-import org.asup.db.core.QTableFieldDef;
 import org.asup.db.core.QViewDef;
-
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
-
 import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
-
 import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
-
 import org.eclipse.datatools.modelbase.sql.expressions.SQLExpressionsPackage;
-
 import org.eclipse.datatools.modelbase.sql.routines.SQLRoutinesPackage;
-
 import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
-
 import org.eclipse.datatools.modelbase.sql.statements.SQLStatementsPackage;
-
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -63,7 +51,6 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -212,13 +199,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass viewDefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass tableFieldDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -631,26 +611,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQualifiedName_Schema() {
+	public EAttribute getQualifiedName_Qualifiers() {
 		return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQualifiedName_Table() {
-		return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQualifiedName_Member() {
-		return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -712,7 +674,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableColumnDef_Name() {
+	public EAttribute getTableColumnDef_Default() {
 		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -721,16 +683,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableColumnDef_Nullable() {
-		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableColumnDef_Length() {
+	public EAttribute getTableColumnDef_Name() {
 		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -739,8 +692,26 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableColumnDef_Scale() {
+	public EAttribute getTableColumnDef_Nullable() {
 		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableColumnDef_Length() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableColumnDef_Scale() {
+		return (EAttribute)tableColumnDefEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -768,33 +739,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 */
 	public EAttribute getViewDef_CreationCommand() {
 		return (EAttribute)viewDefEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTableFieldDef() {
-		return tableFieldDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableFieldDef_Default() {
-		return (EAttribute)tableFieldDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableFieldDef_FieldName() {
-		return (EAttribute)tableFieldDefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -909,9 +853,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
 
 		qualifiedNameEClass = createEClass(QUALIFIED_NAME);
-		createEAttribute(qualifiedNameEClass, QUALIFIED_NAME__SCHEMA);
-		createEAttribute(qualifiedNameEClass, QUALIFIED_NAME__TABLE);
-		createEAttribute(qualifiedNameEClass, QUALIFIED_NAME__MEMBER);
+		createEAttribute(qualifiedNameEClass, QUALIFIED_NAME__QUALIFIERS);
 
 		schemaDefEClass = createEClass(SCHEMA_DEF);
 
@@ -922,18 +864,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		tableColumnDefEClass = createEClass(TABLE_COLUMN_DEF);
 		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__DATA_TYPE);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__DEFAULT);
+		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__LENGTH);
 		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__NAME);
 		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__NULLABLE);
-		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__LENGTH);
 		createEAttribute(tableColumnDefEClass, TABLE_COLUMN_DEF__SCALE);
 
 		viewDefEClass = createEClass(VIEW_DEF);
 		createEAttribute(viewDefEClass, VIEW_DEF__CREATION_PLUGIN);
 		createEAttribute(viewDefEClass, VIEW_DEF__CREATION_COMMAND);
-
-		tableFieldDefEClass = createEClass(TABLE_FIELD_DEF);
-		createEAttribute(tableFieldDefEClass, TABLE_FIELD_DEF__DEFAULT);
-		createEAttribute(tableFieldDefEClass, TABLE_FIELD_DEF__FIELD_NAME);
 
 		// Create enums
 		databaseDataTypeEEnum = createEEnum(DATABASE_DATA_TYPE);
@@ -998,7 +937,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		tableDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
 		tableColumnDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
 		viewDefEClass.getESuperTypes().add(this.getTableDef());
-		tableFieldDefEClass.getESuperTypes().add(this.getTableColumnDef());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(catalogContainerEClass, QCatalogContainer.class, "CatalogContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1206,9 +1144,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, ecorePackage.getEString(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(qualifiedNameEClass, QQualifiedName.class, "QualifiedName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getQualifiedName_Schema(), theEcorePackage.getEString(), "schema", null, 0, 1, QQualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQualifiedName_Table(), theEcorePackage.getEString(), "table", null, 0, 1, QQualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQualifiedName_Member(), theEcorePackage.getEString(), "member", null, 0, 1, QQualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQualifiedName_Qualifiers(), theEcorePackage.getEString(), "qualifiers", null, 1, 3, QQualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schemaDefEClass, QSchemaDef.class, "SchemaDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1234,18 +1170,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		initEClass(tableColumnDefEClass, QTableColumnDef.class, "TableColumnDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumnDef_DataType(), this.getDatabaseDataType(), "dataType", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_Default(), theEcorePackage.getEBoolean(), "default", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumnDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnDef_Name(), ecorePackage.getEString(), "name", null, 1, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnDef_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableColumnDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumnDef_Scale(), ecorePackage.getEInt(), "scale", null, 0, 1, QTableColumnDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewDefEClass, QViewDef.class, "ViewDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getViewDef_CreationPlugin(), ecorePackage.getEString(), "creationPlugin", "IBMI", 0, 1, QViewDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getViewDef_CreationCommand(), ecorePackage.getEString(), "creationCommand", null, 0, 1, QViewDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(tableFieldDefEClass, QTableFieldDef.class, "TableFieldDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableFieldDef_Default(), theEcorePackage.getEBoolean(), "default", null, 0, 1, QTableFieldDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableFieldDef_FieldName(), ecorePackage.getEString(), "fieldName", null, 1, 1, QTableFieldDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(databaseDataTypeEEnum, DatabaseDataType.class, "DatabaseDataType");

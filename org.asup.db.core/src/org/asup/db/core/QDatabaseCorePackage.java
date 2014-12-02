@@ -593,31 +593,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int QUALIFIED_NAME = 14;
 
 	/**
-	 * The feature id for the '<em><b>Schema</b></em>' attribute.
+	 * The feature id for the '<em><b>Qualifiers</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUALIFIED_NAME__SCHEMA = 0;
-
-	/**
-	 * The feature id for the '<em><b>Table</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUALIFIED_NAME__TABLE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Member</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUALIFIED_NAME__MEMBER = 2;
+	int QUALIFIED_NAME__QUALIFIERS = 0;
 
 	/**
 	 * The number of structural features of the '<em>Qualified Name</em>' class.
@@ -626,7 +608,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUALIFIED_NAME_FEATURE_COUNT = 3;
+	int QUALIFIED_NAME_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.SchemaDefImpl <em>Schema Def</em>}' class.
@@ -714,22 +696,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int TABLE_COLUMN_DEF__DATA_TYPE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_COLUMN_DEF__NULLABLE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
+	int TABLE_COLUMN_DEF__DEFAULT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Length</b></em>' attribute.
@@ -738,7 +711,25 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_DEF__LENGTH = DATABASE_OBJECT_DEF_FEATURE_COUNT + 3;
+	int TABLE_COLUMN_DEF__LENGTH = DATABASE_OBJECT_DEF_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_DEF__NAME = DATABASE_OBJECT_DEF_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN_DEF__NULLABLE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Scale</b></em>' attribute.
@@ -747,7 +738,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_DEF__SCALE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 4;
+	int TABLE_COLUMN_DEF__SCALE = DATABASE_OBJECT_DEF_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Table Column Def</em>' class.
@@ -756,7 +747,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 5;
+	int TABLE_COLUMN_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.ViewDefImpl <em>View Def</em>}' class.
@@ -805,88 +796,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	int VIEW_DEF_FEATURE_COUNT = TABLE_DEF_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.core.impl.TableFieldDefImpl <em>Table Field Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.core.impl.TableFieldDefImpl
-	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableFieldDef()
-	 * @generated
-	 */
-	int TABLE_FIELD_DEF = 20;
-
-	/**
-	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__DATA_TYPE = TABLE_COLUMN_DEF__DATA_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__NAME = TABLE_COLUMN_DEF__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__NULLABLE = TABLE_COLUMN_DEF__NULLABLE;
-
-	/**
-	 * The feature id for the '<em><b>Length</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__LENGTH = TABLE_COLUMN_DEF__LENGTH;
-
-	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__SCALE = TABLE_COLUMN_DEF__SCALE;
-
-	/**
-	 * The feature id for the '<em><b>Default</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__DEFAULT = TABLE_COLUMN_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Field Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF__FIELD_NAME = TABLE_COLUMN_DEF_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Table Field Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FIELD_DEF_FEATURE_COUNT = TABLE_COLUMN_DEF_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link org.asup.db.core.DatabaseDataType <em>Database Data Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -894,7 +803,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 	 * @generated
 	 */
-	int DATABASE_DATA_TYPE = 21;
+	int DATABASE_DATA_TYPE = 20;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.OrderingType <em>Ordering Type</em>}' enum.
@@ -904,7 +813,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getOrderingType()
 	 * @generated
 	 */
-	int ORDERING_TYPE = 22;
+	int ORDERING_TYPE = 21;
 
 	/**
 	 * The meta object id for the '<em>Database Exception</em>' data type.
@@ -914,7 +823,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseException()
 	 * @generated
 	 */
-	int DATABASE_EXCEPTION = 23;
+	int DATABASE_EXCEPTION = 22;
 
 	/**
 	 * The meta object id for the '<em>Database Result Set</em>' data type.
@@ -924,7 +833,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseResultSet()
 	 * @generated
 	 */
-	int DATABASE_RESULT_SET = 24;
+	int DATABASE_RESULT_SET = 23;
 
 
 	/**
@@ -1287,37 +1196,15 @@ public interface QDatabaseCorePackage extends EPackage {
 	EClass getQualifiedName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QQualifiedName#getSchema <em>Schema</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.asup.db.core.QQualifiedName#getQualifiers <em>Qualifiers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Schema</em>'.
-	 * @see org.asup.db.core.QQualifiedName#getSchema()
+	 * @return the meta object for the attribute list '<em>Qualifiers</em>'.
+	 * @see org.asup.db.core.QQualifiedName#getQualifiers()
 	 * @see #getQualifiedName()
 	 * @generated
 	 */
-	EAttribute getQualifiedName_Schema();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QQualifiedName#getTable <em>Table</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Table</em>'.
-	 * @see org.asup.db.core.QQualifiedName#getTable()
-	 * @see #getQualifiedName()
-	 * @generated
-	 */
-	EAttribute getQualifiedName_Table();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QQualifiedName#getMember <em>Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Member</em>'.
-	 * @see org.asup.db.core.QQualifiedName#getMember()
-	 * @see #getQualifiedName()
-	 * @generated
-	 */
-	EAttribute getQualifiedName_Member();
+	EAttribute getQualifiedName_Qualifiers();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QSchemaDef <em>Schema Def</em>}'.
@@ -1380,6 +1267,17 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTableColumnDef_DataType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.core.QTableColumnDef#isDefault <em>Default</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default</em>'.
+	 * @see org.asup.db.core.QTableColumnDef#isDefault()
+	 * @see #getTableColumnDef()
+	 * @generated
+	 */
+	EAttribute getTableColumnDef_Default();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.core.QTableColumnDef#getName <em>Name</em>}'.
@@ -1456,38 +1354,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getViewDef_CreationCommand();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.db.core.QTableFieldDef <em>Table Field Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table Field Def</em>'.
-	 * @see org.asup.db.core.QTableFieldDef
-	 * @generated
-	 */
-	EClass getTableFieldDef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QTableFieldDef#isDefault <em>Default</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default</em>'.
-	 * @see org.asup.db.core.QTableFieldDef#isDefault()
-	 * @see #getTableFieldDef()
-	 * @generated
-	 */
-	EAttribute getTableFieldDef_Default();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QTableFieldDef#getFieldName <em>Field Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Field Name</em>'.
-	 * @see org.asup.db.core.QTableFieldDef#getFieldName()
-	 * @see #getTableFieldDef()
-	 * @generated
-	 */
-	EAttribute getTableFieldDef_FieldName();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.core.DatabaseDataType <em>Database Data Type</em>}'.
@@ -1856,28 +1722,12 @@ public interface QDatabaseCorePackage extends EPackage {
 		EClass QUALIFIED_NAME = eINSTANCE.getQualifiedName();
 
 		/**
-		 * The meta object literal for the '<em><b>Schema</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Qualifiers</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute QUALIFIED_NAME__SCHEMA = eINSTANCE.getQualifiedName_Schema();
-
-		/**
-		 * The meta object literal for the '<em><b>Table</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute QUALIFIED_NAME__TABLE = eINSTANCE.getQualifiedName_Table();
-
-		/**
-		 * The meta object literal for the '<em><b>Member</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute QUALIFIED_NAME__MEMBER = eINSTANCE.getQualifiedName_Member();
+		EAttribute QUALIFIED_NAME__QUALIFIERS = eINSTANCE.getQualifiedName_Qualifiers();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.impl.SchemaDefImpl <em>Schema Def</em>}' class.
@@ -1936,6 +1786,14 @@ public interface QDatabaseCorePackage extends EPackage {
 		EAttribute TABLE_COLUMN_DEF__DATA_TYPE = eINSTANCE.getTableColumnDef_DataType();
 
 		/**
+		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN_DEF__DEFAULT = eINSTANCE.getTableColumnDef_Default();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1992,32 +1850,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIEW_DEF__CREATION_COMMAND = eINSTANCE.getViewDef_CreationCommand();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.core.impl.TableFieldDefImpl <em>Table Field Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.core.impl.TableFieldDefImpl
-		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableFieldDef()
-		 * @generated
-		 */
-		EClass TABLE_FIELD_DEF = eINSTANCE.getTableFieldDef();
-
-		/**
-		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_FIELD_DEF__DEFAULT = eINSTANCE.getTableFieldDef_Default();
-
-		/**
-		 * The meta object literal for the '<em><b>Field Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_FIELD_DEF__FIELD_NAME = eINSTANCE.getTableFieldDef_FieldName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.DatabaseDataType <em>Database Data Type</em>}' enum.

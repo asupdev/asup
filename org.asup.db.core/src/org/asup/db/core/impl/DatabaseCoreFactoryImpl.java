@@ -67,7 +67,6 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 			case QDatabaseCorePackage.TABLE_DEF: return (EObject)createTableDef();
 			case QDatabaseCorePackage.TABLE_COLUMN_DEF: return (EObject)createTableColumnDef();
 			case QDatabaseCorePackage.VIEW_DEF: return (EObject)createViewDef();
-			case QDatabaseCorePackage.TABLE_FIELD_DEF: return (EObject)createTableFieldDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -203,16 +202,6 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	public QViewDef createViewDef() {
 		ViewDefImpl viewDef = new ViewDefImpl();
 		return viewDef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QTableFieldDef createTableFieldDef() {
-		TableFieldDefImpl tableFieldDef = new TableFieldDefImpl();
-		return tableFieldDef;
 	}
 
 	/**

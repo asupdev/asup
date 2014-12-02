@@ -7,15 +7,14 @@
  */
 package org.asup.db.core.impl;
 
+import java.util.Collection;
+import java.util.List;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QQualifiedName;
-
-import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,9 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.QualifiedNameImpl#getSchema <em>Schema</em>}</li>
- *   <li>{@link org.asup.db.core.impl.QualifiedNameImpl#getTable <em>Table</em>}</li>
- *   <li>{@link org.asup.db.core.impl.QualifiedNameImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.QualifiedNameImpl#getQualifiers <em>Qualifiers</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,64 +31,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements QQualifiedName {
 	/**
-	 * The default value of the '{@link #getSchema() <em>Schema</em>}' attribute.
+	 * The cached value of the '{@link #getQualifiers() <em>Qualifiers</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSchema()
+	 * @see #getQualifiers()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SCHEMA_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSchema() <em>Schema</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchema()
-	 * @generated
-	 * @ordered
-	 */
-	protected String schema = SCHEMA_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getTable() <em>Table</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTable()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TABLE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTable() <em>Table</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTable()
-	 * @generated
-	 * @ordered
-	 */
-	protected String table = TABLE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMember() <em>Member</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMember()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String MEMBER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMember() <em>Member</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMember()
-	 * @generated
-	 * @ordered
-	 */
-	protected String member = MEMBER_EDEFAULT;
+	protected EList<String> qualifiers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,62 +64,11 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSchema() {
-		return schema;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSchema(String newSchema) {
-		String oldSchema = schema;
-		schema = newSchema;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.QUALIFIED_NAME__SCHEMA, oldSchema, schema));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTable() {
-		return table;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTable(String newTable) {
-		String oldTable = table;
-		table = newTable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.QUALIFIED_NAME__TABLE, oldTable, table));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getMember() {
-		return member;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMember(String newMember) {
-		String oldMember = member;
-		member = newMember;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.QUALIFIED_NAME__MEMBER, oldMember, member));
+	public List<String> getQualifiers() {
+		if (qualifiers == null) {
+			qualifiers = new EDataTypeUniqueEList<String>(String.class, this, QDatabaseCorePackage.QUALIFIED_NAME__QUALIFIERS);
+		}
+		return qualifiers;
 	}
 
 	/**
@@ -183,12 +79,8 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.QUALIFIED_NAME__SCHEMA:
-				return getSchema();
-			case QDatabaseCorePackage.QUALIFIED_NAME__TABLE:
-				return getTable();
-			case QDatabaseCorePackage.QUALIFIED_NAME__MEMBER:
-				return getMember();
+			case QDatabaseCorePackage.QUALIFIED_NAME__QUALIFIERS:
+				return getQualifiers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,17 +90,13 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.QUALIFIED_NAME__SCHEMA:
-				setSchema((String)newValue);
-				return;
-			case QDatabaseCorePackage.QUALIFIED_NAME__TABLE:
-				setTable((String)newValue);
-				return;
-			case QDatabaseCorePackage.QUALIFIED_NAME__MEMBER:
-				setMember((String)newValue);
+			case QDatabaseCorePackage.QUALIFIED_NAME__QUALIFIERS:
+				getQualifiers().clear();
+				getQualifiers().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,14 +110,8 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.QUALIFIED_NAME__SCHEMA:
-				setSchema(SCHEMA_EDEFAULT);
-				return;
-			case QDatabaseCorePackage.QUALIFIED_NAME__TABLE:
-				setTable(TABLE_EDEFAULT);
-				return;
-			case QDatabaseCorePackage.QUALIFIED_NAME__MEMBER:
-				setMember(MEMBER_EDEFAULT);
+			case QDatabaseCorePackage.QUALIFIED_NAME__QUALIFIERS:
+				getQualifiers().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -243,12 +125,8 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.QUALIFIED_NAME__SCHEMA:
-				return SCHEMA_EDEFAULT == null ? schema != null : !SCHEMA_EDEFAULT.equals(schema);
-			case QDatabaseCorePackage.QUALIFIED_NAME__TABLE:
-				return TABLE_EDEFAULT == null ? table != null : !TABLE_EDEFAULT.equals(table);
-			case QDatabaseCorePackage.QUALIFIED_NAME__MEMBER:
-				return MEMBER_EDEFAULT == null ? member != null : !MEMBER_EDEFAULT.equals(member);
+			case QDatabaseCorePackage.QUALIFIED_NAME__QUALIFIERS:
+				return qualifiers != null && !qualifiers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -263,12 +141,8 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (schema: ");
-		result.append(schema);
-		result.append(", table: ");
-		result.append(table);
-		result.append(", member: ");
-		result.append(member);
+		result.append(" (qualifiers: ");
+		result.append(qualifiers);
 		result.append(')');
 		return result.toString();
 	}

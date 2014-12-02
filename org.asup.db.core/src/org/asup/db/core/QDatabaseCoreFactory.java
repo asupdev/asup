@@ -115,15 +115,6 @@ public interface QDatabaseCoreFactory extends EFactory {
 	QViewDef createViewDef();
 
 	/**
-	 * Returns a new object of class '<em>Table Field Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Table Field Def</em>'.
-	 * @generated
-	 */
-	QTableFieldDef createTableFieldDef();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

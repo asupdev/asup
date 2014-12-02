@@ -7,6 +7,8 @@
  */
 package org.asup.db.core;
 
+import java.util.List;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,9 +18,7 @@ package org.asup.db.core;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QQualifiedName#getSchema <em>Schema</em>}</li>
- *   <li>{@link org.asup.db.core.QQualifiedName#getTable <em>Table</em>}</li>
- *   <li>{@link org.asup.db.core.QQualifiedName#getMember <em>Member</em>}</li>
+ *   <li>{@link org.asup.db.core.QQualifiedName#getQualifiers <em>Qualifiers</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,81 +28,19 @@ package org.asup.db.core;
  */
 public interface QQualifiedName {
 	/**
-	 * Returns the value of the '<em><b>Schema</b></em>' attribute.
+	 * Returns the value of the '<em><b>Qualifiers</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Schema</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Qualifiers</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schema</em>' attribute.
-	 * @see #setSchema(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getQualifiedName_Schema()
-	 * @model
+	 * @return the value of the '<em>Qualifiers</em>' attribute list.
+	 * @see org.asup.db.core.QDatabaseCorePackage#getQualifiedName_Qualifiers()
+	 * @model required="true" upper="3"
 	 * @generated
 	 */
-	String getSchema();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QQualifiedName#getSchema <em>Schema</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Schema</em>' attribute.
-	 * @see #getSchema()
-	 * @generated
-	 */
-	void setSchema(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Table</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Table</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table</em>' attribute.
-	 * @see #setTable(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getQualifiedName_Table()
-	 * @model
-	 * @generated
-	 */
-	String getTable();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QQualifiedName#getTable <em>Table</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Table</em>' attribute.
-	 * @see #getTable()
-	 * @generated
-	 */
-	void setTable(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Member</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Member</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member</em>' attribute.
-	 * @see #setMember(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getQualifiedName_Member()
-	 * @model
-	 * @generated
-	 */
-	String getMember();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QQualifiedName#getMember <em>Member</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Member</em>' attribute.
-	 * @see #getMember()
-	 * @generated
-	 */
-	void setMember(String value);
+	List<String> getQualifiers();
 
 } // QQualifiedName
