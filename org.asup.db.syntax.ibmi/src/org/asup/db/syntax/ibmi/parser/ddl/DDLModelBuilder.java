@@ -10,7 +10,7 @@ import org.asup.db.core.OrderingType;
 import org.asup.db.core.QIndexColumnDef;
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QQualifiedName;
-import org.asup.db.core.QTableFieldDef;
+import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.impl.DatabaseCoreFactoryImpl;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDefinitionParseResult;
@@ -316,8 +316,8 @@ public class DDLModelBuilder {
 				if (nameField.getType() == DDLLexer.QUALIFIED) {
 					tableName = resolveQualified(nameField);					
 				} else {
-					tableName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();
-					tableName.setTable(nameField.getText());
+					tableName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();					
+					tableName.getQualifiers().add(nameField.getText());					
 				}				
 				createTableStatement.setTableName(tableName);
 				
@@ -327,14 +327,14 @@ public class DDLModelBuilder {
 				
 				// Manage columns def
 				Tree fieldDefToken = null;
-				QTableFieldDef tableFieldDef = null;
+				QTableColumnDef tableColumnDef = null;
 				
 				for (int k = 0; k < fieldToken.getChildCount(); k++) {
 					
 					fieldDefToken = fieldToken.getChild(k);
-					tableFieldDef = DatabaseCoreFactoryImpl.eINSTANCE.createTableFieldDef();
-					tableFieldDef.setNullable(true);
-					tableFieldDef.setDefault(false);
+					tableColumnDef = DatabaseCoreFactoryImpl.eINSTANCE.createTableColumnDef();
+					tableColumnDef.setNullable(true);
+					tableColumnDef.setDefault(false);
 					
 					Tree fieldDefParm = null;
 					for (int j = 0; j < fieldDefToken.getChildCount(); j++) {
@@ -342,13 +342,15 @@ public class DDLModelBuilder {
 						fieldDefParm = fieldDefToken.getChild(j);
 						 switch (fieldDefParm.getType()) {
 						case DDLLexer.FIELD_NAME:
+							/*
 							String name = fieldDefParm.getChild(0).getText();
-							tableFieldDef.setFieldName(name);
+							tableColumnDef.setFieldName(name);
+							*/
 							break;
 						
 						case DDLLexer.FOR_COLUMN:
 							String columnName = fieldDefParm.getChild(0).getText();
-							tableFieldDef.setName(columnName);
+							tableColumnDef.setName(columnName);
 							break;	
 						
 						case DDLLexer.FIELD_TYPE:
@@ -357,37 +359,37 @@ public class DDLModelBuilder {
 							switch (typeToken.getType()) {
 								
 							case DDLLexer.CHAR:
-								tableFieldDef.setDataType(DatabaseDataType.CHARACTER);
+								tableColumnDef.setDataType(DatabaseDataType.CHARACTER);
 								break;
 							case DDLLexer.VARCHAR:
-								tableFieldDef.setDataType(DatabaseDataType.VARCHAR);
+								tableColumnDef.setDataType(DatabaseDataType.VARCHAR);
 								break;	
 							case DDLLexer.DECIMAL:
-								tableFieldDef.setDataType(DatabaseDataType.DECIMAL);
+								tableColumnDef.setDataType(DatabaseDataType.DECIMAL);
 								break;		
 							case DDLLexer.BOOLEAN:
-								tableFieldDef.setDataType(DatabaseDataType.BOOLEAN);
+								tableColumnDef.setDataType(DatabaseDataType.BOOLEAN);
 								break;			
 							case DDLLexer.DATE:
-								tableFieldDef.setDataType(DatabaseDataType.DATE);
+								tableColumnDef.setDataType(DatabaseDataType.DATE);
 								break;			
 							case DDLLexer.TIME:
-								tableFieldDef.setDataType(DatabaseDataType.TIME);
+								tableColumnDef.setDataType(DatabaseDataType.TIME);
 								break;			
 							case DDLLexer.TIMESTAMP:
-								tableFieldDef.setDataType(DatabaseDataType.TIME_STAMP);
+								tableColumnDef.setDataType(DatabaseDataType.TIME_STAMP);
 								break;			
 							case DDLLexer.INTEGER:
-								tableFieldDef.setDataType(DatabaseDataType.INTEGER);
+								tableColumnDef.setDataType(DatabaseDataType.INTEGER);
 								break;			
 							case DDLLexer.FLOAT:
-								tableFieldDef.setDataType(DatabaseDataType.FLOAT);
+								tableColumnDef.setDataType(DatabaseDataType.FLOAT);
 								break;			
 							case DDLLexer.TEXT:
-								tableFieldDef.setDataType(DatabaseDataType.TEXT);
+								tableColumnDef.setDataType(DatabaseDataType.TEXT);
 								break;			
 							case DDLLexer.BLOB:
-								tableFieldDef.setDataType(DatabaseDataType.BLOB);
+								tableColumnDef.setDataType(DatabaseDataType.BLOB);
 								break;				
 							}
 							
@@ -395,16 +397,16 @@ public class DDLModelBuilder {
 							break;	
 								
 						case DDLLexer.NOT_NULL:
-								tableFieldDef.setNullable(false);
+								tableColumnDef.setNullable(false);
 							break;	
 						
 						case DDLLexer.WITH_DEFAULT:
-							tableFieldDef.setDefault(true);
+							tableColumnDef.setDefault(true);
 							break;	
 						}
 						
 					}			
-					createTableStatement.getFields().add(tableFieldDef);
+					createTableStatement.getFields().add(tableColumnDef);
 				}
 				break;	
 			}
@@ -511,8 +513,8 @@ public class DDLModelBuilder {
 				if (nameField.getType() == DDLLexer.QUALIFIED) {
 					aliasName = resolveQualified(nameField);					
 				} else {
-					aliasName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();
-					aliasName.setTable(nameField.getText());
+					aliasName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();					
+					aliasName.getQualifiers().add(nameField.getText());					
 				}
 				
 				createAliasStatement.setAliasName(aliasName);
@@ -527,8 +529,8 @@ public class DDLModelBuilder {
 				if (tableField.getType() == DDLLexer.QUALIFIED) {
 					tableName = resolveQualified(tableField);
 				} else {
-					tableName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();
-					tableName.setTable(tableField.getText());
+					tableName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();					
+					tableName.getQualifiers().add(tableField.getText());					
 				}
 				
 				createAliasStatement.setTableName(tableName);
@@ -589,11 +591,9 @@ public class DDLModelBuilder {
 				
 		QQualifiedName qualifiedName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();
 		
-		if (tree.getType() == DDLLexer.QUALIFIED) {
-			qualifiedName.setSchema(tree.getChild(0).getText());
-			qualifiedName.setTable(tree.getChild(1).getText());
-			if (tree.getChild(2) != null) {
-				qualifiedName.setMember(tree.getChild(1).getText());
+		if (tree.getType() == DDLLexer.QUALIFIED) {			
+			for (int i = 0; i < tree.getChildCount(); i++) {
+				qualifiedName.getQualifiers().add(tree.getChild(i).getText());
 			}
 		}
 		
