@@ -74,7 +74,7 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return null;
+		return QDatabaseCorePackage.Literals.CATALOG_CONTAINER;
 	}
 
 	/**

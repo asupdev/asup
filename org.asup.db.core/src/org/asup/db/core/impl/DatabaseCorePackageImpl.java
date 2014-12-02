@@ -9,23 +9,24 @@ package org.asup.db.core.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionConfig;
+import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseContainer;
-import org.asup.db.core.QConnectionConfig;
-import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseDefinition;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QDatabaseObjectDef;
-import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QIndexColumnDef;
+import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QPreparedStatement;
 import org.asup.db.core.QQualifiedName;
 import org.asup.db.core.QSchemaDef;
@@ -34,15 +35,25 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QTableFieldDef;
 import org.asup.db.core.QViewDef;
+
 import org.asup.fw.core.QFrameworkCorePackage;
+
 import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
+
 import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
+
 import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
+
 import org.eclipse.datatools.modelbase.sql.expressions.SQLExpressionsPackage;
+
 import org.eclipse.datatools.modelbase.sql.routines.SQLRoutinesPackage;
+
 import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
+
 import org.eclipse.datatools.modelbase.sql.statements.SQLStatementsPackage;
+
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -52,11 +63,13 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Package</b>.
+ * <!-- end-user-doc -->
  * @generated
  */
 public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCorePackage {
@@ -68,7 +81,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EClass catalogContainerEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionEClass = null;
@@ -88,19 +102,22 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EClass connectionContextEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionFactoryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionFactoryRegistryEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass connectionManagerEClass = null;
@@ -127,7 +144,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EClass databaseObjectDefEClass = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EClass databaseManagerEClass = null;
@@ -210,13 +228,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EEnum databaseDataTypeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EEnum orderingTypeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EDataType databaseExceptionEDataType = null;
@@ -230,14 +250,14 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
-	 * package package URI value.
-	 * <p>
-	 * Note: the correct way to create the package is via the static factory
-	 * method {@link #init init()}, which also performs initialization of the
-	 * package, or returns the registered package, if one already exists. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see org.asup.db.core.QDatabaseCorePackage#eNS_URI
 	 * @see #init()
@@ -248,21 +268,19 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model,
-	 * and for any others upon which it depends.
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>
-	 * This method is used to initialize {@link QDatabaseCorePackage#eINSTANCE}
-	 * when that field is accessed. Clients should not invoke it directly.
-	 * Instead, they should simply access that field to obtain the package. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <p>This method is used to initialize {@link QDatabaseCorePackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
@@ -330,7 +348,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnection() {
@@ -428,7 +447,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnectionFactory() {
@@ -436,7 +456,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnectionFactoryRegistry() {
@@ -444,7 +465,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getConnectionManager() {
@@ -506,7 +528,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EClass getDatabaseManager() {
@@ -592,42 +615,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 */
 	public EClass getPreparedStatement() {
 		return preparedStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getQualifiedName() {
-		return qualifiedNameEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQualifiedName_Schema() {
-		return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQualifiedName_Table() {
-		return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQualifiedName_Member() {
-		return (EAttribute)qualifiedNameEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -820,7 +807,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EEnum getOrderingType() {
@@ -828,7 +816,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EDataType getDatabaseException() {
@@ -845,7 +834,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QDatabaseCoreFactory getDatabaseCoreFactory() {
@@ -853,7 +843,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isCreated = false;
@@ -954,16 +945,17 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This
-	 * method is guarded to have no affect on any invocation but its first. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
@@ -1283,4 +1275,4 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		createResource(eNS_URI);
 	}
 
-} // DatabaseCorePackageImpl
+} //DatabaseCorePackageImpl
