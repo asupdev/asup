@@ -95,20 +95,8 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 				return createDisconnectStatementAdapter();
 			}
 			@Override
-			public Adapter caseDropAliasStatement(QDropAliasStatement object) {
-				return createDropAliasStatementAdapter();
-			}
-			@Override
-			public Adapter caseDropIndexStatement(QDropIndexStatement object) {
-				return createDropIndexStatementAdapter();
-			}
-			@Override
-			public Adapter caseDropTableStatement(QDropTableStatement object) {
-				return createDropTableStatementAdapter();
-			}
-			@Override
-			public Adapter caseDropViewStatement(QDropViewStatement object) {
-				return createDropViewStatementAdapter();
+			public Adapter caseDropStatement(QDropStatement object) {
+				return createDropStatementAdapter();
 			}
 			@Override
 			public Adapter caseDefinitionStatement(QDefinitionStatement object) {
@@ -219,58 +207,16 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QDropAliasStatement <em>Drop Alias Statement</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QDropStatement <em>Drop Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.asup.db.syntax.ddl.QDropAliasStatement
+	 * @see org.asup.db.syntax.ddl.QDropStatement
 	 * @generated
 	 */
-	public Adapter createDropAliasStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QDropIndexStatement <em>Drop Index Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.asup.db.syntax.ddl.QDropIndexStatement
-	 * @generated
-	 */
-	public Adapter createDropIndexStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QDropTableStatement <em>Drop Table Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.asup.db.syntax.ddl.QDropTableStatement
-	 * @generated
-	 */
-	public Adapter createDropTableStatementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QDropViewStatement <em>Drop View Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.asup.db.syntax.ddl.QDropViewStatement
-	 * @generated
-	 */
-	public Adapter createDropViewStatementAdapter() {
+	public Adapter createDropStatementAdapter() {
 		return null;
 	}
 

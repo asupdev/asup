@@ -16,16 +16,14 @@ import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.ddl.DropRange;
+import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
 import org.asup.db.syntax.ddl.QCreateIndexStatement;
 import org.asup.db.syntax.ddl.QCreateTableStatement;
 import org.asup.db.syntax.ddl.QDisconnectStatement;
-import org.asup.db.syntax.ddl.QDropAliasStatement;
-import org.asup.db.syntax.ddl.QDropIndexStatement;
-import org.asup.db.syntax.ddl.QDropTableStatement;
-import org.asup.db.syntax.ddl.QDropViewStatement;
+import org.asup.db.syntax.ddl.QDropStatement;
 import org.asup.db.syntax.ddl.TargetItem;
 import org.asup.db.syntax.ddl.impl.DdlFactoryImpl;
 
@@ -193,7 +191,8 @@ public class DDLModelBuilder {
 	}
 
 	private QDefinitionStatement manageDropViewStatement(CommonTree tree) {
-		QDropViewStatement dropViewStatement = DdlFactoryImpl.eINSTANCE.createDropViewStatement();
+		QDropStatement dropViewStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
+		dropViewStatement.setTarget(DropTarget.VIEW);
 		dropViewStatement.setRange(DropRange.CASCADE);
 		
 		Tree fieldToken = null;
@@ -205,7 +204,7 @@ public class DDLModelBuilder {
 			case DDLLexer.VIEW_NAME:
 				
 				QQualifiedName viewQualifiedName = resolveQualified(fieldToken.getChild(0));
-				dropViewStatement.setViewName(viewQualifiedName);
+				dropViewStatement.setTargetName(viewQualifiedName);
 				
 				break;
 				
@@ -229,7 +228,8 @@ public class DDLModelBuilder {
 	}
 
 	private QDefinitionStatement manageDropTableStatement(CommonTree tree) {
-		QDropTableStatement dropTableStatement = DdlFactoryImpl.eINSTANCE.createDropTableStatement();
+		QDropStatement dropTableStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
+		dropTableStatement.setTarget(DropTarget.TABLE);
 		dropTableStatement.setRange(DropRange.CASCADE);
 		
 		Tree fieldToken = null;
@@ -241,7 +241,7 @@ public class DDLModelBuilder {
 			case DDLLexer.TABLE_NAME:
 				
 				QQualifiedName tableQualifiedName = resolveQualified(fieldToken.getChild(0));
-				dropTableStatement.setTableName(tableQualifiedName);
+				dropTableStatement.setTargetName(tableQualifiedName);
 				
 				break;
 				
@@ -264,26 +264,28 @@ public class DDLModelBuilder {
 	}
 
 	private QDefinitionStatement manageDropIndexStatement(CommonTree tree) {
-		QDropIndexStatement dropIndexStatement = DdlFactoryImpl.eINSTANCE.createDropIndexStatement();
+		QDropStatement dropIndexStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
+		dropIndexStatement.setTarget(DropTarget.INDEX);
 		
 		Tree indexNameToken = tree.getFirstChildWithType(DDLLexer.INDEX_NAME);
 		
 		if (indexNameToken != null) {
 			QQualifiedName indexQualifiedName = resolveQualified(indexNameToken.getChild(0));
-			dropIndexStatement.setIndexName(indexQualifiedName);
+			dropIndexStatement.setTargetName(indexQualifiedName);
 		}
 		
 		return dropIndexStatement;
 	}
 
 	private QDefinitionStatement manageDropAliasStatement(CommonTree tree) {
-		QDropAliasStatement dropAliasStatement = DdlFactoryImpl.eINSTANCE.createDropAliasStatement();
+		QDropStatement dropAliasStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
+		dropAliasStatement.setTarget(DropTarget.ALIAS);
 		
 		Tree aliasNameToken = tree.getFirstChildWithType(DDLLexer.ALIAS_NAME);
 		
 		if (aliasNameToken != null) {
 			QQualifiedName aliasQualifiedName = resolveQualified(aliasNameToken.getChild(0));
-			dropAliasStatement.setAliasName(aliasQualifiedName);
+			dropAliasStatement.setTargetName(aliasQualifiedName);
 		}
 		
 		return dropAliasStatement;

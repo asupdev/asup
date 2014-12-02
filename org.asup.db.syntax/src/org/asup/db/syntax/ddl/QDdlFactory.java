@@ -81,40 +81,13 @@ public interface QDdlFactory extends EFactory {
 	QDisconnectStatement createDisconnectStatement();
 
 	/**
-	 * Returns a new object of class '<em>Drop Alias Statement</em>'.
+	 * Returns a new object of class '<em>Drop Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Drop Alias Statement</em>'.
+	 * @return a new object of class '<em>Drop Statement</em>'.
 	 * @generated
 	 */
-	QDropAliasStatement createDropAliasStatement();
-
-	/**
-	 * Returns a new object of class '<em>Drop Index Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Drop Index Statement</em>'.
-	 * @generated
-	 */
-	QDropIndexStatement createDropIndexStatement();
-
-	/**
-	 * Returns a new object of class '<em>Drop Table Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Drop Table Statement</em>'.
-	 * @generated
-	 */
-	QDropTableStatement createDropTableStatement();
-
-	/**
-	 * Returns a new object of class '<em>Drop View Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Drop View Statement</em>'.
-	 * @generated
-	 */
-	QDropViewStatement createDropViewStatement();
+	QDropStatement createDropStatement();
 
 	/**
 	 * Returns the package supported by this factory.

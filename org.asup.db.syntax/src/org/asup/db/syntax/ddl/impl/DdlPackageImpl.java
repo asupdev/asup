@@ -10,6 +10,7 @@ package org.asup.db.syntax.ddl.impl;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.ddl.DropRange;
+import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
@@ -18,10 +19,7 @@ import org.asup.db.syntax.ddl.QCreateTableStatement;
 import org.asup.db.syntax.ddl.QDdlFactory;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QDisconnectStatement;
-import org.asup.db.syntax.ddl.QDropAliasStatement;
-import org.asup.db.syntax.ddl.QDropIndexStatement;
-import org.asup.db.syntax.ddl.QDropTableStatement;
-import org.asup.db.syntax.ddl.QDropViewStatement;
+import org.asup.db.syntax.ddl.QDropStatement;
 import org.asup.db.syntax.ddl.TargetItem;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
@@ -83,31 +81,19 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dropAliasStatementEClass = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dropIndexStatementEClass = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dropTableStatementEClass = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass dropViewStatementEClass = null;
+	private EClass dropStatementEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private EEnum dropRangeEEnum = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dropTargetEEnum = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -372,8 +358,8 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDropAliasStatement() {
-		return dropAliasStatementEClass;
+	public EClass getDropStatement() {
+		return dropStatementEClass;
 	}
 
 	/**
@@ -381,8 +367,8 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDropAliasStatement_AliasName() {
-		return (EReference)dropAliasStatementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDropStatement_Range() {
+		return (EAttribute)dropStatementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -390,8 +376,8 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDropIndexStatement() {
-		return dropIndexStatementEClass;
+	public EReference getDropStatement_TargetName() {
+		return (EReference)dropStatementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -399,62 +385,8 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDropIndexStatement_IndexName() {
-		return (EReference)dropIndexStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDropTableStatement() {
-		return dropTableStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDropTableStatement_TableName() {
-		return (EReference)dropTableStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDropTableStatement_Range() {
-		return (EAttribute)dropTableStatementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDropViewStatement() {
-		return dropViewStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDropViewStatement_ViewName() {
-		return (EReference)dropViewStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDropViewStatement_Range() {
-		return (EAttribute)dropViewStatementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDropStatement_Target() {
+		return (EAttribute)dropStatementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -464,6 +396,15 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 */
 	public EEnum getDropRange() {
 		return dropRangeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getDropTarget() {
+		return dropTargetEEnum;
 	}
 
 	/**
@@ -529,22 +470,14 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		disconnectStatementEClass = createEClass(DISCONNECT_STATEMENT);
 		createEAttribute(disconnectStatementEClass, DISCONNECT_STATEMENT__TARGET);
 
-		dropAliasStatementEClass = createEClass(DROP_ALIAS_STATEMENT);
-		createEReference(dropAliasStatementEClass, DROP_ALIAS_STATEMENT__ALIAS_NAME);
-
-		dropIndexStatementEClass = createEClass(DROP_INDEX_STATEMENT);
-		createEReference(dropIndexStatementEClass, DROP_INDEX_STATEMENT__INDEX_NAME);
-
-		dropTableStatementEClass = createEClass(DROP_TABLE_STATEMENT);
-		createEReference(dropTableStatementEClass, DROP_TABLE_STATEMENT__TABLE_NAME);
-		createEAttribute(dropTableStatementEClass, DROP_TABLE_STATEMENT__RANGE);
-
-		dropViewStatementEClass = createEClass(DROP_VIEW_STATEMENT);
-		createEReference(dropViewStatementEClass, DROP_VIEW_STATEMENT__VIEW_NAME);
-		createEAttribute(dropViewStatementEClass, DROP_VIEW_STATEMENT__RANGE);
+		dropStatementEClass = createEClass(DROP_STATEMENT);
+		createEAttribute(dropStatementEClass, DROP_STATEMENT__RANGE);
+		createEReference(dropStatementEClass, DROP_STATEMENT__TARGET_NAME);
+		createEAttribute(dropStatementEClass, DROP_STATEMENT__TARGET);
 
 		// Create enums
 		dropRangeEEnum = createEEnum(DROP_RANGE);
+		dropTargetEEnum = createEEnum(DROP_TARGET);
 		targetItemEEnum = createEEnum(TARGET_ITEM);
 	}
 
@@ -587,10 +520,7 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		createIndexStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		createTableStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		disconnectStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
-		dropAliasStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
-		dropIndexStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
-		dropTableStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
-		dropViewStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		dropStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(commitStatementEClass, QCommitStatement.class, "CommitStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -619,24 +549,21 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		initEClass(disconnectStatementEClass, QDisconnectStatement.class, "DisconnectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDisconnectStatement_Target(), this.getTargetItem(), "target", null, 0, 0, QDisconnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dropAliasStatementEClass, QDropAliasStatement.class, "DropAliasStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDropAliasStatement_AliasName(), theDatabaseCorePackage.getQualifiedName(), null, "aliasName", null, 0, 1, QDropAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dropIndexStatementEClass, QDropIndexStatement.class, "DropIndexStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDropIndexStatement_IndexName(), theDatabaseCorePackage.getQualifiedName(), null, "indexName", null, 0, 1, QDropIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dropTableStatementEClass, QDropTableStatement.class, "DropTableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDropTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QDropTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDropTableStatement_Range(), this.getDropRange(), "range", "", 0, 0, QDropTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dropViewStatementEClass, QDropViewStatement.class, "DropViewStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDropViewStatement_ViewName(), theDatabaseCorePackage.getQualifiedName(), null, "viewName", null, 0, 1, QDropViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDropViewStatement_Range(), this.getDropRange(), "range", "", 0, 0, QDropViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dropStatementEClass, QDropStatement.class, "DropStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDropStatement_Range(), this.getDropRange(), "range", "", 0, 0, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDropStatement_TargetName(), theDatabaseCorePackage.getQualifiedName(), null, "targetName", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDropStatement_Target(), this.getDropTarget(), "target", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dropRangeEEnum, DropRange.class, "DropRange");
 		addEEnumLiteral(dropRangeEEnum, DropRange.RESTRICT);
 		addEEnumLiteral(dropRangeEEnum, DropRange.CASCADE);
+
+		initEEnum(dropTargetEEnum, DropTarget.class, "DropTarget");
+		addEEnumLiteral(dropTargetEEnum, DropTarget.ALIAS);
+		addEEnumLiteral(dropTargetEEnum, DropTarget.INDEX);
+		addEEnumLiteral(dropTargetEEnum, DropTarget.VIEW);
+		addEEnumLiteral(dropTargetEEnum, DropTarget.TABLE);
 
 		initEEnum(targetItemEEnum, TargetItem.class, "TargetItem");
 		addEEnumLiteral(targetItemEEnum, TargetItem.ALL);

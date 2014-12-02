@@ -112,31 +112,10 @@ public class DdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case QDdlPackage.DROP_ALIAS_STATEMENT: {
-				QDropAliasStatement dropAliasStatement = (QDropAliasStatement)theEObject;
-				T result = caseDropAliasStatement(dropAliasStatement);
-				if (result == null) result = caseDefinitionStatement(dropAliasStatement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QDdlPackage.DROP_INDEX_STATEMENT: {
-				QDropIndexStatement dropIndexStatement = (QDropIndexStatement)theEObject;
-				T result = caseDropIndexStatement(dropIndexStatement);
-				if (result == null) result = caseDefinitionStatement(dropIndexStatement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QDdlPackage.DROP_TABLE_STATEMENT: {
-				QDropTableStatement dropTableStatement = (QDropTableStatement)theEObject;
-				T result = caseDropTableStatement(dropTableStatement);
-				if (result == null) result = caseDefinitionStatement(dropTableStatement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QDdlPackage.DROP_VIEW_STATEMENT: {
-				QDropViewStatement dropViewStatement = (QDropViewStatement)theEObject;
-				T result = caseDropViewStatement(dropViewStatement);
-				if (result == null) result = caseDefinitionStatement(dropViewStatement);
+			case QDdlPackage.DROP_STATEMENT: {
+				QDropStatement dropStatement = (QDropStatement)theEObject;
+				T result = caseDropStatement(dropStatement);
+				if (result == null) result = caseDefinitionStatement(dropStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -235,62 +214,17 @@ public class DdlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Drop Alias Statement</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Drop Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Drop Alias Statement</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Drop Statement</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDropAliasStatement(QDropAliasStatement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Drop Index Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Drop Index Statement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDropIndexStatement(QDropIndexStatement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Drop Table Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Drop Table Statement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDropTableStatement(QDropTableStatement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Drop View Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Drop View Statement</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDropViewStatement(QDropViewStatement object) {
+	public T caseDropStatement(QDropStatement object) {
 		return null;
 	}
 

@@ -68,10 +68,7 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 			case QDdlPackage.CREATE_INDEX_STATEMENT: return (EObject)createCreateIndexStatement();
 			case QDdlPackage.CREATE_TABLE_STATEMENT: return (EObject)createCreateTableStatement();
 			case QDdlPackage.DISCONNECT_STATEMENT: return (EObject)createDisconnectStatement();
-			case QDdlPackage.DROP_ALIAS_STATEMENT: return (EObject)createDropAliasStatement();
-			case QDdlPackage.DROP_INDEX_STATEMENT: return (EObject)createDropIndexStatement();
-			case QDdlPackage.DROP_TABLE_STATEMENT: return (EObject)createDropTableStatement();
-			case QDdlPackage.DROP_VIEW_STATEMENT: return (EObject)createDropViewStatement();
+			case QDdlPackage.DROP_STATEMENT: return (EObject)createDropStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,6 +84,8 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 		switch (eDataType.getClassifierID()) {
 			case QDdlPackage.DROP_RANGE:
 				return createDropRangeFromString(eDataType, initialValue);
+			case QDdlPackage.DROP_TARGET:
+				return createDropTargetFromString(eDataType, initialValue);
 			case QDdlPackage.TARGET_ITEM:
 				return createTargetItemFromString(eDataType, initialValue);
 			default:
@@ -104,6 +103,8 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 		switch (eDataType.getClassifierID()) {
 			case QDdlPackage.DROP_RANGE:
 				return convertDropRangeToString(eDataType, instanceValue);
+			case QDdlPackage.DROP_TARGET:
+				return convertDropTargetToString(eDataType, instanceValue);
 			case QDdlPackage.TARGET_ITEM:
 				return convertTargetItemToString(eDataType, instanceValue);
 			default:
@@ -176,39 +177,9 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDropAliasStatement createDropAliasStatement() {
-		DropAliasStatementImpl dropAliasStatement = new DropAliasStatementImpl();
-		return dropAliasStatement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QDropIndexStatement createDropIndexStatement() {
-		DropIndexStatementImpl dropIndexStatement = new DropIndexStatementImpl();
-		return dropIndexStatement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QDropTableStatement createDropTableStatement() {
-		DropTableStatementImpl dropTableStatement = new DropTableStatementImpl();
-		return dropTableStatement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QDropViewStatement createDropViewStatement() {
-		DropViewStatementImpl dropViewStatement = new DropViewStatementImpl();
-		return dropViewStatement;
+	public QDropStatement createDropStatement() {
+		DropStatementImpl dropStatement = new DropStatementImpl();
+		return dropStatement;
 	}
 
 	/**
@@ -228,6 +199,26 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * @generated
 	 */
 	public String convertDropRangeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DropTarget createDropTargetFromString(EDataType eDataType, String initialValue) {
+		DropTarget result = DropTarget.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDropTargetToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

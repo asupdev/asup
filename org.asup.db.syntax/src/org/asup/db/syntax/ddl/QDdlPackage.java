@@ -304,79 +304,14 @@ public interface QDdlPackage extends EPackage {
 	int DISCONNECT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropAliasStatementImpl <em>Drop Alias Statement</em>}' class.
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropStatementImpl <em>Drop Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.DropAliasStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropAliasStatement()
+	 * @see org.asup.db.syntax.ddl.impl.DropStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropStatement()
 	 * @generated
 	 */
-	int DROP_ALIAS_STATEMENT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Alias Name</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_ALIAS_STATEMENT__ALIAS_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Drop Alias Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_ALIAS_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropIndexStatementImpl <em>Drop Index Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.DropIndexStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropIndexStatement()
-	 * @generated
-	 */
-	int DROP_INDEX_STATEMENT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Index Name</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_INDEX_STATEMENT__INDEX_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Drop Index Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_INDEX_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropTableStatementImpl <em>Drop Table Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.DropTableStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTableStatement()
-	 * @generated
-	 */
-	int DROP_TABLE_STATEMENT = 8;
-
-	/**
-	 * The feature id for the '<em><b>Table Name</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_TABLE_STATEMENT__TABLE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+	int DROP_STATEMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -385,53 +320,34 @@ public interface QDdlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_TABLE_STATEMENT__RANGE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+	int DROP_STATEMENT__RANGE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Drop Table Statement</em>' class.
+	 * The feature id for the '<em><b>Target Name</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+	int DROP_STATEMENT__TARGET_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropViewStatementImpl <em>Drop View Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.DropViewStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropViewStatement()
-	 * @generated
-	 */
-	int DROP_VIEW_STATEMENT = 9;
-
-	/**
-	 * The feature id for the '<em><b>View Name</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_VIEW_STATEMENT__VIEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+	int DROP_STATEMENT__TARGET = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Range</b></em>' attribute.
+	 * The number of structural features of the '<em>Drop Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DROP_VIEW_STATEMENT__RANGE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Drop View Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_VIEW_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+	int DROP_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
@@ -441,7 +357,17 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropRange()
 	 * @generated
 	 */
-	int DROP_RANGE = 10;
+	int DROP_RANGE = 7;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.DropTarget
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
+	 * @generated
+	 */
+	int DROP_TARGET = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -451,7 +377,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetItem()
 	 * @generated
 	 */
-	int TARGET_ITEM = 11;
+	int TARGET_ITEM = 9;
 
 
 	/**
@@ -669,110 +595,47 @@ public interface QDdlPackage extends EPackage {
 	EAttribute getDisconnectStatement_Target();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDropAliasStatement <em>Drop Alias Statement</em>}'.
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDropStatement <em>Drop Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Drop Alias Statement</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropAliasStatement
+	 * @return the meta object for class '<em>Drop Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QDropStatement
 	 * @generated
 	 */
-	EClass getDropAliasStatement();
+	EClass getDropStatement();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QDropAliasStatement#getAliasName <em>Alias Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Alias Name</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropAliasStatement#getAliasName()
-	 * @see #getDropAliasStatement()
-	 * @generated
-	 */
-	EReference getDropAliasStatement_AliasName();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDropIndexStatement <em>Drop Index Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Drop Index Statement</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropIndexStatement
-	 * @generated
-	 */
-	EClass getDropIndexStatement();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QDropIndexStatement#getIndexName <em>Index Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Index Name</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropIndexStatement#getIndexName()
-	 * @see #getDropIndexStatement()
-	 * @generated
-	 */
-	EReference getDropIndexStatement_IndexName();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDropTableStatement <em>Drop Table Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Drop Table Statement</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropTableStatement
-	 * @generated
-	 */
-	EClass getDropTableStatement();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QDropTableStatement#getTableName <em>Table Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Table Name</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropTableStatement#getTableName()
-	 * @see #getDropTableStatement()
-	 * @generated
-	 */
-	EReference getDropTableStatement_TableName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QDropTableStatement#getRange <em>Range</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QDropStatement#getRange <em>Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Range</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropTableStatement#getRange()
-	 * @see #getDropTableStatement()
+	 * @see org.asup.db.syntax.ddl.QDropStatement#getRange()
+	 * @see #getDropStatement()
 	 * @generated
 	 */
-	EAttribute getDropTableStatement_Range();
+	EAttribute getDropStatement_Range();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDropViewStatement <em>Drop View Statement</em>}'.
+	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QDropStatement#getTargetName <em>Target Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Drop View Statement</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropViewStatement
+	 * @return the meta object for the reference '<em>Target Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QDropStatement#getTargetName()
+	 * @see #getDropStatement()
 	 * @generated
 	 */
-	EClass getDropViewStatement();
+	EReference getDropStatement_TargetName();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QDropViewStatement#getViewName <em>View Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QDropStatement#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>View Name</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropViewStatement#getViewName()
-	 * @see #getDropViewStatement()
+	 * @return the meta object for the attribute '<em>Target</em>'.
+	 * @see org.asup.db.syntax.ddl.QDropStatement#getTarget()
+	 * @see #getDropStatement()
 	 * @generated
 	 */
-	EReference getDropViewStatement_ViewName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QDropViewStatement#getRange <em>Range</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Range</em>'.
-	 * @see org.asup.db.syntax.ddl.QDropViewStatement#getRange()
-	 * @see #getDropViewStatement()
-	 * @generated
-	 */
-	EAttribute getDropViewStatement_Range();
+	EAttribute getDropStatement_Target();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}'.
@@ -783,6 +646,16 @@ public interface QDdlPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getDropRange();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Drop Target</em>'.
+	 * @see org.asup.db.syntax.ddl.DropTarget
+	 * @generated
+	 */
+	EEnum getDropTarget();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}'.
@@ -989,58 +862,14 @@ public interface QDdlPackage extends EPackage {
 		EAttribute DISCONNECT_STATEMENT__TARGET = eINSTANCE.getDisconnectStatement_Target();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DropAliasStatementImpl <em>Drop Alias Statement</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DropStatementImpl <em>Drop Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.impl.DropAliasStatementImpl
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropAliasStatement()
+		 * @see org.asup.db.syntax.ddl.impl.DropStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropStatement()
 		 * @generated
 		 */
-		EClass DROP_ALIAS_STATEMENT = eINSTANCE.getDropAliasStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Alias Name</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DROP_ALIAS_STATEMENT__ALIAS_NAME = eINSTANCE.getDropAliasStatement_AliasName();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DropIndexStatementImpl <em>Drop Index Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.impl.DropIndexStatementImpl
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropIndexStatement()
-		 * @generated
-		 */
-		EClass DROP_INDEX_STATEMENT = eINSTANCE.getDropIndexStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Index Name</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DROP_INDEX_STATEMENT__INDEX_NAME = eINSTANCE.getDropIndexStatement_IndexName();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DropTableStatementImpl <em>Drop Table Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.impl.DropTableStatementImpl
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTableStatement()
-		 * @generated
-		 */
-		EClass DROP_TABLE_STATEMENT = eINSTANCE.getDropTableStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Table Name</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DROP_TABLE_STATEMENT__TABLE_NAME = eINSTANCE.getDropTableStatement_TableName();
+		EClass DROP_STATEMENT = eINSTANCE.getDropStatement();
 
 		/**
 		 * The meta object literal for the '<em><b>Range</b></em>' attribute feature.
@@ -1048,33 +877,23 @@ public interface QDdlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DROP_TABLE_STATEMENT__RANGE = eINSTANCE.getDropTableStatement_Range();
+		EAttribute DROP_STATEMENT__RANGE = eINSTANCE.getDropStatement_Range();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DropViewStatementImpl <em>Drop View Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.impl.DropViewStatementImpl
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropViewStatement()
-		 * @generated
-		 */
-		EClass DROP_VIEW_STATEMENT = eINSTANCE.getDropViewStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>View Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target Name</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DROP_VIEW_STATEMENT__VIEW_NAME = eINSTANCE.getDropViewStatement_ViewName();
+		EReference DROP_STATEMENT__TARGET_NAME = eINSTANCE.getDropStatement_TargetName();
 
 		/**
-		 * The meta object literal for the '<em><b>Range</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DROP_VIEW_STATEMENT__RANGE = eINSTANCE.getDropViewStatement_Range();
+		EAttribute DROP_STATEMENT__TARGET = eINSTANCE.getDropStatement_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
@@ -1085,6 +904,16 @@ public interface QDdlPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DROP_RANGE = eINSTANCE.getDropRange();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.DropTarget
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
+		 * @generated
+		 */
+		EEnum DROP_TARGET = eINSTANCE.getDropTarget();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
