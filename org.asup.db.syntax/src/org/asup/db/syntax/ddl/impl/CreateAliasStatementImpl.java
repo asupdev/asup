@@ -8,16 +8,12 @@
 package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
-
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -37,7 +33,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAliasStatement {
 	/**
-	 * The cached value of the '{@link #getAliasName() <em>Alias Name</em>}' reference.
+	 * The cached value of the '{@link #getAliasName() <em>Alias Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAliasName()
@@ -47,7 +43,7 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	protected QQualifiedName aliasName;
 
 	/**
-	 * The cached value of the '{@link #getTableName() <em>Table Name</em>}' reference.
+	 * The cached value of the '{@link #getTableName() <em>Table Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTableName()
@@ -81,14 +77,6 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	 * @generated
 	 */
 	public QQualifiedName getAliasName() {
-		if (aliasName != null && ((EObject)aliasName).eIsProxy()) {
-			InternalEObject oldAliasName = (InternalEObject)aliasName;
-			aliasName = (QQualifiedName)eResolveProxy(oldAliasName);
-			if (aliasName != oldAliasName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME, oldAliasName, aliasName));
-			}
-		}
 		return aliasName;
 	}
 
@@ -97,8 +85,14 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName basicGetAliasName() {
-		return aliasName;
+	public NotificationChain basicSetAliasName(QQualifiedName newAliasName, NotificationChain msgs) {
+		QQualifiedName oldAliasName = aliasName;
+		aliasName = newAliasName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME, oldAliasName, newAliasName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -107,10 +101,17 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	 * @generated
 	 */
 	public void setAliasName(QQualifiedName newAliasName) {
-		QQualifiedName oldAliasName = aliasName;
-		aliasName = newAliasName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME, oldAliasName, aliasName));
+		if (newAliasName != aliasName) {
+			NotificationChain msgs = null;
+			if (aliasName != null)
+				msgs = ((InternalEObject)aliasName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME, null, msgs);
+			if (newAliasName != null)
+				msgs = ((InternalEObject)newAliasName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME, null, msgs);
+			msgs = basicSetAliasName(newAliasName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME, newAliasName, newAliasName));
 	}
 
 	/**
@@ -119,14 +120,6 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	 * @generated
 	 */
 	public QQualifiedName getTableName() {
-		if (tableName != null && ((EObject)tableName).eIsProxy()) {
-			InternalEObject oldTableName = (InternalEObject)tableName;
-			tableName = (QQualifiedName)eResolveProxy(oldTableName);
-			if (tableName != oldTableName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME, oldTableName, tableName));
-			}
-		}
 		return tableName;
 	}
 
@@ -135,8 +128,14 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName basicGetTableName() {
-		return tableName;
+	public NotificationChain basicSetTableName(QQualifiedName newTableName, NotificationChain msgs) {
+		QQualifiedName oldTableName = tableName;
+		tableName = newTableName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME, oldTableName, newTableName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -145,10 +144,33 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	 * @generated
 	 */
 	public void setTableName(QQualifiedName newTableName) {
-		QQualifiedName oldTableName = tableName;
-		tableName = newTableName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME, oldTableName, tableName));
+		if (newTableName != tableName) {
+			NotificationChain msgs = null;
+			if (tableName != null)
+				msgs = ((InternalEObject)tableName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME, null, msgs);
+			if (newTableName != null)
+				msgs = ((InternalEObject)newTableName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME, null, msgs);
+			msgs = basicSetTableName(newTableName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME, newTableName, newTableName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME:
+				return basicSetAliasName(null, msgs);
+			case QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME:
+				return basicSetTableName(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -160,11 +182,9 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME:
-				if (resolve) return getAliasName();
-				return basicGetAliasName();
+				return getAliasName();
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME:
-				if (resolve) return getTableName();
-				return basicGetTableName();
+				return getTableName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

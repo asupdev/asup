@@ -9,16 +9,12 @@ package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QQualifiedName;
-
 import org.asup.db.syntax.ddl.QCreateIndexStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -40,7 +36,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class CreateIndexStatementImpl extends EObjectImpl implements QCreateIndexStatement {
 	/**
-	 * The cached value of the '{@link #getIndexName() <em>Index Name</em>}' reference.
+	 * The cached value of the '{@link #getIndexName() <em>Index Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIndexName()
@@ -50,7 +46,7 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	protected QQualifiedName indexName;
 
 	/**
-	 * The cached value of the '{@link #getOnTable() <em>On Table</em>}' reference.
+	 * The cached value of the '{@link #getOnTable() <em>On Table</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOnTable()
@@ -60,7 +56,7 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	protected QQualifiedName onTable;
 
 	/**
-	 * The cached value of the '{@link #getSortBy() <em>Sort By</em>}' reference.
+	 * The cached value of the '{@link #getSortBy() <em>Sort By</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSortBy()
@@ -114,14 +110,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	public QQualifiedName getIndexName() {
-		if (indexName != null && ((EObject)indexName).eIsProxy()) {
-			InternalEObject oldIndexName = (InternalEObject)indexName;
-			indexName = (QQualifiedName)eResolveProxy(oldIndexName);
-			if (indexName != oldIndexName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME, oldIndexName, indexName));
-			}
-		}
 		return indexName;
 	}
 
@@ -130,8 +118,14 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName basicGetIndexName() {
-		return indexName;
+	public NotificationChain basicSetIndexName(QQualifiedName newIndexName, NotificationChain msgs) {
+		QQualifiedName oldIndexName = indexName;
+		indexName = newIndexName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME, oldIndexName, newIndexName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -140,10 +134,17 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	public void setIndexName(QQualifiedName newIndexName) {
-		QQualifiedName oldIndexName = indexName;
-		indexName = newIndexName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME, oldIndexName, indexName));
+		if (newIndexName != indexName) {
+			NotificationChain msgs = null;
+			if (indexName != null)
+				msgs = ((InternalEObject)indexName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME, null, msgs);
+			if (newIndexName != null)
+				msgs = ((InternalEObject)newIndexName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME, null, msgs);
+			msgs = basicSetIndexName(newIndexName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME, newIndexName, newIndexName));
 	}
 
 	/**
@@ -152,14 +153,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	public QQualifiedName getOnTable() {
-		if (onTable != null && ((EObject)onTable).eIsProxy()) {
-			InternalEObject oldOnTable = (InternalEObject)onTable;
-			onTable = (QQualifiedName)eResolveProxy(oldOnTable);
-			if (onTable != oldOnTable) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE, oldOnTable, onTable));
-			}
-		}
 		return onTable;
 	}
 
@@ -168,8 +161,14 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName basicGetOnTable() {
-		return onTable;
+	public NotificationChain basicSetOnTable(QQualifiedName newOnTable, NotificationChain msgs) {
+		QQualifiedName oldOnTable = onTable;
+		onTable = newOnTable;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE, oldOnTable, newOnTable);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -178,10 +177,17 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	public void setOnTable(QQualifiedName newOnTable) {
-		QQualifiedName oldOnTable = onTable;
-		onTable = newOnTable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE, oldOnTable, onTable));
+		if (newOnTable != onTable) {
+			NotificationChain msgs = null;
+			if (onTable != null)
+				msgs = ((InternalEObject)onTable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE, null, msgs);
+			if (newOnTable != null)
+				msgs = ((InternalEObject)newOnTable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE, null, msgs);
+			msgs = basicSetOnTable(newOnTable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE, newOnTable, newOnTable));
 	}
 
 	/**
@@ -190,14 +196,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	public QIndexDef getSortBy() {
-		if (sortBy != null && ((EObject)sortBy).eIsProxy()) {
-			InternalEObject oldSortBy = (InternalEObject)sortBy;
-			sortBy = (QIndexDef)eResolveProxy(oldSortBy);
-			if (sortBy != oldSortBy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY, oldSortBy, sortBy));
-			}
-		}
 		return sortBy;
 	}
 
@@ -206,8 +204,14 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QIndexDef basicGetSortBy() {
-		return sortBy;
+	public NotificationChain basicSetSortBy(QIndexDef newSortBy, NotificationChain msgs) {
+		QIndexDef oldSortBy = sortBy;
+		sortBy = newSortBy;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY, oldSortBy, newSortBy);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -216,10 +220,17 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	public void setSortBy(QIndexDef newSortBy) {
-		QIndexDef oldSortBy = sortBy;
-		sortBy = newSortBy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY, oldSortBy, sortBy));
+		if (newSortBy != sortBy) {
+			NotificationChain msgs = null;
+			if (sortBy != null)
+				msgs = ((InternalEObject)sortBy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY, null, msgs);
+			if (newSortBy != null)
+				msgs = ((InternalEObject)newSortBy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY, null, msgs);
+			msgs = basicSetSortBy(newSortBy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY, newSortBy, newSortBy));
 	}
 
 	/**
@@ -249,17 +260,32 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME:
+				return basicSetIndexName(null, msgs);
+			case QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE:
+				return basicSetOnTable(null, msgs);
+			case QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY:
+				return basicSetSortBy(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME:
-				if (resolve) return getIndexName();
-				return basicGetIndexName();
+				return getIndexName();
 			case QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE:
-				if (resolve) return getOnTable();
-				return basicGetOnTable();
+				return getOnTable();
 			case QDdlPackage.CREATE_INDEX_STATEMENT__SORT_BY:
-				if (resolve) return getSortBy();
-				return basicGetSortBy();
+				return getSortBy();
 			case QDdlPackage.CREATE_INDEX_STATEMENT__UNIQUE:
 				return isUnique();
 		}

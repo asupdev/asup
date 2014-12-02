@@ -8,10 +8,8 @@
 package org.asup.db.syntax.ddl;
 
 import java.util.List;
-
 import org.asup.db.core.QQualifiedName;
-import org.asup.db.core.QTableFieldDef;
-
+import org.asup.db.core.QTableColumnDef;
 import org.asup.db.syntax.QDefinitionStatement;
 
 /**
@@ -33,45 +31,45 @@ import org.asup.db.syntax.QDefinitionStatement;
  */
 public interface QCreateTableStatement extends QDefinitionStatement {
 	/**
-	 * Returns the value of the '<em><b>Table Name</b></em>' reference.
+	 * Returns the value of the '<em><b>Table Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Table Name</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table Name</em>' reference.
+	 * @return the value of the '<em>Table Name</em>' containment reference.
 	 * @see #setTableName(QQualifiedName)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateTableStatement_TableName()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QQualifiedName getTableName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateTableStatement#getTableName <em>Table Name</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateTableStatement#getTableName <em>Table Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Table Name</em>' reference.
+	 * @param value the new value of the '<em>Table Name</em>' containment reference.
 	 * @see #getTableName()
 	 * @generated
 	 */
 	void setTableName(QQualifiedName value);
 
 	/**
-	 * Returns the value of the '<em><b>Fields</b></em>' reference list.
-	 * The list contents are of type {@link org.asup.db.core.QTableFieldDef}.
+	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.db.core.QTableColumnDef}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fields</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fields</em>' reference list.
+	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateTableStatement_Fields()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	List<QTableFieldDef> getFields();
+	List<QTableColumnDef> getFields();
 
 } // QCreateTableStatement

@@ -32,7 +32,6 @@ import org.asup.db.syntax.QDefinitionStatement;
 public interface QDropStatement extends QDefinitionStatement {
 	/**
 	 * Returns the value of the '<em><b>Range</b></em>' attribute.
-	 * The default value is <code>""</code>.
 	 * The literals are from the enumeration {@link org.asup.db.syntax.ddl.DropRange}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -44,7 +43,7 @@ public interface QDropStatement extends QDefinitionStatement {
 	 * @see org.asup.db.syntax.ddl.DropRange
 	 * @see #setRange(DropRange)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getDropStatement_Range()
-	 * @model default=""
+	 * @model
 	 * @generated
 	 */
 	DropRange getRange();
@@ -61,26 +60,26 @@ public interface QDropStatement extends QDefinitionStatement {
 	void setRange(DropRange value);
 
 	/**
-	 * Returns the value of the '<em><b>Target Name</b></em>' reference.
+	 * Returns the value of the '<em><b>Target Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target Name</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Name</em>' reference.
+	 * @return the value of the '<em>Target Name</em>' containment reference.
 	 * @see #setTargetName(QQualifiedName)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getDropStatement_TargetName()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QQualifiedName getTargetName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QDropStatement#getTargetName <em>Target Name</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QDropStatement#getTargetName <em>Target Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Name</em>' reference.
+	 * @param value the new value of the '<em>Target Name</em>' containment reference.
 	 * @see #getTargetName()
 	 * @generated
 	 */

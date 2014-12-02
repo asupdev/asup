@@ -138,23 +138,29 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CreateAliasStatement" eSuperTypes="#//DefinitionStatement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="aliasName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="tableName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="aliasName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tableName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CreateIndexStatement" eSuperTypes="#//DefinitionStatement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="indexName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="onTable" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sortBy" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//IndexDef"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="indexName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="onTable" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sortBy" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//IndexDef"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CreateTableStatement" eSuperTypes="#//DefinitionStatement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="tableName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tableName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
-          upperBound="-1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//TableFieldDef"/>
+          upperBound="-1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//TableColumnDef"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DisconnectStatement" eSuperTypes="#//DefinitionStatement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" upperBound="0"
-          eType="#//ddl/TargetItem"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="#//ddl/TargetItem"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="DropRange">
       <eLiterals name="RESTRICT"/>
@@ -171,9 +177,9 @@
       <eLiterals name="CURRENT" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DropStatement" eSuperTypes="#//DefinitionStatement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" upperBound="0"
-          eType="#//ddl/DropRange" defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" eType="#//ddl/DropRange"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="#//ddl/DropTarget"/>
     </eClassifiers>
   </eSubpackages>

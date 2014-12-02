@@ -8,18 +8,14 @@
 package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
-
 import org.asup.db.syntax.ddl.DropRange;
 import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QDropStatement;
-
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
@@ -60,7 +56,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	protected DropRange range = RANGE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTargetName() <em>Target Name</em>}' reference.
+	 * The cached value of the '{@link #getTargetName() <em>Target Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetName()
@@ -135,14 +131,6 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 */
 	public QQualifiedName getTargetName() {
-		if (targetName != null && ((EObject)targetName).eIsProxy()) {
-			InternalEObject oldTargetName = (InternalEObject)targetName;
-			targetName = (QQualifiedName)eResolveProxy(oldTargetName);
-			if (targetName != oldTargetName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.DROP_STATEMENT__TARGET_NAME, oldTargetName, targetName));
-			}
-		}
 		return targetName;
 	}
 
@@ -151,8 +139,14 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName basicGetTargetName() {
-		return targetName;
+	public NotificationChain basicSetTargetName(QQualifiedName newTargetName, NotificationChain msgs) {
+		QQualifiedName oldTargetName = targetName;
+		targetName = newTargetName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET_NAME, oldTargetName, newTargetName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -161,10 +155,17 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 */
 	public void setTargetName(QQualifiedName newTargetName) {
-		QQualifiedName oldTargetName = targetName;
-		targetName = newTargetName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET_NAME, oldTargetName, targetName));
+		if (newTargetName != targetName) {
+			NotificationChain msgs = null;
+			if (targetName != null)
+				msgs = ((InternalEObject)targetName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.DROP_STATEMENT__TARGET_NAME, null, msgs);
+			if (newTargetName != null)
+				msgs = ((InternalEObject)newTargetName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.DROP_STATEMENT__TARGET_NAME, null, msgs);
+			msgs = basicSetTargetName(newTargetName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET_NAME, newTargetName, newTargetName));
 	}
 
 	/**
@@ -194,13 +195,26 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
+				return basicSetTargetName(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QDdlPackage.DROP_STATEMENT__RANGE:
 				return getRange();
 			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
-				if (resolve) return getTargetName();
-				return basicGetTargetName();
+				return getTargetName();
 			case QDdlPackage.DROP_STATEMENT__TARGET:
 				return getTarget();
 		}

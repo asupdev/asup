@@ -33,78 +33,78 @@ import org.asup.db.syntax.QDefinitionStatement;
  */
 public interface QCreateIndexStatement extends QDefinitionStatement {
 	/**
-	 * Returns the value of the '<em><b>Index Name</b></em>' reference.
+	 * Returns the value of the '<em><b>Index Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Index Name</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Index Name</em>' reference.
+	 * @return the value of the '<em>Index Name</em>' containment reference.
 	 * @see #setIndexName(QQualifiedName)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateIndexStatement_IndexName()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QQualifiedName getIndexName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getIndexName <em>Index Name</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getIndexName <em>Index Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Index Name</em>' reference.
+	 * @param value the new value of the '<em>Index Name</em>' containment reference.
 	 * @see #getIndexName()
 	 * @generated
 	 */
 	void setIndexName(QQualifiedName value);
 
 	/**
-	 * Returns the value of the '<em><b>On Table</b></em>' reference.
+	 * Returns the value of the '<em><b>On Table</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Table</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Table</em>' reference.
+	 * @return the value of the '<em>On Table</em>' containment reference.
 	 * @see #setOnTable(QQualifiedName)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateIndexStatement_OnTable()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QQualifiedName getOnTable();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getOnTable <em>On Table</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getOnTable <em>On Table</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Table</em>' reference.
+	 * @param value the new value of the '<em>On Table</em>' containment reference.
 	 * @see #getOnTable()
 	 * @generated
 	 */
 	void setOnTable(QQualifiedName value);
 
 	/**
-	 * Returns the value of the '<em><b>Sort By</b></em>' reference.
+	 * Returns the value of the '<em><b>Sort By</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sort By</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sort By</em>' reference.
+	 * @return the value of the '<em>Sort By</em>' containment reference.
 	 * @see #setSortBy(QIndexDef)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateIndexStatement_SortBy()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QIndexDef getSortBy();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getSortBy <em>Sort By</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getSortBy <em>Sort By</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sort By</em>' reference.
+	 * @param value the new value of the '<em>Sort By</em>' containment reference.
 	 * @see #getSortBy()
 	 * @generated
 	 */

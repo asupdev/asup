@@ -30,52 +30,52 @@ import org.asup.db.syntax.QDefinitionStatement;
  */
 public interface QCreateAliasStatement extends QDefinitionStatement {
 	/**
-	 * Returns the value of the '<em><b>Alias Name</b></em>' reference.
+	 * Returns the value of the '<em><b>Alias Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Alias Name</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Alias Name</em>' reference.
+	 * @return the value of the '<em>Alias Name</em>' containment reference.
 	 * @see #setAliasName(QQualifiedName)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateAliasStatement_AliasName()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QQualifiedName getAliasName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getAliasName <em>Alias Name</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getAliasName <em>Alias Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Alias Name</em>' reference.
+	 * @param value the new value of the '<em>Alias Name</em>' containment reference.
 	 * @see #getAliasName()
 	 * @generated
 	 */
 	void setAliasName(QQualifiedName value);
 
 	/**
-	 * Returns the value of the '<em><b>Table Name</b></em>' reference.
+	 * Returns the value of the '<em><b>Table Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Table Name</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table Name</em>' reference.
+	 * @return the value of the '<em>Table Name</em>' containment reference.
 	 * @see #setTableName(QQualifiedName)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateAliasStatement_TableName()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	QQualifiedName getTableName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getTableName <em>Table Name</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getTableName <em>Table Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Table Name</em>' reference.
+	 * @param value the new value of the '<em>Table Name</em>' containment reference.
 	 * @see #getTableName()
 	 * @generated
 	 */

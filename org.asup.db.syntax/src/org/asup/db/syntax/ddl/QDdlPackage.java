@@ -156,7 +156,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_ALIAS_STATEMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Alias Name</b></em>' reference.
+	 * The feature id for the '<em><b>Alias Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -165,7 +165,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_ALIAS_STATEMENT__ALIAS_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Table Name</b></em>' reference.
+	 * The feature id for the '<em><b>Table Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -193,7 +193,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_INDEX_STATEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Index Name</b></em>' reference.
+	 * The feature id for the '<em><b>Index Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -202,7 +202,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_INDEX_STATEMENT__INDEX_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>On Table</b></em>' reference.
+	 * The feature id for the '<em><b>On Table</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -211,7 +211,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_INDEX_STATEMENT__ON_TABLE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Sort By</b></em>' reference.
+	 * The feature id for the '<em><b>Sort By</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -248,7 +248,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_TABLE_STATEMENT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Table Name</b></em>' reference.
+	 * The feature id for the '<em><b>Table Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -257,7 +257,7 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_TABLE_STATEMENT__TABLE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fields</b></em>' reference list.
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -323,7 +323,7 @@ public interface QDdlPackage extends EPackage {
 	int DROP_STATEMENT__RANGE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Target Name</b></em>' reference.
+	 * The feature id for the '<em><b>Target Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -466,10 +466,10 @@ public interface QDdlPackage extends EPackage {
 	EClass getCreateAliasStatement();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getAliasName <em>Alias Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getAliasName <em>Alias Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Alias Name</em>'.
+	 * @return the meta object for the containment reference '<em>Alias Name</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateAliasStatement#getAliasName()
 	 * @see #getCreateAliasStatement()
 	 * @generated
@@ -477,10 +477,10 @@ public interface QDdlPackage extends EPackage {
 	EReference getCreateAliasStatement_AliasName();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getTableName <em>Table Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateAliasStatement#getTableName <em>Table Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Table Name</em>'.
+	 * @return the meta object for the containment reference '<em>Table Name</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateAliasStatement#getTableName()
 	 * @see #getCreateAliasStatement()
 	 * @generated
@@ -498,10 +498,10 @@ public interface QDdlPackage extends EPackage {
 	EClass getCreateIndexStatement();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getIndexName <em>Index Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getIndexName <em>Index Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Index Name</em>'.
+	 * @return the meta object for the containment reference '<em>Index Name</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateIndexStatement#getIndexName()
 	 * @see #getCreateIndexStatement()
 	 * @generated
@@ -509,10 +509,10 @@ public interface QDdlPackage extends EPackage {
 	EReference getCreateIndexStatement_IndexName();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getOnTable <em>On Table</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getOnTable <em>On Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>On Table</em>'.
+	 * @return the meta object for the containment reference '<em>On Table</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateIndexStatement#getOnTable()
 	 * @see #getCreateIndexStatement()
 	 * @generated
@@ -520,10 +520,10 @@ public interface QDdlPackage extends EPackage {
 	EReference getCreateIndexStatement_OnTable();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getSortBy <em>Sort By</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateIndexStatement#getSortBy <em>Sort By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sort By</em>'.
+	 * @return the meta object for the containment reference '<em>Sort By</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateIndexStatement#getSortBy()
 	 * @see #getCreateIndexStatement()
 	 * @generated
@@ -552,10 +552,10 @@ public interface QDdlPackage extends EPackage {
 	EClass getCreateTableStatement();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QCreateTableStatement#getTableName <em>Table Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateTableStatement#getTableName <em>Table Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Table Name</em>'.
+	 * @return the meta object for the containment reference '<em>Table Name</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateTableStatement#getTableName()
 	 * @see #getCreateTableStatement()
 	 * @generated
@@ -563,10 +563,10 @@ public interface QDdlPackage extends EPackage {
 	EReference getCreateTableStatement_TableName();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.asup.db.syntax.ddl.QCreateTableStatement#getFields <em>Fields</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.asup.db.syntax.ddl.QCreateTableStatement#getFields <em>Fields</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Fields</em>'.
+	 * @return the meta object for the containment reference list '<em>Fields</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateTableStatement#getFields()
 	 * @see #getCreateTableStatement()
 	 * @generated
@@ -616,10 +616,10 @@ public interface QDdlPackage extends EPackage {
 	EAttribute getDropStatement_Range();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.syntax.ddl.QDropStatement#getTargetName <em>Target Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QDropStatement#getTargetName <em>Target Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target Name</em>'.
+	 * @return the meta object for the containment reference '<em>Target Name</em>'.
 	 * @see org.asup.db.syntax.ddl.QDropStatement#getTargetName()
 	 * @see #getDropStatement()
 	 * @generated
@@ -760,7 +760,7 @@ public interface QDdlPackage extends EPackage {
 		EClass CREATE_ALIAS_STATEMENT = eINSTANCE.getCreateAliasStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Alias Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Alias Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -768,7 +768,7 @@ public interface QDdlPackage extends EPackage {
 		EReference CREATE_ALIAS_STATEMENT__ALIAS_NAME = eINSTANCE.getCreateAliasStatement_AliasName();
 
 		/**
-		 * The meta object literal for the '<em><b>Table Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Table Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -786,7 +786,7 @@ public interface QDdlPackage extends EPackage {
 		EClass CREATE_INDEX_STATEMENT = eINSTANCE.getCreateIndexStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Index Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Index Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -794,7 +794,7 @@ public interface QDdlPackage extends EPackage {
 		EReference CREATE_INDEX_STATEMENT__INDEX_NAME = eINSTANCE.getCreateIndexStatement_IndexName();
 
 		/**
-		 * The meta object literal for the '<em><b>On Table</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>On Table</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -802,7 +802,7 @@ public interface QDdlPackage extends EPackage {
 		EReference CREATE_INDEX_STATEMENT__ON_TABLE = eINSTANCE.getCreateIndexStatement_OnTable();
 
 		/**
-		 * The meta object literal for the '<em><b>Sort By</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Sort By</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -828,7 +828,7 @@ public interface QDdlPackage extends EPackage {
 		EClass CREATE_TABLE_STATEMENT = eINSTANCE.getCreateTableStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Table Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Table Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -836,7 +836,7 @@ public interface QDdlPackage extends EPackage {
 		EReference CREATE_TABLE_STATEMENT__TABLE_NAME = eINSTANCE.getCreateTableStatement_TableName();
 
 		/**
-		 * The meta object literal for the '<em><b>Fields</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -880,7 +880,7 @@ public interface QDdlPackage extends EPackage {
 		EAttribute DROP_STATEMENT__RANGE = eINSTANCE.getDropStatement_Range();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

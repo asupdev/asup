@@ -533,25 +533,25 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		initEAttribute(getConnectStatement_User(), theEcorePackage.getEString(), "user", null, 0, 1, QConnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(createAliasStatementEClass, QCreateAliasStatement.class, "CreateAliasStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCreateAliasStatement_AliasName(), theDatabaseCorePackage.getQualifiedName(), null, "aliasName", null, 0, 1, QCreateAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCreateAliasStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateAliasStatement_AliasName(), theDatabaseCorePackage.getQualifiedName(), null, "aliasName", null, 0, 1, QCreateAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateAliasStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateAliasStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(createIndexStatementEClass, QCreateIndexStatement.class, "CreateIndexStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCreateIndexStatement_IndexName(), theDatabaseCorePackage.getQualifiedName(), null, "indexName", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCreateIndexStatement_OnTable(), theDatabaseCorePackage.getQualifiedName(), null, "onTable", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCreateIndexStatement_SortBy(), theDatabaseCorePackage.getIndexDef(), null, "sortBy", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateIndexStatement_IndexName(), theDatabaseCorePackage.getQualifiedName(), null, "indexName", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateIndexStatement_OnTable(), theDatabaseCorePackage.getQualifiedName(), null, "onTable", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateIndexStatement_SortBy(), theDatabaseCorePackage.getIndexDef(), null, "sortBy", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCreateIndexStatement_Unique(), theEcorePackage.getEBoolean(), "unique", null, 0, 1, QCreateIndexStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(createTableStatementEClass, QCreateTableStatement.class, "CreateTableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCreateTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCreateTableStatement_Fields(), theDatabaseCorePackage.getTableFieldDef(), null, "fields", null, 1, -1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateTableStatement_Fields(), theDatabaseCorePackage.getTableColumnDef(), null, "fields", null, 1, -1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(disconnectStatementEClass, QDisconnectStatement.class, "DisconnectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDisconnectStatement_Target(), this.getTargetItem(), "target", null, 0, 0, QDisconnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDisconnectStatement_Target(), this.getTargetItem(), "target", null, 0, 1, QDisconnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dropStatementEClass, QDropStatement.class, "DropStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDropStatement_Range(), this.getDropRange(), "range", "", 0, 0, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDropStatement_TargetName(), theDatabaseCorePackage.getQualifiedName(), null, "targetName", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDropStatement_Range(), this.getDropRange(), "range", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDropStatement_TargetName(), theDatabaseCorePackage.getQualifiedName(), null, "targetName", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDropStatement_Target(), this.getDropTarget(), "target", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

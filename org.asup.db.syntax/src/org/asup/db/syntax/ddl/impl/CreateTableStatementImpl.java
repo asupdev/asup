@@ -9,25 +9,19 @@ package org.asup.db.syntax.ddl.impl;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.asup.db.core.QQualifiedName;
-import org.asup.db.core.QTableFieldDef;
-
+import org.asup.db.core.QTableColumnDef;
 import org.asup.db.syntax.ddl.QCreateTableStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class CreateTableStatementImpl extends EObjectImpl implements QCreateTableStatement {
 	/**
-	 * The cached value of the '{@link #getTableName() <em>Table Name</em>}' reference.
+	 * The cached value of the '{@link #getTableName() <em>Table Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTableName()
@@ -55,14 +49,14 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 	protected QQualifiedName tableName;
 
 	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' reference list.
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFields()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QTableFieldDef> fields;
+	protected EList<QTableColumnDef> fields;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,14 +83,6 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 	 * @generated
 	 */
 	public QQualifiedName getTableName() {
-		if (tableName != null && ((EObject)tableName).eIsProxy()) {
-			InternalEObject oldTableName = (InternalEObject)tableName;
-			tableName = (QQualifiedName)eResolveProxy(oldTableName);
-			if (tableName != oldTableName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME, oldTableName, tableName));
-			}
-		}
 		return tableName;
 	}
 
@@ -105,8 +91,14 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName basicGetTableName() {
-		return tableName;
+	public NotificationChain basicSetTableName(QQualifiedName newTableName, NotificationChain msgs) {
+		QQualifiedName oldTableName = tableName;
+		tableName = newTableName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME, oldTableName, newTableName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -115,10 +107,17 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 	 * @generated
 	 */
 	public void setTableName(QQualifiedName newTableName) {
-		QQualifiedName oldTableName = tableName;
-		tableName = newTableName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME, oldTableName, tableName));
+		if (newTableName != tableName) {
+			NotificationChain msgs = null;
+			if (tableName != null)
+				msgs = ((InternalEObject)tableName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME, null, msgs);
+			if (newTableName != null)
+				msgs = ((InternalEObject)newTableName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME, null, msgs);
+			msgs = basicSetTableName(newTableName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME, newTableName, newTableName));
 	}
 
 	/**
@@ -126,11 +125,27 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<QTableFieldDef> getFields() {
+	public List<QTableColumnDef> getFields() {
 		if (fields == null) {
-			fields = new EObjectResolvingEList<QTableFieldDef>(QTableFieldDef.class, this, QDdlPackage.CREATE_TABLE_STATEMENT__FIELDS);
+			fields = new EObjectContainmentEList<QTableColumnDef>(QTableColumnDef.class, this, QDdlPackage.CREATE_TABLE_STATEMENT__FIELDS);
 		}
 		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME:
+				return basicSetTableName(null, msgs);
+			case QDdlPackage.CREATE_TABLE_STATEMENT__FIELDS:
+				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -142,8 +157,7 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QDdlPackage.CREATE_TABLE_STATEMENT__TABLE_NAME:
-				if (resolve) return getTableName();
-				return basicGetTableName();
+				return getTableName();
 			case QDdlPackage.CREATE_TABLE_STATEMENT__FIELDS:
 				return getFields();
 		}
@@ -164,7 +178,7 @@ public class CreateTableStatementImpl extends EObjectImpl implements QCreateTabl
 				return;
 			case QDdlPackage.CREATE_TABLE_STATEMENT__FIELDS:
 				getFields().clear();
-				getFields().addAll((Collection<? extends QTableFieldDef>)newValue);
+				getFields().addAll((Collection<? extends QTableColumnDef>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
