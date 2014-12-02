@@ -50,7 +50,7 @@ public class DDLModelBuilder {
 			parserResult.setDefinitionStatement(convertModel(tree));
 			
 		} catch (RecognitionException e) {
-			//TODO: gestione errori del parser
+			
 		}
 
 		return parserResult;
