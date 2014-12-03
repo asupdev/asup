@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGWKTT0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="TABEL00001" length="7"/>
-  <columns dataType="CHAR" name="SOCIE00001" length="7"/>
-  <columns dataType="DECIMAL" name="PKEY" length="20"/>
-  <columns dataType="CHAR" name="ANNULLATO" length="9"/>
-  <columns dataType="CHAR" name="TCNET" length="8"/>
-  <columns dataType="CHAR" name="TCNEG" length="5"/>
-  <columns dataType="CHAR" name="TCCAS" length="5"/>
-  <columns dataType="CHAR" name="TCTIP" length="5"/>
-  <columns dataType="CHAR" name="TCCOD" length="5"/>
-  <columns dataType="DECIMAL" name="TCDAT" length="8"/>
-  <columns dataType="DECIMAL" name="TCPRG" length="5"/>
-  <columns dataType="DECIMAL" name="TCIMD" length="19" scale="3"/>
-  <columns dataType="DECIMAL" name="TCIMA" length="19" scale="3"/>
-  <columns dataType="DECIMAL" name="TCIMP" length="19" scale="3"/>
-  <columns dataType="CHAR" name="TCDES" length="50"/>
-  <columns dataType="CHAR" name="TCFLT" length="5"/>
-  <columns dataType="CHAR" name="TCNSC" length="5"/>
-  <columns dataType="CHAR" name="TCFLG" length="5"/>
-  <columns dataType="CHAR" name="TCSTA" length="5"/>
-  <columns dataType="CHAR" name="TCPRV" length="5"/>
-  <columns dataType="CHAR" name="TCTPR" length="5"/>
-  <columns dataType="CHAR" name="TCRNG" length="5"/>
-  <columns dataType="CHAR" name="TCRCS" length="5"/>
-  <columns dataType="CHAR" name="TCRTP" length="5"/>
-  <columns dataType="CHAR" name="TCRCD" length="5"/>
-  <columns dataType="DECIMAL" name="TCRDT" length="8"/>
-  <columns dataType="DECIMAL" name="TCRPR" length="5"/>
-  <columns dataType="CHAR" name="TCCSP" length="5"/>
-  <columns dataType="DECIMAL" name="TCIMC" length="19" scale="3"/>
-  <columns dataType="CHAR" name="TCFLC" length="5"/>
-  <columns dataType="CHAR" name="TCKDS" length="30"/>
-  <columns dataType="CHAR" name="TCKBL" length="30"/>
-  <columns dataType="CHAR" name="TCKD2" length="30"/>
-  <columns dataType="CHAR" name="TCCST" length="5"/>
-  <columns dataType="CHAR" name="TCWFL" length="15"/>
-  <columns dataType="CHAR" name="TCWFS" length="5"/>
-  <columns dataType="CHAR" name="TCKNT" length="30"/>
-  <columns dataType="CHAR" name="TCTDA" length="5"/>
-  <columns dataType="DECIMAL" name="TCDDA" length="8"/>
-  <columns dataType="CHAR" name="TCNDA" length="20"/>
-  <columns dataType="CHAR" name="TCOPE" length="8"/>
-  <columns dataType="DECIMAL" name="TCIMR" length="19" scale="3"/>
-  <columns dataType="CHAR" name="TCOPC" length="8"/>
-  <columns dataType="CHAR" name="TCVAL" length="5"/>
-  <columns dataType="CHAR" name="TCTPD" length="5"/>
-  <columns dataType="DECIMAL" name="TCIVD" length="19" scale="3"/>
-  <columns dataType="DECIMAL" name="TCIVA" length="19" scale="3"/>
-  <columns dataType="DECIMAL" name="TCIVP" length="19" scale="3"/>
-  <columns dataType="DECIMAL" name="TCCAM" length="21" scale="6"/>
-  <columns dataType="CHAR" name="TCFLD" length="5"/>
-  <columns dataType="CHAR" name="TBDES" length="35"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="7" name="TABEL00001"/>
+  <columns dataType="CHAR" length="7" name="SOCIE00001"/>
+  <columns dataType="DECIMAL" length="20" name="PKEY"/>
+  <columns dataType="CHAR" length="9" name="ANNULLATO"/>
+  <columns dataType="CHAR" length="8" name="TCNET"/>
+  <columns dataType="CHAR" length="5" name="TCNEG"/>
+  <columns dataType="CHAR" length="5" name="TCCAS"/>
+  <columns dataType="CHAR" length="5" name="TCTIP"/>
+  <columns dataType="CHAR" length="5" name="TCCOD"/>
+  <columns dataType="DECIMAL" length="8" name="TCDAT"/>
+  <columns dataType="DECIMAL" length="5" name="TCPRG"/>
+  <columns dataType="DECIMAL" length="19" name="TCIMD" scale="3"/>
+  <columns dataType="DECIMAL" length="19" name="TCIMA" scale="3"/>
+  <columns dataType="DECIMAL" length="19" name="TCIMP" scale="3"/>
+  <columns dataType="CHAR" length="50" name="TCDES"/>
+  <columns dataType="CHAR" length="5" name="TCFLT"/>
+  <columns dataType="CHAR" length="5" name="TCNSC"/>
+  <columns dataType="CHAR" length="5" name="TCFLG"/>
+  <columns dataType="CHAR" length="5" name="TCSTA"/>
+  <columns dataType="CHAR" length="5" name="TCPRV"/>
+  <columns dataType="CHAR" length="5" name="TCTPR"/>
+  <columns dataType="CHAR" length="5" name="TCRNG"/>
+  <columns dataType="CHAR" length="5" name="TCRCS"/>
+  <columns dataType="CHAR" length="5" name="TCRTP"/>
+  <columns dataType="CHAR" length="5" name="TCRCD"/>
+  <columns dataType="DECIMAL" length="8" name="TCRDT"/>
+  <columns dataType="DECIMAL" length="5" name="TCRPR"/>
+  <columns dataType="CHAR" length="5" name="TCCSP"/>
+  <columns dataType="DECIMAL" length="19" name="TCIMC" scale="3"/>
+  <columns dataType="CHAR" length="5" name="TCFLC"/>
+  <columns dataType="CHAR" length="30" name="TCKDS"/>
+  <columns dataType="CHAR" length="30" name="TCKBL"/>
+  <columns dataType="CHAR" length="30" name="TCKD2"/>
+  <columns dataType="CHAR" length="5" name="TCCST"/>
+  <columns dataType="CHAR" length="15" name="TCWFL"/>
+  <columns dataType="CHAR" length="5" name="TCWFS"/>
+  <columns dataType="CHAR" length="30" name="TCKNT"/>
+  <columns dataType="CHAR" length="5" name="TCTDA"/>
+  <columns dataType="DECIMAL" length="8" name="TCDDA"/>
+  <columns dataType="CHAR" length="20" name="TCNDA"/>
+  <columns dataType="CHAR" length="8" name="TCOPE"/>
+  <columns dataType="DECIMAL" length="19" name="TCIMR" scale="3"/>
+  <columns dataType="CHAR" length="8" name="TCOPC"/>
+  <columns dataType="CHAR" length="5" name="TCVAL"/>
+  <columns dataType="CHAR" length="5" name="TCTPD"/>
+  <columns dataType="DECIMAL" length="19" name="TCIVD" scale="3"/>
+  <columns dataType="DECIMAL" length="19" name="TCIVA" scale="3"/>
+  <columns dataType="DECIMAL" length="19" name="TCIVP" scale="3"/>
+  <columns dataType="DECIMAL" length="21" name="TCCAM" scale="6"/>
+  <columns dataType="CHAR" length="5" name="TCFLD"/>
+  <columns dataType="CHAR" length="35" name="TBDES"/>
 </db-core:TableDef>

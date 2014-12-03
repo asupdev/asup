@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGMOVE0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="MMDNEG" length="3"/>
-  <columns dataType="DECIMAL" name="MMDDAT" length="8"/>
-  <columns dataType="CHAR" name="MMDART" length="15"/>
-  <columns dataType="CHAR" name="MMDCL1" length="3"/>
-  <columns dataType="CHAR" name="MMDCL2" length="3"/>
-  <columns dataType="CHAR" name="MMDCL3" length="3"/>
-  <columns dataType="CHAR" name="MMDMAR" length="4"/>
-  <columns dataType="DECIMAL" name="MMDIMP" length="18" scale="3"/>
-  <columns dataType="CHAR" name="MMDIVA" length="2"/>
-  <columns dataType="DECIMAL" name="MMDCST" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="MMDQTA" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="MMDSCV" length="18" scale="3"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="MMDNEG"/>
+  <columns dataType="DECIMAL" length="8" name="MMDDAT"/>
+  <columns dataType="CHAR" length="15" name="MMDART"/>
+  <columns dataType="CHAR" length="3" name="MMDCL1"/>
+  <columns dataType="CHAR" length="3" name="MMDCL2"/>
+  <columns dataType="CHAR" length="3" name="MMDCL3"/>
+  <columns dataType="CHAR" length="4" name="MMDMAR"/>
+  <columns dataType="DECIMAL" length="18" name="MMDIMP" scale="3"/>
+  <columns dataType="CHAR" length="2" name="MMDIVA"/>
+  <columns dataType="DECIMAL" length="18" name="MMDCST" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="MMDQTA" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="MMDSCV" scale="3"/>
 </db-core:TableDef>

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;DORI1L" creationCommand=" CREATE VIEW C&#xa3;DORI1L (   C&#xa3;CDCD ,   C&#xa3;CDTR ,   C&#xa3;CDDS ,   C&#xa3;TDDO ,   C&#xa3;CDDO ,   C&#xa3;CDRI ,   C&#xa3;NOTR ,   C&#xa3;VAL1 ,   C&#xa3;VAL2 )   AS   SELECT   C&#xa3;CDCD ,   C&#xa3;CDTR ,   C&#xa3;CDDS ,   C&#xa3;TDDO ,   C&#xa3;CDDO ,   C&#xa3;CDRI ,   C&#xa3;NOTR ,   C&#xa3;VAL1 ,   C&#xa3;VAL2   FROM C&#xa3;DORI0F   ;  "/>

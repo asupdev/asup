@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;LOGC0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="B&#xa7;TIPO" length="10"/>
-  <columns dataType="CHAR" name="B&#xa7;COD1" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;COD2" length="15"/>
-  <columns dataType="DECIMAL" name="B&#xa7;DAST" length="8"/>
-  <columns dataType="DECIMAL" name="B&#xa7;ORST" length="6"/>
-  <columns dataType="CHAR" name="B&#xa7;CODI" length="15"/>
-  <columns dataType="DECIMAL" name="B&#xa7;VALO" length="15" scale="3"/>
-  <columns dataType="CHAR" name="B&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="B&#xa7;WKST" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="B&#xa7;TIPO"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;COD2"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DAST"/>
+  <columns dataType="DECIMAL" length="6" name="B&#xa7;ORST"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;CODI"/>
+  <columns dataType="DECIMAL" length="15" name="B&#xa7;VALO" scale="3"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;WKST"/>
 </db-core:TableDef>

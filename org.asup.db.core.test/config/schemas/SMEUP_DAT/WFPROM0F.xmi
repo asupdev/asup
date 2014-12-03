@@ -1,75 +1,74 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFPROM0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="F3AZIE" length="2"/>
-  <columns dataType="CHAR" name="F3LIVE" length="1"/>
-  <columns dataType="CHAR" name="F3STAT" length="2"/>
-  <columns dataType="CHAR" name="F3TPRO" length="3"/>
-  <columns dataType="CHAR" name="F3PROM" length="10"/>
-  <columns dataType="CHAR" name="F3DESC" length="35"/>
-  <columns dataType="CHAR" name="F3NORD" length="10"/>
-  <columns dataType="CHAR" name="F3TRAN" length="10"/>
-  <columns dataType="CHAR" name="F3TIWF" length="10"/>
-  <columns dataType="CHAR" name="F3TIMP" length="5"/>
-  <columns dataType="CHAR" name="F3IMPE" length="10"/>
-  <columns dataType="CHAR" name="F3NURE" length="10"/>
-  <columns dataType="CHAR" name="F3TIPO" length="2"/>
-  <columns dataType="CHAR" name="F3PARA" length="10"/>
-  <columns dataType="CHAR" name="F3CODI" length="15"/>
-  <columns dataType="CHAR" name="F3TPMA" length="12"/>
-  <columns dataType="CHAR" name="F3CDMA" length="15"/>
-  <columns dataType="CHAR" name="F3MCAL" length="1"/>
-  <columns dataType="DECIMAL" name="F3DORI" length="8"/>
-  <columns dataType="DECIMAL" name="F3HORI" length="6"/>
-  <columns dataType="DECIMAL" name="F3DPRO" length="8"/>
-  <columns dataType="DECIMAL" name="F3HPRO" length="6"/>
-  <columns dataType="CHAR" name="F3TDRI" length="1"/>
-  <columns dataType="DECIMAL" name="F3DRIF" length="8"/>
-  <columns dataType="DECIMAL" name="F3HRIF" length="6"/>
-  <columns dataType="DECIMAL" name="F3DAPP" length="4"/>
-  <columns dataType="DECIMAL" name="F3HRPP" length="2"/>
-  <columns dataType="DECIMAL" name="F3MNPP" length="2"/>
-  <columns dataType="DECIMAL" name="F3DUIN" length="8"/>
-  <columns dataType="DECIMAL" name="F3HUIN" length="6"/>
-  <columns dataType="DECIMAL" name="F3DT01" length="8"/>
-  <columns dataType="DECIMAL" name="F3DT02" length="8"/>
-  <columns dataType="DECIMAL" name="F3DT03" length="8"/>
-  <columns dataType="DECIMAL" name="F3DT04" length="8"/>
-  <columns dataType="DECIMAL" name="F3DT05" length="8"/>
-  <columns dataType="CHAR" name="F3AA01" length="15"/>
-  <columns dataType="CHAR" name="F3AA02" length="15"/>
-  <columns dataType="CHAR" name="F3AA03" length="15"/>
-  <columns dataType="CHAR" name="F3AA04" length="15"/>
-  <columns dataType="CHAR" name="F3AA05" length="15"/>
-  <columns dataType="DECIMAL" name="F3NU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="F3NU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="F3NU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="F3NU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="F3NU05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="F3FL01" length="1"/>
-  <columns dataType="CHAR" name="F3FL02" length="1"/>
-  <columns dataType="CHAR" name="F3FL03" length="1"/>
-  <columns dataType="CHAR" name="F3FL04" length="1"/>
-  <columns dataType="CHAR" name="F3FL05" length="1"/>
-  <columns dataType="CHAR" name="F3FL06" length="1"/>
-  <columns dataType="CHAR" name="F3FL07" length="1"/>
-  <columns dataType="CHAR" name="F3FL08" length="1"/>
-  <columns dataType="CHAR" name="F3FL09" length="1"/>
-  <columns dataType="CHAR" name="F3FL10" length="1"/>
-  <columns dataType="CHAR" name="F3FL11" length="1"/>
-  <columns dataType="CHAR" name="F3FL12" length="1"/>
-  <columns dataType="CHAR" name="F3FL13" length="1"/>
-  <columns dataType="CHAR" name="F3FL14" length="1"/>
-  <columns dataType="CHAR" name="F3FL15" length="1"/>
-  <columns dataType="CHAR" name="F3FL16" length="1"/>
-  <columns dataType="CHAR" name="F3FL17" length="1"/>
-  <columns dataType="CHAR" name="F3FL18" length="1"/>
-  <columns dataType="CHAR" name="F3FL19" length="1"/>
-  <columns dataType="CHAR" name="F3FL20" length="1"/>
-  <columns dataType="DECIMAL" name="F3DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="F3ORIN" length="6"/>
-  <columns dataType="CHAR" name="F3USIN" length="10"/>
-  <columns dataType="DECIMAL" name="F3DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="F3ORAG" length="6"/>
-  <columns dataType="CHAR" name="F3USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="F3AZIE"/>
+  <columns dataType="CHAR" length="1" name="F3LIVE"/>
+  <columns dataType="CHAR" length="2" name="F3STAT"/>
+  <columns dataType="CHAR" length="3" name="F3TPRO"/>
+  <columns dataType="CHAR" length="10" name="F3PROM"/>
+  <columns dataType="CHAR" length="35" name="F3DESC"/>
+  <columns dataType="CHAR" length="10" name="F3NORD"/>
+  <columns dataType="CHAR" length="10" name="F3TRAN"/>
+  <columns dataType="CHAR" length="10" name="F3TIWF"/>
+  <columns dataType="CHAR" length="5" name="F3TIMP"/>
+  <columns dataType="CHAR" length="10" name="F3IMPE"/>
+  <columns dataType="CHAR" length="10" name="F3NURE"/>
+  <columns dataType="CHAR" length="2" name="F3TIPO"/>
+  <columns dataType="CHAR" length="10" name="F3PARA"/>
+  <columns dataType="CHAR" length="15" name="F3CODI"/>
+  <columns dataType="CHAR" length="12" name="F3TPMA"/>
+  <columns dataType="CHAR" length="15" name="F3CDMA"/>
+  <columns dataType="CHAR" length="1" name="F3MCAL"/>
+  <columns dataType="DECIMAL" length="8" name="F3DORI"/>
+  <columns dataType="DECIMAL" length="6" name="F3HORI"/>
+  <columns dataType="DECIMAL" length="8" name="F3DPRO"/>
+  <columns dataType="DECIMAL" length="6" name="F3HPRO"/>
+  <columns dataType="CHAR" length="1" name="F3TDRI"/>
+  <columns dataType="DECIMAL" length="8" name="F3DRIF"/>
+  <columns dataType="DECIMAL" length="6" name="F3HRIF"/>
+  <columns dataType="DECIMAL" length="4" name="F3DAPP"/>
+  <columns dataType="DECIMAL" length="2" name="F3HRPP"/>
+  <columns dataType="DECIMAL" length="2" name="F3MNPP"/>
+  <columns dataType="DECIMAL" length="8" name="F3DUIN"/>
+  <columns dataType="DECIMAL" length="6" name="F3HUIN"/>
+  <columns dataType="DECIMAL" length="8" name="F3DT01"/>
+  <columns dataType="DECIMAL" length="8" name="F3DT02"/>
+  <columns dataType="DECIMAL" length="8" name="F3DT03"/>
+  <columns dataType="DECIMAL" length="8" name="F3DT04"/>
+  <columns dataType="DECIMAL" length="8" name="F3DT05"/>
+  <columns dataType="CHAR" length="15" name="F3AA01"/>
+  <columns dataType="CHAR" length="15" name="F3AA02"/>
+  <columns dataType="CHAR" length="15" name="F3AA03"/>
+  <columns dataType="CHAR" length="15" name="F3AA04"/>
+  <columns dataType="CHAR" length="15" name="F3AA05"/>
+  <columns dataType="DECIMAL" length="15" name="F3NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F3NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F3NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F3NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F3NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="F3FL01"/>
+  <columns dataType="CHAR" length="1" name="F3FL02"/>
+  <columns dataType="CHAR" length="1" name="F3FL03"/>
+  <columns dataType="CHAR" length="1" name="F3FL04"/>
+  <columns dataType="CHAR" length="1" name="F3FL05"/>
+  <columns dataType="CHAR" length="1" name="F3FL06"/>
+  <columns dataType="CHAR" length="1" name="F3FL07"/>
+  <columns dataType="CHAR" length="1" name="F3FL08"/>
+  <columns dataType="CHAR" length="1" name="F3FL09"/>
+  <columns dataType="CHAR" length="1" name="F3FL10"/>
+  <columns dataType="CHAR" length="1" name="F3FL11"/>
+  <columns dataType="CHAR" length="1" name="F3FL12"/>
+  <columns dataType="CHAR" length="1" name="F3FL13"/>
+  <columns dataType="CHAR" length="1" name="F3FL14"/>
+  <columns dataType="CHAR" length="1" name="F3FL15"/>
+  <columns dataType="CHAR" length="1" name="F3FL16"/>
+  <columns dataType="CHAR" length="1" name="F3FL17"/>
+  <columns dataType="CHAR" length="1" name="F3FL18"/>
+  <columns dataType="CHAR" length="1" name="F3FL19"/>
+  <columns dataType="CHAR" length="1" name="F3FL20"/>
+  <columns dataType="DECIMAL" length="8" name="F3DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="F3ORIN"/>
+  <columns dataType="CHAR" length="10" name="F3USIN"/>
+  <columns dataType="DECIMAL" length="8" name="F3DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="F3ORAG"/>
+  <columns dataType="CHAR" length="10" name="F3USAG"/>
 </db-core:TableDef>

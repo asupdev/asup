@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="XMSINT0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="I&#xa3;PROG" length="7"/>
-  <columns dataType="CHAR" name="I&#xa3;TREC" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;CODI" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;COIN" length="5"/>
-  <columns dataType="CHAR" name="I&#xa3;DEIN" length="30"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DINZ" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DFIN" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DESE" length="8"/>
-  <columns dataType="CHAR" name="I&#xa3;TIPO" length="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;TEIN" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I&#xa3;FEMA" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NUPE" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;TIWR" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;WRKR" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;OPER" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;CIIN" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;CIES" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;CMAT" length="15" scale="3"/>
-  <columns dataType="CHAR" name="I&#xa3;CAUS" length="4"/>
-  <columns dataType="CHAR" name="I&#xa3;TIDO" length="4"/>
-  <columns dataType="CHAR" name="I&#xa3;DOCU" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;ARAL" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;ORIC" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;UTEN" length="10"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DCRE" length="8"/>
-  <columns dataType="CHAR" name="I&#xa3;FLG1" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FLG2" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FLG3" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FLG4" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FLG5" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;ESCO" length="2"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="I&#xa3;PROG"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;TREC"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CODI"/>
+  <columns dataType="CHAR" length="5" name="I&#xa3;COIN"/>
+  <columns dataType="CHAR" length="30" name="I&#xa3;DEIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DINZ"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DFIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DESE"/>
+  <columns dataType="CHAR" length="3" name="I&#xa3;TIPO"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;TEIN" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;FEMA" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="I&#xa3;NUPE"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TIWR"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;WRKR"/>
+  <columns dataType="CHAR" length="8" name="I&#xa3;OPER"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;CIIN" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;CIES" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;CMAT" scale="3"/>
+  <columns dataType="CHAR" length="4" name="I&#xa3;CAUS"/>
+  <columns dataType="CHAR" length="4" name="I&#xa3;TIDO"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;DOCU"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;ARAL"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;ORIC"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;UTEN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DCRE"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FLG1"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FLG2"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FLG3"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FLG4"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FLG5"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;ESCO"/>
 </db-core:TableDef>

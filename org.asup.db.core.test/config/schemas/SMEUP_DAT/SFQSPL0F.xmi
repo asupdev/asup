@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFQSPL0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="QSTORI" length="2"/>
-  <columns dataType="CHAR" name="QSTDOC" length="3"/>
-  <columns dataType="CHAR" name="QSNDOC" length="10"/>
-  <columns dataType="CHAR" name="QSOPER" length="6"/>
-  <columns dataType="CHAR" name="QSSPLT" length="1"/>
-  <columns dataType="CHAR" name="QSTIRP" length="3"/>
-  <columns dataType="CHAR" name="QSCLAV" length="15"/>
-  <columns dataType="CHAR" name="QSTIRF" length="3"/>
-  <columns dataType="CHAR" name="QSMACC" length="15"/>
-  <columns dataType="DECIMAL" name="QSQTSC" length="11" scale="3"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="QSTORI"/>
+  <columns dataType="CHAR" length="3" name="QSTDOC"/>
+  <columns dataType="CHAR" length="10" name="QSNDOC"/>
+  <columns dataType="CHAR" length="6" name="QSOPER"/>
+  <columns dataType="CHAR" length="1" name="QSSPLT"/>
+  <columns dataType="CHAR" length="3" name="QSTIRP"/>
+  <columns dataType="CHAR" length="15" name="QSCLAV"/>
+  <columns dataType="CHAR" length="3" name="QSTIRF"/>
+  <columns dataType="CHAR" length="15" name="QSMACC"/>
+  <columns dataType="DECIMAL" length="11" name="QSQTSC" scale="3"/>
 </db-core:TableDef>

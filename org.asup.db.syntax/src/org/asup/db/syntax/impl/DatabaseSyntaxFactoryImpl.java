@@ -72,6 +72,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case QDatabaseSyntaxPackage.STATEMENT_TYPE:
+				return createStatementTypeFromString(eDataType, initialValue);
 			case QDatabaseSyntaxPackage.SQL_QUERY_PARSE_RESULT:
 				return createSQLQueryParseResultFromString(eDataType, initialValue);
 			default:
@@ -86,6 +88,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case QDatabaseSyntaxPackage.STATEMENT_TYPE:
+				return convertStatementTypeToString(eDataType, instanceValue);
 			case QDatabaseSyntaxPackage.SQL_QUERY_PARSE_RESULT:
 				return convertSQLQueryParseResultToString(eDataType, instanceValue);
 			default:
@@ -111,6 +115,26 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	public QDefinitionParseResult createDefinitionParseResult() {
 		DefinitionParseResultImpl definitionParseResult = new DefinitionParseResultImpl();
 		return definitionParseResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StatementType createStatementTypeFromString(EDataType eDataType, String initialValue) {
+		StatementType result = StatementType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStatementTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

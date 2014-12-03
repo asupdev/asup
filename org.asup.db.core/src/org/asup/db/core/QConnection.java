@@ -72,6 +72,14 @@ public interface QConnection extends QContextID {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void resetAutoCommit();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */

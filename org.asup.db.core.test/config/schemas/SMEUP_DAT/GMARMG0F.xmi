@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="GMARMG0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="M&#xa7;LIVE" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;CDMG" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;CODI" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;LOCN" length="12"/>
-  <columns dataType="CHAR" name="M&#xa7;TIGE" length="3"/>
-  <columns dataType="CHAR" name="M&#xa7;CARC" length="3"/>
-  <columns dataType="DECIMAL" name="M&#xa7;QTUN" length="11" scale="3"/>
-  <columns dataType="CHAR" name="M&#xa7;CRST" length="5"/>
-  <columns dataType="CHAR" name="M&#xa7;PAST" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;CROB" length="5"/>
-  <columns dataType="CHAR" name="M&#xa7;PAOB" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;CRIN" length="5"/>
-  <columns dataType="CHAR" name="M&#xa7;PAIN" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;LIAM" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;STAM" length="2"/>
-  <columns dataType="DECIMAL" name="M&#xa7;SMIN" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="M&#xa7;PTRI" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="M&#xa7;LTEC" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="M&#xa7;COST" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DIUT" length="8"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DFUT" length="8"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DTAG" length="8"/>
-  <columns dataType="CHAR" name="M&#xa7;USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="M&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;CODI"/>
+  <columns dataType="CHAR" length="12" name="M&#xa7;LOCN"/>
+  <columns dataType="CHAR" length="3" name="M&#xa7;TIGE"/>
+  <columns dataType="CHAR" length="3" name="M&#xa7;CARC"/>
+  <columns dataType="DECIMAL" length="11" name="M&#xa7;QTUN" scale="3"/>
+  <columns dataType="CHAR" length="5" name="M&#xa7;CRST"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;PAST"/>
+  <columns dataType="CHAR" length="5" name="M&#xa7;CROB"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;PAOB"/>
+  <columns dataType="CHAR" length="5" name="M&#xa7;CRIN"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;PAIN"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;LIAM"/>
+  <columns dataType="CHAR" length="2" name="M&#xa7;STAM"/>
+  <columns dataType="DECIMAL" length="11" name="M&#xa7;SMIN" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="M&#xa7;PTRI" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="M&#xa7;LTEC" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="M&#xa7;COST" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;DIUT"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;DFUT"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="M&#xa7;USAG"/>
 </db-core:TableDef>

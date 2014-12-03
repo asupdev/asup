@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;COAZ0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="J&#xa7;OGCA" length="3"/>
-  <columns dataType="CHAR" name="J&#xa7;CD01" length="15"/>
-  <columns dataType="CHAR" name="J&#xa7;SECO" length="6"/>
-  <columns dataType="CHAR" name="J&#xa7;SEAZ" length="6"/>
-  <columns dataType="CHAR" name="J&#xa7;TICA" length="3"/>
-  <columns dataType="CHAR" name="J&#xa7;DESC" length="35"/>
-  <columns dataType="CHAR" name="J&#xa7;COAZ" length="200"/>
-  <columns dataType="CHAR" name="J&#xa7;LIVE" length="1"/>
-  <columns dataType="CHAR" name="J&#xa7;STAT" length="2"/>
-  <columns dataType="DECIMAL" name="J&#xa7;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="J&#xa7;DTAG" length="8"/>
-  <columns dataType="CHAR" name="J&#xa7;USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="J&#xa7;OGCA"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;CD01"/>
+  <columns dataType="CHAR" length="6" name="J&#xa7;SECO"/>
+  <columns dataType="CHAR" length="6" name="J&#xa7;SEAZ"/>
+  <columns dataType="CHAR" length="3" name="J&#xa7;TICA"/>
+  <columns dataType="CHAR" length="35" name="J&#xa7;DESC"/>
+  <columns dataType="CHAR" length="200" name="J&#xa7;COAZ"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="J&#xa7;STAT"/>
+  <columns dataType="DECIMAL" length="8" name="J&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="J&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="J&#xa7;USAG"/>
 </db-core:TableDef>

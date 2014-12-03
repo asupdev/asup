@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="CG&#xa3;TRI"/>
+  <columns dataType="CHAR" length="15" name="CG&#xa3;CRI"/>
+  <columns dataType="DECIMAL" length="8" name="CG&#xa3;DUC"/>
+  <columns dataType="DECIMAL" length="6" name="CG&#xa3;HUC"/>
+  <columns dataType="DECIMAL" length="8" name="CG&#xa3;DMN"/>
+  <columns dataType="DECIMAL" length="8" name="CG&#xa3;DMX"/>
+  <columns dataType="CHAR" length="9750" name="CG&#xa3;VAL"/>
+</db-core:TableDef>

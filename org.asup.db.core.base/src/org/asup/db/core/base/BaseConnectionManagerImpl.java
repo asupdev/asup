@@ -25,9 +25,7 @@ import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.impl.ConnectionManagerImpl;
-import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.datatools.connectivity.ConnectionProfileConstants;
@@ -39,7 +37,6 @@ import org.eclipse.datatools.connectivity.drivers.jdbc.IJDBCDriverDefinitionCons
 import org.eclipse.datatools.connectivity.drivers.models.TemplateDescriptor;
 import org.osgi.framework.Bundle;
 
-@SuppressWarnings("restriction")
 public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 
 	@Inject
@@ -50,11 +47,6 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 	@PostConstruct
 	public void init() {
 		this.connectionConfigs = new HashMap<String, QConnectionConfig>();
-
-		IAdapterFactory adapterFactory = new BaseConnectionAdapterFactoryImpl();
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnection.class);
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QConnectionConfig.class);
-
 	}
 
 	@Override

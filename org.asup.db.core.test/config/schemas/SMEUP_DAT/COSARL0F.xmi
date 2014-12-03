@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARL0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="L$COAR" length="15"/>
-  <columns dataType="CHAR" name="L$TCOS" length="3"/>
-  <columns dataType="CHAR" name="L$CLAR" length="15"/>
-  <columns dataType="CHAR" name="L$TREK" length="1"/>
-  <columns dataType="DECIMAL" name="L$MAV1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAF1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAA1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAS1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAV2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAF2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAA2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="L$MAS2" length="15" scale="5"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="L$COAR"/>
+  <columns dataType="CHAR" length="3" name="L$TCOS"/>
+  <columns dataType="CHAR" length="15" name="L$CLAR"/>
+  <columns dataType="CHAR" length="1" name="L$TREK"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAV1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAF1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAA1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAS1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAV2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAF2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAA2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAS2" scale="5"/>
 </db-core:TableDef>

@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5SRIS0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="SRTIRP" length="3"/>
-  <columns dataType="CHAR" name="SRCLAV" length="15"/>
-  <columns dataType="CHAR" name="SRTIRS" length="3"/>
-  <columns dataType="CHAR" name="SRMACC" length="15"/>
-  <columns dataType="CHAR" name="SRDESC" length="35"/>
-  <columns dataType="CHAR" name="SRCCOS" length="10"/>
-  <columns dataType="CHAR" name="SRCREP" length="15"/>
-  <columns dataType="CHAR" name="SRREPA" length="15"/>
-  <columns dataType="CHAR" name="SRUBIC" length="12"/>
-  <columns dataType="DECIMAL" name="SRDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="SRHRIN" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="SRDTFI" length="8"/>
-  <columns dataType="DECIMAL" name="SRHRFI" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="SRDISC" length="8"/>
-  <columns dataType="DECIMAL" name="SRHISC" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="SRDFSC" length="8"/>
-  <columns dataType="DECIMAL" name="SRHFSC" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="SRIN01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SRIN02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SRIN03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SRIN04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SRIN05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="SRFL01" length="1"/>
-  <columns dataType="CHAR" name="SRFL02" length="1"/>
-  <columns dataType="CHAR" name="SRFL03" length="1"/>
-  <columns dataType="CHAR" name="SRFL04" length="1"/>
-  <columns dataType="CHAR" name="SRFL05" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="SRTIRP"/>
+  <columns dataType="CHAR" length="15" name="SRCLAV"/>
+  <columns dataType="CHAR" length="3" name="SRTIRS"/>
+  <columns dataType="CHAR" length="15" name="SRMACC"/>
+  <columns dataType="CHAR" length="35" name="SRDESC"/>
+  <columns dataType="CHAR" length="10" name="SRCCOS"/>
+  <columns dataType="CHAR" length="15" name="SRCREP"/>
+  <columns dataType="CHAR" length="15" name="SRREPA"/>
+  <columns dataType="CHAR" length="12" name="SRUBIC"/>
+  <columns dataType="DECIMAL" length="8" name="SRDTIN"/>
+  <columns dataType="DECIMAL" length="4" name="SRHRIN" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="SRDTFI"/>
+  <columns dataType="DECIMAL" length="4" name="SRHRFI" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="SRDISC"/>
+  <columns dataType="DECIMAL" length="4" name="SRHISC" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="SRDFSC"/>
+  <columns dataType="DECIMAL" length="4" name="SRHFSC" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="SRIN01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SRIN02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SRIN03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SRIN04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SRIN05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="SRFL01"/>
+  <columns dataType="CHAR" length="1" name="SRFL02"/>
+  <columns dataType="CHAR" length="1" name="SRFL03"/>
+  <columns dataType="CHAR" length="1" name="SRFL04"/>
+  <columns dataType="CHAR" length="1" name="SRFL05"/>
 </db-core:TableDef>

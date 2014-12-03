@@ -1,96 +1,95 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5TRIP0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="V$CDVG" length="15"/>
-  <columns dataType="CHAR" name="V$DEVG" length="35"/>
-  <columns dataType="CHAR" name="V$TIVG" length="3"/>
-  <columns dataType="CHAR" name="V$NAVG" length="2"/>
-  <columns dataType="CHAR" name="V$LIVE" length="1"/>
-  <columns dataType="CHAR" name="V$STAT" length="2"/>
-  <columns dataType="DECIMAL" name="V$DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="V$DTAG" length="8"/>
-  <columns dataType="CHAR" name="V$USAG" length="10"/>
-  <columns dataType="CHAR" name="V$TIOG" length="2"/>
-  <columns dataType="CHAR" name="V$PAOG" length="10"/>
-  <columns dataType="CHAR" name="V$CDOG" length="15"/>
-  <columns dataType="CHAR" name="V$CDMZ" length="15"/>
-  <columns dataType="CHAR" name="V$IDMZ" length="15"/>
-  <columns dataType="CHAR" name="V$CDME" length="15"/>
-  <columns dataType="CHAR" name="V$IDME" length="15"/>
-  <columns dataType="CHAR" name="V$TIDE" length="2"/>
-  <columns dataType="CHAR" name="V$PADE" length="10"/>
-  <columns dataType="CHAR" name="V$CODE" length="15"/>
-  <columns dataType="DECIMAL" name="V$DPPA" length="8"/>
-  <columns dataType="DECIMAL" name="V$OPPA" length="6"/>
-  <columns dataType="DECIMAL" name="V$DEPA" length="8"/>
-  <columns dataType="DECIMAL" name="V$OEPA" length="6"/>
-  <columns dataType="DECIMAL" name="V$DPAR" length="8"/>
-  <columns dataType="DECIMAL" name="V$OPAR" length="6"/>
-  <columns dataType="DECIMAL" name="V$DEAR" length="8"/>
-  <columns dataType="DECIMAL" name="V$OEAR" length="6"/>
-  <columns dataType="DECIMAL" name="V$VOPR" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$VOEF" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$PEPR" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$PEEF" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$COPR" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$COEF" length="15" scale="3"/>
-  <columns dataType="CHAR" name="V$TDOC" length="3"/>
-  <columns dataType="CHAR" name="V$NDOC" length="10"/>
-  <columns dataType="CHAR" name="V$TDFS" length="3"/>
-  <columns dataType="CHAR" name="V$NDFS" length="10"/>
-  <columns dataType="CHAR" name="V$PER1" length="15"/>
-  <columns dataType="CHAR" name="V$PER2" length="15"/>
-  <columns dataType="CHAR" name="V$PER3" length="15"/>
-  <columns dataType="CHAR" name="V$PER4" length="15"/>
-  <columns dataType="CHAR" name="V$PER5" length="15"/>
-  <columns dataType="CHAR" name="V$COD1" length="15"/>
-  <columns dataType="CHAR" name="V$COD2" length="15"/>
-  <columns dataType="CHAR" name="V$COD3" length="15"/>
-  <columns dataType="CHAR" name="V$COD4" length="15"/>
-  <columns dataType="CHAR" name="V$COD5" length="15"/>
-  <columns dataType="DECIMAL" name="V$NUM1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V$NUM2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V$NUM3" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V$NUM4" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V$NUM5" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V$DT01" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT02" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT03" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT04" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT05" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT06" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT07" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT08" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT09" length="8"/>
-  <columns dataType="DECIMAL" name="V$DT10" length="8"/>
-  <columns dataType="DECIMAL" name="V$QI01" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI02" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI03" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI04" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI05" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI06" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI07" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI08" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI09" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="V$QI10" length="15" scale="3"/>
-  <columns dataType="CHAR" name="V$FL01" length="1"/>
-  <columns dataType="CHAR" name="V$FL02" length="1"/>
-  <columns dataType="CHAR" name="V$FL03" length="1"/>
-  <columns dataType="CHAR" name="V$FL04" length="1"/>
-  <columns dataType="CHAR" name="V$FL05" length="1"/>
-  <columns dataType="CHAR" name="V$FL06" length="1"/>
-  <columns dataType="CHAR" name="V$FL07" length="1"/>
-  <columns dataType="CHAR" name="V$FL08" length="1"/>
-  <columns dataType="CHAR" name="V$FL09" length="1"/>
-  <columns dataType="CHAR" name="V$FL10" length="1"/>
-  <columns dataType="CHAR" name="V$FL11" length="1"/>
-  <columns dataType="CHAR" name="V$FL12" length="1"/>
-  <columns dataType="CHAR" name="V$FL13" length="1"/>
-  <columns dataType="CHAR" name="V$FL14" length="1"/>
-  <columns dataType="CHAR" name="V$FL15" length="1"/>
-  <columns dataType="CHAR" name="V$FL16" length="1"/>
-  <columns dataType="CHAR" name="V$FL17" length="1"/>
-  <columns dataType="CHAR" name="V$FL18" length="1"/>
-  <columns dataType="CHAR" name="V$FL19" length="1"/>
-  <columns dataType="CHAR" name="V$FL20" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="V$CDVG"/>
+  <columns dataType="CHAR" length="35" name="V$DEVG"/>
+  <columns dataType="CHAR" length="3" name="V$TIVG"/>
+  <columns dataType="CHAR" length="2" name="V$NAVG"/>
+  <columns dataType="CHAR" length="1" name="V$LIVE"/>
+  <columns dataType="CHAR" length="2" name="V$STAT"/>
+  <columns dataType="DECIMAL" length="8" name="V$DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="V$DTAG"/>
+  <columns dataType="CHAR" length="10" name="V$USAG"/>
+  <columns dataType="CHAR" length="2" name="V$TIOG"/>
+  <columns dataType="CHAR" length="10" name="V$PAOG"/>
+  <columns dataType="CHAR" length="15" name="V$CDOG"/>
+  <columns dataType="CHAR" length="15" name="V$CDMZ"/>
+  <columns dataType="CHAR" length="15" name="V$IDMZ"/>
+  <columns dataType="CHAR" length="15" name="V$CDME"/>
+  <columns dataType="CHAR" length="15" name="V$IDME"/>
+  <columns dataType="CHAR" length="2" name="V$TIDE"/>
+  <columns dataType="CHAR" length="10" name="V$PADE"/>
+  <columns dataType="CHAR" length="15" name="V$CODE"/>
+  <columns dataType="DECIMAL" length="8" name="V$DPPA"/>
+  <columns dataType="DECIMAL" length="6" name="V$OPPA"/>
+  <columns dataType="DECIMAL" length="8" name="V$DEPA"/>
+  <columns dataType="DECIMAL" length="6" name="V$OEPA"/>
+  <columns dataType="DECIMAL" length="8" name="V$DPAR"/>
+  <columns dataType="DECIMAL" length="6" name="V$OPAR"/>
+  <columns dataType="DECIMAL" length="8" name="V$DEAR"/>
+  <columns dataType="DECIMAL" length="6" name="V$OEAR"/>
+  <columns dataType="DECIMAL" length="15" name="V$VOPR" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$VOEF" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$PEPR" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$PEEF" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$COPR" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$COEF" scale="3"/>
+  <columns dataType="CHAR" length="3" name="V$TDOC"/>
+  <columns dataType="CHAR" length="10" name="V$NDOC"/>
+  <columns dataType="CHAR" length="3" name="V$TDFS"/>
+  <columns dataType="CHAR" length="10" name="V$NDFS"/>
+  <columns dataType="CHAR" length="15" name="V$PER1"/>
+  <columns dataType="CHAR" length="15" name="V$PER2"/>
+  <columns dataType="CHAR" length="15" name="V$PER3"/>
+  <columns dataType="CHAR" length="15" name="V$PER4"/>
+  <columns dataType="CHAR" length="15" name="V$PER5"/>
+  <columns dataType="CHAR" length="15" name="V$COD1"/>
+  <columns dataType="CHAR" length="15" name="V$COD2"/>
+  <columns dataType="CHAR" length="15" name="V$COD3"/>
+  <columns dataType="CHAR" length="15" name="V$COD4"/>
+  <columns dataType="CHAR" length="15" name="V$COD5"/>
+  <columns dataType="DECIMAL" length="15" name="V$NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V$NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V$NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V$NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V$NUM5" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT01"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT02"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT03"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT04"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT05"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT06"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT07"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT08"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT09"/>
+  <columns dataType="DECIMAL" length="8" name="V$DT10"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI01" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI02" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI03" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI04" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI05" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI06" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI07" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI08" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI09" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="V$QI10" scale="3"/>
+  <columns dataType="CHAR" length="1" name="V$FL01"/>
+  <columns dataType="CHAR" length="1" name="V$FL02"/>
+  <columns dataType="CHAR" length="1" name="V$FL03"/>
+  <columns dataType="CHAR" length="1" name="V$FL04"/>
+  <columns dataType="CHAR" length="1" name="V$FL05"/>
+  <columns dataType="CHAR" length="1" name="V$FL06"/>
+  <columns dataType="CHAR" length="1" name="V$FL07"/>
+  <columns dataType="CHAR" length="1" name="V$FL08"/>
+  <columns dataType="CHAR" length="1" name="V$FL09"/>
+  <columns dataType="CHAR" length="1" name="V$FL10"/>
+  <columns dataType="CHAR" length="1" name="V$FL11"/>
+  <columns dataType="CHAR" length="1" name="V$FL12"/>
+  <columns dataType="CHAR" length="1" name="V$FL13"/>
+  <columns dataType="CHAR" length="1" name="V$FL14"/>
+  <columns dataType="CHAR" length="1" name="V$FL15"/>
+  <columns dataType="CHAR" length="1" name="V$FL16"/>
+  <columns dataType="CHAR" length="1" name="V$FL17"/>
+  <columns dataType="CHAR" length="1" name="V$FL18"/>
+  <columns dataType="CHAR" length="1" name="V$FL19"/>
+  <columns dataType="CHAR" length="1" name="V$FL20"/>
 </db-core:TableDef>

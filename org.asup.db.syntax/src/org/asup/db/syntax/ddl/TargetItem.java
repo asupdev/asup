@@ -41,7 +41,15 @@ public enum TargetItem implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CURRENT(1, "CURRENT", "CURRENT");
+	CURRENT(1, "CURRENT", "CURRENT"), /**
+	 * The '<em><b>ALLSQL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALLSQL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ALLSQL(2, "ALLSQL", "ALL SQL");
 
 	/**
 	 * The '<em><b>ALL</b></em>' literal value.
@@ -74,6 +82,21 @@ public enum TargetItem implements Enumerator {
 	public static final int CURRENT_VALUE = 1;
 
 	/**
+	 * The '<em><b>ALLSQL</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ALLSQL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ALLSQL
+	 * @model literal="ALL SQL"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ALLSQL_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Target Item</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +106,7 @@ public enum TargetItem implements Enumerator {
 		new TargetItem[] {
 			ALL,
 			CURRENT,
+			ALLSQL,
 		};
 
 	/**
@@ -135,6 +159,7 @@ public enum TargetItem implements Enumerator {
 		switch (value) {
 			case ALL_VALUE: return ALL;
 			case CURRENT_VALUE: return CURRENT;
+			case ALLSQL_VALUE: return ALLSQL;
 		}
 		return null;
 	}

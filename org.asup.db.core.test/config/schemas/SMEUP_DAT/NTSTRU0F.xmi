@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NTSTRU0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C$TIPC" length="3"/>
-  <columns dataType="CHAR" name="C$KYC1" length="15"/>
-  <columns dataType="CHAR" name="C$KYC2" length="15"/>
-  <columns dataType="CHAR" name="C$KYC3" length="15"/>
-  <columns dataType="CHAR" name="C$TIPI" length="3"/>
-  <columns dataType="DECIMAL" name="C$RIGN" length="3"/>
-  <columns dataType="CHAR" name="C$NOTA" length="100"/>
-  <columns dataType="CHAR" name="C$FLGN" length="1"/>
-  <columns dataType="DECIMAL" name="C$DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="C$ORIN" length="6"/>
-  <columns dataType="CHAR" name="C$USIN" length="10"/>
-  <columns dataType="CHAR" name="C$OGIN" length="10"/>
-  <columns dataType="DECIMAL" name="C$DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="C$ORAG" length="6"/>
-  <columns dataType="CHAR" name="C$USAG" length="10"/>
-  <columns dataType="CHAR" name="C$OGAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="C$TIPC"/>
+  <columns dataType="CHAR" length="15" name="C$KYC1"/>
+  <columns dataType="CHAR" length="15" name="C$KYC2"/>
+  <columns dataType="CHAR" length="15" name="C$KYC3"/>
+  <columns dataType="CHAR" length="3" name="C$TIPI"/>
+  <columns dataType="DECIMAL" length="3" name="C$RIGN"/>
+  <columns dataType="CHAR" length="100" name="C$NOTA"/>
+  <columns dataType="CHAR" length="1" name="C$FLGN"/>
+  <columns dataType="DECIMAL" length="8" name="C$DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="C$ORIN"/>
+  <columns dataType="CHAR" length="10" name="C$USIN"/>
+  <columns dataType="CHAR" length="10" name="C$OGIN"/>
+  <columns dataType="DECIMAL" length="8" name="C$DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="C$ORAG"/>
+  <columns dataType="CHAR" length="10" name="C$USAG"/>
+  <columns dataType="CHAR" length="10" name="C$OGAG"/>
 </db-core:TableDef>

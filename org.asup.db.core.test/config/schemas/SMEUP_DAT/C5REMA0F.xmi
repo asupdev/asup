@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="K5IDOJ"/>
+  <columns dataType="CHAR" length="2" name="K5AZIE"/>
+  <columns dataType="CHAR" length="15" name="K5RABA"/>
+  <columns dataType="CHAR" length="10" name="K5TREC"/>
+  <columns dataType="CHAR" length="3" name="K5BANC"/>
+  <columns dataType="CHAR" length="10000" name="K5REC"/>
+  <columns dataType="DECIMAL" length="8" name="K5DT01"/>
+  <columns dataType="DECIMAL" length="8" name="K5DT02"/>
+  <columns dataType="DECIMAL" length="8" name="K5DT03"/>
+  <columns dataType="DECIMAL" length="8" name="K5DT04"/>
+  <columns dataType="DECIMAL" length="8" name="K5DT05"/>
+  <columns dataType="CHAR" length="15" name="K5AA01"/>
+  <columns dataType="CHAR" length="15" name="K5AA02"/>
+  <columns dataType="CHAR" length="15" name="K5AA03"/>
+  <columns dataType="CHAR" length="15" name="K5AA04"/>
+  <columns dataType="CHAR" length="15" name="K5AA05"/>
+  <columns dataType="DECIMAL" length="15" name="K5NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="K5NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="K5NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="K5NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="K5NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="K5FL01"/>
+  <columns dataType="CHAR" length="1" name="K5FL02"/>
+  <columns dataType="CHAR" length="1" name="K5FL03"/>
+  <columns dataType="CHAR" length="1" name="K5FL04"/>
+  <columns dataType="CHAR" length="1" name="K5FL05"/>
+  <columns dataType="CHAR" length="1" name="K5FL06"/>
+  <columns dataType="CHAR" length="1" name="K5FL07"/>
+  <columns dataType="CHAR" length="1" name="K5FL08"/>
+  <columns dataType="CHAR" length="1" name="K5FL09"/>
+  <columns dataType="CHAR" length="1" name="K5FL10"/>
+  <columns dataType="CHAR" length="1" name="K5FL11"/>
+  <columns dataType="CHAR" length="1" name="K5FL12"/>
+  <columns dataType="CHAR" length="1" name="K5FL13"/>
+  <columns dataType="CHAR" length="1" name="K5FL14"/>
+  <columns dataType="CHAR" length="1" name="K5FL15"/>
+  <columns dataType="CHAR" length="1" name="K5FL16"/>
+  <columns dataType="CHAR" length="1" name="K5FL17"/>
+  <columns dataType="CHAR" length="1" name="K5FL18"/>
+  <columns dataType="CHAR" length="1" name="K5FL19"/>
+  <columns dataType="CHAR" length="1" name="K5FL20"/>
+  <columns dataType="DECIMAL" length="8" name="K5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="K5ORIN"/>
+  <columns dataType="CHAR" length="10" name="K5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="K5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="K5ORAG"/>
+  <columns dataType="CHAR" length="10" name="K5USAG"/>
+</db-core:TableDef>

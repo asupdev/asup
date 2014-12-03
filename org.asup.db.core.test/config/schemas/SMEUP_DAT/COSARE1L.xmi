@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARE1L" creationCommand=" CREATE VIEW COSARE1L (   E$TCOS ,   E$ASSI ,   E$COMP ,   E$FASE ,   E$COER ,   E$TIER ,   E$GRER ,   E$TOER )   AS   SELECT   E$TCOS ,   E$ASSI ,   E$COMP ,   E$FASE ,   E$COER ,   E$TIER ,   E$GRER ,   E$TOER   FROM COSARE0F   ;  "/>

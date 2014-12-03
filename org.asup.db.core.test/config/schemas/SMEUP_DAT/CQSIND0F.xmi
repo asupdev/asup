@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQSIND0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="S&#xa7;DTRI" length="11"/>
-  <columns dataType="CHAR" name="S&#xa7;DDRI" length="30"/>
-  <columns dataType="CHAR" name="S&#xa7;DART" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;DEFO" length="2"/>
-  <columns dataType="CHAR" name="S&#xa7;DCFO" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;DCNC" length="10"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DQSC" length="9" scale="3"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DQRL" length="9" scale="3"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DTEM" length="3"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="11" name="S&#xa7;DTRI"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;DDRI"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;DART"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;DEFO"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;DCFO"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;DCNC"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;DQSC" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;DQRL" scale="3"/>
+  <columns dataType="DECIMAL" length="3" name="S&#xa7;DTEM"/>
 </db-core:TableDef>

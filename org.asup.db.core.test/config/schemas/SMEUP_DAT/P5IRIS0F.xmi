@@ -1,116 +1,115 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5IRIS0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="SFTIRS" length="3"/>
-  <columns dataType="CHAR" name="SFTSCH" length="3"/>
-  <columns dataType="CHAR" name="SFTORI" length="2"/>
-  <columns dataType="CHAR" name="SFTDOC" length="3"/>
-  <columns dataType="CHAR" name="SFNDOC" length="10"/>
-  <columns dataType="DECIMAL" name="SFNRIG" length="4"/>
-  <columns dataType="CHAR" name="SFOPER" length="6"/>
-  <columns dataType="CHAR" name="SFOPRI" length="6"/>
-  <columns dataType="CHAR" name="SFTIRP" length="3"/>
-  <columns dataType="CHAR" name="SFCLAV" length="15"/>
-  <columns dataType="CHAR" name="SFTIRF" length="3"/>
-  <columns dataType="CHAR" name="SFMACC" length="15"/>
-  <columns dataType="CHAR" name="SFATTR" length="15"/>
-  <columns dataType="DECIMAL" name="SFLOTT" length="4"/>
-  <columns dataType="CHAR" name="SFCOAR" length="15"/>
-  <columns dataType="CHAR" name="SFS$OR" length="2"/>
-  <columns dataType="CHAR" name="SFL$OR" length="1"/>
-  <columns dataType="CHAR" name="SFS$OP" length="2"/>
-  <columns dataType="CHAR" name="SFL$OP" length="1"/>
-  <columns dataType="CHAR" name="SFCAUS" length="5"/>
-  <columns dataType="DECIMAL" name="SFQTOR" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SFQTSC" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SFQORD" length="11" scale="3"/>
-  <columns dataType="CHAR" name="SFUMIS" length="2"/>
-  <columns dataType="CHAR" name="SFTRIN" length="1"/>
-  <columns dataType="DECIMAL" name="SFDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="SFHRIN" length="6"/>
-  <columns dataType="CHAR" name="SFTRFI" length="1"/>
-  <columns dataType="DECIMAL" name="SFDTFI" length="8"/>
-  <columns dataType="DECIMAL" name="SFHRFI" length="6"/>
-  <columns dataType="CHAR" name="SFMAGC" length="3"/>
-  <columns dataType="CHAR" name="SFDEAR" length="35"/>
-  <columns dataType="CHAR" name="SFTIEN" length="3"/>
-  <columns dataType="CHAR" name="SFCLIE" length="15"/>
-  <columns dataType="CHAR" name="SFCOMS" length="15"/>
-  <columns dataType="CHAR" name="SFPRIO" length="2"/>
-  <columns dataType="DECIMAL" name="SFDIRI" length="8"/>
-  <columns dataType="DECIMAL" name="SFDFRI" length="8"/>
-  <columns dataType="CHAR" name="SFDEOP" length="30"/>
-  <columns dataType="DECIMAL" name="SFHATR" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="SFHUNI" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SFDIEF" length="8"/>
-  <columns dataType="DECIMAL" name="SFDISC" length="8"/>
-  <columns dataType="DECIMAL" name="SFHISC" length="6"/>
-  <columns dataType="DECIMAL" name="SFDFSC" length="8"/>
-  <columns dataType="DECIMAL" name="SFHFSC" length="6"/>
-  <columns dataType="DECIMAL" name="SFQUET" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="SFHTOT" length="8" scale="2"/>
-  <columns dataType="CHAR" name="SFCROR" length="30"/>
-  <columns dataType="DECIMAL" name="SFDTPP" length="8"/>
-  <columns dataType="DECIMAL" name="SFHRPP" length="6"/>
-  <columns dataType="DECIMAL" name="SFDTPT" length="8"/>
-  <columns dataType="DECIMAL" name="SFHRPT" length="6"/>
-  <columns dataType="CHAR" name="SFVEIT" length="2"/>
-  <columns dataType="DECIMAL" name="SFVEID" length="8"/>
-  <columns dataType="DECIMAL" name="SFVEIH" length="6"/>
-  <columns dataType="CHAR" name="SFVEFT" length="2"/>
-  <columns dataType="DECIMAL" name="SFVEFD" length="8"/>
-  <columns dataType="DECIMAL" name="SFVEFH" length="6"/>
-  <columns dataType="CHAR" name="SFSINT" length="15"/>
-  <columns dataType="CHAR" name="SFFL01" length="1"/>
-  <columns dataType="CHAR" name="SFFL02" length="1"/>
-  <columns dataType="CHAR" name="SFFL03" length="1"/>
-  <columns dataType="CHAR" name="SFFL04" length="1"/>
-  <columns dataType="CHAR" name="SFFL05" length="1"/>
-  <columns dataType="CHAR" name="SFER01" length="1"/>
-  <columns dataType="CHAR" name="SFER02" length="1"/>
-  <columns dataType="CHAR" name="SFER03" length="1"/>
-  <columns dataType="CHAR" name="SFER04" length="1"/>
-  <columns dataType="CHAR" name="SFTIPO" length="1"/>
-  <columns dataType="CHAR" name="SFSPLT" length="1"/>
-  <columns dataType="CHAR" name="SFSOSP" length="1"/>
-  <columns dataType="CHAR" name="SFSECO" length="1"/>
-  <columns dataType="CHAR" name="SFSTOP" length="1"/>
-  <columns dataType="CHAR" name="SFCLMO" length="1"/>
-  <columns dataType="CHAR" name="SFRINO" length="1"/>
-  <columns dataType="CHAR" name="SFFL17" length="1"/>
-  <columns dataType="CHAR" name="SFFL18" length="1"/>
-  <columns dataType="CHAR" name="SFFL19" length="1"/>
-  <columns dataType="CHAR" name="SFFL20" length="1"/>
-  <columns dataType="CHAR" name="SFTCIC" length="3"/>
-  <columns dataType="CHAR" name="SFCICL" length="3"/>
-  <columns dataType="CHAR" name="SFTOPE" length="3"/>
-  <columns dataType="CHAR" name="SFGRAL" length="5"/>
-  <columns dataType="CHAR" name="SFCODC" length="15"/>
-  <columns dataType="CHAR" name="SFCICC" length="3"/>
-  <columns dataType="CHAR" name="SFSQCC" length="6"/>
-  <columns dataType="CHAR" name="SFUMTE" length="2"/>
-  <columns dataType="DECIMAL" name="SFTE01" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE02" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE03" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE04" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE05" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE06" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE07" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE08" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE09" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFTE10" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC01" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC02" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC03" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC04" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC05" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC06" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC07" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC08" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC09" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SFCC10" length="11" scale="4"/>
-  <columns dataType="CHAR" name="SFNOTA" length="50"/>
-  <columns dataType="DECIMAL" name="SFDTCR" length="8"/>
-  <columns dataType="DECIMAL" name="SFDTAG" length="8"/>
-  <columns dataType="CHAR" name="SFUSAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="SFTIRS"/>
+  <columns dataType="CHAR" length="3" name="SFTSCH"/>
+  <columns dataType="CHAR" length="2" name="SFTORI"/>
+  <columns dataType="CHAR" length="3" name="SFTDOC"/>
+  <columns dataType="CHAR" length="10" name="SFNDOC"/>
+  <columns dataType="DECIMAL" length="4" name="SFNRIG"/>
+  <columns dataType="CHAR" length="6" name="SFOPER"/>
+  <columns dataType="CHAR" length="6" name="SFOPRI"/>
+  <columns dataType="CHAR" length="3" name="SFTIRP"/>
+  <columns dataType="CHAR" length="15" name="SFCLAV"/>
+  <columns dataType="CHAR" length="3" name="SFTIRF"/>
+  <columns dataType="CHAR" length="15" name="SFMACC"/>
+  <columns dataType="CHAR" length="15" name="SFATTR"/>
+  <columns dataType="DECIMAL" length="4" name="SFLOTT"/>
+  <columns dataType="CHAR" length="15" name="SFCOAR"/>
+  <columns dataType="CHAR" length="2" name="SFS$OR"/>
+  <columns dataType="CHAR" length="1" name="SFL$OR"/>
+  <columns dataType="CHAR" length="2" name="SFS$OP"/>
+  <columns dataType="CHAR" length="1" name="SFL$OP"/>
+  <columns dataType="CHAR" length="5" name="SFCAUS"/>
+  <columns dataType="DECIMAL" length="11" name="SFQTOR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SFQTSC" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SFQORD" scale="3"/>
+  <columns dataType="CHAR" length="2" name="SFUMIS"/>
+  <columns dataType="CHAR" length="1" name="SFTRIN"/>
+  <columns dataType="DECIMAL" length="8" name="SFDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="SFHRIN"/>
+  <columns dataType="CHAR" length="1" name="SFTRFI"/>
+  <columns dataType="DECIMAL" length="8" name="SFDTFI"/>
+  <columns dataType="DECIMAL" length="6" name="SFHRFI"/>
+  <columns dataType="CHAR" length="3" name="SFMAGC"/>
+  <columns dataType="CHAR" length="35" name="SFDEAR"/>
+  <columns dataType="CHAR" length="3" name="SFTIEN"/>
+  <columns dataType="CHAR" length="15" name="SFCLIE"/>
+  <columns dataType="CHAR" length="15" name="SFCOMS"/>
+  <columns dataType="CHAR" length="2" name="SFPRIO"/>
+  <columns dataType="DECIMAL" length="8" name="SFDIRI"/>
+  <columns dataType="DECIMAL" length="8" name="SFDFRI"/>
+  <columns dataType="CHAR" length="30" name="SFDEOP"/>
+  <columns dataType="DECIMAL" length="5" name="SFHATR" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="SFHUNI" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="SFDIEF"/>
+  <columns dataType="DECIMAL" length="8" name="SFDISC"/>
+  <columns dataType="DECIMAL" length="6" name="SFHISC"/>
+  <columns dataType="DECIMAL" length="8" name="SFDFSC"/>
+  <columns dataType="DECIMAL" length="6" name="SFHFSC"/>
+  <columns dataType="DECIMAL" length="5" name="SFQUET" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="SFHTOT" scale="2"/>
+  <columns dataType="CHAR" length="30" name="SFCROR"/>
+  <columns dataType="DECIMAL" length="8" name="SFDTPP"/>
+  <columns dataType="DECIMAL" length="6" name="SFHRPP"/>
+  <columns dataType="DECIMAL" length="8" name="SFDTPT"/>
+  <columns dataType="DECIMAL" length="6" name="SFHRPT"/>
+  <columns dataType="CHAR" length="2" name="SFVEIT"/>
+  <columns dataType="DECIMAL" length="8" name="SFVEID"/>
+  <columns dataType="DECIMAL" length="6" name="SFVEIH"/>
+  <columns dataType="CHAR" length="2" name="SFVEFT"/>
+  <columns dataType="DECIMAL" length="8" name="SFVEFD"/>
+  <columns dataType="DECIMAL" length="6" name="SFVEFH"/>
+  <columns dataType="CHAR" length="15" name="SFSINT"/>
+  <columns dataType="CHAR" length="1" name="SFFL01"/>
+  <columns dataType="CHAR" length="1" name="SFFL02"/>
+  <columns dataType="CHAR" length="1" name="SFFL03"/>
+  <columns dataType="CHAR" length="1" name="SFFL04"/>
+  <columns dataType="CHAR" length="1" name="SFFL05"/>
+  <columns dataType="CHAR" length="1" name="SFER01"/>
+  <columns dataType="CHAR" length="1" name="SFER02"/>
+  <columns dataType="CHAR" length="1" name="SFER03"/>
+  <columns dataType="CHAR" length="1" name="SFER04"/>
+  <columns dataType="CHAR" length="1" name="SFTIPO"/>
+  <columns dataType="CHAR" length="1" name="SFSPLT"/>
+  <columns dataType="CHAR" length="1" name="SFSOSP"/>
+  <columns dataType="CHAR" length="1" name="SFSECO"/>
+  <columns dataType="CHAR" length="1" name="SFSTOP"/>
+  <columns dataType="CHAR" length="1" name="SFCLMO"/>
+  <columns dataType="CHAR" length="1" name="SFRINO"/>
+  <columns dataType="CHAR" length="1" name="SFFL17"/>
+  <columns dataType="CHAR" length="1" name="SFFL18"/>
+  <columns dataType="CHAR" length="1" name="SFFL19"/>
+  <columns dataType="CHAR" length="1" name="SFFL20"/>
+  <columns dataType="CHAR" length="3" name="SFTCIC"/>
+  <columns dataType="CHAR" length="3" name="SFCICL"/>
+  <columns dataType="CHAR" length="3" name="SFTOPE"/>
+  <columns dataType="CHAR" length="5" name="SFGRAL"/>
+  <columns dataType="CHAR" length="15" name="SFCODC"/>
+  <columns dataType="CHAR" length="3" name="SFCICC"/>
+  <columns dataType="CHAR" length="6" name="SFSQCC"/>
+  <columns dataType="CHAR" length="2" name="SFUMTE"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFTE10" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SFCC10" scale="4"/>
+  <columns dataType="CHAR" length="50" name="SFNOTA"/>
+  <columns dataType="DECIMAL" length="8" name="SFDTCR"/>
+  <columns dataType="DECIMAL" length="8" name="SFDTAG"/>
+  <columns dataType="CHAR" length="10" name="SFUSAG"/>
 </db-core:TableDef>

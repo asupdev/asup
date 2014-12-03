@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGCHSC0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="HCHNEG" length="3"/>
-  <columns dataType="DECIMAL" name="HCHDAT" length="8"/>
-  <columns dataType="CHAR" name="HCHRCH" length="3"/>
-  <columns dataType="CHAR" name="HCHCAS" length="3"/>
-  <columns dataType="CHAR" name="HCHTIP" length="1"/>
-  <columns dataType="DECIMAL" name="HCHIGT" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIGC" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHICZ" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHINZ" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIMH" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIMM" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIMR" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIMA" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIME" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIGD" length="18" scale="3"/>
-  <columns dataType="CHAR" name="HCHDIC" length="2"/>
-  <columns dataType="CHAR" name="HCHNKY" length="30"/>
-  <columns dataType="CHAR" name="HCHSTA" length="2"/>
-  <columns dataType="CHAR" name="HCHFLT" length="1"/>
-  <columns dataType="DECIMAL" name="HCHISG" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHIRG" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHNNC" length="7"/>
-  <columns dataType="DECIMAL" name="HCHNSC" length="7"/>
-  <columns dataType="DECIMAL" name="HCHNRZ" length="7"/>
-  <columns dataType="CHAR" name="HCHSTS" length="2"/>
-  <columns dataType="CHAR" name="HCHFLC" length="1"/>
-  <columns dataType="DECIMAL" name="HCHICC" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHTFT" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHNFI" length="7"/>
-  <columns dataType="DECIMAL" name="HCHNFF" length="7"/>
-  <columns dataType="DECIMAL" name="HCHTPR" length="18" scale="3"/>
-  <columns dataType="DECIMAL" name="HCHNPI" length="7"/>
-  <columns dataType="DECIMAL" name="HCHNPF" length="7"/>
-  <columns dataType="CHAR" name="HCHAPE" length="1"/>
-  <columns dataType="DECIMAL" name="HCHIDV" length="18" scale="3"/>
-  <columns dataType="CHAR" name="HCHOPE" length="8"/>
-  <columns dataType="CHAR" name="HCHPRV" length="1"/>
-  <columns dataType="CHAR" name="HCPROG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="HCHNEG"/>
+  <columns dataType="DECIMAL" length="8" name="HCHDAT"/>
+  <columns dataType="CHAR" length="3" name="HCHRCH"/>
+  <columns dataType="CHAR" length="3" name="HCHCAS"/>
+  <columns dataType="CHAR" length="1" name="HCHTIP"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIGT" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIGC" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHICZ" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHINZ" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIMH" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIMM" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIMR" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIMA" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIME" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIGD" scale="3"/>
+  <columns dataType="CHAR" length="2" name="HCHDIC"/>
+  <columns dataType="CHAR" length="30" name="HCHNKY"/>
+  <columns dataType="CHAR" length="2" name="HCHSTA"/>
+  <columns dataType="CHAR" length="1" name="HCHFLT"/>
+  <columns dataType="DECIMAL" length="18" name="HCHISG" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIRG" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNNC"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNSC"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNRZ"/>
+  <columns dataType="CHAR" length="2" name="HCHSTS"/>
+  <columns dataType="CHAR" length="1" name="HCHFLC"/>
+  <columns dataType="DECIMAL" length="18" name="HCHICC" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="HCHTFT" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNFI"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNFF"/>
+  <columns dataType="DECIMAL" length="18" name="HCHTPR" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNPI"/>
+  <columns dataType="DECIMAL" length="7" name="HCHNPF"/>
+  <columns dataType="CHAR" length="1" name="HCHAPE"/>
+  <columns dataType="DECIMAL" length="18" name="HCHIDV" scale="3"/>
+  <columns dataType="CHAR" length="8" name="HCHOPE"/>
+  <columns dataType="CHAR" length="1" name="HCHPRV"/>
+  <columns dataType="CHAR" length="10" name="HCPROG"/>
 </db-core:TableDef>

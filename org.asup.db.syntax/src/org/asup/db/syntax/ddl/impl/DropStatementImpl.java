@@ -8,10 +8,11 @@
 package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
+import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.DropRange;
-import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QDropStatement;
+import org.asup.db.syntax.ddl.TargetElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getRange <em>Range</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getTargetName <em>Target Name</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getTarget <em>Target</em>}</li>
@@ -35,6 +37,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class DropStatementImpl extends EObjectImpl implements QDropStatement {
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected StatementType type = TYPE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,7 +95,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DropTarget TARGET_EDEFAULT = DropTarget.ALIAS;
+	protected static final TargetElement TARGET_EDEFAULT = TargetElement.ALIAS;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
@@ -83,7 +105,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 * @ordered
 	 */
-	protected DropTarget target = TARGET_EDEFAULT;
+	protected TargetElement target = TARGET_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +124,27 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	protected EClass eStaticClass() {
 		return QDdlPackage.Literals.DROP_STATEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StatementType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(StatementType newType) {
+		StatementType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -173,7 +216,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DropTarget getTarget() {
+	public TargetElement getTarget() {
 		return target;
 	}
 
@@ -182,8 +225,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(DropTarget newTarget) {
-		DropTarget oldTarget = target;
+	public void setTarget(TargetElement newTarget) {
+		TargetElement oldTarget = target;
 		target = newTarget == null ? TARGET_EDEFAULT : newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET, oldTarget, target));
@@ -211,6 +254,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QDdlPackage.DROP_STATEMENT__TYPE:
+				return getType();
 			case QDdlPackage.DROP_STATEMENT__RANGE:
 				return getRange();
 			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
@@ -229,6 +274,9 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QDdlPackage.DROP_STATEMENT__TYPE:
+				setType((StatementType)newValue);
+				return;
 			case QDdlPackage.DROP_STATEMENT__RANGE:
 				setRange((DropRange)newValue);
 				return;
@@ -236,7 +284,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 				setTargetName((QQualifiedName)newValue);
 				return;
 			case QDdlPackage.DROP_STATEMENT__TARGET:
-				setTarget((DropTarget)newValue);
+				setTarget((TargetElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -250,6 +298,9 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QDdlPackage.DROP_STATEMENT__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 			case QDdlPackage.DROP_STATEMENT__RANGE:
 				setRange(RANGE_EDEFAULT);
 				return;
@@ -271,6 +322,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QDdlPackage.DROP_STATEMENT__TYPE:
+				return type != TYPE_EDEFAULT;
 			case QDdlPackage.DROP_STATEMENT__RANGE:
 				return range != RANGE_EDEFAULT;
 			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
@@ -291,7 +344,9 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (range: ");
+		result.append(" (type: ");
+		result.append(type);
+		result.append(", range: ");
 		result.append(range);
 		result.append(", target: ");
 		result.append(target);

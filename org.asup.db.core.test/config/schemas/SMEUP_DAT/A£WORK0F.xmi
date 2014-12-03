@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A&#xa3;WORK0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="AWIDOG" length="15"/>
-  <columns dataType="DECIMAL" name="AWDATA" length="8"/>
-  <columns dataType="DECIMAL" name="AWISTA" length="6"/>
-  <columns dataType="CHAR" name="AWDALF" length="10"/>
-  <columns dataType="CHAR" name="AWMODU" length="6"/>
-  <columns dataType="CHAR" name="AWTOGG" length="12"/>
-  <columns dataType="CHAR" name="AWCOGG" length="15"/>
-  <columns dataType="DECIMAL" name="AWNR01" length="21" scale="6"/>
-  <columns dataType="CHAR" name="AWNOTA" length="2000"/>
-  <columns dataType="CHAR" name="AWNOT2" length="2000"/>
-  <columns dataType="CHAR" name="AWFL01" length="1"/>
-  <columns dataType="CHAR" name="AWFL02" length="1"/>
-  <columns dataType="CHAR" name="AWUSIN" length="10"/>
-  <columns dataType="DECIMAL" name="AWDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="AWORIN" length="6"/>
-  <columns dataType="CHAR" name="AWOGIN" length="10"/>
-  <columns dataType="CHAR" name="AWUSAG" length="10"/>
-  <columns dataType="DECIMAL" name="AWDTAG" length="8"/>
-  <columns dataType="DECIMAL" name="AWORAG" length="6"/>
-  <columns dataType="CHAR" name="AWOGAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="AWIDOG"/>
+  <columns dataType="DECIMAL" length="8" name="AWDATA"/>
+  <columns dataType="DECIMAL" length="6" name="AWISTA"/>
+  <columns dataType="CHAR" length="10" name="AWDALF"/>
+  <columns dataType="CHAR" length="6" name="AWMODU"/>
+  <columns dataType="CHAR" length="12" name="AWTOGG"/>
+  <columns dataType="CHAR" length="15" name="AWCOGG"/>
+  <columns dataType="DECIMAL" length="21" name="AWNR01" scale="6"/>
+  <columns dataType="CHAR" length="2000" name="AWNOTA"/>
+  <columns dataType="CHAR" length="2000" name="AWNOT2"/>
+  <columns dataType="CHAR" length="1" name="AWFL01"/>
+  <columns dataType="CHAR" length="1" name="AWFL02"/>
+  <columns dataType="CHAR" length="10" name="AWUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="AWDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="AWORIN"/>
+  <columns dataType="CHAR" length="10" name="AWOGIN"/>
+  <columns dataType="CHAR" length="10" name="AWUSAG"/>
+  <columns dataType="DECIMAL" length="8" name="AWDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="AWORAG"/>
+  <columns dataType="CHAR" length="10" name="AWOGAG"/>
 </db-core:TableDef>

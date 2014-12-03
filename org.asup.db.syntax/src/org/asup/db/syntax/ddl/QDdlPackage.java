@@ -70,7 +70,192 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCommitStatement()
 	 * @generated
 	 */
-	int COMMIT_STATEMENT = 0;
+	int COMMIT_STATEMENT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.ConnectStatementImpl <em>Connect Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.ConnectStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getConnectStatement()
+	 * @generated
+	 */
+	int CONNECT_STATEMENT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl <em>Create Alias Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateAliasStatement()
+	 * @generated
+	 */
+	int CREATE_ALIAS_STATEMENT = 3;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl <em>Create Index Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateIndexStatement()
+	 * @generated
+	 */
+	int CREATE_INDEX_STATEMENT = 4;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateTableStatementImpl <em>Create Table Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CreateTableStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateTableStatement()
+	 * @generated
+	 */
+	int CREATE_TABLE_STATEMENT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateViewStatementImpl <em>Create View Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CreateViewStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateViewStatement()
+	 * @generated
+	 */
+	int CREATE_VIEW_STATEMENT = 6;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl <em>Disconnect Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.DisconnectStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDisconnectStatement()
+	 * @generated
+	 */
+	int DISCONNECT_STATEMENT = 7;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropStatementImpl <em>Drop Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.DropStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropStatement()
+	 * @generated
+	 */
+	int DROP_STATEMENT = 8;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl <em>Lock Table Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.LockTableStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getLockTableStatement()
+	 * @generated
+	 */
+	int LOCK_TABLE_STATEMENT = 9;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.ReleaseStatementImpl <em>Release Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.ReleaseStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getReleaseStatement()
+	 * @generated
+	 */
+	int RELEASE_STATEMENT = 10;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl <em>Rename Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.RenameStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRenameStatement()
+	 * @generated
+	 */
+	int RENAME_STATEMENT = 11;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.RollbackStatementImpl <em>Rollback Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.RollbackStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRollbackStatement()
+	 * @generated
+	 */
+	int ROLLBACK_STATEMENT = 12;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.SetConnectionStatementImpl <em>Set Connection Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.SetConnectionStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getSetConnectionStatement()
+	 * @generated
+	 */
+	int SET_CONNECTION_STATEMENT = 13;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl <em>Set Transaction Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getSetTransactionStatement()
+	 * @generated
+	 */
+	int SET_TRANSACTION_STATEMENT = 14;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CallStatementImpl <em>Call Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CallStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCallStatement()
+	 * @generated
+	 */
+	int CALL_STATEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Procedure Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT__PROCEDURE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parms</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT__PARMS = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Call Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Hold</b></em>' attribute.
@@ -91,14 +276,13 @@ public interface QDdlPackage extends EPackage {
 	int COMMIT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.ConnectStatementImpl <em>Connect Statement</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.ConnectStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getConnectStatement()
 	 * @generated
+	 * @ordered
 	 */
-	int CONNECT_STATEMENT = 1;
+	int CONNECT_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Pwd</b></em>' attribute.
@@ -146,14 +330,13 @@ public interface QDdlPackage extends EPackage {
 	int CONNECT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl <em>Create Alias Statement</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateAliasStatement()
 	 * @generated
+	 * @ordered
 	 */
-	int CREATE_ALIAS_STATEMENT = 2;
+	int CREATE_ALIAS_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Alias Name</b></em>' containment reference.
@@ -183,14 +366,13 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_ALIAS_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl <em>Create Index Statement</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateIndexStatement()
 	 * @generated
+	 * @ordered
 	 */
-	int CREATE_INDEX_STATEMENT = 3;
+	int CREATE_INDEX_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Index Name</b></em>' containment reference.
@@ -238,14 +420,13 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_INDEX_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateTableStatementImpl <em>Create Table Statement</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.CreateTableStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateTableStatement()
 	 * @generated
+	 * @ordered
 	 */
-	int CREATE_TABLE_STATEMENT = 4;
+	int CREATE_TABLE_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Table Name</b></em>' containment reference.
@@ -274,16 +455,59 @@ public interface QDdlPackage extends EPackage {
 	 */
 	int CREATE_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
-
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl <em>Disconnect Statement</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.DisconnectStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDisconnectStatement()
 	 * @generated
+	 * @ordered
 	 */
-	int DISCONNECT_STATEMENT = 5;
+	int CREATE_VIEW_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__FIELDS = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__QUERY = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>View Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__VIEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Create View Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCONNECT_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -304,14 +528,13 @@ public interface QDdlPackage extends EPackage {
 	int DISCONNECT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DropStatementImpl <em>Drop Statement</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.DropStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropStatement()
 	 * @generated
+	 * @ordered
 	 */
-	int DROP_STATEMENT = 6;
+	int DROP_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -350,6 +573,222 @@ public interface QDdlPackage extends EPackage {
 	int DROP_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Allow Read</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__ALLOW_READ = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Share Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__SHARE_MODE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Table Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__TABLE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Lock Table Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Server Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_STATEMENT__SERVER_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Release Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>New Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__NEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__SYSTEM = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Original Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__ORIGINAL_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__TARGET = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Rename Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLLBACK_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Hold</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLLBACK_STATEMENT__HOLD = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Rollback Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLLBACK_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_CONNECTION_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Database Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_CONNECTION_STATEMENT__DATABASE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Set Connection Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_CONNECTION_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_TRANSACTION_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Isolation Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Rw Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_TRANSACTION_STATEMENT__RW_OPERATION = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Set Transaction Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_TRANSACTION_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -357,17 +796,27 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropRange()
 	 * @generated
 	 */
-	int DROP_RANGE = 7;
+	int DROP_RANGE = 15;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.DropTarget
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
+	 * @see org.asup.db.syntax.ddl.TargetElement
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetElement()
 	 * @generated
 	 */
-	int DROP_TARGET = 8;
+	int TARGET_ELEMENT = 16;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.ShareMode
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getShareMode()
+	 * @generated
+	 */
+	int SHARE_MODE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -377,7 +826,29 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetItem()
 	 * @generated
 	 */
-	int TARGET_ITEM = 9;
+	int TARGET_ITEM = 18;
+
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.IsolationLevel <em>Isolation Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.IsolationLevel
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getIsolationLevel()
+	 * @generated
+	 */
+	int ISOLATION_LEVEL = 19;
+
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.RWOperation <em>RW Operation</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.RWOperation
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRWOperation()
+	 * @generated
+	 */
+	int RW_OPERATION = 20;
 
 
 	/**
@@ -574,6 +1045,49 @@ public interface QDdlPackage extends EPackage {
 	EReference getCreateTableStatement_Fields();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QCreateViewStatement <em>Create View Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Create View Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement
+	 * @generated
+	 */
+	EClass getCreateViewStatement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Fields</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getFields()
+	 * @see #getCreateViewStatement()
+	 * @generated
+	 */
+	EReference getCreateViewStatement_Fields();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Query</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getQuery()
+	 * @see #getCreateViewStatement()
+	 * @generated
+	 */
+	EAttribute getCreateViewStatement_Query();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getViewName <em>View Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>View Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getViewName()
+	 * @see #getCreateViewStatement()
+	 * @generated
+	 */
+	EReference getCreateViewStatement_ViewName();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDisconnectStatement <em>Disconnect Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -638,6 +1152,230 @@ public interface QDdlPackage extends EPackage {
 	EAttribute getDropStatement_Target();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QLockTableStatement <em>Lock Table Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lock Table Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement
+	 * @generated
+	 */
+	EClass getLockTableStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QLockTableStatement#isAllowRead <em>Allow Read</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Read</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement#isAllowRead()
+	 * @see #getLockTableStatement()
+	 * @generated
+	 */
+	EAttribute getLockTableStatement_AllowRead();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QLockTableStatement#getShareMode <em>Share Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Share Mode</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement#getShareMode()
+	 * @see #getLockTableStatement()
+	 * @generated
+	 */
+	EAttribute getLockTableStatement_ShareMode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QLockTableStatement#getTableName <em>Table Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Table Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement#getTableName()
+	 * @see #getLockTableStatement()
+	 * @generated
+	 */
+	EReference getLockTableStatement_TableName();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QReleaseStatement <em>Release Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Release Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QReleaseStatement
+	 * @generated
+	 */
+	EClass getReleaseStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QReleaseStatement#getServerName <em>Server Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Server Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QReleaseStatement#getServerName()
+	 * @see #getReleaseStatement()
+	 * @generated
+	 */
+	EAttribute getReleaseStatement_ServerName();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QRenameStatement <em>Rename Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rename Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement
+	 * @generated
+	 */
+	EClass getRenameStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRenameStatement#getNewName <em>New Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getNewName()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EAttribute getRenameStatement_NewName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRenameStatement#getSystem <em>System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>System</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getSystem()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EAttribute getRenameStatement_System();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QRenameStatement#getOriginalName <em>Original Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Original Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getOriginalName()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EReference getRenameStatement_OriginalName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRenameStatement#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getTarget()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EAttribute getRenameStatement_Target();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QRollbackStatement <em>Rollback Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rollback Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QRollbackStatement
+	 * @generated
+	 */
+	EClass getRollbackStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRollbackStatement#isHold <em>Hold</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hold</em>'.
+	 * @see org.asup.db.syntax.ddl.QRollbackStatement#isHold()
+	 * @see #getRollbackStatement()
+	 * @generated
+	 */
+	EAttribute getRollbackStatement_Hold();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QSetConnectionStatement <em>Set Connection Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Connection Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QSetConnectionStatement
+	 * @generated
+	 */
+	EClass getSetConnectionStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QSetConnectionStatement#getDatabaseName <em>Database Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Database Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QSetConnectionStatement#getDatabaseName()
+	 * @see #getSetConnectionStatement()
+	 * @generated
+	 */
+	EAttribute getSetConnectionStatement_DatabaseName();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QSetTransactionStatement <em>Set Transaction Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Transaction Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement
+	 * @generated
+	 */
+	EClass getSetTransactionStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getIsolationLevel <em>Isolation Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Isolation Level</em>'.
+	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement#getIsolationLevel()
+	 * @see #getSetTransactionStatement()
+	 * @generated
+	 */
+	EAttribute getSetTransactionStatement_IsolationLevel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getRwOperation <em>Rw Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rw Operation</em>'.
+	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement#getRwOperation()
+	 * @see #getSetTransactionStatement()
+	 * @generated
+	 */
+	EAttribute getSetTransactionStatement_RwOperation();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QCallStatement <em>Call Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Call Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QCallStatement
+	 * @generated
+	 */
+	EClass getCallStatement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCallStatement#getProcedureName <em>Procedure Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Procedure Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QCallStatement#getProcedureName()
+	 * @see #getCallStatement()
+	 * @generated
+	 */
+	EReference getCallStatement_ProcedureName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.asup.db.syntax.ddl.QCallStatement#getParms <em>Parms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Parms</em>'.
+	 * @see org.asup.db.syntax.ddl.QCallStatement#getParms()
+	 * @see #getCallStatement()
+	 * @generated
+	 */
+	EAttribute getCallStatement_Parms();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -648,14 +1386,24 @@ public interface QDdlPackage extends EPackage {
 	EEnum getDropRange();
 
 	/**
-	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}'.
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Drop Target</em>'.
-	 * @see org.asup.db.syntax.ddl.DropTarget
+	 * @return the meta object for enum '<em>Target Element</em>'.
+	 * @see org.asup.db.syntax.ddl.TargetElement
 	 * @generated
 	 */
-	EEnum getDropTarget();
+	EEnum getTargetElement();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Share Mode</em>'.
+	 * @see org.asup.db.syntax.ddl.ShareMode
+	 * @generated
+	 */
+	EEnum getShareMode();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}'.
@@ -666,6 +1414,26 @@ public interface QDdlPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTargetItem();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.IsolationLevel <em>Isolation Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Isolation Level</em>'.
+	 * @see org.asup.db.syntax.ddl.IsolationLevel
+	 * @generated
+	 */
+	EEnum getIsolationLevel();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.RWOperation <em>RW Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>RW Operation</em>'.
+	 * @see org.asup.db.syntax.ddl.RWOperation
+	 * @generated
+	 */
+	EEnum getRWOperation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -844,6 +1612,40 @@ public interface QDdlPackage extends EPackage {
 		EReference CREATE_TABLE_STATEMENT__FIELDS = eINSTANCE.getCreateTableStatement_Fields();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.CreateViewStatementImpl <em>Create View Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.CreateViewStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateViewStatement()
+		 * @generated
+		 */
+		EClass CREATE_VIEW_STATEMENT = eINSTANCE.getCreateViewStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREATE_VIEW_STATEMENT__FIELDS = eINSTANCE.getCreateViewStatement_Fields();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CREATE_VIEW_STATEMENT__QUERY = eINSTANCE.getCreateViewStatement_Query();
+
+		/**
+		 * The meta object literal for the '<em><b>View Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREATE_VIEW_STATEMENT__VIEW_NAME = eINSTANCE.getCreateViewStatement_ViewName();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl <em>Disconnect Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -896,6 +1698,188 @@ public interface QDdlPackage extends EPackage {
 		EAttribute DROP_STATEMENT__TARGET = eINSTANCE.getDropStatement_Target();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl <em>Lock Table Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.LockTableStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getLockTableStatement()
+		 * @generated
+		 */
+		EClass LOCK_TABLE_STATEMENT = eINSTANCE.getLockTableStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Allow Read</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCK_TABLE_STATEMENT__ALLOW_READ = eINSTANCE.getLockTableStatement_AllowRead();
+
+		/**
+		 * The meta object literal for the '<em><b>Share Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCK_TABLE_STATEMENT__SHARE_MODE = eINSTANCE.getLockTableStatement_ShareMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOCK_TABLE_STATEMENT__TABLE_NAME = eINSTANCE.getLockTableStatement_TableName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.ReleaseStatementImpl <em>Release Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.ReleaseStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getReleaseStatement()
+		 * @generated
+		 */
+		EClass RELEASE_STATEMENT = eINSTANCE.getReleaseStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Server Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELEASE_STATEMENT__SERVER_NAME = eINSTANCE.getReleaseStatement_ServerName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl <em>Rename Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.RenameStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRenameStatement()
+		 * @generated
+		 */
+		EClass RENAME_STATEMENT = eINSTANCE.getRenameStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>New Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RENAME_STATEMENT__NEW_NAME = eINSTANCE.getRenameStatement_NewName();
+
+		/**
+		 * The meta object literal for the '<em><b>System</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RENAME_STATEMENT__SYSTEM = eINSTANCE.getRenameStatement_System();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RENAME_STATEMENT__ORIGINAL_NAME = eINSTANCE.getRenameStatement_OriginalName();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RENAME_STATEMENT__TARGET = eINSTANCE.getRenameStatement_Target();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.RollbackStatementImpl <em>Rollback Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.RollbackStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRollbackStatement()
+		 * @generated
+		 */
+		EClass ROLLBACK_STATEMENT = eINSTANCE.getRollbackStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Hold</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROLLBACK_STATEMENT__HOLD = eINSTANCE.getRollbackStatement_Hold();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.SetConnectionStatementImpl <em>Set Connection Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.SetConnectionStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getSetConnectionStatement()
+		 * @generated
+		 */
+		EClass SET_CONNECTION_STATEMENT = eINSTANCE.getSetConnectionStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Database Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_CONNECTION_STATEMENT__DATABASE_NAME = eINSTANCE.getSetConnectionStatement_DatabaseName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl <em>Set Transaction Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getSetTransactionStatement()
+		 * @generated
+		 */
+		EClass SET_TRANSACTION_STATEMENT = eINSTANCE.getSetTransactionStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Isolation Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL = eINSTANCE.getSetTransactionStatement_IsolationLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Rw Operation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_TRANSACTION_STATEMENT__RW_OPERATION = eINSTANCE.getSetTransactionStatement_RwOperation();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.CallStatementImpl <em>Call Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.CallStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCallStatement()
+		 * @generated
+		 */
+		EClass CALL_STATEMENT = eINSTANCE.getCallStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Procedure Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_STATEMENT__PROCEDURE_NAME = eINSTANCE.getCallStatement_ProcedureName();
+
+		/**
+		 * The meta object literal for the '<em><b>Parms</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_STATEMENT__PARMS = eINSTANCE.getCallStatement_Parms();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -906,14 +1890,24 @@ public interface QDdlPackage extends EPackage {
 		EEnum DROP_RANGE = eINSTANCE.getDropRange();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.DropTarget
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
+		 * @see org.asup.db.syntax.ddl.TargetElement
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetElement()
 		 * @generated
 		 */
-		EEnum DROP_TARGET = eINSTANCE.getDropTarget();
+		EEnum TARGET_ELEMENT = eINSTANCE.getTargetElement();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.ShareMode
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getShareMode()
+		 * @generated
+		 */
+		EEnum SHARE_MODE = eINSTANCE.getShareMode();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -924,6 +1918,26 @@ public interface QDdlPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TARGET_ITEM = eINSTANCE.getTargetItem();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.IsolationLevel <em>Isolation Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.IsolationLevel
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getIsolationLevel()
+		 * @generated
+		 */
+		EEnum ISOLATION_LEVEL = eINSTANCE.getIsolationLevel();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.RWOperation <em>RW Operation</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.RWOperation
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRWOperation()
+		 * @generated
+		 */
+		EEnum RW_OPERATION = eINSTANCE.getRWOperation();
 
 	}
 

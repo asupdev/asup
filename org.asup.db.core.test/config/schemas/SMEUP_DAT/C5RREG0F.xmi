@@ -1,127 +1,126 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5RREG0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="R5AZIE" length="2"/>
-  <columns dataType="CHAR" name="R5DIVI" length="3"/>
-  <columns dataType="CHAR" name="R5ESER" length="10"/>
-  <columns dataType="CHAR" name="R5LIVE" length="1"/>
-  <columns dataType="CHAR" name="R5STAT" length="2"/>
-  <columns dataType="CHAR" name="R5SOCI" length="3"/>
-  <columns dataType="CHAR" name="R5SOCO" length="3"/>
-  <columns dataType="CHAR" name="R5PROG" length="10"/>
-  <columns dataType="DECIMAL" name="R5RIGA" length="5"/>
-  <columns dataType="CHAR" name="R5TREG" length="6"/>
-  <columns dataType="CHAR" name="R5CAUS" length="3"/>
-  <columns dataType="CHAR" name="R5TIMO" length="2"/>
-  <columns dataType="CHAR" name="R5DESC" length="30"/>
-  <columns dataType="CHAR" name="R5DESS" length="30"/>
-  <columns dataType="CHAR" name="R5NDOR" length="20"/>
-  <columns dataType="CHAR" name="R5NRIF" length="10"/>
-  <columns dataType="CHAR" name="R5TPRO" length="12"/>
-  <columns dataType="CHAR" name="R5NPRO" length="15"/>
-  <columns dataType="CHAR" name="R5IDOR" length="10"/>
-  <columns dataType="DECIMAL" name="R5RDOR" length="5"/>
-  <columns dataType="DECIMAL" name="R5RRIF" length="5"/>
-  <columns dataType="CHAR" name="R5CONT" length="15"/>
-  <columns dataType="CHAR" name="R5TPCN" length="3"/>
-  <columns dataType="CHAR" name="R5SOGG" length="15"/>
-  <columns dataType="CHAR" name="R5COPA" length="3"/>
-  <columns dataType="DECIMAL" name="R5DREG" length="8"/>
-  <columns dataType="DECIMAL" name="R5DCOM" length="8"/>
-  <columns dataType="DECIMAL" name="R5DCOF" length="8"/>
-  <columns dataType="DECIMAL" name="R5DOPE" length="8"/>
-  <columns dataType="DECIMAL" name="R5DVAL" length="8"/>
-  <columns dataType="DECIMAL" name="R5DDOR" length="8"/>
-  <columns dataType="DECIMAL" name="R5DRIF" length="8"/>
-  <columns dataType="DECIMAL" name="R5DINP" length="8"/>
-  <columns dataType="DECIMAL" name="R5DPRO" length="8"/>
-  <columns dataType="DECIMAL" name="R5DCIV" length="8"/>
-  <columns dataType="DECIMAL" name="R5DAOP" length="8"/>
-  <columns dataType="CHAR" name="R5DAAV" length="1"/>
-  <columns dataType="CHAR" name="R5VALU" length="4"/>
-  <columns dataType="DECIMAL" name="R5CAMB" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMPO" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMVA" length="21" scale="6"/>
-  <columns dataType="CHAR" name="R5VALE" length="4"/>
-  <columns dataType="DECIMAL" name="R5CAME" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMVE" length="21" scale="6"/>
-  <columns dataType="CHAR" name="R5GIVA" length="3"/>
-  <columns dataType="CHAR" name="R5TIVA" length="1"/>
-  <columns dataType="CHAR" name="R5SEGN" length="1"/>
-  <columns dataType="CHAR" name="R5CIVA" length="2"/>
-  <columns dataType="CHAR" name="R5CIND" length="2"/>
-  <columns dataType="DECIMAL" name="R5ALIQ" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="R5IMPN" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMNV" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMNE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMPS" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMSV" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5IMSE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5PIND" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="R5INDE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5INDV" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5INVE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="R5PGIO" length="7"/>
-  <columns dataType="DECIMAL" name="R5RGIO" length="9"/>
-  <columns dataType="DECIMAL" name="R5DT01" length="8"/>
-  <columns dataType="DECIMAL" name="R5DT02" length="8"/>
-  <columns dataType="DECIMAL" name="R5DT03" length="8"/>
-  <columns dataType="DECIMAL" name="R5DT04" length="8"/>
-  <columns dataType="DECIMAL" name="R5DT05" length="8"/>
-  <columns dataType="CHAR" name="R5AA01" length="15"/>
-  <columns dataType="CHAR" name="R5AA02" length="15"/>
-  <columns dataType="CHAR" name="R5AA03" length="15"/>
-  <columns dataType="CHAR" name="R5AA04" length="15"/>
-  <columns dataType="CHAR" name="R5AA05" length="15"/>
-  <columns dataType="DECIMAL" name="R5NU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="R5NU05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="R5FL01" length="1"/>
-  <columns dataType="CHAR" name="R5FL02" length="1"/>
-  <columns dataType="CHAR" name="R5FL03" length="1"/>
-  <columns dataType="CHAR" name="R5FL04" length="1"/>
-  <columns dataType="CHAR" name="R5FL05" length="1"/>
-  <columns dataType="CHAR" name="R5FL06" length="1"/>
-  <columns dataType="CHAR" name="R5FL07" length="1"/>
-  <columns dataType="CHAR" name="R5FL08" length="1"/>
-  <columns dataType="CHAR" name="R5FL09" length="1"/>
-  <columns dataType="CHAR" name="R5FL10" length="1"/>
-  <columns dataType="CHAR" name="R5FL11" length="1"/>
-  <columns dataType="CHAR" name="R5FL12" length="1"/>
-  <columns dataType="CHAR" name="R5FL13" length="1"/>
-  <columns dataType="CHAR" name="R5FL14" length="1"/>
-  <columns dataType="CHAR" name="R5FL15" length="1"/>
-  <columns dataType="CHAR" name="R5FL16" length="1"/>
-  <columns dataType="CHAR" name="R5FL17" length="1"/>
-  <columns dataType="CHAR" name="R5FL18" length="1"/>
-  <columns dataType="CHAR" name="R5FL19" length="1"/>
-  <columns dataType="CHAR" name="R5FL20" length="1"/>
-  <columns dataType="CHAR" name="R5FL21" length="1"/>
-  <columns dataType="CHAR" name="R5FL22" length="1"/>
-  <columns dataType="CHAR" name="R5FL23" length="1"/>
-  <columns dataType="CHAR" name="R5FL24" length="1"/>
-  <columns dataType="CHAR" name="R5FL25" length="1"/>
-  <columns dataType="CHAR" name="R5FL26" length="1"/>
-  <columns dataType="CHAR" name="R5FL27" length="1"/>
-  <columns dataType="CHAR" name="R5FL28" length="1"/>
-  <columns dataType="CHAR" name="R5FL29" length="1"/>
-  <columns dataType="CHAR" name="R5FL30" length="1"/>
-  <columns dataType="CHAR" name="R5FL31" length="1"/>
-  <columns dataType="CHAR" name="R5FL32" length="1"/>
-  <columns dataType="CHAR" name="R5FL33" length="1"/>
-  <columns dataType="CHAR" name="R5FL34" length="1"/>
-  <columns dataType="CHAR" name="R5FL35" length="1"/>
-  <columns dataType="CHAR" name="R5FL36" length="1"/>
-  <columns dataType="CHAR" name="R5FL37" length="1"/>
-  <columns dataType="CHAR" name="R5FL38" length="1"/>
-  <columns dataType="CHAR" name="R5FL39" length="1"/>
-  <columns dataType="CHAR" name="R5FL40" length="1"/>
-  <columns dataType="DECIMAL" name="R5DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="R5ORIN" length="6"/>
-  <columns dataType="CHAR" name="R5USIN" length="10"/>
-  <columns dataType="DECIMAL" name="R5DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="R5ORAG" length="6"/>
-  <columns dataType="CHAR" name="R5USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="R5AZIE"/>
+  <columns dataType="CHAR" length="3" name="R5DIVI"/>
+  <columns dataType="CHAR" length="10" name="R5ESER"/>
+  <columns dataType="CHAR" length="1" name="R5LIVE"/>
+  <columns dataType="CHAR" length="2" name="R5STAT"/>
+  <columns dataType="CHAR" length="3" name="R5SOCI"/>
+  <columns dataType="CHAR" length="3" name="R5SOCO"/>
+  <columns dataType="CHAR" length="10" name="R5PROG"/>
+  <columns dataType="DECIMAL" length="5" name="R5RIGA"/>
+  <columns dataType="CHAR" length="6" name="R5TREG"/>
+  <columns dataType="CHAR" length="3" name="R5CAUS"/>
+  <columns dataType="CHAR" length="2" name="R5TIMO"/>
+  <columns dataType="CHAR" length="30" name="R5DESC"/>
+  <columns dataType="CHAR" length="30" name="R5DESS"/>
+  <columns dataType="CHAR" length="20" name="R5NDOR"/>
+  <columns dataType="CHAR" length="10" name="R5NRIF"/>
+  <columns dataType="CHAR" length="12" name="R5TPRO"/>
+  <columns dataType="CHAR" length="15" name="R5NPRO"/>
+  <columns dataType="CHAR" length="10" name="R5IDOR"/>
+  <columns dataType="DECIMAL" length="5" name="R5RDOR"/>
+  <columns dataType="DECIMAL" length="5" name="R5RRIF"/>
+  <columns dataType="CHAR" length="15" name="R5CONT"/>
+  <columns dataType="CHAR" length="3" name="R5TPCN"/>
+  <columns dataType="CHAR" length="15" name="R5SOGG"/>
+  <columns dataType="CHAR" length="3" name="R5COPA"/>
+  <columns dataType="DECIMAL" length="8" name="R5DREG"/>
+  <columns dataType="DECIMAL" length="8" name="R5DCOM"/>
+  <columns dataType="DECIMAL" length="8" name="R5DCOF"/>
+  <columns dataType="DECIMAL" length="8" name="R5DOPE"/>
+  <columns dataType="DECIMAL" length="8" name="R5DVAL"/>
+  <columns dataType="DECIMAL" length="8" name="R5DDOR"/>
+  <columns dataType="DECIMAL" length="8" name="R5DRIF"/>
+  <columns dataType="DECIMAL" length="8" name="R5DINP"/>
+  <columns dataType="DECIMAL" length="8" name="R5DPRO"/>
+  <columns dataType="DECIMAL" length="8" name="R5DCIV"/>
+  <columns dataType="DECIMAL" length="8" name="R5DAOP"/>
+  <columns dataType="CHAR" length="1" name="R5DAAV"/>
+  <columns dataType="CHAR" length="4" name="R5VALU"/>
+  <columns dataType="DECIMAL" length="12" name="R5CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMPO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMVA" scale="6"/>
+  <columns dataType="CHAR" length="4" name="R5VALE"/>
+  <columns dataType="DECIMAL" length="12" name="R5CAME" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMVE" scale="6"/>
+  <columns dataType="CHAR" length="3" name="R5GIVA"/>
+  <columns dataType="CHAR" length="1" name="R5TIVA"/>
+  <columns dataType="CHAR" length="1" name="R5SEGN"/>
+  <columns dataType="CHAR" length="2" name="R5CIVA"/>
+  <columns dataType="CHAR" length="2" name="R5CIND"/>
+  <columns dataType="DECIMAL" length="5" name="R5ALIQ" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMPN" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMNV" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMNE" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMPS" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMSV" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5IMSE" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="R5PIND" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="R5INDE" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5INDV" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="R5INVE" scale="6"/>
+  <columns dataType="DECIMAL" length="7" name="R5PGIO"/>
+  <columns dataType="DECIMAL" length="9" name="R5RGIO"/>
+  <columns dataType="DECIMAL" length="8" name="R5DT01"/>
+  <columns dataType="DECIMAL" length="8" name="R5DT02"/>
+  <columns dataType="DECIMAL" length="8" name="R5DT03"/>
+  <columns dataType="DECIMAL" length="8" name="R5DT04"/>
+  <columns dataType="DECIMAL" length="8" name="R5DT05"/>
+  <columns dataType="CHAR" length="15" name="R5AA01"/>
+  <columns dataType="CHAR" length="15" name="R5AA02"/>
+  <columns dataType="CHAR" length="15" name="R5AA03"/>
+  <columns dataType="CHAR" length="15" name="R5AA04"/>
+  <columns dataType="CHAR" length="15" name="R5AA05"/>
+  <columns dataType="DECIMAL" length="15" name="R5NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="R5NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="R5NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="R5NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="R5NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="R5FL01"/>
+  <columns dataType="CHAR" length="1" name="R5FL02"/>
+  <columns dataType="CHAR" length="1" name="R5FL03"/>
+  <columns dataType="CHAR" length="1" name="R5FL04"/>
+  <columns dataType="CHAR" length="1" name="R5FL05"/>
+  <columns dataType="CHAR" length="1" name="R5FL06"/>
+  <columns dataType="CHAR" length="1" name="R5FL07"/>
+  <columns dataType="CHAR" length="1" name="R5FL08"/>
+  <columns dataType="CHAR" length="1" name="R5FL09"/>
+  <columns dataType="CHAR" length="1" name="R5FL10"/>
+  <columns dataType="CHAR" length="1" name="R5FL11"/>
+  <columns dataType="CHAR" length="1" name="R5FL12"/>
+  <columns dataType="CHAR" length="1" name="R5FL13"/>
+  <columns dataType="CHAR" length="1" name="R5FL14"/>
+  <columns dataType="CHAR" length="1" name="R5FL15"/>
+  <columns dataType="CHAR" length="1" name="R5FL16"/>
+  <columns dataType="CHAR" length="1" name="R5FL17"/>
+  <columns dataType="CHAR" length="1" name="R5FL18"/>
+  <columns dataType="CHAR" length="1" name="R5FL19"/>
+  <columns dataType="CHAR" length="1" name="R5FL20"/>
+  <columns dataType="CHAR" length="1" name="R5FL21"/>
+  <columns dataType="CHAR" length="1" name="R5FL22"/>
+  <columns dataType="CHAR" length="1" name="R5FL23"/>
+  <columns dataType="CHAR" length="1" name="R5FL24"/>
+  <columns dataType="CHAR" length="1" name="R5FL25"/>
+  <columns dataType="CHAR" length="1" name="R5FL26"/>
+  <columns dataType="CHAR" length="1" name="R5FL27"/>
+  <columns dataType="CHAR" length="1" name="R5FL28"/>
+  <columns dataType="CHAR" length="1" name="R5FL29"/>
+  <columns dataType="CHAR" length="1" name="R5FL30"/>
+  <columns dataType="CHAR" length="1" name="R5FL31"/>
+  <columns dataType="CHAR" length="1" name="R5FL32"/>
+  <columns dataType="CHAR" length="1" name="R5FL33"/>
+  <columns dataType="CHAR" length="1" name="R5FL34"/>
+  <columns dataType="CHAR" length="1" name="R5FL35"/>
+  <columns dataType="CHAR" length="1" name="R5FL36"/>
+  <columns dataType="CHAR" length="1" name="R5FL37"/>
+  <columns dataType="CHAR" length="1" name="R5FL38"/>
+  <columns dataType="CHAR" length="1" name="R5FL39"/>
+  <columns dataType="CHAR" length="1" name="R5FL40"/>
+  <columns dataType="DECIMAL" length="8" name="R5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="R5ORIN"/>
+  <columns dataType="CHAR" length="10" name="R5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="R5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="R5ORAG"/>
+  <columns dataType="CHAR" length="10" name="R5USAG"/>
 </db-core:TableDef>

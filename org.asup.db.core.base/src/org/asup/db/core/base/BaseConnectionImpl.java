@@ -407,4 +407,13 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	public <T> T unwrap(Class<T> iface) throws SQLException {
 		return getRawConnection().unwrap(iface);
 	}
+
+	@Override
+	public void resetAutoCommit() {
+		try {
+			setAutoCommit(getConnectionConfig().isAutoCommit());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -8,8 +8,10 @@
 package org.asup.db.syntax;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -69,7 +71,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementParser()
 	 * @generated
 	 */
-	int STATEMENT_PARSER = 15;
+	int STATEMENT_PARSER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -290,7 +292,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementWriter()
 	 * @generated
 	 */
-	int STATEMENT_WRITER = 14;
+	int STATEMENT_WRITER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -476,13 +478,50 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int DEFINITION_STATEMENT = 6;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITION_STATEMENT__TYPE = 0;
+
+	/**
 	 * The number of structural features of the '<em>Definition Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINITION_STATEMENT_FEATURE_COUNT = 0;
+	int DEFINITION_STATEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.QEmbeddedStatement <em>Embedded Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.QEmbeddedStatement
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getEmbeddedStatement()
+	 * @generated
+	 */
+	int EMBEDDED_STATEMENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMBEDDED_STATEMENT__TYPE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Embedded Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EMBEDDED_STATEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.NameHelperImpl <em>Name Helper</em>}' class.
@@ -492,7 +531,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getNameHelper()
 	 * @generated
 	 */
-	int NAME_HELPER = 7;
+	int NAME_HELPER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -556,7 +595,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getNameHelperRegistry()
 	 * @generated
 	 */
-	int NAME_HELPER_REGISTRY = 8;
+	int NAME_HELPER_REGISTRY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -593,7 +632,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriter()
 	 * @generated
 	 */
-	int QUERY_WRITER = 9;
+	int QUERY_WRITER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -666,7 +705,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriterRegistry()
 	 * @generated
 	 */
-	int QUERY_WRITER_REGISTRY = 10;
+	int QUERY_WRITER_REGISTRY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -703,7 +742,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParser()
 	 * @generated
 	 */
-	int QUERY_PARSER = 11;
+	int QUERY_PARSER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -767,7 +806,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParserRegistry()
 	 * @generated
 	 */
-	int QUERY_PARSER_REGISTRY = 12;
+	int QUERY_PARSER_REGISTRY = 13;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -804,7 +843,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSQLObjectNameHelper()
 	 * @generated
 	 */
-	int SQL_OBJECT_NAME_HELPER = 13;
+	int SQL_OBJECT_NAME_HELPER = 14;
 
 	/**
 	 * The number of structural features of the '<em>SQL Object Name Helper</em>' class.
@@ -816,6 +855,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int SQL_OBJECT_NAME_HELPER_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.StatementType <em>Statement Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.StatementType
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementType()
+	 * @generated
+	 */
+	int STATEMENT_TYPE = 17;
+
+	/**
 	 * The meta object id for the '<em>SQL Query Parse Result</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -823,7 +872,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSQLQueryParseResult()
 	 * @generated
 	 */
-	int SQL_QUERY_PARSE_RESULT = 16;
+	int SQL_QUERY_PARSE_RESULT = 18;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QDefinitionParser <em>Definition Parser</em>}'.
@@ -916,6 +965,38 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDefinitionStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.QDefinitionStatement#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.asup.db.syntax.QDefinitionStatement#getType()
+	 * @see #getDefinitionStatement()
+	 * @generated
+	 */
+	EAttribute getDefinitionStatement_Type();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QEmbeddedStatement <em>Embedded Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Embedded Statement</em>'.
+	 * @see org.asup.db.syntax.QEmbeddedStatement
+	 * @generated
+	 */
+	EClass getEmbeddedStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.QEmbeddedStatement#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see org.asup.db.syntax.QEmbeddedStatement#getType()
+	 * @see #getEmbeddedStatement()
+	 * @generated
+	 */
+	EAttribute getEmbeddedStatement_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QNameHelper <em>Name Helper</em>}'.
@@ -1018,6 +1099,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getStatementParser();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.StatementType <em>Statement Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Statement Type</em>'.
+	 * @see org.asup.db.syntax.StatementType
+	 * @generated
+	 */
+	EEnum getStatementType();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult <em>SQL Query Parse Result</em>}'.
@@ -1139,6 +1230,32 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		EClass DEFINITION_STATEMENT = eINSTANCE.getDefinitionStatement();
 
 		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEFINITION_STATEMENT__TYPE = eINSTANCE.getDefinitionStatement_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.QEmbeddedStatement <em>Embedded Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.QEmbeddedStatement
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getEmbeddedStatement()
+		 * @generated
+		 */
+		EClass EMBEDDED_STATEMENT = eINSTANCE.getEmbeddedStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EMBEDDED_STATEMENT__TYPE = eINSTANCE.getEmbeddedStatement_Type();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.NameHelperImpl <em>Name Helper</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1235,6 +1352,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATEMENT_PARSER = eINSTANCE.getStatementParser();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.StatementType <em>Statement Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.StatementType
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementType()
+		 * @generated
+		 */
+		EEnum STATEMENT_TYPE = eINSTANCE.getStatementType();
 
 		/**
 		 * The meta object literal for the '<em>SQL Query Parse Result</em>' data type.

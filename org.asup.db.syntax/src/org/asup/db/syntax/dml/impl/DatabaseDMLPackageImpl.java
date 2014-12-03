@@ -7,26 +7,19 @@
  */
 package org.asup.db.syntax.dml.impl;
 
-import org.asup.db.core.QDatabaseCorePackage;
-
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
 import org.asup.db.syntax.dml.QDatabaseDMLFactory;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.QExtendedQueryExpressionBody;
 import org.asup.db.syntax.dml.QExtendedQuerySelect;
-
 import org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl;
-
 import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -95,10 +88,6 @@ public class DatabaseDMLPackageImpl extends EPackageImpl implements QDatabaseDML
 		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DatabaseDMLPackageImpl());
 
 		isInited = true;
-
-		// Initialize simple dependencies
-		QDatabaseCorePackage.eINSTANCE.eClass();
-		SQLQueryModelPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		DatabaseSyntaxPackageImpl theDatabaseSyntaxPackage = (DatabaseSyntaxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) instanceof DatabaseSyntaxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) : QDatabaseSyntaxPackage.eINSTANCE);

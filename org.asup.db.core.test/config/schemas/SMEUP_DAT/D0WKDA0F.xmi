@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="50" name="BDKYF1"/>
+  <columns dataType="CHAR" length="50" name="BDKYF2"/>
+  <columns dataType="CHAR" length="100" name="BDKYOR"/>
+  <columns dataType="CHAR" length="30" name="BDCD01"/>
+  <columns dataType="CHAR" length="30" name="BDCD02"/>
+  <columns dataType="CHAR" length="30" name="BDCD03"/>
+  <columns dataType="CHAR" length="30" name="BDCD04"/>
+  <columns dataType="CHAR" length="30" name="BDCD05"/>
+  <columns dataType="CHAR" length="30" name="BDCD06"/>
+  <columns dataType="CHAR" length="30" name="BDCD07"/>
+  <columns dataType="CHAR" length="30" name="BDCD08"/>
+  <columns dataType="CHAR" length="30" name="BDCD09"/>
+  <columns dataType="CHAR" length="30" name="BDCD10"/>
+  <columns dataType="CHAR" length="30" name="BDCD11"/>
+  <columns dataType="CHAR" length="30" name="BDCD12"/>
+  <columns dataType="CHAR" length="30" name="BDCD13"/>
+  <columns dataType="CHAR" length="30" name="BDCD14"/>
+  <columns dataType="CHAR" length="30" name="BDCD15"/>
+  <columns dataType="CHAR" length="30" name="BDCD16"/>
+  <columns dataType="CHAR" length="30" name="BDCD17"/>
+  <columns dataType="CHAR" length="30" name="BDCD18"/>
+  <columns dataType="CHAR" length="30" name="BDCD19"/>
+  <columns dataType="CHAR" length="30" name="BDCD20"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT01"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT02"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT03"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT04"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT05"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT06"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT07"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT08"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT09"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT10"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT11"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT12"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT13"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT14"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT15"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT16"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT17"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT18"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT19"/>
+  <columns dataType="DECIMAL" length="8" name="BDDT20"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR01"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR02"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR03"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR04"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR05"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR06"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR07"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR08"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR09"/>
+  <columns dataType="DECIMAL" length="11" name="BDNR10"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT01" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT02" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT03" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT04" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT05" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT06" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT07" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT08" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT09" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT10" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT11" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT12" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT13" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT14" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT15" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT16" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT17" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT18" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT19" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BDQT20" scale="9"/>
+  <columns dataType="CHAR" length="1" name="BDFL01"/>
+  <columns dataType="CHAR" length="1" name="BDFL02"/>
+  <columns dataType="CHAR" length="1" name="BDFL03"/>
+  <columns dataType="CHAR" length="1" name="BDFL04"/>
+  <columns dataType="CHAR" length="1" name="BDFL05"/>
+  <columns dataType="CHAR" length="1" name="BDFL06"/>
+  <columns dataType="CHAR" length="1" name="BDFL07"/>
+  <columns dataType="CHAR" length="1" name="BDFL08"/>
+  <columns dataType="CHAR" length="1" name="BDFL09"/>
+  <columns dataType="CHAR" length="1" name="BDFL10"/>
+  <columns dataType="CHAR" length="1" name="BDFL11"/>
+  <columns dataType="CHAR" length="1" name="BDFL12"/>
+  <columns dataType="CHAR" length="1" name="BDFL13"/>
+  <columns dataType="CHAR" length="1" name="BDFL14"/>
+  <columns dataType="CHAR" length="1" name="BDFL15"/>
+  <columns dataType="CHAR" length="1" name="BDFL16"/>
+  <columns dataType="CHAR" length="1" name="BDFL17"/>
+  <columns dataType="CHAR" length="1" name="BDFL18"/>
+  <columns dataType="CHAR" length="1" name="BDFL19"/>
+  <columns dataType="CHAR" length="1" name="BDFL20"/>
+  <columns dataType="DECIMAL" length="8" name="BDDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="BDORIN"/>
+  <columns dataType="CHAR" length="10" name="BDOGIN"/>
+  <columns dataType="CHAR" length="10" name="BDUSIN"/>
+  <columns dataType="CHAR" length="24002" name="BDDATI"/>
+</db-core:TableDef>

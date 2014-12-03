@@ -47,18 +47,18 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 		QLibrary library = event.getSource();
 		QJob job = null;
 		switch (event.getType()) {
-			case PRE_SAVE:
-				job = event.getResource().getJob();
-				createSchema(job, library);
-				break;
+		case PRE_SAVE:
+			job = event.getResource().getJob();
+			createSchema(job, library);
+			break;
 
-			case PRE_DELETE:
-				job = event.getResource().getJob();
-				dropSchema(job, library);
-				break;
+		case PRE_DELETE:
+			job = event.getResource().getJob();
+			dropSchema(job, library);
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 
 	}
@@ -66,32 +66,35 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 	private void createSchema(QJob job, QLibrary library) throws OperatingSystemRuntimeException {
 
 		// database connection
-		QConnection databaseConnection = job.getJobContext().getAdapter(job, QConnection.class);
-		if (databaseConnection == null)
+		QConnection connection = job.getJobContext().getAdapter(job, QConnection.class);
+		if (connection == null)
 			throw new OperatingSystemRuntimeException("Database connection not found: " + job);
 
 		// schema
-		Schema schema = databaseManager.getSchema(databaseConnection, library.getName());
+		Schema schema = databaseManager.getSchema(connection, library.getName());
 		if (schema == null) {
 			QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
 
 			// create
 			try {
-				databaseConnection.setAutoCommit(false);
-				
-				databaseManager.createSchema(databaseConnection, library.getName(), schemaDef);
-				
-				databaseConnection.commit();
+				connection.setAutoCommit(false);
+
+				databaseManager.createSchema(connection, library.getName(), schemaDef);
+
+				// TODO restore connection auto commit default
+				connection.commit();
 			} catch (Exception e) {
-				
+
 				try {
 					// TODO rollback on DTP graph
-					databaseConnection.rollback();
+					connection.rollback();
 				} catch (SQLException e1) {
 					throw new OperatingSystemRuntimeException(e1);
 				}
-				
+
 				throw new OperatingSystemRuntimeException(e);
+			} finally {
+				connection.resetAutoCommit();
 			}
 		} else
 			System.err.println("Schema already exists: " + library.getName());
@@ -100,32 +103,35 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 	private void dropSchema(QJob job, QLibrary library) throws OperatingSystemRuntimeException {
 
 		// database connection
-		QConnection databaseConnection = job.getJobContext().getAdapter(job, QConnection.class);
-		if (databaseConnection == null)
+		QConnection connection = job.getJobContext().getAdapter(job, QConnection.class);
+		if (connection == null)
 			throw new OperatingSystemRuntimeException("Database connection not found: " + job);
 
 		// schema
-		Schema schema = databaseManager.getSchema(databaseConnection, library.getName());
+		Schema schema = databaseManager.getSchema(connection, library.getName());
 		if (schema == null)
 			throw new OperatingSystemRuntimeException("Schema not found: " + library.getName());
 
 		try {
-			databaseConnection.setAutoCommit(false);
-			
-			databaseManager.dropSchema(databaseConnection, schema);
-			
-			databaseConnection.commit();
-			
+			connection.setAutoCommit(false);
+
+			databaseManager.dropSchema(connection, schema);
+
+			// TODO restore connection auto commit default
+			connection.commit();
 		} catch (SQLException e) {
-			
+
 			try {
 				// TODO rollback on DTP graph
-				databaseConnection.rollback();
+				connection.rollback();
 			} catch (SQLException e1) {
 				throw new OperatingSystemRuntimeException(e1);
 			}
-			
+
 			throw new OperatingSystemRuntimeException(e);
+		}
+		finally {
+			 connection.resetAutoCommit();
 		}
 	}
 }

@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="D0DIST0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="D&#xa7;TIPD" length="3"/>
-  <columns dataType="CHAR" name="D&#xa7;CONF" length="20"/>
-  <columns dataType="CHAR" name="D&#xa7;ASSI" length="15"/>
-  <columns dataType="CHAR" name="D&#xa7;USR1" length="4"/>
-  <columns dataType="CHAR" name="D&#xa7;COMP" length="15"/>
-  <columns dataType="CHAR" name="D&#xa7;USR2" length="4"/>
-  <columns dataType="CHAR" name="D&#xa7;STAT" length="2"/>
-  <columns dataType="CHAR" name="D&#xa7;SQCI" length="6"/>
-  <columns dataType="DECIMAL" name="D&#xa7;LTAD" length="3"/>
-  <columns dataType="DECIMAL" name="D&#xa7;DINV" length="8"/>
-  <columns dataType="DECIMAL" name="D&#xa7;DFNV" length="8"/>
-  <columns dataType="CHAR" name="D&#xa7;CRSE" length="5"/>
-  <columns dataType="DECIMAL" name="D&#xa7;COEF" length="15" scale="6"/>
-  <columns dataType="CHAR" name="D&#xa7;PAS1" length="15"/>
-  <columns dataType="CHAR" name="D&#xa7;PAS2" length="15"/>
-  <columns dataType="DECIMAL" name="D&#xa7;QTLO" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="D&#xa7;PERT" length="5" scale="3"/>
-  <columns dataType="DECIMAL" name="D&#xa7;QUA1" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="D&#xa7;QUA2" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="D&#xa7;QUA3" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="D&#xa7;QUA4" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="D&#xa7;QUA5" length="15" scale="6"/>
-  <columns dataType="CHAR" name="D&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="D&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="D&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="D&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="D&#xa7;FLG5" length="1"/>
-  <columns dataType="CHAR" name="D&#xa7;NOTA" length="50"/>
-  <columns dataType="CHAR" name="D&#xa7;DISE" length="20"/>
-  <columns dataType="CHAR" name="D&#xa7;DISP" length="5"/>
-  <columns dataType="DECIMAL" name="D&#xa7;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="D&#xa7;DTAG" length="8"/>
-  <columns dataType="CHAR" name="D&#xa7;USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="D&#xa7;TIPD"/>
+  <columns dataType="CHAR" length="20" name="D&#xa7;CONF"/>
+  <columns dataType="CHAR" length="15" name="D&#xa7;ASSI"/>
+  <columns dataType="CHAR" length="4" name="D&#xa7;USR1"/>
+  <columns dataType="CHAR" length="15" name="D&#xa7;COMP"/>
+  <columns dataType="CHAR" length="4" name="D&#xa7;USR2"/>
+  <columns dataType="CHAR" length="2" name="D&#xa7;STAT"/>
+  <columns dataType="CHAR" length="6" name="D&#xa7;SQCI"/>
+  <columns dataType="DECIMAL" length="3" name="D&#xa7;LTAD"/>
+  <columns dataType="DECIMAL" length="8" name="D&#xa7;DINV"/>
+  <columns dataType="DECIMAL" length="8" name="D&#xa7;DFNV"/>
+  <columns dataType="CHAR" length="5" name="D&#xa7;CRSE"/>
+  <columns dataType="DECIMAL" length="15" name="D&#xa7;COEF" scale="6"/>
+  <columns dataType="CHAR" length="15" name="D&#xa7;PAS1"/>
+  <columns dataType="CHAR" length="15" name="D&#xa7;PAS2"/>
+  <columns dataType="DECIMAL" length="11" name="D&#xa7;QTLO" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="D&#xa7;PERT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="D&#xa7;QUA1" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="D&#xa7;QUA2" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="D&#xa7;QUA3" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="D&#xa7;QUA4" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="D&#xa7;QUA5" scale="6"/>
+  <columns dataType="CHAR" length="1" name="D&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="D&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="D&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="D&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="D&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="50" name="D&#xa7;NOTA"/>
+  <columns dataType="CHAR" length="20" name="D&#xa7;DISE"/>
+  <columns dataType="CHAR" length="5" name="D&#xa7;DISP"/>
+  <columns dataType="DECIMAL" length="8" name="D&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="D&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="D&#xa7;USAG"/>
 </db-core:TableDef>

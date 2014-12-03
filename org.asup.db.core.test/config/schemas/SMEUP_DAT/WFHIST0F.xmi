@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="WFHIST0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="F3TREC" length="1"/>
-  <columns dataType="CHAR" name="F3NURE" length="10"/>
-  <columns dataType="CHAR" name="F3CLUO" length="10"/>
-  <columns dataType="CHAR" name="F3TRAN" length="10"/>
-  <columns dataType="CHAR" name="F3VALR" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="F3TREC"/>
+  <columns dataType="CHAR" length="10" name="F3NURE"/>
+  <columns dataType="CHAR" length="10" name="F3CLUO"/>
+  <columns dataType="CHAR" length="10" name="F3TRAN"/>
+  <columns dataType="CHAR" length="10" name="F3VALR"/>
 </db-core:TableDef>

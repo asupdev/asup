@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQAUDR0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="B&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="B&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="B&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="B&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="B&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="B&#xa7;WKST" length="10"/>
-  <columns dataType="CHAR" name="B&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="B&#xa7;ANNU" length="1"/>
-  <columns dataType="CHAR" name="B&#xa7;NUDO" length="10"/>
-  <columns dataType="DECIMAL" name="B&#xa7;DADO" length="8"/>
-  <columns dataType="CHAR" name="B&#xa7;ACOD" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;CLIV" length="2"/>
-  <columns dataType="CHAR" name="B&#xa7;AIMM" length="2"/>
-  <columns dataType="CHAR" name="B&#xa7;ANUM" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;ATGR" length="3"/>
-  <columns dataType="CHAR" name="B&#xa7;ACO1" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;ACO2" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;ACO3" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;ACAR" length="50"/>
-  <columns dataType="CHAR" name="B&#xa7;AIMP" length="3"/>
-  <columns dataType="DECIMAL" name="B&#xa7;AVAL" length="3"/>
-  <columns dataType="CHAR" name="B&#xa7;APRO" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;APUN" length="2"/>
-  <columns dataType="DECIMAL" name="B&#xa7;AVAP" length="3"/>
-  <columns dataType="CHAR" name="B&#xa7;ANOT" length="50"/>
-  <columns dataType="CHAR" name="B&#xa7;ACOR" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;TIES" length="2"/>
-  <columns dataType="CHAR" name="B&#xa7;COES" length="15"/>
-  <columns dataType="CHAR" name="B&#xa7;RINT" length="2"/>
-  <columns dataType="DECIMAL" name="B&#xa7;ROCN" length="7" scale="4"/>
-  <columns dataType="CHAR" name="B&#xa7;RWRC" length="15"/>
-  <columns dataType="DECIMAL" name="B&#xa7;VAVA" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="B&#xa7;ADPR" length="8"/>
-  <columns dataType="CHAR" name="B&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="B&#xa7;FLG5" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="B&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="B&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;ANNU"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;NUDO"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DADO"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ACOD"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;CLIV"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;AIMM"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ANUM"/>
+  <columns dataType="CHAR" length="3" name="B&#xa7;ATGR"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ACO1"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ACO2"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ACO3"/>
+  <columns dataType="CHAR" length="50" name="B&#xa7;ACAR"/>
+  <columns dataType="CHAR" length="3" name="B&#xa7;AIMP"/>
+  <columns dataType="DECIMAL" length="3" name="B&#xa7;AVAL"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;APRO"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;APUN"/>
+  <columns dataType="DECIMAL" length="3" name="B&#xa7;AVAP"/>
+  <columns dataType="CHAR" length="50" name="B&#xa7;ANOT"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ACOR"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;TIES"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;COES"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;RINT"/>
+  <columns dataType="DECIMAL" length="7" name="B&#xa7;ROCN" scale="4"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;RWRC"/>
+  <columns dataType="DECIMAL" length="15" name="B&#xa7;VAVA" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;ADPR"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FLG5"/>
 </db-core:TableDef>

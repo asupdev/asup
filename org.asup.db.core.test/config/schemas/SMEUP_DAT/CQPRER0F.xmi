@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQPRER0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="Q&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;WKST" length="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;TIER" length="2"/>
-  <columns dataType="CHAR" name="Q&#xa7;COER" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;PPOS" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;PSBF" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;PDCO" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;PCOR" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;EDIZ" length="6"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;PDAT" length="8"/>
-  <columns dataType="CHAR" name="Q&#xa7;PVAI" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;PVAT" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;RWRC" length="15"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;ROCN" length="7" scale="4"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;VAVA" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;VACN" length="15" scale="3"/>
-  <columns dataType="CHAR" name="Q&#xa7;ACOR" length="15"/>
-  <columns dataType="CHAR" name="Q&#xa7;NPRG" length="10"/>
-  <columns dataType="CHAR" name="Q&#xa7;NUDO" length="10"/>
-  <columns dataType="DECIMAL" name="Q&#xa7;DADO" length="8"/>
-  <columns dataType="CHAR" name="Q&#xa7;ESMO" length="2"/>
-  <columns dataType="CHAR" name="Q&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="Q&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="Q&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="Q&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="Q&#xa7;FLG5" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="Q&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="Q&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;PROG"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;COER"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;PPOS"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;PSBF"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;PDCO"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;PCOR"/>
+  <columns dataType="CHAR" length="6" name="Q&#xa7;EDIZ"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;PDAT"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;PVAI"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;PVAT"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;RWRC"/>
+  <columns dataType="DECIMAL" length="7" name="Q&#xa7;ROCN" scale="4"/>
+  <columns dataType="DECIMAL" length="15" name="Q&#xa7;VAVA" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="Q&#xa7;VACN" scale="3"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;ACOR"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;NPRG"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;NUDO"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DADO"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG5"/>
 </db-core:TableDef>

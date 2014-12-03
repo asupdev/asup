@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;LEGA4L" creationCommand=" CREATE VIEW C&#xa3;LEGA4L (   C&#xa7;CDLG ,   C&#xa7;COD1 ,   C&#xa7;COD2 ,   C&#xa7;LIMI ,   C&#xa7;LIMF ,   C&#xa7;DATI )   AS   SELECT   C&#xa7;CDLG ,   C&#xa7;COD1 ,   C&#xa7;COD2 ,   C&#xa7;LIMI ,   C&#xa7;LIMF ,   C&#xa7;DATI   FROM C&#xa3;LEGA0F   ;  "/>

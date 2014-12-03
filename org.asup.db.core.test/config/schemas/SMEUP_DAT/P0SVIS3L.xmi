@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0SVIS3L" creationCommand=" CREATE VIEW P0SVIS3L (   P&#xa7;CDVI ,   P&#xa7;DTRV ,   P&#xa7;DTEV ,   P&#xa7;DIPE ,   P&#xa7;TPVI ,   P&#xa7;STVI ,   P&#xa7;ENVI ,   P&#xa7;ESVI ,   P&#xa7;NOTA )   AS   SELECT   P&#xa7;CDVI ,   P&#xa7;DTRV ,   P&#xa7;DTEV ,   P&#xa7;DIPE ,   P&#xa7;TPVI ,   P&#xa7;STVI ,   P&#xa7;ENVI ,   P&#xa7;ESVI ,   P&#xa7;NOTA   FROM P0SVIS0F   ;  "/>

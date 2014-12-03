@@ -11,6 +11,8 @@
   </levels>
   <levels name="Database"
       value="20">
+    <hooks className="org.asup.db.core.base.BaseDatabaseActivatorHook"
+        interfaceName="org.asup.db.core.base.BaseDatabaseActivatorHook"/>
     <modules
         href="modules/db-core-base.xmi#DBCoreBase"/>
     <modules

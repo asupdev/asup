@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMIPRO0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="I$CODI" length="15"/>
-  <columns dataType="CHAR" name="I$COIN" length="5"/>
-  <columns dataType="CHAR" name="I$TIPO" length="3"/>
-  <columns dataType="CHAR" name="I$DESC" length="30"/>
-  <columns dataType="DECIMAL" name="I$FRCA" length="8"/>
-  <columns dataType="DECIMAL" name="I$TEIN" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I$FEMA" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I$NUPE" length="2"/>
-  <columns dataType="CHAR" name="I$TIDO" length="4"/>
-  <columns dataType="CHAR" name="I$DOCU" length="15"/>
-  <columns dataType="DECIMAL" name="I$DUIN" length="8"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="I$CODI"/>
+  <columns dataType="CHAR" length="5" name="I$COIN"/>
+  <columns dataType="CHAR" length="3" name="I$TIPO"/>
+  <columns dataType="CHAR" length="30" name="I$DESC"/>
+  <columns dataType="DECIMAL" length="8" name="I$FRCA"/>
+  <columns dataType="DECIMAL" length="6" name="I$TEIN" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="I$FEMA" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="I$NUPE"/>
+  <columns dataType="CHAR" length="4" name="I$TIDO"/>
+  <columns dataType="CHAR" length="15" name="I$DOCU"/>
+  <columns dataType="DECIMAL" length="8" name="I$DUIN"/>
 </db-core:TableDef>

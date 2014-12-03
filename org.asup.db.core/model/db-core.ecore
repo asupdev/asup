@@ -34,6 +34,7 @@
     <eOperations name="setAutoCommit" eExceptions="#//DatabaseException">
       <eParameters name="autoCommit" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
+    <eOperations name="resetAutoCommit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionConfig" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoCommit" lowerBound="1"

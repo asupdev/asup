@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;CONR0FT">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C&#xa3;TPRC" length="3"/>
-  <columns dataType="CHAR" name="C&#xa3;CD01" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CD02" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;NUMP" length="3"/>
-  <columns dataType="CHAR" name="C&#xa3;CDVA" length="15"/>
-  <columns dataType="DECIMAL" name="C&#xa3;VALO" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTFN" length="8"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="C&#xa3;TPRC"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD01"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD02"/>
+  <columns dataType="CHAR" length="3" name="C&#xa3;NUMP"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CDVA"/>
+  <columns dataType="DECIMAL" length="15" name="C&#xa3;VALO" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTFN"/>
 </db-core:TableDef>

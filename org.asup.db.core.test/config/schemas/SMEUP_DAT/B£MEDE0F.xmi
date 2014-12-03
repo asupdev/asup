@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="MEAZIE"/>
+  <columns dataType="CHAR" length="10" name="MEIDOJ"/>
+  <columns dataType="CHAR" length="12" name="METIPA"/>
+  <columns dataType="CHAR" length="15" name="MECODI"/>
+  <columns dataType="CHAR" length="3" name="METIPO"/>
+  <columns dataType="CHAR" length="15" name="MECOD1"/>
+  <columns dataType="CHAR" length="15" name="MECOD2"/>
+  <columns dataType="CHAR" length="15" name="MECOD3"/>
+  <columns dataType="CHAR" length="3" name="METIP2"/>
+  <columns dataType="CHAR" length="15" name="MECOD4"/>
+  <columns dataType="CHAR" length="15" name="MECOD5"/>
+  <columns dataType="CHAR" length="15" name="MECOD6"/>
+  <columns dataType="CHAR" length="35" name="MEDESC"/>
+  <columns dataType="DECIMAL" length="8" name="MEDT01"/>
+  <columns dataType="DECIMAL" length="8" name="MEDT02"/>
+  <columns dataType="DECIMAL" length="8" name="MEDT03"/>
+  <columns dataType="DECIMAL" length="8" name="MEDT04"/>
+  <columns dataType="DECIMAL" length="8" name="MEDT05"/>
+  <columns dataType="CHAR" length="15" name="MECDL1"/>
+  <columns dataType="CHAR" length="15" name="MECDL2"/>
+  <columns dataType="CHAR" length="15" name="MECDL3"/>
+  <columns dataType="CHAR" length="15" name="MECDL4"/>
+  <columns dataType="CHAR" length="15" name="MECDL5"/>
+  <columns dataType="DECIMAL" length="21" name="MENUM1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="MENUM2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="MENUM3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="MENUM4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="MENUM5" scale="6"/>
+  <columns dataType="CHAR" length="1" name="MEFL01"/>
+  <columns dataType="CHAR" length="1" name="MEFL02"/>
+  <columns dataType="CHAR" length="1" name="MEFL03"/>
+  <columns dataType="CHAR" length="1" name="MEFL04"/>
+  <columns dataType="CHAR" length="1" name="MEFL05"/>
+  <columns dataType="CHAR" length="1" name="MEFL06"/>
+  <columns dataType="CHAR" length="1" name="MEFL07"/>
+  <columns dataType="CHAR" length="1" name="MEFL08"/>
+  <columns dataType="CHAR" length="1" name="MEFL09"/>
+  <columns dataType="CHAR" length="1" name="MEFL10"/>
+  <columns dataType="CHAR" length="1" name="MEFL11"/>
+  <columns dataType="CHAR" length="1" name="MEFL12"/>
+  <columns dataType="CHAR" length="1" name="MEFL13"/>
+  <columns dataType="CHAR" length="1" name="MEFL14"/>
+  <columns dataType="CHAR" length="1" name="MEFL15"/>
+  <columns dataType="CHAR" length="1" name="MEFL16"/>
+  <columns dataType="CHAR" length="1" name="MEFL17"/>
+  <columns dataType="CHAR" length="1" name="MEFL18"/>
+  <columns dataType="CHAR" length="1" name="MEFL19"/>
+  <columns dataType="CHAR" length="1" name="MEFL20"/>
+  <columns dataType="DECIMAL" length="8" name="MEDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="MEORIN"/>
+  <columns dataType="DECIMAL" length="8" name="MEDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="MEORAG"/>
+  <columns dataType="CHAR" length="10" name="MEUSIN"/>
+  <columns dataType="CHAR" length="10" name="MEUSAG"/>
+  <columns dataType="CHAR" length="10" name="MEPRIN"/>
+  <columns dataType="CHAR" length="10" name="MEPRAG"/>
+  <columns dataType="CHAR" length="30002" name="MEDATI"/>
+</db-core:TableDef>
