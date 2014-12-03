@@ -7,14 +7,17 @@ Bundle-ClassPath: .
 Bundle-Vendor: www.smeup.com
 Bundle-Localization: plugin
 Export-Package: org.asup.db.syntax,
+ org.asup.db.syntax.ddl,
+ org.asup.db.syntax.ddl.impl,
+ org.asup.db.syntax.ddl.util,
  org.asup.db.syntax.dml,
  org.asup.db.syntax.dml.impl,
- org.asup.db.syntax.dml.util,
  org.asup.db.syntax.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.asup.fw.core;visibility:=reexport,
  org.asup.fw.java;visibility:=reexport,
+ org.asup.db.syntax;visibility:=reexport,
  org.asup.db.core;visibility:=reexport,
  org.eclipse.datatools.modelbase.sql;visibility:=reexport,
  org.eclipse.datatools.modelbase.sql.query;visibility:=reexport,

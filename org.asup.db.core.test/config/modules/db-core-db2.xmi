@@ -19,9 +19,9 @@
   </services>
   <services
       xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseSyntaxBuilderRegistryImpl"
-      interfaceName="org.asup.db.syntax.QSyntaxBuilderRegistry"
-      pluginInterface="org.asup.db.syntax.QSyntaxBuilder">
+      className="org.asup.db.syntax.base.BaseDefinitionWriterRegistryImpl"
+      interfaceName="org.asup.db.syntax.QDefinitionWriterRegistry"
+      pluginInterface="org.asup.db.syntax.QDefinitionWriter">
     <services
         name="DB2 UDB/V10.5"
         text="IBM DB2"
@@ -31,14 +31,14 @@
   </services>
   <services
       xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseQueryConverterRegistryImpl"
-      interfaceName="org.asup.db.syntax.QQueryConverterRegistry"
-      pluginInterface="org.asup.db.syntax.QQueryConverter">
+      className="org.asup.db.syntax.base.BaseQueryWriterRegistryImpl"
+      interfaceName="org.asup.db.syntax.QQueryWriterRegistry"
+      pluginInterface="org.asup.db.syntax.QQueryWriter">
     <services
         name="DB2 UDB/V10.5"
         text="IBM DB2"
         version="0.5.3"
         vendor="www.smeup.com"
-        className="org.asup.db.syntax.db2.DB2QueryConverterImpl"/>
+        className="org.asup.db.syntax.db2.DB2QueryWriterImpl"/>
   </services>
 </fw-core:ApplicationModule>

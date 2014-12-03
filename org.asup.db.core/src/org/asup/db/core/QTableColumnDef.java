@@ -17,9 +17,10 @@ package org.asup.db.core;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QTableColumnDef#getDataType <em>Data Type</em>}</li>
+ *   <li>{@link org.asup.db.core.QTableColumnDef#isDefault <em>Default</em>}</li>
+ *   <li>{@link org.asup.db.core.QTableColumnDef#getLength <em>Length</em>}</li>
  *   <li>{@link org.asup.db.core.QTableColumnDef#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.db.core.QTableColumnDef#isNullable <em>Nullable</em>}</li>
- *   <li>{@link org.asup.db.core.QTableColumnDef#getLength <em>Length</em>}</li>
  *   <li>{@link org.asup.db.core.QTableColumnDef#getScale <em>Scale</em>}</li>
  * </ul>
  * </p>
@@ -57,6 +58,32 @@ public interface QTableColumnDef extends QDatabaseObjectDef {
 	 * @generated
 	 */
 	void setDataType(DatabaseDataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Default</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default</em>' attribute.
+	 * @see #setDefault(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getTableColumnDef_Default()
+	 * @model
+	 * @generated
+	 */
+	boolean isDefault();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QTableColumnDef#isDefault <em>Default</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default</em>' attribute.
+	 * @see #isDefault()
+	 * @generated
+	 */
+	void setDefault(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

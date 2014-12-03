@@ -25,6 +25,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	QDatabaseCoreFactory eINSTANCE = org.asup.db.core.impl.DatabaseCoreFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Catalog Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Catalog Container</em>'.
+	 * @generated
+	 */
+	QCatalogContainer createCatalogContainer();
+
+	/**
 	 * Returns a new object of class '<em>Connection Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32,6 +41,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	 * @generated
 	 */
 	QConnectionConfig createConnectionConfig();
+
+	/**
+	 * Returns a new object of class '<em>Database Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Database Container</em>'.
+	 * @generated
+	 */
+	QDatabaseContainer createDatabaseContainer();
 
 	/**
 	 * Returns a new object of class '<em>Index Def</em>'.
@@ -50,6 +68,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	 * @generated
 	 */
 	QIndexColumnDef createIndexColumnDef();
+
+	/**
+	 * Returns a new object of class '<em>Qualified Name</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Qualified Name</em>'.
+	 * @generated
+	 */
+	QQualifiedName createQualifiedName();
 
 	/**
 	 * Returns a new object of class '<em>Schema Def</em>'.

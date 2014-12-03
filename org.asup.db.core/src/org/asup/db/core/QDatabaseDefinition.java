@@ -26,5 +26,5 @@ public interface QDatabaseDefinition {
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean supportsIdentityColumns();
+	boolean supportsRelativeRecordNumber();
 } // QDatabaseDefinition

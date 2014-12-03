@@ -7,15 +7,11 @@
  */
 package org.asup.db.syntax.dml.impl;
 
-import org.asup.db.syntax.dml.QDmlPackage;
+import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.QExtendedQueryExpressionBody;
-
 import org.eclipse.datatools.modelbase.sql.query.impl.QueryExpressionBodyImpl;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -68,7 +64,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDmlPackage.Literals.EXTENDED_QUERY_EXPRESSION_BODY;
+		return QDatabaseDMLPackage.Literals.EXTENDED_QUERY_EXPRESSION_BODY;
 	}
 
 	/**
@@ -89,7 +85,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 		int oldOptimizeRecordsNumber = optimizeRecordsNumber;
 		optimizeRecordsNumber = newOptimizeRecordsNumber;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER, oldOptimizeRecordsNumber, optimizeRecordsNumber));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseDMLPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER, oldOptimizeRecordsNumber, optimizeRecordsNumber));
 	}
 
 	/**
@@ -100,7 +96,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
 				return getOptimizeRecordsNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -114,7 +110,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
 				setOptimizeRecordsNumber((Integer)newValue);
 				return;
 		}
@@ -129,7 +125,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
 				setOptimizeRecordsNumber(OPTIMIZE_RECORDS_NUMBER_EDEFAULT);
 				return;
 		}
@@ -144,7 +140,7 @@ public class ExtendedQueryExpressionBodyImpl extends QueryExpressionBodyImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDmlPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
+			case QDatabaseDMLPackage.EXTENDED_QUERY_EXPRESSION_BODY__OPTIMIZE_RECORDS_NUMBER:
 				return optimizeRecordsNumber != OPTIMIZE_RECORDS_NUMBER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

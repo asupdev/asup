@@ -75,7 +75,7 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 				if(connection == null) {
 					try {
 						connection = connectionManager.createDatabaseConnection(connectionConfig);
-						job.getJobContext().set(QConnection.class, connection);
+//						job.getJobContext().set(QConnection.class, connection);
 					} catch (SQLException e) {
 						throw new OperatingSystemRuntimeException(e);
 					}

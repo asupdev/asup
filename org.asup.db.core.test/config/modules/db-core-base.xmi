@@ -35,33 +35,33 @@
   </services>
   <services
       xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseSyntaxBuilderRegistryImpl"
-      interfaceName="org.asup.db.syntax.QSyntaxBuilderRegistry"
-      pluginInterface="org.asup.db.syntax.QSyntaxBuilder">
+      className="org.asup.db.syntax.base.BaseDefinitionWriterRegistryImpl"
+      interfaceName="org.asup.db.syntax.QDefinitionWriterRegistry"
+      pluginInterface="org.asup.db.syntax.QDefinitionWriter">
     <services
         name="MSSQL"
         text="Microsoft SQL Server"
         version="0.5.3"
         vendor="www.smeup.com"
-        className="org.asup.db.syntax.mssql.MsSQLSyntaxBuilderImpl"/>
+        className="org.asup.db.syntax.mssql.MsSQLDefinitionWriterImpl"/>
     <services
         name="IBMI"
         text="IBMi Server"
         version="0.5.3"
         vendor="www.smeup.com"
-        className="org.asup.db.syntax.ibmi.IBMiSyntaxBuilderImpl"/>
+        className="org.asup.db.syntax.ibmi.IBMiDefinitionWriterImpl"/>
   </services>
   <services
       xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseQueryConverterRegistryImpl"
-      interfaceName="org.asup.db.syntax.QQueryConverterRegistry"
-      pluginInterface="org.asup.db.syntax.QQueryConverter">
+      className="org.asup.db.syntax.base.BaseQueryWriterRegistryImpl"
+      interfaceName="org.asup.db.syntax.QQueryWriterRegistry"
+      pluginInterface="org.asup.db.syntax.QQueryWriter">
     <services
         name="MSSQL"
         text="Microsoft SQL Server"
         version="0.5.3"
         vendor="www.smeup.com"
-        className="org.asup.db.syntax.mssql.MsSQLQueryConverterImpl"/>
+        className="org.asup.db.syntax.mssql.MsSQLQueryWriterImpl"/>
   </services>
   <services
       xsi:type="fw-core:ServicePluginRegistry"

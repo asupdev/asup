@@ -57,9 +57,12 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDatabaseCorePackage.CATALOG_CONTAINER: return (EObject)createCatalogContainer();
 			case QDatabaseCorePackage.CONNECTION_CONFIG: return (EObject)createConnectionConfig();
+			case QDatabaseCorePackage.DATABASE_CONTAINER: return (EObject)createDatabaseContainer();
 			case QDatabaseCorePackage.INDEX_DEF: return (EObject)createIndexDef();
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF: return (EObject)createIndexColumnDef();
+			case QDatabaseCorePackage.QUALIFIED_NAME: return (EObject)createQualifiedName();
 			case QDatabaseCorePackage.SCHEMA_DEF: return (EObject)createSchemaDef();
 			case QDatabaseCorePackage.TABLE_DEF: return (EObject)createTableDef();
 			case QDatabaseCorePackage.TABLE_COLUMN_DEF: return (EObject)createTableColumnDef();
@@ -106,9 +109,29 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QCatalogContainer createCatalogContainer() {
+		CatalogContainerImpl catalogContainer = new CatalogContainerImpl();
+		return catalogContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QConnectionConfig createConnectionConfig() {
 		ConnectionConfigImpl connectionConfig = new ConnectionConfigImpl();
 		return connectionConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDatabaseContainer createDatabaseContainer() {
+		DatabaseContainerImpl databaseContainer = new DatabaseContainerImpl();
+		return databaseContainer;
 	}
 
 	/**
@@ -129,6 +152,16 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	public QIndexColumnDef createIndexColumnDef() {
 		IndexColumnDefImpl indexColumnDef = new IndexColumnDefImpl();
 		return indexColumnDef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QQualifiedName createQualifiedName() {
+		QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
+		return qualifiedName;
 	}
 
 	/**

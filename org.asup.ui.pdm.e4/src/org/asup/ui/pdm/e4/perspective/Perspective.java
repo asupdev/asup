@@ -31,6 +31,7 @@ public class Perspective implements IPerspectiveFactory {
 		
 		layout.addView("org.eclipse.jdt.ui.PackageExplorer", IPageLayout.LEFT, 0.15f, editorArea);
 		layout.addView(ShellCommandView.ID, IPageLayout.BOTTOM, 0.90f, editorArea);
+//		layout.addView("org.eclipse.datatools.connectivity.ui.dse.views.DataSourceExplorerView", IPageLayout.BOTTOM, 0.10f, editorArea);
 		layout.addView("org.eclipse.ui.console.ConsoleView", IPageLayout.BOTTOM, 0.10f, editorArea);
 //		layout.addView("org.eclipse.ui.views.ProgressView", IPageLayout.BOTTOM, 0.10f, editorArea);
 	}

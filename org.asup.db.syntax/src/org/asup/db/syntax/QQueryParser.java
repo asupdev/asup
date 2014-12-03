@@ -9,8 +9,6 @@ package org.asup.db.syntax;
 
 import java.io.InputStream;
 import java.sql.SQLException;
-import org.asup.fw.core.QPlugin;
-import org.asup.fw.core.QService;
 import org.eclipse.datatools.sqltools.parsers.sql.SQLParserException;
 import org.eclipse.datatools.sqltools.parsers.sql.SQLParserInternalException;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
@@ -25,11 +23,11 @@ import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
  * @model abstract="true"
  * @generated
  */
-public interface QQueryParser extends QPlugin, QService {
+public interface QQueryParser extends QStatementParser {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.db.syntax.QueryParseResult" exceptions="org.asup.db.core.DatabaseException" streamDataType="org.asup.fw.java.JavaInputStream" streamRequired="true"
+	 * @model dataType="org.asup.db.syntax.SQLQueryParseResult" exceptions="org.asup.db.core.DatabaseException" streamDataType="org.asup.fw.java.JavaInputStream" streamRequired="true"
 	 * @generated
 	 */
 	SQLQueryParseResult parseQuery(InputStream stream) throws SQLParserException, SQLParserInternalException, SQLException;
@@ -37,7 +35,7 @@ public interface QQueryParser extends QPlugin, QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.db.syntax.QueryParseResult" exceptions="org.asup.db.core.DatabaseException" sqlRequired="true"
+	 * @model dataType="org.asup.db.syntax.SQLQueryParseResult" exceptions="org.asup.db.core.DatabaseException" sqlRequired="true"
 	 * @generated
 	 */
 	SQLQueryParseResult parseQuery(String sql) throws SQLException;

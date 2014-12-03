@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.asup.ft.database.ui"
+      label="As.UP Database UI"
+      version="0.5.3.qualifier"
+      provider-name="www.smeup.com">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <includes
+         id="org.asup.ft.database"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.datatools.enablement.asup.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -18,11 +18,12 @@ import org.asup.fw.core.QServiceConfig;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QConnectionConfig#isAutoCommit <em>Auto Commit</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#isPersistent <em>Persistent</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getUrl <em>Url</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
@@ -60,6 +61,32 @@ public interface QConnectionConfig extends QServiceConfig {
 	void setAutoCommit(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Persistent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Persistent</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persistent</em>' attribute.
+	 * @see #setPersistent(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Persistent()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isPersistent();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isPersistent <em>Persistent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Persistent</em>' attribute.
+	 * @see #isPersistent()
+	 * @generated
+	 */
+	void setPersistent(boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Driver Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -84,32 +111,6 @@ public interface QConnectionConfig extends QServiceConfig {
 	 * @generated
 	 */
 	void setDriverName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Product</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Product</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Product</em>' attribute.
-	 * @see #setProduct(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Product()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getProduct();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getProduct <em>Product</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Product</em>' attribute.
-	 * @see #getProduct()
-	 * @generated
-	 */
-	void setProduct(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Password</b></em>' attribute.
@@ -188,6 +189,32 @@ public interface QConnectionConfig extends QServiceConfig {
 	 * @generated
 	 */
 	void setUser(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Vendor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vendor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vendor</em>' attribute.
+	 * @see #setVendor(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Vendor()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getVendor();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getVendor <em>Vendor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Vendor</em>' attribute.
+	 * @see #getVendor()
+	 * @generated
+	 */
+	void setVendor(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.

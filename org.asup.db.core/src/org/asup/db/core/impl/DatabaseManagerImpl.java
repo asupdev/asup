@@ -8,8 +8,8 @@
 package org.asup.db.core.impl;
 
 import java.sql.SQLException;
-
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndexDef;
@@ -18,7 +18,6 @@ import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
@@ -171,7 +170,7 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Database getDatabase(QConnection connection) {
+	public QDatabaseContainer getDatabaseContainer() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -214,6 +213,17 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * @generated
 	 */
 	public ViewTable getView(QConnection connection, String schema, String table) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isStarted() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

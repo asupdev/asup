@@ -8,10 +8,8 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
-
 import org.asup.fw.core.QService;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
-import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
@@ -109,10 +107,10 @@ public interface QDatabaseManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	Database getDatabase(QConnection connection);
+	QDatabaseContainer getDatabaseContainer();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,5 +146,13 @@ public interface QDatabaseManager extends QService {
 	 * @generated
 	 */
 	ViewTable getView(QConnection connection, String schema, String table);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	boolean isStarted();
 
 } // DatabaseManager

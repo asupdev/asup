@@ -21,11 +21,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isAutoCommit <em>Auto Commit</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#isPersistent <em>Persistent</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getDriverName <em>Driver Name</em>}</li>
- *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ConnectionConfigImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
@@ -54,6 +55,26 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	protected boolean autoCommit = AUTO_COMMIT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isPersistent() <em>Persistent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPersistent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PERSISTENT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPersistent() <em>Persistent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPersistent()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean persistent = PERSISTENT_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getDriverName() <em>Driver Name</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDriverName()
@@ -70,26 +91,6 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * @ordered
 	 */
 	protected String driverName = DRIVER_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getProduct() <em>Product</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProduct()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PRODUCT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getProduct() <em>Product</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProduct()
-	 * @generated
-	 * @ordered
-	 */
-	protected String product = PRODUCT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
@@ -146,6 +147,26 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * @ordered
 	 */
 	protected String user = USER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVendor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VENDOR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVendor()
+	 * @generated
+	 * @ordered
+	 */
+	protected String vendor = VENDOR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -206,6 +227,27 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPersistent() {
+		return persistent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPersistent(boolean newPersistent) {
+		boolean oldPersistent = persistent;
+		persistent = newPersistent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT, oldPersistent, persistent));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -222,27 +264,6 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		driverName = newDriverName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME, oldDriverName, driverName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getProduct() {
-		return product;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProduct(String newProduct) {
-		String oldProduct = product;
-		product = newProduct;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT, oldProduct, product));
 	}
 
 	/**
@@ -307,6 +328,27 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getVendor() {
+		return vendor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVendor(String newVendor) {
+		String oldVendor = vendor;
+		vendor = newVendor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CONNECTION_CONFIG__VENDOR, oldVendor, vendor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getVersion() {
 		return version;
 	}
@@ -324,15 +366,6 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public String getDatabaseDefinitionID() {
-		return getProduct().trim()+"/"+getVersion().trim(); 
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -341,16 +374,18 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				return isAutoCommit();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				return isPersistent();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				return getDriverName();
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
-				return getProduct();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				return getPassword();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__URL:
 				return getUrl();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				return getUser();
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VENDOR:
+				return getVendor();
 			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
 				return getVersion();
 		}
@@ -367,11 +402,11 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				setAutoCommit((Boolean)newValue);
 				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				setPersistent((Boolean)newValue);
+				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				setDriverName((String)newValue);
-				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
-				setProduct((String)newValue);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				setPassword((String)newValue);
@@ -381,6 +416,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				setUser((String)newValue);
+				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VENDOR:
+				setVendor((String)newValue);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
 				setVersion((String)newValue);
@@ -399,11 +437,11 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				setAutoCommit(AUTO_COMMIT_EDEFAULT);
 				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				setPersistent(PERSISTENT_EDEFAULT);
+				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				setDriverName(DRIVER_NAME_EDEFAULT);
-				return;
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
-				setProduct(PRODUCT_EDEFAULT);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				setPassword(PASSWORD_EDEFAULT);
@@ -413,6 +451,9 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				setUser(USER_EDEFAULT);
+				return;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VENDOR:
+				setVendor(VENDOR_EDEFAULT);
 				return;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
 				setVersion(VERSION_EDEFAULT);
@@ -430,16 +471,18 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		switch (featureID) {
 			case QDatabaseCorePackage.CONNECTION_CONFIG__AUTO_COMMIT:
 				return autoCommit != AUTO_COMMIT_EDEFAULT;
+			case QDatabaseCorePackage.CONNECTION_CONFIG__PERSISTENT:
+				return persistent != PERSISTENT_EDEFAULT;
 			case QDatabaseCorePackage.CONNECTION_CONFIG__DRIVER_NAME:
 				return DRIVER_NAME_EDEFAULT == null ? driverName != null : !DRIVER_NAME_EDEFAULT.equals(driverName);
-			case QDatabaseCorePackage.CONNECTION_CONFIG__PRODUCT:
-				return PRODUCT_EDEFAULT == null ? product != null : !PRODUCT_EDEFAULT.equals(product);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__PASSWORD:
 				return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__USER:
 				return USER_EDEFAULT == null ? user != null : !USER_EDEFAULT.equals(user);
+			case QDatabaseCorePackage.CONNECTION_CONFIG__VENDOR:
+				return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
 			case QDatabaseCorePackage.CONNECTION_CONFIG__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
 		}
@@ -457,16 +500,18 @@ public class ConnectionConfigImpl extends ServiceConfigImpl implements QConnecti
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (autoCommit: ");
 		result.append(autoCommit);
+		result.append(", persistent: ");
+		result.append(persistent);
 		result.append(", driverName: ");
 		result.append(driverName);
-		result.append(", product: ");
-		result.append(product);
 		result.append(", password: ");
 		result.append(password);
 		result.append(", url: ");
 		result.append(url);
 		result.append(", user: ");
 		result.append(user);
+		result.append(", vendor: ");
+		result.append(vendor);
 		result.append(", version: ");
 		result.append(version);
 		result.append(')');

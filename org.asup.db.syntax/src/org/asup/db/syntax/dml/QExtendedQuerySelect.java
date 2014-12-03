@@ -15,7 +15,7 @@ import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.dml.QDmlPackage#getExtendedQuerySelect()
+ * @see org.asup.db.syntax.dml.QDatabaseDMLPackage#getExtendedQuerySelect()
  * @model
  * @generated
  */

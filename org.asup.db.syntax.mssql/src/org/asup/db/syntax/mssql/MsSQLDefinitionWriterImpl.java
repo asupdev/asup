@@ -22,11 +22,9 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
-import org.asup.db.syntax.QAliasResolver;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.QQueryWriter;
-import org.asup.db.syntax.base.BaseSchemaAliasResolverImpl;
 import org.asup.db.syntax.impl.DefinitionWriterImpl;
 import org.asup.dk.parser.InvalidExpressionException;
 import org.asup.dk.parser.Parser;
@@ -39,7 +37,7 @@ import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
 
-	protected MsSQLDefinitionWriterImpl() {
+	public MsSQLDefinitionWriterImpl() {
 		super(new SQLObjectNameHelper());
 	}
 
@@ -151,8 +149,9 @@ public class MsSQLDefinitionWriterImpl extends DefinitionWriterImpl {
 
 			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(command.getBytes()));
 
-			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
-			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
+			// TODO
+//			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl(schema.getName());
+//			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
 
 			command = queryConverter.writeQuery(query.getQueryStatement());
 

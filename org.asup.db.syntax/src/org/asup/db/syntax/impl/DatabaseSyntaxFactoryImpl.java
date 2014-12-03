@@ -8,7 +8,6 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.syntax.*;
-import org.eclipse.datatools.sqltools.parsers.sql.SQLParseResult;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -59,6 +58,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_ERROR: return (EObject)createDefinitionParseError();
+			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT: return (EObject)createDefinitionParseResult();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -71,10 +72,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT:
-				return createDefinitionParseResultFromString(eDataType, initialValue);
-			case QDatabaseSyntaxPackage.QUERY_PARSE_RESULT:
-				return createQueryParseResultFromString(eDataType, initialValue);
+			case QDatabaseSyntaxPackage.SQL_QUERY_PARSE_RESULT:
+				return createSQLQueryParseResultFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -87,10 +86,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT:
-				return convertDefinitionParseResultToString(eDataType, instanceValue);
-			case QDatabaseSyntaxPackage.QUERY_PARSE_RESULT:
-				return convertQueryParseResultToString(eDataType, instanceValue);
+			case QDatabaseSyntaxPackage.SQL_QUERY_PARSE_RESULT:
+				return convertSQLQueryParseResultToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -101,8 +98,9 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SQLParseResult createDefinitionParseResultFromString(EDataType eDataType, String initialValue) {
-		return (SQLParseResult)super.createFromString(eDataType, initialValue);
+	public QDefinitionParseError createDefinitionParseError() {
+		DefinitionParseErrorImpl definitionParseError = new DefinitionParseErrorImpl();
+		return definitionParseError;
 	}
 
 	/**
@@ -110,23 +108,26 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDefinitionParseResultToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+	public QDefinitionParseResult createDefinitionParseResult() {
+		DefinitionParseResultImpl definitionParseResult = new DefinitionParseResultImpl();
+		return definitionParseResult;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SQLQueryParseResult createQueryParseResultFromString(EDataType eDataType, String initialValue) {
+	public SQLQueryParseResult createSQLQueryParseResultFromString(EDataType eDataType, String initialValue) {
 		return (SQLQueryParseResult)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertQueryParseResultToString(EDataType eDataType, Object instanceValue) {
+	public String convertSQLQueryParseResultToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

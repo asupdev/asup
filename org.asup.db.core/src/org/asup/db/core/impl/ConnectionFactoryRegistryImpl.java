@@ -46,6 +46,6 @@ public abstract class ConnectionFactoryRegistryImpl extends PluginRegistryImpl<Q
 	 */
 	@Override
 	public QConnectionFactory lookup(QConnectionConfig connectionConfig) {
-		return lookupByVendorVersion(connectionConfig.getProduct(), connectionConfig.getVersion());
+		return lookupByVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
 	}
 } // ConnectionFactoryRegistryImpl

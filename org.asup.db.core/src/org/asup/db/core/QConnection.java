@@ -107,7 +107,7 @@ public interface QConnection extends QContextID {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QDatabaseDefinition getDatabaseDefinition();
+	String getCurrentCatalog();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,6 +115,6 @@ public interface QConnection extends QContextID {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QDatabaseCatalog getDefaultCatalog();
+	QDatabaseDefinition getDatabaseDefinition();
 
 } // DatabaseConnection

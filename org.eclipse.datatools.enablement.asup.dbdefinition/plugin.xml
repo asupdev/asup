@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   
+   <extension
+         point="org.eclipse.datatools.connectivity.sqm.core.databaseDefinition">
+      <definition
+            allowsConnections="true"
+            description="As.UP Eclipse DataTools Enablement Version V0M5R3"
+            file="runtime/vendors/AsUP_053/AsUP_053.xmi"
+            product="AsUP"
+            productDisplayString="As.UP"
+            version="053"
+            versionDisplayString="V0M5R3">
+      </definition>
+   </extension>
+   
+	
+   
+</plugin>

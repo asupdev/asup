@@ -10,8 +10,8 @@ Bundle-Vendor: www.smeup.com
 Export-Package: com.microsoft.sqlserver.jdbc,
  microsoft.sql
 Require-Bundle: org.asup.db.core.base,
- org.eclipse.datatools.enablement.msft.sqlserver;bundle-version="1.0.3",
- org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition;bundle-version="1.0.1"
+ org.eclipse.datatools.enablement.msft.sqlserver,
+ org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: com.microsoft.sqlserver.jdbc,
