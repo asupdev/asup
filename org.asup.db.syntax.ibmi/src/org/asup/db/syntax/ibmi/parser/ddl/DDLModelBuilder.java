@@ -1,5 +1,6 @@
 package org.asup.db.syntax.ibmi.parser.ddl;
 
+import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -19,6 +20,7 @@ import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.ddl.DropRange;
 import org.asup.db.syntax.ddl.IsolationLevel;
+import org.asup.db.syntax.ddl.QCallStatement;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
@@ -51,11 +53,14 @@ public class DDLModelBuilder {
 	{
 		QDefinitionParseResult parserResult = (QDefinitionParseResult) QDatabaseSyntaxFactory.eINSTANCE.createDefinitionParseResult();
 		
-		String queryString = null;
+		String[] queryStrings = null;
 		if (isCreateViewStatement(definitionString)) {
 			String[] parts = splitCreteViewStatement(definitionString);
 			definitionString = parts[0];
-			queryString = parts[1];
+			queryStrings = new String[]{parts[1]};
+		} else if (isCallStatement(definitionString)) {
+			queryStrings = getCallParms(definitionString);
+			definitionString = removeCallParms(definitionString);
 		}
 		
 		DDLLexer lex = new DDLLexer(new ANTLRStringStream(definitionString));
@@ -66,7 +71,7 @@ public class DDLModelBuilder {
 		try {
 			tree = parser.sql().getTree();
 			
-			parserResult.setDefinitionStatement(convertModel(tree, queryString));
+			parserResult.setDefinitionStatement(convertModel(tree, queryStrings));
 			
 		} catch (RecognitionException e) {
 			
@@ -75,12 +80,13 @@ public class DDLModelBuilder {
 		return parserResult;
 	}
 
-	private QDefinitionStatement convertModel(CommonTree tree, String queryString) {
+	
+	private QDefinitionStatement convertModel(CommonTree tree, String[] queryString) {
 		
 		QDefinitionStatement result = null;
 		
 		switch (tree.getType()) {
-
+		
 		case DDLLexer.COMMIT_STATEMENT:
 			result = manageCommitStatement(tree);
 			break;
@@ -130,7 +136,7 @@ public class DDLModelBuilder {
 			break;	
 		
 		case DDLLexer.PROCEDURE_CALL_STATEMENT:
-			result = manageProcedureCallStatement(tree);
+			result = manageProcedureCallStatement(tree, queryString);
 			break;			
 			
 		case DDLLexer.RENAME_INDEX_STATEMENT:
@@ -340,9 +346,30 @@ public class DDLModelBuilder {
 		return releaseStatement;
 	}
 
-	private QDefinitionStatement manageProcedureCallStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+	private QDefinitionStatement manageProcedureCallStatement(CommonTree tree, String[] queryStrings) {
+		
+		QCallStatement callStatement = DdlFactoryImpl.eINSTANCE.createCallStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+			
+			switch (fieldToken.getType()) {
+			case DDLLexer.PROCEDURE_NAME:
+				
+				QQualifiedName procedureQualifiedName = resolveQualified(fieldToken.getChild(0));
+				callStatement.setProcedureName(procedureQualifiedName);
+				
+				break;
+			}			
+		}
+		
+		for (int i = 0; i < queryStrings.length; i++) {
+			callStatement.getParms().add(queryStrings[i]);
+		}
+		
+		return callStatement;
 	}
 
 	private QDefinitionStatement manageLockTableStatement(CommonTree tree) {
@@ -507,7 +534,7 @@ public class DDLModelBuilder {
 		return dropAliasStatement;
 	}
 
-	private QDefinitionStatement manageCreateViewStatement(CommonTree tree, String queryString) {
+	private QDefinitionStatement manageCreateViewStatement(CommonTree tree, String[] queryStrings) {
 		
 		QCreateViewStatement createViewStatement = DdlFactoryImpl.eINSTANCE.createCreateViewStatement();
 		
@@ -567,6 +594,8 @@ public class DDLModelBuilder {
 				break;	
 			}
 		}
+		
+		createViewStatement.setQuery(queryStrings[0]);
 		
 		return createViewStatement;
 	}
@@ -876,6 +905,7 @@ public class DDLModelBuilder {
 	}
 	
 	// Utility methods
+	
 		
 	private boolean isCreateViewStatement(String statement) {
 		return statement.matches("^[\\s]*[cC][rR][eE][aA][tT][eE][\\s]*[vV][iI][eE][wW].*");
@@ -927,5 +957,64 @@ public class DDLModelBuilder {
 
 		return pos;
 	}
+	
+	private boolean isCallStatement(String statement) {
+		return statement.matches("^[\\s]*[cC][aA][lL][lL][\\s]*.*");
+	}
+	
+	
+	/*
+	 * Return parms from CALL statement as array of string
+	 */
+	private String[] getCallParms(String definitionString) {
+		
+		String[] parms = null;
+		definitionString = definitionString.trim();		
+		
+		if (definitionString.indexOf("(") != -1 && definitionString.endsWith(")")) {
+		
+			int openBracePos = definitionString.indexOf("(");
+			String parmsString = definitionString.substring(openBracePos, definitionString.length()-1);
+			StringTokenizer parmTokenizer = new StringTokenizer(parmsString, ",");
+			parms = new String[parmTokenizer.countTokens()];
+			int counter = 0;
+			
+			while(parmTokenizer.hasMoreTokens()) {
+				parms[counter] = parmTokenizer.nextToken();
+				counter++;
+			}
+		}
+		
+		return parms;
+		
+	}
+	
+	/**
+	 * Remove parms from CALL statement
+	 * 
+	 * Example:
+	 * 
+	 * CALL LIB/PROCEDURE (A, B C) -> CALL LIB/PROCEDURE () 
+	 *  
+	 * @param definitionString
+	 * @return
+	 */
+	private String removeCallParms(String definitionString) {
+		
+		String result = definitionString;
+		
+		definitionString = definitionString.trim();		
+		
+		if (definitionString.indexOf("(") != -1 && definitionString.endsWith(")")) {
+		
+			int openBracePos = definitionString.indexOf("(");
+			result = definitionString.substring(0, openBracePos) + ")";			
+		}
+		
+		return result;
+
+	}
+
+	
 
 }

@@ -232,6 +232,12 @@
       <eLiterals name="READ_ONLY" literal="READ_ONLY"/>
       <eLiterals name="READ_WRITE" value="1"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CallStatement" eSuperTypes="#//DefinitionStatement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="procedureName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parms" upperBound="-1"
+          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="dml" nsURI="http://www.asup.org/db/syntax/dml" nsPrefix="db-syntax-dml">
     <eClassifiers xsi:type="ecore:EClass" name="ExtendedQuerySelect" eSuperTypes="#//dml/ExtendedQueryExpressionBody ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QuerySelect"/>

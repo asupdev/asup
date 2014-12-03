@@ -618,6 +618,43 @@ public interface QDdlPackage extends EPackage {
 	int SET_TRANSACTION_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CallStatementImpl <em>Call Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CallStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCallStatement()
+	 * @generated
+	 */
+	int CALL_STATEMENT = 14;
+
+	/**
+	 * The feature id for the '<em><b>Procedure Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT__PROCEDURE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parms</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT__PARMS = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Call Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -625,7 +662,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropRange()
 	 * @generated
 	 */
-	int DROP_RANGE = 14;
+	int DROP_RANGE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}' enum.
@@ -635,7 +672,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetElement()
 	 * @generated
 	 */
-	int TARGET_ELEMENT = 15;
+	int TARGET_ELEMENT = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}' enum.
@@ -645,7 +682,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getShareMode()
 	 * @generated
 	 */
-	int SHARE_MODE = 16;
+	int SHARE_MODE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -655,7 +692,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetItem()
 	 * @generated
 	 */
-	int TARGET_ITEM = 17;
+	int TARGET_ITEM = 18;
 
 
 	/**
@@ -666,7 +703,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getIsolationLevel()
 	 * @generated
 	 */
-	int ISOLATION_LEVEL = 18;
+	int ISOLATION_LEVEL = 19;
 
 
 	/**
@@ -677,7 +714,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRWOperation()
 	 * @generated
 	 */
-	int RW_OPERATION = 19;
+	int RW_OPERATION = 20;
 
 
 	/**
@@ -1173,6 +1210,38 @@ public interface QDdlPackage extends EPackage {
 	EAttribute getSetTransactionStatement_RwOperation();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QCallStatement <em>Call Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Call Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QCallStatement
+	 * @generated
+	 */
+	EClass getCallStatement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCallStatement#getProcedureName <em>Procedure Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Procedure Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QCallStatement#getProcedureName()
+	 * @see #getCallStatement()
+	 * @generated
+	 */
+	EReference getCallStatement_ProcedureName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.asup.db.syntax.ddl.QCallStatement#getParms <em>Parms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Parms</em>'.
+	 * @see org.asup.db.syntax.ddl.QCallStatement#getParms()
+	 * @see #getCallStatement()
+	 * @generated
+	 */
+	EAttribute getCallStatement_Parms();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1649,6 +1718,32 @@ public interface QDdlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SET_TRANSACTION_STATEMENT__RW_OPERATION = eINSTANCE.getSetTransactionStatement_RwOperation();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.CallStatementImpl <em>Call Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.CallStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCallStatement()
+		 * @generated
+		 */
+		EClass CALL_STATEMENT = eINSTANCE.getCallStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Procedure Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_STATEMENT__PROCEDURE_NAME = eINSTANCE.getCallStatement_ProcedureName();
+
+		/**
+		 * The meta object literal for the '<em><b>Parms</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_STATEMENT__PARMS = eINSTANCE.getCallStatement_Parms();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.

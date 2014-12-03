@@ -168,6 +168,13 @@ public class DdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDdlPackage.CALL_STATEMENT: {
+				QCallStatement callStatement = (QCallStatement)theEObject;
+				T result = caseCallStatement(callStatement);
+				if (result == null) result = caseDefinitionStatement(callStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -379,6 +386,21 @@ public class DdlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSetTransactionStatement(QSetTransactionStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallStatement(QCallStatement object) {
 		return null;
 	}
 

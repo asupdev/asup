@@ -76,6 +76,7 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 			case QDdlPackage.ROLLBACK_STATEMENT: return (EObject)createRollbackStatement();
 			case QDdlPackage.SET_CONNECTION_STATEMENT: return (EObject)createSetConnectionStatement();
 			case QDdlPackage.SET_TRANSACTION_STATEMENT: return (EObject)createSetTransactionStatement();
+			case QDdlPackage.CALL_STATEMENT: return (EObject)createCallStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -269,6 +270,16 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	public QSetTransactionStatement createSetTransactionStatement() {
 		SetTransactionStatementImpl setTransactionStatement = new SetTransactionStatementImpl();
 		return setTransactionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCallStatement createCallStatement() {
+		CallStatementImpl callStatement = new CallStatementImpl();
+		return callStatement;
 	}
 
 	/**

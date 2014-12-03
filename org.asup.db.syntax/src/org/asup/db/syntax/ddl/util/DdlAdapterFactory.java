@@ -127,6 +127,10 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 				return createSetTransactionStatementAdapter();
 			}
 			@Override
+			public Adapter caseCallStatement(QCallStatement object) {
+				return createCallStatementAdapter();
+			}
+			@Override
 			public Adapter caseDefinitionStatement(QDefinitionStatement object) {
 				return createDefinitionStatementAdapter();
 			}
@@ -343,6 +347,20 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSetTransactionStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QCallStatement <em>Call Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QCallStatement
+	 * @generated
+	 */
+	public Adapter createCallStatementAdapter() {
 		return null;
 	}
 
