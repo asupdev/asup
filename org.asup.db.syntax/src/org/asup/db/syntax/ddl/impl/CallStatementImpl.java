@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.asup.db.core.QQualifiedName;
 
+import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QCallStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
 
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.CallStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CallStatementImpl#getProcedureName <em>Procedure Name</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CallStatementImpl#getParms <em>Parms</em>}</li>
  * </ul>
@@ -43,6 +45,26 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * @generated
  */
 public class CallStatementImpl extends EObjectImpl implements QCallStatement {
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected StatementType type = TYPE_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getProcedureName() <em>Procedure Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -80,6 +102,27 @@ public class CallStatementImpl extends EObjectImpl implements QCallStatement {
 	@Override
 	protected EClass eStaticClass() {
 		return QDdlPackage.Literals.CALL_STATEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StatementType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(StatementType newType) {
+		StatementType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CALL_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -159,6 +202,8 @@ public class CallStatementImpl extends EObjectImpl implements QCallStatement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				return getType();
 			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
 				return getProcedureName();
 			case QDdlPackage.CALL_STATEMENT__PARMS:
@@ -176,6 +221,9 @@ public class CallStatementImpl extends EObjectImpl implements QCallStatement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				setType((StatementType)newValue);
+				return;
 			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
 				setProcedureName((QQualifiedName)newValue);
 				return;
@@ -195,6 +243,9 @@ public class CallStatementImpl extends EObjectImpl implements QCallStatement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
 				setProcedureName((QQualifiedName)null);
 				return;
@@ -213,6 +264,8 @@ public class CallStatementImpl extends EObjectImpl implements QCallStatement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				return type != TYPE_EDEFAULT;
 			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
 				return procedureName != null;
 			case QDdlPackage.CALL_STATEMENT__PARMS:
@@ -231,7 +284,9 @@ public class CallStatementImpl extends EObjectImpl implements QCallStatement {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (parms: ");
+		result.append(" (type: ");
+		result.append(type);
+		result.append(", parms: ");
 		result.append(parms);
 		result.append(')');
 		return result.toString();

@@ -62,6 +62,7 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDdlPackage.CALL_STATEMENT: return (EObject)createCallStatement();
 			case QDdlPackage.COMMIT_STATEMENT: return (EObject)createCommitStatement();
 			case QDdlPackage.CONNECT_STATEMENT: return (EObject)createConnectStatement();
 			case QDdlPackage.CREATE_ALIAS_STATEMENT: return (EObject)createCreateAliasStatement();
@@ -76,7 +77,6 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 			case QDdlPackage.ROLLBACK_STATEMENT: return (EObject)createRollbackStatement();
 			case QDdlPackage.SET_CONNECTION_STATEMENT: return (EObject)createSetConnectionStatement();
 			case QDdlPackage.SET_TRANSACTION_STATEMENT: return (EObject)createSetTransactionStatement();
-			case QDdlPackage.CALL_STATEMENT: return (EObject)createCallStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

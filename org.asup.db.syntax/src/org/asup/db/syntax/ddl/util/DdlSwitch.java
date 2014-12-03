@@ -70,6 +70,13 @@ public class DdlSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case QDdlPackage.CALL_STATEMENT: {
+				QCallStatement callStatement = (QCallStatement)theEObject;
+				T result = caseCallStatement(callStatement);
+				if (result == null) result = caseDefinitionStatement(callStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QDdlPackage.COMMIT_STATEMENT: {
 				QCommitStatement commitStatement = (QCommitStatement)theEObject;
 				T result = caseCommitStatement(commitStatement);
@@ -165,13 +172,6 @@ public class DdlSwitch<T> extends Switch<T> {
 				QSetTransactionStatement setTransactionStatement = (QSetTransactionStatement)theEObject;
 				T result = caseSetTransactionStatement(setTransactionStatement);
 				if (result == null) result = caseDefinitionStatement(setTransactionStatement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QDdlPackage.CALL_STATEMENT: {
-				QCallStatement callStatement = (QCallStatement)theEObject;
-				T result = caseCallStatement(callStatement);
-				if (result == null) result = caseDefinitionStatement(callStatement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

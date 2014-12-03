@@ -77,7 +77,14 @@
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatement" abstract="true"
-      interface="true"/>
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//StatementType"
+        defaultValueLiteral="DDL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EmbeddedStatement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//StatementType"
+        defaultValueLiteral="DBL"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NameHelper" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service #//SQLObjectNameHelper">
     <eOperations name="resolveContainers" lowerBound="1">
       <eParameters name="query" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QueryStatement"/>
@@ -127,7 +134,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameHelper" eType="#//NameHelper"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StatementParser" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="StatementType">
+    <eLiterals name="DML"/>
+    <eLiterals name="DDL" value="1"/>
+    <eLiterals name="DBL" value="2"/>
+  </eClassifiers>
   <eSubpackages name="ddl" nsURI="http://www.asup.org/db/syntax/ddl" nsPrefix="db-syntax-ddl">
+    <eClassifiers xsi:type="ecore:EClass" name="CallStatement" eSuperTypes="#//DefinitionStatement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="procedureName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parms" upperBound="-1"
+          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommitStatement" eSuperTypes="#//DefinitionStatement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="hold" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     </eClassifiers>
@@ -232,12 +250,6 @@
       <eLiterals name="READ_ONLY" literal="READ_ONLY"/>
       <eLiterals name="READ_WRITE" value="1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CallStatement" eSuperTypes="#//DefinitionStatement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="procedureName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parms" upperBound="-1"
-          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="dml" nsURI="http://www.asup.org/db/syntax/dml" nsPrefix="db-syntax-dml">
     <eClassifiers xsi:type="ecore:EClass" name="ExtendedQuerySelect" eSuperTypes="#//dml/ExtendedQueryExpressionBody ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.ecore#//QuerySelect"/>
@@ -246,4 +258,5 @@
           eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="dbl" nsURI="http://www.asup.org/db/syntax/dbl" nsPrefix="db-syntax-dbl"/>
 </ecore:EPackage>

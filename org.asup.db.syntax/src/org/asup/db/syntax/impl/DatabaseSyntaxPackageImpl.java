@@ -19,6 +19,7 @@ import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.db.syntax.QStatementParser;
 import org.asup.db.syntax.QStatementWriter;
+import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
@@ -27,6 +28,7 @@ import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
+import org.asup.db.syntax.QEmbeddedStatement;
 import org.asup.db.syntax.QNameHelper;
 import org.asup.db.syntax.QNameHelperRegistry;
 import org.asup.fw.core.QFrameworkCorePackage;
@@ -37,8 +39,10 @@ import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -106,6 +110,13 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass embeddedStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass nameHelperEClass = null;
 
 	/**
@@ -161,6 +172,13 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * @generated
 	 */
 	private EClass statementParserEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum statementTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +341,33 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDefinitionStatement_Type() {
+		return (EAttribute)definitionStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEmbeddedStatement() {
+		return embeddedStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEmbeddedStatement_Type() {
+		return (EAttribute)embeddedStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNameHelper() {
 		return nameHelperEClass;
 	}
@@ -411,6 +456,15 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getStatementType() {
+		return statementTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getSQLQueryParseResult() {
 		return sqlQueryParseResultEDataType;
 	}
@@ -456,6 +510,10 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		definitionWriterRegistryEClass = createEClass(DEFINITION_WRITER_REGISTRY);
 
 		definitionStatementEClass = createEClass(DEFINITION_STATEMENT);
+		createEAttribute(definitionStatementEClass, DEFINITION_STATEMENT__TYPE);
+
+		embeddedStatementEClass = createEClass(EMBEDDED_STATEMENT);
+		createEAttribute(embeddedStatementEClass, EMBEDDED_STATEMENT__TYPE);
 
 		nameHelperEClass = createEClass(NAME_HELPER);
 
@@ -475,6 +533,9 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		createEReference(statementWriterEClass, STATEMENT_WRITER__NAME_HELPER);
 
 		statementParserEClass = createEClass(STATEMENT_PARSER);
+
+		// Create enums
+		statementTypeEEnum = createEEnum(STATEMENT_TYPE);
 
 		// Create data types
 		sqlQueryParseResultEDataType = createEDataType(SQL_QUERY_PARSE_RESULT);
@@ -628,6 +689,10 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(definitionStatementEClass, QDefinitionStatement.class, "DefinitionStatement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDefinitionStatement_Type(), this.getStatementType(), "type", "DDL", 0, 1, QDefinitionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(embeddedStatementEClass, QEmbeddedStatement.class, "EmbeddedStatement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEmbeddedStatement_Type(), this.getStatementType(), "type", "DBL", 0, 1, QEmbeddedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nameHelperEClass, QNameHelper.class, "NameHelper", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -670,6 +735,12 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		initEReference(getStatementWriter_NameHelper(), this.getNameHelper(), null, "nameHelper", null, 0, 1, QStatementWriter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementParserEClass, QStatementParser.class, "StatementParser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize enums and add enum literals
+		initEEnum(statementTypeEEnum, StatementType.class, "StatementType");
+		addEEnumLiteral(statementTypeEEnum, StatementType.DML);
+		addEEnumLiteral(statementTypeEEnum, StatementType.DDL);
+		addEEnumLiteral(statementTypeEEnum, StatementType.DBL);
 
 		// Initialize data types
 		initEDataType(sqlQueryParseResultEDataType, SQLQueryParseResult.class, "SQLQueryParseResult", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

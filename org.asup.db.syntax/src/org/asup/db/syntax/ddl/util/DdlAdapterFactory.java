@@ -71,6 +71,10 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 	protected DdlSwitch<Adapter> modelSwitch =
 		new DdlSwitch<Adapter>() {
 			@Override
+			public Adapter caseCallStatement(QCallStatement object) {
+				return createCallStatementAdapter();
+			}
+			@Override
 			public Adapter caseCommitStatement(QCommitStatement object) {
 				return createCommitStatementAdapter();
 			}
@@ -125,10 +129,6 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSetTransactionStatement(QSetTransactionStatement object) {
 				return createSetTransactionStatementAdapter();
-			}
-			@Override
-			public Adapter caseCallStatement(QCallStatement object) {
-				return createCallStatementAdapter();
 			}
 			@Override
 			public Adapter caseDefinitionStatement(QDefinitionStatement object) {
