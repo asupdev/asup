@@ -195,6 +195,13 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="#//ddl/TargetElement"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="IsolationLevel">
+      <eLiterals name="SERIALIZABLE" literal="SERIALIZABLE"/>
+      <eLiterals name="NO_COMMIT" value="1"/>
+      <eLiterals name="READ_UNCOMMITTED" value="2"/>
+      <eLiterals name="READ_COMMITTED" value="3"/>
+      <eLiterals name="REPEATABLE_READ" value="4"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LockTableStatement" eSuperTypes="#//DefinitionStatement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowRead" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="shareMode" eType="#//ddl/ShareMode"/>
@@ -210,6 +217,20 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="originalName" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//QualifiedName"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="#//ddl/TargetElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RollbackStatement" eSuperTypes="#//DefinitionStatement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hold" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetConnectionStatement" eSuperTypes="#//DefinitionStatement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="databaseName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetTransactionStatement" eSuperTypes="#//DefinitionStatement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isolationLevel" eType="#//ddl/IsolationLevel"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rwOperation" eType="#//ddl/RWOperation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RWOperation">
+      <eLiterals name="READ_ONLY" literal="READ_ONLY"/>
+      <eLiterals name="READ_WRITE" value="1"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="dml" nsURI="http://www.asup.org/db/syntax/dml" nsPrefix="db-syntax-dml">

@@ -126,6 +126,33 @@ public interface QDdlFactory extends EFactory {
 	QRenameStatement createRenameStatement();
 
 	/**
+	 * Returns a new object of class '<em>Rollback Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rollback Statement</em>'.
+	 * @generated
+	 */
+	QRollbackStatement createRollbackStatement();
+
+	/**
+	 * Returns a new object of class '<em>Set Connection Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Connection Statement</em>'.
+	 * @generated
+	 */
+	QSetConnectionStatement createSetConnectionStatement();
+
+	/**
+	 * Returns a new object of class '<em>Set Transaction Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Transaction Statement</em>'.
+	 * @generated
+	 */
+	QSetTransactionStatement createSetTransactionStatement();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

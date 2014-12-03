@@ -18,6 +18,7 @@ import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.ddl.DropRange;
+import org.asup.db.syntax.ddl.IsolationLevel;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
@@ -29,6 +30,10 @@ import org.asup.db.syntax.ddl.QDropStatement;
 import org.asup.db.syntax.ddl.QLockTableStatement;
 import org.asup.db.syntax.ddl.QReleaseStatement;
 import org.asup.db.syntax.ddl.QRenameStatement;
+import org.asup.db.syntax.ddl.QRollbackStatement;
+import org.asup.db.syntax.ddl.QSetConnectionStatement;
+import org.asup.db.syntax.ddl.QSetTransactionStatement;
+import org.asup.db.syntax.ddl.RWOperation;
 import org.asup.db.syntax.ddl.ShareMode;
 import org.asup.db.syntax.ddl.TargetElement;
 import org.asup.db.syntax.ddl.TargetItem;
@@ -140,6 +145,10 @@ public class DDLModelBuilder {
 			result = manageReleaseStatement(tree);
 			break;		
 		
+		case DDLLexer.ROLLBACK_STATEMENT:
+			result = manageRollbackStatement(tree);
+			break;			
+		
 		case DDLLexer.SET_CONNECTION_STATEMENT:
 			result = manageSetConnectionStatement(tree);
 			break;				
@@ -155,13 +164,79 @@ public class DDLModelBuilder {
 	}
 
 	private QDefinitionStatement manageSetTransactionStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QSetTransactionStatement setTransactionStatement = DdlFactoryImpl.eINSTANCE.createSetTransactionStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DDLLexer.ISOLATION_LEVEL:
+				
+				if (fieldToken.getChildCount() > 0){
+					fieldToken = fieldToken.getChild(0);
+					
+					switch (fieldToken.getType()) {
+					case DDLLexer.SERIALIZABLE:
+						setTransactionStatement.setIsolationLevel(IsolationLevel.SERIALIZABLE);
+						break;
+						
+					case DDLLexer.NO_COMMIT:
+						setTransactionStatement.setIsolationLevel(IsolationLevel.NO_COMMIT);
+						break;	
+						
+					case DDLLexer.READ_UNCOMMITTED:
+						setTransactionStatement.setIsolationLevel(IsolationLevel.READ_UNCOMMITTED);
+						break;			
+					
+					case DDLLexer.READ_COMMITTED:
+						setTransactionStatement.setIsolationLevel(IsolationLevel.READ_COMMITTED);
+						break;				
+					
+					case DDLLexer.REPEATABLE_READ:
+						setTransactionStatement.setIsolationLevel(IsolationLevel.REPEATABLE_READ);
+						break;				
+					}
+					
+				}			
+				
+				break;
+			
+			case DDLLexer.RW_OPERATION:
+				
+				if (fieldToken.getChildCount() > 0){
+					fieldToken = fieldToken.getChild(0);
+					
+					switch (fieldToken.getType()) {
+					
+					case DDLLexer.READ_ONLY:
+						setTransactionStatement.setRwOperation(RWOperation.READ_ONLY);
+						break;
+						
+					case DDLLexer.READ_WRITE:
+						setTransactionStatement.setRwOperation(RWOperation.READ_WRITE);
+						break;
+					}
+				
+				break;
+				}
+			}
+		}
+		
+		return setTransactionStatement; 
+
 	}
 
 	private QDefinitionStatement manageSetConnectionStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QSetConnectionStatement setConnectionStatement = DdlFactoryImpl.eINSTANCE.createSetConnectionStatement();		
+		
+		if (tree.getChildCount()>0 && tree.getChild(0).getType() == DDLLexer.DB_NAME) {
+			setConnectionStatement.setDatabaseName(tree.getChild(0).getChild(0).getText());
+		}
+				
+		return setConnectionStatement;
 	}
 
 	private QDefinitionStatement manageRenameTableStatement(CommonTree tree) {
@@ -251,6 +326,17 @@ public class DDLModelBuilder {
 			releaseStatement.setServerName(serverName.getText());
 		}
 		
+		return releaseStatement;
+	}
+	
+	private QDefinitionStatement manageRollbackStatement(CommonTree tree) {
+		QRollbackStatement releaseStatement = DdlFactoryImpl.eINSTANCE.createRollbackStatement();
+		releaseStatement.setHold(false);
+		
+		if (tree.getChildCount()>0 && tree.getChild(0).getType() == DDLLexer.HOLD) {
+			releaseStatement.setHold(true);
+		}
+				
 		return releaseStatement;
 	}
 

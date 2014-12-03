@@ -73,6 +73,9 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 			case QDdlPackage.LOCK_TABLE_STATEMENT: return (EObject)createLockTableStatement();
 			case QDdlPackage.RELEASE_STATEMENT: return (EObject)createReleaseStatement();
 			case QDdlPackage.RENAME_STATEMENT: return (EObject)createRenameStatement();
+			case QDdlPackage.ROLLBACK_STATEMENT: return (EObject)createRollbackStatement();
+			case QDdlPackage.SET_CONNECTION_STATEMENT: return (EObject)createSetConnectionStatement();
+			case QDdlPackage.SET_TRANSACTION_STATEMENT: return (EObject)createSetTransactionStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +97,10 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 				return createShareModeFromString(eDataType, initialValue);
 			case QDdlPackage.TARGET_ITEM:
 				return createTargetItemFromString(eDataType, initialValue);
+			case QDdlPackage.ISOLATION_LEVEL:
+				return createIsolationLevelFromString(eDataType, initialValue);
+			case QDdlPackage.RW_OPERATION:
+				return createRWOperationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -115,6 +122,10 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 				return convertShareModeToString(eDataType, instanceValue);
 			case QDdlPackage.TARGET_ITEM:
 				return convertTargetItemToString(eDataType, instanceValue);
+			case QDdlPackage.ISOLATION_LEVEL:
+				return convertIsolationLevelToString(eDataType, instanceValue);
+			case QDdlPackage.RW_OPERATION:
+				return convertRWOperationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -235,6 +246,36 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QRollbackStatement createRollbackStatement() {
+		RollbackStatementImpl rollbackStatement = new RollbackStatementImpl();
+		return rollbackStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QSetConnectionStatement createSetConnectionStatement() {
+		SetConnectionStatementImpl setConnectionStatement = new SetConnectionStatementImpl();
+		return setConnectionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QSetTransactionStatement createSetTransactionStatement() {
+		SetTransactionStatementImpl setTransactionStatement = new SetTransactionStatementImpl();
+		return setTransactionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DropRange createDropRangeFromString(EDataType eDataType, String initialValue) {
 		DropRange result = DropRange.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -307,6 +348,46 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * @generated
 	 */
 	public String convertTargetItemToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IsolationLevel createIsolationLevelFromString(EDataType eDataType, String initialValue) {
+		IsolationLevel result = IsolationLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIsolationLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RWOperation createRWOperationFromString(EDataType eDataType, String initialValue) {
+		RWOperation result = RWOperation.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRWOperationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

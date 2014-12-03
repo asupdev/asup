@@ -147,6 +147,27 @@ public class DdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDdlPackage.ROLLBACK_STATEMENT: {
+				QRollbackStatement rollbackStatement = (QRollbackStatement)theEObject;
+				T result = caseRollbackStatement(rollbackStatement);
+				if (result == null) result = caseDefinitionStatement(rollbackStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDdlPackage.SET_CONNECTION_STATEMENT: {
+				QSetConnectionStatement setConnectionStatement = (QSetConnectionStatement)theEObject;
+				T result = caseSetConnectionStatement(setConnectionStatement);
+				if (result == null) result = caseDefinitionStatement(setConnectionStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDdlPackage.SET_TRANSACTION_STATEMENT: {
+				QSetTransactionStatement setTransactionStatement = (QSetTransactionStatement)theEObject;
+				T result = caseSetTransactionStatement(setTransactionStatement);
+				if (result == null) result = caseDefinitionStatement(setTransactionStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -313,6 +334,51 @@ public class DdlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRenameStatement(QRenameStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rollback Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rollback Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRollbackStatement(QRollbackStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set Connection Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set Connection Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetConnectionStatement(QSetConnectionStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set Transaction Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set Transaction Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetTransactionStatement(QSetTransactionStatement object) {
 		return null;
 	}
 

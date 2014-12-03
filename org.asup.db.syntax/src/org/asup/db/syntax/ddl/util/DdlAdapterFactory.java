@@ -115,6 +115,18 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 				return createRenameStatementAdapter();
 			}
 			@Override
+			public Adapter caseRollbackStatement(QRollbackStatement object) {
+				return createRollbackStatementAdapter();
+			}
+			@Override
+			public Adapter caseSetConnectionStatement(QSetConnectionStatement object) {
+				return createSetConnectionStatementAdapter();
+			}
+			@Override
+			public Adapter caseSetTransactionStatement(QSetTransactionStatement object) {
+				return createSetTransactionStatementAdapter();
+			}
+			@Override
 			public Adapter caseDefinitionStatement(QDefinitionStatement object) {
 				return createDefinitionStatementAdapter();
 			}
@@ -289,6 +301,48 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRenameStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QRollbackStatement <em>Rollback Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QRollbackStatement
+	 * @generated
+	 */
+	public Adapter createRollbackStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QSetConnectionStatement <em>Set Connection Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QSetConnectionStatement
+	 * @generated
+	 */
+	public Adapter createSetConnectionStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QSetTransactionStatement <em>Set Transaction Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement
+	 * @generated
+	 */
+	public Adapter createSetTransactionStatementAdapter() {
 		return null;
 	}
 
