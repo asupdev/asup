@@ -126,6 +126,27 @@ public class DdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDdlPackage.LOCK_TABLE_STATEMENT: {
+				QLockTableStatement lockTableStatement = (QLockTableStatement)theEObject;
+				T result = caseLockTableStatement(lockTableStatement);
+				if (result == null) result = caseDefinitionStatement(lockTableStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDdlPackage.RELEASE_STATEMENT: {
+				QReleaseStatement releaseStatement = (QReleaseStatement)theEObject;
+				T result = caseReleaseStatement(releaseStatement);
+				if (result == null) result = caseDefinitionStatement(releaseStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDdlPackage.RENAME_STATEMENT: {
+				QRenameStatement renameStatement = (QRenameStatement)theEObject;
+				T result = caseRenameStatement(renameStatement);
+				if (result == null) result = caseDefinitionStatement(renameStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -247,6 +268,51 @@ public class DdlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDropStatement(QDropStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lock Table Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lock Table Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLockTableStatement(QLockTableStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Release Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Release Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReleaseStatement(QReleaseStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rename Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rename Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRenameStatement(QRenameStatement object) {
 		return null;
 	}
 

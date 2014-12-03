@@ -10,7 +10,6 @@ package org.asup.db.syntax.ddl.impl;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.ddl.DropRange;
-import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
@@ -21,6 +20,11 @@ import org.asup.db.syntax.ddl.QDdlFactory;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QDisconnectStatement;
 import org.asup.db.syntax.ddl.QDropStatement;
+import org.asup.db.syntax.ddl.QLockTableStatement;
+import org.asup.db.syntax.ddl.QReleaseStatement;
+import org.asup.db.syntax.ddl.QRenameStatement;
+import org.asup.db.syntax.ddl.ShareMode;
+import org.asup.db.syntax.ddl.TargetElement;
 import org.asup.db.syntax.ddl.TargetItem;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
@@ -94,13 +98,37 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass lockTableStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass releaseStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass renameStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum dropRangeEEnum = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum dropTargetEEnum = null;
+	private EEnum targetElementEEnum = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum shareModeEEnum = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -437,6 +465,105 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLockTableStatement() {
+		return lockTableStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLockTableStatement_AllowRead() {
+		return (EAttribute)lockTableStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLockTableStatement_ShareMode() {
+		return (EAttribute)lockTableStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLockTableStatement_TableName() {
+		return (EReference)lockTableStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReleaseStatement() {
+		return releaseStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReleaseStatement_ServerName() {
+		return (EAttribute)releaseStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRenameStatement() {
+		return renameStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRenameStatement_NewName() {
+		return (EAttribute)renameStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRenameStatement_System() {
+		return (EAttribute)renameStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRenameStatement_OriginalName() {
+		return (EReference)renameStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRenameStatement_Target() {
+		return (EAttribute)renameStatementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDropRange() {
 		return dropRangeEEnum;
 	}
@@ -446,8 +573,17 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getDropTarget() {
-		return dropTargetEEnum;
+	public EEnum getTargetElement() {
+		return targetElementEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getShareMode() {
+		return shareModeEEnum;
 	}
 
 	/**
@@ -523,9 +659,24 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		createEReference(dropStatementEClass, DROP_STATEMENT__TARGET_NAME);
 		createEAttribute(dropStatementEClass, DROP_STATEMENT__TARGET);
 
+		lockTableStatementEClass = createEClass(LOCK_TABLE_STATEMENT);
+		createEAttribute(lockTableStatementEClass, LOCK_TABLE_STATEMENT__ALLOW_READ);
+		createEAttribute(lockTableStatementEClass, LOCK_TABLE_STATEMENT__SHARE_MODE);
+		createEReference(lockTableStatementEClass, LOCK_TABLE_STATEMENT__TABLE_NAME);
+
+		releaseStatementEClass = createEClass(RELEASE_STATEMENT);
+		createEAttribute(releaseStatementEClass, RELEASE_STATEMENT__SERVER_NAME);
+
+		renameStatementEClass = createEClass(RENAME_STATEMENT);
+		createEAttribute(renameStatementEClass, RENAME_STATEMENT__NEW_NAME);
+		createEAttribute(renameStatementEClass, RENAME_STATEMENT__SYSTEM);
+		createEReference(renameStatementEClass, RENAME_STATEMENT__ORIGINAL_NAME);
+		createEAttribute(renameStatementEClass, RENAME_STATEMENT__TARGET);
+
 		// Create enums
 		dropRangeEEnum = createEEnum(DROP_RANGE);
-		dropTargetEEnum = createEEnum(DROP_TARGET);
+		targetElementEEnum = createEEnum(TARGET_ELEMENT);
+		shareModeEEnum = createEEnum(SHARE_MODE);
 		targetItemEEnum = createEEnum(TARGET_ITEM);
 	}
 
@@ -570,6 +721,9 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		createViewStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		disconnectStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		dropStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		lockTableStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		releaseStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		renameStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(commitStatementEClass, QCommitStatement.class, "CommitStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -606,22 +760,41 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		initEClass(dropStatementEClass, QDropStatement.class, "DropStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDropStatement_Range(), this.getDropRange(), "range", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDropStatement_TargetName(), theDatabaseCorePackage.getQualifiedName(), null, "targetName", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDropStatement_Target(), this.getDropTarget(), "target", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDropStatement_Target(), this.getTargetElement(), "target", null, 0, 1, QDropStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(lockTableStatementEClass, QLockTableStatement.class, "LockTableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLockTableStatement_AllowRead(), theEcorePackage.getEBoolean(), "allowRead", null, 0, 1, QLockTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLockTableStatement_ShareMode(), this.getShareMode(), "shareMode", null, 0, 1, QLockTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLockTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QLockTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(releaseStatementEClass, QReleaseStatement.class, "ReleaseStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReleaseStatement_ServerName(), theEcorePackage.getEString(), "serverName", null, 0, 1, QReleaseStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(renameStatementEClass, QRenameStatement.class, "RenameStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRenameStatement_NewName(), theEcorePackage.getEString(), "newName", null, 0, 1, QRenameStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRenameStatement_System(), theEcorePackage.getEString(), "system", null, 0, 1, QRenameStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRenameStatement_OriginalName(), theDatabaseCorePackage.getQualifiedName(), null, "originalName", null, 0, 1, QRenameStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRenameStatement_Target(), this.getTargetElement(), "target", null, 0, 1, QRenameStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dropRangeEEnum, DropRange.class, "DropRange");
 		addEEnumLiteral(dropRangeEEnum, DropRange.RESTRICT);
 		addEEnumLiteral(dropRangeEEnum, DropRange.CASCADE);
 
-		initEEnum(dropTargetEEnum, DropTarget.class, "DropTarget");
-		addEEnumLiteral(dropTargetEEnum, DropTarget.ALIAS);
-		addEEnumLiteral(dropTargetEEnum, DropTarget.INDEX);
-		addEEnumLiteral(dropTargetEEnum, DropTarget.VIEW);
-		addEEnumLiteral(dropTargetEEnum, DropTarget.TABLE);
+		initEEnum(targetElementEEnum, TargetElement.class, "TargetElement");
+		addEEnumLiteral(targetElementEEnum, TargetElement.ALIAS);
+		addEEnumLiteral(targetElementEEnum, TargetElement.INDEX);
+		addEEnumLiteral(targetElementEEnum, TargetElement.VIEW);
+		addEEnumLiteral(targetElementEEnum, TargetElement.TABLE);
+
+		initEEnum(shareModeEEnum, ShareMode.class, "ShareMode");
+		addEEnumLiteral(shareModeEEnum, ShareMode.SHARE);
+		addEEnumLiteral(shareModeEEnum, ShareMode.EXCLUSIVE);
 
 		initEEnum(targetItemEEnum, TargetItem.class, "TargetItem");
 		addEEnumLiteral(targetItemEEnum, TargetItem.ALL);
 		addEEnumLiteral(targetItemEEnum, TargetItem.CURRENT);
+		addEEnumLiteral(targetItemEEnum, TargetItem.ALLSQL);
 	}
 
 } //DdlPackageImpl

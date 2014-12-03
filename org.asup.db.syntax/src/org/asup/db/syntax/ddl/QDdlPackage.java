@@ -396,6 +396,135 @@ public interface QDdlPackage extends EPackage {
 	int DROP_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl <em>Lock Table Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.LockTableStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getLockTableStatement()
+	 * @generated
+	 */
+	int LOCK_TABLE_STATEMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Allow Read</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__ALLOW_READ = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Share Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__SHARE_MODE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Table Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT__TABLE_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Lock Table Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCK_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.ReleaseStatementImpl <em>Release Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.ReleaseStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getReleaseStatement()
+	 * @generated
+	 */
+	int RELEASE_STATEMENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Server Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_STATEMENT__SERVER_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Release Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl <em>Rename Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.RenameStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRenameStatement()
+	 * @generated
+	 */
+	int RENAME_STATEMENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>New Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__NEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__SYSTEM = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Original Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__ORIGINAL_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT__TARGET = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Rename Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RENAME_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -403,17 +532,27 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropRange()
 	 * @generated
 	 */
-	int DROP_RANGE = 8;
+	int DROP_RANGE = 11;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.DropTarget
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
+	 * @see org.asup.db.syntax.ddl.TargetElement
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetElement()
 	 * @generated
 	 */
-	int DROP_TARGET = 9;
+	int TARGET_ELEMENT = 12;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.ShareMode
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getShareMode()
+	 * @generated
+	 */
+	int SHARE_MODE = 13;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -423,7 +562,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetItem()
 	 * @generated
 	 */
-	int TARGET_ITEM = 10;
+	int TARGET_ITEM = 14;
 
 
 	/**
@@ -727,6 +866,124 @@ public interface QDdlPackage extends EPackage {
 	EAttribute getDropStatement_Target();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QLockTableStatement <em>Lock Table Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lock Table Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement
+	 * @generated
+	 */
+	EClass getLockTableStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QLockTableStatement#isAllowRead <em>Allow Read</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Read</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement#isAllowRead()
+	 * @see #getLockTableStatement()
+	 * @generated
+	 */
+	EAttribute getLockTableStatement_AllowRead();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QLockTableStatement#getShareMode <em>Share Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Share Mode</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement#getShareMode()
+	 * @see #getLockTableStatement()
+	 * @generated
+	 */
+	EAttribute getLockTableStatement_ShareMode();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QLockTableStatement#getTableName <em>Table Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Table Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement#getTableName()
+	 * @see #getLockTableStatement()
+	 * @generated
+	 */
+	EReference getLockTableStatement_TableName();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QReleaseStatement <em>Release Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Release Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QReleaseStatement
+	 * @generated
+	 */
+	EClass getReleaseStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QReleaseStatement#getServerName <em>Server Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Server Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QReleaseStatement#getServerName()
+	 * @see #getReleaseStatement()
+	 * @generated
+	 */
+	EAttribute getReleaseStatement_ServerName();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QRenameStatement <em>Rename Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rename Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement
+	 * @generated
+	 */
+	EClass getRenameStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRenameStatement#getNewName <em>New Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getNewName()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EAttribute getRenameStatement_NewName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRenameStatement#getSystem <em>System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>System</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getSystem()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EAttribute getRenameStatement_System();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QRenameStatement#getOriginalName <em>Original Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Original Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getOriginalName()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EReference getRenameStatement_OriginalName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QRenameStatement#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target</em>'.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement#getTarget()
+	 * @see #getRenameStatement()
+	 * @generated
+	 */
+	EAttribute getRenameStatement_Target();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -737,14 +994,24 @@ public interface QDdlPackage extends EPackage {
 	EEnum getDropRange();
 
 	/**
-	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}'.
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Drop Target</em>'.
-	 * @see org.asup.db.syntax.ddl.DropTarget
+	 * @return the meta object for enum '<em>Target Element</em>'.
+	 * @see org.asup.db.syntax.ddl.TargetElement
 	 * @generated
 	 */
-	EEnum getDropTarget();
+	EEnum getTargetElement();
+
+	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Share Mode</em>'.
+	 * @see org.asup.db.syntax.ddl.ShareMode
+	 * @generated
+	 */
+	EEnum getShareMode();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}'.
@@ -1019,6 +1286,100 @@ public interface QDdlPackage extends EPackage {
 		EAttribute DROP_STATEMENT__TARGET = eINSTANCE.getDropStatement_Target();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl <em>Lock Table Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.LockTableStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getLockTableStatement()
+		 * @generated
+		 */
+		EClass LOCK_TABLE_STATEMENT = eINSTANCE.getLockTableStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Allow Read</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCK_TABLE_STATEMENT__ALLOW_READ = eINSTANCE.getLockTableStatement_AllowRead();
+
+		/**
+		 * The meta object literal for the '<em><b>Share Mode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOCK_TABLE_STATEMENT__SHARE_MODE = eINSTANCE.getLockTableStatement_ShareMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOCK_TABLE_STATEMENT__TABLE_NAME = eINSTANCE.getLockTableStatement_TableName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.ReleaseStatementImpl <em>Release Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.ReleaseStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getReleaseStatement()
+		 * @generated
+		 */
+		EClass RELEASE_STATEMENT = eINSTANCE.getReleaseStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Server Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELEASE_STATEMENT__SERVER_NAME = eINSTANCE.getReleaseStatement_ServerName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl <em>Rename Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.RenameStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRenameStatement()
+		 * @generated
+		 */
+		EClass RENAME_STATEMENT = eINSTANCE.getRenameStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>New Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RENAME_STATEMENT__NEW_NAME = eINSTANCE.getRenameStatement_NewName();
+
+		/**
+		 * The meta object literal for the '<em><b>System</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RENAME_STATEMENT__SYSTEM = eINSTANCE.getRenameStatement_System();
+
+		/**
+		 * The meta object literal for the '<em><b>Original Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RENAME_STATEMENT__ORIGINAL_NAME = eINSTANCE.getRenameStatement_OriginalName();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RENAME_STATEMENT__TARGET = eINSTANCE.getRenameStatement_Target();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1029,14 +1390,24 @@ public interface QDdlPackage extends EPackage {
 		EEnum DROP_RANGE = eINSTANCE.getDropRange();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.DropTarget
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
+		 * @see org.asup.db.syntax.ddl.TargetElement
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetElement()
 		 * @generated
 		 */
-		EEnum DROP_TARGET = eINSTANCE.getDropTarget();
+		EEnum TARGET_ELEMENT = eINSTANCE.getTargetElement();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.ShareMode
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getShareMode()
+		 * @generated
+		 */
+		EEnum SHARE_MODE = eINSTANCE.getShareMode();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.

@@ -103,6 +103,18 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 				return createDropStatementAdapter();
 			}
 			@Override
+			public Adapter caseLockTableStatement(QLockTableStatement object) {
+				return createLockTableStatementAdapter();
+			}
+			@Override
+			public Adapter caseReleaseStatement(QReleaseStatement object) {
+				return createReleaseStatementAdapter();
+			}
+			@Override
+			public Adapter caseRenameStatement(QRenameStatement object) {
+				return createRenameStatementAdapter();
+			}
+			@Override
 			public Adapter caseDefinitionStatement(QDefinitionStatement object) {
 				return createDefinitionStatementAdapter();
 			}
@@ -235,6 +247,48 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDropStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QLockTableStatement <em>Lock Table Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QLockTableStatement
+	 * @generated
+	 */
+	public Adapter createLockTableStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QReleaseStatement <em>Release Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QReleaseStatement
+	 * @generated
+	 */
+	public Adapter createReleaseStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QRenameStatement <em>Rename Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QRenameStatement
+	 * @generated
+	 */
+	public Adapter createRenameStatementAdapter() {
 		return null;
 	}
 

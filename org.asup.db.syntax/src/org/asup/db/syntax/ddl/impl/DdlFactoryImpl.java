@@ -70,6 +70,9 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 			case QDdlPackage.CREATE_VIEW_STATEMENT: return (EObject)createCreateViewStatement();
 			case QDdlPackage.DISCONNECT_STATEMENT: return (EObject)createDisconnectStatement();
 			case QDdlPackage.DROP_STATEMENT: return (EObject)createDropStatement();
+			case QDdlPackage.LOCK_TABLE_STATEMENT: return (EObject)createLockTableStatement();
+			case QDdlPackage.RELEASE_STATEMENT: return (EObject)createReleaseStatement();
+			case QDdlPackage.RENAME_STATEMENT: return (EObject)createRenameStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,8 +88,10 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 		switch (eDataType.getClassifierID()) {
 			case QDdlPackage.DROP_RANGE:
 				return createDropRangeFromString(eDataType, initialValue);
-			case QDdlPackage.DROP_TARGET:
-				return createDropTargetFromString(eDataType, initialValue);
+			case QDdlPackage.TARGET_ELEMENT:
+				return createTargetElementFromString(eDataType, initialValue);
+			case QDdlPackage.SHARE_MODE:
+				return createShareModeFromString(eDataType, initialValue);
 			case QDdlPackage.TARGET_ITEM:
 				return createTargetItemFromString(eDataType, initialValue);
 			default:
@@ -104,8 +109,10 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 		switch (eDataType.getClassifierID()) {
 			case QDdlPackage.DROP_RANGE:
 				return convertDropRangeToString(eDataType, instanceValue);
-			case QDdlPackage.DROP_TARGET:
-				return convertDropTargetToString(eDataType, instanceValue);
+			case QDdlPackage.TARGET_ELEMENT:
+				return convertTargetElementToString(eDataType, instanceValue);
+			case QDdlPackage.SHARE_MODE:
+				return convertShareModeToString(eDataType, instanceValue);
 			case QDdlPackage.TARGET_ITEM:
 				return convertTargetItemToString(eDataType, instanceValue);
 			default:
@@ -198,6 +205,36 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QLockTableStatement createLockTableStatement() {
+		LockTableStatementImpl lockTableStatement = new LockTableStatementImpl();
+		return lockTableStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QReleaseStatement createReleaseStatement() {
+		ReleaseStatementImpl releaseStatement = new ReleaseStatementImpl();
+		return releaseStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QRenameStatement createRenameStatement() {
+		RenameStatementImpl renameStatement = new RenameStatementImpl();
+		return renameStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DropRange createDropRangeFromString(EDataType eDataType, String initialValue) {
 		DropRange result = DropRange.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -218,8 +255,8 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DropTarget createDropTargetFromString(EDataType eDataType, String initialValue) {
-		DropTarget result = DropTarget.get(initialValue);
+	public TargetElement createTargetElementFromString(EDataType eDataType, String initialValue) {
+		TargetElement result = TargetElement.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -229,7 +266,27 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertDropTargetToString(EDataType eDataType, Object instanceValue) {
+	public String convertTargetElementToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ShareMode createShareModeFromString(EDataType eDataType, String initialValue) {
+		ShareMode result = ShareMode.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertShareModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

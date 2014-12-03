@@ -15,117 +15,145 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Target Item</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Target Element</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.asup.db.syntax.ddl.QDdlPackage#getTargetItem()
+ * @see org.asup.db.syntax.ddl.QDdlPackage#getTargetElement()
  * @model
  * @generated
  */
-public enum TargetItem implements Enumerator {
+public enum TargetElement implements Enumerator {
 	/**
-	 * The '<em><b>ALL</b></em>' literal object.
+	 * The '<em><b>ALIAS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ALL_VALUE
+	 * @see #ALIAS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ALL(0, "ALL", "ALL"),
+	ALIAS(0, "ALIAS", "ALIAS"),
 
 	/**
-	 * The '<em><b>CURRENT</b></em>' literal object.
+	 * The '<em><b>INDEX</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CURRENT_VALUE
+	 * @see #INDEX_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CURRENT(1, "CURRENT", "CURRENT"), /**
-	 * The '<em><b>ALLSQL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ALLSQL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ALLSQL(2, "ALLSQL", "ALL SQL");
+	INDEX(1, "INDEX", "INDEX"),
 
 	/**
-	 * The '<em><b>ALL</b></em>' literal value.
+	 * The '<em><b>VIEW</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #VIEW_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	VIEW(2, "VIEW", "VIEW"),
+
+	/**
+	 * The '<em><b>TABLE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TABLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TABLE(3, "TABLE", "TABLE");
+
+	/**
+	 * The '<em><b>ALIAS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ALL</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>ALIAS</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ALL
+	 * @see #ALIAS
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ALL_VALUE = 0;
+	public static final int ALIAS_VALUE = 0;
 
 	/**
-	 * The '<em><b>CURRENT</b></em>' literal value.
+	 * The '<em><b>INDEX</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>CURRENT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>INDEX</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CURRENT
+	 * @see #INDEX
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CURRENT_VALUE = 1;
+	public static final int INDEX_VALUE = 1;
 
 	/**
-	 * The '<em><b>ALLSQL</b></em>' literal value.
+	 * The '<em><b>VIEW</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ALLSQL</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>VIEW</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ALLSQL
-	 * @model literal="ALL SQL"
+	 * @see #VIEW
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ALLSQL_VALUE = 2;
+	public static final int VIEW_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Target Item</b></em>' enumerators.
+	 * The '<em><b>TABLE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TABLE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TABLE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TABLE_VALUE = 3;
+
+	/**
+	 * An array of all the '<em><b>Target Element</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final TargetItem[] VALUES_ARRAY =
-		new TargetItem[] {
-			ALL,
-			CURRENT,
-			ALLSQL,
+	private static final TargetElement[] VALUES_ARRAY =
+		new TargetElement[] {
+			ALIAS,
+			INDEX,
+			VIEW,
+			TABLE,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Target Item</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Target Element</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TargetItem> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<TargetElement> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Target Item</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Target Element</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TargetItem get(String literal) {
+	public static TargetElement get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TargetItem result = VALUES_ARRAY[i];
+			TargetElement result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -134,14 +162,14 @@ public enum TargetItem implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Target Item</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Target Element</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TargetItem getByName(String name) {
+	public static TargetElement getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TargetItem result = VALUES_ARRAY[i];
+			TargetElement result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -150,16 +178,17 @@ public enum TargetItem implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Target Item</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Target Element</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TargetItem get(int value) {
+	public static TargetElement get(int value) {
 		switch (value) {
-			case ALL_VALUE: return ALL;
-			case CURRENT_VALUE: return CURRENT;
-			case ALLSQL_VALUE: return ALLSQL;
+			case ALIAS_VALUE: return ALIAS;
+			case INDEX_VALUE: return INDEX;
+			case VIEW_VALUE: return VIEW;
+			case TABLE_VALUE: return TABLE;
 		}
 		return null;
 	}
@@ -191,7 +220,7 @@ public enum TargetItem implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private TargetItem(int value, String name, String literal) {
+	private TargetElement(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -235,4 +264,4 @@ public enum TargetItem implements Enumerator {
 		return literal;
 	}
 	
-} //TargetItem
+} //TargetElement

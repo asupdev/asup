@@ -9,9 +9,9 @@ package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
 import org.asup.db.syntax.ddl.DropRange;
-import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QDropStatement;
+import org.asup.db.syntax.ddl.TargetElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -73,7 +73,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DropTarget TARGET_EDEFAULT = DropTarget.ALIAS;
+	protected static final TargetElement TARGET_EDEFAULT = TargetElement.ALIAS;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
@@ -83,7 +83,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * @generated
 	 * @ordered
 	 */
-	protected DropTarget target = TARGET_EDEFAULT;
+	protected TargetElement target = TARGET_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,7 +173,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DropTarget getTarget() {
+	public TargetElement getTarget() {
 		return target;
 	}
 
@@ -182,8 +182,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(DropTarget newTarget) {
-		DropTarget oldTarget = target;
+	public void setTarget(TargetElement newTarget) {
+		TargetElement oldTarget = target;
 		target = newTarget == null ? TARGET_EDEFAULT : newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET, oldTarget, target));
@@ -236,7 +236,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 				setTargetName((QQualifiedName)newValue);
 				return;
 			case QDdlPackage.DROP_STATEMENT__TARGET:
-				setTarget((DropTarget)newValue);
+				setTarget((TargetElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -99,6 +99,33 @@ public interface QDdlFactory extends EFactory {
 	QDropStatement createDropStatement();
 
 	/**
+	 * Returns a new object of class '<em>Lock Table Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lock Table Statement</em>'.
+	 * @generated
+	 */
+	QLockTableStatement createLockTableStatement();
+
+	/**
+	 * Returns a new object of class '<em>Release Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Release Statement</em>'.
+	 * @generated
+	 */
+	QReleaseStatement createReleaseStatement();
+
+	/**
+	 * Returns a new object of class '<em>Rename Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rename Statement</em>'.
+	 * @generated
+	 */
+	QRenameStatement createRenameStatement();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

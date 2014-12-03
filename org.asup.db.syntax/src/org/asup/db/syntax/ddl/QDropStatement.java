@@ -87,7 +87,7 @@ public interface QDropStatement extends QDefinitionStatement {
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.asup.db.syntax.ddl.DropTarget}.
+	 * The literals are from the enumeration {@link org.asup.db.syntax.ddl.TargetElement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' attribute isn't clear,
@@ -95,23 +95,23 @@ public interface QDropStatement extends QDefinitionStatement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' attribute.
-	 * @see org.asup.db.syntax.ddl.DropTarget
-	 * @see #setTarget(DropTarget)
+	 * @see org.asup.db.syntax.ddl.TargetElement
+	 * @see #setTarget(TargetElement)
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getDropStatement_Target()
 	 * @model
 	 * @generated
 	 */
-	DropTarget getTarget();
+	TargetElement getTarget();
 
 	/**
 	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QDropStatement#getTarget <em>Target</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Target</em>' attribute.
-	 * @see org.asup.db.syntax.ddl.DropTarget
+	 * @see org.asup.db.syntax.ddl.TargetElement
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(DropTarget value);
+	void setTarget(TargetElement value);
 
 } // QDropStatement

@@ -18,7 +18,6 @@ import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.ddl.DropRange;
-import org.asup.db.syntax.ddl.DropTarget;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
@@ -27,6 +26,11 @@ import org.asup.db.syntax.ddl.QCreateTableStatement;
 import org.asup.db.syntax.ddl.QCreateViewStatement;
 import org.asup.db.syntax.ddl.QDisconnectStatement;
 import org.asup.db.syntax.ddl.QDropStatement;
+import org.asup.db.syntax.ddl.QLockTableStatement;
+import org.asup.db.syntax.ddl.QReleaseStatement;
+import org.asup.db.syntax.ddl.QRenameStatement;
+import org.asup.db.syntax.ddl.ShareMode;
+import org.asup.db.syntax.ddl.TargetElement;
 import org.asup.db.syntax.ddl.TargetItem;
 import org.asup.db.syntax.ddl.impl.DdlFactoryImpl;
 
@@ -130,7 +134,11 @@ public class DDLModelBuilder {
 		
 		case DDLLexer.RENAME_TABLE_STATEMENT:
 			result = manageRenameTableStatement(tree);
-			break;				
+			break;	
+		
+		case DDLLexer.RELEASE_STATEMENT:
+			result = manageReleaseStatement(tree);
+			break;		
 		
 		case DDLLexer.SET_CONNECTION_STATEMENT:
 			result = manageSetConnectionStatement(tree);
@@ -157,13 +165,93 @@ public class DDLModelBuilder {
 	}
 
 	private QDefinitionStatement manageRenameTableStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QRenameStatement renameTableStatement = DdlFactoryImpl.eINSTANCE.createRenameStatement();
+		renameTableStatement.setTarget(TargetElement.TABLE);		
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			case DDLLexer.TABLE_NAME:
+				
+				QQualifiedName viewQualifiedName = resolveQualified(fieldToken.getChild(0));
+				renameTableStatement.setOriginalName(viewQualifiedName);
+				
+				break;
+				
+			case DDLLexer.NEW_NAME:
+				
+				renameTableStatement.setNewName(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DDLLexer.SYSTEM:
+				
+				renameTableStatement.setSystem(fieldToken.getChild(0).getText());
+				
+				break;	
+			
+			}						
+		}
+
+		return renameTableStatement;
+
 	}
 
 	private QDefinitionStatement manageRenameIndexStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QRenameStatement renameIndexStatement = DdlFactoryImpl.eINSTANCE.createRenameStatement();
+		renameIndexStatement.setTarget(TargetElement.INDEX);		
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			case DDLLexer.INDEX_NAME:
+				
+				QQualifiedName viewQualifiedName = resolveQualified(fieldToken.getChild(0));
+				renameIndexStatement.setOriginalName(viewQualifiedName);
+				
+				break;
+				
+			case DDLLexer.NEW_NAME:
+				
+				renameIndexStatement.setNewName(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DDLLexer.SYSTEM:
+				
+				renameIndexStatement.setSystem(fieldToken.getChild(0).getText());
+				
+				break;	
+			
+			}						
+		}
+
+		return renameIndexStatement;
+
+	}
+	
+	private QDefinitionStatement manageReleaseStatement(CommonTree tree) {
+		QReleaseStatement releaseStatement = DdlFactoryImpl.eINSTANCE.createReleaseStatement();
+				
+		Tree serverName = tree.getChild(0).getChild(0);
+		
+		if (serverName.getType() == DDLLexer.ALL) {		
+			releaseStatement.setServerName(TargetItem.ALL.getLiteral());
+		} else if (serverName.getType() == DDLLexer.ALL_SQL) {					
+			releaseStatement.setServerName(TargetItem.ALLSQL.getLiteral());
+		} if (serverName.getType() == DDLLexer.CURRENT) {
+			releaseStatement.setServerName(TargetItem.CURRENT.getLiteral());
+		} else {
+			releaseStatement.setServerName(serverName.getText());
+		}
+		
+		return releaseStatement;
 	}
 
 	private QDefinitionStatement manageProcedureCallStatement(CommonTree tree) {
@@ -172,8 +260,40 @@ public class DDLModelBuilder {
 	}
 
 	private QDefinitionStatement manageLockTableStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QLockTableStatement lockTableStatement = DdlFactoryImpl.eINSTANCE.createLockTableStatement();
+		lockTableStatement.setShareMode(ShareMode.EXCLUSIVE);
+		lockTableStatement.setAllowRead(false);
+				
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			case DDLLexer.TABLE_NAME:
+				
+				QQualifiedName tableQualifiedName = resolveQualified(fieldToken.getChild(0));
+				lockTableStatement.setTableName(tableQualifiedName);
+				
+				break;
+				
+			case DDLLexer.SHARE:
+				
+				lockTableStatement.setShareMode(ShareMode.SHARE);
+				
+				break;
+			
+			case DDLLexer.ALLOW_READ:
+				
+				lockTableStatement.setAllowRead(true);
+				
+				break;	
+			
+			}						
+		}
+
+		return lockTableStatement;
+
 	}
 
 	private QDefinitionStatement manageDisconnectStatement(CommonTree tree) {
@@ -202,7 +322,7 @@ public class DDLModelBuilder {
 
 	private QDefinitionStatement manageDropViewStatement(CommonTree tree) {
 		QDropStatement dropViewStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
-		dropViewStatement.setTarget(DropTarget.VIEW);
+		dropViewStatement.setTarget(TargetElement.VIEW);
 		dropViewStatement.setRange(DropRange.CASCADE);
 		
 		Tree fieldToken = null;
@@ -239,7 +359,7 @@ public class DDLModelBuilder {
 
 	private QDefinitionStatement manageDropTableStatement(CommonTree tree) {
 		QDropStatement dropTableStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
-		dropTableStatement.setTarget(DropTarget.TABLE);
+		dropTableStatement.setTarget(TargetElement.TABLE);
 		dropTableStatement.setRange(DropRange.CASCADE);
 		
 		Tree fieldToken = null;
@@ -275,7 +395,7 @@ public class DDLModelBuilder {
 
 	private QDefinitionStatement manageDropIndexStatement(CommonTree tree) {
 		QDropStatement dropIndexStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
-		dropIndexStatement.setTarget(DropTarget.INDEX);
+		dropIndexStatement.setTarget(TargetElement.INDEX);
 		
 		Tree indexNameToken = tree.getFirstChildWithType(DDLLexer.INDEX_NAME);
 		
@@ -289,7 +409,7 @@ public class DDLModelBuilder {
 
 	private QDefinitionStatement manageDropAliasStatement(CommonTree tree) {
 		QDropStatement dropAliasStatement = DdlFactoryImpl.eINSTANCE.createDropStatement();
-		dropAliasStatement.setTarget(DropTarget.ALIAS);
+		dropAliasStatement.setTarget(TargetElement.ALIAS);
 		
 		Tree aliasNameToken = tree.getFirstChildWithType(DDLLexer.ALIAS_NAME);
 		
