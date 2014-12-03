@@ -9,8 +9,7 @@ package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QDdlPackage;
-import org.asup.db.syntax.ddl.QDisconnectStatement;
-import org.asup.db.syntax.ddl.TargetItem;
+import org.asup.db.syntax.ddl.QSetConnectionStatement;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,19 +20,19 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Disconnect Statement</b></em>'.
+ * An implementation of the model object '<em><b>Set Connection Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.SetConnectionStatementImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.SetConnectionStatementImpl#getDatabaseName <em>Database Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectStatement {
+public class SetConnectionStatementImpl extends EObjectImpl implements QSetConnectionStatement {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,31 +54,31 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	protected StatementType type = TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
+	 * The default value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTarget()
+	 * @see #getDatabaseName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TargetItem TARGET_EDEFAULT = TargetItem.ALL;
+	protected static final String DATABASE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+	 * The cached value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTarget()
+	 * @see #getDatabaseName()
 	 * @generated
 	 * @ordered
 	 */
-	protected TargetItem target = TARGET_EDEFAULT;
+	protected String databaseName = DATABASE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DisconnectStatementImpl() {
+	protected SetConnectionStatementImpl() {
 		super();
 	}
 
@@ -90,7 +89,7 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDdlPackage.Literals.DISCONNECT_STATEMENT;
+		return QDdlPackage.Literals.SET_CONNECTION_STATEMENT;
 	}
 
 	/**
@@ -111,7 +110,7 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 		StatementType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DISCONNECT_STATEMENT__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.SET_CONNECTION_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -119,8 +118,8 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TargetItem getTarget() {
-		return target;
+	public String getDatabaseName() {
+		return databaseName;
 	}
 
 	/**
@@ -128,11 +127,11 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTarget(TargetItem newTarget) {
-		TargetItem oldTarget = target;
-		target = newTarget == null ? TARGET_EDEFAULT : newTarget;
+	public void setDatabaseName(String newDatabaseName) {
+		String oldDatabaseName = databaseName;
+		databaseName = newDatabaseName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DISCONNECT_STATEMENT__TARGET, oldTarget, target));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.SET_CONNECTION_STATEMENT__DATABASE_NAME, oldDatabaseName, databaseName));
 	}
 
 	/**
@@ -143,10 +142,10 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDdlPackage.DISCONNECT_STATEMENT__TYPE:
+			case QDdlPackage.SET_CONNECTION_STATEMENT__TYPE:
 				return getType();
-			case QDdlPackage.DISCONNECT_STATEMENT__TARGET:
-				return getTarget();
+			case QDdlPackage.SET_CONNECTION_STATEMENT__DATABASE_NAME:
+				return getDatabaseName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -159,11 +158,11 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDdlPackage.DISCONNECT_STATEMENT__TYPE:
+			case QDdlPackage.SET_CONNECTION_STATEMENT__TYPE:
 				setType((StatementType)newValue);
 				return;
-			case QDdlPackage.DISCONNECT_STATEMENT__TARGET:
-				setTarget((TargetItem)newValue);
+			case QDdlPackage.SET_CONNECTION_STATEMENT__DATABASE_NAME:
+				setDatabaseName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,11 +176,11 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.DISCONNECT_STATEMENT__TYPE:
+			case QDdlPackage.SET_CONNECTION_STATEMENT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case QDdlPackage.DISCONNECT_STATEMENT__TARGET:
-				setTarget(TARGET_EDEFAULT);
+			case QDdlPackage.SET_CONNECTION_STATEMENT__DATABASE_NAME:
+				setDatabaseName(DATABASE_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -195,10 +194,10 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.DISCONNECT_STATEMENT__TYPE:
+			case QDdlPackage.SET_CONNECTION_STATEMENT__TYPE:
 				return type != TYPE_EDEFAULT;
-			case QDdlPackage.DISCONNECT_STATEMENT__TARGET:
-				return target != TARGET_EDEFAULT;
+			case QDdlPackage.SET_CONNECTION_STATEMENT__DATABASE_NAME:
+				return DATABASE_NAME_EDEFAULT == null ? databaseName != null : !DATABASE_NAME_EDEFAULT.equals(databaseName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,10 +214,10 @@ public class DisconnectStatementImpl extends EObjectImpl implements QDisconnectS
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
-		result.append(", target: ");
-		result.append(target);
+		result.append(", databaseName: ");
+		result.append(databaseName);
 		result.append(')');
 		return result.toString();
 	}
 
-} //DisconnectStatementImpl
+} //SetConnectionStatementImpl

@@ -9,9 +9,8 @@ package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
 import org.asup.db.syntax.StatementType;
-import org.asup.db.syntax.ddl.DropRange;
 import org.asup.db.syntax.ddl.QDdlPackage;
-import org.asup.db.syntax.ddl.QDropStatement;
+import org.asup.db.syntax.ddl.QRenameStatement;
 import org.asup.db.syntax.ddl.TargetElement;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,21 +21,22 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Drop Statement</b></em>'.
+ * An implementation of the model object '<em><b>Rename Statement</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getRange <em>Range</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getTargetName <em>Target Name</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.impl.DropStatementImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl#getNewName <em>New Name</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl#getSystem <em>System</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl#getOriginalName <em>Original Name</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.RenameStatementImpl#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DropStatementImpl extends EObjectImpl implements QDropStatement {
+public class RenameStatementImpl extends EObjectImpl implements QRenameStatement {
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -58,34 +58,54 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	protected StatementType type = TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
+	 * The default value of the '{@link #getNewName() <em>New Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRange()
+	 * @see #getNewName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DropRange RANGE_EDEFAULT = DropRange.RESTRICT;
+	protected static final String NEW_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRange() <em>Range</em>}' attribute.
+	 * The cached value of the '{@link #getNewName() <em>New Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRange()
+	 * @see #getNewName()
 	 * @generated
 	 * @ordered
 	 */
-	protected DropRange range = RANGE_EDEFAULT;
+	protected String newName = NEW_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTargetName() <em>Target Name</em>}' containment reference.
+	 * The default value of the '{@link #getSystem() <em>System</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetName()
+	 * @see #getSystem()
 	 * @generated
 	 * @ordered
 	 */
-	protected QQualifiedName targetName;
+	protected static final String SYSTEM_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSystem() <em>System</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSystem()
+	 * @generated
+	 * @ordered
+	 */
+	protected String system = SYSTEM_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOriginalName() <em>Original Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOriginalName()
+	 * @generated
+	 * @ordered
+	 */
+	protected QQualifiedName originalName;
 
 	/**
 	 * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
@@ -112,7 +132,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DropStatementImpl() {
+	protected RenameStatementImpl() {
 		super();
 	}
 
@@ -123,7 +143,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDdlPackage.Literals.DROP_STATEMENT;
+		return QDdlPackage.Literals.RENAME_STATEMENT;
 	}
 
 	/**
@@ -144,7 +164,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 		StatementType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.RENAME_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -152,8 +172,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DropRange getRange() {
-		return range;
+	public String getNewName() {
+		return newName;
 	}
 
 	/**
@@ -161,11 +181,11 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRange(DropRange newRange) {
-		DropRange oldRange = range;
-		range = newRange == null ? RANGE_EDEFAULT : newRange;
+	public void setNewName(String newNewName) {
+		String oldNewName = newName;
+		newName = newNewName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__RANGE, oldRange, range));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.RENAME_STATEMENT__NEW_NAME, oldNewName, newName));
 	}
 
 	/**
@@ -173,8 +193,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QQualifiedName getTargetName() {
-		return targetName;
+	public String getSystem() {
+		return system;
 	}
 
 	/**
@@ -182,11 +202,32 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTargetName(QQualifiedName newTargetName, NotificationChain msgs) {
-		QQualifiedName oldTargetName = targetName;
-		targetName = newTargetName;
+	public void setSystem(String newSystem) {
+		String oldSystem = system;
+		system = newSystem;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.RENAME_STATEMENT__SYSTEM, oldSystem, system));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QQualifiedName getOriginalName() {
+		return originalName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOriginalName(QQualifiedName newOriginalName, NotificationChain msgs) {
+		QQualifiedName oldOriginalName = originalName;
+		originalName = newOriginalName;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET_NAME, oldTargetName, newTargetName);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME, oldOriginalName, newOriginalName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -197,18 +238,18 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetName(QQualifiedName newTargetName) {
-		if (newTargetName != targetName) {
+	public void setOriginalName(QQualifiedName newOriginalName) {
+		if (newOriginalName != originalName) {
 			NotificationChain msgs = null;
-			if (targetName != null)
-				msgs = ((InternalEObject)targetName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.DROP_STATEMENT__TARGET_NAME, null, msgs);
-			if (newTargetName != null)
-				msgs = ((InternalEObject)newTargetName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.DROP_STATEMENT__TARGET_NAME, null, msgs);
-			msgs = basicSetTargetName(newTargetName, msgs);
+			if (originalName != null)
+				msgs = ((InternalEObject)originalName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME, null, msgs);
+			if (newOriginalName != null)
+				msgs = ((InternalEObject)newOriginalName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME, null, msgs);
+			msgs = basicSetOriginalName(newOriginalName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET_NAME, newTargetName, newTargetName));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME, newOriginalName, newOriginalName));
 	}
 
 	/**
@@ -229,7 +270,7 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 		TargetElement oldTarget = target;
 		target = newTarget == null ? TARGET_EDEFAULT : newTarget;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.DROP_STATEMENT__TARGET, oldTarget, target));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.RENAME_STATEMENT__TARGET, oldTarget, target));
 	}
 
 	/**
@@ -240,8 +281,8 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
-				return basicSetTargetName(null, msgs);
+			case QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME:
+				return basicSetOriginalName(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -254,13 +295,15 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDdlPackage.DROP_STATEMENT__TYPE:
+			case QDdlPackage.RENAME_STATEMENT__TYPE:
 				return getType();
-			case QDdlPackage.DROP_STATEMENT__RANGE:
-				return getRange();
-			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
-				return getTargetName();
-			case QDdlPackage.DROP_STATEMENT__TARGET:
+			case QDdlPackage.RENAME_STATEMENT__NEW_NAME:
+				return getNewName();
+			case QDdlPackage.RENAME_STATEMENT__SYSTEM:
+				return getSystem();
+			case QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME:
+				return getOriginalName();
+			case QDdlPackage.RENAME_STATEMENT__TARGET:
 				return getTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -274,16 +317,19 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDdlPackage.DROP_STATEMENT__TYPE:
+			case QDdlPackage.RENAME_STATEMENT__TYPE:
 				setType((StatementType)newValue);
 				return;
-			case QDdlPackage.DROP_STATEMENT__RANGE:
-				setRange((DropRange)newValue);
+			case QDdlPackage.RENAME_STATEMENT__NEW_NAME:
+				setNewName((String)newValue);
 				return;
-			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
-				setTargetName((QQualifiedName)newValue);
+			case QDdlPackage.RENAME_STATEMENT__SYSTEM:
+				setSystem((String)newValue);
 				return;
-			case QDdlPackage.DROP_STATEMENT__TARGET:
+			case QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME:
+				setOriginalName((QQualifiedName)newValue);
+				return;
+			case QDdlPackage.RENAME_STATEMENT__TARGET:
 				setTarget((TargetElement)newValue);
 				return;
 		}
@@ -298,16 +344,19 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.DROP_STATEMENT__TYPE:
+			case QDdlPackage.RENAME_STATEMENT__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
-			case QDdlPackage.DROP_STATEMENT__RANGE:
-				setRange(RANGE_EDEFAULT);
+			case QDdlPackage.RENAME_STATEMENT__NEW_NAME:
+				setNewName(NEW_NAME_EDEFAULT);
 				return;
-			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
-				setTargetName((QQualifiedName)null);
+			case QDdlPackage.RENAME_STATEMENT__SYSTEM:
+				setSystem(SYSTEM_EDEFAULT);
 				return;
-			case QDdlPackage.DROP_STATEMENT__TARGET:
+			case QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME:
+				setOriginalName((QQualifiedName)null);
+				return;
+			case QDdlPackage.RENAME_STATEMENT__TARGET:
 				setTarget(TARGET_EDEFAULT);
 				return;
 		}
@@ -322,13 +371,15 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.DROP_STATEMENT__TYPE:
+			case QDdlPackage.RENAME_STATEMENT__TYPE:
 				return type != TYPE_EDEFAULT;
-			case QDdlPackage.DROP_STATEMENT__RANGE:
-				return range != RANGE_EDEFAULT;
-			case QDdlPackage.DROP_STATEMENT__TARGET_NAME:
-				return targetName != null;
-			case QDdlPackage.DROP_STATEMENT__TARGET:
+			case QDdlPackage.RENAME_STATEMENT__NEW_NAME:
+				return NEW_NAME_EDEFAULT == null ? newName != null : !NEW_NAME_EDEFAULT.equals(newName);
+			case QDdlPackage.RENAME_STATEMENT__SYSTEM:
+				return SYSTEM_EDEFAULT == null ? system != null : !SYSTEM_EDEFAULT.equals(system);
+			case QDdlPackage.RENAME_STATEMENT__ORIGINAL_NAME:
+				return originalName != null;
+			case QDdlPackage.RENAME_STATEMENT__TARGET:
 				return target != TARGET_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -346,12 +397,14 @@ public class DropStatementImpl extends EObjectImpl implements QDropStatement {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: ");
 		result.append(type);
-		result.append(", range: ");
-		result.append(range);
+		result.append(", newName: ");
+		result.append(newName);
+		result.append(", system: ");
+		result.append(system);
 		result.append(", target: ");
 		result.append(target);
 		result.append(')');
 		return result.toString();
 	}
 
-} //DropStatementImpl
+} //RenameStatementImpl

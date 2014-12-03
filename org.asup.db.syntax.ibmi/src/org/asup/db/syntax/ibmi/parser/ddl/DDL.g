@@ -27,10 +27,12 @@ options {
 tokens {
   ALIAS_NAME;
   ALL; 
+  ALL_SQL;
   ALLOW_READ;  
   AS_EXPRESSION;
   COLUMN;
   COLUMNS_LIST;
+  COLUMN_NAME;
   COMMIT_STATEMENT;
   CONNECT_STATEMENT;
   COUNT_VAL;
@@ -83,6 +85,7 @@ tokens {
   SET_CONNECTION_STATEMENT;
   SET_TRANSACTION_STATEMENT;
   SET_QUALIFIER;
+  SERVER_NAME;
   SHOW_TABLE;
   SHOW_FUNCTION;
   SORT_KEY;
@@ -280,6 +283,7 @@ SET : S E T;
 SELECT : S E L E C T;
 SHARE	:	 S H A R E;
 SERIALIZABLE 	:	 S E R I A L I Z A B L E;
+SQL: S Q L;
 SYSTEM	:	S Y S T E M;
 TABLE : T A B L E;
 THEN : T H E N;
@@ -678,11 +682,13 @@ rename_index_statement
 	;	
 		
 release_statement
-	: RELEASE -> ^(RELEASE_STATEMENT)
+	: RELEASE s=Identifier-> ^(RELEASE_STATEMENT ^(SERVER_NAME $s))
 	  |
-	  RELEASE ALL -> ^(RELEASE_STATEMENT ALL)
+	  RELEASE a=ALL  -> ^(RELEASE_STATEMENT ^(SERVER_NAME $a))
 	  |
-	  RELEASE CURRENT -> ^(RELEASE_STATEMENT CURRENT) 
+	  RELEASE ALL SQL   -> ^(RELEASE_STATEMENT ^(SERVER_NAME ALL_SQL))
+	  |
+	  RELEASE c=CURRENT -> ^(RELEASE_STATEMENT ^(SERVER_NAME $c)) 
 	;
 	
 rollback_statement
@@ -825,7 +831,7 @@ derived_column
   ;
   
 column_reference
-	:	(t=Identifier COMMA)? b=Identifier -> ^(FIELD_NAME $b $t?)
+	:	c=Identifier -> ^(COLUMN_NAME $c)
 	
 	;
 as_clause

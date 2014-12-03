@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax.ddl;
+package org.asup.db.syntax;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,117 +15,119 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Target Item</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Statement Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.asup.db.syntax.ddl.QDdlPackage#getTargetItem()
+ * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getStatementType()
  * @model
  * @generated
  */
-public enum TargetItem implements Enumerator {
+public enum StatementType implements Enumerator {
 	/**
-	 * The '<em><b>ALL</b></em>' literal object.
+	 * The '<em><b>DML</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ALL_VALUE
+	 * @see #DML_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ALL(0, "ALL", "ALL"),
+	DML(0, "DML", "DML"),
 
 	/**
-	 * The '<em><b>CURRENT</b></em>' literal object.
+	 * The '<em><b>DDL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CURRENT_VALUE
+	 * @see #DDL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CURRENT(1, "CURRENT", "CURRENT"), /**
-	 * The '<em><b>ALLSQL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ALLSQL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ALLSQL(2, "ALLSQL", "ALL SQL");
+	DDL(1, "DDL", "DDL"),
 
 	/**
-	 * The '<em><b>ALL</b></em>' literal value.
+	 * The '<em><b>DBL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DBL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DBL(2, "DBL", "DBL");
+
+	/**
+	 * The '<em><b>DML</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ALL</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>DML</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ALL
+	 * @see #DML
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ALL_VALUE = 0;
+	public static final int DML_VALUE = 0;
 
 	/**
-	 * The '<em><b>CURRENT</b></em>' literal value.
+	 * The '<em><b>DDL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>CURRENT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>DDL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CURRENT
+	 * @see #DDL
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CURRENT_VALUE = 1;
+	public static final int DDL_VALUE = 1;
 
 	/**
-	 * The '<em><b>ALLSQL</b></em>' literal value.
+	 * The '<em><b>DBL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ALLSQL</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>DBL</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ALLSQL
-	 * @model literal="ALL SQL"
+	 * @see #DBL
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ALLSQL_VALUE = 2;
+	public static final int DBL_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Target Item</b></em>' enumerators.
+	 * An array of all the '<em><b>Statement Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final TargetItem[] VALUES_ARRAY =
-		new TargetItem[] {
-			ALL,
-			CURRENT,
-			ALLSQL,
+	private static final StatementType[] VALUES_ARRAY =
+		new StatementType[] {
+			DML,
+			DDL,
+			DBL,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Target Item</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Statement Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<TargetItem> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<StatementType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Target Item</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Statement Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TargetItem get(String literal) {
+	public static StatementType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TargetItem result = VALUES_ARRAY[i];
+			StatementType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -134,14 +136,14 @@ public enum TargetItem implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Target Item</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Statement Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TargetItem getByName(String name) {
+	public static StatementType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TargetItem result = VALUES_ARRAY[i];
+			StatementType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -150,16 +152,16 @@ public enum TargetItem implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Target Item</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Statement Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static TargetItem get(int value) {
+	public static StatementType get(int value) {
 		switch (value) {
-			case ALL_VALUE: return ALL;
-			case CURRENT_VALUE: return CURRENT;
-			case ALLSQL_VALUE: return ALLSQL;
+			case DML_VALUE: return DML;
+			case DDL_VALUE: return DDL;
+			case DBL_VALUE: return DBL;
 		}
 		return null;
 	}
@@ -191,7 +193,7 @@ public enum TargetItem implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private TargetItem(int value, String name, String literal) {
+	private StatementType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -235,4 +237,4 @@ public enum TargetItem implements Enumerator {
 		return literal;
 	}
 	
-} //TargetItem
+} //StatementType

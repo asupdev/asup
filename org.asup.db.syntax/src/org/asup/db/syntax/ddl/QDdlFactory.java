@@ -72,6 +72,15 @@ public interface QDdlFactory extends EFactory {
 	QCreateTableStatement createCreateTableStatement();
 
 	/**
+	 * Returns a new object of class '<em>Create View Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Create View Statement</em>'.
+	 * @generated
+	 */
+	QCreateViewStatement createCreateViewStatement();
+
+	/**
 	 * Returns a new object of class '<em>Disconnect Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +97,69 @@ public interface QDdlFactory extends EFactory {
 	 * @generated
 	 */
 	QDropStatement createDropStatement();
+
+	/**
+	 * Returns a new object of class '<em>Lock Table Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lock Table Statement</em>'.
+	 * @generated
+	 */
+	QLockTableStatement createLockTableStatement();
+
+	/**
+	 * Returns a new object of class '<em>Release Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Release Statement</em>'.
+	 * @generated
+	 */
+	QReleaseStatement createReleaseStatement();
+
+	/**
+	 * Returns a new object of class '<em>Rename Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rename Statement</em>'.
+	 * @generated
+	 */
+	QRenameStatement createRenameStatement();
+
+	/**
+	 * Returns a new object of class '<em>Rollback Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rollback Statement</em>'.
+	 * @generated
+	 */
+	QRollbackStatement createRollbackStatement();
+
+	/**
+	 * Returns a new object of class '<em>Set Connection Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Connection Statement</em>'.
+	 * @generated
+	 */
+	QSetConnectionStatement createSetConnectionStatement();
+
+	/**
+	 * Returns a new object of class '<em>Set Transaction Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Transaction Statement</em>'.
+	 * @generated
+	 */
+	QSetTransactionStatement createSetTransactionStatement();
+
+	/**
+	 * Returns a new object of class '<em>Call Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Statement</em>'.
+	 * @generated
+	 */
+	QCallStatement createCallStatement();
 
 	/**
 	 * Returns the package supported by this factory.
