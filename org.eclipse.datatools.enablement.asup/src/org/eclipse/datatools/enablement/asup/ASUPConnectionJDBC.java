@@ -86,8 +86,8 @@ public class ASUPConnectionJDBC extends DriverConnectionBase {
 				
 				for(QCatalogContainer catalogContainer: databaseContainer.getCatalogs()) {
 					
-					if(catalogContainer.getCatalog().getName().equals(databaseContainer.getLocalCatalog())) {
-						QConnectionConfig connectionConfig = catalogContainer.getDefaultConfig();
+					if(catalogContainer.getCatalog().equals(databaseContainer.getDefaultCatalog())) {
+						QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 						QConnection qConnection = connectionManager.createDatabaseConnection(connectionConfig);
 						mConnection = qConnection;
 						

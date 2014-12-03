@@ -3,7 +3,7 @@
 <plugin>  
 	<extension point="org.eclipse.datatools.connectivity.connectionProfile">
   <newWizard
-        class="org.eclipse.datatools.enablement.asup.ui.DTPConnectionWizard"
+        class="org.eclipse.datatools.enablement.asup.ui.ASUPConnectionWizard"
         icon="icons/jdbc_16.png"
         id="org.eclipse.datatools.connectivity.ui.wizards.ConnectionProfileDetailsPage"
         name="AsUP Database 053"

@@ -11,10 +11,12 @@ public class ASUPConnectionJDBCFactory extends ASUPConnectionFactory {
 	@Override
 	public IConnection createConnection(IConnectionProfile profile) {
 		
-		checkActive();
+		ASUPPlugin plugin = ASUPPlugin.getInstance();
+		if(plugin == null)
+			return null;
 		
-		QConnectionManager connectionManager = getConnectionManager();
-		QDatabaseManager databaseManager = getDatabaseManager();
+		QConnectionManager connectionManager = plugin.getConnectionManager();
+		QDatabaseManager databaseManager = plugin.getDatabaseManager();
 
 		ASUPConnectionJDBC jdbcConnection = new ASUPConnectionJDBC(connectionManager, databaseManager, profile, JDBCConnectionFactory.class);		
 		jdbcConnection.open();

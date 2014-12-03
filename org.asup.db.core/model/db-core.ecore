@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/db/core" nsPrefix="db-core">
-  <eClassifiers xsi:type="ecore:EClass" name="CatalogContainer" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultConfig" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="CatalogContainer">
+    <eOperations name="isActive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionConfig" lowerBound="1"
         eType="#//ConnectionConfig" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="catalog" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"
@@ -74,13 +75,27 @@
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
     </eOperations>
+    <eOperations name="createPropertiesByConnectionConfig" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaProperties">
+      <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
+    </eOperations>
+    <eOperations name="createPropertiesByVendorVersion" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaProperties">
+      <eParameters name="vendor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseContainer" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionProfile" lowerBound="1"
+        eType="#//ConnectionProfile" containment="true" eKeys="#//ConnectionProfile/name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Database"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localCatalog" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="LOCAL"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCatalog" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="catalogs" lowerBound="1"
         upperBound="-1" eType="#//CatalogContainer" containment="true"/>
   </eClassifiers>

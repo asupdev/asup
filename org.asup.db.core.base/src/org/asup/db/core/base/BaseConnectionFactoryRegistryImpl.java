@@ -24,6 +24,7 @@ public class BaseConnectionFactoryRegistryImpl extends ConnectionFactoryRegistry
 	@SuppressWarnings("unchecked")
 	@Inject
 	public BaseConnectionFactoryRegistryImpl(QPluginRegistryFactory pluginRegistryFactory) {
+		
 		QPluginRegistry<? extends QPlugin> pluginRegistry = pluginRegistryFactory.createPluginRegistry(QConnectionFactory.class);
 		setStore((QPluginRegistry<QConnectionFactory>) pluginRegistry);
 	}

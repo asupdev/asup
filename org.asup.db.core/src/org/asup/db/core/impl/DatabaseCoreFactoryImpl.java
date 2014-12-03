@@ -59,6 +59,7 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 		switch (eClass.getClassifierID()) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER: return (EObject)createCatalogContainer();
 			case QDatabaseCorePackage.CONNECTION_CONFIG: return (EObject)createConnectionConfig();
+			case QDatabaseCorePackage.CONNECTION_PROFILE: return (EObject)createConnectionProfile();
 			case QDatabaseCorePackage.DATABASE_CONTAINER: return (EObject)createDatabaseContainer();
 			case QDatabaseCorePackage.INDEX_DEF: return (EObject)createIndexDef();
 			case QDatabaseCorePackage.INDEX_COLUMN_DEF: return (EObject)createIndexColumnDef();
@@ -122,6 +123,16 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	public QConnectionConfig createConnectionConfig() {
 		ConnectionConfigImpl connectionConfig = new ConnectionConfigImpl();
 		return connectionConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QConnectionProfile createConnectionProfile() {
+		ConnectionProfileImpl connectionProfile = new ConnectionProfileImpl();
+		return connectionProfile;
 	}
 
 	/**

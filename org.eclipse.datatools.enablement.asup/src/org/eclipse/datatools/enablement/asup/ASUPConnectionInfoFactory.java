@@ -5,48 +5,29 @@ import org.asup.db.core.QDatabaseManager;
 import org.eclipse.datatools.connectivity.IConnection;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
 import org.eclipse.datatools.connectivity.sqm.internal.core.connection.DatabaseConnectionRegistry;
+import org.eclipse.datatools.modelbase.sql.schema.Database;
 
 public class ASUPConnectionInfoFactory extends ASUPConnectionFactory {
 
-	
-	public ASUPConnectionInfoFactory() {
-		super();
-	}
-
 	public IConnection createConnection(IConnectionProfile profile) {
 		
-/*		QConnectionConfig connectionConfig = QDatabaseCoreFactory.eINSTANCE.createConnectionConfig();
-		connectionConfig.setAutoCommit(true);
-		connectionConfig.setDefaultCatalog("*LOCAL");
-		connectionConfig.setVendor(profile.getBaseProperties().getProperty((IJDBCDriverDefinitionConstants.DATABASE_VENDOR_PROP_ID)));
-		connectionConfig.setVersion(profile.getBaseProperties().getProperty((IJDBCDriverDefinitionConstants.DATABASE_VERSION_PROP_ID)));*/
+		ASUPPlugin plugin = ASUPPlugin.getInstance();
+		if(plugin == null)
+			return null;
 
-		checkActive();
-		
-		
-//		IConnectionFactoryProvider connectionFactoryProvider = profile.getProvider().getConnectionFactory(ConnectionInfo.class.getName());
-//		connectionFactory.createDatabaseConnection(connectionConfig);	
-//		IConnection iConnection = connectionFactoryProvider.createConnection(connectionProfile);
+		// database information
+		QDatabaseManager databaseManager = plugin.getDatabaseManager();
+		QDatabaseContainer databaseContainer = databaseManager.getDatabaseContainer();
+		Database database = databaseContainer.getDatabase();
 
-		ASUPConnectionInfo connectionInfo = new ASUPConnectionInfo(profile, ASUPConnectionFactory.class);
+		// check singleton
+		ASUPConnectionInfo connectionInfo = (ASUPConnectionInfo) DatabaseConnectionRegistry.getInstance().getConnectionForDatabase(database); 
+		if(connectionInfo != null)
+			return connectionInfo;
 	
-		// set shared database
-		QDatabaseManager databaseManager = getDatabaseManager();
-		QDatabaseContainer databaseContainer = databaseManager.getDatabaseContainer();
-		
-		if(DatabaseConnectionRegistry.getInstance().getConnectionForDatabase(databaseContainer.getDatabase()) == null)
-			connectionInfo.setSharedDatabase(databaseContainer.getDatabase());
-		
-		/*		dtpConnection.open();
-
-		// set shared database
-		QDatabaseManager databaseManager = getDatabaseManager();
-		QDatabaseContainer databaseContainer = databaseManager.getDatabaseContainer();
-
-		ASUPConnectionInfo asupConnectionInfo = (ASUPConnectionInfo) dtpConnection.getRawConnection();
-//		asupConnectionInfo.setSharedConnection();
-		asupConnectionInfo.setSharedDatabase(databaseContainer.getDatabase());*/
-		
+		connectionInfo = new ASUPConnectionInfo(profile, ASUPConnectionFactory.class);
+		connectionInfo.setSharedDatabase(database);
+				
 		return connectionInfo;
 	}
 

@@ -7,8 +7,6 @@
  */
 package org.asup.db.core;
 
-import org.asup.fw.core.QServiceConfig;
-
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 
 /**
@@ -19,7 +17,7 @@ import org.eclipse.datatools.modelbase.sql.schema.Catalog;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QCatalogContainer#getDefaultConfig <em>Default Config</em>}</li>
+ *   <li>{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getCatalog <em>Catalog</em>}</li>
  * </ul>
  * </p>
@@ -28,32 +26,32 @@ import org.eclipse.datatools.modelbase.sql.schema.Catalog;
  * @model
  * @generated
  */
-public interface QCatalogContainer extends QServiceConfig {
+public interface QCatalogContainer {
 	/**
-	 * Returns the value of the '<em><b>Default Config</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Connection Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Config</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Connection Config</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Config</em>' containment reference.
-	 * @see #setDefaultConfig(QConnectionConfig)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_DefaultConfig()
+	 * @return the value of the '<em>Connection Config</em>' containment reference.
+	 * @see #setConnectionConfig(QConnectionConfig)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_ConnectionConfig()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	QConnectionConfig getDefaultConfig();
+	QConnectionConfig getConnectionConfig();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#getDefaultConfig <em>Default Config</em>}' containment reference.
+	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Config</em>' containment reference.
-	 * @see #getDefaultConfig()
+	 * @param value the new value of the '<em>Connection Config</em>' containment reference.
+	 * @see #getConnectionConfig()
 	 * @generated
 	 */
-	void setDefaultConfig(QConnectionConfig value);
+	void setConnectionConfig(QConnectionConfig value);
 
 	/**
 	 * Returns the value of the '<em><b>Catalog</b></em>' containment reference.
@@ -80,5 +78,13 @@ public interface QCatalogContainer extends QServiceConfig {
 	 * @generated
 	 */
 	void setCatalog(Catalog value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	boolean isActive();
 
 } // QCatalogContainer

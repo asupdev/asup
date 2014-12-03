@@ -11,21 +11,40 @@
  */
 package org.asup.fw.core.e4;
 
+import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.osgi.framework.BundleContext;
 
-public class E4ContextChildImpl extends E4AbstractContextImpl implements QContext {
-
-	private IEclipseContext eclipseContext;
+public class E4ContextChildImpl extends E4ContextImpl implements QContext {
 	
-	public E4ContextChildImpl(QContext parent, IEclipseContext eclipseContext, BundleContext bundleContext) {
-		super(bundleContext);
+	private IEclipseContext eclipseContext;
+	private int level;
+	private String text;
+	
+	public E4ContextChildImpl(IEclipseContext eclipseContext, int level, String id, String text) {
+		super(id);
+		
 		this.eclipseContext = eclipseContext;
+		this.level = level;
+		this.text = text;
 	}
 
 	@Override
 	IEclipseContext getEclipseContext() {		
 		return eclipseContext;
+	}
+	@Override
+	public QContext createChild() throws FrameworkCoreRuntimeException {
+
+		for(int l=1; l<=level; l++)
+			System.out.print("\t");
+		
+		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
+		int childLevel = level+1;
+		String childID = getID()+"@"+childLevel;
+		QContext contextChild = new E4ContextChildImpl(eclipseChildContext, childLevel, childID, text+"("+childLevel+")");
+		
+
+		return contextChild;
 	}
 }

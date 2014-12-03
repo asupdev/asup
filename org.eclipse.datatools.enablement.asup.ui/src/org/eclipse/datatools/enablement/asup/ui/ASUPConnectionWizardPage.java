@@ -12,11 +12,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-public class DTPConnectionWizardPage extends ConnectionProfileDetailsPage implements IWizardPage {
+public class ASUPConnectionWizardPage extends ConnectionProfileDetailsPage implements IWizardPage {
 
 	Properties properties;
 	
-	public DTPConnectionWizardPage(String name, Properties properties) {
+	public ASUPConnectionWizardPage(String name, Properties properties) {
 		super(name);
 		
 		this.properties = properties;

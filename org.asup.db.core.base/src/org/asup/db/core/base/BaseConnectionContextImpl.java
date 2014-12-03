@@ -21,9 +21,18 @@ import org.asup.fw.core.QContextID;
 public class BaseConnectionContextImpl extends ConnectionContextImpl {
 
 	private QContext context;
+	private QContextID id;
 	
-	public BaseConnectionContextImpl(QContext context) {
+	public BaseConnectionContextImpl(QContext context, final String id) {
 		this.context = context;
+		
+		this.id = new QContextID() {
+
+			@Override
+			public String getID() {
+				return id.toString();
+			}
+		};
 	}
 	
 	@Override
@@ -73,6 +82,11 @@ public class BaseConnectionContextImpl extends ConnectionContextImpl {
 	@Override
 	public void close() throws FrameworkCoreRuntimeException {
 		context.close();
+	}
+
+	@Override
+	public QContextID getID() {
+		return id;
 	}
 
 }

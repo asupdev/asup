@@ -11,19 +11,14 @@
  */
 package org.asup.db.core.base;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
 
 import javax.inject.Inject;
 
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCoreFactory;
@@ -35,20 +30,8 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
-import org.asup.db.core.util.QConnectionHelper;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
-import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.eclipse.datatools.connectivity.ConnectionProfileException;
-import org.eclipse.datatools.connectivity.IConnectionFactory;
-import org.eclipse.datatools.connectivity.IConnectionProfile;
-import org.eclipse.datatools.connectivity.ProfileManager;
-import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
-import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
-import org.eclipse.datatools.connectivity.sqm.core.mappings.ProviderIDMappingRegistry;
-import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
-import org.eclipse.datatools.connectivity.sqm.core.rte.jdbc.JDBCSchema;
-import org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
@@ -59,8 +42,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
-
-	private static final String ASUP_CONNECTION_FCTORY = "org.eclipse.datatools.enablement.asup.connectionFactory";
 
 	@Inject
 	private QConnectionManager connectionManager;
@@ -178,11 +159,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void dropSchema(QConnection connection, Schema schema) throws SQLException {
 
-		ConnectionInfo connectionInfo = connection.getConnectionContext().getAdapter(connection, ConnectionInfo.class);
-		Database database = connectionInfo.getSharedDatabase();
-
-		System.out.println(database.getSchemas().size());
-
 		// drop index
 		for (Index index : (List<Index>) schema.getIndices()) {
 			try {
@@ -211,24 +187,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QDefinitionWriter definitionWriter = definiwtionWriterRegistry.lookup(connection.getConnectionConfig());
 			String command = definitionWriter.dropSchema(schema);
 			statement.execute(command);
-
-			System.out.println(database.getSchemas().size());
-
-			/*
-			 * ICatalogObject catalogObject = new DTPCatalogAdapter(database);
-			 * 
-			 * JDBCSchemaLoader schemaLoader = new
-			 * JDBCSchemaLoader(catalogObject);
-			 * schemaLoader.loadSchemas(database.getSchemas(),
-			 * database.getSchemas());
-			 */
-
-			System.out.println(database.getSchemas().size());
-			// refresh schema
-			/*
-			 * Catalog catalog = connection.getDefaultCatalog(); synchronized
-			 * (catalog) { catalog.getSchemas().remove(schema); }
-			 */
 
 		} finally {
 			if (statement != null)
@@ -391,72 +349,12 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			return null;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void start() {
 
 		this.databaseContainer = (QDatabaseContainer) getConfig();
 
-		String vendor = "AsUP";
-		String version = "053";
-
-
-		String profileName = "ASUP_" + vendor + "_" + version;
-
-		try {
-			ProfileManager profileManager = ProfileManager.getInstance();
-			IConnectionProfile connectionProfile = profileManager.getProfileByName(profileName);
-			if (connectionProfile == null) {
-				ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
-				String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(vendor, version);
-				if (providerID == null)
-					providerID = "org.eclipse.datatools.connectivity.db.generic.connectionProfile";
-				// org.eclipse.datatools.enablement.asup.connectionProfile
-
-				Properties properties = QConnectionHelper.buildDTPPropertiesByVendorVersion(vendor, version);
-				connectionProfile = profileManager.createProfile(profileName, "", providerID, properties);
-			}
-
-			// activate profile
-			IConnectionFactory connectionFactory = connectionProfile.getProvider().getConnectionFactory(ASUP_CONNECTION_FCTORY);
-			connectionFactory.createConnection(connectionProfile);
-
-			for (QCatalogContainer catalogContainer : getDatabaseContainer().getCatalogs()) {
-				
-				QConnectionConfig connectionConfig = catalogContainer.getDefaultConfig();
-				Catalog catalog = catalogContainer.getCatalog();
-
-				if (catalog.getName().equals(getDatabaseContainer().getLocalCatalog())) {
-
-					BaseConnectionImpl catalogConnection = (BaseConnectionImpl) connectionManager.createDatabaseConnection(connectionConfig); 
-					ICatalogObject catalogObject = new BaseCatalogAdapter((Connection)catalogConnection.getRawConnection(), catalog);
-
-					List<Schema> schemas = new ArrayList<Schema>();
-					
-					JDBCSchemaLoader schemaLoader = new JDBCSchemaLoader(catalogObject, new BaseConnectionFilterProvider());
-					schemaLoader.loadSchemas(schemas, Collections.EMPTY_LIST);
-
-					if(schemas.isEmpty()) {
-
-						catalogObject = new BaseDatabaseAdapter((Connection)catalogConnection.getRawConnection(), databaseContainer.getDatabase());
-						
-						schemaLoader = new JDBCSchemaLoader(catalogObject, new BaseConnectionFilterProvider());
-						schemaLoader.loadSchemas(schemas, Collections.EMPTY_LIST);
-						
-					}
-					
-					for(Schema schema: schemas) {
-						JDBCSchema jdbcSchema = (JDBCSchema) schema;
-						jdbcSchema.setCatalog(catalog);
-						schema.getTables().iterator();
-						catalog.getSchemas().add(schema);
-					}
-					
-				}
-				
-			}
-		} catch (ConnectionProfileException | SQLException e) {
-			throw new FrameworkCoreRuntimeException(e);
-		}
+		BaseDatabaseStarter databaseStarter = new BaseDatabaseStarter(connectionManager, databaseContainer);
+		databaseStarter.start();
 
 	}
 

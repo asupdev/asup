@@ -207,6 +207,16 @@ public interface QFrameworkJavaPackage extends EPackage {
 	int JAVA_MAP = 11;
 
 	/**
+	 * The meta object id for the '<em>Java Properties</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.Properties
+	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaProperties()
+	 * @generated
+	 */
+	int JAVA_PROPERTIES = 12;
+
+	/**
 	 * The meta object id for the '<em>Java Output Stream</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,7 +224,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaOutputStream()
 	 * @generated
 	 */
-	int JAVA_OUTPUT_STREAM = 12;
+	int JAVA_OUTPUT_STREAM = 13;
 
 	/**
 	 * The meta object id for the '<em>Java Runnable</em>' data type.
@@ -224,7 +234,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaRunnable()
 	 * @generated
 	 */
-	int JAVA_RUNNABLE = 13;
+	int JAVA_RUNNABLE = 14;
 
 	/**
 	 * The meta object id for the '<em>Java Type</em>' data type.
@@ -234,7 +244,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaType()
 	 * @generated
 	 */
-	int JAVA_TYPE = 14;
+	int JAVA_TYPE = 15;
 
 	/**
 	 * The meta object id for the '<em>Java Throwable</em>' data type.
@@ -244,7 +254,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaThrowable()
 	 * @generated
 	 */
-	int JAVA_THROWABLE = 15;
+	int JAVA_THROWABLE = 16;
 
 	/**
 	 * The meta object id for the '<em>Java URI</em>' data type.
@@ -254,7 +264,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaURI()
 	 * @generated
 	 */
-	int JAVA_URI = 16;
+	int JAVA_URI = 17;
 
 	/**
 	 * The meta object id for the '<em>Java URL</em>' data type.
@@ -264,7 +274,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaURL()
 	 * @generated
 	 */
-	int JAVA_URL = 17;
+	int JAVA_URL = 18;
 
 	/**
 	 * The meta object id for the '<em>Java Writer</em>' data type.
@@ -274,7 +284,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaWriter()
 	 * @generated
 	 */
-	int JAVA_WRITER = 18;
+	int JAVA_WRITER = 19;
 
 
 	/**
@@ -408,6 +418,17 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getJavaMap();
+
+	/**
+	 * Returns the meta object for data type '{@link java.util.Properties <em>Java Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Java Properties</em>'.
+	 * @see java.util.Properties
+	 * @model instanceClass="java.util.Properties"
+	 * @generated
+	 */
+	EDataType getJavaProperties();
 
 	/**
 	 * Returns the meta object for data type '{@link java.io.OutputStream <em>Java Output Stream</em>}'.
@@ -627,6 +648,16 @@ public interface QFrameworkJavaPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType JAVA_MAP = eINSTANCE.getJavaMap();
+
+		/**
+		 * The meta object literal for the '<em>Java Properties</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.Properties
+		 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaProperties()
+		 * @generated
+		 */
+		EDataType JAVA_PROPERTIES = eINSTANCE.getJavaProperties();
 
 		/**
 		 * The meta object literal for the '<em>Java Output Stream</em>' data type.

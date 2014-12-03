@@ -26,6 +26,7 @@ import java.util.Dictionary;
 import java.util.Iterator;
 import java.util.Map;
 
+import java.util.Properties;
 import org.asup.fw.java.*;
 
 import org.eclipse.emf.ecore.EClass;
@@ -112,6 +113,8 @@ public class FrameworkJavaFactoryImpl extends EFactoryImpl implements QFramework
 				return createJavaIteratorFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_MAP:
 				return createJavaMapFromString(eDataType, initialValue);
+			case QFrameworkJavaPackage.JAVA_PROPERTIES:
+				return createJavaPropertiesFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_OUTPUT_STREAM:
 				return createJavaOutputStreamFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_RUNNABLE:
@@ -157,6 +160,8 @@ public class FrameworkJavaFactoryImpl extends EFactoryImpl implements QFramework
 				return convertJavaIteratorToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_MAP:
 				return convertJavaMapToString(eDataType, instanceValue);
+			case QFrameworkJavaPackage.JAVA_PROPERTIES:
+				return convertJavaPropertiesToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_OUTPUT_STREAM:
 				return convertJavaOutputStreamToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_RUNNABLE:
@@ -338,6 +343,24 @@ public class FrameworkJavaFactoryImpl extends EFactoryImpl implements QFramework
 	 */
 	public String convertJavaMapToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Properties createJavaPropertiesFromString(EDataType eDataType, String initialValue) {
+		return (Properties)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJavaPropertiesToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

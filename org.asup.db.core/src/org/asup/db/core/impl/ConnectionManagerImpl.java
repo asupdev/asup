@@ -8,6 +8,7 @@
 package org.asup.db.core.impl;
 
 import java.sql.SQLException;
+import java.util.Properties;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QConnectionConfig;
@@ -69,6 +70,28 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * @generated
 	 */
 	public void registerConnectionConfig(String name, QConnectionConfig connectionConfig) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Properties createPropertiesByConnectionConfig(QConnectionConfig connectionConfig) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Properties createPropertiesByVendorVersion(String vendor, String version) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

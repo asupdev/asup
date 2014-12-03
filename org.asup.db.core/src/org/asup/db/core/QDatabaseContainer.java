@@ -9,6 +9,7 @@ package org.asup.db.core;
 
 import java.util.List;
 import org.asup.fw.core.QServiceConfig;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 
 /**
@@ -19,8 +20,9 @@ import org.eclipse.datatools.modelbase.sql.schema.Database;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getConnectionProfile <em>Connection Profile</em>}</li>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getDatabase <em>Database</em>}</li>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getLocalCatalog <em>Local Catalog</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalog <em>Default Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getCatalogs <em>Catalogs</em>}</li>
  * </ul>
  * </p>
@@ -57,33 +59,6 @@ public interface QDatabaseContainer extends QServiceConfig {
 	void setDatabase(Database value);
 
 	/**
-	 * Returns the value of the '<em><b>Local Catalog</b></em>' attribute.
-	 * The default value is <code>"LOCAL"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Local Catalog</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Local Catalog</em>' attribute.
-	 * @see #setLocalCatalog(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_LocalCatalog()
-	 * @model default="LOCAL" required="true"
-	 * @generated
-	 */
-	String getLocalCatalog();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getLocalCatalog <em>Local Catalog</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Local Catalog</em>' attribute.
-	 * @see #getLocalCatalog()
-	 * @generated
-	 */
-	void setLocalCatalog(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Catalogs</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.db.core.QCatalogContainer}.
 	 * <!-- begin-user-doc -->
@@ -98,5 +73,57 @@ public interface QDatabaseContainer extends QServiceConfig {
 	 * @generated
 	 */
 	List<QCatalogContainer> getCatalogs();
+
+	/**
+	 * Returns the value of the '<em><b>Default Catalog</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Catalog</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Catalog</em>' reference.
+	 * @see #setDefaultCatalog(Catalog)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_DefaultCatalog()
+	 * @model required="true"
+	 * @generated
+	 */
+	Catalog getDefaultCatalog();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalog <em>Default Catalog</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Catalog</em>' reference.
+	 * @see #getDefaultCatalog()
+	 * @generated
+	 */
+	void setDefaultCatalog(Catalog value);
+
+	/**
+	 * Returns the value of the '<em><b>Connection Profile</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connection Profile</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connection Profile</em>' containment reference.
+	 * @see #setConnectionProfile(QConnectionProfile)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_ConnectionProfile()
+	 * @model containment="true" keys="name" required="true"
+	 * @generated
+	 */
+	QConnectionProfile getConnectionProfile();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getConnectionProfile <em>Connection Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connection Profile</em>' containment reference.
+	 * @see #getConnectionProfile()
+	 * @generated
+	 */
+	void setConnectionProfile(QConnectionProfile value);
 
 } // QDatabaseContainer

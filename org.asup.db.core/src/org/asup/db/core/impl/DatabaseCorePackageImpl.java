@@ -18,6 +18,7 @@ import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QConnectionFactory;
 import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
+import org.asup.db.core.QConnectionProfile;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseCorePackage;
@@ -34,6 +35,7 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.fw.java.QFrameworkJavaPackage;
 import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
 import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
 import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
@@ -108,6 +110,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass connectionManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectionProfileEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,7 +323,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCatalogContainer_DefaultConfig() {
+	public EReference getCatalogContainer_ConnectionConfig() {
 		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -458,6 +467,33 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getConnectionProfile() {
+		return connectionProfileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectionProfile_Name() {
+		return (EAttribute)connectionProfileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectionProfile_Text() {
+		return (EAttribute)connectionProfileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDatabaseContainer() {
 		return databaseContainerEClass;
 	}
@@ -468,16 +504,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EReference getDatabaseContainer_Database() {
-		return (EReference)databaseContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDatabaseContainer_LocalCatalog() {
-		return (EAttribute)databaseContainerEClass.getEStructuralFeatures().get(1);
+		return (EReference)databaseContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -486,7 +513,25 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EReference getDatabaseContainer_Catalogs() {
+		return (EReference)databaseContainerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDatabaseContainer_DefaultCatalog() {
 		return (EReference)databaseContainerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDatabaseContainer_ConnectionProfile() {
+		return (EReference)databaseContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -806,7 +851,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Create classes and their features
 		catalogContainerEClass = createEClass(CATALOG_CONTAINER);
-		createEReference(catalogContainerEClass, CATALOG_CONTAINER__DEFAULT_CONFIG);
+		createEReference(catalogContainerEClass, CATALOG_CONTAINER__CONNECTION_CONFIG);
 		createEReference(catalogContainerEClass, CATALOG_CONTAINER__CATALOG);
 
 		connectionEClass = createEClass(CONNECTION);
@@ -829,9 +874,14 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		connectionManagerEClass = createEClass(CONNECTION_MANAGER);
 
+		connectionProfileEClass = createEClass(CONNECTION_PROFILE);
+		createEAttribute(connectionProfileEClass, CONNECTION_PROFILE__NAME);
+		createEAttribute(connectionProfileEClass, CONNECTION_PROFILE__TEXT);
+
 		databaseContainerEClass = createEClass(DATABASE_CONTAINER);
+		createEReference(databaseContainerEClass, DATABASE_CONTAINER__CONNECTION_PROFILE);
 		createEReference(databaseContainerEClass, DATABASE_CONTAINER__DATABASE);
-		createEAttribute(databaseContainerEClass, DATABASE_CONTAINER__LOCAL_CATALOG);
+		createEReference(databaseContainerEClass, DATABASE_CONTAINER__DEFAULT_CATALOG);
 		createEReference(databaseContainerEClass, DATABASE_CONTAINER__CATALOGS);
 
 		databaseDefinitionEClass = createEClass(DATABASE_DEFINITION);
@@ -907,8 +957,9 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
+		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
+		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
 		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
@@ -918,7 +969,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		catalogContainerEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
 		connectionEClass.getESuperTypes().add(theFrameworkCorePackage.getContextID());
 		connectionConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
 		connectionContextEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
@@ -940,8 +990,10 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(catalogContainerEClass, QCatalogContainer.class, "CatalogContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCatalogContainer_DefaultConfig(), this.getConnectionConfig(), null, "defaultConfig", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCatalogContainer_ConnectionConfig(), this.getConnectionConfig(), null, "connectionConfig", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCatalogContainer_Catalog(), theSQLSchemaPackage.getCatalog(), null, "catalog", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(catalogContainerEClass, ecorePackage.getEBoolean(), "isActive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(connectionEClass, QConnection.class, "Connection", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1016,9 +1068,22 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(connectionManagerEClass, theFrameworkJavaPackage.getJavaProperties(), "createPropertiesByConnectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(connectionManagerEClass, theFrameworkJavaPackage.getJavaProperties(), "createPropertiesByVendorVersion", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "vendor", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "version", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(connectionProfileEClass, QConnectionProfile.class, "ConnectionProfile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConnectionProfile_Name(), ecorePackage.getEString(), "name", null, 1, 1, QConnectionProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnectionProfile_Text(), ecorePackage.getEString(), "text", null, 1, 1, QConnectionProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(databaseContainerEClass, QDatabaseContainer.class, "DatabaseContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDatabaseContainer_ConnectionProfile(), this.getConnectionProfile(), null, "connectionProfile", null, 1, 1, QDatabaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDatabaseContainer_ConnectionProfile().getEKeys().add(this.getConnectionProfile_Name());
 		initEReference(getDatabaseContainer_Database(), theSQLSchemaPackage.getDatabase(), null, "database", null, 1, 1, QDatabaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDatabaseContainer_LocalCatalog(), ecorePackage.getEString(), "localCatalog", "LOCAL", 1, 1, QDatabaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabaseContainer_DefaultCatalog(), theSQLSchemaPackage.getCatalog(), null, "defaultCatalog", null, 1, 1, QDatabaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabaseContainer_Catalogs(), this.getCatalogContainer(), null, "catalogs", null, 1, -1, QDatabaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(databaseDefinitionEClass, QDatabaseDefinition.class, "DatabaseDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

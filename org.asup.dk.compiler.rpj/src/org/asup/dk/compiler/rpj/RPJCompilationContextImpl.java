@@ -89,8 +89,13 @@ public class RPJCompilationContextImpl extends CompilationContextImpl {
 		if(prototypes == null)
 			prototypes = new ArrayList<QPrototype<?>>();
 
+	}	
+
+	@Override
+	public QContextID getID() {
+		return delegate.getID();
 	}
-	
+
 	@Override
 	public void inject(Object object) throws FrameworkCoreRuntimeException {
 		delegate.inject(object);

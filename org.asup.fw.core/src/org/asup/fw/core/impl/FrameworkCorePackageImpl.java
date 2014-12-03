@@ -9,6 +9,7 @@ package org.asup.fw.core.impl;
 
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QApplicationLevel;
 import org.asup.fw.core.QApplicationManager;
@@ -179,6 +180,13 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EDataType frameowrkCoreRuntimeExceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType frameworkCoreUnexpectedConditionExceptionEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -627,6 +635,15 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getFrameworkCoreUnexpectedConditionException() {
+		return frameworkCoreUnexpectedConditionExceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QFrameworkCoreFactory getFrameworkCoreFactory() {
 		return (QFrameworkCoreFactory)getEFactoryInstance();
 	}
@@ -711,6 +728,7 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		// Create data types
 		frameworkCoreExceptionEDataType = createEDataType(FRAMEWORK_CORE_EXCEPTION);
 		frameowrkCoreRuntimeExceptionEDataType = createEDataType(FRAMEOWRK_CORE_RUNTIME_EXCEPTION);
+		frameworkCoreUnexpectedConditionExceptionEDataType = createEDataType(FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION);
 	}
 
 	/**
@@ -805,6 +823,8 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		addEParameter(op, g1, "adapterType", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
+
+		addEOperation(contextEClass, this.getContextID(), "getID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(contextEClass, null, "inject", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "object", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -957,6 +977,7 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		// Initialize data types
 		initEDataType(frameworkCoreExceptionEDataType, FrameworkCoreException.class, "FrameworkCoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(frameowrkCoreRuntimeExceptionEDataType, FrameworkCoreRuntimeException.class, "FrameowrkCoreRuntimeException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(frameworkCoreUnexpectedConditionExceptionEDataType, FrameworkCoreUnexpectedConditionException.class, "FrameworkCoreUnexpectedConditionException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

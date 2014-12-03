@@ -72,8 +72,8 @@ public class E4ApplicationStarter {
         bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 
 		// framework context
-        QContext applicationContext = new E4ContextImpl(bundleContext);
-        
+        QContext applicationContext = new E4ContextRootImpl(bundleContext, bundleContext.getBundle().getSymbolicName());
+
         // TODO
 		bundleContext.registerService(QContext.class, applicationContext, null);
 
@@ -275,6 +275,8 @@ public class E4ApplicationStarter {
 		contextService.invoke(service, ServiceRegistration.class);
 		
 		bundleContext.registerService(name, service, properties);
+		
+		contextService.close();
 	}
 
 	public Object loadObject(QContext context, String className) {
@@ -287,6 +289,9 @@ public class E4ApplicationStarter {
 					return context.make(tempClass);
 				}
 				catch(ClassNotFoundException e) {
+				}
+				catch(Exception e) {
+					e.printStackTrace();
 				}
 				
 			}

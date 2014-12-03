@@ -92,8 +92,13 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 		
 		private QContext delegate;
 		
-		public MyTestContext(QContext delegate) {
+		protected MyTestContext(QContext delegate) {
 			this.delegate = delegate;
+		}
+		
+		@Override
+		public QContextID getID() {
+			return delegate.getID();
 		}
 
 		@Override

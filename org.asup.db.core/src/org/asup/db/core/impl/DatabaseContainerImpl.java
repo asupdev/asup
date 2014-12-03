@@ -10,9 +10,11 @@ package org.asup.db.core.impl;
 import java.util.Collection;
 import java.util.List;
 import org.asup.db.core.QCatalogContainer;
+import org.asup.db.core.QConnectionProfile;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.impl.ServiceConfigImpl;
+import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -30,8 +32,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getConnectionProfile <em>Connection Profile</em>}</li>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getDatabase <em>Database</em>}</li>
- *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getLocalCatalog <em>Local Catalog</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getDefaultCatalog <em>Default Catalog</em>}</li>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getCatalogs <em>Catalogs</em>}</li>
  * </ul>
  * </p>
@@ -39,6 +42,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabaseContainer {
+	/**
+	 * The cached value of the '{@link #getConnectionProfile() <em>Connection Profile</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectionProfile()
+	 * @generated
+	 * @ordered
+	 */
+	protected QConnectionProfile connectionProfile;
+
 	/**
 	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -50,24 +63,14 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	protected Database database;
 
 	/**
-	 * The default value of the '{@link #getLocalCatalog() <em>Local Catalog</em>}' attribute.
+	 * The cached value of the '{@link #getDefaultCatalog() <em>Default Catalog</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLocalCatalog()
+	 * @see #getDefaultCatalog()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LOCAL_CATALOG_EDEFAULT = "LOCAL";
-
-	/**
-	 * The cached value of the '{@link #getLocalCatalog() <em>Local Catalog</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocalCatalog()
-	 * @generated
-	 * @ordered
-	 */
-	protected String localCatalog = LOCAL_CATALOG_EDEFAULT;
+	protected Catalog defaultCatalog;
 
 	/**
 	 * The cached value of the '{@link #getCatalogs() <em>Catalogs</em>}' containment reference list.
@@ -146,27 +149,6 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLocalCatalog() {
-		return localCatalog;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocalCatalog(String newLocalCatalog) {
-		String oldLocalCatalog = localCatalog;
-		localCatalog = newLocalCatalog;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG, oldLocalCatalog, localCatalog));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public List<QCatalogContainer> getCatalogs() {
 		if (catalogs == null) {
 			catalogs = new EObjectContainmentEList<QCatalogContainer>(QCatalogContainer.class, this, QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS);
@@ -179,9 +161,92 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Catalog getDefaultCatalog() {
+		if (defaultCatalog != null && defaultCatalog.eIsProxy()) {
+			InternalEObject oldDefaultCatalog = (InternalEObject)defaultCatalog;
+			defaultCatalog = (Catalog)eResolveProxy(oldDefaultCatalog);
+			if (defaultCatalog != oldDefaultCatalog) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG, oldDefaultCatalog, defaultCatalog));
+			}
+		}
+		return defaultCatalog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Catalog basicGetDefaultCatalog() {
+		return defaultCatalog;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefaultCatalog(Catalog newDefaultCatalog) {
+		Catalog oldDefaultCatalog = defaultCatalog;
+		defaultCatalog = newDefaultCatalog;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG, oldDefaultCatalog, defaultCatalog));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QConnectionProfile getConnectionProfile() {
+		return connectionProfile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConnectionProfile(QConnectionProfile newConnectionProfile, NotificationChain msgs) {
+		QConnectionProfile oldConnectionProfile = connectionProfile;
+		connectionProfile = newConnectionProfile;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE, oldConnectionProfile, newConnectionProfile);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnectionProfile(QConnectionProfile newConnectionProfile) {
+		if (newConnectionProfile != connectionProfile) {
+			NotificationChain msgs = null;
+			if (connectionProfile != null)
+				msgs = ((InternalEObject)connectionProfile).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE, null, msgs);
+			if (newConnectionProfile != null)
+				msgs = ((InternalEObject)newConnectionProfile).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE, null, msgs);
+			msgs = basicSetConnectionProfile(newConnectionProfile, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE, newConnectionProfile, newConnectionProfile));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE:
+				return basicSetConnectionProfile(null, msgs);
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				return basicSetDatabase(null, msgs);
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
@@ -198,10 +263,13 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE:
+				return getConnectionProfile();
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				return getDatabase();
-			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
-				return getLocalCatalog();
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG:
+				if (resolve) return getDefaultCatalog();
+				return basicGetDefaultCatalog();
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				return getCatalogs();
 		}
@@ -217,11 +285,14 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE:
+				setConnectionProfile((QConnectionProfile)newValue);
+				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				setDatabase((Database)newValue);
 				return;
-			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
-				setLocalCatalog((String)newValue);
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG:
+				setDefaultCatalog((Catalog)newValue);
 				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				getCatalogs().clear();
@@ -239,11 +310,14 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE:
+				setConnectionProfile((QConnectionProfile)null);
+				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				setDatabase((Database)null);
 				return;
-			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
-				setLocalCatalog(LOCAL_CATALOG_EDEFAULT);
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG:
+				setDefaultCatalog((Catalog)null);
 				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				getCatalogs().clear();
@@ -260,30 +334,16 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QDatabaseCorePackage.DATABASE_CONTAINER__CONNECTION_PROFILE:
+				return connectionProfile != null;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__DATABASE:
 				return database != null;
-			case QDatabaseCorePackage.DATABASE_CONTAINER__LOCAL_CATALOG:
-				return LOCAL_CATALOG_EDEFAULT == null ? localCatalog != null : !LOCAL_CATALOG_EDEFAULT.equals(localCatalog);
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG:
+				return defaultCatalog != null;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOGS:
 				return catalogs != null && !catalogs.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (localCatalog: ");
-		result.append(localCatalog);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DatabaseContainerImpl

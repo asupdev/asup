@@ -10,9 +10,14 @@ import org.asup.os.core.jobs.impl.JobContextImpl;
 public class CDOJobContextImpl extends JobContextImpl {
 
 	private QContext delegate;
-	
+
 	protected CDOJobContextImpl(QContext delegate) {
 		this.delegate = delegate;
+	}
+	
+	@Override
+	public QContextID getID() {
+		return delegate.getID();
 	}
 	
 	@Override

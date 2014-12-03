@@ -14,7 +14,12 @@ public class E4JobContextImpl extends JobContextImpl {
 	protected E4JobContextImpl(QContext delegate) {
 		this.delegate = delegate;
 	}
-	
+
+	@Override
+	public QContextID getID() {
+		return delegate.getID();
+	}
+
 	@Override
 	public void close() throws FrameworkCoreRuntimeException {
 		this.delegate.close();

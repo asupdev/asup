@@ -803,6 +803,16 @@ public interface QFrameworkCorePackage extends EPackage {
 	int FRAMEOWRK_CORE_RUNTIME_EXCEPTION = 18;
 
 	/**
+	 * The meta object id for the '<em>Unexpected Condition Exception</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.core.FrameworkCoreUnexpectedConditionException
+	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameworkCoreUnexpectedConditionException()
+	 * @generated
+	 */
+	int FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION = 19;
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.fw.core.QApplication <em>Application</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1248,6 +1258,17 @@ public interface QFrameworkCorePackage extends EPackage {
 	EDataType getFrameowrkCoreRuntimeException();
 
 	/**
+	 * Returns the meta object for data type '{@link org.asup.fw.core.FrameworkCoreUnexpectedConditionException <em>Unexpected Condition Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Unexpected Condition Exception</em>'.
+	 * @see org.asup.fw.core.FrameworkCoreUnexpectedConditionException
+	 * @model instanceClass="org.asup.fw.core.FrameworkCoreUnexpectedConditionException"
+	 * @generated
+	 */
+	EDataType getFrameworkCoreUnexpectedConditionException();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1643,6 +1664,16 @@ public interface QFrameworkCorePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType FRAMEOWRK_CORE_RUNTIME_EXCEPTION = eINSTANCE.getFrameowrkCoreRuntimeException();
+
+		/**
+		 * The meta object literal for the '<em>Unexpected Condition Exception</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.core.FrameworkCoreUnexpectedConditionException
+		 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameworkCoreUnexpectedConditionException()
+		 * @generated
+		 */
+		EDataType FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION = eINSTANCE.getFrameworkCoreUnexpectedConditionException();
 
 	}
 
