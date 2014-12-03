@@ -1,5 +1,7 @@
 package org.asup.db.syntax.ibmi.parser.ddl;
 
+import java.util.regex.Pattern;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -22,6 +24,7 @@ import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
 import org.asup.db.syntax.ddl.QCreateIndexStatement;
 import org.asup.db.syntax.ddl.QCreateTableStatement;
+import org.asup.db.syntax.ddl.QCreateViewStatement;
 import org.asup.db.syntax.ddl.QDisconnectStatement;
 import org.asup.db.syntax.ddl.QDropStatement;
 import org.asup.db.syntax.ddl.TargetItem;
@@ -39,6 +42,13 @@ public class DDLModelBuilder {
 	{
 		QDefinitionParseResult parserResult = (QDefinitionParseResult) QDatabaseSyntaxFactory.eINSTANCE.createDefinitionParseResult();
 		
+		String queryString = null;
+		if (isCreateViewStatement(definitionString)) {
+			String[] parts = splitCreteViewStatement(definitionString);
+			definitionString = parts[0];
+			queryString = parts[1];
+		}
+		
 		DDLLexer lex = new DDLLexer(new ANTLRStringStream(definitionString));
 		CommonTokenStream tokens = new CommonTokenStream(lex);
 		DDLParser parser = new DDLParser(tokens);
@@ -47,7 +57,7 @@ public class DDLModelBuilder {
 		try {
 			tree = parser.sql().getTree();
 			
-			parserResult.setDefinitionStatement(convertModel(tree));
+			parserResult.setDefinitionStatement(convertModel(tree, queryString));
 			
 		} catch (RecognitionException e) {
 			
@@ -56,7 +66,7 @@ public class DDLModelBuilder {
 		return parserResult;
 	}
 
-	private QDefinitionStatement convertModel(CommonTree tree) {
+	private QDefinitionStatement convertModel(CommonTree tree, String queryString) {
 		
 		QDefinitionStatement result = null;
 		
@@ -83,7 +93,7 @@ public class DDLModelBuilder {
 			break;		
 		
 		case DDLLexer.CREATE_VIEW_STATEMENT:
-			result = manageCreateViewStatement(tree);
+			result = manageCreateViewStatement(tree, queryString);
 			break;		
 		
 		case DDLLexer.DROP_ALIAS_STATEMENT:
@@ -291,9 +301,68 @@ public class DDLModelBuilder {
 		return dropAliasStatement;
 	}
 
-	private QDefinitionStatement manageCreateViewStatement(CommonTree tree) {
-		// TODO Auto-generated method stub
-		return null;
+	private QDefinitionStatement manageCreateViewStatement(CommonTree tree, String queryString) {
+		
+		QCreateViewStatement createViewStatement = DdlFactoryImpl.eINSTANCE.createCreateViewStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+			
+			switch (fieldToken.getType()) {			
+			
+			case DDLLexer.VIEW_NAME:
+		
+				// Manage name
+				QQualifiedName tableName = null;
+				
+				Tree nameField = fieldToken.getChild(0);
+				if (nameField.getType() == DDLLexer.QUALIFIED) {
+					tableName = resolveQualified(nameField);					
+				} else {
+					tableName = DatabaseCoreFactoryImpl.eINSTANCE.createQualifiedName();					
+					tableName.getQualifiers().add(nameField.getText());					
+				}				
+				createViewStatement.setViewName(tableName);
+				
+				break;
+			
+			case DDLLexer.COLUMNS_LIST:
+				
+				// Manage columns def
+				Tree fieldDefToken = null;
+				QTableColumnDef tableColumnDef = null;
+				
+				for (int k = 0; k < fieldToken.getChildCount(); k++) {
+					
+					fieldDefToken = fieldToken.getChild(k);
+					tableColumnDef = DatabaseCoreFactoryImpl.eINSTANCE.createTableColumnDef();
+					tableColumnDef.setNullable(true);
+					tableColumnDef.setDefault(false);
+					
+					Tree fieldDefParm = null;
+					for (int j = 0; j < fieldDefToken.getChildCount(); j++) {
+						
+						fieldDefParm = fieldDefToken.getChild(j);
+						switch (fieldDefParm.getType()) {
+						case DDLLexer.COLUMN_NAME:
+							
+							String name = fieldDefParm.getChild(0).getText();
+							tableColumnDef.setName(name);
+							
+							break;
+
+						}
+						
+					}			
+					createViewStatement.getFields().add(tableColumnDef);
+				}
+				break;	
+			}
+		}
+		
+		return createViewStatement;
 	}
 
 	private QDefinitionStatement manageCreateTableStatement(CommonTree tree) {
@@ -598,6 +667,59 @@ public class DDLModelBuilder {
 		}
 		
 		return qualifiedName;
+	}
+	
+	// Utility methods
+		
+	private boolean isCreateViewStatement(String statement) {
+		return statement.matches("^[\\s]*[cC][rR][eE][aA][tT][eE][\\s]*[vV][iI][eE][wW].*");
+	}
+	
+	
+	private String[] splitCreteViewStatement(String viewText) {
+
+		String[] tokens = viewText.split("[)\\s][aA][sS][\\s(]", Pattern.CASE_INSENSITIVE);
+
+		String body = viewText.substring(tokens[0].length()).trim();
+		body = body.replaceAll("^[)]?[aA][sS]", "");
+
+		/*
+		Pattern pattern = Pattern.compile(
+				"(.*SELECT.*)[\\s]+?WITH[\\s]+?.*CHECK[\\s]+?OPTION.*", Pattern.CASE_INSENSITIVE | Pattern.DOTALL); //$NON-NLS-1$
+		Matcher matcher = pattern.matcher(body);
+		if (matcher.matches()) {
+			body = matcher.group(1).trim();
+		}
+		*/
+
+		body = body.trim();
+		if (body.startsWith("(")) {
+			int pos = this.findMatchParenths(body);
+			if (pos == body.length() - 1) {
+				body = body.substring(1, body.length() - 1);
+			}
+		}
+
+		tokens[1] = body;
+		return tokens;
+	}
+
+	private int findMatchParenths(String body) {
+		int pos = -1;
+		int matches = 1;
+		for (int i = 1; i < body.length(); i++) {
+			if (body.charAt(i) == '(') {
+				matches++;
+			} else if (body.charAt(i) == ')') {
+				matches--;
+				if (matches == 0) {
+					pos = i;
+					break;
+				}
+			}
+		}
+
+		return pos;
 	}
 
 }

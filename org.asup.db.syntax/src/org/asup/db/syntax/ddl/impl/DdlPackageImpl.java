@@ -16,6 +16,7 @@ import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
 import org.asup.db.syntax.ddl.QCreateIndexStatement;
 import org.asup.db.syntax.ddl.QCreateTableStatement;
+import org.asup.db.syntax.ddl.QCreateViewStatement;
 import org.asup.db.syntax.ddl.QDdlFactory;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QDisconnectStatement;
@@ -70,6 +71,12 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * @generated
 	 */
 	private EClass createTableStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass createViewStatementEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -340,6 +347,42 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCreateViewStatement() {
+		return createViewStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateViewStatement_Fields() {
+		return (EReference)createViewStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCreateViewStatement_Query() {
+		return (EAttribute)createViewStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCreateViewStatement_ViewName() {
+		return (EReference)createViewStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDisconnectStatement() {
 		return disconnectStatementEClass;
 	}
@@ -467,6 +510,11 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		createEReference(createTableStatementEClass, CREATE_TABLE_STATEMENT__TABLE_NAME);
 		createEReference(createTableStatementEClass, CREATE_TABLE_STATEMENT__FIELDS);
 
+		createViewStatementEClass = createEClass(CREATE_VIEW_STATEMENT);
+		createEReference(createViewStatementEClass, CREATE_VIEW_STATEMENT__FIELDS);
+		createEAttribute(createViewStatementEClass, CREATE_VIEW_STATEMENT__QUERY);
+		createEReference(createViewStatementEClass, CREATE_VIEW_STATEMENT__VIEW_NAME);
+
 		disconnectStatementEClass = createEClass(DISCONNECT_STATEMENT);
 		createEAttribute(disconnectStatementEClass, DISCONNECT_STATEMENT__TARGET);
 
@@ -519,6 +567,7 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		createAliasStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		createIndexStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		createTableStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
+		createViewStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		disconnectStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		dropStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 
@@ -545,6 +594,11 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		initEClass(createTableStatementEClass, QCreateTableStatement.class, "CreateTableStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCreateTableStatement_TableName(), theDatabaseCorePackage.getQualifiedName(), null, "tableName", null, 0, 1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCreateTableStatement_Fields(), theDatabaseCorePackage.getTableColumnDef(), null, "fields", null, 1, -1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(createViewStatementEClass, QCreateViewStatement.class, "CreateViewStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCreateViewStatement_Fields(), theDatabaseCorePackage.getTableColumnDef(), null, "fields", null, 1, -1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreateViewStatement_Query(), theEcorePackage.getEString(), "query", null, 0, 1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCreateViewStatement_ViewName(), theDatabaseCorePackage.getQualifiedName(), null, "viewName", null, 0, 1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(disconnectStatementEClass, QDisconnectStatement.class, "DisconnectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDisconnectStatement_Target(), this.getTargetItem(), "target", null, 0, 1, QDisconnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

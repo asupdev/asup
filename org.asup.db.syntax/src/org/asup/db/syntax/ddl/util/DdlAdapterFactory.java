@@ -91,6 +91,10 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 				return createCreateTableStatementAdapter();
 			}
 			@Override
+			public Adapter caseCreateViewStatement(QCreateViewStatement object) {
+				return createCreateViewStatementAdapter();
+			}
+			@Override
 			public Adapter caseDisconnectStatement(QDisconnectStatement object) {
 				return createDisconnectStatementAdapter();
 			}
@@ -189,6 +193,20 @@ public class DdlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCreateTableStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.ddl.QCreateViewStatement <em>Create View Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement
+	 * @generated
+	 */
+	public Adapter createCreateViewStatementAdapter() {
 		return null;
 	}
 

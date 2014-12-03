@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 DDL.g 2014-12-01 15:19:25
+// $ANTLR 3.5.1 DDL.g 2014-12-03 11:31:57
 
 package org.asup.db.syntax.ibmi.parser.ddl;
 import java.util.List;
@@ -39,47 +39,48 @@ public class DDLParser extends Parser {
 		"ALLOW", "ALLOW_READ", "AND", "AS", "ASC", "ASSIGN", "AS_EXPRESSION", 
 		"B", "BAD", "BIGINT", "BINARY", "BIT", "BLOB", "BOOL", "BOOLEAN", "BY", 
 		"BYTEA", "C", "CALL", "CASCADE", "CASE", "CHAR", "CHARACTER", "COALESCE", 
-		"COLUMN", "COLUMNS_LIST", "COMMA", "COMMENT", "COMMIT", "COMMITTED", "COMMIT_STATEMENT", 
-		"CONNECT", "CONNECTION", "CONNECT_STATEMENT", "COUNT", "COUNT_ROWS", "COUNT_VAL", 
-		"CREATE", "CREATE_ALIAS_STATEMENT", "CREATE_INDEX_STATEMENT", "CREATE_TABLE_STATEMENT", 
-		"CREATE_VIEW_STATEMENT", "CROSS", "CUBE", "CURRENT", "Character_String_Literal", 
-		"Control_Characters", "D", "DATE", "DB_NAME", "DEC", "DECIMAL", "DEFAULT", 
-		"DESC", "DESC_TABLE", "DISCONNECT", "DISCONNECT_STATEMENT", "DISTINCT", 
-		"DIVIDE", "DOT", "DOUBLE", "DROP", "DROP_ALIAS_STATEMENT", "DROP_INDEX_STATEMENT", 
-		"DROP_TABLE_STATEMENT", "DROP_VIEW_STATEMENT", "Digit", "Double_Quote", 
-		"E", "ELSE", "EMPTY_GROUPING_SET", "END", "EQUAL", "ESC_SEQ", "EXCEPT", 
-		"EXCLUSIVE", "EXPONENT", "EXTERNAL", "Extended_Control_Characters", "F", 
-		"FALSE", "FIELD_DEF", "FIELD_NAME", "FIELD_TYPE", "FIRST", "FLOAT", "FLOAT4", 
-		"FLOAT8", "FOR", "FORMAT", "FOR_COLUMN", "FROM", "FULL", "FUNCTION", "FUNC_ARGS", 
-		"G", "GEQ", "GROUP", "GROUP_BY", "GTH", "H", "HAVING", "HEX_DIGIT", "HOLD", 
-		"I", "IN", "INDEX", "INDEX_NAME", "INET4", "INNER", "INSERT", "INT", "INT1", 
-		"INT2", "INT4", "INT8", "INTEGER", "INTERSECT", "INTO", "IS", "ISOLATION", 
-		"ISOLATION_LEVEL", "Identifier", "J", "JOIN", "K", "L", "LAST", "LEFT", 
-		"LEFT_PAREN", "LEQ", "LEVEL", "LIKE", "LIMIT", "LOCATION", "LOCK", "LOCK_TABLE_STATEMENT", 
-		"LTH", "M", "MEMBER", "MINUS", "MODE", "MODULAR", "MULTIPLY", "N", "NAME", 
-		"NATIONAL", "NATURAL", "NCHAR", "NEW_NAME", "NO", "NOT", "NOT_EQUAL", 
-		"NOT_NULL", "NO_COMMIT", "NULL", "NULLIF", "NULL_ORDER", "NUMBER", "NUMERIC", 
-		"NVARCHAR", "O", "OCTAL_ESC", "ON", "ONLY", "OR", "ORDER", "ORDER_BY", 
-		"OR_REPLACE", "OUTER", "P", "PARAM", "PARAMS", "PLUS", "PRECISION", "PROCEDURE_ARGS", 
-		"PROCEDURE_CALL_STATEMENT", "PROCEDURE_NAME", "Q", "QUALIFIED", "Quote", 
-		"R", "READ", "READ_COMMITTED", "READ_ONLY", "READ_UNCOMMITTED", "READ_WRITE", 
-		"REAL", "REAL_NUMBER", "RELEASE", "RELEASE_STATEMENT", "RENAME", "RENAME_INDEX_STATEMENT", 
-		"RENAME_TABLE_STATEMENT", "REPEATABLE", "REPEATABLE_READ", "REPLACE", 
-		"RESET", "RESTRICT", "RIGHT", "RIGHT_PAREN", "ROLLBACK", "ROLLBACK_STATEMENT", 
-		"ROLLUP", "RW_OPERATION", "S", "SELECT", "SEL_LIST", "SEMI_COLON", "SERIALIZABLE", 
-		"SET", "SET_CONNECTION_STATEMENT", "SET_QUALIFIER", "SET_TRANSACTION_STATEMENT", 
-		"SHARE", "SHOW_FUNCTION", "SHOW_TABLE", "SMALLINT", "SORT_KEY", "SORT_SPECIFIERS", 
-		"STORE", "STORE_TYPE", "SYSTEM", "Space", "T", "TABLE", "TABLE_DEF", "TABLE_NAME", 
-		"TARGET_FIELDS", "TEXT", "THEN", "TIME", "TIMESTAMP", "TIMESTAMPTZ", "TIMETZ", 
-		"TINYINT", "TO", "TRANSACTION", "TRUE", "U", "UNCOMMITTED", "UNICODE_ESC", 
-		"UNION", "UNIQUE", "UNKNOWN", "USER", "USING", "V", "VALUES", "VARBINARY", 
-		"VARBIT", "VARCHAR", "VARYING", "VIEW", "VIEW_NAME", "W", "WHEN", "WHERE", 
-		"WITH", "WITH_DEFAULT", "WORK", "WRITE", "White_Space", "X", "Y", "Z", 
-		"ZONE", "'into'", "'values'"
+		"COLUMN", "COLUMNS_LIST", "COLUMN_NAME", "COMMA", "COMMENT", "COMMIT", 
+		"COMMITTED", "COMMIT_STATEMENT", "CONNECT", "CONNECTION", "CONNECT_STATEMENT", 
+		"COUNT", "COUNT_ROWS", "COUNT_VAL", "CREATE", "CREATE_ALIAS_STATEMENT", 
+		"CREATE_INDEX_STATEMENT", "CREATE_TABLE_STATEMENT", "CREATE_VIEW_STATEMENT", 
+		"CROSS", "CUBE", "CURRENT", "Character_String_Literal", "Control_Characters", 
+		"D", "DATE", "DB_NAME", "DEC", "DECIMAL", "DEFAULT", "DESC", "DESC_TABLE", 
+		"DISCONNECT", "DISCONNECT_STATEMENT", "DISTINCT", "DIVIDE", "DOT", "DOUBLE", 
+		"DROP", "DROP_ALIAS_STATEMENT", "DROP_INDEX_STATEMENT", "DROP_TABLE_STATEMENT", 
+		"DROP_VIEW_STATEMENT", "Digit", "Double_Quote", "E", "ELSE", "EMPTY_GROUPING_SET", 
+		"END", "EQUAL", "ESC_SEQ", "EXCEPT", "EXCLUSIVE", "EXPONENT", "EXTERNAL", 
+		"Extended_Control_Characters", "F", "FALSE", "FIELD_DEF", "FIELD_NAME", 
+		"FIELD_TYPE", "FIRST", "FLOAT", "FLOAT4", "FLOAT8", "FOR", "FORMAT", "FOR_COLUMN", 
+		"FROM", "FULL", "FUNCTION", "FUNC_ARGS", "G", "GEQ", "GROUP", "GROUP_BY", 
+		"GTH", "H", "HAVING", "HEX_DIGIT", "HOLD", "I", "IN", "INDEX", "INDEX_NAME", 
+		"INET4", "INNER", "INSERT", "INT", "INT1", "INT2", "INT4", "INT8", "INTEGER", 
+		"INTERSECT", "INTO", "IS", "ISOLATION", "ISOLATION_LEVEL", "Identifier", 
+		"J", "JOIN", "K", "L", "LAST", "LEFT", "LEFT_PAREN", "LEQ", "LEVEL", "LIKE", 
+		"LIMIT", "LOCATION", "LOCK", "LOCK_TABLE_STATEMENT", "LTH", "M", "MEMBER", 
+		"MINUS", "MODE", "MODULAR", "MULTIPLY", "N", "NAME", "NATIONAL", "NATURAL", 
+		"NCHAR", "NEW_NAME", "NO", "NOT", "NOT_EQUAL", "NOT_NULL", "NO_COMMIT", 
+		"NULL", "NULLIF", "NULL_ORDER", "NUMBER", "NUMERIC", "NVARCHAR", "O", 
+		"OCTAL_ESC", "ON", "ONLY", "OR", "ORDER", "ORDER_BY", "OR_REPLACE", "OUTER", 
+		"P", "PARAM", "PARAMS", "PLUS", "PRECISION", "PROCEDURE_ARGS", "PROCEDURE_CALL_STATEMENT", 
+		"PROCEDURE_NAME", "Q", "QUALIFIED", "Quote", "R", "READ", "READ_COMMITTED", 
+		"READ_ONLY", "READ_UNCOMMITTED", "READ_WRITE", "REAL", "REAL_NUMBER", 
+		"RELEASE", "RELEASE_STATEMENT", "RENAME", "RENAME_INDEX_STATEMENT", "RENAME_TABLE_STATEMENT", 
+		"REPEATABLE", "REPEATABLE_READ", "REPLACE", "RESET", "RESTRICT", "RIGHT", 
+		"RIGHT_PAREN", "ROLLBACK", "ROLLBACK_STATEMENT", "ROLLUP", "RW_OPERATION", 
+		"S", "SELECT", "SEL_LIST", "SEMI_COLON", "SERIALIZABLE", "SET", "SET_CONNECTION_STATEMENT", 
+		"SET_QUALIFIER", "SET_TRANSACTION_STATEMENT", "SHARE", "SHOW_FUNCTION", 
+		"SHOW_TABLE", "SMALLINT", "SORT_KEY", "SORT_SPECIFIERS", "STORE", "STORE_TYPE", 
+		"SYSTEM", "Space", "T", "TABLE", "TABLE_DEF", "TABLE_NAME", "TARGET_FIELDS", 
+		"TEXT", "THEN", "TIME", "TIMESTAMP", "TIMESTAMPTZ", "TIMETZ", "TINYINT", 
+		"TO", "TRANSACTION", "TRUE", "U", "UNCOMMITTED", "UNICODE_ESC", "UNION", 
+		"UNIQUE", "UNKNOWN", "USER", "USING", "V", "VALUES", "VARBINARY", "VARBIT", 
+		"VARCHAR", "VARYING", "VIEW", "VIEW_NAME", "W", "WHEN", "WHERE", "WITH", 
+		"WITH_DEFAULT", "WORK", "WRITE", "White_Space", "X", "Y", "Z", "ZONE", 
+		"'into'", "'values'"
 	};
 	public static final int EOF=-1;
-	public static final int T__275=275;
 	public static final int T__276=276;
+	public static final int T__277=277;
 	public static final int A=4;
 	public static final int ALIAS=5;
 	public static final int ALIAS_NAME=6;
@@ -110,247 +111,248 @@ public class DDLParser extends Parser {
 	public static final int COALESCE=31;
 	public static final int COLUMN=32;
 	public static final int COLUMNS_LIST=33;
-	public static final int COMMA=34;
-	public static final int COMMENT=35;
-	public static final int COMMIT=36;
-	public static final int COMMITTED=37;
-	public static final int COMMIT_STATEMENT=38;
-	public static final int CONNECT=39;
-	public static final int CONNECTION=40;
-	public static final int CONNECT_STATEMENT=41;
-	public static final int COUNT=42;
-	public static final int COUNT_ROWS=43;
-	public static final int COUNT_VAL=44;
-	public static final int CREATE=45;
-	public static final int CREATE_ALIAS_STATEMENT=46;
-	public static final int CREATE_INDEX_STATEMENT=47;
-	public static final int CREATE_TABLE_STATEMENT=48;
-	public static final int CREATE_VIEW_STATEMENT=49;
-	public static final int CROSS=50;
-	public static final int CUBE=51;
-	public static final int CURRENT=52;
-	public static final int Character_String_Literal=53;
-	public static final int Control_Characters=54;
-	public static final int D=55;
-	public static final int DATE=56;
-	public static final int DB_NAME=57;
-	public static final int DEC=58;
-	public static final int DECIMAL=59;
-	public static final int DEFAULT=60;
-	public static final int DESC=61;
-	public static final int DESC_TABLE=62;
-	public static final int DISCONNECT=63;
-	public static final int DISCONNECT_STATEMENT=64;
-	public static final int DISTINCT=65;
-	public static final int DIVIDE=66;
-	public static final int DOT=67;
-	public static final int DOUBLE=68;
-	public static final int DROP=69;
-	public static final int DROP_ALIAS_STATEMENT=70;
-	public static final int DROP_INDEX_STATEMENT=71;
-	public static final int DROP_TABLE_STATEMENT=72;
-	public static final int DROP_VIEW_STATEMENT=73;
-	public static final int Digit=74;
-	public static final int Double_Quote=75;
-	public static final int E=76;
-	public static final int ELSE=77;
-	public static final int EMPTY_GROUPING_SET=78;
-	public static final int END=79;
-	public static final int EQUAL=80;
-	public static final int ESC_SEQ=81;
-	public static final int EXCEPT=82;
-	public static final int EXCLUSIVE=83;
-	public static final int EXPONENT=84;
-	public static final int EXTERNAL=85;
-	public static final int Extended_Control_Characters=86;
-	public static final int F=87;
-	public static final int FALSE=88;
-	public static final int FIELD_DEF=89;
-	public static final int FIELD_NAME=90;
-	public static final int FIELD_TYPE=91;
-	public static final int FIRST=92;
-	public static final int FLOAT=93;
-	public static final int FLOAT4=94;
-	public static final int FLOAT8=95;
-	public static final int FOR=96;
-	public static final int FORMAT=97;
-	public static final int FOR_COLUMN=98;
-	public static final int FROM=99;
-	public static final int FULL=100;
-	public static final int FUNCTION=101;
-	public static final int FUNC_ARGS=102;
-	public static final int G=103;
-	public static final int GEQ=104;
-	public static final int GROUP=105;
-	public static final int GROUP_BY=106;
-	public static final int GTH=107;
-	public static final int H=108;
-	public static final int HAVING=109;
-	public static final int HEX_DIGIT=110;
-	public static final int HOLD=111;
-	public static final int I=112;
-	public static final int IN=113;
-	public static final int INDEX=114;
-	public static final int INDEX_NAME=115;
-	public static final int INET4=116;
-	public static final int INNER=117;
-	public static final int INSERT=118;
-	public static final int INT=119;
-	public static final int INT1=120;
-	public static final int INT2=121;
-	public static final int INT4=122;
-	public static final int INT8=123;
-	public static final int INTEGER=124;
-	public static final int INTERSECT=125;
-	public static final int INTO=126;
-	public static final int IS=127;
-	public static final int ISOLATION=128;
-	public static final int ISOLATION_LEVEL=129;
-	public static final int Identifier=130;
-	public static final int J=131;
-	public static final int JOIN=132;
-	public static final int K=133;
-	public static final int L=134;
-	public static final int LAST=135;
-	public static final int LEFT=136;
-	public static final int LEFT_PAREN=137;
-	public static final int LEQ=138;
-	public static final int LEVEL=139;
-	public static final int LIKE=140;
-	public static final int LIMIT=141;
-	public static final int LOCATION=142;
-	public static final int LOCK=143;
-	public static final int LOCK_TABLE_STATEMENT=144;
-	public static final int LTH=145;
-	public static final int M=146;
-	public static final int MEMBER=147;
-	public static final int MINUS=148;
-	public static final int MODE=149;
-	public static final int MODULAR=150;
-	public static final int MULTIPLY=151;
-	public static final int N=152;
-	public static final int NAME=153;
-	public static final int NATIONAL=154;
-	public static final int NATURAL=155;
-	public static final int NCHAR=156;
-	public static final int NEW_NAME=157;
-	public static final int NO=158;
-	public static final int NOT=159;
-	public static final int NOT_EQUAL=160;
-	public static final int NOT_NULL=161;
-	public static final int NO_COMMIT=162;
-	public static final int NULL=163;
-	public static final int NULLIF=164;
-	public static final int NULL_ORDER=165;
-	public static final int NUMBER=166;
-	public static final int NUMERIC=167;
-	public static final int NVARCHAR=168;
-	public static final int O=169;
-	public static final int OCTAL_ESC=170;
-	public static final int ON=171;
-	public static final int ONLY=172;
-	public static final int OR=173;
-	public static final int ORDER=174;
-	public static final int ORDER_BY=175;
-	public static final int OR_REPLACE=176;
-	public static final int OUTER=177;
-	public static final int P=178;
-	public static final int PARAM=179;
-	public static final int PARAMS=180;
-	public static final int PLUS=181;
-	public static final int PRECISION=182;
-	public static final int PROCEDURE_ARGS=183;
-	public static final int PROCEDURE_CALL_STATEMENT=184;
-	public static final int PROCEDURE_NAME=185;
-	public static final int Q=186;
-	public static final int QUALIFIED=187;
-	public static final int Quote=188;
-	public static final int R=189;
-	public static final int READ=190;
-	public static final int READ_COMMITTED=191;
-	public static final int READ_ONLY=192;
-	public static final int READ_UNCOMMITTED=193;
-	public static final int READ_WRITE=194;
-	public static final int REAL=195;
-	public static final int REAL_NUMBER=196;
-	public static final int RELEASE=197;
-	public static final int RELEASE_STATEMENT=198;
-	public static final int RENAME=199;
-	public static final int RENAME_INDEX_STATEMENT=200;
-	public static final int RENAME_TABLE_STATEMENT=201;
-	public static final int REPEATABLE=202;
-	public static final int REPEATABLE_READ=203;
-	public static final int REPLACE=204;
-	public static final int RESET=205;
-	public static final int RESTRICT=206;
-	public static final int RIGHT=207;
-	public static final int RIGHT_PAREN=208;
-	public static final int ROLLBACK=209;
-	public static final int ROLLBACK_STATEMENT=210;
-	public static final int ROLLUP=211;
-	public static final int RW_OPERATION=212;
-	public static final int S=213;
-	public static final int SELECT=214;
-	public static final int SEL_LIST=215;
-	public static final int SEMI_COLON=216;
-	public static final int SERIALIZABLE=217;
-	public static final int SET=218;
-	public static final int SET_CONNECTION_STATEMENT=219;
-	public static final int SET_QUALIFIER=220;
-	public static final int SET_TRANSACTION_STATEMENT=221;
-	public static final int SHARE=222;
-	public static final int SHOW_FUNCTION=223;
-	public static final int SHOW_TABLE=224;
-	public static final int SMALLINT=225;
-	public static final int SORT_KEY=226;
-	public static final int SORT_SPECIFIERS=227;
-	public static final int STORE=228;
-	public static final int STORE_TYPE=229;
-	public static final int SYSTEM=230;
-	public static final int Space=231;
-	public static final int T=232;
-	public static final int TABLE=233;
-	public static final int TABLE_DEF=234;
-	public static final int TABLE_NAME=235;
-	public static final int TARGET_FIELDS=236;
-	public static final int TEXT=237;
-	public static final int THEN=238;
-	public static final int TIME=239;
-	public static final int TIMESTAMP=240;
-	public static final int TIMESTAMPTZ=241;
-	public static final int TIMETZ=242;
-	public static final int TINYINT=243;
-	public static final int TO=244;
-	public static final int TRANSACTION=245;
-	public static final int TRUE=246;
-	public static final int U=247;
-	public static final int UNCOMMITTED=248;
-	public static final int UNICODE_ESC=249;
-	public static final int UNION=250;
-	public static final int UNIQUE=251;
-	public static final int UNKNOWN=252;
-	public static final int USER=253;
-	public static final int USING=254;
-	public static final int V=255;
-	public static final int VALUES=256;
-	public static final int VARBINARY=257;
-	public static final int VARBIT=258;
-	public static final int VARCHAR=259;
-	public static final int VARYING=260;
-	public static final int VIEW=261;
-	public static final int VIEW_NAME=262;
-	public static final int W=263;
-	public static final int WHEN=264;
-	public static final int WHERE=265;
-	public static final int WITH=266;
-	public static final int WITH_DEFAULT=267;
-	public static final int WORK=268;
-	public static final int WRITE=269;
-	public static final int White_Space=270;
-	public static final int X=271;
-	public static final int Y=272;
-	public static final int Z=273;
-	public static final int ZONE=274;
+	public static final int COLUMN_NAME=34;
+	public static final int COMMA=35;
+	public static final int COMMENT=36;
+	public static final int COMMIT=37;
+	public static final int COMMITTED=38;
+	public static final int COMMIT_STATEMENT=39;
+	public static final int CONNECT=40;
+	public static final int CONNECTION=41;
+	public static final int CONNECT_STATEMENT=42;
+	public static final int COUNT=43;
+	public static final int COUNT_ROWS=44;
+	public static final int COUNT_VAL=45;
+	public static final int CREATE=46;
+	public static final int CREATE_ALIAS_STATEMENT=47;
+	public static final int CREATE_INDEX_STATEMENT=48;
+	public static final int CREATE_TABLE_STATEMENT=49;
+	public static final int CREATE_VIEW_STATEMENT=50;
+	public static final int CROSS=51;
+	public static final int CUBE=52;
+	public static final int CURRENT=53;
+	public static final int Character_String_Literal=54;
+	public static final int Control_Characters=55;
+	public static final int D=56;
+	public static final int DATE=57;
+	public static final int DB_NAME=58;
+	public static final int DEC=59;
+	public static final int DECIMAL=60;
+	public static final int DEFAULT=61;
+	public static final int DESC=62;
+	public static final int DESC_TABLE=63;
+	public static final int DISCONNECT=64;
+	public static final int DISCONNECT_STATEMENT=65;
+	public static final int DISTINCT=66;
+	public static final int DIVIDE=67;
+	public static final int DOT=68;
+	public static final int DOUBLE=69;
+	public static final int DROP=70;
+	public static final int DROP_ALIAS_STATEMENT=71;
+	public static final int DROP_INDEX_STATEMENT=72;
+	public static final int DROP_TABLE_STATEMENT=73;
+	public static final int DROP_VIEW_STATEMENT=74;
+	public static final int Digit=75;
+	public static final int Double_Quote=76;
+	public static final int E=77;
+	public static final int ELSE=78;
+	public static final int EMPTY_GROUPING_SET=79;
+	public static final int END=80;
+	public static final int EQUAL=81;
+	public static final int ESC_SEQ=82;
+	public static final int EXCEPT=83;
+	public static final int EXCLUSIVE=84;
+	public static final int EXPONENT=85;
+	public static final int EXTERNAL=86;
+	public static final int Extended_Control_Characters=87;
+	public static final int F=88;
+	public static final int FALSE=89;
+	public static final int FIELD_DEF=90;
+	public static final int FIELD_NAME=91;
+	public static final int FIELD_TYPE=92;
+	public static final int FIRST=93;
+	public static final int FLOAT=94;
+	public static final int FLOAT4=95;
+	public static final int FLOAT8=96;
+	public static final int FOR=97;
+	public static final int FORMAT=98;
+	public static final int FOR_COLUMN=99;
+	public static final int FROM=100;
+	public static final int FULL=101;
+	public static final int FUNCTION=102;
+	public static final int FUNC_ARGS=103;
+	public static final int G=104;
+	public static final int GEQ=105;
+	public static final int GROUP=106;
+	public static final int GROUP_BY=107;
+	public static final int GTH=108;
+	public static final int H=109;
+	public static final int HAVING=110;
+	public static final int HEX_DIGIT=111;
+	public static final int HOLD=112;
+	public static final int I=113;
+	public static final int IN=114;
+	public static final int INDEX=115;
+	public static final int INDEX_NAME=116;
+	public static final int INET4=117;
+	public static final int INNER=118;
+	public static final int INSERT=119;
+	public static final int INT=120;
+	public static final int INT1=121;
+	public static final int INT2=122;
+	public static final int INT4=123;
+	public static final int INT8=124;
+	public static final int INTEGER=125;
+	public static final int INTERSECT=126;
+	public static final int INTO=127;
+	public static final int IS=128;
+	public static final int ISOLATION=129;
+	public static final int ISOLATION_LEVEL=130;
+	public static final int Identifier=131;
+	public static final int J=132;
+	public static final int JOIN=133;
+	public static final int K=134;
+	public static final int L=135;
+	public static final int LAST=136;
+	public static final int LEFT=137;
+	public static final int LEFT_PAREN=138;
+	public static final int LEQ=139;
+	public static final int LEVEL=140;
+	public static final int LIKE=141;
+	public static final int LIMIT=142;
+	public static final int LOCATION=143;
+	public static final int LOCK=144;
+	public static final int LOCK_TABLE_STATEMENT=145;
+	public static final int LTH=146;
+	public static final int M=147;
+	public static final int MEMBER=148;
+	public static final int MINUS=149;
+	public static final int MODE=150;
+	public static final int MODULAR=151;
+	public static final int MULTIPLY=152;
+	public static final int N=153;
+	public static final int NAME=154;
+	public static final int NATIONAL=155;
+	public static final int NATURAL=156;
+	public static final int NCHAR=157;
+	public static final int NEW_NAME=158;
+	public static final int NO=159;
+	public static final int NOT=160;
+	public static final int NOT_EQUAL=161;
+	public static final int NOT_NULL=162;
+	public static final int NO_COMMIT=163;
+	public static final int NULL=164;
+	public static final int NULLIF=165;
+	public static final int NULL_ORDER=166;
+	public static final int NUMBER=167;
+	public static final int NUMERIC=168;
+	public static final int NVARCHAR=169;
+	public static final int O=170;
+	public static final int OCTAL_ESC=171;
+	public static final int ON=172;
+	public static final int ONLY=173;
+	public static final int OR=174;
+	public static final int ORDER=175;
+	public static final int ORDER_BY=176;
+	public static final int OR_REPLACE=177;
+	public static final int OUTER=178;
+	public static final int P=179;
+	public static final int PARAM=180;
+	public static final int PARAMS=181;
+	public static final int PLUS=182;
+	public static final int PRECISION=183;
+	public static final int PROCEDURE_ARGS=184;
+	public static final int PROCEDURE_CALL_STATEMENT=185;
+	public static final int PROCEDURE_NAME=186;
+	public static final int Q=187;
+	public static final int QUALIFIED=188;
+	public static final int Quote=189;
+	public static final int R=190;
+	public static final int READ=191;
+	public static final int READ_COMMITTED=192;
+	public static final int READ_ONLY=193;
+	public static final int READ_UNCOMMITTED=194;
+	public static final int READ_WRITE=195;
+	public static final int REAL=196;
+	public static final int REAL_NUMBER=197;
+	public static final int RELEASE=198;
+	public static final int RELEASE_STATEMENT=199;
+	public static final int RENAME=200;
+	public static final int RENAME_INDEX_STATEMENT=201;
+	public static final int RENAME_TABLE_STATEMENT=202;
+	public static final int REPEATABLE=203;
+	public static final int REPEATABLE_READ=204;
+	public static final int REPLACE=205;
+	public static final int RESET=206;
+	public static final int RESTRICT=207;
+	public static final int RIGHT=208;
+	public static final int RIGHT_PAREN=209;
+	public static final int ROLLBACK=210;
+	public static final int ROLLBACK_STATEMENT=211;
+	public static final int ROLLUP=212;
+	public static final int RW_OPERATION=213;
+	public static final int S=214;
+	public static final int SELECT=215;
+	public static final int SEL_LIST=216;
+	public static final int SEMI_COLON=217;
+	public static final int SERIALIZABLE=218;
+	public static final int SET=219;
+	public static final int SET_CONNECTION_STATEMENT=220;
+	public static final int SET_QUALIFIER=221;
+	public static final int SET_TRANSACTION_STATEMENT=222;
+	public static final int SHARE=223;
+	public static final int SHOW_FUNCTION=224;
+	public static final int SHOW_TABLE=225;
+	public static final int SMALLINT=226;
+	public static final int SORT_KEY=227;
+	public static final int SORT_SPECIFIERS=228;
+	public static final int STORE=229;
+	public static final int STORE_TYPE=230;
+	public static final int SYSTEM=231;
+	public static final int Space=232;
+	public static final int T=233;
+	public static final int TABLE=234;
+	public static final int TABLE_DEF=235;
+	public static final int TABLE_NAME=236;
+	public static final int TARGET_FIELDS=237;
+	public static final int TEXT=238;
+	public static final int THEN=239;
+	public static final int TIME=240;
+	public static final int TIMESTAMP=241;
+	public static final int TIMESTAMPTZ=242;
+	public static final int TIMETZ=243;
+	public static final int TINYINT=244;
+	public static final int TO=245;
+	public static final int TRANSACTION=246;
+	public static final int TRUE=247;
+	public static final int U=248;
+	public static final int UNCOMMITTED=249;
+	public static final int UNICODE_ESC=250;
+	public static final int UNION=251;
+	public static final int UNIQUE=252;
+	public static final int UNKNOWN=253;
+	public static final int USER=254;
+	public static final int USING=255;
+	public static final int V=256;
+	public static final int VALUES=257;
+	public static final int VARBINARY=258;
+	public static final int VARBIT=259;
+	public static final int VARCHAR=260;
+	public static final int VARYING=261;
+	public static final int VIEW=262;
+	public static final int VIEW_NAME=263;
+	public static final int W=264;
+	public static final int WHEN=265;
+	public static final int WHERE=266;
+	public static final int WITH=267;
+	public static final int WITH_DEFAULT=268;
+	public static final int WORK=269;
+	public static final int WRITE=270;
+	public static final int White_Space=271;
+	public static final int X=272;
+	public static final int Y=273;
+	public static final int Z=274;
+	public static final int ZONE=275;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -365,7 +367,7 @@ public class DDLParser extends Parser {
 	}
 	public DDLParser(TokenStream input, RecognizerSharedState state) {
 		super(input, state);
-		this.state.ruleMemo = new HashMap[388+1];
+		this.state.ruleMemo = new HashMap[387+1];
 
 
 	}
@@ -402,7 +404,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "data_type"
-	// DDL.g:350:1: data_type : ( boolean_type | bit_type | varbit_type | binary_type | varbinary_type | blob_type | INET4 | character_string_type | datetime_type | numeric_type );
+	// DDL.g:351:1: data_type : ( boolean_type | bit_type | varbit_type | binary_type | varbinary_type | blob_type | INET4 | character_string_type | datetime_type | numeric_type );
 	public final DDLParser.data_type_return data_type() throws RecognitionException {
 		DDLParser.data_type_return retval = new DDLParser.data_type_return();
 		retval.start = input.LT(1);
@@ -426,7 +428,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return retval; }
 
-			// DDL.g:351:3: ( boolean_type | bit_type | varbit_type | binary_type | varbinary_type | blob_type | INET4 | character_string_type | datetime_type | numeric_type )
+			// DDL.g:352:3: ( boolean_type | bit_type | varbit_type | binary_type | varbinary_type | blob_type | INET4 | character_string_type | datetime_type | numeric_type )
 			int alt1=10;
 			switch ( input.LA(1) ) {
 			case BOOL:
@@ -555,12 +557,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt1) {
 				case 1 :
-					// DDL.g:351:5: boolean_type
+					// DDL.g:352:5: boolean_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_boolean_type_in_data_type3131);
+					pushFollow(FOLLOW_boolean_type_in_data_type3136);
 					boolean_type1=boolean_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -569,12 +571,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:352:5: bit_type
+					// DDL.g:353:5: bit_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_bit_type_in_data_type3137);
+					pushFollow(FOLLOW_bit_type_in_data_type3142);
 					bit_type2=bit_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -583,12 +585,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:353:5: varbit_type
+					// DDL.g:354:5: varbit_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_varbit_type_in_data_type3143);
+					pushFollow(FOLLOW_varbit_type_in_data_type3148);
 					varbit_type3=varbit_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -597,12 +599,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:354:5: binary_type
+					// DDL.g:355:5: binary_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_binary_type_in_data_type3149);
+					pushFollow(FOLLOW_binary_type_in_data_type3154);
 					binary_type4=binary_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -611,12 +613,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:355:5: varbinary_type
+					// DDL.g:356:5: varbinary_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_varbinary_type_in_data_type3155);
+					pushFollow(FOLLOW_varbinary_type_in_data_type3160);
 					varbinary_type5=varbinary_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -625,12 +627,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 6 :
-					// DDL.g:356:5: blob_type
+					// DDL.g:357:5: blob_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_blob_type_in_data_type3161);
+					pushFollow(FOLLOW_blob_type_in_data_type3166);
 					blob_type6=blob_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -639,12 +641,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 7 :
-					// DDL.g:357:5: INET4
+					// DDL.g:358:5: INET4
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INET47=(Token)match(input,INET4,FOLLOW_INET4_in_data_type3167); if (state.failed) return retval;
+					INET47=(Token)match(input,INET4,FOLLOW_INET4_in_data_type3172); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INET47_tree = (CommonTree)adaptor.create(INET47);
 					adaptor.addChild(root_0, INET47_tree);
@@ -653,12 +655,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 8 :
-					// DDL.g:358:5: character_string_type
+					// DDL.g:359:5: character_string_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_character_string_type_in_data_type3173);
+					pushFollow(FOLLOW_character_string_type_in_data_type3178);
 					character_string_type8=character_string_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -667,12 +669,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 9 :
-					// DDL.g:359:5: datetime_type
+					// DDL.g:360:5: datetime_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_datetime_type_in_data_type3179);
+					pushFollow(FOLLOW_datetime_type_in_data_type3184);
 					datetime_type9=datetime_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -681,12 +683,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 10 :
-					// DDL.g:360:5: numeric_type
+					// DDL.g:361:5: numeric_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_numeric_type_in_data_type3185);
+					pushFollow(FOLLOW_numeric_type_in_data_type3190);
 					numeric_type10=numeric_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -726,7 +728,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "character_string_type"
-	// DDL.g:362:1: character_string_type : ( char_type | varchar_type | nchar_type | nvarchar_type | TEXT );
+	// DDL.g:363:1: character_string_type : ( char_type | varchar_type | nchar_type | nvarchar_type | TEXT );
 	public final DDLParser.character_string_type_return character_string_type() throws RecognitionException {
 		DDLParser.character_string_type_return retval = new DDLParser.character_string_type_return();
 		retval.start = input.LT(1);
@@ -745,7 +747,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
 
-			// DDL.g:363:3: ( char_type | varchar_type | nchar_type | nvarchar_type | TEXT )
+			// DDL.g:364:3: ( char_type | varchar_type | nchar_type | nvarchar_type | TEXT )
 			int alt2=5;
 			switch ( input.LA(1) ) {
 			case CHAR:
@@ -850,12 +852,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// DDL.g:363:5: char_type
+					// DDL.g:364:5: char_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_char_type_in_character_string_type3197);
+					pushFollow(FOLLOW_char_type_in_character_string_type3202);
 					char_type11=char_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -864,12 +866,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:364:5: varchar_type
+					// DDL.g:365:5: varchar_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_varchar_type_in_character_string_type3203);
+					pushFollow(FOLLOW_varchar_type_in_character_string_type3208);
 					varchar_type12=varchar_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -878,12 +880,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:365:5: nchar_type
+					// DDL.g:366:5: nchar_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_nchar_type_in_character_string_type3209);
+					pushFollow(FOLLOW_nchar_type_in_character_string_type3214);
 					nchar_type13=nchar_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -892,12 +894,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:366:5: nvarchar_type
+					// DDL.g:367:5: nvarchar_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_nvarchar_type_in_character_string_type3215);
+					pushFollow(FOLLOW_nvarchar_type_in_character_string_type3220);
 					nvarchar_type14=nvarchar_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -906,12 +908,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:367:5: TEXT
+					// DDL.g:368:5: TEXT
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TEXT15=(Token)match(input,TEXT,FOLLOW_TEXT_in_character_string_type3221); if (state.failed) return retval;
+					TEXT15=(Token)match(input,TEXT,FOLLOW_TEXT_in_character_string_type3226); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					TEXT15_tree = (CommonTree)adaptor.create(TEXT15);
 					adaptor.addChild(root_0, TEXT15_tree);
@@ -951,7 +953,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "numeric_type"
-	// DDL.g:369:1: numeric_type : ( int1_type | int2_type | int4_type | int8_type | float4_type | float_type | float8_type | number_type );
+	// DDL.g:370:1: numeric_type : ( int1_type | int2_type | int4_type | int8_type | float4_type | float_type | float8_type | number_type );
 	public final DDLParser.numeric_type_return numeric_type() throws RecognitionException {
 		DDLParser.numeric_type_return retval = new DDLParser.numeric_type_return();
 		retval.start = input.LT(1);
@@ -972,7 +974,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
 
-			// DDL.g:370:3: ( int1_type | int2_type | int4_type | int8_type | float4_type | float_type | float8_type | number_type )
+			// DDL.g:371:3: ( int1_type | int2_type | int4_type | int8_type | float4_type | float_type | float8_type | number_type )
 			int alt3=8;
 			switch ( input.LA(1) ) {
 			case INT1:
@@ -1032,12 +1034,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// DDL.g:370:5: int1_type
+					// DDL.g:371:5: int1_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_int1_type_in_numeric_type3233);
+					pushFollow(FOLLOW_int1_type_in_numeric_type3238);
 					int1_type16=int1_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1046,12 +1048,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:371:5: int2_type
+					// DDL.g:372:5: int2_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_int2_type_in_numeric_type3239);
+					pushFollow(FOLLOW_int2_type_in_numeric_type3244);
 					int2_type17=int2_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1060,12 +1062,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:372:5: int4_type
+					// DDL.g:373:5: int4_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_int4_type_in_numeric_type3245);
+					pushFollow(FOLLOW_int4_type_in_numeric_type3250);
 					int4_type18=int4_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1074,12 +1076,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:373:5: int8_type
+					// DDL.g:374:5: int8_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_int8_type_in_numeric_type3251);
+					pushFollow(FOLLOW_int8_type_in_numeric_type3256);
 					int8_type19=int8_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1088,12 +1090,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:374:5: float4_type
+					// DDL.g:375:5: float4_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_float4_type_in_numeric_type3257);
+					pushFollow(FOLLOW_float4_type_in_numeric_type3262);
 					float4_type20=float4_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1102,12 +1104,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 6 :
-					// DDL.g:375:5: float_type
+					// DDL.g:376:5: float_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_float_type_in_numeric_type3263);
+					pushFollow(FOLLOW_float_type_in_numeric_type3268);
 					float_type21=float_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1116,12 +1118,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 7 :
-					// DDL.g:376:5: float8_type
+					// DDL.g:377:5: float8_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_float8_type_in_numeric_type3269);
+					pushFollow(FOLLOW_float8_type_in_numeric_type3274);
 					float8_type22=float8_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1130,12 +1132,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 8 :
-					// DDL.g:377:5: number_type
+					// DDL.g:378:5: number_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_number_type_in_numeric_type3275);
+					pushFollow(FOLLOW_number_type_in_numeric_type3280);
 					number_type23=number_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1175,7 +1177,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "datetime_type"
-	// DDL.g:379:1: datetime_type : ( DATE | TIME | timetz_type | TIMESTAMP | timestamptz_type );
+	// DDL.g:380:1: datetime_type : ( DATE | TIME | timetz_type | TIMESTAMP | timestamptz_type );
 	public final DDLParser.datetime_type_return datetime_type() throws RecognitionException {
 		DDLParser.datetime_type_return retval = new DDLParser.datetime_type_return();
 		retval.start = input.LT(1);
@@ -1196,7 +1198,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return retval; }
 
-			// DDL.g:380:3: ( DATE | TIME | timetz_type | TIMESTAMP | timestamptz_type )
+			// DDL.g:381:3: ( DATE | TIME | timetz_type | TIMESTAMP | timestamptz_type )
 			int alt4=5;
 			switch ( input.LA(1) ) {
 			case DATE:
@@ -1316,12 +1318,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt4) {
 				case 1 :
-					// DDL.g:380:5: DATE
+					// DDL.g:381:5: DATE
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					DATE24=(Token)match(input,DATE,FOLLOW_DATE_in_datetime_type3287); if (state.failed) return retval;
+					DATE24=(Token)match(input,DATE,FOLLOW_DATE_in_datetime_type3292); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					DATE24_tree = (CommonTree)adaptor.create(DATE24);
 					adaptor.addChild(root_0, DATE24_tree);
@@ -1330,12 +1332,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:381:5: TIME
+					// DDL.g:382:5: TIME
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TIME25=(Token)match(input,TIME,FOLLOW_TIME_in_datetime_type3293); if (state.failed) return retval;
+					TIME25=(Token)match(input,TIME,FOLLOW_TIME_in_datetime_type3298); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					TIME25_tree = (CommonTree)adaptor.create(TIME25);
 					adaptor.addChild(root_0, TIME25_tree);
@@ -1344,12 +1346,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:382:5: timetz_type
+					// DDL.g:383:5: timetz_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_timetz_type_in_datetime_type3299);
+					pushFollow(FOLLOW_timetz_type_in_datetime_type3304);
 					timetz_type26=timetz_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1358,12 +1360,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:383:5: TIMESTAMP
+					// DDL.g:384:5: TIMESTAMP
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TIMESTAMP27=(Token)match(input,TIMESTAMP,FOLLOW_TIMESTAMP_in_datetime_type3305); if (state.failed) return retval;
+					TIMESTAMP27=(Token)match(input,TIMESTAMP,FOLLOW_TIMESTAMP_in_datetime_type3310); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					TIMESTAMP27_tree = (CommonTree)adaptor.create(TIMESTAMP27);
 					adaptor.addChild(root_0, TIMESTAMP27_tree);
@@ -1372,12 +1374,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:384:5: timestamptz_type
+					// DDL.g:385:5: timestamptz_type
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_timestamptz_type_in_datetime_type3311);
+					pushFollow(FOLLOW_timestamptz_type_in_datetime_type3316);
 					timestamptz_type28=timestamptz_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1417,7 +1419,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "precision_param"
-	// DDL.g:386:1: precision_param : ( LEFT_PAREN ! NUMBER RIGHT_PAREN !| LEFT_PAREN ! NUMBER COMMA ! NUMBER RIGHT_PAREN !);
+	// DDL.g:387:1: precision_param : ( LEFT_PAREN ! NUMBER RIGHT_PAREN !| LEFT_PAREN ! NUMBER COMMA ! NUMBER RIGHT_PAREN !);
 	public final DDLParser.precision_param_return precision_param() throws RecognitionException {
 		DDLParser.precision_param_return retval = new DDLParser.precision_param_return();
 		retval.start = input.LT(1);
@@ -1446,7 +1448,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
 
-			// DDL.g:387:3: ( LEFT_PAREN ! NUMBER RIGHT_PAREN !| LEFT_PAREN ! NUMBER COMMA ! NUMBER RIGHT_PAREN !)
+			// DDL.g:388:3: ( LEFT_PAREN ! NUMBER RIGHT_PAREN !| LEFT_PAREN ! NUMBER COMMA ! NUMBER RIGHT_PAREN !)
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( (LA5_0==LEFT_PAREN) ) {
@@ -1501,42 +1503,42 @@ public class DDLParser extends Parser {
 
 			switch (alt5) {
 				case 1 :
-					// DDL.g:387:5: LEFT_PAREN ! NUMBER RIGHT_PAREN !
+					// DDL.g:388:5: LEFT_PAREN ! NUMBER RIGHT_PAREN !
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LEFT_PAREN29=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_precision_param3323); if (state.failed) return retval;
-					NUMBER30=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_precision_param3326); if (state.failed) return retval;
+					LEFT_PAREN29=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_precision_param3328); if (state.failed) return retval;
+					NUMBER30=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_precision_param3331); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					NUMBER30_tree = (CommonTree)adaptor.create(NUMBER30);
 					adaptor.addChild(root_0, NUMBER30_tree);
 					}
 
-					RIGHT_PAREN31=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_precision_param3328); if (state.failed) return retval;
+					RIGHT_PAREN31=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_precision_param3333); if (state.failed) return retval;
 					}
 					break;
 				case 2 :
-					// DDL.g:388:5: LEFT_PAREN ! NUMBER COMMA ! NUMBER RIGHT_PAREN !
+					// DDL.g:389:5: LEFT_PAREN ! NUMBER COMMA ! NUMBER RIGHT_PAREN !
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LEFT_PAREN32=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_precision_param3335); if (state.failed) return retval;
-					NUMBER33=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_precision_param3338); if (state.failed) return retval;
+					LEFT_PAREN32=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_precision_param3340); if (state.failed) return retval;
+					NUMBER33=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_precision_param3343); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					NUMBER33_tree = (CommonTree)adaptor.create(NUMBER33);
 					adaptor.addChild(root_0, NUMBER33_tree);
 					}
 
-					COMMA34=(Token)match(input,COMMA,FOLLOW_COMMA_in_precision_param3340); if (state.failed) return retval;
-					NUMBER35=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_precision_param3343); if (state.failed) return retval;
+					COMMA34=(Token)match(input,COMMA,FOLLOW_COMMA_in_precision_param3345); if (state.failed) return retval;
+					NUMBER35=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_precision_param3348); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					NUMBER35_tree = (CommonTree)adaptor.create(NUMBER35);
 					adaptor.addChild(root_0, NUMBER35_tree);
 					}
 
-					RIGHT_PAREN36=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_precision_param3345); if (state.failed) return retval;
+					RIGHT_PAREN36=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_precision_param3350); if (state.failed) return retval;
 					}
 					break;
 
@@ -1571,7 +1573,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "type_length"
-	// DDL.g:390:1: type_length : LEFT_PAREN ! NUMBER RIGHT_PAREN !;
+	// DDL.g:391:1: type_length : LEFT_PAREN ! NUMBER RIGHT_PAREN !;
 	public final DDLParser.type_length_return type_length() throws RecognitionException {
 		DDLParser.type_length_return retval = new DDLParser.type_length_return();
 		retval.start = input.LT(1);
@@ -1590,20 +1592,20 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
 
-			// DDL.g:391:3: ( LEFT_PAREN ! NUMBER RIGHT_PAREN !)
-			// DDL.g:391:5: LEFT_PAREN ! NUMBER RIGHT_PAREN !
+			// DDL.g:392:3: ( LEFT_PAREN ! NUMBER RIGHT_PAREN !)
+			// DDL.g:392:5: LEFT_PAREN ! NUMBER RIGHT_PAREN !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			LEFT_PAREN37=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_type_length3358); if (state.failed) return retval;
-			NUMBER38=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_type_length3361); if (state.failed) return retval;
+			LEFT_PAREN37=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_type_length3363); if (state.failed) return retval;
+			NUMBER38=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_type_length3366); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			NUMBER38_tree = (CommonTree)adaptor.create(NUMBER38);
 			adaptor.addChild(root_0, NUMBER38_tree);
 			}
 
-			RIGHT_PAREN39=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_type_length3363); if (state.failed) return retval;
+			RIGHT_PAREN39=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_type_length3368); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -1636,7 +1638,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "boolean_type"
-	// DDL.g:393:1: boolean_type : ( BOOLEAN | BOOL -> BOOLEAN );
+	// DDL.g:394:1: boolean_type : ( BOOLEAN | BOOL -> BOOLEAN );
 	public final DDLParser.boolean_type_return boolean_type() throws RecognitionException {
 		DDLParser.boolean_type_return retval = new DDLParser.boolean_type_return();
 		retval.start = input.LT(1);
@@ -1654,7 +1656,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
 
-			// DDL.g:394:3: ( BOOLEAN | BOOL -> BOOLEAN )
+			// DDL.g:395:3: ( BOOLEAN | BOOL -> BOOLEAN )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==BOOLEAN) ) {
@@ -1673,12 +1675,12 @@ public class DDLParser extends Parser {
 
 			switch (alt6) {
 				case 1 :
-					// DDL.g:394:5: BOOLEAN
+					// DDL.g:395:5: BOOLEAN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					BOOLEAN40=(Token)match(input,BOOLEAN,FOLLOW_BOOLEAN_in_boolean_type3376); if (state.failed) return retval;
+					BOOLEAN40=(Token)match(input,BOOLEAN,FOLLOW_BOOLEAN_in_boolean_type3381); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					BOOLEAN40_tree = (CommonTree)adaptor.create(BOOLEAN40);
 					adaptor.addChild(root_0, BOOLEAN40_tree);
@@ -1687,9 +1689,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:395:5: BOOL
+					// DDL.g:396:5: BOOL
 					{
-					BOOL41=(Token)match(input,BOOL,FOLLOW_BOOL_in_boolean_type3382); if (state.failed) return retval; 
+					BOOL41=(Token)match(input,BOOL,FOLLOW_BOOL_in_boolean_type3387); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_BOOL.add(BOOL41);
 
 					// AST REWRITE
@@ -1704,7 +1706,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 395:10: -> BOOLEAN
+					// 396:10: -> BOOLEAN
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(BOOLEAN, "BOOLEAN"));
 					}
@@ -1747,7 +1749,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "bit_type"
-	// DDL.g:397:1: bit_type : BIT ( type_length )? -> BIT ;
+	// DDL.g:398:1: bit_type : BIT ( type_length )? -> BIT ;
 	public final DDLParser.bit_type_return bit_type() throws RecognitionException {
 		DDLParser.bit_type_return retval = new DDLParser.bit_type_return();
 		retval.start = input.LT(1);
@@ -1765,13 +1767,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
 
-			// DDL.g:398:3: ( BIT ( type_length )? -> BIT )
-			// DDL.g:398:5: BIT ( type_length )?
+			// DDL.g:399:3: ( BIT ( type_length )? -> BIT )
+			// DDL.g:399:5: BIT ( type_length )?
 			{
-			BIT42=(Token)match(input,BIT,FOLLOW_BIT_in_bit_type3398); if (state.failed) return retval; 
+			BIT42=(Token)match(input,BIT,FOLLOW_BIT_in_bit_type3403); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_BIT.add(BIT42);
 
-			// DDL.g:398:9: ( type_length )?
+			// DDL.g:399:9: ( type_length )?
 			int alt7=2;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0==LEFT_PAREN) ) {
@@ -1779,9 +1781,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt7) {
 				case 1 :
-					// DDL.g:398:9: type_length
+					// DDL.g:399:9: type_length
 					{
-					pushFollow(FOLLOW_type_length_in_bit_type3400);
+					pushFollow(FOLLOW_type_length_in_bit_type3405);
 					type_length43=type_length();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1803,7 +1805,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 398:22: -> BIT
+			// 399:22: -> BIT
 			{
 				adaptor.addChild(root_0, stream_BIT.nextNode());
 			}
@@ -1844,7 +1846,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "varbit_type"
-	// DDL.g:400:1: varbit_type : ( VARBIT ( type_length )? -> VARBIT | BIT VARYING ( type_length )? -> VARBIT );
+	// DDL.g:401:1: varbit_type : ( VARBIT ( type_length )? -> VARBIT | BIT VARYING ( type_length )? -> VARBIT );
 	public final DDLParser.varbit_type_return varbit_type() throws RecognitionException {
 		DDLParser.varbit_type_return retval = new DDLParser.varbit_type_return();
 		retval.start = input.LT(1);
@@ -1869,7 +1871,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
 
-			// DDL.g:401:3: ( VARBIT ( type_length )? -> VARBIT | BIT VARYING ( type_length )? -> VARBIT )
+			// DDL.g:402:3: ( VARBIT ( type_length )? -> VARBIT | BIT VARYING ( type_length )? -> VARBIT )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0==VARBIT) ) {
@@ -1888,12 +1890,12 @@ public class DDLParser extends Parser {
 
 			switch (alt10) {
 				case 1 :
-					// DDL.g:401:5: VARBIT ( type_length )?
+					// DDL.g:402:5: VARBIT ( type_length )?
 					{
-					VARBIT44=(Token)match(input,VARBIT,FOLLOW_VARBIT_in_varbit_type3417); if (state.failed) return retval; 
+					VARBIT44=(Token)match(input,VARBIT,FOLLOW_VARBIT_in_varbit_type3422); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VARBIT.add(VARBIT44);
 
-					// DDL.g:401:12: ( type_length )?
+					// DDL.g:402:12: ( type_length )?
 					int alt8=2;
 					int LA8_0 = input.LA(1);
 					if ( (LA8_0==LEFT_PAREN) ) {
@@ -1901,9 +1903,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt8) {
 						case 1 :
-							// DDL.g:401:12: type_length
+							// DDL.g:402:12: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_varbit_type3419);
+							pushFollow(FOLLOW_type_length_in_varbit_type3424);
 							type_length45=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1925,7 +1927,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 401:25: -> VARBIT
+					// 402:25: -> VARBIT
 					{
 						adaptor.addChild(root_0, stream_VARBIT.nextNode());
 					}
@@ -1937,15 +1939,15 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:402:5: BIT VARYING ( type_length )?
+					// DDL.g:403:5: BIT VARYING ( type_length )?
 					{
-					BIT46=(Token)match(input,BIT,FOLLOW_BIT_in_varbit_type3430); if (state.failed) return retval; 
+					BIT46=(Token)match(input,BIT,FOLLOW_BIT_in_varbit_type3435); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_BIT.add(BIT46);
 
-					VARYING47=(Token)match(input,VARYING,FOLLOW_VARYING_in_varbit_type3432); if (state.failed) return retval; 
+					VARYING47=(Token)match(input,VARYING,FOLLOW_VARYING_in_varbit_type3437); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VARYING.add(VARYING47);
 
-					// DDL.g:402:17: ( type_length )?
+					// DDL.g:403:17: ( type_length )?
 					int alt9=2;
 					int LA9_0 = input.LA(1);
 					if ( (LA9_0==LEFT_PAREN) ) {
@@ -1953,9 +1955,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt9) {
 						case 1 :
-							// DDL.g:402:17: type_length
+							// DDL.g:403:17: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_varbit_type3434);
+							pushFollow(FOLLOW_type_length_in_varbit_type3439);
 							type_length48=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1977,7 +1979,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 402:30: -> VARBIT
+					// 403:30: -> VARBIT
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(VARBIT, "VARBIT"));
 					}
@@ -2020,7 +2022,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "int1_type"
-	// DDL.g:404:1: int1_type : ( INT1 | TINYINT -> INT1 );
+	// DDL.g:405:1: int1_type : ( INT1 | TINYINT -> INT1 );
 	public final DDLParser.int1_type_return int1_type() throws RecognitionException {
 		DDLParser.int1_type_return retval = new DDLParser.int1_type_return();
 		retval.start = input.LT(1);
@@ -2038,7 +2040,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
 
-			// DDL.g:405:3: ( INT1 | TINYINT -> INT1 )
+			// DDL.g:406:3: ( INT1 | TINYINT -> INT1 )
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0==INT1) ) {
@@ -2057,12 +2059,12 @@ public class DDLParser extends Parser {
 
 			switch (alt11) {
 				case 1 :
-					// DDL.g:405:5: INT1
+					// DDL.g:406:5: INT1
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INT149=(Token)match(input,INT1,FOLLOW_INT1_in_int1_type3451); if (state.failed) return retval;
+					INT149=(Token)match(input,INT1,FOLLOW_INT1_in_int1_type3456); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INT149_tree = (CommonTree)adaptor.create(INT149);
 					adaptor.addChild(root_0, INT149_tree);
@@ -2071,9 +2073,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:406:5: TINYINT
+					// DDL.g:407:5: TINYINT
 					{
-					TINYINT50=(Token)match(input,TINYINT,FOLLOW_TINYINT_in_int1_type3457); if (state.failed) return retval; 
+					TINYINT50=(Token)match(input,TINYINT,FOLLOW_TINYINT_in_int1_type3462); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TINYINT.add(TINYINT50);
 
 					// AST REWRITE
@@ -2088,7 +2090,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 406:13: -> INT1
+					// 407:13: -> INT1
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(INT1, "INT1"));
 					}
@@ -2131,7 +2133,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "int2_type"
-	// DDL.g:408:1: int2_type : ( INT2 | SMALLINT -> INT2 );
+	// DDL.g:409:1: int2_type : ( INT2 | SMALLINT -> INT2 );
 	public final DDLParser.int2_type_return int2_type() throws RecognitionException {
 		DDLParser.int2_type_return retval = new DDLParser.int2_type_return();
 		retval.start = input.LT(1);
@@ -2149,7 +2151,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
 
-			// DDL.g:409:3: ( INT2 | SMALLINT -> INT2 )
+			// DDL.g:410:3: ( INT2 | SMALLINT -> INT2 )
 			int alt12=2;
 			int LA12_0 = input.LA(1);
 			if ( (LA12_0==INT2) ) {
@@ -2168,12 +2170,12 @@ public class DDLParser extends Parser {
 
 			switch (alt12) {
 				case 1 :
-					// DDL.g:409:5: INT2
+					// DDL.g:410:5: INT2
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INT251=(Token)match(input,INT2,FOLLOW_INT2_in_int2_type3473); if (state.failed) return retval;
+					INT251=(Token)match(input,INT2,FOLLOW_INT2_in_int2_type3478); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INT251_tree = (CommonTree)adaptor.create(INT251);
 					adaptor.addChild(root_0, INT251_tree);
@@ -2182,9 +2184,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:410:5: SMALLINT
+					// DDL.g:411:5: SMALLINT
 					{
-					SMALLINT52=(Token)match(input,SMALLINT,FOLLOW_SMALLINT_in_int2_type3479); if (state.failed) return retval; 
+					SMALLINT52=(Token)match(input,SMALLINT,FOLLOW_SMALLINT_in_int2_type3484); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_SMALLINT.add(SMALLINT52);
 
 					// AST REWRITE
@@ -2199,7 +2201,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 410:14: -> INT2
+					// 411:14: -> INT2
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(INT2, "INT2"));
 					}
@@ -2242,7 +2244,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "int4_type"
-	// DDL.g:412:1: int4_type : ( INT4 | INT -> INT4 | INTEGER -> INT4 );
+	// DDL.g:413:1: int4_type : ( INT4 | INT -> INT4 | INTEGER -> INT4 );
 	public final DDLParser.int4_type_return int4_type() throws RecognitionException {
 		DDLParser.int4_type_return retval = new DDLParser.int4_type_return();
 		retval.start = input.LT(1);
@@ -2263,7 +2265,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
 
-			// DDL.g:413:3: ( INT4 | INT -> INT4 | INTEGER -> INT4 )
+			// DDL.g:414:3: ( INT4 | INT -> INT4 | INTEGER -> INT4 )
 			int alt13=3;
 			switch ( input.LA(1) ) {
 			case INT4:
@@ -2289,12 +2291,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt13) {
 				case 1 :
-					// DDL.g:413:5: INT4
+					// DDL.g:414:5: INT4
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INT453=(Token)match(input,INT4,FOLLOW_INT4_in_int4_type3495); if (state.failed) return retval;
+					INT453=(Token)match(input,INT4,FOLLOW_INT4_in_int4_type3500); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INT453_tree = (CommonTree)adaptor.create(INT453);
 					adaptor.addChild(root_0, INT453_tree);
@@ -2303,9 +2305,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:414:5: INT
+					// DDL.g:415:5: INT
 					{
-					INT54=(Token)match(input,INT,FOLLOW_INT_in_int4_type3501); if (state.failed) return retval; 
+					INT54=(Token)match(input,INT,FOLLOW_INT_in_int4_type3506); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_INT.add(INT54);
 
 					// AST REWRITE
@@ -2320,7 +2322,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 414:9: -> INT4
+					// 415:9: -> INT4
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(INT4, "INT4"));
 					}
@@ -2332,9 +2334,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:415:5: INTEGER
+					// DDL.g:416:5: INTEGER
 					{
-					INTEGER55=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_int4_type3511); if (state.failed) return retval; 
+					INTEGER55=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_int4_type3516); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_INTEGER.add(INTEGER55);
 
 					// AST REWRITE
@@ -2349,7 +2351,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 415:13: -> INT4
+					// 416:13: -> INT4
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(INT4, "INT4"));
 					}
@@ -2392,7 +2394,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "int8_type"
-	// DDL.g:417:1: int8_type : ( INT8 | BIGINT -> INT8 );
+	// DDL.g:418:1: int8_type : ( INT8 | BIGINT -> INT8 );
 	public final DDLParser.int8_type_return int8_type() throws RecognitionException {
 		DDLParser.int8_type_return retval = new DDLParser.int8_type_return();
 		retval.start = input.LT(1);
@@ -2410,7 +2412,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
 
-			// DDL.g:418:3: ( INT8 | BIGINT -> INT8 )
+			// DDL.g:419:3: ( INT8 | BIGINT -> INT8 )
 			int alt14=2;
 			int LA14_0 = input.LA(1);
 			if ( (LA14_0==INT8) ) {
@@ -2429,12 +2431,12 @@ public class DDLParser extends Parser {
 
 			switch (alt14) {
 				case 1 :
-					// DDL.g:418:5: INT8
+					// DDL.g:419:5: INT8
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INT856=(Token)match(input,INT8,FOLLOW_INT8_in_int8_type3527); if (state.failed) return retval;
+					INT856=(Token)match(input,INT8,FOLLOW_INT8_in_int8_type3532); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INT856_tree = (CommonTree)adaptor.create(INT856);
 					adaptor.addChild(root_0, INT856_tree);
@@ -2443,9 +2445,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:419:5: BIGINT
+					// DDL.g:420:5: BIGINT
 					{
-					BIGINT57=(Token)match(input,BIGINT,FOLLOW_BIGINT_in_int8_type3533); if (state.failed) return retval; 
+					BIGINT57=(Token)match(input,BIGINT,FOLLOW_BIGINT_in_int8_type3538); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_BIGINT.add(BIGINT57);
 
 					// AST REWRITE
@@ -2460,7 +2462,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 419:12: -> INT8
+					// 420:12: -> INT8
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(INT8, "INT8"));
 					}
@@ -2503,7 +2505,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "float4_type"
-	// DDL.g:421:1: float4_type : ( FLOAT4 | REAL -> FLOAT4 );
+	// DDL.g:422:1: float4_type : ( FLOAT4 | REAL -> FLOAT4 );
 	public final DDLParser.float4_type_return float4_type() throws RecognitionException {
 		DDLParser.float4_type_return retval = new DDLParser.float4_type_return();
 		retval.start = input.LT(1);
@@ -2521,7 +2523,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
 
-			// DDL.g:422:3: ( FLOAT4 | REAL -> FLOAT4 )
+			// DDL.g:423:3: ( FLOAT4 | REAL -> FLOAT4 )
 			int alt15=2;
 			int LA15_0 = input.LA(1);
 			if ( (LA15_0==FLOAT4) ) {
@@ -2540,12 +2542,12 @@ public class DDLParser extends Parser {
 
 			switch (alt15) {
 				case 1 :
-					// DDL.g:422:5: FLOAT4
+					// DDL.g:423:5: FLOAT4
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					FLOAT458=(Token)match(input,FLOAT4,FOLLOW_FLOAT4_in_float4_type3549); if (state.failed) return retval;
+					FLOAT458=(Token)match(input,FLOAT4,FOLLOW_FLOAT4_in_float4_type3554); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					FLOAT458_tree = (CommonTree)adaptor.create(FLOAT458);
 					adaptor.addChild(root_0, FLOAT458_tree);
@@ -2554,9 +2556,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:423:5: REAL
+					// DDL.g:424:5: REAL
 					{
-					REAL59=(Token)match(input,REAL,FOLLOW_REAL_in_float4_type3555); if (state.failed) return retval; 
+					REAL59=(Token)match(input,REAL,FOLLOW_REAL_in_float4_type3560); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_REAL.add(REAL59);
 
 					// AST REWRITE
@@ -2571,7 +2573,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 423:10: -> FLOAT4
+					// 424:10: -> FLOAT4
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(FLOAT4, "FLOAT4"));
 					}
@@ -2614,7 +2616,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "float_type"
-	// DDL.g:425:1: float_type : FLOAT ( type_length )? -> ^( FLOAT ( type_length )? ) ;
+	// DDL.g:426:1: float_type : FLOAT ( type_length )? -> ^( FLOAT ( type_length )? ) ;
 	public final DDLParser.float_type_return float_type() throws RecognitionException {
 		DDLParser.float_type_return retval = new DDLParser.float_type_return();
 		retval.start = input.LT(1);
@@ -2632,13 +2634,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
 
-			// DDL.g:425:12: ( FLOAT ( type_length )? -> ^( FLOAT ( type_length )? ) )
-			// DDL.g:425:14: FLOAT ( type_length )?
+			// DDL.g:426:12: ( FLOAT ( type_length )? -> ^( FLOAT ( type_length )? ) )
+			// DDL.g:426:14: FLOAT ( type_length )?
 			{
-			FLOAT60=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_float_type3569); if (state.failed) return retval; 
+			FLOAT60=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_float_type3574); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_FLOAT.add(FLOAT60);
 
-			// DDL.g:425:20: ( type_length )?
+			// DDL.g:426:20: ( type_length )?
 			int alt16=2;
 			int LA16_0 = input.LA(1);
 			if ( (LA16_0==LEFT_PAREN) ) {
@@ -2646,9 +2648,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt16) {
 				case 1 :
-					// DDL.g:425:20: type_length
+					// DDL.g:426:20: type_length
 					{
-					pushFollow(FOLLOW_type_length_in_float_type3571);
+					pushFollow(FOLLOW_type_length_in_float_type3576);
 					type_length61=type_length();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2670,13 +2672,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 425:33: -> ^( FLOAT ( type_length )? )
+			// 426:33: -> ^( FLOAT ( type_length )? )
 			{
-				// DDL.g:425:36: ^( FLOAT ( type_length )? )
+				// DDL.g:426:36: ^( FLOAT ( type_length )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_FLOAT.nextNode(), root_1);
-				// DDL.g:425:44: ( type_length )?
+				// DDL.g:426:44: ( type_length )?
 				if ( stream_type_length.hasNext() ) {
 					adaptor.addChild(root_1, stream_type_length.nextTree());
 				}
@@ -2723,7 +2725,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "float8_type"
-	// DDL.g:426:1: float8_type : ( FLOAT8 | DOUBLE -> FLOAT8 | DOUBLE PRECISION -> FLOAT8 );
+	// DDL.g:427:1: float8_type : ( FLOAT8 | DOUBLE -> FLOAT8 | DOUBLE PRECISION -> FLOAT8 );
 	public final DDLParser.float8_type_return float8_type() throws RecognitionException {
 		DDLParser.float8_type_return retval = new DDLParser.float8_type_return();
 		retval.start = input.LT(1);
@@ -2746,7 +2748,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
 
-			// DDL.g:427:3: ( FLOAT8 | DOUBLE -> FLOAT8 | DOUBLE PRECISION -> FLOAT8 )
+			// DDL.g:428:3: ( FLOAT8 | DOUBLE -> FLOAT8 | DOUBLE PRECISION -> FLOAT8 )
 			int alt17=3;
 			int LA17_0 = input.LA(1);
 			if ( (LA17_0==FLOAT8) ) {
@@ -2785,12 +2787,12 @@ public class DDLParser extends Parser {
 
 			switch (alt17) {
 				case 1 :
-					// DDL.g:427:5: FLOAT8
+					// DDL.g:428:5: FLOAT8
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					FLOAT862=(Token)match(input,FLOAT8,FOLLOW_FLOAT8_in_float8_type3590); if (state.failed) return retval;
+					FLOAT862=(Token)match(input,FLOAT8,FOLLOW_FLOAT8_in_float8_type3595); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					FLOAT862_tree = (CommonTree)adaptor.create(FLOAT862);
 					adaptor.addChild(root_0, FLOAT862_tree);
@@ -2799,9 +2801,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:428:5: DOUBLE
+					// DDL.g:429:5: DOUBLE
 					{
-					DOUBLE63=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_float8_type3596); if (state.failed) return retval; 
+					DOUBLE63=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_float8_type3601); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DOUBLE.add(DOUBLE63);
 
 					// AST REWRITE
@@ -2816,7 +2818,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 428:12: -> FLOAT8
+					// 429:12: -> FLOAT8
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(FLOAT8, "FLOAT8"));
 					}
@@ -2828,12 +2830,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:429:5: DOUBLE PRECISION
+					// DDL.g:430:5: DOUBLE PRECISION
 					{
-					DOUBLE64=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_float8_type3606); if (state.failed) return retval; 
+					DOUBLE64=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_float8_type3611); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DOUBLE.add(DOUBLE64);
 
-					PRECISION65=(Token)match(input,PRECISION,FOLLOW_PRECISION_in_float8_type3608); if (state.failed) return retval; 
+					PRECISION65=(Token)match(input,PRECISION,FOLLOW_PRECISION_in_float8_type3613); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_PRECISION.add(PRECISION65);
 
 					// AST REWRITE
@@ -2848,7 +2850,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 429:22: -> FLOAT8
+					// 430:22: -> FLOAT8
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(FLOAT8, "FLOAT8"));
 					}
@@ -2891,7 +2893,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "number_type"
-	// DDL.g:431:1: number_type : ( NUMERIC ( precision_param )? -> ^( NUMERIC precision_param ) | DECIMAL ( precision_param )? -> ^( NUMERIC precision_param ) | DEC ( precision_param )? -> ^( NUMERIC precision_param ) );
+	// DDL.g:432:1: number_type : ( NUMERIC ( precision_param )? -> ^( NUMERIC precision_param ) | DECIMAL ( precision_param )? -> ^( NUMERIC precision_param ) | DEC ( precision_param )? -> ^( NUMERIC precision_param ) );
 	public final DDLParser.number_type_return number_type() throws RecognitionException {
 		DDLParser.number_type_return retval = new DDLParser.number_type_return();
 		retval.start = input.LT(1);
@@ -2917,7 +2919,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
 
-			// DDL.g:432:3: ( NUMERIC ( precision_param )? -> ^( NUMERIC precision_param ) | DECIMAL ( precision_param )? -> ^( NUMERIC precision_param ) | DEC ( precision_param )? -> ^( NUMERIC precision_param ) )
+			// DDL.g:433:3: ( NUMERIC ( precision_param )? -> ^( NUMERIC precision_param ) | DECIMAL ( precision_param )? -> ^( NUMERIC precision_param ) | DEC ( precision_param )? -> ^( NUMERIC precision_param ) )
 			int alt21=3;
 			switch ( input.LA(1) ) {
 			case NUMERIC:
@@ -2943,12 +2945,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt21) {
 				case 1 :
-					// DDL.g:432:5: NUMERIC ( precision_param )?
+					// DDL.g:433:5: NUMERIC ( precision_param )?
 					{
-					NUMERIC66=(Token)match(input,NUMERIC,FOLLOW_NUMERIC_in_number_type3624); if (state.failed) return retval; 
+					NUMERIC66=(Token)match(input,NUMERIC,FOLLOW_NUMERIC_in_number_type3629); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_NUMERIC.add(NUMERIC66);
 
-					// DDL.g:432:13: ( precision_param )?
+					// DDL.g:433:13: ( precision_param )?
 					int alt18=2;
 					int LA18_0 = input.LA(1);
 					if ( (LA18_0==LEFT_PAREN) ) {
@@ -2956,9 +2958,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt18) {
 						case 1 :
-							// DDL.g:432:14: precision_param
+							// DDL.g:433:14: precision_param
 							{
-							pushFollow(FOLLOW_precision_param_in_number_type3627);
+							pushFollow(FOLLOW_precision_param_in_number_type3632);
 							precision_param67=precision_param();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -2980,9 +2982,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 432:32: -> ^( NUMERIC precision_param )
+					// 433:32: -> ^( NUMERIC precision_param )
 					{
-						// DDL.g:432:35: ^( NUMERIC precision_param )
+						// DDL.g:433:35: ^( NUMERIC precision_param )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot(stream_NUMERIC.nextNode(), root_1);
@@ -2999,12 +3001,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:433:5: DECIMAL ( precision_param )?
+					// DDL.g:434:5: DECIMAL ( precision_param )?
 					{
-					DECIMAL68=(Token)match(input,DECIMAL,FOLLOW_DECIMAL_in_number_type3643); if (state.failed) return retval; 
+					DECIMAL68=(Token)match(input,DECIMAL,FOLLOW_DECIMAL_in_number_type3648); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DECIMAL.add(DECIMAL68);
 
-					// DDL.g:433:13: ( precision_param )?
+					// DDL.g:434:13: ( precision_param )?
 					int alt19=2;
 					int LA19_0 = input.LA(1);
 					if ( (LA19_0==LEFT_PAREN) ) {
@@ -3012,9 +3014,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt19) {
 						case 1 :
-							// DDL.g:433:14: precision_param
+							// DDL.g:434:14: precision_param
 							{
-							pushFollow(FOLLOW_precision_param_in_number_type3646);
+							pushFollow(FOLLOW_precision_param_in_number_type3651);
 							precision_param69=precision_param();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3036,9 +3038,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 433:32: -> ^( NUMERIC precision_param )
+					// 434:32: -> ^( NUMERIC precision_param )
 					{
-						// DDL.g:433:35: ^( NUMERIC precision_param )
+						// DDL.g:434:35: ^( NUMERIC precision_param )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NUMERIC, "NUMERIC"), root_1);
@@ -3055,12 +3057,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:434:5: DEC ( precision_param )?
+					// DDL.g:435:5: DEC ( precision_param )?
 					{
-					DEC70=(Token)match(input,DEC,FOLLOW_DEC_in_number_type3664); if (state.failed) return retval; 
+					DEC70=(Token)match(input,DEC,FOLLOW_DEC_in_number_type3669); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DEC.add(DEC70);
 
-					// DDL.g:434:13: ( precision_param )?
+					// DDL.g:435:13: ( precision_param )?
 					int alt20=2;
 					int LA20_0 = input.LA(1);
 					if ( (LA20_0==LEFT_PAREN) ) {
@@ -3068,9 +3070,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt20) {
 						case 1 :
-							// DDL.g:434:14: precision_param
+							// DDL.g:435:14: precision_param
 							{
-							pushFollow(FOLLOW_precision_param_in_number_type3671);
+							pushFollow(FOLLOW_precision_param_in_number_type3676);
 							precision_param71=precision_param();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3092,9 +3094,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 434:32: -> ^( NUMERIC precision_param )
+					// 435:32: -> ^( NUMERIC precision_param )
 					{
-						// DDL.g:434:35: ^( NUMERIC precision_param )
+						// DDL.g:435:35: ^( NUMERIC precision_param )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NUMERIC, "NUMERIC"), root_1);
@@ -3142,7 +3144,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "char_type"
-	// DDL.g:436:1: char_type : ( CHAR ( type_length )? -> CHAR | CHARACTER ( type_length )? -> CHAR );
+	// DDL.g:437:1: char_type : ( CHAR ( type_length )? -> CHAR | CHARACTER ( type_length )? -> CHAR );
 	public final DDLParser.char_type_return char_type() throws RecognitionException {
 		DDLParser.char_type_return retval = new DDLParser.char_type_return();
 		retval.start = input.LT(1);
@@ -3164,7 +3166,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
 
-			// DDL.g:437:3: ( CHAR ( type_length )? -> CHAR | CHARACTER ( type_length )? -> CHAR )
+			// DDL.g:438:3: ( CHAR ( type_length )? -> CHAR | CHARACTER ( type_length )? -> CHAR )
 			int alt24=2;
 			int LA24_0 = input.LA(1);
 			if ( (LA24_0==CHAR) ) {
@@ -3183,12 +3185,12 @@ public class DDLParser extends Parser {
 
 			switch (alt24) {
 				case 1 :
-					// DDL.g:437:5: CHAR ( type_length )?
+					// DDL.g:438:5: CHAR ( type_length )?
 					{
-					CHAR72=(Token)match(input,CHAR,FOLLOW_CHAR_in_char_type3695); if (state.failed) return retval; 
+					CHAR72=(Token)match(input,CHAR,FOLLOW_CHAR_in_char_type3700); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CHAR.add(CHAR72);
 
-					// DDL.g:437:10: ( type_length )?
+					// DDL.g:438:10: ( type_length )?
 					int alt22=2;
 					int LA22_0 = input.LA(1);
 					if ( (LA22_0==LEFT_PAREN) ) {
@@ -3196,9 +3198,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt22) {
 						case 1 :
-							// DDL.g:437:10: type_length
+							// DDL.g:438:10: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_char_type3697);
+							pushFollow(FOLLOW_type_length_in_char_type3702);
 							type_length73=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3220,7 +3222,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 437:23: -> CHAR
+					// 438:23: -> CHAR
 					{
 						adaptor.addChild(root_0, stream_CHAR.nextNode());
 					}
@@ -3232,12 +3234,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:438:5: CHARACTER ( type_length )?
+					// DDL.g:439:5: CHARACTER ( type_length )?
 					{
-					CHARACTER74=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_char_type3708); if (state.failed) return retval; 
+					CHARACTER74=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_char_type3713); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CHARACTER.add(CHARACTER74);
 
-					// DDL.g:438:15: ( type_length )?
+					// DDL.g:439:15: ( type_length )?
 					int alt23=2;
 					int LA23_0 = input.LA(1);
 					if ( (LA23_0==LEFT_PAREN) ) {
@@ -3245,9 +3247,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt23) {
 						case 1 :
-							// DDL.g:438:15: type_length
+							// DDL.g:439:15: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_char_type3710);
+							pushFollow(FOLLOW_type_length_in_char_type3715);
 							type_length75=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3269,7 +3271,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 438:28: -> CHAR
+					// 439:28: -> CHAR
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(CHAR, "CHAR"));
 					}
@@ -3312,7 +3314,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "varchar_type"
-	// DDL.g:440:1: varchar_type : ( VARCHAR ( type_length )? -> VARCHAR | CHARACTER VARYING ( type_length )? -> VARCHAR );
+	// DDL.g:441:1: varchar_type : ( VARCHAR ( type_length )? -> VARCHAR | CHARACTER VARYING ( type_length )? -> VARCHAR );
 	public final DDLParser.varchar_type_return varchar_type() throws RecognitionException {
 		DDLParser.varchar_type_return retval = new DDLParser.varchar_type_return();
 		retval.start = input.LT(1);
@@ -3337,7 +3339,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
 
-			// DDL.g:441:3: ( VARCHAR ( type_length )? -> VARCHAR | CHARACTER VARYING ( type_length )? -> VARCHAR )
+			// DDL.g:442:3: ( VARCHAR ( type_length )? -> VARCHAR | CHARACTER VARYING ( type_length )? -> VARCHAR )
 			int alt27=2;
 			int LA27_0 = input.LA(1);
 			if ( (LA27_0==VARCHAR) ) {
@@ -3356,12 +3358,12 @@ public class DDLParser extends Parser {
 
 			switch (alt27) {
 				case 1 :
-					// DDL.g:441:5: VARCHAR ( type_length )?
+					// DDL.g:442:5: VARCHAR ( type_length )?
 					{
-					VARCHAR76=(Token)match(input,VARCHAR,FOLLOW_VARCHAR_in_varchar_type3727); if (state.failed) return retval; 
+					VARCHAR76=(Token)match(input,VARCHAR,FOLLOW_VARCHAR_in_varchar_type3732); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VARCHAR.add(VARCHAR76);
 
-					// DDL.g:441:13: ( type_length )?
+					// DDL.g:442:13: ( type_length )?
 					int alt25=2;
 					int LA25_0 = input.LA(1);
 					if ( (LA25_0==LEFT_PAREN) ) {
@@ -3369,9 +3371,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt25) {
 						case 1 :
-							// DDL.g:441:13: type_length
+							// DDL.g:442:13: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_varchar_type3729);
+							pushFollow(FOLLOW_type_length_in_varchar_type3734);
 							type_length77=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3393,7 +3395,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 441:26: -> VARCHAR
+					// 442:26: -> VARCHAR
 					{
 						adaptor.addChild(root_0, stream_VARCHAR.nextNode());
 					}
@@ -3405,15 +3407,15 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:442:5: CHARACTER VARYING ( type_length )?
+					// DDL.g:443:5: CHARACTER VARYING ( type_length )?
 					{
-					CHARACTER78=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_varchar_type3740); if (state.failed) return retval; 
+					CHARACTER78=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_varchar_type3745); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CHARACTER.add(CHARACTER78);
 
-					VARYING79=(Token)match(input,VARYING,FOLLOW_VARYING_in_varchar_type3742); if (state.failed) return retval; 
+					VARYING79=(Token)match(input,VARYING,FOLLOW_VARYING_in_varchar_type3747); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VARYING.add(VARYING79);
 
-					// DDL.g:442:23: ( type_length )?
+					// DDL.g:443:23: ( type_length )?
 					int alt26=2;
 					int LA26_0 = input.LA(1);
 					if ( (LA26_0==LEFT_PAREN) ) {
@@ -3421,9 +3423,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt26) {
 						case 1 :
-							// DDL.g:442:23: type_length
+							// DDL.g:443:23: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_varchar_type3744);
+							pushFollow(FOLLOW_type_length_in_varchar_type3749);
 							type_length80=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3445,7 +3447,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 442:36: -> VARCHAR
+					// 443:36: -> VARCHAR
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(VARCHAR, "VARCHAR"));
 					}
@@ -3488,7 +3490,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "nchar_type"
-	// DDL.g:444:1: nchar_type : ( NCHAR ( type_length )? -> NCHAR | NATIONAL CHARACTER ( type_length )? -> NCHAR );
+	// DDL.g:445:1: nchar_type : ( NCHAR ( type_length )? -> NCHAR | NATIONAL CHARACTER ( type_length )? -> NCHAR );
 	public final DDLParser.nchar_type_return nchar_type() throws RecognitionException {
 		DDLParser.nchar_type_return retval = new DDLParser.nchar_type_return();
 		retval.start = input.LT(1);
@@ -3513,7 +3515,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
 
-			// DDL.g:445:3: ( NCHAR ( type_length )? -> NCHAR | NATIONAL CHARACTER ( type_length )? -> NCHAR )
+			// DDL.g:446:3: ( NCHAR ( type_length )? -> NCHAR | NATIONAL CHARACTER ( type_length )? -> NCHAR )
 			int alt30=2;
 			int LA30_0 = input.LA(1);
 			if ( (LA30_0==NCHAR) ) {
@@ -3532,12 +3534,12 @@ public class DDLParser extends Parser {
 
 			switch (alt30) {
 				case 1 :
-					// DDL.g:445:5: NCHAR ( type_length )?
+					// DDL.g:446:5: NCHAR ( type_length )?
 					{
-					NCHAR81=(Token)match(input,NCHAR,FOLLOW_NCHAR_in_nchar_type3761); if (state.failed) return retval; 
+					NCHAR81=(Token)match(input,NCHAR,FOLLOW_NCHAR_in_nchar_type3766); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_NCHAR.add(NCHAR81);
 
-					// DDL.g:445:11: ( type_length )?
+					// DDL.g:446:11: ( type_length )?
 					int alt28=2;
 					int LA28_0 = input.LA(1);
 					if ( (LA28_0==LEFT_PAREN) ) {
@@ -3545,9 +3547,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt28) {
 						case 1 :
-							// DDL.g:445:11: type_length
+							// DDL.g:446:11: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_nchar_type3763);
+							pushFollow(FOLLOW_type_length_in_nchar_type3768);
 							type_length82=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3569,7 +3571,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 445:24: -> NCHAR
+					// 446:24: -> NCHAR
 					{
 						adaptor.addChild(root_0, stream_NCHAR.nextNode());
 					}
@@ -3581,15 +3583,15 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:446:5: NATIONAL CHARACTER ( type_length )?
+					// DDL.g:447:5: NATIONAL CHARACTER ( type_length )?
 					{
-					NATIONAL83=(Token)match(input,NATIONAL,FOLLOW_NATIONAL_in_nchar_type3774); if (state.failed) return retval; 
+					NATIONAL83=(Token)match(input,NATIONAL,FOLLOW_NATIONAL_in_nchar_type3779); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_NATIONAL.add(NATIONAL83);
 
-					CHARACTER84=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_nchar_type3776); if (state.failed) return retval; 
+					CHARACTER84=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_nchar_type3781); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CHARACTER.add(CHARACTER84);
 
-					// DDL.g:446:24: ( type_length )?
+					// DDL.g:447:24: ( type_length )?
 					int alt29=2;
 					int LA29_0 = input.LA(1);
 					if ( (LA29_0==LEFT_PAREN) ) {
@@ -3597,9 +3599,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt29) {
 						case 1 :
-							// DDL.g:446:24: type_length
+							// DDL.g:447:24: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_nchar_type3778);
+							pushFollow(FOLLOW_type_length_in_nchar_type3783);
 							type_length85=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3621,7 +3623,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 446:37: -> NCHAR
+					// 447:37: -> NCHAR
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(NCHAR, "NCHAR"));
 					}
@@ -3664,7 +3666,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "nvarchar_type"
-	// DDL.g:448:1: nvarchar_type : ( NVARCHAR ( type_length )? -> NVARCHAR | NATIONAL CHARACTER VARYING ( type_length )? -> NVARCHAR );
+	// DDL.g:449:1: nvarchar_type : ( NVARCHAR ( type_length )? -> NVARCHAR | NATIONAL CHARACTER VARYING ( type_length )? -> NVARCHAR );
 	public final DDLParser.nvarchar_type_return nvarchar_type() throws RecognitionException {
 		DDLParser.nvarchar_type_return retval = new DDLParser.nvarchar_type_return();
 		retval.start = input.LT(1);
@@ -3692,7 +3694,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
 
-			// DDL.g:449:3: ( NVARCHAR ( type_length )? -> NVARCHAR | NATIONAL CHARACTER VARYING ( type_length )? -> NVARCHAR )
+			// DDL.g:450:3: ( NVARCHAR ( type_length )? -> NVARCHAR | NATIONAL CHARACTER VARYING ( type_length )? -> NVARCHAR )
 			int alt33=2;
 			int LA33_0 = input.LA(1);
 			if ( (LA33_0==NVARCHAR) ) {
@@ -3711,12 +3713,12 @@ public class DDLParser extends Parser {
 
 			switch (alt33) {
 				case 1 :
-					// DDL.g:449:5: NVARCHAR ( type_length )?
+					// DDL.g:450:5: NVARCHAR ( type_length )?
 					{
-					NVARCHAR86=(Token)match(input,NVARCHAR,FOLLOW_NVARCHAR_in_nvarchar_type3795); if (state.failed) return retval; 
+					NVARCHAR86=(Token)match(input,NVARCHAR,FOLLOW_NVARCHAR_in_nvarchar_type3800); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_NVARCHAR.add(NVARCHAR86);
 
-					// DDL.g:449:14: ( type_length )?
+					// DDL.g:450:14: ( type_length )?
 					int alt31=2;
 					int LA31_0 = input.LA(1);
 					if ( (LA31_0==LEFT_PAREN) ) {
@@ -3724,9 +3726,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt31) {
 						case 1 :
-							// DDL.g:449:14: type_length
+							// DDL.g:450:14: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_nvarchar_type3797);
+							pushFollow(FOLLOW_type_length_in_nvarchar_type3802);
 							type_length87=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3748,7 +3750,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 449:27: -> NVARCHAR
+					// 450:27: -> NVARCHAR
 					{
 						adaptor.addChild(root_0, stream_NVARCHAR.nextNode());
 					}
@@ -3760,18 +3762,18 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:450:5: NATIONAL CHARACTER VARYING ( type_length )?
+					// DDL.g:451:5: NATIONAL CHARACTER VARYING ( type_length )?
 					{
-					NATIONAL88=(Token)match(input,NATIONAL,FOLLOW_NATIONAL_in_nvarchar_type3808); if (state.failed) return retval; 
+					NATIONAL88=(Token)match(input,NATIONAL,FOLLOW_NATIONAL_in_nvarchar_type3813); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_NATIONAL.add(NATIONAL88);
 
-					CHARACTER89=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_nvarchar_type3810); if (state.failed) return retval; 
+					CHARACTER89=(Token)match(input,CHARACTER,FOLLOW_CHARACTER_in_nvarchar_type3815); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CHARACTER.add(CHARACTER89);
 
-					VARYING90=(Token)match(input,VARYING,FOLLOW_VARYING_in_nvarchar_type3812); if (state.failed) return retval; 
+					VARYING90=(Token)match(input,VARYING,FOLLOW_VARYING_in_nvarchar_type3817); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VARYING.add(VARYING90);
 
-					// DDL.g:450:32: ( type_length )?
+					// DDL.g:451:32: ( type_length )?
 					int alt32=2;
 					int LA32_0 = input.LA(1);
 					if ( (LA32_0==LEFT_PAREN) ) {
@@ -3779,9 +3781,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt32) {
 						case 1 :
-							// DDL.g:450:32: type_length
+							// DDL.g:451:32: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_nvarchar_type3814);
+							pushFollow(FOLLOW_type_length_in_nvarchar_type3819);
 							type_length91=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -3803,7 +3805,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 450:45: -> NVARCHAR
+					// 451:45: -> NVARCHAR
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(NVARCHAR, "NVARCHAR"));
 					}
@@ -3846,7 +3848,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "timetz_type"
-	// DDL.g:452:1: timetz_type : ( TIMETZ | TIME WITH TIME ZONE -> TIMETZ );
+	// DDL.g:453:1: timetz_type : ( TIMETZ | TIME WITH TIME ZONE -> TIMETZ );
 	public final DDLParser.timetz_type_return timetz_type() throws RecognitionException {
 		DDLParser.timetz_type_return retval = new DDLParser.timetz_type_return();
 		retval.start = input.LT(1);
@@ -3872,7 +3874,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
 
-			// DDL.g:453:3: ( TIMETZ | TIME WITH TIME ZONE -> TIMETZ )
+			// DDL.g:454:3: ( TIMETZ | TIME WITH TIME ZONE -> TIMETZ )
 			int alt34=2;
 			int LA34_0 = input.LA(1);
 			if ( (LA34_0==TIMETZ) ) {
@@ -3891,12 +3893,12 @@ public class DDLParser extends Parser {
 
 			switch (alt34) {
 				case 1 :
-					// DDL.g:453:5: TIMETZ
+					// DDL.g:454:5: TIMETZ
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TIMETZ92=(Token)match(input,TIMETZ,FOLLOW_TIMETZ_in_timetz_type3831); if (state.failed) return retval;
+					TIMETZ92=(Token)match(input,TIMETZ,FOLLOW_TIMETZ_in_timetz_type3836); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					TIMETZ92_tree = (CommonTree)adaptor.create(TIMETZ92);
 					adaptor.addChild(root_0, TIMETZ92_tree);
@@ -3905,18 +3907,18 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:454:5: TIME WITH TIME ZONE
+					// DDL.g:455:5: TIME WITH TIME ZONE
 					{
-					TIME93=(Token)match(input,TIME,FOLLOW_TIME_in_timetz_type3837); if (state.failed) return retval; 
+					TIME93=(Token)match(input,TIME,FOLLOW_TIME_in_timetz_type3842); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TIME.add(TIME93);
 
-					WITH94=(Token)match(input,WITH,FOLLOW_WITH_in_timetz_type3839); if (state.failed) return retval; 
+					WITH94=(Token)match(input,WITH,FOLLOW_WITH_in_timetz_type3844); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_WITH.add(WITH94);
 
-					TIME95=(Token)match(input,TIME,FOLLOW_TIME_in_timetz_type3841); if (state.failed) return retval; 
+					TIME95=(Token)match(input,TIME,FOLLOW_TIME_in_timetz_type3846); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TIME.add(TIME95);
 
-					ZONE96=(Token)match(input,ZONE,FOLLOW_ZONE_in_timetz_type3843); if (state.failed) return retval; 
+					ZONE96=(Token)match(input,ZONE,FOLLOW_ZONE_in_timetz_type3848); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ZONE.add(ZONE96);
 
 					// AST REWRITE
@@ -3931,7 +3933,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 454:25: -> TIMETZ
+					// 455:25: -> TIMETZ
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(TIMETZ, "TIMETZ"));
 					}
@@ -3974,7 +3976,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "timestamptz_type"
-	// DDL.g:456:1: timestamptz_type : ( TIMESTAMPTZ | TIMESTAMP WITH TIME ZONE -> TIMESTAMPTZ );
+	// DDL.g:457:1: timestamptz_type : ( TIMESTAMPTZ | TIMESTAMP WITH TIME ZONE -> TIMESTAMPTZ );
 	public final DDLParser.timestamptz_type_return timestamptz_type() throws RecognitionException {
 		DDLParser.timestamptz_type_return retval = new DDLParser.timestamptz_type_return();
 		retval.start = input.LT(1);
@@ -4001,7 +4003,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
 
-			// DDL.g:457:3: ( TIMESTAMPTZ | TIMESTAMP WITH TIME ZONE -> TIMESTAMPTZ )
+			// DDL.g:458:3: ( TIMESTAMPTZ | TIMESTAMP WITH TIME ZONE -> TIMESTAMPTZ )
 			int alt35=2;
 			int LA35_0 = input.LA(1);
 			if ( (LA35_0==TIMESTAMPTZ) ) {
@@ -4020,12 +4022,12 @@ public class DDLParser extends Parser {
 
 			switch (alt35) {
 				case 1 :
-					// DDL.g:457:5: TIMESTAMPTZ
+					// DDL.g:458:5: TIMESTAMPTZ
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TIMESTAMPTZ97=(Token)match(input,TIMESTAMPTZ,FOLLOW_TIMESTAMPTZ_in_timestamptz_type3859); if (state.failed) return retval;
+					TIMESTAMPTZ97=(Token)match(input,TIMESTAMPTZ,FOLLOW_TIMESTAMPTZ_in_timestamptz_type3864); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					TIMESTAMPTZ97_tree = (CommonTree)adaptor.create(TIMESTAMPTZ97);
 					adaptor.addChild(root_0, TIMESTAMPTZ97_tree);
@@ -4034,18 +4036,18 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:458:5: TIMESTAMP WITH TIME ZONE
+					// DDL.g:459:5: TIMESTAMP WITH TIME ZONE
 					{
-					TIMESTAMP98=(Token)match(input,TIMESTAMP,FOLLOW_TIMESTAMP_in_timestamptz_type3865); if (state.failed) return retval; 
+					TIMESTAMP98=(Token)match(input,TIMESTAMP,FOLLOW_TIMESTAMP_in_timestamptz_type3870); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TIMESTAMP.add(TIMESTAMP98);
 
-					WITH99=(Token)match(input,WITH,FOLLOW_WITH_in_timestamptz_type3867); if (state.failed) return retval; 
+					WITH99=(Token)match(input,WITH,FOLLOW_WITH_in_timestamptz_type3872); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_WITH.add(WITH99);
 
-					TIME100=(Token)match(input,TIME,FOLLOW_TIME_in_timestamptz_type3869); if (state.failed) return retval; 
+					TIME100=(Token)match(input,TIME,FOLLOW_TIME_in_timestamptz_type3874); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TIME.add(TIME100);
 
-					ZONE101=(Token)match(input,ZONE,FOLLOW_ZONE_in_timestamptz_type3871); if (state.failed) return retval; 
+					ZONE101=(Token)match(input,ZONE,FOLLOW_ZONE_in_timestamptz_type3876); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ZONE.add(ZONE101);
 
 					// AST REWRITE
@@ -4060,7 +4062,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 458:30: -> TIMESTAMPTZ
+					// 459:30: -> TIMESTAMPTZ
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(TIMESTAMPTZ, "TIMESTAMPTZ"));
 					}
@@ -4103,7 +4105,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "binary_type"
-	// DDL.g:460:1: binary_type : BINARY ( type_length )? ;
+	// DDL.g:461:1: binary_type : BINARY ( type_length )? ;
 	public final DDLParser.binary_type_return binary_type() throws RecognitionException {
 		DDLParser.binary_type_return retval = new DDLParser.binary_type_return();
 		retval.start = input.LT(1);
@@ -4119,19 +4121,19 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
 
-			// DDL.g:461:3: ( BINARY ( type_length )? )
-			// DDL.g:461:5: BINARY ( type_length )?
+			// DDL.g:462:3: ( BINARY ( type_length )? )
+			// DDL.g:462:5: BINARY ( type_length )?
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			BINARY102=(Token)match(input,BINARY,FOLLOW_BINARY_in_binary_type3887); if (state.failed) return retval;
+			BINARY102=(Token)match(input,BINARY,FOLLOW_BINARY_in_binary_type3892); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			BINARY102_tree = (CommonTree)adaptor.create(BINARY102);
 			adaptor.addChild(root_0, BINARY102_tree);
 			}
 
-			// DDL.g:461:12: ( type_length )?
+			// DDL.g:462:12: ( type_length )?
 			int alt36=2;
 			int LA36_0 = input.LA(1);
 			if ( (LA36_0==LEFT_PAREN) ) {
@@ -4139,9 +4141,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt36) {
 				case 1 :
-					// DDL.g:461:12: type_length
+					// DDL.g:462:12: type_length
 					{
-					pushFollow(FOLLOW_type_length_in_binary_type3889);
+					pushFollow(FOLLOW_type_length_in_binary_type3894);
 					type_length103=type_length();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4184,7 +4186,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "varbinary_type"
-	// DDL.g:463:1: varbinary_type : ( VARBINARY ( type_length )? | BINARY VARYING ( type_length )? );
+	// DDL.g:464:1: varbinary_type : ( VARBINARY ( type_length )? | BINARY VARYING ( type_length )? );
 	public final DDLParser.varbinary_type_return varbinary_type() throws RecognitionException {
 		DDLParser.varbinary_type_return retval = new DDLParser.varbinary_type_return();
 		retval.start = input.LT(1);
@@ -4205,7 +4207,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
 
-			// DDL.g:464:3: ( VARBINARY ( type_length )? | BINARY VARYING ( type_length )? )
+			// DDL.g:465:3: ( VARBINARY ( type_length )? | BINARY VARYING ( type_length )? )
 			int alt39=2;
 			int LA39_0 = input.LA(1);
 			if ( (LA39_0==VARBINARY) ) {
@@ -4224,18 +4226,18 @@ public class DDLParser extends Parser {
 
 			switch (alt39) {
 				case 1 :
-					// DDL.g:464:5: VARBINARY ( type_length )?
+					// DDL.g:465:5: VARBINARY ( type_length )?
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					VARBINARY104=(Token)match(input,VARBINARY,FOLLOW_VARBINARY_in_varbinary_type3902); if (state.failed) return retval;
+					VARBINARY104=(Token)match(input,VARBINARY,FOLLOW_VARBINARY_in_varbinary_type3907); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					VARBINARY104_tree = (CommonTree)adaptor.create(VARBINARY104);
 					adaptor.addChild(root_0, VARBINARY104_tree);
 					}
 
-					// DDL.g:464:15: ( type_length )?
+					// DDL.g:465:15: ( type_length )?
 					int alt37=2;
 					int LA37_0 = input.LA(1);
 					if ( (LA37_0==LEFT_PAREN) ) {
@@ -4243,9 +4245,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt37) {
 						case 1 :
-							// DDL.g:464:15: type_length
+							// DDL.g:465:15: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_varbinary_type3904);
+							pushFollow(FOLLOW_type_length_in_varbinary_type3909);
 							type_length105=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -4259,24 +4261,24 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:465:5: BINARY VARYING ( type_length )?
+					// DDL.g:466:5: BINARY VARYING ( type_length )?
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					BINARY106=(Token)match(input,BINARY,FOLLOW_BINARY_in_varbinary_type3911); if (state.failed) return retval;
+					BINARY106=(Token)match(input,BINARY,FOLLOW_BINARY_in_varbinary_type3916); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					BINARY106_tree = (CommonTree)adaptor.create(BINARY106);
 					adaptor.addChild(root_0, BINARY106_tree);
 					}
 
-					VARYING107=(Token)match(input,VARYING,FOLLOW_VARYING_in_varbinary_type3913); if (state.failed) return retval;
+					VARYING107=(Token)match(input,VARYING,FOLLOW_VARYING_in_varbinary_type3918); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					VARYING107_tree = (CommonTree)adaptor.create(VARYING107);
 					adaptor.addChild(root_0, VARYING107_tree);
 					}
 
-					// DDL.g:465:20: ( type_length )?
+					// DDL.g:466:20: ( type_length )?
 					int alt38=2;
 					int LA38_0 = input.LA(1);
 					if ( (LA38_0==LEFT_PAREN) ) {
@@ -4284,9 +4286,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt38) {
 						case 1 :
-							// DDL.g:465:20: type_length
+							// DDL.g:466:20: type_length
 							{
-							pushFollow(FOLLOW_type_length_in_varbinary_type3915);
+							pushFollow(FOLLOW_type_length_in_varbinary_type3920);
 							type_length108=type_length();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -4331,7 +4333,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "blob_type"
-	// DDL.g:467:1: blob_type : ( BLOB | BYTEA -> BLOB );
+	// DDL.g:468:1: blob_type : ( BLOB | BYTEA -> BLOB );
 	public final DDLParser.blob_type_return blob_type() throws RecognitionException {
 		DDLParser.blob_type_return retval = new DDLParser.blob_type_return();
 		retval.start = input.LT(1);
@@ -4349,7 +4351,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
 
-			// DDL.g:468:3: ( BLOB | BYTEA -> BLOB )
+			// DDL.g:469:3: ( BLOB | BYTEA -> BLOB )
 			int alt40=2;
 			int LA40_0 = input.LA(1);
 			if ( (LA40_0==BLOB) ) {
@@ -4368,12 +4370,12 @@ public class DDLParser extends Parser {
 
 			switch (alt40) {
 				case 1 :
-					// DDL.g:468:5: BLOB
+					// DDL.g:469:5: BLOB
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					BLOB109=(Token)match(input,BLOB,FOLLOW_BLOB_in_blob_type3928); if (state.failed) return retval;
+					BLOB109=(Token)match(input,BLOB,FOLLOW_BLOB_in_blob_type3933); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					BLOB109_tree = (CommonTree)adaptor.create(BLOB109);
 					adaptor.addChild(root_0, BLOB109_tree);
@@ -4382,9 +4384,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:469:5: BYTEA
+					// DDL.g:470:5: BYTEA
 					{
-					BYTEA110=(Token)match(input,BYTEA,FOLLOW_BYTEA_in_blob_type3934); if (state.failed) return retval; 
+					BYTEA110=(Token)match(input,BYTEA,FOLLOW_BYTEA_in_blob_type3939); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_BYTEA.add(BYTEA110);
 
 					// AST REWRITE
@@ -4399,7 +4401,7 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 469:11: -> BLOB
+					// 470:11: -> BLOB
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(BLOB, "BLOB"));
 					}
@@ -4442,7 +4444,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "sql"
-	// DDL.g:476:1: sql : statement EOF ;
+	// DDL.g:477:1: sql : statement EOF ;
 	public final DDLParser.sql_return sql() throws RecognitionException {
 		DDLParser.sql_return retval = new DDLParser.sql_return();
 		retval.start = input.LT(1);
@@ -4458,19 +4460,19 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
 
-			// DDL.g:477:3: ( statement EOF )
-			// DDL.g:477:5: statement EOF
+			// DDL.g:478:3: ( statement EOF )
+			// DDL.g:478:5: statement EOF
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_statement_in_sql3952);
+			pushFollow(FOLLOW_statement_in_sql3957);
 			statement111=statement();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, statement111.getTree());
 
-			EOF112=(Token)match(input,EOF,FOLLOW_EOF_in_sql3954); if (state.failed) return retval;
+			EOF112=(Token)match(input,EOF,FOLLOW_EOF_in_sql3959); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			EOF112_tree = (CommonTree)adaptor.create(EOF112);
 			adaptor.addChild(root_0, EOF112_tree);
@@ -4508,7 +4510,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "statement"
-	// DDL.g:479:1: statement : (| schema_statement | index_statement | transaction_statement | control_statement | connection_statement );
+	// DDL.g:480:1: statement : (| schema_statement | index_statement | transaction_statement | control_statement | connection_statement );
 	public final DDLParser.statement_return statement() throws RecognitionException {
 		DDLParser.statement_return retval = new DDLParser.statement_return();
 		retval.start = input.LT(1);
@@ -4526,7 +4528,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
 
-			// DDL.g:480:3: (| schema_statement | index_statement | transaction_statement | control_statement | connection_statement )
+			// DDL.g:481:3: (| schema_statement | index_statement | transaction_statement | control_statement | connection_statement )
 			int alt41=6;
 			switch ( input.LA(1) ) {
 			case EOF:
@@ -4661,7 +4663,7 @@ public class DDLParser extends Parser {
 			}
 			switch (alt41) {
 				case 1 :
-					// DDL.g:481:3: 
+					// DDL.g:482:3: 
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
@@ -4669,12 +4671,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:481:5: schema_statement
+					// DDL.g:482:5: schema_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_schema_statement_in_statement3971);
+					pushFollow(FOLLOW_schema_statement_in_statement3976);
 					schema_statement113=schema_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4683,12 +4685,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:482:5: index_statement
+					// DDL.g:483:5: index_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_index_statement_in_statement3977);
+					pushFollow(FOLLOW_index_statement_in_statement3982);
 					index_statement114=index_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4697,12 +4699,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:483:5: transaction_statement
+					// DDL.g:484:5: transaction_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_transaction_statement_in_statement3983);
+					pushFollow(FOLLOW_transaction_statement_in_statement3988);
 					transaction_statement115=transaction_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4711,12 +4713,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:484:5: control_statement
+					// DDL.g:485:5: control_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_control_statement_in_statement3989);
+					pushFollow(FOLLOW_control_statement_in_statement3994);
 					control_statement116=control_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4725,12 +4727,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 6 :
-					// DDL.g:485:5: connection_statement
+					// DDL.g:486:5: connection_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_connection_statement_in_statement3995);
+					pushFollow(FOLLOW_connection_statement_in_statement4000);
 					connection_statement117=connection_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4770,7 +4772,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "schema_statement"
-	// DDL.g:501:1: schema_statement : ( create_table_statement | create_view_statement | create_alias_statement | drop_alias_statement | drop_table_statement | drop_view_statement | rename_table_statement );
+	// DDL.g:502:1: schema_statement : ( create_table_statement | create_view_statement | create_alias_statement | drop_alias_statement | drop_table_statement | drop_view_statement | rename_table_statement );
 	public final DDLParser.schema_statement_return schema_statement() throws RecognitionException {
 		DDLParser.schema_statement_return retval = new DDLParser.schema_statement_return();
 		retval.start = input.LT(1);
@@ -4790,7 +4792,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
 
-			// DDL.g:502:3: ( create_table_statement | create_view_statement | create_alias_statement | drop_alias_statement | drop_table_statement | drop_view_statement | rename_table_statement )
+			// DDL.g:503:3: ( create_table_statement | create_view_statement | create_alias_statement | drop_alias_statement | drop_table_statement | drop_view_statement | rename_table_statement )
 			int alt42=7;
 			switch ( input.LA(1) ) {
 			case CREATE:
@@ -4872,12 +4874,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt42) {
 				case 1 :
-					// DDL.g:502:5: create_table_statement
+					// DDL.g:503:5: create_table_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_create_table_statement_in_schema_statement4020);
+					pushFollow(FOLLOW_create_table_statement_in_schema_statement4025);
 					create_table_statement118=create_table_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4886,12 +4888,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:503:5: create_view_statement
+					// DDL.g:504:5: create_view_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_create_view_statement_in_schema_statement4026);
+					pushFollow(FOLLOW_create_view_statement_in_schema_statement4031);
 					create_view_statement119=create_view_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4900,12 +4902,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:504:5: create_alias_statement
+					// DDL.g:505:5: create_alias_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_create_alias_statement_in_schema_statement4032);
+					pushFollow(FOLLOW_create_alias_statement_in_schema_statement4037);
 					create_alias_statement120=create_alias_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4914,12 +4916,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:505:5: drop_alias_statement
+					// DDL.g:506:5: drop_alias_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_drop_alias_statement_in_schema_statement4038);
+					pushFollow(FOLLOW_drop_alias_statement_in_schema_statement4043);
 					drop_alias_statement121=drop_alias_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4928,12 +4930,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:506:5: drop_table_statement
+					// DDL.g:507:5: drop_table_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_drop_table_statement_in_schema_statement4044);
+					pushFollow(FOLLOW_drop_table_statement_in_schema_statement4049);
 					drop_table_statement122=drop_table_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4942,12 +4944,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 6 :
-					// DDL.g:507:5: drop_view_statement
+					// DDL.g:508:5: drop_view_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_drop_view_statement_in_schema_statement4050);
+					pushFollow(FOLLOW_drop_view_statement_in_schema_statement4055);
 					drop_view_statement123=drop_view_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -4956,12 +4958,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 7 :
-					// DDL.g:508:5: rename_table_statement
+					// DDL.g:509:5: rename_table_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_rename_table_statement_in_schema_statement4057);
+					pushFollow(FOLLOW_rename_table_statement_in_schema_statement4062);
 					rename_table_statement124=rename_table_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5001,7 +5003,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "index_statement"
-	// DDL.g:511:1: index_statement : ( create_index_statement | drop_index_statement | rename_index_statement );
+	// DDL.g:512:1: index_statement : ( create_index_statement | drop_index_statement | rename_index_statement );
 	public final DDLParser.index_statement_return index_statement() throws RecognitionException {
 		DDLParser.index_statement_return retval = new DDLParser.index_statement_return();
 		retval.start = input.LT(1);
@@ -5017,7 +5019,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
 
-			// DDL.g:512:3: ( create_index_statement | drop_index_statement | rename_index_statement )
+			// DDL.g:513:3: ( create_index_statement | drop_index_statement | rename_index_statement )
 			int alt43=3;
 			switch ( input.LA(1) ) {
 			case CREATE:
@@ -5043,12 +5045,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt43) {
 				case 1 :
-					// DDL.g:513:3: create_index_statement
+					// DDL.g:514:3: create_index_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_create_index_statement_in_index_statement4075);
+					pushFollow(FOLLOW_create_index_statement_in_index_statement4080);
 					create_index_statement125=create_index_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5057,12 +5059,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:515:3: drop_index_statement
+					// DDL.g:516:3: drop_index_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_drop_index_statement_in_index_statement4083);
+					pushFollow(FOLLOW_drop_index_statement_in_index_statement4088);
 					drop_index_statement126=drop_index_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5071,12 +5073,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:517:3: rename_index_statement
+					// DDL.g:518:3: rename_index_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_rename_index_statement_in_index_statement4093);
+					pushFollow(FOLLOW_rename_index_statement_in_index_statement4098);
 					rename_index_statement127=rename_index_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5116,7 +5118,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "transaction_statement"
-	// DDL.g:520:1: transaction_statement : ( commit_statement | lock_statement | release_statement | rollback_statement | set_transaction_statement );
+	// DDL.g:521:1: transaction_statement : ( commit_statement | lock_statement | release_statement | rollback_statement | set_transaction_statement );
 	public final DDLParser.transaction_statement_return transaction_statement() throws RecognitionException {
 		DDLParser.transaction_statement_return retval = new DDLParser.transaction_statement_return();
 		retval.start = input.LT(1);
@@ -5134,7 +5136,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
 
-			// DDL.g:521:2: ( commit_statement | lock_statement | release_statement | rollback_statement | set_transaction_statement )
+			// DDL.g:522:2: ( commit_statement | lock_statement | release_statement | rollback_statement | set_transaction_statement )
 			int alt44=5;
 			switch ( input.LA(1) ) {
 			case COMMIT:
@@ -5170,12 +5172,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt44) {
 				case 1 :
-					// DDL.g:522:2: commit_statement
+					// DDL.g:523:2: commit_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_commit_statement_in_transaction_statement4108);
+					pushFollow(FOLLOW_commit_statement_in_transaction_statement4113);
 					commit_statement128=commit_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5184,12 +5186,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:524:2: lock_statement
+					// DDL.g:525:2: lock_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_lock_statement_in_transaction_statement4117);
+					pushFollow(FOLLOW_lock_statement_in_transaction_statement4122);
 					lock_statement129=lock_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5198,12 +5200,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:526:2: release_statement
+					// DDL.g:527:2: release_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_release_statement_in_transaction_statement4123);
+					pushFollow(FOLLOW_release_statement_in_transaction_statement4128);
 					release_statement130=release_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5212,12 +5214,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:528:2: rollback_statement
+					// DDL.g:529:2: rollback_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_rollback_statement_in_transaction_statement4129);
+					pushFollow(FOLLOW_rollback_statement_in_transaction_statement4134);
 					rollback_statement131=rollback_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5226,12 +5228,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:530:2: set_transaction_statement
+					// DDL.g:531:2: set_transaction_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_set_transaction_statement_in_transaction_statement4136);
+					pushFollow(FOLLOW_set_transaction_statement_in_transaction_statement4141);
 					set_transaction_statement132=set_transaction_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5271,7 +5273,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "connection_statement"
-	// DDL.g:533:1: connection_statement : ( connect_statement | disconnect_statement | set_connection_statement );
+	// DDL.g:534:1: connection_statement : ( connect_statement | disconnect_statement | set_connection_statement );
 	public final DDLParser.connection_statement_return connection_statement() throws RecognitionException {
 		DDLParser.connection_statement_return retval = new DDLParser.connection_statement_return();
 		retval.start = input.LT(1);
@@ -5287,7 +5289,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
 
-			// DDL.g:534:2: ( connect_statement | disconnect_statement | set_connection_statement )
+			// DDL.g:535:2: ( connect_statement | disconnect_statement | set_connection_statement )
 			int alt45=3;
 			switch ( input.LA(1) ) {
 			case CONNECT:
@@ -5313,12 +5315,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt45) {
 				case 1 :
-					// DDL.g:535:2: connect_statement
+					// DDL.g:536:2: connect_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_connect_statement_in_connection_statement4148);
+					pushFollow(FOLLOW_connect_statement_in_connection_statement4153);
 					connect_statement133=connect_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5327,12 +5329,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:537:2: disconnect_statement
+					// DDL.g:538:2: disconnect_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_disconnect_statement_in_connection_statement4154);
+					pushFollow(FOLLOW_disconnect_statement_in_connection_statement4159);
 					disconnect_statement134=disconnect_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5341,12 +5343,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:539:2: set_connection_statement
+					// DDL.g:540:2: set_connection_statement
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_set_connection_statement_in_connection_statement4160);
+					pushFollow(FOLLOW_set_connection_statement_in_connection_statement4165);
 					set_connection_statement135=set_connection_statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5386,7 +5388,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "control_statement"
-	// DDL.g:542:1: control_statement : call_procedure ;
+	// DDL.g:543:1: control_statement : call_procedure ;
 	public final DDLParser.control_statement_return control_statement() throws RecognitionException {
 		DDLParser.control_statement_return retval = new DDLParser.control_statement_return();
 		retval.start = input.LT(1);
@@ -5400,13 +5402,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
 
-			// DDL.g:543:2: ( call_procedure )
-			// DDL.g:544:2: call_procedure
+			// DDL.g:544:2: ( call_procedure )
+			// DDL.g:545:2: call_procedure
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_call_procedure_in_control_statement4173);
+			pushFollow(FOLLOW_call_procedure_in_control_statement4178);
 			call_procedure136=call_procedure();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -5444,7 +5446,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "create_index_statement"
-	// DDL.g:548:1: create_index_statement : CREATE (u= UNIQUE )? INDEX n= qualified_identifier ON t= table (m= method_specifier )? LEFT_PAREN s= sort_specifier_list RIGHT_PAREN (p= param_clause )? -> ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s) ;
+	// DDL.g:549:1: create_index_statement : CREATE (u= UNIQUE )? INDEX n= qualified_identifier ON t= table (m= method_specifier )? LEFT_PAREN s= sort_specifier_list RIGHT_PAREN (p= param_clause )? -> ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s) ;
 	public final DDLParser.create_index_statement_return create_index_statement() throws RecognitionException {
 		DDLParser.create_index_statement_return retval = new DDLParser.create_index_statement_return();
 		retval.start = input.LT(1);
@@ -5485,13 +5487,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
 
-			// DDL.g:549:2: ( CREATE (u= UNIQUE )? INDEX n= qualified_identifier ON t= table (m= method_specifier )? LEFT_PAREN s= sort_specifier_list RIGHT_PAREN (p= param_clause )? -> ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s) )
-			// DDL.g:550:2: CREATE (u= UNIQUE )? INDEX n= qualified_identifier ON t= table (m= method_specifier )? LEFT_PAREN s= sort_specifier_list RIGHT_PAREN (p= param_clause )?
+			// DDL.g:550:2: ( CREATE (u= UNIQUE )? INDEX n= qualified_identifier ON t= table (m= method_specifier )? LEFT_PAREN s= sort_specifier_list RIGHT_PAREN (p= param_clause )? -> ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s) )
+			// DDL.g:551:2: CREATE (u= UNIQUE )? INDEX n= qualified_identifier ON t= table (m= method_specifier )? LEFT_PAREN s= sort_specifier_list RIGHT_PAREN (p= param_clause )?
 			{
-			CREATE137=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_index_statement4192); if (state.failed) return retval; 
+			CREATE137=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_index_statement4197); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_CREATE.add(CREATE137);
 
-			// DDL.g:550:9: (u= UNIQUE )?
+			// DDL.g:551:9: (u= UNIQUE )?
 			int alt46=2;
 			int LA46_0 = input.LA(1);
 			if ( (LA46_0==UNIQUE) ) {
@@ -5499,9 +5501,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt46) {
 				case 1 :
-					// DDL.g:550:10: u= UNIQUE
+					// DDL.g:551:10: u= UNIQUE
 					{
-					u=(Token)match(input,UNIQUE,FOLLOW_UNIQUE_in_create_index_statement4197); if (state.failed) return retval; 
+					u=(Token)match(input,UNIQUE,FOLLOW_UNIQUE_in_create_index_statement4202); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_UNIQUE.add(u);
 
 					}
@@ -5509,23 +5511,23 @@ public class DDLParser extends Parser {
 
 			}
 
-			INDEX138=(Token)match(input,INDEX,FOLLOW_INDEX_in_create_index_statement4201); if (state.failed) return retval; 
+			INDEX138=(Token)match(input,INDEX,FOLLOW_INDEX_in_create_index_statement4206); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_INDEX.add(INDEX138);
 
-			pushFollow(FOLLOW_qualified_identifier_in_create_index_statement4205);
+			pushFollow(FOLLOW_qualified_identifier_in_create_index_statement4210);
 			n=qualified_identifier();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_qualified_identifier.add(n.getTree());
-			ON139=(Token)match(input,ON,FOLLOW_ON_in_create_index_statement4207); if (state.failed) return retval; 
+			ON139=(Token)match(input,ON,FOLLOW_ON_in_create_index_statement4212); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ON.add(ON139);
 
-			pushFollow(FOLLOW_table_in_create_index_statement4211);
+			pushFollow(FOLLOW_table_in_create_index_statement4216);
 			t=table();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(t.getTree());
-			// DDL.g:550:61: (m= method_specifier )?
+			// DDL.g:551:61: (m= method_specifier )?
 			int alt47=2;
 			int LA47_0 = input.LA(1);
 			if ( (LA47_0==USING) ) {
@@ -5533,9 +5535,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt47) {
 				case 1 :
-					// DDL.g:550:62: m= method_specifier
+					// DDL.g:551:62: m= method_specifier
 					{
-					pushFollow(FOLLOW_method_specifier_in_create_index_statement4216);
+					pushFollow(FOLLOW_method_specifier_in_create_index_statement4221);
 					m=method_specifier();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5545,18 +5547,18 @@ public class DDLParser extends Parser {
 
 			}
 
-			LEFT_PAREN140=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_create_index_statement4224); if (state.failed) return retval; 
+			LEFT_PAREN140=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_create_index_statement4229); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN140);
 
-			pushFollow(FOLLOW_sort_specifier_list_in_create_index_statement4228);
+			pushFollow(FOLLOW_sort_specifier_list_in_create_index_statement4233);
 			s=sort_specifier_list();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_sort_specifier_list.add(s.getTree());
-			RIGHT_PAREN141=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_create_index_statement4230); if (state.failed) return retval; 
+			RIGHT_PAREN141=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_create_index_statement4235); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN141);
 
-			// DDL.g:551:51: (p= param_clause )?
+			// DDL.g:552:51: (p= param_clause )?
 			int alt48=2;
 			int LA48_0 = input.LA(1);
 			if ( (LA48_0==WITH) ) {
@@ -5564,9 +5566,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt48) {
 				case 1 :
-					// DDL.g:551:51: p= param_clause
+					// DDL.g:552:51: p= param_clause
 					{
-					pushFollow(FOLLOW_param_clause_in_create_index_statement4234);
+					pushFollow(FOLLOW_param_clause_in_create_index_statement4239);
 					p=param_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5593,21 +5595,21 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_n=new RewriteRuleSubtreeStream(adaptor,"rule n",n!=null?n.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 552:5: -> ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s)
+			// 553:5: -> ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s)
 			{
-				// DDL.g:552:8: ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s)
+				// DDL.g:553:8: ^( CREATE_INDEX_STATEMENT ( $u)? ( ^( INDEX_NAME $n) )? ^( ON $t) ( $p)? $s)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CREATE_INDEX_STATEMENT, "CREATE_INDEX_STATEMENT"), root_1);
-				// DDL.g:552:34: ( $u)?
+				// DDL.g:553:34: ( $u)?
 				if ( stream_u.hasNext() ) {
 					adaptor.addChild(root_1, stream_u.nextNode());
 				}
 				stream_u.reset();
 
-				// DDL.g:552:37: ( ^( INDEX_NAME $n) )?
+				// DDL.g:553:37: ( ^( INDEX_NAME $n) )?
 				if ( stream_n.hasNext() ) {
-					// DDL.g:552:37: ^( INDEX_NAME $n)
+					// DDL.g:553:37: ^( INDEX_NAME $n)
 					{
 					CommonTree root_2 = (CommonTree)adaptor.nil();
 					root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(INDEX_NAME, "INDEX_NAME"), root_2);
@@ -5618,7 +5620,7 @@ public class DDLParser extends Parser {
 				}
 				stream_n.reset();
 
-				// DDL.g:552:55: ^( ON $t)
+				// DDL.g:553:55: ^( ON $t)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot(stream_ON.nextNode(), root_2);
@@ -5626,7 +5628,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:552:65: ( $p)?
+				// DDL.g:553:65: ( $p)?
 				if ( stream_p.hasNext() ) {
 					adaptor.addChild(root_1, stream_p.nextTree());
 				}
@@ -5674,7 +5676,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "drop_index_statement"
-	// DDL.g:555:1: drop_index_statement : DROP INDEX i= table -> ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) ) ;
+	// DDL.g:556:1: drop_index_statement : DROP INDEX i= table -> ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) ) ;
 	public final DDLParser.drop_index_statement_return drop_index_statement() throws RecognitionException {
 		DDLParser.drop_index_statement_return retval = new DDLParser.drop_index_statement_return();
 		retval.start = input.LT(1);
@@ -5695,16 +5697,16 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
 
-			// DDL.g:556:2: ( DROP INDEX i= table -> ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) ) )
-			// DDL.g:557:2: DROP INDEX i= table
+			// DDL.g:557:2: ( DROP INDEX i= table -> ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) ) )
+			// DDL.g:558:2: DROP INDEX i= table
 			{
-			DROP142=(Token)match(input,DROP,FOLLOW_DROP_in_drop_index_statement4287); if (state.failed) return retval; 
+			DROP142=(Token)match(input,DROP,FOLLOW_DROP_in_drop_index_statement4292); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_DROP.add(DROP142);
 
-			INDEX143=(Token)match(input,INDEX,FOLLOW_INDEX_in_drop_index_statement4289); if (state.failed) return retval; 
+			INDEX143=(Token)match(input,INDEX,FOLLOW_INDEX_in_drop_index_statement4294); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_INDEX.add(INDEX143);
 
-			pushFollow(FOLLOW_table_in_drop_index_statement4293);
+			pushFollow(FOLLOW_table_in_drop_index_statement4298);
 			i=table();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -5722,13 +5724,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_i=new RewriteRuleSubtreeStream(adaptor,"rule i",i!=null?i.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 557:21: -> ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) )
+			// 558:21: -> ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) )
 			{
-				// DDL.g:557:24: ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) )
+				// DDL.g:558:24: ^( DROP_INDEX_STATEMENT ^( INDEX_NAME $i) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_INDEX_STATEMENT, "DROP_INDEX_STATEMENT"), root_1);
-				// DDL.g:557:47: ^( INDEX_NAME $i)
+				// DDL.g:558:47: ^( INDEX_NAME $i)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(INDEX_NAME, "INDEX_NAME"), root_2);
@@ -5777,7 +5779,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "create_table_statement"
-	// DDL.g:561:1: create_table_statement : ( CREATE EXTERNAL TABLE t= table def= table_elements USING f= Identifier (p= param_clause )? ( LOCATION path= Character_String_Literal ) -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) ) | CREATE TABLE t= table (def= table_elements )? ( USING s= Identifier )? (p= param_clause )? ( AS q= query_expression )? -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? ) );
+	// DDL.g:562:1: create_table_statement : ( CREATE EXTERNAL TABLE t= table def= table_elements USING f= Identifier (p= param_clause )? ( LOCATION path= Character_String_Literal ) -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) ) | CREATE TABLE t= table (def= table_elements )? ( USING s= Identifier )? (p= param_clause )? ( AS q= query_expression )? -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? ) );
 	public final DDLParser.create_table_statement_return create_table_statement() throws RecognitionException {
 		DDLParser.create_table_statement_return retval = new DDLParser.create_table_statement_return();
 		retval.start = input.LT(1);
@@ -5830,7 +5832,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
 
-			// DDL.g:562:3: ( CREATE EXTERNAL TABLE t= table def= table_elements USING f= Identifier (p= param_clause )? ( LOCATION path= Character_String_Literal ) -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) ) | CREATE TABLE t= table (def= table_elements )? ( USING s= Identifier )? (p= param_clause )? ( AS q= query_expression )? -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? ) )
+			// DDL.g:563:3: ( CREATE EXTERNAL TABLE t= table def= table_elements USING f= Identifier (p= param_clause )? ( LOCATION path= Character_String_Literal ) -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) ) | CREATE TABLE t= table (def= table_elements )? ( USING s= Identifier )? (p= param_clause )? ( AS q= query_expression )? -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? ) )
 			int alt54=2;
 			int LA54_0 = input.LA(1);
 			if ( (LA54_0==CREATE) ) {
@@ -5866,34 +5868,34 @@ public class DDLParser extends Parser {
 
 			switch (alt54) {
 				case 1 :
-					// DDL.g:562:5: CREATE EXTERNAL TABLE t= table def= table_elements USING f= Identifier (p= param_clause )? ( LOCATION path= Character_String_Literal )
+					// DDL.g:563:5: CREATE EXTERNAL TABLE t= table def= table_elements USING f= Identifier (p= param_clause )? ( LOCATION path= Character_String_Literal )
 					{
-					CREATE144=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_table_statement4322); if (state.failed) return retval; 
+					CREATE144=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_table_statement4327); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CREATE.add(CREATE144);
 
-					EXTERNAL145=(Token)match(input,EXTERNAL,FOLLOW_EXTERNAL_in_create_table_statement4324); if (state.failed) return retval; 
+					EXTERNAL145=(Token)match(input,EXTERNAL,FOLLOW_EXTERNAL_in_create_table_statement4329); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_EXTERNAL.add(EXTERNAL145);
 
-					TABLE146=(Token)match(input,TABLE,FOLLOW_TABLE_in_create_table_statement4326); if (state.failed) return retval; 
+					TABLE146=(Token)match(input,TABLE,FOLLOW_TABLE_in_create_table_statement4331); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE146);
 
-					pushFollow(FOLLOW_table_in_create_table_statement4330);
+					pushFollow(FOLLOW_table_in_create_table_statement4335);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(t.getTree());
-					pushFollow(FOLLOW_table_elements_in_create_table_statement4334);
+					pushFollow(FOLLOW_table_elements_in_create_table_statement4339);
 					def=table_elements();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table_elements.add(def.getTree());
-					USING147=(Token)match(input,USING,FOLLOW_USING_in_create_table_statement4336); if (state.failed) return retval; 
+					USING147=(Token)match(input,USING,FOLLOW_USING_in_create_table_statement4341); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_USING.add(USING147);
 
-					f=(Token)match(input,Identifier,FOLLOW_Identifier_in_create_table_statement4340); if (state.failed) return retval; 
+					f=(Token)match(input,Identifier,FOLLOW_Identifier_in_create_table_statement4345); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_Identifier.add(f);
 
-					// DDL.g:563:6: (p= param_clause )?
+					// DDL.g:564:6: (p= param_clause )?
 					int alt49=2;
 					int LA49_0 = input.LA(1);
 					if ( (LA49_0==WITH) ) {
@@ -5901,9 +5903,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt49) {
 						case 1 :
-							// DDL.g:563:6: p= param_clause
+							// DDL.g:564:6: p= param_clause
 							{
-							pushFollow(FOLLOW_param_clause_in_create_table_statement4348);
+							pushFollow(FOLLOW_param_clause_in_create_table_statement4353);
 							p=param_clause();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -5913,13 +5915,13 @@ public class DDLParser extends Parser {
 
 					}
 
-					// DDL.g:563:21: ( LOCATION path= Character_String_Literal )
-					// DDL.g:563:22: LOCATION path= Character_String_Literal
+					// DDL.g:564:21: ( LOCATION path= Character_String_Literal )
+					// DDL.g:564:22: LOCATION path= Character_String_Literal
 					{
-					LOCATION148=(Token)match(input,LOCATION,FOLLOW_LOCATION_in_create_table_statement4352); if (state.failed) return retval; 
+					LOCATION148=(Token)match(input,LOCATION,FOLLOW_LOCATION_in_create_table_statement4357); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LOCATION.add(LOCATION148);
 
-					path=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_create_table_statement4356); if (state.failed) return retval; 
+					path=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_create_table_statement4361); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_Character_String_Literal.add(path);
 
 					}
@@ -5941,13 +5943,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"rule p",p!=null?p.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 564:7: -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) )
+					// 565:7: -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) )
 					{
-						// DDL.g:564:10: ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) )
+						// DDL.g:565:10: ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) EXTERNAL ^( TABLE_DEF $def) ^( USING $f) ( $p)? ^( LOCATION $path) )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CREATE_TABLE_STATEMENT, "CREATE_TABLE_STATEMENT"), root_1);
-						// DDL.g:564:35: ^( TABLE_NAME $t)
+						// DDL.g:565:35: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -5956,7 +5958,7 @@ public class DDLParser extends Parser {
 						}
 
 						adaptor.addChild(root_1, stream_EXTERNAL.nextNode());
-						// DDL.g:564:61: ^( TABLE_DEF $def)
+						// DDL.g:565:61: ^( TABLE_DEF $def)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_DEF, "TABLE_DEF"), root_2);
@@ -5964,7 +5966,7 @@ public class DDLParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// DDL.g:564:79: ^( USING $f)
+						// DDL.g:565:79: ^( USING $f)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot(stream_USING.nextNode(), root_2);
@@ -5972,13 +5974,13 @@ public class DDLParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// DDL.g:564:92: ( $p)?
+						// DDL.g:565:92: ( $p)?
 						if ( stream_p.hasNext() ) {
 							adaptor.addChild(root_1, stream_p.nextTree());
 						}
 						stream_p.reset();
 
-						// DDL.g:565:10: ^( LOCATION $path)
+						// DDL.g:566:10: ^( LOCATION $path)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot(stream_LOCATION.nextNode(), root_2);
@@ -5998,20 +6000,20 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:566:5: CREATE TABLE t= table (def= table_elements )? ( USING s= Identifier )? (p= param_clause )? ( AS q= query_expression )?
+					// DDL.g:567:5: CREATE TABLE t= table (def= table_elements )? ( USING s= Identifier )? (p= param_clause )? ( AS q= query_expression )?
 					{
-					CREATE149=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_table_statement4418); if (state.failed) return retval; 
+					CREATE149=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_table_statement4423); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CREATE.add(CREATE149);
 
-					TABLE150=(Token)match(input,TABLE,FOLLOW_TABLE_in_create_table_statement4420); if (state.failed) return retval; 
+					TABLE150=(Token)match(input,TABLE,FOLLOW_TABLE_in_create_table_statement4425); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE150);
 
-					pushFollow(FOLLOW_table_in_create_table_statement4424);
+					pushFollow(FOLLOW_table_in_create_table_statement4429);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(t.getTree());
-					// DDL.g:566:26: (def= table_elements )?
+					// DDL.g:567:26: (def= table_elements )?
 					int alt50=2;
 					int LA50_0 = input.LA(1);
 					if ( (LA50_0==LEFT_PAREN) ) {
@@ -6019,9 +6021,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt50) {
 						case 1 :
-							// DDL.g:566:27: def= table_elements
+							// DDL.g:567:27: def= table_elements
 							{
-							pushFollow(FOLLOW_table_elements_in_create_table_statement4429);
+							pushFollow(FOLLOW_table_elements_in_create_table_statement4434);
 							def=table_elements();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -6031,7 +6033,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					// DDL.g:566:48: ( USING s= Identifier )?
+					// DDL.g:567:48: ( USING s= Identifier )?
 					int alt51=2;
 					int LA51_0 = input.LA(1);
 					if ( (LA51_0==USING) ) {
@@ -6039,12 +6041,12 @@ public class DDLParser extends Parser {
 					}
 					switch (alt51) {
 						case 1 :
-							// DDL.g:566:49: USING s= Identifier
+							// DDL.g:567:49: USING s= Identifier
 							{
-							USING151=(Token)match(input,USING,FOLLOW_USING_in_create_table_statement4434); if (state.failed) return retval; 
+							USING151=(Token)match(input,USING,FOLLOW_USING_in_create_table_statement4439); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_USING.add(USING151);
 
-							s=(Token)match(input,Identifier,FOLLOW_Identifier_in_create_table_statement4438); if (state.failed) return retval; 
+							s=(Token)match(input,Identifier,FOLLOW_Identifier_in_create_table_statement4443); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_Identifier.add(s);
 
 							}
@@ -6052,7 +6054,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					// DDL.g:567:5: (p= param_clause )?
+					// DDL.g:568:5: (p= param_clause )?
 					int alt52=2;
 					int LA52_0 = input.LA(1);
 					if ( (LA52_0==WITH) ) {
@@ -6060,9 +6062,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt52) {
 						case 1 :
-							// DDL.g:567:6: p= param_clause
+							// DDL.g:568:6: p= param_clause
 							{
-							pushFollow(FOLLOW_param_clause_in_create_table_statement4449);
+							pushFollow(FOLLOW_param_clause_in_create_table_statement4454);
 							p=param_clause();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -6072,7 +6074,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					// DDL.g:567:23: ( AS q= query_expression )?
+					// DDL.g:568:23: ( AS q= query_expression )?
 					int alt53=2;
 					int LA53_0 = input.LA(1);
 					if ( (LA53_0==AS) ) {
@@ -6080,12 +6082,12 @@ public class DDLParser extends Parser {
 					}
 					switch (alt53) {
 						case 1 :
-							// DDL.g:567:24: AS q= query_expression
+							// DDL.g:568:24: AS q= query_expression
 							{
-							AS152=(Token)match(input,AS,FOLLOW_AS_in_create_table_statement4454); if (state.failed) return retval; 
+							AS152=(Token)match(input,AS,FOLLOW_AS_in_create_table_statement4459); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_AS.add(AS152);
 
-							pushFollow(FOLLOW_query_expression_in_create_table_statement4458);
+							pushFollow(FOLLOW_query_expression_in_create_table_statement4463);
 							q=query_expression();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -6112,13 +6114,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"rule p",p!=null?p.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 568:7: -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? )
+					// 569:7: -> ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? )
 					{
-						// DDL.g:568:10: ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? )
+						// DDL.g:569:10: ^( CREATE_TABLE_STATEMENT ^( TABLE_NAME $t) ( ^( TABLE_DEF $def) )? ( ^( USING $s) )? ( $p)? ( ^( AS $q) )? )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CREATE_TABLE_STATEMENT, "CREATE_TABLE_STATEMENT"), root_1);
-						// DDL.g:568:35: ^( TABLE_NAME $t)
+						// DDL.g:569:35: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -6126,9 +6128,9 @@ public class DDLParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// DDL.g:568:52: ( ^( TABLE_DEF $def) )?
+						// DDL.g:569:52: ( ^( TABLE_DEF $def) )?
 						if ( stream_def.hasNext() ) {
-							// DDL.g:568:52: ^( TABLE_DEF $def)
+							// DDL.g:569:52: ^( TABLE_DEF $def)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
 							root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_DEF, "TABLE_DEF"), root_2);
@@ -6139,9 +6141,9 @@ public class DDLParser extends Parser {
 						}
 						stream_def.reset();
 
-						// DDL.g:568:71: ( ^( USING $s) )?
+						// DDL.g:569:71: ( ^( USING $s) )?
 						if ( stream_s.hasNext()||stream_USING.hasNext() ) {
-							// DDL.g:568:71: ^( USING $s)
+							// DDL.g:569:71: ^( USING $s)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
 							root_2 = (CommonTree)adaptor.becomeRoot(stream_USING.nextNode(), root_2);
@@ -6153,15 +6155,15 @@ public class DDLParser extends Parser {
 						stream_s.reset();
 						stream_USING.reset();
 
-						// DDL.g:568:85: ( $p)?
+						// DDL.g:569:85: ( $p)?
 						if ( stream_p.hasNext() ) {
 							adaptor.addChild(root_1, stream_p.nextTree());
 						}
 						stream_p.reset();
 
-						// DDL.g:568:88: ( ^( AS $q) )?
+						// DDL.g:569:88: ( ^( AS $q) )?
 						if ( stream_q.hasNext()||stream_AS.hasNext() ) {
-							// DDL.g:568:88: ^( AS $q)
+							// DDL.g:569:88: ^( AS $q)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
 							root_2 = (CommonTree)adaptor.becomeRoot(stream_AS.nextNode(), root_2);
@@ -6216,7 +6218,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "table_elements"
-	// DDL.g:570:1: table_elements : LEFT_PAREN field_element ( COMMA field_element )* RIGHT_PAREN -> ( field_element )+ ;
+	// DDL.g:571:1: table_elements : LEFT_PAREN field_element ( COMMA field_element )* RIGHT_PAREN -> ( field_element )+ ;
 	public final DDLParser.table_elements_return table_elements() throws RecognitionException {
 		DDLParser.table_elements_return retval = new DDLParser.table_elements_return();
 		retval.start = input.LT(1);
@@ -6241,18 +6243,18 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
 
-			// DDL.g:571:3: ( LEFT_PAREN field_element ( COMMA field_element )* RIGHT_PAREN -> ( field_element )+ )
-			// DDL.g:571:5: LEFT_PAREN field_element ( COMMA field_element )* RIGHT_PAREN
+			// DDL.g:572:3: ( LEFT_PAREN field_element ( COMMA field_element )* RIGHT_PAREN -> ( field_element )+ )
+			// DDL.g:572:5: LEFT_PAREN field_element ( COMMA field_element )* RIGHT_PAREN
 			{
-			LEFT_PAREN153=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_table_elements4519); if (state.failed) return retval; 
+			LEFT_PAREN153=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_table_elements4524); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN153);
 
-			pushFollow(FOLLOW_field_element_in_table_elements4521);
+			pushFollow(FOLLOW_field_element_in_table_elements4526);
 			field_element154=field_element();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_field_element.add(field_element154.getTree());
-			// DDL.g:571:30: ( COMMA field_element )*
+			// DDL.g:572:30: ( COMMA field_element )*
 			loop55:
 			while (true) {
 				int alt55=2;
@@ -6263,12 +6265,12 @@ public class DDLParser extends Parser {
 
 				switch (alt55) {
 				case 1 :
-					// DDL.g:571:31: COMMA field_element
+					// DDL.g:572:31: COMMA field_element
 					{
-					COMMA155=(Token)match(input,COMMA,FOLLOW_COMMA_in_table_elements4524); if (state.failed) return retval; 
+					COMMA155=(Token)match(input,COMMA,FOLLOW_COMMA_in_table_elements4529); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(COMMA155);
 
-					pushFollow(FOLLOW_field_element_in_table_elements4526);
+					pushFollow(FOLLOW_field_element_in_table_elements4531);
 					field_element156=field_element();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -6281,7 +6283,7 @@ public class DDLParser extends Parser {
 				}
 			}
 
-			RIGHT_PAREN157=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_table_elements4530); if (state.failed) return retval; 
+			RIGHT_PAREN157=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_table_elements4535); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN157);
 
 			// AST REWRITE
@@ -6296,7 +6298,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 572:5: -> ( field_element )+
+			// 573:5: -> ( field_element )+
 			{
 				if ( !(stream_field_element.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -6344,7 +6346,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "field_element"
-	// DDL.g:575:1: field_element : Identifier ( FOR COLUMN c= Identifier )? field_type ( not_null )? ( with_default )? -> ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? ) ;
+	// DDL.g:576:1: field_element : Identifier ( FOR COLUMN c= Identifier )? field_type ( not_null )? ( with_default )? -> ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? ) ;
 	public final DDLParser.field_element_return field_element() throws RecognitionException {
 		DDLParser.field_element_return retval = new DDLParser.field_element_return();
 		retval.start = input.LT(1);
@@ -6374,13 +6376,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
 
-			// DDL.g:576:3: ( Identifier ( FOR COLUMN c= Identifier )? field_type ( not_null )? ( with_default )? -> ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? ) )
-			// DDL.g:576:5: Identifier ( FOR COLUMN c= Identifier )? field_type ( not_null )? ( with_default )?
+			// DDL.g:577:3: ( Identifier ( FOR COLUMN c= Identifier )? field_type ( not_null )? ( with_default )? -> ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? ) )
+			// DDL.g:577:5: Identifier ( FOR COLUMN c= Identifier )? field_type ( not_null )? ( with_default )?
 			{
-			Identifier158=(Token)match(input,Identifier,FOLLOW_Identifier_in_field_element4554); if (state.failed) return retval; 
+			Identifier158=(Token)match(input,Identifier,FOLLOW_Identifier_in_field_element4559); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(Identifier158);
 
-			// DDL.g:576:16: ( FOR COLUMN c= Identifier )?
+			// DDL.g:577:16: ( FOR COLUMN c= Identifier )?
 			int alt56=2;
 			int LA56_0 = input.LA(1);
 			if ( (LA56_0==FOR) ) {
@@ -6388,15 +6390,15 @@ public class DDLParser extends Parser {
 			}
 			switch (alt56) {
 				case 1 :
-					// DDL.g:576:17: FOR COLUMN c= Identifier
+					// DDL.g:577:17: FOR COLUMN c= Identifier
 					{
-					FOR159=(Token)match(input,FOR,FOLLOW_FOR_in_field_element4557); if (state.failed) return retval; 
+					FOR159=(Token)match(input,FOR,FOLLOW_FOR_in_field_element4562); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_FOR.add(FOR159);
 
-					COLUMN160=(Token)match(input,COLUMN,FOLLOW_COLUMN_in_field_element4559); if (state.failed) return retval; 
+					COLUMN160=(Token)match(input,COLUMN,FOLLOW_COLUMN_in_field_element4564); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COLUMN.add(COLUMN160);
 
-					c=(Token)match(input,Identifier,FOLLOW_Identifier_in_field_element4563); if (state.failed) return retval; 
+					c=(Token)match(input,Identifier,FOLLOW_Identifier_in_field_element4568); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_Identifier.add(c);
 
 					}
@@ -6404,12 +6406,12 @@ public class DDLParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_field_type_in_field_element4567);
+			pushFollow(FOLLOW_field_type_in_field_element4572);
 			field_type161=field_type();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_field_type.add(field_type161.getTree());
-			// DDL.g:576:54: ( not_null )?
+			// DDL.g:577:54: ( not_null )?
 			int alt57=2;
 			int LA57_0 = input.LA(1);
 			if ( (LA57_0==NOT) ) {
@@ -6417,9 +6419,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt57) {
 				case 1 :
-					// DDL.g:576:55: not_null
+					// DDL.g:577:55: not_null
 					{
-					pushFollow(FOLLOW_not_null_in_field_element4570);
+					pushFollow(FOLLOW_not_null_in_field_element4575);
 					not_null162=not_null();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -6429,7 +6431,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:576:66: ( with_default )?
+			// DDL.g:577:66: ( with_default )?
 			int alt58=2;
 			int LA58_0 = input.LA(1);
 			if ( (LA58_0==WITH) ) {
@@ -6437,9 +6439,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt58) {
 				case 1 :
-					// DDL.g:576:67: with_default
+					// DDL.g:577:67: with_default
 					{
-					pushFollow(FOLLOW_with_default_in_field_element4575);
+					pushFollow(FOLLOW_with_default_in_field_element4580);
 					with_default163=with_default();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -6462,13 +6464,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 576:81: -> ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? )
+			// 577:81: -> ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? )
 			{
-				// DDL.g:576:84: ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? )
+				// DDL.g:577:84: ^( FIELD_DEF ^( FIELD_NAME Identifier ) ( ^( FOR_COLUMN $c) )? ^( FIELD_TYPE field_type ) ( not_null )? ( with_default )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_DEF, "FIELD_DEF"), root_1);
-				// DDL.g:576:96: ^( FIELD_NAME Identifier )
+				// DDL.g:577:96: ^( FIELD_NAME Identifier )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_NAME, "FIELD_NAME"), root_2);
@@ -6476,9 +6478,9 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:576:121: ( ^( FOR_COLUMN $c) )?
+				// DDL.g:577:121: ( ^( FOR_COLUMN $c) )?
 				if ( stream_c.hasNext() ) {
-					// DDL.g:576:121: ^( FOR_COLUMN $c)
+					// DDL.g:577:121: ^( FOR_COLUMN $c)
 					{
 					CommonTree root_2 = (CommonTree)adaptor.nil();
 					root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_COLUMN, "FOR_COLUMN"), root_2);
@@ -6489,7 +6491,7 @@ public class DDLParser extends Parser {
 				}
 				stream_c.reset();
 
-				// DDL.g:576:139: ^( FIELD_TYPE field_type )
+				// DDL.g:577:139: ^( FIELD_TYPE field_type )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_TYPE, "FIELD_TYPE"), root_2);
@@ -6497,13 +6499,13 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:576:164: ( not_null )?
+				// DDL.g:577:164: ( not_null )?
 				if ( stream_not_null.hasNext() ) {
 					adaptor.addChild(root_1, stream_not_null.nextTree());
 				}
 				stream_not_null.reset();
 
-				// DDL.g:576:176: ( with_default )?
+				// DDL.g:577:176: ( with_default )?
 				if ( stream_with_default.hasNext() ) {
 					adaptor.addChild(root_1, stream_with_default.nextTree());
 				}
@@ -6550,7 +6552,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "not_null"
-	// DDL.g:579:1: not_null : NOT NULL -> ^( NOT_NULL ) ;
+	// DDL.g:580:1: not_null : NOT NULL -> ^( NOT_NULL ) ;
 	public final DDLParser.not_null_return not_null() throws RecognitionException {
 		DDLParser.not_null_return retval = new DDLParser.not_null_return();
 		retval.start = input.LT(1);
@@ -6569,13 +6571,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
 
-			// DDL.g:579:9: ( NOT NULL -> ^( NOT_NULL ) )
-			// DDL.g:580:2: NOT NULL
+			// DDL.g:580:9: ( NOT NULL -> ^( NOT_NULL ) )
+			// DDL.g:581:2: NOT NULL
 			{
-			NOT164=(Token)match(input,NOT,FOLLOW_NOT_in_not_null4625); if (state.failed) return retval; 
+			NOT164=(Token)match(input,NOT,FOLLOW_NOT_in_not_null4630); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_NOT.add(NOT164);
 
-			NULL165=(Token)match(input,NULL,FOLLOW_NULL_in_not_null4627); if (state.failed) return retval; 
+			NULL165=(Token)match(input,NULL,FOLLOW_NULL_in_not_null4632); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_NULL.add(NULL165);
 
 			// AST REWRITE
@@ -6590,9 +6592,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 580:11: -> ^( NOT_NULL )
+			// 581:11: -> ^( NOT_NULL )
 			{
-				// DDL.g:580:14: ^( NOT_NULL )
+				// DDL.g:581:14: ^( NOT_NULL )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NOT_NULL, "NOT_NULL"), root_1);
@@ -6637,7 +6639,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "with_default"
-	// DDL.g:583:1: with_default : WITH DEFAULT -> ^( WITH_DEFAULT ) ;
+	// DDL.g:584:1: with_default : WITH DEFAULT -> ^( WITH_DEFAULT ) ;
 	public final DDLParser.with_default_return with_default() throws RecognitionException {
 		DDLParser.with_default_return retval = new DDLParser.with_default_return();
 		retval.start = input.LT(1);
@@ -6656,13 +6658,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
 
-			// DDL.g:583:13: ( WITH DEFAULT -> ^( WITH_DEFAULT ) )
-			// DDL.g:584:2: WITH DEFAULT
+			// DDL.g:584:13: ( WITH DEFAULT -> ^( WITH_DEFAULT ) )
+			// DDL.g:585:2: WITH DEFAULT
 			{
-			WITH166=(Token)match(input,WITH,FOLLOW_WITH_in_with_default4648); if (state.failed) return retval; 
+			WITH166=(Token)match(input,WITH,FOLLOW_WITH_in_with_default4653); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_WITH.add(WITH166);
 
-			DEFAULT167=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_with_default4650); if (state.failed) return retval; 
+			DEFAULT167=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_with_default4655); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_DEFAULT.add(DEFAULT167);
 
 			// AST REWRITE
@@ -6677,9 +6679,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 584:15: -> ^( WITH_DEFAULT )
+			// 585:15: -> ^( WITH_DEFAULT )
 			{
-				// DDL.g:584:18: ^( WITH_DEFAULT )
+				// DDL.g:585:18: ^( WITH_DEFAULT )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(WITH_DEFAULT, "WITH_DEFAULT"), root_1);
@@ -6724,7 +6726,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "field_type"
-	// DDL.g:587:1: field_type : data_type ;
+	// DDL.g:588:1: field_type : data_type ;
 	public final DDLParser.field_type_return field_type() throws RecognitionException {
 		DDLParser.field_type_return retval = new DDLParser.field_type_return();
 		retval.start = input.LT(1);
@@ -6738,13 +6740,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
 
-			// DDL.g:588:3: ( data_type )
-			// DDL.g:588:5: data_type
+			// DDL.g:589:3: ( data_type )
+			// DDL.g:589:5: data_type
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_data_type_in_field_type4676);
+			pushFollow(FOLLOW_data_type_in_field_type4681);
 			data_type168=data_type();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -6782,7 +6784,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "create_view_statement"
-	// DDL.g:591:1: create_view_statement : CREATE VIEW t= table (col= ordinary_grouping_set )? -> ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? ) ;
+	// DDL.g:592:1: create_view_statement : CREATE VIEW t= table (col= ordinary_grouping_set )? -> ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? ) ;
 	public final DDLParser.create_view_statement_return create_view_statement() throws RecognitionException {
 		DDLParser.create_view_statement_return retval = new DDLParser.create_view_statement_return();
 		retval.start = input.LT(1);
@@ -6805,21 +6807,21 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
 
-			// DDL.g:592:3: ( CREATE VIEW t= table (col= ordinary_grouping_set )? -> ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? ) )
-			// DDL.g:593:3: CREATE VIEW t= table (col= ordinary_grouping_set )?
+			// DDL.g:593:3: ( CREATE VIEW t= table (col= ordinary_grouping_set )? -> ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? ) )
+			// DDL.g:594:3: CREATE VIEW t= table (col= ordinary_grouping_set )?
 			{
-			CREATE169=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_view_statement4692); if (state.failed) return retval; 
+			CREATE169=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_view_statement4697); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_CREATE.add(CREATE169);
 
-			VIEW170=(Token)match(input,VIEW,FOLLOW_VIEW_in_create_view_statement4694); if (state.failed) return retval; 
+			VIEW170=(Token)match(input,VIEW,FOLLOW_VIEW_in_create_view_statement4699); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_VIEW.add(VIEW170);
 
-			pushFollow(FOLLOW_table_in_create_view_statement4698);
+			pushFollow(FOLLOW_table_in_create_view_statement4703);
 			t=table();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(t.getTree());
-			// DDL.g:593:23: (col= ordinary_grouping_set )?
+			// DDL.g:594:23: (col= ordinary_grouping_set )?
 			int alt59=2;
 			int LA59_0 = input.LA(1);
 			if ( (LA59_0==Identifier||LA59_0==LEFT_PAREN) ) {
@@ -6827,9 +6829,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt59) {
 				case 1 :
-					// DDL.g:593:24: col= ordinary_grouping_set
+					// DDL.g:594:24: col= ordinary_grouping_set
 					{
-					pushFollow(FOLLOW_ordinary_grouping_set_in_create_view_statement4703);
+					pushFollow(FOLLOW_ordinary_grouping_set_in_create_view_statement4708);
 					col=ordinary_grouping_set();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -6853,13 +6855,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 593:78: -> ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? )
+			// 594:78: -> ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? )
 			{
-				// DDL.g:593:81: ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? )
+				// DDL.g:594:81: ^( CREATE_VIEW_STATEMENT ^( VIEW_NAME $t) ( ^( COLUMNS_LIST $col) )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CREATE_VIEW_STATEMENT, "CREATE_VIEW_STATEMENT"), root_1);
-				// DDL.g:593:105: ^( VIEW_NAME $t)
+				// DDL.g:594:105: ^( VIEW_NAME $t)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VIEW_NAME, "VIEW_NAME"), root_2);
@@ -6867,9 +6869,9 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:593:121: ( ^( COLUMNS_LIST $col) )?
+				// DDL.g:594:121: ( ^( COLUMNS_LIST $col) )?
 				if ( stream_col.hasNext() ) {
-					// DDL.g:593:121: ^( COLUMNS_LIST $col)
+					// DDL.g:594:121: ^( COLUMNS_LIST $col)
 					{
 					CommonTree root_2 = (CommonTree)adaptor.nil();
 					root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COLUMNS_LIST, "COLUMNS_LIST"), root_2);
@@ -6921,7 +6923,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "create_alias_statement"
-	// DDL.g:596:1: create_alias_statement : CREATE ( or_replace )? ALIAS t= table FOR m= table -> ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) ) ;
+	// DDL.g:597:1: create_alias_statement : CREATE ( or_replace )? ALIAS t= table FOR m= table -> ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) ) ;
 	public final DDLParser.create_alias_statement_return create_alias_statement() throws RecognitionException {
 		DDLParser.create_alias_statement_return retval = new DDLParser.create_alias_statement_return();
 		retval.start = input.LT(1);
@@ -6948,13 +6950,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
 
-			// DDL.g:597:2: ( CREATE ( or_replace )? ALIAS t= table FOR m= table -> ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) ) )
-			// DDL.g:597:4: CREATE ( or_replace )? ALIAS t= table FOR m= table
+			// DDL.g:598:2: ( CREATE ( or_replace )? ALIAS t= table FOR m= table -> ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) ) )
+			// DDL.g:598:4: CREATE ( or_replace )? ALIAS t= table FOR m= table
 			{
-			CREATE171=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_alias_statement4751); if (state.failed) return retval; 
+			CREATE171=(Token)match(input,CREATE,FOLLOW_CREATE_in_create_alias_statement4756); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_CREATE.add(CREATE171);
 
-			// DDL.g:597:11: ( or_replace )?
+			// DDL.g:598:11: ( or_replace )?
 			int alt60=2;
 			int LA60_0 = input.LA(1);
 			if ( (LA60_0==OR) ) {
@@ -6962,9 +6964,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt60) {
 				case 1 :
-					// DDL.g:597:12: or_replace
+					// DDL.g:598:12: or_replace
 					{
-					pushFollow(FOLLOW_or_replace_in_create_alias_statement4754);
+					pushFollow(FOLLOW_or_replace_in_create_alias_statement4759);
 					or_replace172=or_replace();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -6974,18 +6976,18 @@ public class DDLParser extends Parser {
 
 			}
 
-			ALIAS173=(Token)match(input,ALIAS,FOLLOW_ALIAS_in_create_alias_statement4758); if (state.failed) return retval; 
+			ALIAS173=(Token)match(input,ALIAS,FOLLOW_ALIAS_in_create_alias_statement4763); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ALIAS.add(ALIAS173);
 
-			pushFollow(FOLLOW_table_in_create_alias_statement4762);
+			pushFollow(FOLLOW_table_in_create_alias_statement4767);
 			t=table();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(t.getTree());
-			FOR174=(Token)match(input,FOR,FOLLOW_FOR_in_create_alias_statement4764); if (state.failed) return retval; 
+			FOR174=(Token)match(input,FOR,FOLLOW_FOR_in_create_alias_statement4769); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_FOR.add(FOR174);
 
-			pushFollow(FOLLOW_table_in_create_alias_statement4768);
+			pushFollow(FOLLOW_table_in_create_alias_statement4773);
 			m=table();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -7004,19 +7006,19 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_m=new RewriteRuleSubtreeStream(adaptor,"rule m",m!=null?m.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 597:51: -> ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) )
+			// 598:51: -> ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) )
 			{
-				// DDL.g:597:54: ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) )
+				// DDL.g:598:54: ^( CREATE_ALIAS_STATEMENT ( or_replace )? ^( ALIAS_NAME $t) ^( TABLE_NAME $m) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CREATE_ALIAS_STATEMENT, "CREATE_ALIAS_STATEMENT"), root_1);
-				// DDL.g:597:79: ( or_replace )?
+				// DDL.g:598:79: ( or_replace )?
 				if ( stream_or_replace.hasNext() ) {
 					adaptor.addChild(root_1, stream_or_replace.nextTree());
 				}
 				stream_or_replace.reset();
 
-				// DDL.g:597:93: ^( ALIAS_NAME $t)
+				// DDL.g:598:93: ^( ALIAS_NAME $t)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ALIAS_NAME, "ALIAS_NAME"), root_2);
@@ -7024,7 +7026,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:597:110: ^( TABLE_NAME $m)
+				// DDL.g:598:110: ^( TABLE_NAME $m)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -7073,7 +7075,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "or_replace"
-	// DDL.g:601:1: or_replace : OR REPLACE -> ^( OR_REPLACE ) ;
+	// DDL.g:602:1: or_replace : OR REPLACE -> ^( OR_REPLACE ) ;
 	public final DDLParser.or_replace_return or_replace() throws RecognitionException {
 		DDLParser.or_replace_return retval = new DDLParser.or_replace_return();
 		retval.start = input.LT(1);
@@ -7092,13 +7094,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
 
-			// DDL.g:602:2: ( OR REPLACE -> ^( OR_REPLACE ) )
-			// DDL.g:603:2: OR REPLACE
+			// DDL.g:603:2: ( OR REPLACE -> ^( OR_REPLACE ) )
+			// DDL.g:604:2: OR REPLACE
 			{
-			OR175=(Token)match(input,OR,FOLLOW_OR_in_or_replace4811); if (state.failed) return retval; 
+			OR175=(Token)match(input,OR,FOLLOW_OR_in_or_replace4816); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_OR.add(OR175);
 
-			REPLACE176=(Token)match(input,REPLACE,FOLLOW_REPLACE_in_or_replace4813); if (state.failed) return retval; 
+			REPLACE176=(Token)match(input,REPLACE,FOLLOW_REPLACE_in_or_replace4818); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_REPLACE.add(REPLACE176);
 
 			// AST REWRITE
@@ -7113,9 +7115,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 603:13: -> ^( OR_REPLACE )
+			// 604:13: -> ^( OR_REPLACE )
 			{
-				// DDL.g:603:16: ^( OR_REPLACE )
+				// DDL.g:604:16: ^( OR_REPLACE )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(OR_REPLACE, "OR_REPLACE"), root_1);
@@ -7160,7 +7162,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "drop_alias_statement"
-	// DDL.g:606:1: drop_alias_statement : DROP ALIAS t= table -> ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) ) ;
+	// DDL.g:607:1: drop_alias_statement : DROP ALIAS t= table -> ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) ) ;
 	public final DDLParser.drop_alias_statement_return drop_alias_statement() throws RecognitionException {
 		DDLParser.drop_alias_statement_return retval = new DDLParser.drop_alias_statement_return();
 		retval.start = input.LT(1);
@@ -7181,16 +7183,16 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
 
-			// DDL.g:607:2: ( DROP ALIAS t= table -> ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) ) )
-			// DDL.g:608:2: DROP ALIAS t= table
+			// DDL.g:608:2: ( DROP ALIAS t= table -> ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) ) )
+			// DDL.g:609:2: DROP ALIAS t= table
 			{
-			DROP177=(Token)match(input,DROP,FOLLOW_DROP_in_drop_alias_statement4832); if (state.failed) return retval; 
+			DROP177=(Token)match(input,DROP,FOLLOW_DROP_in_drop_alias_statement4837); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_DROP.add(DROP177);
 
-			ALIAS178=(Token)match(input,ALIAS,FOLLOW_ALIAS_in_drop_alias_statement4834); if (state.failed) return retval; 
+			ALIAS178=(Token)match(input,ALIAS,FOLLOW_ALIAS_in_drop_alias_statement4839); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ALIAS.add(ALIAS178);
 
-			pushFollow(FOLLOW_table_in_drop_alias_statement4838);
+			pushFollow(FOLLOW_table_in_drop_alias_statement4843);
 			t=table();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -7208,13 +7210,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 608:21: -> ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) )
+			// 609:21: -> ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) )
 			{
-				// DDL.g:608:24: ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) )
+				// DDL.g:609:24: ^( DROP_ALIAS_STATEMENT ^( ALIAS_NAME $t) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_ALIAS_STATEMENT, "DROP_ALIAS_STATEMENT"), root_1);
-				// DDL.g:608:47: ^( ALIAS_NAME $t)
+				// DDL.g:609:47: ^( ALIAS_NAME $t)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ALIAS_NAME, "ALIAS_NAME"), root_2);
@@ -7263,7 +7265,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "commit_statement"
-	// DDL.g:611:1: commit_statement : COMMIT ( WORK )? (h= HOLD )? -> ^( COMMIT_STATEMENT ( $h)? ) ;
+	// DDL.g:612:1: commit_statement : COMMIT ( WORK )? (h= HOLD )? -> ^( COMMIT_STATEMENT ( $h)? ) ;
 	public final DDLParser.commit_statement_return commit_statement() throws RecognitionException {
 		DDLParser.commit_statement_return retval = new DDLParser.commit_statement_return();
 		retval.start = input.LT(1);
@@ -7285,13 +7287,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
 
-			// DDL.g:612:2: ( COMMIT ( WORK )? (h= HOLD )? -> ^( COMMIT_STATEMENT ( $h)? ) )
-			// DDL.g:613:2: COMMIT ( WORK )? (h= HOLD )?
+			// DDL.g:613:2: ( COMMIT ( WORK )? (h= HOLD )? -> ^( COMMIT_STATEMENT ( $h)? ) )
+			// DDL.g:614:2: COMMIT ( WORK )? (h= HOLD )?
 			{
-			COMMIT179=(Token)match(input,COMMIT,FOLLOW_COMMIT_in_commit_statement4865); if (state.failed) return retval; 
+			COMMIT179=(Token)match(input,COMMIT,FOLLOW_COMMIT_in_commit_statement4870); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COMMIT.add(COMMIT179);
 
-			// DDL.g:613:10: ( WORK )?
+			// DDL.g:614:10: ( WORK )?
 			int alt61=2;
 			int LA61_0 = input.LA(1);
 			if ( (LA61_0==WORK) ) {
@@ -7299,9 +7301,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt61) {
 				case 1 :
-					// DDL.g:613:11: WORK
+					// DDL.g:614:11: WORK
 					{
-					WORK180=(Token)match(input,WORK,FOLLOW_WORK_in_commit_statement4869); if (state.failed) return retval; 
+					WORK180=(Token)match(input,WORK,FOLLOW_WORK_in_commit_statement4874); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_WORK.add(WORK180);
 
 					}
@@ -7309,7 +7311,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:613:18: (h= HOLD )?
+			// DDL.g:614:18: (h= HOLD )?
 			int alt62=2;
 			int LA62_0 = input.LA(1);
 			if ( (LA62_0==HOLD) ) {
@@ -7317,9 +7319,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt62) {
 				case 1 :
-					// DDL.g:613:19: h= HOLD
+					// DDL.g:614:19: h= HOLD
 					{
-					h=(Token)match(input,HOLD,FOLLOW_HOLD_in_commit_statement4876); if (state.failed) return retval; 
+					h=(Token)match(input,HOLD,FOLLOW_HOLD_in_commit_statement4881); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_HOLD.add(h);
 
 					}
@@ -7340,13 +7342,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 613:28: -> ^( COMMIT_STATEMENT ( $h)? )
+			// 614:28: -> ^( COMMIT_STATEMENT ( $h)? )
 			{
-				// DDL.g:613:31: ^( COMMIT_STATEMENT ( $h)? )
+				// DDL.g:614:31: ^( COMMIT_STATEMENT ( $h)? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COMMIT_STATEMENT, "COMMIT_STATEMENT"), root_1);
-				// DDL.g:613:51: ( $h)?
+				// DDL.g:614:51: ( $h)?
 				if ( stream_h.hasNext() ) {
 					adaptor.addChild(root_1, stream_h.nextNode());
 				}
@@ -7393,7 +7395,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "connect_statement"
-	// DDL.g:615:1: connect_statement : ( CONNECT ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )? -> ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? ) | CONNECT RESET -> ^( CONNECT_STATEMENT RESET ) );
+	// DDL.g:616:1: connect_statement : ( CONNECT ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )? -> ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? ) | CONNECT RESET -> ^( CONNECT_STATEMENT RESET ) );
 	public final DDLParser.connect_statement_return connect_statement() throws RecognitionException {
 		DDLParser.connect_statement_return retval = new DDLParser.connect_statement_return();
 		retval.start = input.LT(1);
@@ -7431,7 +7433,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
 
-			// DDL.g:616:2: ( CONNECT ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )? -> ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? ) | CONNECT RESET -> ^( CONNECT_STATEMENT RESET ) )
+			// DDL.g:617:2: ( CONNECT ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )? -> ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? ) | CONNECT RESET -> ^( CONNECT_STATEMENT RESET ) )
 			int alt64=2;
 			int LA64_0 = input.LA(1);
 			if ( (LA64_0==CONNECT) ) {
@@ -7467,12 +7469,12 @@ public class DDLParser extends Parser {
 
 			switch (alt64) {
 				case 1 :
-					// DDL.g:616:4: CONNECT ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )?
+					// DDL.g:617:4: CONNECT ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )?
 					{
-					CONNECT181=(Token)match(input,CONNECT,FOLLOW_CONNECT_in_connect_statement4900); if (state.failed) return retval; 
+					CONNECT181=(Token)match(input,CONNECT,FOLLOW_CONNECT_in_connect_statement4905); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CONNECT.add(CONNECT181);
 
-					// DDL.g:616:12: ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )?
+					// DDL.g:617:12: ( TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal ) )?
 					int alt63=2;
 					int LA63_0 = input.LA(1);
 					if ( (LA63_0==TO) ) {
@@ -7480,27 +7482,27 @@ public class DDLParser extends Parser {
 					}
 					switch (alt63) {
 						case 1 :
-							// DDL.g:616:13: TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal )
+							// DDL.g:617:13: TO s= Identifier ( USER u= Identifier USING p= Character_String_Literal )
 							{
-							TO182=(Token)match(input,TO,FOLLOW_TO_in_connect_statement4903); if (state.failed) return retval; 
+							TO182=(Token)match(input,TO,FOLLOW_TO_in_connect_statement4908); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TO.add(TO182);
 
-							s=(Token)match(input,Identifier,FOLLOW_Identifier_in_connect_statement4908); if (state.failed) return retval; 
+							s=(Token)match(input,Identifier,FOLLOW_Identifier_in_connect_statement4913); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_Identifier.add(s);
 
-							// DDL.g:616:30: ( USER u= Identifier USING p= Character_String_Literal )
-							// DDL.g:616:31: USER u= Identifier USING p= Character_String_Literal
+							// DDL.g:617:30: ( USER u= Identifier USING p= Character_String_Literal )
+							// DDL.g:617:31: USER u= Identifier USING p= Character_String_Literal
 							{
-							USER183=(Token)match(input,USER,FOLLOW_USER_in_connect_statement4911); if (state.failed) return retval; 
+							USER183=(Token)match(input,USER,FOLLOW_USER_in_connect_statement4916); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_USER.add(USER183);
 
-							u=(Token)match(input,Identifier,FOLLOW_Identifier_in_connect_statement4915); if (state.failed) return retval; 
+							u=(Token)match(input,Identifier,FOLLOW_Identifier_in_connect_statement4920); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_Identifier.add(u);
 
-							USING184=(Token)match(input,USING,FOLLOW_USING_in_connect_statement4917); if (state.failed) return retval; 
+							USING184=(Token)match(input,USING,FOLLOW_USING_in_connect_statement4922); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_USING.add(USING184);
 
-							p=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_connect_statement4921); if (state.failed) return retval; 
+							p=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_connect_statement4926); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_Character_String_Literal.add(p);
 
 							}
@@ -7525,15 +7527,15 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 616:85: -> ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? )
+					// 617:85: -> ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? )
 					{
-						// DDL.g:616:88: ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? )
+						// DDL.g:617:88: ^( CONNECT_STATEMENT ( ^( TO $s) ^( USER $u) ^( USING $p) )? )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CONNECT_STATEMENT, "CONNECT_STATEMENT"), root_1);
-						// DDL.g:616:108: ( ^( TO $s) ^( USER $u) ^( USING $p) )?
+						// DDL.g:617:108: ( ^( TO $s) ^( USER $u) ^( USING $p) )?
 						if ( stream_s.hasNext()||stream_p.hasNext()||stream_USING.hasNext()||stream_USER.hasNext()||stream_TO.hasNext()||stream_u.hasNext() ) {
-							// DDL.g:616:109: ^( TO $s)
+							// DDL.g:617:109: ^( TO $s)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
 							root_2 = (CommonTree)adaptor.becomeRoot(stream_TO.nextNode(), root_2);
@@ -7541,7 +7543,7 @@ public class DDLParser extends Parser {
 							adaptor.addChild(root_1, root_2);
 							}
 
-							// DDL.g:616:118: ^( USER $u)
+							// DDL.g:617:118: ^( USER $u)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
 							root_2 = (CommonTree)adaptor.becomeRoot(stream_USER.nextNode(), root_2);
@@ -7549,7 +7551,7 @@ public class DDLParser extends Parser {
 							adaptor.addChild(root_1, root_2);
 							}
 
-							// DDL.g:616:129: ^( USING $p)
+							// DDL.g:617:129: ^( USING $p)
 							{
 							CommonTree root_2 = (CommonTree)adaptor.nil();
 							root_2 = (CommonTree)adaptor.becomeRoot(stream_USING.nextNode(), root_2);
@@ -7577,12 +7579,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:618:5: CONNECT RESET
+					// DDL.g:619:5: CONNECT RESET
 					{
-					CONNECT185=(Token)match(input,CONNECT,FOLLOW_CONNECT_in_connect_statement4966); if (state.failed) return retval; 
+					CONNECT185=(Token)match(input,CONNECT,FOLLOW_CONNECT_in_connect_statement4971); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CONNECT.add(CONNECT185);
 
-					RESET186=(Token)match(input,RESET,FOLLOW_RESET_in_connect_statement4968); if (state.failed) return retval; 
+					RESET186=(Token)match(input,RESET,FOLLOW_RESET_in_connect_statement4973); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_RESET.add(RESET186);
 
 					// AST REWRITE
@@ -7597,9 +7599,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 618:19: -> ^( CONNECT_STATEMENT RESET )
+					// 619:19: -> ^( CONNECT_STATEMENT RESET )
 					{
-						// DDL.g:618:22: ^( CONNECT_STATEMENT RESET )
+						// DDL.g:619:22: ^( CONNECT_STATEMENT RESET )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CONNECT_STATEMENT, "CONNECT_STATEMENT"), root_1);
@@ -7647,7 +7649,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "disconnect_statement"
-	// DDL.g:621:1: disconnect_statement : ( DISCONNECT -> ^( DISCONNECT_STATEMENT ) | DISCONNECT ALL -> ^( DISCONNECT_STATEMENT ALL ) | DISCONNECT CURRENT -> ^( DISCONNECT_STATEMENT CURRENT ) );
+	// DDL.g:622:1: disconnect_statement : ( DISCONNECT -> ^( DISCONNECT_STATEMENT ) | DISCONNECT ALL -> ^( DISCONNECT_STATEMENT ALL ) | DISCONNECT CURRENT -> ^( DISCONNECT_STATEMENT CURRENT ) );
 	public final DDLParser.disconnect_statement_return disconnect_statement() throws RecognitionException {
 		DDLParser.disconnect_statement_return retval = new DDLParser.disconnect_statement_return();
 		retval.start = input.LT(1);
@@ -7673,7 +7675,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
 
-			// DDL.g:622:2: ( DISCONNECT -> ^( DISCONNECT_STATEMENT ) | DISCONNECT ALL -> ^( DISCONNECT_STATEMENT ALL ) | DISCONNECT CURRENT -> ^( DISCONNECT_STATEMENT CURRENT ) )
+			// DDL.g:623:2: ( DISCONNECT -> ^( DISCONNECT_STATEMENT ) | DISCONNECT ALL -> ^( DISCONNECT_STATEMENT ALL ) | DISCONNECT CURRENT -> ^( DISCONNECT_STATEMENT CURRENT ) )
 			int alt65=3;
 			int LA65_0 = input.LA(1);
 			if ( (LA65_0==DISCONNECT) ) {
@@ -7716,9 +7718,9 @@ public class DDLParser extends Parser {
 
 			switch (alt65) {
 				case 1 :
-					// DDL.g:622:4: DISCONNECT
+					// DDL.g:623:4: DISCONNECT
 					{
-					DISCONNECT187=(Token)match(input,DISCONNECT,FOLLOW_DISCONNECT_in_disconnect_statement4988); if (state.failed) return retval; 
+					DISCONNECT187=(Token)match(input,DISCONNECT,FOLLOW_DISCONNECT_in_disconnect_statement4993); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DISCONNECT.add(DISCONNECT187);
 
 					// AST REWRITE
@@ -7733,9 +7735,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 622:15: -> ^( DISCONNECT_STATEMENT )
+					// 623:15: -> ^( DISCONNECT_STATEMENT )
 					{
-						// DDL.g:622:18: ^( DISCONNECT_STATEMENT )
+						// DDL.g:623:18: ^( DISCONNECT_STATEMENT )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DISCONNECT_STATEMENT, "DISCONNECT_STATEMENT"), root_1);
@@ -7751,12 +7753,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:624:4: DISCONNECT ALL
+					// DDL.g:625:4: DISCONNECT ALL
 					{
-					DISCONNECT188=(Token)match(input,DISCONNECT,FOLLOW_DISCONNECT_in_disconnect_statement5004); if (state.failed) return retval; 
+					DISCONNECT188=(Token)match(input,DISCONNECT,FOLLOW_DISCONNECT_in_disconnect_statement5009); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DISCONNECT.add(DISCONNECT188);
 
-					ALL189=(Token)match(input,ALL,FOLLOW_ALL_in_disconnect_statement5006); if (state.failed) return retval; 
+					ALL189=(Token)match(input,ALL,FOLLOW_ALL_in_disconnect_statement5011); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ALL.add(ALL189);
 
 					// AST REWRITE
@@ -7771,9 +7773,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 624:19: -> ^( DISCONNECT_STATEMENT ALL )
+					// 625:19: -> ^( DISCONNECT_STATEMENT ALL )
 					{
-						// DDL.g:624:22: ^( DISCONNECT_STATEMENT ALL )
+						// DDL.g:625:22: ^( DISCONNECT_STATEMENT ALL )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DISCONNECT_STATEMENT, "DISCONNECT_STATEMENT"), root_1);
@@ -7790,12 +7792,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:626:4: DISCONNECT CURRENT
+					// DDL.g:627:4: DISCONNECT CURRENT
 					{
-					DISCONNECT190=(Token)match(input,DISCONNECT,FOLLOW_DISCONNECT_in_disconnect_statement5024); if (state.failed) return retval; 
+					DISCONNECT190=(Token)match(input,DISCONNECT,FOLLOW_DISCONNECT_in_disconnect_statement5029); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DISCONNECT.add(DISCONNECT190);
 
-					CURRENT191=(Token)match(input,CURRENT,FOLLOW_CURRENT_in_disconnect_statement5026); if (state.failed) return retval; 
+					CURRENT191=(Token)match(input,CURRENT,FOLLOW_CURRENT_in_disconnect_statement5031); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CURRENT.add(CURRENT191);
 
 					// AST REWRITE
@@ -7810,9 +7812,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 626:23: -> ^( DISCONNECT_STATEMENT CURRENT )
+					// 627:23: -> ^( DISCONNECT_STATEMENT CURRENT )
 					{
-						// DDL.g:626:26: ^( DISCONNECT_STATEMENT CURRENT )
+						// DDL.g:627:26: ^( DISCONNECT_STATEMENT CURRENT )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DISCONNECT_STATEMENT, "DISCONNECT_STATEMENT"), root_1);
@@ -7860,7 +7862,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "drop_table_statement"
-	// DDL.g:629:1: drop_table_statement : ( DROP TABLE t= table -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) ) | DROP TABLE t= table restrict -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict ) | DROP TABLE t= table cascade -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade ) );
+	// DDL.g:630:1: drop_table_statement : ( DROP TABLE t= table -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) ) | DROP TABLE t= table restrict -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict ) | DROP TABLE t= table cascade -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade ) );
 	public final DDLParser.drop_table_statement_return drop_table_statement() throws RecognitionException {
 		DDLParser.drop_table_statement_return retval = new DDLParser.drop_table_statement_return();
 		retval.start = input.LT(1);
@@ -7893,7 +7895,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
 
-			// DDL.g:630:3: ( DROP TABLE t= table -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) ) | DROP TABLE t= table restrict -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict ) | DROP TABLE t= table cascade -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade ) )
+			// DDL.g:631:3: ( DROP TABLE t= table -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) ) | DROP TABLE t= table restrict -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict ) | DROP TABLE t= table cascade -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade ) )
 			int alt66=3;
 			int LA66_0 = input.LA(1);
 			if ( (LA66_0==DROP) ) {
@@ -8099,15 +8101,15 @@ public class DDLParser extends Parser {
 
 			switch (alt66) {
 				case 1 :
-					// DDL.g:631:2: DROP TABLE t= table
+					// DDL.g:632:2: DROP TABLE t= table
 					{
-					DROP192=(Token)match(input,DROP,FOLLOW_DROP_in_drop_table_statement5050); if (state.failed) return retval; 
+					DROP192=(Token)match(input,DROP,FOLLOW_DROP_in_drop_table_statement5055); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DROP.add(DROP192);
 
-					TABLE193=(Token)match(input,TABLE,FOLLOW_TABLE_in_drop_table_statement5052); if (state.failed) return retval; 
+					TABLE193=(Token)match(input,TABLE,FOLLOW_TABLE_in_drop_table_statement5057); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE193);
 
-					pushFollow(FOLLOW_table_in_drop_table_statement5056);
+					pushFollow(FOLLOW_table_in_drop_table_statement5061);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -8125,13 +8127,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 631:22: -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) )
+					// 632:22: -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) )
 					{
-						// DDL.g:631:25: ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) )
+						// DDL.g:632:25: ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_TABLE_STATEMENT, "DROP_TABLE_STATEMENT"), root_1);
-						// DDL.g:631:48: ^( TABLE_NAME $t)
+						// DDL.g:632:48: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -8151,20 +8153,20 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:633:2: DROP TABLE t= table restrict
+					// DDL.g:634:2: DROP TABLE t= table restrict
 					{
-					DROP194=(Token)match(input,DROP,FOLLOW_DROP_in_drop_table_statement5076); if (state.failed) return retval; 
+					DROP194=(Token)match(input,DROP,FOLLOW_DROP_in_drop_table_statement5081); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DROP.add(DROP194);
 
-					TABLE195=(Token)match(input,TABLE,FOLLOW_TABLE_in_drop_table_statement5078); if (state.failed) return retval; 
+					TABLE195=(Token)match(input,TABLE,FOLLOW_TABLE_in_drop_table_statement5083); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE195);
 
-					pushFollow(FOLLOW_table_in_drop_table_statement5082);
+					pushFollow(FOLLOW_table_in_drop_table_statement5087);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(t.getTree());
-					pushFollow(FOLLOW_restrict_in_drop_table_statement5084);
+					pushFollow(FOLLOW_restrict_in_drop_table_statement5089);
 					restrict196=restrict();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -8182,13 +8184,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 633:30: -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict )
+					// 634:30: -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict )
 					{
-						// DDL.g:633:33: ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict )
+						// DDL.g:634:33: ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) restrict )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_TABLE_STATEMENT, "DROP_TABLE_STATEMENT"), root_1);
-						// DDL.g:633:56: ^( TABLE_NAME $t)
+						// DDL.g:634:56: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -8209,20 +8211,20 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:635:2: DROP TABLE t= table cascade
+					// DDL.g:636:2: DROP TABLE t= table cascade
 					{
-					DROP197=(Token)match(input,DROP,FOLLOW_DROP_in_drop_table_statement5105); if (state.failed) return retval; 
+					DROP197=(Token)match(input,DROP,FOLLOW_DROP_in_drop_table_statement5110); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DROP.add(DROP197);
 
-					TABLE198=(Token)match(input,TABLE,FOLLOW_TABLE_in_drop_table_statement5107); if (state.failed) return retval; 
+					TABLE198=(Token)match(input,TABLE,FOLLOW_TABLE_in_drop_table_statement5112); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE198);
 
-					pushFollow(FOLLOW_table_in_drop_table_statement5111);
+					pushFollow(FOLLOW_table_in_drop_table_statement5116);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(t.getTree());
-					pushFollow(FOLLOW_cascade_in_drop_table_statement5113);
+					pushFollow(FOLLOW_cascade_in_drop_table_statement5118);
 					cascade199=cascade();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -8240,13 +8242,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 635:29: -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade )
+					// 636:29: -> ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade )
 					{
-						// DDL.g:635:32: ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade )
+						// DDL.g:636:32: ^( DROP_TABLE_STATEMENT ^( TABLE_NAME $t) cascade )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_TABLE_STATEMENT, "DROP_TABLE_STATEMENT"), root_1);
-						// DDL.g:635:55: ^( TABLE_NAME $t)
+						// DDL.g:636:55: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -8298,7 +8300,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "drop_view_statement"
-	// DDL.g:640:1: drop_view_statement : ( DROP VIEW v= table -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) ) | DROP VIEW v= table restrict -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict ) | DROP VIEW v= table cascade -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade ) );
+	// DDL.g:641:1: drop_view_statement : ( DROP VIEW v= table -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) ) | DROP VIEW v= table restrict -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict ) | DROP VIEW v= table cascade -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade ) );
 	public final DDLParser.drop_view_statement_return drop_view_statement() throws RecognitionException {
 		DDLParser.drop_view_statement_return retval = new DDLParser.drop_view_statement_return();
 		retval.start = input.LT(1);
@@ -8331,7 +8333,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
 
-			// DDL.g:641:3: ( DROP VIEW v= table -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) ) | DROP VIEW v= table restrict -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict ) | DROP VIEW v= table cascade -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade ) )
+			// DDL.g:642:3: ( DROP VIEW v= table -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) ) | DROP VIEW v= table restrict -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict ) | DROP VIEW v= table cascade -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade ) )
 			int alt67=3;
 			int LA67_0 = input.LA(1);
 			if ( (LA67_0==DROP) ) {
@@ -8537,15 +8539,15 @@ public class DDLParser extends Parser {
 
 			switch (alt67) {
 				case 1 :
-					// DDL.g:642:2: DROP VIEW v= table
+					// DDL.g:643:2: DROP VIEW v= table
 					{
-					DROP200=(Token)match(input,DROP,FOLLOW_DROP_in_drop_view_statement5147); if (state.failed) return retval; 
+					DROP200=(Token)match(input,DROP,FOLLOW_DROP_in_drop_view_statement5152); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DROP.add(DROP200);
 
-					VIEW201=(Token)match(input,VIEW,FOLLOW_VIEW_in_drop_view_statement5149); if (state.failed) return retval; 
+					VIEW201=(Token)match(input,VIEW,FOLLOW_VIEW_in_drop_view_statement5154); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VIEW.add(VIEW201);
 
-					pushFollow(FOLLOW_table_in_drop_view_statement5153);
+					pushFollow(FOLLOW_table_in_drop_view_statement5158);
 					v=table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -8563,13 +8565,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 642:21: -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) )
+					// 643:21: -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) )
 					{
-						// DDL.g:642:24: ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) )
+						// DDL.g:643:24: ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_VIEW_STATEMENT, "DROP_VIEW_STATEMENT"), root_1);
-						// DDL.g:642:46: ^( VIEW_NAME $v)
+						// DDL.g:643:46: ^( VIEW_NAME $v)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VIEW_NAME, "VIEW_NAME"), root_2);
@@ -8589,20 +8591,20 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:644:2: DROP VIEW v= table restrict
+					// DDL.g:645:2: DROP VIEW v= table restrict
 					{
-					DROP202=(Token)match(input,DROP,FOLLOW_DROP_in_drop_view_statement5173); if (state.failed) return retval; 
+					DROP202=(Token)match(input,DROP,FOLLOW_DROP_in_drop_view_statement5178); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DROP.add(DROP202);
 
-					VIEW203=(Token)match(input,VIEW,FOLLOW_VIEW_in_drop_view_statement5175); if (state.failed) return retval; 
+					VIEW203=(Token)match(input,VIEW,FOLLOW_VIEW_in_drop_view_statement5180); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VIEW.add(VIEW203);
 
-					pushFollow(FOLLOW_table_in_drop_view_statement5179);
+					pushFollow(FOLLOW_table_in_drop_view_statement5184);
 					v=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(v.getTree());
-					pushFollow(FOLLOW_restrict_in_drop_view_statement5181);
+					pushFollow(FOLLOW_restrict_in_drop_view_statement5186);
 					restrict204=restrict();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -8620,13 +8622,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 644:29: -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict )
+					// 645:29: -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict )
 					{
-						// DDL.g:644:32: ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict )
+						// DDL.g:645:32: ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) restrict )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_VIEW_STATEMENT, "DROP_VIEW_STATEMENT"), root_1);
-						// DDL.g:644:54: ^( VIEW_NAME $v)
+						// DDL.g:645:54: ^( VIEW_NAME $v)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VIEW_NAME, "VIEW_NAME"), root_2);
@@ -8647,20 +8649,20 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:646:2: DROP VIEW v= table cascade
+					// DDL.g:647:2: DROP VIEW v= table cascade
 					{
-					DROP205=(Token)match(input,DROP,FOLLOW_DROP_in_drop_view_statement5202); if (state.failed) return retval; 
+					DROP205=(Token)match(input,DROP,FOLLOW_DROP_in_drop_view_statement5207); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DROP.add(DROP205);
 
-					VIEW206=(Token)match(input,VIEW,FOLLOW_VIEW_in_drop_view_statement5204); if (state.failed) return retval; 
+					VIEW206=(Token)match(input,VIEW,FOLLOW_VIEW_in_drop_view_statement5209); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_VIEW.add(VIEW206);
 
-					pushFollow(FOLLOW_table_in_drop_view_statement5208);
+					pushFollow(FOLLOW_table_in_drop_view_statement5213);
 					v=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(v.getTree());
-					pushFollow(FOLLOW_cascade_in_drop_view_statement5210);
+					pushFollow(FOLLOW_cascade_in_drop_view_statement5215);
 					cascade207=cascade();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -8678,13 +8680,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 646:28: -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade )
+					// 647:28: -> ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade )
 					{
-						// DDL.g:646:31: ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade )
+						// DDL.g:647:31: ^( DROP_VIEW_STATEMENT ^( VIEW_NAME $v) cascade )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DROP_VIEW_STATEMENT, "DROP_VIEW_STATEMENT"), root_1);
-						// DDL.g:646:53: ^( VIEW_NAME $v)
+						// DDL.g:647:53: ^( VIEW_NAME $v)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VIEW_NAME, "VIEW_NAME"), root_2);
@@ -8736,7 +8738,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "restrict"
-	// DDL.g:650:1: restrict : RESTRICT -> ^( RESTRICT ) ;
+	// DDL.g:651:1: restrict : RESTRICT -> ^( RESTRICT ) ;
 	public final DDLParser.restrict_return restrict() throws RecognitionException {
 		DDLParser.restrict_return retval = new DDLParser.restrict_return();
 		retval.start = input.LT(1);
@@ -8752,10 +8754,10 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
 
-			// DDL.g:650:9: ( RESTRICT -> ^( RESTRICT ) )
-			// DDL.g:651:2: RESTRICT
+			// DDL.g:651:9: ( RESTRICT -> ^( RESTRICT ) )
+			// DDL.g:652:2: RESTRICT
 			{
-			RESTRICT208=(Token)match(input,RESTRICT,FOLLOW_RESTRICT_in_restrict5247); if (state.failed) return retval; 
+			RESTRICT208=(Token)match(input,RESTRICT,FOLLOW_RESTRICT_in_restrict5252); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RESTRICT.add(RESTRICT208);
 
 			// AST REWRITE
@@ -8770,9 +8772,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 651:11: -> ^( RESTRICT )
+			// 652:11: -> ^( RESTRICT )
 			{
-				// DDL.g:651:14: ^( RESTRICT )
+				// DDL.g:652:14: ^( RESTRICT )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_RESTRICT.nextNode(), root_1);
@@ -8817,7 +8819,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "cascade"
-	// DDL.g:654:1: cascade : CASCADE -> ^( CASCADE ) ;
+	// DDL.g:655:1: cascade : CASCADE -> ^( CASCADE ) ;
 	public final DDLParser.cascade_return cascade() throws RecognitionException {
 		DDLParser.cascade_return retval = new DDLParser.cascade_return();
 		retval.start = input.LT(1);
@@ -8833,10 +8835,10 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
 
-			// DDL.g:654:8: ( CASCADE -> ^( CASCADE ) )
-			// DDL.g:655:2: CASCADE
+			// DDL.g:655:8: ( CASCADE -> ^( CASCADE ) )
+			// DDL.g:656:2: CASCADE
 			{
-			CASCADE209=(Token)match(input,CASCADE,FOLLOW_CASCADE_in_cascade5266); if (state.failed) return retval; 
+			CASCADE209=(Token)match(input,CASCADE,FOLLOW_CASCADE_in_cascade5271); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_CASCADE.add(CASCADE209);
 
 			// AST REWRITE
@@ -8851,9 +8853,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 655:11: -> ^( CASCADE )
+			// 656:11: -> ^( CASCADE )
 			{
-				// DDL.g:655:14: ^( CASCADE )
+				// DDL.g:656:14: ^( CASCADE )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_CASCADE.nextNode(), root_1);
@@ -8898,7 +8900,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "lock_statement"
-	// DDL.g:658:1: lock_statement : ( LOCK TABLE t= table IN SHARE MODE -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) ) | LOCK TABLE t= table IN EXCLUSIVE MODE ( allow_read )? -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? ) );
+	// DDL.g:659:1: lock_statement : ( LOCK TABLE t= table IN SHARE MODE -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) ) | LOCK TABLE t= table IN EXCLUSIVE MODE ( allow_read )? -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? ) );
 	public final DDLParser.lock_statement_return lock_statement() throws RecognitionException {
 		DDLParser.lock_statement_return retval = new DDLParser.lock_statement_return();
 		retval.start = input.LT(1);
@@ -8941,7 +8943,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
 
-			// DDL.g:659:2: ( LOCK TABLE t= table IN SHARE MODE -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) ) | LOCK TABLE t= table IN EXCLUSIVE MODE ( allow_read )? -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? ) )
+			// DDL.g:660:2: ( LOCK TABLE t= table IN SHARE MODE -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) ) | LOCK TABLE t= table IN EXCLUSIVE MODE ( allow_read )? -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? ) )
 			int alt69=2;
 			int LA69_0 = input.LA(1);
 			if ( (LA69_0==LOCK) ) {
@@ -9179,26 +9181,26 @@ public class DDLParser extends Parser {
 
 			switch (alt69) {
 				case 1 :
-					// DDL.g:660:2: LOCK TABLE t= table IN SHARE MODE
+					// DDL.g:661:2: LOCK TABLE t= table IN SHARE MODE
 					{
-					LOCK210=(Token)match(input,LOCK,FOLLOW_LOCK_in_lock_statement5285); if (state.failed) return retval; 
+					LOCK210=(Token)match(input,LOCK,FOLLOW_LOCK_in_lock_statement5290); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LOCK.add(LOCK210);
 
-					TABLE211=(Token)match(input,TABLE,FOLLOW_TABLE_in_lock_statement5287); if (state.failed) return retval; 
+					TABLE211=(Token)match(input,TABLE,FOLLOW_TABLE_in_lock_statement5292); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE211);
 
-					pushFollow(FOLLOW_table_in_lock_statement5291);
+					pushFollow(FOLLOW_table_in_lock_statement5296);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(t.getTree());
-					IN212=(Token)match(input,IN,FOLLOW_IN_in_lock_statement5293); if (state.failed) return retval; 
+					IN212=(Token)match(input,IN,FOLLOW_IN_in_lock_statement5298); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_IN.add(IN212);
 
-					SHARE213=(Token)match(input,SHARE,FOLLOW_SHARE_in_lock_statement5295); if (state.failed) return retval; 
+					SHARE213=(Token)match(input,SHARE,FOLLOW_SHARE_in_lock_statement5300); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_SHARE.add(SHARE213);
 
-					MODE214=(Token)match(input,MODE,FOLLOW_MODE_in_lock_statement5297); if (state.failed) return retval; 
+					MODE214=(Token)match(input,MODE,FOLLOW_MODE_in_lock_statement5302); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MODE.add(MODE214);
 
 					// AST REWRITE
@@ -9214,13 +9216,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 660:35: -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) )
+					// 661:35: -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) )
 					{
-						// DDL.g:660:38: ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) )
+						// DDL.g:661:38: ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( SHARE ) )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LOCK_TABLE_STATEMENT, "LOCK_TABLE_STATEMENT"), root_1);
-						// DDL.g:660:61: ^( TABLE_NAME $t)
+						// DDL.g:661:61: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -9228,7 +9230,7 @@ public class DDLParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// DDL.g:660:78: ^( SHARE )
+						// DDL.g:661:78: ^( SHARE )
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot(stream_SHARE.nextNode(), root_2);
@@ -9247,29 +9249,29 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:662:2: LOCK TABLE t= table IN EXCLUSIVE MODE ( allow_read )?
+					// DDL.g:663:2: LOCK TABLE t= table IN EXCLUSIVE MODE ( allow_read )?
 					{
-					LOCK215=(Token)match(input,LOCK,FOLLOW_LOCK_in_lock_statement5321); if (state.failed) return retval; 
+					LOCK215=(Token)match(input,LOCK,FOLLOW_LOCK_in_lock_statement5326); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LOCK.add(LOCK215);
 
-					TABLE216=(Token)match(input,TABLE,FOLLOW_TABLE_in_lock_statement5323); if (state.failed) return retval; 
+					TABLE216=(Token)match(input,TABLE,FOLLOW_TABLE_in_lock_statement5328); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_TABLE.add(TABLE216);
 
-					pushFollow(FOLLOW_table_in_lock_statement5327);
+					pushFollow(FOLLOW_table_in_lock_statement5332);
 					t=table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_table.add(t.getTree());
-					IN217=(Token)match(input,IN,FOLLOW_IN_in_lock_statement5329); if (state.failed) return retval; 
+					IN217=(Token)match(input,IN,FOLLOW_IN_in_lock_statement5334); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_IN.add(IN217);
 
-					EXCLUSIVE218=(Token)match(input,EXCLUSIVE,FOLLOW_EXCLUSIVE_in_lock_statement5331); if (state.failed) return retval; 
+					EXCLUSIVE218=(Token)match(input,EXCLUSIVE,FOLLOW_EXCLUSIVE_in_lock_statement5336); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_EXCLUSIVE.add(EXCLUSIVE218);
 
-					MODE219=(Token)match(input,MODE,FOLLOW_MODE_in_lock_statement5333); if (state.failed) return retval; 
+					MODE219=(Token)match(input,MODE,FOLLOW_MODE_in_lock_statement5338); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MODE.add(MODE219);
 
-					// DDL.g:662:39: ( allow_read )?
+					// DDL.g:663:39: ( allow_read )?
 					int alt68=2;
 					int LA68_0 = input.LA(1);
 					if ( (LA68_0==ALLOW) ) {
@@ -9277,9 +9279,9 @@ public class DDLParser extends Parser {
 					}
 					switch (alt68) {
 						case 1 :
-							// DDL.g:662:40: allow_read
+							// DDL.g:663:40: allow_read
 							{
-							pushFollow(FOLLOW_allow_read_in_lock_statement5336);
+							pushFollow(FOLLOW_allow_read_in_lock_statement5341);
 							allow_read220=allow_read();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -9302,13 +9304,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 662:53: -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? )
+					// 663:53: -> ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? )
 					{
-						// DDL.g:662:56: ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? )
+						// DDL.g:663:56: ^( LOCK_TABLE_STATEMENT ^( TABLE_NAME $t) ^( EXCLUSIVE ) ( allow_read )? )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LOCK_TABLE_STATEMENT, "LOCK_TABLE_STATEMENT"), root_1);
-						// DDL.g:662:79: ^( TABLE_NAME $t)
+						// DDL.g:663:79: ^( TABLE_NAME $t)
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -9316,14 +9318,14 @@ public class DDLParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// DDL.g:662:96: ^( EXCLUSIVE )
+						// DDL.g:663:96: ^( EXCLUSIVE )
 						{
 						CommonTree root_2 = (CommonTree)adaptor.nil();
 						root_2 = (CommonTree)adaptor.becomeRoot(stream_EXCLUSIVE.nextNode(), root_2);
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// DDL.g:662:109: ( allow_read )?
+						// DDL.g:663:109: ( allow_read )?
 						if ( stream_allow_read.hasNext() ) {
 							adaptor.addChild(root_1, stream_allow_read.nextTree());
 						}
@@ -9372,7 +9374,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "allow_read"
-	// DDL.g:665:1: allow_read : ALLOW READ -> ^( ALLOW_READ ) ;
+	// DDL.g:666:1: allow_read : ALLOW READ -> ^( ALLOW_READ ) ;
 	public final DDLParser.allow_read_return allow_read() throws RecognitionException {
 		DDLParser.allow_read_return retval = new DDLParser.allow_read_return();
 		retval.start = input.LT(1);
@@ -9391,13 +9393,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
 
-			// DDL.g:666:2: ( ALLOW READ -> ^( ALLOW_READ ) )
-			// DDL.g:667:2: ALLOW READ
+			// DDL.g:667:2: ( ALLOW READ -> ^( ALLOW_READ ) )
+			// DDL.g:668:2: ALLOW READ
 			{
-			ALLOW221=(Token)match(input,ALLOW,FOLLOW_ALLOW_in_allow_read5374); if (state.failed) return retval; 
+			ALLOW221=(Token)match(input,ALLOW,FOLLOW_ALLOW_in_allow_read5379); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ALLOW.add(ALLOW221);
 
-			READ222=(Token)match(input,READ,FOLLOW_READ_in_allow_read5376); if (state.failed) return retval; 
+			READ222=(Token)match(input,READ,FOLLOW_READ_in_allow_read5381); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_READ.add(READ222);
 
 			// AST REWRITE
@@ -9412,9 +9414,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 667:13: -> ^( ALLOW_READ )
+			// 668:13: -> ^( ALLOW_READ )
 			{
-				// DDL.g:667:16: ^( ALLOW_READ )
+				// DDL.g:668:16: ^( ALLOW_READ )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ALLOW_READ, "ALLOW_READ"), root_1);
@@ -9459,7 +9461,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "rename_table_statement"
-	// DDL.g:670:1: rename_table_statement : RENAME TABLE t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) ;
+	// DDL.g:671:1: rename_table_statement : RENAME TABLE t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) ;
 	public final DDLParser.rename_table_statement_return rename_table_statement() throws RecognitionException {
 		DDLParser.rename_table_statement_return retval = new DDLParser.rename_table_statement_return();
 		retval.start = input.LT(1);
@@ -9497,36 +9499,36 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
 
-			// DDL.g:671:2: ( RENAME TABLE t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) )
-			// DDL.g:672:2: RENAME TABLE t= table TO n= Identifier FOR SYSTEM NAME s= Identifier
+			// DDL.g:672:2: ( RENAME TABLE t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) )
+			// DDL.g:673:2: RENAME TABLE t= table TO n= Identifier FOR SYSTEM NAME s= Identifier
 			{
-			RENAME223=(Token)match(input,RENAME,FOLLOW_RENAME_in_rename_table_statement5395); if (state.failed) return retval; 
+			RENAME223=(Token)match(input,RENAME,FOLLOW_RENAME_in_rename_table_statement5400); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RENAME.add(RENAME223);
 
-			TABLE224=(Token)match(input,TABLE,FOLLOW_TABLE_in_rename_table_statement5397); if (state.failed) return retval; 
+			TABLE224=(Token)match(input,TABLE,FOLLOW_TABLE_in_rename_table_statement5402); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_TABLE.add(TABLE224);
 
-			pushFollow(FOLLOW_table_in_rename_table_statement5401);
+			pushFollow(FOLLOW_table_in_rename_table_statement5406);
 			t=table();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(t.getTree());
-			TO225=(Token)match(input,TO,FOLLOW_TO_in_rename_table_statement5403); if (state.failed) return retval; 
+			TO225=(Token)match(input,TO,FOLLOW_TO_in_rename_table_statement5408); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_TO.add(TO225);
 
-			n=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_table_statement5407); if (state.failed) return retval; 
+			n=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_table_statement5412); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(n);
 
-			FOR226=(Token)match(input,FOR,FOLLOW_FOR_in_rename_table_statement5409); if (state.failed) return retval; 
+			FOR226=(Token)match(input,FOR,FOLLOW_FOR_in_rename_table_statement5414); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_FOR.add(FOR226);
 
-			SYSTEM227=(Token)match(input,SYSTEM,FOLLOW_SYSTEM_in_rename_table_statement5411); if (state.failed) return retval; 
+			SYSTEM227=(Token)match(input,SYSTEM,FOLLOW_SYSTEM_in_rename_table_statement5416); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_SYSTEM.add(SYSTEM227);
 
-			NAME228=(Token)match(input,NAME,FOLLOW_NAME_in_rename_table_statement5413); if (state.failed) return retval; 
+			NAME228=(Token)match(input,NAME,FOLLOW_NAME_in_rename_table_statement5418); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_NAME.add(NAME228);
 
-			s=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_table_statement5417); if (state.failed) return retval; 
+			s=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_table_statement5422); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(s);
 
 			// AST REWRITE
@@ -9544,13 +9546,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 672:68: -> ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
+			// 673:68: -> ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
 			{
-				// DDL.g:672:71: ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
+				// DDL.g:673:71: ^( RENAME_TABLE_STATEMENT ^( TABLE_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RENAME_TABLE_STATEMENT, "RENAME_TABLE_STATEMENT"), root_1);
-				// DDL.g:672:96: ^( TABLE_NAME $t)
+				// DDL.g:673:96: ^( TABLE_NAME $t)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE_NAME, "TABLE_NAME"), root_2);
@@ -9558,7 +9560,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:672:113: ^( NEW_NAME $n)
+				// DDL.g:673:113: ^( NEW_NAME $n)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NEW_NAME, "NEW_NAME"), root_2);
@@ -9566,7 +9568,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:672:128: ^( SYSTEM $s)
+				// DDL.g:673:128: ^( SYSTEM $s)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot(stream_SYSTEM.nextNode(), root_2);
@@ -9615,7 +9617,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "rename_index_statement"
-	// DDL.g:675:1: rename_index_statement : RENAME INDEX t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) ;
+	// DDL.g:676:1: rename_index_statement : RENAME INDEX t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) ;
 	public final DDLParser.rename_index_statement_return rename_index_statement() throws RecognitionException {
 		DDLParser.rename_index_statement_return retval = new DDLParser.rename_index_statement_return();
 		retval.start = input.LT(1);
@@ -9653,36 +9655,36 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
 
-			// DDL.g:676:2: ( RENAME INDEX t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) )
-			// DDL.g:677:2: RENAME INDEX t= table TO n= Identifier FOR SYSTEM NAME s= Identifier
+			// DDL.g:677:2: ( RENAME INDEX t= table TO n= Identifier FOR SYSTEM NAME s= Identifier -> ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) ) )
+			// DDL.g:678:2: RENAME INDEX t= table TO n= Identifier FOR SYSTEM NAME s= Identifier
 			{
-			RENAME229=(Token)match(input,RENAME,FOLLOW_RENAME_in_rename_index_statement5457); if (state.failed) return retval; 
+			RENAME229=(Token)match(input,RENAME,FOLLOW_RENAME_in_rename_index_statement5462); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RENAME.add(RENAME229);
 
-			INDEX230=(Token)match(input,INDEX,FOLLOW_INDEX_in_rename_index_statement5459); if (state.failed) return retval; 
+			INDEX230=(Token)match(input,INDEX,FOLLOW_INDEX_in_rename_index_statement5464); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_INDEX.add(INDEX230);
 
-			pushFollow(FOLLOW_table_in_rename_index_statement5463);
+			pushFollow(FOLLOW_table_in_rename_index_statement5468);
 			t=table();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(t.getTree());
-			TO231=(Token)match(input,TO,FOLLOW_TO_in_rename_index_statement5465); if (state.failed) return retval; 
+			TO231=(Token)match(input,TO,FOLLOW_TO_in_rename_index_statement5470); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_TO.add(TO231);
 
-			n=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_index_statement5469); if (state.failed) return retval; 
+			n=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_index_statement5474); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(n);
 
-			FOR232=(Token)match(input,FOR,FOLLOW_FOR_in_rename_index_statement5471); if (state.failed) return retval; 
+			FOR232=(Token)match(input,FOR,FOLLOW_FOR_in_rename_index_statement5476); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_FOR.add(FOR232);
 
-			SYSTEM233=(Token)match(input,SYSTEM,FOLLOW_SYSTEM_in_rename_index_statement5473); if (state.failed) return retval; 
+			SYSTEM233=(Token)match(input,SYSTEM,FOLLOW_SYSTEM_in_rename_index_statement5478); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_SYSTEM.add(SYSTEM233);
 
-			NAME234=(Token)match(input,NAME,FOLLOW_NAME_in_rename_index_statement5475); if (state.failed) return retval; 
+			NAME234=(Token)match(input,NAME,FOLLOW_NAME_in_rename_index_statement5480); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_NAME.add(NAME234);
 
-			s=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_index_statement5479); if (state.failed) return retval; 
+			s=(Token)match(input,Identifier,FOLLOW_Identifier_in_rename_index_statement5484); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(s);
 
 			// AST REWRITE
@@ -9700,13 +9702,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 677:68: -> ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
+			// 678:68: -> ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
 			{
-				// DDL.g:677:71: ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
+				// DDL.g:678:71: ^( RENAME_INDEX_STATEMENT ^( INDEX_NAME $t) ^( NEW_NAME $n) ^( SYSTEM $s) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RENAME_INDEX_STATEMENT, "RENAME_INDEX_STATEMENT"), root_1);
-				// DDL.g:677:96: ^( INDEX_NAME $t)
+				// DDL.g:678:96: ^( INDEX_NAME $t)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(INDEX_NAME, "INDEX_NAME"), root_2);
@@ -9714,7 +9716,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:677:113: ^( NEW_NAME $n)
+				// DDL.g:678:113: ^( NEW_NAME $n)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NEW_NAME, "NEW_NAME"), root_2);
@@ -9722,7 +9724,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:677:128: ^( SYSTEM $s)
+				// DDL.g:678:128: ^( SYSTEM $s)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot(stream_SYSTEM.nextNode(), root_2);
@@ -9771,7 +9773,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "release_statement"
-	// DDL.g:680:1: release_statement : ( RELEASE -> ^( RELEASE_STATEMENT ) | RELEASE ALL -> ^( RELEASE_STATEMENT ALL ) | RELEASE CURRENT -> ^( RELEASE_STATEMENT CURRENT ) );
+	// DDL.g:681:1: release_statement : ( RELEASE -> ^( RELEASE_STATEMENT ) | RELEASE ALL -> ^( RELEASE_STATEMENT ALL ) | RELEASE CURRENT -> ^( RELEASE_STATEMENT CURRENT ) );
 	public final DDLParser.release_statement_return release_statement() throws RecognitionException {
 		DDLParser.release_statement_return retval = new DDLParser.release_statement_return();
 		retval.start = input.LT(1);
@@ -9797,7 +9799,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
 
-			// DDL.g:681:2: ( RELEASE -> ^( RELEASE_STATEMENT ) | RELEASE ALL -> ^( RELEASE_STATEMENT ALL ) | RELEASE CURRENT -> ^( RELEASE_STATEMENT CURRENT ) )
+			// DDL.g:682:2: ( RELEASE -> ^( RELEASE_STATEMENT ) | RELEASE ALL -> ^( RELEASE_STATEMENT ALL ) | RELEASE CURRENT -> ^( RELEASE_STATEMENT CURRENT ) )
 			int alt70=3;
 			int LA70_0 = input.LA(1);
 			if ( (LA70_0==RELEASE) ) {
@@ -9840,9 +9842,9 @@ public class DDLParser extends Parser {
 
 			switch (alt70) {
 				case 1 :
-					// DDL.g:681:4: RELEASE
+					// DDL.g:682:4: RELEASE
 					{
-					RELEASE235=(Token)match(input,RELEASE,FOLLOW_RELEASE_in_release_statement5520); if (state.failed) return retval; 
+					RELEASE235=(Token)match(input,RELEASE,FOLLOW_RELEASE_in_release_statement5525); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_RELEASE.add(RELEASE235);
 
 					// AST REWRITE
@@ -9857,9 +9859,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 681:12: -> ^( RELEASE_STATEMENT )
+					// 682:12: -> ^( RELEASE_STATEMENT )
 					{
-						// DDL.g:681:15: ^( RELEASE_STATEMENT )
+						// DDL.g:682:15: ^( RELEASE_STATEMENT )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RELEASE_STATEMENT, "RELEASE_STATEMENT"), root_1);
@@ -9875,12 +9877,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:683:4: RELEASE ALL
+					// DDL.g:684:4: RELEASE ALL
 					{
-					RELEASE236=(Token)match(input,RELEASE,FOLLOW_RELEASE_in_release_statement5536); if (state.failed) return retval; 
+					RELEASE236=(Token)match(input,RELEASE,FOLLOW_RELEASE_in_release_statement5541); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_RELEASE.add(RELEASE236);
 
-					ALL237=(Token)match(input,ALL,FOLLOW_ALL_in_release_statement5538); if (state.failed) return retval; 
+					ALL237=(Token)match(input,ALL,FOLLOW_ALL_in_release_statement5543); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ALL.add(ALL237);
 
 					// AST REWRITE
@@ -9895,9 +9897,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 683:16: -> ^( RELEASE_STATEMENT ALL )
+					// 684:16: -> ^( RELEASE_STATEMENT ALL )
 					{
-						// DDL.g:683:19: ^( RELEASE_STATEMENT ALL )
+						// DDL.g:684:19: ^( RELEASE_STATEMENT ALL )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RELEASE_STATEMENT, "RELEASE_STATEMENT"), root_1);
@@ -9914,12 +9916,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:685:4: RELEASE CURRENT
+					// DDL.g:686:4: RELEASE CURRENT
 					{
-					RELEASE238=(Token)match(input,RELEASE,FOLLOW_RELEASE_in_release_statement5556); if (state.failed) return retval; 
+					RELEASE238=(Token)match(input,RELEASE,FOLLOW_RELEASE_in_release_statement5561); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_RELEASE.add(RELEASE238);
 
-					CURRENT239=(Token)match(input,CURRENT,FOLLOW_CURRENT_in_release_statement5558); if (state.failed) return retval; 
+					CURRENT239=(Token)match(input,CURRENT,FOLLOW_CURRENT_in_release_statement5563); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_CURRENT.add(CURRENT239);
 
 					// AST REWRITE
@@ -9934,9 +9936,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 685:20: -> ^( RELEASE_STATEMENT CURRENT )
+					// 686:20: -> ^( RELEASE_STATEMENT CURRENT )
 					{
-						// DDL.g:685:23: ^( RELEASE_STATEMENT CURRENT )
+						// DDL.g:686:23: ^( RELEASE_STATEMENT CURRENT )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RELEASE_STATEMENT, "RELEASE_STATEMENT"), root_1);
@@ -9984,7 +9986,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "rollback_statement"
-	// DDL.g:688:1: rollback_statement : ROLLBACK (h= HOLD )? -> ^( ROLLBACK_STATEMENT ( $h)? ) ;
+	// DDL.g:689:1: rollback_statement : ROLLBACK (h= HOLD )? -> ^( ROLLBACK_STATEMENT ( $h)? ) ;
 	public final DDLParser.rollback_statement_return rollback_statement() throws RecognitionException {
 		DDLParser.rollback_statement_return retval = new DDLParser.rollback_statement_return();
 		retval.start = input.LT(1);
@@ -10003,13 +10005,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
 
-			// DDL.g:689:2: ( ROLLBACK (h= HOLD )? -> ^( ROLLBACK_STATEMENT ( $h)? ) )
-			// DDL.g:690:2: ROLLBACK (h= HOLD )?
+			// DDL.g:690:2: ( ROLLBACK (h= HOLD )? -> ^( ROLLBACK_STATEMENT ( $h)? ) )
+			// DDL.g:691:2: ROLLBACK (h= HOLD )?
 			{
-			ROLLBACK240=(Token)match(input,ROLLBACK,FOLLOW_ROLLBACK_in_rollback_statement5580); if (state.failed) return retval; 
+			ROLLBACK240=(Token)match(input,ROLLBACK,FOLLOW_ROLLBACK_in_rollback_statement5585); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ROLLBACK.add(ROLLBACK240);
 
-			// DDL.g:690:11: (h= HOLD )?
+			// DDL.g:691:11: (h= HOLD )?
 			int alt71=2;
 			int LA71_0 = input.LA(1);
 			if ( (LA71_0==HOLD) ) {
@@ -10017,9 +10019,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt71) {
 				case 1 :
-					// DDL.g:690:12: h= HOLD
+					// DDL.g:691:12: h= HOLD
 					{
-					h=(Token)match(input,HOLD,FOLLOW_HOLD_in_rollback_statement5585); if (state.failed) return retval; 
+					h=(Token)match(input,HOLD,FOLLOW_HOLD_in_rollback_statement5590); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_HOLD.add(h);
 
 					}
@@ -10040,13 +10042,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 690:21: -> ^( ROLLBACK_STATEMENT ( $h)? )
+			// 691:21: -> ^( ROLLBACK_STATEMENT ( $h)? )
 			{
-				// DDL.g:690:24: ^( ROLLBACK_STATEMENT ( $h)? )
+				// DDL.g:691:24: ^( ROLLBACK_STATEMENT ( $h)? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ROLLBACK_STATEMENT, "ROLLBACK_STATEMENT"), root_1);
-				// DDL.g:690:45: ( $h)?
+				// DDL.g:691:45: ( $h)?
 				if ( stream_h.hasNext() ) {
 					adaptor.addChild(root_1, stream_h.nextNode());
 				}
@@ -10093,7 +10095,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "set_connection_statement"
-	// DDL.g:693:1: set_connection_statement : SET CONNECTION d= Identifier -> ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) ) ;
+	// DDL.g:694:1: set_connection_statement : SET CONNECTION d= Identifier -> ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) ) ;
 	public final DDLParser.set_connection_statement_return set_connection_statement() throws RecognitionException {
 		DDLParser.set_connection_statement_return retval = new DDLParser.set_connection_statement_return();
 		retval.start = input.LT(1);
@@ -10115,16 +10117,16 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
 
-			// DDL.g:694:2: ( SET CONNECTION d= Identifier -> ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) ) )
-			// DDL.g:695:2: SET CONNECTION d= Identifier
+			// DDL.g:695:2: ( SET CONNECTION d= Identifier -> ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) ) )
+			// DDL.g:696:2: SET CONNECTION d= Identifier
 			{
-			SET241=(Token)match(input,SET,FOLLOW_SET_in_set_connection_statement5612); if (state.failed) return retval; 
+			SET241=(Token)match(input,SET,FOLLOW_SET_in_set_connection_statement5617); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_SET.add(SET241);
 
-			CONNECTION242=(Token)match(input,CONNECTION,FOLLOW_CONNECTION_in_set_connection_statement5614); if (state.failed) return retval; 
+			CONNECTION242=(Token)match(input,CONNECTION,FOLLOW_CONNECTION_in_set_connection_statement5619); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_CONNECTION.add(CONNECTION242);
 
-			d=(Token)match(input,Identifier,FOLLOW_Identifier_in_set_connection_statement5618); if (state.failed) return retval; 
+			d=(Token)match(input,Identifier,FOLLOW_Identifier_in_set_connection_statement5623); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(d);
 
 			// AST REWRITE
@@ -10140,13 +10142,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 695:30: -> ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) )
+			// 696:30: -> ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) )
 			{
-				// DDL.g:695:33: ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) )
+				// DDL.g:696:33: ^( SET_CONNECTION_STATEMENT ^( DB_NAME $d) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SET_CONNECTION_STATEMENT, "SET_CONNECTION_STATEMENT"), root_1);
-				// DDL.g:695:60: ^( DB_NAME $d)
+				// DDL.g:696:60: ^( DB_NAME $d)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(DB_NAME, "DB_NAME"), root_2);
@@ -10195,7 +10197,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "set_transaction_statement"
-	// DDL.g:698:1: set_transaction_statement : SET TRANSACTION ISOLATION LEVEL i= isolation_level ( COMMA r= read_operation )? -> ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? ) ;
+	// DDL.g:699:1: set_transaction_statement : SET TRANSACTION ISOLATION LEVEL i= isolation_level ( COMMA r= read_operation )? -> ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? ) ;
 	public final DDLParser.set_transaction_statement_return set_transaction_statement() throws RecognitionException {
 		DDLParser.set_transaction_statement_return retval = new DDLParser.set_transaction_statement_return();
 		retval.start = input.LT(1);
@@ -10227,27 +10229,27 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
 
-			// DDL.g:699:2: ( SET TRANSACTION ISOLATION LEVEL i= isolation_level ( COMMA r= read_operation )? -> ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? ) )
-			// DDL.g:700:2: SET TRANSACTION ISOLATION LEVEL i= isolation_level ( COMMA r= read_operation )?
+			// DDL.g:700:2: ( SET TRANSACTION ISOLATION LEVEL i= isolation_level ( COMMA r= read_operation )? -> ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? ) )
+			// DDL.g:701:2: SET TRANSACTION ISOLATION LEVEL i= isolation_level ( COMMA r= read_operation )?
 			{
-			SET243=(Token)match(input,SET,FOLLOW_SET_in_set_transaction_statement5644); if (state.failed) return retval; 
+			SET243=(Token)match(input,SET,FOLLOW_SET_in_set_transaction_statement5649); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_SET.add(SET243);
 
-			TRANSACTION244=(Token)match(input,TRANSACTION,FOLLOW_TRANSACTION_in_set_transaction_statement5646); if (state.failed) return retval; 
+			TRANSACTION244=(Token)match(input,TRANSACTION,FOLLOW_TRANSACTION_in_set_transaction_statement5651); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_TRANSACTION.add(TRANSACTION244);
 
-			ISOLATION245=(Token)match(input,ISOLATION,FOLLOW_ISOLATION_in_set_transaction_statement5648); if (state.failed) return retval; 
+			ISOLATION245=(Token)match(input,ISOLATION,FOLLOW_ISOLATION_in_set_transaction_statement5653); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ISOLATION.add(ISOLATION245);
 
-			LEVEL246=(Token)match(input,LEVEL,FOLLOW_LEVEL_in_set_transaction_statement5650); if (state.failed) return retval; 
+			LEVEL246=(Token)match(input,LEVEL,FOLLOW_LEVEL_in_set_transaction_statement5655); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LEVEL.add(LEVEL246);
 
-			pushFollow(FOLLOW_isolation_level_in_set_transaction_statement5654);
+			pushFollow(FOLLOW_isolation_level_in_set_transaction_statement5659);
 			i=isolation_level();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_isolation_level.add(i.getTree());
-			// DDL.g:700:52: ( COMMA r= read_operation )?
+			// DDL.g:701:52: ( COMMA r= read_operation )?
 			int alt72=2;
 			int LA72_0 = input.LA(1);
 			if ( (LA72_0==COMMA) ) {
@@ -10255,12 +10257,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt72) {
 				case 1 :
-					// DDL.g:700:53: COMMA r= read_operation
+					// DDL.g:701:53: COMMA r= read_operation
 					{
-					COMMA247=(Token)match(input,COMMA,FOLLOW_COMMA_in_set_transaction_statement5657); if (state.failed) return retval; 
+					COMMA247=(Token)match(input,COMMA,FOLLOW_COMMA_in_set_transaction_statement5662); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(COMMA247);
 
-					pushFollow(FOLLOW_read_operation_in_set_transaction_statement5661);
+					pushFollow(FOLLOW_read_operation_in_set_transaction_statement5666);
 					r=read_operation();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10284,13 +10286,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_i=new RewriteRuleSubtreeStream(adaptor,"rule i",i!=null?i.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 700:78: -> ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? )
+			// 701:78: -> ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? )
 			{
-				// DDL.g:702:2: ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? )
+				// DDL.g:703:2: ^( SET_TRANSACTION_STATEMENT ^( ISOLATION_LEVEL $i) ( ^( RW_OPERATION $r) )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SET_TRANSACTION_STATEMENT, "SET_TRANSACTION_STATEMENT"), root_1);
-				// DDL.g:702:30: ^( ISOLATION_LEVEL $i)
+				// DDL.g:703:30: ^( ISOLATION_LEVEL $i)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ISOLATION_LEVEL, "ISOLATION_LEVEL"), root_2);
@@ -10298,9 +10300,9 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:702:52: ( ^( RW_OPERATION $r) )?
+				// DDL.g:703:52: ( ^( RW_OPERATION $r) )?
 				if ( stream_r.hasNext() ) {
-					// DDL.g:702:53: ^( RW_OPERATION $r)
+					// DDL.g:703:53: ^( RW_OPERATION $r)
 					{
 					CommonTree root_2 = (CommonTree)adaptor.nil();
 					root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(RW_OPERATION, "RW_OPERATION"), root_2);
@@ -10352,7 +10354,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "isolation_level"
-	// DDL.g:705:1: isolation_level : ( SERIALIZABLE | no_commit | read_uncommitted | read_committed | repeatable_read );
+	// DDL.g:706:1: isolation_level : ( SERIALIZABLE | no_commit | read_uncommitted | read_committed | repeatable_read );
 	public final DDLParser.isolation_level_return isolation_level() throws RecognitionException {
 		DDLParser.isolation_level_return retval = new DDLParser.isolation_level_return();
 		retval.start = input.LT(1);
@@ -10371,7 +10373,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
 
-			// DDL.g:706:2: ( SERIALIZABLE | no_commit | read_uncommitted | read_committed | repeatable_read )
+			// DDL.g:707:2: ( SERIALIZABLE | no_commit | read_uncommitted | read_committed | repeatable_read )
 			int alt73=5;
 			switch ( input.LA(1) ) {
 			case SERIALIZABLE:
@@ -10422,12 +10424,12 @@ public class DDLParser extends Parser {
 			}
 			switch (alt73) {
 				case 1 :
-					// DDL.g:707:2: SERIALIZABLE
+					// DDL.g:708:2: SERIALIZABLE
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					SERIALIZABLE248=(Token)match(input,SERIALIZABLE,FOLLOW_SERIALIZABLE_in_isolation_level5702); if (state.failed) return retval;
+					SERIALIZABLE248=(Token)match(input,SERIALIZABLE,FOLLOW_SERIALIZABLE_in_isolation_level5707); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					SERIALIZABLE248_tree = (CommonTree)adaptor.create(SERIALIZABLE248);
 					adaptor.addChild(root_0, SERIALIZABLE248_tree);
@@ -10436,12 +10438,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:709:2: no_commit
+					// DDL.g:710:2: no_commit
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_no_commit_in_isolation_level5708);
+					pushFollow(FOLLOW_no_commit_in_isolation_level5713);
 					no_commit249=no_commit();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10450,12 +10452,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:711:2: read_uncommitted
+					// DDL.g:712:2: read_uncommitted
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_read_uncommitted_in_isolation_level5714);
+					pushFollow(FOLLOW_read_uncommitted_in_isolation_level5719);
 					read_uncommitted250=read_uncommitted();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10464,12 +10466,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// DDL.g:713:2: read_committed
+					// DDL.g:714:2: read_committed
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_read_committed_in_isolation_level5720);
+					pushFollow(FOLLOW_read_committed_in_isolation_level5725);
 					read_committed251=read_committed();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10478,12 +10480,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 5 :
-					// DDL.g:715:2: repeatable_read
+					// DDL.g:716:2: repeatable_read
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_repeatable_read_in_isolation_level5726);
+					pushFollow(FOLLOW_repeatable_read_in_isolation_level5731);
 					repeatable_read252=repeatable_read();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10523,7 +10525,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "no_commit"
-	// DDL.g:718:1: no_commit : NO COMMIT -> ^( NO_COMMIT ) ;
+	// DDL.g:719:1: no_commit : NO COMMIT -> ^( NO_COMMIT ) ;
 	public final DDLParser.no_commit_return no_commit() throws RecognitionException {
 		DDLParser.no_commit_return retval = new DDLParser.no_commit_return();
 		retval.start = input.LT(1);
@@ -10542,13 +10544,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
 
-			// DDL.g:719:2: ( NO COMMIT -> ^( NO_COMMIT ) )
-			// DDL.g:720:2: NO COMMIT
+			// DDL.g:720:2: ( NO COMMIT -> ^( NO_COMMIT ) )
+			// DDL.g:721:2: NO COMMIT
 			{
-			NO253=(Token)match(input,NO,FOLLOW_NO_in_no_commit5740); if (state.failed) return retval; 
+			NO253=(Token)match(input,NO,FOLLOW_NO_in_no_commit5745); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_NO.add(NO253);
 
-			COMMIT254=(Token)match(input,COMMIT,FOLLOW_COMMIT_in_no_commit5742); if (state.failed) return retval; 
+			COMMIT254=(Token)match(input,COMMIT,FOLLOW_COMMIT_in_no_commit5747); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COMMIT.add(COMMIT254);
 
 			// AST REWRITE
@@ -10563,9 +10565,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 720:12: -> ^( NO_COMMIT )
+			// 721:12: -> ^( NO_COMMIT )
 			{
-				// DDL.g:720:15: ^( NO_COMMIT )
+				// DDL.g:721:15: ^( NO_COMMIT )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NO_COMMIT, "NO_COMMIT"), root_1);
@@ -10610,7 +10612,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "read_uncommitted"
-	// DDL.g:723:1: read_uncommitted : READ UNCOMMITTED -> ^( READ_UNCOMMITTED ) ;
+	// DDL.g:724:1: read_uncommitted : READ UNCOMMITTED -> ^( READ_UNCOMMITTED ) ;
 	public final DDLParser.read_uncommitted_return read_uncommitted() throws RecognitionException {
 		DDLParser.read_uncommitted_return retval = new DDLParser.read_uncommitted_return();
 		retval.start = input.LT(1);
@@ -10629,13 +10631,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
 
-			// DDL.g:724:2: ( READ UNCOMMITTED -> ^( READ_UNCOMMITTED ) )
-			// DDL.g:725:2: READ UNCOMMITTED
+			// DDL.g:725:2: ( READ UNCOMMITTED -> ^( READ_UNCOMMITTED ) )
+			// DDL.g:726:2: READ UNCOMMITTED
 			{
-			READ255=(Token)match(input,READ,FOLLOW_READ_in_read_uncommitted5765); if (state.failed) return retval; 
+			READ255=(Token)match(input,READ,FOLLOW_READ_in_read_uncommitted5770); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_READ.add(READ255);
 
-			UNCOMMITTED256=(Token)match(input,UNCOMMITTED,FOLLOW_UNCOMMITTED_in_read_uncommitted5767); if (state.failed) return retval; 
+			UNCOMMITTED256=(Token)match(input,UNCOMMITTED,FOLLOW_UNCOMMITTED_in_read_uncommitted5772); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_UNCOMMITTED.add(UNCOMMITTED256);
 
 			// AST REWRITE
@@ -10650,9 +10652,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 725:19: -> ^( READ_UNCOMMITTED )
+			// 726:19: -> ^( READ_UNCOMMITTED )
 			{
-				// DDL.g:725:22: ^( READ_UNCOMMITTED )
+				// DDL.g:726:22: ^( READ_UNCOMMITTED )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(READ_UNCOMMITTED, "READ_UNCOMMITTED"), root_1);
@@ -10697,7 +10699,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "read_committed"
-	// DDL.g:728:1: read_committed : READ COMMITTED -> ^( READ_COMMITTED ) ;
+	// DDL.g:729:1: read_committed : READ COMMITTED -> ^( READ_COMMITTED ) ;
 	public final DDLParser.read_committed_return read_committed() throws RecognitionException {
 		DDLParser.read_committed_return retval = new DDLParser.read_committed_return();
 		retval.start = input.LT(1);
@@ -10716,13 +10718,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
 
-			// DDL.g:729:2: ( READ COMMITTED -> ^( READ_COMMITTED ) )
-			// DDL.g:730:2: READ COMMITTED
+			// DDL.g:730:2: ( READ COMMITTED -> ^( READ_COMMITTED ) )
+			// DDL.g:731:2: READ COMMITTED
 			{
-			READ257=(Token)match(input,READ,FOLLOW_READ_in_read_committed5786); if (state.failed) return retval; 
+			READ257=(Token)match(input,READ,FOLLOW_READ_in_read_committed5791); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_READ.add(READ257);
 
-			COMMITTED258=(Token)match(input,COMMITTED,FOLLOW_COMMITTED_in_read_committed5788); if (state.failed) return retval; 
+			COMMITTED258=(Token)match(input,COMMITTED,FOLLOW_COMMITTED_in_read_committed5793); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COMMITTED.add(COMMITTED258);
 
 			// AST REWRITE
@@ -10737,9 +10739,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 730:17: -> ^( READ_COMMITTED )
+			// 731:17: -> ^( READ_COMMITTED )
 			{
-				// DDL.g:730:20: ^( READ_COMMITTED )
+				// DDL.g:731:20: ^( READ_COMMITTED )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(READ_COMMITTED, "READ_COMMITTED"), root_1);
@@ -10784,7 +10786,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "repeatable_read"
-	// DDL.g:733:1: repeatable_read : REPEATABLE READ -> ^( REPEATABLE_READ ) ;
+	// DDL.g:734:1: repeatable_read : REPEATABLE READ -> ^( REPEATABLE_READ ) ;
 	public final DDLParser.repeatable_read_return repeatable_read() throws RecognitionException {
 		DDLParser.repeatable_read_return retval = new DDLParser.repeatable_read_return();
 		retval.start = input.LT(1);
@@ -10803,13 +10805,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
 
-			// DDL.g:734:2: ( REPEATABLE READ -> ^( REPEATABLE_READ ) )
-			// DDL.g:735:2: REPEATABLE READ
+			// DDL.g:735:2: ( REPEATABLE READ -> ^( REPEATABLE_READ ) )
+			// DDL.g:736:2: REPEATABLE READ
 			{
-			REPEATABLE259=(Token)match(input,REPEATABLE,FOLLOW_REPEATABLE_in_repeatable_read5809); if (state.failed) return retval; 
+			REPEATABLE259=(Token)match(input,REPEATABLE,FOLLOW_REPEATABLE_in_repeatable_read5814); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_REPEATABLE.add(REPEATABLE259);
 
-			READ260=(Token)match(input,READ,FOLLOW_READ_in_repeatable_read5811); if (state.failed) return retval; 
+			READ260=(Token)match(input,READ,FOLLOW_READ_in_repeatable_read5816); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_READ.add(READ260);
 
 			// AST REWRITE
@@ -10824,9 +10826,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 735:18: -> ^( REPEATABLE_READ )
+			// 736:18: -> ^( REPEATABLE_READ )
 			{
-				// DDL.g:735:21: ^( REPEATABLE_READ )
+				// DDL.g:736:21: ^( REPEATABLE_READ )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(REPEATABLE_READ, "REPEATABLE_READ"), root_1);
@@ -10871,7 +10873,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "read_operation"
-	// DDL.g:738:1: read_operation : ( read_only | read_write );
+	// DDL.g:739:1: read_operation : ( read_only | read_write );
 	public final DDLParser.read_operation_return read_operation() throws RecognitionException {
 		DDLParser.read_operation_return retval = new DDLParser.read_operation_return();
 		retval.start = input.LT(1);
@@ -10886,7 +10888,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
 
-			// DDL.g:739:2: ( read_only | read_write )
+			// DDL.g:740:2: ( read_only | read_write )
 			int alt74=2;
 			int LA74_0 = input.LA(1);
 			if ( (LA74_0==READ) ) {
@@ -10922,12 +10924,12 @@ public class DDLParser extends Parser {
 
 			switch (alt74) {
 				case 1 :
-					// DDL.g:740:2: read_only
+					// DDL.g:741:2: read_only
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_read_only_in_read_operation5830);
+					pushFollow(FOLLOW_read_only_in_read_operation5835);
 					read_only261=read_only();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10936,12 +10938,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:742:2: read_write
+					// DDL.g:743:2: read_write
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_read_write_in_read_operation5836);
+					pushFollow(FOLLOW_read_write_in_read_operation5841);
 					read_write262=read_write();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -10981,7 +10983,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "read_only"
-	// DDL.g:745:1: read_only : READ ONLY -> ^( READ_ONLY ) ;
+	// DDL.g:746:1: read_only : READ ONLY -> ^( READ_ONLY ) ;
 	public final DDLParser.read_only_return read_only() throws RecognitionException {
 		DDLParser.read_only_return retval = new DDLParser.read_only_return();
 		retval.start = input.LT(1);
@@ -11000,13 +11002,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
 
-			// DDL.g:746:2: ( READ ONLY -> ^( READ_ONLY ) )
-			// DDL.g:747:2: READ ONLY
+			// DDL.g:747:2: ( READ ONLY -> ^( READ_ONLY ) )
+			// DDL.g:748:2: READ ONLY
 			{
-			READ263=(Token)match(input,READ,FOLLOW_READ_in_read_only5849); if (state.failed) return retval; 
+			READ263=(Token)match(input,READ,FOLLOW_READ_in_read_only5854); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_READ.add(READ263);
 
-			ONLY264=(Token)match(input,ONLY,FOLLOW_ONLY_in_read_only5851); if (state.failed) return retval; 
+			ONLY264=(Token)match(input,ONLY,FOLLOW_ONLY_in_read_only5856); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ONLY.add(ONLY264);
 
 			// AST REWRITE
@@ -11021,9 +11023,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 747:12: -> ^( READ_ONLY )
+			// 748:12: -> ^( READ_ONLY )
 			{
-				// DDL.g:747:15: ^( READ_ONLY )
+				// DDL.g:748:15: ^( READ_ONLY )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(READ_ONLY, "READ_ONLY"), root_1);
@@ -11068,7 +11070,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "read_write"
-	// DDL.g:750:1: read_write : READ WRITE -> ^( READ_WRITE ) ;
+	// DDL.g:751:1: read_write : READ WRITE -> ^( READ_WRITE ) ;
 	public final DDLParser.read_write_return read_write() throws RecognitionException {
 		DDLParser.read_write_return retval = new DDLParser.read_write_return();
 		retval.start = input.LT(1);
@@ -11087,13 +11089,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
 
-			// DDL.g:751:2: ( READ WRITE -> ^( READ_WRITE ) )
-			// DDL.g:752:2: READ WRITE
+			// DDL.g:752:2: ( READ WRITE -> ^( READ_WRITE ) )
+			// DDL.g:753:2: READ WRITE
 			{
-			READ265=(Token)match(input,READ,FOLLOW_READ_in_read_write5871); if (state.failed) return retval; 
+			READ265=(Token)match(input,READ,FOLLOW_READ_in_read_write5876); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_READ.add(READ265);
 
-			WRITE266=(Token)match(input,WRITE,FOLLOW_WRITE_in_read_write5873); if (state.failed) return retval; 
+			WRITE266=(Token)match(input,WRITE,FOLLOW_WRITE_in_read_write5878); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_WRITE.add(WRITE266);
 
 			// AST REWRITE
@@ -11108,9 +11110,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 752:13: -> ^( READ_WRITE )
+			// 753:13: -> ^( READ_WRITE )
 			{
-				// DDL.g:752:16: ^( READ_WRITE )
+				// DDL.g:753:16: ^( READ_WRITE )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(READ_WRITE, "READ_WRITE"), root_1);
@@ -11155,7 +11157,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "call_procedure"
-	// DDL.g:756:1: call_procedure : CALL i= qualified_identifier ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN ) -> ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) ) ;
+	// DDL.g:757:1: call_procedure : CALL i= qualified_identifier ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN ) -> ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) ) ;
 	public final DDLParser.call_procedure_return call_procedure() throws RecognitionException {
 		DDLParser.call_procedure_return retval = new DDLParser.call_procedure_return();
 		retval.start = input.LT(1);
@@ -11181,24 +11183,24 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
 
-			// DDL.g:757:2: ( CALL i= qualified_identifier ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN ) -> ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) ) )
-			// DDL.g:758:2: CALL i= qualified_identifier ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN )
+			// DDL.g:758:2: ( CALL i= qualified_identifier ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN ) -> ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) ) )
+			// DDL.g:759:2: CALL i= qualified_identifier ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN )
 			{
-			CALL267=(Token)match(input,CALL,FOLLOW_CALL_in_call_procedure5896); if (state.failed) return retval; 
+			CALL267=(Token)match(input,CALL,FOLLOW_CALL_in_call_procedure5901); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_CALL.add(CALL267);
 
-			pushFollow(FOLLOW_qualified_identifier_in_call_procedure5900);
+			pushFollow(FOLLOW_qualified_identifier_in_call_procedure5905);
 			i=qualified_identifier();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_qualified_identifier.add(i.getTree());
-			// DDL.g:758:30: ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN )
-			// DDL.g:758:31: LEFT_PAREN ( funcArgs )? RIGHT_PAREN
+			// DDL.g:759:30: ( LEFT_PAREN ( funcArgs )? RIGHT_PAREN )
+			// DDL.g:759:31: LEFT_PAREN ( funcArgs )? RIGHT_PAREN
 			{
-			LEFT_PAREN268=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_call_procedure5903); if (state.failed) return retval; 
+			LEFT_PAREN268=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_call_procedure5908); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN268);
 
-			// DDL.g:758:42: ( funcArgs )?
+			// DDL.g:759:42: ( funcArgs )?
 			int alt75=2;
 			int LA75_0 = input.LA(1);
 			if ( (LA75_0==CASE||LA75_0==COUNT||LA75_0==Character_String_Literal||LA75_0==Identifier||LA75_0==LEFT_PAREN||LA75_0==MINUS||LA75_0==NOT||LA75_0==NULL||LA75_0==NUMBER||LA75_0==PLUS||LA75_0==REAL_NUMBER) ) {
@@ -11206,9 +11208,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt75) {
 				case 1 :
-					// DDL.g:758:42: funcArgs
+					// DDL.g:759:42: funcArgs
 					{
-					pushFollow(FOLLOW_funcArgs_in_call_procedure5905);
+					pushFollow(FOLLOW_funcArgs_in_call_procedure5910);
 					funcArgs269=funcArgs();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11218,7 +11220,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			RIGHT_PAREN270=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_call_procedure5908); if (state.failed) return retval; 
+			RIGHT_PAREN270=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_call_procedure5913); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN270);
 
 			}
@@ -11236,13 +11238,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_i=new RewriteRuleSubtreeStream(adaptor,"rule i",i!=null?i.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 758:65: -> ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) )
+			// 759:65: -> ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) )
 			{
-				// DDL.g:758:68: ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) )
+				// DDL.g:759:68: ^( PROCEDURE_CALL_STATEMENT ^( PROCEDURE_NAME $i) ^( PROCEDURE_ARGS ( funcArgs )? ) )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PROCEDURE_CALL_STATEMENT, "PROCEDURE_CALL_STATEMENT"), root_1);
-				// DDL.g:758:95: ^( PROCEDURE_NAME $i)
+				// DDL.g:759:95: ^( PROCEDURE_NAME $i)
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PROCEDURE_NAME, "PROCEDURE_NAME"), root_2);
@@ -11250,11 +11252,11 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:758:116: ^( PROCEDURE_ARGS ( funcArgs )? )
+				// DDL.g:759:116: ^( PROCEDURE_ARGS ( funcArgs )? )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PROCEDURE_ARGS, "PROCEDURE_ARGS"), root_2);
-				// DDL.g:758:133: ( funcArgs )?
+				// DDL.g:759:133: ( funcArgs )?
 				if ( stream_funcArgs.hasNext() ) {
 					adaptor.addChild(root_2, stream_funcArgs.nextTree());
 				}
@@ -11304,7 +11306,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "insert_statement"
-	// DDL.g:762:1: insert_statement : INSERT 'into' table ( LEFT_PAREN column_reference_list RIGHT_PAREN )? 'values' array -> ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? ) ;
+	// DDL.g:763:1: insert_statement : INSERT 'into' table ( LEFT_PAREN column_reference_list RIGHT_PAREN )? 'values' array -> ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? ) ;
 	public final DDLParser.insert_statement_return insert_statement() throws RecognitionException {
 		DDLParser.insert_statement_return retval = new DDLParser.insert_statement_return();
 		retval.start = input.LT(1);
@@ -11326,9 +11328,9 @@ public class DDLParser extends Parser {
 		CommonTree LEFT_PAREN274_tree=null;
 		CommonTree RIGHT_PAREN276_tree=null;
 		CommonTree string_literal277_tree=null;
-		RewriteRuleTokenStream stream_275=new RewriteRuleTokenStream(adaptor,"token 275");
 		RewriteRuleTokenStream stream_276=new RewriteRuleTokenStream(adaptor,"token 276");
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
+		RewriteRuleTokenStream stream_277=new RewriteRuleTokenStream(adaptor,"token 277");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_INSERT=new RewriteRuleTokenStream(adaptor,"token INSERT");
 		RewriteRuleSubtreeStream stream_column_reference_list=new RewriteRuleSubtreeStream(adaptor,"rule column_reference_list");
@@ -11338,21 +11340,21 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
 
-			// DDL.g:763:3: ( INSERT 'into' table ( LEFT_PAREN column_reference_list RIGHT_PAREN )? 'values' array -> ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? ) )
-			// DDL.g:763:5: INSERT 'into' table ( LEFT_PAREN column_reference_list RIGHT_PAREN )? 'values' array
+			// DDL.g:764:3: ( INSERT 'into' table ( LEFT_PAREN column_reference_list RIGHT_PAREN )? 'values' array -> ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? ) )
+			// DDL.g:764:5: INSERT 'into' table ( LEFT_PAREN column_reference_list RIGHT_PAREN )? 'values' array
 			{
-			INSERT271=(Token)match(input,INSERT,FOLLOW_INSERT_in_insert_statement5942); if (state.failed) return retval; 
+			INSERT271=(Token)match(input,INSERT,FOLLOW_INSERT_in_insert_statement5947); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_INSERT.add(INSERT271);
 
-			string_literal272=(Token)match(input,275,FOLLOW_275_in_insert_statement5944); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_275.add(string_literal272);
+			string_literal272=(Token)match(input,276,FOLLOW_276_in_insert_statement5949); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_276.add(string_literal272);
 
-			pushFollow(FOLLOW_table_in_insert_statement5946);
+			pushFollow(FOLLOW_table_in_insert_statement5951);
 			table273=table();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table.add(table273.getTree());
-			// DDL.g:763:25: ( LEFT_PAREN column_reference_list RIGHT_PAREN )?
+			// DDL.g:764:25: ( LEFT_PAREN column_reference_list RIGHT_PAREN )?
 			int alt76=2;
 			int LA76_0 = input.LA(1);
 			if ( (LA76_0==LEFT_PAREN) ) {
@@ -11360,17 +11362,17 @@ public class DDLParser extends Parser {
 			}
 			switch (alt76) {
 				case 1 :
-					// DDL.g:763:26: LEFT_PAREN column_reference_list RIGHT_PAREN
+					// DDL.g:764:26: LEFT_PAREN column_reference_list RIGHT_PAREN
 					{
-					LEFT_PAREN274=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_insert_statement5949); if (state.failed) return retval; 
+					LEFT_PAREN274=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_insert_statement5954); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN274);
 
-					pushFollow(FOLLOW_column_reference_list_in_insert_statement5951);
+					pushFollow(FOLLOW_column_reference_list_in_insert_statement5956);
 					column_reference_list275=column_reference_list();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_column_reference_list.add(column_reference_list275.getTree());
-					RIGHT_PAREN276=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_insert_statement5953); if (state.failed) return retval; 
+					RIGHT_PAREN276=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_insert_statement5958); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN276);
 
 					}
@@ -11378,10 +11380,10 @@ public class DDLParser extends Parser {
 
 			}
 
-			string_literal277=(Token)match(input,276,FOLLOW_276_in_insert_statement5957); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_276.add(string_literal277);
+			string_literal277=(Token)match(input,277,FOLLOW_277_in_insert_statement5962); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_277.add(string_literal277);
 
-			pushFollow(FOLLOW_array_in_insert_statement5959);
+			pushFollow(FOLLOW_array_in_insert_statement5964);
 			array278=array();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -11398,13 +11400,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 764:3: -> ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? )
+			// 765:3: -> ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? )
 			{
-				// DDL.g:764:6: ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? )
+				// DDL.g:765:6: ^( INSERT ^( TABLE table ) ^( VALUES array ) ( ^( TARGET_FIELDS column_reference_list ) )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_INSERT.nextNode(), root_1);
-				// DDL.g:764:15: ^( TABLE table )
+				// DDL.g:765:15: ^( TABLE table )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE, "TABLE"), root_2);
@@ -11412,7 +11414,7 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:764:30: ^( VALUES array )
+				// DDL.g:765:30: ^( VALUES array )
 				{
 				CommonTree root_2 = (CommonTree)adaptor.nil();
 				root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VALUES, "VALUES"), root_2);
@@ -11420,9 +11422,9 @@ public class DDLParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// DDL.g:764:46: ( ^( TARGET_FIELDS column_reference_list ) )?
+				// DDL.g:765:46: ( ^( TARGET_FIELDS column_reference_list ) )?
 				if ( stream_column_reference_list.hasNext() ) {
-					// DDL.g:764:46: ^( TARGET_FIELDS column_reference_list )
+					// DDL.g:765:46: ^( TARGET_FIELDS column_reference_list )
 					{
 					CommonTree root_2 = (CommonTree)adaptor.nil();
 					root_2 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TARGET_FIELDS, "TARGET_FIELDS"), root_2);
@@ -11474,7 +11476,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "query_expression"
-	// DDL.g:778:1: query_expression : query_expression_body ;
+	// DDL.g:779:1: query_expression : query_expression_body ;
 	public final DDLParser.query_expression_return query_expression() throws RecognitionException {
 		DDLParser.query_expression_return retval = new DDLParser.query_expression_return();
 		retval.start = input.LT(1);
@@ -11488,13 +11490,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
 
-			// DDL.g:779:3: ( query_expression_body )
-			// DDL.g:779:5: query_expression_body
+			// DDL.g:780:3: ( query_expression_body )
+			// DDL.g:780:5: query_expression_body
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_query_expression_body_in_query_expression6006);
+			pushFollow(FOLLOW_query_expression_body_in_query_expression6011);
 			query_expression_body279=query_expression_body();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -11532,7 +11534,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "query_expression_body"
-	// DDL.g:781:1: query_expression_body : ( non_join_query_expression | joined_table );
+	// DDL.g:782:1: query_expression_body : ( non_join_query_expression | joined_table );
 	public final DDLParser.query_expression_body_return query_expression_body() throws RecognitionException {
 		DDLParser.query_expression_body_return retval = new DDLParser.query_expression_body_return();
 		retval.start = input.LT(1);
@@ -11547,7 +11549,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
 
-			// DDL.g:782:3: ( non_join_query_expression | joined_table )
+			// DDL.g:783:3: ( non_join_query_expression | joined_table )
 			int alt77=2;
 			int LA77_0 = input.LA(1);
 			if ( (LA77_0==LEFT_PAREN||LA77_0==SELECT) ) {
@@ -11573,12 +11575,12 @@ public class DDLParser extends Parser {
 
 			switch (alt77) {
 				case 1 :
-					// DDL.g:782:5: non_join_query_expression
+					// DDL.g:783:5: non_join_query_expression
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_non_join_query_expression_in_query_expression_body6018);
+					pushFollow(FOLLOW_non_join_query_expression_in_query_expression_body6023);
 					non_join_query_expression280=non_join_query_expression();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11587,12 +11589,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:783:5: joined_table
+					// DDL.g:784:5: joined_table
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_joined_table_in_query_expression_body6024);
+					pushFollow(FOLLOW_joined_table_in_query_expression_body6029);
 					joined_table281=joined_table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11632,7 +11634,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "non_join_query_expression"
-	// DDL.g:785:1: non_join_query_expression : ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term ) ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )* ;
+	// DDL.g:786:1: non_join_query_expression : ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term ) ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )* ;
 	public final DDLParser.non_join_query_expression_return non_join_query_expression() throws RecognitionException {
 		DDLParser.non_join_query_expression_return retval = new DDLParser.non_join_query_expression_return();
 		retval.start = input.LT(1);
@@ -11657,13 +11659,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 73) ) { return retval; }
 
-			// DDL.g:786:3: ( ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term ) ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )* )
-			// DDL.g:786:5: ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term ) ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )*
+			// DDL.g:787:3: ( ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term ) ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )* )
+			// DDL.g:787:5: ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term ) ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			// DDL.g:786:5: ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )
+			// DDL.g:787:5: ( non_join_query_term | joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )
 			int alt79=2;
 			int LA79_0 = input.LA(1);
 			if ( (LA79_0==LEFT_PAREN||LA79_0==SELECT) ) {
@@ -11689,9 +11691,9 @@ public class DDLParser extends Parser {
 
 			switch (alt79) {
 				case 1 :
-					// DDL.g:786:6: non_join_query_term
+					// DDL.g:787:6: non_join_query_term
 					{
-					pushFollow(FOLLOW_non_join_query_term_in_non_join_query_expression6037);
+					pushFollow(FOLLOW_non_join_query_term_in_non_join_query_expression6042);
 					non_join_query_term282=non_join_query_term();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11700,9 +11702,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:786:28: joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term
+					// DDL.g:787:28: joined_table ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term
 					{
-					pushFollow(FOLLOW_joined_table_in_non_join_query_expression6041);
+					pushFollow(FOLLOW_joined_table_in_non_join_query_expression6046);
 					joined_table283=joined_table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11721,7 +11723,7 @@ public class DDLParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					// DDL.g:786:59: ( ALL | DISTINCT )?
+					// DDL.g:787:59: ( ALL | DISTINCT )?
 					int alt78=2;
 					int LA78_0 = input.LA(1);
 					if ( (LA78_0==ALL||LA78_0==DISTINCT) ) {
@@ -11748,7 +11750,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_query_term_in_non_join_query_expression6059);
+					pushFollow(FOLLOW_query_term_in_non_join_query_expression6064);
 					query_term286=query_term();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11759,7 +11761,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:787:5: ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )*
+			// DDL.g:788:5: ( ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term )*
 			loop81:
 			while (true) {
 				int alt81=2;
@@ -11770,7 +11772,7 @@ public class DDLParser extends Parser {
 
 				switch (alt81) {
 				case 1 :
-					// DDL.g:787:6: ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term
+					// DDL.g:788:6: ( UNION | EXCEPT ) ^ ( ALL | DISTINCT )? query_term
 					{
 					set287=input.LT(1);
 					set287=input.LT(1);
@@ -11785,7 +11787,7 @@ public class DDLParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					// DDL.g:787:24: ( ALL | DISTINCT )?
+					// DDL.g:788:24: ( ALL | DISTINCT )?
 					int alt80=2;
 					int LA80_0 = input.LA(1);
 					if ( (LA80_0==ALL||LA80_0==DISTINCT) ) {
@@ -11812,7 +11814,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_query_term_in_non_join_query_expression6083);
+					pushFollow(FOLLOW_query_term_in_non_join_query_expression6088);
 					query_term289=query_term();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11858,7 +11860,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "query_term"
-	// DDL.g:789:1: query_term : ( non_join_query_term | joined_table );
+	// DDL.g:790:1: query_term : ( non_join_query_term | joined_table );
 	public final DDLParser.query_term_return query_term() throws RecognitionException {
 		DDLParser.query_term_return retval = new DDLParser.query_term_return();
 		retval.start = input.LT(1);
@@ -11873,7 +11875,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 74) ) { return retval; }
 
-			// DDL.g:790:3: ( non_join_query_term | joined_table )
+			// DDL.g:791:3: ( non_join_query_term | joined_table )
 			int alt82=2;
 			int LA82_0 = input.LA(1);
 			if ( (LA82_0==LEFT_PAREN||LA82_0==SELECT) ) {
@@ -11899,12 +11901,12 @@ public class DDLParser extends Parser {
 
 			switch (alt82) {
 				case 1 :
-					// DDL.g:790:5: non_join_query_term
+					// DDL.g:791:5: non_join_query_term
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_non_join_query_term_in_query_term6097);
+					pushFollow(FOLLOW_non_join_query_term_in_query_term6102);
 					non_join_query_term290=non_join_query_term();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11913,12 +11915,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:791:5: joined_table
+					// DDL.g:792:5: joined_table
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_joined_table_in_query_term6103);
+					pushFollow(FOLLOW_joined_table_in_query_term6108);
 					joined_table291=joined_table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -11958,7 +11960,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "non_join_query_term"
-	// DDL.g:793:1: non_join_query_term : ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary ) ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )* ;
+	// DDL.g:794:1: non_join_query_term : ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary ) ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )* ;
 	public final DDLParser.non_join_query_term_return non_join_query_term() throws RecognitionException {
 		DDLParser.non_join_query_term_return retval = new DDLParser.non_join_query_term_return();
 		retval.start = input.LT(1);
@@ -11983,13 +11985,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 75) ) { return retval; }
 
-			// DDL.g:794:3: ( ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary ) ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )* )
-			// DDL.g:794:5: ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary ) ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )*
+			// DDL.g:795:3: ( ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary ) ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )* )
+			// DDL.g:795:5: ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary ) ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			// DDL.g:794:5: ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary )
+			// DDL.g:795:5: ( non_join_query_primary | joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary )
 			int alt84=2;
 			int LA84_0 = input.LA(1);
 			if ( (LA84_0==LEFT_PAREN||LA84_0==SELECT) ) {
@@ -12008,9 +12010,9 @@ public class DDLParser extends Parser {
 
 			switch (alt84) {
 				case 1 :
-					// DDL.g:794:7: non_join_query_primary
+					// DDL.g:795:7: non_join_query_primary
 					{
-					pushFollow(FOLLOW_non_join_query_primary_in_non_join_query_term6117);
+					pushFollow(FOLLOW_non_join_query_primary_in_non_join_query_term6122);
 					non_join_query_primary292=non_join_query_primary();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12019,21 +12021,21 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:794:32: joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary
+					// DDL.g:795:32: joined_table INTERSECT ^ ( ALL | DISTINCT )? query_primary
 					{
-					pushFollow(FOLLOW_joined_table_in_non_join_query_term6121);
+					pushFollow(FOLLOW_joined_table_in_non_join_query_term6126);
 					joined_table293=joined_table();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, joined_table293.getTree());
 
-					INTERSECT294=(Token)match(input,INTERSECT,FOLLOW_INTERSECT_in_non_join_query_term6123); if (state.failed) return retval;
+					INTERSECT294=(Token)match(input,INTERSECT,FOLLOW_INTERSECT_in_non_join_query_term6128); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INTERSECT294_tree = (CommonTree)adaptor.create(INTERSECT294);
 					root_0 = (CommonTree)adaptor.becomeRoot(INTERSECT294_tree, root_0);
 					}
 
-					// DDL.g:794:56: ( ALL | DISTINCT )?
+					// DDL.g:795:56: ( ALL | DISTINCT )?
 					int alt83=2;
 					int LA83_0 = input.LA(1);
 					if ( (LA83_0==ALL||LA83_0==DISTINCT) ) {
@@ -12060,7 +12062,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_query_primary_in_non_join_query_term6133);
+					pushFollow(FOLLOW_query_primary_in_non_join_query_term6138);
 					query_primary296=query_primary();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12071,7 +12073,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:795:5: ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )*
+			// DDL.g:796:5: ( INTERSECT ^ ( ALL | DISTINCT )? query_primary )*
 			loop86:
 			while (true) {
 				int alt86=2;
@@ -12082,15 +12084,15 @@ public class DDLParser extends Parser {
 
 				switch (alt86) {
 				case 1 :
-					// DDL.g:795:6: INTERSECT ^ ( ALL | DISTINCT )? query_primary
+					// DDL.g:796:6: INTERSECT ^ ( ALL | DISTINCT )? query_primary
 					{
-					INTERSECT297=(Token)match(input,INTERSECT,FOLLOW_INTERSECT_in_non_join_query_term6141); if (state.failed) return retval;
+					INTERSECT297=(Token)match(input,INTERSECT,FOLLOW_INTERSECT_in_non_join_query_term6146); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					INTERSECT297_tree = (CommonTree)adaptor.create(INTERSECT297);
 					root_0 = (CommonTree)adaptor.becomeRoot(INTERSECT297_tree, root_0);
 					}
 
-					// DDL.g:795:17: ( ALL | DISTINCT )?
+					// DDL.g:796:17: ( ALL | DISTINCT )?
 					int alt85=2;
 					int LA85_0 = input.LA(1);
 					if ( (LA85_0==ALL||LA85_0==DISTINCT) ) {
@@ -12117,7 +12119,7 @@ public class DDLParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_query_primary_in_non_join_query_term6151);
+					pushFollow(FOLLOW_query_primary_in_non_join_query_term6156);
 					query_primary299=query_primary();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12163,7 +12165,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "query_primary"
-	// DDL.g:797:1: query_primary : ( non_join_query_primary | joined_table );
+	// DDL.g:798:1: query_primary : ( non_join_query_primary | joined_table );
 	public final DDLParser.query_primary_return query_primary() throws RecognitionException {
 		DDLParser.query_primary_return retval = new DDLParser.query_primary_return();
 		retval.start = input.LT(1);
@@ -12178,7 +12180,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 76) ) { return retval; }
 
-			// DDL.g:798:3: ( non_join_query_primary | joined_table )
+			// DDL.g:799:3: ( non_join_query_primary | joined_table )
 			int alt87=2;
 			int LA87_0 = input.LA(1);
 			if ( (LA87_0==LEFT_PAREN||LA87_0==SELECT) ) {
@@ -12197,12 +12199,12 @@ public class DDLParser extends Parser {
 
 			switch (alt87) {
 				case 1 :
-					// DDL.g:798:5: non_join_query_primary
+					// DDL.g:799:5: non_join_query_primary
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_non_join_query_primary_in_query_primary6165);
+					pushFollow(FOLLOW_non_join_query_primary_in_query_primary6170);
 					non_join_query_primary300=non_join_query_primary();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12211,12 +12213,12 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:799:5: joined_table
+					// DDL.g:800:5: joined_table
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_joined_table_in_query_primary6171);
+					pushFollow(FOLLOW_joined_table_in_query_primary6176);
 					joined_table301=joined_table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12256,7 +12258,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "non_join_query_primary"
-	// DDL.g:801:1: non_join_query_primary : ( simple_table | LEFT_PAREN non_join_query_expression RIGHT_PAREN );
+	// DDL.g:802:1: non_join_query_primary : ( simple_table | LEFT_PAREN non_join_query_expression RIGHT_PAREN );
 	public final DDLParser.non_join_query_primary_return non_join_query_primary() throws RecognitionException {
 		DDLParser.non_join_query_primary_return retval = new DDLParser.non_join_query_primary_return();
 		retval.start = input.LT(1);
@@ -12275,7 +12277,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 77) ) { return retval; }
 
-			// DDL.g:802:3: ( simple_table | LEFT_PAREN non_join_query_expression RIGHT_PAREN )
+			// DDL.g:803:3: ( simple_table | LEFT_PAREN non_join_query_expression RIGHT_PAREN )
 			int alt88=2;
 			int LA88_0 = input.LA(1);
 			if ( (LA88_0==SELECT) ) {
@@ -12294,12 +12296,12 @@ public class DDLParser extends Parser {
 
 			switch (alt88) {
 				case 1 :
-					// DDL.g:802:5: simple_table
+					// DDL.g:803:5: simple_table
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_simple_table_in_non_join_query_primary6183);
+					pushFollow(FOLLOW_simple_table_in_non_join_query_primary6188);
 					simple_table302=simple_table();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12308,24 +12310,24 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:803:5: LEFT_PAREN non_join_query_expression RIGHT_PAREN
+					// DDL.g:804:5: LEFT_PAREN non_join_query_expression RIGHT_PAREN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LEFT_PAREN303=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_non_join_query_primary6189); if (state.failed) return retval;
+					LEFT_PAREN303=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_non_join_query_primary6194); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					LEFT_PAREN303_tree = (CommonTree)adaptor.create(LEFT_PAREN303);
 					adaptor.addChild(root_0, LEFT_PAREN303_tree);
 					}
 
-					pushFollow(FOLLOW_non_join_query_expression_in_non_join_query_primary6191);
+					pushFollow(FOLLOW_non_join_query_expression_in_non_join_query_primary6196);
 					non_join_query_expression304=non_join_query_expression();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, non_join_query_expression304.getTree());
 
-					RIGHT_PAREN305=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_non_join_query_primary6193); if (state.failed) return retval;
+					RIGHT_PAREN305=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_non_join_query_primary6198); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					RIGHT_PAREN305_tree = (CommonTree)adaptor.create(RIGHT_PAREN305);
 					adaptor.addChild(root_0, RIGHT_PAREN305_tree);
@@ -12365,7 +12367,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "simple_table"
-	// DDL.g:805:1: simple_table options {k=1; } : query_specification ;
+	// DDL.g:806:1: simple_table options {k=1; } : query_specification ;
 	public final DDLParser.simple_table_return simple_table() throws RecognitionException {
 		DDLParser.simple_table_return retval = new DDLParser.simple_table_return();
 		retval.start = input.LT(1);
@@ -12379,13 +12381,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 78) ) { return retval; }
 
-			// DDL.g:807:3: ( query_specification )
-			// DDL.g:807:5: query_specification
+			// DDL.g:808:3: ( query_specification )
+			// DDL.g:808:5: query_specification
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_query_specification_in_simple_table6214);
+			pushFollow(FOLLOW_query_specification_in_simple_table6219);
 			query_specification306=query_specification();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -12423,7 +12425,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "query_specification"
-	// DDL.g:809:1: query_specification : SELECT ( set_qualifier )? select_list ( from_clause )? ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? -> ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? ) ;
+	// DDL.g:810:1: query_specification : SELECT ( set_qualifier )? select_list ( from_clause )? ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? -> ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? ) ;
 	public final DDLParser.query_specification_return query_specification() throws RecognitionException {
 		DDLParser.query_specification_return retval = new DDLParser.query_specification_return();
 		retval.start = input.LT(1);
@@ -12455,13 +12457,13 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 79) ) { return retval; }
 
-			// DDL.g:810:3: ( SELECT ( set_qualifier )? select_list ( from_clause )? ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? -> ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? ) )
-			// DDL.g:810:5: SELECT ( set_qualifier )? select_list ( from_clause )? ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )?
+			// DDL.g:811:3: ( SELECT ( set_qualifier )? select_list ( from_clause )? ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? -> ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? ) )
+			// DDL.g:811:5: SELECT ( set_qualifier )? select_list ( from_clause )? ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )?
 			{
-			SELECT307=(Token)match(input,SELECT,FOLLOW_SELECT_in_query_specification6226); if (state.failed) return retval; 
+			SELECT307=(Token)match(input,SELECT,FOLLOW_SELECT_in_query_specification6231); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_SELECT.add(SELECT307);
 
-			// DDL.g:810:12: ( set_qualifier )?
+			// DDL.g:811:12: ( set_qualifier )?
 			int alt89=2;
 			int LA89_0 = input.LA(1);
 			if ( (LA89_0==ALL||LA89_0==DISTINCT) ) {
@@ -12469,9 +12471,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt89) {
 				case 1 :
-					// DDL.g:810:12: set_qualifier
+					// DDL.g:811:12: set_qualifier
 					{
-					pushFollow(FOLLOW_set_qualifier_in_query_specification6228);
+					pushFollow(FOLLOW_set_qualifier_in_query_specification6233);
 					set_qualifier308=set_qualifier();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12481,12 +12483,12 @@ public class DDLParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_select_list_in_query_specification6231);
+			pushFollow(FOLLOW_select_list_in_query_specification6236);
 			select_list309=select_list();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_select_list.add(select_list309.getTree());
-			// DDL.g:810:39: ( from_clause )?
+			// DDL.g:811:39: ( from_clause )?
 			int alt90=2;
 			int LA90_0 = input.LA(1);
 			if ( (LA90_0==FROM) ) {
@@ -12494,9 +12496,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt90) {
 				case 1 :
-					// DDL.g:810:39: from_clause
+					// DDL.g:811:39: from_clause
 					{
-					pushFollow(FOLLOW_from_clause_in_query_specification6233);
+					pushFollow(FOLLOW_from_clause_in_query_specification6238);
 					from_clause310=from_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12506,7 +12508,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:810:52: ( where_clause )?
+			// DDL.g:811:52: ( where_clause )?
 			int alt91=2;
 			int LA91_0 = input.LA(1);
 			if ( (LA91_0==WHERE) ) {
@@ -12514,9 +12516,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt91) {
 				case 1 :
-					// DDL.g:810:52: where_clause
+					// DDL.g:811:52: where_clause
 					{
-					pushFollow(FOLLOW_where_clause_in_query_specification6236);
+					pushFollow(FOLLOW_where_clause_in_query_specification6241);
 					where_clause311=where_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12526,7 +12528,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:810:66: ( groupby_clause )?
+			// DDL.g:811:66: ( groupby_clause )?
 			int alt92=2;
 			int LA92_0 = input.LA(1);
 			if ( (LA92_0==GROUP) ) {
@@ -12534,9 +12536,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt92) {
 				case 1 :
-					// DDL.g:810:66: groupby_clause
+					// DDL.g:811:66: groupby_clause
 					{
-					pushFollow(FOLLOW_groupby_clause_in_query_specification6239);
+					pushFollow(FOLLOW_groupby_clause_in_query_specification6244);
 					groupby_clause312=groupby_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12546,7 +12548,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:810:82: ( having_clause )?
+			// DDL.g:811:82: ( having_clause )?
 			int alt93=2;
 			int LA93_0 = input.LA(1);
 			if ( (LA93_0==HAVING) ) {
@@ -12554,9 +12556,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt93) {
 				case 1 :
-					// DDL.g:810:82: having_clause
+					// DDL.g:811:82: having_clause
 					{
-					pushFollow(FOLLOW_having_clause_in_query_specification6242);
+					pushFollow(FOLLOW_having_clause_in_query_specification6247);
 					having_clause313=having_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12566,7 +12568,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:811:5: ( orderby_clause )?
+			// DDL.g:812:5: ( orderby_clause )?
 			int alt94=2;
 			int LA94_0 = input.LA(1);
 			if ( (LA94_0==ORDER) ) {
@@ -12574,9 +12576,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt94) {
 				case 1 :
-					// DDL.g:811:5: orderby_clause
+					// DDL.g:812:5: orderby_clause
 					{
-					pushFollow(FOLLOW_orderby_clause_in_query_specification6249);
+					pushFollow(FOLLOW_orderby_clause_in_query_specification6254);
 					orderby_clause314=orderby_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12586,7 +12588,7 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:811:21: ( limit_clause )?
+			// DDL.g:812:21: ( limit_clause )?
 			int alt95=2;
 			int LA95_0 = input.LA(1);
 			if ( (LA95_0==LIMIT) ) {
@@ -12594,9 +12596,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt95) {
 				case 1 :
-					// DDL.g:811:21: limit_clause
+					// DDL.g:812:21: limit_clause
 					{
-					pushFollow(FOLLOW_limit_clause_in_query_specification6252);
+					pushFollow(FOLLOW_limit_clause_in_query_specification6257);
 					limit_clause315=limit_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -12618,50 +12620,50 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 812:5: -> ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? )
+			// 813:5: -> ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? )
 			{
-				// DDL.g:812:8: ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? )
+				// DDL.g:813:8: ^( SELECT ( from_clause )? ( set_qualifier )? select_list ( where_clause )? ( groupby_clause )? ( having_clause )? ( orderby_clause )? ( limit_clause )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_SELECT.nextNode(), root_1);
-				// DDL.g:812:17: ( from_clause )?
+				// DDL.g:813:17: ( from_clause )?
 				if ( stream_from_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_from_clause.nextTree());
 				}
 				stream_from_clause.reset();
 
-				// DDL.g:812:30: ( set_qualifier )?
+				// DDL.g:813:30: ( set_qualifier )?
 				if ( stream_set_qualifier.hasNext() ) {
 					adaptor.addChild(root_1, stream_set_qualifier.nextTree());
 				}
 				stream_set_qualifier.reset();
 
 				adaptor.addChild(root_1, stream_select_list.nextTree());
-				// DDL.g:812:57: ( where_clause )?
+				// DDL.g:813:57: ( where_clause )?
 				if ( stream_where_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_where_clause.nextTree());
 				}
 				stream_where_clause.reset();
 
-				// DDL.g:812:71: ( groupby_clause )?
+				// DDL.g:813:71: ( groupby_clause )?
 				if ( stream_groupby_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_groupby_clause.nextTree());
 				}
 				stream_groupby_clause.reset();
 
-				// DDL.g:813:5: ( having_clause )?
+				// DDL.g:814:5: ( having_clause )?
 				if ( stream_having_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_having_clause.nextTree());
 				}
 				stream_having_clause.reset();
 
-				// DDL.g:813:20: ( orderby_clause )?
+				// DDL.g:814:20: ( orderby_clause )?
 				if ( stream_orderby_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_orderby_clause.nextTree());
 				}
 				stream_orderby_clause.reset();
 
-				// DDL.g:813:36: ( limit_clause )?
+				// DDL.g:814:36: ( limit_clause )?
 				if ( stream_limit_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_limit_clause.nextTree());
 				}
@@ -12708,7 +12710,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "select_list"
-	// DDL.g:815:1: select_list : ( MULTIPLY -> ^( SEL_LIST ALL ) | derived_column ( COMMA derived_column )* -> ^( SEL_LIST ( derived_column )+ ) );
+	// DDL.g:816:1: select_list : ( MULTIPLY -> ^( SEL_LIST ALL ) | derived_column ( COMMA derived_column )* -> ^( SEL_LIST ( derived_column )+ ) );
 	public final DDLParser.select_list_return select_list() throws RecognitionException {
 		DDLParser.select_list_return retval = new DDLParser.select_list_return();
 		retval.start = input.LT(1);
@@ -12730,7 +12732,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 80) ) { return retval; }
 
-			// DDL.g:816:3: ( MULTIPLY -> ^( SEL_LIST ALL ) | derived_column ( COMMA derived_column )* -> ^( SEL_LIST ( derived_column )+ ) )
+			// DDL.g:817:3: ( MULTIPLY -> ^( SEL_LIST ALL ) | derived_column ( COMMA derived_column )* -> ^( SEL_LIST ( derived_column )+ ) )
 			int alt97=2;
 			int LA97_0 = input.LA(1);
 			if ( (LA97_0==MULTIPLY) ) {
@@ -12749,9 +12751,9 @@ public class DDLParser extends Parser {
 
 			switch (alt97) {
 				case 1 :
-					// DDL.g:816:5: MULTIPLY
+					// DDL.g:817:5: MULTIPLY
 					{
-					MULTIPLY316=(Token)match(input,MULTIPLY,FOLLOW_MULTIPLY_in_select_list6302); if (state.failed) return retval; 
+					MULTIPLY316=(Token)match(input,MULTIPLY,FOLLOW_MULTIPLY_in_select_list6307); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MULTIPLY.add(MULTIPLY316);
 
 					// AST REWRITE
@@ -12766,9 +12768,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 816:14: -> ^( SEL_LIST ALL )
+					// 817:14: -> ^( SEL_LIST ALL )
 					{
-						// DDL.g:816:17: ^( SEL_LIST ALL )
+						// DDL.g:817:17: ^( SEL_LIST ALL )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SEL_LIST, "SEL_LIST"), root_1);
@@ -12785,14 +12787,14 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:817:5: derived_column ( COMMA derived_column )*
+					// DDL.g:818:5: derived_column ( COMMA derived_column )*
 					{
-					pushFollow(FOLLOW_derived_column_in_select_list6316);
+					pushFollow(FOLLOW_derived_column_in_select_list6321);
 					derived_column317=derived_column();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_derived_column.add(derived_column317.getTree());
-					// DDL.g:817:20: ( COMMA derived_column )*
+					// DDL.g:818:20: ( COMMA derived_column )*
 					loop96:
 					while (true) {
 						int alt96=2;
@@ -12803,12 +12805,12 @@ public class DDLParser extends Parser {
 
 						switch (alt96) {
 						case 1 :
-							// DDL.g:817:21: COMMA derived_column
+							// DDL.g:818:21: COMMA derived_column
 							{
-							COMMA318=(Token)match(input,COMMA,FOLLOW_COMMA_in_select_list6319); if (state.failed) return retval; 
+							COMMA318=(Token)match(input,COMMA,FOLLOW_COMMA_in_select_list6324); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_COMMA.add(COMMA318);
 
-							pushFollow(FOLLOW_derived_column_in_select_list6321);
+							pushFollow(FOLLOW_derived_column_in_select_list6326);
 							derived_column319=derived_column();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -12833,9 +12835,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 817:44: -> ^( SEL_LIST ( derived_column )+ )
+					// 818:44: -> ^( SEL_LIST ( derived_column )+ )
 					{
-						// DDL.g:817:47: ^( SEL_LIST ( derived_column )+ )
+						// DDL.g:818:47: ^( SEL_LIST ( derived_column )+ )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SEL_LIST, "SEL_LIST"), root_1);
@@ -12890,7 +12892,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "set_qualifier"
-	// DDL.g:819:1: set_qualifier : ( DISTINCT -> ^( SET_QUALIFIER DISTINCT ) | ALL -> ^( SET_QUALIFIER ALL ) );
+	// DDL.g:820:1: set_qualifier : ( DISTINCT -> ^( SET_QUALIFIER DISTINCT ) | ALL -> ^( SET_QUALIFIER ALL ) );
 	public final DDLParser.set_qualifier_return set_qualifier() throws RecognitionException {
 		DDLParser.set_qualifier_return retval = new DDLParser.set_qualifier_return();
 		retval.start = input.LT(1);
@@ -12909,7 +12911,7 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 81) ) { return retval; }
 
-			// DDL.g:820:3: ( DISTINCT -> ^( SET_QUALIFIER DISTINCT ) | ALL -> ^( SET_QUALIFIER ALL ) )
+			// DDL.g:821:3: ( DISTINCT -> ^( SET_QUALIFIER DISTINCT ) | ALL -> ^( SET_QUALIFIER ALL ) )
 			int alt98=2;
 			int LA98_0 = input.LA(1);
 			if ( (LA98_0==DISTINCT) ) {
@@ -12928,9 +12930,9 @@ public class DDLParser extends Parser {
 
 			switch (alt98) {
 				case 1 :
-					// DDL.g:820:5: DISTINCT
+					// DDL.g:821:5: DISTINCT
 					{
-					DISTINCT320=(Token)match(input,DISTINCT,FOLLOW_DISTINCT_in_set_qualifier6344); if (state.failed) return retval; 
+					DISTINCT320=(Token)match(input,DISTINCT,FOLLOW_DISTINCT_in_set_qualifier6349); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DISTINCT.add(DISTINCT320);
 
 					// AST REWRITE
@@ -12945,9 +12947,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 820:14: -> ^( SET_QUALIFIER DISTINCT )
+					// 821:14: -> ^( SET_QUALIFIER DISTINCT )
 					{
-						// DDL.g:820:17: ^( SET_QUALIFIER DISTINCT )
+						// DDL.g:821:17: ^( SET_QUALIFIER DISTINCT )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SET_QUALIFIER, "SET_QUALIFIER"), root_1);
@@ -12964,9 +12966,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:821:5: ALL
+					// DDL.g:822:5: ALL
 					{
-					ALL321=(Token)match(input,ALL,FOLLOW_ALL_in_set_qualifier6358); if (state.failed) return retval; 
+					ALL321=(Token)match(input,ALL,FOLLOW_ALL_in_set_qualifier6363); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ALL.add(ALL321);
 
 					// AST REWRITE
@@ -12981,9 +12983,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 821:9: -> ^( SET_QUALIFIER ALL )
+					// 822:9: -> ^( SET_QUALIFIER ALL )
 					{
-						// DDL.g:821:12: ^( SET_QUALIFIER ALL )
+						// DDL.g:822:12: ^( SET_QUALIFIER ALL )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SET_QUALIFIER, "SET_QUALIFIER"), root_1);
@@ -13031,7 +13033,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "derived_column"
-	// DDL.g:823:1: derived_column : boolean_value_expression ( as_clause )? -> ^( COLUMN boolean_value_expression ( as_clause )? ) ;
+	// DDL.g:824:1: derived_column : boolean_value_expression ( as_clause )? -> ^( COLUMN boolean_value_expression ( as_clause )? ) ;
 	public final DDLParser.derived_column_return derived_column() throws RecognitionException {
 		DDLParser.derived_column_return retval = new DDLParser.derived_column_return();
 		retval.start = input.LT(1);
@@ -13048,15 +13050,15 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 82) ) { return retval; }
 
-			// DDL.g:824:3: ( boolean_value_expression ( as_clause )? -> ^( COLUMN boolean_value_expression ( as_clause )? ) )
-			// DDL.g:824:5: boolean_value_expression ( as_clause )?
+			// DDL.g:825:3: ( boolean_value_expression ( as_clause )? -> ^( COLUMN boolean_value_expression ( as_clause )? ) )
+			// DDL.g:825:5: boolean_value_expression ( as_clause )?
 			{
-			pushFollow(FOLLOW_boolean_value_expression_in_derived_column6378);
+			pushFollow(FOLLOW_boolean_value_expression_in_derived_column6383);
 			boolean_value_expression322=boolean_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_boolean_value_expression.add(boolean_value_expression322.getTree());
-			// DDL.g:824:30: ( as_clause )?
+			// DDL.g:825:30: ( as_clause )?
 			int alt99=2;
 			int LA99_0 = input.LA(1);
 			if ( (LA99_0==AS||LA99_0==Identifier) ) {
@@ -13064,9 +13066,9 @@ public class DDLParser extends Parser {
 			}
 			switch (alt99) {
 				case 1 :
-					// DDL.g:824:30: as_clause
+					// DDL.g:825:30: as_clause
 					{
-					pushFollow(FOLLOW_as_clause_in_derived_column6380);
+					pushFollow(FOLLOW_as_clause_in_derived_column6385);
 					as_clause323=as_clause();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -13088,14 +13090,14 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 824:41: -> ^( COLUMN boolean_value_expression ( as_clause )? )
+			// 825:41: -> ^( COLUMN boolean_value_expression ( as_clause )? )
 			{
-				// DDL.g:824:44: ^( COLUMN boolean_value_expression ( as_clause )? )
+				// DDL.g:825:44: ^( COLUMN boolean_value_expression ( as_clause )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COLUMN, "COLUMN"), root_1);
 				adaptor.addChild(root_1, stream_boolean_value_expression.nextTree());
-				// DDL.g:824:78: ( as_clause )?
+				// DDL.g:825:78: ( as_clause )?
 				if ( stream_as_clause.hasNext() ) {
 					adaptor.addChild(root_1, stream_as_clause.nextTree());
 				}
@@ -13142,7 +13144,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "column_reference"
-	// DDL.g:827:1: column_reference : (t= Identifier COMMA )? b= Identifier -> ^( FIELD_NAME $b ( $t)? ) ;
+	// DDL.g:828:1: column_reference : c= Identifier -> ^( COLUMN_NAME $c) ;
 	public final DDLParser.column_reference_return column_reference() throws RecognitionException {
 		DDLParser.column_reference_return retval = new DDLParser.column_reference_return();
 		retval.start = input.LT(1);
@@ -13150,79 +13152,40 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token t=null;
-		Token b=null;
-		Token COMMA324=null;
+		Token c=null;
 
-		CommonTree t_tree=null;
-		CommonTree b_tree=null;
-		CommonTree COMMA324_tree=null;
-		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
+		CommonTree c_tree=null;
 		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 83) ) { return retval; }
 
-			// DDL.g:828:2: ( (t= Identifier COMMA )? b= Identifier -> ^( FIELD_NAME $b ( $t)? ) )
-			// DDL.g:828:4: (t= Identifier COMMA )? b= Identifier
+			// DDL.g:829:2: (c= Identifier -> ^( COLUMN_NAME $c) )
+			// DDL.g:829:4: c= Identifier
 			{
-			// DDL.g:828:4: (t= Identifier COMMA )?
-			int alt100=2;
-			int LA100_0 = input.LA(1);
-			if ( (LA100_0==Identifier) ) {
-				int LA100_1 = input.LA(2);
-				if ( (LA100_1==COMMA) ) {
-					int LA100_2 = input.LA(3);
-					if ( (synpred150_DDL()) ) {
-						alt100=1;
-					}
-				}
-			}
-			switch (alt100) {
-				case 1 :
-					// DDL.g:828:5: t= Identifier COMMA
-					{
-					t=(Token)match(input,Identifier,FOLLOW_Identifier_in_column_reference6409); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_Identifier.add(t);
-
-					COMMA324=(Token)match(input,COMMA,FOLLOW_COMMA_in_column_reference6411); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA324);
-
-					}
-					break;
-
-			}
-
-			b=(Token)match(input,Identifier,FOLLOW_Identifier_in_column_reference6417); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_Identifier.add(b);
+			c=(Token)match(input,Identifier,FOLLOW_Identifier_in_column_reference6413); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_Identifier.add(c);
 
 			// AST REWRITE
-			// elements: b, t
-			// token labels: t, b
+			// elements: c
+			// token labels: c
 			// rule labels: retval
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
 			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
-			RewriteRuleTokenStream stream_t=new RewriteRuleTokenStream(adaptor,"token t",t);
-			RewriteRuleTokenStream stream_b=new RewriteRuleTokenStream(adaptor,"token b",b);
+			RewriteRuleTokenStream stream_c=new RewriteRuleTokenStream(adaptor,"token c",c);
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 828:39: -> ^( FIELD_NAME $b ( $t)? )
+			// 829:17: -> ^( COLUMN_NAME $c)
 			{
-				// DDL.g:828:42: ^( FIELD_NAME $b ( $t)? )
+				// DDL.g:829:20: ^( COLUMN_NAME $c)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FIELD_NAME, "FIELD_NAME"), root_1);
-				adaptor.addChild(root_1, stream_b.nextNode());
-				// DDL.g:828:59: ( $t)?
-				if ( stream_t.hasNext() ) {
-					adaptor.addChild(root_1, stream_t.nextNode());
-				}
-				stream_t.reset();
-
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COLUMN_NAME, "COLUMN_NAME"), root_1);
+				adaptor.addChild(root_1, stream_c.nextNode());
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -13264,7 +13227,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "as_clause"
-	// DDL.g:831:1: as_clause : ( AS )? column_reference ;
+	// DDL.g:832:1: as_clause : ( AS )? column_reference ;
 	public final DDLParser.as_clause_return as_clause() throws RecognitionException {
 		DDLParser.as_clause_return retval = new DDLParser.as_clause_return();
 		retval.start = input.LT(1);
@@ -13272,34 +13235,34 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token AS325=null;
-		ParserRuleReturnScope column_reference326 =null;
+		Token AS324=null;
+		ParserRuleReturnScope column_reference325 =null;
 
-		CommonTree AS325_tree=null;
+		CommonTree AS324_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 84) ) { return retval; }
 
-			// DDL.g:832:3: ( ( AS )? column_reference )
-			// DDL.g:832:5: ( AS )? column_reference
+			// DDL.g:833:3: ( ( AS )? column_reference )
+			// DDL.g:833:5: ( AS )? column_reference
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			// DDL.g:832:5: ( AS )?
-			int alt101=2;
-			int LA101_0 = input.LA(1);
-			if ( (LA101_0==AS) ) {
-				alt101=1;
+			// DDL.g:833:5: ( AS )?
+			int alt100=2;
+			int LA100_0 = input.LA(1);
+			if ( (LA100_0==AS) ) {
+				alt100=1;
 			}
-			switch (alt101) {
+			switch (alt100) {
 				case 1 :
-					// DDL.g:832:6: AS
+					// DDL.g:833:6: AS
 					{
-					AS325=(Token)match(input,AS,FOLLOW_AS_in_as_clause6444); if (state.failed) return retval;
+					AS324=(Token)match(input,AS,FOLLOW_AS_in_as_clause6436); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					AS325_tree = (CommonTree)adaptor.create(AS325);
-					adaptor.addChild(root_0, AS325_tree);
+					AS324_tree = (CommonTree)adaptor.create(AS324);
+					adaptor.addChild(root_0, AS324_tree);
 					}
 
 					}
@@ -13307,11 +13270,11 @@ public class DDLParser extends Parser {
 
 			}
 
-			pushFollow(FOLLOW_column_reference_in_as_clause6448);
-			column_reference326=column_reference();
+			pushFollow(FOLLOW_column_reference_in_as_clause6440);
+			column_reference325=column_reference();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference326.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference325.getTree());
 
 			}
 
@@ -13345,7 +13308,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "column_reference_list"
-	// DDL.g:834:1: column_reference_list : column_reference ( COMMA column_reference )* -> ( column_reference )+ ;
+	// DDL.g:835:1: column_reference_list : column_reference ( COMMA column_reference )* -> ( column_reference )+ ;
 	public final DDLParser.column_reference_list_return column_reference_list() throws RecognitionException {
 		DDLParser.column_reference_list_return retval = new DDLParser.column_reference_list_return();
 		retval.start = input.LT(1);
@@ -13353,59 +13316,59 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token COMMA328=null;
-		ParserRuleReturnScope column_reference327 =null;
-		ParserRuleReturnScope column_reference329 =null;
+		Token COMMA327=null;
+		ParserRuleReturnScope column_reference326 =null;
+		ParserRuleReturnScope column_reference328 =null;
 
-		CommonTree COMMA328_tree=null;
+		CommonTree COMMA327_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
 		RewriteRuleSubtreeStream stream_column_reference=new RewriteRuleSubtreeStream(adaptor,"rule column_reference");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 85) ) { return retval; }
 
-			// DDL.g:835:2: ( column_reference ( COMMA column_reference )* -> ( column_reference )+ )
-			// DDL.g:835:4: column_reference ( COMMA column_reference )*
+			// DDL.g:836:2: ( column_reference ( COMMA column_reference )* -> ( column_reference )+ )
+			// DDL.g:836:4: column_reference ( COMMA column_reference )*
 			{
-			pushFollow(FOLLOW_column_reference_in_column_reference_list6459);
-			column_reference327=column_reference();
+			pushFollow(FOLLOW_column_reference_in_column_reference_list6451);
+			column_reference326=column_reference();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_column_reference.add(column_reference327.getTree());
-			// DDL.g:835:21: ( COMMA column_reference )*
-			loop102:
+			if ( state.backtracking==0 ) stream_column_reference.add(column_reference326.getTree());
+			// DDL.g:836:21: ( COMMA column_reference )*
+			loop101:
 			while (true) {
-				int alt102=2;
-				int LA102_0 = input.LA(1);
-				if ( (LA102_0==COMMA) ) {
-					int LA102_2 = input.LA(2);
-					if ( (LA102_2==Identifier) ) {
-						int LA102_3 = input.LA(3);
-						if ( (synpred152_DDL()) ) {
-							alt102=1;
+				int alt101=2;
+				int LA101_0 = input.LA(1);
+				if ( (LA101_0==COMMA) ) {
+					int LA101_2 = input.LA(2);
+					if ( (LA101_2==Identifier) ) {
+						int LA101_3 = input.LA(3);
+						if ( (synpred151_DDL()) ) {
+							alt101=1;
 						}
 
 					}
 
 				}
 
-				switch (alt102) {
+				switch (alt101) {
 				case 1 :
-					// DDL.g:835:22: COMMA column_reference
+					// DDL.g:836:22: COMMA column_reference
 					{
-					COMMA328=(Token)match(input,COMMA,FOLLOW_COMMA_in_column_reference_list6462); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA328);
+					COMMA327=(Token)match(input,COMMA,FOLLOW_COMMA_in_column_reference_list6454); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA327);
 
-					pushFollow(FOLLOW_column_reference_in_column_reference_list6464);
-					column_reference329=column_reference();
+					pushFollow(FOLLOW_column_reference_in_column_reference_list6456);
+					column_reference328=column_reference();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_column_reference.add(column_reference329.getTree());
+					if ( state.backtracking==0 ) stream_column_reference.add(column_reference328.getTree());
 					}
 					break;
 
 				default :
-					break loop102;
+					break loop101;
 				}
 			}
 
@@ -13421,7 +13384,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 835:47: -> ( column_reference )+
+			// 836:47: -> ( column_reference )+
 			{
 				if ( !(stream_column_reference.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -13469,7 +13432,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "table"
-	// DDL.g:837:1: table : ( Identifier | qualified_identifier );
+	// DDL.g:838:1: table : ( Identifier | qualified_identifier );
 	public final DDLParser.table_return table() throws RecognitionException {
 		DDLParser.table_return retval = new DDLParser.table_return();
 		retval.start = input.LT(1);
@@ -13477,24 +13440,24 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token Identifier330=null;
-		ParserRuleReturnScope qualified_identifier331 =null;
+		Token Identifier329=null;
+		ParserRuleReturnScope qualified_identifier330 =null;
 
-		CommonTree Identifier330_tree=null;
+		CommonTree Identifier329_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 86) ) { return retval; }
 
-			// DDL.g:838:3: ( Identifier | qualified_identifier )
-			int alt103=2;
-			int LA103_0 = input.LA(1);
-			if ( (LA103_0==Identifier) ) {
-				int LA103_1 = input.LA(2);
-				if ( (LA103_1==DIVIDE) ) {
-					alt103=2;
+			// DDL.g:839:3: ( Identifier | qualified_identifier )
+			int alt102=2;
+			int LA102_0 = input.LA(1);
+			if ( (LA102_0==Identifier) ) {
+				int LA102_1 = input.LA(2);
+				if ( (LA102_1==DIVIDE) ) {
+					alt102=2;
 				}
-				else if ( (LA103_1==EOF||LA103_1==AS||LA103_1==CASCADE||LA103_1==COMMA||LA103_1==CROSS||LA103_1==EXCEPT||LA103_1==FOR||LA103_1==FULL||LA103_1==GROUP||LA103_1==HAVING||LA103_1==IN||LA103_1==INNER||LA103_1==INTERSECT||LA103_1==Identifier||LA103_1==JOIN||(LA103_1 >= LEFT && LA103_1 <= LEFT_PAREN)||LA103_1==LIMIT||LA103_1==NATURAL||LA103_1==ON||LA103_1==ORDER||(LA103_1 >= RESTRICT && LA103_1 <= RIGHT_PAREN)||LA103_1==TO||LA103_1==UNION||LA103_1==USING||(LA103_1 >= WHERE && LA103_1 <= WITH)||LA103_1==276) ) {
-					alt103=1;
+				else if ( (LA102_1==EOF||LA102_1==AS||LA102_1==CASCADE||LA102_1==COMMA||LA102_1==CROSS||LA102_1==EXCEPT||LA102_1==FOR||LA102_1==FULL||LA102_1==GROUP||LA102_1==HAVING||LA102_1==IN||LA102_1==INNER||LA102_1==INTERSECT||LA102_1==Identifier||LA102_1==JOIN||(LA102_1 >= LEFT && LA102_1 <= LEFT_PAREN)||LA102_1==LIMIT||LA102_1==NATURAL||LA102_1==ON||LA102_1==ORDER||(LA102_1 >= RESTRICT && LA102_1 <= RIGHT_PAREN)||LA102_1==TO||LA102_1==UNION||LA102_1==USING||(LA102_1 >= WHERE && LA102_1 <= WITH)||LA102_1==277) ) {
+					alt102=1;
 				}
 
 				else {
@@ -13503,7 +13466,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 103, 1, input);
+							new NoViableAltException("", 102, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -13515,36 +13478,36 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 103, 0, input);
+					new NoViableAltException("", 102, 0, input);
 				throw nvae;
 			}
 
-			switch (alt103) {
+			switch (alt102) {
 				case 1 :
-					// DDL.g:838:5: Identifier
+					// DDL.g:839:5: Identifier
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					Identifier330=(Token)match(input,Identifier,FOLLOW_Identifier_in_table6482); if (state.failed) return retval;
+					Identifier329=(Token)match(input,Identifier,FOLLOW_Identifier_in_table6474); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					Identifier330_tree = (CommonTree)adaptor.create(Identifier330);
-					adaptor.addChild(root_0, Identifier330_tree);
+					Identifier329_tree = (CommonTree)adaptor.create(Identifier329);
+					adaptor.addChild(root_0, Identifier329_tree);
 					}
 
 					}
 					break;
 				case 2 :
-					// DDL.g:840:5: qualified_identifier
+					// DDL.g:841:5: qualified_identifier
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_qualified_identifier_in_table6494);
-					qualified_identifier331=qualified_identifier();
+					pushFollow(FOLLOW_qualified_identifier_in_table6486);
+					qualified_identifier330=qualified_identifier();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified_identifier331.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified_identifier330.getTree());
 
 					}
 					break;
@@ -13580,7 +13543,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "qualified_identifier"
-	// DDL.g:843:1: qualified_identifier : l= Identifier DIVIDE f= Identifier ( LEFT_PAREN m= Identifier RIGHT_PAREN )? -> ^( QUALIFIED $l $f ( $m)? ) ;
+	// DDL.g:844:1: qualified_identifier : l= Identifier DIVIDE f= Identifier ( LEFT_PAREN m= Identifier RIGHT_PAREN )? -> ^( QUALIFIED $l $f ( $m)? ) ;
 	public final DDLParser.qualified_identifier_return qualified_identifier() throws RecognitionException {
 		DDLParser.qualified_identifier_return retval = new DDLParser.qualified_identifier_return();
 		retval.start = input.LT(1);
@@ -13591,16 +13554,16 @@ public class DDLParser extends Parser {
 		Token l=null;
 		Token f=null;
 		Token m=null;
-		Token DIVIDE332=null;
-		Token LEFT_PAREN333=null;
-		Token RIGHT_PAREN334=null;
+		Token DIVIDE331=null;
+		Token LEFT_PAREN332=null;
+		Token RIGHT_PAREN333=null;
 
 		CommonTree l_tree=null;
 		CommonTree f_tree=null;
 		CommonTree m_tree=null;
-		CommonTree DIVIDE332_tree=null;
-		CommonTree LEFT_PAREN333_tree=null;
-		CommonTree RIGHT_PAREN334_tree=null;
+		CommonTree DIVIDE331_tree=null;
+		CommonTree LEFT_PAREN332_tree=null;
+		CommonTree RIGHT_PAREN333_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
@@ -13609,45 +13572,45 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 87) ) { return retval; }
 
-			// DDL.g:844:3: (l= Identifier DIVIDE f= Identifier ( LEFT_PAREN m= Identifier RIGHT_PAREN )? -> ^( QUALIFIED $l $f ( $m)? ) )
-			// DDL.g:844:5: l= Identifier DIVIDE f= Identifier ( LEFT_PAREN m= Identifier RIGHT_PAREN )?
+			// DDL.g:845:3: (l= Identifier DIVIDE f= Identifier ( LEFT_PAREN m= Identifier RIGHT_PAREN )? -> ^( QUALIFIED $l $f ( $m)? ) )
+			// DDL.g:845:5: l= Identifier DIVIDE f= Identifier ( LEFT_PAREN m= Identifier RIGHT_PAREN )?
 			{
-			l=(Token)match(input,Identifier,FOLLOW_Identifier_in_qualified_identifier6509); if (state.failed) return retval; 
+			l=(Token)match(input,Identifier,FOLLOW_Identifier_in_qualified_identifier6501); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(l);
 
-			DIVIDE332=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_qualified_identifier6511); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_DIVIDE.add(DIVIDE332);
+			DIVIDE331=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_qualified_identifier6503); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_DIVIDE.add(DIVIDE331);
 
-			f=(Token)match(input,Identifier,FOLLOW_Identifier_in_qualified_identifier6515); if (state.failed) return retval; 
+			f=(Token)match(input,Identifier,FOLLOW_Identifier_in_qualified_identifier6507); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(f);
 
-			// DDL.g:844:38: ( LEFT_PAREN m= Identifier RIGHT_PAREN )?
-			int alt104=2;
-			int LA104_0 = input.LA(1);
-			if ( (LA104_0==LEFT_PAREN) ) {
-				int LA104_1 = input.LA(2);
-				if ( (LA104_1==Identifier) ) {
-					int LA104_3 = input.LA(3);
-					if ( (LA104_3==RIGHT_PAREN) ) {
-						int LA104_4 = input.LA(4);
-						if ( (synpred154_DDL()) ) {
-							alt104=1;
+			// DDL.g:845:38: ( LEFT_PAREN m= Identifier RIGHT_PAREN )?
+			int alt103=2;
+			int LA103_0 = input.LA(1);
+			if ( (LA103_0==LEFT_PAREN) ) {
+				int LA103_1 = input.LA(2);
+				if ( (LA103_1==Identifier) ) {
+					int LA103_3 = input.LA(3);
+					if ( (LA103_3==RIGHT_PAREN) ) {
+						int LA103_4 = input.LA(4);
+						if ( (synpred153_DDL()) ) {
+							alt103=1;
 						}
 					}
 				}
 			}
-			switch (alt104) {
+			switch (alt103) {
 				case 1 :
-					// DDL.g:844:39: LEFT_PAREN m= Identifier RIGHT_PAREN
+					// DDL.g:845:39: LEFT_PAREN m= Identifier RIGHT_PAREN
 					{
-					LEFT_PAREN333=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_qualified_identifier6518); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN333);
+					LEFT_PAREN332=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_qualified_identifier6510); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN332);
 
-					m=(Token)match(input,Identifier,FOLLOW_Identifier_in_qualified_identifier6522); if (state.failed) return retval; 
+					m=(Token)match(input,Identifier,FOLLOW_Identifier_in_qualified_identifier6514); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_Identifier.add(m);
 
-					RIGHT_PAREN334=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_qualified_identifier6524); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN334);
+					RIGHT_PAREN333=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_qualified_identifier6516); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN333);
 
 					}
 					break;
@@ -13655,7 +13618,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: f, m, l
+			// elements: l, m, f
 			// token labels: f, l, m
 			// rule labels: retval
 			// token list labels: 
@@ -13669,15 +13632,15 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 844:77: -> ^( QUALIFIED $l $f ( $m)? )
+			// 845:77: -> ^( QUALIFIED $l $f ( $m)? )
 			{
-				// DDL.g:844:80: ^( QUALIFIED $l $f ( $m)? )
+				// DDL.g:845:80: ^( QUALIFIED $l $f ( $m)? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED, "QUALIFIED"), root_1);
 				adaptor.addChild(root_1, stream_l.nextNode());
 				adaptor.addChild(root_1, stream_f.nextNode());
-				// DDL.g:844:99: ( $m)?
+				// DDL.g:845:99: ( $m)?
 				if ( stream_m.hasNext() ) {
 					adaptor.addChild(root_1, stream_m.nextNode());
 				}
@@ -13724,7 +13687,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "member"
-	// DDL.g:847:1: member : l= Identifier DIVIDE f= Identifier LEFT_PAREN m= Identifier RIGHT_PAREN -> ^( MEMBER $l $f $m) ;
+	// DDL.g:848:1: member : l= Identifier DIVIDE f= Identifier LEFT_PAREN m= Identifier RIGHT_PAREN -> ^( MEMBER $l $f $m) ;
 	public final DDLParser.member_return member() throws RecognitionException {
 		DDLParser.member_return retval = new DDLParser.member_return();
 		retval.start = input.LT(1);
@@ -13735,16 +13698,16 @@ public class DDLParser extends Parser {
 		Token l=null;
 		Token f=null;
 		Token m=null;
-		Token DIVIDE335=null;
-		Token LEFT_PAREN336=null;
-		Token RIGHT_PAREN337=null;
+		Token DIVIDE334=null;
+		Token LEFT_PAREN335=null;
+		Token RIGHT_PAREN336=null;
 
 		CommonTree l_tree=null;
 		CommonTree f_tree=null;
 		CommonTree m_tree=null;
-		CommonTree DIVIDE335_tree=null;
-		CommonTree LEFT_PAREN336_tree=null;
-		CommonTree RIGHT_PAREN337_tree=null;
+		CommonTree DIVIDE334_tree=null;
+		CommonTree LEFT_PAREN335_tree=null;
+		CommonTree RIGHT_PAREN336_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
@@ -13753,29 +13716,29 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 88) ) { return retval; }
 
-			// DDL.g:847:8: (l= Identifier DIVIDE f= Identifier LEFT_PAREN m= Identifier RIGHT_PAREN -> ^( MEMBER $l $f $m) )
-			// DDL.g:848:2: l= Identifier DIVIDE f= Identifier LEFT_PAREN m= Identifier RIGHT_PAREN
+			// DDL.g:848:8: (l= Identifier DIVIDE f= Identifier LEFT_PAREN m= Identifier RIGHT_PAREN -> ^( MEMBER $l $f $m) )
+			// DDL.g:849:2: l= Identifier DIVIDE f= Identifier LEFT_PAREN m= Identifier RIGHT_PAREN
 			{
-			l=(Token)match(input,Identifier,FOLLOW_Identifier_in_member6559); if (state.failed) return retval; 
+			l=(Token)match(input,Identifier,FOLLOW_Identifier_in_member6551); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(l);
 
-			DIVIDE335=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_member6561); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_DIVIDE.add(DIVIDE335);
+			DIVIDE334=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_member6553); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_DIVIDE.add(DIVIDE334);
 
-			f=(Token)match(input,Identifier,FOLLOW_Identifier_in_member6565); if (state.failed) return retval; 
+			f=(Token)match(input,Identifier,FOLLOW_Identifier_in_member6557); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(f);
 
-			LEFT_PAREN336=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_member6567); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN336);
+			LEFT_PAREN335=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_member6559); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN335);
 
-			m=(Token)match(input,Identifier,FOLLOW_Identifier_in_member6571); if (state.failed) return retval; 
+			m=(Token)match(input,Identifier,FOLLOW_Identifier_in_member6563); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(m);
 
-			RIGHT_PAREN337=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_member6573); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN337);
+			RIGHT_PAREN336=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_member6565); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN336);
 
 			// AST REWRITE
-			// elements: f, l, m
+			// elements: l, m, f
 			// token labels: f, l, m
 			// rule labels: retval
 			// token list labels: 
@@ -13789,9 +13752,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 848:71: -> ^( MEMBER $l $f $m)
+			// 849:71: -> ^( MEMBER $l $f $m)
 			{
-				// DDL.g:848:74: ^( MEMBER $l $f $m)
+				// DDL.g:849:74: ^( MEMBER $l $f $m)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(MEMBER, "MEMBER"), root_1);
@@ -13839,7 +13802,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "from_clause"
-	// DDL.g:851:1: from_clause : FROM ^ table_reference_list ;
+	// DDL.g:852:1: from_clause : FROM ^ table_reference_list ;
 	public final DDLParser.from_clause_return from_clause() throws RecognitionException {
 		DDLParser.from_clause_return retval = new DDLParser.from_clause_return();
 		retval.start = input.LT(1);
@@ -13847,31 +13810,31 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token FROM338=null;
-		ParserRuleReturnScope table_reference_list339 =null;
+		Token FROM337=null;
+		ParserRuleReturnScope table_reference_list338 =null;
 
-		CommonTree FROM338_tree=null;
+		CommonTree FROM337_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 89) ) { return retval; }
 
-			// DDL.g:852:3: ( FROM ^ table_reference_list )
-			// DDL.g:852:5: FROM ^ table_reference_list
+			// DDL.g:853:3: ( FROM ^ table_reference_list )
+			// DDL.g:853:5: FROM ^ table_reference_list
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			FROM338=(Token)match(input,FROM,FOLLOW_FROM_in_from_clause6608); if (state.failed) return retval;
+			FROM337=(Token)match(input,FROM,FOLLOW_FROM_in_from_clause6600); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			FROM338_tree = (CommonTree)adaptor.create(FROM338);
-			root_0 = (CommonTree)adaptor.becomeRoot(FROM338_tree, root_0);
+			FROM337_tree = (CommonTree)adaptor.create(FROM337);
+			root_0 = (CommonTree)adaptor.becomeRoot(FROM337_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_table_reference_list_in_from_clause6611);
-			table_reference_list339=table_reference_list();
+			pushFollow(FOLLOW_table_reference_list_in_from_clause6603);
+			table_reference_list338=table_reference_list();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, table_reference_list339.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, table_reference_list338.getTree());
 
 			}
 
@@ -13905,7 +13868,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "table_reference_list"
-	// DDL.g:854:1: table_reference_list : table_reference ( COMMA table_reference )* -> ( table_reference )+ ;
+	// DDL.g:855:1: table_reference_list : table_reference ( COMMA table_reference )* -> ( table_reference )+ ;
 	public final DDLParser.table_reference_list_return table_reference_list() throws RecognitionException {
 		DDLParser.table_reference_list_return retval = new DDLParser.table_reference_list_return();
 		retval.start = input.LT(1);
@@ -13913,51 +13876,51 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token COMMA341=null;
-		ParserRuleReturnScope table_reference340 =null;
-		ParserRuleReturnScope table_reference342 =null;
+		Token COMMA340=null;
+		ParserRuleReturnScope table_reference339 =null;
+		ParserRuleReturnScope table_reference341 =null;
 
-		CommonTree COMMA341_tree=null;
+		CommonTree COMMA340_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
 		RewriteRuleSubtreeStream stream_table_reference=new RewriteRuleSubtreeStream(adaptor,"rule table_reference");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 90) ) { return retval; }
 
-			// DDL.g:855:3: ( table_reference ( COMMA table_reference )* -> ( table_reference )+ )
-			// DDL.g:855:4: table_reference ( COMMA table_reference )*
+			// DDL.g:856:3: ( table_reference ( COMMA table_reference )* -> ( table_reference )+ )
+			// DDL.g:856:4: table_reference ( COMMA table_reference )*
 			{
-			pushFollow(FOLLOW_table_reference_in_table_reference_list6622);
-			table_reference340=table_reference();
+			pushFollow(FOLLOW_table_reference_in_table_reference_list6614);
+			table_reference339=table_reference();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_table_reference.add(table_reference340.getTree());
-			// DDL.g:855:20: ( COMMA table_reference )*
-			loop105:
+			if ( state.backtracking==0 ) stream_table_reference.add(table_reference339.getTree());
+			// DDL.g:856:20: ( COMMA table_reference )*
+			loop104:
 			while (true) {
-				int alt105=2;
-				int LA105_0 = input.LA(1);
-				if ( (LA105_0==COMMA) ) {
-					alt105=1;
+				int alt104=2;
+				int LA104_0 = input.LA(1);
+				if ( (LA104_0==COMMA) ) {
+					alt104=1;
 				}
 
-				switch (alt105) {
+				switch (alt104) {
 				case 1 :
-					// DDL.g:855:21: COMMA table_reference
+					// DDL.g:856:21: COMMA table_reference
 					{
-					COMMA341=(Token)match(input,COMMA,FOLLOW_COMMA_in_table_reference_list6625); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA341);
+					COMMA340=(Token)match(input,COMMA,FOLLOW_COMMA_in_table_reference_list6617); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA340);
 
-					pushFollow(FOLLOW_table_reference_in_table_reference_list6627);
-					table_reference342=table_reference();
+					pushFollow(FOLLOW_table_reference_in_table_reference_list6619);
+					table_reference341=table_reference();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_table_reference.add(table_reference342.getTree());
+					if ( state.backtracking==0 ) stream_table_reference.add(table_reference341.getTree());
 					}
 					break;
 
 				default :
-					break loop105;
+					break loop104;
 				}
 			}
 
@@ -13973,7 +13936,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 855:45: -> ( table_reference )+
+			// 856:45: -> ( table_reference )+
 			{
 				if ( !(stream_table_reference.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -14021,7 +13984,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "table_reference"
-	// DDL.g:857:1: table_reference : ( table_primary | joined_table );
+	// DDL.g:858:1: table_reference : ( table_primary | joined_table );
 	public final DDLParser.table_reference_return table_reference() throws RecognitionException {
 		DDLParser.table_reference_return retval = new DDLParser.table_reference_return();
 		retval.start = input.LT(1);
@@ -14029,34 +13992,34 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope table_primary343 =null;
-		ParserRuleReturnScope joined_table344 =null;
+		ParserRuleReturnScope table_primary342 =null;
+		ParserRuleReturnScope joined_table343 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 91) ) { return retval; }
 
-			// DDL.g:858:3: ( table_primary | joined_table )
-			int alt106=2;
-			int LA106_0 = input.LA(1);
-			if ( (LA106_0==Identifier) ) {
+			// DDL.g:859:3: ( table_primary | joined_table )
+			int alt105=2;
+			int LA105_0 = input.LA(1);
+			if ( (LA105_0==Identifier) ) {
 				switch ( input.LA(2) ) {
 				case DIVIDE:
 					{
-					int LA106_2 = input.LA(3);
-					if ( (LA106_2==Identifier) ) {
+					int LA105_2 = input.LA(3);
+					if ( (LA105_2==Identifier) ) {
 						switch ( input.LA(4) ) {
 						case LEFT_PAREN:
 							{
-							int LA106_9 = input.LA(5);
-							if ( (LA106_9==Identifier) ) {
-								int LA106_10 = input.LA(6);
-								if ( (LA106_10==RIGHT_PAREN) ) {
+							int LA105_9 = input.LA(5);
+							if ( (LA105_9==Identifier) ) {
+								int LA105_10 = input.LA(6);
+								if ( (LA105_10==RIGHT_PAREN) ) {
 									switch ( input.LA(7) ) {
 									case AS:
 										{
-										int LA106_3 = input.LA(8);
-										if ( (LA106_3==Identifier) ) {
+										int LA105_3 = input.LA(8);
+										if ( (LA105_3==Identifier) ) {
 											switch ( input.LA(9) ) {
 											case EOF:
 											case COMMA:
@@ -14069,17 +14032,17 @@ public class DDLParser extends Parser {
 											case RIGHT_PAREN:
 											case WHERE:
 												{
-												alt106=1;
+												alt105=1;
 												}
 												break;
 											case UNION:
 												{
-												int LA106_6 = input.LA(10);
-												if ( (LA106_6==JOIN) ) {
-													alt106=2;
+												int LA105_6 = input.LA(10);
+												if ( (LA105_6==JOIN) ) {
+													alt105=2;
 												}
-												else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-													alt106=1;
+												else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+													alt105=1;
 												}
 
 												else {
@@ -14090,7 +14053,7 @@ public class DDLParser extends Parser {
 															input.consume();
 														}
 														NoViableAltException nvae =
-															new NoViableAltException("", 106, 6, input);
+															new NoViableAltException("", 105, 6, input);
 														throw nvae;
 													} finally {
 														input.rewind(nvaeMark);
@@ -14107,7 +14070,7 @@ public class DDLParser extends Parser {
 											case NATURAL:
 											case RIGHT:
 												{
-												alt106=2;
+												alt105=2;
 												}
 												break;
 											default:
@@ -14118,7 +14081,7 @@ public class DDLParser extends Parser {
 														input.consume();
 													}
 													NoViableAltException nvae =
-														new NoViableAltException("", 106, 4, input);
+														new NoViableAltException("", 105, 4, input);
 													throw nvae;
 												} finally {
 													input.rewind(nvaeMark);
@@ -14134,7 +14097,7 @@ public class DDLParser extends Parser {
 													input.consume();
 												}
 												NoViableAltException nvae =
-													new NoViableAltException("", 106, 3, input);
+													new NoViableAltException("", 105, 3, input);
 												throw nvae;
 											} finally {
 												input.rewind(nvaeMark);
@@ -14157,17 +14120,17 @@ public class DDLParser extends Parser {
 										case RIGHT_PAREN:
 										case WHERE:
 											{
-											alt106=1;
+											alt105=1;
 											}
 											break;
 										case UNION:
 											{
-											int LA106_6 = input.LA(9);
-											if ( (LA106_6==JOIN) ) {
-												alt106=2;
+											int LA105_6 = input.LA(9);
+											if ( (LA105_6==JOIN) ) {
+												alt105=2;
 											}
-											else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-												alt106=1;
+											else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+												alt105=1;
 											}
 
 											else {
@@ -14178,7 +14141,7 @@ public class DDLParser extends Parser {
 														input.consume();
 													}
 													NoViableAltException nvae =
-														new NoViableAltException("", 106, 6, input);
+														new NoViableAltException("", 105, 6, input);
 													throw nvae;
 												} finally {
 													input.rewind(nvaeMark);
@@ -14195,7 +14158,7 @@ public class DDLParser extends Parser {
 										case NATURAL:
 										case RIGHT:
 											{
-											alt106=2;
+											alt105=2;
 											}
 											break;
 										default:
@@ -14206,7 +14169,7 @@ public class DDLParser extends Parser {
 													input.consume();
 												}
 												NoViableAltException nvae =
-													new NoViableAltException("", 106, 4, input);
+													new NoViableAltException("", 105, 4, input);
 												throw nvae;
 											} finally {
 												input.rewind(nvaeMark);
@@ -14225,17 +14188,17 @@ public class DDLParser extends Parser {
 									case RIGHT_PAREN:
 									case WHERE:
 										{
-										alt106=1;
+										alt105=1;
 										}
 										break;
 									case UNION:
 										{
-										int LA106_6 = input.LA(8);
-										if ( (LA106_6==JOIN) ) {
-											alt106=2;
+										int LA105_6 = input.LA(8);
+										if ( (LA105_6==JOIN) ) {
+											alt105=2;
 										}
-										else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-											alt106=1;
+										else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+											alt105=1;
 										}
 
 										else {
@@ -14246,7 +14209,7 @@ public class DDLParser extends Parser {
 													input.consume();
 												}
 												NoViableAltException nvae =
-													new NoViableAltException("", 106, 6, input);
+													new NoViableAltException("", 105, 6, input);
 												throw nvae;
 											} finally {
 												input.rewind(nvaeMark);
@@ -14263,7 +14226,7 @@ public class DDLParser extends Parser {
 									case NATURAL:
 									case RIGHT:
 										{
-										alt106=2;
+										alt105=2;
 										}
 										break;
 									default:
@@ -14274,7 +14237,7 @@ public class DDLParser extends Parser {
 												input.consume();
 											}
 											NoViableAltException nvae =
-												new NoViableAltException("", 106, 11, input);
+												new NoViableAltException("", 105, 11, input);
 											throw nvae;
 										} finally {
 											input.rewind(nvaeMark);
@@ -14290,7 +14253,7 @@ public class DDLParser extends Parser {
 											input.consume();
 										}
 										NoViableAltException nvae =
-											new NoViableAltException("", 106, 10, input);
+											new NoViableAltException("", 105, 10, input);
 										throw nvae;
 									} finally {
 										input.rewind(nvaeMark);
@@ -14307,7 +14270,7 @@ public class DDLParser extends Parser {
 										input.consume();
 									}
 									NoViableAltException nvae =
-										new NoViableAltException("", 106, 9, input);
+										new NoViableAltException("", 105, 9, input);
 									throw nvae;
 								} finally {
 									input.rewind(nvaeMark);
@@ -14318,8 +14281,8 @@ public class DDLParser extends Parser {
 							break;
 						case AS:
 							{
-							int LA106_3 = input.LA(5);
-							if ( (LA106_3==Identifier) ) {
+							int LA105_3 = input.LA(5);
+							if ( (LA105_3==Identifier) ) {
 								switch ( input.LA(6) ) {
 								case EOF:
 								case COMMA:
@@ -14332,17 +14295,17 @@ public class DDLParser extends Parser {
 								case RIGHT_PAREN:
 								case WHERE:
 									{
-									alt106=1;
+									alt105=1;
 									}
 									break;
 								case UNION:
 									{
-									int LA106_6 = input.LA(7);
-									if ( (LA106_6==JOIN) ) {
-										alt106=2;
+									int LA105_6 = input.LA(7);
+									if ( (LA105_6==JOIN) ) {
+										alt105=2;
 									}
-									else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-										alt106=1;
+									else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+										alt105=1;
 									}
 
 									else {
@@ -14353,7 +14316,7 @@ public class DDLParser extends Parser {
 												input.consume();
 											}
 											NoViableAltException nvae =
-												new NoViableAltException("", 106, 6, input);
+												new NoViableAltException("", 105, 6, input);
 											throw nvae;
 										} finally {
 											input.rewind(nvaeMark);
@@ -14370,7 +14333,7 @@ public class DDLParser extends Parser {
 								case NATURAL:
 								case RIGHT:
 									{
-									alt106=2;
+									alt105=2;
 									}
 									break;
 								default:
@@ -14381,7 +14344,7 @@ public class DDLParser extends Parser {
 											input.consume();
 										}
 										NoViableAltException nvae =
-											new NoViableAltException("", 106, 4, input);
+											new NoViableAltException("", 105, 4, input);
 										throw nvae;
 									} finally {
 										input.rewind(nvaeMark);
@@ -14397,7 +14360,7 @@ public class DDLParser extends Parser {
 										input.consume();
 									}
 									NoViableAltException nvae =
-										new NoViableAltException("", 106, 3, input);
+										new NoViableAltException("", 105, 3, input);
 									throw nvae;
 								} finally {
 									input.rewind(nvaeMark);
@@ -14420,17 +14383,17 @@ public class DDLParser extends Parser {
 							case RIGHT_PAREN:
 							case WHERE:
 								{
-								alt106=1;
+								alt105=1;
 								}
 								break;
 							case UNION:
 								{
-								int LA106_6 = input.LA(6);
-								if ( (LA106_6==JOIN) ) {
-									alt106=2;
+								int LA105_6 = input.LA(6);
+								if ( (LA105_6==JOIN) ) {
+									alt105=2;
 								}
-								else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-									alt106=1;
+								else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+									alt105=1;
 								}
 
 								else {
@@ -14441,7 +14404,7 @@ public class DDLParser extends Parser {
 											input.consume();
 										}
 										NoViableAltException nvae =
-											new NoViableAltException("", 106, 6, input);
+											new NoViableAltException("", 105, 6, input);
 										throw nvae;
 									} finally {
 										input.rewind(nvaeMark);
@@ -14458,7 +14421,7 @@ public class DDLParser extends Parser {
 							case NATURAL:
 							case RIGHT:
 								{
-								alt106=2;
+								alt105=2;
 								}
 								break;
 							default:
@@ -14469,7 +14432,7 @@ public class DDLParser extends Parser {
 										input.consume();
 									}
 									NoViableAltException nvae =
-										new NoViableAltException("", 106, 4, input);
+										new NoViableAltException("", 105, 4, input);
 									throw nvae;
 								} finally {
 									input.rewind(nvaeMark);
@@ -14488,17 +14451,17 @@ public class DDLParser extends Parser {
 						case RIGHT_PAREN:
 						case WHERE:
 							{
-							alt106=1;
+							alt105=1;
 							}
 							break;
 						case UNION:
 							{
-							int LA106_6 = input.LA(5);
-							if ( (LA106_6==JOIN) ) {
-								alt106=2;
+							int LA105_6 = input.LA(5);
+							if ( (LA105_6==JOIN) ) {
+								alt105=2;
 							}
-							else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-								alt106=1;
+							else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+								alt105=1;
 							}
 
 							else {
@@ -14509,7 +14472,7 @@ public class DDLParser extends Parser {
 										input.consume();
 									}
 									NoViableAltException nvae =
-										new NoViableAltException("", 106, 6, input);
+										new NoViableAltException("", 105, 6, input);
 									throw nvae;
 								} finally {
 									input.rewind(nvaeMark);
@@ -14526,7 +14489,7 @@ public class DDLParser extends Parser {
 						case NATURAL:
 						case RIGHT:
 							{
-							alt106=2;
+							alt105=2;
 							}
 							break;
 						default:
@@ -14537,7 +14500,7 @@ public class DDLParser extends Parser {
 									input.consume();
 								}
 								NoViableAltException nvae =
-									new NoViableAltException("", 106, 8, input);
+									new NoViableAltException("", 105, 8, input);
 								throw nvae;
 							} finally {
 								input.rewind(nvaeMark);
@@ -14553,7 +14516,7 @@ public class DDLParser extends Parser {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 106, 2, input);
+								new NoViableAltException("", 105, 2, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -14564,8 +14527,8 @@ public class DDLParser extends Parser {
 					break;
 				case AS:
 					{
-					int LA106_3 = input.LA(3);
-					if ( (LA106_3==Identifier) ) {
+					int LA105_3 = input.LA(3);
+					if ( (LA105_3==Identifier) ) {
 						switch ( input.LA(4) ) {
 						case EOF:
 						case COMMA:
@@ -14578,17 +14541,17 @@ public class DDLParser extends Parser {
 						case RIGHT_PAREN:
 						case WHERE:
 							{
-							alt106=1;
+							alt105=1;
 							}
 							break;
 						case UNION:
 							{
-							int LA106_6 = input.LA(5);
-							if ( (LA106_6==JOIN) ) {
-								alt106=2;
+							int LA105_6 = input.LA(5);
+							if ( (LA105_6==JOIN) ) {
+								alt105=2;
 							}
-							else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-								alt106=1;
+							else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+								alt105=1;
 							}
 
 							else {
@@ -14599,7 +14562,7 @@ public class DDLParser extends Parser {
 										input.consume();
 									}
 									NoViableAltException nvae =
-										new NoViableAltException("", 106, 6, input);
+										new NoViableAltException("", 105, 6, input);
 									throw nvae;
 								} finally {
 									input.rewind(nvaeMark);
@@ -14616,7 +14579,7 @@ public class DDLParser extends Parser {
 						case NATURAL:
 						case RIGHT:
 							{
-							alt106=2;
+							alt105=2;
 							}
 							break;
 						default:
@@ -14627,7 +14590,7 @@ public class DDLParser extends Parser {
 									input.consume();
 								}
 								NoViableAltException nvae =
-									new NoViableAltException("", 106, 4, input);
+									new NoViableAltException("", 105, 4, input);
 								throw nvae;
 							} finally {
 								input.rewind(nvaeMark);
@@ -14643,7 +14606,7 @@ public class DDLParser extends Parser {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 106, 3, input);
+								new NoViableAltException("", 105, 3, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -14666,17 +14629,17 @@ public class DDLParser extends Parser {
 					case RIGHT_PAREN:
 					case WHERE:
 						{
-						alt106=1;
+						alt105=1;
 						}
 						break;
 					case UNION:
 						{
-						int LA106_6 = input.LA(4);
-						if ( (LA106_6==JOIN) ) {
-							alt106=2;
+						int LA105_6 = input.LA(4);
+						if ( (LA105_6==JOIN) ) {
+							alt105=2;
 						}
-						else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-							alt106=1;
+						else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+							alt105=1;
 						}
 
 						else {
@@ -14687,7 +14650,7 @@ public class DDLParser extends Parser {
 									input.consume();
 								}
 								NoViableAltException nvae =
-									new NoViableAltException("", 106, 6, input);
+									new NoViableAltException("", 105, 6, input);
 								throw nvae;
 							} finally {
 								input.rewind(nvaeMark);
@@ -14704,7 +14667,7 @@ public class DDLParser extends Parser {
 					case NATURAL:
 					case RIGHT:
 						{
-						alt106=2;
+						alt105=2;
 						}
 						break;
 					default:
@@ -14715,7 +14678,7 @@ public class DDLParser extends Parser {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 106, 4, input);
+								new NoViableAltException("", 105, 4, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -14734,17 +14697,17 @@ public class DDLParser extends Parser {
 				case RIGHT_PAREN:
 				case WHERE:
 					{
-					alt106=1;
+					alt105=1;
 					}
 					break;
 				case UNION:
 					{
-					int LA106_6 = input.LA(3);
-					if ( (LA106_6==JOIN) ) {
-						alt106=2;
+					int LA105_6 = input.LA(3);
+					if ( (LA105_6==JOIN) ) {
+						alt105=2;
 					}
-					else if ( (LA106_6==ALL||LA106_6==DISTINCT||LA106_6==Identifier||LA106_6==LEFT_PAREN||LA106_6==SELECT) ) {
-						alt106=1;
+					else if ( (LA105_6==ALL||LA105_6==DISTINCT||LA105_6==Identifier||LA105_6==LEFT_PAREN||LA105_6==SELECT) ) {
+						alt105=1;
 					}
 
 					else {
@@ -14755,7 +14718,7 @@ public class DDLParser extends Parser {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 106, 6, input);
+								new NoViableAltException("", 105, 6, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -14772,7 +14735,7 @@ public class DDLParser extends Parser {
 				case NATURAL:
 				case RIGHT:
 					{
-					alt106=2;
+					alt105=2;
 					}
 					break;
 				default:
@@ -14781,7 +14744,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 106, 1, input);
+							new NoViableAltException("", 105, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -14792,36 +14755,36 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 106, 0, input);
+					new NoViableAltException("", 105, 0, input);
 				throw nvae;
 			}
 
-			switch (alt106) {
+			switch (alt105) {
 				case 1 :
-					// DDL.g:858:5: table_primary
+					// DDL.g:859:5: table_primary
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_table_primary_in_table_reference6646);
-					table_primary343=table_primary();
+					pushFollow(FOLLOW_table_primary_in_table_reference6638);
+					table_primary342=table_primary();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, table_primary343.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, table_primary342.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:859:5: joined_table
+					// DDL.g:860:5: joined_table
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_joined_table_in_table_reference6652);
-					joined_table344=joined_table();
+					pushFollow(FOLLOW_joined_table_in_table_reference6644);
+					joined_table343=joined_table();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, joined_table344.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, joined_table343.getTree());
 
 					}
 					break;
@@ -14857,7 +14820,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "joined_table"
-	// DDL.g:861:1: joined_table : table_primary ( cross_join | qualified_join | natural_join | union_join )+ ;
+	// DDL.g:862:1: joined_table : table_primary ( cross_join | qualified_join | natural_join | union_join )+ ;
 	public final DDLParser.joined_table_return joined_table() throws RecognitionException {
 		DDLParser.joined_table_return retval = new DDLParser.joined_table_return();
 		retval.start = input.LT(1);
@@ -14865,46 +14828,46 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope table_primary345 =null;
-		ParserRuleReturnScope cross_join346 =null;
-		ParserRuleReturnScope qualified_join347 =null;
-		ParserRuleReturnScope natural_join348 =null;
-		ParserRuleReturnScope union_join349 =null;
+		ParserRuleReturnScope table_primary344 =null;
+		ParserRuleReturnScope cross_join345 =null;
+		ParserRuleReturnScope qualified_join346 =null;
+		ParserRuleReturnScope natural_join347 =null;
+		ParserRuleReturnScope union_join348 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 92) ) { return retval; }
 
-			// DDL.g:862:3: ( table_primary ( cross_join | qualified_join | natural_join | union_join )+ )
-			// DDL.g:862:5: table_primary ( cross_join | qualified_join | natural_join | union_join )+
+			// DDL.g:863:3: ( table_primary ( cross_join | qualified_join | natural_join | union_join )+ )
+			// DDL.g:863:5: table_primary ( cross_join | qualified_join | natural_join | union_join )+
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_table_primary_in_joined_table6664);
-			table_primary345=table_primary();
+			pushFollow(FOLLOW_table_primary_in_joined_table6656);
+			table_primary344=table_primary();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, table_primary345.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, table_primary344.getTree());
 
-			// DDL.g:862:19: ( cross_join | qualified_join | natural_join | union_join )+
-			int cnt107=0;
-			loop107:
+			// DDL.g:863:19: ( cross_join | qualified_join | natural_join | union_join )+
+			int cnt106=0;
+			loop106:
 			while (true) {
-				int alt107=5;
+				int alt106=5;
 				switch ( input.LA(1) ) {
 				case UNION:
 					{
-					int LA107_2 = input.LA(2);
-					if ( (LA107_2==JOIN) ) {
-						alt107=4;
+					int LA106_2 = input.LA(2);
+					if ( (LA106_2==JOIN) ) {
+						alt106=4;
 					}
 
 					}
 					break;
 				case CROSS:
 					{
-					alt107=1;
+					alt106=1;
 					}
 					break;
 				case FULL:
@@ -14913,68 +14876,68 @@ public class DDLParser extends Parser {
 				case LEFT:
 				case RIGHT:
 					{
-					alt107=2;
+					alt106=2;
 					}
 					break;
 				case NATURAL:
 					{
-					alt107=3;
+					alt106=3;
 					}
 					break;
 				}
-				switch (alt107) {
+				switch (alt106) {
 				case 1 :
-					// DDL.g:862:20: cross_join
+					// DDL.g:863:20: cross_join
 					{
-					pushFollow(FOLLOW_cross_join_in_joined_table6667);
-					cross_join346=cross_join();
+					pushFollow(FOLLOW_cross_join_in_joined_table6659);
+					cross_join345=cross_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, cross_join346.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, cross_join345.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:862:33: qualified_join
+					// DDL.g:863:33: qualified_join
 					{
-					pushFollow(FOLLOW_qualified_join_in_joined_table6671);
-					qualified_join347=qualified_join();
+					pushFollow(FOLLOW_qualified_join_in_joined_table6663);
+					qualified_join346=qualified_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified_join347.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified_join346.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:862:50: natural_join
+					// DDL.g:863:50: natural_join
 					{
-					pushFollow(FOLLOW_natural_join_in_joined_table6675);
-					natural_join348=natural_join();
+					pushFollow(FOLLOW_natural_join_in_joined_table6667);
+					natural_join347=natural_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, natural_join348.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, natural_join347.getTree());
 
 					}
 					break;
 				case 4 :
-					// DDL.g:862:65: union_join
+					// DDL.g:863:65: union_join
 					{
-					pushFollow(FOLLOW_union_join_in_joined_table6679);
-					union_join349=union_join();
+					pushFollow(FOLLOW_union_join_in_joined_table6671);
+					union_join348=union_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, union_join349.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, union_join348.getTree());
 
 					}
 					break;
 
 				default :
-					if ( cnt107 >= 1 ) break loop107;
+					if ( cnt106 >= 1 ) break loop106;
 					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(107, input);
+					EarlyExitException eee = new EarlyExitException(106, input);
 					throw eee;
 				}
-				cnt107++;
+				cnt106++;
 			}
 
 			}
@@ -15009,7 +14972,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "joined_table_prim"
-	// DDL.g:864:1: joined_table_prim : ( cross_join | qualified_join | natural_join | union_join );
+	// DDL.g:865:1: joined_table_prim : ( cross_join | qualified_join | natural_join | union_join );
 	public final DDLParser.joined_table_prim_return joined_table_prim() throws RecognitionException {
 		DDLParser.joined_table_prim_return retval = new DDLParser.joined_table_prim_return();
 		retval.start = input.LT(1);
@@ -15017,21 +14980,21 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope cross_join350 =null;
-		ParserRuleReturnScope qualified_join351 =null;
-		ParserRuleReturnScope natural_join352 =null;
-		ParserRuleReturnScope union_join353 =null;
+		ParserRuleReturnScope cross_join349 =null;
+		ParserRuleReturnScope qualified_join350 =null;
+		ParserRuleReturnScope natural_join351 =null;
+		ParserRuleReturnScope union_join352 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 93) ) { return retval; }
 
-			// DDL.g:865:3: ( cross_join | qualified_join | natural_join | union_join )
-			int alt108=4;
+			// DDL.g:866:3: ( cross_join | qualified_join | natural_join | union_join )
+			int alt107=4;
 			switch ( input.LA(1) ) {
 			case CROSS:
 				{
-				alt108=1;
+				alt107=1;
 				}
 				break;
 			case FULL:
@@ -15040,79 +15003,79 @@ public class DDLParser extends Parser {
 			case LEFT:
 			case RIGHT:
 				{
-				alt108=2;
+				alt107=2;
 				}
 				break;
 			case NATURAL:
 				{
-				alt108=3;
+				alt107=3;
 				}
 				break;
 			case UNION:
 				{
-				alt108=4;
+				alt107=4;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 108, 0, input);
+					new NoViableAltException("", 107, 0, input);
 				throw nvae;
 			}
-			switch (alt108) {
+			switch (alt107) {
 				case 1 :
-					// DDL.g:865:5: cross_join
+					// DDL.g:866:5: cross_join
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_cross_join_in_joined_table_prim6693);
-					cross_join350=cross_join();
+					pushFollow(FOLLOW_cross_join_in_joined_table_prim6685);
+					cross_join349=cross_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, cross_join350.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, cross_join349.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:866:5: qualified_join
+					// DDL.g:867:5: qualified_join
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_qualified_join_in_joined_table_prim6699);
-					qualified_join351=qualified_join();
+					pushFollow(FOLLOW_qualified_join_in_joined_table_prim6691);
+					qualified_join350=qualified_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified_join351.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified_join350.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:867:5: natural_join
+					// DDL.g:868:5: natural_join
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_natural_join_in_joined_table_prim6705);
-					natural_join352=natural_join();
+					pushFollow(FOLLOW_natural_join_in_joined_table_prim6697);
+					natural_join351=natural_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, natural_join352.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, natural_join351.getTree());
 
 					}
 					break;
 				case 4 :
-					// DDL.g:868:5: union_join
+					// DDL.g:869:5: union_join
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_union_join_in_joined_table_prim6711);
-					union_join353=union_join();
+					pushFollow(FOLLOW_union_join_in_joined_table_prim6703);
+					union_join352=union_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, union_join353.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, union_join352.getTree());
 
 					}
 					break;
@@ -15148,7 +15111,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "cross_join"
-	// DDL.g:870:1: cross_join : CROSS JOIN r= table_primary -> ^( JOIN CROSS $r) ;
+	// DDL.g:871:1: cross_join : CROSS JOIN r= table_primary -> ^( JOIN CROSS $r) ;
 	public final DDLParser.cross_join_return cross_join() throws RecognitionException {
 		DDLParser.cross_join_return retval = new DDLParser.cross_join_return();
 		retval.start = input.LT(1);
@@ -15156,12 +15119,12 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token CROSS354=null;
-		Token JOIN355=null;
+		Token CROSS353=null;
+		Token JOIN354=null;
 		ParserRuleReturnScope r =null;
 
-		CommonTree CROSS354_tree=null;
-		CommonTree JOIN355_tree=null;
+		CommonTree CROSS353_tree=null;
+		CommonTree JOIN354_tree=null;
 		RewriteRuleTokenStream stream_CROSS=new RewriteRuleTokenStream(adaptor,"token CROSS");
 		RewriteRuleTokenStream stream_JOIN=new RewriteRuleTokenStream(adaptor,"token JOIN");
 		RewriteRuleSubtreeStream stream_table_primary=new RewriteRuleSubtreeStream(adaptor,"rule table_primary");
@@ -15169,22 +15132,22 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 94) ) { return retval; }
 
-			// DDL.g:871:3: ( CROSS JOIN r= table_primary -> ^( JOIN CROSS $r) )
-			// DDL.g:871:5: CROSS JOIN r= table_primary
+			// DDL.g:872:3: ( CROSS JOIN r= table_primary -> ^( JOIN CROSS $r) )
+			// DDL.g:872:5: CROSS JOIN r= table_primary
 			{
-			CROSS354=(Token)match(input,CROSS,FOLLOW_CROSS_in_cross_join6723); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_CROSS.add(CROSS354);
+			CROSS353=(Token)match(input,CROSS,FOLLOW_CROSS_in_cross_join6715); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_CROSS.add(CROSS353);
 
-			JOIN355=(Token)match(input,JOIN,FOLLOW_JOIN_in_cross_join6725); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_JOIN.add(JOIN355);
+			JOIN354=(Token)match(input,JOIN,FOLLOW_JOIN_in_cross_join6717); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_JOIN.add(JOIN354);
 
-			pushFollow(FOLLOW_table_primary_in_cross_join6729);
+			pushFollow(FOLLOW_table_primary_in_cross_join6721);
 			r=table_primary();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table_primary.add(r.getTree());
 			// AST REWRITE
-			// elements: JOIN, CROSS, r
+			// elements: CROSS, r, JOIN
 			// token labels: 
 			// rule labels: retval, r
 			// token list labels: 
@@ -15196,9 +15159,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 871:32: -> ^( JOIN CROSS $r)
+			// 872:32: -> ^( JOIN CROSS $r)
 			{
-				// DDL.g:871:35: ^( JOIN CROSS $r)
+				// DDL.g:872:35: ^( JOIN CROSS $r)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_JOIN.nextNode(), root_1);
@@ -15245,7 +15208,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "qualified_join"
-	// DDL.g:873:1: qualified_join : (t= join_type )? JOIN r= table_primary s= join_specification -> ^( JOIN ( $t)? $r $s) ;
+	// DDL.g:874:1: qualified_join : (t= join_type )? JOIN r= table_primary s= join_specification -> ^( JOIN ( $t)? $r $s) ;
 	public final DDLParser.qualified_join_return qualified_join() throws RecognitionException {
 		DDLParser.qualified_join_return retval = new DDLParser.qualified_join_return();
 		retval.start = input.LT(1);
@@ -15253,12 +15216,12 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token JOIN356=null;
+		Token JOIN355=null;
 		ParserRuleReturnScope t =null;
 		ParserRuleReturnScope r =null;
 		ParserRuleReturnScope s =null;
 
-		CommonTree JOIN356_tree=null;
+		CommonTree JOIN355_tree=null;
 		RewriteRuleTokenStream stream_JOIN=new RewriteRuleTokenStream(adaptor,"token JOIN");
 		RewriteRuleSubtreeStream stream_join_specification=new RewriteRuleSubtreeStream(adaptor,"rule join_specification");
 		RewriteRuleSubtreeStream stream_join_type=new RewriteRuleSubtreeStream(adaptor,"rule join_type");
@@ -15267,20 +15230,20 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 95) ) { return retval; }
 
-			// DDL.g:874:3: ( (t= join_type )? JOIN r= table_primary s= join_specification -> ^( JOIN ( $t)? $r $s) )
-			// DDL.g:874:5: (t= join_type )? JOIN r= table_primary s= join_specification
+			// DDL.g:875:3: ( (t= join_type )? JOIN r= table_primary s= join_specification -> ^( JOIN ( $t)? $r $s) )
+			// DDL.g:875:5: (t= join_type )? JOIN r= table_primary s= join_specification
 			{
-			// DDL.g:874:5: (t= join_type )?
-			int alt109=2;
-			int LA109_0 = input.LA(1);
-			if ( (LA109_0==FULL||LA109_0==INNER||LA109_0==LEFT||LA109_0==RIGHT) ) {
-				alt109=1;
+			// DDL.g:875:5: (t= join_type )?
+			int alt108=2;
+			int LA108_0 = input.LA(1);
+			if ( (LA108_0==FULL||LA108_0==INNER||LA108_0==LEFT||LA108_0==RIGHT) ) {
+				alt108=1;
 			}
-			switch (alt109) {
+			switch (alt108) {
 				case 1 :
-					// DDL.g:874:6: t= join_type
+					// DDL.g:875:6: t= join_type
 					{
-					pushFollow(FOLLOW_join_type_in_qualified_join6755);
+					pushFollow(FOLLOW_join_type_in_qualified_join6747);
 					t=join_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -15290,21 +15253,21 @@ public class DDLParser extends Parser {
 
 			}
 
-			JOIN356=(Token)match(input,JOIN,FOLLOW_JOIN_in_qualified_join6759); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_JOIN.add(JOIN356);
+			JOIN355=(Token)match(input,JOIN,FOLLOW_JOIN_in_qualified_join6751); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_JOIN.add(JOIN355);
 
-			pushFollow(FOLLOW_table_primary_in_qualified_join6763);
+			pushFollow(FOLLOW_table_primary_in_qualified_join6755);
 			r=table_primary();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table_primary.add(r.getTree());
-			pushFollow(FOLLOW_join_specification_in_qualified_join6767);
+			pushFollow(FOLLOW_join_specification_in_qualified_join6759);
 			s=join_specification();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_join_specification.add(s.getTree());
 			// AST REWRITE
-			// elements: t, JOIN, s, r
+			// elements: JOIN, s, t, r
 			// token labels: 
 			// rule labels: retval, t, s, r
 			// token list labels: 
@@ -15318,13 +15281,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 874:62: -> ^( JOIN ( $t)? $r $s)
+			// 875:62: -> ^( JOIN ( $t)? $r $s)
 			{
-				// DDL.g:874:65: ^( JOIN ( $t)? $r $s)
+				// DDL.g:875:65: ^( JOIN ( $t)? $r $s)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_JOIN.nextNode(), root_1);
-				// DDL.g:874:73: ( $t)?
+				// DDL.g:875:73: ( $t)?
 				if ( stream_t.hasNext() ) {
 					adaptor.addChild(root_1, stream_t.nextTree());
 				}
@@ -15373,7 +15336,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "natural_join"
-	// DDL.g:876:1: natural_join : NATURAL (t= join_type )? JOIN r= table_primary -> ^( JOIN NATURAL ( $t)? $r) ;
+	// DDL.g:877:1: natural_join : NATURAL (t= join_type )? JOIN r= table_primary -> ^( JOIN NATURAL ( $t)? $r) ;
 	public final DDLParser.natural_join_return natural_join() throws RecognitionException {
 		DDLParser.natural_join_return retval = new DDLParser.natural_join_return();
 		retval.start = input.LT(1);
@@ -15381,13 +15344,13 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NATURAL357=null;
-		Token JOIN358=null;
+		Token NATURAL356=null;
+		Token JOIN357=null;
 		ParserRuleReturnScope t =null;
 		ParserRuleReturnScope r =null;
 
-		CommonTree NATURAL357_tree=null;
-		CommonTree JOIN358_tree=null;
+		CommonTree NATURAL356_tree=null;
+		CommonTree JOIN357_tree=null;
 		RewriteRuleTokenStream stream_NATURAL=new RewriteRuleTokenStream(adaptor,"token NATURAL");
 		RewriteRuleTokenStream stream_JOIN=new RewriteRuleTokenStream(adaptor,"token JOIN");
 		RewriteRuleSubtreeStream stream_join_type=new RewriteRuleSubtreeStream(adaptor,"rule join_type");
@@ -15396,23 +15359,23 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 96) ) { return retval; }
 
-			// DDL.g:877:3: ( NATURAL (t= join_type )? JOIN r= table_primary -> ^( JOIN NATURAL ( $t)? $r) )
-			// DDL.g:877:5: NATURAL (t= join_type )? JOIN r= table_primary
+			// DDL.g:878:3: ( NATURAL (t= join_type )? JOIN r= table_primary -> ^( JOIN NATURAL ( $t)? $r) )
+			// DDL.g:878:5: NATURAL (t= join_type )? JOIN r= table_primary
 			{
-			NATURAL357=(Token)match(input,NATURAL,FOLLOW_NATURAL_in_natural_join6795); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_NATURAL.add(NATURAL357);
+			NATURAL356=(Token)match(input,NATURAL,FOLLOW_NATURAL_in_natural_join6787); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_NATURAL.add(NATURAL356);
 
-			// DDL.g:877:13: (t= join_type )?
-			int alt110=2;
-			int LA110_0 = input.LA(1);
-			if ( (LA110_0==FULL||LA110_0==INNER||LA110_0==LEFT||LA110_0==RIGHT) ) {
-				alt110=1;
+			// DDL.g:878:13: (t= join_type )?
+			int alt109=2;
+			int LA109_0 = input.LA(1);
+			if ( (LA109_0==FULL||LA109_0==INNER||LA109_0==LEFT||LA109_0==RIGHT) ) {
+				alt109=1;
 			}
-			switch (alt110) {
+			switch (alt109) {
 				case 1 :
-					// DDL.g:877:14: t= join_type
+					// DDL.g:878:14: t= join_type
 					{
-					pushFollow(FOLLOW_join_type_in_natural_join6800);
+					pushFollow(FOLLOW_join_type_in_natural_join6792);
 					t=join_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -15422,16 +15385,16 @@ public class DDLParser extends Parser {
 
 			}
 
-			JOIN358=(Token)match(input,JOIN,FOLLOW_JOIN_in_natural_join6804); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_JOIN.add(JOIN358);
+			JOIN357=(Token)match(input,JOIN,FOLLOW_JOIN_in_natural_join6796); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_JOIN.add(JOIN357);
 
-			pushFollow(FOLLOW_table_primary_in_natural_join6808);
+			pushFollow(FOLLOW_table_primary_in_natural_join6800);
 			r=table_primary();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_table_primary.add(r.getTree());
 			// AST REWRITE
-			// elements: r, t, NATURAL, JOIN
+			// elements: t, JOIN, r, NATURAL
 			// token labels: 
 			// rule labels: retval, t, r
 			// token list labels: 
@@ -15444,14 +15407,14 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 877:49: -> ^( JOIN NATURAL ( $t)? $r)
+			// 878:49: -> ^( JOIN NATURAL ( $t)? $r)
 			{
-				// DDL.g:877:52: ^( JOIN NATURAL ( $t)? $r)
+				// DDL.g:878:52: ^( JOIN NATURAL ( $t)? $r)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_JOIN.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_NATURAL.nextNode());
-				// DDL.g:877:68: ( $t)?
+				// DDL.g:878:68: ( $t)?
 				if ( stream_t.hasNext() ) {
 					adaptor.addChild(root_1, stream_t.nextTree());
 				}
@@ -15499,7 +15462,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "union_join"
-	// DDL.g:879:1: union_join : UNION JOIN r= table_primary -> ^( JOIN UNION $r) ;
+	// DDL.g:880:1: union_join : UNION JOIN r= table_primary -> ^( JOIN UNION $r) ;
 	public final DDLParser.union_join_return union_join() throws RecognitionException {
 		DDLParser.union_join_return retval = new DDLParser.union_join_return();
 		retval.start = input.LT(1);
@@ -15507,12 +15470,12 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token UNION359=null;
-		Token JOIN360=null;
+		Token UNION358=null;
+		Token JOIN359=null;
 		ParserRuleReturnScope r =null;
 
-		CommonTree UNION359_tree=null;
-		CommonTree JOIN360_tree=null;
+		CommonTree UNION358_tree=null;
+		CommonTree JOIN359_tree=null;
 		RewriteRuleTokenStream stream_JOIN=new RewriteRuleTokenStream(adaptor,"token JOIN");
 		RewriteRuleTokenStream stream_UNION=new RewriteRuleTokenStream(adaptor,"token UNION");
 		RewriteRuleSubtreeStream stream_table_primary=new RewriteRuleSubtreeStream(adaptor,"rule table_primary");
@@ -15520,16 +15483,16 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 97) ) { return retval; }
 
-			// DDL.g:880:3: ( UNION JOIN r= table_primary -> ^( JOIN UNION $r) )
-			// DDL.g:880:5: UNION JOIN r= table_primary
+			// DDL.g:881:3: ( UNION JOIN r= table_primary -> ^( JOIN UNION $r) )
+			// DDL.g:881:5: UNION JOIN r= table_primary
 			{
-			UNION359=(Token)match(input,UNION,FOLLOW_UNION_in_union_join6835); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_UNION.add(UNION359);
+			UNION358=(Token)match(input,UNION,FOLLOW_UNION_in_union_join6827); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_UNION.add(UNION358);
 
-			JOIN360=(Token)match(input,JOIN,FOLLOW_JOIN_in_union_join6837); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_JOIN.add(JOIN360);
+			JOIN359=(Token)match(input,JOIN,FOLLOW_JOIN_in_union_join6829); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_JOIN.add(JOIN359);
 
-			pushFollow(FOLLOW_table_primary_in_union_join6841);
+			pushFollow(FOLLOW_table_primary_in_union_join6833);
 			r=table_primary();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -15547,9 +15510,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 880:32: -> ^( JOIN UNION $r)
+			// 881:32: -> ^( JOIN UNION $r)
 			{
-				// DDL.g:880:35: ^( JOIN UNION $r)
+				// DDL.g:881:35: ^( JOIN UNION $r)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_JOIN.nextNode(), root_1);
@@ -15596,7 +15559,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "join_type"
-	// DDL.g:882:1: join_type : ( INNER |t= outer_join_type OUTER -> ^( OUTER $t) |t= outer_join_type -> ^( OUTER $t) );
+	// DDL.g:883:1: join_type : ( INNER |t= outer_join_type OUTER -> ^( OUTER $t) |t= outer_join_type -> ^( OUTER $t) );
 	public final DDLParser.join_type_return join_type() throws RecognitionException {
 		DDLParser.join_type_return retval = new DDLParser.join_type_return();
 		retval.start = input.LT(1);
@@ -15604,31 +15567,31 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token INNER361=null;
-		Token OUTER362=null;
+		Token INNER360=null;
+		Token OUTER361=null;
 		ParserRuleReturnScope t =null;
 
-		CommonTree INNER361_tree=null;
-		CommonTree OUTER362_tree=null;
+		CommonTree INNER360_tree=null;
+		CommonTree OUTER361_tree=null;
 		RewriteRuleTokenStream stream_OUTER=new RewriteRuleTokenStream(adaptor,"token OUTER");
 		RewriteRuleSubtreeStream stream_outer_join_type=new RewriteRuleSubtreeStream(adaptor,"rule outer_join_type");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 98) ) { return retval; }
 
-			// DDL.g:883:3: ( INNER |t= outer_join_type OUTER -> ^( OUTER $t) |t= outer_join_type -> ^( OUTER $t) )
-			int alt111=3;
-			int LA111_0 = input.LA(1);
-			if ( (LA111_0==INNER) ) {
-				alt111=1;
+			// DDL.g:884:3: ( INNER |t= outer_join_type OUTER -> ^( OUTER $t) |t= outer_join_type -> ^( OUTER $t) )
+			int alt110=3;
+			int LA110_0 = input.LA(1);
+			if ( (LA110_0==INNER) ) {
+				alt110=1;
 			}
-			else if ( (LA111_0==FULL||LA111_0==LEFT||LA111_0==RIGHT) ) {
-				int LA111_2 = input.LA(2);
-				if ( (LA111_2==OUTER) ) {
-					alt111=2;
+			else if ( (LA110_0==FULL||LA110_0==LEFT||LA110_0==RIGHT) ) {
+				int LA110_2 = input.LA(2);
+				if ( (LA110_2==OUTER) ) {
+					alt110=2;
 				}
-				else if ( (LA111_2==EOF||LA111_2==JOIN) ) {
-					alt111=3;
+				else if ( (LA110_2==EOF||LA110_2==JOIN) ) {
+					alt110=3;
 				}
 
 				else {
@@ -15637,7 +15600,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 111, 2, input);
+							new NoViableAltException("", 110, 2, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -15649,35 +15612,35 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 111, 0, input);
+					new NoViableAltException("", 110, 0, input);
 				throw nvae;
 			}
 
-			switch (alt111) {
+			switch (alt110) {
 				case 1 :
-					// DDL.g:883:5: INNER
+					// DDL.g:884:5: INNER
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INNER361=(Token)match(input,INNER,FOLLOW_INNER_in_join_type6864); if (state.failed) return retval;
+					INNER360=(Token)match(input,INNER,FOLLOW_INNER_in_join_type6856); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					INNER361_tree = (CommonTree)adaptor.create(INNER361);
-					adaptor.addChild(root_0, INNER361_tree);
+					INNER360_tree = (CommonTree)adaptor.create(INNER360);
+					adaptor.addChild(root_0, INNER360_tree);
 					}
 
 					}
 					break;
 				case 2 :
-					// DDL.g:884:5: t= outer_join_type OUTER
+					// DDL.g:885:5: t= outer_join_type OUTER
 					{
-					pushFollow(FOLLOW_outer_join_type_in_join_type6872);
+					pushFollow(FOLLOW_outer_join_type_in_join_type6864);
 					t=outer_join_type();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_outer_join_type.add(t.getTree());
-					OUTER362=(Token)match(input,OUTER,FOLLOW_OUTER_in_join_type6874); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_OUTER.add(OUTER362);
+					OUTER361=(Token)match(input,OUTER,FOLLOW_OUTER_in_join_type6866); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_OUTER.add(OUTER361);
 
 					// AST REWRITE
 					// elements: t, OUTER
@@ -15692,9 +15655,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 884:29: -> ^( OUTER $t)
+					// 885:29: -> ^( OUTER $t)
 					{
-						// DDL.g:884:32: ^( OUTER $t)
+						// DDL.g:885:32: ^( OUTER $t)
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot(stream_OUTER.nextNode(), root_1);
@@ -15711,9 +15674,9 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:885:5: t= outer_join_type
+					// DDL.g:886:5: t= outer_join_type
 					{
-					pushFollow(FOLLOW_outer_join_type_in_join_type6891);
+					pushFollow(FOLLOW_outer_join_type_in_join_type6883);
 					t=outer_join_type();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -15731,9 +15694,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 885:23: -> ^( OUTER $t)
+					// 886:23: -> ^( OUTER $t)
 					{
-						// DDL.g:885:26: ^( OUTER $t)
+						// DDL.g:886:26: ^( OUTER $t)
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(OUTER, "OUTER"), root_1);
@@ -15781,7 +15744,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "outer_join_type"
-	// DDL.g:887:1: outer_join_type : ( LEFT | RIGHT | FULL );
+	// DDL.g:888:1: outer_join_type : ( LEFT | RIGHT | FULL );
 	public final DDLParser.outer_join_type_return outer_join_type() throws RecognitionException {
 		DDLParser.outer_join_type_return retval = new DDLParser.outer_join_type_return();
 		retval.start = input.LT(1);
@@ -15789,23 +15752,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set363=null;
+		Token set362=null;
 
-		CommonTree set363_tree=null;
+		CommonTree set362_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 99) ) { return retval; }
 
-			// DDL.g:888:3: ( LEFT | RIGHT | FULL )
+			// DDL.g:889:3: ( LEFT | RIGHT | FULL )
 			// DDL.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			set363=input.LT(1);
+			set362=input.LT(1);
 			if ( input.LA(1)==FULL||input.LA(1)==LEFT||input.LA(1)==RIGHT ) {
 				input.consume();
-				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set363));
+				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set362));
 				state.errorRecovery=false;
 				state.failed=false;
 			}
@@ -15846,7 +15809,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "join_specification"
-	// DDL.g:892:1: join_specification : ( join_condition | named_columns_join );
+	// DDL.g:893:1: join_specification : ( join_condition | named_columns_join );
 	public final DDLParser.join_specification_return join_specification() throws RecognitionException {
 		DDLParser.join_specification_return retval = new DDLParser.join_specification_return();
 		retval.start = input.LT(1);
@@ -15854,56 +15817,56 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope join_condition364 =null;
-		ParserRuleReturnScope named_columns_join365 =null;
+		ParserRuleReturnScope join_condition363 =null;
+		ParserRuleReturnScope named_columns_join364 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 100) ) { return retval; }
 
-			// DDL.g:893:3: ( join_condition | named_columns_join )
-			int alt112=2;
-			int LA112_0 = input.LA(1);
-			if ( (LA112_0==ON) ) {
-				alt112=1;
+			// DDL.g:894:3: ( join_condition | named_columns_join )
+			int alt111=2;
+			int LA111_0 = input.LA(1);
+			if ( (LA111_0==ON) ) {
+				alt111=1;
 			}
-			else if ( (LA112_0==USING) ) {
-				alt112=2;
+			else if ( (LA111_0==USING) ) {
+				alt111=2;
 			}
 
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 112, 0, input);
+					new NoViableAltException("", 111, 0, input);
 				throw nvae;
 			}
 
-			switch (alt112) {
+			switch (alt111) {
 				case 1 :
-					// DDL.g:893:5: join_condition
+					// DDL.g:894:5: join_condition
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_join_condition_in_join_specification6936);
-					join_condition364=join_condition();
+					pushFollow(FOLLOW_join_condition_in_join_specification6928);
+					join_condition363=join_condition();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, join_condition364.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, join_condition363.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:894:5: named_columns_join
+					// DDL.g:895:5: named_columns_join
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_named_columns_join_in_join_specification6942);
-					named_columns_join365=named_columns_join();
+					pushFollow(FOLLOW_named_columns_join_in_join_specification6934);
+					named_columns_join364=named_columns_join();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, named_columns_join365.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, named_columns_join364.getTree());
 
 					}
 					break;
@@ -15939,7 +15902,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "join_condition"
-	// DDL.g:896:1: join_condition : ON ^ search_condition ;
+	// DDL.g:897:1: join_condition : ON ^ search_condition ;
 	public final DDLParser.join_condition_return join_condition() throws RecognitionException {
 		DDLParser.join_condition_return retval = new DDLParser.join_condition_return();
 		retval.start = input.LT(1);
@@ -15947,31 +15910,31 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token ON366=null;
-		ParserRuleReturnScope search_condition367 =null;
+		Token ON365=null;
+		ParserRuleReturnScope search_condition366 =null;
 
-		CommonTree ON366_tree=null;
+		CommonTree ON365_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 101) ) { return retval; }
 
-			// DDL.g:897:3: ( ON ^ search_condition )
-			// DDL.g:897:5: ON ^ search_condition
+			// DDL.g:898:3: ( ON ^ search_condition )
+			// DDL.g:898:5: ON ^ search_condition
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			ON366=(Token)match(input,ON,FOLLOW_ON_in_join_condition6954); if (state.failed) return retval;
+			ON365=(Token)match(input,ON,FOLLOW_ON_in_join_condition6946); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			ON366_tree = (CommonTree)adaptor.create(ON366);
-			root_0 = (CommonTree)adaptor.becomeRoot(ON366_tree, root_0);
+			ON365_tree = (CommonTree)adaptor.create(ON365);
+			root_0 = (CommonTree)adaptor.becomeRoot(ON365_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_search_condition_in_join_condition6957);
-			search_condition367=search_condition();
+			pushFollow(FOLLOW_search_condition_in_join_condition6949);
+			search_condition366=search_condition();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, search_condition367.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, search_condition366.getTree());
 
 			}
 
@@ -16005,7 +15968,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "named_columns_join"
-	// DDL.g:899:1: named_columns_join : USING LEFT_PAREN f= column_reference_list RIGHT_PAREN -> ^( USING $f) ;
+	// DDL.g:900:1: named_columns_join : USING LEFT_PAREN f= column_reference_list RIGHT_PAREN -> ^( USING $f) ;
 	public final DDLParser.named_columns_join_return named_columns_join() throws RecognitionException {
 		DDLParser.named_columns_join_return retval = new DDLParser.named_columns_join_return();
 		retval.start = input.LT(1);
@@ -16013,14 +15976,14 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token USING368=null;
-		Token LEFT_PAREN369=null;
-		Token RIGHT_PAREN370=null;
+		Token USING367=null;
+		Token LEFT_PAREN368=null;
+		Token RIGHT_PAREN369=null;
 		ParserRuleReturnScope f =null;
 
-		CommonTree USING368_tree=null;
-		CommonTree LEFT_PAREN369_tree=null;
-		CommonTree RIGHT_PAREN370_tree=null;
+		CommonTree USING367_tree=null;
+		CommonTree LEFT_PAREN368_tree=null;
+		CommonTree RIGHT_PAREN369_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_USING=new RewriteRuleTokenStream(adaptor,"token USING");
@@ -16029,22 +15992,22 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 102) ) { return retval; }
 
-			// DDL.g:900:3: ( USING LEFT_PAREN f= column_reference_list RIGHT_PAREN -> ^( USING $f) )
-			// DDL.g:900:5: USING LEFT_PAREN f= column_reference_list RIGHT_PAREN
+			// DDL.g:901:3: ( USING LEFT_PAREN f= column_reference_list RIGHT_PAREN -> ^( USING $f) )
+			// DDL.g:901:5: USING LEFT_PAREN f= column_reference_list RIGHT_PAREN
 			{
-			USING368=(Token)match(input,USING,FOLLOW_USING_in_named_columns_join6969); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_USING.add(USING368);
+			USING367=(Token)match(input,USING,FOLLOW_USING_in_named_columns_join6961); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_USING.add(USING367);
 
-			LEFT_PAREN369=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_named_columns_join6971); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN369);
+			LEFT_PAREN368=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_named_columns_join6963); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN368);
 
-			pushFollow(FOLLOW_column_reference_list_in_named_columns_join6975);
+			pushFollow(FOLLOW_column_reference_list_in_named_columns_join6967);
 			f=column_reference_list();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_column_reference_list.add(f.getTree());
-			RIGHT_PAREN370=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_named_columns_join6977); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN370);
+			RIGHT_PAREN369=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_named_columns_join6969); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN369);
 
 			// AST REWRITE
 			// elements: f, USING
@@ -16059,9 +16022,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 900:58: -> ^( USING $f)
+			// 901:58: -> ^( USING $f)
 			{
-				// DDL.g:900:61: ^( USING $f)
+				// DDL.g:901:61: ^( USING $f)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_USING.nextNode(), root_1);
@@ -16107,7 +16070,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "table_primary"
-	// DDL.g:902:1: table_primary : table ( ( AS )? a= Identifier )? -> ^( TABLE table ( $a)? ) ;
+	// DDL.g:903:1: table_primary : table ( ( AS )? a= Identifier )? -> ^( TABLE table ( $a)? ) ;
 	public final DDLParser.table_primary_return table_primary() throws RecognitionException {
 		DDLParser.table_primary_return retval = new DDLParser.table_primary_return();
 		retval.start = input.LT(1);
@@ -16116,11 +16079,11 @@ public class DDLParser extends Parser {
 		CommonTree root_0 = null;
 
 		Token a=null;
-		Token AS372=null;
-		ParserRuleReturnScope table371 =null;
+		Token AS371=null;
+		ParserRuleReturnScope table370 =null;
 
 		CommonTree a_tree=null;
-		CommonTree AS372_tree=null;
+		CommonTree AS371_tree=null;
 		RewriteRuleTokenStream stream_AS=new RewriteRuleTokenStream(adaptor,"token AS");
 		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
 		RewriteRuleSubtreeStream stream_table=new RewriteRuleSubtreeStream(adaptor,"rule table");
@@ -16128,43 +16091,43 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 103) ) { return retval; }
 
-			// DDL.g:903:3: ( table ( ( AS )? a= Identifier )? -> ^( TABLE table ( $a)? ) )
-			// DDL.g:903:5: table ( ( AS )? a= Identifier )?
+			// DDL.g:904:3: ( table ( ( AS )? a= Identifier )? -> ^( TABLE table ( $a)? ) )
+			// DDL.g:904:5: table ( ( AS )? a= Identifier )?
 			{
-			pushFollow(FOLLOW_table_in_table_primary6998);
-			table371=table();
+			pushFollow(FOLLOW_table_in_table_primary6990);
+			table370=table();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_table.add(table371.getTree());
-			// DDL.g:903:11: ( ( AS )? a= Identifier )?
-			int alt114=2;
-			int LA114_0 = input.LA(1);
-			if ( (LA114_0==AS||LA114_0==Identifier) ) {
-				alt114=1;
+			if ( state.backtracking==0 ) stream_table.add(table370.getTree());
+			// DDL.g:904:11: ( ( AS )? a= Identifier )?
+			int alt113=2;
+			int LA113_0 = input.LA(1);
+			if ( (LA113_0==AS||LA113_0==Identifier) ) {
+				alt113=1;
 			}
-			switch (alt114) {
+			switch (alt113) {
 				case 1 :
-					// DDL.g:903:12: ( AS )? a= Identifier
+					// DDL.g:904:12: ( AS )? a= Identifier
 					{
-					// DDL.g:903:12: ( AS )?
-					int alt113=2;
-					int LA113_0 = input.LA(1);
-					if ( (LA113_0==AS) ) {
-						alt113=1;
+					// DDL.g:904:12: ( AS )?
+					int alt112=2;
+					int LA112_0 = input.LA(1);
+					if ( (LA112_0==AS) ) {
+						alt112=1;
 					}
-					switch (alt113) {
+					switch (alt112) {
 						case 1 :
-							// DDL.g:903:13: AS
+							// DDL.g:904:13: AS
 							{
-							AS372=(Token)match(input,AS,FOLLOW_AS_in_table_primary7002); if (state.failed) return retval; 
-							if ( state.backtracking==0 ) stream_AS.add(AS372);
+							AS371=(Token)match(input,AS,FOLLOW_AS_in_table_primary6994); if (state.failed) return retval; 
+							if ( state.backtracking==0 ) stream_AS.add(AS371);
 
 							}
 							break;
 
 					}
 
-					a=(Token)match(input,Identifier,FOLLOW_Identifier_in_table_primary7008); if (state.failed) return retval; 
+					a=(Token)match(input,Identifier,FOLLOW_Identifier_in_table_primary7000); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_Identifier.add(a);
 
 					}
@@ -16173,7 +16136,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: a, table
+			// elements: table, a
 			// token labels: a
 			// rule labels: retval
 			// token list labels: 
@@ -16185,14 +16148,14 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 903:33: -> ^( TABLE table ( $a)? )
+			// 904:33: -> ^( TABLE table ( $a)? )
 			{
-				// DDL.g:903:36: ^( TABLE table ( $a)? )
+				// DDL.g:904:36: ^( TABLE table ( $a)? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TABLE, "TABLE"), root_1);
 				adaptor.addChild(root_1, stream_table.nextTree());
-				// DDL.g:903:50: ( $a)?
+				// DDL.g:904:50: ( $a)?
 				if ( stream_a.hasNext() ) {
 					adaptor.addChild(root_1, stream_a.nextNode());
 				}
@@ -16239,7 +16202,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "where_clause"
-	// DDL.g:905:1: where_clause : WHERE ^ search_condition ;
+	// DDL.g:906:1: where_clause : WHERE ^ search_condition ;
 	public final DDLParser.where_clause_return where_clause() throws RecognitionException {
 		DDLParser.where_clause_return retval = new DDLParser.where_clause_return();
 		retval.start = input.LT(1);
@@ -16247,31 +16210,31 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token WHERE373=null;
-		ParserRuleReturnScope search_condition374 =null;
+		Token WHERE372=null;
+		ParserRuleReturnScope search_condition373 =null;
 
-		CommonTree WHERE373_tree=null;
+		CommonTree WHERE372_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 104) ) { return retval; }
 
-			// DDL.g:906:3: ( WHERE ^ search_condition )
-			// DDL.g:906:5: WHERE ^ search_condition
+			// DDL.g:907:3: ( WHERE ^ search_condition )
+			// DDL.g:907:5: WHERE ^ search_condition
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			WHERE373=(Token)match(input,WHERE,FOLLOW_WHERE_in_where_clause7036); if (state.failed) return retval;
+			WHERE372=(Token)match(input,WHERE,FOLLOW_WHERE_in_where_clause7028); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			WHERE373_tree = (CommonTree)adaptor.create(WHERE373);
-			root_0 = (CommonTree)adaptor.becomeRoot(WHERE373_tree, root_0);
+			WHERE372_tree = (CommonTree)adaptor.create(WHERE372);
+			root_0 = (CommonTree)adaptor.becomeRoot(WHERE372_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_search_condition_in_where_clause7039);
-			search_condition374=search_condition();
+			pushFollow(FOLLOW_search_condition_in_where_clause7031);
+			search_condition373=search_condition();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, search_condition374.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, search_condition373.getTree());
 
 			}
 
@@ -16305,7 +16268,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "routine_invocation"
-	// DDL.g:914:1: routine_invocation : ( Identifier LEFT_PAREN ( funcArgs )? RIGHT_PAREN -> ^( FUNCTION[$Identifier.text] ( funcArgs )? ) | COUNT LEFT_PAREN funcArgs RIGHT_PAREN -> ^( COUNT_VAL funcArgs ) | COUNT LEFT_PAREN MULTIPLY RIGHT_PAREN -> ^( COUNT_ROWS ) );
+	// DDL.g:915:1: routine_invocation : ( Identifier LEFT_PAREN ( funcArgs )? RIGHT_PAREN -> ^( FUNCTION[$Identifier.text] ( funcArgs )? ) | COUNT LEFT_PAREN funcArgs RIGHT_PAREN -> ^( COUNT_VAL funcArgs ) | COUNT LEFT_PAREN MULTIPLY RIGHT_PAREN -> ^( COUNT_ROWS ) );
 	public final DDLParser.routine_invocation_return routine_invocation() throws RecognitionException {
 		DDLParser.routine_invocation_return retval = new DDLParser.routine_invocation_return();
 		retval.start = input.LT(1);
@@ -16313,29 +16276,29 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token Identifier375=null;
-		Token LEFT_PAREN376=null;
-		Token RIGHT_PAREN378=null;
-		Token COUNT379=null;
-		Token LEFT_PAREN380=null;
-		Token RIGHT_PAREN382=null;
-		Token COUNT383=null;
-		Token LEFT_PAREN384=null;
-		Token MULTIPLY385=null;
-		Token RIGHT_PAREN386=null;
-		ParserRuleReturnScope funcArgs377 =null;
-		ParserRuleReturnScope funcArgs381 =null;
+		Token Identifier374=null;
+		Token LEFT_PAREN375=null;
+		Token RIGHT_PAREN377=null;
+		Token COUNT378=null;
+		Token LEFT_PAREN379=null;
+		Token RIGHT_PAREN381=null;
+		Token COUNT382=null;
+		Token LEFT_PAREN383=null;
+		Token MULTIPLY384=null;
+		Token RIGHT_PAREN385=null;
+		ParserRuleReturnScope funcArgs376 =null;
+		ParserRuleReturnScope funcArgs380 =null;
 
-		CommonTree Identifier375_tree=null;
-		CommonTree LEFT_PAREN376_tree=null;
-		CommonTree RIGHT_PAREN378_tree=null;
-		CommonTree COUNT379_tree=null;
-		CommonTree LEFT_PAREN380_tree=null;
-		CommonTree RIGHT_PAREN382_tree=null;
-		CommonTree COUNT383_tree=null;
-		CommonTree LEFT_PAREN384_tree=null;
-		CommonTree MULTIPLY385_tree=null;
-		CommonTree RIGHT_PAREN386_tree=null;
+		CommonTree Identifier374_tree=null;
+		CommonTree LEFT_PAREN375_tree=null;
+		CommonTree RIGHT_PAREN377_tree=null;
+		CommonTree COUNT378_tree=null;
+		CommonTree LEFT_PAREN379_tree=null;
+		CommonTree RIGHT_PAREN381_tree=null;
+		CommonTree COUNT382_tree=null;
+		CommonTree LEFT_PAREN383_tree=null;
+		CommonTree MULTIPLY384_tree=null;
+		CommonTree RIGHT_PAREN385_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_COUNT=new RewriteRuleTokenStream(adaptor,"token COUNT");
@@ -16346,21 +16309,21 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 105) ) { return retval; }
 
-			// DDL.g:915:2: ( Identifier LEFT_PAREN ( funcArgs )? RIGHT_PAREN -> ^( FUNCTION[$Identifier.text] ( funcArgs )? ) | COUNT LEFT_PAREN funcArgs RIGHT_PAREN -> ^( COUNT_VAL funcArgs ) | COUNT LEFT_PAREN MULTIPLY RIGHT_PAREN -> ^( COUNT_ROWS ) )
-			int alt116=3;
-			int LA116_0 = input.LA(1);
-			if ( (LA116_0==Identifier) ) {
-				alt116=1;
+			// DDL.g:916:2: ( Identifier LEFT_PAREN ( funcArgs )? RIGHT_PAREN -> ^( FUNCTION[$Identifier.text] ( funcArgs )? ) | COUNT LEFT_PAREN funcArgs RIGHT_PAREN -> ^( COUNT_VAL funcArgs ) | COUNT LEFT_PAREN MULTIPLY RIGHT_PAREN -> ^( COUNT_ROWS ) )
+			int alt115=3;
+			int LA115_0 = input.LA(1);
+			if ( (LA115_0==Identifier) ) {
+				alt115=1;
 			}
-			else if ( (LA116_0==COUNT) ) {
-				int LA116_2 = input.LA(2);
-				if ( (LA116_2==LEFT_PAREN) ) {
-					int LA116_3 = input.LA(3);
-					if ( (LA116_3==MULTIPLY) ) {
-						alt116=3;
+			else if ( (LA115_0==COUNT) ) {
+				int LA115_2 = input.LA(2);
+				if ( (LA115_2==LEFT_PAREN) ) {
+					int LA115_3 = input.LA(3);
+					if ( (LA115_3==MULTIPLY) ) {
+						alt115=3;
 					}
-					else if ( (LA116_3==CASE||LA116_3==COUNT||LA116_3==Character_String_Literal||LA116_3==Identifier||LA116_3==LEFT_PAREN||LA116_3==MINUS||LA116_3==NOT||LA116_3==NULL||LA116_3==NUMBER||LA116_3==PLUS||LA116_3==REAL_NUMBER) ) {
-						alt116=2;
+					else if ( (LA115_3==CASE||LA115_3==COUNT||LA115_3==Character_String_Literal||LA115_3==Identifier||LA115_3==LEFT_PAREN||LA115_3==MINUS||LA115_3==NOT||LA115_3==NULL||LA115_3==NUMBER||LA115_3==PLUS||LA115_3==REAL_NUMBER) ) {
+						alt115=2;
 					}
 
 					else {
@@ -16371,7 +16334,7 @@ public class DDLParser extends Parser {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 116, 3, input);
+								new NoViableAltException("", 115, 3, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -16386,7 +16349,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 116, 2, input);
+							new NoViableAltException("", 115, 2, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -16398,42 +16361,42 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 116, 0, input);
+					new NoViableAltException("", 115, 0, input);
 				throw nvae;
 			}
 
-			switch (alt116) {
+			switch (alt115) {
 				case 1 :
-					// DDL.g:915:4: Identifier LEFT_PAREN ( funcArgs )? RIGHT_PAREN
+					// DDL.g:916:4: Identifier LEFT_PAREN ( funcArgs )? RIGHT_PAREN
 					{
-					Identifier375=(Token)match(input,Identifier,FOLLOW_Identifier_in_routine_invocation7052); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_Identifier.add(Identifier375);
+					Identifier374=(Token)match(input,Identifier,FOLLOW_Identifier_in_routine_invocation7044); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_Identifier.add(Identifier374);
 
-					LEFT_PAREN376=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_routine_invocation7054); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN376);
+					LEFT_PAREN375=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_routine_invocation7046); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN375);
 
-					// DDL.g:915:26: ( funcArgs )?
-					int alt115=2;
-					int LA115_0 = input.LA(1);
-					if ( (LA115_0==CASE||LA115_0==COUNT||LA115_0==Character_String_Literal||LA115_0==Identifier||LA115_0==LEFT_PAREN||LA115_0==MINUS||LA115_0==NOT||LA115_0==NULL||LA115_0==NUMBER||LA115_0==PLUS||LA115_0==REAL_NUMBER) ) {
-						alt115=1;
+					// DDL.g:916:26: ( funcArgs )?
+					int alt114=2;
+					int LA114_0 = input.LA(1);
+					if ( (LA114_0==CASE||LA114_0==COUNT||LA114_0==Character_String_Literal||LA114_0==Identifier||LA114_0==LEFT_PAREN||LA114_0==MINUS||LA114_0==NOT||LA114_0==NULL||LA114_0==NUMBER||LA114_0==PLUS||LA114_0==REAL_NUMBER) ) {
+						alt114=1;
 					}
-					switch (alt115) {
+					switch (alt114) {
 						case 1 :
-							// DDL.g:915:26: funcArgs
+							// DDL.g:916:26: funcArgs
 							{
-							pushFollow(FOLLOW_funcArgs_in_routine_invocation7056);
-							funcArgs377=funcArgs();
+							pushFollow(FOLLOW_funcArgs_in_routine_invocation7048);
+							funcArgs376=funcArgs();
 							state._fsp--;
 							if (state.failed) return retval;
-							if ( state.backtracking==0 ) stream_funcArgs.add(funcArgs377.getTree());
+							if ( state.backtracking==0 ) stream_funcArgs.add(funcArgs376.getTree());
 							}
 							break;
 
 					}
 
-					RIGHT_PAREN378=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_routine_invocation7059); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN378);
+					RIGHT_PAREN377=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_routine_invocation7051); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN377);
 
 					// AST REWRITE
 					// elements: funcArgs
@@ -16447,13 +16410,13 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 915:48: -> ^( FUNCTION[$Identifier.text] ( funcArgs )? )
+					// 916:48: -> ^( FUNCTION[$Identifier.text] ( funcArgs )? )
 					{
-						// DDL.g:915:51: ^( FUNCTION[$Identifier.text] ( funcArgs )? )
+						// DDL.g:916:51: ^( FUNCTION[$Identifier.text] ( funcArgs )? )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, (Identifier375!=null?Identifier375.getText():null)), root_1);
-						// DDL.g:915:80: ( funcArgs )?
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, (Identifier374!=null?Identifier374.getText():null)), root_1);
+						// DDL.g:916:80: ( funcArgs )?
 						if ( stream_funcArgs.hasNext() ) {
 							adaptor.addChild(root_1, stream_funcArgs.nextTree());
 						}
@@ -16471,21 +16434,21 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:916:4: COUNT LEFT_PAREN funcArgs RIGHT_PAREN
+					// DDL.g:917:4: COUNT LEFT_PAREN funcArgs RIGHT_PAREN
 					{
-					COUNT379=(Token)match(input,COUNT,FOLLOW_COUNT_in_routine_invocation7074); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COUNT.add(COUNT379);
+					COUNT378=(Token)match(input,COUNT,FOLLOW_COUNT_in_routine_invocation7066); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COUNT.add(COUNT378);
 
-					LEFT_PAREN380=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_routine_invocation7076); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN380);
+					LEFT_PAREN379=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_routine_invocation7068); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN379);
 
-					pushFollow(FOLLOW_funcArgs_in_routine_invocation7078);
-					funcArgs381=funcArgs();
+					pushFollow(FOLLOW_funcArgs_in_routine_invocation7070);
+					funcArgs380=funcArgs();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_funcArgs.add(funcArgs381.getTree());
-					RIGHT_PAREN382=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_routine_invocation7080); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN382);
+					if ( state.backtracking==0 ) stream_funcArgs.add(funcArgs380.getTree());
+					RIGHT_PAREN381=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_routine_invocation7072); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN381);
 
 					// AST REWRITE
 					// elements: funcArgs
@@ -16499,9 +16462,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 916:42: -> ^( COUNT_VAL funcArgs )
+					// 917:42: -> ^( COUNT_VAL funcArgs )
 					{
-						// DDL.g:916:45: ^( COUNT_VAL funcArgs )
+						// DDL.g:917:45: ^( COUNT_VAL funcArgs )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COUNT_VAL, "COUNT_VAL"), root_1);
@@ -16518,19 +16481,19 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// DDL.g:917:4: COUNT LEFT_PAREN MULTIPLY RIGHT_PAREN
+					// DDL.g:918:4: COUNT LEFT_PAREN MULTIPLY RIGHT_PAREN
 					{
-					COUNT383=(Token)match(input,COUNT,FOLLOW_COUNT_in_routine_invocation7093); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COUNT.add(COUNT383);
+					COUNT382=(Token)match(input,COUNT,FOLLOW_COUNT_in_routine_invocation7085); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COUNT.add(COUNT382);
 
-					LEFT_PAREN384=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_routine_invocation7095); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN384);
+					LEFT_PAREN383=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_routine_invocation7087); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN383);
 
-					MULTIPLY385=(Token)match(input,MULTIPLY,FOLLOW_MULTIPLY_in_routine_invocation7097); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_MULTIPLY.add(MULTIPLY385);
+					MULTIPLY384=(Token)match(input,MULTIPLY,FOLLOW_MULTIPLY_in_routine_invocation7089); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_MULTIPLY.add(MULTIPLY384);
 
-					RIGHT_PAREN386=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_routine_invocation7099); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN386);
+					RIGHT_PAREN385=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_routine_invocation7091); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN385);
 
 					// AST REWRITE
 					// elements: 
@@ -16544,9 +16507,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 917:42: -> ^( COUNT_ROWS )
+					// 918:42: -> ^( COUNT_ROWS )
 					{
-						// DDL.g:917:45: ^( COUNT_ROWS )
+						// DDL.g:918:45: ^( COUNT_ROWS )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COUNT_ROWS, "COUNT_ROWS"), root_1);
@@ -16593,7 +16556,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "funcArgs"
-	// DDL.g:919:1: funcArgs : boolean_value_expression ( COMMA boolean_value_expression )* -> ( boolean_value_expression )+ ;
+	// DDL.g:920:1: funcArgs : boolean_value_expression ( COMMA boolean_value_expression )* -> ( boolean_value_expression )+ ;
 	public final DDLParser.funcArgs_return funcArgs() throws RecognitionException {
 		DDLParser.funcArgs_return retval = new DDLParser.funcArgs_return();
 		retval.start = input.LT(1);
@@ -16601,51 +16564,51 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token COMMA388=null;
-		ParserRuleReturnScope boolean_value_expression387 =null;
-		ParserRuleReturnScope boolean_value_expression389 =null;
+		Token COMMA387=null;
+		ParserRuleReturnScope boolean_value_expression386 =null;
+		ParserRuleReturnScope boolean_value_expression388 =null;
 
-		CommonTree COMMA388_tree=null;
+		CommonTree COMMA387_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
 		RewriteRuleSubtreeStream stream_boolean_value_expression=new RewriteRuleSubtreeStream(adaptor,"rule boolean_value_expression");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 106) ) { return retval; }
 
-			// DDL.g:920:3: ( boolean_value_expression ( COMMA boolean_value_expression )* -> ( boolean_value_expression )+ )
-			// DDL.g:920:5: boolean_value_expression ( COMMA boolean_value_expression )*
+			// DDL.g:921:3: ( boolean_value_expression ( COMMA boolean_value_expression )* -> ( boolean_value_expression )+ )
+			// DDL.g:921:5: boolean_value_expression ( COMMA boolean_value_expression )*
 			{
-			pushFollow(FOLLOW_boolean_value_expression_in_funcArgs7116);
-			boolean_value_expression387=boolean_value_expression();
+			pushFollow(FOLLOW_boolean_value_expression_in_funcArgs7108);
+			boolean_value_expression386=boolean_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_boolean_value_expression.add(boolean_value_expression387.getTree());
-			// DDL.g:920:30: ( COMMA boolean_value_expression )*
-			loop117:
+			if ( state.backtracking==0 ) stream_boolean_value_expression.add(boolean_value_expression386.getTree());
+			// DDL.g:921:30: ( COMMA boolean_value_expression )*
+			loop116:
 			while (true) {
-				int alt117=2;
-				int LA117_0 = input.LA(1);
-				if ( (LA117_0==COMMA) ) {
-					alt117=1;
+				int alt116=2;
+				int LA116_0 = input.LA(1);
+				if ( (LA116_0==COMMA) ) {
+					alt116=1;
 				}
 
-				switch (alt117) {
+				switch (alt116) {
 				case 1 :
-					// DDL.g:920:31: COMMA boolean_value_expression
+					// DDL.g:921:31: COMMA boolean_value_expression
 					{
-					COMMA388=(Token)match(input,COMMA,FOLLOW_COMMA_in_funcArgs7119); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA388);
+					COMMA387=(Token)match(input,COMMA,FOLLOW_COMMA_in_funcArgs7111); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA387);
 
-					pushFollow(FOLLOW_boolean_value_expression_in_funcArgs7121);
-					boolean_value_expression389=boolean_value_expression();
+					pushFollow(FOLLOW_boolean_value_expression_in_funcArgs7113);
+					boolean_value_expression388=boolean_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_boolean_value_expression.add(boolean_value_expression389.getTree());
+					if ( state.backtracking==0 ) stream_boolean_value_expression.add(boolean_value_expression388.getTree());
 					}
 					break;
 
 				default :
-					break loop117;
+					break loop116;
 				}
 			}
 
@@ -16661,7 +16624,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 920:64: -> ( boolean_value_expression )+
+			// 921:64: -> ( boolean_value_expression )+
 			{
 				if ( !(stream_boolean_value_expression.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -16709,7 +16672,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "groupby_clause"
-	// DDL.g:927:1: groupby_clause : GROUP BY g= grouping_element_list -> ^( GROUP_BY $g) ;
+	// DDL.g:928:1: groupby_clause : GROUP BY g= grouping_element_list -> ^( GROUP_BY $g) ;
 	public final DDLParser.groupby_clause_return groupby_clause() throws RecognitionException {
 		DDLParser.groupby_clause_return retval = new DDLParser.groupby_clause_return();
 		retval.start = input.LT(1);
@@ -16717,12 +16680,12 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token GROUP390=null;
-		Token BY391=null;
+		Token GROUP389=null;
+		Token BY390=null;
 		ParserRuleReturnScope g =null;
 
-		CommonTree GROUP390_tree=null;
-		CommonTree BY391_tree=null;
+		CommonTree GROUP389_tree=null;
+		CommonTree BY390_tree=null;
 		RewriteRuleTokenStream stream_GROUP=new RewriteRuleTokenStream(adaptor,"token GROUP");
 		RewriteRuleTokenStream stream_BY=new RewriteRuleTokenStream(adaptor,"token BY");
 		RewriteRuleSubtreeStream stream_grouping_element_list=new RewriteRuleSubtreeStream(adaptor,"rule grouping_element_list");
@@ -16730,16 +16693,16 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 107) ) { return retval; }
 
-			// DDL.g:928:3: ( GROUP BY g= grouping_element_list -> ^( GROUP_BY $g) )
-			// DDL.g:928:5: GROUP BY g= grouping_element_list
+			// DDL.g:929:3: ( GROUP BY g= grouping_element_list -> ^( GROUP_BY $g) )
+			// DDL.g:929:5: GROUP BY g= grouping_element_list
 			{
-			GROUP390=(Token)match(input,GROUP,FOLLOW_GROUP_in_groupby_clause7142); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_GROUP.add(GROUP390);
+			GROUP389=(Token)match(input,GROUP,FOLLOW_GROUP_in_groupby_clause7134); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_GROUP.add(GROUP389);
 
-			BY391=(Token)match(input,BY,FOLLOW_BY_in_groupby_clause7144); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_BY.add(BY391);
+			BY390=(Token)match(input,BY,FOLLOW_BY_in_groupby_clause7136); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_BY.add(BY390);
 
-			pushFollow(FOLLOW_grouping_element_list_in_groupby_clause7148);
+			pushFollow(FOLLOW_grouping_element_list_in_groupby_clause7140);
 			g=grouping_element_list();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -16757,9 +16720,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 928:38: -> ^( GROUP_BY $g)
+			// 929:38: -> ^( GROUP_BY $g)
 			{
-				// DDL.g:928:41: ^( GROUP_BY $g)
+				// DDL.g:929:41: ^( GROUP_BY $g)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(GROUP_BY, "GROUP_BY"), root_1);
@@ -16805,7 +16768,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "grouping_element_list"
-	// DDL.g:930:1: grouping_element_list : grouping_element ( COMMA grouping_element )* -> ( grouping_element )+ ;
+	// DDL.g:931:1: grouping_element_list : grouping_element ( COMMA grouping_element )* -> ( grouping_element )+ ;
 	public final DDLParser.grouping_element_list_return grouping_element_list() throws RecognitionException {
 		DDLParser.grouping_element_list_return retval = new DDLParser.grouping_element_list_return();
 		retval.start = input.LT(1);
@@ -16813,51 +16776,51 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token COMMA393=null;
-		ParserRuleReturnScope grouping_element392 =null;
-		ParserRuleReturnScope grouping_element394 =null;
+		Token COMMA392=null;
+		ParserRuleReturnScope grouping_element391 =null;
+		ParserRuleReturnScope grouping_element393 =null;
 
-		CommonTree COMMA393_tree=null;
+		CommonTree COMMA392_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
 		RewriteRuleSubtreeStream stream_grouping_element=new RewriteRuleSubtreeStream(adaptor,"rule grouping_element");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 108) ) { return retval; }
 
-			// DDL.g:931:3: ( grouping_element ( COMMA grouping_element )* -> ( grouping_element )+ )
-			// DDL.g:931:5: grouping_element ( COMMA grouping_element )*
+			// DDL.g:932:3: ( grouping_element ( COMMA grouping_element )* -> ( grouping_element )+ )
+			// DDL.g:932:5: grouping_element ( COMMA grouping_element )*
 			{
-			pushFollow(FOLLOW_grouping_element_in_grouping_element_list7169);
-			grouping_element392=grouping_element();
+			pushFollow(FOLLOW_grouping_element_in_grouping_element_list7161);
+			grouping_element391=grouping_element();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_grouping_element.add(grouping_element392.getTree());
-			// DDL.g:931:22: ( COMMA grouping_element )*
-			loop118:
+			if ( state.backtracking==0 ) stream_grouping_element.add(grouping_element391.getTree());
+			// DDL.g:932:22: ( COMMA grouping_element )*
+			loop117:
 			while (true) {
-				int alt118=2;
-				int LA118_0 = input.LA(1);
-				if ( (LA118_0==COMMA) ) {
-					alt118=1;
+				int alt117=2;
+				int LA117_0 = input.LA(1);
+				if ( (LA117_0==COMMA) ) {
+					alt117=1;
 				}
 
-				switch (alt118) {
+				switch (alt117) {
 				case 1 :
-					// DDL.g:931:23: COMMA grouping_element
+					// DDL.g:932:23: COMMA grouping_element
 					{
-					COMMA393=(Token)match(input,COMMA,FOLLOW_COMMA_in_grouping_element_list7172); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA393);
+					COMMA392=(Token)match(input,COMMA,FOLLOW_COMMA_in_grouping_element_list7164); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA392);
 
-					pushFollow(FOLLOW_grouping_element_in_grouping_element_list7174);
-					grouping_element394=grouping_element();
+					pushFollow(FOLLOW_grouping_element_in_grouping_element_list7166);
+					grouping_element393=grouping_element();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_grouping_element.add(grouping_element394.getTree());
+					if ( state.backtracking==0 ) stream_grouping_element.add(grouping_element393.getTree());
 					}
 					break;
 
 				default :
-					break loop118;
+					break loop117;
 				}
 			}
 
@@ -16873,7 +16836,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 931:48: -> ( grouping_element )+
+			// 932:48: -> ( grouping_element )+
 			{
 				if ( !(stream_grouping_element.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -16921,7 +16884,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "grouping_element"
-	// DDL.g:933:1: grouping_element : ( ordinary_grouping_set | rollup_list | cube_list | empty_grouping_set );
+	// DDL.g:934:1: grouping_element : ( ordinary_grouping_set | rollup_list | cube_list | empty_grouping_set );
 	public final DDLParser.grouping_element_return grouping_element() throws RecognitionException {
 		DDLParser.grouping_element_return retval = new DDLParser.grouping_element_return();
 		retval.start = input.LT(1);
@@ -16929,31 +16892,31 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope ordinary_grouping_set395 =null;
-		ParserRuleReturnScope rollup_list396 =null;
-		ParserRuleReturnScope cube_list397 =null;
-		ParserRuleReturnScope empty_grouping_set398 =null;
+		ParserRuleReturnScope ordinary_grouping_set394 =null;
+		ParserRuleReturnScope rollup_list395 =null;
+		ParserRuleReturnScope cube_list396 =null;
+		ParserRuleReturnScope empty_grouping_set397 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 109) ) { return retval; }
 
-			// DDL.g:934:3: ( ordinary_grouping_set | rollup_list | cube_list | empty_grouping_set )
-			int alt119=4;
+			// DDL.g:935:3: ( ordinary_grouping_set | rollup_list | cube_list | empty_grouping_set )
+			int alt118=4;
 			switch ( input.LA(1) ) {
 			case Identifier:
 				{
-				alt119=1;
+				alt118=1;
 				}
 				break;
 			case LEFT_PAREN:
 				{
-				int LA119_2 = input.LA(2);
-				if ( (LA119_2==RIGHT_PAREN) ) {
-					alt119=4;
+				int LA118_2 = input.LA(2);
+				if ( (LA118_2==RIGHT_PAREN) ) {
+					alt118=4;
 				}
-				else if ( (LA119_2==Identifier) ) {
-					alt119=1;
+				else if ( (LA118_2==Identifier) ) {
+					alt118=1;
 				}
 
 				else {
@@ -16962,7 +16925,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 119, 2, input);
+							new NoViableAltException("", 118, 2, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -16973,74 +16936,74 @@ public class DDLParser extends Parser {
 				break;
 			case ROLLUP:
 				{
-				alt119=2;
+				alt118=2;
 				}
 				break;
 			case CUBE:
 				{
-				alt119=3;
+				alt118=3;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 119, 0, input);
+					new NoViableAltException("", 118, 0, input);
 				throw nvae;
 			}
-			switch (alt119) {
+			switch (alt118) {
 				case 1 :
-					// DDL.g:934:5: ordinary_grouping_set
+					// DDL.g:935:5: ordinary_grouping_set
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_ordinary_grouping_set_in_grouping_element7193);
-					ordinary_grouping_set395=ordinary_grouping_set();
+					pushFollow(FOLLOW_ordinary_grouping_set_in_grouping_element7185);
+					ordinary_grouping_set394=ordinary_grouping_set();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, ordinary_grouping_set395.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, ordinary_grouping_set394.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:935:5: rollup_list
+					// DDL.g:936:5: rollup_list
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_rollup_list_in_grouping_element7199);
-					rollup_list396=rollup_list();
+					pushFollow(FOLLOW_rollup_list_in_grouping_element7191);
+					rollup_list395=rollup_list();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, rollup_list396.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, rollup_list395.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:936:5: cube_list
+					// DDL.g:937:5: cube_list
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_cube_list_in_grouping_element7205);
-					cube_list397=cube_list();
+					pushFollow(FOLLOW_cube_list_in_grouping_element7197);
+					cube_list396=cube_list();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, cube_list397.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, cube_list396.getTree());
 
 					}
 					break;
 				case 4 :
-					// DDL.g:937:5: empty_grouping_set
+					// DDL.g:938:5: empty_grouping_set
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_empty_grouping_set_in_grouping_element7211);
-					empty_grouping_set398=empty_grouping_set();
+					pushFollow(FOLLOW_empty_grouping_set_in_grouping_element7203);
+					empty_grouping_set397=empty_grouping_set();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, empty_grouping_set398.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, empty_grouping_set397.getTree());
 
 					}
 					break;
@@ -17076,7 +17039,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "ordinary_grouping_set"
-	// DDL.g:939:1: ordinary_grouping_set : ( column_reference_list | LEFT_PAREN ! column_reference_list RIGHT_PAREN !);
+	// DDL.g:940:1: ordinary_grouping_set : ( column_reference_list | LEFT_PAREN ! column_reference_list RIGHT_PAREN !);
 	public final DDLParser.ordinary_grouping_set_return ordinary_grouping_set() throws RecognitionException {
 		DDLParser.ordinary_grouping_set_return retval = new DDLParser.ordinary_grouping_set_return();
 		retval.start = input.LT(1);
@@ -17084,63 +17047,63 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LEFT_PAREN400=null;
-		Token RIGHT_PAREN402=null;
-		ParserRuleReturnScope column_reference_list399 =null;
-		ParserRuleReturnScope column_reference_list401 =null;
+		Token LEFT_PAREN399=null;
+		Token RIGHT_PAREN401=null;
+		ParserRuleReturnScope column_reference_list398 =null;
+		ParserRuleReturnScope column_reference_list400 =null;
 
-		CommonTree LEFT_PAREN400_tree=null;
-		CommonTree RIGHT_PAREN402_tree=null;
+		CommonTree LEFT_PAREN399_tree=null;
+		CommonTree RIGHT_PAREN401_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 110) ) { return retval; }
 
-			// DDL.g:940:3: ( column_reference_list | LEFT_PAREN ! column_reference_list RIGHT_PAREN !)
-			int alt120=2;
-			int LA120_0 = input.LA(1);
-			if ( (LA120_0==Identifier) ) {
-				alt120=1;
+			// DDL.g:941:3: ( column_reference_list | LEFT_PAREN ! column_reference_list RIGHT_PAREN !)
+			int alt119=2;
+			int LA119_0 = input.LA(1);
+			if ( (LA119_0==Identifier) ) {
+				alt119=1;
 			}
-			else if ( (LA120_0==LEFT_PAREN) ) {
-				alt120=2;
+			else if ( (LA119_0==LEFT_PAREN) ) {
+				alt119=2;
 			}
 
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 120, 0, input);
+					new NoViableAltException("", 119, 0, input);
 				throw nvae;
 			}
 
-			switch (alt120) {
+			switch (alt119) {
 				case 1 :
-					// DDL.g:940:5: column_reference_list
+					// DDL.g:941:5: column_reference_list
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_column_reference_list_in_ordinary_grouping_set7223);
-					column_reference_list399=column_reference_list();
+					pushFollow(FOLLOW_column_reference_list_in_ordinary_grouping_set7215);
+					column_reference_list398=column_reference_list();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference_list399.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference_list398.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:941:5: LEFT_PAREN ! column_reference_list RIGHT_PAREN !
+					// DDL.g:942:5: LEFT_PAREN ! column_reference_list RIGHT_PAREN !
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LEFT_PAREN400=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_ordinary_grouping_set7229); if (state.failed) return retval;
-					pushFollow(FOLLOW_column_reference_list_in_ordinary_grouping_set7232);
-					column_reference_list401=column_reference_list();
+					LEFT_PAREN399=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_ordinary_grouping_set7221); if (state.failed) return retval;
+					pushFollow(FOLLOW_column_reference_list_in_ordinary_grouping_set7224);
+					column_reference_list400=column_reference_list();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference_list401.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference_list400.getTree());
 
-					RIGHT_PAREN402=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_ordinary_grouping_set7234); if (state.failed) return retval;
+					RIGHT_PAREN401=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_ordinary_grouping_set7226); if (state.failed) return retval;
 					}
 					break;
 
@@ -17175,7 +17138,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "rollup_list"
-	// DDL.g:943:1: rollup_list : ROLLUP LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( ROLLUP $c) ;
+	// DDL.g:944:1: rollup_list : ROLLUP LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( ROLLUP $c) ;
 	public final DDLParser.rollup_list_return rollup_list() throws RecognitionException {
 		DDLParser.rollup_list_return retval = new DDLParser.rollup_list_return();
 		retval.start = input.LT(1);
@@ -17183,14 +17146,14 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token ROLLUP403=null;
-		Token LEFT_PAREN404=null;
-		Token RIGHT_PAREN405=null;
+		Token ROLLUP402=null;
+		Token LEFT_PAREN403=null;
+		Token RIGHT_PAREN404=null;
 		ParserRuleReturnScope c =null;
 
-		CommonTree ROLLUP403_tree=null;
-		CommonTree LEFT_PAREN404_tree=null;
-		CommonTree RIGHT_PAREN405_tree=null;
+		CommonTree ROLLUP402_tree=null;
+		CommonTree LEFT_PAREN403_tree=null;
+		CommonTree RIGHT_PAREN404_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_ROLLUP=new RewriteRuleTokenStream(adaptor,"token ROLLUP");
@@ -17199,25 +17162,25 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 111) ) { return retval; }
 
-			// DDL.g:944:3: ( ROLLUP LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( ROLLUP $c) )
-			// DDL.g:944:5: ROLLUP LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN
+			// DDL.g:945:3: ( ROLLUP LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( ROLLUP $c) )
+			// DDL.g:945:5: ROLLUP LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN
 			{
-			ROLLUP403=(Token)match(input,ROLLUP,FOLLOW_ROLLUP_in_rollup_list7247); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_ROLLUP.add(ROLLUP403);
+			ROLLUP402=(Token)match(input,ROLLUP,FOLLOW_ROLLUP_in_rollup_list7239); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_ROLLUP.add(ROLLUP402);
 
-			LEFT_PAREN404=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_rollup_list7249); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN404);
+			LEFT_PAREN403=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_rollup_list7241); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN403);
 
-			pushFollow(FOLLOW_ordinary_grouping_set_in_rollup_list7253);
+			pushFollow(FOLLOW_ordinary_grouping_set_in_rollup_list7245);
 			c=ordinary_grouping_set();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_ordinary_grouping_set.add(c.getTree());
-			RIGHT_PAREN405=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_rollup_list7255); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN405);
+			RIGHT_PAREN404=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_rollup_list7247); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN404);
 
 			// AST REWRITE
-			// elements: ROLLUP, c
+			// elements: c, ROLLUP
 			// token labels: 
 			// rule labels: retval, c
 			// token list labels: 
@@ -17229,9 +17192,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 944:59: -> ^( ROLLUP $c)
+			// 945:59: -> ^( ROLLUP $c)
 			{
-				// DDL.g:944:62: ^( ROLLUP $c)
+				// DDL.g:945:62: ^( ROLLUP $c)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_ROLLUP.nextNode(), root_1);
@@ -17277,7 +17240,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "cube_list"
-	// DDL.g:946:1: cube_list : CUBE LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( CUBE $c) ;
+	// DDL.g:947:1: cube_list : CUBE LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( CUBE $c) ;
 	public final DDLParser.cube_list_return cube_list() throws RecognitionException {
 		DDLParser.cube_list_return retval = new DDLParser.cube_list_return();
 		retval.start = input.LT(1);
@@ -17285,14 +17248,14 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token CUBE406=null;
-		Token LEFT_PAREN407=null;
-		Token RIGHT_PAREN408=null;
+		Token CUBE405=null;
+		Token LEFT_PAREN406=null;
+		Token RIGHT_PAREN407=null;
 		ParserRuleReturnScope c =null;
 
-		CommonTree CUBE406_tree=null;
-		CommonTree LEFT_PAREN407_tree=null;
-		CommonTree RIGHT_PAREN408_tree=null;
+		CommonTree CUBE405_tree=null;
+		CommonTree LEFT_PAREN406_tree=null;
+		CommonTree RIGHT_PAREN407_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_CUBE=new RewriteRuleTokenStream(adaptor,"token CUBE");
@@ -17301,22 +17264,22 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 112) ) { return retval; }
 
-			// DDL.g:947:3: ( CUBE LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( CUBE $c) )
-			// DDL.g:947:5: CUBE LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN
+			// DDL.g:948:3: ( CUBE LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN -> ^( CUBE $c) )
+			// DDL.g:948:5: CUBE LEFT_PAREN c= ordinary_grouping_set RIGHT_PAREN
 			{
-			CUBE406=(Token)match(input,CUBE,FOLLOW_CUBE_in_cube_list7276); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_CUBE.add(CUBE406);
+			CUBE405=(Token)match(input,CUBE,FOLLOW_CUBE_in_cube_list7268); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_CUBE.add(CUBE405);
 
-			LEFT_PAREN407=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_cube_list7278); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN407);
+			LEFT_PAREN406=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_cube_list7270); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN406);
 
-			pushFollow(FOLLOW_ordinary_grouping_set_in_cube_list7282);
+			pushFollow(FOLLOW_ordinary_grouping_set_in_cube_list7274);
 			c=ordinary_grouping_set();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_ordinary_grouping_set.add(c.getTree());
-			RIGHT_PAREN408=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_cube_list7284); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN408);
+			RIGHT_PAREN407=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_cube_list7276); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN407);
 
 			// AST REWRITE
 			// elements: c, CUBE
@@ -17331,9 +17294,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 947:57: -> ^( CUBE $c)
+			// 948:57: -> ^( CUBE $c)
 			{
-				// DDL.g:947:60: ^( CUBE $c)
+				// DDL.g:948:60: ^( CUBE $c)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_CUBE.nextNode(), root_1);
@@ -17379,7 +17342,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "empty_grouping_set"
-	// DDL.g:949:1: empty_grouping_set : LEFT_PAREN RIGHT_PAREN -> ^( EMPTY_GROUPING_SET ) ;
+	// DDL.g:950:1: empty_grouping_set : LEFT_PAREN RIGHT_PAREN -> ^( EMPTY_GROUPING_SET ) ;
 	public final DDLParser.empty_grouping_set_return empty_grouping_set() throws RecognitionException {
 		DDLParser.empty_grouping_set_return retval = new DDLParser.empty_grouping_set_return();
 		retval.start = input.LT(1);
@@ -17387,25 +17350,25 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LEFT_PAREN409=null;
-		Token RIGHT_PAREN410=null;
+		Token LEFT_PAREN408=null;
+		Token RIGHT_PAREN409=null;
 
-		CommonTree LEFT_PAREN409_tree=null;
-		CommonTree RIGHT_PAREN410_tree=null;
+		CommonTree LEFT_PAREN408_tree=null;
+		CommonTree RIGHT_PAREN409_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 113) ) { return retval; }
 
-			// DDL.g:950:3: ( LEFT_PAREN RIGHT_PAREN -> ^( EMPTY_GROUPING_SET ) )
-			// DDL.g:950:5: LEFT_PAREN RIGHT_PAREN
+			// DDL.g:951:3: ( LEFT_PAREN RIGHT_PAREN -> ^( EMPTY_GROUPING_SET ) )
+			// DDL.g:951:5: LEFT_PAREN RIGHT_PAREN
 			{
-			LEFT_PAREN409=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_empty_grouping_set7305); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN409);
+			LEFT_PAREN408=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_empty_grouping_set7297); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN408);
 
-			RIGHT_PAREN410=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_empty_grouping_set7307); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN410);
+			RIGHT_PAREN409=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_empty_grouping_set7299); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN409);
 
 			// AST REWRITE
 			// elements: 
@@ -17419,9 +17382,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 950:28: -> ^( EMPTY_GROUPING_SET )
+			// 951:28: -> ^( EMPTY_GROUPING_SET )
 			{
-				// DDL.g:950:31: ^( EMPTY_GROUPING_SET )
+				// DDL.g:951:31: ^( EMPTY_GROUPING_SET )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EMPTY_GROUPING_SET, "EMPTY_GROUPING_SET"), root_1);
@@ -17466,7 +17429,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "having_clause"
-	// DDL.g:952:1: having_clause : HAVING ^ boolean_value_expression ;
+	// DDL.g:953:1: having_clause : HAVING ^ boolean_value_expression ;
 	public final DDLParser.having_clause_return having_clause() throws RecognitionException {
 		DDLParser.having_clause_return retval = new DDLParser.having_clause_return();
 		retval.start = input.LT(1);
@@ -17474,31 +17437,31 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token HAVING411=null;
-		ParserRuleReturnScope boolean_value_expression412 =null;
+		Token HAVING410=null;
+		ParserRuleReturnScope boolean_value_expression411 =null;
 
-		CommonTree HAVING411_tree=null;
+		CommonTree HAVING410_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 114) ) { return retval; }
 
-			// DDL.g:953:3: ( HAVING ^ boolean_value_expression )
-			// DDL.g:953:5: HAVING ^ boolean_value_expression
+			// DDL.g:954:3: ( HAVING ^ boolean_value_expression )
+			// DDL.g:954:5: HAVING ^ boolean_value_expression
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			HAVING411=(Token)match(input,HAVING,FOLLOW_HAVING_in_having_clause7325); if (state.failed) return retval;
+			HAVING410=(Token)match(input,HAVING,FOLLOW_HAVING_in_having_clause7317); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			HAVING411_tree = (CommonTree)adaptor.create(HAVING411);
-			root_0 = (CommonTree)adaptor.becomeRoot(HAVING411_tree, root_0);
+			HAVING410_tree = (CommonTree)adaptor.create(HAVING410);
+			root_0 = (CommonTree)adaptor.becomeRoot(HAVING410_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_boolean_value_expression_in_having_clause7328);
-			boolean_value_expression412=boolean_value_expression();
+			pushFollow(FOLLOW_boolean_value_expression_in_having_clause7320);
+			boolean_value_expression411=boolean_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression412.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression411.getTree());
 
 			}
 
@@ -17532,7 +17495,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "orderby_clause"
-	// DDL.g:961:1: orderby_clause : ORDER BY sort_specifier_list -> ^( ORDER_BY sort_specifier_list ) ;
+	// DDL.g:962:1: orderby_clause : ORDER BY sort_specifier_list -> ^( ORDER_BY sort_specifier_list ) ;
 	public final DDLParser.orderby_clause_return orderby_clause() throws RecognitionException {
 		DDLParser.orderby_clause_return retval = new DDLParser.orderby_clause_return();
 		retval.start = input.LT(1);
@@ -17540,12 +17503,12 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token ORDER413=null;
-		Token BY414=null;
-		ParserRuleReturnScope sort_specifier_list415 =null;
+		Token ORDER412=null;
+		Token BY413=null;
+		ParserRuleReturnScope sort_specifier_list414 =null;
 
-		CommonTree ORDER413_tree=null;
-		CommonTree BY414_tree=null;
+		CommonTree ORDER412_tree=null;
+		CommonTree BY413_tree=null;
 		RewriteRuleTokenStream stream_BY=new RewriteRuleTokenStream(adaptor,"token BY");
 		RewriteRuleTokenStream stream_ORDER=new RewriteRuleTokenStream(adaptor,"token ORDER");
 		RewriteRuleSubtreeStream stream_sort_specifier_list=new RewriteRuleSubtreeStream(adaptor,"rule sort_specifier_list");
@@ -17553,20 +17516,20 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 115) ) { return retval; }
 
-			// DDL.g:962:3: ( ORDER BY sort_specifier_list -> ^( ORDER_BY sort_specifier_list ) )
-			// DDL.g:962:5: ORDER BY sort_specifier_list
+			// DDL.g:963:3: ( ORDER BY sort_specifier_list -> ^( ORDER_BY sort_specifier_list ) )
+			// DDL.g:963:5: ORDER BY sort_specifier_list
 			{
-			ORDER413=(Token)match(input,ORDER,FOLLOW_ORDER_in_orderby_clause7342); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_ORDER.add(ORDER413);
+			ORDER412=(Token)match(input,ORDER,FOLLOW_ORDER_in_orderby_clause7334); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_ORDER.add(ORDER412);
 
-			BY414=(Token)match(input,BY,FOLLOW_BY_in_orderby_clause7344); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_BY.add(BY414);
+			BY413=(Token)match(input,BY,FOLLOW_BY_in_orderby_clause7336); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_BY.add(BY413);
 
-			pushFollow(FOLLOW_sort_specifier_list_in_orderby_clause7346);
-			sort_specifier_list415=sort_specifier_list();
+			pushFollow(FOLLOW_sort_specifier_list_in_orderby_clause7338);
+			sort_specifier_list414=sort_specifier_list();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_sort_specifier_list.add(sort_specifier_list415.getTree());
+			if ( state.backtracking==0 ) stream_sort_specifier_list.add(sort_specifier_list414.getTree());
 			// AST REWRITE
 			// elements: sort_specifier_list
 			// token labels: 
@@ -17579,9 +17542,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 962:34: -> ^( ORDER_BY sort_specifier_list )
+			// 963:34: -> ^( ORDER_BY sort_specifier_list )
 			{
-				// DDL.g:962:37: ^( ORDER_BY sort_specifier_list )
+				// DDL.g:963:37: ^( ORDER_BY sort_specifier_list )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ORDER_BY, "ORDER_BY"), root_1);
@@ -17627,7 +17590,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "sort_specifier_list"
-	// DDL.g:964:1: sort_specifier_list : sort_specifier ( COMMA sort_specifier )* -> ^( SORT_SPECIFIERS ( sort_specifier )+ ) ;
+	// DDL.g:965:1: sort_specifier_list : sort_specifier ( COMMA sort_specifier )* -> ^( SORT_SPECIFIERS ( sort_specifier )+ ) ;
 	public final DDLParser.sort_specifier_list_return sort_specifier_list() throws RecognitionException {
 		DDLParser.sort_specifier_list_return retval = new DDLParser.sort_specifier_list_return();
 		retval.start = input.LT(1);
@@ -17635,51 +17598,51 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token COMMA417=null;
-		ParserRuleReturnScope sort_specifier416 =null;
-		ParserRuleReturnScope sort_specifier418 =null;
+		Token COMMA416=null;
+		ParserRuleReturnScope sort_specifier415 =null;
+		ParserRuleReturnScope sort_specifier417 =null;
 
-		CommonTree COMMA417_tree=null;
+		CommonTree COMMA416_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
 		RewriteRuleSubtreeStream stream_sort_specifier=new RewriteRuleSubtreeStream(adaptor,"rule sort_specifier");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 116) ) { return retval; }
 
-			// DDL.g:965:3: ( sort_specifier ( COMMA sort_specifier )* -> ^( SORT_SPECIFIERS ( sort_specifier )+ ) )
-			// DDL.g:965:5: sort_specifier ( COMMA sort_specifier )*
+			// DDL.g:966:3: ( sort_specifier ( COMMA sort_specifier )* -> ^( SORT_SPECIFIERS ( sort_specifier )+ ) )
+			// DDL.g:966:5: sort_specifier ( COMMA sort_specifier )*
 			{
-			pushFollow(FOLLOW_sort_specifier_in_sort_specifier_list7366);
-			sort_specifier416=sort_specifier();
+			pushFollow(FOLLOW_sort_specifier_in_sort_specifier_list7358);
+			sort_specifier415=sort_specifier();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_sort_specifier.add(sort_specifier416.getTree());
-			// DDL.g:965:20: ( COMMA sort_specifier )*
-			loop121:
+			if ( state.backtracking==0 ) stream_sort_specifier.add(sort_specifier415.getTree());
+			// DDL.g:966:20: ( COMMA sort_specifier )*
+			loop120:
 			while (true) {
-				int alt121=2;
-				int LA121_0 = input.LA(1);
-				if ( (LA121_0==COMMA) ) {
-					alt121=1;
+				int alt120=2;
+				int LA120_0 = input.LA(1);
+				if ( (LA120_0==COMMA) ) {
+					alt120=1;
 				}
 
-				switch (alt121) {
+				switch (alt120) {
 				case 1 :
-					// DDL.g:965:21: COMMA sort_specifier
+					// DDL.g:966:21: COMMA sort_specifier
 					{
-					COMMA417=(Token)match(input,COMMA,FOLLOW_COMMA_in_sort_specifier_list7369); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA417);
+					COMMA416=(Token)match(input,COMMA,FOLLOW_COMMA_in_sort_specifier_list7361); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA416);
 
-					pushFollow(FOLLOW_sort_specifier_in_sort_specifier_list7371);
-					sort_specifier418=sort_specifier();
+					pushFollow(FOLLOW_sort_specifier_in_sort_specifier_list7363);
+					sort_specifier417=sort_specifier();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_sort_specifier.add(sort_specifier418.getTree());
+					if ( state.backtracking==0 ) stream_sort_specifier.add(sort_specifier417.getTree());
 					}
 					break;
 
 				default :
-					break loop121;
+					break loop120;
 				}
 			}
 
@@ -17695,9 +17658,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 965:44: -> ^( SORT_SPECIFIERS ( sort_specifier )+ )
+			// 966:44: -> ^( SORT_SPECIFIERS ( sort_specifier )+ )
 			{
-				// DDL.g:965:47: ^( SORT_SPECIFIERS ( sort_specifier )+ )
+				// DDL.g:966:47: ^( SORT_SPECIFIERS ( sort_specifier )+ )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SORT_SPECIFIERS, "SORT_SPECIFIERS"), root_1);
@@ -17750,7 +17713,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "sort_specifier"
-	// DDL.g:967:1: sort_specifier : fn= column_reference (a= order_specification )? (o= null_ordering )? -> ^( SORT_KEY $fn ( $a)? ( $o)? ) ;
+	// DDL.g:968:1: sort_specifier : fn= column_reference (a= order_specification )? (o= null_ordering )? -> ^( SORT_KEY $fn ( $a)? ( $o)? ) ;
 	public final DDLParser.sort_specifier_return sort_specifier() throws RecognitionException {
 		DDLParser.sort_specifier_return retval = new DDLParser.sort_specifier_return();
 		retval.start = input.LT(1);
@@ -17769,25 +17732,25 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 117) ) { return retval; }
 
-			// DDL.g:968:3: (fn= column_reference (a= order_specification )? (o= null_ordering )? -> ^( SORT_KEY $fn ( $a)? ( $o)? ) )
-			// DDL.g:968:5: fn= column_reference (a= order_specification )? (o= null_ordering )?
+			// DDL.g:969:3: (fn= column_reference (a= order_specification )? (o= null_ordering )? -> ^( SORT_KEY $fn ( $a)? ( $o)? ) )
+			// DDL.g:969:5: fn= column_reference (a= order_specification )? (o= null_ordering )?
 			{
-			pushFollow(FOLLOW_column_reference_in_sort_specifier7396);
+			pushFollow(FOLLOW_column_reference_in_sort_specifier7388);
 			fn=column_reference();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_column_reference.add(fn.getTree());
-			// DDL.g:968:26: (a= order_specification )?
-			int alt122=2;
-			int LA122_0 = input.LA(1);
-			if ( (LA122_0==ASC||LA122_0==DESC) ) {
-				alt122=1;
+			// DDL.g:969:26: (a= order_specification )?
+			int alt121=2;
+			int LA121_0 = input.LA(1);
+			if ( (LA121_0==ASC||LA121_0==DESC) ) {
+				alt121=1;
 			}
-			switch (alt122) {
+			switch (alt121) {
 				case 1 :
-					// DDL.g:968:26: a= order_specification
+					// DDL.g:969:26: a= order_specification
 					{
-					pushFollow(FOLLOW_order_specification_in_sort_specifier7400);
+					pushFollow(FOLLOW_order_specification_in_sort_specifier7392);
 					a=order_specification();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -17797,17 +17760,17 @@ public class DDLParser extends Parser {
 
 			}
 
-			// DDL.g:968:49: (o= null_ordering )?
-			int alt123=2;
-			int LA123_0 = input.LA(1);
-			if ( (LA123_0==NULL) ) {
-				alt123=1;
+			// DDL.g:969:49: (o= null_ordering )?
+			int alt122=2;
+			int LA122_0 = input.LA(1);
+			if ( (LA122_0==NULL) ) {
+				alt122=1;
 			}
-			switch (alt123) {
+			switch (alt122) {
 				case 1 :
-					// DDL.g:968:49: o= null_ordering
+					// DDL.g:969:49: o= null_ordering
 					{
-					pushFollow(FOLLOW_null_ordering_in_sort_specifier7405);
+					pushFollow(FOLLOW_null_ordering_in_sort_specifier7397);
 					o=null_ordering();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -17818,7 +17781,7 @@ public class DDLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: o, a, fn
+			// elements: a, o, fn
 			// token labels: 
 			// rule labels: retval, a, o, fn
 			// token list labels: 
@@ -17832,20 +17795,20 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_fn=new RewriteRuleSubtreeStream(adaptor,"rule fn",fn!=null?fn.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 968:65: -> ^( SORT_KEY $fn ( $a)? ( $o)? )
+			// 969:65: -> ^( SORT_KEY $fn ( $a)? ( $o)? )
 			{
-				// DDL.g:968:68: ^( SORT_KEY $fn ( $a)? ( $o)? )
+				// DDL.g:969:68: ^( SORT_KEY $fn ( $a)? ( $o)? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SORT_KEY, "SORT_KEY"), root_1);
 				adaptor.addChild(root_1, stream_fn.nextTree());
-				// DDL.g:968:84: ( $a)?
+				// DDL.g:969:84: ( $a)?
 				if ( stream_a.hasNext() ) {
 					adaptor.addChild(root_1, stream_a.nextTree());
 				}
 				stream_a.reset();
 
-				// DDL.g:968:88: ( $o)?
+				// DDL.g:969:88: ( $o)?
 				if ( stream_o.hasNext() ) {
 					adaptor.addChild(root_1, stream_o.nextTree());
 				}
@@ -17892,7 +17855,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "order_specification"
-	// DDL.g:970:1: order_specification : ( ASC -> ^( ORDER ASC ) | DESC -> ^( ORDER DESC ) );
+	// DDL.g:971:1: order_specification : ( ASC -> ^( ORDER ASC ) | DESC -> ^( ORDER DESC ) );
 	public final DDLParser.order_specification_return order_specification() throws RecognitionException {
 		DDLParser.order_specification_return retval = new DDLParser.order_specification_return();
 		retval.start = input.LT(1);
@@ -17900,40 +17863,40 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token ASC419=null;
-		Token DESC420=null;
+		Token ASC418=null;
+		Token DESC419=null;
 
-		CommonTree ASC419_tree=null;
-		CommonTree DESC420_tree=null;
+		CommonTree ASC418_tree=null;
+		CommonTree DESC419_tree=null;
 		RewriteRuleTokenStream stream_DESC=new RewriteRuleTokenStream(adaptor,"token DESC");
 		RewriteRuleTokenStream stream_ASC=new RewriteRuleTokenStream(adaptor,"token ASC");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 118) ) { return retval; }
 
-			// DDL.g:971:3: ( ASC -> ^( ORDER ASC ) | DESC -> ^( ORDER DESC ) )
-			int alt124=2;
-			int LA124_0 = input.LA(1);
-			if ( (LA124_0==ASC) ) {
-				alt124=1;
+			// DDL.g:972:3: ( ASC -> ^( ORDER ASC ) | DESC -> ^( ORDER DESC ) )
+			int alt123=2;
+			int LA123_0 = input.LA(1);
+			if ( (LA123_0==ASC) ) {
+				alt123=1;
 			}
-			else if ( (LA124_0==DESC) ) {
-				alt124=2;
+			else if ( (LA123_0==DESC) ) {
+				alt123=2;
 			}
 
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 124, 0, input);
+					new NoViableAltException("", 123, 0, input);
 				throw nvae;
 			}
 
-			switch (alt124) {
+			switch (alt123) {
 				case 1 :
-					// DDL.g:971:5: ASC
+					// DDL.g:972:5: ASC
 					{
-					ASC419=(Token)match(input,ASC,FOLLOW_ASC_in_order_specification7435); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_ASC.add(ASC419);
+					ASC418=(Token)match(input,ASC,FOLLOW_ASC_in_order_specification7427); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_ASC.add(ASC418);
 
 					// AST REWRITE
 					// elements: ASC
@@ -17947,9 +17910,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 971:9: -> ^( ORDER ASC )
+					// 972:9: -> ^( ORDER ASC )
 					{
-						// DDL.g:971:12: ^( ORDER ASC )
+						// DDL.g:972:12: ^( ORDER ASC )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ORDER, "ORDER"), root_1);
@@ -17966,10 +17929,10 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:972:5: DESC
+					// DDL.g:973:5: DESC
 					{
-					DESC420=(Token)match(input,DESC,FOLLOW_DESC_in_order_specification7449); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_DESC.add(DESC420);
+					DESC419=(Token)match(input,DESC,FOLLOW_DESC_in_order_specification7441); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_DESC.add(DESC419);
 
 					// AST REWRITE
 					// elements: DESC
@@ -17983,9 +17946,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 972:10: -> ^( ORDER DESC )
+					// 973:10: -> ^( ORDER DESC )
 					{
-						// DDL.g:972:13: ^( ORDER DESC )
+						// DDL.g:973:13: ^( ORDER DESC )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ORDER, "ORDER"), root_1);
@@ -18033,7 +17996,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "limit_clause"
-	// DDL.g:974:1: limit_clause : LIMIT e= numeric_value_expression -> ^( LIMIT $e) ;
+	// DDL.g:975:1: limit_clause : LIMIT e= numeric_value_expression -> ^( LIMIT $e) ;
 	public final DDLParser.limit_clause_return limit_clause() throws RecognitionException {
 		DDLParser.limit_clause_return retval = new DDLParser.limit_clause_return();
 		retval.start = input.LT(1);
@@ -18041,29 +18004,29 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LIMIT421=null;
+		Token LIMIT420=null;
 		ParserRuleReturnScope e =null;
 
-		CommonTree LIMIT421_tree=null;
+		CommonTree LIMIT420_tree=null;
 		RewriteRuleTokenStream stream_LIMIT=new RewriteRuleTokenStream(adaptor,"token LIMIT");
 		RewriteRuleSubtreeStream stream_numeric_value_expression=new RewriteRuleSubtreeStream(adaptor,"rule numeric_value_expression");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 119) ) { return retval; }
 
-			// DDL.g:975:3: ( LIMIT e= numeric_value_expression -> ^( LIMIT $e) )
-			// DDL.g:975:5: LIMIT e= numeric_value_expression
+			// DDL.g:976:3: ( LIMIT e= numeric_value_expression -> ^( LIMIT $e) )
+			// DDL.g:976:5: LIMIT e= numeric_value_expression
 			{
-			LIMIT421=(Token)match(input,LIMIT,FOLLOW_LIMIT_in_limit_clause7469); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LIMIT.add(LIMIT421);
+			LIMIT420=(Token)match(input,LIMIT,FOLLOW_LIMIT_in_limit_clause7461); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LIMIT.add(LIMIT420);
 
-			pushFollow(FOLLOW_numeric_value_expression_in_limit_clause7473);
+			pushFollow(FOLLOW_numeric_value_expression_in_limit_clause7465);
 			e=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_value_expression.add(e.getTree());
 			// AST REWRITE
-			// elements: LIMIT, e
+			// elements: e, LIMIT
 			// token labels: 
 			// rule labels: retval, e
 			// token list labels: 
@@ -18075,9 +18038,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_e=new RewriteRuleSubtreeStream(adaptor,"rule e",e!=null?e.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 975:38: -> ^( LIMIT $e)
+			// 976:38: -> ^( LIMIT $e)
 			{
-				// DDL.g:975:41: ^( LIMIT $e)
+				// DDL.g:976:41: ^( LIMIT $e)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_LIMIT.nextNode(), root_1);
@@ -18123,7 +18086,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "null_ordering"
-	// DDL.g:977:1: null_ordering : ( NULL FIRST -> ^( NULL_ORDER FIRST ) | NULL LAST -> ^( NULL_ORDER LAST ) );
+	// DDL.g:978:1: null_ordering : ( NULL FIRST -> ^( NULL_ORDER FIRST ) | NULL LAST -> ^( NULL_ORDER LAST ) );
 	public final DDLParser.null_ordering_return null_ordering() throws RecognitionException {
 		DDLParser.null_ordering_return retval = new DDLParser.null_ordering_return();
 		retval.start = input.LT(1);
@@ -18131,15 +18094,15 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NULL422=null;
-		Token FIRST423=null;
-		Token NULL424=null;
-		Token LAST425=null;
+		Token NULL421=null;
+		Token FIRST422=null;
+		Token NULL423=null;
+		Token LAST424=null;
 
-		CommonTree NULL422_tree=null;
-		CommonTree FIRST423_tree=null;
-		CommonTree NULL424_tree=null;
-		CommonTree LAST425_tree=null;
+		CommonTree NULL421_tree=null;
+		CommonTree FIRST422_tree=null;
+		CommonTree NULL423_tree=null;
+		CommonTree LAST424_tree=null;
 		RewriteRuleTokenStream stream_LAST=new RewriteRuleTokenStream(adaptor,"token LAST");
 		RewriteRuleTokenStream stream_NULL=new RewriteRuleTokenStream(adaptor,"token NULL");
 		RewriteRuleTokenStream stream_FIRST=new RewriteRuleTokenStream(adaptor,"token FIRST");
@@ -18147,16 +18110,16 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 120) ) { return retval; }
 
-			// DDL.g:978:3: ( NULL FIRST -> ^( NULL_ORDER FIRST ) | NULL LAST -> ^( NULL_ORDER LAST ) )
-			int alt125=2;
-			int LA125_0 = input.LA(1);
-			if ( (LA125_0==NULL) ) {
-				int LA125_1 = input.LA(2);
-				if ( (LA125_1==FIRST) ) {
-					alt125=1;
+			// DDL.g:979:3: ( NULL FIRST -> ^( NULL_ORDER FIRST ) | NULL LAST -> ^( NULL_ORDER LAST ) )
+			int alt124=2;
+			int LA124_0 = input.LA(1);
+			if ( (LA124_0==NULL) ) {
+				int LA124_1 = input.LA(2);
+				if ( (LA124_1==FIRST) ) {
+					alt124=1;
 				}
-				else if ( (LA125_1==LAST) ) {
-					alt125=2;
+				else if ( (LA124_1==LAST) ) {
+					alt124=2;
 				}
 
 				else {
@@ -18165,7 +18128,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 125, 1, input);
+							new NoViableAltException("", 124, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -18177,19 +18140,19 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 125, 0, input);
+					new NoViableAltException("", 124, 0, input);
 				throw nvae;
 			}
 
-			switch (alt125) {
+			switch (alt124) {
 				case 1 :
-					// DDL.g:978:5: NULL FIRST
+					// DDL.g:979:5: NULL FIRST
 					{
-					NULL422=(Token)match(input,NULL,FOLLOW_NULL_in_null_ordering7494); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_NULL.add(NULL422);
+					NULL421=(Token)match(input,NULL,FOLLOW_NULL_in_null_ordering7486); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_NULL.add(NULL421);
 
-					FIRST423=(Token)match(input,FIRST,FOLLOW_FIRST_in_null_ordering7496); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_FIRST.add(FIRST423);
+					FIRST422=(Token)match(input,FIRST,FOLLOW_FIRST_in_null_ordering7488); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_FIRST.add(FIRST422);
 
 					// AST REWRITE
 					// elements: FIRST
@@ -18203,9 +18166,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 978:16: -> ^( NULL_ORDER FIRST )
+					// 979:16: -> ^( NULL_ORDER FIRST )
 					{
-						// DDL.g:978:19: ^( NULL_ORDER FIRST )
+						// DDL.g:979:19: ^( NULL_ORDER FIRST )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NULL_ORDER, "NULL_ORDER"), root_1);
@@ -18222,13 +18185,13 @@ public class DDLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// DDL.g:979:5: NULL LAST
+					// DDL.g:980:5: NULL LAST
 					{
-					NULL424=(Token)match(input,NULL,FOLLOW_NULL_in_null_ordering7510); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_NULL.add(NULL424);
+					NULL423=(Token)match(input,NULL,FOLLOW_NULL_in_null_ordering7502); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_NULL.add(NULL423);
 
-					LAST425=(Token)match(input,LAST,FOLLOW_LAST_in_null_ordering7512); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_LAST.add(LAST425);
+					LAST424=(Token)match(input,LAST,FOLLOW_LAST_in_null_ordering7504); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_LAST.add(LAST424);
 
 					// AST REWRITE
 					// elements: LAST
@@ -18242,9 +18205,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 979:15: -> ^( NULL_ORDER LAST )
+					// 980:15: -> ^( NULL_ORDER LAST )
 					{
-						// DDL.g:979:18: ^( NULL_ORDER LAST )
+						// DDL.g:980:18: ^( NULL_ORDER LAST )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NULL_ORDER, "NULL_ORDER"), root_1);
@@ -18292,7 +18255,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "search_condition"
-	// DDL.g:988:1: search_condition : boolean_value_expression ;
+	// DDL.g:989:1: search_condition : boolean_value_expression ;
 	public final DDLParser.search_condition_return search_condition() throws RecognitionException {
 		DDLParser.search_condition_return retval = new DDLParser.search_condition_return();
 		retval.start = input.LT(1);
@@ -18300,23 +18263,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope boolean_value_expression426 =null;
+		ParserRuleReturnScope boolean_value_expression425 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 121) ) { return retval; }
 
-			// DDL.g:989:2: ( boolean_value_expression )
-			// DDL.g:989:4: boolean_value_expression
+			// DDL.g:990:2: ( boolean_value_expression )
+			// DDL.g:990:4: boolean_value_expression
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_boolean_value_expression_in_search_condition7534);
-			boolean_value_expression426=boolean_value_expression();
+			pushFollow(FOLLOW_boolean_value_expression_in_search_condition7526);
+			boolean_value_expression425=boolean_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression426.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression425.getTree());
 
 			}
 
@@ -18350,7 +18313,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "param_clause"
-	// DDL.g:991:1: param_clause : WITH LEFT_PAREN param ( COMMA param )* RIGHT_PAREN -> ^( PARAMS ( param )+ ) ;
+	// DDL.g:992:1: param_clause : WITH LEFT_PAREN param ( COMMA param )* RIGHT_PAREN -> ^( PARAMS ( param )+ ) ;
 	public final DDLParser.param_clause_return param_clause() throws RecognitionException {
 		DDLParser.param_clause_return retval = new DDLParser.param_clause_return();
 		retval.start = input.LT(1);
@@ -18358,17 +18321,17 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token WITH427=null;
-		Token LEFT_PAREN428=null;
-		Token COMMA430=null;
-		Token RIGHT_PAREN432=null;
-		ParserRuleReturnScope param429 =null;
-		ParserRuleReturnScope param431 =null;
+		Token WITH426=null;
+		Token LEFT_PAREN427=null;
+		Token COMMA429=null;
+		Token RIGHT_PAREN431=null;
+		ParserRuleReturnScope param428 =null;
+		ParserRuleReturnScope param430 =null;
 
-		CommonTree WITH427_tree=null;
-		CommonTree LEFT_PAREN428_tree=null;
-		CommonTree COMMA430_tree=null;
-		CommonTree RIGHT_PAREN432_tree=null;
+		CommonTree WITH426_tree=null;
+		CommonTree LEFT_PAREN427_tree=null;
+		CommonTree COMMA429_tree=null;
+		CommonTree RIGHT_PAREN431_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
@@ -18378,51 +18341,51 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 122) ) { return retval; }
 
-			// DDL.g:992:3: ( WITH LEFT_PAREN param ( COMMA param )* RIGHT_PAREN -> ^( PARAMS ( param )+ ) )
-			// DDL.g:992:5: WITH LEFT_PAREN param ( COMMA param )* RIGHT_PAREN
+			// DDL.g:993:3: ( WITH LEFT_PAREN param ( COMMA param )* RIGHT_PAREN -> ^( PARAMS ( param )+ ) )
+			// DDL.g:993:5: WITH LEFT_PAREN param ( COMMA param )* RIGHT_PAREN
 			{
-			WITH427=(Token)match(input,WITH,FOLLOW_WITH_in_param_clause7545); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_WITH.add(WITH427);
+			WITH426=(Token)match(input,WITH,FOLLOW_WITH_in_param_clause7537); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_WITH.add(WITH426);
 
-			LEFT_PAREN428=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_param_clause7547); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN428);
+			LEFT_PAREN427=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_param_clause7539); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN427);
 
-			pushFollow(FOLLOW_param_in_param_clause7549);
-			param429=param();
+			pushFollow(FOLLOW_param_in_param_clause7541);
+			param428=param();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_param.add(param429.getTree());
-			// DDL.g:992:27: ( COMMA param )*
-			loop126:
+			if ( state.backtracking==0 ) stream_param.add(param428.getTree());
+			// DDL.g:993:27: ( COMMA param )*
+			loop125:
 			while (true) {
-				int alt126=2;
-				int LA126_0 = input.LA(1);
-				if ( (LA126_0==COMMA) ) {
-					alt126=1;
+				int alt125=2;
+				int LA125_0 = input.LA(1);
+				if ( (LA125_0==COMMA) ) {
+					alt125=1;
 				}
 
-				switch (alt126) {
+				switch (alt125) {
 				case 1 :
-					// DDL.g:992:28: COMMA param
+					// DDL.g:993:28: COMMA param
 					{
-					COMMA430=(Token)match(input,COMMA,FOLLOW_COMMA_in_param_clause7552); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA430);
+					COMMA429=(Token)match(input,COMMA,FOLLOW_COMMA_in_param_clause7544); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA429);
 
-					pushFollow(FOLLOW_param_in_param_clause7554);
-					param431=param();
+					pushFollow(FOLLOW_param_in_param_clause7546);
+					param430=param();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_param.add(param431.getTree());
+					if ( state.backtracking==0 ) stream_param.add(param430.getTree());
 					}
 					break;
 
 				default :
-					break loop126;
+					break loop125;
 				}
 			}
 
-			RIGHT_PAREN432=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_param_clause7558); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN432);
+			RIGHT_PAREN431=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_param_clause7550); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN431);
 
 			// AST REWRITE
 			// elements: param
@@ -18436,9 +18399,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 992:54: -> ^( PARAMS ( param )+ )
+			// 993:54: -> ^( PARAMS ( param )+ )
 			{
-				// DDL.g:992:57: ^( PARAMS ( param )+ )
+				// DDL.g:993:57: ^( PARAMS ( param )+ )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PARAMS, "PARAMS"), root_1);
@@ -18491,7 +18454,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "param"
-	// DDL.g:994:1: param : k= Character_String_Literal EQUAL v= numeric_value_expression -> ^( PARAM $k $v) ;
+	// DDL.g:995:1: param : k= Character_String_Literal EQUAL v= numeric_value_expression -> ^( PARAM $k $v) ;
 	public final DDLParser.param_return param() throws RecognitionException {
 		DDLParser.param_return retval = new DDLParser.param_return();
 		retval.start = input.LT(1);
@@ -18500,11 +18463,11 @@ public class DDLParser extends Parser {
 		CommonTree root_0 = null;
 
 		Token k=null;
-		Token EQUAL433=null;
+		Token EQUAL432=null;
 		ParserRuleReturnScope v =null;
 
 		CommonTree k_tree=null;
-		CommonTree EQUAL433_tree=null;
+		CommonTree EQUAL432_tree=null;
 		RewriteRuleTokenStream stream_Character_String_Literal=new RewriteRuleTokenStream(adaptor,"token Character_String_Literal");
 		RewriteRuleTokenStream stream_EQUAL=new RewriteRuleTokenStream(adaptor,"token EQUAL");
 		RewriteRuleSubtreeStream stream_numeric_value_expression=new RewriteRuleSubtreeStream(adaptor,"rule numeric_value_expression");
@@ -18512,22 +18475,22 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 123) ) { return retval; }
 
-			// DDL.g:995:3: (k= Character_String_Literal EQUAL v= numeric_value_expression -> ^( PARAM $k $v) )
-			// DDL.g:995:5: k= Character_String_Literal EQUAL v= numeric_value_expression
+			// DDL.g:996:3: (k= Character_String_Literal EQUAL v= numeric_value_expression -> ^( PARAM $k $v) )
+			// DDL.g:996:5: k= Character_String_Literal EQUAL v= numeric_value_expression
 			{
-			k=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_param7581); if (state.failed) return retval; 
+			k=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_param7573); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Character_String_Literal.add(k);
 
-			EQUAL433=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_param7583); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL433);
+			EQUAL432=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_param7575); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_EQUAL.add(EQUAL432);
 
-			pushFollow(FOLLOW_numeric_value_expression_in_param7587);
+			pushFollow(FOLLOW_numeric_value_expression_in_param7579);
 			v=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_value_expression.add(v.getTree());
 			// AST REWRITE
-			// elements: k, v
+			// elements: v, k
 			// token labels: k
 			// rule labels: v, retval
 			// token list labels: 
@@ -18540,9 +18503,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 995:65: -> ^( PARAM $k $v)
+			// 996:65: -> ^( PARAM $k $v)
 			{
-				// DDL.g:995:68: ^( PARAM $k $v)
+				// DDL.g:996:68: ^( PARAM $k $v)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PARAM, "PARAM"), root_1);
@@ -18589,7 +18552,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "method_specifier"
-	// DDL.g:997:1: method_specifier : USING m= Identifier -> ^( USING[$m.text] ) ;
+	// DDL.g:998:1: method_specifier : USING m= Identifier -> ^( USING[$m.text] ) ;
 	public final DDLParser.method_specifier_return method_specifier() throws RecognitionException {
 		DDLParser.method_specifier_return retval = new DDLParser.method_specifier_return();
 		retval.start = input.LT(1);
@@ -18598,23 +18561,23 @@ public class DDLParser extends Parser {
 		CommonTree root_0 = null;
 
 		Token m=null;
-		Token USING434=null;
+		Token USING433=null;
 
 		CommonTree m_tree=null;
-		CommonTree USING434_tree=null;
+		CommonTree USING433_tree=null;
 		RewriteRuleTokenStream stream_USING=new RewriteRuleTokenStream(adaptor,"token USING");
 		RewriteRuleTokenStream stream_Identifier=new RewriteRuleTokenStream(adaptor,"token Identifier");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 124) ) { return retval; }
 
-			// DDL.g:998:3: ( USING m= Identifier -> ^( USING[$m.text] ) )
-			// DDL.g:998:5: USING m= Identifier
+			// DDL.g:999:3: ( USING m= Identifier -> ^( USING[$m.text] ) )
+			// DDL.g:999:5: USING m= Identifier
 			{
-			USING434=(Token)match(input,USING,FOLLOW_USING_in_method_specifier7611); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_USING.add(USING434);
+			USING433=(Token)match(input,USING,FOLLOW_USING_in_method_specifier7603); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_USING.add(USING433);
 
-			m=(Token)match(input,Identifier,FOLLOW_Identifier_in_method_specifier7615); if (state.failed) return retval; 
+			m=(Token)match(input,Identifier,FOLLOW_Identifier_in_method_specifier7607); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Identifier.add(m);
 
 			// AST REWRITE
@@ -18629,9 +18592,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 998:24: -> ^( USING[$m.text] )
+			// 999:24: -> ^( USING[$m.text] )
 			{
-				// DDL.g:998:27: ^( USING[$m.text] )
+				// DDL.g:999:27: ^( USING[$m.text] )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(USING, (m!=null?m.getText():null)), root_1);
@@ -18676,7 +18639,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "boolean_value_expression"
-	// DDL.g:1005:1: boolean_value_expression : and_predicate ( OR ^ and_predicate )* ;
+	// DDL.g:1006:1: boolean_value_expression : and_predicate ( OR ^ and_predicate )* ;
 	public final DDLParser.boolean_value_expression_return boolean_value_expression() throws RecognitionException {
 		DDLParser.boolean_value_expression_return retval = new DDLParser.boolean_value_expression_return();
 		retval.start = input.LT(1);
@@ -18684,57 +18647,57 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token OR436=null;
-		ParserRuleReturnScope and_predicate435 =null;
-		ParserRuleReturnScope and_predicate437 =null;
+		Token OR435=null;
+		ParserRuleReturnScope and_predicate434 =null;
+		ParserRuleReturnScope and_predicate436 =null;
 
-		CommonTree OR436_tree=null;
+		CommonTree OR435_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 125) ) { return retval; }
 
-			// DDL.g:1006:2: ( and_predicate ( OR ^ and_predicate )* )
-			// DDL.g:1006:4: and_predicate ( OR ^ and_predicate )*
+			// DDL.g:1007:2: ( and_predicate ( OR ^ and_predicate )* )
+			// DDL.g:1007:4: and_predicate ( OR ^ and_predicate )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_and_predicate_in_boolean_value_expression7635);
-			and_predicate435=and_predicate();
+			pushFollow(FOLLOW_and_predicate_in_boolean_value_expression7627);
+			and_predicate434=and_predicate();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, and_predicate435.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, and_predicate434.getTree());
 
-			// DDL.g:1006:18: ( OR ^ and_predicate )*
-			loop127:
+			// DDL.g:1007:18: ( OR ^ and_predicate )*
+			loop126:
 			while (true) {
-				int alt127=2;
-				int LA127_0 = input.LA(1);
-				if ( (LA127_0==OR) ) {
-					alt127=1;
+				int alt126=2;
+				int LA126_0 = input.LA(1);
+				if ( (LA126_0==OR) ) {
+					alt126=1;
 				}
 
-				switch (alt127) {
+				switch (alt126) {
 				case 1 :
-					// DDL.g:1006:19: OR ^ and_predicate
+					// DDL.g:1007:19: OR ^ and_predicate
 					{
-					OR436=(Token)match(input,OR,FOLLOW_OR_in_boolean_value_expression7638); if (state.failed) return retval;
+					OR435=(Token)match(input,OR,FOLLOW_OR_in_boolean_value_expression7630); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					OR436_tree = (CommonTree)adaptor.create(OR436);
-					root_0 = (CommonTree)adaptor.becomeRoot(OR436_tree, root_0);
+					OR435_tree = (CommonTree)adaptor.create(OR435);
+					root_0 = (CommonTree)adaptor.becomeRoot(OR435_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_and_predicate_in_boolean_value_expression7641);
-					and_predicate437=and_predicate();
+					pushFollow(FOLLOW_and_predicate_in_boolean_value_expression7633);
+					and_predicate436=and_predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, and_predicate437.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, and_predicate436.getTree());
 
 					}
 					break;
 
 				default :
-					break loop127;
+					break loop126;
 				}
 			}
 
@@ -18770,7 +18733,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "and_predicate"
-	// DDL.g:1008:1: and_predicate : boolean_factor ( AND ^ boolean_factor )* ;
+	// DDL.g:1009:1: and_predicate : boolean_factor ( AND ^ boolean_factor )* ;
 	public final DDLParser.and_predicate_return and_predicate() throws RecognitionException {
 		DDLParser.and_predicate_return retval = new DDLParser.and_predicate_return();
 		retval.start = input.LT(1);
@@ -18778,57 +18741,57 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token AND439=null;
-		ParserRuleReturnScope boolean_factor438 =null;
-		ParserRuleReturnScope boolean_factor440 =null;
+		Token AND438=null;
+		ParserRuleReturnScope boolean_factor437 =null;
+		ParserRuleReturnScope boolean_factor439 =null;
 
-		CommonTree AND439_tree=null;
+		CommonTree AND438_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 126) ) { return retval; }
 
-			// DDL.g:1009:3: ( boolean_factor ( AND ^ boolean_factor )* )
-			// DDL.g:1009:5: boolean_factor ( AND ^ boolean_factor )*
+			// DDL.g:1010:3: ( boolean_factor ( AND ^ boolean_factor )* )
+			// DDL.g:1010:5: boolean_factor ( AND ^ boolean_factor )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_boolean_factor_in_and_predicate7654);
-			boolean_factor438=boolean_factor();
+			pushFollow(FOLLOW_boolean_factor_in_and_predicate7646);
+			boolean_factor437=boolean_factor();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_factor438.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_factor437.getTree());
 
-			// DDL.g:1009:20: ( AND ^ boolean_factor )*
-			loop128:
+			// DDL.g:1010:20: ( AND ^ boolean_factor )*
+			loop127:
 			while (true) {
-				int alt128=2;
-				int LA128_0 = input.LA(1);
-				if ( (LA128_0==AND) ) {
-					alt128=1;
+				int alt127=2;
+				int LA127_0 = input.LA(1);
+				if ( (LA127_0==AND) ) {
+					alt127=1;
 				}
 
-				switch (alt128) {
+				switch (alt127) {
 				case 1 :
-					// DDL.g:1009:21: AND ^ boolean_factor
+					// DDL.g:1010:21: AND ^ boolean_factor
 					{
-					AND439=(Token)match(input,AND,FOLLOW_AND_in_and_predicate7657); if (state.failed) return retval;
+					AND438=(Token)match(input,AND,FOLLOW_AND_in_and_predicate7649); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					AND439_tree = (CommonTree)adaptor.create(AND439);
-					root_0 = (CommonTree)adaptor.becomeRoot(AND439_tree, root_0);
+					AND438_tree = (CommonTree)adaptor.create(AND438);
+					root_0 = (CommonTree)adaptor.becomeRoot(AND438_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_boolean_factor_in_and_predicate7660);
-					boolean_factor440=boolean_factor();
+					pushFollow(FOLLOW_boolean_factor_in_and_predicate7652);
+					boolean_factor439=boolean_factor();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_factor440.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_factor439.getTree());
 
 					}
 					break;
 
 				default :
-					break loop128;
+					break loop127;
 				}
 			}
 
@@ -18864,7 +18827,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "boolean_factor"
-	// DDL.g:1011:1: boolean_factor : ( boolean_test | NOT boolean_test -> ^( NOT boolean_test ) );
+	// DDL.g:1012:1: boolean_factor : ( boolean_test | NOT boolean_test -> ^( NOT boolean_test ) );
 	public final DDLParser.boolean_factor_return boolean_factor() throws RecognitionException {
 		DDLParser.boolean_factor_return retval = new DDLParser.boolean_factor_return();
 		retval.start = input.LT(1);
@@ -18872,60 +18835,60 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NOT442=null;
-		ParserRuleReturnScope boolean_test441 =null;
-		ParserRuleReturnScope boolean_test443 =null;
+		Token NOT441=null;
+		ParserRuleReturnScope boolean_test440 =null;
+		ParserRuleReturnScope boolean_test442 =null;
 
-		CommonTree NOT442_tree=null;
+		CommonTree NOT441_tree=null;
 		RewriteRuleTokenStream stream_NOT=new RewriteRuleTokenStream(adaptor,"token NOT");
 		RewriteRuleSubtreeStream stream_boolean_test=new RewriteRuleSubtreeStream(adaptor,"rule boolean_test");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 127) ) { return retval; }
 
-			// DDL.g:1012:3: ( boolean_test | NOT boolean_test -> ^( NOT boolean_test ) )
-			int alt129=2;
-			int LA129_0 = input.LA(1);
-			if ( (LA129_0==CASE||LA129_0==COUNT||LA129_0==Character_String_Literal||LA129_0==Identifier||LA129_0==LEFT_PAREN||LA129_0==MINUS||LA129_0==NULL||LA129_0==NUMBER||LA129_0==PLUS||LA129_0==REAL_NUMBER) ) {
-				alt129=1;
+			// DDL.g:1013:3: ( boolean_test | NOT boolean_test -> ^( NOT boolean_test ) )
+			int alt128=2;
+			int LA128_0 = input.LA(1);
+			if ( (LA128_0==CASE||LA128_0==COUNT||LA128_0==Character_String_Literal||LA128_0==Identifier||LA128_0==LEFT_PAREN||LA128_0==MINUS||LA128_0==NULL||LA128_0==NUMBER||LA128_0==PLUS||LA128_0==REAL_NUMBER) ) {
+				alt128=1;
 			}
-			else if ( (LA129_0==NOT) ) {
-				alt129=2;
+			else if ( (LA128_0==NOT) ) {
+				alt128=2;
 			}
 
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 129, 0, input);
+					new NoViableAltException("", 128, 0, input);
 				throw nvae;
 			}
 
-			switch (alt129) {
+			switch (alt128) {
 				case 1 :
-					// DDL.g:1012:5: boolean_test
+					// DDL.g:1013:5: boolean_test
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_boolean_test_in_boolean_factor7673);
-					boolean_test441=boolean_test();
+					pushFollow(FOLLOW_boolean_test_in_boolean_factor7665);
+					boolean_test440=boolean_test();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_test441.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_test440.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1013:5: NOT boolean_test
+					// DDL.g:1014:5: NOT boolean_test
 					{
-					NOT442=(Token)match(input,NOT,FOLLOW_NOT_in_boolean_factor7679); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_NOT.add(NOT442);
+					NOT441=(Token)match(input,NOT,FOLLOW_NOT_in_boolean_factor7671); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_NOT.add(NOT441);
 
-					pushFollow(FOLLOW_boolean_test_in_boolean_factor7681);
-					boolean_test443=boolean_test();
+					pushFollow(FOLLOW_boolean_test_in_boolean_factor7673);
+					boolean_test442=boolean_test();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_boolean_test.add(boolean_test443.getTree());
+					if ( state.backtracking==0 ) stream_boolean_test.add(boolean_test442.getTree());
 					// AST REWRITE
 					// elements: NOT, boolean_test
 					// token labels: 
@@ -18938,9 +18901,9 @@ public class DDLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 1013:22: -> ^( NOT boolean_test )
+					// 1014:22: -> ^( NOT boolean_test )
 					{
-						// DDL.g:1013:25: ^( NOT boolean_test )
+						// DDL.g:1014:25: ^( NOT boolean_test )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot(stream_NOT.nextNode(), root_1);
@@ -18988,7 +18951,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "boolean_test"
-	// DDL.g:1015:1: boolean_test : boolean_primary ( is_clause )? ;
+	// DDL.g:1016:1: boolean_test : boolean_primary ( is_clause )? ;
 	public final DDLParser.boolean_test_return boolean_test() throws RecognitionException {
 		DDLParser.boolean_test_return retval = new DDLParser.boolean_test_return();
 		retval.start = input.LT(1);
@@ -18996,40 +18959,40 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope boolean_primary444 =null;
-		ParserRuleReturnScope is_clause445 =null;
+		ParserRuleReturnScope boolean_primary443 =null;
+		ParserRuleReturnScope is_clause444 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 128) ) { return retval; }
 
-			// DDL.g:1016:3: ( boolean_primary ( is_clause )? )
-			// DDL.g:1016:5: boolean_primary ( is_clause )?
+			// DDL.g:1017:3: ( boolean_primary ( is_clause )? )
+			// DDL.g:1017:5: boolean_primary ( is_clause )?
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_boolean_primary_in_boolean_test7701);
-			boolean_primary444=boolean_primary();
+			pushFollow(FOLLOW_boolean_primary_in_boolean_test7693);
+			boolean_primary443=boolean_primary();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_primary444.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_primary443.getTree());
 
-			// DDL.g:1016:21: ( is_clause )?
-			int alt130=2;
-			int LA130_0 = input.LA(1);
-			if ( (LA130_0==IS) ) {
-				alt130=1;
+			// DDL.g:1017:21: ( is_clause )?
+			int alt129=2;
+			int LA129_0 = input.LA(1);
+			if ( (LA129_0==IS) ) {
+				alt129=1;
 			}
-			switch (alt130) {
+			switch (alt129) {
 				case 1 :
-					// DDL.g:1016:21: is_clause
+					// DDL.g:1017:21: is_clause
 					{
-					pushFollow(FOLLOW_is_clause_in_boolean_test7703);
-					is_clause445=is_clause();
+					pushFollow(FOLLOW_is_clause_in_boolean_test7695);
+					is_clause444=is_clause();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, is_clause445.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, is_clause444.getTree());
 
 					}
 					break;
@@ -19068,7 +19031,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "is_clause"
-	// DDL.g:1018:1: is_clause : IS ( NOT )? t= truth_value -> ^( IS ( NOT )? $t) ;
+	// DDL.g:1019:1: is_clause : IS ( NOT )? t= truth_value -> ^( IS ( NOT )? $t) ;
 	public final DDLParser.is_clause_return is_clause() throws RecognitionException {
 		DDLParser.is_clause_return retval = new DDLParser.is_clause_return();
 		retval.start = input.LT(1);
@@ -19076,12 +19039,12 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token IS446=null;
-		Token NOT447=null;
+		Token IS445=null;
+		Token NOT446=null;
 		ParserRuleReturnScope t =null;
 
-		CommonTree IS446_tree=null;
-		CommonTree NOT447_tree=null;
+		CommonTree IS445_tree=null;
+		CommonTree NOT446_tree=null;
 		RewriteRuleTokenStream stream_NOT=new RewriteRuleTokenStream(adaptor,"token NOT");
 		RewriteRuleTokenStream stream_IS=new RewriteRuleTokenStream(adaptor,"token IS");
 		RewriteRuleSubtreeStream stream_truth_value=new RewriteRuleSubtreeStream(adaptor,"rule truth_value");
@@ -19089,37 +19052,37 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 129) ) { return retval; }
 
-			// DDL.g:1019:3: ( IS ( NOT )? t= truth_value -> ^( IS ( NOT )? $t) )
-			// DDL.g:1019:5: IS ( NOT )? t= truth_value
+			// DDL.g:1020:3: ( IS ( NOT )? t= truth_value -> ^( IS ( NOT )? $t) )
+			// DDL.g:1020:5: IS ( NOT )? t= truth_value
 			{
-			IS446=(Token)match(input,IS,FOLLOW_IS_in_is_clause7716); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_IS.add(IS446);
+			IS445=(Token)match(input,IS,FOLLOW_IS_in_is_clause7708); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_IS.add(IS445);
 
-			// DDL.g:1019:8: ( NOT )?
-			int alt131=2;
-			int LA131_0 = input.LA(1);
-			if ( (LA131_0==NOT) ) {
-				alt131=1;
+			// DDL.g:1020:8: ( NOT )?
+			int alt130=2;
+			int LA130_0 = input.LA(1);
+			if ( (LA130_0==NOT) ) {
+				alt130=1;
 			}
-			switch (alt131) {
+			switch (alt130) {
 				case 1 :
-					// DDL.g:1019:8: NOT
+					// DDL.g:1020:8: NOT
 					{
-					NOT447=(Token)match(input,NOT,FOLLOW_NOT_in_is_clause7718); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_NOT.add(NOT447);
+					NOT446=(Token)match(input,NOT,FOLLOW_NOT_in_is_clause7710); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_NOT.add(NOT446);
 
 					}
 					break;
 
 			}
 
-			pushFollow(FOLLOW_truth_value_in_is_clause7723);
+			pushFollow(FOLLOW_truth_value_in_is_clause7715);
 			t=truth_value();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_truth_value.add(t.getTree());
 			// AST REWRITE
-			// elements: t, IS, NOT
+			// elements: t, NOT, IS
 			// token labels: 
 			// rule labels: retval, t
 			// token list labels: 
@@ -19131,13 +19094,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_t=new RewriteRuleSubtreeStream(adaptor,"rule t",t!=null?t.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1019:27: -> ^( IS ( NOT )? $t)
+			// 1020:27: -> ^( IS ( NOT )? $t)
 			{
-				// DDL.g:1019:30: ^( IS ( NOT )? $t)
+				// DDL.g:1020:30: ^( IS ( NOT )? $t)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_IS.nextNode(), root_1);
-				// DDL.g:1019:35: ( NOT )?
+				// DDL.g:1020:35: ( NOT )?
 				if ( stream_NOT.hasNext() ) {
 					adaptor.addChild(root_1, stream_NOT.nextNode());
 				}
@@ -19185,7 +19148,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "truth_value"
-	// DDL.g:1021:1: truth_value : ( TRUE | FALSE | UNKNOWN );
+	// DDL.g:1022:1: truth_value : ( TRUE | FALSE | UNKNOWN );
 	public final DDLParser.truth_value_return truth_value() throws RecognitionException {
 		DDLParser.truth_value_return retval = new DDLParser.truth_value_return();
 		retval.start = input.LT(1);
@@ -19193,23 +19156,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set448=null;
+		Token set447=null;
 
-		CommonTree set448_tree=null;
+		CommonTree set447_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 130) ) { return retval; }
 
-			// DDL.g:1022:3: ( TRUE | FALSE | UNKNOWN )
+			// DDL.g:1023:3: ( TRUE | FALSE | UNKNOWN )
 			// DDL.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			set448=input.LT(1);
+			set447=input.LT(1);
 			if ( input.LA(1)==FALSE||input.LA(1)==TRUE||input.LA(1)==UNKNOWN ) {
 				input.consume();
-				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set448));
+				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set447));
 				state.errorRecovery=false;
 				state.failed=false;
 			}
@@ -19250,7 +19213,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "boolean_primary"
-	// DDL.g:1024:1: boolean_primary : ( predicate | numeric_value_expression | LEFT_PAREN ! boolean_value_expression RIGHT_PAREN !| case_expression );
+	// DDL.g:1025:1: boolean_primary : ( predicate | numeric_value_expression | LEFT_PAREN ! boolean_value_expression RIGHT_PAREN !| case_expression );
 	public final DDLParser.boolean_primary_return boolean_primary() throws RecognitionException {
 		DDLParser.boolean_primary_return retval = new DDLParser.boolean_primary_return();
 		retval.start = input.LT(1);
@@ -19258,30 +19221,30 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LEFT_PAREN451=null;
-		Token RIGHT_PAREN453=null;
-		ParserRuleReturnScope predicate449 =null;
-		ParserRuleReturnScope numeric_value_expression450 =null;
-		ParserRuleReturnScope boolean_value_expression452 =null;
-		ParserRuleReturnScope case_expression454 =null;
+		Token LEFT_PAREN450=null;
+		Token RIGHT_PAREN452=null;
+		ParserRuleReturnScope predicate448 =null;
+		ParserRuleReturnScope numeric_value_expression449 =null;
+		ParserRuleReturnScope boolean_value_expression451 =null;
+		ParserRuleReturnScope case_expression453 =null;
 
-		CommonTree LEFT_PAREN451_tree=null;
-		CommonTree RIGHT_PAREN453_tree=null;
+		CommonTree LEFT_PAREN450_tree=null;
+		CommonTree RIGHT_PAREN452_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 131) ) { return retval; }
 
-			// DDL.g:1025:3: ( predicate | numeric_value_expression | LEFT_PAREN ! boolean_value_expression RIGHT_PAREN !| case_expression )
-			int alt132=4;
+			// DDL.g:1026:3: ( predicate | numeric_value_expression | LEFT_PAREN ! boolean_value_expression RIGHT_PAREN !| case_expression )
+			int alt131=4;
 			switch ( input.LA(1) ) {
 			case Character_String_Literal:
 				{
-				int LA132_1 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_1 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
 				}
-				else if ( (synpred196_DDL()) ) {
-					alt132=2;
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 
 				else {
@@ -19290,7 +19253,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 1, input);
+							new NoViableAltException("", 131, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19302,12 +19265,12 @@ public class DDLParser extends Parser {
 			case MINUS:
 			case PLUS:
 				{
-				int LA132_2 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_2 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
 				}
-				else if ( (synpred196_DDL()) ) {
-					alt132=2;
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 
 				else {
@@ -19316,7 +19279,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 2, input);
+							new NoViableAltException("", 131, 2, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19328,12 +19291,12 @@ public class DDLParser extends Parser {
 			case NUMBER:
 			case REAL_NUMBER:
 				{
-				int LA132_3 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_3 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
 				}
-				else if ( (synpred196_DDL()) ) {
-					alt132=2;
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 
 				else {
@@ -19342,7 +19305,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 3, input);
+							new NoViableAltException("", 131, 3, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19353,12 +19316,12 @@ public class DDLParser extends Parser {
 				break;
 			case NULL:
 				{
-				int LA132_4 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_4 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
 				}
-				else if ( (synpred196_DDL()) ) {
-					alt132=2;
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 
 				else {
@@ -19367,7 +19330,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 4, input);
+							new NoViableAltException("", 131, 4, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19378,12 +19341,12 @@ public class DDLParser extends Parser {
 				break;
 			case Identifier:
 				{
-				int LA132_5 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_5 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
 				}
-				else if ( (synpred196_DDL()) ) {
-					alt132=2;
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 
 				else {
@@ -19392,7 +19355,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 5, input);
+							new NoViableAltException("", 131, 5, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19403,15 +19366,15 @@ public class DDLParser extends Parser {
 				break;
 			case LEFT_PAREN:
 				{
-				int LA132_6 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_6 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
+				}
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 				else if ( (synpred196_DDL()) ) {
-					alt132=2;
-				}
-				else if ( (synpred197_DDL()) ) {
-					alt132=3;
+					alt131=3;
 				}
 
 				else {
@@ -19420,7 +19383,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 6, input);
+							new NoViableAltException("", 131, 6, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19431,12 +19394,12 @@ public class DDLParser extends Parser {
 				break;
 			case COUNT:
 				{
-				int LA132_7 = input.LA(2);
-				if ( (synpred195_DDL()) ) {
-					alt132=1;
+				int LA131_7 = input.LA(2);
+				if ( (synpred194_DDL()) ) {
+					alt131=1;
 				}
-				else if ( (synpred196_DDL()) ) {
-					alt132=2;
+				else if ( (synpred195_DDL()) ) {
+					alt131=2;
 				}
 
 				else {
@@ -19445,7 +19408,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 132, 7, input);
+							new NoViableAltException("", 131, 7, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -19456,71 +19419,71 @@ public class DDLParser extends Parser {
 				break;
 			case CASE:
 				{
-				alt132=4;
+				alt131=4;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 132, 0, input);
+					new NoViableAltException("", 131, 0, input);
 				throw nvae;
 			}
-			switch (alt132) {
+			switch (alt131) {
 				case 1 :
-					// DDL.g:1025:5: predicate
+					// DDL.g:1026:5: predicate
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_predicate_in_boolean_primary7767);
-					predicate449=predicate();
+					pushFollow(FOLLOW_predicate_in_boolean_primary7759);
+					predicate448=predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, predicate449.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, predicate448.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1026:5: numeric_value_expression
+					// DDL.g:1027:5: numeric_value_expression
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_numeric_value_expression_in_boolean_primary7773);
-					numeric_value_expression450=numeric_value_expression();
+					pushFollow(FOLLOW_numeric_value_expression_in_boolean_primary7765);
+					numeric_value_expression449=numeric_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression450.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression449.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:1027:5: LEFT_PAREN ! boolean_value_expression RIGHT_PAREN !
+					// DDL.g:1028:5: LEFT_PAREN ! boolean_value_expression RIGHT_PAREN !
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LEFT_PAREN451=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_boolean_primary7779); if (state.failed) return retval;
-					pushFollow(FOLLOW_boolean_value_expression_in_boolean_primary7782);
-					boolean_value_expression452=boolean_value_expression();
+					LEFT_PAREN450=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_boolean_primary7771); if (state.failed) return retval;
+					pushFollow(FOLLOW_boolean_value_expression_in_boolean_primary7774);
+					boolean_value_expression451=boolean_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression452.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression451.getTree());
 
-					RIGHT_PAREN453=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_boolean_primary7784); if (state.failed) return retval;
+					RIGHT_PAREN452=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_boolean_primary7776); if (state.failed) return retval;
 					}
 					break;
 				case 4 :
-					// DDL.g:1028:5: case_expression
+					// DDL.g:1029:5: case_expression
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_case_expression_in_boolean_primary7791);
-					case_expression454=case_expression();
+					pushFollow(FOLLOW_case_expression_in_boolean_primary7783);
+					case_expression453=case_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, case_expression454.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, case_expression453.getTree());
 
 					}
 					break;
@@ -19556,7 +19519,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "predicate"
-	// DDL.g:1035:1: predicate : ( comparison_predicate | in_predicate | like_predicate | null_predicate );
+	// DDL.g:1036:1: predicate : ( comparison_predicate | in_predicate | like_predicate | null_predicate );
 	public final DDLParser.predicate_return predicate() throws RecognitionException {
 		DDLParser.predicate_return retval = new DDLParser.predicate_return();
 		retval.start = input.LT(1);
@@ -19564,29 +19527,29 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope comparison_predicate455 =null;
-		ParserRuleReturnScope in_predicate456 =null;
-		ParserRuleReturnScope like_predicate457 =null;
-		ParserRuleReturnScope null_predicate458 =null;
+		ParserRuleReturnScope comparison_predicate454 =null;
+		ParserRuleReturnScope in_predicate455 =null;
+		ParserRuleReturnScope like_predicate456 =null;
+		ParserRuleReturnScope null_predicate457 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 132) ) { return retval; }
 
-			// DDL.g:1036:3: ( comparison_predicate | in_predicate | like_predicate | null_predicate )
-			int alt133=4;
+			// DDL.g:1037:3: ( comparison_predicate | in_predicate | like_predicate | null_predicate )
+			int alt132=4;
 			switch ( input.LA(1) ) {
 			case Character_String_Literal:
 				{
-				int LA133_1 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_1 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
 				}
-				else if ( (synpred199_DDL()) ) {
-					alt133=2;
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
@@ -19594,15 +19557,15 @@ public class DDLParser extends Parser {
 			case MINUS:
 			case PLUS:
 				{
-				int LA133_2 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_2 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
 				}
-				else if ( (synpred199_DDL()) ) {
-					alt133=2;
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
@@ -19610,78 +19573,78 @@ public class DDLParser extends Parser {
 			case NUMBER:
 			case REAL_NUMBER:
 				{
-				int LA133_3 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_3 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
 				}
-				else if ( (synpred199_DDL()) ) {
-					alt133=2;
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
 				break;
 			case NULL:
 				{
-				int LA133_4 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_4 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
 				}
-				else if ( (synpred199_DDL()) ) {
-					alt133=2;
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
 				break;
 			case Identifier:
 				{
-				int LA133_5 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_5 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
+				}
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (synpred199_DDL()) ) {
-					alt133=2;
-				}
-				else if ( (synpred200_DDL()) ) {
-					alt133=3;
+					alt132=3;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
 				break;
 			case LEFT_PAREN:
 				{
-				int LA133_6 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_6 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
 				}
-				else if ( (synpred199_DDL()) ) {
-					alt133=2;
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
 				break;
 			case COUNT:
 				{
-				int LA133_7 = input.LA(2);
-				if ( (synpred198_DDL()) ) {
-					alt133=1;
+				int LA132_7 = input.LA(2);
+				if ( (synpred197_DDL()) ) {
+					alt132=1;
 				}
-				else if ( (synpred199_DDL()) ) {
-					alt133=2;
+				else if ( (synpred198_DDL()) ) {
+					alt132=2;
 				}
 				else if ( (true) ) {
-					alt133=4;
+					alt132=4;
 				}
 
 				}
@@ -19689,63 +19652,63 @@ public class DDLParser extends Parser {
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 133, 0, input);
+					new NoViableAltException("", 132, 0, input);
 				throw nvae;
 			}
-			switch (alt133) {
+			switch (alt132) {
 				case 1 :
-					// DDL.g:1036:5: comparison_predicate
+					// DDL.g:1037:5: comparison_predicate
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_comparison_predicate_in_predicate7805);
-					comparison_predicate455=comparison_predicate();
+					pushFollow(FOLLOW_comparison_predicate_in_predicate7797);
+					comparison_predicate454=comparison_predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, comparison_predicate455.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, comparison_predicate454.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1037:5: in_predicate
+					// DDL.g:1038:5: in_predicate
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_in_predicate_in_predicate7811);
-					in_predicate456=in_predicate();
+					pushFollow(FOLLOW_in_predicate_in_predicate7803);
+					in_predicate455=in_predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, in_predicate456.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, in_predicate455.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:1038:5: like_predicate
+					// DDL.g:1039:5: like_predicate
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_like_predicate_in_predicate7817);
-					like_predicate457=like_predicate();
+					pushFollow(FOLLOW_like_predicate_in_predicate7809);
+					like_predicate456=like_predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, like_predicate457.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, like_predicate456.getTree());
 
 					}
 					break;
 				case 4 :
-					// DDL.g:1039:5: null_predicate
+					// DDL.g:1040:5: null_predicate
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_null_predicate_in_predicate7823);
-					null_predicate458=null_predicate();
+					pushFollow(FOLLOW_null_predicate_in_predicate7815);
+					null_predicate457=null_predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, null_predicate458.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, null_predicate457.getTree());
 
 					}
 					break;
@@ -19781,7 +19744,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "comparison_predicate"
-	// DDL.g:1047:1: comparison_predicate options {k=1; } : l= numeric_value_expression c= comp_op r= numeric_value_expression -> ^( $c $l $r) ;
+	// DDL.g:1048:1: comparison_predicate options {k=1; } : l= numeric_value_expression c= comp_op r= numeric_value_expression -> ^( $c $l $r) ;
 	public final DDLParser.comparison_predicate_return comparison_predicate() throws RecognitionException {
 		DDLParser.comparison_predicate_return retval = new DDLParser.comparison_predicate_return();
 		retval.start = input.LT(1);
@@ -19799,26 +19762,26 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 133) ) { return retval; }
 
-			// DDL.g:1049:2: (l= numeric_value_expression c= comp_op r= numeric_value_expression -> ^( $c $l $r) )
-			// DDL.g:1049:4: l= numeric_value_expression c= comp_op r= numeric_value_expression
+			// DDL.g:1050:2: (l= numeric_value_expression c= comp_op r= numeric_value_expression -> ^( $c $l $r) )
+			// DDL.g:1050:4: l= numeric_value_expression c= comp_op r= numeric_value_expression
 			{
-			pushFollow(FOLLOW_numeric_value_expression_in_comparison_predicate7847);
+			pushFollow(FOLLOW_numeric_value_expression_in_comparison_predicate7839);
 			l=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_value_expression.add(l.getTree());
-			pushFollow(FOLLOW_comp_op_in_comparison_predicate7851);
+			pushFollow(FOLLOW_comp_op_in_comparison_predicate7843);
 			c=comp_op();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_comp_op.add(c.getTree());
-			pushFollow(FOLLOW_numeric_value_expression_in_comparison_predicate7855);
+			pushFollow(FOLLOW_numeric_value_expression_in_comparison_predicate7847);
 			r=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_value_expression.add(r.getTree());
 			// AST REWRITE
-			// elements: r, l, c
+			// elements: r, c, l
 			// token labels: 
 			// rule labels: retval, c, r, l
 			// token list labels: 
@@ -19832,9 +19795,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_l=new RewriteRuleSubtreeStream(adaptor,"rule l",l!=null?l.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1049:68: -> ^( $c $l $r)
+			// 1050:68: -> ^( $c $l $r)
 			{
-				// DDL.g:1049:71: ^( $c $l $r)
+				// DDL.g:1050:71: ^( $c $l $r)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -19881,7 +19844,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "comp_op"
-	// DDL.g:1051:1: comp_op : ( EQUAL | NOT_EQUAL | LTH | LEQ | GTH | GEQ );
+	// DDL.g:1052:1: comp_op : ( EQUAL | NOT_EQUAL | LTH | LEQ | GTH | GEQ );
 	public final DDLParser.comp_op_return comp_op() throws RecognitionException {
 		DDLParser.comp_op_return retval = new DDLParser.comp_op_return();
 		retval.start = input.LT(1);
@@ -19889,23 +19852,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set459=null;
+		Token set458=null;
 
-		CommonTree set459_tree=null;
+		CommonTree set458_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 134) ) { return retval; }
 
-			// DDL.g:1052:3: ( EQUAL | NOT_EQUAL | LTH | LEQ | GTH | GEQ )
+			// DDL.g:1053:3: ( EQUAL | NOT_EQUAL | LTH | LEQ | GTH | GEQ )
 			// DDL.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			set459=input.LT(1);
+			set458=input.LT(1);
 			if ( input.LA(1)==EQUAL||input.LA(1)==GEQ||input.LA(1)==GTH||input.LA(1)==LEQ||input.LA(1)==LTH||input.LA(1)==NOT_EQUAL ) {
 				input.consume();
-				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set459));
+				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set458));
 				state.errorRecovery=false;
 				state.failed=false;
 			}
@@ -19946,7 +19909,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "in_predicate"
-	// DDL.g:1065:1: in_predicate : v= numeric_value_expression ( NOT )? IN a= in_predicate_value -> ^( IN $v $a ( NOT )? ) ;
+	// DDL.g:1066:1: in_predicate : v= numeric_value_expression ( NOT )? IN a= in_predicate_value -> ^( IN $v $a ( NOT )? ) ;
 	public final DDLParser.in_predicate_return in_predicate() throws RecognitionException {
 		DDLParser.in_predicate_return retval = new DDLParser.in_predicate_return();
 		retval.start = input.LT(1);
@@ -19954,13 +19917,13 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NOT460=null;
-		Token IN461=null;
+		Token NOT459=null;
+		Token IN460=null;
 		ParserRuleReturnScope v =null;
 		ParserRuleReturnScope a =null;
 
-		CommonTree NOT460_tree=null;
-		CommonTree IN461_tree=null;
+		CommonTree NOT459_tree=null;
+		CommonTree IN460_tree=null;
 		RewriteRuleTokenStream stream_IN=new RewriteRuleTokenStream(adaptor,"token IN");
 		RewriteRuleTokenStream stream_NOT=new RewriteRuleTokenStream(adaptor,"token NOT");
 		RewriteRuleSubtreeStream stream_in_predicate_value=new RewriteRuleSubtreeStream(adaptor,"rule in_predicate_value");
@@ -19969,42 +19932,42 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 135) ) { return retval; }
 
-			// DDL.g:1065:14: (v= numeric_value_expression ( NOT )? IN a= in_predicate_value -> ^( IN $v $a ( NOT )? ) )
-			// DDL.g:1065:16: v= numeric_value_expression ( NOT )? IN a= in_predicate_value
+			// DDL.g:1066:14: (v= numeric_value_expression ( NOT )? IN a= in_predicate_value -> ^( IN $v $a ( NOT )? ) )
+			// DDL.g:1066:16: v= numeric_value_expression ( NOT )? IN a= in_predicate_value
 			{
-			pushFollow(FOLLOW_numeric_value_expression_in_in_predicate7923);
+			pushFollow(FOLLOW_numeric_value_expression_in_in_predicate7915);
 			v=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_value_expression.add(v.getTree());
-			// DDL.g:1065:44: ( NOT )?
-			int alt134=2;
-			int LA134_0 = input.LA(1);
-			if ( (LA134_0==NOT) ) {
-				alt134=1;
+			// DDL.g:1066:44: ( NOT )?
+			int alt133=2;
+			int LA133_0 = input.LA(1);
+			if ( (LA133_0==NOT) ) {
+				alt133=1;
 			}
-			switch (alt134) {
+			switch (alt133) {
 				case 1 :
-					// DDL.g:1065:44: NOT
+					// DDL.g:1066:44: NOT
 					{
-					NOT460=(Token)match(input,NOT,FOLLOW_NOT_in_in_predicate7926); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_NOT.add(NOT460);
+					NOT459=(Token)match(input,NOT,FOLLOW_NOT_in_in_predicate7918); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_NOT.add(NOT459);
 
 					}
 					break;
 
 			}
 
-			IN461=(Token)match(input,IN,FOLLOW_IN_in_in_predicate7929); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_IN.add(IN461);
+			IN460=(Token)match(input,IN,FOLLOW_IN_in_in_predicate7921); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_IN.add(IN460);
 
-			pushFollow(FOLLOW_in_predicate_value_in_in_predicate7933);
+			pushFollow(FOLLOW_in_predicate_value_in_in_predicate7925);
 			a=in_predicate_value();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_in_predicate_value.add(a.getTree());
 			// AST REWRITE
-			// elements: v, IN, NOT, a
+			// elements: v, a, NOT, IN
 			// token labels: 
 			// rule labels: v, retval, a
 			// token list labels: 
@@ -20017,15 +19980,15 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_a=new RewriteRuleSubtreeStream(adaptor,"rule a",a!=null?a.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1065:73: -> ^( IN $v $a ( NOT )? )
+			// 1066:73: -> ^( IN $v $a ( NOT )? )
 			{
-				// DDL.g:1065:76: ^( IN $v $a ( NOT )? )
+				// DDL.g:1066:76: ^( IN $v $a ( NOT )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_IN.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_v.nextTree());
 				adaptor.addChild(root_1, stream_a.nextTree());
-				// DDL.g:1065:87: ( NOT )?
+				// DDL.g:1066:87: ( NOT )?
 				if ( stream_NOT.hasNext() ) {
 					adaptor.addChild(root_1, stream_NOT.nextNode());
 				}
@@ -20072,7 +20035,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "in_predicate_value"
-	// DDL.g:1066:1: in_predicate_value : LEFT_PAREN ! in_value_list RIGHT_PAREN !;
+	// DDL.g:1067:1: in_predicate_value : LEFT_PAREN ! in_value_list RIGHT_PAREN !;
 	public final DDLParser.in_predicate_value_return in_predicate_value() throws RecognitionException {
 		DDLParser.in_predicate_value_return retval = new DDLParser.in_predicate_value_return();
 		retval.start = input.LT(1);
@@ -20080,30 +20043,30 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LEFT_PAREN462=null;
-		Token RIGHT_PAREN464=null;
-		ParserRuleReturnScope in_value_list463 =null;
+		Token LEFT_PAREN461=null;
+		Token RIGHT_PAREN463=null;
+		ParserRuleReturnScope in_value_list462 =null;
 
-		CommonTree LEFT_PAREN462_tree=null;
-		CommonTree RIGHT_PAREN464_tree=null;
+		CommonTree LEFT_PAREN461_tree=null;
+		CommonTree RIGHT_PAREN463_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 136) ) { return retval; }
 
-			// DDL.g:1067:3: ( LEFT_PAREN ! in_value_list RIGHT_PAREN !)
-			// DDL.g:1067:5: LEFT_PAREN ! in_value_list RIGHT_PAREN !
+			// DDL.g:1068:3: ( LEFT_PAREN ! in_value_list RIGHT_PAREN !)
+			// DDL.g:1068:5: LEFT_PAREN ! in_value_list RIGHT_PAREN !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			LEFT_PAREN462=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_in_predicate_value7957); if (state.failed) return retval;
-			pushFollow(FOLLOW_in_value_list_in_in_predicate_value7960);
-			in_value_list463=in_value_list();
+			LEFT_PAREN461=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_in_predicate_value7949); if (state.failed) return retval;
+			pushFollow(FOLLOW_in_value_list_in_in_predicate_value7952);
+			in_value_list462=in_value_list();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, in_value_list463.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, in_value_list462.getTree());
 
-			RIGHT_PAREN464=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_in_predicate_value7963); if (state.failed) return retval;
+			RIGHT_PAREN463=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_in_predicate_value7955); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -20136,7 +20099,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "in_value_list"
-	// DDL.g:1069:1: in_value_list : numeric_value_expression ( COMMA numeric_value_expression )* -> ( numeric_value_expression )+ ;
+	// DDL.g:1070:1: in_value_list : numeric_value_expression ( COMMA numeric_value_expression )* -> ( numeric_value_expression )+ ;
 	public final DDLParser.in_value_list_return in_value_list() throws RecognitionException {
 		DDLParser.in_value_list_return retval = new DDLParser.in_value_list_return();
 		retval.start = input.LT(1);
@@ -20144,51 +20107,51 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token COMMA466=null;
-		ParserRuleReturnScope numeric_value_expression465 =null;
-		ParserRuleReturnScope numeric_value_expression467 =null;
+		Token COMMA465=null;
+		ParserRuleReturnScope numeric_value_expression464 =null;
+		ParserRuleReturnScope numeric_value_expression466 =null;
 
-		CommonTree COMMA466_tree=null;
+		CommonTree COMMA465_tree=null;
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
 		RewriteRuleSubtreeStream stream_numeric_value_expression=new RewriteRuleSubtreeStream(adaptor,"rule numeric_value_expression");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 137) ) { return retval; }
 
-			// DDL.g:1070:3: ( numeric_value_expression ( COMMA numeric_value_expression )* -> ( numeric_value_expression )+ )
-			// DDL.g:1070:5: numeric_value_expression ( COMMA numeric_value_expression )*
+			// DDL.g:1071:3: ( numeric_value_expression ( COMMA numeric_value_expression )* -> ( numeric_value_expression )+ )
+			// DDL.g:1071:5: numeric_value_expression ( COMMA numeric_value_expression )*
 			{
-			pushFollow(FOLLOW_numeric_value_expression_in_in_value_list7975);
-			numeric_value_expression465=numeric_value_expression();
+			pushFollow(FOLLOW_numeric_value_expression_in_in_value_list7967);
+			numeric_value_expression464=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_numeric_value_expression.add(numeric_value_expression465.getTree());
-			// DDL.g:1070:31: ( COMMA numeric_value_expression )*
-			loop135:
+			if ( state.backtracking==0 ) stream_numeric_value_expression.add(numeric_value_expression464.getTree());
+			// DDL.g:1071:31: ( COMMA numeric_value_expression )*
+			loop134:
 			while (true) {
-				int alt135=2;
-				int LA135_0 = input.LA(1);
-				if ( (LA135_0==COMMA) ) {
-					alt135=1;
+				int alt134=2;
+				int LA134_0 = input.LA(1);
+				if ( (LA134_0==COMMA) ) {
+					alt134=1;
 				}
 
-				switch (alt135) {
+				switch (alt134) {
 				case 1 :
-					// DDL.g:1070:33: COMMA numeric_value_expression
+					// DDL.g:1071:33: COMMA numeric_value_expression
 					{
-					COMMA466=(Token)match(input,COMMA,FOLLOW_COMMA_in_in_value_list7980); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA466);
+					COMMA465=(Token)match(input,COMMA,FOLLOW_COMMA_in_in_value_list7972); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA465);
 
-					pushFollow(FOLLOW_numeric_value_expression_in_in_value_list7982);
-					numeric_value_expression467=numeric_value_expression();
+					pushFollow(FOLLOW_numeric_value_expression_in_in_value_list7974);
+					numeric_value_expression466=numeric_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_numeric_value_expression.add(numeric_value_expression467.getTree());
+					if ( state.backtracking==0 ) stream_numeric_value_expression.add(numeric_value_expression466.getTree());
 					}
 					break;
 
 				default :
-					break loop135;
+					break loop134;
 				}
 			}
 
@@ -20204,7 +20167,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1070:68: -> ( numeric_value_expression )+
+			// 1071:68: -> ( numeric_value_expression )+
 			{
 				if ( !(stream_numeric_value_expression.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -20252,7 +20215,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "like_predicate"
-	// DDL.g:1077:1: like_predicate : f= column_reference ( NOT )? LIKE s= Character_String_Literal -> ^( LIKE ( NOT )? $f $s) ;
+	// DDL.g:1078:1: like_predicate : f= column_reference ( NOT )? LIKE s= Character_String_Literal -> ^( LIKE ( NOT )? $f $s) ;
 	public final DDLParser.like_predicate_return like_predicate() throws RecognitionException {
 		DDLParser.like_predicate_return retval = new DDLParser.like_predicate_return();
 		retval.start = input.LT(1);
@@ -20261,13 +20224,13 @@ public class DDLParser extends Parser {
 		CommonTree root_0 = null;
 
 		Token s=null;
-		Token NOT468=null;
-		Token LIKE469=null;
+		Token NOT467=null;
+		Token LIKE468=null;
 		ParserRuleReturnScope f =null;
 
 		CommonTree s_tree=null;
-		CommonTree NOT468_tree=null;
-		CommonTree LIKE469_tree=null;
+		CommonTree NOT467_tree=null;
+		CommonTree LIKE468_tree=null;
 		RewriteRuleTokenStream stream_Character_String_Literal=new RewriteRuleTokenStream(adaptor,"token Character_String_Literal");
 		RewriteRuleTokenStream stream_NOT=new RewriteRuleTokenStream(adaptor,"token NOT");
 		RewriteRuleTokenStream stream_LIKE=new RewriteRuleTokenStream(adaptor,"token LIKE");
@@ -20276,40 +20239,40 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 138) ) { return retval; }
 
-			// DDL.g:1078:3: (f= column_reference ( NOT )? LIKE s= Character_String_Literal -> ^( LIKE ( NOT )? $f $s) )
-			// DDL.g:1078:5: f= column_reference ( NOT )? LIKE s= Character_String_Literal
+			// DDL.g:1079:3: (f= column_reference ( NOT )? LIKE s= Character_String_Literal -> ^( LIKE ( NOT )? $f $s) )
+			// DDL.g:1079:5: f= column_reference ( NOT )? LIKE s= Character_String_Literal
 			{
-			pushFollow(FOLLOW_column_reference_in_like_predicate8004);
+			pushFollow(FOLLOW_column_reference_in_like_predicate7996);
 			f=column_reference();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_column_reference.add(f.getTree());
-			// DDL.g:1078:24: ( NOT )?
-			int alt136=2;
-			int LA136_0 = input.LA(1);
-			if ( (LA136_0==NOT) ) {
-				alt136=1;
+			// DDL.g:1079:24: ( NOT )?
+			int alt135=2;
+			int LA135_0 = input.LA(1);
+			if ( (LA135_0==NOT) ) {
+				alt135=1;
 			}
-			switch (alt136) {
+			switch (alt135) {
 				case 1 :
-					// DDL.g:1078:24: NOT
+					// DDL.g:1079:24: NOT
 					{
-					NOT468=(Token)match(input,NOT,FOLLOW_NOT_in_like_predicate8006); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_NOT.add(NOT468);
+					NOT467=(Token)match(input,NOT,FOLLOW_NOT_in_like_predicate7998); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_NOT.add(NOT467);
 
 					}
 					break;
 
 			}
 
-			LIKE469=(Token)match(input,LIKE,FOLLOW_LIKE_in_like_predicate8009); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LIKE.add(LIKE469);
+			LIKE468=(Token)match(input,LIKE,FOLLOW_LIKE_in_like_predicate8001); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LIKE.add(LIKE468);
 
-			s=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_like_predicate8013); if (state.failed) return retval; 
+			s=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_like_predicate8005); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_Character_String_Literal.add(s);
 
 			// AST REWRITE
-			// elements: LIKE, s, NOT, f
+			// elements: s, NOT, f, LIKE
 			// token labels: s
 			// rule labels: f, retval
 			// token list labels: 
@@ -20322,13 +20285,13 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1078:61: -> ^( LIKE ( NOT )? $f $s)
+			// 1079:61: -> ^( LIKE ( NOT )? $f $s)
 			{
-				// DDL.g:1078:64: ^( LIKE ( NOT )? $f $s)
+				// DDL.g:1079:64: ^( LIKE ( NOT )? $f $s)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_LIKE.nextNode(), root_1);
-				// DDL.g:1078:71: ( NOT )?
+				// DDL.g:1079:71: ( NOT )?
 				if ( stream_NOT.hasNext() ) {
 					adaptor.addChild(root_1, stream_NOT.nextNode());
 				}
@@ -20377,7 +20340,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "null_predicate"
-	// DDL.g:1086:1: null_predicate : f= numeric_value_expression IS (n= NOT )? NULL -> ^( IS $f NULL ( $n)? ) ;
+	// DDL.g:1087:1: null_predicate : f= numeric_value_expression IS (n= NOT )? NULL -> ^( IS $f NULL ( $n)? ) ;
 	public final DDLParser.null_predicate_return null_predicate() throws RecognitionException {
 		DDLParser.null_predicate_return retval = new DDLParser.null_predicate_return();
 		retval.start = input.LT(1);
@@ -20386,13 +20349,13 @@ public class DDLParser extends Parser {
 		CommonTree root_0 = null;
 
 		Token n=null;
-		Token IS470=null;
-		Token NULL471=null;
+		Token IS469=null;
+		Token NULL470=null;
 		ParserRuleReturnScope f =null;
 
 		CommonTree n_tree=null;
-		CommonTree IS470_tree=null;
-		CommonTree NULL471_tree=null;
+		CommonTree IS469_tree=null;
+		CommonTree NULL470_tree=null;
 		RewriteRuleTokenStream stream_NOT=new RewriteRuleTokenStream(adaptor,"token NOT");
 		RewriteRuleTokenStream stream_IS=new RewriteRuleTokenStream(adaptor,"token IS");
 		RewriteRuleTokenStream stream_NULL=new RewriteRuleTokenStream(adaptor,"token NULL");
@@ -20401,28 +20364,28 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 139) ) { return retval; }
 
-			// DDL.g:1087:3: (f= numeric_value_expression IS (n= NOT )? NULL -> ^( IS $f NULL ( $n)? ) )
-			// DDL.g:1087:5: f= numeric_value_expression IS (n= NOT )? NULL
+			// DDL.g:1088:3: (f= numeric_value_expression IS (n= NOT )? NULL -> ^( IS $f NULL ( $n)? ) )
+			// DDL.g:1088:5: f= numeric_value_expression IS (n= NOT )? NULL
 			{
-			pushFollow(FOLLOW_numeric_value_expression_in_null_predicate8044);
+			pushFollow(FOLLOW_numeric_value_expression_in_null_predicate8036);
 			f=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_value_expression.add(f.getTree());
-			IS470=(Token)match(input,IS,FOLLOW_IS_in_null_predicate8046); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_IS.add(IS470);
+			IS469=(Token)match(input,IS,FOLLOW_IS_in_null_predicate8038); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_IS.add(IS469);
 
-			// DDL.g:1087:35: (n= NOT )?
-			int alt137=2;
-			int LA137_0 = input.LA(1);
-			if ( (LA137_0==NOT) ) {
-				alt137=1;
+			// DDL.g:1088:35: (n= NOT )?
+			int alt136=2;
+			int LA136_0 = input.LA(1);
+			if ( (LA136_0==NOT) ) {
+				alt136=1;
 			}
-			switch (alt137) {
+			switch (alt136) {
 				case 1 :
-					// DDL.g:1087:36: n= NOT
+					// DDL.g:1088:36: n= NOT
 					{
-					n=(Token)match(input,NOT,FOLLOW_NOT_in_null_predicate8051); if (state.failed) return retval; 
+					n=(Token)match(input,NOT,FOLLOW_NOT_in_null_predicate8043); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_NOT.add(n);
 
 					}
@@ -20430,11 +20393,11 @@ public class DDLParser extends Parser {
 
 			}
 
-			NULL471=(Token)match(input,NULL,FOLLOW_NULL_in_null_predicate8055); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_NULL.add(NULL471);
+			NULL470=(Token)match(input,NULL,FOLLOW_NULL_in_null_predicate8047); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_NULL.add(NULL470);
 
 			// AST REWRITE
-			// elements: n, IS, NULL, f
+			// elements: NULL, f, n, IS
 			// token labels: n
 			// rule labels: f, retval
 			// token list labels: 
@@ -20447,15 +20410,15 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1087:49: -> ^( IS $f NULL ( $n)? )
+			// 1088:49: -> ^( IS $f NULL ( $n)? )
 			{
-				// DDL.g:1087:52: ^( IS $f NULL ( $n)? )
+				// DDL.g:1088:52: ^( IS $f NULL ( $n)? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_IS.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_f.nextTree());
 				adaptor.addChild(root_1, stream_NULL.nextNode());
-				// DDL.g:1087:66: ( $n)?
+				// DDL.g:1088:66: ( $n)?
 				if ( stream_n.hasNext() ) {
 					adaptor.addChild(root_1, stream_n.nextNode());
 				}
@@ -20502,7 +20465,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "numeric_value_expression"
-	// DDL.g:1095:1: numeric_value_expression : term ( ( PLUS | MINUS ) ^ term )* ;
+	// DDL.g:1096:1: numeric_value_expression : term ( ( PLUS | MINUS ) ^ term )* ;
 	public final DDLParser.numeric_value_expression_return numeric_value_expression() throws RecognitionException {
 		DDLParser.numeric_value_expression_return retval = new DDLParser.numeric_value_expression_return();
 		retval.start = input.LT(1);
@@ -20510,45 +20473,45 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set473=null;
-		ParserRuleReturnScope term472 =null;
-		ParserRuleReturnScope term474 =null;
+		Token set472=null;
+		ParserRuleReturnScope term471 =null;
+		ParserRuleReturnScope term473 =null;
 
-		CommonTree set473_tree=null;
+		CommonTree set472_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 140) ) { return retval; }
 
-			// DDL.g:1096:2: ( term ( ( PLUS | MINUS ) ^ term )* )
-			// DDL.g:1096:4: term ( ( PLUS | MINUS ) ^ term )*
+			// DDL.g:1097:2: ( term ( ( PLUS | MINUS ) ^ term )* )
+			// DDL.g:1097:4: term ( ( PLUS | MINUS ) ^ term )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_term_in_numeric_value_expression8083);
-			term472=term();
+			pushFollow(FOLLOW_term_in_numeric_value_expression8075);
+			term471=term();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, term472.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, term471.getTree());
 
-			// DDL.g:1096:9: ( ( PLUS | MINUS ) ^ term )*
-			loop138:
+			// DDL.g:1097:9: ( ( PLUS | MINUS ) ^ term )*
+			loop137:
 			while (true) {
-				int alt138=2;
-				int LA138_0 = input.LA(1);
-				if ( (LA138_0==MINUS||LA138_0==PLUS) ) {
-					alt138=1;
+				int alt137=2;
+				int LA137_0 = input.LA(1);
+				if ( (LA137_0==MINUS||LA137_0==PLUS) ) {
+					alt137=1;
 				}
 
-				switch (alt138) {
+				switch (alt137) {
 				case 1 :
-					// DDL.g:1096:10: ( PLUS | MINUS ) ^ term
+					// DDL.g:1097:10: ( PLUS | MINUS ) ^ term
 					{
-					set473=input.LT(1);
-					set473=input.LT(1);
+					set472=input.LT(1);
+					set472=input.LT(1);
 					if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
 						input.consume();
-						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set473), root_0);
+						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set472), root_0);
 						state.errorRecovery=false;
 						state.failed=false;
 					}
@@ -20557,17 +20520,17 @@ public class DDLParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_term_in_numeric_value_expression8093);
-					term474=term();
+					pushFollow(FOLLOW_term_in_numeric_value_expression8085);
+					term473=term();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, term474.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, term473.getTree());
 
 					}
 					break;
 
 				default :
-					break loop138;
+					break loop137;
 				}
 			}
 
@@ -20603,7 +20566,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "term"
-	// DDL.g:1098:1: term : numeric_primary ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )* ;
+	// DDL.g:1099:1: term : numeric_primary ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )* ;
 	public final DDLParser.term_return term() throws RecognitionException {
 		DDLParser.term_return retval = new DDLParser.term_return();
 		retval.start = input.LT(1);
@@ -20611,45 +20574,45 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set476=null;
-		ParserRuleReturnScope numeric_primary475 =null;
-		ParserRuleReturnScope numeric_primary477 =null;
+		Token set475=null;
+		ParserRuleReturnScope numeric_primary474 =null;
+		ParserRuleReturnScope numeric_primary476 =null;
 
-		CommonTree set476_tree=null;
+		CommonTree set475_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 141) ) { return retval; }
 
-			// DDL.g:1099:3: ( numeric_primary ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )* )
-			// DDL.g:1099:5: numeric_primary ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )*
+			// DDL.g:1100:3: ( numeric_primary ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )* )
+			// DDL.g:1100:5: numeric_primary ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_numeric_primary_in_term8106);
-			numeric_primary475=numeric_primary();
+			pushFollow(FOLLOW_numeric_primary_in_term8098);
+			numeric_primary474=numeric_primary();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_primary475.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_primary474.getTree());
 
-			// DDL.g:1099:21: ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )*
-			loop139:
+			// DDL.g:1100:21: ( ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary )*
+			loop138:
 			while (true) {
-				int alt139=2;
-				int LA139_0 = input.LA(1);
-				if ( (LA139_0==DIVIDE||(LA139_0 >= MODULAR && LA139_0 <= MULTIPLY)) ) {
-					alt139=1;
+				int alt138=2;
+				int LA138_0 = input.LA(1);
+				if ( (LA138_0==DIVIDE||(LA138_0 >= MODULAR && LA138_0 <= MULTIPLY)) ) {
+					alt138=1;
 				}
 
-				switch (alt139) {
+				switch (alt138) {
 				case 1 :
-					// DDL.g:1099:22: ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary
+					// DDL.g:1100:22: ( MULTIPLY | DIVIDE | MODULAR ) ^ numeric_primary
 					{
-					set476=input.LT(1);
-					set476=input.LT(1);
+					set475=input.LT(1);
+					set475=input.LT(1);
 					if ( input.LA(1)==DIVIDE||(input.LA(1) >= MODULAR && input.LA(1) <= MULTIPLY) ) {
 						input.consume();
-						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set476), root_0);
+						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set475), root_0);
 						state.errorRecovery=false;
 						state.failed=false;
 					}
@@ -20658,17 +20621,17 @@ public class DDLParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_numeric_primary_in_term8118);
-					numeric_primary477=numeric_primary();
+					pushFollow(FOLLOW_numeric_primary_in_term8110);
+					numeric_primary476=numeric_primary();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_primary477.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_primary476.getTree());
 
 					}
 					break;
 
 				default :
-					break loop139;
+					break loop138;
 				}
 			}
 
@@ -20704,7 +20667,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "array"
-	// DDL.g:1101:1: array : LEFT_PAREN literal ( COMMA literal )* RIGHT_PAREN -> ( literal )+ ;
+	// DDL.g:1102:1: array : LEFT_PAREN literal ( COMMA literal )* RIGHT_PAREN -> ( literal )+ ;
 	public final DDLParser.array_return array() throws RecognitionException {
 		DDLParser.array_return retval = new DDLParser.array_return();
 		retval.start = input.LT(1);
@@ -20712,15 +20675,15 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LEFT_PAREN478=null;
-		Token COMMA480=null;
-		Token RIGHT_PAREN482=null;
-		ParserRuleReturnScope literal479 =null;
-		ParserRuleReturnScope literal481 =null;
+		Token LEFT_PAREN477=null;
+		Token COMMA479=null;
+		Token RIGHT_PAREN481=null;
+		ParserRuleReturnScope literal478 =null;
+		ParserRuleReturnScope literal480 =null;
 
-		CommonTree LEFT_PAREN478_tree=null;
-		CommonTree COMMA480_tree=null;
-		CommonTree RIGHT_PAREN482_tree=null;
+		CommonTree LEFT_PAREN477_tree=null;
+		CommonTree COMMA479_tree=null;
+		CommonTree RIGHT_PAREN481_tree=null;
 		RewriteRuleTokenStream stream_LEFT_PAREN=new RewriteRuleTokenStream(adaptor,"token LEFT_PAREN");
 		RewriteRuleTokenStream stream_RIGHT_PAREN=new RewriteRuleTokenStream(adaptor,"token RIGHT_PAREN");
 		RewriteRuleTokenStream stream_COMMA=new RewriteRuleTokenStream(adaptor,"token COMMA");
@@ -20729,48 +20692,48 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 142) ) { return retval; }
 
-			// DDL.g:1102:3: ( LEFT_PAREN literal ( COMMA literal )* RIGHT_PAREN -> ( literal )+ )
-			// DDL.g:1102:5: LEFT_PAREN literal ( COMMA literal )* RIGHT_PAREN
+			// DDL.g:1103:3: ( LEFT_PAREN literal ( COMMA literal )* RIGHT_PAREN -> ( literal )+ )
+			// DDL.g:1103:5: LEFT_PAREN literal ( COMMA literal )* RIGHT_PAREN
 			{
-			LEFT_PAREN478=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_array8131); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN478);
+			LEFT_PAREN477=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_array8123); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LEFT_PAREN.add(LEFT_PAREN477);
 
-			pushFollow(FOLLOW_literal_in_array8133);
-			literal479=literal();
+			pushFollow(FOLLOW_literal_in_array8125);
+			literal478=literal();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) stream_literal.add(literal479.getTree());
-			// DDL.g:1102:24: ( COMMA literal )*
-			loop140:
+			if ( state.backtracking==0 ) stream_literal.add(literal478.getTree());
+			// DDL.g:1103:24: ( COMMA literal )*
+			loop139:
 			while (true) {
-				int alt140=2;
-				int LA140_0 = input.LA(1);
-				if ( (LA140_0==COMMA) ) {
-					alt140=1;
+				int alt139=2;
+				int LA139_0 = input.LA(1);
+				if ( (LA139_0==COMMA) ) {
+					alt139=1;
 				}
 
-				switch (alt140) {
+				switch (alt139) {
 				case 1 :
-					// DDL.g:1102:25: COMMA literal
+					// DDL.g:1103:25: COMMA literal
 					{
-					COMMA480=(Token)match(input,COMMA,FOLLOW_COMMA_in_array8136); if (state.failed) return retval; 
-					if ( state.backtracking==0 ) stream_COMMA.add(COMMA480);
+					COMMA479=(Token)match(input,COMMA,FOLLOW_COMMA_in_array8128); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_COMMA.add(COMMA479);
 
-					pushFollow(FOLLOW_literal_in_array8138);
-					literal481=literal();
+					pushFollow(FOLLOW_literal_in_array8130);
+					literal480=literal();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) stream_literal.add(literal481.getTree());
+					if ( state.backtracking==0 ) stream_literal.add(literal480.getTree());
 					}
 					break;
 
 				default :
-					break loop140;
+					break loop139;
 				}
 			}
 
-			RIGHT_PAREN482=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_array8143); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN482);
+			RIGHT_PAREN481=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_array8135); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_RIGHT_PAREN.add(RIGHT_PAREN481);
 
 			// AST REWRITE
 			// elements: literal
@@ -20784,7 +20747,7 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1102:54: -> ( literal )+
+			// 1103:54: -> ( literal )+
 			{
 				if ( !(stream_literal.hasNext()) ) {
 					throw new RewriteEarlyExitException();
@@ -20832,7 +20795,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "numeric_primary"
-	// DDL.g:1104:1: numeric_primary : ( literal | column_reference | LEFT_PAREN ! numeric_value_expression RIGHT_PAREN !| routine_invocation );
+	// DDL.g:1105:1: numeric_primary : ( literal | column_reference | LEFT_PAREN ! numeric_value_expression RIGHT_PAREN !| routine_invocation );
 	public final DDLParser.numeric_primary_return numeric_primary() throws RecognitionException {
 		DDLParser.numeric_primary_return retval = new DDLParser.numeric_primary_return();
 		retval.start = input.LT(1);
@@ -20840,21 +20803,21 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token LEFT_PAREN485=null;
-		Token RIGHT_PAREN487=null;
-		ParserRuleReturnScope literal483 =null;
-		ParserRuleReturnScope column_reference484 =null;
-		ParserRuleReturnScope numeric_value_expression486 =null;
-		ParserRuleReturnScope routine_invocation488 =null;
+		Token LEFT_PAREN484=null;
+		Token RIGHT_PAREN486=null;
+		ParserRuleReturnScope literal482 =null;
+		ParserRuleReturnScope column_reference483 =null;
+		ParserRuleReturnScope numeric_value_expression485 =null;
+		ParserRuleReturnScope routine_invocation487 =null;
 
-		CommonTree LEFT_PAREN485_tree=null;
-		CommonTree RIGHT_PAREN487_tree=null;
+		CommonTree LEFT_PAREN484_tree=null;
+		CommonTree RIGHT_PAREN486_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 143) ) { return retval; }
 
-			// DDL.g:1105:3: ( literal | column_reference | LEFT_PAREN ! numeric_value_expression RIGHT_PAREN !| routine_invocation )
-			int alt141=4;
+			// DDL.g:1106:3: ( literal | column_reference | LEFT_PAREN ! numeric_value_expression RIGHT_PAREN !| routine_invocation )
+			int alt140=4;
 			switch ( input.LA(1) ) {
 			case Character_String_Literal:
 			case MINUS:
@@ -20863,17 +20826,17 @@ public class DDLParser extends Parser {
 			case PLUS:
 			case REAL_NUMBER:
 				{
-				alt141=1;
+				alt140=1;
 				}
 				break;
 			case Identifier:
 				{
-				int LA141_2 = input.LA(2);
-				if ( (LA141_2==EOF||(LA141_2 >= AND && LA141_2 <= AS)||LA141_2==COMMA||LA141_2==CROSS||LA141_2==DIVIDE||LA141_2==ELSE||(LA141_2 >= END && LA141_2 <= EQUAL)||LA141_2==EXCEPT||(LA141_2 >= FROM && LA141_2 <= FULL)||(LA141_2 >= GEQ && LA141_2 <= GROUP)||LA141_2==GTH||LA141_2==HAVING||LA141_2==IN||LA141_2==INNER||LA141_2==INTERSECT||LA141_2==IS||LA141_2==Identifier||LA141_2==JOIN||LA141_2==LEFT||LA141_2==LEQ||LA141_2==LIMIT||LA141_2==LTH||LA141_2==MINUS||(LA141_2 >= MODULAR && LA141_2 <= MULTIPLY)||LA141_2==NATURAL||(LA141_2 >= NOT && LA141_2 <= NOT_EQUAL)||(LA141_2 >= OR && LA141_2 <= ORDER)||LA141_2==PLUS||(LA141_2 >= RIGHT && LA141_2 <= RIGHT_PAREN)||LA141_2==THEN||LA141_2==UNION||(LA141_2 >= WHEN && LA141_2 <= WHERE)) ) {
-					alt141=2;
+				int LA140_2 = input.LA(2);
+				if ( (LA140_2==LEFT_PAREN) ) {
+					alt140=4;
 				}
-				else if ( (LA141_2==LEFT_PAREN) ) {
-					alt141=4;
+				else if ( (LA140_2==EOF||(LA140_2 >= AND && LA140_2 <= AS)||LA140_2==COMMA||LA140_2==CROSS||LA140_2==DIVIDE||LA140_2==ELSE||(LA140_2 >= END && LA140_2 <= EQUAL)||LA140_2==EXCEPT||(LA140_2 >= FROM && LA140_2 <= FULL)||(LA140_2 >= GEQ && LA140_2 <= GROUP)||LA140_2==GTH||LA140_2==HAVING||LA140_2==IN||LA140_2==INNER||LA140_2==INTERSECT||LA140_2==IS||LA140_2==Identifier||LA140_2==JOIN||LA140_2==LEFT||LA140_2==LEQ||LA140_2==LIMIT||LA140_2==LTH||LA140_2==MINUS||(LA140_2 >= MODULAR && LA140_2 <= MULTIPLY)||LA140_2==NATURAL||(LA140_2 >= NOT && LA140_2 <= NOT_EQUAL)||(LA140_2 >= OR && LA140_2 <= ORDER)||LA140_2==PLUS||(LA140_2 >= RIGHT && LA140_2 <= RIGHT_PAREN)||LA140_2==THEN||LA140_2==UNION||(LA140_2 >= WHEN && LA140_2 <= WHERE)) ) {
+					alt140=2;
 				}
 
 				else {
@@ -20882,7 +20845,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 141, 2, input);
+							new NoViableAltException("", 140, 2, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -20893,76 +20856,76 @@ public class DDLParser extends Parser {
 				break;
 			case LEFT_PAREN:
 				{
-				alt141=3;
+				alt140=3;
 				}
 				break;
 			case COUNT:
 				{
-				alt141=4;
+				alt140=4;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 141, 0, input);
+					new NoViableAltException("", 140, 0, input);
 				throw nvae;
 			}
-			switch (alt141) {
+			switch (alt140) {
 				case 1 :
-					// DDL.g:1105:5: literal
+					// DDL.g:1106:5: literal
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_literal_in_numeric_primary8160);
-					literal483=literal();
+					pushFollow(FOLLOW_literal_in_numeric_primary8152);
+					literal482=literal();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, literal483.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, literal482.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1106:4: column_reference
+					// DDL.g:1107:4: column_reference
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_column_reference_in_numeric_primary8165);
-					column_reference484=column_reference();
+					pushFollow(FOLLOW_column_reference_in_numeric_primary8157);
+					column_reference483=column_reference();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference484.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, column_reference483.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:1107:4: LEFT_PAREN ! numeric_value_expression RIGHT_PAREN !
+					// DDL.g:1108:4: LEFT_PAREN ! numeric_value_expression RIGHT_PAREN !
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					LEFT_PAREN485=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_numeric_primary8170); if (state.failed) return retval;
-					pushFollow(FOLLOW_numeric_value_expression_in_numeric_primary8173);
-					numeric_value_expression486=numeric_value_expression();
+					LEFT_PAREN484=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_numeric_primary8162); if (state.failed) return retval;
+					pushFollow(FOLLOW_numeric_value_expression_in_numeric_primary8165);
+					numeric_value_expression485=numeric_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression486.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression485.getTree());
 
-					RIGHT_PAREN487=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_numeric_primary8175); if (state.failed) return retval;
+					RIGHT_PAREN486=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_numeric_primary8167); if (state.failed) return retval;
 					}
 					break;
 				case 4 :
-					// DDL.g:1108:4: routine_invocation
+					// DDL.g:1109:4: routine_invocation
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_routine_invocation_in_numeric_primary8181);
-					routine_invocation488=routine_invocation();
+					pushFollow(FOLLOW_routine_invocation_in_numeric_primary8173);
+					routine_invocation487=routine_invocation();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, routine_invocation488.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, routine_invocation487.getTree());
 
 					}
 					break;
@@ -20998,7 +20961,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "literal"
-	// DDL.g:1110:1: literal : ( string_value_expr | signed_numerical_literal | NULL );
+	// DDL.g:1111:1: literal : ( string_value_expr | signed_numerical_literal | NULL );
 	public final DDLParser.literal_return literal() throws RecognitionException {
 		DDLParser.literal_return retval = new DDLParser.literal_return();
 		retval.start = input.LT(1);
@@ -21006,21 +20969,21 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NULL491=null;
-		ParserRuleReturnScope string_value_expr489 =null;
-		ParserRuleReturnScope signed_numerical_literal490 =null;
+		Token NULL490=null;
+		ParserRuleReturnScope string_value_expr488 =null;
+		ParserRuleReturnScope signed_numerical_literal489 =null;
 
-		CommonTree NULL491_tree=null;
+		CommonTree NULL490_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 144) ) { return retval; }
 
-			// DDL.g:1111:3: ( string_value_expr | signed_numerical_literal | NULL )
-			int alt142=3;
+			// DDL.g:1112:3: ( string_value_expr | signed_numerical_literal | NULL )
+			int alt141=3;
 			switch ( input.LA(1) ) {
 			case Character_String_Literal:
 				{
-				alt142=1;
+				alt141=1;
 				}
 				break;
 			case MINUS:
@@ -21028,59 +20991,59 @@ public class DDLParser extends Parser {
 			case PLUS:
 			case REAL_NUMBER:
 				{
-				alt142=2;
+				alt141=2;
 				}
 				break;
 			case NULL:
 				{
-				alt142=3;
+				alt141=3;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 142, 0, input);
+					new NoViableAltException("", 141, 0, input);
 				throw nvae;
 			}
-			switch (alt142) {
+			switch (alt141) {
 				case 1 :
-					// DDL.g:1111:5: string_value_expr
+					// DDL.g:1112:5: string_value_expr
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_string_value_expr_in_literal8192);
-					string_value_expr489=string_value_expr();
+					pushFollow(FOLLOW_string_value_expr_in_literal8184);
+					string_value_expr488=string_value_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, string_value_expr489.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, string_value_expr488.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1112:5: signed_numerical_literal
+					// DDL.g:1113:5: signed_numerical_literal
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_signed_numerical_literal_in_literal8198);
-					signed_numerical_literal490=signed_numerical_literal();
+					pushFollow(FOLLOW_signed_numerical_literal_in_literal8190);
+					signed_numerical_literal489=signed_numerical_literal();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, signed_numerical_literal490.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, signed_numerical_literal489.getTree());
 
 					}
 					break;
 				case 3 :
-					// DDL.g:1113:5: NULL
+					// DDL.g:1114:5: NULL
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					NULL491=(Token)match(input,NULL,FOLLOW_NULL_in_literal8204); if (state.failed) return retval;
+					NULL490=(Token)match(input,NULL,FOLLOW_NULL_in_literal8196); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					NULL491_tree = (CommonTree)adaptor.create(NULL491);
-					adaptor.addChild(root_0, NULL491_tree);
+					NULL490_tree = (CommonTree)adaptor.create(NULL490);
+					adaptor.addChild(root_0, NULL490_tree);
 					}
 
 					}
@@ -21117,7 +21080,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "string_value_expr"
-	// DDL.g:1115:1: string_value_expr : Character_String_Literal ;
+	// DDL.g:1116:1: string_value_expr : Character_String_Literal ;
 	public final DDLParser.string_value_expr_return string_value_expr() throws RecognitionException {
 		DDLParser.string_value_expr_return retval = new DDLParser.string_value_expr_return();
 		retval.start = input.LT(1);
@@ -21125,23 +21088,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token Character_String_Literal492=null;
+		Token Character_String_Literal491=null;
 
-		CommonTree Character_String_Literal492_tree=null;
+		CommonTree Character_String_Literal491_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 145) ) { return retval; }
 
-			// DDL.g:1116:3: ( Character_String_Literal )
-			// DDL.g:1116:5: Character_String_Literal
+			// DDL.g:1117:3: ( Character_String_Literal )
+			// DDL.g:1117:5: Character_String_Literal
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			Character_String_Literal492=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_string_value_expr8216); if (state.failed) return retval;
+			Character_String_Literal491=(Token)match(input,Character_String_Literal,FOLLOW_Character_String_Literal_in_string_value_expr8208); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			Character_String_Literal492_tree = (CommonTree)adaptor.create(Character_String_Literal492);
-			adaptor.addChild(root_0, Character_String_Literal492_tree);
+			Character_String_Literal491_tree = (CommonTree)adaptor.create(Character_String_Literal491);
+			adaptor.addChild(root_0, Character_String_Literal491_tree);
 			}
 
 			}
@@ -21176,7 +21139,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "signed_numerical_literal"
-	// DDL.g:1118:1: signed_numerical_literal : ( sign )? unsigned_numerical_literal ;
+	// DDL.g:1119:1: signed_numerical_literal : ( sign )? unsigned_numerical_literal ;
 	public final DDLParser.signed_numerical_literal_return signed_numerical_literal() throws RecognitionException {
 		DDLParser.signed_numerical_literal_return retval = new DDLParser.signed_numerical_literal_return();
 		retval.start = input.LT(1);
@@ -21184,45 +21147,45 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope sign493 =null;
-		ParserRuleReturnScope unsigned_numerical_literal494 =null;
+		ParserRuleReturnScope sign492 =null;
+		ParserRuleReturnScope unsigned_numerical_literal493 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 146) ) { return retval; }
 
-			// DDL.g:1119:3: ( ( sign )? unsigned_numerical_literal )
-			// DDL.g:1119:5: ( sign )? unsigned_numerical_literal
+			// DDL.g:1120:3: ( ( sign )? unsigned_numerical_literal )
+			// DDL.g:1120:5: ( sign )? unsigned_numerical_literal
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			// DDL.g:1119:5: ( sign )?
-			int alt143=2;
-			int LA143_0 = input.LA(1);
-			if ( (LA143_0==MINUS||LA143_0==PLUS) ) {
-				alt143=1;
+			// DDL.g:1120:5: ( sign )?
+			int alt142=2;
+			int LA142_0 = input.LA(1);
+			if ( (LA142_0==MINUS||LA142_0==PLUS) ) {
+				alt142=1;
 			}
-			switch (alt143) {
+			switch (alt142) {
 				case 1 :
-					// DDL.g:1119:5: sign
+					// DDL.g:1120:5: sign
 					{
-					pushFollow(FOLLOW_sign_in_signed_numerical_literal8228);
-					sign493=sign();
+					pushFollow(FOLLOW_sign_in_signed_numerical_literal8220);
+					sign492=sign();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, sign493.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, sign492.getTree());
 
 					}
 					break;
 
 			}
 
-			pushFollow(FOLLOW_unsigned_numerical_literal_in_signed_numerical_literal8231);
-			unsigned_numerical_literal494=unsigned_numerical_literal();
+			pushFollow(FOLLOW_unsigned_numerical_literal_in_signed_numerical_literal8223);
+			unsigned_numerical_literal493=unsigned_numerical_literal();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, unsigned_numerical_literal494.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, unsigned_numerical_literal493.getTree());
 
 			}
 
@@ -21256,7 +21219,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "unsigned_numerical_literal"
-	// DDL.g:1121:1: unsigned_numerical_literal : ( NUMBER | REAL_NUMBER );
+	// DDL.g:1122:1: unsigned_numerical_literal : ( NUMBER | REAL_NUMBER );
 	public final DDLParser.unsigned_numerical_literal_return unsigned_numerical_literal() throws RecognitionException {
 		DDLParser.unsigned_numerical_literal_return retval = new DDLParser.unsigned_numerical_literal_return();
 		retval.start = input.LT(1);
@@ -21264,23 +21227,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set495=null;
+		Token set494=null;
 
-		CommonTree set495_tree=null;
+		CommonTree set494_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 147) ) { return retval; }
 
-			// DDL.g:1122:3: ( NUMBER | REAL_NUMBER )
+			// DDL.g:1123:3: ( NUMBER | REAL_NUMBER )
 			// DDL.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			set495=input.LT(1);
+			set494=input.LT(1);
 			if ( input.LA(1)==NUMBER||input.LA(1)==REAL_NUMBER ) {
 				input.consume();
-				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set495));
+				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set494));
 				state.errorRecovery=false;
 				state.failed=false;
 			}
@@ -21321,7 +21284,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "sign"
-	// DDL.g:1125:1: sign : ( PLUS | MINUS );
+	// DDL.g:1126:1: sign : ( PLUS | MINUS );
 	public final DDLParser.sign_return sign() throws RecognitionException {
 		DDLParser.sign_return retval = new DDLParser.sign_return();
 		retval.start = input.LT(1);
@@ -21329,23 +21292,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token set496=null;
+		Token set495=null;
 
-		CommonTree set496_tree=null;
+		CommonTree set495_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 148) ) { return retval; }
 
-			// DDL.g:1126:3: ( PLUS | MINUS )
+			// DDL.g:1127:3: ( PLUS | MINUS )
 			// DDL.g:
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			set496=input.LT(1);
+			set495=input.LT(1);
 			if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
 				input.consume();
-				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set496));
+				if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set495));
 				state.errorRecovery=false;
 				state.failed=false;
 			}
@@ -21386,7 +21349,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "case_expression"
-	// DDL.g:1133:1: case_expression : case_specification ;
+	// DDL.g:1134:1: case_expression : case_specification ;
 	public final DDLParser.case_expression_return case_expression() throws RecognitionException {
 		DDLParser.case_expression_return retval = new DDLParser.case_expression_return();
 		retval.start = input.LT(1);
@@ -21394,23 +21357,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope case_specification497 =null;
+		ParserRuleReturnScope case_specification496 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 149) ) { return retval; }
 
-			// DDL.g:1134:3: ( case_specification )
-			// DDL.g:1134:5: case_specification
+			// DDL.g:1135:3: ( case_specification )
+			// DDL.g:1135:5: case_specification
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_case_specification_in_case_expression8279);
-			case_specification497=case_specification();
+			pushFollow(FOLLOW_case_specification_in_case_expression8271);
+			case_specification496=case_specification();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, case_specification497.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, case_specification496.getTree());
 
 			}
 
@@ -21444,7 +21407,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "case_abbreviation"
-	// DDL.g:1136:1: case_abbreviation : ( NULLIF LEFT_PAREN numeric_value_expression COMMA boolean_value_expression RIGHT_PAREN | COALESCE LEFT_PAREN numeric_value_expression ( COMMA boolean_value_expression )+ RIGHT_PAREN );
+	// DDL.g:1137:1: case_abbreviation : ( NULLIF LEFT_PAREN numeric_value_expression COMMA boolean_value_expression RIGHT_PAREN | COALESCE LEFT_PAREN numeric_value_expression ( COMMA boolean_value_expression )+ RIGHT_PAREN );
 	public final DDLParser.case_abbreviation_return case_abbreviation() throws RecognitionException {
 		DDLParser.case_abbreviation_return retval = new DDLParser.case_abbreviation_return();
 		retval.start = input.LT(1);
@@ -21452,159 +21415,159 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NULLIF498=null;
-		Token LEFT_PAREN499=null;
-		Token COMMA501=null;
-		Token RIGHT_PAREN503=null;
-		Token COALESCE504=null;
-		Token LEFT_PAREN505=null;
-		Token COMMA507=null;
-		Token RIGHT_PAREN509=null;
-		ParserRuleReturnScope numeric_value_expression500 =null;
-		ParserRuleReturnScope boolean_value_expression502 =null;
-		ParserRuleReturnScope numeric_value_expression506 =null;
-		ParserRuleReturnScope boolean_value_expression508 =null;
+		Token NULLIF497=null;
+		Token LEFT_PAREN498=null;
+		Token COMMA500=null;
+		Token RIGHT_PAREN502=null;
+		Token COALESCE503=null;
+		Token LEFT_PAREN504=null;
+		Token COMMA506=null;
+		Token RIGHT_PAREN508=null;
+		ParserRuleReturnScope numeric_value_expression499 =null;
+		ParserRuleReturnScope boolean_value_expression501 =null;
+		ParserRuleReturnScope numeric_value_expression505 =null;
+		ParserRuleReturnScope boolean_value_expression507 =null;
 
-		CommonTree NULLIF498_tree=null;
-		CommonTree LEFT_PAREN499_tree=null;
-		CommonTree COMMA501_tree=null;
-		CommonTree RIGHT_PAREN503_tree=null;
-		CommonTree COALESCE504_tree=null;
-		CommonTree LEFT_PAREN505_tree=null;
-		CommonTree COMMA507_tree=null;
-		CommonTree RIGHT_PAREN509_tree=null;
+		CommonTree NULLIF497_tree=null;
+		CommonTree LEFT_PAREN498_tree=null;
+		CommonTree COMMA500_tree=null;
+		CommonTree RIGHT_PAREN502_tree=null;
+		CommonTree COALESCE503_tree=null;
+		CommonTree LEFT_PAREN504_tree=null;
+		CommonTree COMMA506_tree=null;
+		CommonTree RIGHT_PAREN508_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 150) ) { return retval; }
 
-			// DDL.g:1137:3: ( NULLIF LEFT_PAREN numeric_value_expression COMMA boolean_value_expression RIGHT_PAREN | COALESCE LEFT_PAREN numeric_value_expression ( COMMA boolean_value_expression )+ RIGHT_PAREN )
-			int alt145=2;
-			int LA145_0 = input.LA(1);
-			if ( (LA145_0==NULLIF) ) {
-				alt145=1;
+			// DDL.g:1138:3: ( NULLIF LEFT_PAREN numeric_value_expression COMMA boolean_value_expression RIGHT_PAREN | COALESCE LEFT_PAREN numeric_value_expression ( COMMA boolean_value_expression )+ RIGHT_PAREN )
+			int alt144=2;
+			int LA144_0 = input.LA(1);
+			if ( (LA144_0==NULLIF) ) {
+				alt144=1;
 			}
-			else if ( (LA145_0==COALESCE) ) {
-				alt145=2;
+			else if ( (LA144_0==COALESCE) ) {
+				alt144=2;
 			}
 
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 145, 0, input);
+					new NoViableAltException("", 144, 0, input);
 				throw nvae;
 			}
 
-			switch (alt145) {
+			switch (alt144) {
 				case 1 :
-					// DDL.g:1137:5: NULLIF LEFT_PAREN numeric_value_expression COMMA boolean_value_expression RIGHT_PAREN
+					// DDL.g:1138:5: NULLIF LEFT_PAREN numeric_value_expression COMMA boolean_value_expression RIGHT_PAREN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					NULLIF498=(Token)match(input,NULLIF,FOLLOW_NULLIF_in_case_abbreviation8291); if (state.failed) return retval;
+					NULLIF497=(Token)match(input,NULLIF,FOLLOW_NULLIF_in_case_abbreviation8283); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					NULLIF498_tree = (CommonTree)adaptor.create(NULLIF498);
-					adaptor.addChild(root_0, NULLIF498_tree);
+					NULLIF497_tree = (CommonTree)adaptor.create(NULLIF497);
+					adaptor.addChild(root_0, NULLIF497_tree);
 					}
 
-					LEFT_PAREN499=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_case_abbreviation8293); if (state.failed) return retval;
+					LEFT_PAREN498=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_case_abbreviation8285); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					LEFT_PAREN499_tree = (CommonTree)adaptor.create(LEFT_PAREN499);
-					adaptor.addChild(root_0, LEFT_PAREN499_tree);
+					LEFT_PAREN498_tree = (CommonTree)adaptor.create(LEFT_PAREN498);
+					adaptor.addChild(root_0, LEFT_PAREN498_tree);
 					}
 
-					pushFollow(FOLLOW_numeric_value_expression_in_case_abbreviation8295);
-					numeric_value_expression500=numeric_value_expression();
+					pushFollow(FOLLOW_numeric_value_expression_in_case_abbreviation8287);
+					numeric_value_expression499=numeric_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression500.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression499.getTree());
 
-					COMMA501=(Token)match(input,COMMA,FOLLOW_COMMA_in_case_abbreviation8297); if (state.failed) return retval;
+					COMMA500=(Token)match(input,COMMA,FOLLOW_COMMA_in_case_abbreviation8289); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					COMMA501_tree = (CommonTree)adaptor.create(COMMA501);
-					adaptor.addChild(root_0, COMMA501_tree);
+					COMMA500_tree = (CommonTree)adaptor.create(COMMA500);
+					adaptor.addChild(root_0, COMMA500_tree);
 					}
 
-					pushFollow(FOLLOW_boolean_value_expression_in_case_abbreviation8299);
-					boolean_value_expression502=boolean_value_expression();
+					pushFollow(FOLLOW_boolean_value_expression_in_case_abbreviation8291);
+					boolean_value_expression501=boolean_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression502.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression501.getTree());
 
-					RIGHT_PAREN503=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_case_abbreviation8302); if (state.failed) return retval;
+					RIGHT_PAREN502=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_case_abbreviation8294); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					RIGHT_PAREN503_tree = (CommonTree)adaptor.create(RIGHT_PAREN503);
-					adaptor.addChild(root_0, RIGHT_PAREN503_tree);
+					RIGHT_PAREN502_tree = (CommonTree)adaptor.create(RIGHT_PAREN502);
+					adaptor.addChild(root_0, RIGHT_PAREN502_tree);
 					}
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1138:5: COALESCE LEFT_PAREN numeric_value_expression ( COMMA boolean_value_expression )+ RIGHT_PAREN
+					// DDL.g:1139:5: COALESCE LEFT_PAREN numeric_value_expression ( COMMA boolean_value_expression )+ RIGHT_PAREN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					COALESCE504=(Token)match(input,COALESCE,FOLLOW_COALESCE_in_case_abbreviation8308); if (state.failed) return retval;
+					COALESCE503=(Token)match(input,COALESCE,FOLLOW_COALESCE_in_case_abbreviation8300); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					COALESCE504_tree = (CommonTree)adaptor.create(COALESCE504);
-					adaptor.addChild(root_0, COALESCE504_tree);
+					COALESCE503_tree = (CommonTree)adaptor.create(COALESCE503);
+					adaptor.addChild(root_0, COALESCE503_tree);
 					}
 
-					LEFT_PAREN505=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_case_abbreviation8310); if (state.failed) return retval;
+					LEFT_PAREN504=(Token)match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_case_abbreviation8302); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					LEFT_PAREN505_tree = (CommonTree)adaptor.create(LEFT_PAREN505);
-					adaptor.addChild(root_0, LEFT_PAREN505_tree);
+					LEFT_PAREN504_tree = (CommonTree)adaptor.create(LEFT_PAREN504);
+					adaptor.addChild(root_0, LEFT_PAREN504_tree);
 					}
 
-					pushFollow(FOLLOW_numeric_value_expression_in_case_abbreviation8312);
-					numeric_value_expression506=numeric_value_expression();
+					pushFollow(FOLLOW_numeric_value_expression_in_case_abbreviation8304);
+					numeric_value_expression505=numeric_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression506.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression505.getTree());
 
-					// DDL.g:1138:50: ( COMMA boolean_value_expression )+
-					int cnt144=0;
-					loop144:
+					// DDL.g:1139:50: ( COMMA boolean_value_expression )+
+					int cnt143=0;
+					loop143:
 					while (true) {
-						int alt144=2;
-						int LA144_0 = input.LA(1);
-						if ( (LA144_0==COMMA) ) {
-							alt144=1;
+						int alt143=2;
+						int LA143_0 = input.LA(1);
+						if ( (LA143_0==COMMA) ) {
+							alt143=1;
 						}
 
-						switch (alt144) {
+						switch (alt143) {
 						case 1 :
-							// DDL.g:1138:52: COMMA boolean_value_expression
+							// DDL.g:1139:52: COMMA boolean_value_expression
 							{
-							COMMA507=(Token)match(input,COMMA,FOLLOW_COMMA_in_case_abbreviation8316); if (state.failed) return retval;
+							COMMA506=(Token)match(input,COMMA,FOLLOW_COMMA_in_case_abbreviation8308); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							COMMA507_tree = (CommonTree)adaptor.create(COMMA507);
-							adaptor.addChild(root_0, COMMA507_tree);
+							COMMA506_tree = (CommonTree)adaptor.create(COMMA506);
+							adaptor.addChild(root_0, COMMA506_tree);
 							}
 
-							pushFollow(FOLLOW_boolean_value_expression_in_case_abbreviation8318);
-							boolean_value_expression508=boolean_value_expression();
+							pushFollow(FOLLOW_boolean_value_expression_in_case_abbreviation8310);
+							boolean_value_expression507=boolean_value_expression();
 							state._fsp--;
 							if (state.failed) return retval;
-							if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression508.getTree());
+							if ( state.backtracking==0 ) adaptor.addChild(root_0, boolean_value_expression507.getTree());
 
 							}
 							break;
 
 						default :
-							if ( cnt144 >= 1 ) break loop144;
+							if ( cnt143 >= 1 ) break loop143;
 							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(144, input);
+							EarlyExitException eee = new EarlyExitException(143, input);
 							throw eee;
 						}
-						cnt144++;
+						cnt143++;
 					}
 
-					RIGHT_PAREN509=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_case_abbreviation8324); if (state.failed) return retval;
+					RIGHT_PAREN508=(Token)match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_case_abbreviation8316); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					RIGHT_PAREN509_tree = (CommonTree)adaptor.create(RIGHT_PAREN509);
-					adaptor.addChild(root_0, RIGHT_PAREN509_tree);
+					RIGHT_PAREN508_tree = (CommonTree)adaptor.create(RIGHT_PAREN508);
+					adaptor.addChild(root_0, RIGHT_PAREN508_tree);
 					}
 
 					}
@@ -21641,7 +21604,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "case_specification"
-	// DDL.g:1140:1: case_specification : ( simple_case | searched_case );
+	// DDL.g:1141:1: case_specification : ( simple_case | searched_case );
 	public final DDLParser.case_specification_return case_specification() throws RecognitionException {
 		DDLParser.case_specification_return retval = new DDLParser.case_specification_return();
 		retval.start = input.LT(1);
@@ -21649,23 +21612,23 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		ParserRuleReturnScope simple_case510 =null;
-		ParserRuleReturnScope searched_case511 =null;
+		ParserRuleReturnScope simple_case509 =null;
+		ParserRuleReturnScope searched_case510 =null;
 
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 151) ) { return retval; }
 
-			// DDL.g:1141:3: ( simple_case | searched_case )
-			int alt146=2;
-			int LA146_0 = input.LA(1);
-			if ( (LA146_0==CASE) ) {
-				int LA146_1 = input.LA(2);
-				if ( (LA146_1==COUNT||LA146_1==Character_String_Literal||LA146_1==Identifier||LA146_1==LEFT_PAREN||LA146_1==MINUS||LA146_1==NULL||LA146_1==NUMBER||LA146_1==PLUS||LA146_1==REAL_NUMBER) ) {
-					alt146=1;
+			// DDL.g:1142:3: ( simple_case | searched_case )
+			int alt145=2;
+			int LA145_0 = input.LA(1);
+			if ( (LA145_0==CASE) ) {
+				int LA145_1 = input.LA(2);
+				if ( (LA145_1==COUNT||LA145_1==Character_String_Literal||LA145_1==Identifier||LA145_1==LEFT_PAREN||LA145_1==MINUS||LA145_1==NULL||LA145_1==NUMBER||LA145_1==PLUS||LA145_1==REAL_NUMBER) ) {
+					alt145=1;
 				}
-				else if ( (LA146_1==WHEN) ) {
-					alt146=2;
+				else if ( (LA145_1==WHEN) ) {
+					alt145=2;
 				}
 
 				else {
@@ -21674,7 +21637,7 @@ public class DDLParser extends Parser {
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 146, 1, input);
+							new NoViableAltException("", 145, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -21686,36 +21649,36 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 146, 0, input);
+					new NoViableAltException("", 145, 0, input);
 				throw nvae;
 			}
 
-			switch (alt146) {
+			switch (alt145) {
 				case 1 :
-					// DDL.g:1141:5: simple_case
+					// DDL.g:1142:5: simple_case
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_simple_case_in_case_specification8336);
-					simple_case510=simple_case();
+					pushFollow(FOLLOW_simple_case_in_case_specification8328);
+					simple_case509=simple_case();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, simple_case510.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, simple_case509.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1142:5: searched_case
+					// DDL.g:1143:5: searched_case
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_searched_case_in_case_specification8342);
-					searched_case511=searched_case();
+					pushFollow(FOLLOW_searched_case_in_case_specification8334);
+					searched_case510=searched_case();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, searched_case511.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, searched_case510.getTree());
 
 					}
 					break;
@@ -21751,7 +21714,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "simple_case"
-	// DDL.g:1144:1: simple_case : CASE numeric_value_expression ( simple_when_clause )+ ( else_clause )? END ;
+	// DDL.g:1145:1: simple_case : CASE numeric_value_expression ( simple_when_clause )+ ( else_clause )? END ;
 	public final DDLParser.simple_case_return simple_case() throws RecognitionException {
 		DDLParser.simple_case_return retval = new DDLParser.simple_case_return();
 		retval.start = input.LT(1);
@@ -21759,93 +21722,93 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token CASE512=null;
-		Token END516=null;
-		ParserRuleReturnScope numeric_value_expression513 =null;
-		ParserRuleReturnScope simple_when_clause514 =null;
-		ParserRuleReturnScope else_clause515 =null;
+		Token CASE511=null;
+		Token END515=null;
+		ParserRuleReturnScope numeric_value_expression512 =null;
+		ParserRuleReturnScope simple_when_clause513 =null;
+		ParserRuleReturnScope else_clause514 =null;
 
-		CommonTree CASE512_tree=null;
-		CommonTree END516_tree=null;
+		CommonTree CASE511_tree=null;
+		CommonTree END515_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 152) ) { return retval; }
 
-			// DDL.g:1145:3: ( CASE numeric_value_expression ( simple_when_clause )+ ( else_clause )? END )
-			// DDL.g:1145:5: CASE numeric_value_expression ( simple_when_clause )+ ( else_clause )? END
+			// DDL.g:1146:3: ( CASE numeric_value_expression ( simple_when_clause )+ ( else_clause )? END )
+			// DDL.g:1146:5: CASE numeric_value_expression ( simple_when_clause )+ ( else_clause )? END
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			CASE512=(Token)match(input,CASE,FOLLOW_CASE_in_simple_case8354); if (state.failed) return retval;
+			CASE511=(Token)match(input,CASE,FOLLOW_CASE_in_simple_case8346); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			CASE512_tree = (CommonTree)adaptor.create(CASE512);
-			adaptor.addChild(root_0, CASE512_tree);
+			CASE511_tree = (CommonTree)adaptor.create(CASE511);
+			adaptor.addChild(root_0, CASE511_tree);
 			}
 
-			pushFollow(FOLLOW_numeric_value_expression_in_simple_case8356);
-			numeric_value_expression513=numeric_value_expression();
+			pushFollow(FOLLOW_numeric_value_expression_in_simple_case8348);
+			numeric_value_expression512=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression513.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression512.getTree());
 
-			// DDL.g:1145:35: ( simple_when_clause )+
-			int cnt147=0;
-			loop147:
+			// DDL.g:1146:35: ( simple_when_clause )+
+			int cnt146=0;
+			loop146:
 			while (true) {
-				int alt147=2;
-				int LA147_0 = input.LA(1);
-				if ( (LA147_0==WHEN) ) {
-					alt147=1;
+				int alt146=2;
+				int LA146_0 = input.LA(1);
+				if ( (LA146_0==WHEN) ) {
+					alt146=1;
 				}
 
-				switch (alt147) {
+				switch (alt146) {
 				case 1 :
-					// DDL.g:1145:37: simple_when_clause
+					// DDL.g:1146:37: simple_when_clause
 					{
-					pushFollow(FOLLOW_simple_when_clause_in_simple_case8360);
-					simple_when_clause514=simple_when_clause();
+					pushFollow(FOLLOW_simple_when_clause_in_simple_case8352);
+					simple_when_clause513=simple_when_clause();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, simple_when_clause514.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, simple_when_clause513.getTree());
 
 					}
 					break;
 
 				default :
-					if ( cnt147 >= 1 ) break loop147;
+					if ( cnt146 >= 1 ) break loop146;
 					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(147, input);
+					EarlyExitException eee = new EarlyExitException(146, input);
 					throw eee;
 				}
-				cnt147++;
+				cnt146++;
 			}
 
-			// DDL.g:1145:59: ( else_clause )?
-			int alt148=2;
-			int LA148_0 = input.LA(1);
-			if ( (LA148_0==ELSE) ) {
-				alt148=1;
+			// DDL.g:1146:59: ( else_clause )?
+			int alt147=2;
+			int LA147_0 = input.LA(1);
+			if ( (LA147_0==ELSE) ) {
+				alt147=1;
 			}
-			switch (alt148) {
+			switch (alt147) {
 				case 1 :
-					// DDL.g:1145:61: else_clause
+					// DDL.g:1146:61: else_clause
 					{
-					pushFollow(FOLLOW_else_clause_in_simple_case8367);
-					else_clause515=else_clause();
+					pushFollow(FOLLOW_else_clause_in_simple_case8359);
+					else_clause514=else_clause();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, else_clause515.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, else_clause514.getTree());
 
 					}
 					break;
 
 			}
 
-			END516=(Token)match(input,END,FOLLOW_END_in_simple_case8373); if (state.failed) return retval;
+			END515=(Token)match(input,END,FOLLOW_END_in_simple_case8365); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			END516_tree = (CommonTree)adaptor.create(END516);
-			adaptor.addChild(root_0, END516_tree);
+			END515_tree = (CommonTree)adaptor.create(END515);
+			adaptor.addChild(root_0, END515_tree);
 			}
 
 			}
@@ -21880,7 +21843,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "searched_case"
-	// DDL.g:1147:1: searched_case : CASE ^ ( searched_when_clause )+ ( else_clause )? END !;
+	// DDL.g:1148:1: searched_case : CASE ^ ( searched_when_clause )+ ( else_clause )? END !;
 	public final DDLParser.searched_case_return searched_case() throws RecognitionException {
 		DDLParser.searched_case_return retval = new DDLParser.searched_case_return();
 		retval.start = input.LT(1);
@@ -21888,83 +21851,83 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token CASE517=null;
-		Token END520=null;
-		ParserRuleReturnScope searched_when_clause518 =null;
-		ParserRuleReturnScope else_clause519 =null;
+		Token CASE516=null;
+		Token END519=null;
+		ParserRuleReturnScope searched_when_clause517 =null;
+		ParserRuleReturnScope else_clause518 =null;
 
-		CommonTree CASE517_tree=null;
-		CommonTree END520_tree=null;
+		CommonTree CASE516_tree=null;
+		CommonTree END519_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 153) ) { return retval; }
 
-			// DDL.g:1148:3: ( CASE ^ ( searched_when_clause )+ ( else_clause )? END !)
-			// DDL.g:1148:5: CASE ^ ( searched_when_clause )+ ( else_clause )? END !
+			// DDL.g:1149:3: ( CASE ^ ( searched_when_clause )+ ( else_clause )? END !)
+			// DDL.g:1149:5: CASE ^ ( searched_when_clause )+ ( else_clause )? END !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			CASE517=(Token)match(input,CASE,FOLLOW_CASE_in_searched_case8385); if (state.failed) return retval;
+			CASE516=(Token)match(input,CASE,FOLLOW_CASE_in_searched_case8377); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			CASE517_tree = (CommonTree)adaptor.create(CASE517);
-			root_0 = (CommonTree)adaptor.becomeRoot(CASE517_tree, root_0);
+			CASE516_tree = (CommonTree)adaptor.create(CASE516);
+			root_0 = (CommonTree)adaptor.becomeRoot(CASE516_tree, root_0);
 			}
 
-			// DDL.g:1148:11: ( searched_when_clause )+
-			int cnt149=0;
-			loop149:
+			// DDL.g:1149:11: ( searched_when_clause )+
+			int cnt148=0;
+			loop148:
 			while (true) {
-				int alt149=2;
-				int LA149_0 = input.LA(1);
-				if ( (LA149_0==WHEN) ) {
-					alt149=1;
+				int alt148=2;
+				int LA148_0 = input.LA(1);
+				if ( (LA148_0==WHEN) ) {
+					alt148=1;
 				}
 
-				switch (alt149) {
+				switch (alt148) {
 				case 1 :
-					// DDL.g:1148:12: searched_when_clause
+					// DDL.g:1149:12: searched_when_clause
 					{
-					pushFollow(FOLLOW_searched_when_clause_in_searched_case8389);
-					searched_when_clause518=searched_when_clause();
+					pushFollow(FOLLOW_searched_when_clause_in_searched_case8381);
+					searched_when_clause517=searched_when_clause();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, searched_when_clause518.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, searched_when_clause517.getTree());
 
 					}
 					break;
 
 				default :
-					if ( cnt149 >= 1 ) break loop149;
+					if ( cnt148 >= 1 ) break loop148;
 					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(149, input);
+					EarlyExitException eee = new EarlyExitException(148, input);
 					throw eee;
 				}
-				cnt149++;
+				cnt148++;
 			}
 
-			// DDL.g:1148:35: ( else_clause )?
-			int alt150=2;
-			int LA150_0 = input.LA(1);
-			if ( (LA150_0==ELSE) ) {
-				alt150=1;
+			// DDL.g:1149:35: ( else_clause )?
+			int alt149=2;
+			int LA149_0 = input.LA(1);
+			if ( (LA149_0==ELSE) ) {
+				alt149=1;
 			}
-			switch (alt150) {
+			switch (alt149) {
 				case 1 :
-					// DDL.g:1148:36: else_clause
+					// DDL.g:1149:36: else_clause
 					{
-					pushFollow(FOLLOW_else_clause_in_searched_case8394);
-					else_clause519=else_clause();
+					pushFollow(FOLLOW_else_clause_in_searched_case8386);
+					else_clause518=else_clause();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, else_clause519.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, else_clause518.getTree());
 
 					}
 					break;
 
 			}
 
-			END520=(Token)match(input,END,FOLLOW_END_in_searched_case8398); if (state.failed) return retval;
+			END519=(Token)match(input,END,FOLLOW_END_in_searched_case8390); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -21997,7 +21960,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "simple_when_clause"
-	// DDL.g:1150:1: simple_when_clause : WHEN numeric_value_expression THEN result ;
+	// DDL.g:1151:1: simple_when_clause : WHEN numeric_value_expression THEN result ;
 	public final DDLParser.simple_when_clause_return simple_when_clause() throws RecognitionException {
 		DDLParser.simple_when_clause_return retval = new DDLParser.simple_when_clause_return();
 		retval.start = input.LT(1);
@@ -22005,46 +21968,46 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token WHEN521=null;
-		Token THEN523=null;
-		ParserRuleReturnScope numeric_value_expression522 =null;
-		ParserRuleReturnScope result524 =null;
+		Token WHEN520=null;
+		Token THEN522=null;
+		ParserRuleReturnScope numeric_value_expression521 =null;
+		ParserRuleReturnScope result523 =null;
 
-		CommonTree WHEN521_tree=null;
-		CommonTree THEN523_tree=null;
+		CommonTree WHEN520_tree=null;
+		CommonTree THEN522_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 154) ) { return retval; }
 
-			// DDL.g:1150:20: ( WHEN numeric_value_expression THEN result )
-			// DDL.g:1150:22: WHEN numeric_value_expression THEN result
+			// DDL.g:1151:20: ( WHEN numeric_value_expression THEN result )
+			// DDL.g:1151:22: WHEN numeric_value_expression THEN result
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			WHEN521=(Token)match(input,WHEN,FOLLOW_WHEN_in_simple_when_clause8409); if (state.failed) return retval;
+			WHEN520=(Token)match(input,WHEN,FOLLOW_WHEN_in_simple_when_clause8401); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			WHEN521_tree = (CommonTree)adaptor.create(WHEN521);
-			adaptor.addChild(root_0, WHEN521_tree);
+			WHEN520_tree = (CommonTree)adaptor.create(WHEN520);
+			adaptor.addChild(root_0, WHEN520_tree);
 			}
 
-			pushFollow(FOLLOW_numeric_value_expression_in_simple_when_clause8411);
-			numeric_value_expression522=numeric_value_expression();
+			pushFollow(FOLLOW_numeric_value_expression_in_simple_when_clause8403);
+			numeric_value_expression521=numeric_value_expression();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression522.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression521.getTree());
 
-			THEN523=(Token)match(input,THEN,FOLLOW_THEN_in_simple_when_clause8413); if (state.failed) return retval;
+			THEN522=(Token)match(input,THEN,FOLLOW_THEN_in_simple_when_clause8405); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
-			THEN523_tree = (CommonTree)adaptor.create(THEN523);
-			adaptor.addChild(root_0, THEN523_tree);
+			THEN522_tree = (CommonTree)adaptor.create(THEN522);
+			adaptor.addChild(root_0, THEN522_tree);
 			}
 
-			pushFollow(FOLLOW_result_in_simple_when_clause8415);
-			result524=result();
+			pushFollow(FOLLOW_result_in_simple_when_clause8407);
+			result523=result();
 			state._fsp--;
 			if (state.failed) return retval;
-			if ( state.backtracking==0 ) adaptor.addChild(root_0, result524.getTree());
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, result523.getTree());
 
 			}
 
@@ -22078,7 +22041,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "searched_when_clause"
-	// DDL.g:1151:1: searched_when_clause : WHEN c= search_condition THEN r= result -> ^( WHEN $c $r) ;
+	// DDL.g:1152:1: searched_when_clause : WHEN c= search_condition THEN r= result -> ^( WHEN $c $r) ;
 	public final DDLParser.searched_when_clause_return searched_when_clause() throws RecognitionException {
 		DDLParser.searched_when_clause_return retval = new DDLParser.searched_when_clause_return();
 		retval.start = input.LT(1);
@@ -22086,13 +22049,13 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token WHEN525=null;
-		Token THEN526=null;
+		Token WHEN524=null;
+		Token THEN525=null;
 		ParserRuleReturnScope c =null;
 		ParserRuleReturnScope r =null;
 
-		CommonTree WHEN525_tree=null;
-		CommonTree THEN526_tree=null;
+		CommonTree WHEN524_tree=null;
+		CommonTree THEN525_tree=null;
 		RewriteRuleTokenStream stream_THEN=new RewriteRuleTokenStream(adaptor,"token THEN");
 		RewriteRuleTokenStream stream_WHEN=new RewriteRuleTokenStream(adaptor,"token WHEN");
 		RewriteRuleSubtreeStream stream_result=new RewriteRuleSubtreeStream(adaptor,"rule result");
@@ -22101,42 +22064,42 @@ public class DDLParser extends Parser {
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 155) ) { return retval; }
 
-			// DDL.g:1152:3: ( WHEN c= search_condition THEN r= result -> ^( WHEN $c $r) )
-			// DDL.g:1152:5: WHEN c= search_condition THEN r= result
+			// DDL.g:1153:3: ( WHEN c= search_condition THEN r= result -> ^( WHEN $c $r) )
+			// DDL.g:1153:5: WHEN c= search_condition THEN r= result
 			{
-			WHEN525=(Token)match(input,WHEN,FOLLOW_WHEN_in_searched_when_clause8425); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_WHEN.add(WHEN525);
+			WHEN524=(Token)match(input,WHEN,FOLLOW_WHEN_in_searched_when_clause8417); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_WHEN.add(WHEN524);
 
-			pushFollow(FOLLOW_search_condition_in_searched_when_clause8429);
+			pushFollow(FOLLOW_search_condition_in_searched_when_clause8421);
 			c=search_condition();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_search_condition.add(c.getTree());
-			THEN526=(Token)match(input,THEN,FOLLOW_THEN_in_searched_when_clause8431); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_THEN.add(THEN526);
+			THEN525=(Token)match(input,THEN,FOLLOW_THEN_in_searched_when_clause8423); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_THEN.add(THEN525);
 
-			pushFollow(FOLLOW_result_in_searched_when_clause8435);
+			pushFollow(FOLLOW_result_in_searched_when_clause8427);
 			r=result();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_result.add(r.getTree());
 			// AST REWRITE
-			// elements: WHEN, r, c
+			// elements: c, WHEN, r
 			// token labels: 
-			// rule labels: retval, c, r
+			// rule labels: retval, r, c
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
 			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
-			RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.getTree():null);
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
+			RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1152:43: -> ^( WHEN $c $r)
+			// 1153:43: -> ^( WHEN $c $r)
 			{
-				// DDL.g:1152:46: ^( WHEN $c $r)
+				// DDL.g:1153:46: ^( WHEN $c $r)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_WHEN.nextNode(), root_1);
@@ -22183,7 +22146,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "else_clause"
-	// DDL.g:1154:1: else_clause : ELSE r= result -> ^( ELSE $r) ;
+	// DDL.g:1155:1: else_clause : ELSE r= result -> ^( ELSE $r) ;
 	public final DDLParser.else_clause_return else_clause() throws RecognitionException {
 		DDLParser.else_clause_return retval = new DDLParser.else_clause_return();
 		retval.start = input.LT(1);
@@ -22191,29 +22154,29 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token ELSE527=null;
+		Token ELSE526=null;
 		ParserRuleReturnScope r =null;
 
-		CommonTree ELSE527_tree=null;
+		CommonTree ELSE526_tree=null;
 		RewriteRuleTokenStream stream_ELSE=new RewriteRuleTokenStream(adaptor,"token ELSE");
 		RewriteRuleSubtreeStream stream_result=new RewriteRuleSubtreeStream(adaptor,"rule result");
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 156) ) { return retval; }
 
-			// DDL.g:1155:3: ( ELSE r= result -> ^( ELSE $r) )
-			// DDL.g:1155:5: ELSE r= result
+			// DDL.g:1156:3: ( ELSE r= result -> ^( ELSE $r) )
+			// DDL.g:1156:5: ELSE r= result
 			{
-			ELSE527=(Token)match(input,ELSE,FOLLOW_ELSE_in_else_clause8459); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_ELSE.add(ELSE527);
+			ELSE526=(Token)match(input,ELSE,FOLLOW_ELSE_in_else_clause8451); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_ELSE.add(ELSE526);
 
-			pushFollow(FOLLOW_result_in_else_clause8463);
+			pushFollow(FOLLOW_result_in_else_clause8455);
 			r=result();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_result.add(r.getTree());
 			// AST REWRITE
-			// elements: ELSE, r
+			// elements: r, ELSE
 			// token labels: 
 			// rule labels: retval, r
 			// token list labels: 
@@ -22225,9 +22188,9 @@ public class DDLParser extends Parser {
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 1155:19: -> ^( ELSE $r)
+			// 1156:19: -> ^( ELSE $r)
 			{
-				// DDL.g:1155:22: ^( ELSE $r)
+				// DDL.g:1156:22: ^( ELSE $r)
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot(stream_ELSE.nextNode(), root_1);
@@ -22273,7 +22236,7 @@ public class DDLParser extends Parser {
 
 
 	// $ANTLR start "result"
-	// DDL.g:1157:1: result : ( numeric_value_expression | NULL );
+	// DDL.g:1158:1: result : ( numeric_value_expression | NULL );
 	public final DDLParser.result_return result() throws RecognitionException {
 		DDLParser.result_return retval = new DDLParser.result_return();
 		retval.start = input.LT(1);
@@ -22281,27 +22244,27 @@ public class DDLParser extends Parser {
 
 		CommonTree root_0 = null;
 
-		Token NULL529=null;
-		ParserRuleReturnScope numeric_value_expression528 =null;
+		Token NULL528=null;
+		ParserRuleReturnScope numeric_value_expression527 =null;
 
-		CommonTree NULL529_tree=null;
+		CommonTree NULL528_tree=null;
 
 		try {
 			if ( state.backtracking>0 && alreadyParsedRule(input, 157) ) { return retval; }
 
-			// DDL.g:1158:3: ( numeric_value_expression | NULL )
-			int alt151=2;
-			int LA151_0 = input.LA(1);
-			if ( (LA151_0==COUNT||LA151_0==Character_String_Literal||LA151_0==Identifier||LA151_0==LEFT_PAREN||LA151_0==MINUS||LA151_0==NUMBER||LA151_0==PLUS||LA151_0==REAL_NUMBER) ) {
-				alt151=1;
+			// DDL.g:1159:3: ( numeric_value_expression | NULL )
+			int alt150=2;
+			int LA150_0 = input.LA(1);
+			if ( (LA150_0==COUNT||LA150_0==Character_String_Literal||LA150_0==Identifier||LA150_0==LEFT_PAREN||LA150_0==MINUS||LA150_0==NUMBER||LA150_0==PLUS||LA150_0==REAL_NUMBER) ) {
+				alt150=1;
 			}
-			else if ( (LA151_0==NULL) ) {
-				int LA151_2 = input.LA(2);
-				if ( (synpred231_DDL()) ) {
-					alt151=1;
+			else if ( (LA150_0==NULL) ) {
+				int LA150_2 = input.LA(2);
+				if ( (synpred230_DDL()) ) {
+					alt150=1;
 				}
 				else if ( (true) ) {
-					alt151=2;
+					alt150=2;
 				}
 
 			}
@@ -22309,35 +22272,35 @@ public class DDLParser extends Parser {
 			else {
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 151, 0, input);
+					new NoViableAltException("", 150, 0, input);
 				throw nvae;
 			}
 
-			switch (alt151) {
+			switch (alt150) {
 				case 1 :
-					// DDL.g:1158:5: numeric_value_expression
+					// DDL.g:1159:5: numeric_value_expression
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_numeric_value_expression_in_result8484);
-					numeric_value_expression528=numeric_value_expression();
+					pushFollow(FOLLOW_numeric_value_expression_in_result8476);
+					numeric_value_expression527=numeric_value_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression528.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, numeric_value_expression527.getTree());
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1158:32: NULL
+					// DDL.g:1159:32: NULL
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					NULL529=(Token)match(input,NULL,FOLLOW_NULL_in_result8488); if (state.failed) return retval;
+					NULL528=(Token)match(input,NULL,FOLLOW_NULL_in_result8480); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					NULL529_tree = (CommonTree)adaptor.create(NULL529);
-					adaptor.addChild(root_0, NULL529_tree);
+					NULL528_tree = (CommonTree)adaptor.create(NULL528);
+					adaptor.addChild(root_0, NULL528_tree);
 					}
 
 					}
@@ -22367,10 +22330,10 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred121_DDL
 	public final void synpred121_DDL_fragment() throws RecognitionException {
-		// DDL.g:782:5: ( non_join_query_expression )
-		// DDL.g:782:5: non_join_query_expression
+		// DDL.g:783:5: ( non_join_query_expression )
+		// DDL.g:783:5: non_join_query_expression
 		{
-		pushFollow(FOLLOW_non_join_query_expression_in_synpred121_DDL6018);
+		pushFollow(FOLLOW_non_join_query_expression_in_synpred121_DDL6023);
 		non_join_query_expression();
 		state._fsp--;
 		if (state.failed) return;
@@ -22382,10 +22345,10 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred122_DDL
 	public final void synpred122_DDL_fragment() throws RecognitionException {
-		// DDL.g:786:6: ( non_join_query_term )
-		// DDL.g:786:6: non_join_query_term
+		// DDL.g:787:6: ( non_join_query_term )
+		// DDL.g:787:6: non_join_query_term
 		{
-		pushFollow(FOLLOW_non_join_query_term_in_synpred122_DDL6037);
+		pushFollow(FOLLOW_non_join_query_term_in_synpred122_DDL6042);
 		non_join_query_term();
 		state._fsp--;
 		if (state.failed) return;
@@ -22397,10 +22360,10 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred130_DDL
 	public final void synpred130_DDL_fragment() throws RecognitionException {
-		// DDL.g:790:5: ( non_join_query_term )
-		// DDL.g:790:5: non_join_query_term
+		// DDL.g:791:5: ( non_join_query_term )
+		// DDL.g:791:5: non_join_query_term
 		{
-		pushFollow(FOLLOW_non_join_query_term_in_synpred130_DDL6097);
+		pushFollow(FOLLOW_non_join_query_term_in_synpred130_DDL6102);
 		non_join_query_term();
 		state._fsp--;
 		if (state.failed) return;
@@ -22410,31 +22373,14 @@ public class DDLParser extends Parser {
 	}
 	// $ANTLR end synpred130_DDL
 
-	// $ANTLR start synpred150_DDL
-	public final void synpred150_DDL_fragment() throws RecognitionException {
-		Token t=null;
-
-
-		// DDL.g:828:5: (t= Identifier COMMA )
-		// DDL.g:828:5: t= Identifier COMMA
+	// $ANTLR start synpred151_DDL
+	public final void synpred151_DDL_fragment() throws RecognitionException {
+		// DDL.g:836:22: ( COMMA column_reference )
+		// DDL.g:836:22: COMMA column_reference
 		{
-		t=(Token)match(input,Identifier,FOLLOW_Identifier_in_synpred150_DDL6409); if (state.failed) return;
+		match(input,COMMA,FOLLOW_COMMA_in_synpred151_DDL6454); if (state.failed) return;
 
-		match(input,COMMA,FOLLOW_COMMA_in_synpred150_DDL6411); if (state.failed) return;
-
-		}
-
-	}
-	// $ANTLR end synpred150_DDL
-
-	// $ANTLR start synpred152_DDL
-	public final void synpred152_DDL_fragment() throws RecognitionException {
-		// DDL.g:835:22: ( COMMA column_reference )
-		// DDL.g:835:22: COMMA column_reference
-		{
-		match(input,COMMA,FOLLOW_COMMA_in_synpred152_DDL6462); if (state.failed) return;
-
-		pushFollow(FOLLOW_column_reference_in_synpred152_DDL6464);
+		pushFollow(FOLLOW_column_reference_in_synpred151_DDL6456);
 		column_reference();
 		state._fsp--;
 		if (state.failed) return;
@@ -22442,34 +22388,49 @@ public class DDLParser extends Parser {
 		}
 
 	}
-	// $ANTLR end synpred152_DDL
+	// $ANTLR end synpred151_DDL
 
-	// $ANTLR start synpred154_DDL
-	public final void synpred154_DDL_fragment() throws RecognitionException {
+	// $ANTLR start synpred153_DDL
+	public final void synpred153_DDL_fragment() throws RecognitionException {
 		Token m=null;
 
 
-		// DDL.g:844:39: ( LEFT_PAREN m= Identifier RIGHT_PAREN )
-		// DDL.g:844:39: LEFT_PAREN m= Identifier RIGHT_PAREN
+		// DDL.g:845:39: ( LEFT_PAREN m= Identifier RIGHT_PAREN )
+		// DDL.g:845:39: LEFT_PAREN m= Identifier RIGHT_PAREN
 		{
-		match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_synpred154_DDL6518); if (state.failed) return;
+		match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_synpred153_DDL6510); if (state.failed) return;
 
-		m=(Token)match(input,Identifier,FOLLOW_Identifier_in_synpred154_DDL6522); if (state.failed) return;
+		m=(Token)match(input,Identifier,FOLLOW_Identifier_in_synpred153_DDL6514); if (state.failed) return;
 
-		match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_synpred154_DDL6524); if (state.failed) return;
+		match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_synpred153_DDL6516); if (state.failed) return;
 
 		}
 
 	}
-	// $ANTLR end synpred154_DDL
+	// $ANTLR end synpred153_DDL
+
+	// $ANTLR start synpred194_DDL
+	public final void synpred194_DDL_fragment() throws RecognitionException {
+		// DDL.g:1026:5: ( predicate )
+		// DDL.g:1026:5: predicate
+		{
+		pushFollow(FOLLOW_predicate_in_synpred194_DDL7759);
+		predicate();
+		state._fsp--;
+		if (state.failed) return;
+
+		}
+
+	}
+	// $ANTLR end synpred194_DDL
 
 	// $ANTLR start synpred195_DDL
 	public final void synpred195_DDL_fragment() throws RecognitionException {
-		// DDL.g:1025:5: ( predicate )
-		// DDL.g:1025:5: predicate
+		// DDL.g:1027:5: ( numeric_value_expression )
+		// DDL.g:1027:5: numeric_value_expression
 		{
-		pushFollow(FOLLOW_predicate_in_synpred195_DDL7767);
-		predicate();
+		pushFollow(FOLLOW_numeric_value_expression_in_synpred195_DDL7765);
+		numeric_value_expression();
 		state._fsp--;
 		if (state.failed) return;
 
@@ -22480,13 +22441,17 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred196_DDL
 	public final void synpred196_DDL_fragment() throws RecognitionException {
-		// DDL.g:1026:5: ( numeric_value_expression )
-		// DDL.g:1026:5: numeric_value_expression
+		// DDL.g:1028:5: ( LEFT_PAREN boolean_value_expression RIGHT_PAREN )
+		// DDL.g:1028:5: LEFT_PAREN boolean_value_expression RIGHT_PAREN
 		{
-		pushFollow(FOLLOW_numeric_value_expression_in_synpred196_DDL7773);
-		numeric_value_expression();
+		match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_synpred196_DDL7771); if (state.failed) return;
+
+		pushFollow(FOLLOW_boolean_value_expression_in_synpred196_DDL7774);
+		boolean_value_expression();
 		state._fsp--;
 		if (state.failed) return;
+
+		match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_synpred196_DDL7776); if (state.failed) return;
 
 		}
 
@@ -22495,17 +22460,13 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred197_DDL
 	public final void synpred197_DDL_fragment() throws RecognitionException {
-		// DDL.g:1027:5: ( LEFT_PAREN boolean_value_expression RIGHT_PAREN )
-		// DDL.g:1027:5: LEFT_PAREN boolean_value_expression RIGHT_PAREN
+		// DDL.g:1037:5: ( comparison_predicate )
+		// DDL.g:1037:5: comparison_predicate
 		{
-		match(input,LEFT_PAREN,FOLLOW_LEFT_PAREN_in_synpred197_DDL7779); if (state.failed) return;
-
-		pushFollow(FOLLOW_boolean_value_expression_in_synpred197_DDL7782);
-		boolean_value_expression();
+		pushFollow(FOLLOW_comparison_predicate_in_synpred197_DDL7797);
+		comparison_predicate();
 		state._fsp--;
 		if (state.failed) return;
-
-		match(input,RIGHT_PAREN,FOLLOW_RIGHT_PAREN_in_synpred197_DDL7784); if (state.failed) return;
 
 		}
 
@@ -22514,11 +22475,11 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred198_DDL
 	public final void synpred198_DDL_fragment() throws RecognitionException {
-		// DDL.g:1036:5: ( comparison_predicate )
-		// DDL.g:1036:5: comparison_predicate
+		// DDL.g:1038:5: ( in_predicate )
+		// DDL.g:1038:5: in_predicate
 		{
-		pushFollow(FOLLOW_comparison_predicate_in_synpred198_DDL7805);
-		comparison_predicate();
+		pushFollow(FOLLOW_in_predicate_in_synpred198_DDL7803);
+		in_predicate();
 		state._fsp--;
 		if (state.failed) return;
 
@@ -22529,11 +22490,11 @@ public class DDLParser extends Parser {
 
 	// $ANTLR start synpred199_DDL
 	public final void synpred199_DDL_fragment() throws RecognitionException {
-		// DDL.g:1037:5: ( in_predicate )
-		// DDL.g:1037:5: in_predicate
+		// DDL.g:1039:5: ( like_predicate )
+		// DDL.g:1039:5: like_predicate
 		{
-		pushFollow(FOLLOW_in_predicate_in_synpred199_DDL7811);
-		in_predicate();
+		pushFollow(FOLLOW_like_predicate_in_synpred199_DDL7809);
+		like_predicate();
 		state._fsp--;
 		if (state.failed) return;
 
@@ -22542,27 +22503,12 @@ public class DDLParser extends Parser {
 	}
 	// $ANTLR end synpred199_DDL
 
-	// $ANTLR start synpred200_DDL
-	public final void synpred200_DDL_fragment() throws RecognitionException {
-		// DDL.g:1038:5: ( like_predicate )
-		// DDL.g:1038:5: like_predicate
+	// $ANTLR start synpred230_DDL
+	public final void synpred230_DDL_fragment() throws RecognitionException {
+		// DDL.g:1159:5: ( numeric_value_expression )
+		// DDL.g:1159:5: numeric_value_expression
 		{
-		pushFollow(FOLLOW_like_predicate_in_synpred200_DDL7817);
-		like_predicate();
-		state._fsp--;
-		if (state.failed) return;
-
-		}
-
-	}
-	// $ANTLR end synpred200_DDL
-
-	// $ANTLR start synpred231_DDL
-	public final void synpred231_DDL_fragment() throws RecognitionException {
-		// DDL.g:1158:5: ( numeric_value_expression )
-		// DDL.g:1158:5: numeric_value_expression
-		{
-		pushFollow(FOLLOW_numeric_value_expression_in_synpred231_DDL8484);
+		pushFollow(FOLLOW_numeric_value_expression_in_synpred230_DDL8476);
 		numeric_value_expression();
 		state._fsp--;
 		if (state.failed) return;
@@ -22570,29 +22516,15 @@ public class DDLParser extends Parser {
 		}
 
 	}
-	// $ANTLR end synpred231_DDL
+	// $ANTLR end synpred230_DDL
 
 	// Delegated rules
 
-	public final boolean synpred154_DDL() {
+	public final boolean synpred153_DDL() {
 		state.backtracking++;
 		int start = input.mark();
 		try {
-			synpred154_DDL_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
-	public final boolean synpred200_DDL() {
-		state.backtracking++;
-		int start = input.mark();
-		try {
-			synpred200_DDL_fragment(); // can never throw exception
+			synpred153_DDL_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -22616,6 +22548,20 @@ public class DDLParser extends Parser {
 		state.failed=false;
 		return success;
 	}
+	public final boolean synpred151_DDL() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred151_DDL_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
 	public final boolean synpred195_DDL() {
 		state.backtracking++;
 		int start = input.mark();
@@ -22630,25 +22576,11 @@ public class DDLParser extends Parser {
 		state.failed=false;
 		return success;
 	}
-	public final boolean synpred150_DDL() {
+	public final boolean synpred230_DDL() {
 		state.backtracking++;
 		int start = input.mark();
 		try {
-			synpred150_DDL_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
-	public final boolean synpred231_DDL() {
-		state.backtracking++;
-		int start = input.mark();
-		try {
-			synpred231_DDL_fragment(); // can never throw exception
+			synpred230_DDL_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -22714,11 +22646,11 @@ public class DDLParser extends Parser {
 		state.failed=false;
 		return success;
 	}
-	public final boolean synpred152_DDL() {
+	public final boolean synpred194_DDL() {
 		state.backtracking++;
 		int start = input.mark();
 		try {
-			synpred152_DDL_fragment(); // can never throw exception
+			synpred194_DDL_fragment(); // can never throw exception
 		} catch (RecognitionException re) {
 			System.err.println("impossible: "+re);
 		}
@@ -22759,631 +22691,627 @@ public class DDLParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_boolean_type_in_data_type3131 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_bit_type_in_data_type3137 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_varbit_type_in_data_type3143 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_binary_type_in_data_type3149 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_varbinary_type_in_data_type3155 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_blob_type_in_data_type3161 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INET4_in_data_type3167 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_character_string_type_in_data_type3173 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_datetime_type_in_data_type3179 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_type_in_data_type3185 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_char_type_in_character_string_type3197 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_varchar_type_in_character_string_type3203 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_nchar_type_in_character_string_type3209 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_nvarchar_type_in_character_string_type3215 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TEXT_in_character_string_type3221 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_int1_type_in_numeric_type3233 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_int2_type_in_numeric_type3239 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_int4_type_in_numeric_type3245 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_int8_type_in_numeric_type3251 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_float4_type_in_numeric_type3257 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_float_type_in_numeric_type3263 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_float8_type_in_numeric_type3269 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_number_type_in_numeric_type3275 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DATE_in_datetime_type3287 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_datetime_type3293 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_timetz_type_in_datetime_type3299 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIMESTAMP_in_datetime_type3305 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_timestamptz_type_in_datetime_type3311 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_precision_param3323 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-	public static final BitSet FOLLOW_NUMBER_in_precision_param3326 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_precision_param3328 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_precision_param3335 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-	public static final BitSet FOLLOW_NUMBER_in_precision_param3338 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_COMMA_in_precision_param3340 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-	public static final BitSet FOLLOW_NUMBER_in_precision_param3343 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_precision_param3345 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_type_length3358 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-	public static final BitSet FOLLOW_NUMBER_in_type_length3361 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_type_length3363 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOLEAN_in_boolean_type3376 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOL_in_boolean_type3382 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BIT_in_bit_type3398 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_bit_type3400 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VARBIT_in_varbit_type3417 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_varbit_type3419 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BIT_in_varbit_type3430 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_VARYING_in_varbit_type3432 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_varbit_type3434 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT1_in_int1_type3451 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TINYINT_in_int1_type3457 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT2_in_int2_type3473 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SMALLINT_in_int2_type3479 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT4_in_int4_type3495 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT_in_int4_type3501 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_in_int4_type3511 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INT8_in_int8_type3527 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BIGINT_in_int8_type3533 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOAT4_in_float4_type3549 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_REAL_in_float4_type3555 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOAT_in_float_type3569 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_float_type3571 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOAT8_in_float8_type3590 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DOUBLE_in_float8_type3596 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DOUBLE_in_float8_type3606 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0040000000000000L});
-	public static final BitSet FOLLOW_PRECISION_in_float8_type3608 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUMERIC_in_number_type3624 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_precision_param_in_number_type3627 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DECIMAL_in_number_type3643 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_precision_param_in_number_type3646 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DEC_in_number_type3664 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_precision_param_in_number_type3671 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_in_char_type3695 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_char_type3697 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHARACTER_in_char_type3708 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_char_type3710 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VARCHAR_in_varchar_type3727 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_varchar_type3729 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHARACTER_in_varchar_type3740 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_VARYING_in_varchar_type3742 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_varchar_type3744 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NCHAR_in_nchar_type3761 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_nchar_type3763 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NATIONAL_in_nchar_type3774 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_CHARACTER_in_nchar_type3776 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_nchar_type3778 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NVARCHAR_in_nvarchar_type3795 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_nvarchar_type3797 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NATIONAL_in_nvarchar_type3808 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_CHARACTER_in_nvarchar_type3810 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_VARYING_in_nvarchar_type3812 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_nvarchar_type3814 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIMETZ_in_timetz_type3831 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIME_in_timetz_type3837 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_WITH_in_timetz_type3839 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000800000000000L});
-	public static final BitSet FOLLOW_TIME_in_timetz_type3841 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
-	public static final BitSet FOLLOW_ZONE_in_timetz_type3843 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIMESTAMPTZ_in_timestamptz_type3859 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TIMESTAMP_in_timestamptz_type3865 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_WITH_in_timestamptz_type3867 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000800000000000L});
-	public static final BitSet FOLLOW_TIME_in_timestamptz_type3869 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
-	public static final BitSet FOLLOW_ZONE_in_timestamptz_type3871 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BINARY_in_binary_type3887 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_binary_type3889 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VARBINARY_in_varbinary_type3902 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_varbinary_type3904 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BINARY_in_varbinary_type3911 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_VARYING_in_varbinary_type3913 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_type_length_in_varbinary_type3915 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BLOB_in_blob_type3928 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BYTEA_in_blob_type3934 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_statement_in_sql3952 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_sql3954 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_schema_statement_in_statement3971 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_index_statement_in_statement3977 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_transaction_statement_in_statement3983 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_control_statement_in_statement3989 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_connection_statement_in_statement3995 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_create_table_statement_in_schema_statement4020 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_create_view_statement_in_schema_statement4026 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_create_alias_statement_in_schema_statement4032 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_drop_alias_statement_in_schema_statement4038 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_drop_table_statement_in_schema_statement4044 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_drop_view_statement_in_schema_statement4050 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rename_table_statement_in_schema_statement4057 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_create_index_statement_in_index_statement4075 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_drop_index_statement_in_index_statement4083 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rename_index_statement_in_index_statement4093 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_commit_statement_in_transaction_statement4108 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_lock_statement_in_transaction_statement4117 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_release_statement_in_transaction_statement4123 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rollback_statement_in_transaction_statement4129 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_set_transaction_statement_in_transaction_statement4136 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_connect_statement_in_connection_statement4148 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_disconnect_statement_in_connection_statement4154 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_set_connection_statement_in_connection_statement4160 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_call_procedure_in_control_statement4173 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CREATE_in_create_index_statement4192 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L,0x0000000000000000L,0x0800000000000000L});
-	public static final BitSet FOLLOW_UNIQUE_in_create_index_statement4197 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-	public static final BitSet FOLLOW_INDEX_in_create_index_statement4201 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_qualified_identifier_in_create_index_statement4205 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000080000000000L});
-	public static final BitSet FOLLOW_ON_in_create_index_statement4207 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_create_index_statement4211 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L,0x4000000000000000L});
-	public static final BitSet FOLLOW_method_specifier_in_create_index_statement4216 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_create_index_statement4224 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_sort_specifier_list_in_create_index_statement4228 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_create_index_statement4230 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_param_clause_in_create_index_statement4234 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_index_statement4287 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-	public static final BitSet FOLLOW_INDEX_in_drop_index_statement4289 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_index_statement4293 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CREATE_in_create_table_statement4322 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
-	public static final BitSet FOLLOW_EXTERNAL_in_create_table_statement4324 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_create_table_statement4326 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_create_table_statement4330 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_table_elements_in_create_table_statement4334 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_USING_in_create_table_statement4336 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_create_table_statement4340 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000004000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_param_clause_in_create_table_statement4348 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
-	public static final BitSet FOLLOW_LOCATION_in_create_table_statement4352 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_Character_String_Literal_in_create_table_statement4356 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CREATE_in_create_table_statement4418 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_create_table_statement4420 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_create_table_statement4424 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000200L,0x4000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_table_elements_in_create_table_statement4429 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000000L,0x4000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_USING_in_create_table_statement4434 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_create_table_statement4438 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_param_clause_in_create_table_statement4449 = new BitSet(new long[]{0x0000000000000802L});
-	public static final BitSet FOLLOW_AS_in_create_table_statement4454 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000204L,0x0000000000400000L});
-	public static final BitSet FOLLOW_query_expression_in_create_table_statement4458 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_table_elements4519 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_field_element_in_table_elements4521 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_COMMA_in_table_elements4524 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_field_element_in_table_elements4526 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_table_elements4530 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_field_element4554 = new BitSet(new long[]{0x0D000000617E0000L,0x1F900001E0000010L,0x0000018014000000L,0x000FA00200000008L,0x000000000000000EL});
-	public static final BitSet FOLLOW_FOR_in_field_element4557 = new BitSet(new long[]{0x0000000100000000L});
-	public static final BitSet FOLLOW_COLUMN_in_field_element4559 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_field_element4563 = new BitSet(new long[]{0x0D000000617E0000L,0x1F900000E0000010L,0x0000018014000000L,0x000FA00200000008L,0x000000000000000EL});
-	public static final BitSet FOLLOW_field_type_in_field_element4567 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000080000000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_not_null_in_field_element4570 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_with_default_in_field_element4575 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NOT_in_not_null4625 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000800000000L});
-	public static final BitSet FOLLOW_NULL_in_not_null4627 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WITH_in_with_default4648 = new BitSet(new long[]{0x1000000000000000L});
-	public static final BitSet FOLLOW_DEFAULT_in_with_default4650 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_data_type_in_field_type4676 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CREATE_in_create_view_statement4692 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_VIEW_in_create_view_statement4694 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_create_view_statement4698 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000204L});
-	public static final BitSet FOLLOW_ordinary_grouping_set_in_create_view_statement4703 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CREATE_in_create_alias_statement4751 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000200000000000L});
-	public static final BitSet FOLLOW_or_replace_in_create_alias_statement4754 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ALIAS_in_create_alias_statement4758 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_create_alias_statement4762 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-	public static final BitSet FOLLOW_FOR_in_create_alias_statement4764 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_create_alias_statement4768 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OR_in_or_replace4811 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_REPLACE_in_or_replace4813 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_alias_statement4832 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ALIAS_in_drop_alias_statement4834 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_alias_statement4838 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMMIT_in_commit_statement4865 = new BitSet(new long[]{0x0000000000000002L,0x0000800000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_WORK_in_commit_statement4869 = new BitSet(new long[]{0x0000000000000002L,0x0000800000000000L});
-	public static final BitSet FOLLOW_HOLD_in_commit_statement4876 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CONNECT_in_connect_statement4900 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
-	public static final BitSet FOLLOW_TO_in_connect_statement4903 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_connect_statement4908 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x2000000000000000L});
-	public static final BitSet FOLLOW_USER_in_connect_statement4911 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_connect_statement4915 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_USING_in_connect_statement4917 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_Character_String_Literal_in_connect_statement4921 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CONNECT_in_connect_statement4966 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-	public static final BitSet FOLLOW_RESET_in_connect_statement4968 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DISCONNECT_in_disconnect_statement4988 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DISCONNECT_in_disconnect_statement5004 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ALL_in_disconnect_statement5006 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DISCONNECT_in_disconnect_statement5024 = new BitSet(new long[]{0x0010000000000000L});
-	public static final BitSet FOLLOW_CURRENT_in_disconnect_statement5026 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_table_statement5050 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_drop_table_statement5052 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_table_statement5056 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_table_statement5076 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_drop_table_statement5078 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_table_statement5082 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
-	public static final BitSet FOLLOW_restrict_in_drop_table_statement5084 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_table_statement5105 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_drop_table_statement5107 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_table_statement5111 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_cascade_in_drop_table_statement5113 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_view_statement5147 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_VIEW_in_drop_view_statement5149 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_view_statement5153 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_view_statement5173 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_VIEW_in_drop_view_statement5175 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_view_statement5179 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
-	public static final BitSet FOLLOW_restrict_in_drop_view_statement5181 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DROP_in_drop_view_statement5202 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_VIEW_in_drop_view_statement5204 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_drop_view_statement5208 = new BitSet(new long[]{0x0000000008000000L});
-	public static final BitSet FOLLOW_cascade_in_drop_view_statement5210 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RESTRICT_in_restrict5247 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CASCADE_in_cascade5266 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LOCK_in_lock_statement5285 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_lock_statement5287 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_lock_statement5291 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_IN_in_lock_statement5293 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000040000000L});
-	public static final BitSet FOLLOW_SHARE_in_lock_statement5295 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000200000L});
-	public static final BitSet FOLLOW_MODE_in_lock_statement5297 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LOCK_in_lock_statement5321 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_lock_statement5323 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_lock_statement5327 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_IN_in_lock_statement5329 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
-	public static final BitSet FOLLOW_EXCLUSIVE_in_lock_statement5331 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000200000L});
-	public static final BitSet FOLLOW_MODE_in_lock_statement5333 = new BitSet(new long[]{0x0000000000000102L});
-	public static final BitSet FOLLOW_allow_read_in_lock_statement5336 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ALLOW_in_allow_read5374 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_READ_in_allow_read5376 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RENAME_in_rename_table_statement5395 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000020000000000L});
-	public static final BitSet FOLLOW_TABLE_in_rename_table_statement5397 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_rename_table_statement5401 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
-	public static final BitSet FOLLOW_TO_in_rename_table_statement5403 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_rename_table_statement5407 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-	public static final BitSet FOLLOW_FOR_in_rename_table_statement5409 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-	public static final BitSet FOLLOW_SYSTEM_in_rename_table_statement5411 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
-	public static final BitSet FOLLOW_NAME_in_rename_table_statement5413 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_rename_table_statement5417 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RENAME_in_rename_index_statement5457 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
-	public static final BitSet FOLLOW_INDEX_in_rename_index_statement5459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_rename_index_statement5463 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0010000000000000L});
-	public static final BitSet FOLLOW_TO_in_rename_index_statement5465 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_rename_index_statement5469 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-	public static final BitSet FOLLOW_FOR_in_rename_index_statement5471 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-	public static final BitSet FOLLOW_SYSTEM_in_rename_index_statement5473 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
-	public static final BitSet FOLLOW_NAME_in_rename_index_statement5475 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_rename_index_statement5479 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RELEASE_in_release_statement5520 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RELEASE_in_release_statement5536 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_ALL_in_release_statement5538 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RELEASE_in_release_statement5556 = new BitSet(new long[]{0x0010000000000000L});
-	public static final BitSet FOLLOW_CURRENT_in_release_statement5558 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ROLLBACK_in_rollback_statement5580 = new BitSet(new long[]{0x0000000000000002L,0x0000800000000000L});
-	public static final BitSet FOLLOW_HOLD_in_rollback_statement5585 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SET_in_set_connection_statement5612 = new BitSet(new long[]{0x0000010000000000L});
-	public static final BitSet FOLLOW_CONNECTION_in_set_connection_statement5614 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_set_connection_statement5618 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SET_in_set_transaction_statement5644 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
-	public static final BitSet FOLLOW_TRANSACTION_in_set_transaction_statement5646 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-	public static final BitSet FOLLOW_ISOLATION_in_set_transaction_statement5648 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
-	public static final BitSet FOLLOW_LEVEL_in_set_transaction_statement5650 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000040000000L,0x0000000002000400L});
-	public static final BitSet FOLLOW_isolation_level_in_set_transaction_statement5654 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_set_transaction_statement5657 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_read_operation_in_set_transaction_statement5661 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SERIALIZABLE_in_isolation_level5702 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_no_commit_in_isolation_level5708 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_uncommitted_in_isolation_level5714 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_committed_in_isolation_level5720 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_repeatable_read_in_isolation_level5726 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NO_in_no_commit5740 = new BitSet(new long[]{0x0000001000000000L});
-	public static final BitSet FOLLOW_COMMIT_in_no_commit5742 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read_uncommitted5765 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
-	public static final BitSet FOLLOW_UNCOMMITTED_in_read_uncommitted5767 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read_committed5786 = new BitSet(new long[]{0x0000002000000000L});
-	public static final BitSet FOLLOW_COMMITTED_in_read_committed5788 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_REPEATABLE_in_repeatable_read5809 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_READ_in_repeatable_read5811 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_only_in_read_operation5830 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_write_in_read_operation5836 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read_only5849 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100000000000L});
-	public static final BitSet FOLLOW_ONLY_in_read_only5851 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read_write5871 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
-	public static final BitSet FOLLOW_WRITE_in_read_write5873 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CALL_in_call_procedure5896 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_qualified_identifier_in_call_procedure5900 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_call_procedure5903 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000010010L});
-	public static final BitSet FOLLOW_funcArgs_in_call_procedure5905 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_call_procedure5908 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INSERT_in_insert_statement5942 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
-	public static final BitSet FOLLOW_275_in_insert_statement5944 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_in_insert_statement5946 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_insert_statement5949 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_column_reference_list_in_insert_statement5951 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_insert_statement5953 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_276_in_insert_statement5957 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_array_in_insert_statement5959 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_query_expression_body_in_query_expression6006 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_non_join_query_expression_in_query_expression_body6018 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_joined_table_in_query_expression_body6024 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_non_join_query_term_in_non_join_query_expression6037 = new BitSet(new long[]{0x0000000000000002L,0x0000000000040000L,0x0000000000000000L,0x0400000000000000L});
-	public static final BitSet FOLLOW_joined_table_in_non_join_query_expression6041 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L,0x0000000000000000L,0x0400000000000000L});
-	public static final BitSet FOLLOW_set_in_non_join_query_expression6043 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000002L,0x0000000000000204L,0x0000000000400000L});
-	public static final BitSet FOLLOW_query_term_in_non_join_query_expression6059 = new BitSet(new long[]{0x0000000000000002L,0x0000000000040000L,0x0000000000000000L,0x0400000000000000L});
-	public static final BitSet FOLLOW_set_in_non_join_query_expression6067 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000002L,0x0000000000000204L,0x0000000000400000L});
-	public static final BitSet FOLLOW_query_term_in_non_join_query_expression6083 = new BitSet(new long[]{0x0000000000000002L,0x0000000000040000L,0x0000000000000000L,0x0400000000000000L});
-	public static final BitSet FOLLOW_non_join_query_term_in_query_term6097 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_joined_table_in_query_term6103 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_non_join_query_primary_in_non_join_query_term6117 = new BitSet(new long[]{0x0000000000000002L,0x2000000000000000L});
-	public static final BitSet FOLLOW_joined_table_in_non_join_query_term6121 = new BitSet(new long[]{0x0000000000000000L,0x2000000000000000L});
-	public static final BitSet FOLLOW_INTERSECT_in_non_join_query_term6123 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000002L,0x0000000000000204L,0x0000000000400000L});
-	public static final BitSet FOLLOW_query_primary_in_non_join_query_term6133 = new BitSet(new long[]{0x0000000000000002L,0x2000000000000000L});
-	public static final BitSet FOLLOW_INTERSECT_in_non_join_query_term6141 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000002L,0x0000000000000204L,0x0000000000400000L});
-	public static final BitSet FOLLOW_query_primary_in_non_join_query_term6151 = new BitSet(new long[]{0x0000000000000002L,0x2000000000000000L});
-	public static final BitSet FOLLOW_non_join_query_primary_in_query_primary6165 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_joined_table_in_query_primary6171 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_simple_table_in_non_join_query_primary6183 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_non_join_query_primary6189 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000204L,0x0000000000400000L});
-	public static final BitSet FOLLOW_non_join_query_expression_in_non_join_query_primary6191 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_non_join_query_primary6193 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_query_specification_in_simple_table6214 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SELECT_in_query_specification6226 = new BitSet(new long[]{0x0020040010000080L,0x0000000000000002L,0x0020004880900204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_set_qualifier_in_query_specification6228 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880900204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_select_list_in_query_specification6231 = new BitSet(new long[]{0x0000000000000002L,0x0000220800000000L,0x0000400000002000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_from_clause_in_query_specification6233 = new BitSet(new long[]{0x0000000000000002L,0x0000220000000000L,0x0000400000002000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_where_clause_in_query_specification6236 = new BitSet(new long[]{0x0000000000000002L,0x0000220000000000L,0x0000400000002000L});
-	public static final BitSet FOLLOW_groupby_clause_in_query_specification6239 = new BitSet(new long[]{0x0000000000000002L,0x0000200000000000L,0x0000400000002000L});
-	public static final BitSet FOLLOW_having_clause_in_query_specification6242 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000400000002000L});
-	public static final BitSet FOLLOW_orderby_clause_in_query_specification6249 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000002000L});
-	public static final BitSet FOLLOW_limit_clause_in_query_specification6252 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MULTIPLY_in_select_list6302 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_derived_column_in_select_list6316 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_select_list6319 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_derived_column_in_select_list6321 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_DISTINCT_in_set_qualifier6344 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ALL_in_set_qualifier6358 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_derived_column6378 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_as_clause_in_derived_column6380 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_column_reference6409 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_COMMA_in_column_reference6411 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_column_reference6417 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_AS_in_as_clause6444 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_column_reference_in_as_clause6448 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_column_reference_in_column_reference_list6459 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_column_reference_list6462 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_column_reference_in_column_reference_list6464 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_Identifier_in_table6482 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_qualified_identifier_in_table6494 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_qualified_identifier6509 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_DIVIDE_in_qualified_identifier6511 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_qualified_identifier6515 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_qualified_identifier6518 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_qualified_identifier6522 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_qualified_identifier6524 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_member6559 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_DIVIDE_in_member6561 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_member6565 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_member6567 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_member6571 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_member6573 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FROM_in_from_clause6608 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_reference_list_in_from_clause6611 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_table_reference_in_table_reference_list6622 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_table_reference_list6625 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_reference_in_table_reference_list6627 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_table_primary_in_table_reference6646 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_joined_table_in_table_reference6652 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_table_primary_in_joined_table6664 = new BitSet(new long[]{0x0004000000000000L,0x0020001000000000L,0x0000000008000110L,0x0400000000008000L});
-	public static final BitSet FOLLOW_cross_join_in_joined_table6667 = new BitSet(new long[]{0x0004000000000002L,0x0020001000000000L,0x0000000008000110L,0x0400000000008000L});
-	public static final BitSet FOLLOW_qualified_join_in_joined_table6671 = new BitSet(new long[]{0x0004000000000002L,0x0020001000000000L,0x0000000008000110L,0x0400000000008000L});
-	public static final BitSet FOLLOW_natural_join_in_joined_table6675 = new BitSet(new long[]{0x0004000000000002L,0x0020001000000000L,0x0000000008000110L,0x0400000000008000L});
-	public static final BitSet FOLLOW_union_join_in_joined_table6679 = new BitSet(new long[]{0x0004000000000002L,0x0020001000000000L,0x0000000008000110L,0x0400000000008000L});
-	public static final BitSet FOLLOW_cross_join_in_joined_table_prim6693 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_qualified_join_in_joined_table_prim6699 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_natural_join_in_joined_table_prim6705 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_union_join_in_joined_table_prim6711 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CROSS_in_cross_join6723 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_JOIN_in_cross_join6725 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_primary_in_cross_join6729 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_join_type_in_qualified_join6755 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_JOIN_in_qualified_join6759 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_primary_in_qualified_join6763 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000080000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_join_specification_in_qualified_join6767 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NATURAL_in_natural_join6795 = new BitSet(new long[]{0x0000000000000000L,0x0020001000000000L,0x0000000000000110L,0x0000000000008000L});
-	public static final BitSet FOLLOW_join_type_in_natural_join6800 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_JOIN_in_natural_join6804 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_primary_in_natural_join6808 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_UNION_in_union_join6835 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_JOIN_in_union_join6837 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_table_primary_in_union_join6841 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INNER_in_join_type6864 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_outer_join_type_in_join_type6872 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_OUTER_in_join_type6874 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_outer_join_type_in_join_type6891 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_join_condition_in_join_specification6936 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_named_columns_join_in_join_specification6942 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ON_in_join_condition6954 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_search_condition_in_join_condition6957 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_USING_in_named_columns_join6969 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_named_columns_join6971 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_column_reference_list_in_named_columns_join6975 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_named_columns_join6977 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_table_in_table_primary6998 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_AS_in_table_primary7002 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_table_primary7008 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHERE_in_where_clause7036 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_search_condition_in_where_clause7039 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_routine_invocation7052 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_routine_invocation7054 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000010010L});
-	public static final BitSet FOLLOW_funcArgs_in_routine_invocation7056 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_routine_invocation7059 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COUNT_in_routine_invocation7074 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_routine_invocation7076 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_funcArgs_in_routine_invocation7078 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_routine_invocation7080 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COUNT_in_routine_invocation7093 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_routine_invocation7095 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-	public static final BitSet FOLLOW_MULTIPLY_in_routine_invocation7097 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_routine_invocation7099 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_funcArgs7116 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_funcArgs7119 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_funcArgs7121 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_GROUP_in_groupby_clause7142 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_BY_in_groupby_clause7144 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000000204L,0x0000000000080000L});
-	public static final BitSet FOLLOW_grouping_element_list_in_groupby_clause7148 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_grouping_element_in_grouping_element_list7169 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_grouping_element_list7172 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x0000000000000204L,0x0000000000080000L});
-	public static final BitSet FOLLOW_grouping_element_in_grouping_element_list7174 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_ordinary_grouping_set_in_grouping_element7193 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rollup_list_in_grouping_element7199 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_cube_list_in_grouping_element7205 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_empty_grouping_set_in_grouping_element7211 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_column_reference_list_in_ordinary_grouping_set7223 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_ordinary_grouping_set7229 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_column_reference_list_in_ordinary_grouping_set7232 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_ordinary_grouping_set7234 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ROLLUP_in_rollup_list7247 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_rollup_list7249 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000204L});
-	public static final BitSet FOLLOW_ordinary_grouping_set_in_rollup_list7253 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_rollup_list7255 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CUBE_in_cube_list7276 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_cube_list7278 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000204L});
-	public static final BitSet FOLLOW_ordinary_grouping_set_in_cube_list7282 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_cube_list7284 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_empty_grouping_set7305 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_empty_grouping_set7307 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_HAVING_in_having_clause7325 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_having_clause7328 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ORDER_in_orderby_clause7342 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_BY_in_orderby_clause7344 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_sort_specifier_list_in_orderby_clause7346 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_sort_specifier_in_sort_specifier_list7366 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_sort_specifier_list7369 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_sort_specifier_in_sort_specifier_list7371 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_column_reference_in_sort_specifier7396 = new BitSet(new long[]{0x2000000000001002L,0x0000000000000000L,0x0000000800000000L});
-	public static final BitSet FOLLOW_order_specification_in_sort_specifier7400 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000800000000L});
-	public static final BitSet FOLLOW_null_ordering_in_sort_specifier7405 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ASC_in_order_specification7435 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DESC_in_order_specification7449 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LIMIT_in_limit_clause7469 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_limit_clause7473 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NULL_in_null_ordering7494 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
-	public static final BitSet FOLLOW_FIRST_in_null_ordering7496 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NULL_in_null_ordering7510 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
-	public static final BitSet FOLLOW_LAST_in_null_ordering7512 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_search_condition7534 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WITH_in_param_clause7545 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_param_clause7547 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_param_in_param_clause7549 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_COMMA_in_param_clause7552 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_param_in_param_clause7554 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_param_clause7558 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Character_String_Literal_in_param7581 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_EQUAL_in_param7583 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_param7587 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_USING_in_method_specifier7611 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_method_specifier7615 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_and_predicate_in_boolean_value_expression7635 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000200000000000L});
-	public static final BitSet FOLLOW_OR_in_boolean_value_expression7638 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_and_predicate_in_boolean_value_expression7641 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000200000000000L});
-	public static final BitSet FOLLOW_boolean_factor_in_and_predicate7654 = new BitSet(new long[]{0x0000000000000402L});
-	public static final BitSet FOLLOW_AND_in_and_predicate7657 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_factor_in_and_predicate7660 = new BitSet(new long[]{0x0000000000000402L});
+	public static final BitSet FOLLOW_boolean_type_in_data_type3136 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_bit_type_in_data_type3142 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_varbit_type_in_data_type3148 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_binary_type_in_data_type3154 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_varbinary_type_in_data_type3160 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_blob_type_in_data_type3166 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INET4_in_data_type3172 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_character_string_type_in_data_type3178 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_datetime_type_in_data_type3184 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_type_in_data_type3190 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_char_type_in_character_string_type3202 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_varchar_type_in_character_string_type3208 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_nchar_type_in_character_string_type3214 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_nvarchar_type_in_character_string_type3220 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TEXT_in_character_string_type3226 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_int1_type_in_numeric_type3238 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_int2_type_in_numeric_type3244 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_int4_type_in_numeric_type3250 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_int8_type_in_numeric_type3256 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_float4_type_in_numeric_type3262 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_float_type_in_numeric_type3268 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_float8_type_in_numeric_type3274 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_number_type_in_numeric_type3280 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DATE_in_datetime_type3292 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_datetime_type3298 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_timetz_type_in_datetime_type3304 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIMESTAMP_in_datetime_type3310 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_timestamptz_type_in_datetime_type3316 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_precision_param3328 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
+	public static final BitSet FOLLOW_NUMBER_in_precision_param3331 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_precision_param3333 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_precision_param3340 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
+	public static final BitSet FOLLOW_NUMBER_in_precision_param3343 = new BitSet(new long[]{0x0000000800000000L});
+	public static final BitSet FOLLOW_COMMA_in_precision_param3345 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
+	public static final BitSet FOLLOW_NUMBER_in_precision_param3348 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_precision_param3350 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_type_length3363 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
+	public static final BitSet FOLLOW_NUMBER_in_type_length3366 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_type_length3368 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOLEAN_in_boolean_type3381 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOL_in_boolean_type3387 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BIT_in_bit_type3403 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_bit_type3405 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VARBIT_in_varbit_type3422 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_varbit_type3424 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BIT_in_varbit_type3435 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_VARYING_in_varbit_type3437 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_varbit_type3439 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT1_in_int1_type3456 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TINYINT_in_int1_type3462 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT2_in_int2_type3478 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SMALLINT_in_int2_type3484 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT4_in_int4_type3500 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT_in_int4_type3506 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_in_int4_type3516 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INT8_in_int8_type3532 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BIGINT_in_int8_type3538 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOAT4_in_float4_type3554 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_REAL_in_float4_type3560 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOAT_in_float_type3574 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_float_type3576 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOAT8_in_float8_type3595 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DOUBLE_in_float8_type3601 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DOUBLE_in_float8_type3611 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0080000000000000L});
+	public static final BitSet FOLLOW_PRECISION_in_float8_type3613 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUMERIC_in_number_type3629 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_precision_param_in_number_type3632 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DECIMAL_in_number_type3648 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_precision_param_in_number_type3651 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DEC_in_number_type3669 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_precision_param_in_number_type3676 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_in_char_type3700 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_char_type3702 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHARACTER_in_char_type3713 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_char_type3715 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VARCHAR_in_varchar_type3732 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_varchar_type3734 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHARACTER_in_varchar_type3745 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_VARYING_in_varchar_type3747 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_varchar_type3749 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NCHAR_in_nchar_type3766 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_nchar_type3768 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NATIONAL_in_nchar_type3779 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_CHARACTER_in_nchar_type3781 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_nchar_type3783 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NVARCHAR_in_nvarchar_type3800 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_nvarchar_type3802 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NATIONAL_in_nvarchar_type3813 = new BitSet(new long[]{0x0000000040000000L});
+	public static final BitSet FOLLOW_CHARACTER_in_nvarchar_type3815 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_VARYING_in_nvarchar_type3817 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_nvarchar_type3819 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIMETZ_in_timetz_type3836 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIME_in_timetz_type3842 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_WITH_in_timetz_type3844 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0001000000000000L});
+	public static final BitSet FOLLOW_TIME_in_timetz_type3846 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
+	public static final BitSet FOLLOW_ZONE_in_timetz_type3848 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIMESTAMPTZ_in_timestamptz_type3864 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TIMESTAMP_in_timestamptz_type3870 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_WITH_in_timestamptz_type3872 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0001000000000000L});
+	public static final BitSet FOLLOW_TIME_in_timestamptz_type3874 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
+	public static final BitSet FOLLOW_ZONE_in_timestamptz_type3876 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BINARY_in_binary_type3892 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_binary_type3894 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VARBINARY_in_varbinary_type3907 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_varbinary_type3909 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BINARY_in_varbinary_type3916 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_VARYING_in_varbinary_type3918 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_type_length_in_varbinary_type3920 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BLOB_in_blob_type3933 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BYTEA_in_blob_type3939 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_statement_in_sql3957 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_sql3959 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_schema_statement_in_statement3976 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_index_statement_in_statement3982 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_transaction_statement_in_statement3988 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_control_statement_in_statement3994 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_connection_statement_in_statement4000 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_create_table_statement_in_schema_statement4025 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_create_view_statement_in_schema_statement4031 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_create_alias_statement_in_schema_statement4037 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_drop_alias_statement_in_schema_statement4043 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_drop_table_statement_in_schema_statement4049 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_drop_view_statement_in_schema_statement4055 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rename_table_statement_in_schema_statement4062 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_create_index_statement_in_index_statement4080 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_drop_index_statement_in_index_statement4088 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rename_index_statement_in_index_statement4098 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_commit_statement_in_transaction_statement4113 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_lock_statement_in_transaction_statement4122 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_release_statement_in_transaction_statement4128 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rollback_statement_in_transaction_statement4134 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_set_transaction_statement_in_transaction_statement4141 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_connect_statement_in_connection_statement4153 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_disconnect_statement_in_connection_statement4159 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_set_connection_statement_in_connection_statement4165 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_call_procedure_in_control_statement4178 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CREATE_in_create_index_statement4197 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_UNIQUE_in_create_index_statement4202 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+	public static final BitSet FOLLOW_INDEX_in_create_index_statement4206 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_qualified_identifier_in_create_index_statement4210 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100000000000L});
+	public static final BitSet FOLLOW_ON_in_create_index_statement4212 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_create_index_statement4216 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L,0x8000000000000000L});
+	public static final BitSet FOLLOW_method_specifier_in_create_index_statement4221 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_create_index_statement4229 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_sort_specifier_list_in_create_index_statement4233 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_create_index_statement4235 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_param_clause_in_create_index_statement4239 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_index_statement4292 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+	public static final BitSet FOLLOW_INDEX_in_drop_index_statement4294 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_index_statement4298 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CREATE_in_create_table_statement4327 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_EXTERNAL_in_create_table_statement4329 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_create_table_statement4331 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_create_table_statement4335 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_table_elements_in_create_table_statement4339 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_USING_in_create_table_statement4341 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_create_table_statement4345 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000008000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_param_clause_in_create_table_statement4353 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+	public static final BitSet FOLLOW_LOCATION_in_create_table_statement4357 = new BitSet(new long[]{0x0040000000000000L});
+	public static final BitSet FOLLOW_Character_String_Literal_in_create_table_statement4361 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CREATE_in_create_table_statement4423 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_create_table_statement4425 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_create_table_statement4429 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000400L,0x8000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_table_elements_in_create_table_statement4434 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_USING_in_create_table_statement4439 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_create_table_statement4443 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_param_clause_in_create_table_statement4454 = new BitSet(new long[]{0x0000000000000802L});
+	public static final BitSet FOLLOW_AS_in_create_table_statement4459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000408L,0x0000000000800000L});
+	public static final BitSet FOLLOW_query_expression_in_create_table_statement4463 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_table_elements4524 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_field_element_in_table_elements4526 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_COMMA_in_table_elements4529 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_field_element_in_table_elements4531 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_table_elements4535 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_field_element4559 = new BitSet(new long[]{0x1A000000617E0000L,0x3F200003C0000020L,0x0000030028000000L,0x001F400400000010L,0x000000000000001CL});
+	public static final BitSet FOLLOW_FOR_in_field_element4562 = new BitSet(new long[]{0x0000000100000000L});
+	public static final BitSet FOLLOW_COLUMN_in_field_element4564 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_field_element4568 = new BitSet(new long[]{0x1A000000617E0000L,0x3F200001C0000020L,0x0000030028000000L,0x001F400400000010L,0x000000000000001CL});
+	public static final BitSet FOLLOW_field_type_in_field_element4572 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000100000000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_not_null_in_field_element4575 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_with_default_in_field_element4580 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NOT_in_not_null4630 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+	public static final BitSet FOLLOW_NULL_in_not_null4632 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WITH_in_with_default4653 = new BitSet(new long[]{0x2000000000000000L});
+	public static final BitSet FOLLOW_DEFAULT_in_with_default4655 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_data_type_in_field_type4681 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CREATE_in_create_view_statement4697 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+	public static final BitSet FOLLOW_VIEW_in_create_view_statement4699 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_create_view_statement4703 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000408L});
+	public static final BitSet FOLLOW_ordinary_grouping_set_in_create_view_statement4708 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CREATE_in_create_alias_statement4756 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000000L,0x0000400000000000L});
+	public static final BitSet FOLLOW_or_replace_in_create_alias_statement4759 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ALIAS_in_create_alias_statement4763 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_create_alias_statement4767 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+	public static final BitSet FOLLOW_FOR_in_create_alias_statement4769 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_create_alias_statement4773 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OR_in_or_replace4816 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+	public static final BitSet FOLLOW_REPLACE_in_or_replace4818 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_alias_statement4837 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ALIAS_in_drop_alias_statement4839 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_alias_statement4843 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COMMIT_in_commit_statement4870 = new BitSet(new long[]{0x0000000000000002L,0x0001000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+	public static final BitSet FOLLOW_WORK_in_commit_statement4874 = new BitSet(new long[]{0x0000000000000002L,0x0001000000000000L});
+	public static final BitSet FOLLOW_HOLD_in_commit_statement4881 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CONNECT_in_connect_statement4905 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
+	public static final BitSet FOLLOW_TO_in_connect_statement4908 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_connect_statement4913 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
+	public static final BitSet FOLLOW_USER_in_connect_statement4916 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_connect_statement4920 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_USING_in_connect_statement4922 = new BitSet(new long[]{0x0040000000000000L});
+	public static final BitSet FOLLOW_Character_String_Literal_in_connect_statement4926 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CONNECT_in_connect_statement4971 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
+	public static final BitSet FOLLOW_RESET_in_connect_statement4973 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DISCONNECT_in_disconnect_statement4993 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DISCONNECT_in_disconnect_statement5009 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ALL_in_disconnect_statement5011 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DISCONNECT_in_disconnect_statement5029 = new BitSet(new long[]{0x0020000000000000L});
+	public static final BitSet FOLLOW_CURRENT_in_disconnect_statement5031 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_table_statement5055 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_drop_table_statement5057 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_table_statement5061 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_table_statement5081 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_drop_table_statement5083 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_table_statement5087 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+	public static final BitSet FOLLOW_restrict_in_drop_table_statement5089 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_table_statement5110 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_drop_table_statement5112 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_table_statement5116 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_cascade_in_drop_table_statement5118 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_view_statement5152 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+	public static final BitSet FOLLOW_VIEW_in_drop_view_statement5154 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_view_statement5158 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_view_statement5178 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+	public static final BitSet FOLLOW_VIEW_in_drop_view_statement5180 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_view_statement5184 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+	public static final BitSet FOLLOW_restrict_in_drop_view_statement5186 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DROP_in_drop_view_statement5207 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+	public static final BitSet FOLLOW_VIEW_in_drop_view_statement5209 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_drop_view_statement5213 = new BitSet(new long[]{0x0000000008000000L});
+	public static final BitSet FOLLOW_cascade_in_drop_view_statement5215 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RESTRICT_in_restrict5252 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CASCADE_in_cascade5271 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LOCK_in_lock_statement5290 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_lock_statement5292 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_lock_statement5296 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
+	public static final BitSet FOLLOW_IN_in_lock_statement5298 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000080000000L});
+	public static final BitSet FOLLOW_SHARE_in_lock_statement5300 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_MODE_in_lock_statement5302 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LOCK_in_lock_statement5326 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_lock_statement5328 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_lock_statement5332 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
+	public static final BitSet FOLLOW_IN_in_lock_statement5334 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_EXCLUSIVE_in_lock_statement5336 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_MODE_in_lock_statement5338 = new BitSet(new long[]{0x0000000000000102L});
+	public static final BitSet FOLLOW_allow_read_in_lock_statement5341 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ALLOW_in_allow_read5379 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_READ_in_allow_read5381 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RENAME_in_rename_table_statement5400 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_TABLE_in_rename_table_statement5402 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_rename_table_statement5406 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
+	public static final BitSet FOLLOW_TO_in_rename_table_statement5408 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_rename_table_statement5412 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+	public static final BitSet FOLLOW_FOR_in_rename_table_statement5414 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
+	public static final BitSet FOLLOW_SYSTEM_in_rename_table_statement5416 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+	public static final BitSet FOLLOW_NAME_in_rename_table_statement5418 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_rename_table_statement5422 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RENAME_in_rename_index_statement5462 = new BitSet(new long[]{0x0000000000000000L,0x0008000000000000L});
+	public static final BitSet FOLLOW_INDEX_in_rename_index_statement5464 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_rename_index_statement5468 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L});
+	public static final BitSet FOLLOW_TO_in_rename_index_statement5470 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_rename_index_statement5474 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+	public static final BitSet FOLLOW_FOR_in_rename_index_statement5476 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000008000000000L});
+	public static final BitSet FOLLOW_SYSTEM_in_rename_index_statement5478 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000004000000L});
+	public static final BitSet FOLLOW_NAME_in_rename_index_statement5480 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_rename_index_statement5484 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RELEASE_in_release_statement5525 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RELEASE_in_release_statement5541 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_ALL_in_release_statement5543 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RELEASE_in_release_statement5561 = new BitSet(new long[]{0x0020000000000000L});
+	public static final BitSet FOLLOW_CURRENT_in_release_statement5563 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ROLLBACK_in_rollback_statement5585 = new BitSet(new long[]{0x0000000000000002L,0x0001000000000000L});
+	public static final BitSet FOLLOW_HOLD_in_rollback_statement5590 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SET_in_set_connection_statement5617 = new BitSet(new long[]{0x0000020000000000L});
+	public static final BitSet FOLLOW_CONNECTION_in_set_connection_statement5619 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_set_connection_statement5623 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SET_in_set_transaction_statement5649 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0040000000000000L});
+	public static final BitSet FOLLOW_TRANSACTION_in_set_transaction_statement5651 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_ISOLATION_in_set_transaction_statement5653 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_LEVEL_in_set_transaction_statement5655 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000080000000L,0x0000000004000800L});
+	public static final BitSet FOLLOW_isolation_level_in_set_transaction_statement5659 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_set_transaction_statement5662 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_read_operation_in_set_transaction_statement5666 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SERIALIZABLE_in_isolation_level5707 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_no_commit_in_isolation_level5713 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_uncommitted_in_isolation_level5719 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_committed_in_isolation_level5725 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_repeatable_read_in_isolation_level5731 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NO_in_no_commit5745 = new BitSet(new long[]{0x0000002000000000L});
+	public static final BitSet FOLLOW_COMMIT_in_no_commit5747 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read_uncommitted5770 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0200000000000000L});
+	public static final BitSet FOLLOW_UNCOMMITTED_in_read_uncommitted5772 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read_committed5791 = new BitSet(new long[]{0x0000004000000000L});
+	public static final BitSet FOLLOW_COMMITTED_in_read_committed5793 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_REPEATABLE_in_repeatable_read5814 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_READ_in_repeatable_read5816 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_only_in_read_operation5835 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_write_in_read_operation5841 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read_only5854 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000200000000000L});
+	public static final BitSet FOLLOW_ONLY_in_read_only5856 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read_write5876 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
+	public static final BitSet FOLLOW_WRITE_in_read_write5878 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CALL_in_call_procedure5901 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_qualified_identifier_in_call_procedure5905 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_call_procedure5908 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000020020L});
+	public static final BitSet FOLLOW_funcArgs_in_call_procedure5910 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_call_procedure5913 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INSERT_in_insert_statement5947 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_276_in_insert_statement5949 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_in_insert_statement5951 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L,0x0000000000000000L,0x0000000000200000L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_insert_statement5954 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_column_reference_list_in_insert_statement5956 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_insert_statement5958 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000200000L});
+	public static final BitSet FOLLOW_277_in_insert_statement5962 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_array_in_insert_statement5964 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_query_expression_body_in_query_expression6011 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_non_join_query_expression_in_query_expression_body6023 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_joined_table_in_query_expression_body6029 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_non_join_query_term_in_non_join_query_expression6042 = new BitSet(new long[]{0x0000000000000002L,0x0000000000080000L,0x0000000000000000L,0x0800000000000000L});
+	public static final BitSet FOLLOW_joined_table_in_non_join_query_expression6046 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L,0x0000000000000000L,0x0800000000000000L});
+	public static final BitSet FOLLOW_set_in_non_join_query_expression6048 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000004L,0x0000000000000408L,0x0000000000800000L});
+	public static final BitSet FOLLOW_query_term_in_non_join_query_expression6064 = new BitSet(new long[]{0x0000000000000002L,0x0000000000080000L,0x0000000000000000L,0x0800000000000000L});
+	public static final BitSet FOLLOW_set_in_non_join_query_expression6072 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000004L,0x0000000000000408L,0x0000000000800000L});
+	public static final BitSet FOLLOW_query_term_in_non_join_query_expression6088 = new BitSet(new long[]{0x0000000000000002L,0x0000000000080000L,0x0000000000000000L,0x0800000000000000L});
+	public static final BitSet FOLLOW_non_join_query_term_in_query_term6102 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_joined_table_in_query_term6108 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_non_join_query_primary_in_non_join_query_term6122 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+	public static final BitSet FOLLOW_joined_table_in_non_join_query_term6126 = new BitSet(new long[]{0x0000000000000000L,0x4000000000000000L});
+	public static final BitSet FOLLOW_INTERSECT_in_non_join_query_term6128 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000004L,0x0000000000000408L,0x0000000000800000L});
+	public static final BitSet FOLLOW_query_primary_in_non_join_query_term6138 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+	public static final BitSet FOLLOW_INTERSECT_in_non_join_query_term6146 = new BitSet(new long[]{0x0000000000000080L,0x0000000000000004L,0x0000000000000408L,0x0000000000800000L});
+	public static final BitSet FOLLOW_query_primary_in_non_join_query_term6156 = new BitSet(new long[]{0x0000000000000002L,0x4000000000000000L});
+	public static final BitSet FOLLOW_non_join_query_primary_in_query_primary6170 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_joined_table_in_query_primary6176 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_simple_table_in_non_join_query_primary6188 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_non_join_query_primary6194 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000408L,0x0000000000800000L});
+	public static final BitSet FOLLOW_non_join_query_expression_in_non_join_query_primary6196 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_non_join_query_primary6198 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_query_specification_in_simple_table6219 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SELECT_in_query_specification6231 = new BitSet(new long[]{0x0040080010000080L,0x0000000000000004L,0x0040009101200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_set_qualifier_in_query_specification6233 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009101200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_select_list_in_query_specification6236 = new BitSet(new long[]{0x0000000000000002L,0x0000441000000000L,0x0000800000004000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_from_clause_in_query_specification6238 = new BitSet(new long[]{0x0000000000000002L,0x0000440000000000L,0x0000800000004000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_where_clause_in_query_specification6241 = new BitSet(new long[]{0x0000000000000002L,0x0000440000000000L,0x0000800000004000L});
+	public static final BitSet FOLLOW_groupby_clause_in_query_specification6244 = new BitSet(new long[]{0x0000000000000002L,0x0000400000000000L,0x0000800000004000L});
+	public static final BitSet FOLLOW_having_clause_in_query_specification6247 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000800000004000L});
+	public static final BitSet FOLLOW_orderby_clause_in_query_specification6254 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000004000L});
+	public static final BitSet FOLLOW_limit_clause_in_query_specification6257 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MULTIPLY_in_select_list6307 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_derived_column_in_select_list6321 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_select_list6324 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_derived_column_in_select_list6326 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_DISTINCT_in_set_qualifier6349 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ALL_in_set_qualifier6363 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_derived_column6383 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_as_clause_in_derived_column6385 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_column_reference6413 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_AS_in_as_clause6436 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_column_reference_in_as_clause6440 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_column_reference_in_column_reference_list6451 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_column_reference_list6454 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_column_reference_in_column_reference_list6456 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_Identifier_in_table6474 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_qualified_identifier_in_table6486 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_qualified_identifier6501 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_DIVIDE_in_qualified_identifier6503 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_qualified_identifier6507 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_qualified_identifier6510 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_qualified_identifier6514 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_qualified_identifier6516 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_member6551 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_DIVIDE_in_member6553 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_member6557 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_member6559 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_member6563 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_member6565 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FROM_in_from_clause6600 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_reference_list_in_from_clause6603 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_table_reference_in_table_reference_list6614 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_table_reference_list6617 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_reference_in_table_reference_list6619 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_table_primary_in_table_reference6638 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_joined_table_in_table_reference6644 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_table_primary_in_joined_table6656 = new BitSet(new long[]{0x0008000000000000L,0x0040002000000000L,0x0000000010000220L,0x0800000000010000L});
+	public static final BitSet FOLLOW_cross_join_in_joined_table6659 = new BitSet(new long[]{0x0008000000000002L,0x0040002000000000L,0x0000000010000220L,0x0800000000010000L});
+	public static final BitSet FOLLOW_qualified_join_in_joined_table6663 = new BitSet(new long[]{0x0008000000000002L,0x0040002000000000L,0x0000000010000220L,0x0800000000010000L});
+	public static final BitSet FOLLOW_natural_join_in_joined_table6667 = new BitSet(new long[]{0x0008000000000002L,0x0040002000000000L,0x0000000010000220L,0x0800000000010000L});
+	public static final BitSet FOLLOW_union_join_in_joined_table6671 = new BitSet(new long[]{0x0008000000000002L,0x0040002000000000L,0x0000000010000220L,0x0800000000010000L});
+	public static final BitSet FOLLOW_cross_join_in_joined_table_prim6685 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_qualified_join_in_joined_table_prim6691 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_natural_join_in_joined_table_prim6697 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_union_join_in_joined_table_prim6703 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CROSS_in_cross_join6715 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_JOIN_in_cross_join6717 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_primary_in_cross_join6721 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_join_type_in_qualified_join6747 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_JOIN_in_qualified_join6751 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_primary_in_qualified_join6755 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000100000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_join_specification_in_qualified_join6759 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NATURAL_in_natural_join6787 = new BitSet(new long[]{0x0000000000000000L,0x0040002000000000L,0x0000000000000220L,0x0000000000010000L});
+	public static final BitSet FOLLOW_join_type_in_natural_join6792 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_JOIN_in_natural_join6796 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_primary_in_natural_join6800 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_UNION_in_union_join6827 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_JOIN_in_union_join6829 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_table_primary_in_union_join6833 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INNER_in_join_type6856 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_outer_join_type_in_join_type6864 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0004000000000000L});
+	public static final BitSet FOLLOW_OUTER_in_join_type6866 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_outer_join_type_in_join_type6883 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_join_condition_in_join_specification6928 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_named_columns_join_in_join_specification6934 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ON_in_join_condition6946 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_search_condition_in_join_condition6949 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_USING_in_named_columns_join6961 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_named_columns_join6963 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_column_reference_list_in_named_columns_join6967 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_named_columns_join6969 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_table_in_table_primary6990 = new BitSet(new long[]{0x0000000000000802L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_AS_in_table_primary6994 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_table_primary7000 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHERE_in_where_clause7028 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_search_condition_in_where_clause7031 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Identifier_in_routine_invocation7044 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_routine_invocation7046 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000020020L});
+	public static final BitSet FOLLOW_funcArgs_in_routine_invocation7048 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_routine_invocation7051 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COUNT_in_routine_invocation7066 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_routine_invocation7068 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_funcArgs_in_routine_invocation7070 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_routine_invocation7072 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COUNT_in_routine_invocation7085 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_routine_invocation7087 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
+	public static final BitSet FOLLOW_MULTIPLY_in_routine_invocation7089 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_routine_invocation7091 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_funcArgs7108 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_funcArgs7111 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_funcArgs7113 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_GROUP_in_groupby_clause7134 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_BY_in_groupby_clause7136 = new BitSet(new long[]{0x0010000000000000L,0x0000000000000000L,0x0000000000000408L,0x0000000000100000L});
+	public static final BitSet FOLLOW_grouping_element_list_in_groupby_clause7140 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_grouping_element_in_grouping_element_list7161 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_grouping_element_list7164 = new BitSet(new long[]{0x0010000000000000L,0x0000000000000000L,0x0000000000000408L,0x0000000000100000L});
+	public static final BitSet FOLLOW_grouping_element_in_grouping_element_list7166 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_ordinary_grouping_set_in_grouping_element7185 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rollup_list_in_grouping_element7191 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_cube_list_in_grouping_element7197 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_empty_grouping_set_in_grouping_element7203 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_column_reference_list_in_ordinary_grouping_set7215 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_ordinary_grouping_set7221 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_column_reference_list_in_ordinary_grouping_set7224 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_ordinary_grouping_set7226 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ROLLUP_in_rollup_list7239 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_rollup_list7241 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000408L});
+	public static final BitSet FOLLOW_ordinary_grouping_set_in_rollup_list7245 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_rollup_list7247 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CUBE_in_cube_list7268 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_cube_list7270 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000408L});
+	public static final BitSet FOLLOW_ordinary_grouping_set_in_cube_list7274 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_cube_list7276 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_empty_grouping_set7297 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_empty_grouping_set7299 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_HAVING_in_having_clause7317 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_having_clause7320 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ORDER_in_orderby_clause7334 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_BY_in_orderby_clause7336 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_sort_specifier_list_in_orderby_clause7338 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_sort_specifier_in_sort_specifier_list7358 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_sort_specifier_list7361 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_sort_specifier_in_sort_specifier_list7363 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_column_reference_in_sort_specifier7388 = new BitSet(new long[]{0x4000000000001002L,0x0000000000000000L,0x0000001000000000L});
+	public static final BitSet FOLLOW_order_specification_in_sort_specifier7392 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000001000000000L});
+	public static final BitSet FOLLOW_null_ordering_in_sort_specifier7397 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ASC_in_order_specification7427 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DESC_in_order_specification7441 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LIMIT_in_limit_clause7461 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_limit_clause7465 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NULL_in_null_ordering7486 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+	public static final BitSet FOLLOW_FIRST_in_null_ordering7488 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NULL_in_null_ordering7502 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_LAST_in_null_ordering7504 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_search_condition7526 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WITH_in_param_clause7537 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_param_clause7539 = new BitSet(new long[]{0x0040000000000000L});
+	public static final BitSet FOLLOW_param_in_param_clause7541 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_COMMA_in_param_clause7544 = new BitSet(new long[]{0x0040000000000000L});
+	public static final BitSet FOLLOW_param_in_param_clause7546 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_param_clause7550 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Character_String_Literal_in_param7573 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_EQUAL_in_param7575 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_param7579 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_USING_in_method_specifier7603 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_method_specifier7607 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_and_predicate_in_boolean_value_expression7627 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000400000000000L});
+	public static final BitSet FOLLOW_OR_in_boolean_value_expression7630 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_and_predicate_in_boolean_value_expression7633 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000400000000000L});
+	public static final BitSet FOLLOW_boolean_factor_in_and_predicate7646 = new BitSet(new long[]{0x0000000000000402L});
+	public static final BitSet FOLLOW_AND_in_and_predicate7649 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_factor_in_and_predicate7652 = new BitSet(new long[]{0x0000000000000402L});
+	public static final BitSet FOLLOW_boolean_test_in_boolean_factor7665 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NOT_in_boolean_factor7671 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
 	public static final BitSet FOLLOW_boolean_test_in_boolean_factor7673 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NOT_in_boolean_factor7679 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_test_in_boolean_factor7681 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_boolean_primary_in_boolean_test7701 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L});
-	public static final BitSet FOLLOW_is_clause_in_boolean_test7703 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IS_in_is_clause7716 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L,0x0000000080000000L,0x1040000000000000L});
-	public static final BitSet FOLLOW_NOT_in_is_clause7718 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L,0x0000000000000000L,0x1040000000000000L});
-	public static final BitSet FOLLOW_truth_value_in_is_clause7723 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_predicate_in_boolean_primary7767 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_boolean_primary7773 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_boolean_primary7779 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_boolean_primary7782 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_boolean_primary7784 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_case_expression_in_boolean_primary7791 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_comparison_predicate_in_predicate7805 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_in_predicate_in_predicate7811 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_like_predicate_in_predicate7817 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_null_predicate_in_predicate7823 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_comparison_predicate7847 = new BitSet(new long[]{0x0000000000000000L,0x0000090000010000L,0x0000000100020400L});
-	public static final BitSet FOLLOW_comp_op_in_comparison_predicate7851 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_comparison_predicate7855 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_in_predicate7923 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L,0x0000000080000000L});
-	public static final BitSet FOLLOW_NOT_in_in_predicate7926 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_IN_in_in_predicate7929 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_in_predicate_value_in_in_predicate7933 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_in_predicate_value7957 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_in_value_list_in_in_predicate_value7960 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_in_predicate_value7963 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_in_value_list7975 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_COMMA_in_in_value_list7980 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_in_value_list7982 = new BitSet(new long[]{0x0000000400000002L});
-	public static final BitSet FOLLOW_column_reference_in_like_predicate8004 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000080001000L});
-	public static final BitSet FOLLOW_NOT_in_like_predicate8006 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_LIKE_in_like_predicate8009 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_Character_String_Literal_in_like_predicate8013 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_null_predicate8044 = new BitSet(new long[]{0x0000000000000000L,0x8000000000000000L});
-	public static final BitSet FOLLOW_IS_in_null_predicate8046 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000880000000L});
-	public static final BitSet FOLLOW_NOT_in_null_predicate8051 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000800000000L});
-	public static final BitSet FOLLOW_NULL_in_null_predicate8055 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_term_in_numeric_value_expression8083 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0020000000100000L});
-	public static final BitSet FOLLOW_set_in_numeric_value_expression8086 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_term_in_numeric_value_expression8093 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0020000000100000L});
-	public static final BitSet FOLLOW_numeric_primary_in_term8106 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L,0x0000000000C00000L});
-	public static final BitSet FOLLOW_set_in_term8109 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_primary_in_term8118 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L,0x0000000000C00000L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_array8131 = new BitSet(new long[]{0x0020000000000000L,0x0000000000000000L,0x0020004800100000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_literal_in_array8133 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_COMMA_in_array8136 = new BitSet(new long[]{0x0020000000000000L,0x0000000000000000L,0x0020004800100000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_literal_in_array8138 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_array8143 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_literal_in_numeric_primary8160 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_column_reference_in_numeric_primary8165 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_numeric_primary8170 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_numeric_primary8173 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_numeric_primary8175 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_routine_invocation_in_numeric_primary8181 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_string_value_expr_in_literal8192 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_signed_numerical_literal_in_literal8198 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NULL_in_literal8204 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Character_String_Literal_in_string_value_expr8216 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_sign_in_signed_numerical_literal8228 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_unsigned_numerical_literal_in_signed_numerical_literal8231 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_case_specification_in_case_expression8279 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NULLIF_in_case_abbreviation8291 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_case_abbreviation8293 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_case_abbreviation8295 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_COMMA_in_case_abbreviation8297 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_case_abbreviation8299 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_case_abbreviation8302 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COALESCE_in_case_abbreviation8308 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_case_abbreviation8310 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_case_abbreviation8312 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_COMMA_in_case_abbreviation8316 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_case_abbreviation8318 = new BitSet(new long[]{0x0000000400000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_case_abbreviation8324 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_simple_case_in_case_specification8336 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_searched_case_in_case_specification8342 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CASE_in_simple_case8354 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_simple_case8356 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_simple_when_clause_in_simple_case8360 = new BitSet(new long[]{0x0000000000000000L,0x000000000000A000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_else_clause_in_simple_case8367 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-	public static final BitSet FOLLOW_END_in_simple_case8373 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CASE_in_searched_case8385 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_searched_when_clause_in_searched_case8389 = new BitSet(new long[]{0x0000000000000000L,0x000000000000A000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_else_clause_in_searched_case8394 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L});
-	public static final BitSet FOLLOW_END_in_searched_case8398 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHEN_in_simple_when_clause8409 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_simple_when_clause8411 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000400000000000L});
-	public static final BitSet FOLLOW_THEN_in_simple_when_clause8413 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_result_in_simple_when_clause8415 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHEN_in_searched_when_clause8425 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_search_condition_in_searched_when_clause8429 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000400000000000L});
-	public static final BitSet FOLLOW_THEN_in_searched_when_clause8431 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_result_in_searched_when_clause8435 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ELSE_in_else_clause8459 = new BitSet(new long[]{0x0020040000000000L,0x0000000000000000L,0x0020004800100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_result_in_else_clause8463 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_result8484 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NULL_in_result8488 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_non_join_query_expression_in_synpred121_DDL6018 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_non_join_query_term_in_synpred122_DDL6037 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_non_join_query_term_in_synpred130_DDL6097 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_Identifier_in_synpred150_DDL6409 = new BitSet(new long[]{0x0000000400000000L});
-	public static final BitSet FOLLOW_COMMA_in_synpred150_DDL6411 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMMA_in_synpred152_DDL6462 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_column_reference_in_synpred152_DDL6464 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_synpred154_DDL6518 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_Identifier_in_synpred154_DDL6522 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_synpred154_DDL6524 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_predicate_in_synpred195_DDL7767 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_synpred196_DDL7773 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LEFT_PAREN_in_synpred197_DDL7779 = new BitSet(new long[]{0x0020040010000000L,0x0000000000000000L,0x0020004880100204L,0x0000000000000010L});
-	public static final BitSet FOLLOW_boolean_value_expression_in_synpred197_DDL7782 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000010000L});
-	public static final BitSet FOLLOW_RIGHT_PAREN_in_synpred197_DDL7784 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_comparison_predicate_in_synpred198_DDL7805 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_in_predicate_in_synpred199_DDL7811 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_like_predicate_in_synpred200_DDL7817 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_value_expression_in_synpred231_DDL8484 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_boolean_primary_in_boolean_test7693 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000000000000001L});
+	public static final BitSet FOLLOW_is_clause_in_boolean_test7695 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IS_in_is_clause7708 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000100000000L,0x2080000000000000L});
+	public static final BitSet FOLLOW_NOT_in_is_clause7710 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000000000000L,0x2080000000000000L});
+	public static final BitSet FOLLOW_truth_value_in_is_clause7715 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_predicate_in_boolean_primary7759 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_boolean_primary7765 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_boolean_primary7771 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_boolean_primary7774 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_boolean_primary7776 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_case_expression_in_boolean_primary7783 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_comparison_predicate_in_predicate7797 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_in_predicate_in_predicate7803 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_like_predicate_in_predicate7809 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_null_predicate_in_predicate7815 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_comparison_predicate7839 = new BitSet(new long[]{0x0000000000000000L,0x0000120000020000L,0x0000000200040800L});
+	public static final BitSet FOLLOW_comp_op_in_comparison_predicate7843 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_comparison_predicate7847 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_in_predicate7915 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L,0x0000000100000000L});
+	public static final BitSet FOLLOW_NOT_in_in_predicate7918 = new BitSet(new long[]{0x0000000000000000L,0x0004000000000000L});
+	public static final BitSet FOLLOW_IN_in_in_predicate7921 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_in_predicate_value_in_in_predicate7925 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_in_predicate_value7949 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_in_value_list_in_in_predicate_value7952 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_in_predicate_value7955 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_in_value_list7967 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_COMMA_in_in_value_list7972 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_in_value_list7974 = new BitSet(new long[]{0x0000000800000002L});
+	public static final BitSet FOLLOW_column_reference_in_like_predicate7996 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000100002000L});
+	public static final BitSet FOLLOW_NOT_in_like_predicate7998 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+	public static final BitSet FOLLOW_LIKE_in_like_predicate8001 = new BitSet(new long[]{0x0040000000000000L});
+	public static final BitSet FOLLOW_Character_String_Literal_in_like_predicate8005 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_null_predicate8036 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+	public static final BitSet FOLLOW_IS_in_null_predicate8038 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001100000000L});
+	public static final BitSet FOLLOW_NOT_in_null_predicate8043 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+	public static final BitSet FOLLOW_NULL_in_null_predicate8047 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_term_in_numeric_value_expression8075 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0040000000200000L});
+	public static final BitSet FOLLOW_set_in_numeric_value_expression8078 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_term_in_numeric_value_expression8085 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0040000000200000L});
+	public static final BitSet FOLLOW_numeric_primary_in_term8098 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L,0x0000000001800000L});
+	public static final BitSet FOLLOW_set_in_term8101 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_primary_in_term8110 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L,0x0000000001800000L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_array8123 = new BitSet(new long[]{0x0040000000000000L,0x0000000000000000L,0x0040009000200000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_literal_in_array8125 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_COMMA_in_array8128 = new BitSet(new long[]{0x0040000000000000L,0x0000000000000000L,0x0040009000200000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_literal_in_array8130 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_array8135 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_literal_in_numeric_primary8152 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_column_reference_in_numeric_primary8157 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_numeric_primary8162 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_numeric_primary8165 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_numeric_primary8167 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_routine_invocation_in_numeric_primary8173 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_string_value_expr_in_literal8184 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_signed_numerical_literal_in_literal8190 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NULL_in_literal8196 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_Character_String_Literal_in_string_value_expr8208 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_sign_in_signed_numerical_literal8220 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000008000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_unsigned_numerical_literal_in_signed_numerical_literal8223 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_case_specification_in_case_expression8271 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NULLIF_in_case_abbreviation8283 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_case_abbreviation8285 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_case_abbreviation8287 = new BitSet(new long[]{0x0000000800000000L});
+	public static final BitSet FOLLOW_COMMA_in_case_abbreviation8289 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_case_abbreviation8291 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_case_abbreviation8294 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COALESCE_in_case_abbreviation8300 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_case_abbreviation8302 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_case_abbreviation8304 = new BitSet(new long[]{0x0000000800000000L});
+	public static final BitSet FOLLOW_COMMA_in_case_abbreviation8308 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_case_abbreviation8310 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_case_abbreviation8316 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_simple_case_in_case_specification8328 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_searched_case_in_case_specification8334 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CASE_in_simple_case8346 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_simple_case8348 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_simple_when_clause_in_simple_case8352 = new BitSet(new long[]{0x0000000000000000L,0x0000000000014000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_else_clause_in_simple_case8359 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
+	public static final BitSet FOLLOW_END_in_simple_case8365 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CASE_in_searched_case8377 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_searched_when_clause_in_searched_case8381 = new BitSet(new long[]{0x0000000000000000L,0x0000000000014000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_else_clause_in_searched_case8386 = new BitSet(new long[]{0x0000000000000000L,0x0000000000010000L});
+	public static final BitSet FOLLOW_END_in_searched_case8390 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHEN_in_simple_when_clause8401 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_simple_when_clause8403 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000800000000000L});
+	public static final BitSet FOLLOW_THEN_in_simple_when_clause8405 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_result_in_simple_when_clause8407 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHEN_in_searched_when_clause8417 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_search_condition_in_searched_when_clause8421 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000800000000000L});
+	public static final BitSet FOLLOW_THEN_in_searched_when_clause8423 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_result_in_searched_when_clause8427 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ELSE_in_else_clause8451 = new BitSet(new long[]{0x0040080000000000L,0x0000000000000000L,0x0040009000200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_result_in_else_clause8455 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_result8476 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NULL_in_result8480 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_non_join_query_expression_in_synpred121_DDL6023 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_non_join_query_term_in_synpred122_DDL6042 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_non_join_query_term_in_synpred130_DDL6102 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COMMA_in_synpred151_DDL6454 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_column_reference_in_synpred151_DDL6456 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_synpred153_DDL6510 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_Identifier_in_synpred153_DDL6514 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_synpred153_DDL6516 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_predicate_in_synpred194_DDL7759 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_synpred195_DDL7765 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LEFT_PAREN_in_synpred196_DDL7771 = new BitSet(new long[]{0x0040080010000000L,0x0000000000000000L,0x0040009100200408L,0x0000000000000020L});
+	public static final BitSet FOLLOW_boolean_value_expression_in_synpred196_DDL7774 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RIGHT_PAREN_in_synpred196_DDL7776 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_comparison_predicate_in_synpred197_DDL7797 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_in_predicate_in_synpred198_DDL7803 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_like_predicate_in_synpred199_DDL7809 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_value_expression_in_synpred230_DDL8476 = new BitSet(new long[]{0x0000000000000002L});
 }

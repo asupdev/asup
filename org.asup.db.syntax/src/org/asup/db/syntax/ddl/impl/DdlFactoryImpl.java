@@ -67,6 +67,7 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 			case QDdlPackage.CREATE_ALIAS_STATEMENT: return (EObject)createCreateAliasStatement();
 			case QDdlPackage.CREATE_INDEX_STATEMENT: return (EObject)createCreateIndexStatement();
 			case QDdlPackage.CREATE_TABLE_STATEMENT: return (EObject)createCreateTableStatement();
+			case QDdlPackage.CREATE_VIEW_STATEMENT: return (EObject)createCreateViewStatement();
 			case QDdlPackage.DISCONNECT_STATEMENT: return (EObject)createDisconnectStatement();
 			case QDdlPackage.DROP_STATEMENT: return (EObject)createDropStatement();
 			default:
@@ -160,6 +161,16 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	public QCreateTableStatement createCreateTableStatement() {
 		CreateTableStatementImpl createTableStatement = new CreateTableStatementImpl();
 		return createTableStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCreateViewStatement createCreateViewStatement() {
+		CreateViewStatementImpl createViewStatement = new CreateViewStatementImpl();
+		return createViewStatement;
 	}
 
 	/**

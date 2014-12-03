@@ -72,6 +72,15 @@ public interface QDdlFactory extends EFactory {
 	QCreateTableStatement createCreateTableStatement();
 
 	/**
+	 * Returns a new object of class '<em>Create View Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Create View Statement</em>'.
+	 * @generated
+	 */
+	QCreateViewStatement createCreateViewStatement();
+
+	/**
 	 * Returns a new object of class '<em>Disconnect Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

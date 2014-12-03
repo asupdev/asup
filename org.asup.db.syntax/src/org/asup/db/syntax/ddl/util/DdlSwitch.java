@@ -105,6 +105,13 @@ public class DdlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDdlPackage.CREATE_VIEW_STATEMENT: {
+				QCreateViewStatement createViewStatement = (QCreateViewStatement)theEObject;
+				T result = caseCreateViewStatement(createViewStatement);
+				if (result == null) result = caseDefinitionStatement(createViewStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QDdlPackage.DISCONNECT_STATEMENT: {
 				QDisconnectStatement disconnectStatement = (QDisconnectStatement)theEObject;
 				T result = caseDisconnectStatement(disconnectStatement);
@@ -195,6 +202,21 @@ public class DdlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCreateTableStatement(QCreateTableStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Create View Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Create View Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCreateViewStatement(QCreateViewStatement object) {
 		return null;
 	}
 

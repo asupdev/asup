@@ -276,6 +276,52 @@ public interface QDdlPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CreateViewStatementImpl <em>Create View Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.ddl.impl.CreateViewStatementImpl
+	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateViewStatement()
+	 * @generated
+	 */
+	int CREATE_VIEW_STATEMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__FIELDS = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__QUERY = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>View Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__VIEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Create View Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl <em>Disconnect Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,7 +329,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDisconnectStatement()
 	 * @generated
 	 */
-	int DISCONNECT_STATEMENT = 5;
+	int DISCONNECT_STATEMENT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' attribute.
@@ -311,7 +357,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropStatement()
 	 * @generated
 	 */
-	int DROP_STATEMENT = 6;
+	int DROP_STATEMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -357,7 +403,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropRange()
 	 * @generated
 	 */
-	int DROP_RANGE = 7;
+	int DROP_RANGE = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropTarget <em>Drop Target</em>}' enum.
@@ -367,7 +413,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropTarget()
 	 * @generated
 	 */
-	int DROP_TARGET = 8;
+	int DROP_TARGET = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -377,7 +423,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetItem()
 	 * @generated
 	 */
-	int TARGET_ITEM = 9;
+	int TARGET_ITEM = 10;
 
 
 	/**
@@ -572,6 +618,49 @@ public interface QDdlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCreateTableStatement_Fields();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QCreateViewStatement <em>Create View Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Create View Statement</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement
+	 * @generated
+	 */
+	EClass getCreateViewStatement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getFields <em>Fields</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Fields</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getFields()
+	 * @see #getCreateViewStatement()
+	 * @generated
+	 */
+	EReference getCreateViewStatement_Fields();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Query</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getQuery()
+	 * @see #getCreateViewStatement()
+	 * @generated
+	 */
+	EAttribute getCreateViewStatement_Query();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getViewName <em>View Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>View Name</em>'.
+	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getViewName()
+	 * @see #getCreateViewStatement()
+	 * @generated
+	 */
+	EReference getCreateViewStatement_ViewName();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QDisconnectStatement <em>Disconnect Statement</em>}'.
@@ -842,6 +931,40 @@ public interface QDdlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CREATE_TABLE_STATEMENT__FIELDS = eINSTANCE.getCreateTableStatement_Fields();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.CreateViewStatementImpl <em>Create View Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.ddl.impl.CreateViewStatementImpl
+		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getCreateViewStatement()
+		 * @generated
+		 */
+		EClass CREATE_VIEW_STATEMENT = eINSTANCE.getCreateViewStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREATE_VIEW_STATEMENT__FIELDS = eINSTANCE.getCreateViewStatement_Fields();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CREATE_VIEW_STATEMENT__QUERY = eINSTANCE.getCreateViewStatement_Query();
+
+		/**
+		 * The meta object literal for the '<em><b>View Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CREATE_VIEW_STATEMENT__VIEW_NAME = eINSTANCE.getCreateViewStatement_ViewName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.DisconnectStatementImpl <em>Disconnect Statement</em>}' class.

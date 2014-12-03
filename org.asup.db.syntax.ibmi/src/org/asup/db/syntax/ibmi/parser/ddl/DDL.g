@@ -31,6 +31,7 @@ tokens {
   AS_EXPRESSION;
   COLUMN;
   COLUMNS_LIST;
+  COLUMN_NAME;
   COMMIT_STATEMENT;
   CONNECT_STATEMENT;
   COUNT_VAL;
@@ -825,7 +826,7 @@ derived_column
   ;
   
 column_reference
-	:	(t=Identifier COMMA)? b=Identifier -> ^(FIELD_NAME $b $t?)
+	:	c=Identifier -> ^(COLUMN_NAME $c)
 	
 	;
 as_clause
