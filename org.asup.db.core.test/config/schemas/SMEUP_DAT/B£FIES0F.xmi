@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;FIES0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="F&#xa3;TREC" length="2"/>
-  <columns dataType="CHAR" name="F&#xa3;OGGE" length="15"/>
-  <columns dataType="CHAR" name="F&#xa3;KEY1" length="30"/>
-  <columns dataType="CHAR" name="F&#xa3;KEY2" length="30"/>
-  <columns dataType="CHAR" name="F&#xa3;KEY3" length="30"/>
-  <columns dataType="CHAR" name="F&#xa3;KEY4" length="30"/>
-  <columns dataType="CHAR" name="F&#xa3;KEY5" length="30"/>
-  <columns dataType="CHAR" name="F&#xa3;OGES" length="100"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="F&#xa3;TREC"/>
+  <columns dataType="CHAR" length="15" name="F&#xa3;OGGE"/>
+  <columns dataType="CHAR" length="30" name="F&#xa3;KEY1"/>
+  <columns dataType="CHAR" length="30" name="F&#xa3;KEY2"/>
+  <columns dataType="CHAR" length="30" name="F&#xa3;KEY3"/>
+  <columns dataType="CHAR" length="30" name="F&#xa3;KEY4"/>
+  <columns dataType="CHAR" length="30" name="F&#xa3;KEY5"/>
+  <columns dataType="CHAR" length="100" name="F&#xa3;OGES"/>
 </db-core:TableDef>

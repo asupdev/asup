@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQMMCT0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="M&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="M&#xa7;PROG" length="10"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="M&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="M&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="M&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="M&#xa7;MCST" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;MDST" length="35"/>
-  <columns dataType="CHAR" name="M&#xa7;MTPS" length="3"/>
-  <columns dataType="CHAR" name="M&#xa7;MCLP" length="4"/>
-  <columns dataType="CHAR" name="M&#xa7;MGRD" length="10"/>
-  <columns dataType="CHAR" name="M&#xa7;MUNM" length="6"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MICN" length="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MSNS" length="8" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MINS" length="9" scale="4"/>
-  <columns dataType="DECIMAL" name="M&#xa7;MFDS" length="9" scale="4"/>
-  <columns dataType="CHAR" name="M&#xa7;APRO" length="15"/>
-  <columns dataType="CHAR" name="M&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;FLR1" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;FLR2" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;FLR3" length="1"/>
-  <columns dataType="CHAR" name="M&#xa7;FREE" length="15"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="M&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="M&#xa7;PROG"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="M&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="M&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;MCST"/>
+  <columns dataType="CHAR" length="35" name="M&#xa7;MDST"/>
+  <columns dataType="CHAR" length="3" name="M&#xa7;MTPS"/>
+  <columns dataType="CHAR" length="4" name="M&#xa7;MCLP"/>
+  <columns dataType="CHAR" length="10" name="M&#xa7;MGRD"/>
+  <columns dataType="CHAR" length="6" name="M&#xa7;MUNM"/>
+  <columns dataType="DECIMAL" length="4" name="M&#xa7;MICN"/>
+  <columns dataType="DECIMAL" length="8" name="M&#xa7;MSNS" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="M&#xa7;MINS" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="M&#xa7;MFDS" scale="4"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;APRO"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="M&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;FREE"/>
 </db-core:TableDef>

@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQAUDL0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="L&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="L&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="L&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="L&#xa7;WKST" length="10"/>
-  <columns dataType="CHAR" name="L&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="L&#xa7;ANUM" length="15"/>
-  <columns dataType="CHAR" name="L&#xa7;ACOD" length="15"/>
-  <columns dataType="CHAR" name="L&#xa7;CLIV" length="2"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="L&#xa7;FLG5" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="L&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="L&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="L&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="L&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;PROG"/>
+  <columns dataType="CHAR" length="15" name="L&#xa7;ANUM"/>
+  <columns dataType="CHAR" length="15" name="L&#xa7;ACOD"/>
+  <columns dataType="CHAR" length="2" name="L&#xa7;CLIV"/>
+  <columns dataType="CHAR" length="1" name="L&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="L&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="L&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="L&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="L&#xa7;FLG5"/>
 </db-core:TableDef>

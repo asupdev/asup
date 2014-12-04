@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARC0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="R$COAR" length="15"/>
-  <columns dataType="CHAR" name="R$TCOS" length="3"/>
-  <columns dataType="CHAR" name="R$CDL" length="6"/>
-  <columns dataType="DECIMAL" name="R$TLAL" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TMAL" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TATL" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TSCL" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TLAI" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TMAI" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TATI" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="R$TSCI" length="12" scale="6"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="R$COAR"/>
+  <columns dataType="CHAR" length="3" name="R$TCOS"/>
+  <columns dataType="CHAR" length="6" name="R$CDL"/>
+  <columns dataType="DECIMAL" length="12" name="R$TLAL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TMAL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TATL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TSCL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TLAI" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TMAI" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TATI" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TSCI" scale="6"/>
 </db-core:TableDef>

@@ -1,154 +1,153 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5MDAU0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="M5TIPO" length="3"/>
-  <columns dataType="CHAR" name="M5DIC1" length="3"/>
-  <columns dataType="CHAR" name="M5DIC2" length="3"/>
-  <columns dataType="CHAR" name="M5DIC3" length="3"/>
-  <columns dataType="CHAR" name="M5NAT1" length="10"/>
-  <columns dataType="CHAR" name="M5NAT2" length="10"/>
-  <columns dataType="CHAR" name="M5DOGP" length="15"/>
-  <columns dataType="CHAR" name="M5AZIE" length="2"/>
-  <columns dataType="CHAR" name="M5TPRO" length="12"/>
-  <columns dataType="CHAR" name="M5NPRO" length="15"/>
-  <columns dataType="DECIMAL" name="M5DPRO" length="8"/>
-  <columns dataType="DECIMAL" name="M5DTAC" length="8"/>
-  <columns dataType="CHAR" name="M5TPCN" length="3"/>
-  <columns dataType="CHAR" name="M5SOGG" length="15"/>
-  <columns dataType="CHAR" name="M5TPOR" length="12"/>
-  <columns dataType="CHAR" name="M5CDOR" length="15"/>
-  <columns dataType="DECIMAL" name="M5DTOR" length="8"/>
-  <columns dataType="CHAR" name="M5NDES" length="15"/>
-  <columns dataType="DECIMAL" name="M5DDES" length="8"/>
-  <columns dataType="CHAR" name="M5DISC" length="15"/>
-  <columns dataType="CHAR" name="M5NZP1" length="10"/>
-  <columns dataType="CHAR" name="M5PRP1" length="10"/>
-  <columns dataType="CHAR" name="M5NZT1" length="10"/>
-  <columns dataType="CHAR" name="M5PRT1" length="10"/>
-  <columns dataType="DECIMAL" name="M5ELVA" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5EPAC" length="30"/>
-  <columns dataType="CHAR" name="M5VALD" length="4"/>
-  <columns dataType="DECIMAL" name="M5CAMD" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMPD" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5MEZ1" length="40"/>
-  <columns dataType="CHAR" name="M5NZM1" length="10"/>
-  <columns dataType="CHAR" name="M5FLCT" length="1"/>
-  <columns dataType="CHAR" name="M5MEZ2" length="40"/>
-  <columns dataType="CHAR" name="M5NZM2" length="10"/>
-  <columns dataType="CHAR" name="M5COCO" length="10"/>
-  <columns dataType="CHAR" name="M5MTR1" length="10"/>
-  <columns dataType="CHAR" name="M5MTR2" length="10"/>
-  <columns dataType="CHAR" name="M5DOGA" length="15"/>
-  <columns dataType="CHAR" name="M5LUGC" length="40"/>
-  <columns dataType="CHAR" name="M5DAFB" length="40"/>
-  <columns dataType="CHAR" name="M5LOCM" length="40"/>
-  <columns dataType="CHAR" name="M5LIVE" length="1"/>
-  <columns dataType="CHAR" name="M5STAT" length="2"/>
-  <columns dataType="DECIMAL" name="M5NRCO" length="5"/>
-  <columns dataType="CHAR" name="M5IMBA" length="3"/>
-  <columns dataType="CHAR" name="M5NCOM" length="10"/>
-  <columns dataType="DECIMAL" name="M5MAS1" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5MAS2" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMVA" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMSV" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5REG1" length="15"/>
-  <columns dataType="CHAR" name="M5REG2" length="15"/>
-  <columns dataType="CHAR" name="M5PREF" length="15"/>
-  <columns dataType="CHAR" name="M5CONT" length="15"/>
-  <columns dataType="CHAR" name="M5DICS" length="40"/>
-  <columns dataType="CHAR" name="M5UNIS" length="40"/>
-  <columns dataType="DECIMAL" name="M5AGGS" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5DILP" length="40"/>
-  <columns dataType="CHAR" name="M5IDEP" length="40"/>
-  <columns dataType="CHAR" name="M5CMV1" length="15"/>
-  <columns dataType="CHAR" name="M5CMV2" length="15"/>
-  <columns dataType="DECIMAL" name="M5IMNO" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5NOT1" length="50"/>
-  <columns dataType="CHAR" name="M5NOT2" length="50"/>
-  <columns dataType="CHAR" name="M5NOT3" length="50"/>
-  <columns dataType="CHAR" name="M5NOT4" length="50"/>
-  <columns dataType="CHAR" name="M5NOT5" length="50"/>
-  <columns dataType="CHAR" name="M5NOT6" length="50"/>
-  <columns dataType="CHAR" name="M5TIP1" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI1" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI1" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP1" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP1" length="1"/>
-  <columns dataType="CHAR" name="M5TIP2" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI2" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI2" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP2" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP2" length="1"/>
-  <columns dataType="CHAR" name="M5TIP3" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI3" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI3" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP3" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP3" length="1"/>
-  <columns dataType="CHAR" name="M5TIP4" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI4" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI4" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP4" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP4" length="1"/>
-  <columns dataType="CHAR" name="M5TIP5" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI5" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI5" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP5" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP5" length="1"/>
-  <columns dataType="CHAR" name="M5TIP6" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI6" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI6" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP6" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP6" length="1"/>
-  <columns dataType="CHAR" name="M5TIP7" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI7" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI7" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP7" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP7" length="1"/>
-  <columns dataType="CHAR" name="M5TIP8" length="15"/>
-  <columns dataType="DECIMAL" name="M5BAI8" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5ALI8" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="M5IMP8" length="21" scale="6"/>
-  <columns dataType="CHAR" name="M5FMP8" length="1"/>
-  <columns dataType="CHAR" name="M5UFFD" length="40"/>
-  <columns dataType="DECIMAL" name="M5DT01" length="8"/>
-  <columns dataType="DECIMAL" name="M5DT02" length="8"/>
-  <columns dataType="DECIMAL" name="M5DT03" length="8"/>
-  <columns dataType="DECIMAL" name="M5DT04" length="8"/>
-  <columns dataType="DECIMAL" name="M5DT05" length="8"/>
-  <columns dataType="CHAR" name="M5AA01" length="15"/>
-  <columns dataType="CHAR" name="M5AA02" length="15"/>
-  <columns dataType="CHAR" name="M5AA03" length="15"/>
-  <columns dataType="CHAR" name="M5AA04" length="15"/>
-  <columns dataType="CHAR" name="M5AA05" length="15"/>
-  <columns dataType="DECIMAL" name="M5NU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M5NU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M5NU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M5NU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M5NU05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="M5FL01" length="1"/>
-  <columns dataType="CHAR" name="M5FL02" length="1"/>
-  <columns dataType="CHAR" name="M5FL03" length="1"/>
-  <columns dataType="CHAR" name="M5FL04" length="1"/>
-  <columns dataType="CHAR" name="M5FL05" length="1"/>
-  <columns dataType="CHAR" name="M5FL06" length="1"/>
-  <columns dataType="CHAR" name="M5FL07" length="1"/>
-  <columns dataType="CHAR" name="M5FL08" length="1"/>
-  <columns dataType="CHAR" name="M5FL09" length="1"/>
-  <columns dataType="CHAR" name="M5FL10" length="1"/>
-  <columns dataType="CHAR" name="M5FL11" length="1"/>
-  <columns dataType="CHAR" name="M5FL12" length="1"/>
-  <columns dataType="CHAR" name="M5FL13" length="1"/>
-  <columns dataType="CHAR" name="M5FL14" length="1"/>
-  <columns dataType="CHAR" name="M5FL15" length="1"/>
-  <columns dataType="CHAR" name="M5FL16" length="1"/>
-  <columns dataType="CHAR" name="M5FL17" length="1"/>
-  <columns dataType="CHAR" name="M5FL18" length="1"/>
-  <columns dataType="CHAR" name="M5FL19" length="1"/>
-  <columns dataType="CHAR" name="M5FL20" length="1"/>
-  <columns dataType="DECIMAL" name="M5DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="M5ORIN" length="6"/>
-  <columns dataType="CHAR" name="M5USIN" length="10"/>
-  <columns dataType="DECIMAL" name="M5DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="M5ORAG" length="6"/>
-  <columns dataType="CHAR" name="M5USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="M5TIPO"/>
+  <columns dataType="CHAR" length="3" name="M5DIC1"/>
+  <columns dataType="CHAR" length="3" name="M5DIC2"/>
+  <columns dataType="CHAR" length="3" name="M5DIC3"/>
+  <columns dataType="CHAR" length="10" name="M5NAT1"/>
+  <columns dataType="CHAR" length="10" name="M5NAT2"/>
+  <columns dataType="CHAR" length="15" name="M5DOGP"/>
+  <columns dataType="CHAR" length="2" name="M5AZIE"/>
+  <columns dataType="CHAR" length="12" name="M5TPRO"/>
+  <columns dataType="CHAR" length="15" name="M5NPRO"/>
+  <columns dataType="DECIMAL" length="8" name="M5DPRO"/>
+  <columns dataType="DECIMAL" length="8" name="M5DTAC"/>
+  <columns dataType="CHAR" length="3" name="M5TPCN"/>
+  <columns dataType="CHAR" length="15" name="M5SOGG"/>
+  <columns dataType="CHAR" length="12" name="M5TPOR"/>
+  <columns dataType="CHAR" length="15" name="M5CDOR"/>
+  <columns dataType="DECIMAL" length="8" name="M5DTOR"/>
+  <columns dataType="CHAR" length="15" name="M5NDES"/>
+  <columns dataType="DECIMAL" length="8" name="M5DDES"/>
+  <columns dataType="CHAR" length="15" name="M5DISC"/>
+  <columns dataType="CHAR" length="10" name="M5NZP1"/>
+  <columns dataType="CHAR" length="10" name="M5PRP1"/>
+  <columns dataType="CHAR" length="10" name="M5NZT1"/>
+  <columns dataType="CHAR" length="10" name="M5PRT1"/>
+  <columns dataType="DECIMAL" length="21" name="M5ELVA" scale="6"/>
+  <columns dataType="CHAR" length="30" name="M5EPAC"/>
+  <columns dataType="CHAR" length="4" name="M5VALD"/>
+  <columns dataType="DECIMAL" length="12" name="M5CAMD" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMPD" scale="6"/>
+  <columns dataType="CHAR" length="40" name="M5MEZ1"/>
+  <columns dataType="CHAR" length="10" name="M5NZM1"/>
+  <columns dataType="CHAR" length="1" name="M5FLCT"/>
+  <columns dataType="CHAR" length="40" name="M5MEZ2"/>
+  <columns dataType="CHAR" length="10" name="M5NZM2"/>
+  <columns dataType="CHAR" length="10" name="M5COCO"/>
+  <columns dataType="CHAR" length="10" name="M5MTR1"/>
+  <columns dataType="CHAR" length="10" name="M5MTR2"/>
+  <columns dataType="CHAR" length="15" name="M5DOGA"/>
+  <columns dataType="CHAR" length="40" name="M5LUGC"/>
+  <columns dataType="CHAR" length="40" name="M5DAFB"/>
+  <columns dataType="CHAR" length="40" name="M5LOCM"/>
+  <columns dataType="CHAR" length="1" name="M5LIVE"/>
+  <columns dataType="CHAR" length="2" name="M5STAT"/>
+  <columns dataType="DECIMAL" length="5" name="M5NRCO"/>
+  <columns dataType="CHAR" length="3" name="M5IMBA"/>
+  <columns dataType="CHAR" length="10" name="M5NCOM"/>
+  <columns dataType="DECIMAL" length="21" name="M5MAS1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5MAS2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMVA" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMSV" scale="6"/>
+  <columns dataType="CHAR" length="15" name="M5REG1"/>
+  <columns dataType="CHAR" length="15" name="M5REG2"/>
+  <columns dataType="CHAR" length="15" name="M5PREF"/>
+  <columns dataType="CHAR" length="15" name="M5CONT"/>
+  <columns dataType="CHAR" length="40" name="M5DICS"/>
+  <columns dataType="CHAR" length="40" name="M5UNIS"/>
+  <columns dataType="DECIMAL" length="21" name="M5AGGS" scale="6"/>
+  <columns dataType="CHAR" length="40" name="M5DILP"/>
+  <columns dataType="CHAR" length="40" name="M5IDEP"/>
+  <columns dataType="CHAR" length="15" name="M5CMV1"/>
+  <columns dataType="CHAR" length="15" name="M5CMV2"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMNO" scale="6"/>
+  <columns dataType="CHAR" length="50" name="M5NOT1"/>
+  <columns dataType="CHAR" length="50" name="M5NOT2"/>
+  <columns dataType="CHAR" length="50" name="M5NOT3"/>
+  <columns dataType="CHAR" length="50" name="M5NOT4"/>
+  <columns dataType="CHAR" length="50" name="M5NOT5"/>
+  <columns dataType="CHAR" length="50" name="M5NOT6"/>
+  <columns dataType="CHAR" length="15" name="M5TIP1"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP1" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP1"/>
+  <columns dataType="CHAR" length="15" name="M5TIP2"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP2" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP2"/>
+  <columns dataType="CHAR" length="15" name="M5TIP3"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP3" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP3"/>
+  <columns dataType="CHAR" length="15" name="M5TIP4"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP4" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP4"/>
+  <columns dataType="CHAR" length="15" name="M5TIP5"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI5" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI5" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP5" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP5"/>
+  <columns dataType="CHAR" length="15" name="M5TIP6"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI6" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI6" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP6" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP6"/>
+  <columns dataType="CHAR" length="15" name="M5TIP7"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI7" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI7" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP7" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP7"/>
+  <columns dataType="CHAR" length="15" name="M5TIP8"/>
+  <columns dataType="DECIMAL" length="21" name="M5BAI8" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5ALI8" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M5IMP8" scale="6"/>
+  <columns dataType="CHAR" length="1" name="M5FMP8"/>
+  <columns dataType="CHAR" length="40" name="M5UFFD"/>
+  <columns dataType="DECIMAL" length="8" name="M5DT01"/>
+  <columns dataType="DECIMAL" length="8" name="M5DT02"/>
+  <columns dataType="DECIMAL" length="8" name="M5DT03"/>
+  <columns dataType="DECIMAL" length="8" name="M5DT04"/>
+  <columns dataType="DECIMAL" length="8" name="M5DT05"/>
+  <columns dataType="CHAR" length="15" name="M5AA01"/>
+  <columns dataType="CHAR" length="15" name="M5AA02"/>
+  <columns dataType="CHAR" length="15" name="M5AA03"/>
+  <columns dataType="CHAR" length="15" name="M5AA04"/>
+  <columns dataType="CHAR" length="15" name="M5AA05"/>
+  <columns dataType="DECIMAL" length="15" name="M5NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M5NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M5NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M5NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M5NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="M5FL01"/>
+  <columns dataType="CHAR" length="1" name="M5FL02"/>
+  <columns dataType="CHAR" length="1" name="M5FL03"/>
+  <columns dataType="CHAR" length="1" name="M5FL04"/>
+  <columns dataType="CHAR" length="1" name="M5FL05"/>
+  <columns dataType="CHAR" length="1" name="M5FL06"/>
+  <columns dataType="CHAR" length="1" name="M5FL07"/>
+  <columns dataType="CHAR" length="1" name="M5FL08"/>
+  <columns dataType="CHAR" length="1" name="M5FL09"/>
+  <columns dataType="CHAR" length="1" name="M5FL10"/>
+  <columns dataType="CHAR" length="1" name="M5FL11"/>
+  <columns dataType="CHAR" length="1" name="M5FL12"/>
+  <columns dataType="CHAR" length="1" name="M5FL13"/>
+  <columns dataType="CHAR" length="1" name="M5FL14"/>
+  <columns dataType="CHAR" length="1" name="M5FL15"/>
+  <columns dataType="CHAR" length="1" name="M5FL16"/>
+  <columns dataType="CHAR" length="1" name="M5FL17"/>
+  <columns dataType="CHAR" length="1" name="M5FL18"/>
+  <columns dataType="CHAR" length="1" name="M5FL19"/>
+  <columns dataType="CHAR" length="1" name="M5FL20"/>
+  <columns dataType="DECIMAL" length="8" name="M5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="M5ORIN"/>
+  <columns dataType="CHAR" length="10" name="M5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="M5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="M5ORAG"/>
+  <columns dataType="CHAR" length="10" name="M5USAG"/>
 </db-core:TableDef>

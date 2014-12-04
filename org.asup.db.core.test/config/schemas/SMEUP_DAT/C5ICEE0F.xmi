@@ -1,86 +1,85 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5ICEE0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="I5AZIE" length="2"/>
-  <columns dataType="CHAR" name="I5TPCN" length="3"/>
-  <columns dataType="CHAR" name="I5SOGG" length="15"/>
-  <columns dataType="CHAR" name="I5TPOR" length="12"/>
-  <columns dataType="CHAR" name="I5CDOR" length="15"/>
-  <columns dataType="DECIMAL" name="I5DTOR" length="8"/>
-  <columns dataType="CHAR" name="I5TPRO" length="12"/>
-  <columns dataType="CHAR" name="I5NPRO" length="15"/>
-  <columns dataType="DECIMAL" name="I5DPRO" length="8"/>
-  <columns dataType="CHAR" name="I5NFAT" length="20"/>
-  <columns dataType="DECIMAL" name="I5DFAT" length="8"/>
-  <columns dataType="CHAR" name="I5CORD" length="50"/>
-  <columns dataType="CHAR" name="I5DORI" length="10"/>
-  <columns dataType="DECIMAL" name="I5RORI" length="4"/>
-  <columns dataType="CHAR" name="I5VALN" length="4"/>
-  <columns dataType="DECIMAL" name="I5CAMN" length="12" scale="6"/>
-  <columns dataType="CHAR" name="I5VALD" length="4"/>
-  <columns dataType="DECIMAL" name="I5CAMD" length="12" scale="6"/>
-  <columns dataType="CHAR" name="I5NAZP" length="10"/>
-  <columns dataType="CHAR" name="I5NAZ1" length="10"/>
-  <columns dataType="CHAR" name="I5NAZ2" length="10"/>
-  <columns dataType="CHAR" name="I5PRO1" length="10"/>
-  <columns dataType="CHAR" name="I5SEZD" length="10"/>
-  <columns dataType="DECIMAL" name="I5PTRE" length="6"/>
-  <columns dataType="DECIMAL" name="I5PRRE" length="5"/>
-  <columns dataType="CHAR" name="I5PIVA" length="20"/>
-  <columns dataType="CHAR" name="I5NATT" length="10"/>
-  <columns dataType="CHAR" name="I5COCO" length="10"/>
-  <columns dataType="CHAR" name="I5MTRA" length="10"/>
-  <columns dataType="CHAR" name="I5PEST" length="10"/>
-  <columns dataType="DECIMAL" name="I5DPRE" length="8"/>
-  <columns dataType="CHAR" name="I5PPRE" length="15"/>
-  <columns dataType="DECIMAL" name="I5NDIS" length="15" scale="5"/>
-  <columns dataType="CHAR" name="I5NCOM" length="10"/>
-  <columns dataType="CHAR" name="I5CDSE" length="6"/>
-  <columns dataType="DECIMAL" name="I5MAS1" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="I5MAS2" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="I5IMPO" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="I5IMVA" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="I5IMST" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="I5IMSV" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="I5DT01" length="8"/>
-  <columns dataType="DECIMAL" name="I5DT02" length="8"/>
-  <columns dataType="DECIMAL" name="I5DT03" length="8"/>
-  <columns dataType="DECIMAL" name="I5DT04" length="8"/>
-  <columns dataType="DECIMAL" name="I5DT05" length="8"/>
-  <columns dataType="CHAR" name="I5AA01" length="15"/>
-  <columns dataType="CHAR" name="I5AA02" length="15"/>
-  <columns dataType="CHAR" name="I5AA03" length="15"/>
-  <columns dataType="CHAR" name="I5AA04" length="15"/>
-  <columns dataType="CHAR" name="I5AA05" length="15"/>
-  <columns dataType="DECIMAL" name="I5NU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I5NU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I5NU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I5NU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="I5NU05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="I5FL01" length="1"/>
-  <columns dataType="CHAR" name="I5FL02" length="1"/>
-  <columns dataType="CHAR" name="I5FL03" length="1"/>
-  <columns dataType="CHAR" name="I5FL04" length="1"/>
-  <columns dataType="CHAR" name="I5FL05" length="1"/>
-  <columns dataType="CHAR" name="I5FL06" length="1"/>
-  <columns dataType="CHAR" name="I5FL07" length="1"/>
-  <columns dataType="CHAR" name="I5FL08" length="1"/>
-  <columns dataType="CHAR" name="I5FL09" length="1"/>
-  <columns dataType="CHAR" name="I5FL10" length="1"/>
-  <columns dataType="CHAR" name="I5FL11" length="1"/>
-  <columns dataType="CHAR" name="I5FL12" length="1"/>
-  <columns dataType="CHAR" name="I5FL13" length="1"/>
-  <columns dataType="CHAR" name="I5FL14" length="1"/>
-  <columns dataType="CHAR" name="I5FL15" length="1"/>
-  <columns dataType="CHAR" name="I5FL16" length="1"/>
-  <columns dataType="CHAR" name="I5FL17" length="1"/>
-  <columns dataType="CHAR" name="I5FL18" length="1"/>
-  <columns dataType="CHAR" name="I5FL19" length="1"/>
-  <columns dataType="CHAR" name="I5FL20" length="1"/>
-  <columns dataType="DECIMAL" name="I5DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="I5ORIN" length="6"/>
-  <columns dataType="CHAR" name="I5USIN" length="10"/>
-  <columns dataType="DECIMAL" name="I5DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="I5ORAG" length="6"/>
-  <columns dataType="CHAR" name="I5USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="I5AZIE"/>
+  <columns dataType="CHAR" length="3" name="I5TPCN"/>
+  <columns dataType="CHAR" length="15" name="I5SOGG"/>
+  <columns dataType="CHAR" length="12" name="I5TPOR"/>
+  <columns dataType="CHAR" length="15" name="I5CDOR"/>
+  <columns dataType="DECIMAL" length="8" name="I5DTOR"/>
+  <columns dataType="CHAR" length="12" name="I5TPRO"/>
+  <columns dataType="CHAR" length="15" name="I5NPRO"/>
+  <columns dataType="DECIMAL" length="8" name="I5DPRO"/>
+  <columns dataType="CHAR" length="20" name="I5NFAT"/>
+  <columns dataType="DECIMAL" length="8" name="I5DFAT"/>
+  <columns dataType="CHAR" length="50" name="I5CORD"/>
+  <columns dataType="CHAR" length="10" name="I5DORI"/>
+  <columns dataType="DECIMAL" length="4" name="I5RORI"/>
+  <columns dataType="CHAR" length="4" name="I5VALN"/>
+  <columns dataType="DECIMAL" length="12" name="I5CAMN" scale="6"/>
+  <columns dataType="CHAR" length="4" name="I5VALD"/>
+  <columns dataType="DECIMAL" length="12" name="I5CAMD" scale="6"/>
+  <columns dataType="CHAR" length="10" name="I5NAZP"/>
+  <columns dataType="CHAR" length="10" name="I5NAZ1"/>
+  <columns dataType="CHAR" length="10" name="I5NAZ2"/>
+  <columns dataType="CHAR" length="10" name="I5PRO1"/>
+  <columns dataType="CHAR" length="10" name="I5SEZD"/>
+  <columns dataType="DECIMAL" length="6" name="I5PTRE"/>
+  <columns dataType="DECIMAL" length="5" name="I5PRRE"/>
+  <columns dataType="CHAR" length="20" name="I5PIVA"/>
+  <columns dataType="CHAR" length="10" name="I5NATT"/>
+  <columns dataType="CHAR" length="10" name="I5COCO"/>
+  <columns dataType="CHAR" length="10" name="I5MTRA"/>
+  <columns dataType="CHAR" length="10" name="I5PEST"/>
+  <columns dataType="DECIMAL" length="8" name="I5DPRE"/>
+  <columns dataType="CHAR" length="15" name="I5PPRE"/>
+  <columns dataType="DECIMAL" length="15" name="I5NDIS" scale="5"/>
+  <columns dataType="CHAR" length="10" name="I5NCOM"/>
+  <columns dataType="CHAR" length="6" name="I5CDSE"/>
+  <columns dataType="DECIMAL" length="21" name="I5MAS1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="I5MAS2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="I5IMPO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="I5IMVA" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="I5IMST" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="I5IMSV" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="I5DT01"/>
+  <columns dataType="DECIMAL" length="8" name="I5DT02"/>
+  <columns dataType="DECIMAL" length="8" name="I5DT03"/>
+  <columns dataType="DECIMAL" length="8" name="I5DT04"/>
+  <columns dataType="DECIMAL" length="8" name="I5DT05"/>
+  <columns dataType="CHAR" length="15" name="I5AA01"/>
+  <columns dataType="CHAR" length="15" name="I5AA02"/>
+  <columns dataType="CHAR" length="15" name="I5AA03"/>
+  <columns dataType="CHAR" length="15" name="I5AA04"/>
+  <columns dataType="CHAR" length="15" name="I5AA05"/>
+  <columns dataType="DECIMAL" length="15" name="I5NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I5NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I5NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I5NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I5NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="I5FL01"/>
+  <columns dataType="CHAR" length="1" name="I5FL02"/>
+  <columns dataType="CHAR" length="1" name="I5FL03"/>
+  <columns dataType="CHAR" length="1" name="I5FL04"/>
+  <columns dataType="CHAR" length="1" name="I5FL05"/>
+  <columns dataType="CHAR" length="1" name="I5FL06"/>
+  <columns dataType="CHAR" length="1" name="I5FL07"/>
+  <columns dataType="CHAR" length="1" name="I5FL08"/>
+  <columns dataType="CHAR" length="1" name="I5FL09"/>
+  <columns dataType="CHAR" length="1" name="I5FL10"/>
+  <columns dataType="CHAR" length="1" name="I5FL11"/>
+  <columns dataType="CHAR" length="1" name="I5FL12"/>
+  <columns dataType="CHAR" length="1" name="I5FL13"/>
+  <columns dataType="CHAR" length="1" name="I5FL14"/>
+  <columns dataType="CHAR" length="1" name="I5FL15"/>
+  <columns dataType="CHAR" length="1" name="I5FL16"/>
+  <columns dataType="CHAR" length="1" name="I5FL17"/>
+  <columns dataType="CHAR" length="1" name="I5FL18"/>
+  <columns dataType="CHAR" length="1" name="I5FL19"/>
+  <columns dataType="CHAR" length="1" name="I5FL20"/>
+  <columns dataType="DECIMAL" length="8" name="I5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="I5ORIN"/>
+  <columns dataType="CHAR" length="10" name="I5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="I5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="I5ORAG"/>
+  <columns dataType="CHAR" length="10" name="I5USAG"/>
 </db-core:TableDef>

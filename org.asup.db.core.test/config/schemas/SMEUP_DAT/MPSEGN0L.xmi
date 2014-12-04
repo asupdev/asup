@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MPSEGN0L" creationCommand=" CREATE VIEW MPSEGN0L (   MPCDPI ,   MPTPRC ,   MPCD01 ,   MPCD02 ,   MPTPRG ,   MPCDRG ,   MPCDSE ,   MPCDGR ,   MPCDMS ,   MPFIMS ,   MPVAR1 ,   MPVAR2 ,   MPVAR3 ,   MPVAR4 )   AS   SELECT   MPCDPI ,   MPTPRC ,   MPCD01 ,   MPCD02 ,   MPTPRG ,   MPCDRG ,   MPCDSE ,   MPCDGR ,   MPCDMS ,   MPFIMS ,   MPVAR1 ,   MPVAR2 ,   MPVAR3 ,   MPVAR4   FROM MPSEGN0F   ;  "/>

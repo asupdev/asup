@@ -1,124 +1,123 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C5TREG0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="T5AZIE" length="2"/>
-  <columns dataType="CHAR" name="T5DIVI" length="3"/>
-  <columns dataType="CHAR" name="T5ESER" length="10"/>
-  <columns dataType="CHAR" name="T5LIVE" length="1"/>
-  <columns dataType="CHAR" name="T5STAT" length="2"/>
-  <columns dataType="CHAR" name="T5SOCI" length="3"/>
-  <columns dataType="CHAR" name="T5SOCO" length="3"/>
-  <columns dataType="CHAR" name="T5PROG" length="10"/>
-  <columns dataType="CHAR" name="T5TPRS" length="12"/>
-  <columns dataType="CHAR" name="T5CDRS" length="15"/>
-  <columns dataType="CHAR" name="T5CAST" length="3"/>
-  <columns dataType="CHAR" name="T5TREG" length="6"/>
-  <columns dataType="CHAR" name="T5TIPM" length="3"/>
-  <columns dataType="CHAR" name="T5IDOR" length="10"/>
-  <columns dataType="CHAR" name="T5TPOG" length="12"/>
-  <columns dataType="CHAR" name="T5CDOG" length="15"/>
-  <columns dataType="CHAR" name="T5COFI" length="20"/>
-  <columns dataType="CHAR" name="T5NDOR" length="20"/>
-  <columns dataType="CHAR" name="T5NRIF" length="10"/>
-  <columns dataType="CHAR" name="T5TPRO" length="12"/>
-  <columns dataType="CHAR" name="T5NPRO" length="15"/>
-  <columns dataType="CHAR" name="T5DESC" length="30"/>
-  <columns dataType="CHAR" name="T5AGEN" length="4"/>
-  <columns dataType="CHAR" name="T5COPA" length="3"/>
-  <columns dataType="CHAR" name="T5CAUS" length="3"/>
-  <columns dataType="CHAR" name="T5BANC" length="3"/>
-  <columns dataType="CHAR" name="T5CCOR" length="15"/>
-  <columns dataType="CHAR" name="T5ABCB" length="15"/>
-  <columns dataType="CHAR" name="T5DBAP" length="35"/>
-  <columns dataType="CHAR" name="T5IBAN" length="35"/>
-  <columns dataType="CHAR" name="T5SWIF" length="11"/>
-  <columns dataType="CHAR" name="T5TICE" length="3"/>
-  <columns dataType="CHAR" name="T5CECE" length="15"/>
-  <columns dataType="DECIMAL" name="T5DREG" length="8"/>
-  <columns dataType="DECIMAL" name="T5DDOR" length="8"/>
-  <columns dataType="DECIMAL" name="T5DRIF" length="8"/>
-  <columns dataType="DECIMAL" name="T5DPRO" length="8"/>
-  <columns dataType="DECIMAL" name="T5DCOI" length="8"/>
-  <columns dataType="DECIMAL" name="T5DCOF" length="8"/>
-  <columns dataType="DECIMAL" name="T5DINP" length="8"/>
-  <columns dataType="DECIMAL" name="T5DAOP" length="8"/>
-  <columns dataType="DECIMAL" name="T5DCIV" length="8"/>
-  <columns dataType="CHAR" name="T5GIVA" length="3"/>
-  <columns dataType="CHAR" name="T5TIVA" length="1"/>
-  <columns dataType="CHAR" name="T5SEGN" length="1"/>
-  <columns dataType="CHAR" name="T5CIVA" length="2"/>
-  <columns dataType="CHAR" name="T5VALU" length="4"/>
-  <columns dataType="DECIMAL" name="T5CAMB" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="T5IMPO" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5IMVA" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5PDAR" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5VDAR" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5PAVE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5VAVE" length="21" scale="6"/>
-  <columns dataType="CHAR" name="T5VALE" length="4"/>
-  <columns dataType="DECIMAL" name="T5CAME" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="T5IMVE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5EDAR" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5EAVE" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="T5DT01" length="8"/>
-  <columns dataType="DECIMAL" name="T5DT02" length="8"/>
-  <columns dataType="DECIMAL" name="T5DT03" length="8"/>
-  <columns dataType="DECIMAL" name="T5DT04" length="8"/>
-  <columns dataType="DECIMAL" name="T5DT05" length="8"/>
-  <columns dataType="CHAR" name="T5AA01" length="15"/>
-  <columns dataType="CHAR" name="T5AA02" length="15"/>
-  <columns dataType="CHAR" name="T5AA03" length="15"/>
-  <columns dataType="CHAR" name="T5AA04" length="15"/>
-  <columns dataType="CHAR" name="T5AA05" length="15"/>
-  <columns dataType="DECIMAL" name="T5NU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="T5NU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="T5NU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="T5NU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="T5NU05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="T5FL01" length="1"/>
-  <columns dataType="CHAR" name="T5FL02" length="1"/>
-  <columns dataType="CHAR" name="T5FL03" length="1"/>
-  <columns dataType="CHAR" name="T5FL04" length="1"/>
-  <columns dataType="CHAR" name="T5FL05" length="1"/>
-  <columns dataType="CHAR" name="T5FL06" length="1"/>
-  <columns dataType="CHAR" name="T5FL07" length="1"/>
-  <columns dataType="CHAR" name="T5FL08" length="1"/>
-  <columns dataType="CHAR" name="T5FL09" length="1"/>
-  <columns dataType="CHAR" name="T5FL10" length="1"/>
-  <columns dataType="CHAR" name="T5FL11" length="1"/>
-  <columns dataType="CHAR" name="T5FL12" length="1"/>
-  <columns dataType="CHAR" name="T5FL13" length="1"/>
-  <columns dataType="CHAR" name="T5FL14" length="1"/>
-  <columns dataType="CHAR" name="T5FL15" length="1"/>
-  <columns dataType="CHAR" name="T5FL16" length="1"/>
-  <columns dataType="CHAR" name="T5FL17" length="1"/>
-  <columns dataType="CHAR" name="T5FL18" length="1"/>
-  <columns dataType="CHAR" name="T5FL19" length="1"/>
-  <columns dataType="CHAR" name="T5FL20" length="1"/>
-  <columns dataType="CHAR" name="T5FL21" length="1"/>
-  <columns dataType="CHAR" name="T5FL22" length="1"/>
-  <columns dataType="CHAR" name="T5FL23" length="1"/>
-  <columns dataType="CHAR" name="T5FL24" length="1"/>
-  <columns dataType="CHAR" name="T5FL25" length="1"/>
-  <columns dataType="CHAR" name="T5FL26" length="1"/>
-  <columns dataType="CHAR" name="T5FL27" length="1"/>
-  <columns dataType="CHAR" name="T5FL28" length="1"/>
-  <columns dataType="CHAR" name="T5FL29" length="1"/>
-  <columns dataType="CHAR" name="T5FL30" length="1"/>
-  <columns dataType="CHAR" name="T5FL31" length="1"/>
-  <columns dataType="CHAR" name="T5FL32" length="1"/>
-  <columns dataType="CHAR" name="T5FL33" length="1"/>
-  <columns dataType="CHAR" name="T5FL34" length="1"/>
-  <columns dataType="CHAR" name="T5FL35" length="1"/>
-  <columns dataType="CHAR" name="T5FL36" length="1"/>
-  <columns dataType="CHAR" name="T5FL37" length="1"/>
-  <columns dataType="CHAR" name="T5FL38" length="1"/>
-  <columns dataType="CHAR" name="T5FL39" length="1"/>
-  <columns dataType="CHAR" name="T5FL40" length="1"/>
-  <columns dataType="DECIMAL" name="T5DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="T5ORIN" length="6"/>
-  <columns dataType="CHAR" name="T5USIN" length="10"/>
-  <columns dataType="DECIMAL" name="T5DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="T5ORAG" length="6"/>
-  <columns dataType="CHAR" name="T5USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="T5AZIE"/>
+  <columns dataType="CHAR" length="3" name="T5DIVI"/>
+  <columns dataType="CHAR" length="10" name="T5ESER"/>
+  <columns dataType="CHAR" length="1" name="T5LIVE"/>
+  <columns dataType="CHAR" length="2" name="T5STAT"/>
+  <columns dataType="CHAR" length="3" name="T5SOCI"/>
+  <columns dataType="CHAR" length="3" name="T5SOCO"/>
+  <columns dataType="CHAR" length="10" name="T5PROG"/>
+  <columns dataType="CHAR" length="12" name="T5TPRS"/>
+  <columns dataType="CHAR" length="15" name="T5CDRS"/>
+  <columns dataType="CHAR" length="3" name="T5CAST"/>
+  <columns dataType="CHAR" length="6" name="T5TREG"/>
+  <columns dataType="CHAR" length="3" name="T5TIPM"/>
+  <columns dataType="CHAR" length="10" name="T5IDOR"/>
+  <columns dataType="CHAR" length="12" name="T5TPOG"/>
+  <columns dataType="CHAR" length="15" name="T5CDOG"/>
+  <columns dataType="CHAR" length="20" name="T5COFI"/>
+  <columns dataType="CHAR" length="20" name="T5NDOR"/>
+  <columns dataType="CHAR" length="10" name="T5NRIF"/>
+  <columns dataType="CHAR" length="12" name="T5TPRO"/>
+  <columns dataType="CHAR" length="15" name="T5NPRO"/>
+  <columns dataType="CHAR" length="30" name="T5DESC"/>
+  <columns dataType="CHAR" length="4" name="T5AGEN"/>
+  <columns dataType="CHAR" length="3" name="T5COPA"/>
+  <columns dataType="CHAR" length="3" name="T5CAUS"/>
+  <columns dataType="CHAR" length="3" name="T5BANC"/>
+  <columns dataType="CHAR" length="15" name="T5CCOR"/>
+  <columns dataType="CHAR" length="15" name="T5ABCB"/>
+  <columns dataType="CHAR" length="35" name="T5DBAP"/>
+  <columns dataType="CHAR" length="35" name="T5IBAN"/>
+  <columns dataType="CHAR" length="11" name="T5SWIF"/>
+  <columns dataType="CHAR" length="3" name="T5TICE"/>
+  <columns dataType="CHAR" length="15" name="T5CECE"/>
+  <columns dataType="DECIMAL" length="8" name="T5DREG"/>
+  <columns dataType="DECIMAL" length="8" name="T5DDOR"/>
+  <columns dataType="DECIMAL" length="8" name="T5DRIF"/>
+  <columns dataType="DECIMAL" length="8" name="T5DPRO"/>
+  <columns dataType="DECIMAL" length="8" name="T5DCOI"/>
+  <columns dataType="DECIMAL" length="8" name="T5DCOF"/>
+  <columns dataType="DECIMAL" length="8" name="T5DINP"/>
+  <columns dataType="DECIMAL" length="8" name="T5DAOP"/>
+  <columns dataType="DECIMAL" length="8" name="T5DCIV"/>
+  <columns dataType="CHAR" length="3" name="T5GIVA"/>
+  <columns dataType="CHAR" length="1" name="T5TIVA"/>
+  <columns dataType="CHAR" length="1" name="T5SEGN"/>
+  <columns dataType="CHAR" length="2" name="T5CIVA"/>
+  <columns dataType="CHAR" length="4" name="T5VALU"/>
+  <columns dataType="DECIMAL" length="12" name="T5CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5IMPO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5IMVA" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5PDAR" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5VDAR" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5PAVE" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5VAVE" scale="6"/>
+  <columns dataType="CHAR" length="4" name="T5VALE"/>
+  <columns dataType="DECIMAL" length="12" name="T5CAME" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5IMVE" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5EDAR" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="T5EAVE" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="T5DT01"/>
+  <columns dataType="DECIMAL" length="8" name="T5DT02"/>
+  <columns dataType="DECIMAL" length="8" name="T5DT03"/>
+  <columns dataType="DECIMAL" length="8" name="T5DT04"/>
+  <columns dataType="DECIMAL" length="8" name="T5DT05"/>
+  <columns dataType="CHAR" length="15" name="T5AA01"/>
+  <columns dataType="CHAR" length="15" name="T5AA02"/>
+  <columns dataType="CHAR" length="15" name="T5AA03"/>
+  <columns dataType="CHAR" length="15" name="T5AA04"/>
+  <columns dataType="CHAR" length="15" name="T5AA05"/>
+  <columns dataType="DECIMAL" length="15" name="T5NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T5NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T5NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T5NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T5NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="T5FL01"/>
+  <columns dataType="CHAR" length="1" name="T5FL02"/>
+  <columns dataType="CHAR" length="1" name="T5FL03"/>
+  <columns dataType="CHAR" length="1" name="T5FL04"/>
+  <columns dataType="CHAR" length="1" name="T5FL05"/>
+  <columns dataType="CHAR" length="1" name="T5FL06"/>
+  <columns dataType="CHAR" length="1" name="T5FL07"/>
+  <columns dataType="CHAR" length="1" name="T5FL08"/>
+  <columns dataType="CHAR" length="1" name="T5FL09"/>
+  <columns dataType="CHAR" length="1" name="T5FL10"/>
+  <columns dataType="CHAR" length="1" name="T5FL11"/>
+  <columns dataType="CHAR" length="1" name="T5FL12"/>
+  <columns dataType="CHAR" length="1" name="T5FL13"/>
+  <columns dataType="CHAR" length="1" name="T5FL14"/>
+  <columns dataType="CHAR" length="1" name="T5FL15"/>
+  <columns dataType="CHAR" length="1" name="T5FL16"/>
+  <columns dataType="CHAR" length="1" name="T5FL17"/>
+  <columns dataType="CHAR" length="1" name="T5FL18"/>
+  <columns dataType="CHAR" length="1" name="T5FL19"/>
+  <columns dataType="CHAR" length="1" name="T5FL20"/>
+  <columns dataType="CHAR" length="1" name="T5FL21"/>
+  <columns dataType="CHAR" length="1" name="T5FL22"/>
+  <columns dataType="CHAR" length="1" name="T5FL23"/>
+  <columns dataType="CHAR" length="1" name="T5FL24"/>
+  <columns dataType="CHAR" length="1" name="T5FL25"/>
+  <columns dataType="CHAR" length="1" name="T5FL26"/>
+  <columns dataType="CHAR" length="1" name="T5FL27"/>
+  <columns dataType="CHAR" length="1" name="T5FL28"/>
+  <columns dataType="CHAR" length="1" name="T5FL29"/>
+  <columns dataType="CHAR" length="1" name="T5FL30"/>
+  <columns dataType="CHAR" length="1" name="T5FL31"/>
+  <columns dataType="CHAR" length="1" name="T5FL32"/>
+  <columns dataType="CHAR" length="1" name="T5FL33"/>
+  <columns dataType="CHAR" length="1" name="T5FL34"/>
+  <columns dataType="CHAR" length="1" name="T5FL35"/>
+  <columns dataType="CHAR" length="1" name="T5FL36"/>
+  <columns dataType="CHAR" length="1" name="T5FL37"/>
+  <columns dataType="CHAR" length="1" name="T5FL38"/>
+  <columns dataType="CHAR" length="1" name="T5FL39"/>
+  <columns dataType="CHAR" length="1" name="T5FL40"/>
+  <columns dataType="DECIMAL" length="8" name="T5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="T5ORIN"/>
+  <columns dataType="CHAR" length="10" name="T5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="T5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="T5ORAG"/>
+  <columns dataType="CHAR" length="10" name="T5USAG"/>
 </db-core:TableDef>

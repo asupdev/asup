@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0SVIS0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="P&#xa7;CDVI" length="6"/>
-  <columns dataType="DECIMAL" name="P&#xa7;DTRV" length="8"/>
-  <columns dataType="DECIMAL" name="P&#xa7;DTEV" length="8"/>
-  <columns dataType="CHAR" name="P&#xa7;DIPE" length="15"/>
-  <columns dataType="CHAR" name="P&#xa7;TPVI" length="2"/>
-  <columns dataType="CHAR" name="P&#xa7;STVI" length="2"/>
-  <columns dataType="CHAR" name="P&#xa7;ENVI" length="5"/>
-  <columns dataType="CHAR" name="P&#xa7;ESVI" length="5"/>
-  <columns dataType="CHAR" name="P&#xa7;NOTA" length="50"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="6" name="P&#xa7;CDVI"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DTRV"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DTEV"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;DIPE"/>
+  <columns dataType="CHAR" length="2" name="P&#xa7;TPVI"/>
+  <columns dataType="CHAR" length="2" name="P&#xa7;STVI"/>
+  <columns dataType="CHAR" length="5" name="P&#xa7;ENVI"/>
+  <columns dataType="CHAR" length="5" name="P&#xa7;ESVI"/>
+  <columns dataType="CHAR" length="50" name="P&#xa7;NOTA"/>
 </db-core:TableDef>

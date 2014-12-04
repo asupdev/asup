@@ -1,480 +1,479 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="M5IMST0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="I&#xa3;NSES" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;TIP1" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;CDMG" length="3"/>
-  <columns dataType="CHAR" name="I&#xa3;TIOG" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;PAOG" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;CODI" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CONF" length="20"/>
-  <columns dataType="CHAR" name="I&#xa3;TIAF" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;PAAF" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;OGAF" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;TIRF" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;PARF" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;OGRF" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;TSES" length="10"/>
-  <columns dataType="DECIMAL" name="I&#xa3;PROG" length="7"/>
-  <columns dataType="DECIMAL" name="I&#xa3;NORI" length="7"/>
-  <columns dataType="CHAR" name="I&#xa3;TIAC" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;PAAC" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;OGAC" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;TICO" length="2"/>
-  <columns dataType="CHAR" name="I&#xa3;PACO" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;OGCO" length="15"/>
-  <columns dataType="DECIMAL" name="I&#xa3;LIMI" length="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;LOTR" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QMIN" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QMUL" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QMAX" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;LDTS" length="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;LDTV" length="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;LDTR" length="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;LDAD" length="3"/>
-  <columns dataType="CHAR" name="I&#xa3;TIOR" length="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QTOR" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QTRI" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QTDP" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QTPR" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTMI" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTMF" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTAI" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTAF" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTCI" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTCF" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;COEF" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q001" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q002" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q003" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q004" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q005" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q006" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q007" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q008" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q009" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q010" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q011" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q012" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q013" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q014" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q015" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q016" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q017" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q018" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q019" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q020" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q021" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q022" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q023" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q024" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q025" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q026" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q027" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q028" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q029" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q030" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q031" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q032" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q033" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q034" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q035" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q036" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q037" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q038" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q039" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q040" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q041" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q042" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q043" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q044" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q045" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q046" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q047" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q048" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q049" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q050" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q051" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q052" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q053" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q054" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q055" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q056" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q057" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q058" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q059" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q060" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q061" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q062" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q063" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q064" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q065" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q066" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q067" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q068" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q069" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q070" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q071" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q072" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q073" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q074" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q075" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q076" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q077" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q078" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q079" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q080" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q081" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q082" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q083" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q084" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q085" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q086" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q087" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q088" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q089" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q090" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q091" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q092" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q093" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q094" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q095" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q096" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q097" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q098" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q099" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q100" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q101" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q102" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q103" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q104" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q105" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q106" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q107" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q108" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q109" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q110" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q111" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q112" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q113" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q114" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q115" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q116" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q117" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q118" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q119" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q120" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q121" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q122" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q123" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q124" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q125" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q126" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q127" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q128" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q129" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q130" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q131" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q132" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q133" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q134" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q135" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q136" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q137" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q138" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q139" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q140" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q141" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q142" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q143" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q144" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q145" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q146" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q147" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q148" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q149" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q150" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q151" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q152" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q153" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q154" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q155" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q156" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q157" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q158" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q159" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q160" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q161" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q162" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q163" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q164" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q165" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q166" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q167" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q168" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q169" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q170" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q171" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q172" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q173" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q174" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q175" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q176" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q177" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q178" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q179" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q180" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q181" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q182" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q183" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q184" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q185" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q186" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q187" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q188" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q189" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q190" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q191" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q192" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q193" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q194" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q195" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q196" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q197" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q198" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q199" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q200" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q201" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q202" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q203" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q204" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q205" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q206" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q207" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q208" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q209" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q210" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q211" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q212" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q213" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q214" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q215" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q216" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q217" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q218" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q219" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q220" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q221" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q222" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q223" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q224" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q225" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q226" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q227" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q228" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q229" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q230" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q231" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q232" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q233" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q234" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q235" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q236" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q237" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q238" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q239" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q240" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q241" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q242" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q243" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q244" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q245" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q246" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q247" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q248" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q249" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q250" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q251" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q252" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q253" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q254" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q255" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q256" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q257" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q258" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q259" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q260" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q261" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q262" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q263" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q264" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q265" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q266" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q267" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q268" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q269" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q270" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q271" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q272" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q273" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q274" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q275" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q276" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q277" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q278" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q279" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q280" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q281" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q282" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q283" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q284" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q285" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q286" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q287" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q288" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q289" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q290" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q291" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q292" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q293" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q294" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q295" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q296" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q297" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q298" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q299" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q300" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q301" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q302" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q303" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q304" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q305" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q306" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q307" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q308" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q309" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q310" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q311" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q312" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q313" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q314" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q315" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q316" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q317" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q318" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q319" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q320" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q321" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q322" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q323" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q324" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q325" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q326" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q327" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q328" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q329" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q330" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q331" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q332" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q333" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q334" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q335" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q336" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q337" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q338" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q339" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q340" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q341" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q342" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q343" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q344" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q345" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q346" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q347" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q348" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q349" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q350" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q351" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q352" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q353" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q354" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q355" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q356" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q357" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q358" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q359" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q360" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q361" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q362" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q363" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q364" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q365" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q366" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q367" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q368" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q369" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q370" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q371" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q372" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q373" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q374" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q375" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q376" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q377" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q378" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q379" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q380" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q381" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q382" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q383" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q384" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q385" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q386" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q387" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q388" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q389" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q390" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q391" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q392" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q393" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q394" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q395" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q396" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q397" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q398" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q399" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;Q400" length="11" scale="3"/>
-  <columns dataType="CHAR" name="I&#xa3;LIVE" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;STAT" length="2"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL01" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL02" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL03" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL04" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DL05" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QL01" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QL02" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QL03" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QL04" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="I&#xa3;QL05" length="11" scale="3"/>
-  <columns dataType="CHAR" name="I&#xa3;CL01" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CL02" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CL03" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CL04" length="15"/>
-  <columns dataType="CHAR" name="I&#xa3;CL05" length="15"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ORIN" length="6"/>
-  <columns dataType="DECIMAL" name="I&#xa3;DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa3;ORAG" length="6"/>
-  <columns dataType="CHAR" name="I&#xa3;USIN" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;USAG" length="10"/>
-  <columns dataType="CHAR" name="I&#xa3;FL01" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL02" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL03" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL04" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL05" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL06" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL07" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL08" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL09" length="1"/>
-  <columns dataType="CHAR" name="I&#xa3;FL10" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I&#xa3;NSES"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;TIP1"/>
+  <columns dataType="CHAR" length="3" name="I&#xa3;CDMG"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TIOG"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;PAOG"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CODI"/>
+  <columns dataType="CHAR" length="20" name="I&#xa3;CONF"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TIAF"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;PAAF"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;OGAF"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TIRF"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;PARF"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;OGRF"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;TSES"/>
+  <columns dataType="DECIMAL" length="7" name="I&#xa3;PROG"/>
+  <columns dataType="DECIMAL" length="7" name="I&#xa3;NORI"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TIAC"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;PAAC"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;OGAC"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TICO"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;PACO"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;OGCO"/>
+  <columns dataType="DECIMAL" length="3" name="I&#xa3;LIMI"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;LOTR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QMIN" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QMUL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QMAX" scale="3"/>
+  <columns dataType="DECIMAL" length="3" name="I&#xa3;LDTS"/>
+  <columns dataType="DECIMAL" length="3" name="I&#xa3;LDTV"/>
+  <columns dataType="DECIMAL" length="3" name="I&#xa3;LDTR"/>
+  <columns dataType="DECIMAL" length="3" name="I&#xa3;LDAD"/>
+  <columns dataType="CHAR" length="3" name="I&#xa3;TIOR"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QTOR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QTRI" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QTDP" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QTPR" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTMI"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTMF"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTAI"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTAF"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTCI"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTCF"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;COEF" scale="6"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q001" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q002" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q003" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q004" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q005" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q006" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q007" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q008" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q009" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q010" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q011" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q012" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q013" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q014" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q015" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q016" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q017" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q018" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q019" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q020" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q021" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q022" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q023" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q024" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q025" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q026" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q027" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q028" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q029" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q030" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q031" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q032" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q033" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q034" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q035" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q036" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q037" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q038" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q039" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q040" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q041" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q042" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q043" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q044" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q045" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q046" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q047" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q048" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q049" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q050" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q051" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q052" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q053" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q054" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q055" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q056" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q057" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q058" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q059" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q060" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q061" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q062" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q063" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q064" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q065" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q066" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q067" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q068" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q069" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q070" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q071" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q072" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q073" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q074" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q075" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q076" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q077" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q078" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q079" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q080" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q081" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q082" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q083" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q084" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q085" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q086" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q087" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q088" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q089" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q090" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q091" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q092" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q093" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q094" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q095" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q096" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q097" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q098" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q099" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q100" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q101" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q102" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q103" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q104" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q105" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q106" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q107" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q108" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q109" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q110" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q111" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q112" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q113" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q114" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q115" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q116" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q117" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q118" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q119" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q120" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q121" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q122" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q123" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q124" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q125" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q126" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q127" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q128" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q129" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q130" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q131" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q132" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q133" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q134" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q135" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q136" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q137" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q138" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q139" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q140" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q141" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q142" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q143" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q144" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q145" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q146" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q147" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q148" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q149" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q150" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q151" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q152" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q153" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q154" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q155" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q156" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q157" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q158" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q159" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q160" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q161" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q162" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q163" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q164" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q165" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q166" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q167" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q168" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q169" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q170" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q171" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q172" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q173" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q174" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q175" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q176" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q177" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q178" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q179" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q180" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q181" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q182" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q183" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q184" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q185" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q186" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q187" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q188" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q189" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q190" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q191" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q192" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q193" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q194" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q195" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q196" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q197" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q198" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q199" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q200" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q201" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q202" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q203" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q204" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q205" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q206" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q207" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q208" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q209" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q210" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q211" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q212" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q213" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q214" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q215" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q216" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q217" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q218" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q219" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q220" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q221" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q222" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q223" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q224" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q225" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q226" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q227" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q228" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q229" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q230" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q231" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q232" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q233" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q234" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q235" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q236" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q237" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q238" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q239" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q240" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q241" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q242" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q243" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q244" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q245" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q246" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q247" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q248" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q249" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q250" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q251" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q252" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q253" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q254" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q255" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q256" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q257" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q258" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q259" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q260" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q261" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q262" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q263" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q264" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q265" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q266" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q267" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q268" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q269" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q270" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q271" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q272" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q273" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q274" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q275" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q276" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q277" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q278" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q279" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q280" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q281" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q282" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q283" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q284" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q285" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q286" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q287" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q288" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q289" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q290" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q291" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q292" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q293" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q294" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q295" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q296" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q297" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q298" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q299" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q300" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q301" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q302" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q303" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q304" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q305" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q306" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q307" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q308" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q309" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q310" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q311" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q312" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q313" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q314" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q315" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q316" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q317" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q318" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q319" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q320" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q321" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q322" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q323" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q324" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q325" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q326" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q327" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q328" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q329" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q330" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q331" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q332" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q333" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q334" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q335" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q336" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q337" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q338" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q339" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q340" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q341" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q342" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q343" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q344" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q345" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q346" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q347" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q348" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q349" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q350" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q351" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q352" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q353" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q354" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q355" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q356" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q357" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q358" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q359" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q360" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q361" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q362" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q363" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q364" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q365" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q366" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q367" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q368" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q369" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q370" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q371" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q372" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q373" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q374" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q375" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q376" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q377" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q378" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q379" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q380" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q381" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q382" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q383" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q384" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q385" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q386" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q387" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q388" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q389" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q390" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q391" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q392" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q393" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q394" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q395" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q396" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q397" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q398" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q399" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;Q400" scale="3"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;LIVE"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;STAT"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL01"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL02"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL03"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL04"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL05"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QL01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QL02" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QL03" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QL04" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="I&#xa3;QL05" scale="3"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CL01"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CL02"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CL03"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CL04"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CL05"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;ORIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;ORAG"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;USIN"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;USAG"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL01"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL02"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL03"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL04"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL05"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL06"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL07"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL08"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL09"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL10"/>
 </db-core:TableDef>

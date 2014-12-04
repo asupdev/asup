@@ -1,61 +1,60 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="G9DCON0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NREG" length="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;RREG" length="3"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DMOV" length="8"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NPRO" length="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DDOC" length="8"/>
-  <columns dataType="CHAR" name="G&#xa7;NRIF" length="10"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DRIF" length="8"/>
-  <columns dataType="CHAR" name="G&#xa7;CAUS" length="4"/>
-  <columns dataType="CHAR" name="G&#xa7;CAUR" length="3"/>
-  <columns dataType="CHAR" name="G&#xa7;DESC" length="35"/>
-  <columns dataType="CHAR" name="G&#xa7;TCON" length="3"/>
-  <columns dataType="CHAR" name="G&#xa7;CODF" length="15"/>
-  <columns dataType="CHAR" name="G&#xa7;TRIG" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;CONT" length="12"/>
-  <columns dataType="CHAR" name="G&#xa7;DAAV" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;DIVI" length="3"/>
-  <columns dataType="DECIMAL" name="G&#xa7;IMIM" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="G&#xa7;IMPO" length="15" scale="3"/>
-  <columns dataType="CHAR" name="G&#xa7;VALU" length="4"/>
-  <columns dataType="DECIMAL" name="G&#xa7;CAMB" length="12" scale="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DVAL" length="8"/>
-  <columns dataType="CHAR" name="G&#xa7;CASI" length="2"/>
-  <columns dataType="CHAR" name="G&#xa7;RIVA" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;NIVA" length="2"/>
-  <columns dataType="CHAR" name="G&#xa7;COPA" length="3"/>
-  <columns dataType="CHAR" name="G&#xa7;TIPA" length="2"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DSCA" length="8"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NRAT" length="3"/>
-  <columns dataType="DECIMAL" name="G&#xa7;PRAT" length="5" scale="2"/>
-  <columns dataType="CHAR" name="G&#xa7;BANC" length="15"/>
-  <columns dataType="CHAR" name="G&#xa7;TOPE" length="2"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DOPE" length="8"/>
-  <columns dataType="CHAR" name="G&#xa7;ESEC" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;MPRO" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;MVAL" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;CDC" length="6"/>
-  <columns dataType="CHAR" name="G&#xa7;COMM" length="10"/>
-  <columns dataType="CHAR" name="G&#xa7;VDS" length="6"/>
-  <columns dataType="CHAR" name="G&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="G&#xa7;FLG5" length="1"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DTAG" length="8"/>
-  <columns dataType="CHAR" name="G&#xa7;USAG" length="10"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NPR2" length="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;DDO2" length="8"/>
-  <columns dataType="CHAR" name="G&#xa7;COD1" length="15"/>
-  <columns dataType="CHAR" name="G&#xa7;COD2" length="15"/>
-  <columns dataType="CHAR" name="G&#xa7;COD3" length="15"/>
-  <columns dataType="CHAR" name="G&#xa7;COD4" length="15"/>
-  <columns dataType="CHAR" name="G&#xa7;COD5" length="15"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NUM1" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NUM2" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NUM3" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NUM4" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="G&#xa7;NUM5" length="21" scale="6"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="G&#xa7;NREG"/>
+  <columns dataType="DECIMAL" length="3" name="G&#xa7;RREG"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DMOV"/>
+  <columns dataType="DECIMAL" length="6" name="G&#xa7;NPRO"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DDOC"/>
+  <columns dataType="CHAR" length="10" name="G&#xa7;NRIF"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DRIF"/>
+  <columns dataType="CHAR" length="4" name="G&#xa7;CAUS"/>
+  <columns dataType="CHAR" length="3" name="G&#xa7;CAUR"/>
+  <columns dataType="CHAR" length="35" name="G&#xa7;DESC"/>
+  <columns dataType="CHAR" length="3" name="G&#xa7;TCON"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;CODF"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;TRIG"/>
+  <columns dataType="CHAR" length="12" name="G&#xa7;CONT"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;DAAV"/>
+  <columns dataType="CHAR" length="3" name="G&#xa7;DIVI"/>
+  <columns dataType="DECIMAL" length="15" name="G&#xa7;IMIM" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="G&#xa7;IMPO" scale="3"/>
+  <columns dataType="CHAR" length="4" name="G&#xa7;VALU"/>
+  <columns dataType="DECIMAL" length="12" name="G&#xa7;CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DVAL"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;CASI"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;RIVA"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;NIVA"/>
+  <columns dataType="CHAR" length="3" name="G&#xa7;COPA"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;TIPA"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DSCA"/>
+  <columns dataType="DECIMAL" length="3" name="G&#xa7;NRAT"/>
+  <columns dataType="DECIMAL" length="5" name="G&#xa7;PRAT" scale="2"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;BANC"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;TOPE"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DOPE"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;ESEC"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;MPRO"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;MVAL"/>
+  <columns dataType="CHAR" length="6" name="G&#xa7;CDC"/>
+  <columns dataType="CHAR" length="10" name="G&#xa7;COMM"/>
+  <columns dataType="CHAR" length="6" name="G&#xa7;VDS"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG5"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="G&#xa7;USAG"/>
+  <columns dataType="DECIMAL" length="6" name="G&#xa7;NPR2"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DDO2"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD5"/>
+  <columns dataType="DECIMAL" length="21" name="G&#xa7;NUM1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="G&#xa7;NUM2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="G&#xa7;NUM3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="G&#xa7;NUM4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="G&#xa7;NUM5" scale="6"/>
 </db-core:TableDef>

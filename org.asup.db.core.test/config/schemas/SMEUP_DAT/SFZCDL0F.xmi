@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFZCDL0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="SZCANN" length="1"/>
-  <columns dataType="CHAR" name="SZCATT" length="15"/>
-  <columns dataType="CHAR" name="SZCCDL" length="6"/>
-  <columns dataType="DECIMAL" name="SZCNAT" length="5"/>
-  <columns dataType="DECIMAL" name="SZCTLA" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="SZCTAT" length="6" scale="2"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="SZCANN"/>
+  <columns dataType="CHAR" length="15" name="SZCATT"/>
+  <columns dataType="CHAR" length="6" name="SZCCDL"/>
+  <columns dataType="DECIMAL" length="5" name="SZCNAT"/>
+  <columns dataType="DECIMAL" length="6" name="SZCTLA" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="SZCTAT" scale="2"/>
 </db-core:TableDef>

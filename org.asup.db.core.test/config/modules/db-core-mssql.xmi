@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fw-core="http://www.asup.org/fw/core" xsi:schemaLocation="http://www.asup.org/fw/core ../../../../org.asup.fw.core/model/fw-core.ecore" name="DBCoreMSSQL">
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl" interfaceName="org.asup.db.core.QConnectionFactoryRegistry" pluginInterface="org.asup.db.core.QConnectionFactory">
+    <services name="MSSQL" text="" version="2008" vendor="SQL Server" className="org.asup.db.core.mssql.MsSQLConnectionFactoryImpl"/>
+  </services>
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseDefinitionWriterRegistryImpl" interfaceName="org.asup.db.syntax.QDefinitionWriterRegistry" pluginInterface="org.asup.db.syntax.QDefinitionWriter">
+    <services name="MSSQL" text="" version="2008" vendor="SQL Server" className="org.asup.db.syntax.mssql.MsSQLDefinitionWriterImpl"/>
+  </services>
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseQueryWriterRegistryImpl" interfaceName="org.asup.db.syntax.QQueryWriterRegistry" pluginInterface="org.asup.db.syntax.QQueryWriter">
+    <services name="MSSQL" text="" version="2008" vendor="SQL Server" className="org.asup.db.syntax.mssql.MsSQLQueryWriterImpl"/>
+  </services>
+</fw-core:ApplicationModule>

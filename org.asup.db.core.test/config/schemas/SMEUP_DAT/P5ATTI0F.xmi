@@ -1,155 +1,154 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5ATTI0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NURE" length="9"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DTRE" length="8"/>
-  <columns dataType="CHAR" name="W&#xa7;NDOP" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DADO" length="8"/>
-  <columns dataType="CHAR" name="W&#xa7;CAUS" length="5"/>
-  <columns dataType="CHAR" name="W&#xa7;ATTI" length="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DATF" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;ORAF" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;STAT" length="2"/>
-  <columns dataType="CHAR" name="W&#xa7;LIVE" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;TORI" length="2"/>
-  <columns dataType="CHAR" name="W&#xa7;TDOC" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;NDOC" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NRIG" length="4"/>
-  <columns dataType="CHAR" name="W&#xa7;TDO2" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;NDO2" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NRI2" length="4"/>
-  <columns dataType="CHAR" name="W&#xa7;OPER" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;OPRI" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;DEOP" length="30"/>
-  <columns dataType="CHAR" name="W&#xa7;LOTT" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;ESMO" length="2"/>
-  <columns dataType="CHAR" name="W&#xa7;COMM" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;CONF" length="20"/>
-  <columns dataType="CHAR" name="W&#xa7;TIEN" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;COEN" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;TRIP" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;RISP" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;TRIE" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;RISE" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;TIRF" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;MACC" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;TIOG" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;PARA" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;CDOG" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;DSOG" length="35"/>
-  <columns dataType="CHAR" name="W&#xa7;UNMS" length="2"/>
-  <columns dataType="CHAR" name="W&#xa7;CDMG" length="3"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QT01" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QT02" length="11" scale="3"/>
-  <columns dataType="CHAR" name="W&#xa7;TCIC" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;CICL" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;TOPE" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;GRAL" length="5"/>
-  <columns dataType="CHAR" name="W&#xa7;CODC" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;CICC" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;SQCC" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;UMTE" length="2"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T01P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T02P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T03P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T04P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T05P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T06P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T07P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T08P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T09P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T10P" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T01E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T02E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T03E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T04E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T05E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T06E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T07E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T08E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T09E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;T10E" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;VALO" length="15" scale="3"/>
-  <columns dataType="CHAR" name="W&#xa7;VALU" length="4"/>
-  <columns dataType="DECIMAL" name="W&#xa7;CAMB" length="12" scale="6"/>
-  <columns dataType="CHAR" name="W&#xa7;TIPD" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;DIPE" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;CDCD" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;CDCO" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;TPRG" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;CODR" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUMR" length="7"/>
-  <columns dataType="CHAR" name="W&#xa7;COD1" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD2" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD3" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD4" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD5" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD6" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD7" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD8" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;COD9" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;CODA" length="15"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM3" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM4" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM5" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM6" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM7" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM8" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUM9" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NUMA" length="15" scale="5"/>
-  <columns dataType="CHAR" name="W&#xa7;NOTA" length="50"/>
-  <columns dataType="CHAR" name="W&#xa7;NOTB" length="20"/>
-  <columns dataType="CHAR" name="W&#xa7;ACSA" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL01" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL02" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL03" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL04" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL05" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL06" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL07" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL08" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL09" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL10" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL11" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL12" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL13" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL14" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL15" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL16" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL17" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL18" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL19" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL20" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL21" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL22" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL23" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL24" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL25" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL26" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL27" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL28" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL29" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL30" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL31" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL32" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL33" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL34" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL35" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL36" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL37" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL38" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL39" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FL40" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;USIN" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;ORIN" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;OGIN" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;USAG" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;ORAG" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;OGAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="9" name="W&#xa7;NURE"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DTRE"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;NDOP"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DADO"/>
+  <columns dataType="CHAR" length="5" name="W&#xa7;CAUS"/>
+  <columns dataType="CHAR" length="5" name="W&#xa7;ATTI"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="W&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DATF"/>
+  <columns dataType="DECIMAL" length="6" name="W&#xa7;ORAF"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;STAT"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;TORI"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TDOC"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="W&#xa7;NRIG"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TDO2"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;NDO2"/>
+  <columns dataType="DECIMAL" length="4" name="W&#xa7;NRI2"/>
+  <columns dataType="CHAR" length="6" name="W&#xa7;OPER"/>
+  <columns dataType="CHAR" length="6" name="W&#xa7;OPRI"/>
+  <columns dataType="CHAR" length="30" name="W&#xa7;DEOP"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;LOTT"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;COMM"/>
+  <columns dataType="CHAR" length="20" name="W&#xa7;CONF"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIEN"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COEN"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TRIP"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;RISP"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TRIE"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;RISE"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIRF"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;MACC"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIOG"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;PARA"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CDOG"/>
+  <columns dataType="CHAR" length="35" name="W&#xa7;DSOG"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;UNMS"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;CDMG"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QT01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QT02" scale="3"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TCIC"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;CICL"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TOPE"/>
+  <columns dataType="CHAR" length="5" name="W&#xa7;GRAL"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CODC"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;CICC"/>
+  <columns dataType="CHAR" length="6" name="W&#xa7;SQCC"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;UMTE"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T01P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T02P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T03P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T04P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T05P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T06P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T07P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T08P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T09P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T10P" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T01E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T02E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T03E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T04E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T05E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T06E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T07E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T08E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T09E" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;T10E" scale="4"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;VALO" scale="3"/>
+  <columns dataType="CHAR" length="4" name="W&#xa7;VALU"/>
+  <columns dataType="DECIMAL" length="12" name="W&#xa7;CAMB" scale="6"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIPD"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;DIPE"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;CDCD"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;CDCO"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TPRG"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;CODR"/>
+  <columns dataType="DECIMAL" length="7" name="W&#xa7;NUMR"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD5"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD6"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD7"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD8"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD9"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CODA"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM5" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM6" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM7" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM8" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM9" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUMA" scale="5"/>
+  <columns dataType="CHAR" length="50" name="W&#xa7;NOTA"/>
+  <columns dataType="CHAR" length="20" name="W&#xa7;NOTB"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;ACSA"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL10"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL11"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL12"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL13"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL14"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL20"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL21"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL22"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL23"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL24"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL25"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL26"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL27"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL28"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL29"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL30"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL31"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL32"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL33"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL34"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL35"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL36"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL37"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL38"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL39"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL40"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;USIN"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="W&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;OGIN"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;USAG"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="W&#xa7;ORAG"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;OGAG"/>
 </db-core:TableDef>

@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V9ATPR0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="P$CATE" length="3"/>
-  <columns dataType="CHAR" name="P$GRUP" length="15"/>
-  <columns dataType="CHAR" name="P$NINT" length="10"/>
-  <columns dataType="CHAR" name="P$TIP1" length="12"/>
-  <columns dataType="CHAR" name="P$OGG1" length="15"/>
-  <columns dataType="CHAR" name="P$TIP2" length="12"/>
-  <columns dataType="CHAR" name="P$OGG2" length="15"/>
-  <columns dataType="CHAR" name="P$ATTI" length="5"/>
-  <columns dataType="CHAR" name="P$LIVE" length="1"/>
-  <columns dataType="CHAR" name="P$STAT" length="2"/>
-  <columns dataType="CHAR" name="P$TPES" length="12"/>
-  <columns dataType="CHAR" name="P$ESEC" length="15"/>
-  <columns dataType="CHAR" name="P$TPLG" length="12"/>
-  <columns dataType="CHAR" name="P$LUOG" length="15"/>
-  <columns dataType="CHAR" name="P$UMTP" length="4"/>
-  <columns dataType="DECIMAL" name="P$TEMP" length="15" scale="5"/>
-  <columns dataType="CHAR" name="P$TPAT" length="3"/>
-  <columns dataType="DECIMAL" name="P$DTES" length="8"/>
-  <columns dataType="DECIMAL" name="P$ORES" length="6"/>
-  <columns dataType="CHAR" name="P$COD1" length="15"/>
-  <columns dataType="CHAR" name="P$COD2" length="15"/>
-  <columns dataType="CHAR" name="P$COD3" length="15"/>
-  <columns dataType="CHAR" name="P$COD4" length="15"/>
-  <columns dataType="CHAR" name="P$COD5" length="15"/>
-  <columns dataType="DECIMAL" name="P$NUM1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P$NUM2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P$NUM3" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P$NUM4" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="P$NUM5" length="15" scale="5"/>
-  <columns dataType="CHAR" name="P$FL01" length="1"/>
-  <columns dataType="CHAR" name="P$FL02" length="1"/>
-  <columns dataType="CHAR" name="P$FL03" length="1"/>
-  <columns dataType="CHAR" name="P$FL04" length="1"/>
-  <columns dataType="CHAR" name="P$FL05" length="1"/>
-  <columns dataType="CHAR" name="P$FL06" length="1"/>
-  <columns dataType="CHAR" name="P$FL07" length="1"/>
-  <columns dataType="CHAR" name="P$FL08" length="1"/>
-  <columns dataType="CHAR" name="P$FL09" length="1"/>
-  <columns dataType="CHAR" name="P$FL10" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="P$CATE"/>
+  <columns dataType="CHAR" length="15" name="P$GRUP"/>
+  <columns dataType="CHAR" length="10" name="P$NINT"/>
+  <columns dataType="CHAR" length="12" name="P$TIP1"/>
+  <columns dataType="CHAR" length="15" name="P$OGG1"/>
+  <columns dataType="CHAR" length="12" name="P$TIP2"/>
+  <columns dataType="CHAR" length="15" name="P$OGG2"/>
+  <columns dataType="CHAR" length="5" name="P$ATTI"/>
+  <columns dataType="CHAR" length="1" name="P$LIVE"/>
+  <columns dataType="CHAR" length="2" name="P$STAT"/>
+  <columns dataType="CHAR" length="12" name="P$TPES"/>
+  <columns dataType="CHAR" length="15" name="P$ESEC"/>
+  <columns dataType="CHAR" length="12" name="P$TPLG"/>
+  <columns dataType="CHAR" length="15" name="P$LUOG"/>
+  <columns dataType="CHAR" length="4" name="P$UMTP"/>
+  <columns dataType="DECIMAL" length="15" name="P$TEMP" scale="5"/>
+  <columns dataType="CHAR" length="3" name="P$TPAT"/>
+  <columns dataType="DECIMAL" length="8" name="P$DTES"/>
+  <columns dataType="DECIMAL" length="6" name="P$ORES"/>
+  <columns dataType="CHAR" length="15" name="P$COD1"/>
+  <columns dataType="CHAR" length="15" name="P$COD2"/>
+  <columns dataType="CHAR" length="15" name="P$COD3"/>
+  <columns dataType="CHAR" length="15" name="P$COD4"/>
+  <columns dataType="CHAR" length="15" name="P$COD5"/>
+  <columns dataType="DECIMAL" length="15" name="P$NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P$NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P$NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P$NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P$NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="P$FL01"/>
+  <columns dataType="CHAR" length="1" name="P$FL02"/>
+  <columns dataType="CHAR" length="1" name="P$FL03"/>
+  <columns dataType="CHAR" length="1" name="P$FL04"/>
+  <columns dataType="CHAR" length="1" name="P$FL05"/>
+  <columns dataType="CHAR" length="1" name="P$FL06"/>
+  <columns dataType="CHAR" length="1" name="P$FL07"/>
+  <columns dataType="CHAR" length="1" name="P$FL08"/>
+  <columns dataType="CHAR" length="1" name="P$FL09"/>
+  <columns dataType="CHAR" length="1" name="P$FL10"/>
 </db-core:TableDef>

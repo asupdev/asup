@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0SESA0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="E&#xa7;CDVI" length="6"/>
-  <columns dataType="CHAR" name="E&#xa7;CDES" length="6"/>
-  <columns dataType="DECIMAL" name="E&#xa7;DTRE" length="8"/>
-  <columns dataType="DECIMAL" name="E&#xa7;DTEE" length="8"/>
-  <columns dataType="CHAR" name="E&#xa7;ENES" length="5"/>
-  <columns dataType="CHAR" name="E&#xa7;STES" length="2"/>
-  <columns dataType="CHAR" name="E&#xa7;ESES" length="5"/>
-  <columns dataType="CHAR" name="E&#xa7;NOTA" length="50"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="6" name="E&#xa7;CDVI"/>
+  <columns dataType="CHAR" length="6" name="E&#xa7;CDES"/>
+  <columns dataType="DECIMAL" length="8" name="E&#xa7;DTRE"/>
+  <columns dataType="DECIMAL" length="8" name="E&#xa7;DTEE"/>
+  <columns dataType="CHAR" length="5" name="E&#xa7;ENES"/>
+  <columns dataType="CHAR" length="2" name="E&#xa7;STES"/>
+  <columns dataType="CHAR" length="5" name="E&#xa7;ESES"/>
+  <columns dataType="CHAR" length="50" name="E&#xa7;NOTA"/>
 </db-core:TableDef>

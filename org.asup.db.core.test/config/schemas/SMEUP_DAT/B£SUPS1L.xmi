@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SUPS1L" creationCommand=" CREATE VIEW B&#xa3;SUPS1L (   STSSID ,   STTPRC ,   STINDX ,   STLIBE ,   STIDUS ,   STDTIN ,   STORIN ,   STUSIN ,   STOGIN ,   STDTAG ,   STORAG ,   STUSAG ,   STOGAG )   AS   SELECT   STSSID ,   STTPRC ,   STINDX ,   STLIBE ,   STIDUS ,   STDTIN ,   STORIN ,   STUSIN ,   STOGIN ,   STDTAG ,   STORAG ,   STUSAG ,   STOGAG   FROM B&#xa3;SUPS0F   ;  "/>

@@ -1,69 +1,68 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="JALOGT0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="J1IDOG" length="15"/>
-  <columns dataType="CHAR" name="J1TREC" length="3"/>
-  <columns dataType="CHAR" name="J1ORIG" length="3"/>
-  <columns dataType="CHAR" name="J1ASLA" length="10"/>
-  <columns dataType="CHAR" name="J1ASUT" length="10"/>
-  <columns dataType="DECIMAL" name="J1ASNR" length="6"/>
-  <columns dataType="CHAR" name="J1AMBI" length="10"/>
-  <columns dataType="CHAR" name="J1WEUT" length="10"/>
-  <columns dataType="CHAR" name="J1WEMS" length="10"/>
-  <columns dataType="CHAR" name="J1WEFU" length="10"/>
-  <columns dataType="CHAR" name="J1WEME" length="10"/>
-  <columns dataType="CHAR" name="J1LIVE" length="1"/>
-  <columns dataType="CHAR" name="J1STAT" length="2"/>
-  <columns dataType="DECIMAL" name="J1DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="J1ORIN" length="6"/>
-  <columns dataType="DECIMAL" name="J1DTUL" length="8"/>
-  <columns dataType="DECIMAL" name="J1ORUL" length="6"/>
-  <columns dataType="DECIMAL" name="J1DTFI" length="8"/>
-  <columns dataType="DECIMAL" name="J1ORFI" length="6"/>
-  <columns dataType="CHAR" name="J1TPO1" length="12"/>
-  <columns dataType="CHAR" name="J1CDO1" length="15"/>
-  <columns dataType="CHAR" name="J1TPO2" length="12"/>
-  <columns dataType="CHAR" name="J1CDO2" length="15"/>
-  <columns dataType="CHAR" name="J1TPO3" length="12"/>
-  <columns dataType="CHAR" name="J1CDO3" length="15"/>
-  <columns dataType="CHAR" name="J1TPO4" length="12"/>
-  <columns dataType="CHAR" name="J1CDO4" length="15"/>
-  <columns dataType="CHAR" name="J1TPO5" length="12"/>
-  <columns dataType="CHAR" name="J1CDO5" length="15"/>
-  <columns dataType="CHAR" name="J1COD1" length="15"/>
-  <columns dataType="CHAR" name="J1COD2" length="15"/>
-  <columns dataType="CHAR" name="J1COD3" length="15"/>
-  <columns dataType="CHAR" name="J1COD4" length="15"/>
-  <columns dataType="CHAR" name="J1COD5" length="15"/>
-  <columns dataType="DECIMAL" name="J1NUM1" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="J1NUM2" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="J1NUM3" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="J1NUM4" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="J1NUM5" length="21" scale="6"/>
-  <columns dataType="DECIMAL" name="J1DAT1" length="8"/>
-  <columns dataType="DECIMAL" name="J1DAT2" length="8"/>
-  <columns dataType="DECIMAL" name="J1DAT3" length="8"/>
-  <columns dataType="DECIMAL" name="J1DAT4" length="8"/>
-  <columns dataType="DECIMAL" name="J1DAT5" length="8"/>
-  <columns dataType="CHAR" name="J1FL01" length="1"/>
-  <columns dataType="CHAR" name="J1FL02" length="1"/>
-  <columns dataType="CHAR" name="J1FL03" length="1"/>
-  <columns dataType="CHAR" name="J1FL04" length="1"/>
-  <columns dataType="CHAR" name="J1FL05" length="1"/>
-  <columns dataType="CHAR" name="J1FL06" length="1"/>
-  <columns dataType="CHAR" name="J1FL07" length="1"/>
-  <columns dataType="CHAR" name="J1FL08" length="1"/>
-  <columns dataType="CHAR" name="J1FL09" length="1"/>
-  <columns dataType="CHAR" name="J1FL10" length="1"/>
-  <columns dataType="CHAR" name="J1FL11" length="1"/>
-  <columns dataType="CHAR" name="J1FL12" length="1"/>
-  <columns dataType="CHAR" name="J1FL13" length="1"/>
-  <columns dataType="CHAR" name="J1FL14" length="1"/>
-  <columns dataType="CHAR" name="J1FL15" length="1"/>
-  <columns dataType="CHAR" name="J1FL16" length="1"/>
-  <columns dataType="CHAR" name="J1FL17" length="1"/>
-  <columns dataType="CHAR" name="J1FL18" length="1"/>
-  <columns dataType="CHAR" name="J1FL19" length="1"/>
-  <columns dataType="CHAR" name="J1FL20" length="1"/>
-  <columns dataType="CHAR" name="J1LIBE" length="2050"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="J1IDOG"/>
+  <columns dataType="CHAR" length="3" name="J1TREC"/>
+  <columns dataType="CHAR" length="3" name="J1ORIG"/>
+  <columns dataType="CHAR" length="10" name="J1ASLA"/>
+  <columns dataType="CHAR" length="10" name="J1ASUT"/>
+  <columns dataType="DECIMAL" length="6" name="J1ASNR"/>
+  <columns dataType="CHAR" length="10" name="J1AMBI"/>
+  <columns dataType="CHAR" length="10" name="J1WEUT"/>
+  <columns dataType="CHAR" length="10" name="J1WEMS"/>
+  <columns dataType="CHAR" length="10" name="J1WEFU"/>
+  <columns dataType="CHAR" length="10" name="J1WEME"/>
+  <columns dataType="CHAR" length="1" name="J1LIVE"/>
+  <columns dataType="CHAR" length="2" name="J1STAT"/>
+  <columns dataType="DECIMAL" length="8" name="J1DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="J1ORIN"/>
+  <columns dataType="DECIMAL" length="8" name="J1DTUL"/>
+  <columns dataType="DECIMAL" length="6" name="J1ORUL"/>
+  <columns dataType="DECIMAL" length="8" name="J1DTFI"/>
+  <columns dataType="DECIMAL" length="6" name="J1ORFI"/>
+  <columns dataType="CHAR" length="12" name="J1TPO1"/>
+  <columns dataType="CHAR" length="15" name="J1CDO1"/>
+  <columns dataType="CHAR" length="12" name="J1TPO2"/>
+  <columns dataType="CHAR" length="15" name="J1CDO2"/>
+  <columns dataType="CHAR" length="12" name="J1TPO3"/>
+  <columns dataType="CHAR" length="15" name="J1CDO3"/>
+  <columns dataType="CHAR" length="12" name="J1TPO4"/>
+  <columns dataType="CHAR" length="15" name="J1CDO4"/>
+  <columns dataType="CHAR" length="12" name="J1TPO5"/>
+  <columns dataType="CHAR" length="15" name="J1CDO5"/>
+  <columns dataType="CHAR" length="15" name="J1COD1"/>
+  <columns dataType="CHAR" length="15" name="J1COD2"/>
+  <columns dataType="CHAR" length="15" name="J1COD3"/>
+  <columns dataType="CHAR" length="15" name="J1COD4"/>
+  <columns dataType="CHAR" length="15" name="J1COD5"/>
+  <columns dataType="DECIMAL" length="21" name="J1NUM1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="J1NUM2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="J1NUM3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="J1NUM4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="J1NUM5" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="J1DAT1"/>
+  <columns dataType="DECIMAL" length="8" name="J1DAT2"/>
+  <columns dataType="DECIMAL" length="8" name="J1DAT3"/>
+  <columns dataType="DECIMAL" length="8" name="J1DAT4"/>
+  <columns dataType="DECIMAL" length="8" name="J1DAT5"/>
+  <columns dataType="CHAR" length="1" name="J1FL01"/>
+  <columns dataType="CHAR" length="1" name="J1FL02"/>
+  <columns dataType="CHAR" length="1" name="J1FL03"/>
+  <columns dataType="CHAR" length="1" name="J1FL04"/>
+  <columns dataType="CHAR" length="1" name="J1FL05"/>
+  <columns dataType="CHAR" length="1" name="J1FL06"/>
+  <columns dataType="CHAR" length="1" name="J1FL07"/>
+  <columns dataType="CHAR" length="1" name="J1FL08"/>
+  <columns dataType="CHAR" length="1" name="J1FL09"/>
+  <columns dataType="CHAR" length="1" name="J1FL10"/>
+  <columns dataType="CHAR" length="1" name="J1FL11"/>
+  <columns dataType="CHAR" length="1" name="J1FL12"/>
+  <columns dataType="CHAR" length="1" name="J1FL13"/>
+  <columns dataType="CHAR" length="1" name="J1FL14"/>
+  <columns dataType="CHAR" length="1" name="J1FL15"/>
+  <columns dataType="CHAR" length="1" name="J1FL16"/>
+  <columns dataType="CHAR" length="1" name="J1FL17"/>
+  <columns dataType="CHAR" length="1" name="J1FL18"/>
+  <columns dataType="CHAR" length="1" name="J1FL19"/>
+  <columns dataType="CHAR" length="1" name="J1FL20"/>
+  <columns dataType="CHAR" length="2050" name="J1LIBE"/>
 </db-core:TableDef>

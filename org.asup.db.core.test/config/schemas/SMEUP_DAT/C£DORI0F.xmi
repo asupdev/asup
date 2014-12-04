@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;DORI0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C&#xa3;CDCD" length="5"/>
-  <columns dataType="CHAR" name="C&#xa3;CDTR" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CDDS" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;TDDO" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;CDDO" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CDRI" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;NOTR" length="25"/>
-  <columns dataType="DECIMAL" name="C&#xa3;VAL1" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="C&#xa3;VAL2" length="15" scale="6"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="5" name="C&#xa3;CDCD"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CDTR"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CDDS"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;TDDO"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CDDO"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CDRI"/>
+  <columns dataType="CHAR" length="25" name="C&#xa3;NOTR"/>
+  <columns dataType="DECIMAL" length="15" name="C&#xa3;VAL1" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="C&#xa3;VAL2" scale="6"/>
 </db-core:TableDef>

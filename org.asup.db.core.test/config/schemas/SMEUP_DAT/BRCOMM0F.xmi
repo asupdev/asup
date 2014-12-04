@@ -1,80 +1,79 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRCOMM0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="M$COMM" length="10"/>
-  <columns dataType="CHAR" name="M$DECM" length="35"/>
-  <columns dataType="CHAR" name="M$LIVE" length="1"/>
-  <columns dataType="CHAR" name="M$STAT" length="2"/>
-  <columns dataType="CHAR" name="M$TICM" length="3"/>
-  <columns dataType="CHAR" name="M$NACM" length="2"/>
-  <columns dataType="CHAR" name="M$COMR" length="10"/>
-  <columns dataType="CHAR" name="M$CDMG" length="3"/>
-  <columns dataType="CHAR" name="M$PRIO" length="2"/>
-  <columns dataType="CHAR" name="M$TIRF" length="2"/>
-  <columns dataType="CHAR" name="M$PAOG" length="10"/>
-  <columns dataType="CHAR" name="M$CDOG" length="15"/>
-  <columns dataType="CHAR" name="M$DSOG" length="35"/>
-  <columns dataType="CHAR" name="M$DSAG" length="35"/>
-  <columns dataType="CHAR" name="M$TIRE" length="2"/>
-  <columns dataType="CHAR" name="M$PARE" length="10"/>
-  <columns dataType="CHAR" name="M$CDRE" length="15"/>
-  <columns dataType="CHAR" name="M$TICG" length="2"/>
-  <columns dataType="CHAR" name="M$PACG" length="10"/>
-  <columns dataType="CHAR" name="M$CDCG" length="15"/>
-  <columns dataType="CHAR" name="M$TIEN" length="3"/>
-  <columns dataType="CHAR" name="M$COEN" length="15"/>
-  <columns dataType="CHAR" name="M$RFES" length="30"/>
-  <columns dataType="DECIMAL" name="M$DT01" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT02" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT03" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT04" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT05" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT06" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT07" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT08" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT09" length="8"/>
-  <columns dataType="DECIMAL" name="M$DT10" length="8"/>
-  <columns dataType="DECIMAL" name="M$QI01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI05" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI06" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI07" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI08" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI09" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$QI10" length="15" scale="5"/>
-  <columns dataType="CHAR" name="M$COD1" length="15"/>
-  <columns dataType="CHAR" name="M$COD2" length="15"/>
-  <columns dataType="CHAR" name="M$COD3" length="15"/>
-  <columns dataType="CHAR" name="M$COD4" length="15"/>
-  <columns dataType="CHAR" name="M$COD5" length="15"/>
-  <columns dataType="DECIMAL" name="M$NUM1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$NUM2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$NUM3" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$NUM4" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M$NUM5" length="15" scale="5"/>
-  <columns dataType="CHAR" name="M$FL01" length="1"/>
-  <columns dataType="CHAR" name="M$FL02" length="1"/>
-  <columns dataType="CHAR" name="M$FL03" length="1"/>
-  <columns dataType="CHAR" name="M$FL04" length="1"/>
-  <columns dataType="CHAR" name="M$FL05" length="1"/>
-  <columns dataType="CHAR" name="M$FL06" length="1"/>
-  <columns dataType="CHAR" name="M$FL07" length="1"/>
-  <columns dataType="CHAR" name="M$FL08" length="1"/>
-  <columns dataType="CHAR" name="M$FL09" length="1"/>
-  <columns dataType="CHAR" name="M$FL10" length="1"/>
-  <columns dataType="CHAR" name="M$FL11" length="1"/>
-  <columns dataType="CHAR" name="M$FL12" length="1"/>
-  <columns dataType="CHAR" name="M$FL13" length="1"/>
-  <columns dataType="CHAR" name="M$FL14" length="1"/>
-  <columns dataType="CHAR" name="M$FL15" length="1"/>
-  <columns dataType="CHAR" name="M$FL16" length="1"/>
-  <columns dataType="CHAR" name="M$FL17" length="1"/>
-  <columns dataType="CHAR" name="M$FL18" length="1"/>
-  <columns dataType="CHAR" name="M$FL19" length="1"/>
-  <columns dataType="CHAR" name="M$FL20" length="1"/>
-  <columns dataType="DECIMAL" name="M$DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="M$DTAG" length="8"/>
-  <columns dataType="CHAR" name="M$USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="M$COMM"/>
+  <columns dataType="CHAR" length="35" name="M$DECM"/>
+  <columns dataType="CHAR" length="1" name="M$LIVE"/>
+  <columns dataType="CHAR" length="2" name="M$STAT"/>
+  <columns dataType="CHAR" length="3" name="M$TICM"/>
+  <columns dataType="CHAR" length="2" name="M$NACM"/>
+  <columns dataType="CHAR" length="10" name="M$COMR"/>
+  <columns dataType="CHAR" length="3" name="M$CDMG"/>
+  <columns dataType="CHAR" length="2" name="M$PRIO"/>
+  <columns dataType="CHAR" length="2" name="M$TIRF"/>
+  <columns dataType="CHAR" length="10" name="M$PAOG"/>
+  <columns dataType="CHAR" length="15" name="M$CDOG"/>
+  <columns dataType="CHAR" length="35" name="M$DSOG"/>
+  <columns dataType="CHAR" length="35" name="M$DSAG"/>
+  <columns dataType="CHAR" length="2" name="M$TIRE"/>
+  <columns dataType="CHAR" length="10" name="M$PARE"/>
+  <columns dataType="CHAR" length="15" name="M$CDRE"/>
+  <columns dataType="CHAR" length="2" name="M$TICG"/>
+  <columns dataType="CHAR" length="10" name="M$PACG"/>
+  <columns dataType="CHAR" length="15" name="M$CDCG"/>
+  <columns dataType="CHAR" length="3" name="M$TIEN"/>
+  <columns dataType="CHAR" length="15" name="M$COEN"/>
+  <columns dataType="CHAR" length="30" name="M$RFES"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT01"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT02"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT03"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT04"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT05"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT06"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT07"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT08"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT09"/>
+  <columns dataType="DECIMAL" length="8" name="M$DT10"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI05" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI06" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI07" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI08" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI09" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$QI10" scale="5"/>
+  <columns dataType="CHAR" length="15" name="M$COD1"/>
+  <columns dataType="CHAR" length="15" name="M$COD2"/>
+  <columns dataType="CHAR" length="15" name="M$COD3"/>
+  <columns dataType="CHAR" length="15" name="M$COD4"/>
+  <columns dataType="CHAR" length="15" name="M$COD5"/>
+  <columns dataType="DECIMAL" length="15" name="M$NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M$NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="M$FL01"/>
+  <columns dataType="CHAR" length="1" name="M$FL02"/>
+  <columns dataType="CHAR" length="1" name="M$FL03"/>
+  <columns dataType="CHAR" length="1" name="M$FL04"/>
+  <columns dataType="CHAR" length="1" name="M$FL05"/>
+  <columns dataType="CHAR" length="1" name="M$FL06"/>
+  <columns dataType="CHAR" length="1" name="M$FL07"/>
+  <columns dataType="CHAR" length="1" name="M$FL08"/>
+  <columns dataType="CHAR" length="1" name="M$FL09"/>
+  <columns dataType="CHAR" length="1" name="M$FL10"/>
+  <columns dataType="CHAR" length="1" name="M$FL11"/>
+  <columns dataType="CHAR" length="1" name="M$FL12"/>
+  <columns dataType="CHAR" length="1" name="M$FL13"/>
+  <columns dataType="CHAR" length="1" name="M$FL14"/>
+  <columns dataType="CHAR" length="1" name="M$FL15"/>
+  <columns dataType="CHAR" length="1" name="M$FL16"/>
+  <columns dataType="CHAR" length="1" name="M$FL17"/>
+  <columns dataType="CHAR" length="1" name="M$FL18"/>
+  <columns dataType="CHAR" length="1" name="M$FL19"/>
+  <columns dataType="CHAR" length="1" name="M$FL20"/>
+  <columns dataType="DECIMAL" length="8" name="M$DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="M$DTAG"/>
+  <columns dataType="CHAR" length="10" name="M$USAG"/>
 </db-core:TableDef>

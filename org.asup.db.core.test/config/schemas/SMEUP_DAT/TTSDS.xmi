@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="TTSDS">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="DZMATR" length="10"/>
-  <columns dataType="CHAR" name="DZCCDI" length="10"/>
-  <columns dataType="CHAR" name="DZOPER" length="4"/>
-  <columns dataType="DECIMAL" name="DZQTA" length="9"/>
-  <columns dataType="CHAR" name="DZCAUS" length="3"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="DZMATR"/>
+  <columns dataType="CHAR" length="10" name="DZCCDI"/>
+  <columns dataType="CHAR" length="4" name="DZOPER"/>
+  <columns dataType="DECIMAL" length="9" name="DZQTA"/>
+  <columns dataType="CHAR" length="3" name="DZCAUS"/>
 </db-core:TableDef>

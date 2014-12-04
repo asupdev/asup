@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="BRDIWK0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="W&#xa7;TERM" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;UTEN" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DATA" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;ORAI" length="6"/>
-  <columns dataType="CHAR" name="W&#xa7;ORDI" length="1"/>
-  <columns dataType="DECIMAL" name="W&#xa7;AZIO" length="2"/>
-  <columns dataType="CHAR" name="W&#xa7;FLGC" length="1"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NRRE" length="10"/>
-  <columns dataType="DECIMAL" name="W&#xa7;NROR" length="10"/>
-  <columns dataType="CHAR" name="W&#xa7;VOID" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;TIPD" length="3"/>
-  <columns dataType="CHAR" name="W&#xa7;COD1" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;USR1" length="4"/>
-  <columns dataType="CHAR" name="W&#xa7;COD2" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;USR2" length="4"/>
-  <columns dataType="CHAR" name="W&#xa7;STAT" length="2"/>
-  <columns dataType="CHAR" name="W&#xa7;SQCI" length="6"/>
-  <columns dataType="DECIMAL" name="W&#xa7;LTAD" length="3"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DINV" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DFNV" length="8"/>
-  <columns dataType="CHAR" name="W&#xa7;CRSE" length="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;COEF" length="15" scale="6"/>
-  <columns dataType="CHAR" name="W&#xa7;PAS1" length="15"/>
-  <columns dataType="CHAR" name="W&#xa7;PAS2" length="15"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QTLO" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="W&#xa7;PERT" length="5" scale="3"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QUA1" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QUA2" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QUA3" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QUA4" length="15" scale="6"/>
-  <columns dataType="DECIMAL" name="W&#xa7;QUA5" length="15" scale="6"/>
-  <columns dataType="CHAR" name="W&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;FLG5" length="1"/>
-  <columns dataType="CHAR" name="W&#xa7;NOTA" length="50"/>
-  <columns dataType="CHAR" name="W&#xa7;DISE" length="20"/>
-  <columns dataType="CHAR" name="W&#xa7;DISP" length="5"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="W&#xa7;DTAG" length="8"/>
-  <columns dataType="CHAR" name="W&#xa7;USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="W&#xa7;TERM"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;UTEN"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DATA"/>
+  <columns dataType="DECIMAL" length="6" name="W&#xa7;ORAI"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;ORDI"/>
+  <columns dataType="DECIMAL" length="2" name="W&#xa7;AZIO"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FLGC"/>
+  <columns dataType="DECIMAL" length="10" name="W&#xa7;NRRE"/>
+  <columns dataType="DECIMAL" length="10" name="W&#xa7;NROR"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;VOID"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIPD"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD1"/>
+  <columns dataType="CHAR" length="4" name="W&#xa7;USR1"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD2"/>
+  <columns dataType="CHAR" length="4" name="W&#xa7;USR2"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;STAT"/>
+  <columns dataType="CHAR" length="6" name="W&#xa7;SQCI"/>
+  <columns dataType="DECIMAL" length="3" name="W&#xa7;LTAD"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DINV"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DFNV"/>
+  <columns dataType="CHAR" length="5" name="W&#xa7;CRSE"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;COEF" scale="6"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;PAS1"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;PAS2"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QTLO" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="W&#xa7;PERT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;QUA1" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;QUA2" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;QUA3" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;QUA4" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;QUA5" scale="6"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="50" name="W&#xa7;NOTA"/>
+  <columns dataType="CHAR" length="20" name="W&#xa7;DISE"/>
+  <columns dataType="CHAR" length="5" name="W&#xa7;DISP"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;USAG"/>
 </db-core:TableDef>

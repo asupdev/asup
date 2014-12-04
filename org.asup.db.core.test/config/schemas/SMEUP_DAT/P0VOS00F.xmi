@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P0VOS00F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C&#xa7;CODV" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;NOME" length="30"/>
-  <columns dataType="CHAR" name="C&#xa7;TIAP" length="3"/>
-  <columns dataType="CHAR" name="C&#xa7;CODT" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;DECT" length="30"/>
-  <columns dataType="CHAR" name="C&#xa7;AUTO" length="3"/>
-  <columns dataType="CHAR" name="C&#xa7;NOTE" length="30"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DINA" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DFNA" length="8"/>
-  <columns dataType="CHAR" name="C&#xa7;CONI" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;DECI" length="30"/>
-  <columns dataType="CHAR" name="C&#xa7;CATE" length="3"/>
-  <columns dataType="CHAR" name="C&#xa7;IDAU" length="20"/>
-  <columns dataType="CHAR" name="C&#xa7;DOCU" length="40"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="C&#xa7;CODV"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;NOME"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;TIAP"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;CODT"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;DECT"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;AUTO"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;NOTE"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DINA"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DFNA"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;CONI"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;DECI"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;CATE"/>
+  <columns dataType="CHAR" length="20" name="C&#xa7;IDAU"/>
+  <columns dataType="CHAR" length="40" name="C&#xa7;DOCU"/>
 </db-core:TableDef>

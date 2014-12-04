@@ -25,6 +25,7 @@ import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
+import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
@@ -101,38 +102,40 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 				Table table = databaseManager.getTable(connection, schema.getName(), file.getName());
 
 				// append clustered index if needed
-				if(!index.isClustered() && !hasClusteredIndex(table)) {
-					
+				if (!index.isClustered() && !hasClusteredIndex(table)) {
+
 					QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
 					pkIndexDef.setClustered(true);
 					pkIndexDef.setUnique(true);
-					
+
 					QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
 					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
-					pkIndexColumnDef.setSequence(1);					
+					pkIndexColumnDef.setSequence(1);
 					pkIndexDef.getColumns().add(pkIndexColumnDef);
-					
-					databaseManager.createIndex(connection, table, "QAS_"+table.getName()+"_RRN_IDX", pkIndexDef);
+
+					databaseManager.createIndex(connection, table, "QAS_" + table.getName() + "_RRN_IDX", pkIndexDef);
 				}
-				
+
 				databaseManager.createIndex(connection, table, file.getName(), index);
 			}
-			
+
 			try {
 				connection.commit();
 			} catch (SQLException e) {
 				throw new OperatingSystemRuntimeException(e);
 			}
 		} catch (Exception e) {
-			
+
 			try {
 				// TODO rollback on DTP graph
 				connection.rollback();
 			} catch (SQLException e1) {
 				throw new OperatingSystemRuntimeException(e);
 			}
-			
+
 			throw new OperatingSystemRuntimeException(e.getMessage(), e);
+		} finally {
+			connection.resetAutoCommit();
 		}
 	}
 
@@ -144,38 +147,60 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		QFile file = event.getSource();
 		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
 
-		QConnection databaseConnection = jobContext.getAdapter(job, QConnection.class);
-		Schema schema = databaseManager.getSchema(databaseConnection, file.getLibrary());
+		QConnection connection = jobContext.getAdapter(job, QConnection.class);
+		Schema schema = databaseManager.getSchema(connection, file.getLibrary());
+		if (schema == null)
+			throw new FrameworkCoreRuntimeException("6nv146nzytqweit748zaf");
 
 		try {
-			Index index = databaseManager.getIndex(databaseConnection, schema.getName(), file.getName());
-			if (index != null)
-				databaseManager.dropIndex(databaseConnection, index);
-		} catch (Exception e) {
-			throw new OperatingSystemRuntimeException(e.getMessage(), e);
-		}
+			try {
+				Index index = databaseManager.getIndex(connection, schema.getName(), file.getName());
+				if (index != null)
+					databaseManager.dropIndex(connection, index);
+			} catch (Exception e) {
+				throw new OperatingSystemRuntimeException(e.getMessage(), e);
+			}
 
-		try {
-			if (file instanceof QPhysicalFile) {
-				Table table = databaseManager.getTable(databaseConnection, schema.getName(), file.getName());
-				databaseManager.dropTable(databaseConnection, table);
-			} else if (file instanceof QLogicalFile) {
-				ViewTable view = databaseManager.getView(databaseConnection, schema.getName(), file.getName());
-				databaseManager.dropView(databaseConnection, view);
+			try {
+				if (file instanceof QPhysicalFile) {
+					Table table = databaseManager.getTable(connection, schema.getName(), file.getName());
+					databaseManager.dropTable(connection, table);
+				} else if (file instanceof QLogicalFile) {
+					ViewTable view = databaseManager.getView(connection, schema.getName(), file.getName());
+					databaseManager.dropView(connection, view);
+				}
+			} catch (Exception e) {
+				throw new OperatingSystemRuntimeException(e.getMessage(), e);
+			}
+
+			try {
+				connection.commit();
+			} catch (SQLException e) {
+				throw new OperatingSystemRuntimeException(e);
 			}
 		} catch (Exception e) {
+
+			try {
+				// TODO rollback on DTP graph
+				connection.rollback();
+			} catch (SQLException e1) {
+				throw new OperatingSystemRuntimeException(e);
+			}
+
 			throw new OperatingSystemRuntimeException(e.getMessage(), e);
+		} finally {
+			connection.resetAutoCommit();
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private boolean hasClusteredIndex(Table table) {
-		
-		for(Index index: (List<Index>)table.getIndex()) {
-			if(index.isClustered())
+
+		for (Index index : (List<Index>) table.getIndex()) {
+			if (index.isClustered())
 				return true;
 		}
-		
+
 		return false;
 	}
 }
