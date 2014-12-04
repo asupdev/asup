@@ -29,6 +29,7 @@ import org.asup.dk.compiler.impl.CompilerManagerImpl;
 import org.asup.dk.compiler.rpj.writer.JDTDatabaseFileWriter;
 import org.asup.dk.compiler.rpj.writer.JDTDisplayFileWriter;
 import org.asup.dk.compiler.rpj.writer.JDTModuleWriter;
+import org.asup.dk.compiler.rpj.writer.JDTPrinterFileWriter;
 import org.asup.dk.compiler.rpj.writer.JDTProgramWriter;
 import org.asup.dk.compiler.rpj.writer.JDTStubWriter;
 import org.asup.dk.source.QSourceEntry;
@@ -46,6 +47,7 @@ import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QDisplayFile;
 import org.asup.os.type.file.QFile;
+import org.asup.os.type.file.QPrinterFile;
 import org.asup.os.type.module.QModuleManager;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -268,13 +270,22 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 	@Override
 	public void writePrinterFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
-
+/*
 		QDatabaseFile databaseFile = (QDatabaseFile) context.getRoot();
 
 		JDTDatabaseFileWriter databaseFileWriter = new JDTDatabaseFileWriter(null, context, setup, context.getRoot().getName());
 		databaseFileWriter.writeDatabaseFile(databaseFile);
 
 		databaseFileWriter.writeOutputStream(output);
+		
+*/
+		QPrinterFile printerFile = (QPrinterFile) context.getRoot();
+
+		JDTPrinterFileWriter printerFileWriter = new JDTPrinterFileWriter(null, context, setup, context.getRoot().getName());
+		printerFileWriter.writerPrinterFile(printerFile);
+
+		printerFileWriter.writeOutputStream(output);
+		
 	}
 
 	@Override
