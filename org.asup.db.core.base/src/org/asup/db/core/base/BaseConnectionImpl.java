@@ -33,15 +33,20 @@ import java.util.concurrent.Executor;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionContext;
+import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseDefinition;
 import org.asup.db.core.QPreparedStatement;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryWriter;
+import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
+import org.eclipse.datatools.connectivity.ConnectionProfileException;
 import org.eclipse.datatools.connectivity.IConnection;
-import org.eclipse.datatools.connectivity.IConnectionFactoryProvider;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
+import org.eclipse.datatools.connectivity.ProfileManager;
 import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
+import org.eclipse.datatools.connectivity.sqm.core.mappings.ProviderIDMappingRegistry;
 
 public class BaseConnectionImpl implements QConnection, Connection {
 
@@ -50,11 +55,15 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	private QConnectionConfig	connectionConfig;
 	private QQueryParser		queryParser;
 	private QQueryWriter		queryConverter;
-
+	private String connectionID;
 	private QDatabaseDefinition	databaseDefinition;
 
-	public BaseConnectionImpl(QConnectionContext connectionContext, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
+	private String virtualCatalog = null;
+	
+	public BaseConnectionImpl(QConnectionContext connectionContext, String id, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
+		
 		this.connectionContext = connectionContext;
+		this.connectionID = id;		
 		this.connectionConfig = connectionConfig;
 		this.queryParser = queryParser;
 		this.queryConverter = queryConverter;
@@ -99,10 +108,40 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	protected synchronized Connection getRawConnection() {
 
 		if (rawConnection == null) {
-			IConnectionProfile profile = getConnectionContext().getAdapter(getConnectionConfig(), IConnectionProfile.class);
-			IConnectionFactoryProvider connectionFactoryProvider = profile.getProvider().getConnectionFactory(Connection.class.getName());
-			IConnection iConnection = connectionFactoryProvider.createConnection(profile);
+
+			IConnectionProfile profile = null;
+			
+			try {
+
+				QConnectionManager connectionManager = getConnectionContext().get(QConnectionManager.class);
+				Properties properties = connectionManager.createPropertiesByConnectionConfig(connectionConfig);
+				
+				ProfileManager profileManager = ProfileManager.getInstance();
+
+				ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
+				String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
+				if (providerID == null)
+					providerID = "org.eclipse.datatools.connectivity.db.generic.connectionProfile";
+				
+				if(getConnectionConfig().isPersistent()) {					
+					profile = profileManager.getProfileByName(getID());
+					if(profile == null)
+						profile = profileManager.createProfile(getID(), "Text"+connectionConfig.getVendor()+"("+connectionConfig.getVersion()+")", providerID, properties);					
+				}
+				else
+					profile = profileManager.createTransientProfile(providerID, properties);
+				
+			} catch (ConnectionProfileException e) {
+				throw new FrameworkCoreRuntimeException(e);
+			}
+			
+			IConnection iConnection = profile.createConnection(Connection.class.getName());
+			if(iConnection.getConnectException() != null)
+				throw new FrameworkCoreRuntimeException(iConnection.getConnectException());
+			
 			this.rawConnection = (Connection) iConnection.getRawConnection();
+			if(this.rawConnection == null)
+				throw new FrameworkCoreUnexpectedConditionException("Raw connection is null: "+this);
 		}
 
 		return rawConnection;
@@ -143,8 +182,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	@Override
 	public String getID() {
-		// TODO Auto-generated method stub
-		return null;
+		return connectionID;
 	}
 
 	@Override
@@ -207,8 +245,13 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		return getRawConnection().getAutoCommit();
 	}
 
-	public String getCatalog() throws SQLException {
-		return getRawConnection().getCatalog();
+	public String getCatalog() throws SQLException {		
+
+		String current = getRawConnection().getCatalog();
+		if(current == null)
+			current = virtualCatalog;
+					
+		return current;
 	}
 
 	public Properties getClientInfo() throws SQLException {
@@ -224,7 +267,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	}
 
 	public DatabaseMetaData getMetaData() throws SQLException {
-		return null;
+		return getRawConnection().getMetaData();
 	}
 
 	public int getNetworkTimeout() throws SQLException {
@@ -248,8 +291,15 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	}
 
 	public boolean isClosed() throws SQLException {
+
+		try {
+			if(getRawConnection() == null) 
+				return true;
+		}
+		catch(FrameworkCoreUnexpectedConditionException e) {
+			return true;
+		}
 		
-		// TODO
 		return false;
 	}
 
@@ -310,6 +360,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	}
 
 	public void setCatalog(String catalog) throws SQLException {
+		virtualCatalog = catalog;
 		getRawConnection().setCatalog(catalog);
 	}
 

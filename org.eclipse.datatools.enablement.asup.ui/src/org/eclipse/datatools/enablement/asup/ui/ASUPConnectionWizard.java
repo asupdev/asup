@@ -4,12 +4,12 @@ import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 
-import org.asup.db.core.util.QConnectionHelper;
 import org.eclipse.datatools.connectivity.ui.wizards.NewConnectionProfileWizard;
+import org.eclipse.datatools.enablement.asup.ASUPPlugin;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.IWizardPage;
 
-public class DTPConnectionWizard extends NewConnectionProfileWizard implements IWizard {
+public class ASUPConnectionWizard extends NewConnectionProfileWizard implements IWizard {
 
 //	private ExtensibleProfileDetailsWizardPage wizardPage = null;
 	
@@ -20,14 +20,17 @@ public class DTPConnectionWizard extends NewConnectionProfileWizard implements I
 		System.err.println("init wizard");
 	}
 	
-	public DTPConnectionWizard() {
+	public ASUPConnectionWizard() {
 		super();
-		properties = QConnectionHelper.buildDTPPropertiesByVendorVersion("AsUP", "053");
+		
+		ASUPPlugin plugin = ASUPPlugin.getInstance();
+
+		properties = plugin.getConnectionManager().createPropertiesByVendorVersion("AsUP", "053");
 	}
 
 	@Override
 	public void addCustomPages() {
-		IWizardPage wizardPage = new DTPConnectionWizardPage("As.UP Connection Wizard", properties);		
+		IWizardPage wizardPage = new ASUPConnectionWizardPage("As.UP Connection Wizard", properties);		
 		addPage(wizardPage);
 	}
 

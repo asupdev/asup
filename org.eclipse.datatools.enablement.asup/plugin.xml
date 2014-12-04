@@ -102,7 +102,7 @@
 			product="AsUP"
 			version="053" />
 	</extension>
-<extension
+	<extension
        point="org.eclipse.datatools.connectivity.sqm.core.catalog">
     <catalog
           priority="1"

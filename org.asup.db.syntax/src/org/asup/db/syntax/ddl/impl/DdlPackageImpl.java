@@ -11,6 +11,7 @@ import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.ddl.DropRange;
 import org.asup.db.syntax.ddl.IsolationLevel;
+import org.asup.db.syntax.ddl.QCallStatement;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
@@ -133,6 +134,12 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * @generated
 	 */
 	private EClass setTransactionStatementEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callStatementEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +664,33 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCallStatement() {
+		return callStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallStatement_ProcedureName() {
+		return (EReference)callStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallStatement_Parms() {
+		return (EAttribute)callStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getDropRange() {
 		return dropRangeEEnum;
 	}
@@ -734,6 +768,10 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		callStatementEClass = createEClass(CALL_STATEMENT);
+		createEReference(callStatementEClass, CALL_STATEMENT__PROCEDURE_NAME);
+		createEAttribute(callStatementEClass, CALL_STATEMENT__PARMS);
+
 		commitStatementEClass = createEClass(COMMIT_STATEMENT);
 		createEAttribute(commitStatementEClass, COMMIT_STATEMENT__HOLD);
 
@@ -828,14 +866,15 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 
 		// Obtain other dependent packages
 		QDatabaseSyntaxPackage theDatabaseSyntaxPackage = (QDatabaseSyntaxPackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		callStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		commitStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		connectStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		createAliasStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
@@ -852,6 +891,10 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		setTransactionStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(callStatementEClass, QCallStatement.class, "CallStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCallStatement_ProcedureName(), theDatabaseCorePackage.getQualifiedName(), null, "procedureName", null, 0, 1, QCallStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallStatement_Parms(), theEcorePackage.getEString(), "parms", null, 0, -1, QCallStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(commitStatementEClass, QCommitStatement.class, "CommitStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommitStatement_Hold(), theEcorePackage.getEBoolean(), "hold", null, 0, 1, QCommitStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -3,8 +3,9 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:db-core="http://www.asup.org/db/core"
     xmlns:fw-core="http://www.asup.org/fw/core"
-    xsi:schemaLocation="http://www.asup.org/fw/core ../../../org.asup.fw.core/model/fw-core.ecore"
+    xsi:schemaLocation="http://www.asup.org/db/core ../../../org.asup.db.core/model/db-core.ecore http://www.asup.org/fw/core ../../../org.asup.fw.core/model/fw-core.ecore"
     name="DBCoreBase">
   <services
       xsi:type="fw-core:ServicePluginRegistry"
@@ -70,5 +71,42 @@
       pluginInterface="org.asup.db.syntax.QAliasResolver"/>
   <services
       className="org.asup.db.core.base.BaseDatabaseManagerImpl"
-      interfaceName="org.asup.db.core.QDatabaseManager"/>
+      interfaceName="org.asup.db.core.QDatabaseManager">
+    <config
+        xsi:type="db-core:DatabaseContainer"
+        defaultCatalog="//@services.6/@config/@catalogs.0/@catalog">
+      <database
+          name="ASUP_053"
+          description=""
+          label=""
+          vendor="AsUP"
+          version="053"
+          catalogs="//@services.6/@config/@catalogs.0/@catalog //@services.6/@config/@catalogs.1/@catalog"/>
+      <catalogs>
+        <connectionConfig
+            driverName="com.ibm.db2.jcc.DB2Driver"
+            password="asupxx2014"
+            url="jdbc:db2://asup-db1:50000/ASUP_053:retrieveMessagesFromServerOnGetMessage=true;"
+            user="asup"
+            vendor="DB2 UDB"
+            version="V10.5"/>
+        <catalog
+            name="*LOCAL"
+            description=""
+            Database="//@services.6/@config/@database"/>
+      </catalogs>
+      <catalogs>
+        <connectionConfig
+            driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            password="asup2013"
+            url="jdbc:sqlserver://ASUP-DB1;DatabaseName=ASUP_053;"
+            user="ASUP"
+            vendor="SQL Server"
+            version="2008"/>
+        <catalog
+            name="ASUP_053"
+            Database="//@services.6/@config/@database"/>
+      </catalogs>
+    </config>
+  </services>
 </fw-core:ApplicationModule>

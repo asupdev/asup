@@ -88,6 +88,8 @@ public class FrameworkCoreFactoryImpl extends EFactoryImpl implements QFramework
 				return createFrameworkCoreExceptionFromString(eDataType, initialValue);
 			case QFrameworkCorePackage.FRAMEOWRK_CORE_RUNTIME_EXCEPTION:
 				return createFrameowrkCoreRuntimeExceptionFromString(eDataType, initialValue);
+			case QFrameworkCorePackage.FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION:
+				return createFrameworkCoreUnexpectedConditionExceptionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +109,8 @@ public class FrameworkCoreFactoryImpl extends EFactoryImpl implements QFramework
 				return convertFrameworkCoreExceptionToString(eDataType, instanceValue);
 			case QFrameworkCorePackage.FRAMEOWRK_CORE_RUNTIME_EXCEPTION:
 				return convertFrameowrkCoreRuntimeExceptionToString(eDataType, instanceValue);
+			case QFrameworkCorePackage.FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION:
+				return convertFrameworkCoreUnexpectedConditionExceptionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -235,6 +239,24 @@ public class FrameworkCoreFactoryImpl extends EFactoryImpl implements QFramework
 	 * @generated
 	 */
 	public String convertFrameowrkCoreRuntimeExceptionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FrameworkCoreUnexpectedConditionException createFrameworkCoreUnexpectedConditionExceptionFromString(EDataType eDataType, String initialValue) {
+		return (FrameworkCoreUnexpectedConditionException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFrameworkCoreUnexpectedConditionExceptionToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

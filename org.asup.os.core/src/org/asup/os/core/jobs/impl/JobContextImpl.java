@@ -8,10 +8,8 @@
 package org.asup.os.core.jobs.impl;
 
 import org.asup.fw.core.impl.ContextImpl;
-
 import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

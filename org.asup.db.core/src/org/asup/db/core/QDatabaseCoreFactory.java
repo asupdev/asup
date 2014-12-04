@@ -43,6 +43,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	QConnectionConfig createConnectionConfig();
 
 	/**
+	 * Returns a new object of class '<em>Connection Profile</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Connection Profile</em>'.
+	 * @generated
+	 */
+	QConnectionProfile createConnectionProfile();
+
+	/**
 	 * Returns a new object of class '<em>Database Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1,4 +1,4 @@
-package org.asup.db.core.base;
+package org.asup.db.core.base.graph;
 
 import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogObject;
 import org.eclipse.datatools.connectivity.sqm.internal.core.connection.ConnectionFilter;

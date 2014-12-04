@@ -8,6 +8,7 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
+import java.util.Properties;
 import org.asup.fw.core.QService;
 
 /**
@@ -43,5 +44,21 @@ public interface QConnectionManager extends QService {
 	 * @generated
 	 */
 	void registerConnectionConfig(String name, QConnectionConfig connectionConfig);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.asup.fw.java.JavaProperties" required="true" connectionConfigRequired="true"
+	 * @generated
+	 */
+	Properties createPropertiesByConnectionConfig(QConnectionConfig connectionConfig);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.asup.fw.java.JavaProperties" required="true" vendorRequired="true"
+	 * @generated
+	 */
+	Properties createPropertiesByVendorVersion(String vendor, String version);
 
 } // QConnectionManager

@@ -8,6 +8,7 @@
 package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
+import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.QLockTableStatement;
 import org.asup.db.syntax.ddl.ShareMode;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl#isAllowRead <em>Allow Read</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl#getShareMode <em>Share Mode</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.LockTableStatementImpl#getTableName <em>Table Name</em>}</li>
@@ -34,6 +36,26 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * @generated
  */
 public class LockTableStatementImpl extends EObjectImpl implements QLockTableStatement {
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected StatementType type = TYPE_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #isAllowRead() <em>Allow Read</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -101,6 +123,27 @@ public class LockTableStatementImpl extends EObjectImpl implements QLockTableSta
 	@Override
 	protected EClass eStaticClass() {
 		return QDdlPackage.Literals.LOCK_TABLE_STATEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StatementType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(StatementType newType) {
+		StatementType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.LOCK_TABLE_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -210,6 +253,8 @@ public class LockTableStatementImpl extends EObjectImpl implements QLockTableSta
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QDdlPackage.LOCK_TABLE_STATEMENT__TYPE:
+				return getType();
 			case QDdlPackage.LOCK_TABLE_STATEMENT__ALLOW_READ:
 				return isAllowRead();
 			case QDdlPackage.LOCK_TABLE_STATEMENT__SHARE_MODE:
@@ -228,6 +273,9 @@ public class LockTableStatementImpl extends EObjectImpl implements QLockTableSta
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QDdlPackage.LOCK_TABLE_STATEMENT__TYPE:
+				setType((StatementType)newValue);
+				return;
 			case QDdlPackage.LOCK_TABLE_STATEMENT__ALLOW_READ:
 				setAllowRead((Boolean)newValue);
 				return;
@@ -249,6 +297,9 @@ public class LockTableStatementImpl extends EObjectImpl implements QLockTableSta
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QDdlPackage.LOCK_TABLE_STATEMENT__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 			case QDdlPackage.LOCK_TABLE_STATEMENT__ALLOW_READ:
 				setAllowRead(ALLOW_READ_EDEFAULT);
 				return;
@@ -270,6 +321,8 @@ public class LockTableStatementImpl extends EObjectImpl implements QLockTableSta
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QDdlPackage.LOCK_TABLE_STATEMENT__TYPE:
+				return type != TYPE_EDEFAULT;
 			case QDdlPackage.LOCK_TABLE_STATEMENT__ALLOW_READ:
 				return allowRead != ALLOW_READ_EDEFAULT;
 			case QDdlPackage.LOCK_TABLE_STATEMENT__SHARE_MODE:
@@ -290,7 +343,9 @@ public class LockTableStatementImpl extends EObjectImpl implements QLockTableSta
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (allowRead: ");
+		result.append(" (type: ");
+		result.append(type);
+		result.append(", allowRead: ");
 		result.append(allowRead);
 		result.append(", shareMode: ");
 		result.append(shareMode);

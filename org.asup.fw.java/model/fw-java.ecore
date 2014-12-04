@@ -20,6 +20,7 @@
     <eTypeParameters name="K"/>
     <eTypeParameters name="V"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="JavaProperties" instanceClassName="java.util.Properties"/>
   <eClassifiers xsi:type="ecore:EClass" name="JavaNumber" instanceClassName="java.lang.Number"
       abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="JavaOutputStream" instanceClassName="java.io.OutputStream"/>

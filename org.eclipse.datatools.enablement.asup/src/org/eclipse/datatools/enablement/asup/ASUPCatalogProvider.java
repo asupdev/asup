@@ -2,7 +2,6 @@ package org.eclipse.datatools.enablement.asup;
 
 import java.sql.Connection;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogProvider;
@@ -18,8 +17,7 @@ public class ASUPCatalogProvider implements ICatalogProvider, IExecutableExtensi
 	
 	protected static Database database;
 
-	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
-			throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 
 		this.product = config.getAttribute("product"); //$NON-NLS-1$
 		this.version = config.getAttribute("version"); //$NON-NLS-1$

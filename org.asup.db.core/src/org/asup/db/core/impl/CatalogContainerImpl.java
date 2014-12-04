@@ -10,18 +10,13 @@ package org.asup.db.core.impl;
 import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QDatabaseCorePackage;
-
-import org.asup.fw.core.impl.ServiceConfigImpl;
-
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,23 +25,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getDefaultConfig <em>Default Config</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getConnectionConfig <em>Connection Config</em>}</li>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getCatalog <em>Catalog</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogContainer {
+public class CatalogContainerImpl extends MinimalEObjectImpl.Container implements QCatalogContainer {
 	/**
-	 * The cached value of the '{@link #getDefaultConfig() <em>Default Config</em>}' containment reference.
+	 * The cached value of the '{@link #getConnectionConfig() <em>Connection Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDefaultConfig()
+	 * @see #getConnectionConfig()
 	 * @generated
 	 * @ordered
 	 */
-	protected QConnectionConfig defaultConfig;
+	protected QConnectionConfig connectionConfig;
 
 	/**
 	 * The cached value of the '{@link #getCatalog() <em>Catalog</em>}' containment reference.
@@ -82,8 +77,8 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnectionConfig getDefaultConfig() {
-		return defaultConfig;
+	public QConnectionConfig getConnectionConfig() {
+		return connectionConfig;
 	}
 
 	/**
@@ -91,11 +86,11 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDefaultConfig(QConnectionConfig newDefaultConfig, NotificationChain msgs) {
-		QConnectionConfig oldDefaultConfig = defaultConfig;
-		defaultConfig = newDefaultConfig;
+	public NotificationChain basicSetConnectionConfig(QConnectionConfig newConnectionConfig, NotificationChain msgs) {
+		QConnectionConfig oldConnectionConfig = connectionConfig;
+		connectionConfig = newConnectionConfig;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG, oldDefaultConfig, newDefaultConfig);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG, oldConnectionConfig, newConnectionConfig);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -106,18 +101,18 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefaultConfig(QConnectionConfig newDefaultConfig) {
-		if (newDefaultConfig != defaultConfig) {
+	public void setConnectionConfig(QConnectionConfig newConnectionConfig) {
+		if (newConnectionConfig != connectionConfig) {
 			NotificationChain msgs = null;
-			if (defaultConfig != null)
-				msgs = ((InternalEObject)defaultConfig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG, null, msgs);
-			if (newDefaultConfig != null)
-				msgs = ((InternalEObject)newDefaultConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG, null, msgs);
-			msgs = basicSetDefaultConfig(newDefaultConfig, msgs);
+			if (connectionConfig != null)
+				msgs = ((InternalEObject)connectionConfig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG, null, msgs);
+			if (newConnectionConfig != null)
+				msgs = ((InternalEObject)newConnectionConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG, null, msgs);
+			msgs = basicSetConnectionConfig(newConnectionConfig, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG, newDefaultConfig, newDefaultConfig));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG, newConnectionConfig, newConnectionConfig));
 	}
 
 	/**
@@ -168,11 +163,22 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isActive() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG:
-				return basicSetDefaultConfig(null, msgs);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				return basicSetConnectionConfig(null, msgs);
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CATALOG:
 				return basicSetCatalog(null, msgs);
 		}
@@ -187,8 +193,8 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG:
-				return getDefaultConfig();
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				return getConnectionConfig();
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CATALOG:
 				return getCatalog();
 		}
@@ -203,8 +209,8 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG:
-				setDefaultConfig((QConnectionConfig)newValue);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				setConnectionConfig((QConnectionConfig)newValue);
 				return;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CATALOG:
 				setCatalog((Catalog)newValue);
@@ -221,8 +227,8 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG:
-				setDefaultConfig((QConnectionConfig)null);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				setConnectionConfig((QConnectionConfig)null);
 				return;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CATALOG:
 				setCatalog((Catalog)null);
@@ -239,8 +245,8 @@ public class CatalogContainerImpl extends ServiceConfigImpl implements QCatalogC
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.CATALOG_CONTAINER__DEFAULT_CONFIG:
-				return defaultConfig != null;
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				return connectionConfig != null;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CATALOG:
 				return catalog != null;
 		}

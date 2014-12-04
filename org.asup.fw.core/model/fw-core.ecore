@@ -3,6 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/fw/core" nsPrefix="fw-core">
   <eClassifiers xsi:type="ecore:EDataType" name="FrameworkCoreException" instanceClassName="org.asup.fw.core.FrameworkCoreException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="FrameowrkCoreRuntimeException" instanceClassName="org.asup.fw.core.FrameworkCoreRuntimeException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FrameworkCoreUnexpectedConditionException"
+      instanceClassName="org.asup.fw.core.FrameworkCoreUnexpectedConditionException"/>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
         eType="#//ServiceHook" containment="true"/>
@@ -55,6 +57,7 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="getID" lowerBound="1" eType="#//ContextID"/>
     <eOperations name="inject" eExceptions="#//FrameowrkCoreRuntimeException">
       <eParameters name="object" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>

@@ -62,6 +62,7 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDdlPackage.CALL_STATEMENT: return (EObject)createCallStatement();
 			case QDdlPackage.COMMIT_STATEMENT: return (EObject)createCommitStatement();
 			case QDdlPackage.CONNECT_STATEMENT: return (EObject)createConnectStatement();
 			case QDdlPackage.CREATE_ALIAS_STATEMENT: return (EObject)createCreateAliasStatement();
@@ -269,6 +270,16 @@ public class DdlFactoryImpl extends EFactoryImpl implements QDdlFactory {
 	public QSetTransactionStatement createSetTransactionStatement() {
 		SetTransactionStatementImpl setTransactionStatement = new SetTransactionStatementImpl();
 		return setTransactionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCallStatement createCallStatement() {
+		CallStatementImpl callStatement = new CallStatementImpl();
+		return callStatement;
 	}
 
 	/**

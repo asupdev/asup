@@ -11,7 +11,7 @@ import org.eclipse.datatools.modelbase.sql.schema.Database;
 
 public class ASUPConnectionInfo extends ConnectionInfoImpl {
 
-	public ASUPConnectionInfo(IConnectionProfile profile, Class<ASUPConnectionFactory> factoryClass) {
+	protected ASUPConnectionInfo(IConnectionProfile profile, Class<ASUPConnectionFactory> factoryClass) {
 		super(profile, factoryClass);
 	}
 
@@ -71,6 +71,7 @@ public class ASUPConnectionInfo extends ConnectionInfoImpl {
 
 	@Override
 	public Connection getSharedConnection() {
+		super.getSharedConnection();
 		// TODO Auto-generated method stub
 		return null;
 	}

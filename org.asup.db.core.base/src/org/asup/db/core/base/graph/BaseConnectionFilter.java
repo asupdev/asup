@@ -1,4 +1,4 @@
-package org.asup.db.core.base;
+package org.asup.db.core.base.graph;
 
 import java.util.ArrayList;
 

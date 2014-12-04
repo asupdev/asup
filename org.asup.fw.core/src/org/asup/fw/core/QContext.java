@@ -55,6 +55,14 @@ public interface QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	QContextID getID();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException" objectRequired="true"
 	 * @generated
 	 */

@@ -25,6 +25,6 @@ public class E4PluginRegistryFactoryImpl extends PluginRegistryFactoryImpl {
 
 	@Override
 	public <T extends QPlugin> QPluginRegistry<T> createPluginRegistry(Class<T> pluginClass) {
-		return new E4PluginRegistryImpl<T>(((E4ContextImpl)asupContext).bundleContext, pluginClass);
+		return new E4PluginRegistryImpl<T>(((E4ContextRootImpl)asupContext).bundleContext, pluginClass);
 	}
 }

@@ -37,6 +37,8 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 
 	private QQueryParser queryParser;
 
+	private static int connectionID = 0;
+	
 	@PostConstruct
 	private void init() {
 		this.queryParser = this.queryParserRegistry.lookup("IBMI");
@@ -46,8 +48,15 @@ public class DB2ConnectionFactoryImpl extends ConnectionFactoryImpl {
 	@Override
 	public QConnection createDatabaseConnection(QConnectionConfig connectionConfig) {
 
-		QConnectionContext connectionContext = new BaseConnectionContextImpl(context.createChild());
+		connectionID = connectionID++;
+		String stringID = context.getID()+"/"+connectionID;
+
+		QConnectionContext connectionContext = new BaseConnectionContextImpl(context.createChild(), stringID);
 		QQueryWriter queryConverter = queryConverterRegistry.lookup(connectionConfig);
-		return new BaseConnectionImpl(connectionContext, connectionConfig, queryParser, queryConverter);
+		
+		
+		QConnection connection = new BaseConnectionImpl(connectionContext, stringID, connectionConfig, queryParser, queryConverter); 
+
+		return connection;
 	}
 }

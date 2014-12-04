@@ -27,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import java.util.Properties;
 import org.asup.fw.java.QFrameworkJavaFactory;
 import org.asup.fw.java.QFrameworkJavaPackage;
 
@@ -126,6 +127,13 @@ public class FrameworkJavaPackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EDataType javaMapEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType javaPropertiesEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -350,6 +358,15 @@ public class FrameworkJavaPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getJavaProperties() {
+		return javaPropertiesEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getJavaOutputStream() {
 		return javaOutputStreamEDataType;
 	}
@@ -452,6 +469,7 @@ public class FrameworkJavaPackageImpl extends EPackageImpl implements QFramework
 		javaIterableEDataType = createEDataType(JAVA_ITERABLE);
 		javaIteratorEDataType = createEDataType(JAVA_ITERATOR);
 		javaMapEDataType = createEDataType(JAVA_MAP);
+		javaPropertiesEDataType = createEDataType(JAVA_PROPERTIES);
 		javaOutputStreamEDataType = createEDataType(JAVA_OUTPUT_STREAM);
 		javaRunnableEDataType = createEDataType(JAVA_RUNNABLE);
 		javaTypeEDataType = createEDataType(JAVA_TYPE);
@@ -511,6 +529,7 @@ public class FrameworkJavaPackageImpl extends EPackageImpl implements QFramework
 		initEDataType(javaIterableEDataType, Iterable.class, "JavaIterable", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.lang.Iterable<T>");
 		initEDataType(javaIteratorEDataType, Iterator.class, "JavaIterator", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS, "java.util.Iterator<T>");
 		initEDataType(javaMapEDataType, Map.class, "JavaMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(javaPropertiesEDataType, Properties.class, "JavaProperties", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaOutputStreamEDataType, OutputStream.class, "JavaOutputStream", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaRunnableEDataType, Runnable.class, "JavaRunnable", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(javaTypeEDataType, Type.class, "JavaType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
