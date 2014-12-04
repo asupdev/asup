@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MPQTYP0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="MPCDPI" length="6"/>
-  <columns dataType="CHAR" name="MPTPRC" length="3"/>
-  <columns dataType="CHAR" name="MPCD01" length="15"/>
-  <columns dataType="CHAR" name="MPCD02" length="15"/>
-  <columns dataType="DECIMAL" name="MPNU01" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU02" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU03" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU04" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU05" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU06" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU07" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU08" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU09" length="11" scale="2"/>
-  <columns dataType="DECIMAL" name="MPNU10" length="11" scale="2"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="6" name="MPCDPI"/>
+  <columns dataType="CHAR" length="3" name="MPTPRC"/>
+  <columns dataType="CHAR" length="15" name="MPCD01"/>
+  <columns dataType="CHAR" length="15" name="MPCD02"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU01" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU02" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU03" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU04" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU05" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU06" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU07" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU08" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU09" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MPNU10" scale="2"/>
 </db-core:TableDef>

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMPRES0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="I&#xa7;RAGG" length="8"/>
-  <columns dataType="CHAR" name="I&#xa7;CODI" length="15"/>
-  <columns dataType="CHAR" name="I&#xa7;COIN" length="5"/>
-  <columns dataType="CHAR" name="I&#xa7;TIPO" length="3"/>
-  <columns dataType="CHAR" name="I&#xa7;DEIN" length="30"/>
-  <columns dataType="DECIMAL" name="I&#xa7;DESE" length="8"/>
-  <columns dataType="DECIMAL" name="I&#xa7;TEIN" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I&#xa7;FEMA" length="6" scale="2"/>
-  <columns dataType="DECIMAL" name="I&#xa7;NUPE" length="2"/>
-  <columns dataType="DECIMAL" name="I&#xa7;DUIN" length="8"/>
-  <columns dataType="CHAR" name="I&#xa7;TIDO" length="4"/>
-  <columns dataType="CHAR" name="I&#xa7;DOCU" length="15"/>
-  <columns dataType="CHAR" name="I&#xa7;ARAL" length="15"/>
-  <columns dataType="CHAR" name="I&#xa7;ORIC" length="10"/>
-  <columns dataType="CHAR" name="I&#xa7;MANU" length="1"/>
-  <columns dataType="CHAR" name="I&#xa7;SCAD" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="I&#xa7;RAGG"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;CODI"/>
+  <columns dataType="CHAR" length="5" name="I&#xa7;COIN"/>
+  <columns dataType="CHAR" length="3" name="I&#xa7;TIPO"/>
+  <columns dataType="CHAR" length="30" name="I&#xa7;DEIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa7;DESE"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa7;TEIN" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa7;FEMA" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="I&#xa7;NUPE"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa7;DUIN"/>
+  <columns dataType="CHAR" length="4" name="I&#xa7;TIDO"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;DOCU"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;ARAL"/>
+  <columns dataType="CHAR" length="10" name="I&#xa7;ORIC"/>
+  <columns dataType="CHAR" length="1" name="I&#xa7;MANU"/>
+  <columns dataType="CHAR" length="1" name="I&#xa7;SCAD"/>
 </db-core:TableDef>

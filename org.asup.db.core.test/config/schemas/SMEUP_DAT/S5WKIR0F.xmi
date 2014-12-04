@@ -1,211 +1,210 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="S5WKIR0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="SKNSES" length="10"/>
-  <columns dataType="CHAR" name="SKSCEN" length="10"/>
-  <columns dataType="CHAR" name="SKTIRS" length="3"/>
-  <columns dataType="CHAR" name="SKTSCH" length="3"/>
-  <columns dataType="CHAR" name="SKTORI" length="2"/>
-  <columns dataType="CHAR" name="SKTDOC" length="3"/>
-  <columns dataType="CHAR" name="SKNDOC" length="10"/>
-  <columns dataType="DECIMAL" name="SKNRIG" length="4"/>
-  <columns dataType="CHAR" name="SKS$OR" length="2"/>
-  <columns dataType="CHAR" name="SKL$OR" length="1"/>
-  <columns dataType="CHAR" name="SKMAGC" length="3"/>
-  <columns dataType="CHAR" name="SKCOAR" length="15"/>
-  <columns dataType="CHAR" name="SKCONF" length="20"/>
-  <columns dataType="CHAR" name="SKTIEN" length="3"/>
-  <columns dataType="CHAR" name="SKCLIE" length="15"/>
-  <columns dataType="CHAR" name="SKCOMS" length="15"/>
-  <columns dataType="CHAR" name="SKPRIO" length="2"/>
-  <columns dataType="DECIMAL" name="SKQORD" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKDIRI" length="8"/>
-  <columns dataType="DECIMAL" name="SKDFRI" length="8"/>
-  <columns dataType="CHAR" name="SKNORF" length="10"/>
-  <columns dataType="CHAR" name="SKTORF" length="2"/>
-  <columns dataType="CHAR" name="SKPARF" length="10"/>
-  <columns dataType="CHAR" name="SKOGRF" length="15"/>
-  <columns dataType="CHAR" name="SKTDOR" length="3"/>
-  <columns dataType="CHAR" name="SKNDOR" length="10"/>
-  <columns dataType="DECIMAL" name="SKNRIR" length="4"/>
-  <columns dataType="DECIMAL" name="SKNREC" length="11"/>
-  <columns dataType="CHAR" name="SKIDOF" length="10"/>
-  <columns dataType="CHAR" name="SKOPER" length="6"/>
-  <columns dataType="CHAR" name="SKDEOP" length="30"/>
-  <columns dataType="CHAR" name="SKOPRI" length="6"/>
-  <columns dataType="CHAR" name="SKTIRP" length="3"/>
-  <columns dataType="CHAR" name="SKCLAV" length="15"/>
-  <columns dataType="CHAR" name="SKTIRF" length="3"/>
-  <columns dataType="CHAR" name="SKMACC" length="15"/>
-  <columns dataType="CHAR" name="SKTPRA" length="2"/>
-  <columns dataType="CHAR" name="SKPARA" length="10"/>
-  <columns dataType="CHAR" name="SKOGRA" length="15"/>
-  <columns dataType="CHAR" name="SKS$OP" length="2"/>
-  <columns dataType="CHAR" name="SKL$OP" length="1"/>
-  <columns dataType="CHAR" name="SKTCIC" length="3"/>
-  <columns dataType="CHAR" name="SKCICL" length="3"/>
-  <columns dataType="CHAR" name="SKTOPE" length="3"/>
-  <columns dataType="CHAR" name="SKGRAL" length="5"/>
-  <columns dataType="CHAR" name="SKCODC" length="15"/>
-  <columns dataType="CHAR" name="SKCICC" length="3"/>
-  <columns dataType="CHAR" name="SKSQCC" length="6"/>
-  <columns dataType="CHAR" name="SKUBIP" length="12"/>
-  <columns dataType="CHAR" name="SKUBID" length="12"/>
-  <columns dataType="CHAR" name="SKSTOP" length="1"/>
-  <columns dataType="CHAR" name="SKUMIS" length="2"/>
-  <columns dataType="DECIMAL" name="SKQTOR" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKQTOT" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKQTSC" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKQTFA" length="11" scale="3"/>
-  <columns dataType="CHAR" name="SKOPFA" length="6"/>
-  <columns dataType="DECIMAL" name="SKQT01" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKQT02" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKQT03" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SKDTUA" length="8"/>
-  <columns dataType="DECIMAL" name="SKHUNI" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SKHTOT" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHATR" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHR01" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHR02" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHR03" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKEF01" length="6" scale="4"/>
-  <columns dataType="DECIMAL" name="SKEF02" length="6" scale="4"/>
-  <columns dataType="DECIMAL" name="SKEF03" length="6" scale="4"/>
-  <columns dataType="DECIMAL" name="SKEF04" length="6" scale="4"/>
-  <columns dataType="DECIMAL" name="SKQUET" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="SKGG01" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKGG02" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKGG03" length="7" scale="2"/>
-  <columns dataType="CHAR" name="SKUMTE" length="2"/>
-  <columns dataType="CHAR" name="SKCDCA" length="2"/>
-  <columns dataType="DECIMAL" name="SKTE01" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE02" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE03" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE04" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE05" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE06" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE07" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE08" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE09" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKTE10" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC01" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC02" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC03" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC04" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC05" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC06" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC07" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC08" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC09" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SKCC10" length="11" scale="4"/>
-  <columns dataType="CHAR" name="SKCROR" length="100"/>
-  <columns dataType="CHAR" name="SKTPRG" length="3"/>
-  <columns dataType="CHAR" name="SKCODR" length="10"/>
-  <columns dataType="DECIMAL" name="SKNUMR" length="7"/>
-  <columns dataType="CHAR" name="SKTIPF" length="3"/>
-  <columns dataType="CHAR" name="SKCODF" length="15"/>
-  <columns dataType="DECIMAL" name="SKPRGS" length="5"/>
-  <columns dataType="CHAR" name="SKTRIN" length="1"/>
-  <columns dataType="DECIMAL" name="SKDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="SKHRIN" length="6"/>
-  <columns dataType="CHAR" name="SKTRFI" length="1"/>
-  <columns dataType="DECIMAL" name="SKDTFI" length="8"/>
-  <columns dataType="DECIMAL" name="SKHRFI" length="6"/>
-  <columns dataType="DECIMAL" name="SKDISC" length="8"/>
-  <columns dataType="DECIMAL" name="SKHISC" length="6"/>
-  <columns dataType="DECIMAL" name="SKDFSC" length="8"/>
-  <columns dataType="DECIMAL" name="SKHFSC" length="6"/>
-  <columns dataType="DECIMAL" name="SKDIST" length="8"/>
-  <columns dataType="DECIMAL" name="SKHIST" length="6"/>
-  <columns dataType="DECIMAL" name="SKDFST" length="8"/>
-  <columns dataType="DECIMAL" name="SKHFST" length="6"/>
-  <columns dataType="DECIMAL" name="SKDTPP" length="8"/>
-  <columns dataType="DECIMAL" name="SKHRPP" length="6"/>
-  <columns dataType="DECIMAL" name="SKDTPT" length="8"/>
-  <columns dataType="DECIMAL" name="SKHRPT" length="6"/>
-  <columns dataType="CHAR" name="SKVEIT" length="2"/>
-  <columns dataType="DECIMAL" name="SKVEID" length="8"/>
-  <columns dataType="DECIMAL" name="SKVEIH" length="6"/>
-  <columns dataType="CHAR" name="SKVEFT" length="2"/>
-  <columns dataType="DECIMAL" name="SKVEFD" length="8"/>
-  <columns dataType="DECIMAL" name="SKVEFH" length="6"/>
-  <columns dataType="CHAR" name="SKCAUS" length="5"/>
-  <columns dataType="DECIMAL" name="SKID01" length="8"/>
-  <columns dataType="DECIMAL" name="SKIH01" length="6"/>
-  <columns dataType="DECIMAL" name="SKID02" length="8"/>
-  <columns dataType="DECIMAL" name="SKIH02" length="6"/>
-  <columns dataType="DECIMAL" name="SKID03" length="8"/>
-  <columns dataType="DECIMAL" name="SKIH03" length="6"/>
-  <columns dataType="DECIMAL" name="SKID04" length="8"/>
-  <columns dataType="DECIMAL" name="SKIH04" length="6"/>
-  <columns dataType="DECIMAL" name="SKID05" length="8"/>
-  <columns dataType="DECIMAL" name="SKIH05" length="6"/>
-  <columns dataType="DECIMAL" name="SKDT01" length="8"/>
-  <columns dataType="DECIMAL" name="SKDT02" length="8"/>
-  <columns dataType="DECIMAL" name="SKDT03" length="8"/>
-  <columns dataType="DECIMAL" name="SKDT04" length="8"/>
-  <columns dataType="DECIMAL" name="SKDT05" length="8"/>
-  <columns dataType="DECIMAL" name="SKHL01" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHL02" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHL03" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHL04" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="SKHL05" length="7" scale="2"/>
-  <columns dataType="CHAR" name="SKAA01" length="15"/>
-  <columns dataType="CHAR" name="SKAA02" length="15"/>
-  <columns dataType="CHAR" name="SKAA03" length="15"/>
-  <columns dataType="CHAR" name="SKAA04" length="15"/>
-  <columns dataType="CHAR" name="SKAA05" length="15"/>
-  <columns dataType="DECIMAL" name="SKNU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SKNU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SKNU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SKNU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SKNU05" length="15" scale="5"/>
-  <columns dataType="CHAR" name="SKNOTA" length="50"/>
-  <columns dataType="CHAR" name="SKFL01" length="1"/>
-  <columns dataType="CHAR" name="SKFL02" length="1"/>
-  <columns dataType="CHAR" name="SKFL03" length="1"/>
-  <columns dataType="CHAR" name="SKFL04" length="1"/>
-  <columns dataType="CHAR" name="SKFL05" length="1"/>
-  <columns dataType="CHAR" name="SKFL06" length="1"/>
-  <columns dataType="CHAR" name="SKFL07" length="1"/>
-  <columns dataType="CHAR" name="SKFL08" length="1"/>
-  <columns dataType="CHAR" name="SKFL09" length="1"/>
-  <columns dataType="CHAR" name="SKFL10" length="1"/>
-  <columns dataType="CHAR" name="SKFL11" length="1"/>
-  <columns dataType="CHAR" name="SKFL12" length="1"/>
-  <columns dataType="CHAR" name="SKFL13" length="1"/>
-  <columns dataType="CHAR" name="SKFL14" length="1"/>
-  <columns dataType="CHAR" name="SKFL15" length="1"/>
-  <columns dataType="CHAR" name="SKFL16" length="1"/>
-  <columns dataType="CHAR" name="SKFL17" length="1"/>
-  <columns dataType="CHAR" name="SKFL18" length="1"/>
-  <columns dataType="CHAR" name="SKFL19" length="1"/>
-  <columns dataType="CHAR" name="SKFL20" length="1"/>
-  <columns dataType="CHAR" name="SKFL21" length="1"/>
-  <columns dataType="CHAR" name="SKFL22" length="1"/>
-  <columns dataType="CHAR" name="SKFL23" length="1"/>
-  <columns dataType="CHAR" name="SKFL24" length="1"/>
-  <columns dataType="CHAR" name="SKFL25" length="1"/>
-  <columns dataType="CHAR" name="SKFL26" length="1"/>
-  <columns dataType="CHAR" name="SKFL27" length="1"/>
-  <columns dataType="CHAR" name="SKFL28" length="1"/>
-  <columns dataType="CHAR" name="SKFL29" length="1"/>
-  <columns dataType="CHAR" name="SKFL30" length="1"/>
-  <columns dataType="CHAR" name="SKFL31" length="1"/>
-  <columns dataType="CHAR" name="SKFL32" length="1"/>
-  <columns dataType="CHAR" name="SKFL33" length="1"/>
-  <columns dataType="CHAR" name="SKFL34" length="1"/>
-  <columns dataType="CHAR" name="SKFL35" length="1"/>
-  <columns dataType="CHAR" name="SKFL36" length="1"/>
-  <columns dataType="CHAR" name="SKFL37" length="1"/>
-  <columns dataType="CHAR" name="SKFL38" length="1"/>
-  <columns dataType="CHAR" name="SKFL39" length="1"/>
-  <columns dataType="CHAR" name="SKFL40" length="1"/>
-  <columns dataType="CHAR" name="SKIDOJ" length="10"/>
-  <columns dataType="DECIMAL" name="SKDTCR" length="8"/>
-  <columns dataType="DECIMAL" name="SKHRCR" length="6"/>
-  <columns dataType="CHAR" name="SKUSIN" length="10"/>
-  <columns dataType="DECIMAL" name="SKDTAG" length="8"/>
-  <columns dataType="DECIMAL" name="SKHRAG" length="6"/>
-  <columns dataType="CHAR" name="SKUSAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="SKNSES"/>
+  <columns dataType="CHAR" length="10" name="SKSCEN"/>
+  <columns dataType="CHAR" length="3" name="SKTIRS"/>
+  <columns dataType="CHAR" length="3" name="SKTSCH"/>
+  <columns dataType="CHAR" length="2" name="SKTORI"/>
+  <columns dataType="CHAR" length="3" name="SKTDOC"/>
+  <columns dataType="CHAR" length="10" name="SKNDOC"/>
+  <columns dataType="DECIMAL" length="4" name="SKNRIG"/>
+  <columns dataType="CHAR" length="2" name="SKS$OR"/>
+  <columns dataType="CHAR" length="1" name="SKL$OR"/>
+  <columns dataType="CHAR" length="3" name="SKMAGC"/>
+  <columns dataType="CHAR" length="15" name="SKCOAR"/>
+  <columns dataType="CHAR" length="20" name="SKCONF"/>
+  <columns dataType="CHAR" length="3" name="SKTIEN"/>
+  <columns dataType="CHAR" length="15" name="SKCLIE"/>
+  <columns dataType="CHAR" length="15" name="SKCOMS"/>
+  <columns dataType="CHAR" length="2" name="SKPRIO"/>
+  <columns dataType="DECIMAL" length="11" name="SKQORD" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="SKDIRI"/>
+  <columns dataType="DECIMAL" length="8" name="SKDFRI"/>
+  <columns dataType="CHAR" length="10" name="SKNORF"/>
+  <columns dataType="CHAR" length="2" name="SKTORF"/>
+  <columns dataType="CHAR" length="10" name="SKPARF"/>
+  <columns dataType="CHAR" length="15" name="SKOGRF"/>
+  <columns dataType="CHAR" length="3" name="SKTDOR"/>
+  <columns dataType="CHAR" length="10" name="SKNDOR"/>
+  <columns dataType="DECIMAL" length="4" name="SKNRIR"/>
+  <columns dataType="DECIMAL" length="11" name="SKNREC"/>
+  <columns dataType="CHAR" length="10" name="SKIDOF"/>
+  <columns dataType="CHAR" length="6" name="SKOPER"/>
+  <columns dataType="CHAR" length="30" name="SKDEOP"/>
+  <columns dataType="CHAR" length="6" name="SKOPRI"/>
+  <columns dataType="CHAR" length="3" name="SKTIRP"/>
+  <columns dataType="CHAR" length="15" name="SKCLAV"/>
+  <columns dataType="CHAR" length="3" name="SKTIRF"/>
+  <columns dataType="CHAR" length="15" name="SKMACC"/>
+  <columns dataType="CHAR" length="2" name="SKTPRA"/>
+  <columns dataType="CHAR" length="10" name="SKPARA"/>
+  <columns dataType="CHAR" length="15" name="SKOGRA"/>
+  <columns dataType="CHAR" length="2" name="SKS$OP"/>
+  <columns dataType="CHAR" length="1" name="SKL$OP"/>
+  <columns dataType="CHAR" length="3" name="SKTCIC"/>
+  <columns dataType="CHAR" length="3" name="SKCICL"/>
+  <columns dataType="CHAR" length="3" name="SKTOPE"/>
+  <columns dataType="CHAR" length="5" name="SKGRAL"/>
+  <columns dataType="CHAR" length="15" name="SKCODC"/>
+  <columns dataType="CHAR" length="3" name="SKCICC"/>
+  <columns dataType="CHAR" length="6" name="SKSQCC"/>
+  <columns dataType="CHAR" length="12" name="SKUBIP"/>
+  <columns dataType="CHAR" length="12" name="SKUBID"/>
+  <columns dataType="CHAR" length="1" name="SKSTOP"/>
+  <columns dataType="CHAR" length="2" name="SKUMIS"/>
+  <columns dataType="DECIMAL" length="11" name="SKQTOR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SKQTOT" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SKQTSC" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SKQTFA" scale="3"/>
+  <columns dataType="CHAR" length="6" name="SKOPFA"/>
+  <columns dataType="DECIMAL" length="11" name="SKQT01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SKQT02" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SKQT03" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTUA"/>
+  <columns dataType="DECIMAL" length="15" name="SKHUNI" scale="5"/>
+  <columns dataType="DECIMAL" length="7" name="SKHTOT" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHATR" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHR01" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHR02" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHR03" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="SKEF01" scale="4"/>
+  <columns dataType="DECIMAL" length="6" name="SKEF02" scale="4"/>
+  <columns dataType="DECIMAL" length="6" name="SKEF03" scale="4"/>
+  <columns dataType="DECIMAL" length="6" name="SKEF04" scale="4"/>
+  <columns dataType="DECIMAL" length="5" name="SKQUET" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKGG01" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKGG02" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKGG03" scale="2"/>
+  <columns dataType="CHAR" length="2" name="SKUMTE"/>
+  <columns dataType="CHAR" length="2" name="SKCDCA"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKTE10" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SKCC10" scale="4"/>
+  <columns dataType="CHAR" length="100" name="SKCROR"/>
+  <columns dataType="CHAR" length="3" name="SKTPRG"/>
+  <columns dataType="CHAR" length="10" name="SKCODR"/>
+  <columns dataType="DECIMAL" length="7" name="SKNUMR"/>
+  <columns dataType="CHAR" length="3" name="SKTIPF"/>
+  <columns dataType="CHAR" length="15" name="SKCODF"/>
+  <columns dataType="DECIMAL" length="5" name="SKPRGS"/>
+  <columns dataType="CHAR" length="1" name="SKTRIN"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="SKHRIN"/>
+  <columns dataType="CHAR" length="1" name="SKTRFI"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTFI"/>
+  <columns dataType="DECIMAL" length="6" name="SKHRFI"/>
+  <columns dataType="DECIMAL" length="8" name="SKDISC"/>
+  <columns dataType="DECIMAL" length="6" name="SKHISC"/>
+  <columns dataType="DECIMAL" length="8" name="SKDFSC"/>
+  <columns dataType="DECIMAL" length="6" name="SKHFSC"/>
+  <columns dataType="DECIMAL" length="8" name="SKDIST"/>
+  <columns dataType="DECIMAL" length="6" name="SKHIST"/>
+  <columns dataType="DECIMAL" length="8" name="SKDFST"/>
+  <columns dataType="DECIMAL" length="6" name="SKHFST"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTPP"/>
+  <columns dataType="DECIMAL" length="6" name="SKHRPP"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTPT"/>
+  <columns dataType="DECIMAL" length="6" name="SKHRPT"/>
+  <columns dataType="CHAR" length="2" name="SKVEIT"/>
+  <columns dataType="DECIMAL" length="8" name="SKVEID"/>
+  <columns dataType="DECIMAL" length="6" name="SKVEIH"/>
+  <columns dataType="CHAR" length="2" name="SKVEFT"/>
+  <columns dataType="DECIMAL" length="8" name="SKVEFD"/>
+  <columns dataType="DECIMAL" length="6" name="SKVEFH"/>
+  <columns dataType="CHAR" length="5" name="SKCAUS"/>
+  <columns dataType="DECIMAL" length="8" name="SKID01"/>
+  <columns dataType="DECIMAL" length="6" name="SKIH01"/>
+  <columns dataType="DECIMAL" length="8" name="SKID02"/>
+  <columns dataType="DECIMAL" length="6" name="SKIH02"/>
+  <columns dataType="DECIMAL" length="8" name="SKID03"/>
+  <columns dataType="DECIMAL" length="6" name="SKIH03"/>
+  <columns dataType="DECIMAL" length="8" name="SKID04"/>
+  <columns dataType="DECIMAL" length="6" name="SKIH04"/>
+  <columns dataType="DECIMAL" length="8" name="SKID05"/>
+  <columns dataType="DECIMAL" length="6" name="SKIH05"/>
+  <columns dataType="DECIMAL" length="8" name="SKDT01"/>
+  <columns dataType="DECIMAL" length="8" name="SKDT02"/>
+  <columns dataType="DECIMAL" length="8" name="SKDT03"/>
+  <columns dataType="DECIMAL" length="8" name="SKDT04"/>
+  <columns dataType="DECIMAL" length="8" name="SKDT05"/>
+  <columns dataType="DECIMAL" length="7" name="SKHL01" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHL02" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHL03" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHL04" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="SKHL05" scale="2"/>
+  <columns dataType="CHAR" length="15" name="SKAA01"/>
+  <columns dataType="CHAR" length="15" name="SKAA02"/>
+  <columns dataType="CHAR" length="15" name="SKAA03"/>
+  <columns dataType="CHAR" length="15" name="SKAA04"/>
+  <columns dataType="CHAR" length="15" name="SKAA05"/>
+  <columns dataType="DECIMAL" length="15" name="SKNU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SKNU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SKNU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SKNU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="SKNU05" scale="5"/>
+  <columns dataType="CHAR" length="50" name="SKNOTA"/>
+  <columns dataType="CHAR" length="1" name="SKFL01"/>
+  <columns dataType="CHAR" length="1" name="SKFL02"/>
+  <columns dataType="CHAR" length="1" name="SKFL03"/>
+  <columns dataType="CHAR" length="1" name="SKFL04"/>
+  <columns dataType="CHAR" length="1" name="SKFL05"/>
+  <columns dataType="CHAR" length="1" name="SKFL06"/>
+  <columns dataType="CHAR" length="1" name="SKFL07"/>
+  <columns dataType="CHAR" length="1" name="SKFL08"/>
+  <columns dataType="CHAR" length="1" name="SKFL09"/>
+  <columns dataType="CHAR" length="1" name="SKFL10"/>
+  <columns dataType="CHAR" length="1" name="SKFL11"/>
+  <columns dataType="CHAR" length="1" name="SKFL12"/>
+  <columns dataType="CHAR" length="1" name="SKFL13"/>
+  <columns dataType="CHAR" length="1" name="SKFL14"/>
+  <columns dataType="CHAR" length="1" name="SKFL15"/>
+  <columns dataType="CHAR" length="1" name="SKFL16"/>
+  <columns dataType="CHAR" length="1" name="SKFL17"/>
+  <columns dataType="CHAR" length="1" name="SKFL18"/>
+  <columns dataType="CHAR" length="1" name="SKFL19"/>
+  <columns dataType="CHAR" length="1" name="SKFL20"/>
+  <columns dataType="CHAR" length="1" name="SKFL21"/>
+  <columns dataType="CHAR" length="1" name="SKFL22"/>
+  <columns dataType="CHAR" length="1" name="SKFL23"/>
+  <columns dataType="CHAR" length="1" name="SKFL24"/>
+  <columns dataType="CHAR" length="1" name="SKFL25"/>
+  <columns dataType="CHAR" length="1" name="SKFL26"/>
+  <columns dataType="CHAR" length="1" name="SKFL27"/>
+  <columns dataType="CHAR" length="1" name="SKFL28"/>
+  <columns dataType="CHAR" length="1" name="SKFL29"/>
+  <columns dataType="CHAR" length="1" name="SKFL30"/>
+  <columns dataType="CHAR" length="1" name="SKFL31"/>
+  <columns dataType="CHAR" length="1" name="SKFL32"/>
+  <columns dataType="CHAR" length="1" name="SKFL33"/>
+  <columns dataType="CHAR" length="1" name="SKFL34"/>
+  <columns dataType="CHAR" length="1" name="SKFL35"/>
+  <columns dataType="CHAR" length="1" name="SKFL36"/>
+  <columns dataType="CHAR" length="1" name="SKFL37"/>
+  <columns dataType="CHAR" length="1" name="SKFL38"/>
+  <columns dataType="CHAR" length="1" name="SKFL39"/>
+  <columns dataType="CHAR" length="1" name="SKFL40"/>
+  <columns dataType="CHAR" length="10" name="SKIDOJ"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTCR"/>
+  <columns dataType="DECIMAL" length="6" name="SKHRCR"/>
+  <columns dataType="CHAR" length="10" name="SKUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="SKDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="SKHRAG"/>
+  <columns dataType="CHAR" length="10" name="SKUSAG"/>
 </db-core:TableDef>

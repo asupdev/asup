@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="IGFORM0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="F&#xa7;TEMA" length="3"/>
-  <columns dataType="CHAR" name="F&#xa7;INDI" length="2"/>
-  <columns dataType="CHAR" name="F&#xa7;DESC" length="40"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR1" length="78"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR2" length="78"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR3" length="78"/>
-  <columns dataType="CHAR" name="F&#xa7;FOR4" length="78"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DATI" length="6"/>
-  <columns dataType="DECIMAL" name="F&#xa7;DAUM" length="6"/>
-  <columns dataType="CHAR" name="F&#xa7;UTEN" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="F&#xa7;TEMA"/>
+  <columns dataType="CHAR" length="2" name="F&#xa7;INDI"/>
+  <columns dataType="CHAR" length="40" name="F&#xa7;DESC"/>
+  <columns dataType="CHAR" length="78" name="F&#xa7;FOR1"/>
+  <columns dataType="CHAR" length="78" name="F&#xa7;FOR2"/>
+  <columns dataType="CHAR" length="78" name="F&#xa7;FOR3"/>
+  <columns dataType="CHAR" length="78" name="F&#xa7;FOR4"/>
+  <columns dataType="DECIMAL" length="6" name="F&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="F&#xa7;DAUM"/>
+  <columns dataType="CHAR" length="10" name="F&#xa7;UTEN"/>
 </db-core:TableDef>

@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="NGWKCH0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="TABEL00001" length="7"/>
-  <columns dataType="CHAR" name="SOCIE00001" length="7"/>
-  <columns dataType="DECIMAL" name="PKEY" length="20"/>
-  <columns dataType="CHAR" name="ANNULLATO" length="9"/>
-  <columns dataType="CHAR" name="CHNEG" length="5"/>
-  <columns dataType="DECIMAL" name="CHDAT" length="8"/>
-  <columns dataType="CHAR" name="CHRCH" length="5"/>
-  <columns dataType="CHAR" name="CHCAS" length="5"/>
-  <columns dataType="CHAR" name="CHTIP" length="5"/>
-  <columns dataType="DECIMAL" name="CHIGT" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIGC" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHICZ" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHINZ" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIMH" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIMM" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIMR" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIMA" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIME" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIGD" length="20" scale="3"/>
-  <columns dataType="CHAR" name="CHDIC" length="5"/>
-  <columns dataType="CHAR" name="CHNKY" length="30"/>
-  <columns dataType="CHAR" name="CHSTA" length="5"/>
-  <columns dataType="CHAR" name="CHFLT" length="5"/>
-  <columns dataType="DECIMAL" name="CHISG" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHIRG" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHNNC" length="7"/>
-  <columns dataType="DECIMAL" name="CHNSC" length="7"/>
-  <columns dataType="DECIMAL" name="CHNRZ" length="7"/>
-  <columns dataType="CHAR" name="CHSTS" length="5"/>
-  <columns dataType="CHAR" name="CHFLC" length="5"/>
-  <columns dataType="DECIMAL" name="CHICC" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHTFT" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHNFI" length="7"/>
-  <columns dataType="DECIMAL" name="CHNFF" length="7"/>
-  <columns dataType="DECIMAL" name="CHTPR" length="20" scale="3"/>
-  <columns dataType="DECIMAL" name="CHNPI" length="7"/>
-  <columns dataType="DECIMAL" name="CHNPF" length="7"/>
-  <columns dataType="CHAR" name="CHAPE" length="5"/>
-  <columns dataType="DECIMAL" name="CHIDV" length="20" scale="3"/>
-  <columns dataType="CHAR" name="CHOPE" length="8"/>
-  <columns dataType="CHAR" name="CHPRV" length="5"/>
-  <columns dataType="DECIMAL" name="CHIGF" length="20" scale="3"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="7" name="TABEL00001"/>
+  <columns dataType="CHAR" length="7" name="SOCIE00001"/>
+  <columns dataType="DECIMAL" length="20" name="PKEY"/>
+  <columns dataType="CHAR" length="9" name="ANNULLATO"/>
+  <columns dataType="CHAR" length="5" name="CHNEG"/>
+  <columns dataType="DECIMAL" length="8" name="CHDAT"/>
+  <columns dataType="CHAR" length="5" name="CHRCH"/>
+  <columns dataType="CHAR" length="5" name="CHCAS"/>
+  <columns dataType="CHAR" length="5" name="CHTIP"/>
+  <columns dataType="DECIMAL" length="20" name="CHIGT" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIGC" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHICZ" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHINZ" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIMH" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIMM" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIMR" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIMA" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIME" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIGD" scale="3"/>
+  <columns dataType="CHAR" length="5" name="CHDIC"/>
+  <columns dataType="CHAR" length="30" name="CHNKY"/>
+  <columns dataType="CHAR" length="5" name="CHSTA"/>
+  <columns dataType="CHAR" length="5" name="CHFLT"/>
+  <columns dataType="DECIMAL" length="20" name="CHISG" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHIRG" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="CHNNC"/>
+  <columns dataType="DECIMAL" length="7" name="CHNSC"/>
+  <columns dataType="DECIMAL" length="7" name="CHNRZ"/>
+  <columns dataType="CHAR" length="5" name="CHSTS"/>
+  <columns dataType="CHAR" length="5" name="CHFLC"/>
+  <columns dataType="DECIMAL" length="20" name="CHICC" scale="3"/>
+  <columns dataType="DECIMAL" length="20" name="CHTFT" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="CHNFI"/>
+  <columns dataType="DECIMAL" length="7" name="CHNFF"/>
+  <columns dataType="DECIMAL" length="20" name="CHTPR" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="CHNPI"/>
+  <columns dataType="DECIMAL" length="7" name="CHNPF"/>
+  <columns dataType="CHAR" length="5" name="CHAPE"/>
+  <columns dataType="DECIMAL" length="20" name="CHIDV" scale="3"/>
+  <columns dataType="CHAR" length="8" name="CHOPE"/>
+  <columns dataType="CHAR" length="5" name="CHPRV"/>
+  <columns dataType="DECIMAL" length="20" name="CHIGF" scale="3"/>
 </db-core:TableDef>

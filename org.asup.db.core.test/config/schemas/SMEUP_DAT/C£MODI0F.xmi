@@ -1,53 +1,52 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;MODI0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="M3SCEN" length="15"/>
-  <columns dataType="CHAR" name="M3TCON" length="15"/>
-  <columns dataType="CHAR" name="M3CONT" length="15"/>
-  <columns dataType="CHAR" name="M3TVER" length="15"/>
-  <columns dataType="CHAR" name="M3TSOG" length="15"/>
-  <columns dataType="CHAR" name="M3DTSO" length="35"/>
-  <columns dataType="CHAR" name="M3SOGG" length="15"/>
-  <columns dataType="CHAR" name="M3DSOG" length="35"/>
-  <columns dataType="CHAR" name="M3VSOG" length="25"/>
-  <columns dataType="CHAR" name="M3TOGG" length="15"/>
-  <columns dataType="CHAR" name="M3DTOG" length="35"/>
-  <columns dataType="CHAR" name="M3OGGE" length="15"/>
-  <columns dataType="CHAR" name="M3DOGG" length="35"/>
-  <columns dataType="CHAR" name="M3VOGG" length="25"/>
-  <columns dataType="CHAR" name="M3TATT" length="15"/>
-  <columns dataType="CHAR" name="M3ATTR" length="258"/>
-  <columns dataType="CHAR" name="M3COD1" length="15"/>
-  <columns dataType="CHAR" name="M3COD2" length="15"/>
-  <columns dataType="CHAR" name="M3COD3" length="15"/>
-  <columns dataType="CHAR" name="M3COD4" length="15"/>
-  <columns dataType="CHAR" name="M3COD5" length="15"/>
-  <columns dataType="DECIMAL" name="M3NUM1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M3NUM2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M3NUM3" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M3NUM4" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="M3NUM5" length="15" scale="5"/>
-  <columns dataType="CHAR" name="M3FL01" length="1"/>
-  <columns dataType="CHAR" name="M3FL02" length="1"/>
-  <columns dataType="CHAR" name="M3FL03" length="1"/>
-  <columns dataType="CHAR" name="M3FL04" length="1"/>
-  <columns dataType="CHAR" name="M3FL05" length="1"/>
-  <columns dataType="CHAR" name="M3FL06" length="1"/>
-  <columns dataType="CHAR" name="M3FL07" length="1"/>
-  <columns dataType="CHAR" name="M3FL08" length="1"/>
-  <columns dataType="CHAR" name="M3FL09" length="1"/>
-  <columns dataType="CHAR" name="M3FL10" length="1"/>
-  <columns dataType="CHAR" name="M3FL11" length="1"/>
-  <columns dataType="CHAR" name="M3FL12" length="1"/>
-  <columns dataType="CHAR" name="M3FL13" length="1"/>
-  <columns dataType="CHAR" name="M3FL14" length="1"/>
-  <columns dataType="CHAR" name="M3FL15" length="1"/>
-  <columns dataType="CHAR" name="M3FL16" length="1"/>
-  <columns dataType="CHAR" name="M3FL17" length="1"/>
-  <columns dataType="CHAR" name="M3FL18" length="1"/>
-  <columns dataType="CHAR" name="M3FL19" length="1"/>
-  <columns dataType="CHAR" name="M3FL20" length="1"/>
-  <columns dataType="DECIMAL" name="M3DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="M3ORIN" length="6"/>
-  <columns dataType="CHAR" name="M3USIN" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="M3SCEN"/>
+  <columns dataType="CHAR" length="15" name="M3TCON"/>
+  <columns dataType="CHAR" length="15" name="M3CONT"/>
+  <columns dataType="CHAR" length="15" name="M3TVER"/>
+  <columns dataType="CHAR" length="15" name="M3TSOG"/>
+  <columns dataType="CHAR" length="35" name="M3DTSO"/>
+  <columns dataType="CHAR" length="15" name="M3SOGG"/>
+  <columns dataType="CHAR" length="35" name="M3DSOG"/>
+  <columns dataType="CHAR" length="25" name="M3VSOG"/>
+  <columns dataType="CHAR" length="15" name="M3TOGG"/>
+  <columns dataType="CHAR" length="35" name="M3DTOG"/>
+  <columns dataType="CHAR" length="15" name="M3OGGE"/>
+  <columns dataType="CHAR" length="35" name="M3DOGG"/>
+  <columns dataType="CHAR" length="25" name="M3VOGG"/>
+  <columns dataType="CHAR" length="15" name="M3TATT"/>
+  <columns dataType="CHAR" length="258" name="M3ATTR"/>
+  <columns dataType="CHAR" length="15" name="M3COD1"/>
+  <columns dataType="CHAR" length="15" name="M3COD2"/>
+  <columns dataType="CHAR" length="15" name="M3COD3"/>
+  <columns dataType="CHAR" length="15" name="M3COD4"/>
+  <columns dataType="CHAR" length="15" name="M3COD5"/>
+  <columns dataType="DECIMAL" length="15" name="M3NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M3NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M3NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M3NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="M3NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="M3FL01"/>
+  <columns dataType="CHAR" length="1" name="M3FL02"/>
+  <columns dataType="CHAR" length="1" name="M3FL03"/>
+  <columns dataType="CHAR" length="1" name="M3FL04"/>
+  <columns dataType="CHAR" length="1" name="M3FL05"/>
+  <columns dataType="CHAR" length="1" name="M3FL06"/>
+  <columns dataType="CHAR" length="1" name="M3FL07"/>
+  <columns dataType="CHAR" length="1" name="M3FL08"/>
+  <columns dataType="CHAR" length="1" name="M3FL09"/>
+  <columns dataType="CHAR" length="1" name="M3FL10"/>
+  <columns dataType="CHAR" length="1" name="M3FL11"/>
+  <columns dataType="CHAR" length="1" name="M3FL12"/>
+  <columns dataType="CHAR" length="1" name="M3FL13"/>
+  <columns dataType="CHAR" length="1" name="M3FL14"/>
+  <columns dataType="CHAR" length="1" name="M3FL15"/>
+  <columns dataType="CHAR" length="1" name="M3FL16"/>
+  <columns dataType="CHAR" length="1" name="M3FL17"/>
+  <columns dataType="CHAR" length="1" name="M3FL18"/>
+  <columns dataType="CHAR" length="1" name="M3FL19"/>
+  <columns dataType="CHAR" length="1" name="M3FL20"/>
+  <columns dataType="DECIMAL" length="8" name="M3DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="M3ORIN"/>
+  <columns dataType="CHAR" length="10" name="M3USIN"/>
 </db-core:TableDef>

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMMATE0L" creationCommand=" CREATE VIEW MMMATE0L (   M$CODI ,   M$COIN ,   M$COMA ,   M$DESC ,   M$TIPO ,   M$UMIS ,   M$QTAI ,   M$FORN ,   M$RAGS ,   M$CAFO )   AS   SELECT   M$CODI ,   M$COIN ,   M$COMA ,   M$DESC ,   M$TIPO ,   M$UMIS ,   M$QTAI ,   M$FORN ,   M$RAGS ,   M$CAFO   FROM MMMATE0F   ;  "/>

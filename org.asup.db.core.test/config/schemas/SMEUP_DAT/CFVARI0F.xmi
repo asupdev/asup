@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CFVARI0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C&#xa3;QUES" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CD01" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CD02" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CD03" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;DOMA" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;OGVA" length="12"/>
-  <columns dataType="CHAR" name="C&#xa3;CDVA" length="100"/>
-  <columns dataType="CHAR" name="C&#xa3;PARA" length="100"/>
-  <columns dataType="CHAR" name="C&#xa3;FL01" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL02" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL03" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL04" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL05" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL06" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL07" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL08" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL09" length="1"/>
-  <columns dataType="CHAR" name="C&#xa3;FL10" length="1"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTCR" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTAG" length="8"/>
-  <columns dataType="CHAR" name="C&#xa3;USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="C&#xa3;QUES"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD01"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD02"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD03"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;DOMA"/>
+  <columns dataType="CHAR" length="12" name="C&#xa3;OGVA"/>
+  <columns dataType="CHAR" length="100" name="C&#xa3;CDVA"/>
+  <columns dataType="CHAR" length="100" name="C&#xa3;PARA"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL01"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL02"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL03"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL04"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL05"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL06"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL07"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL08"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL09"/>
+  <columns dataType="CHAR" length="1" name="C&#xa3;FL10"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTCR"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTAG"/>
+  <columns dataType="CHAR" length="10" name="C&#xa3;USAG"/>
 </db-core:TableDef>

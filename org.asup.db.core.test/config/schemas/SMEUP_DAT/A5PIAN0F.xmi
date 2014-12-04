@@ -1,71 +1,70 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="A5PIAN0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="PAAZIE" length="2"/>
-  <columns dataType="CHAR" name="PALIVE" length="1"/>
-  <columns dataType="CHAR" name="PASTAT" length="2"/>
-  <columns dataType="CHAR" name="PAIDOJ" length="10"/>
-  <columns dataType="DECIMAL" name="PADTIA" length="8"/>
-  <columns dataType="DECIMAL" name="PADTFA" length="8"/>
-  <columns dataType="CHAR" name="PALIVR" length="1"/>
-  <columns dataType="CHAR" name="PALINE" length="2"/>
-  <columns dataType="CHAR" name="PACACE" length="10"/>
-  <columns dataType="CHAR" name="PACESP" length="15"/>
-  <columns dataType="CHAR" name="PAESER" length="10"/>
-  <columns dataType="DECIMAL" name="PANPER" length="2"/>
-  <columns dataType="CHAR" name="PACAU1" length="3"/>
-  <columns dataType="DECIMAL" name="PAPER1" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="PAIMP1" length="21" scale="6"/>
-  <columns dataType="CHAR" name="PACAU2" length="3"/>
-  <columns dataType="DECIMAL" name="PAPER2" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="PAIMP2" length="21" scale="6"/>
-  <columns dataType="CHAR" name="PACAU3" length="3"/>
-  <columns dataType="DECIMAL" name="PAPER3" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="PAIMP3" length="21" scale="6"/>
-  <columns dataType="CHAR" name="PAFL01" length="1"/>
-  <columns dataType="CHAR" name="PAFL02" length="1"/>
-  <columns dataType="CHAR" name="PAFL03" length="1"/>
-  <columns dataType="CHAR" name="PAFL04" length="1"/>
-  <columns dataType="CHAR" name="PAFL05" length="1"/>
-  <columns dataType="CHAR" name="PAFL06" length="1"/>
-  <columns dataType="CHAR" name="PAFL07" length="1"/>
-  <columns dataType="CHAR" name="PAFL08" length="1"/>
-  <columns dataType="CHAR" name="PAFL09" length="1"/>
-  <columns dataType="CHAR" name="PAFL10" length="1"/>
-  <columns dataType="CHAR" name="PAFL11" length="1"/>
-  <columns dataType="CHAR" name="PAFL12" length="1"/>
-  <columns dataType="CHAR" name="PAFL13" length="1"/>
-  <columns dataType="CHAR" name="PAFL14" length="1"/>
-  <columns dataType="CHAR" name="PAFL15" length="1"/>
-  <columns dataType="CHAR" name="PAFL16" length="1"/>
-  <columns dataType="CHAR" name="PAFL17" length="1"/>
-  <columns dataType="CHAR" name="PAFL18" length="1"/>
-  <columns dataType="CHAR" name="PAFL19" length="1"/>
-  <columns dataType="CHAR" name="PAFL20" length="1"/>
-  <columns dataType="CHAR" name="PAFL21" length="1"/>
-  <columns dataType="CHAR" name="PAFL22" length="1"/>
-  <columns dataType="CHAR" name="PAFL23" length="1"/>
-  <columns dataType="CHAR" name="PAFL24" length="1"/>
-  <columns dataType="CHAR" name="PAFL25" length="1"/>
-  <columns dataType="CHAR" name="PAFL26" length="1"/>
-  <columns dataType="CHAR" name="PAFL27" length="1"/>
-  <columns dataType="CHAR" name="PAFL28" length="1"/>
-  <columns dataType="CHAR" name="PAFL29" length="1"/>
-  <columns dataType="CHAR" name="PAFL30" length="1"/>
-  <columns dataType="CHAR" name="PAFL31" length="1"/>
-  <columns dataType="CHAR" name="PAFL32" length="1"/>
-  <columns dataType="CHAR" name="PAFL33" length="1"/>
-  <columns dataType="CHAR" name="PAFL34" length="1"/>
-  <columns dataType="CHAR" name="PAFL35" length="1"/>
-  <columns dataType="CHAR" name="PAFL36" length="1"/>
-  <columns dataType="CHAR" name="PAFL37" length="1"/>
-  <columns dataType="CHAR" name="PAFL38" length="1"/>
-  <columns dataType="CHAR" name="PAFL39" length="1"/>
-  <columns dataType="CHAR" name="PAFL40" length="1"/>
-  <columns dataType="DECIMAL" name="PADTIN" length="8"/>
-  <columns dataType="DECIMAL" name="PAORIN" length="6"/>
-  <columns dataType="CHAR" name="PAUSIN" length="10"/>
-  <columns dataType="DECIMAL" name="PADTAG" length="8"/>
-  <columns dataType="DECIMAL" name="PAORAG" length="6"/>
-  <columns dataType="CHAR" name="PAUSAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="PAAZIE"/>
+  <columns dataType="CHAR" length="1" name="PALIVE"/>
+  <columns dataType="CHAR" length="2" name="PASTAT"/>
+  <columns dataType="CHAR" length="10" name="PAIDOJ"/>
+  <columns dataType="DECIMAL" length="8" name="PADTIA"/>
+  <columns dataType="DECIMAL" length="8" name="PADTFA"/>
+  <columns dataType="CHAR" length="1" name="PALIVR"/>
+  <columns dataType="CHAR" length="2" name="PALINE"/>
+  <columns dataType="CHAR" length="10" name="PACACE"/>
+  <columns dataType="CHAR" length="15" name="PACESP"/>
+  <columns dataType="CHAR" length="10" name="PAESER"/>
+  <columns dataType="DECIMAL" length="2" name="PANPER"/>
+  <columns dataType="CHAR" length="3" name="PACAU1"/>
+  <columns dataType="DECIMAL" length="5" name="PAPER1" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="PAIMP1" scale="6"/>
+  <columns dataType="CHAR" length="3" name="PACAU2"/>
+  <columns dataType="DECIMAL" length="5" name="PAPER2" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="PAIMP2" scale="6"/>
+  <columns dataType="CHAR" length="3" name="PACAU3"/>
+  <columns dataType="DECIMAL" length="5" name="PAPER3" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="PAIMP3" scale="6"/>
+  <columns dataType="CHAR" length="1" name="PAFL01"/>
+  <columns dataType="CHAR" length="1" name="PAFL02"/>
+  <columns dataType="CHAR" length="1" name="PAFL03"/>
+  <columns dataType="CHAR" length="1" name="PAFL04"/>
+  <columns dataType="CHAR" length="1" name="PAFL05"/>
+  <columns dataType="CHAR" length="1" name="PAFL06"/>
+  <columns dataType="CHAR" length="1" name="PAFL07"/>
+  <columns dataType="CHAR" length="1" name="PAFL08"/>
+  <columns dataType="CHAR" length="1" name="PAFL09"/>
+  <columns dataType="CHAR" length="1" name="PAFL10"/>
+  <columns dataType="CHAR" length="1" name="PAFL11"/>
+  <columns dataType="CHAR" length="1" name="PAFL12"/>
+  <columns dataType="CHAR" length="1" name="PAFL13"/>
+  <columns dataType="CHAR" length="1" name="PAFL14"/>
+  <columns dataType="CHAR" length="1" name="PAFL15"/>
+  <columns dataType="CHAR" length="1" name="PAFL16"/>
+  <columns dataType="CHAR" length="1" name="PAFL17"/>
+  <columns dataType="CHAR" length="1" name="PAFL18"/>
+  <columns dataType="CHAR" length="1" name="PAFL19"/>
+  <columns dataType="CHAR" length="1" name="PAFL20"/>
+  <columns dataType="CHAR" length="1" name="PAFL21"/>
+  <columns dataType="CHAR" length="1" name="PAFL22"/>
+  <columns dataType="CHAR" length="1" name="PAFL23"/>
+  <columns dataType="CHAR" length="1" name="PAFL24"/>
+  <columns dataType="CHAR" length="1" name="PAFL25"/>
+  <columns dataType="CHAR" length="1" name="PAFL26"/>
+  <columns dataType="CHAR" length="1" name="PAFL27"/>
+  <columns dataType="CHAR" length="1" name="PAFL28"/>
+  <columns dataType="CHAR" length="1" name="PAFL29"/>
+  <columns dataType="CHAR" length="1" name="PAFL30"/>
+  <columns dataType="CHAR" length="1" name="PAFL31"/>
+  <columns dataType="CHAR" length="1" name="PAFL32"/>
+  <columns dataType="CHAR" length="1" name="PAFL33"/>
+  <columns dataType="CHAR" length="1" name="PAFL34"/>
+  <columns dataType="CHAR" length="1" name="PAFL35"/>
+  <columns dataType="CHAR" length="1" name="PAFL36"/>
+  <columns dataType="CHAR" length="1" name="PAFL37"/>
+  <columns dataType="CHAR" length="1" name="PAFL38"/>
+  <columns dataType="CHAR" length="1" name="PAFL39"/>
+  <columns dataType="CHAR" length="1" name="PAFL40"/>
+  <columns dataType="DECIMAL" length="8" name="PADTIN"/>
+  <columns dataType="DECIMAL" length="6" name="PAORIN"/>
+  <columns dataType="CHAR" length="10" name="PAUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="PADTAG"/>
+  <columns dataType="DECIMAL" length="6" name="PAORAG"/>
+  <columns dataType="CHAR" length="10" name="PAUSAG"/>
 </db-core:TableDef>

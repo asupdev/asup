@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQGELO0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="X&#xa7;RIFE" length="30"/>
-  <columns dataType="CHAR" name="X&#xa7;LOTI" length="15"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="X&#xa7;RIFE"/>
+  <columns dataType="CHAR" length="15" name="X&#xa7;LOTI"/>
 </db-core:TableDef>

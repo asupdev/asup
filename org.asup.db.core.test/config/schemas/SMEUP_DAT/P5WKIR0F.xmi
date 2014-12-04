@@ -1,117 +1,116 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="P5WKIR0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="SWNSES" length="10"/>
-  <columns dataType="CHAR" name="SWTIRS" length="3"/>
-  <columns dataType="CHAR" name="SWTSCH" length="3"/>
-  <columns dataType="CHAR" name="SWTORI" length="2"/>
-  <columns dataType="CHAR" name="SWTDOC" length="3"/>
-  <columns dataType="CHAR" name="SWNDOC" length="10"/>
-  <columns dataType="DECIMAL" name="SWNRIG" length="4"/>
-  <columns dataType="CHAR" name="SWOPER" length="6"/>
-  <columns dataType="CHAR" name="SWOPRI" length="6"/>
-  <columns dataType="CHAR" name="SWTIRP" length="3"/>
-  <columns dataType="CHAR" name="SWCLAV" length="15"/>
-  <columns dataType="CHAR" name="SWTIRF" length="3"/>
-  <columns dataType="CHAR" name="SWMACC" length="15"/>
-  <columns dataType="CHAR" name="SWATTR" length="15"/>
-  <columns dataType="DECIMAL" name="SWLOTT" length="4"/>
-  <columns dataType="CHAR" name="SWCOAR" length="15"/>
-  <columns dataType="CHAR" name="SWS$OR" length="2"/>
-  <columns dataType="CHAR" name="SWL$OR" length="1"/>
-  <columns dataType="CHAR" name="SWS$OP" length="2"/>
-  <columns dataType="CHAR" name="SWL$OP" length="1"/>
-  <columns dataType="CHAR" name="SWCAUS" length="5"/>
-  <columns dataType="DECIMAL" name="SWQTOR" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SWQTSC" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="SWQORD" length="11" scale="3"/>
-  <columns dataType="CHAR" name="SWUMIS" length="2"/>
-  <columns dataType="CHAR" name="SWTRIN" length="1"/>
-  <columns dataType="DECIMAL" name="SWDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="SWHRIN" length="6"/>
-  <columns dataType="CHAR" name="SWTRFI" length="1"/>
-  <columns dataType="DECIMAL" name="SWDTFI" length="8"/>
-  <columns dataType="DECIMAL" name="SWHRFI" length="6"/>
-  <columns dataType="CHAR" name="SWMAGC" length="3"/>
-  <columns dataType="CHAR" name="SWDEAR" length="35"/>
-  <columns dataType="CHAR" name="SWTIEN" length="3"/>
-  <columns dataType="CHAR" name="SWCLIE" length="15"/>
-  <columns dataType="CHAR" name="SWCOMS" length="15"/>
-  <columns dataType="CHAR" name="SWPRIO" length="2"/>
-  <columns dataType="DECIMAL" name="SWDIRI" length="8"/>
-  <columns dataType="DECIMAL" name="SWDFRI" length="8"/>
-  <columns dataType="CHAR" name="SWDEOP" length="30"/>
-  <columns dataType="DECIMAL" name="SWHATR" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="SWHUNI" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="SWDIEF" length="8"/>
-  <columns dataType="DECIMAL" name="SWDISC" length="8"/>
-  <columns dataType="DECIMAL" name="SWHISC" length="6"/>
-  <columns dataType="DECIMAL" name="SWDFSC" length="8"/>
-  <columns dataType="DECIMAL" name="SWHFSC" length="6"/>
-  <columns dataType="DECIMAL" name="SWQUET" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="SWHTOT" length="8" scale="2"/>
-  <columns dataType="CHAR" name="SWCROR" length="30"/>
-  <columns dataType="DECIMAL" name="SWDTPP" length="8"/>
-  <columns dataType="DECIMAL" name="SWHRPP" length="6"/>
-  <columns dataType="DECIMAL" name="SWDTPT" length="8"/>
-  <columns dataType="DECIMAL" name="SWHRPT" length="6"/>
-  <columns dataType="CHAR" name="SWVEIT" length="2"/>
-  <columns dataType="DECIMAL" name="SWVEID" length="8"/>
-  <columns dataType="DECIMAL" name="SWVEIH" length="6"/>
-  <columns dataType="CHAR" name="SWVEFT" length="2"/>
-  <columns dataType="DECIMAL" name="SWVEFD" length="8"/>
-  <columns dataType="DECIMAL" name="SWVEFH" length="6"/>
-  <columns dataType="CHAR" name="SWSINT" length="15"/>
-  <columns dataType="CHAR" name="SWFL01" length="1"/>
-  <columns dataType="CHAR" name="SWFL02" length="1"/>
-  <columns dataType="CHAR" name="SWFL03" length="1"/>
-  <columns dataType="CHAR" name="SWFL04" length="1"/>
-  <columns dataType="CHAR" name="SWFL05" length="1"/>
-  <columns dataType="CHAR" name="SWER01" length="1"/>
-  <columns dataType="CHAR" name="SWER02" length="1"/>
-  <columns dataType="CHAR" name="SWER03" length="1"/>
-  <columns dataType="CHAR" name="SWER04" length="1"/>
-  <columns dataType="CHAR" name="SWTIPO" length="1"/>
-  <columns dataType="CHAR" name="SWSPLT" length="1"/>
-  <columns dataType="CHAR" name="SWSOSP" length="1"/>
-  <columns dataType="CHAR" name="SWSECO" length="1"/>
-  <columns dataType="CHAR" name="SWSTOP" length="1"/>
-  <columns dataType="CHAR" name="SWCLMO" length="1"/>
-  <columns dataType="CHAR" name="SWRINO" length="1"/>
-  <columns dataType="CHAR" name="SWFL17" length="1"/>
-  <columns dataType="CHAR" name="SWFL18" length="1"/>
-  <columns dataType="CHAR" name="SWFL19" length="1"/>
-  <columns dataType="CHAR" name="SWFL20" length="1"/>
-  <columns dataType="CHAR" name="SWTCIC" length="3"/>
-  <columns dataType="CHAR" name="SWCICL" length="3"/>
-  <columns dataType="CHAR" name="SWTOPE" length="3"/>
-  <columns dataType="CHAR" name="SWGRAL" length="5"/>
-  <columns dataType="CHAR" name="SWCODC" length="15"/>
-  <columns dataType="CHAR" name="SWCICC" length="3"/>
-  <columns dataType="CHAR" name="SWSQCC" length="6"/>
-  <columns dataType="CHAR" name="SWUMTE" length="2"/>
-  <columns dataType="DECIMAL" name="SWTE01" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE02" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE03" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE04" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE05" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE06" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE07" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE08" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE09" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWTE10" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC01" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC02" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC03" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC04" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC05" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC06" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC07" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC08" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC09" length="11" scale="4"/>
-  <columns dataType="DECIMAL" name="SWCC10" length="11" scale="4"/>
-  <columns dataType="CHAR" name="SWNOTA" length="50"/>
-  <columns dataType="DECIMAL" name="SWDTCR" length="8"/>
-  <columns dataType="DECIMAL" name="SWDTAG" length="8"/>
-  <columns dataType="CHAR" name="SWUSAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="SWNSES"/>
+  <columns dataType="CHAR" length="3" name="SWTIRS"/>
+  <columns dataType="CHAR" length="3" name="SWTSCH"/>
+  <columns dataType="CHAR" length="2" name="SWTORI"/>
+  <columns dataType="CHAR" length="3" name="SWTDOC"/>
+  <columns dataType="CHAR" length="10" name="SWNDOC"/>
+  <columns dataType="DECIMAL" length="4" name="SWNRIG"/>
+  <columns dataType="CHAR" length="6" name="SWOPER"/>
+  <columns dataType="CHAR" length="6" name="SWOPRI"/>
+  <columns dataType="CHAR" length="3" name="SWTIRP"/>
+  <columns dataType="CHAR" length="15" name="SWCLAV"/>
+  <columns dataType="CHAR" length="3" name="SWTIRF"/>
+  <columns dataType="CHAR" length="15" name="SWMACC"/>
+  <columns dataType="CHAR" length="15" name="SWATTR"/>
+  <columns dataType="DECIMAL" length="4" name="SWLOTT"/>
+  <columns dataType="CHAR" length="15" name="SWCOAR"/>
+  <columns dataType="CHAR" length="2" name="SWS$OR"/>
+  <columns dataType="CHAR" length="1" name="SWL$OR"/>
+  <columns dataType="CHAR" length="2" name="SWS$OP"/>
+  <columns dataType="CHAR" length="1" name="SWL$OP"/>
+  <columns dataType="CHAR" length="5" name="SWCAUS"/>
+  <columns dataType="DECIMAL" length="11" name="SWQTOR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SWQTSC" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="SWQORD" scale="3"/>
+  <columns dataType="CHAR" length="2" name="SWUMIS"/>
+  <columns dataType="CHAR" length="1" name="SWTRIN"/>
+  <columns dataType="DECIMAL" length="8" name="SWDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="SWHRIN"/>
+  <columns dataType="CHAR" length="1" name="SWTRFI"/>
+  <columns dataType="DECIMAL" length="8" name="SWDTFI"/>
+  <columns dataType="DECIMAL" length="6" name="SWHRFI"/>
+  <columns dataType="CHAR" length="3" name="SWMAGC"/>
+  <columns dataType="CHAR" length="35" name="SWDEAR"/>
+  <columns dataType="CHAR" length="3" name="SWTIEN"/>
+  <columns dataType="CHAR" length="15" name="SWCLIE"/>
+  <columns dataType="CHAR" length="15" name="SWCOMS"/>
+  <columns dataType="CHAR" length="2" name="SWPRIO"/>
+  <columns dataType="DECIMAL" length="8" name="SWDIRI"/>
+  <columns dataType="DECIMAL" length="8" name="SWDFRI"/>
+  <columns dataType="CHAR" length="30" name="SWDEOP"/>
+  <columns dataType="DECIMAL" length="5" name="SWHATR" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="SWHUNI" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="SWDIEF"/>
+  <columns dataType="DECIMAL" length="8" name="SWDISC"/>
+  <columns dataType="DECIMAL" length="6" name="SWHISC"/>
+  <columns dataType="DECIMAL" length="8" name="SWDFSC"/>
+  <columns dataType="DECIMAL" length="6" name="SWHFSC"/>
+  <columns dataType="DECIMAL" length="5" name="SWQUET" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="SWHTOT" scale="2"/>
+  <columns dataType="CHAR" length="30" name="SWCROR"/>
+  <columns dataType="DECIMAL" length="8" name="SWDTPP"/>
+  <columns dataType="DECIMAL" length="6" name="SWHRPP"/>
+  <columns dataType="DECIMAL" length="8" name="SWDTPT"/>
+  <columns dataType="DECIMAL" length="6" name="SWHRPT"/>
+  <columns dataType="CHAR" length="2" name="SWVEIT"/>
+  <columns dataType="DECIMAL" length="8" name="SWVEID"/>
+  <columns dataType="DECIMAL" length="6" name="SWVEIH"/>
+  <columns dataType="CHAR" length="2" name="SWVEFT"/>
+  <columns dataType="DECIMAL" length="8" name="SWVEFD"/>
+  <columns dataType="DECIMAL" length="6" name="SWVEFH"/>
+  <columns dataType="CHAR" length="15" name="SWSINT"/>
+  <columns dataType="CHAR" length="1" name="SWFL01"/>
+  <columns dataType="CHAR" length="1" name="SWFL02"/>
+  <columns dataType="CHAR" length="1" name="SWFL03"/>
+  <columns dataType="CHAR" length="1" name="SWFL04"/>
+  <columns dataType="CHAR" length="1" name="SWFL05"/>
+  <columns dataType="CHAR" length="1" name="SWER01"/>
+  <columns dataType="CHAR" length="1" name="SWER02"/>
+  <columns dataType="CHAR" length="1" name="SWER03"/>
+  <columns dataType="CHAR" length="1" name="SWER04"/>
+  <columns dataType="CHAR" length="1" name="SWTIPO"/>
+  <columns dataType="CHAR" length="1" name="SWSPLT"/>
+  <columns dataType="CHAR" length="1" name="SWSOSP"/>
+  <columns dataType="CHAR" length="1" name="SWSECO"/>
+  <columns dataType="CHAR" length="1" name="SWSTOP"/>
+  <columns dataType="CHAR" length="1" name="SWCLMO"/>
+  <columns dataType="CHAR" length="1" name="SWRINO"/>
+  <columns dataType="CHAR" length="1" name="SWFL17"/>
+  <columns dataType="CHAR" length="1" name="SWFL18"/>
+  <columns dataType="CHAR" length="1" name="SWFL19"/>
+  <columns dataType="CHAR" length="1" name="SWFL20"/>
+  <columns dataType="CHAR" length="3" name="SWTCIC"/>
+  <columns dataType="CHAR" length="3" name="SWCICL"/>
+  <columns dataType="CHAR" length="3" name="SWTOPE"/>
+  <columns dataType="CHAR" length="5" name="SWGRAL"/>
+  <columns dataType="CHAR" length="15" name="SWCODC"/>
+  <columns dataType="CHAR" length="3" name="SWCICC"/>
+  <columns dataType="CHAR" length="6" name="SWSQCC"/>
+  <columns dataType="CHAR" length="2" name="SWUMTE"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWTE10" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="SWCC10" scale="4"/>
+  <columns dataType="CHAR" length="50" name="SWNOTA"/>
+  <columns dataType="DECIMAL" length="8" name="SWDTCR"/>
+  <columns dataType="DECIMAL" length="8" name="SWDTAG"/>
+  <columns dataType="CHAR" length="10" name="SWUSAG"/>
 </db-core:TableDef>

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MPQTYP1L" creationCommand=" CREATE VIEW MPQTYP1L (   MPCDPI ,   MPTPRC ,   MPCD01 ,   MPCD02 ,   MPNU01 ,   MPNU02 ,   MPNU03 ,   MPNU04 ,   MPNU05 ,   MPNU06 ,   MPNU07 ,   MPNU08 ,   MPNU09 ,   MPNU10 )   AS   SELECT   MPCDPI ,   MPTPRC ,   MPCD01 ,   MPCD02 ,   MPNU01 ,   MPNU02 ,   MPNU03 ,   MPNU04 ,   MPNU05 ,   MPNU06 ,   MPNU07 ,   MPNU08 ,   MPNU09 ,   MPNU10   FROM MPQTYP0F   ;  "/>

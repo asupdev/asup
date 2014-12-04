@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;RULS0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C&#xa3;CATR" length="3"/>
-  <columns dataType="CHAR" name="C&#xa3;CD01" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CD02" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CREG" length="10"/>
-  <columns dataType="CHAR" name="C&#xa3;SQRG" length="6"/>
-  <columns dataType="CHAR" name="C&#xa3;LIIN" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;LIFI" length="15"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="C&#xa3;CATR"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD01"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD02"/>
+  <columns dataType="CHAR" length="10" name="C&#xa3;CREG"/>
+  <columns dataType="CHAR" length="6" name="C&#xa3;SQRG"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;LIIN"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;LIFI"/>
 </db-core:TableDef>

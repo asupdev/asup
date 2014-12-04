@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="7" name="TABEL00001"/>
+  <columns dataType="CHAR" length="7" name="SOCIE00001"/>
+  <columns dataType="CHAR" length="15" name="MRMAG00001"/>
+  <columns dataType="DECIMAL" length="8" name="MRDAT00001"/>
+  <columns dataType="CHAR" length="15" name="MRART00001"/>
+  <columns dataType="CHAR" length="5" name="AACL100001"/>
+  <columns dataType="CHAR" length="5" name="AACL200001"/>
+  <columns dataType="CHAR" length="5" name="AACL300001"/>
+  <columns dataType="CHAR" length="5" name="AAMAR00001"/>
+  <columns dataType="CHAR" length="5" name="MRIVA00001"/>
+  <columns dataType="DECIMAL" length="40" name="TOTIM00001" scale="3"/>
+  <columns dataType="DECIMAL" length="40" name="TOTCS00001" scale="7"/>
+  <columns dataType="DECIMAL" length="40" name="TOTQT00001" scale="3"/>
+  <columns dataType="DECIMAL" length="40" name="TOTSC00001" scale="3"/>
+</db-core:TableDef>

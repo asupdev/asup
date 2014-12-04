@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQSIND1L" creationCommand=" CREATE VIEW CQSIND1L (   S&#xa7;DTRI ,   S&#xa7;DDRI ,   S&#xa7;DART ,   S&#xa7;DEFO ,   S&#xa7;DCFO ,   S&#xa7;DCNC ,   S&#xa7;DQSC ,   S&#xa7;DQRL ,   S&#xa7;DTEM )   AS   SELECT   S&#xa7;DTRI ,   S&#xa7;DDRI ,   S&#xa7;DART ,   S&#xa7;DEFO ,   S&#xa7;DCFO ,   S&#xa7;DCNC ,   S&#xa7;DQSC ,   S&#xa7;DQRL ,   S&#xa7;DTEM   FROM CQSIND0F   ;  "/>

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMIPRO0L" creationCommand=" CREATE VIEW MMIPRO0L (   I$CODI ,   I$COIN ,   I$TIPO ,   I$DESC ,   I$FRCA ,   I$TEIN ,   I$FEMA ,   I$NUPE ,   I$TIDO ,   I$DOCU ,   I$DUIN )   AS   SELECT   I$CODI ,   I$COIN ,   I$TIPO ,   I$DESC ,   I$FRCA ,   I$TEIN ,   I$FEMA ,   I$NUPE ,   I$TIDO ,   I$DOCU ,   I$DUIN   FROM MMIPRO0F   ;  "/>

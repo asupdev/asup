@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="B&#xa3;SUPD0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="ARIDRC" length="16"/>
-  <columns dataType="CHAR" name="ARCNAM" length="10"/>
-  <columns dataType="DECIMAL" name="ARFLIX" length="5"/>
-  <columns dataType="CHAR" name="ARSSID" length="52"/>
-  <columns dataType="CHAR" name="AROGGE" length="30"/>
-  <columns dataType="CHAR" name="ARVAL1" length="2562"/>
-  <columns dataType="DECIMAL" name="ARNUM1" length="21" scale="6"/>
-  <columns dataType="CHAR" name="ARUSE1" length="1"/>
-  <columns dataType="CHAR" name="ARVAL2" length="2562"/>
-  <columns dataType="DECIMAL" name="ARNUM2" length="21" scale="6"/>
-  <columns dataType="CHAR" name="ARUSE2" length="1"/>
-  <columns dataType="CHAR" name="AREVEN" length="1"/>
-  <columns dataType="CHAR" name="ARFD35" length="1"/>
-  <columns dataType="CHAR" name="ARFDLV" length="2"/>
-  <columns dataType="CHAR" name="ARFDMS" length="256"/>
-  <columns dataType="CHAR" name="ARRC35" length="1"/>
-  <columns dataType="CHAR" name="ARRCMS" length="256"/>
-  <columns dataType="DECIMAL" name="ARNMOD" length="16"/>
-  <columns dataType="CHAR" name="ARIDUS" length="15"/>
-  <columns dataType="DECIMAL" name="ARDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="ARORIN" length="6"/>
-  <columns dataType="CHAR" name="ARUSIN" length="10"/>
-  <columns dataType="CHAR" name="AROGIN" length="10"/>
-  <columns dataType="DECIMAL" name="ARDTAG" length="8"/>
-  <columns dataType="DECIMAL" name="ARORAG" length="6"/>
-  <columns dataType="CHAR" name="ARUSAG" length="10"/>
-  <columns dataType="CHAR" name="AROGAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="16" name="ARIDRC"/>
+  <columns dataType="CHAR" length="10" name="ARCNAM"/>
+  <columns dataType="DECIMAL" length="5" name="ARFLIX"/>
+  <columns dataType="CHAR" length="52" name="ARSSID"/>
+  <columns dataType="CHAR" length="30" name="AROGGE"/>
+  <columns dataType="CHAR" length="2562" name="ARVAL1"/>
+  <columns dataType="DECIMAL" length="21" name="ARNUM1" scale="6"/>
+  <columns dataType="CHAR" length="1" name="ARUSE1"/>
+  <columns dataType="CHAR" length="2562" name="ARVAL2"/>
+  <columns dataType="DECIMAL" length="21" name="ARNUM2" scale="6"/>
+  <columns dataType="CHAR" length="1" name="ARUSE2"/>
+  <columns dataType="CHAR" length="1" name="AREVEN"/>
+  <columns dataType="CHAR" length="1" name="ARFD35"/>
+  <columns dataType="CHAR" length="2" name="ARFDLV"/>
+  <columns dataType="CHAR" length="256" name="ARFDMS"/>
+  <columns dataType="CHAR" length="1" name="ARRC35"/>
+  <columns dataType="CHAR" length="256" name="ARRCMS"/>
+  <columns dataType="DECIMAL" length="16" name="ARNMOD"/>
+  <columns dataType="CHAR" length="15" name="ARIDUS"/>
+  <columns dataType="DECIMAL" length="8" name="ARDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="ARORIN"/>
+  <columns dataType="CHAR" length="10" name="ARUSIN"/>
+  <columns dataType="CHAR" length="10" name="AROGIN"/>
+  <columns dataType="DECIMAL" length="8" name="ARDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="ARORAG"/>
+  <columns dataType="CHAR" length="10" name="ARUSAG"/>
+  <columns dataType="CHAR" length="10" name="AROGAG"/>
 </db-core:TableDef>

@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQAZIC0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="Z&#xa7;ANNU" length="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;NUDO" length="10"/>
-  <columns dataType="CHAR" name="Z&#xa7;ATRI" length="4"/>
-  <columns dataType="CHAR" name="Z&#xa7;ATGR" length="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACO1" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACO2" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACO3" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIEC" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COEC" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;AIMP" length="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;AOBB" length="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;APRP" length="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;APRO" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ASOL" length="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;APUN" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;ACOR" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIEN" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COEN" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;RINT" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIES" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COES" length="15"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DADO" length="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DAEV" length="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;ADPR" length="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DAEE" length="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;QLOT" length="9" scale="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;AUNM" length="6"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;ROPR" length="7" scale="4"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;ROCN" length="7" scale="4"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;VAPR" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;VACN" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;VAVA" length="15" scale="3"/>
-  <columns dataType="CHAR" name="Z&#xa7;RWRC" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;TIEA" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;COEA" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;RAPP" length="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;ARAL" length="15"/>
-  <columns dataType="CHAR" name="Z&#xa7;ORIC" length="10"/>
-  <columns dataType="CHAR" name="Z&#xa7;LIST" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;RISP" length="2"/>
-  <columns dataType="CHAR" name="Z&#xa7;FDBK" length="50"/>
-  <columns dataType="CHAR" name="Z&#xa7;MQTD" length="4"/>
-  <columns dataType="CHAR" name="Z&#xa7;NPRG" length="10"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="Z&#xa7;FLG5" length="1"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DTCR" length="8"/>
-  <columns dataType="DECIMAL" name="Z&#xa7;DTMR" length="8"/>
-  <columns dataType="CHAR" name="Z&#xa7;UTEN" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="Z&#xa7;ANNU"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;NUDO"/>
+  <columns dataType="CHAR" length="4" name="Z&#xa7;ATRI"/>
+  <columns dataType="CHAR" length="3" name="Z&#xa7;ATGR"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;ACO1"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;ACO2"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;ACO3"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;TIEC"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;COEC"/>
+  <columns dataType="CHAR" length="3" name="Z&#xa7;AIMP"/>
+  <columns dataType="CHAR" length="50" name="Z&#xa7;AOBB"/>
+  <columns dataType="CHAR" length="50" name="Z&#xa7;APRP"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;APRO"/>
+  <columns dataType="CHAR" length="50" name="Z&#xa7;ASOL"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;APUN"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;ACOR"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;TIEN"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;COEN"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;RINT"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;TIES"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;COES"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DADO"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DAEV"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;ADPR"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DAEE"/>
+  <columns dataType="DECIMAL" length="9" name="Z&#xa7;QLOT" scale="3"/>
+  <columns dataType="CHAR" length="6" name="Z&#xa7;AUNM"/>
+  <columns dataType="DECIMAL" length="7" name="Z&#xa7;ROPR" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="Z&#xa7;ROCN" scale="4"/>
+  <columns dataType="DECIMAL" length="15" name="Z&#xa7;VAPR" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="Z&#xa7;VACN" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="Z&#xa7;VAVA" scale="3"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;RWRC"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;TIEA"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;COEA"/>
+  <columns dataType="CHAR" length="50" name="Z&#xa7;RAPP"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;ARAL"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;ORIC"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;LIST"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;RISP"/>
+  <columns dataType="CHAR" length="50" name="Z&#xa7;FDBK"/>
+  <columns dataType="CHAR" length="4" name="Z&#xa7;MQTD"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;NPRG"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG5"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DTCR"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DTMR"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;UTEN"/>
 </db-core:TableDef>

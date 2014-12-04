@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="COSARC2L" creationCommand=" CREATE VIEW COSARC2L (   R$COAR ,   R$TCOS ,   R$CDL ,   R$TLAL ,   R$TMAL ,   R$TATL ,   R$TSCL ,   R$TLAI ,   R$TMAI ,   R$TATI ,   R$TSCI )   AS   SELECT   R$COAR ,   R$TCOS ,   R$CDL ,   R$TLAL ,   R$TMAL ,   R$TATL ,   R$TSCL ,   R$TLAI ,   R$TMAI ,   R$TATI ,   R$TSCI   FROM COSARC0F   ;  "/>

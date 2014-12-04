@@ -1,56 +1,55 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQFOAR0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="V&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="V&#xa7;WKST" length="10"/>
-  <columns dataType="CHAR" name="V&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="V&#xa7;FLR1" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;FLR2" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;FLR3" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;TIER" length="2"/>
-  <columns dataType="CHAR" name="V&#xa7;CENR" length="15"/>
-  <columns dataType="CHAR" name="V&#xa7;ARTI" length="15"/>
-  <columns dataType="CHAR" name="V&#xa7;CFAL" length="6"/>
-  <columns dataType="CHAR" name="V&#xa7;ESMO" length="2"/>
-  <columns dataType="CHAR" name="V&#xa7;CFAB" length="5"/>
-  <columns dataType="CHAR" name="V&#xa7;FREE" length="1"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NRFR" length="5"/>
-  <columns dataType="CHAR" name="V&#xa7;GRCL" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;ACCO" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;ABAR" length="1"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DTFZ" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DTFR" length="8"/>
-  <columns dataType="CHAR" name="V&#xa7;PRIF" length="1"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DTPF" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NRPF" length="5"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NRFZ" length="5"/>
-  <columns dataType="CHAR" name="V&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;FLG5" length="1"/>
-  <columns dataType="CHAR" name="V&#xa7;PCFO" length="4"/>
-  <columns dataType="CHAR" name="V&#xa7;LVFO" length="15"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NRLV" length="7"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NRLE" length="7"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DTVF" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DT01" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DT02" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DT03" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DT04" length="8"/>
-  <columns dataType="DECIMAL" name="V&#xa7;DT05" length="8"/>
-  <columns dataType="CHAR" name="V&#xa7;COD1" length="15"/>
-  <columns dataType="CHAR" name="V&#xa7;COD2" length="15"/>
-  <columns dataType="CHAR" name="V&#xa7;COD3" length="15"/>
-  <columns dataType="CHAR" name="V&#xa7;COD4" length="15"/>
-  <columns dataType="CHAR" name="V&#xa7;COD5" length="15"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NUM1" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NUM2" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NUM3" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NUM4" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="V&#xa7;NUM5" length="15" scale="5"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="V&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="V&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="V&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="V&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="V&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="2" name="V&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;CENR"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="6" name="V&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="2" name="V&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="5" name="V&#xa7;CFAB"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FREE"/>
+  <columns dataType="DECIMAL" length="5" name="V&#xa7;NRFR"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;GRCL"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;ACCO"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;ABAR"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DTFZ"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DTFR"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;PRIF"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DTPF"/>
+  <columns dataType="DECIMAL" length="5" name="V&#xa7;NRPF"/>
+  <columns dataType="DECIMAL" length="5" name="V&#xa7;NRFZ"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="V&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="4" name="V&#xa7;PCFO"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;LVFO"/>
+  <columns dataType="DECIMAL" length="7" name="V&#xa7;NRLV"/>
+  <columns dataType="DECIMAL" length="7" name="V&#xa7;NRLE"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DTVF"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DT05"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;COD5"/>
+  <columns dataType="DECIMAL" length="15" name="V&#xa7;NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V&#xa7;NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V&#xa7;NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V&#xa7;NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="V&#xa7;NUM5" scale="5"/>
 </db-core:TableDef>

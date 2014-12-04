@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="PE&#xa3;STA"/>
+  <columns dataType="CHAR" length="15" name="PE&#xa3;OGG"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;UTE"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;PGM"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;AT0"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;AT1"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;JQN"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;AT2"/>
+  <columns dataType="DECIMAL" length="1" name="PE&#xa3;JQP"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;JQH"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;O1N"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;O1H"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;O1F"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;AT5"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;O2N"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;AT6"/>
+  <columns dataType="DECIMAL" length="1" name="PE&#xa3;O2P"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;O2H"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;O2S"/>
+  <columns dataType="DECIMAL" length="2" name="PE&#xa3;O2C"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;O2F"/>
+  <columns dataType="CHAR" length="1" name="PE&#xa3;O2I"/>
+  <columns dataType="CHAR" length="30002" name="PE&#xa3;ATR"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;UTI"/>
+  <columns dataType="DECIMAL" length="8" name="PE&#xa3;DTI"/>
+  <columns dataType="DECIMAL" length="6" name="PE&#xa3;ORI"/>
+  <columns dataType="CHAR" length="10" name="PE&#xa3;UTA"/>
+  <columns dataType="DECIMAL" length="8" name="PE&#xa3;DTA"/>
+  <columns dataType="DECIMAL" length="6" name="PE&#xa3;ORA"/>
+</db-core:TableDef>

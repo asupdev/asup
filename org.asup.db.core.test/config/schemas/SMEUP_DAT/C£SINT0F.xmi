@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="C&#xa3;SINT0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="C&#xa3;TC00" length="12"/>
-  <columns dataType="CHAR" name="C&#xa3;CD01" length="15"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTEF" length="8"/>
-  <columns dataType="CHAR" name="C&#xa3;CS01" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS02" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS03" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS04" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS05" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS06" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS07" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS08" length="15"/>
-  <columns dataType="CHAR" name="C&#xa3;CS09" length="15"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTIN" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa3;DTAG" length="8"/>
-  <columns dataType="CHAR" name="C&#xa3;USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="C&#xa3;TC00"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD01"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTEF"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS01"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS02"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS03"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS04"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS05"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS06"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS07"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS08"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CS09"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DTAG"/>
+  <columns dataType="CHAR" length="10" name="C&#xa3;USAG"/>
 </db-core:TableDef>

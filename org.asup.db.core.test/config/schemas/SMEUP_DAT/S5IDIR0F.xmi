@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="S5IDIR0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="I6SCEN" length="10"/>
-  <columns dataType="CHAR" name="I6TORI" length="2"/>
-  <columns dataType="CHAR" name="I6TDOC" length="3"/>
-  <columns dataType="CHAR" name="I6NDOC" length="10"/>
-  <columns dataType="DECIMAL" name="I6NRIG" length="4"/>
-  <columns dataType="CHAR" name="I6OPER" length="6"/>
-  <columns dataType="CHAR" name="I6FL12" length="1"/>
-  <columns dataType="CHAR" name="I6IDOJ" length="10"/>
-  <columns dataType="DECIMAL" name="I6DTCR" length="8"/>
-  <columns dataType="DECIMAL" name="I6HRCR" length="6"/>
-  <columns dataType="CHAR" name="I6USIN" length="10"/>
-  <columns dataType="DECIMAL" name="I6DTAG" length="8"/>
-  <columns dataType="DECIMAL" name="I6HRAG" length="6"/>
-  <columns dataType="CHAR" name="I6USAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I6SCEN"/>
+  <columns dataType="CHAR" length="2" name="I6TORI"/>
+  <columns dataType="CHAR" length="3" name="I6TDOC"/>
+  <columns dataType="CHAR" length="10" name="I6NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="I6NRIG"/>
+  <columns dataType="CHAR" length="6" name="I6OPER"/>
+  <columns dataType="CHAR" length="1" name="I6FL12"/>
+  <columns dataType="CHAR" length="10" name="I6IDOJ"/>
+  <columns dataType="DECIMAL" length="8" name="I6DTCR"/>
+  <columns dataType="DECIMAL" length="6" name="I6HRCR"/>
+  <columns dataType="CHAR" length="10" name="I6USIN"/>
+  <columns dataType="DECIMAL" length="8" name="I6DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="I6HRAG"/>
+  <columns dataType="CHAR" length="10" name="I6USAG"/>
 </db-core:TableDef>

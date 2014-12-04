@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQPRCO0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="C&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="C&#xa7;WKST" length="10"/>
-  <columns dataType="CHAR" name="C&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="C&#xa7;PCOR" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;PTCO" length="35"/>
-  <columns dataType="CHAR" name="C&#xa7;EDIZ" length="6"/>
-  <columns dataType="DECIMAL" name="C&#xa7;PDAT" length="8"/>
-  <columns dataType="CHAR" name="C&#xa7;ARIF" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;FRIF" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;TIEA" length="2"/>
-  <columns dataType="CHAR" name="C&#xa7;COEA" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;PLUO" length="50"/>
-  <columns dataType="CHAR" name="C&#xa7;PDOC" length="50"/>
-  <columns dataType="DECIMAL" name="C&#xa7;ROCN" length="7" scale="4"/>
-  <columns dataType="DECIMAL" name="C&#xa7;VACN" length="15" scale="3"/>
-  <columns dataType="DECIMAL" name="C&#xa7;NPAR" length="7" scale="2"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DTIC" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa7;DTFC" length="8"/>
-  <columns dataType="DECIMAL" name="C&#xa7;NGGC" length="7" scale="2"/>
-  <columns dataType="CHAR" name="C&#xa7;REQC" length="15"/>
-  <columns dataType="CHAR" name="C&#xa7;MDIC" length="50"/>
-  <columns dataType="CHAR" name="C&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="C&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="C&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="C&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="C&#xa7;FLG5" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="C&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="C&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;PROG"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;PCOR"/>
+  <columns dataType="CHAR" length="35" name="C&#xa7;PTCO"/>
+  <columns dataType="CHAR" length="6" name="C&#xa7;EDIZ"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;PDAT"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;ARIF"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;FRIF"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;TIEA"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;COEA"/>
+  <columns dataType="CHAR" length="50" name="C&#xa7;PLUO"/>
+  <columns dataType="CHAR" length="50" name="C&#xa7;PDOC"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa7;ROCN" scale="4"/>
+  <columns dataType="DECIMAL" length="15" name="C&#xa7;VACN" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa7;NPAR" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DTIC"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DTFC"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa7;NGGC" scale="2"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;REQC"/>
+  <columns dataType="CHAR" length="50" name="C&#xa7;MDIC"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLG5"/>
 </db-core:TableDef>

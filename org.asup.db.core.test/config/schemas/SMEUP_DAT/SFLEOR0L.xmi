@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="SFLEOR0L" creationCommand=" CREATE VIEW SFLEOR0L (   SFLTOA ,   SFLTDA ,   SFLNDA ,   SFLTOC ,   SFLTDC ,   SFLNDC ,   SFLDFI ,   SFLHFI )   AS   SELECT   SFLTOA ,   SFLTDA ,   SFLNDA ,   SFLTOC ,   SFLTDC ,   SFLNDC ,   SFLDFI ,   SFLHFI   FROM SFLEOR0F   ;  "/>

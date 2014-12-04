@@ -1,76 +1,75 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CALSQU0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="CQ&#xa3;TRG" length="3"/>
-  <columns dataType="CHAR" name="CQ&#xa3;RIS" length="15"/>
-  <columns dataType="CHAR" name="CQTPOG" length="12"/>
-  <columns dataType="CHAR" name="CQCDOG" length="15"/>
-  <columns dataType="CHAR" name="CQSTAT" length="2"/>
-  <columns dataType="CHAR" name="CQLIVE" length="1"/>
-  <columns dataType="DECIMAL" name="CQDH01" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQAH01" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQNR01" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="CQDH02" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQAH02" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQNR02" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="CQDH03" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQAH03" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQNR03" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="CQDH04" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQAH04" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQNR04" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="CQDH05" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQAH05" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQNR05" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="CQDH06" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQAH06" length="4" scale="2"/>
-  <columns dataType="DECIMAL" name="CQNR06" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="CQDL01" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL02" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL03" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL04" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL05" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL06" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL07" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL08" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL09" length="8"/>
-  <columns dataType="DECIMAL" name="CQDL10" length="8"/>
-  <columns dataType="CHAR" name="CQCD01" length="15"/>
-  <columns dataType="CHAR" name="CQCD02" length="15"/>
-  <columns dataType="CHAR" name="CQCD03" length="15"/>
-  <columns dataType="CHAR" name="CQCD04" length="15"/>
-  <columns dataType="CHAR" name="CQCD05" length="15"/>
-  <columns dataType="CHAR" name="CQCD06" length="15"/>
-  <columns dataType="CHAR" name="CQCD07" length="15"/>
-  <columns dataType="CHAR" name="CQCD08" length="15"/>
-  <columns dataType="CHAR" name="CQCD09" length="15"/>
-  <columns dataType="CHAR" name="CQCD10" length="15"/>
-  <columns dataType="DECIMAL" name="CQNL01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL05" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL06" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL07" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL08" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL09" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="CQNL10" length="15" scale="5"/>
-  <columns dataType="CHAR" name="CQFL01" length="1"/>
-  <columns dataType="CHAR" name="CQFL02" length="1"/>
-  <columns dataType="CHAR" name="CQFL03" length="1"/>
-  <columns dataType="CHAR" name="CQFL04" length="1"/>
-  <columns dataType="CHAR" name="CQFL05" length="1"/>
-  <columns dataType="CHAR" name="CQFL06" length="1"/>
-  <columns dataType="CHAR" name="CQFL07" length="1"/>
-  <columns dataType="CHAR" name="CQFL08" length="1"/>
-  <columns dataType="CHAR" name="CQFL09" length="1"/>
-  <columns dataType="CHAR" name="CQFL10" length="1"/>
-  <columns dataType="CHAR" name="CQUSIN" length="10"/>
-  <columns dataType="DECIMAL" name="CQDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="CQORIN" length="6"/>
-  <columns dataType="CHAR" name="CQOGIN" length="10"/>
-  <columns dataType="CHAR" name="CQUSAG" length="10"/>
-  <columns dataType="DECIMAL" name="CQDTAG" length="8"/>
-  <columns dataType="DECIMAL" name="CQORAG" length="6"/>
-  <columns dataType="CHAR" name="CQOGAG" length="10"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="CQ&#xa3;TRG"/>
+  <columns dataType="CHAR" length="15" name="CQ&#xa3;RIS"/>
+  <columns dataType="CHAR" length="12" name="CQTPOG"/>
+  <columns dataType="CHAR" length="15" name="CQCDOG"/>
+  <columns dataType="CHAR" length="2" name="CQSTAT"/>
+  <columns dataType="CHAR" length="1" name="CQLIVE"/>
+  <columns dataType="DECIMAL" length="4" name="CQDH01" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="CQAH01" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CQNR01" scale="3"/>
+  <columns dataType="DECIMAL" length="4" name="CQDH02" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="CQAH02" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CQNR02" scale="3"/>
+  <columns dataType="DECIMAL" length="4" name="CQDH03" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="CQAH03" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CQNR03" scale="3"/>
+  <columns dataType="DECIMAL" length="4" name="CQDH04" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="CQAH04" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CQNR04" scale="3"/>
+  <columns dataType="DECIMAL" length="4" name="CQDH05" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="CQAH05" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CQNR05" scale="3"/>
+  <columns dataType="DECIMAL" length="4" name="CQDH06" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="CQAH06" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CQNR06" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL01"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL02"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL03"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL04"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL05"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL06"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL07"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL08"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL09"/>
+  <columns dataType="DECIMAL" length="8" name="CQDL10"/>
+  <columns dataType="CHAR" length="15" name="CQCD01"/>
+  <columns dataType="CHAR" length="15" name="CQCD02"/>
+  <columns dataType="CHAR" length="15" name="CQCD03"/>
+  <columns dataType="CHAR" length="15" name="CQCD04"/>
+  <columns dataType="CHAR" length="15" name="CQCD05"/>
+  <columns dataType="CHAR" length="15" name="CQCD06"/>
+  <columns dataType="CHAR" length="15" name="CQCD07"/>
+  <columns dataType="CHAR" length="15" name="CQCD08"/>
+  <columns dataType="CHAR" length="15" name="CQCD09"/>
+  <columns dataType="CHAR" length="15" name="CQCD10"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL05" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL06" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL07" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL08" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL09" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="CQNL10" scale="5"/>
+  <columns dataType="CHAR" length="1" name="CQFL01"/>
+  <columns dataType="CHAR" length="1" name="CQFL02"/>
+  <columns dataType="CHAR" length="1" name="CQFL03"/>
+  <columns dataType="CHAR" length="1" name="CQFL04"/>
+  <columns dataType="CHAR" length="1" name="CQFL05"/>
+  <columns dataType="CHAR" length="1" name="CQFL06"/>
+  <columns dataType="CHAR" length="1" name="CQFL07"/>
+  <columns dataType="CHAR" length="1" name="CQFL08"/>
+  <columns dataType="CHAR" length="1" name="CQFL09"/>
+  <columns dataType="CHAR" length="1" name="CQFL10"/>
+  <columns dataType="CHAR" length="10" name="CQUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="CQDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="CQORIN"/>
+  <columns dataType="CHAR" length="10" name="CQOGIN"/>
+  <columns dataType="CHAR" length="10" name="CQUSAG"/>
+  <columns dataType="DECIMAL" length="8" name="CQDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="CQORAG"/>
+  <columns dataType="CHAR" length="10" name="CQOGAG"/>
 </db-core:TableDef>

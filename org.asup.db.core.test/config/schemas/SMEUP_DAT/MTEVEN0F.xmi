@@ -1,57 +1,56 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MTEVEN0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="ME&#xa7;UTIN" length="10"/>
-  <columns dataType="CHAR" name="ME&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="ME&#xa7;WKST" length="10"/>
-  <columns dataType="CHAR" name="ME&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="ME&#xa7;TIMO" length="4"/>
-  <columns dataType="CHAR" name="ME&#xa7;NUMO" length="15"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;SEQE" length="5"/>
-  <columns dataType="CHAR" name="ME&#xa7;TIEV" length="4"/>
-  <columns dataType="CHAR" name="ME&#xa7;DESE" length="30"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DTEV" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DTE1" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DTE2" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DTE3" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;LDIN" length="3"/>
-  <columns dataType="CHAR" name="ME&#xa7;CD01" length="15"/>
-  <columns dataType="CHAR" name="ME&#xa7;CD02" length="15"/>
-  <columns dataType="CHAR" name="ME&#xa7;CD03" length="15"/>
-  <columns dataType="CHAR" name="ME&#xa7;CD04" length="15"/>
-  <columns dataType="CHAR" name="ME&#xa7;CD05" length="15"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;NU01" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;NU02" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;NU03" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;NU04" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;NU05" length="15" scale="5"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DT01" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DT02" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DT03" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DT04" length="8"/>
-  <columns dataType="DECIMAL" name="ME&#xa7;DT05" length="8"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL01" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL02" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL03" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL04" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL05" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL06" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL07" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL08" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL09" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL10" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL11" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL12" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL13" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL14" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL15" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL16" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL17" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL18" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL19" length="1"/>
-  <columns dataType="CHAR" name="ME&#xa7;FL20" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="ME&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="ME&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="ME&#xa7;UTIN"/>
+  <columns dataType="CHAR" length="10" name="ME&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="ME&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="ME&#xa7;PROG"/>
+  <columns dataType="CHAR" length="4" name="ME&#xa7;TIMO"/>
+  <columns dataType="CHAR" length="15" name="ME&#xa7;NUMO"/>
+  <columns dataType="DECIMAL" length="5" name="ME&#xa7;SEQE"/>
+  <columns dataType="CHAR" length="4" name="ME&#xa7;TIEV"/>
+  <columns dataType="CHAR" length="30" name="ME&#xa7;DESE"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DTEV"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DTE1"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DTE2"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DTE3"/>
+  <columns dataType="DECIMAL" length="3" name="ME&#xa7;LDIN"/>
+  <columns dataType="CHAR" length="15" name="ME&#xa7;CD01"/>
+  <columns dataType="CHAR" length="15" name="ME&#xa7;CD02"/>
+  <columns dataType="CHAR" length="15" name="ME&#xa7;CD03"/>
+  <columns dataType="CHAR" length="15" name="ME&#xa7;CD04"/>
+  <columns dataType="CHAR" length="15" name="ME&#xa7;CD05"/>
+  <columns dataType="DECIMAL" length="15" name="ME&#xa7;NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="ME&#xa7;NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="ME&#xa7;NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="ME&#xa7;NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="ME&#xa7;NU05" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="ME&#xa7;DT05"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL10"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL11"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL12"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL13"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL14"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="ME&#xa7;FL20"/>
 </db-core:TableDef>

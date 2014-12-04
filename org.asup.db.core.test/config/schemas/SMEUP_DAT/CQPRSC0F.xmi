@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CQPRSC0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DATI" length="8"/>
-  <columns dataType="DECIMAL" name="S&#xa7;ORAI" length="6"/>
-  <columns dataType="DECIMAL" name="S&#xa7;DATM" length="8"/>
-  <columns dataType="DECIMAL" name="S&#xa7;ORAM" length="6"/>
-  <columns dataType="CHAR" name="S&#xa7;UTEN" length="10"/>
-  <columns dataType="CHAR" name="S&#xa7;NDSP" length="10"/>
-  <columns dataType="CHAR" name="S&#xa7;PROG" length="10"/>
-  <columns dataType="CHAR" name="S&#xa7;TIER" length="2"/>
-  <columns dataType="CHAR" name="S&#xa7;COER" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;ESMO" length="2"/>
-  <columns dataType="CHAR" name="S&#xa7;RWRC" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;PPOS" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;PPOF" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;PROM" length="6"/>
-  <columns dataType="CHAR" name="S&#xa7;AOBB" length="50"/>
-  <columns dataType="CHAR" name="S&#xa7;APRP" length="50"/>
-  <columns dataType="CHAR" name="S&#xa7;ASOL" length="50"/>
-  <columns dataType="CHAR" name="S&#xa7;PESI" length="50"/>
-  <columns dataType="CHAR" name="S&#xa7;PPOP" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;PDIT" length="50"/>
-  <columns dataType="CHAR" name="S&#xa7;POCC" length="15"/>
-  <columns dataType="DECIMAL" name="S&#xa7;PCOS" length="15" scale="3"/>
-  <columns dataType="CHAR" name="S&#xa7;ACOR" length="15"/>
-  <columns dataType="CHAR" name="S&#xa7;NPRG" length="10"/>
-  <columns dataType="CHAR" name="S&#xa7;FLG1" length="1"/>
-  <columns dataType="CHAR" name="S&#xa7;FLG2" length="1"/>
-  <columns dataType="CHAR" name="S&#xa7;FLG3" length="1"/>
-  <columns dataType="CHAR" name="S&#xa7;FLG4" length="1"/>
-  <columns dataType="CHAR" name="S&#xa7;FLG5" length="1"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="S&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="S&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;NDSP"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;PROG"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;COER"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;RWRC"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;PPOS"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;PPOF"/>
+  <columns dataType="CHAR" length="6" name="S&#xa7;PROM"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;AOBB"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;APRP"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;ASOL"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;PESI"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;PPOP"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;PDIT"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;POCC"/>
+  <columns dataType="DECIMAL" length="15" name="S&#xa7;PCOS" scale="3"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;ACOR"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;NPRG"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG5"/>
 </db-core:TableDef>

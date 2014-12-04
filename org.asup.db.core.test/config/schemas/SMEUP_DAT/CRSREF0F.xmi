@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CRSREF0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="CR&#xa3;PCH" length="10"/>
-  <columns dataType="CHAR" name="CR&#xa3;TCH" length="10"/>
-  <columns dataType="CHAR" name="CR&#xa3;OCH" length="10"/>
-</db-core:TableDef>

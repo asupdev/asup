@@ -1,103 +1,102 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="CALRIS0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="CR&#xa3;STA" length="1"/>
-  <columns dataType="CHAR" name="CR&#xa3;TRG" length="3"/>
-  <columns dataType="CHAR" name="CR&#xa3;RIS" length="15"/>
-  <columns dataType="CHAR" name="CR&#xa3;RIC" length="15"/>
-  <columns dataType="CHAR" name="CR&#xa3;ANN" length="4"/>
-  <columns dataType="CHAR" name="CR&#xa3;MES" length="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O01" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P01" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O02" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P02" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O03" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P03" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O04" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P04" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O05" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P05" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O06" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P06" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O07" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P07" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O08" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P08" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O09" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P09" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O10" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P10" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O11" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P11" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O12" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P12" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O13" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P13" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O14" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P14" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O15" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P15" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O16" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P16" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O17" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P17" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O18" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P18" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O19" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P19" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O20" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P20" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O21" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P21" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O22" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P22" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O23" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P23" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O24" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P24" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O25" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P25" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O26" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P26" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O27" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P27" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O28" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P28" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O29" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P29" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O30" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P30" length="5" scale="2"/>
-  <columns dataType="CHAR" name="CR&#xa3;O31" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;P31" length="5" scale="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R01" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R02" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R03" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R04" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R05" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R06" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R07" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R08" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R09" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R10" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R11" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R12" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R13" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R14" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R15" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R16" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R17" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R18" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R19" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R20" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R21" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R22" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R23" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R24" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R25" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R26" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R27" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R28" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R29" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R30" length="2"/>
-  <columns dataType="DECIMAL" name="CR&#xa3;R31" length="2"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="CR&#xa3;STA"/>
+  <columns dataType="CHAR" length="3" name="CR&#xa3;TRG"/>
+  <columns dataType="CHAR" length="15" name="CR&#xa3;RIS"/>
+  <columns dataType="CHAR" length="15" name="CR&#xa3;RIC"/>
+  <columns dataType="CHAR" length="4" name="CR&#xa3;ANN"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;MES"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O01"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P01" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O02"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P02" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O03"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P03" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O04"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P04" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O05"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P05" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O06"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P06" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O07"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P07" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O08"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P08" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O09"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P09" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O10"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P10" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O11"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P11" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O12"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P12" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O13"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P13" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O14"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P14" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O15"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P15" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O16"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P16" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O17"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P17" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O18"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P18" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O19"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P19" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O20"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P20" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O21"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P21" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O22"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P22" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O23"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P23" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O24"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P24" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O25"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P25" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O26"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P26" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O27"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P27" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O28"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P28" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O29"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P29" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O30"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P30" scale="2"/>
+  <columns dataType="CHAR" length="2" name="CR&#xa3;O31"/>
+  <columns dataType="DECIMAL" length="5" name="CR&#xa3;P31" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R01"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R02"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R03"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R04"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R05"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R06"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R07"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R08"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R09"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R10"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R11"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R12"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R13"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R14"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R15"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R16"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R17"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R18"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R19"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R20"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R21"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R22"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R23"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R24"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R25"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R26"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R27"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R28"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R29"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R30"/>
+  <columns dataType="DECIMAL" length="2" name="CR&#xa3;R31"/>
 </db-core:TableDef>

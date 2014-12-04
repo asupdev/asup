@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="MMMATE0F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="M$CODI" length="15"/>
-  <columns dataType="CHAR" name="M$COIN" length="5"/>
-  <columns dataType="CHAR" name="M$COMA" length="15"/>
-  <columns dataType="CHAR" name="M$DESC" length="30"/>
-  <columns dataType="CHAR" name="M$TIPO" length="3"/>
-  <columns dataType="CHAR" name="M$UMIS" length="2"/>
-  <columns dataType="DECIMAL" name="M$QTAI" length="9" scale="2"/>
-  <columns dataType="CHAR" name="M$FORN" length="15"/>
-  <columns dataType="CHAR" name="M$RAGS" length="35"/>
-  <columns dataType="CHAR" name="M$CAFO" length="15"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="M$CODI"/>
+  <columns dataType="CHAR" length="5" name="M$COIN"/>
+  <columns dataType="CHAR" length="15" name="M$COMA"/>
+  <columns dataType="CHAR" length="30" name="M$DESC"/>
+  <columns dataType="CHAR" length="3" name="M$TIPO"/>
+  <columns dataType="CHAR" length="2" name="M$UMIS"/>
+  <columns dataType="DECIMAL" length="9" name="M$QTAI" scale="2"/>
+  <columns dataType="CHAR" length="15" name="M$FORN"/>
+  <columns dataType="CHAR" length="35" name="M$RAGS"/>
+  <columns dataType="CHAR" length="15" name="M$CAFO"/>
 </db-core:TableDef>

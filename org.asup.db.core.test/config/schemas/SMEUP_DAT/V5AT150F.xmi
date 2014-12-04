@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="ASCII"?>
-<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" name="V5AT150F">
-  <columns dataType="CHAR" name="QMUKEY" length="20"/>
-  <columns dataType="CHAR" name="WWIDSE" length="15"/>
-  <columns dataType="CHAR" name="WWCORD" length="50"/>
-  <columns dataType="DECIMAL" name="WWIDNR" length="5"/>
-  <columns dataType="CHAR" name="WWFLQT" length="1"/>
-  <columns dataType="CHAR" name="WWTROT" length="12"/>
-  <columns dataType="CHAR" name="WWCROT" length="50"/>
-  <columns dataType="CHAR" name="WWTIOG" length="3"/>
-  <columns dataType="CHAR" name="WWCDOG" length="15"/>
-  <columns dataType="CHAR" name="WWDSOG" length="70"/>
-  <columns dataType="CHAR" name="WWOPER" length="6"/>
-  <columns dataType="CHAR" name="WWTDOC" length="10"/>
-  <columns dataType="CHAR" name="WWNDOC" length="10"/>
-  <columns dataType="DECIMAL" name="WWNRIG" length="4"/>
-  <columns dataType="CHAR" name="WWSSSC" length="2"/>
-  <columns dataType="CHAR" name="WWTRIG" length="3"/>
-  <columns dataType="CHAR" name="WWNORD" length="10"/>
-  <columns dataType="CHAR" name="WWCOMM" length="10"/>
-  <columns dataType="CHAR" name="WWCONF" length="20"/>
-  <columns dataType="CHAR" name="WWTKIT" length="1"/>
-  <columns dataType="DECIMAL" name="WWMKIT" length="9"/>
-  <columns dataType="CHAR" name="WWFF13" length="1"/>
-  <columns dataType="DECIMAL" name="WWFATC" length="15" scale="5"/>
-  <columns dataType="CHAR" name="WWUNMS" length="2"/>
-  <columns dataType="CHAR" name="WWUNMV" length="2"/>
-  <columns dataType="DECIMAL" name="WWCOEF" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQINT" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQEXT" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQRES" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQOLD" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQPRO" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWDTCC" length="8"/>
-  <columns dataType="CHAR" name="WWTCDS" length="3"/>
-  <columns dataType="CHAR" name="WWCODS" length="15"/>
-  <columns dataType="CHAR" name="WWIN21" length="1"/>
-  <columns dataType="CHAR" name="WWIN43" length="1"/>
-  <columns dataType="CHAR" name="WWIN46" length="1"/>
-  <columns dataType="CHAR" name="WWNDIN" length="1"/>
-  <columns dataType="DECIMAL" name="WWQUAN" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQT01" length="11" scale="3"/>
-  <columns dataType="DECIMAL" name="WWQT02" length="11" scale="3"/>
-  <columns dataType="CHAR" name="WWRIDS" length="1700"/>
-  <columns dataType="CHAR" name="WWTIO1" length="12"/>
-  <columns dataType="CHAR" name="WWCDO1" length="30"/>
-  <columns dataType="CHAR" name="WWTIO2" length="12"/>
-  <columns dataType="CHAR" name="WWCDO2" length="30"/>
-  <columns dataType="CHAR" name="WWTIO3" length="12"/>
-  <columns dataType="CHAR" name="WWCDO3" length="30"/>
-  <columns dataType="CHAR" name="WWTIO4" length="12"/>
-  <columns dataType="CHAR" name="WWCDO4" length="30"/>
-  <columns dataType="CHAR" name="WWTIO5" length="12"/>
-  <columns dataType="CHAR" name="WWCDO5" length="30"/>
-  <columns dataType="CHAR" name="WWTIO6" length="12"/>
-  <columns dataType="CHAR" name="WWCDO6" length="30"/>
-  <columns dataType="CHAR" name="WWTIO7" length="12"/>
-  <columns dataType="CHAR" name="WWCDO7" length="30"/>
-  <columns dataType="CHAR" name="WWTIO8" length="12"/>
-  <columns dataType="CHAR" name="WWCDO8" length="30"/>
-  <columns dataType="CHAR" name="WWTIO9" length="12"/>
-  <columns dataType="CHAR" name="WWCDO9" length="30"/>
-  <columns dataType="CHAR" name="WWTIO0" length="12"/>
-  <columns dataType="CHAR" name="WWCDO0" length="30"/>
-  <columns dataType="CHAR" name="WWFL01" length="1"/>
-  <columns dataType="CHAR" name="WWFL02" length="1"/>
-  <columns dataType="CHAR" name="WWFL03" length="1"/>
-  <columns dataType="CHAR" name="WWFL04" length="1"/>
-  <columns dataType="CHAR" name="WWFL05" length="1"/>
-  <columns dataType="CHAR" name="WWFL06" length="1"/>
-  <columns dataType="CHAR" name="WWFL07" length="1"/>
-  <columns dataType="CHAR" name="WWFL08" length="1"/>
-  <columns dataType="CHAR" name="WWFL09" length="1"/>
-  <columns dataType="CHAR" name="WWFL10" length="1"/>
-  <columns dataType="CHAR" name="WWUSIN" length="10"/>
-  <columns dataType="DECIMAL" name="WWDTIN" length="8"/>
-  <columns dataType="DECIMAL" name="WWORIN" length="6"/>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="WWIDSE"/>
+  <columns dataType="CHAR" length="50" name="WWCORD"/>
+  <columns dataType="DECIMAL" length="5" name="WWIDNR"/>
+  <columns dataType="CHAR" length="1" name="WWFLQT"/>
+  <columns dataType="CHAR" length="12" name="WWTROT"/>
+  <columns dataType="CHAR" length="50" name="WWCROT"/>
+  <columns dataType="CHAR" length="3" name="WWTIOG"/>
+  <columns dataType="CHAR" length="15" name="WWCDOG"/>
+  <columns dataType="CHAR" length="70" name="WWDSOG"/>
+  <columns dataType="CHAR" length="6" name="WWOPER"/>
+  <columns dataType="CHAR" length="10" name="WWTDOC"/>
+  <columns dataType="CHAR" length="10" name="WWNDOC"/>
+  <columns dataType="DECIMAL" length="4" name="WWNRIG"/>
+  <columns dataType="CHAR" length="2" name="WWSSSC"/>
+  <columns dataType="CHAR" length="3" name="WWTRIG"/>
+  <columns dataType="CHAR" length="10" name="WWNORD"/>
+  <columns dataType="CHAR" length="10" name="WWCOMM"/>
+  <columns dataType="CHAR" length="20" name="WWCONF"/>
+  <columns dataType="CHAR" length="1" name="WWTKIT"/>
+  <columns dataType="DECIMAL" length="9" name="WWMKIT"/>
+  <columns dataType="CHAR" length="1" name="WWFF13"/>
+  <columns dataType="DECIMAL" length="15" name="WWFATC" scale="5"/>
+  <columns dataType="CHAR" length="2" name="WWUNMS"/>
+  <columns dataType="CHAR" length="2" name="WWUNMV"/>
+  <columns dataType="DECIMAL" length="11" name="WWCOEF" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQINT" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQEXT" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQRES" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQOLD" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQPRO" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="WWDTCC"/>
+  <columns dataType="CHAR" length="3" name="WWTCDS"/>
+  <columns dataType="CHAR" length="15" name="WWCODS"/>
+  <columns dataType="CHAR" length="1" name="WWIN21"/>
+  <columns dataType="CHAR" length="1" name="WWIN43"/>
+  <columns dataType="CHAR" length="1" name="WWIN46"/>
+  <columns dataType="CHAR" length="1" name="WWNDIN"/>
+  <columns dataType="DECIMAL" length="11" name="WWQUAN" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQT01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WWQT02" scale="3"/>
+  <columns dataType="CHAR" length="1700" name="WWRIDS"/>
+  <columns dataType="CHAR" length="12" name="WWTIO1"/>
+  <columns dataType="CHAR" length="30" name="WWCDO1"/>
+  <columns dataType="CHAR" length="12" name="WWTIO2"/>
+  <columns dataType="CHAR" length="30" name="WWCDO2"/>
+  <columns dataType="CHAR" length="12" name="WWTIO3"/>
+  <columns dataType="CHAR" length="30" name="WWCDO3"/>
+  <columns dataType="CHAR" length="12" name="WWTIO4"/>
+  <columns dataType="CHAR" length="30" name="WWCDO4"/>
+  <columns dataType="CHAR" length="12" name="WWTIO5"/>
+  <columns dataType="CHAR" length="30" name="WWCDO5"/>
+  <columns dataType="CHAR" length="12" name="WWTIO6"/>
+  <columns dataType="CHAR" length="30" name="WWCDO6"/>
+  <columns dataType="CHAR" length="12" name="WWTIO7"/>
+  <columns dataType="CHAR" length="30" name="WWCDO7"/>
+  <columns dataType="CHAR" length="12" name="WWTIO8"/>
+  <columns dataType="CHAR" length="30" name="WWCDO8"/>
+  <columns dataType="CHAR" length="12" name="WWTIO9"/>
+  <columns dataType="CHAR" length="30" name="WWCDO9"/>
+  <columns dataType="CHAR" length="12" name="WWTIO0"/>
+  <columns dataType="CHAR" length="30" name="WWCDO0"/>
+  <columns dataType="CHAR" length="1" name="WWFL01"/>
+  <columns dataType="CHAR" length="1" name="WWFL02"/>
+  <columns dataType="CHAR" length="1" name="WWFL03"/>
+  <columns dataType="CHAR" length="1" name="WWFL04"/>
+  <columns dataType="CHAR" length="1" name="WWFL05"/>
+  <columns dataType="CHAR" length="1" name="WWFL06"/>
+  <columns dataType="CHAR" length="1" name="WWFL07"/>
+  <columns dataType="CHAR" length="1" name="WWFL08"/>
+  <columns dataType="CHAR" length="1" name="WWFL09"/>
+  <columns dataType="CHAR" length="1" name="WWFL10"/>
+  <columns dataType="CHAR" length="10" name="WWUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="WWDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="WWORIN"/>
 </db-core:TableDef>

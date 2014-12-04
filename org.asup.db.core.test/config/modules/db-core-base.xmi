@@ -1,111 +1,22 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fw-core:ApplicationModule
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:db-core="http://www.asup.org/db/core"
-    xmlns:fw-core="http://www.asup.org/fw/core"
-    xsi:schemaLocation="http://www.asup.org/db/core ../../../org.asup.db.core/model/db-core.ecore http://www.asup.org/fw/core ../../../org.asup.fw.core/model/fw-core.ecore"
-    name="DBCoreBase">
-  <services
-      xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl"
-      interfaceName="org.asup.db.core.QConnectionFactoryRegistry"
-      pluginInterface="org.asup.db.core.QConnectionFactory">
-    <services
-        name="MSSQL"
-        text="Microsoft SQL Server"
-        version="0.5.3"
-        vendor="www.smeup.com"
-        className="org.asup.db.core.mssql.MsSQLConnectionFactoryImpl"/>
-  </services>
-  <services
-      className="org.asup.db.core.base.BaseConnectionManagerImpl"
-      interfaceName="org.asup.db.core.QConnectionManager"/>
-  <services
-      xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseQueryParserRegistryImpl"
-      interfaceName="org.asup.db.syntax.QQueryParserRegistry"
-      pluginInterface="org.asup.db.syntax.QQueryParser">
-    <services
-        name="IBMI"
-        text="IBMi Server"
-        version="0.5.3"
-        vendor="www.smeup.com"
-        className="org.asup.db.syntax.ibmi.IBMiQueryParserImpl"/>
-  </services>
-  <services
-      xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseDefinitionWriterRegistryImpl"
-      interfaceName="org.asup.db.syntax.QDefinitionWriterRegistry"
-      pluginInterface="org.asup.db.syntax.QDefinitionWriter">
-    <services
-        name="MSSQL"
-        text="Microsoft SQL Server"
-        version="0.5.3"
-        vendor="www.smeup.com"
-        className="org.asup.db.syntax.mssql.MsSQLDefinitionWriterImpl"/>
-    <services
-        name="IBMI"
-        text="IBMi Server"
-        version="0.5.3"
-        vendor="www.smeup.com"
-        className="org.asup.db.syntax.ibmi.IBMiDefinitionWriterImpl"/>
-  </services>
-  <services
-      xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseQueryWriterRegistryImpl"
-      interfaceName="org.asup.db.syntax.QQueryWriterRegistry"
-      pluginInterface="org.asup.db.syntax.QQueryWriter">
-    <services
-        name="MSSQL"
-        text="Microsoft SQL Server"
-        version="0.5.3"
-        vendor="www.smeup.com"
-        className="org.asup.db.syntax.mssql.MsSQLQueryWriterImpl"/>
-  </services>
-  <services
-      xsi:type="fw-core:ServicePluginRegistry"
-      className="org.asup.db.syntax.base.BaseAliasResolverRegistryImpl"
-      interfaceName="org.asup.db.syntax.QAliasResolverRegistry"
-      pluginInterface="org.asup.db.syntax.QAliasResolver"/>
-  <services
-      className="org.asup.db.core.base.BaseDatabaseManagerImpl"
-      interfaceName="org.asup.db.core.QDatabaseManager">
-    <config
-        xsi:type="db-core:DatabaseContainer"
-        defaultCatalog="//@services.6/@config/@catalogs.0/@catalog">
-      <database
-          name="ASUP_053"
-          description=""
-          label=""
-          vendor="AsUP"
-          version="053"
-          catalogs="//@services.6/@config/@catalogs.0/@catalog //@services.6/@config/@catalogs.1/@catalog"/>
+<fw-core:ApplicationModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:db-core="http://www.asup.org/db/core" xmlns:fw-core="http://www.asup.org/fw/core" name="DBCoreBase">
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.core.base.BaseConnectionFactoryRegistryImpl" interfaceName="org.asup.db.core.QConnectionFactoryRegistry" pluginInterface="org.asup.db.core.QConnectionFactory"/>
+  <services className="org.asup.db.core.base.BaseConnectionManagerImpl" interfaceName="org.asup.db.core.QConnectionManager"/>
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseQueryParserRegistryImpl" interfaceName="org.asup.db.syntax.QQueryParserRegistry" pluginInterface="org.asup.db.syntax.QQueryParser"/>
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseDefinitionWriterRegistryImpl" interfaceName="org.asup.db.syntax.QDefinitionWriterRegistry" pluginInterface="org.asup.db.syntax.QDefinitionWriter"/>
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseQueryWriterRegistryImpl" interfaceName="org.asup.db.syntax.QQueryWriterRegistry" pluginInterface="org.asup.db.syntax.QQueryWriter"/>
+  <services xsi:type="fw-core:ServicePluginRegistry" className="org.asup.db.syntax.base.BaseNameHelperRegistryImpl" interfaceName="org.asup.db.syntax.QNameHelperRegistry" pluginInterface="org.asup.db.syntax.QNameHelper"/>
+  <services className="org.asup.db.core.base.BaseDatabaseManagerImpl" interfaceName="org.asup.db.core.QDatabaseManager">
+    <config xsi:type="db-core:DatabaseContainer" defaultCatalog="//@services.6/@config/@catalogs.0/@catalog">
+      <connectionProfile name="ASUP_053_DBM" text="As.UP Database Manager"/>
+      <database name="ASUP053" vendor="AsUP" version="053" catalogs="//@services.6/@config/@catalogs.0/@catalog //@services.6/@config/@catalogs.1/@catalog"/>
       <catalogs>
-        <connectionConfig
-            driverName="com.ibm.db2.jcc.DB2Driver"
-            password="asupxx2014"
-            url="jdbc:db2://asup-db1:50000/ASUP_053:retrieveMessagesFromServerOnGetMessage=true;"
-            user="asup"
-            vendor="DB2 UDB"
-            version="V10.5"/>
-        <catalog
-            name="*LOCAL"
-            description=""
-            Database="//@services.6/@config/@database"/>
+        <connectionConfig driverName="com.ibm.db2.jcc.DB2Driver" password="asupxx2014" url="jdbc:db2://asup-db1:50000/ASUP_053:retrieveMessagesFromServerOnGetMessage=true;" user="asup" vendor="DB2 UDB" version="V10.5"/>
+        <catalog name="LOCAL" label="DB2 UDB Local" Database="//@services.6/@config/@database"/>
       </catalogs>
       <catalogs>
-        <connectionConfig
-            driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-            password="asup2013"
-            url="jdbc:sqlserver://ASUP-DB1;DatabaseName=ASUP_053;"
-            user="ASUP"
-            vendor="SQL Server"
-            version="2008"/>
-        <catalog
-            name="ASUP_053"
-            Database="//@services.6/@config/@database"/>
+        <connectionConfig driverName="com.microsoft.sqlserver.jdbc.SQLServerDriver" password="asup2013" url="jdbc:sqlserver://172.16.2.108:1433;databaseName=ASUP_0.5.3" user="asup" vendor="SQL Server" version="2008"/>
+        <catalog name="ASUP_053" label="SQL Server Backup" Database="//@services.6/@config/@database"/>
       </catalogs>
     </config>
   </services>
