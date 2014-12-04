@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="P&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="P&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;NUDO"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;LOTI"/>
+  <columns dataType="CHAR" length="6" name="P&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="6" name="P&#xa7;CFAC"/>
+  <columns dataType="DECIMAL" length="3" name="P&#xa7;TINT"/>
+  <columns dataType="CHAR" length="4" name="P&#xa7;NSCA"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;NORD"/>
+  <columns dataType="CHAR" length="20" name="P&#xa7;NUCO"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG6"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG7"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FLG8"/>
+</db-core:TableDef>

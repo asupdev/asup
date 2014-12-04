@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="G&#xa7;ANNU"/>
+  <columns dataType="CHAR" length="10" name="G&#xa7;NUDO"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;TIGR"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;GRUP"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;TIIM"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COIM"/>
+  <columns dataType="CHAR" length="10" name="G&#xa7;DCOD"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;FRIL"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;FGRA"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="G&#xa7;FLG5"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DTCR"/>
+  <columns dataType="DECIMAL" length="8" name="G&#xa7;DTMR"/>
+  <columns dataType="CHAR" length="10" name="G&#xa7;UTEN"/>
+</db-core:TableDef>

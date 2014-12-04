@@ -1,0 +1,19 @@
+A+B*21
+STRINGA + STRINGB
+D = %ELEM(ARRAYNAME)
+*IN01 OR (BALANCE > LIMIT)
+SUM + TOTAL(ARRAY:%ELEM(ARRAY))
+'The tax rate is ' + %editc(tax : 'A') + '%.'
+DueDate < D'12-31-94'
+Counter = Counter + 1
+ArraySize = %elem (Array)
+'Id number for ' + %trimr (First) + ' ' + %trimr (Last) + ' is ' + %editw (IdNum: '   &   ')
+DueDate = OriginalDate + %days(10)
+Seconds = %diff (CompleteTime: t'09:00:00': *seconds)
+TimeStamp = TransactionDate + TransactionTime
+HOURS = HOUR * *DAY
+MyFunc (string1) = %trim (MyFund (string2))
+%subst(X(3))= MyFunc('abc')
+FLD1 = FLD2/(((FLD3/100)*FLD4)+FLD5)
+p4 = p1 * p2 * proc (s1*s2*p4)
+I<=%ELEM(ARRAY) AND I>0 AND ARRAY(I)>10

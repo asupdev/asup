@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="Q&#xa7;TIMP"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;TORI"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;PACL"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;TDOC"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;NDOC"/>
+  <columns dataType="CHAR" length="4" name="Q&#xa7;USR1"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;ASSI"/>
+  <columns dataType="CHAR" length="4" name="Q&#xa7;USR2"/>
+  <columns dataType="CHAR" length="6" name="Q&#xa7;OPER"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="11" name="Q&#xa7;QUAN" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="Q&#xa7;QTOT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="Q&#xa7;COEF" scale="6"/>
+  <columns dataType="DECIMAL" length="3" name="Q&#xa7;LTAD"/>
+  <columns dataType="CHAR" length="6" name="Q&#xa7;SQCI"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="20" name="Q&#xa7;CONF"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;COMM"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;LOTT"/>
+  <columns dataType="CHAR" length="12" name="Q&#xa7;LOCN"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;TMAT"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;NMAT"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;TIEN"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;COEN"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;TRIS"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;RISO"/>
+  <columns dataType="CHAR" length="3" name="Q&#xa7;TIGE"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;STAT"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FL10"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;USAG"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;NDOR"/>
+  <columns dataType="CHAR" length="4" name="Q&#xa7;UOR1"/>
+  <columns dataType="CHAR" length="4" name="Q&#xa7;UOR2"/>
+</db-core:TableDef>

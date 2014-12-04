@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="B&#xa7;TIPO"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;COD2"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DAST"/>
+  <columns dataType="DECIMAL" length="6" name="B&#xa7;ORST"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;CODI"/>
+  <columns dataType="DECIMAL" length="15" name="B&#xa7;VALO" scale="3"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;WKST"/>
+</db-core:TableDef>

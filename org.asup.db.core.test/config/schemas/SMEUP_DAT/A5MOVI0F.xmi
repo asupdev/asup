@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="RAAZIE"/>
+  <columns dataType="CHAR" length="3" name="RADIVI"/>
+  <columns dataType="CHAR" length="10" name="RAESER"/>
+  <columns dataType="CHAR" length="1" name="RALIVE"/>
+  <columns dataType="CHAR" length="2" name="RASTAT"/>
+  <columns dataType="CHAR" length="10" name="RAIDOJ"/>
+  <columns dataType="CHAR" length="15" name="RACESP"/>
+  <columns dataType="CHAR" length="10" name="RACACE"/>
+  <columns dataType="CHAR" length="15" name="RACERI"/>
+  <columns dataType="CHAR" length="3" name="RACAUS"/>
+  <columns dataType="CHAR" length="2" name="RATIMO"/>
+  <columns dataType="CHAR" length="30" name="RADESC"/>
+  <columns dataType="CHAR" length="30" name="RADESS"/>
+  <columns dataType="CHAR" length="20" name="RANDOR"/>
+  <columns dataType="CHAR" length="15" name="RANPRO"/>
+  <columns dataType="CHAR" length="2" name="RALINE"/>
+  <columns dataType="CHAR" length="10" name="RAIDOR"/>
+  <columns dataType="CHAR" length="10" name="RAPROG"/>
+  <columns dataType="DECIMAL" length="5" name="RARIGA"/>
+  <columns dataType="CHAR" length="6" name="RATREG"/>
+  <columns dataType="CHAR" length="12" name="RATPOR"/>
+  <columns dataType="CHAR" length="15" name="RACDOR"/>
+  <columns dataType="CHAR" length="3" name="RATPCN"/>
+  <columns dataType="CHAR" length="15" name="RASOGG"/>
+  <columns dataType="CHAR" length="4" name="RAVALU"/>
+  <columns dataType="DECIMAL" length="11" name="RACAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RAIMPO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RAIMVA" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RAVALO" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="RAPTEO" scale="2"/>
+  <columns dataType="DECIMAL" length="5" name="RAPERC" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="RANRPZ" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="RADREG"/>
+  <columns dataType="DECIMAL" length="8" name="RADDOR"/>
+  <columns dataType="DECIMAL" length="8" name="RADPRO"/>
+  <columns dataType="DECIMAL" length="8" name="RADAMM"/>
+  <columns dataType="DECIMAL" length="8" name="RADT01"/>
+  <columns dataType="DECIMAL" length="8" name="RADT02"/>
+  <columns dataType="DECIMAL" length="8" name="RADT03"/>
+  <columns dataType="DECIMAL" length="8" name="RADT04"/>
+  <columns dataType="DECIMAL" length="8" name="RADT05"/>
+  <columns dataType="CHAR" length="15" name="RAAA01"/>
+  <columns dataType="CHAR" length="15" name="RAAA02"/>
+  <columns dataType="CHAR" length="15" name="RAAA03"/>
+  <columns dataType="CHAR" length="15" name="RAAA04"/>
+  <columns dataType="CHAR" length="15" name="RAAA05"/>
+  <columns dataType="DECIMAL" length="21" name="RANU01" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RANU02" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RANU03" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RANU04" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="RANU05" scale="6"/>
+  <columns dataType="CHAR" length="1" name="RAFL01"/>
+  <columns dataType="CHAR" length="1" name="RAFL02"/>
+  <columns dataType="CHAR" length="1" name="RAFL03"/>
+  <columns dataType="CHAR" length="1" name="RAFL04"/>
+  <columns dataType="CHAR" length="1" name="RAFL05"/>
+  <columns dataType="CHAR" length="1" name="RAFL06"/>
+  <columns dataType="CHAR" length="1" name="RAFL07"/>
+  <columns dataType="CHAR" length="1" name="RAFL08"/>
+  <columns dataType="CHAR" length="1" name="RAFL09"/>
+  <columns dataType="CHAR" length="1" name="RAFL10"/>
+  <columns dataType="CHAR" length="1" name="RAFL11"/>
+  <columns dataType="CHAR" length="1" name="RAFL12"/>
+  <columns dataType="CHAR" length="1" name="RAFL13"/>
+  <columns dataType="CHAR" length="1" name="RAFL14"/>
+  <columns dataType="CHAR" length="1" name="RAFL15"/>
+  <columns dataType="CHAR" length="1" name="RAFL16"/>
+  <columns dataType="CHAR" length="1" name="RAFL17"/>
+  <columns dataType="CHAR" length="1" name="RAFL18"/>
+  <columns dataType="CHAR" length="1" name="RAFL19"/>
+  <columns dataType="CHAR" length="1" name="RAFL20"/>
+  <columns dataType="CHAR" length="1" name="RAFL21"/>
+  <columns dataType="CHAR" length="1" name="RAFL22"/>
+  <columns dataType="CHAR" length="1" name="RAFL23"/>
+  <columns dataType="CHAR" length="1" name="RAFL24"/>
+  <columns dataType="CHAR" length="1" name="RAFL25"/>
+  <columns dataType="CHAR" length="1" name="RAFL26"/>
+  <columns dataType="CHAR" length="1" name="RAFL27"/>
+  <columns dataType="CHAR" length="1" name="RAFL28"/>
+  <columns dataType="CHAR" length="1" name="RAFL29"/>
+  <columns dataType="CHAR" length="1" name="RAFL30"/>
+  <columns dataType="CHAR" length="1" name="RAFL31"/>
+  <columns dataType="CHAR" length="1" name="RAFL32"/>
+  <columns dataType="CHAR" length="1" name="RAFL33"/>
+  <columns dataType="CHAR" length="1" name="RAFL34"/>
+  <columns dataType="CHAR" length="1" name="RAFL35"/>
+  <columns dataType="CHAR" length="1" name="RAFL36"/>
+  <columns dataType="CHAR" length="1" name="RAFL37"/>
+  <columns dataType="CHAR" length="1" name="RAFL38"/>
+  <columns dataType="CHAR" length="1" name="RAFL39"/>
+  <columns dataType="CHAR" length="1" name="RAFL40"/>
+  <columns dataType="DECIMAL" length="8" name="RADTIN"/>
+  <columns dataType="DECIMAL" length="6" name="RAORIN"/>
+  <columns dataType="CHAR" length="10" name="RAUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="RADTAG"/>
+  <columns dataType="DECIMAL" length="6" name="RAORAG"/>
+  <columns dataType="CHAR" length="10" name="RAUSAG"/>
+</db-core:TableDef>

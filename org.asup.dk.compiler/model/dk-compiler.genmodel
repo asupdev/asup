@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.dk.compiler/src" modelPluginID="org.asup.dk.compiler"
+    modelName="As.UP Devolopment Kit Compiler" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressEMFTypes="true" booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" language="" usedGenPackages="../../org.asup.db.core/model/db-core.genmodel#//core ../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.flow/model/il-flow.genmodel#//flow ../../org.asup.il.isam/model/il-isam.genmodel#//isam ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type.file/model/os-type-file.genmodel#//file ../../org.asup.os.type.module/model/os-type-module.genmodel#//module ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type.pgm/model/os-type-pgm.genmodel#//pgm ../../org.asup.os.type/model/os-type.genmodel#//type"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>dk-compiler.ecore</foreignModel>
+  <genPackages prefix="Compiler" basePackage="org.asup.dk" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="dk-compiler.ecore#/">
+    <genClasses image="false" ecoreClass="dk-compiler.ecore#//CompilationContext">
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getDataSet">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getDataSet/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getDataSet/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getData">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getData/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getData/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getModule">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getModule/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getModule/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getNamedNode">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getNamedNode/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getNamedNode/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getProcedure">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getProcedure/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getProcedure/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getPrototype">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getPrototype/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getPrototype/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getRoutine">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getRoutine/name"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getRoutine/deep"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getQualifiedName">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getQualifiedName/namedNode"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getUnitContext"/>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/linkDataSet">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/linkDataSet/dataSet"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilationContext/getPhysicalFile">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilationContext/getPhysicalFile/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dk-compiler.ecore#//UnitConverter">
+      <genOperations ecoreOperation="dk-compiler.ecore#//UnitConverter/convertModule">
+        <genParameters ecoreParameter="dk-compiler.ecore#//UnitConverter/convertModule/job"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//UnitConverter/convertModule/module"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//UnitConverter/convertProgram">
+        <genParameters ecoreParameter="dk-compiler.ecore#//UnitConverter/convertProgram/job"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//UnitConverter/convertProgram/program"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dk-compiler.ecore#//UnitConverterRegistry"/>
+    <genClasses image="false" ecoreClass="dk-compiler.ecore#//CompilerManager">
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilerManager/createChildContext">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/createChildContext/master"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/createChildContext/procedure"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilerManager/createCompilationContext">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/createCompilationContext/job"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/createCompilationContext/module"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilerManager/createCompilationContext.1">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/createCompilationContext.1/job"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/createCompilationContext.1/program"/>
+      </genOperations>
+      <genOperations ecoreOperation="dk-compiler.ecore#//CompilerManager/prepareVisitor">
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/prepareVisitor/context"/>
+        <genParameters ecoreParameter="dk-compiler.ecore#//CompilerManager/prepareVisitor/visitor"/>
+        <genTypeParameters ecoreTypeParameter="dk-compiler.ecore#//CompilerManager/prepareVisitor/T"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

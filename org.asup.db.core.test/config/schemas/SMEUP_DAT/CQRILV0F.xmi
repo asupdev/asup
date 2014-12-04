@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="Q&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="Q&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="Q&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;LOTI"/>
+  <columns dataType="DECIMAL" length="4" name="Q&#xa7;RIGC"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="6" name="Q&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="6" name="Q&#xa7;CFAC"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;CLIV"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa7;COER"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa7;ESCO"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DATC"/>
+  <columns dataType="DECIMAL" length="4" name="Q&#xa7;ORAC" scale="2"/>
+  <columns dataType="DECIMAL" length="9" name="Q&#xa7;QCNT" scale="3"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;NUD1"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;NUD2"/>
+</db-core:TableDef>

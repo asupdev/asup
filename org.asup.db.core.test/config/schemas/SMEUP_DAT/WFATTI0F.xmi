@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="F4AZIE"/>
+  <columns dataType="CHAR" length="1" name="F4LIVE"/>
+  <columns dataType="CHAR" length="2" name="F4STAT"/>
+  <columns dataType="CHAR" length="10" name="F4NURE"/>
+  <columns dataType="CHAR" length="35" name="F4DESC"/>
+  <columns dataType="CHAR" length="10" name="F4NORD"/>
+  <columns dataType="CHAR" length="10" name="F4TRAN"/>
+  <columns dataType="CHAR" length="10" name="F4TIWF"/>
+  <columns dataType="CHAR" length="5" name="F4TIMP"/>
+  <columns dataType="CHAR" length="10" name="F4IMPE"/>
+  <columns dataType="CHAR" length="10" name="F4MAST"/>
+  <columns dataType="CHAR" length="10" name="F4IMAS"/>
+  <columns dataType="CHAR" length="10" name="F4AZIO"/>
+  <columns dataType="DECIMAL" length="8" name="F4DRIC"/>
+  <columns dataType="DECIMAL" length="6" name="F4HRIC"/>
+  <columns dataType="CHAR" length="2" name="F4TROR"/>
+  <columns dataType="CHAR" length="10" name="F4PROR"/>
+  <columns dataType="CHAR" length="15" name="F4RIOR"/>
+  <columns dataType="CHAR" length="2" name="F4TRSE"/>
+  <columns dataType="CHAR" length="10" name="F4PRSE"/>
+  <columns dataType="CHAR" length="15" name="F4RISE"/>
+  <columns dataType="DECIMAL" length="8" name="F4DT01"/>
+  <columns dataType="DECIMAL" length="8" name="F4DT02"/>
+  <columns dataType="DECIMAL" length="8" name="F4DT03"/>
+  <columns dataType="DECIMAL" length="8" name="F4DT04"/>
+  <columns dataType="DECIMAL" length="8" name="F4DT05"/>
+  <columns dataType="CHAR" length="15" name="F4AA01"/>
+  <columns dataType="CHAR" length="15" name="F4AA02"/>
+  <columns dataType="CHAR" length="15" name="F4AA03"/>
+  <columns dataType="CHAR" length="15" name="F4AA04"/>
+  <columns dataType="CHAR" length="15" name="F4AA05"/>
+  <columns dataType="DECIMAL" length="15" name="F4NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F4NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F4NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F4NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F4NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="F4FL01"/>
+  <columns dataType="CHAR" length="1" name="F4FL02"/>
+  <columns dataType="CHAR" length="1" name="F4FL03"/>
+  <columns dataType="CHAR" length="1" name="F4FL04"/>
+  <columns dataType="CHAR" length="1" name="F4FL05"/>
+  <columns dataType="CHAR" length="1" name="F4FL06"/>
+  <columns dataType="CHAR" length="1" name="F4FL07"/>
+  <columns dataType="CHAR" length="1" name="F4FL08"/>
+  <columns dataType="CHAR" length="1" name="F4FL09"/>
+  <columns dataType="CHAR" length="1" name="F4FL10"/>
+  <columns dataType="CHAR" length="1" name="F4FL11"/>
+  <columns dataType="CHAR" length="1" name="F4FL12"/>
+  <columns dataType="CHAR" length="1" name="F4FL13"/>
+  <columns dataType="CHAR" length="1" name="F4FL14"/>
+  <columns dataType="CHAR" length="1" name="F4FL15"/>
+  <columns dataType="CHAR" length="1" name="F4FL16"/>
+  <columns dataType="CHAR" length="1" name="F4FL17"/>
+  <columns dataType="CHAR" length="1" name="F4FL18"/>
+  <columns dataType="CHAR" length="1" name="F4FL19"/>
+  <columns dataType="CHAR" length="1" name="F4FL20"/>
+  <columns dataType="DECIMAL" length="8" name="F4DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="F4ORIN"/>
+  <columns dataType="CHAR" length="10" name="F4USIN"/>
+  <columns dataType="DECIMAL" length="8" name="F4DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="F4ORAG"/>
+  <columns dataType="CHAR" length="10" name="F4USAG"/>
+</db-core:TableDef>

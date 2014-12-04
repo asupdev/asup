@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="MMDNEG"/>
+  <columns dataType="DECIMAL" length="8" name="MMDDAT"/>
+  <columns dataType="CHAR" length="15" name="MMDART"/>
+  <columns dataType="CHAR" length="3" name="MMDCL1"/>
+  <columns dataType="CHAR" length="3" name="MMDCL2"/>
+  <columns dataType="CHAR" length="3" name="MMDCL3"/>
+  <columns dataType="CHAR" length="4" name="MMDMAR"/>
+  <columns dataType="DECIMAL" length="18" name="MMDIMP" scale="3"/>
+  <columns dataType="CHAR" length="2" name="MMDIVA"/>
+  <columns dataType="DECIMAL" length="18" name="MMDCST" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="MMDQTA" scale="3"/>
+  <columns dataType="DECIMAL" length="18" name="MMDSCV" scale="3"/>
+</db-core:TableDef>

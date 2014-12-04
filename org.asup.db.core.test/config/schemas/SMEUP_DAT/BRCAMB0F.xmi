@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="C&#xa3;STAT"/>
+  <columns dataType="CHAR" length="4" name="C&#xa3;DIVI"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa3;DATA"/>
+  <columns dataType="CHAR" length="3" name="C&#xa3;TIPO"/>
+  <columns dataType="DECIMAL" length="12" name="C&#xa3;CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="C&#xa3;DFIC"/>
+</db-core:TableDef>

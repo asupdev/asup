@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="O&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="O&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="O&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="O&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="O&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="O&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="O&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="O&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="O&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="O&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="20" name="O&#xa7;CLIB"/>
+  <columns dataType="CHAR" length="15" name="O&#xa7;LOTI"/>
+  <columns dataType="CHAR" length="3" name="O&#xa7;TPOR"/>
+  <columns dataType="CHAR" length="10" name="O&#xa7;NOCF"/>
+  <columns dataType="CHAR" length="6" name="O&#xa7;CRIG"/>
+  <columns dataType="DECIMAL" length="11" name="O&#xa7;QRFO" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="O&#xa7;QRIC" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="O&#xa7;DCON"/>
+  <columns dataType="DECIMAL" length="8" name="O&#xa7;DPRE"/>
+</db-core:TableDef>

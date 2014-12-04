@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="G&#xa7;TIGC"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;SOGC"/>
+  <columns dataType="CHAR" length="3" name="G&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;COD4"/>
+  <columns dataType="CHAR" length="2" name="G&#xa7;STAT"/>
+  <columns dataType="CHAR" length="15" name="G&#xa7;NCOL"/>
+  <columns dataType="DECIMAL" length="11" name="G&#xa7;QTGZ" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="G&#xa7;QTAL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="G&#xa7;QTAT" scale="3"/>
+</db-core:TableDef>

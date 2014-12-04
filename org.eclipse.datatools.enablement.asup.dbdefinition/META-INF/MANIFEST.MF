@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse Data Tools Platform As.UP Definition
+Bundle-SymbolicName: org.eclipse.datatools.enablement.asup.dbdefinition;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

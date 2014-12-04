@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.os.type.cmd/src" editDirectory="/org.asup.os.type.cmd.edit/src"
+    editorDirectory="/org.asup.os.type.cmd.editor/src" modelPluginID="org.asup.os.type.cmd"
+    runtimeJar="true" modelName="As.UP Operating System Command" editPluginClass="org.asup.os.type.cmd.provider.AsUPOSCommandCoreEditPlugin"
+    editorPluginClass="org.asup.os.type.cmd.presentation.AsUPOSCommandCoreEditorPlugin"
+    rootExtendsInterface="" rootImplementsInterface="" suppressEMFTypes="true" testsDirectory="/org.asup.os.type.cmd.tests/src"
+    testSuiteClass="org.asup.os.type.cmd.tests.AsUPOperatingSystemCommandAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    editPluginID="org.asup.os.type.cmd.edit" editorPluginID="org.asup.os.type.cmd.editor"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac"
+    interfaceNamePattern="Q{0}">
+  <foreignModel>os-type-cmd.ecore</foreignModel>
+  <genPackages prefix="OperatingSystemCommand" basePackage="org.asup.os.type" disposableProviderFactory="true"
+      adapterFactory="false" fileExtensions="" ecorePackage="os-type-cmd.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="os-type-cmd.ecore#//CommandStatus">
+      <genEnumLiterals ecoreEnumLiteral="os-type-cmd.ecore#//CommandStatus/Possible"/>
+      <genEnumLiterals ecoreEnumLiteral="os-type-cmd.ecore#//CommandStatus/Supported"/>
+      <genEnumLiterals ecoreEnumLiteral="os-type-cmd.ecore#//CommandStatus/Unsupported"/>
+      <genEnumLiterals ecoreEnumLiteral="os-type-cmd.ecore#//CommandStatus/Todo"/>
+    </genEnums>
+    <genClasses ecoreClass="os-type-cmd.ecore#//CallableCommand">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference os-type-cmd.ecore#//CallableCommand/command"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CallableCommand/commandString"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CallableCommand/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-cmd.ecore#//CallableCommand/dataContext"/>
+    </genClasses>
+    <genClasses ecoreClass="os-type-cmd.ecore#//Command">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//Command/allowBatch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-cmd.ecore#//Command/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//Command/program"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-cmd.ecore#//Command/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//Command/status"/>
+      <genOperations ecoreOperation="os-type-cmd.ecore#//Command/getParameter">
+        <genParameters ecoreParameter="os-type-cmd.ecore#//Command/getParameter/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="os-type-cmd.ecore#//CommandContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandContainer/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type-cmd.ecore#//CommandManager">
+      <genOperations ecoreOperation="os-type-cmd.ecore#//CommandManager/prepareCommand">
+        <genParameters ecoreParameter="os-type-cmd.ecore#//CommandManager/prepareCommand/contextID"/>
+        <genParameters ecoreParameter="os-type-cmd.ecore#//CommandManager/prepareCommand/command"/>
+        <genParameters ecoreParameter="os-type-cmd.ecore#//CommandManager/prepareCommand/variables"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-cmd.ecore#//CommandManager/executeCommand">
+        <genParameters ecoreParameter="os-type-cmd.ecore#//CommandManager/executeCommand/contextID"/>
+        <genParameters ecoreParameter="os-type-cmd.ecore#//CommandManager/executeCommand/command"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="os-type-cmd.ecore#//CommandParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandParameter/allowVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-cmd.ecore#//CommandParameter/dataTerm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandParameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandParameter/position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandParameter/status"/>
+      <genOperations ecoreOperation="os-type-cmd.ecore#//CommandParameter/isCompound"/>
+      <genOperations ecoreOperation="os-type-cmd.ecore#//CommandParameter/isMany"/>
+      <genOperations ecoreOperation="os-type-cmd.ecore#//CommandParameter/isRequired"/>
+    </genClasses>
+    <genClasses ecoreClass="os-type-cmd.ecore#//CommandSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandSource/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-cmd.ecore#//CommandSource/content"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

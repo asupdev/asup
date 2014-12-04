@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="SFLTOA"/>
+  <columns dataType="CHAR" length="3" name="SFLTDA"/>
+  <columns dataType="CHAR" length="10" name="SFLNDA"/>
+  <columns dataType="CHAR" length="2" name="SFLTOC"/>
+  <columns dataType="CHAR" length="3" name="SFLTDC"/>
+  <columns dataType="CHAR" length="10" name="SFLNDC"/>
+  <columns dataType="DECIMAL" length="8" name="SFLDFI"/>
+  <columns dataType="DECIMAL" length="6" name="SFLHFI"/>
+</db-core:TableDef>

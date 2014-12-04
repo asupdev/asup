@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="R&#xa7;TCIC"/>
+  <columns dataType="CHAR" length="20" name="R&#xa7;CONF"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;CODI"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CICL"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;SQCI"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;STAT"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CVAD"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CVAA"/>
+  <columns dataType="CHAR" length="30" name="R&#xa7;DSEC"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;TOPE"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;RISO"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;GRAL"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;CODC"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CICC"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;SQCC"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;CRSE"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;PAS1"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;PAS2"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;UMTE"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE10" scale="4"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL05"/>
+  <columns dataType="CHAR" length="50" name="R&#xa7;NOTA"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DINV"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DFNV"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;USAG"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL10"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL11"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL12"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL13"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL14"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL20"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR01" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR02" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR03" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR04" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR05" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR06" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR07" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR08" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR09" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="R&#xa7;NR10" scale="9"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT05"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT06"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT07"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT08"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT09"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DT10"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF01"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF02"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF03"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF04"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF05"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF06"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF07"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF08"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF09"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;AF10"/>
+</db-core:TableDef>

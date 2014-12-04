@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="Q&#xa3;TIPO"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa3;COD1"/>
+  <columns dataType="CHAR" length="15" name="Q&#xa3;COD2"/>
+  <columns dataType="CHAR" length="2" name="Q&#xa3;SIGN"/>
+  <columns dataType="CHAR" length="3" name="C&#xa3;SVIL"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT01"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT02"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT03"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT04"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT05"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT06"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT07"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT08"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT09"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT10"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT11"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT12"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT13"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT14"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa3;QT15"/>
+</db-core:TableDef>

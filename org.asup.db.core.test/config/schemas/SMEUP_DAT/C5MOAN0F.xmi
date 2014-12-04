@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="A5AZIE"/>
+  <columns dataType="CHAR" length="3" name="A5DIVI"/>
+  <columns dataType="CHAR" length="10" name="A5ESER"/>
+  <columns dataType="CHAR" length="1" name="A5LIVE"/>
+  <columns dataType="CHAR" length="2" name="A5STAT"/>
+  <columns dataType="CHAR" length="3" name="A5SOCI"/>
+  <columns dataType="CHAR" length="3" name="A5SOCO"/>
+  <columns dataType="CHAR" length="10" name="A5IDOJ"/>
+  <columns dataType="CHAR" length="3" name="A5CAUS"/>
+  <columns dataType="CHAR" length="3" name="A5CAUC"/>
+  <columns dataType="CHAR" length="30" name="A5DESC"/>
+  <columns dataType="CHAR" length="20" name="A5NDOR"/>
+  <columns dataType="CHAR" length="15" name="A5CONT"/>
+  <columns dataType="CHAR" length="3" name="A5TPCN"/>
+  <columns dataType="CHAR" length="15" name="A5SOGG"/>
+  <columns dataType="CHAR" length="12" name="A5TPRO"/>
+  <columns dataType="CHAR" length="15" name="A5NPRO"/>
+  <columns dataType="DECIMAL" length="5" name="A5RIGA"/>
+  <columns dataType="CHAR" length="12" name="A5TPOR"/>
+  <columns dataType="CHAR" length="15" name="A5CDOR"/>
+  <columns dataType="DECIMAL" length="8" name="A5DREG"/>
+  <columns dataType="DECIMAL" length="8" name="A5DCOM"/>
+  <columns dataType="DECIMAL" length="8" name="A5DDOR"/>
+  <columns dataType="DECIMAL" length="8" name="A5DPRO"/>
+  <columns dataType="CHAR" length="12" name="A5TPN1"/>
+  <columns dataType="CHAR" length="15" name="A5CDN1"/>
+  <columns dataType="CHAR" length="12" name="A5TPN2"/>
+  <columns dataType="CHAR" length="15" name="A5CDN2"/>
+  <columns dataType="CHAR" length="12" name="A5TPN3"/>
+  <columns dataType="CHAR" length="15" name="A5CDN3"/>
+  <columns dataType="CHAR" length="12" name="A5TPD1"/>
+  <columns dataType="CHAR" length="15" name="A5CDD1"/>
+  <columns dataType="CHAR" length="12" name="A5TPD2"/>
+  <columns dataType="CHAR" length="15" name="A5CDD2"/>
+  <columns dataType="CHAR" length="12" name="A5TPD3"/>
+  <columns dataType="CHAR" length="15" name="A5CDD3"/>
+  <columns dataType="CHAR" length="1" name="A5DAAV"/>
+  <columns dataType="CHAR" length="4" name="A5VALU"/>
+  <columns dataType="DECIMAL" length="12" name="A5CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="A5IMPO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="A5IMVA" scale="6"/>
+  <columns dataType="CHAR" length="4" name="A5VALE"/>
+  <columns dataType="DECIMAL" length="12" name="A5CAME" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="A5IMVE" scale="6"/>
+  <columns dataType="CHAR" length="2" name="A5UNMS"/>
+  <columns dataType="DECIMAL" length="21" name="A5QUAN" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="A5DT01"/>
+  <columns dataType="DECIMAL" length="8" name="A5DT02"/>
+  <columns dataType="DECIMAL" length="8" name="A5DT03"/>
+  <columns dataType="DECIMAL" length="8" name="A5DT04"/>
+  <columns dataType="DECIMAL" length="8" name="A5DT05"/>
+  <columns dataType="CHAR" length="15" name="A5AA01"/>
+  <columns dataType="CHAR" length="15" name="A5AA02"/>
+  <columns dataType="CHAR" length="15" name="A5AA03"/>
+  <columns dataType="CHAR" length="15" name="A5AA04"/>
+  <columns dataType="CHAR" length="15" name="A5AA05"/>
+  <columns dataType="DECIMAL" length="15" name="A5NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A5NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A5NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A5NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A5NU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="A5FL01"/>
+  <columns dataType="CHAR" length="1" name="A5FL02"/>
+  <columns dataType="CHAR" length="1" name="A5FL03"/>
+  <columns dataType="CHAR" length="1" name="A5FL04"/>
+  <columns dataType="CHAR" length="1" name="A5FL05"/>
+  <columns dataType="CHAR" length="1" name="A5FL06"/>
+  <columns dataType="CHAR" length="1" name="A5FL07"/>
+  <columns dataType="CHAR" length="1" name="A5FL08"/>
+  <columns dataType="CHAR" length="1" name="A5FL09"/>
+  <columns dataType="CHAR" length="1" name="A5FL10"/>
+  <columns dataType="CHAR" length="1" name="A5FL11"/>
+  <columns dataType="CHAR" length="1" name="A5FL12"/>
+  <columns dataType="CHAR" length="1" name="A5FL13"/>
+  <columns dataType="CHAR" length="1" name="A5FL14"/>
+  <columns dataType="CHAR" length="1" name="A5FL15"/>
+  <columns dataType="CHAR" length="1" name="A5FL16"/>
+  <columns dataType="CHAR" length="1" name="A5FL17"/>
+  <columns dataType="CHAR" length="1" name="A5FL18"/>
+  <columns dataType="CHAR" length="1" name="A5FL19"/>
+  <columns dataType="CHAR" length="1" name="A5FL20"/>
+  <columns dataType="CHAR" length="1" name="A5FL21"/>
+  <columns dataType="CHAR" length="1" name="A5FL22"/>
+  <columns dataType="CHAR" length="1" name="A5FL23"/>
+  <columns dataType="CHAR" length="1" name="A5FL24"/>
+  <columns dataType="CHAR" length="1" name="A5FL25"/>
+  <columns dataType="CHAR" length="1" name="A5FL26"/>
+  <columns dataType="CHAR" length="1" name="A5FL27"/>
+  <columns dataType="CHAR" length="1" name="A5FL28"/>
+  <columns dataType="CHAR" length="1" name="A5FL29"/>
+  <columns dataType="CHAR" length="1" name="A5FL30"/>
+  <columns dataType="CHAR" length="1" name="A5FL31"/>
+  <columns dataType="CHAR" length="1" name="A5FL32"/>
+  <columns dataType="CHAR" length="1" name="A5FL33"/>
+  <columns dataType="CHAR" length="1" name="A5FL34"/>
+  <columns dataType="CHAR" length="1" name="A5FL35"/>
+  <columns dataType="CHAR" length="1" name="A5FL36"/>
+  <columns dataType="CHAR" length="1" name="A5FL37"/>
+  <columns dataType="CHAR" length="1" name="A5FL38"/>
+  <columns dataType="CHAR" length="1" name="A5FL39"/>
+  <columns dataType="CHAR" length="1" name="A5FL40"/>
+  <columns dataType="DECIMAL" length="8" name="A5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="A5ORIN"/>
+  <columns dataType="CHAR" length="10" name="A5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="A5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="A5ORAG"/>
+  <columns dataType="CHAR" length="10" name="A5USAG"/>
+</db-core:TableDef>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="E$TCOS"/>
+  <columns dataType="CHAR" length="15" name="E$ASSI"/>
+  <columns dataType="CHAR" length="15" name="E$COMP"/>
+  <columns dataType="CHAR" length="4" name="E$FASE"/>
+  <columns dataType="CHAR" length="5" name="E$COER"/>
+  <columns dataType="CHAR" length="2" name="E$TIER"/>
+  <columns dataType="DECIMAL" length="2" name="E$GRER"/>
+  <columns dataType="DECIMAL" length="3" name="E$TOER"/>
+</db-core:TableDef>

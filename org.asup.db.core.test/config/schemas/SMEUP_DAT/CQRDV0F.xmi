@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="R&#xa7;TRDV"/>
+  <columns dataType="CHAR" length="7" name="R&#xa7;CRDV"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;ESOG"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;SOGG"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;EOGG"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;OGGE"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;CABI"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;TQLF"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;PRIF"/>
+  <columns dataType="CHAR" length="50" name="R&#xa7;NOT1"/>
+  <columns dataType="CHAR" length="50" name="R&#xa7;NOT2"/>
+  <columns dataType="CHAR" length="50" name="R&#xa7;NOT3"/>
+  <columns dataType="CHAR" length="50" name="R&#xa7;NOT4"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTIQ"/>
+  <columns dataType="DECIMAL" length="3" name="R&#xa7;INTE"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTFQ"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;EEMI"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;EMIT"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTEM"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;EAPP"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;APPR"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTAP"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;STAP"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTCR"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTMR"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;UTEN"/>
+</db-core:TableDef>

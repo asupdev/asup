@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="M&#xa7;APPL"/>
+  <columns dataType="CHAR" length="5" name="M&#xa7;ASST"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;ASK1"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;ASK2"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;ASK3"/>
+  <columns dataType="CHAR" length="5" name="M&#xa7;COMT"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;COK1"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;COK2"/>
+  <columns dataType="CHAR" length="15" name="M&#xa7;COK3"/>
+</db-core:TableDef>

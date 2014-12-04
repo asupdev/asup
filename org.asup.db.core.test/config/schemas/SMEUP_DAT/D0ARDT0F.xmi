@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="D&#xa7;TIPD"/>
+  <columns dataType="CHAR" length="20" name="D&#xa7;CONF"/>
+  <columns dataType="CHAR" length="15" name="D&#xa7;ARTI"/>
+  <columns dataType="DECIMAL" length="5" name="D&#xa7;NRUT"/>
+  <columns dataType="DECIMAL" length="5" name="D&#xa7;NRCO"/>
+  <columns dataType="DECIMAL" length="5" name="D&#xa7;LOLE"/>
+  <columns dataType="DECIMAL" length="5" name="D&#xa7;LOLW"/>
+</db-core:TableDef>

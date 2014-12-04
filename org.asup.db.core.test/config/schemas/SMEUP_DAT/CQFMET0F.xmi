@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="T&#xa7;ANNU"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;STFM"/>
+  <columns dataType="CHAR" length="4" name="T&#xa7;MQTD"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;NUDO"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;CLIS"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;ATGR"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ACO1"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ACO2"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ACO3"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DADO"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIEC"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;COEC"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIE0"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ENT0"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIE1"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ENT1"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIE2"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ENT2"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIE3"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ENT3"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIE4"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ENT4"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;TIE5"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ENT5"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;ADPR"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;NUAP"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ARAL"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;ORIC"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG5"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DTCR"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DTMR"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;UTEN"/>
+</db-core:TableDef>

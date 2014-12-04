@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="Q&#xa7;ANNU"/>
+  <columns dataType="CHAR" length="4" name="Q&#xa7;CPDC"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM1"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM2"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM3"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM4"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM5"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM6"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;CAM7"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DTCR"/>
+  <columns dataType="CHAR" length="10" name="Q&#xa7;UTEN"/>
+  <columns dataType="DECIMAL" length="8" name="Q&#xa7;DTMR"/>
+</db-core:TableDef>

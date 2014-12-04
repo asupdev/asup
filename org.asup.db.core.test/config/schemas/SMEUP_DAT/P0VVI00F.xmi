@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="V&#xa7;COVI"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;CODV"/>
+  <columns dataType="CHAR" length="30" name="V&#xa7;NOME"/>
+  <columns dataType="CHAR" length="3" name="V&#xa7;TIAP"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;CODT"/>
+  <columns dataType="CHAR" length="30" name="V&#xa7;DECT"/>
+  <columns dataType="CHAR" length="3" name="V&#xa7;STAT"/>
+  <columns dataType="DECIMAL" length="4" name="V&#xa7;HRIV" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="V&#xa7;HRFV" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DINV"/>
+  <columns dataType="DECIMAL" length="8" name="V&#xa7;DFNV"/>
+  <columns dataType="CHAR" length="15" name="V&#xa7;CONI"/>
+  <columns dataType="CHAR" length="30" name="V&#xa7;DECI"/>
+  <columns dataType="CHAR" length="3" name="V&#xa7;TIPV"/>
+  <columns dataType="CHAR" length="40" name="V&#xa7;NOT1"/>
+  <columns dataType="CHAR" length="40" name="V&#xa7;NOT2"/>
+</db-core:TableDef>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="O$COAR"/>
+  <columns dataType="CHAR" length="3" name="O$TCOS"/>
+  <columns dataType="CHAR" length="4" name="O$OPSQ"/>
+  <columns dataType="DECIMAL" length="15" name="O$LEV1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LEF1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LEA1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LES1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LAV1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LAF1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LAA1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$LAS1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$MCV1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$MCF1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$MCA1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="O$MCS1" scale="5"/>
+</db-core:TableDef>

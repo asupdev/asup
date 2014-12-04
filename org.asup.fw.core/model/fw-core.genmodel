@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.fw.core/src" modelPluginID="org.asup.fw.core" modelName="As.UP Framework Core"
+    rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" editPluginID="org.asup.fw.core.edit" editorPluginID="org.asup.fw.core.editor"
+    language="EN" usedGenPackages="../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    interfaceNamePattern="Q{0}" classNamePattern="" importOrganizing="true">
+  <foreignModel>fw-core.ecore</foreignModel>
+  <genPackages prefix="FrameworkCore" basePackage="org.asup.fw" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="fw-core.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fw-core.ecore#//ServiceStatus">
+      <genEnumLiterals ecoreEnumLiteral="fw-core.ecore#//ServiceStatus/Active"/>
+      <genEnumLiterals ecoreEnumLiteral="fw-core.ecore#//ServiceStatus/Stopped"/>
+      <genEnumLiterals ecoreEnumLiteral="fw-core.ecore#//ServiceStatus/Testing"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="fw-core.ecore#//FrameworkCoreException"/>
+    <genDataTypes ecoreDataType="fw-core.ecore#//FrameowrkCoreRuntimeException"/>
+    <genClasses ecoreClass="fw-core.ecore#//Application">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//Application/hooks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//Application/levels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//Application/text"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-core.ecore#//ApplicationLevel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//ApplicationLevel/hooks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ApplicationLevel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//ApplicationLevel/modules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ApplicationLevel/value"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-core.ecore#//ApplicationModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ApplicationModule/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//ApplicationModule/services"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//Context">
+      <genOperations ecoreOperation="fw-core.ecore#//Context/createChild"/>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/get">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/get/clazz"/>
+        <genTypeParameters ecoreTypeParameter="fw-core.ecore#//Context/get/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/inject">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/inject/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/loadClass">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/loadClass/contextID"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Context/loadClass/address"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/invoke">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/invoke/object"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Context/invoke/qualifier"/>
+        <genTypeParameters ecoreTypeParameter="fw-core.ecore#//Context/invoke/A"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/make">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/make/klass"/>
+        <genTypeParameters ecoreTypeParameter="fw-core.ecore#//Context/make/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/set">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/set/klass"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Context/set/object"/>
+        <genTypeParameters ecoreTypeParameter="fw-core.ecore#//Context/set/T"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Context/set.1">
+        <genParameters ecoreParameter="fw-core.ecore#//Context/set.1/name"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Context/set.1/object"/>
+        <genTypeParameters ecoreTypeParameter="fw-core.ecore#//Context/set.1/T"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//ContextID">
+      <genOperations ecoreOperation="fw-core.ecore#//ContextID/getID"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//Logger">
+      <genOperations ecoreOperation="fw-core.ecore#//Logger/info">
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/info/message"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Logger/info.1">
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/info.1/message"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/info.1/throwable"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Logger/warning">
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/warning/message"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Logger/warning.1">
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/warning.1/message"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/warning.1/throwable"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Logger/error">
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/error/message"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//Logger/error.1">
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/error.1/message"/>
+        <genParameters ecoreParameter="fw-core.ecore#//Logger/error.1/throwable"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//Plugin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//Plugin/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//Plugin/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//Plugin/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//Plugin/vendor"/>
+      <genOperations ecoreOperation="fw-core.ecore#//Plugin/getPluginID"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//PluginRegistry">
+      <genTypeParameters ecoreTypeParameter="fw-core.ecore#//PluginRegistry/T"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fw-core.ecore#//PluginRegistry/store"/>
+      <genOperations ecoreOperation="fw-core.ecore#//PluginRegistry/lookup">
+        <genParameters ecoreParameter="fw-core.ecore#//PluginRegistry/lookup/name"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-core.ecore#//PluginRegistry/list"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//PluginRegistryFactory">
+      <genOperations ecoreOperation="fw-core.ecore#//PluginRegistryFactory/createPluginRegistry">
+        <genParameters ecoreParameter="fw-core.ecore#//PluginRegistryFactory/createPluginRegistry/pluginClass"/>
+        <genTypeParameters ecoreTypeParameter="fw-core.ecore#//PluginRegistryFactory/createPluginRegistry/T"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//Service">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//Service/config"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-core.ecore#//ServiceConfig"/>
+    <genClasses ecoreClass="fw-core.ecore#//ServiceHook"/>
+    <genClasses ecoreClass="fw-core.ecore#//ServicePlugin">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//ServicePlugin/services"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-core.ecore#//ServicePluginRegistry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//ServicePluginRegistry/services"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ServicePluginRegistry/pluginInterface"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-core.ecore#//ServiceReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ServiceReference/className"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ServiceReference/interfaceName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-core.ecore#//ServiceReference/config"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ServiceReference/remoteExport"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-core.ecore#//ServiceReference/status"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

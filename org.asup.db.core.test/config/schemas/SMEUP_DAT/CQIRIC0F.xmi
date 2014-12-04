@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="I&#xa7;ANNU"/>
+  <columns dataType="CHAR" length="2" name="I&#xa7;GRUP"/>
+  <columns dataType="CHAR" length="2" name="I&#xa7;ERIF"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;ETIP"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;EKY1"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;EKY2"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;EKY3"/>
+  <columns dataType="CHAR" length="1" name="I&#xa7;EANN"/>
+  <columns dataType="CHAR" length="2" name="I&#xa7;ORIF"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;OTIP"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;OKY1"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;OKY2"/>
+  <columns dataType="CHAR" length="15" name="I&#xa7;OKY3"/>
+  <columns dataType="CHAR" length="1" name="I&#xa7;OANN"/>
+</db-core:TableDef>

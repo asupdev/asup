@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="9" name="B&#xa7;NURE"/>
+  <columns dataType="CHAR" length="15" name="B&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="3" name="B&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="4" name="B&#xa7;CAMO"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;GRAR"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;ENUS"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;TIGC"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;ARES"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;ARPT"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;SOGC"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;SOSE"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DTRE"/>
+  <columns dataType="DECIMAL" length="2" name="B&#xa7;NPRO"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL05"/>
+</db-core:TableDef>

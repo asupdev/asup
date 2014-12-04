@@ -1,0 +1,73 @@
+$RULES
+
+--//*************************** rules that augment base grammar rules*********//
+
+-- returns ExtendedQuerySelect (subselect)
+<query_select> ::=
+            SELECT <opt_all_distinct> <selection>
+            FROM <table_ref_commalist>
+            <opt_where_clause>
+            <opt_group_by_clause>
+            <opt_having_clause>
+            <opt_order_by_clause>
+            <opt_fetch_first_clause>
+            <opt_optimize_clause>
+/. $BeginAction setSym1(m_factory.createQExtendedQuerySelect(getString(2),getList(3),getList(5),($RT_opt_where_clause)getSym(6),getList(7),($RT_opt_having_clause)getSym(8), getList(9), getInt(10), getInt(11))); $EndAction ./
+
+<opt_optimize_clause> ::=
+            <optimize_clause>
+        |   $empty
+        /. $BeginAction setInt1(0); $EndAction ./
+
+<optimize_clause> ::=
+         OPTIMIZE FOR <opt_optimize_row_count> <row_or_rows>
+                /. $BeginAction setInt1(getInt(3)); $EndAction ./
+
+<opt_optimize_row_count> ::=
+            <unsigned_integer>
+            /. $BeginAction
+                String rowCountStr = getTokenName(1);
+                int rowCount = 1;
+                try {
+                    rowCount = Integer.parseInt(rowCountStr);
+                }
+                catch(NumberFormatException e) {
+                    // ignore
+                }
+                setInt1(rowCount);
+                $EndAction ./
+        |  $empty
+                /. $BeginAction setInt1(1); $EndAction ./
+
+<table_qualified> ::=
+			<schema> _DOT <table> <opt_table_correlation>
+			/. $BeginAction setSym1(m_factory.createReferenceTable(getString(1), getString(3), ($RT_table_correlation)getSym(4))); $EndAction ./
+			|
+			<schema> _SLASH <table> <opt_table_correlation>
+			/. $BeginAction setSym1(m_factory.createReferenceTable(getString(1), getString(3), ($RT_table_correlation)getSym(4))); $EndAction ./
+			
+<project> ::=
+			<expression> <opt_as_alias>
+				/. $BeginAction setSym1(m_factory.createResultColumn(($RT_expression) getSym(1), getString(2))); $EndAction ./
+		|	_STAR
+				/. $BeginAction setSym1(null); $EndAction ./
+        |   <table> _DOT _STAR
+                /. $BeginAction setSym1(m_factory.createResultTableAllColumns(getString(1))); $EndAction ./
+		|   <table> _SLASH _STAR
+                /. $BeginAction setSym1(m_factory.createResultTableAllColumns(getString(1))); $EndAction ./		
+        |   <schema> _DOT <table> _DOT _STAR
+                /. $BeginAction setSym1(m_factory.createResultTableAllColumns(getString(3), getString(1))); $EndAction ./			
+		|   <schema> _SLASH <table> _SLASH _STAR
+			    /. $BeginAction setSym1(m_factory.createResultTableAllColumns(getString(3), getString(1))); $EndAction ./					
+					
+
+<target_table> ::=
+			<table>
+				/. $BeginAction setSym1(m_factory.createSimpleTable(null, getString(1))); $EndAction ./
+		|	<schema> _DOT <table>
+				/. $BeginAction setSym1(m_factory.createSimpleTable(getString(1), getString(3))); $EndAction ./
+		|	<schema> _SLASH <table>
+				/. $BeginAction setSym1(m_factory.createSimpleTable(getString(1), getString(3))); $EndAction ./		
+
+
+$End

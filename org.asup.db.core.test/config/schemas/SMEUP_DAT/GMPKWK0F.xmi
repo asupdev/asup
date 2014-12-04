@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="W&#xa7;SESS"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIDO"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;NRDM"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;UNMS"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TCDC"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CDCL"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TCDS"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CODS"/>
+  <columns dataType="DECIMAL" length="8" name="W&#xa7;DATA"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QT01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QT02" scale="3"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;UNMV"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;Q01V" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;Q02V" scale="3"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="W&#xa7;FL10"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QTRI" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="W&#xa7;QRIV" scale="3"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;TP01"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;PA01"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CD01"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;TP02"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;PA02"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CD02"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;TP03"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;PA03"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CD03"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;COD5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="W&#xa7;NUM5" scale="5"/>
+</db-core:TableDef>

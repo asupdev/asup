@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="L$COAR"/>
+  <columns dataType="CHAR" length="3" name="L$TCOS"/>
+  <columns dataType="CHAR" length="15" name="L$CLAR"/>
+  <columns dataType="CHAR" length="1" name="L$TREK"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAV1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAF1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAA1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAS1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAV2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAF2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAA2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="L$MAS2" scale="5"/>
+</db-core:TableDef>

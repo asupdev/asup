@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="A$TIP1"/>
+  <columns dataType="CHAR" length="15" name="A$OGG1"/>
+  <columns dataType="CHAR" length="12" name="A$TIP2"/>
+  <columns dataType="CHAR" length="15" name="A$OGG2"/>
+  <columns dataType="CHAR" length="1" name="A$LIVE"/>
+  <columns dataType="CHAR" length="2" name="A$STAT"/>
+  <columns dataType="CHAR" length="5" name="A$ATTI"/>
+  <columns dataType="CHAR" length="30" name="A$DESC"/>
+  <columns dataType="CHAR" length="12" name="A$TPES"/>
+  <columns dataType="CHAR" length="15" name="A$ESEC"/>
+  <columns dataType="CHAR" length="12" name="A$TPLG"/>
+  <columns dataType="CHAR" length="15" name="A$LUOG"/>
+  <columns dataType="CHAR" length="10" name="A$FREQ"/>
+  <columns dataType="CHAR" length="15" name="A$PARF"/>
+  <columns dataType="CHAR" length="10" name="A$COND"/>
+  <columns dataType="CHAR" length="15" name="A$PARC"/>
+  <columns dataType="CHAR" length="4" name="A$UMTP"/>
+  <columns dataType="DECIMAL" length="15" name="A$TEMP" scale="5"/>
+  <columns dataType="CHAR" length="15" name="A$COD1"/>
+  <columns dataType="CHAR" length="15" name="A$COD2"/>
+  <columns dataType="CHAR" length="15" name="A$COD3"/>
+  <columns dataType="CHAR" length="15" name="A$COD4"/>
+  <columns dataType="CHAR" length="15" name="A$COD5"/>
+  <columns dataType="DECIMAL" length="15" name="A$NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A$NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A$NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A$NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="A$NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="A$FL01"/>
+  <columns dataType="CHAR" length="1" name="A$FL02"/>
+  <columns dataType="CHAR" length="1" name="A$FL03"/>
+  <columns dataType="CHAR" length="1" name="A$FL04"/>
+  <columns dataType="CHAR" length="1" name="A$FL05"/>
+  <columns dataType="CHAR" length="1" name="A$FL06"/>
+  <columns dataType="CHAR" length="1" name="A$FL07"/>
+  <columns dataType="CHAR" length="1" name="A$FL08"/>
+  <columns dataType="CHAR" length="1" name="A$FL09"/>
+  <columns dataType="CHAR" length="1" name="A$FL10"/>
+</db-core:TableDef>

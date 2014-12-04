@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="Z&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="Z&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;CENR"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="6" name="Z&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="6" name="Z&#xa7;CFAC"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;CLIV"/>
+  <columns dataType="CHAR" length="3" name="Z&#xa7;CTCO"/>
+  <columns dataType="CHAR" length="4" name="Z&#xa7;CPDC"/>
+  <columns dataType="CHAR" length="4" name="Z&#xa7;LPDC"/>
+  <columns dataType="DECIMAL" length="6" name="Z&#xa7;CLQA" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="Z&#xa7;DAEE"/>
+  <columns dataType="CHAR" length="6" name="Z&#xa7;MQRL"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;TIEN"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;COEN"/>
+  <columns dataType="CHAR" length="10" name="Z&#xa7;MTRD"/>
+  <columns dataType="CHAR" length="2" name="Z&#xa7;RIFT"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;RIFC"/>
+  <columns dataType="CHAR" length="15" name="Z&#xa7;CCRR"/>
+  <columns dataType="CHAR" length="6" name="Z&#xa7;CCFR"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="Z&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="4" name="Z&#xa7;TRAT"/>
+</db-core:TableDef>

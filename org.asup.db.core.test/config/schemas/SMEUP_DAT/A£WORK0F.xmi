@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="AWIDOG"/>
+  <columns dataType="DECIMAL" length="8" name="AWDATA"/>
+  <columns dataType="DECIMAL" length="6" name="AWISTA"/>
+  <columns dataType="CHAR" length="10" name="AWDALF"/>
+  <columns dataType="CHAR" length="6" name="AWMODU"/>
+  <columns dataType="CHAR" length="12" name="AWTOGG"/>
+  <columns dataType="CHAR" length="15" name="AWCOGG"/>
+  <columns dataType="DECIMAL" length="21" name="AWNR01" scale="6"/>
+  <columns dataType="CHAR" length="2000" name="AWNOTA"/>
+  <columns dataType="CHAR" length="2000" name="AWNOT2"/>
+  <columns dataType="CHAR" length="1" name="AWFL01"/>
+  <columns dataType="CHAR" length="1" name="AWFL02"/>
+  <columns dataType="CHAR" length="10" name="AWUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="AWDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="AWORIN"/>
+  <columns dataType="CHAR" length="10" name="AWOGIN"/>
+  <columns dataType="CHAR" length="10" name="AWUSAG"/>
+  <columns dataType="DECIMAL" length="8" name="AWDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="AWORAG"/>
+  <columns dataType="CHAR" length="10" name="AWOGAG"/>
+</db-core:TableDef>

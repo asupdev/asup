@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated db-syntax -->
+      <package
+            uri="http://www.asup.org/db/syntax"
+            class="org.asup.db.syntax.QDatabaseSyntaxPackage"
+            genModel="model/db-syntax.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated db-syntax -->
+      <package
+            uri="http://www.asup.org/db/syntax/ddl"
+            class="org.asup.db.syntax.ddl.QDdlPackage"
+            genModel="model/db-syntax.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated db-syntax -->
+      <package
+            uri="http://www.asup.org/db/syntax/dml"
+            class="org.asup.db.syntax.dml.QDatabaseDMLPackage"
+            genModel="model/db-syntax.genmodel"/>
+   </extension>
+
+</plugin>

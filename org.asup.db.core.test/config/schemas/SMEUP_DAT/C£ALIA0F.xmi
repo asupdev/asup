@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="E$TIP1"/>
+  <columns dataType="CHAR" length="15" name="E$COD1"/>
+  <columns dataType="CHAR" length="12" name="E$TIP2"/>
+  <columns dataType="CHAR" length="15" name="E$COD2"/>
+  <columns dataType="CHAR" length="15" name="E$SCD2"/>
+  <columns dataType="CHAR" length="1" name="E$LIVE"/>
+  <columns dataType="CHAR" length="2" name="E$STAT"/>
+  <columns dataType="CHAR" length="15" name="E$CONT"/>
+  <columns dataType="CHAR" length="50" name="E$ALIA"/>
+  <columns dataType="CHAR" length="70" name="E$DESC"/>
+  <columns dataType="CHAR" length="15" name="E$CD01"/>
+  <columns dataType="CHAR" length="15" name="E$CD02"/>
+  <columns dataType="CHAR" length="15" name="E$CD03"/>
+  <columns dataType="CHAR" length="15" name="E$CD04"/>
+  <columns dataType="CHAR" length="15" name="E$CD05"/>
+  <columns dataType="DECIMAL" length="15" name="E$NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="E$FLG0"/>
+  <columns dataType="CHAR" length="1" name="E$FLG1"/>
+  <columns dataType="CHAR" length="1" name="E$FLG2"/>
+  <columns dataType="CHAR" length="1" name="E$FLG3"/>
+  <columns dataType="CHAR" length="1" name="E$FLG4"/>
+  <columns dataType="CHAR" length="1" name="E$FLG5"/>
+  <columns dataType="CHAR" length="1" name="E$FLG6"/>
+  <columns dataType="CHAR" length="1" name="E$FLG7"/>
+  <columns dataType="CHAR" length="1" name="E$FLG8"/>
+  <columns dataType="CHAR" length="1" name="E$FLG9"/>
+  <columns dataType="DECIMAL" length="8" name="E$DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="E$ORIN"/>
+  <columns dataType="CHAR" length="10" name="E$USIN"/>
+  <columns dataType="CHAR" length="10" name="E$OGIN"/>
+  <columns dataType="DECIMAL" length="8" name="E$DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="E$ORAG"/>
+  <columns dataType="CHAR" length="10" name="E$USAG"/>
+  <columns dataType="CHAR" length="10" name="E$OGAG"/>
+</db-core:TableDef>

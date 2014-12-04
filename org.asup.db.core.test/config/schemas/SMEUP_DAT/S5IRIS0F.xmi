@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="S6SCEN"/>
+  <columns dataType="CHAR" length="3" name="S6TIRS"/>
+  <columns dataType="CHAR" length="3" name="S6TSCH"/>
+  <columns dataType="CHAR" length="2" name="S6TORI"/>
+  <columns dataType="CHAR" length="3" name="S6TDOC"/>
+  <columns dataType="CHAR" length="10" name="S6NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="S6NRIG"/>
+  <columns dataType="CHAR" length="2" name="S6S$OR"/>
+  <columns dataType="CHAR" length="1" name="S6L$OR"/>
+  <columns dataType="CHAR" length="3" name="S6MAGC"/>
+  <columns dataType="CHAR" length="15" name="S6COAR"/>
+  <columns dataType="CHAR" length="20" name="S6CONF"/>
+  <columns dataType="CHAR" length="3" name="S6TIEN"/>
+  <columns dataType="CHAR" length="15" name="S6CLIE"/>
+  <columns dataType="CHAR" length="15" name="S6COMS"/>
+  <columns dataType="CHAR" length="2" name="S6PRIO"/>
+  <columns dataType="DECIMAL" length="11" name="S6QORD" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="S6DIRI"/>
+  <columns dataType="DECIMAL" length="8" name="S6DFRI"/>
+  <columns dataType="CHAR" length="10" name="S6NORF"/>
+  <columns dataType="CHAR" length="2" name="S6TORF"/>
+  <columns dataType="CHAR" length="10" name="S6PARF"/>
+  <columns dataType="CHAR" length="15" name="S6OGRF"/>
+  <columns dataType="CHAR" length="3" name="S6TDOR"/>
+  <columns dataType="CHAR" length="10" name="S6NDOR"/>
+  <columns dataType="DECIMAL" length="4" name="S6NRIR"/>
+  <columns dataType="DECIMAL" length="11" name="S6NREC"/>
+  <columns dataType="CHAR" length="10" name="S6IDOF"/>
+  <columns dataType="CHAR" length="6" name="S6OPER"/>
+  <columns dataType="CHAR" length="30" name="S6DEOP"/>
+  <columns dataType="CHAR" length="6" name="S6OPRI"/>
+  <columns dataType="CHAR" length="3" name="S6TIRP"/>
+  <columns dataType="CHAR" length="15" name="S6CLAV"/>
+  <columns dataType="CHAR" length="3" name="S6TIRF"/>
+  <columns dataType="CHAR" length="15" name="S6MACC"/>
+  <columns dataType="CHAR" length="2" name="S6TPRA"/>
+  <columns dataType="CHAR" length="10" name="S6PARA"/>
+  <columns dataType="CHAR" length="15" name="S6OGRA"/>
+  <columns dataType="CHAR" length="2" name="S6S$OP"/>
+  <columns dataType="CHAR" length="1" name="S6L$OP"/>
+  <columns dataType="CHAR" length="3" name="S6TCIC"/>
+  <columns dataType="CHAR" length="3" name="S6CICL"/>
+  <columns dataType="CHAR" length="3" name="S6TOPE"/>
+  <columns dataType="CHAR" length="5" name="S6GRAL"/>
+  <columns dataType="CHAR" length="15" name="S6CODC"/>
+  <columns dataType="CHAR" length="3" name="S6CICC"/>
+  <columns dataType="CHAR" length="6" name="S6SQCC"/>
+  <columns dataType="CHAR" length="12" name="S6UBIP"/>
+  <columns dataType="CHAR" length="12" name="S6UBID"/>
+  <columns dataType="CHAR" length="1" name="S6STOP"/>
+  <columns dataType="CHAR" length="2" name="S6UMIS"/>
+  <columns dataType="DECIMAL" length="11" name="S6QTOR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="S6QTOT" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="S6QTSC" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="S6QTFA" scale="3"/>
+  <columns dataType="CHAR" length="6" name="S6OPFA"/>
+  <columns dataType="DECIMAL" length="11" name="S6QT01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="S6QT02" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="S6QT03" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTUA"/>
+  <columns dataType="DECIMAL" length="15" name="S6HUNI" scale="5"/>
+  <columns dataType="DECIMAL" length="7" name="S6HTOT" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HATR" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HR01" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HR02" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HR03" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="S6EF01" scale="4"/>
+  <columns dataType="DECIMAL" length="6" name="S6EF02" scale="4"/>
+  <columns dataType="DECIMAL" length="6" name="S6EF03" scale="4"/>
+  <columns dataType="DECIMAL" length="6" name="S6EF04" scale="4"/>
+  <columns dataType="DECIMAL" length="5" name="S6QUET" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6GG01" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6GG02" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6GG03" scale="2"/>
+  <columns dataType="CHAR" length="2" name="S6UMTE"/>
+  <columns dataType="CHAR" length="2" name="S6CDCA"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6TE10" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="S6CC10" scale="4"/>
+  <columns dataType="CHAR" length="100" name="S6CROR"/>
+  <columns dataType="CHAR" length="3" name="S6TPRG"/>
+  <columns dataType="CHAR" length="10" name="S6CODR"/>
+  <columns dataType="DECIMAL" length="7" name="S6NUMR"/>
+  <columns dataType="CHAR" length="3" name="S6TIPF"/>
+  <columns dataType="CHAR" length="15" name="S6CODF"/>
+  <columns dataType="DECIMAL" length="5" name="S6PRGS"/>
+  <columns dataType="CHAR" length="1" name="S6TRIN"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="S6HRIN"/>
+  <columns dataType="CHAR" length="1" name="S6TRFI"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTFI"/>
+  <columns dataType="DECIMAL" length="6" name="S6HRFI"/>
+  <columns dataType="DECIMAL" length="8" name="S6DISC"/>
+  <columns dataType="DECIMAL" length="6" name="S6HISC"/>
+  <columns dataType="DECIMAL" length="8" name="S6DFSC"/>
+  <columns dataType="DECIMAL" length="6" name="S6HFSC"/>
+  <columns dataType="DECIMAL" length="8" name="S6DIST"/>
+  <columns dataType="DECIMAL" length="6" name="S6HIST"/>
+  <columns dataType="DECIMAL" length="8" name="S6DFST"/>
+  <columns dataType="DECIMAL" length="6" name="S6HFST"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTPP"/>
+  <columns dataType="DECIMAL" length="6" name="S6HRPP"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTPT"/>
+  <columns dataType="DECIMAL" length="6" name="S6HRPT"/>
+  <columns dataType="CHAR" length="2" name="S6VEIT"/>
+  <columns dataType="DECIMAL" length="8" name="S6VEID"/>
+  <columns dataType="DECIMAL" length="6" name="S6VEIH"/>
+  <columns dataType="CHAR" length="2" name="S6VEFT"/>
+  <columns dataType="DECIMAL" length="8" name="S6VEFD"/>
+  <columns dataType="DECIMAL" length="6" name="S6VEFH"/>
+  <columns dataType="CHAR" length="5" name="S6CAUS"/>
+  <columns dataType="DECIMAL" length="8" name="S6ID01"/>
+  <columns dataType="DECIMAL" length="6" name="S6IH01"/>
+  <columns dataType="DECIMAL" length="8" name="S6ID02"/>
+  <columns dataType="DECIMAL" length="6" name="S6IH02"/>
+  <columns dataType="DECIMAL" length="8" name="S6ID03"/>
+  <columns dataType="DECIMAL" length="6" name="S6IH03"/>
+  <columns dataType="DECIMAL" length="8" name="S6ID04"/>
+  <columns dataType="DECIMAL" length="6" name="S6IH04"/>
+  <columns dataType="DECIMAL" length="8" name="S6ID05"/>
+  <columns dataType="DECIMAL" length="6" name="S6IH05"/>
+  <columns dataType="DECIMAL" length="8" name="S6DT01"/>
+  <columns dataType="DECIMAL" length="8" name="S6DT02"/>
+  <columns dataType="DECIMAL" length="8" name="S6DT03"/>
+  <columns dataType="DECIMAL" length="8" name="S6DT04"/>
+  <columns dataType="DECIMAL" length="8" name="S6DT05"/>
+  <columns dataType="DECIMAL" length="7" name="S6HL01" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HL02" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HL03" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HL04" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="S6HL05" scale="2"/>
+  <columns dataType="CHAR" length="15" name="S6AA01"/>
+  <columns dataType="CHAR" length="15" name="S6AA02"/>
+  <columns dataType="CHAR" length="15" name="S6AA03"/>
+  <columns dataType="CHAR" length="15" name="S6AA04"/>
+  <columns dataType="CHAR" length="15" name="S6AA05"/>
+  <columns dataType="DECIMAL" length="15" name="S6NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S6NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S6NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S6NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S6NU05" scale="5"/>
+  <columns dataType="CHAR" length="50" name="S6NOTA"/>
+  <columns dataType="CHAR" length="1" name="S6FL01"/>
+  <columns dataType="CHAR" length="1" name="S6FL02"/>
+  <columns dataType="CHAR" length="1" name="S6FL03"/>
+  <columns dataType="CHAR" length="1" name="S6FL04"/>
+  <columns dataType="CHAR" length="1" name="S6FL05"/>
+  <columns dataType="CHAR" length="1" name="S6FL06"/>
+  <columns dataType="CHAR" length="1" name="S6FL07"/>
+  <columns dataType="CHAR" length="1" name="S6FL08"/>
+  <columns dataType="CHAR" length="1" name="S6FL09"/>
+  <columns dataType="CHAR" length="1" name="S6FL10"/>
+  <columns dataType="CHAR" length="1" name="S6FL11"/>
+  <columns dataType="CHAR" length="1" name="S6FL12"/>
+  <columns dataType="CHAR" length="1" name="S6FL13"/>
+  <columns dataType="CHAR" length="1" name="S6FL14"/>
+  <columns dataType="CHAR" length="1" name="S6FL15"/>
+  <columns dataType="CHAR" length="1" name="S6FL16"/>
+  <columns dataType="CHAR" length="1" name="S6FL17"/>
+  <columns dataType="CHAR" length="1" name="S6FL18"/>
+  <columns dataType="CHAR" length="1" name="S6FL19"/>
+  <columns dataType="CHAR" length="1" name="S6FL20"/>
+  <columns dataType="CHAR" length="1" name="S6FL21"/>
+  <columns dataType="CHAR" length="1" name="S6FL22"/>
+  <columns dataType="CHAR" length="1" name="S6FL23"/>
+  <columns dataType="CHAR" length="1" name="S6FL24"/>
+  <columns dataType="CHAR" length="1" name="S6FL25"/>
+  <columns dataType="CHAR" length="1" name="S6FL26"/>
+  <columns dataType="CHAR" length="1" name="S6FL27"/>
+  <columns dataType="CHAR" length="1" name="S6FL28"/>
+  <columns dataType="CHAR" length="1" name="S6FL29"/>
+  <columns dataType="CHAR" length="1" name="S6FL30"/>
+  <columns dataType="CHAR" length="1" name="S6FL31"/>
+  <columns dataType="CHAR" length="1" name="S6FL32"/>
+  <columns dataType="CHAR" length="1" name="S6FL33"/>
+  <columns dataType="CHAR" length="1" name="S6FL34"/>
+  <columns dataType="CHAR" length="1" name="S6FL35"/>
+  <columns dataType="CHAR" length="1" name="S6FL36"/>
+  <columns dataType="CHAR" length="1" name="S6FL37"/>
+  <columns dataType="CHAR" length="1" name="S6FL38"/>
+  <columns dataType="CHAR" length="1" name="S6FL39"/>
+  <columns dataType="CHAR" length="1" name="S6FL40"/>
+  <columns dataType="CHAR" length="10" name="S6IDOJ"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTCR"/>
+  <columns dataType="DECIMAL" length="6" name="S6HRCR"/>
+  <columns dataType="CHAR" length="10" name="S6USIN"/>
+  <columns dataType="DECIMAL" length="8" name="S6DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="S6HRAG"/>
+  <columns dataType="CHAR" length="10" name="S6USAG"/>
+</db-core:TableDef>

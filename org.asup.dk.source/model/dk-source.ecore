@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="source" nsURI="http://www.asup.org/dk/source" nsPrefix="dk-source">
+  <eClassifiers xsi:type="ecore:EClass" name="SourceEntry" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eOperations name="getOutputStream" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"
+        eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException"/>
+    <eOperations name="getInputStream" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaInputStream"
+        eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException"/>
+    <eOperations name="isRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//SourceEntry"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//SourceEntry"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="createLibraryEntry" lowerBound="1" eType="#//SourceEntry" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EClass ../../org.asup.os.type.lib/model/os-type-lib.ecore#//Library"/>
+      <eParameters name="replace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="createObjectEntry" lowerBound="1" eType="#//SourceEntry" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="type" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//SourceManager/createObjectEntry/T"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="replace" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="createObjectEntry" lowerBound="1" eType="#//SourceEntry" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="type" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//SourceManager/createObjectEntry.1/T"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="replace" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="content" lowerBound="1">
+        <eGenericType eTypeParameter="#//SourceManager/createObjectEntry.1/T"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="createChildEntry" lowerBound="1" eType="#//SourceEntry" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="parent" lowerBound="1" eType="#//SourceEntry"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="replace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getLibraryEntry" lowerBound="1" eType="#//SourceEntry">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getObjectEntry" lowerBound="1" eType="#//SourceEntry">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="type" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//SourceManager/getObjectEntry/T"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getChildEntry" lowerBound="1" eType="#//SourceEntry">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="parent" lowerBound="1" eType="#//SourceEntry"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="listLibraries" upperBound="-1" eType="#//SourceEntry">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+    </eOperations>
+    <eOperations name="listObjectEntries" upperBound="-1" eType="#//SourceEntry">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="type" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//SourceManager/listObjectEntries/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="listChildEntries" upperBound="-1" eType="#//SourceEntry">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="parent" lowerBound="1" eType="#//SourceEntry"/>
+    </eOperations>
+    <eOperations name="refreshEntry">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="entry" lowerBound="1" eType="#//SourceEntry"/>
+    </eOperations>
+    <eOperations name="removeEntry" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="entry" lowerBound="1" eType="#//SourceEntry"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

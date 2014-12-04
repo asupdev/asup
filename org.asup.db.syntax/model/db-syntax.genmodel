@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.db.syntax/src" modelPluginID="org.asup.db.syntax" modelName="As.UP Database Syntax"
+    rootExtendsInterface="" suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" language="EN" usedGenPackages="../../org.asup.db.core/model/db-core.genmodel#//core ../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.genmodel#//sqlmodel ../../org.eclipse.datatools.modelbase.sql.query/model/SQLQueryModel.genmodel#//query ../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>db-syntax.ecore</foreignModel>
+  <genPackages prefix="DatabaseSyntax" basePackage="org.asup.db" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="db-syntax.ecore#/">
+    <genDataTypes ecoreDataType="db-syntax.ecore#//SQLQueryParseResult"/>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParser">
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionParser/parseDefinition">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionParser/parseDefinition/stream"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionParser/parseDefinition.1">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionParser/parseDefinition.1/sql"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParserError"/>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParserRegistry">
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionParserRegistry/lookup">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionParserRegistry/lookup/connectionConfig"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionParserResult">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference db-syntax.ecore#//DefinitionParserResult/definitionStatement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference db-syntax.ecore#//DefinitionParserResult/errorList"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionWriter">
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/createSchema">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createSchema/name"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createSchema/schema"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/createTable">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createTable/schema"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createTable/name"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createTable/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/createView">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createView/schema"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createView/name"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createView/view"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/createIndex">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createIndex/table"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createIndex/name"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/createIndex/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/dropSchema">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/dropSchema/schema"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/dropTable">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/dropTable/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/dropView">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/dropView/view"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/dropIndex">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/dropIndex/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/deleteData">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/deleteData/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/insertData">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/insertData/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/selectData">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/selectData/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriter/writeDefinition">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriter/writeDefinition/statement"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionWriterRegistry">
+      <genOperations ecoreOperation="db-syntax.ecore#//DefinitionWriterRegistry/lookup">
+        <genParameters ecoreParameter="db-syntax.ecore#//DefinitionWriterRegistry/lookup/connectionConfig"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//DefinitionStatement"/>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//NameHelper">
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/resolveAlias">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/resolveAlias/query"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/getAliasForColumn">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getAliasForColumn/table"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getAliasForColumn/column"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/getAliasForTable">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getAliasForTable/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelper/getIndex">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getIndex/connection"/>
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelper/getIndex/index"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//NameHelperRegistry">
+      <genOperations ecoreOperation="db-syntax.ecore#//NameHelperRegistry/lookup">
+        <genParameters ecoreParameter="db-syntax.ecore#//NameHelperRegistry/lookup/connectionConfig"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//QueryWriter">
+      <genOperations ecoreOperation="db-syntax.ecore#//QueryWriter/writeQuery">
+        <genParameters ecoreParameter="db-syntax.ecore#//QueryWriter/writeQuery/statement"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//QueryWriterRegistry">
+      <genOperations ecoreOperation="db-syntax.ecore#//QueryWriterRegistry/lookup">
+        <genParameters ecoreParameter="db-syntax.ecore#//QueryWriterRegistry/lookup/connectionConfig"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="db-syntax.ecore#//QueryParser">
+      <genOperations ecoreOperation="db-syntax.ecore#//QueryParser/parseQuery">
+        <genParameters ecoreParameter="db-syntax.ecore#//QueryParser/parseQuery/stream"/>
+      </genOperations>
+      <genOperations ecoreOperation="db-syntax.ecore#//QueryParser/parseQuery.1">
+        <genParameters ecoreParameter="db-syntax.ecore#//QueryParser/parseQuery.1/sql"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="db-syntax.ecore#//QueryParserRegistry">
+      <genOperations ecoreOperation="db-syntax.ecore#//QueryParserRegistry/lookup">
+        <genParameters ecoreParameter="db-syntax.ecore#//QueryParserRegistry/lookup/connectionConfig"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="db-syntax.ecore#//SQLObjectNameHelper"/>
+    <nestedGenPackages prefix="Ddl" basePackage="org.asup.db.syntax" disposableProviderFactory="true"
+        ecorePackage="db-syntax.ecore#//ddl"/>
+    <nestedGenPackages prefix="DatabaseDML" basePackage="org.asup.db.syntax" disposableProviderFactory="true"
+        adapterFactory="false" contentTypeIdentifier="" ecorePackage="db-syntax.ecore#//dml">
+      <genClasses ecoreClass="db-syntax.ecore#//dml/ExtendedQuerySelect"/>
+      <genClasses ecoreClass="db-syntax.ecore#//dml/ExtendedQueryExpressionBody">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute db-syntax.ecore#//dml/ExtendedQueryExpressionBody/optimizeRecordsNumber"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="QSTORI"/>
+  <columns dataType="CHAR" length="3" name="QSTDOC"/>
+  <columns dataType="CHAR" length="10" name="QSNDOC"/>
+  <columns dataType="CHAR" length="6" name="QSOPER"/>
+  <columns dataType="CHAR" length="1" name="QSSPLT"/>
+  <columns dataType="CHAR" length="3" name="QSTIRP"/>
+  <columns dataType="CHAR" length="15" name="QSCLAV"/>
+  <columns dataType="CHAR" length="3" name="QSTIRF"/>
+  <columns dataType="CHAR" length="15" name="QSMACC"/>
+  <columns dataType="DECIMAL" length="11" name="QSQTSC" scale="3"/>
+</db-core:TableDef>

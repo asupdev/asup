@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="R&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="R&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;PROG"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;LOTI"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;NUDO"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DADO"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;MUNM"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;CART"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;PLAN"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;CGRU"/>
+  <columns dataType="CHAR" length="4" name="R&#xa7;CPDC"/>
+  <columns dataType="CHAR" length="4" name="R&#xa7;LPDC"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;COER"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="30" name="R&#xa7;LDSC"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;CFAC"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;COMM"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;NORD"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;CORP"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CTIP"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;CDCC"/>
+  <columns dataType="CHAR" length="30" name="R&#xa7;CDSC"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;LOTF"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;CIMP"/>
+  <columns dataType="DECIMAL" length="6" name="R&#xa7;CLQA" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="R&#xa7;QCNT" scale="3"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;MCST"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;MMTR"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;MMAT"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;CATT"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;TIEM"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;COEM"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;APRO"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;VAL1"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;VAL2"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;VAL3"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;VAL4"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;RIL1"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;RIL2"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;RIL3"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;RIL4"/>
+  <columns dataType="DECIMAL" length="9" name="R&#xa7;QRIL" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="R&#xa7;QNOC" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="R&#xa7;QSCA" scale="3"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;MUNL"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;TILO"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;MATP"/>
+  <columns dataType="DECIMAL" length="9" name="R&#xa7;QTCO" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="R&#xa7;ROPR" scale="4"/>
+  <columns dataType="DECIMAL" length="15" name="R&#xa7;VAPR" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="R&#xa7;ROAT" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="R&#xa7;RORE" scale="4"/>
+  <columns dataType="DECIMAL" length="15" name="R&#xa7;VACN" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="R&#xa7;ROAC" scale="4"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;RWRC"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;CCDA"/>
+  <columns dataType="DECIMAL" length="6" name="R&#xa7;CCTE"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;CMSG"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FLG5"/>
+</db-core:TableDef>

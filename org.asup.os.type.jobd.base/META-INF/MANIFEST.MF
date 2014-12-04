@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System JobDescription Base
+Bundle-SymbolicName: org.asup.os.type.jobd.base
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Export-Package: org.asup.os.type.jobd.base,
+ org.asup.os.type.jobd.base.api
+Require-Bundle: org.asup.os.data,
+ org.asup.os.type.jobd,
+ org.asup.os.type.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

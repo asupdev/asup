@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="C$ANNU"/>
+  <columns dataType="CHAR" length="1" name="C$TIPO"/>
+  <columns dataType="CHAR" length="3" name="C$GCDC"/>
+  <columns dataType="CHAR" length="6" name="C$CDC"/>
+  <columns dataType="CHAR" length="35" name="C$DESC"/>
+  <columns dataType="CHAR" length="10" name="C$INDR"/>
+  <columns dataType="CHAR" length="6" name="C$VDS"/>
+  <columns dataType="CHAR" length="6" name="C$VDSA"/>
+  <columns dataType="CHAR" length="12" name="C$CO01"/>
+  <columns dataType="CHAR" length="12" name="C$CO02"/>
+  <columns dataType="CHAR" length="12" name="C$CO03"/>
+  <columns dataType="CHAR" length="12" name="C$CO04"/>
+  <columns dataType="CHAR" length="12" name="C$CO05"/>
+  <columns dataType="CHAR" length="12" name="C$CO06"/>
+  <columns dataType="CHAR" length="2" name="C$UNOP"/>
+  <columns dataType="CHAR" length="3" name="C$DIRE"/>
+  <columns dataType="CHAR" length="3" name="C$AREA"/>
+  <columns dataType="DECIMAL" length="6" name="C$DIPR"/>
+  <columns dataType="DECIMAL" length="6" name="C$DFPR"/>
+  <columns dataType="DECIMAL" length="6" name="C$DIEF"/>
+  <columns dataType="DECIMAL" length="6" name="C$DFEF"/>
+  <columns dataType="CHAR" length="6" name="C$COCL"/>
+  <columns dataType="CHAR" length="2" name="C$STAT"/>
+  <columns dataType="CHAR" length="3" name="C$GCC4"/>
+  <columns dataType="CHAR" length="3" name="C$GCC5"/>
+  <columns dataType="CHAR" length="3" name="C$GCC6"/>
+  <columns dataType="CHAR" length="3" name="C$GCC7"/>
+  <columns dataType="CHAR" length="3" name="C$GCC8"/>
+  <columns dataType="CHAR" length="3" name="C$GCC9"/>
+</db-core:TableDef>

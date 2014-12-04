@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="S&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="S&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;PROG"/>
+  <columns dataType="CHAR" length="3" name="S&#xa7;TRDS"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;CRDS"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;DESC"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DAT1"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;TIEM"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;COEM"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DAT2"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;COER"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DAT3"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;EOAP"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;OAPP"/>
+  <columns dataType="CHAR" length="35" name="S&#xa7;DOAP"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;EORS"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;ORES"/>
+  <columns dataType="CHAR" length="35" name="S&#xa7;DORS"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;MATR"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;DCOD"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;DENC"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;DCOC"/>
+  <columns dataType="CHAR" length="50" name="S&#xa7;DECA"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;TIEA"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;COEA"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;DOEA"/>
+  <columns dataType="CHAR" length="150" name="S&#xa7;DINR"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATR"/>
+  <columns dataType="DECIMAL" length="6" name="S&#xa7;TIMR" scale="2"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;EINR"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CINR"/>
+  <columns dataType="CHAR" length="150" name="S&#xa7;DINE"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATE"/>
+  <columns dataType="DECIMAL" length="6" name="S&#xa7;TIME" scale="2"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;EINE"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CINE"/>
+  <columns dataType="CHAR" length="6" name="S&#xa7;SSEG"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;DSEG"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATS"/>
+  <columns dataType="CHAR" length="6" name="S&#xa7;SINT"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;DINT"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DAIM"/>
+  <columns dataType="CHAR" length="6" name="S&#xa7;SAPP"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;DAPP"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DATA"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;EAPR"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CAPR"/>
+  <columns dataType="DECIMAL" length="4" name="S&#xa7;NCAS"/>
+  <columns dataType="DECIMAL" length="4" name="S&#xa7;NSEG"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="20" name="S&#xa7;CLIB"/>
+</db-core:TableDef>

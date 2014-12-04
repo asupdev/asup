@@ -1,0 +1,295 @@
+/**
+ * Copyright (c) 2012, 2014 Sme.UP and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+package org.asup.db.syntax.ddl.impl;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.asup.db.core.QQualifiedName;
+
+import org.asup.db.syntax.StatementType;
+import org.asup.db.syntax.ddl.QCallStatement;
+import org.asup.db.syntax.ddl.QDdlPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Call Statement</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.CallStatementImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.CallStatementImpl#getProcedureName <em>Procedure Name</em>}</li>
+ *   <li>{@link org.asup.db.syntax.ddl.impl.CallStatementImpl#getParms <em>Parms</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @generated
+ */
+public class CallStatementImpl extends EObjectImpl implements QCallStatement {
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected StatementType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProcedureName() <em>Procedure Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcedureName()
+	 * @generated
+	 * @ordered
+	 */
+	protected QQualifiedName procedureName;
+
+	/**
+	 * The cached value of the '{@link #getParms() <em>Parms</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParms()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> parms;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CallStatementImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return QDdlPackage.Literals.CALL_STATEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StatementType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(StatementType newType) {
+		StatementType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CALL_STATEMENT__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QQualifiedName getProcedureName() {
+		return procedureName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProcedureName(QQualifiedName newProcedureName, NotificationChain msgs) {
+		QQualifiedName oldProcedureName = procedureName;
+		procedureName = newProcedureName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME, oldProcedureName, newProcedureName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProcedureName(QQualifiedName newProcedureName) {
+		if (newProcedureName != procedureName) {
+			NotificationChain msgs = null;
+			if (procedureName != null)
+				msgs = ((InternalEObject)procedureName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME, null, msgs);
+			if (newProcedureName != null)
+				msgs = ((InternalEObject)newProcedureName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME, null, msgs);
+			msgs = basicSetProcedureName(newProcedureName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME, newProcedureName, newProcedureName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<String> getParms() {
+		if (parms == null) {
+			parms = new EDataTypeUniqueEList<String>(String.class, this, QDdlPackage.CALL_STATEMENT__PARMS);
+		}
+		return parms;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
+				return basicSetProcedureName(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				return getType();
+			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
+				return getProcedureName();
+			case QDdlPackage.CALL_STATEMENT__PARMS:
+				return getParms();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				setType((StatementType)newValue);
+				return;
+			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
+				setProcedureName((QQualifiedName)newValue);
+				return;
+			case QDdlPackage.CALL_STATEMENT__PARMS:
+				getParms().clear();
+				getParms().addAll((Collection<? extends String>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
+				setProcedureName((QQualifiedName)null);
+				return;
+			case QDdlPackage.CALL_STATEMENT__PARMS:
+				getParms().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case QDdlPackage.CALL_STATEMENT__TYPE:
+				return type != TYPE_EDEFAULT;
+			case QDdlPackage.CALL_STATEMENT__PROCEDURE_NAME:
+				return procedureName != null;
+			case QDdlPackage.CALL_STATEMENT__PARMS:
+				return parms != null && !parms.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (type: ");
+		result.append(type);
+		result.append(", parms: ");
+		result.append(parms);
+		result.append(')');
+		return result.toString();
+	}
+
+} //CallStatementImpl

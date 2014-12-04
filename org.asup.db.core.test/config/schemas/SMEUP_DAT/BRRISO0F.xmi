@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="C&#xa7;TRIS"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;RISO"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;DESC"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;CDAP"/>
+  <columns dataType="CHAR" length="5" name="C&#xa7;DEPT"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="12" name="C&#xa7;LOCN"/>
+  <columns dataType="DECIMAL" length="11" name="C&#xa7;CODA" scale="3"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;UMTE"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;USAG"/>
+  <columns dataType="DECIMAL" length="5" name="C&#xa7;CMEF" scale="2"/>
+  <columns dataType="DECIMAL" length="5" name="C&#xa7;CMTE" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="C&#xa7;ESTD" scale="4"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;CDCA"/>
+  <columns dataType="DECIMAL" length="2" name="C&#xa7;NRRS"/>
+  <columns dataType="DECIMAL" length="5" name="C&#xa7;CMGG" scale="2"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;RESP"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;STAT"/>
+</db-core:TableDef>

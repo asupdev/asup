@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="I&#xa3;PROG"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;TREC"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CODI"/>
+  <columns dataType="CHAR" length="5" name="I&#xa3;COIN"/>
+  <columns dataType="CHAR" length="30" name="I&#xa3;DEIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DINZ"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DFIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DESE"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;HRIN"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;HRFI"/>
+  <columns dataType="CHAR" length="3" name="I&#xa3;TIPO"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;TEIN" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;FEMA" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="I&#xa3;NUPE"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;TIWR"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;WRKR"/>
+  <columns dataType="CHAR" length="8" name="I&#xa3;OPER"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;CIIN" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;CIES" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;CMAT" scale="3"/>
+  <columns dataType="CHAR" length="4" name="I&#xa3;CAUS"/>
+  <columns dataType="CHAR" length="4" name="I&#xa3;TIDO"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;DOCU"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;ARAL"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;ORIC"/>
+  <columns dataType="CHAR" length="2" name="I&#xa3;ESCO"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL01"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL02"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL03"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL04"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL05"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL06"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL07"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL08"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL09"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DL10"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD01"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD02"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD03"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD04"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD05"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD06"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD07"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD08"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD09"/>
+  <columns dataType="CHAR" length="15" name="I&#xa3;CD10"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR05" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR06" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR07" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR08" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR09" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="I&#xa3;NR10" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;ID01"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;IH01"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;ID02"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;IH02"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;ID03"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;IH03"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;ID04"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;IH04"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;ID05"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;IH05"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL01"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL02"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL03"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL04"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL05"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL06"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL07"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL08"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL09"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL10"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL11"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL12"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL13"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL14"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL15"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL16"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL17"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL18"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL19"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL20"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL21"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL22"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL23"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL24"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL25"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL26"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL27"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL28"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL29"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL30"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL31"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL32"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL33"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL34"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL35"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL36"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL37"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL38"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL39"/>
+  <columns dataType="CHAR" length="1" name="I&#xa3;FL40"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;USIN"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;ORIN"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;OGIN"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;USAG"/>
+  <columns dataType="DECIMAL" length="8" name="I&#xa3;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="I&#xa3;ORAG"/>
+  <columns dataType="CHAR" length="10" name="I&#xa3;OGAG"/>
+</db-core:TableDef>

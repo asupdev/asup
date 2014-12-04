@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="6" name="MPCDPI"/>
+  <columns dataType="CHAR" length="3" name="MPTPRC"/>
+  <columns dataType="CHAR" length="15" name="MPCD01"/>
+  <columns dataType="CHAR" length="15" name="MPCD02"/>
+  <columns dataType="CHAR" length="3" name="MPTPRG"/>
+  <columns dataType="CHAR" length="6" name="MPCDRG"/>
+  <columns dataType="CHAR" length="6" name="MPCDSE"/>
+  <columns dataType="CHAR" length="3" name="MPCDGR"/>
+  <columns dataType="CHAR" length="7" name="MPCDMS"/>
+  <columns dataType="CHAR" length="10" name="MPFIMS"/>
+  <columns dataType="CHAR" length="15" name="MPVAR1"/>
+  <columns dataType="CHAR" length="15" name="MPVAR2"/>
+  <columns dataType="CHAR" length="15" name="MPVAR3"/>
+  <columns dataType="CHAR" length="15" name="MPVAR4"/>
+</db-core:TableDef>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="7" name="AU&#xa3;KEY"/>
+  <columns dataType="CHAR" length="12" name="AU&#xa3;OBJ"/>
+  <columns dataType="CHAR" length="10" name="AU&#xa3;MEM"/>
+  <columns dataType="CHAR" length="10" name="AU&#xa3;FIL"/>
+  <columns dataType="CHAR" length="10" name="AU&#xa3;LIB"/>
+  <columns dataType="CHAR" length="15" name="AU&#xa3;FMT"/>
+  <columns dataType="DECIMAL" length="6" name="AU&#xa3;RIG"/>
+  <columns dataType="DECIMAL" length="3" name="AU&#xa3;COL"/>
+  <columns dataType="DECIMAL" length="3" name="AU&#xa3;LMX"/>
+  <columns dataType="CHAR" length="2" name="AU&#xa3;APP"/>
+  <columns dataType="CHAR" length="10" name="AU&#xa3;USI"/>
+  <columns dataType="DECIMAL" length="8" name="AU&#xa3;DTI"/>
+  <columns dataType="DECIMAL" length="6" name="AU&#xa3;ORI"/>
+</db-core:TableDef>

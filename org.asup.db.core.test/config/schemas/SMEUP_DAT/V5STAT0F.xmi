@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="D6TIPC"/>
+  <columns dataType="CHAR" length="12" name="D6TPRO"/>
+  <columns dataType="CHAR" length="15" name="D6NPRO"/>
+  <columns dataType="DECIMAL" length="8" name="D6DPRO"/>
+  <columns dataType="CHAR" length="20" name="D6NFAT"/>
+  <columns dataType="DECIMAL" length="8" name="D6DFAT"/>
+  <columns dataType="CHAR" length="3" name="D6TDOC"/>
+  <columns dataType="CHAR" length="10" name="D6NDOC"/>
+  <columns dataType="CHAR" length="2" name="D6SMDO"/>
+  <columns dataType="CHAR" length="3" name="D6MDOC"/>
+  <columns dataType="CHAR" length="3" name="D6TMOD"/>
+  <columns dataType="CHAR" length="2" name="D6STRG"/>
+  <columns dataType="CHAR" length="3" name="D6TRIG"/>
+  <columns dataType="DECIMAL" length="4" name="D6NRIG"/>
+  <columns dataType="CHAR" length="10" name="D6NBOL"/>
+  <columns dataType="DECIMAL" length="8" name="D6DBOL"/>
+  <columns dataType="CHAR" length="10" name="D6ESPR"/>
+  <columns dataType="CHAR" length="10" name="D6PEPR"/>
+  <columns dataType="CHAR" length="10" name="D6ESCO"/>
+  <columns dataType="CHAR" length="10" name="D6PECO"/>
+  <columns dataType="CHAR" length="2" name="D6AZIE"/>
+  <columns dataType="CHAR" length="3" name="D6DIVI"/>
+  <columns dataType="CHAR" length="15" name="D6PROG"/>
+  <columns dataType="CHAR" length="15" name="D6CONT"/>
+  <columns dataType="CHAR" length="10" name="D6CCRC"/>
+  <columns dataType="CHAR" length="3" name="D6CDMG"/>
+  <columns dataType="CHAR" length="10" name="D6RECO"/>
+  <columns dataType="CHAR" length="10" name="D6AGE1"/>
+  <columns dataType="CHAR" length="10" name="D6AGE2"/>
+  <columns dataType="CHAR" length="10" name="D6AGE3"/>
+  <columns dataType="CHAR" length="10" name="D6AGE4"/>
+  <columns dataType="CHAR" length="3" name="D6TCCL"/>
+  <columns dataType="CHAR" length="15" name="D6CDCL"/>
+  <columns dataType="CHAR" length="3" name="D6TCDC"/>
+  <columns dataType="CHAR" length="15" name="D6CDCC"/>
+  <columns dataType="CHAR" length="3" name="D6TCDF"/>
+  <columns dataType="CHAR" length="15" name="D6CODF"/>
+  <columns dataType="CHAR" length="3" name="D6TCDS"/>
+  <columns dataType="CHAR" length="15" name="D6CODS"/>
+  <columns dataType="CHAR" length="10" name="D6CNAZ"/>
+  <columns dataType="CHAR" length="10" name="D6CREG"/>
+  <columns dataType="CHAR" length="10" name="D6PROV"/>
+  <columns dataType="CHAR" length="10" name="D6ZONA"/>
+  <columns dataType="CHAR" length="10" name="D6CATE"/>
+  <columns dataType="CHAR" length="10" name="D6SETE"/>
+  <columns dataType="DECIMAL" length="4" name="D6NRRI"/>
+  <columns dataType="CHAR" length="3" name="D6TDOR"/>
+  <columns dataType="CHAR" length="10" name="D6NDOR"/>
+  <columns dataType="DECIMAL" length="4" name="D6NRIR"/>
+  <columns dataType="CHAR" length="10" name="D6COMM"/>
+  <columns dataType="CHAR" length="15" name="D6NCON"/>
+  <columns dataType="CHAR" length="30" name="D6ORAQ"/>
+  <columns dataType="DECIMAL" length="8" name="D6DOAQ"/>
+  <columns dataType="CHAR" length="15" name="D6ARTI"/>
+  <columns dataType="CHAR" length="10" name="D6TIAR"/>
+  <columns dataType="CHAR" length="10" name="D6TPAR"/>
+  <columns dataType="CHAR" length="10" name="D6CLMA"/>
+  <columns dataType="CHAR" length="10" name="D6CLGE"/>
+  <columns dataType="CHAR" length="10" name="D6CLCO"/>
+  <columns dataType="CHAR" length="12" name="D6TPOG"/>
+  <columns dataType="CHAR" length="15" name="D6CDOG"/>
+  <columns dataType="CHAR" length="35" name="D6DESC"/>
+  <columns dataType="CHAR" length="3" name="D6TPSP"/>
+  <columns dataType="CHAR" length="20" name="D6CONF"/>
+  <columns dataType="CHAR" length="15" name="D6OPER"/>
+  <columns dataType="CHAR" length="2" name="D6UNMS"/>
+  <columns dataType="DECIMAL" length="21" name="D6QT01" scale="6"/>
+  <columns dataType="CHAR" length="2" name="D6UNMA"/>
+  <columns dataType="DECIMAL" length="21" name="D6QT02" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6IMLO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6IMSC" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6IMSP" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6IMPR" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6IMNE" scale="6"/>
+  <columns dataType="CHAR" length="4" name="D6VALU"/>
+  <columns dataType="DECIMAL" length="21" name="D6CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6COST" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6QTBG" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6IMBG" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6COBG" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6VAL1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6VAL2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6VAL3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6VAL4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6VAL5" scale="6"/>
+  <columns dataType="CHAR" length="3" name="D6COPA"/>
+  <columns dataType="CHAR" length="3" name="D6SPED"/>
+  <columns dataType="CHAR" length="3" name="D6CONS"/>
+  <columns dataType="CHAR" length="15" name="D6COD1"/>
+  <columns dataType="CHAR" length="15" name="D6COD2"/>
+  <columns dataType="CHAR" length="15" name="D6COD3"/>
+  <columns dataType="CHAR" length="15" name="D6COD4"/>
+  <columns dataType="CHAR" length="15" name="D6COD5"/>
+  <columns dataType="CHAR" length="15" name="D6COD6"/>
+  <columns dataType="CHAR" length="15" name="D6COD7"/>
+  <columns dataType="CHAR" length="15" name="D6COD8"/>
+  <columns dataType="CHAR" length="15" name="D6COD9"/>
+  <columns dataType="CHAR" length="15" name="D6COD0"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM1" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM2" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM3" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM4" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM5" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM6" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM7" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM8" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM9" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D6NUM0" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="D6DT01"/>
+  <columns dataType="DECIMAL" length="8" name="D6DT02"/>
+  <columns dataType="DECIMAL" length="8" name="D6DT03"/>
+  <columns dataType="DECIMAL" length="8" name="D6DT04"/>
+  <columns dataType="DECIMAL" length="8" name="D6DT05"/>
+  <columns dataType="CHAR" length="1" name="D6FL01"/>
+  <columns dataType="CHAR" length="1" name="D6FL02"/>
+  <columns dataType="CHAR" length="1" name="D6FL03"/>
+  <columns dataType="CHAR" length="1" name="D6FL04"/>
+  <columns dataType="CHAR" length="1" name="D6FL05"/>
+  <columns dataType="CHAR" length="1" name="D6FL06"/>
+  <columns dataType="CHAR" length="1" name="D6FL07"/>
+  <columns dataType="CHAR" length="1" name="D6FL08"/>
+  <columns dataType="CHAR" length="1" name="D6FL09"/>
+  <columns dataType="CHAR" length="1" name="D6FL10"/>
+  <columns dataType="CHAR" length="1" name="D6FL11"/>
+  <columns dataType="CHAR" length="1" name="D6FL12"/>
+  <columns dataType="CHAR" length="1" name="D6FL13"/>
+  <columns dataType="CHAR" length="1" name="D6FL14"/>
+  <columns dataType="CHAR" length="1" name="D6FL15"/>
+  <columns dataType="CHAR" length="1" name="D6FL16"/>
+  <columns dataType="CHAR" length="1" name="D6FL17"/>
+  <columns dataType="CHAR" length="1" name="D6FL18"/>
+  <columns dataType="CHAR" length="1" name="D6FL19"/>
+  <columns dataType="CHAR" length="1" name="D6FL20"/>
+  <columns dataType="CHAR" length="10" name="D6UTIN"/>
+  <columns dataType="DECIMAL" length="8" name="D6DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="D6ORIN"/>
+  <columns dataType="CHAR" length="10" name="D6UTAG"/>
+  <columns dataType="DECIMAL" length="8" name="D6DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="D6ORAG"/>
+</db-core:TableDef>

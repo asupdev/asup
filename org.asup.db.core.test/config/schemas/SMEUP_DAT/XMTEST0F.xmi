@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="T$CODI"/>
+  <columns dataType="CHAR" length="3" name="T$TIPO"/>
+  <columns dataType="CHAR" length="50" name="T$DEIM"/>
+  <columns dataType="CHAR" length="3" name="T$STAT"/>
+  <columns dataType="CHAR" length="15" name="T$COAP"/>
+  <columns dataType="CHAR" length="15" name="T$COCE"/>
+  <columns dataType="CHAR" length="30" name="T$CSTR"/>
+  <columns dataType="CHAR" length="30" name="T$FORN"/>
+  <columns dataType="DECIMAL" length="4" name="T$ACOS"/>
+  <columns dataType="DECIMAL" length="8" name="T$DINS"/>
+  <columns dataType="DECIMAL" length="8" name="T$DUMA"/>
+  <columns dataType="CHAR" length="15" name="T$MAIN"/>
+  <columns dataType="CHAR" length="15" name="T$MAFO"/>
+  <columns dataType="CHAR" length="6" name="T$CDL"/>
+  <columns dataType="CHAR" length="6" name="T$CDC"/>
+  <columns dataType="DECIMAL" length="7" name="T$PESO"/>
+  <columns dataType="DECIMAL" length="5" name="T$ALTE"/>
+  <columns dataType="DECIMAL" length="5" name="T$LARG"/>
+  <columns dataType="DECIMAL" length="5" name="T$LUNG"/>
+</db-core:TableDef>

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/os/core" nsPrefix="os-core">
+  <eClassifiers xsi:type="ecore:EClass" name="Callable" abstract="true" interface="true">
+    <eOperations name="call"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" containment="true">
+      <eGenericType eClassifier="#//ObjectContent">
+        <eTypeArguments eTypeParameter="#//Container/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContentLockType">
+    <eLiterals name="ReadLocked" value="10" literal="R_LOCK"/>
+    <eLiterals name="WriteLocked" value="20" literal="W_LOCK"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentLockable" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Container">
+        <eTypeArguments eTypeParameter="#//ContentLockable/K"/>
+      </eBounds>
+    </eTypeParameters>
+    <eTypeParameters name="K">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+    </eTypeParameters>
+    <eOperations name="getContainLocker" lowerBound="1">
+      <eGenericType eClassifier="#//ContentLocker">
+        <eTypeArguments eTypeParameter="#//ContentLockable/T"/>
+        <eTypeArguments eTypeParameter="#//ContentLockable/K"/>
+      </eGenericType>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentLock" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ContentLockType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentLocker" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Container">
+        <eTypeArguments eTypeParameter="#//ContentLocker/K"/>
+      </eBounds>
+    </eTypeParameters>
+    <eTypeParameters name="K">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+    </eTypeParameters>
+    <eOperations name="lock" eExceptions="#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//ContentLocker/T"/>
+      </eParameters>
+      <eParameters name="lockType" lowerBound="1" eType="#//ContentLockType"/>
+    </eOperations>
+    <eOperations name="tryLock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//ContentLocker/T"/>
+      </eParameters>
+      <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eParameters name="lockType" lowerBound="1" eType="#//ContentLockType"/>
+    </eOperations>
+    <eOperations name="unlock" eExceptions="#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//ContentLocker/T"/>
+      </eParameters>
+      <eParameters name="lockType" eType="#//ContentLockType"/>
+    </eOperations>
+    <eOperations name="isLocked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//ContentLocker/T"/>
+      </eParameters>
+      <eParameters name="lockType" lowerBound="1" eType="#//ContentLockType"/>
+    </eOperations>
+    <eOperations name="isLockedByOther" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//ContentLocker/T"/>
+      </eParameters>
+      <eParameters name="lockType" lowerBound="1" eType="#//ContentLockType"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Lockable" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+    </eTypeParameters>
+    <eOperations name="getLocker" lowerBound="1">
+      <eGenericType eClassifier="#//Locker">
+        <eTypeArguments eTypeParameter="#//Lockable/T"/>
+      </eGenericType>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Locker" abstract="true" interface="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+    </eTypeParameters>
+    <eOperations name="lock" eExceptions="#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//Locker/T"/>
+      </eParameters>
+      <eParameters name="lockType" lowerBound="1" eType="#//LockType"/>
+    </eOperations>
+    <eOperations name="tryLock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//Locker/T"/>
+      </eParameters>
+      <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eParameters name="lockType" lowerBound="1" eType="#//LockType"/>
+    </eOperations>
+    <eOperations name="unlock" eExceptions="#//OperatingSystemRuntimeException">
+      <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//Locker/T"/>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LockType">
+    <eLiterals name="Exclusive" value="10" literal="EXCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="prova documentazione"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ExclusiveRD" value="20" literal="EXCLRD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectContent" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+        containment="true">
+      <eGenericType eTypeParameter="#//ObjectContent/T"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readLock" lowerBound="1"
+        eType="#//ContentLock" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="writeLock" lowerBound="1"
+        eType="#//ContentLock" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="OperatingSystemException" instanceClassName="org.asup.os.core.OperatingSystemException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="OperatingSystemRuntimeException"
+      instanceClassName="org.asup.os.core.OperatingSystemRuntimeException"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Scope">
+    <eLiterals name="All" value="10" literal="*ALL"/>
+    <eLiterals name="LibraryList" value="20" literal="*LIBL"/>
+    <eLiterals name="CurrentLibrary" value="30" literal="*CURLIB"/>
+    <eLiterals name="UserLibraryList" value="40" literal="*USRLIBL"/>
+    <eLiterals name="AllUser" value="50" literal="*ALLUSR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installPath" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Path di installazione del sistema.&#xA;&#xA;All'interno e' generalmente prevista una strutturazione del tipo:&#xA;&#xA;$installPath/library/objectType/objectName"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastJobNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
+        eType="#//SystemStatus" defaultValueLiteral="STP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemLibrary" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemUser" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemManager" abstract="true">
+    <eOperations name="getSystem" eType="#//System"/>
+    <eOperations name="start" lowerBound="1" eType="#//jobs/Job" eExceptions="#//OperatingSystemException"/>
+    <eOperations name="stop" eExceptions="#//OperatingSystemException"/>
+    <eGenericSuperTypes eClassifier="#//Lockable">
+      <eTypeArguments eClassifier="#//System"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SystemStatus">
+    <eLiterals name="Activating" value="10" literal="ACT"/>
+    <eLiterals name="Started" value="20" literal="STR"/>
+    <eLiterals name="Ending" value="70" literal="END"/>
+    <eLiterals name="Stopped" value="80" literal="STP"/>
+  </eClassifiers>
+  <eSubpackages name="jobs" nsURI="http://www.asup.org/os/core/jobs" nsPrefix="os-core-jobs">
+    <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable ../../org.asup.fw.core/model/fw-core.ecore#//ContextID">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobID" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+          <details key="length" value="10"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+        <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//DecimalDef">
+          <details key="precision" value="6"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobStatus" lowerBound="1"
+          eType="#//jobs/JobStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobType" eType="#//jobs/JobType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+          <details key="length" value="10"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="libraries" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="messages" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="system" lowerBound="1"
+          eType="#//System" transient="true">
+        <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+          <details key="length" value="10"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" lowerBound="1"
+          eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="jobContext" eType="#//jobs/JobContext"
+          transient="true" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JobContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
+    <eClassifiers xsi:type="ecore:EClass" name="JobLog" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" lowerBound="1"
+          upperBound="-1" eType="#//jobs/JobLogEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobID" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JobLogEntry" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="gravity" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+          <details key="length" value="128"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JobLogManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+      <eOperations name="info">
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="message" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="warning">
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="message" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="error">
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="lookup" eType="#//jobs/JobLog">
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      </eOperations>
+      <eOperations name="lookup" eType="#//jobs/JobLog">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="user" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="number" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JobManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+      <eOperations name="create" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"
+          eExceptions="#//OperatingSystemException">
+        <eParameters name="user" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="password" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="create" lowerBound="1" eType="#//jobs/Job" eExceptions="#//OperatingSystemException">
+        <eParameters name="credential" lowerBound="1" eType="#//jobs/Job"/>
+      </eOperations>
+      <eOperations name="getActiveJobs" lowerBound="1" upperBound="-1" eType="#//jobs/Job"/>
+      <eOperations name="lookup" eType="#//jobs/Job">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="user" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="number" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="lookup" eType="#//jobs/Job">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      </eOperations>
+      <eOperations name="updateStatus" eExceptions="#//OperatingSystemException">
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="status" lowerBound="1" eType="#//jobs/JobStatus"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="JobStatus">
+      <eLiterals name="Active" value="10" literal="ACT"/>
+      <eLiterals name="TimeWaiting" value="20" literal="TIMW"/>
+      <eLiterals name="Run" value="30" literal="RUN"/>
+      <eLiterals name="MessageWaiting" value="40" literal="MSGW"/>
+      <eLiterals name="LockWaiting" value="50" literal="LCKW"/>
+      <eLiterals name="EventWaiting" value="60" literal="EVTW"/>
+      <eLiterals name="EndOfJob" value="70" literal="EOJ"/>
+      <eLiterals name="End" value="80" literal="END"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="JobType">
+      <eLiterals name="Kernel" value="10" literal="KRN"/>
+      <eLiterals name="Interactive" value="20" literal="INT"/>
+      <eLiterals name="Batch" value="30" literal="BCH"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Log" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+  </eSubpackages>
+  <eSubpackages name="output" nsURI="http://www.asup.org/os/core/output" nsPrefix="os-core-output">
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectWriter" abstract="true" interface="true">
+      <eOperations name="flush"/>
+      <eOperations name="initialize"/>
+      <eOperations name="write" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+        <eParameters name="object" lowerBound="1" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectWriterFactoryRegistry" abstract="true">
+      <eOperations name="lookup" lowerBound="1" eType="#//output/ObjectWriterFactory">
+        <eParameters name="jobType" lowerBound="1" eType="#//jobs/JobType"/>
+      </eOperations>
+      <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
+        <eTypeArguments eClassifier="#//output/ObjectWriterFactory"/>
+      </eGenericSuperTypes>
+      <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Service"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectWriterFactory" abstract="true"
+        eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
+      <eOperations name="createObjectWriter" lowerBound="1" eType="#//output/ObjectWriter">
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OutputManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+      <eOperations name="getDefaultWriter" lowerBound="1" eType="#//output/ObjectWriter">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      </eOperations>
+      <eOperations name="getObjectWriter" lowerBound="1" eType="#//output/ObjectWriter">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="registerWriter">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="writer" lowerBound="1" eType="#//output/ObjectWriter"/>
+      </eOperations>
+      <eOperations name="setDefaultWriter">
+        <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resources" nsURI="http://www.asup.org/os/core/resource" nsPrefix="os-core-resources">
+    <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eOperations name="fireEvent">
+        <eParameters name="event" lowerBound="1">
+          <eGenericType eClassifier="#//resources/ResourceEvent">
+            <eTypeArguments eTypeParameter="#//resources/Resource/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="eventType" lowerBound="1" eType="#//resources/ResourceEventType"/>
+        <eParameters name="object" lowerBound="1">
+          <eGenericType eTypeParameter="#//resources/Resource/T"/>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="job" lowerBound="1" eType="#//jobs/Job"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="notifier">
+        <eGenericType eClassifier="#//resources/ResourceNotifier">
+          <eTypeArguments eTypeParameter="#//resources/Resource/T"/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceEvent">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source">
+        <eGenericType eTypeParameter="#//resources/ResourceEvent/T"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
+          eType="#//resources/ResourceEventType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resource">
+        <eGenericType eClassifier="#//resources/Resource">
+          <eTypeArguments eTypeParameter="#//resources/ResourceEvent/T"/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ResourceEventType">
+      <eLiterals name="PreSave" value="10" literal="PRESAVE"/>
+      <eLiterals name="PostSave" value="20" literal="POSTSAVE"/>
+      <eLiterals name="PostLoad" value="30" literal="POSTLOAD"/>
+      <eLiterals name="PreDelete" value="60" literal="PREDLT"/>
+      <eLiterals name="PostDelete" value="70" literal="POSTDLT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceFactory" abstract="true" eSuperTypes="#//resources/ResourceProvider">
+      <eOperations name="registerListener">
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceFactory/registerListener/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="listener" lowerBound="1">
+          <eGenericType eClassifier="#//resources/ResourceListener">
+            <eTypeArguments eTypeParameter="#//resources/ResourceFactory/registerListener/T"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="registerProvider">
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceFactory/registerProvider/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="provider" lowerBound="1" eType="#//resources/ResourceProvider"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceListener" abstract="true"
+        interface="true">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eOperations name="handleEvent">
+        <eParameters name="event" lowerBound="1">
+          <eGenericType eClassifier="#//resources/ResourceEvent">
+            <eTypeArguments eTypeParameter="#//resources/ResourceListener/T"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceNotifier">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eOperations name="fireEvent">
+        <eParameters name="event" lowerBound="1">
+          <eGenericType eClassifier="#//resources/ResourceEvent">
+            <eTypeArguments eTypeParameter="#//resources/ResourceNotifier/T"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eOperations name="registerListener">
+        <eParameters name="listener" lowerBound="1">
+          <eGenericType eClassifier="#//resources/ResourceListener">
+            <eTypeArguments eTypeParameter="#//resources/ResourceNotifier/T"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceProvider" abstract="true"
+        eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+      <eOperations name="getResourceReader">
+        <eGenericType eClassifier="#//resources/ResourceReader">
+          <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceReader/T"/>
+        </eGenericType>
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceReader/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getResourceReader">
+        <eGenericType eClassifier="#//resources/ResourceSetReader">
+          <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceReader.1/T"/>
+        </eGenericType>
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceReader.1/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="scope" eType="#//Scope"/>
+      </eOperations>
+      <eOperations name="getResourceWriter">
+        <eGenericType eClassifier="#//resources/ResourceWriter">
+          <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceWriter/T"/>
+        </eGenericType>
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceWriter/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getResourceWriter">
+        <eGenericType eClassifier="#//resources/ResourceWriter">
+          <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceWriter.1/T"/>
+        </eGenericType>
+        <eTypeParameters name="T">
+          <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+        </eTypeParameters>
+        <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
+        <eParameters name="klass" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+            <eTypeArguments eTypeParameter="#//resources/ResourceProvider/getResourceWriter.1/T"/>
+          </eGenericType>
+        </eParameters>
+        <eParameters name="scope" eType="#//Scope"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceReader" abstract="true">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eOperations name="exists" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="find">
+        <eGenericType eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectIterator">
+          <eTypeArguments eTypeParameter="#//resources/ResourceReader/T"/>
+        </eGenericType>
+        <eParameters name="nameFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="lookup">
+        <eGenericType eTypeParameter="#//resources/ResourceReader/T"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="container" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eGenericSuperTypes eClassifier="#//resources/Resource">
+        <eTypeArguments eTypeParameter="#//resources/ResourceReader/T"/>
+      </eGenericSuperTypes>
+      <eGenericSuperTypes eClassifier="#//Lockable">
+        <eTypeArguments eTypeParameter="#//resources/ResourceReader/T"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceSetReader">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eOperations name="exists" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="find">
+        <eGenericType eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectIterator">
+          <eTypeArguments eTypeParameter="#//resources/ResourceSetReader/T"/>
+        </eGenericType>
+        <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="nameFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="lookup">
+        <eGenericType eTypeParameter="#//resources/ResourceSetReader/T"/>
+        <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="containers" lowerBound="1"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eGenericSuperTypes eClassifier="#//resources/ResourceReader">
+        <eTypeArguments eTypeParameter="#//resources/ResourceSetReader/T"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceWriter" abstract="true">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
+      </eTypeParameters>
+      <eOperations name="delete" eExceptions="#//OperatingSystemException">
+        <eParameters name="object" lowerBound="1">
+          <eGenericType eTypeParameter="#//resources/ResourceWriter/T"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="save" eExceptions="#//OperatingSystemException">
+        <eParameters name="object" lowerBound="1">
+          <eGenericType eTypeParameter="#//resources/ResourceWriter/T"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="save" eExceptions="#//OperatingSystemException">
+        <eParameters name="object" lowerBound="1">
+          <eGenericType eTypeParameter="#//resources/ResourceWriter/T"/>
+        </eParameters>
+        <eParameters name="replace" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eGenericSuperTypes eClassifier="#//resources/ResourceReader">
+        <eTypeArguments eTypeParameter="#//resources/ResourceWriter/T"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="datetime" nsURI="http://www.asup.org/os/core/datetime" nsPrefix="os-core-datetime">
+    <eClassifiers xsi:type="ecore:EEnum" name="DateFormat">
+      <eLiterals name="MDY" value="10" literal="*MDY"/>
+      <eLiterals name="DMY" value="20" literal="*DMY"/>
+      <eLiterals name="YMD" value="30" literal="*YMD"/>
+      <eLiterals name="JUL" value="40" literal="*JUL"/>
+      <eLiterals name="ISO" value="50" literal="*ISO"/>
+      <eLiterals name="USA" value="60" literal="*USA"/>
+      <eLiterals name="EUR" value="70" literal="*EUR"/>
+      <eLiterals name="JIS" value="80" literal="*JIS"/>
+      <eLiterals name="JOBRUN" value="90" literal="*JOBRUN"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="TimeFormat">
+      <eLiterals name="HMS" value="10" literal="*HMS"/>
+      <eLiterals name="ISO" value="20" literal="*ISO"/>
+      <eLiterals name="USA" value="30" literal="*USA"/>
+      <eLiterals name="EUR" value="40" literal="*EUR"/>
+      <eLiterals name="JIS" value="50" literal="*JIS"/>
+      <eLiterals name="JOBRUN" value="60" literal="*JOBRUN"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated os-type-jobd -->
+      <package
+            uri="http://www.asup.org/os/type/jobd"
+            class="org.asup.os.type.jobd.QOperatingSystemJobDescriptionPackage"
+            genModel="model/os-type-jobd.genmodel"/>
+   </extension>
+
+</plugin>

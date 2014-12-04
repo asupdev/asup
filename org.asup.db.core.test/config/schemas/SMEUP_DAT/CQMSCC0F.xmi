@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="S&#xa7;MMTR"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;MCST"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;MFOR"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;TIES"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;COES"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;MMRC"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;MDTI"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;MCLC"/>
+  <columns dataType="DECIMAL" length="10" name="S&#xa7;MCOS"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;MDTR"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;MDPC"/>
+  <columns dataType="CHAR" length="12" name="S&#xa7;MUBI"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;MMTF"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CERT"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DTCR"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;UTEN"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DTMR"/>
+</db-core:TableDef>

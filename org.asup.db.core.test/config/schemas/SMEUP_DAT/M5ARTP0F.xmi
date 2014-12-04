@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="U&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;CODI"/>
+  <columns dataType="CHAR" length="3" name="U&#xa7;POPR"/>
+  <columns dataType="CHAR" length="3" name="U&#xa7;POAQ"/>
+  <columns dataType="CHAR" length="3" name="U&#xa7;POLV"/>
+  <columns dataType="CHAR" length="3" name="U&#xa7;POTR"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;PODE"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LSPR"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LVPR"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LRPR"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LSAQ"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LVAQ"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LRAQ"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LSLV"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LVLV"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;LRLV"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;LTDE"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QMPR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QLPR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QXPR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QMAQ" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QLAQ" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QXAQ" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QMLV" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QLLV" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QXLV" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QMTR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QLTR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U&#xa7;QXTR" scale="3"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;QTDE"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;PAPR"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;PAAQ"/>
+  <columns dataType="DECIMAL" length="3" name="U&#xa7;PALV"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;PRDE"/>
+  <columns dataType="CHAR" length="2" name="U&#xa7;TIOG"/>
+  <columns dataType="CHAR" length="10" name="U&#xa7;PAOG"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;OGRF"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="U&#xa7;COD5"/>
+  <columns dataType="DECIMAL" length="15" name="U&#xa7;NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="U&#xa7;NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="U&#xa7;NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="U&#xa7;NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="U&#xa7;NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;LIAM"/>
+  <columns dataType="CHAR" length="2" name="U&#xa7;STAM"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="U&#xa7;FL10"/>
+  <columns dataType="CHAR" length="10" name="U&#xa7;IDOJ"/>
+  <columns dataType="DECIMAL" length="8" name="U&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="U&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="10" name="U&#xa7;USIN"/>
+  <columns dataType="CHAR" length="10" name="U&#xa7;OGIN"/>
+  <columns dataType="DECIMAL" length="8" name="U&#xa7;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="U&#xa7;ORAG"/>
+  <columns dataType="CHAR" length="10" name="U&#xa7;USAG"/>
+  <columns dataType="CHAR" length="10" name="U&#xa7;OGAG"/>
+</db-core:TableDef>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="WAPROG"/>
+  <columns dataType="CHAR" length="2" name="WATREC"/>
+  <columns dataType="CHAR" length="12" name="WATPOR"/>
+  <columns dataType="CHAR" length="15" name="WACDOR"/>
+  <columns dataType="CHAR" length="50" name="WACORD"/>
+  <columns dataType="CHAR" length="2000" name="WAREC"/>
+  <columns dataType="CHAR" length="1" name="WAFL01"/>
+  <columns dataType="CHAR" length="1" name="WAFL02"/>
+  <columns dataType="CHAR" length="1" name="WAFL03"/>
+  <columns dataType="CHAR" length="1" name="WAFL04"/>
+  <columns dataType="CHAR" length="1" name="WAFL05"/>
+  <columns dataType="CHAR" length="1" name="WAFL06"/>
+  <columns dataType="CHAR" length="1" name="WAFL07"/>
+  <columns dataType="CHAR" length="1" name="WAFL08"/>
+  <columns dataType="CHAR" length="1" name="WAFL09"/>
+  <columns dataType="CHAR" length="1" name="WAFL10"/>
+  <columns dataType="CHAR" length="1" name="WAFL11"/>
+  <columns dataType="CHAR" length="1" name="WAFL12"/>
+  <columns dataType="CHAR" length="1" name="WAFL13"/>
+  <columns dataType="CHAR" length="1" name="WAFL14"/>
+  <columns dataType="CHAR" length="1" name="WAFL15"/>
+  <columns dataType="CHAR" length="1" name="WAFL16"/>
+  <columns dataType="CHAR" length="1" name="WAFL17"/>
+  <columns dataType="CHAR" length="1" name="WAFL18"/>
+  <columns dataType="CHAR" length="1" name="WAFL19"/>
+  <columns dataType="CHAR" length="1" name="WAFL20"/>
+  <columns dataType="DECIMAL" length="8" name="WADTIN"/>
+  <columns dataType="DECIMAL" length="6" name="WAORIN"/>
+  <columns dataType="CHAR" length="10" name="WAUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="WADTAG"/>
+  <columns dataType="DECIMAL" length="6" name="WAORAG"/>
+  <columns dataType="CHAR" length="10" name="WAUSAG"/>
+  <columns dataType="CHAR" length="10" name="WATERM"/>
+  <columns dataType="DECIMAL" length="6" name="WANJOB"/>
+</db-core:TableDef>

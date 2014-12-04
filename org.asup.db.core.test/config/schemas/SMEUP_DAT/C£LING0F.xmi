@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="T&#xa7;TIPO"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CODI"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;LING"/>
+  <columns dataType="CHAR" length="35" name="T&#xa7;DESC"/>
+  <columns dataType="CHAR" length="70" name="T&#xa7;DEA1"/>
+  <columns dataType="CHAR" length="70" name="T&#xa7;DEA2"/>
+  <columns dataType="CHAR" length="70" name="T&#xa7;DEA3"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="T&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;USIN"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;OGIN"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="T&#xa7;ORAG"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;USAG"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;OGAG"/>
+</db-core:TableDef>

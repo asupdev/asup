@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="C&#xa7;CODV"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;NOME"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;TIAP"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;CODT"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;DECT"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;AUTO"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;NOTE"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DINA"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DFNA"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;CONI"/>
+  <columns dataType="CHAR" length="30" name="C&#xa7;DECI"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;CATE"/>
+  <columns dataType="CHAR" length="20" name="C&#xa7;IDAU"/>
+  <columns dataType="CHAR" length="40" name="C&#xa7;DOCU"/>
+</db-core:TableDef>

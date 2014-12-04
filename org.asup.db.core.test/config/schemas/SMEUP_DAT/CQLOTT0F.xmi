@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="T&#xa7;LOTI"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;TILO"/>
+  <columns dataType="CHAR" length="35" name="T&#xa7;DESC"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;STAT"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;CCGF"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;TMAT"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;MATR"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="5" name="T&#xa7;CART"/>
+  <columns dataType="CHAR" length="5" name="T&#xa7;PLAN"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;CGRU"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;NBEM"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DAEM"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;NUDO"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DADO"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;CMAG"/>
+  <columns dataType="CHAR" length="12" name="T&#xa7;CUBI"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;LOTF"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;CCOL"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;CERT"/>
+  <columns dataType="DECIMAL" length="5" name="T&#xa7;NCON"/>
+  <columns dataType="CHAR" length="12" name="T&#xa7;TIEA"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;COEA"/>
+  <columns dataType="CHAR" length="5" name="T&#xa7;CFAB"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;TPOR"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;NOCF"/>
+  <columns dataType="CHAR" length="6" name="T&#xa7;CRIG"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;RIFI"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;NORP"/>
+  <columns dataType="CHAR" length="6" name="T&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;COMM"/>
+  <columns dataType="CHAR" length="4" name="T&#xa7;CPDC"/>
+  <columns dataType="CHAR" length="4" name="T&#xa7;LPDC"/>
+  <columns dataType="CHAR" length="12" name="T&#xa7;TIEM"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;COEM"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DACO"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;ESCO"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;TIRW"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;RWRC"/>
+  <columns dataType="CHAR" length="5" name="T&#xa7;DPTN"/>
+  <columns dataType="CHAR" length="5" name="T&#xa7;CESA"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CMSG"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;ACOR"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;NPRG"/>
+  <columns dataType="DECIMAL" length="7" name="T&#xa7;ROPR" scale="4"/>
+  <columns dataType="DECIMAL" length="21" name="T&#xa7;VAPR" scale="6"/>
+  <columns dataType="DECIMAL" length="7" name="T&#xa7;ROAT" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="T&#xa7;RORE" scale="4"/>
+  <columns dataType="DECIMAL" length="21" name="T&#xa7;VACN" scale="6"/>
+  <columns dataType="DECIMAL" length="7" name="T&#xa7;ROAC" scale="4"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DCON"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DPRE"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DSCE"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DSCI"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DPRO"/>
+  <columns dataType="DECIMAL" length="5" name="T&#xa7;GIDU"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QLOT" scale="3"/>
+  <columns dataType="CHAR" length="6" name="T&#xa7;MUNM"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QLOA" scale="3"/>
+  <columns dataType="CHAR" length="6" name="T&#xa7;MUNA"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QRIL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QRIA" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QRFO" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QCNT" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QTCO" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QSEL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QNOC" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QRLV" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QSCA" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QDCN" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="T&#xa7;QTLI" scale="3"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;CLIB"/>
+  <columns dataType="CHAR" length="20" name="T&#xa7;CLI1"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD01"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD02"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD03"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD04"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD05"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD06"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD07"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD08"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD09"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CD10"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR05" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR06" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR07" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR08" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR09" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="T&#xa7;NR10" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT05"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT06"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT07"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT08"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT09"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DT10"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG2"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG3"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG4"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG5"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG6"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG7"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG8"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG9"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLG0"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;CVER"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;CSTA"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;VALO"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;CVEN"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL20"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL21"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL22"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL23"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL24"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL25"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLGA"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLGB"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLGC"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLGD"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLGE"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL34"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL35"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL36"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL37"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL38"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL39"/>
+  <columns dataType="CHAR" length="1" name="T&#xa7;FL40"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="T&#xa7;ORAI"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;UTIN"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;OGIN"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="T&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;PROG"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;WKST"/>
+</db-core:TableDef>

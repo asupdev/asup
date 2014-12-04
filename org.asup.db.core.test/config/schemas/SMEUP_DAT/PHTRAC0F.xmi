@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="P&#xa7;IDOJ"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;USIN"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="P&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="2" name="P&#xa7;ADUF"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;ADUL"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;TIPO"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;EVEN"/>
+  <columns dataType="CHAR" length="510" name="P&#xa7;DATI"/>
+</db-core:TableDef>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="7" name="C&#xa7;MCDS"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;MMTR"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;TIES"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;COES"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;TIER"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;COER"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;MMTC"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;MDUC"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;MDCN"/>
+  <columns dataType="CHAR" length="4" name="C&#xa7;MCLP"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MESC"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MCLR"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MUTL"/>
+  <columns dataType="DECIMAL" length="4" name="C&#xa7;MICN"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;MDPC"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ1P" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ2P" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ3P" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ4P" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ5P" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ1R" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ2R" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ3R" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ4R" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MQ5R" scale="4"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MQ6R"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MQ7R"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MQ8R"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MQ9R"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;MQ0R"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;MSNS" scale="4"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;APRO"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa7;MERR" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MINS" scale="4"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;MFDS" scale="4"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;CETA"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DTMR"/>
+  <columns dataType="CHAR" length="10" name="C&#xa7;UTEN"/>
+  <columns dataType="DECIMAL" length="8" name="C&#xa7;DTCR"/>
+</db-core:TableDef>

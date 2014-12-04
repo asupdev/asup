@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="80" name="AD&#xa3;DES"/>
+  <columns dataType="DECIMAL" length="4" name="AD&#xa3;LUN"/>
+  <columns dataType="CHAR" length="7" name="AD&#xa3;KEY"/>
+  <columns dataType="CHAR" length="2" name="AD&#xa3;STA"/>
+  <columns dataType="CHAR" length="1" name="AD&#xa3;LIV"/>
+  <columns dataType="CHAR" length="1" name="AD&#xa3;F01"/>
+  <columns dataType="CHAR" length="10" name="AD&#xa3;USA"/>
+  <columns dataType="DECIMAL" length="8" name="AD&#xa3;DTA"/>
+  <columns dataType="DECIMAL" length="6" name="AD&#xa3;ORA"/>
+</db-core:TableDef>

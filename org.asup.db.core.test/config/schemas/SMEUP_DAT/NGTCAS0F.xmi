@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="TTCNET"/>
+  <columns dataType="CHAR" length="3" name="TTCNEG"/>
+  <columns dataType="CHAR" length="3" name="TTCCAS"/>
+  <columns dataType="CHAR" length="1" name="TTCTIP"/>
+  <columns dataType="CHAR" length="3" name="TTCCOD"/>
+  <columns dataType="DECIMAL" length="8" name="TTCDAT"/>
+  <columns dataType="DECIMAL" length="5" name="TTCPRG"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIMD" scale="3"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIMA" scale="3"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIMP" scale="3"/>
+  <columns dataType="CHAR" length="50" name="TTCDES"/>
+  <columns dataType="CHAR" length="1" name="TTCFLT"/>
+  <columns dataType="CHAR" length="10" name="TTCNSC"/>
+  <columns dataType="CHAR" length="1" name="TTCFLG"/>
+  <columns dataType="CHAR" length="2" name="TTCSTA"/>
+  <columns dataType="CHAR" length="2" name="TTCPRV"/>
+  <columns dataType="CHAR" length="2" name="TTCTPR"/>
+  <columns dataType="CHAR" length="3" name="TTCRNG"/>
+  <columns dataType="CHAR" length="3" name="TTCRCS"/>
+  <columns dataType="CHAR" length="3" name="TTCRTP"/>
+  <columns dataType="CHAR" length="3" name="TTCRCD"/>
+  <columns dataType="DECIMAL" length="8" name="TTCRDT"/>
+  <columns dataType="DECIMAL" length="5" name="TTCRPR"/>
+  <columns dataType="CHAR" length="3" name="TTCCSP"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIMC" scale="3"/>
+  <columns dataType="CHAR" length="1" name="TTCFLC"/>
+  <columns dataType="CHAR" length="30" name="TTCKDS"/>
+  <columns dataType="CHAR" length="30" name="TTCKBL"/>
+  <columns dataType="CHAR" length="30" name="TTCKD2"/>
+  <columns dataType="CHAR" length="2" name="TTCCST"/>
+  <columns dataType="CHAR" length="15" name="TTCWFL"/>
+  <columns dataType="CHAR" length="3" name="TTCWFS"/>
+  <columns dataType="CHAR" length="30" name="TTCKNT"/>
+  <columns dataType="CHAR" length="3" name="TTCTDA"/>
+  <columns dataType="DECIMAL" length="8" name="TTCDDA"/>
+  <columns dataType="CHAR" length="20" name="TTCNDA"/>
+  <columns dataType="CHAR" length="8" name="TTCOPE"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIMR" scale="3"/>
+  <columns dataType="CHAR" length="8" name="TTCOPC"/>
+  <columns dataType="CHAR" length="4" name="TTCVAL"/>
+  <columns dataType="CHAR" length="3" name="TTCTPD"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIVD" scale="3"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIVA" scale="3"/>
+  <columns dataType="DECIMAL" length="17" name="TTCIVP" scale="3"/>
+  <columns dataType="DECIMAL" length="19" name="TTCCAM" scale="6"/>
+  <columns dataType="CHAR" length="1" name="TTCFLD"/>
+</db-core:TableDef>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="type" nsURI="http://www.asup.org/os/type" nsPrefix="os-type">
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//TypedObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="64"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="domain" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="32"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="manager" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="64"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specials" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedContainer" abstract="true">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//TypedObject"/>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectContainer">
+      <eTypeArguments eTypeParameter="#//TypedContainer/T"/>
+    </eGenericSuperTypes>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Plugin"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.os.omac/model/os-omac.ecore#//Manager">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//TypedObject"/>
+    </eTypeParameters>
+    <eOperations name="getTypedClass" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments eTypeParameter="#//TypedManager/T"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="getResourceReader">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceReader">
+        <eTypeArguments eTypeParameter="#//TypedManager/T"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getResourceReader">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceSetReader">
+        <eTypeArguments eTypeParameter="#//TypedManager/T"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="scope" eType="ecore:EEnum ../../org.asup.os.core/model/os-core.ecore#//Scope"/>
+    </eOperations>
+    <eOperations name="getResourceWriter">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceWriter">
+        <eTypeArguments eTypeParameter="#//TypedManager/T"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getResourceWriter">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceWriter">
+        <eTypeArguments eTypeParameter="#//TypedManager/T"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+      <eParameters name="scope" eType="ecore:EEnum ../../org.asup.os.core/model/os-core.ecore#//Scope"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedObject" abstract="true" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
+    <eOperations name="getAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="application" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="library" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="50"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memoryInfo" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//MemoryInfo"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedReference" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//TypedObject"/>
+    </eTypeParameters>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="library" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Attributo dell'oggetto.&#xA;&#xA;Ogni oggetto di tip QObject prevede una ulteriore specificazione di tipo dfinita tramite attributo.&#xA;L'attributo non partecipa all'ereditarieta' dell'oggetto pur influenzandono comportamenti e proprieta'."/>
+      </eAnnotations>
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeManager" abstract="true">
+    <eOperations name="lookupByDomain" lowerBound="1" eType="#//Type">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="lookupByClass" lowerBound="1" eType="#//Type">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="#//TypedObject"/>
+      </eTypeParameters>
+      <eParameters name="klass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//TypeManager/lookupByClass/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="#//TypedManager">
+      <eTypeArguments eClassifier="#//Type"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeRegistry" abstract="true">
+    <eOperations name="lookup" lowerBound="1">
+      <eGenericType eClassifier="#//TypedManager">
+        <eTypeArguments eTypeParameter="#//TypeRegistry/lookup/T"/>
+      </eGenericType>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="#//TypedObject"/>
+      </eTypeParameters>
+      <eParameters name="typedClass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//TypeRegistry/lookup/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="lookup" lowerBound="1">
+      <eGenericType eClassifier="#//TypedManager">
+        <eTypeArguments eTypeParameter="#//TypeRegistry/lookup.1/T"/>
+      </eGenericType>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="#//TypedObject"/>
+      </eTypeParameters>
+      <eParameters name="typedObject" lowerBound="1">
+        <eGenericType eTypeParameter="#//TypeRegistry/lookup.1/T"/>
+      </eParameters>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
+      <eTypeArguments eClassifier="#//TypedManager">
+        <eTypeArguments eClassifier="#//TypedObject"/>
+      </eTypeArguments>
+    </eGenericSuperTypes>
+  </eClassifiers>
+</ecore:EPackage>

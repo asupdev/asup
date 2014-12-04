@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="100" name="S1FRAS"/>
+  <columns dataType="CHAR" length="12" name="S1TIPA"/>
+  <columns dataType="CHAR" length="15" name="S1CODI"/>
+  <columns dataType="CHAR" length="15" name="S1DET1"/>
+  <columns dataType="CHAR" length="15" name="S1DET2"/>
+  <columns dataType="CHAR" length="15" name="S1DET3"/>
+  <columns dataType="CHAR" length="15" name="S1DET4"/>
+  <columns dataType="CHAR" length="2" name="S1AMOR"/>
+  <columns dataType="CHAR" length="2" name="S1STOR"/>
+  <columns dataType="DECIMAL" length="4" name="S1LUNG"/>
+  <columns dataType="CHAR" length="10" name="S1FILE"/>
+  <columns dataType="CHAR" length="10" name="S1LIBR"/>
+  <columns dataType="CHAR" length="2" name="S1APPL"/>
+  <columns dataType="CHAR" length="10" name="S1FDAT"/>
+  <columns dataType="CHAR" length="15" name="S1INF1"/>
+  <columns dataType="CHAR" length="15" name="S1INF2"/>
+  <columns dataType="CHAR" length="10" name="S1USCR"/>
+  <columns dataType="DECIMAL" length="8" name="S1DTCR"/>
+  <columns dataType="DECIMAL" length="6" name="S1ORCR"/>
+  <columns dataType="CHAR" length="512" name="S1NOT1"/>
+  <columns dataType="CHAR" length="512" name="S1NOT2"/>
+  <columns dataType="DECIMAL" length="8" name="S1DT01"/>
+  <columns dataType="DECIMAL" length="8" name="S1DT02"/>
+  <columns dataType="DECIMAL" length="8" name="S1DT03"/>
+  <columns dataType="DECIMAL" length="8" name="S1DT04"/>
+  <columns dataType="DECIMAL" length="8" name="S1DT05"/>
+  <columns dataType="CHAR" length="15" name="S1COD1"/>
+  <columns dataType="CHAR" length="15" name="S1COD2"/>
+  <columns dataType="CHAR" length="15" name="S1COD3"/>
+  <columns dataType="CHAR" length="15" name="S1COD4"/>
+  <columns dataType="CHAR" length="15" name="S1COD5"/>
+  <columns dataType="DECIMAL" length="15" name="S1NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S1NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S1NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S1NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="S1NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="S1FL01"/>
+  <columns dataType="CHAR" length="1" name="S1FL02"/>
+  <columns dataType="CHAR" length="1" name="S1FL03"/>
+  <columns dataType="CHAR" length="1" name="S1FL04"/>
+  <columns dataType="CHAR" length="1" name="S1FL05"/>
+  <columns dataType="CHAR" length="1" name="S1FL06"/>
+  <columns dataType="CHAR" length="1" name="S1FL07"/>
+  <columns dataType="CHAR" length="1" name="S1FL08"/>
+  <columns dataType="CHAR" length="1" name="S1FL09"/>
+  <columns dataType="CHAR" length="1" name="S1FL10"/>
+  <columns dataType="CHAR" length="1" name="S1FL11"/>
+  <columns dataType="CHAR" length="1" name="S1FL12"/>
+  <columns dataType="CHAR" length="1" name="S1FL13"/>
+  <columns dataType="CHAR" length="1" name="S1FL14"/>
+  <columns dataType="CHAR" length="1" name="S1FL15"/>
+  <columns dataType="CHAR" length="1" name="S1FL16"/>
+  <columns dataType="CHAR" length="1" name="S1FL17"/>
+  <columns dataType="CHAR" length="1" name="S1FL18"/>
+  <columns dataType="CHAR" length="1" name="S1FL19"/>
+  <columns dataType="CHAR" length="1" name="S1FL20"/>
+  <columns dataType="CHAR" length="10" name="S1USIN"/>
+  <columns dataType="DECIMAL" length="8" name="S1DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="S1ORIN"/>
+  <columns dataType="CHAR" length="10" name="S1USAG"/>
+  <columns dataType="DECIMAL" length="8" name="S1DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="S1ORAG"/>
+</db-core:TableDef>

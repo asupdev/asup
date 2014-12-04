@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<os-type-file:LogicalFile
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:il-data="http://www.asup.org/il/data"
+    xmlns:os-type-file="http://www.asup.org/os/type/file"
+    xsi:schemaLocation="http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/os/type/file os-type-file.ecore"
+    name="V5RDOC0J"
+    creationStatement="CREATE VIEW V5RDOC0J e molto altro ancora">
+  <databaseFormat
+      name="PIPPO">
+    <fields
+        name="R&#xa7;TDOC">
+      <definition
+          xsi:type="il-data:CharacterDef"
+          length="3"/>
+    </fields>
+    <fields
+        name="R&#xa7;NDOC">
+      <definition
+          xsi:type="il-data:CharacterDef"
+          length="10"/>
+    </fields>
+    <fields
+        name="TEST"
+        text="">
+      <definition
+          xsi:type="il-data:CharacterDef"
+          length="3">
+        <formulas>function=%SST(R&#xa7;TDOC:1:1)</formulas>
+      </definition>
+    </fields>
+    <formatKeys
+        name="T&#xa7;TDOC"/>
+    <formatKeys
+        name="T&#xa7;NDOC"/>
+  </databaseFormat>
+</os-type-file:LogicalFile>

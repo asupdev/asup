@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="STAREA"/>
+  <columns dataType="CHAR" length="3" name="STLISI"/>
+  <columns dataType="CHAR" length="2" name="STTIC1"/>
+  <columns dataType="CHAR" length="10" name="STPAC1"/>
+  <columns dataType="CHAR" length="15" name="STCOD1"/>
+  <columns dataType="CHAR" length="2" name="STTIC2"/>
+  <columns dataType="CHAR" length="10" name="STPAC2"/>
+  <columns dataType="CHAR" length="15" name="STCOD2"/>
+  <columns dataType="CHAR" length="2" name="STTIC3"/>
+  <columns dataType="CHAR" length="10" name="STPAC3"/>
+  <columns dataType="CHAR" length="15" name="STCOD3"/>
+  <columns dataType="CHAR" length="10" name="STPERI"/>
+  <columns dataType="CHAR" length="3" name="STTEMA"/>
+  <columns dataType="DECIMAL" length="20" name="STCO01" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO02" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO03" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO04" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO05" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO06" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO07" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO08" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO09" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO10" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO11" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO12" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO13" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO14" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STCO15" scale="5"/>
+  <columns dataType="CHAR" length="3" name="STLIAG"/>
+  <columns dataType="CHAR" length="15" name="STCA01"/>
+  <columns dataType="CHAR" length="15" name="STCA02"/>
+  <columns dataType="CHAR" length="15" name="STCA03"/>
+  <columns dataType="CHAR" length="15" name="STCA04"/>
+  <columns dataType="CHAR" length="15" name="STCA05"/>
+  <columns dataType="CHAR" length="15" name="STCA06"/>
+  <columns dataType="CHAR" length="15" name="STCA07"/>
+  <columns dataType="CHAR" length="15" name="STCA08"/>
+  <columns dataType="CHAR" length="15" name="STCA09"/>
+  <columns dataType="CHAR" length="3" name="STMECL"/>
+  <columns dataType="CHAR" length="15" name="STLA01"/>
+  <columns dataType="CHAR" length="15" name="STLA02"/>
+  <columns dataType="CHAR" length="15" name="STLA03"/>
+  <columns dataType="CHAR" length="15" name="STLA04"/>
+  <columns dataType="CHAR" length="15" name="STLA05"/>
+  <columns dataType="CHAR" length="15" name="STLA06"/>
+  <columns dataType="CHAR" length="15" name="STLA07"/>
+  <columns dataType="CHAR" length="15" name="STLA08"/>
+  <columns dataType="CHAR" length="15" name="STLA09"/>
+  <columns dataType="CHAR" length="15" name="STLA10"/>
+  <columns dataType="CHAR" length="15" name="STLA11"/>
+  <columns dataType="CHAR" length="15" name="STLA12"/>
+  <columns dataType="CHAR" length="15" name="STLA13"/>
+  <columns dataType="CHAR" length="15" name="STLA14"/>
+  <columns dataType="CHAR" length="15" name="STLA15"/>
+  <columns dataType="CHAR" length="15" name="STLA16"/>
+  <columns dataType="CHAR" length="15" name="STLA17"/>
+  <columns dataType="CHAR" length="15" name="STLA18"/>
+  <columns dataType="CHAR" length="15" name="STLA19"/>
+  <columns dataType="CHAR" length="15" name="STLA20"/>
+  <columns dataType="DECIMAL" length="20" name="STLN01" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN02" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN03" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN04" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN05" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN06" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN07" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN08" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN09" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STLN10" scale="5"/>
+  <columns dataType="CHAR" length="1" name="STFL01"/>
+  <columns dataType="CHAR" length="1" name="STFL02"/>
+  <columns dataType="CHAR" length="1" name="STFL03"/>
+  <columns dataType="CHAR" length="1" name="STFL04"/>
+  <columns dataType="CHAR" length="1" name="STFL05"/>
+  <columns dataType="CHAR" length="1" name="STFL06"/>
+  <columns dataType="CHAR" length="1" name="STFL07"/>
+  <columns dataType="CHAR" length="1" name="STFL08"/>
+  <columns dataType="CHAR" length="1" name="STFL09"/>
+  <columns dataType="CHAR" length="1" name="STFL10"/>
+  <columns dataType="CHAR" length="1" name="STLIVE"/>
+  <columns dataType="CHAR" length="2" name="STSTAT"/>
+  <columns dataType="CHAR" length="10" name="STUTEN"/>
+  <columns dataType="DECIMAL" length="8" name="STDATI"/>
+  <columns dataType="DECIMAL" length="8" name="STDAUM"/>
+</db-core:TableDef>

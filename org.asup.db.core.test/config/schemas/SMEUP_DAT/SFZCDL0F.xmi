@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="SZCANN"/>
+  <columns dataType="CHAR" length="15" name="SZCATT"/>
+  <columns dataType="CHAR" length="6" name="SZCCDL"/>
+  <columns dataType="DECIMAL" length="5" name="SZCNAT"/>
+  <columns dataType="DECIMAL" length="6" name="SZCTLA" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="SZCTAT" scale="2"/>
+</db-core:TableDef>

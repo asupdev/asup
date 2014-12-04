@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP IntegratedLanguage Isam Jdbc
+Bundle-SymbolicName: org.asup.il.isam.jdbc
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.asup.il.isam,
+ org.asup.il.data,
+ org.asup.db.core,
+ org.asup.db.syntax

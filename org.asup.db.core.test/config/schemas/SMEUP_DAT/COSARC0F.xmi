@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="R$COAR"/>
+  <columns dataType="CHAR" length="3" name="R$TCOS"/>
+  <columns dataType="CHAR" length="6" name="R$CDL"/>
+  <columns dataType="DECIMAL" length="12" name="R$TLAL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TMAL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TATL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TSCL" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TLAI" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TMAI" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TATI" scale="6"/>
+  <columns dataType="DECIMAL" length="12" name="R$TSCI" scale="6"/>
+</db-core:TableDef>

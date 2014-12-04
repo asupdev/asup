@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="3" name="WKORDI"/>
+  <columns dataType="DECIMAL" length="7" name="WKNREC"/>
+  <columns dataType="CHAR" length="15" name="WKPR01"/>
+  <columns dataType="CHAR" length="15" name="WKPR02"/>
+  <columns dataType="CHAR" length="15" name="WKPR03"/>
+  <columns dataType="CHAR" length="15" name="WKPR04"/>
+  <columns dataType="CHAR" length="15" name="WKPR05"/>
+  <columns dataType="CHAR" length="15" name="WKPR06"/>
+  <columns dataType="CHAR" length="15" name="WKPR07"/>
+  <columns dataType="CHAR" length="15" name="WKPR08"/>
+  <columns dataType="CHAR" length="15" name="WKPR09"/>
+  <columns dataType="CHAR" length="15" name="WKPR10"/>
+  <columns dataType="CHAR" length="35" name="WKDE01"/>
+  <columns dataType="CHAR" length="35" name="WKDE02"/>
+  <columns dataType="CHAR" length="35" name="WKDE03"/>
+  <columns dataType="CHAR" length="35" name="WKDE04"/>
+  <columns dataType="CHAR" length="35" name="WKDE05"/>
+  <columns dataType="CHAR" length="35" name="WKDE06"/>
+  <columns dataType="CHAR" length="35" name="WKDE07"/>
+  <columns dataType="CHAR" length="35" name="WKDE08"/>
+  <columns dataType="CHAR" length="35" name="WKDE09"/>
+  <columns dataType="CHAR" length="35" name="WKDE10"/>
+</db-core:TableDef>

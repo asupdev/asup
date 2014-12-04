@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="7" name="TABEL00001"/>
+  <columns dataType="CHAR" length="7" name="SOCIE00001"/>
+  <columns dataType="CHAR" length="5" name="MRTMO"/>
+  <columns dataType="CHAR" length="5" name="MRPMO"/>
+  <columns dataType="DECIMAL" length="7" name="MRNMO"/>
+  <columns dataType="CHAR" length="15" name="MRMAG"/>
+  <columns dataType="DECIMAL" length="8" name="MRDAT"/>
+  <columns dataType="CHAR" length="5" name="AACL1"/>
+  <columns dataType="CHAR" length="5" name="AACL2"/>
+  <columns dataType="CHAR" length="5" name="AAMAR"/>
+  <columns dataType="CHAR" length="5" name="MRCMA"/>
+  <columns dataType="DECIMAL" length="19" name="MRQTA" scale="3"/>
+  <columns dataType="DECIMAL" length="19" name="MRIMN" scale="3"/>
+  <columns dataType="CHAR" length="5" name="MRIVA"/>
+  <columns dataType="DECIMAL" length="9" name="IVA_ALIQ" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="MRDRF"/>
+  <columns dataType="CHAR" length="20" name="MRNRF"/>
+  <columns dataType="CHAR" length="35" name="MRDES"/>
+  <columns dataType="CHAR" length="5" name="MRRTP"/>
+  <columns dataType="CHAR" length="5" name="MRSCS"/>
+  <columns dataType="DECIMAL" length="8" name="MRSDT"/>
+  <columns dataType="DECIMAL" length="6" name="MRSOR"/>
+  <columns dataType="DECIMAL" length="7" name="MRSNS"/>
+  <columns dataType="CHAR" length="5" name="MRSPV"/>
+  <columns dataType="CHAR" length="5" name="DTTDO"/>
+  <columns dataType="CHAR" length="5" name="DTPDO"/>
+  <columns dataType="DECIMAL" length="7" name="DTNDO"/>
+  <columns dataType="DECIMAL" length="8" name="DTDAT"/>
+  <columns dataType="DECIMAL" length="7" name="DTND2"/>
+  <columns dataType="DECIMAL" length="8" name="DTDD2"/>
+</db-core:TableDef>

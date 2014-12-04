@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="52" name="STSSID"/>
+  <columns dataType="CHAR" length="10" name="STTPRC"/>
+  <columns dataType="DECIMAL" length="5" name="STINDX"/>
+  <columns dataType="CHAR" length="2562" name="STLIBE"/>
+  <columns dataType="CHAR" length="15" name="STIDUS"/>
+  <columns dataType="DECIMAL" length="8" name="STDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="STORIN"/>
+  <columns dataType="CHAR" length="10" name="STUSIN"/>
+  <columns dataType="CHAR" length="10" name="STOGIN"/>
+  <columns dataType="DECIMAL" length="8" name="STDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="STORAG"/>
+  <columns dataType="CHAR" length="10" name="STUSAG"/>
+  <columns dataType="CHAR" length="10" name="STOGAG"/>
+</db-core:TableDef>

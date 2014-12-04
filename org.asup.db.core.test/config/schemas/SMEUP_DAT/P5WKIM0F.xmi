@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="QWNSES"/>
+  <columns dataType="CHAR" length="3" name="QWTIMP"/>
+  <columns dataType="CHAR" length="2" name="QWTORI"/>
+  <columns dataType="CHAR" length="3" name="QWPACL"/>
+  <columns dataType="CHAR" length="3" name="QWTDOC"/>
+  <columns dataType="CHAR" length="10" name="QWNDOC"/>
+  <columns dataType="CHAR" length="4" name="QWUSR1"/>
+  <columns dataType="CHAR" length="3" name="QWCDMG"/>
+  <columns dataType="CHAR" length="15" name="QWARTI"/>
+  <columns dataType="CHAR" length="15" name="QWASSI"/>
+  <columns dataType="CHAR" length="4" name="QWUSR2"/>
+  <columns dataType="CHAR" length="6" name="QWOPER"/>
+  <columns dataType="DECIMAL" length="8" name="QWDATI"/>
+  <columns dataType="DECIMAL" length="11" name="QWQUAN" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="QWQTOT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="QWCOEF" scale="6"/>
+  <columns dataType="DECIMAL" length="3" name="QWLTAD"/>
+  <columns dataType="CHAR" length="6" name="QWSQCI"/>
+  <columns dataType="CHAR" length="2" name="QWESMO"/>
+  <columns dataType="CHAR" length="20" name="QWCONF"/>
+  <columns dataType="CHAR" length="10" name="QWCOMM"/>
+  <columns dataType="CHAR" length="15" name="QWLOTT"/>
+  <columns dataType="CHAR" length="12" name="QWLOCN"/>
+  <columns dataType="CHAR" length="3" name="QWTMAT"/>
+  <columns dataType="CHAR" length="15" name="QWNMAT"/>
+  <columns dataType="CHAR" length="3" name="QWTIEN"/>
+  <columns dataType="CHAR" length="15" name="QWCOEN"/>
+  <columns dataType="CHAR" length="3" name="QWTRIS"/>
+  <columns dataType="CHAR" length="15" name="QWRISO"/>
+  <columns dataType="CHAR" length="3" name="QWTIGE"/>
+  <columns dataType="CHAR" length="1" name="QWLIVE"/>
+  <columns dataType="CHAR" length="2" name="QWSTAT"/>
+  <columns dataType="CHAR" length="1" name="QWFL01"/>
+  <columns dataType="CHAR" length="1" name="QWFL02"/>
+  <columns dataType="CHAR" length="1" name="QWFL03"/>
+  <columns dataType="CHAR" length="1" name="QWFL04"/>
+  <columns dataType="CHAR" length="1" name="QWFL05"/>
+  <columns dataType="CHAR" length="1" name="QWFL06"/>
+  <columns dataType="CHAR" length="1" name="QWFL07"/>
+  <columns dataType="CHAR" length="1" name="QWFL08"/>
+  <columns dataType="CHAR" length="1" name="QWFL09"/>
+  <columns dataType="CHAR" length="1" name="QWFL10"/>
+  <columns dataType="DECIMAL" length="8" name="QWDTIN"/>
+  <columns dataType="DECIMAL" length="8" name="QWDTAG"/>
+  <columns dataType="CHAR" length="10" name="QWUSAG"/>
+  <columns dataType="CHAR" length="10" name="QWNDOR"/>
+  <columns dataType="CHAR" length="4" name="QWUOR1"/>
+  <columns dataType="CHAR" length="4" name="QWUOR2"/>
+</db-core:TableDef>

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Integrated Language Core
+Bundle-SymbolicName: org.asup.il.core;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: www.smeup.com
+Bundle-Localization: plugin
+Export-Package: org.asup.il.core,
+ org.asup.il.core.annotation,
+ org.asup.il.core.impl,
+ org.asup.il.core.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport,
+ org.asup.fw.core;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="C&#xa3;CATR"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD01"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;CD02"/>
+  <columns dataType="CHAR" length="10" name="C&#xa3;CREG"/>
+  <columns dataType="CHAR" length="6" name="C&#xa3;SQRG"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;LIIN"/>
+  <columns dataType="CHAR" length="15" name="C&#xa3;LIFI"/>
+</db-core:TableDef>

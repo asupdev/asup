@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="W5LOTT"/>
+  <columns dataType="DECIMAL" length="6" name="W5SOLO"/>
+  <columns dataType="CHAR" length="15" name="W5IDOJ"/>
+  <columns dataType="CHAR" length="15" name="W5IMOJ"/>
+  <columns dataType="CHAR" length="50" name="W5CORD"/>
+  <columns dataType="CHAR" length="2" name="W5TREC"/>
+  <columns dataType="CHAR" length="10002" name="W5RECO"/>
+  <columns dataType="CHAR" length="7" name="W5CDMS"/>
+  <columns dataType="CHAR" length="10" name="W5FIMS"/>
+  <columns dataType="CHAR" length="35" name="W5VAMS"/>
+  <columns dataType="CHAR" length="1" name="W5FL01"/>
+  <columns dataType="CHAR" length="1" name="W5FL02"/>
+  <columns dataType="CHAR" length="1" name="W5FL03"/>
+  <columns dataType="CHAR" length="1" name="W5FL04"/>
+  <columns dataType="CHAR" length="1" name="W5FL05"/>
+  <columns dataType="CHAR" length="1" name="W5FL06"/>
+  <columns dataType="CHAR" length="1" name="W5FL07"/>
+  <columns dataType="CHAR" length="1" name="W5FL08"/>
+  <columns dataType="CHAR" length="1" name="W5FL09"/>
+  <columns dataType="CHAR" length="1" name="W5FL10"/>
+  <columns dataType="CHAR" length="1" name="W5FL11"/>
+  <columns dataType="CHAR" length="1" name="W5FL12"/>
+  <columns dataType="CHAR" length="1" name="W5FL13"/>
+  <columns dataType="CHAR" length="1" name="W5FL14"/>
+  <columns dataType="CHAR" length="1" name="W5FL15"/>
+  <columns dataType="CHAR" length="1" name="W5FL16"/>
+  <columns dataType="CHAR" length="1" name="W5FL17"/>
+  <columns dataType="CHAR" length="1" name="W5FL18"/>
+  <columns dataType="CHAR" length="1" name="W5FL19"/>
+  <columns dataType="CHAR" length="1" name="W5FL20"/>
+  <columns dataType="DECIMAL" length="8" name="W5DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="W5ORIN"/>
+  <columns dataType="CHAR" length="10" name="W5USIN"/>
+  <columns dataType="DECIMAL" length="8" name="W5DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="W5ORAG"/>
+  <columns dataType="CHAR" length="10" name="W5USAG"/>
+  <columns dataType="CHAR" length="10" name="W5TERM"/>
+  <columns dataType="DECIMAL" length="6" name="W5NJOB"/>
+</db-core:TableDef>

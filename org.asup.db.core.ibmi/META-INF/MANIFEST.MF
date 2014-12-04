@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Database Core IBMi
+Bundle-SymbolicName: org.asup.db.core.ibmi
+Bundle-Version: 0.5.3.qualifier
+Bundle-ClassPath: lib/jt400.jar,
+ .
+Bundle-Vendor: www.smeup.com
+Export-Package: com.ibm.as400.access,
+ org.asup.db.core.ibmi
+Require-Bundle: org.asup.db.core;visibility:=reexport,
+ org.eclipse.datatools.enablement.ibm.db2.iseries;bundle-version="1.0.2",
+ org.eclipse.datatools.enablement.ibm.db2.iseries.dbdefinition;bundle-version="1.0.3"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.osgi.service.jdbc

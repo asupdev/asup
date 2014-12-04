@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="L$TIPC"/>
+  <columns dataType="CHAR" length="15" name="L$KYC1"/>
+  <columns dataType="CHAR" length="15" name="L$KYC2"/>
+  <columns dataType="CHAR" length="15" name="L$KYC3"/>
+  <columns dataType="CHAR" length="3" name="L$TIPI"/>
+  <columns dataType="CHAR" length="2" name="L$SSLD"/>
+  <columns dataType="CHAR" length="2" name="L$TCEL"/>
+  <columns dataType="CHAR" length="10" name="L$PCEL"/>
+  <columns dataType="CHAR" length="15" name="L$COEL"/>
+  <columns dataType="CHAR" length="2" name="L$RIRI"/>
+  <columns dataType="DECIMAL" length="6" name="L$DRIC"/>
+  <columns dataType="DECIMAL" length="6" name="L$DRIS"/>
+  <columns dataType="CHAR" length="2" name="L$ESIT"/>
+  <columns dataType="CHAR" length="15" name="L$CDOR"/>
+  <columns dataType="CHAR" length="40" name="L$NOT1"/>
+  <columns dataType="CHAR" length="10" name="L$UTCR"/>
+  <columns dataType="DECIMAL" length="6" name="L$DTCR"/>
+  <columns dataType="CHAR" length="10" name="L$UTAG"/>
+  <columns dataType="DECIMAL" length="6" name="L$DTAG"/>
+</db-core:TableDef>

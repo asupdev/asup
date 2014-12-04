@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/fw/core" nsPrefix="fw-core">
+  <eClassifiers xsi:type="ecore:EDataType" name="FrameworkCoreException" instanceClassName="org.asup.fw.core.FrameworkCoreException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FrameowrkCoreRuntimeException" instanceClassName="org.asup.fw.core.FrameworkCoreRuntimeException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="FrameworkCoreUnexpectedConditionException"
+      instanceClassName="org.asup.fw.core.FrameworkCoreUnexpectedConditionException"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Application">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
+        eType="#//ServiceHook" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
+        eType="#//ApplicationLevel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationLevel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
+        eType="#//ServiceHook" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+        eType="#//ApplicationModule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationManager" abstract="true"
+      interface="true">
+    <eOperations name="start" lowerBound="1" eType="#//Context">
+      <eParameters name="application" lowerBound="1" eType="#//Application"/>
+      <eParameters name="output" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationModule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//ServiceReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true">
+    <eOperations name="close" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException"/>
+    <eOperations name="createChild" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException"/>
+    <eOperations name="get" lowerBound="1">
+      <eGenericType eTypeParameter="#//Context/get/T"/>
+      <eTypeParameters name="T"/>
+      <eParameters name="clazz" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/get/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getAdapter">
+      <eGenericType eTypeParameter="#//Context/getAdapter/T"/>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="adaptable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="adapterType" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/getAdapter/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getID" lowerBound="1" eType="#//ContextID"/>
+    <eOperations name="inject" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eParameters name="object" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="loadClass" lowerBound="1">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+      <eParameters name="contextID" lowerBound="1" eType="#//ContextID"/>
+      <eParameters name="address" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="invoke" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eTypeParameters name="A">
+        <eBounds eClassifier="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
+      </eTypeParameters>
+      <eParameters name="object" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="qualifier" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/invoke/A"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="make" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eGenericType eTypeParameter="#//Context/make/T"/>
+      <eTypeParameters name="T"/>
+      <eParameters name="klass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/make/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="set" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eTypeParameters name="T"/>
+      <eParameters name="klass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/set/T"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//Context/set/T"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="set" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eTypeParameters name="T"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="object" lowerBound="1">
+        <eGenericType eTypeParameter="#//Context/set.1/T"/>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextID" abstract="true" interface="true">
+    <eOperations name="getID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Logger" abstract="true" interface="true"
+      eSuperTypes="#//Service">
+    <eOperations name="info">
+      <eParameters name="message" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="info">
+      <eParameters name="message" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="throwable" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaThrowable"/>
+    </eOperations>
+    <eOperations name="warning">
+      <eParameters name="message" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="warning">
+      <eParameters name="message" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="throwable" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaThrowable"/>
+    </eOperations>
+    <eOperations name="error">
+      <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="error">
+      <eParameters name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="throwable" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaThrowable"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Plugin" abstract="true">
+    <eOperations name="getPluginID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vendor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PluginRegistry" abstract="true" eSuperTypes="#//Service">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="#//Plugin"/>
+    </eTypeParameters>
+    <eOperations name="lookup" lowerBound="1">
+      <eGenericType eTypeParameter="#//PluginRegistry/T"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="lookupByVendorVersion" lowerBound="1">
+      <eGenericType eTypeParameter="#//PluginRegistry/T"/>
+      <eParameters name="vendor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="version" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="list" lowerBound="1" upperBound="-1">
+      <eGenericType eTypeParameter="#//PluginRegistry/T"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="store">
+      <eGenericType eClassifier="#//PluginRegistry">
+        <eTypeArguments eTypeParameter="#//PluginRegistry/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PluginRegistryFactory" abstract="true"
+      eSuperTypes="#//Service">
+    <eOperations name="createPluginRegistry" lowerBound="1">
+      <eGenericType eClassifier="#//PluginRegistry">
+        <eTypeArguments eTypeParameter="#//PluginRegistryFactory/createPluginRegistry/T"/>
+      </eGenericType>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="#//Plugin"/>
+      </eTypeParameters>
+      <eParameters name="pluginClass" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//PluginRegistryFactory/createPluginRegistry/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="config" eType="#//ServiceConfig"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceConfig" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceHook" eSuperTypes="#//ServiceReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServicePlugin" eSuperTypes="#//Plugin #//ServiceReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//ServiceReference" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServicePluginRegistry" eSuperTypes="#//ServiceReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//ServicePlugin" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pluginInterface" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interfaceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="config" eType="#//ServiceConfig"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteExport" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
+        eType="#//ServiceStatus"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ServiceStatus">
+    <eLiterals name="Active" literal="ACT"/>
+    <eLiterals name="Stopped" value="20" literal="STP"/>
+    <eLiterals name="Testing" value="30" literal="TST"/>
+  </eClassifiers>
+</ecore:EPackage>

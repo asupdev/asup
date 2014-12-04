@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.fw.test/src" modelPluginID="org.asup.fw.test" modelName="As.UP Framework Test"
+    rootExtendsInterface="" suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>fw-test.ecore</foreignModel>
+  <genPackages prefix="FrameworkTest" basePackage="org.asup.fw" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="fw-test.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="fw-test.ecore#//AssertionState">
+      <genEnumLiterals ecoreEnumLiteral="fw-test.ecore#//AssertionState/success"/>
+      <genEnumLiterals ecoreEnumLiteral="fw-test.ecore#//AssertionState/failed"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="fw-test.ecore#//FrameworkTestFaillureError"/>
+    <genClasses image="false" ecoreClass="fw-test.ecore#//Asserter">
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertTrue">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertTrue/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertTrue/expected"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.1">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.1/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.1/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.1/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.2">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.2/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.2/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.2/actual"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.2/delta"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.3">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.3/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.3/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.3/actual"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.3/delta"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.4">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.4/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.4/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.4/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.5">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.5/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.5/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.5/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.6">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.6/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.6/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.6/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.7">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.7/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.7/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.7/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.8">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.8/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.8/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.8/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertEquals.9">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.9/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.9/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertEquals.9/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertNotNull">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNotNull/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNotNull/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertNull">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNull/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNull/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertSame">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertSame/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertSame/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertSame/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/assertNotSame">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNotSame/message"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNotSame/expected"/>
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/assertNotSame/actual"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//Asserter/fail">
+        <genParameters ecoreParameter="fw-test.ecore#//Asserter/fail/message"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="fw-test.ecore#//AssertionFailed"/>
+    <genClasses ecoreClass="fw-test.ecore#//AssertionResult">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-test.ecore#//AssertionResult/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-test.ecore#//AssertionResult/time"/>
+      <genOperations ecoreOperation="fw-test.ecore#//AssertionResult/getAssertionState"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-test.ecore#//AssertionSuccess"/>
+    <genClasses ecoreClass="fw-test.ecore#//SuiteTestRunner"/>
+    <genClasses image="false" ecoreClass="fw-test.ecore#//TestAsserter">
+      <genOperations ecoreOperation="fw-test.ecore#//TestAsserter/resetTime"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-test.ecore#//TestContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fw-test.ecore#//TestContainer/tests"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-test.ecore#//TestContext"/>
+    <genClasses image="false" ecoreClass="fw-test.ecore#//TestListener">
+      <genOperations ecoreOperation="fw-test.ecore#//TestListener/addAssertionResult">
+        <genParameters ecoreParameter="fw-test.ecore#//TestListener/addAssertionResult/assertionResult"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//TestListener/startTest">
+        <genParameters ecoreParameter="fw-test.ecore#//TestListener/startTest/test"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//TestListener/endTest">
+        <genParameters ecoreParameter="fw-test.ecore#//TestListener/endTest/test"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="fw-test.ecore#//TestManager">
+      <genOperations ecoreOperation="fw-test.ecore#//TestManager/createTestContext">
+        <genParameters ecoreParameter="fw-test.ecore#//TestManager/createTestContext/context"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//TestManager/executeRunner">
+        <genParameters ecoreParameter="fw-test.ecore#//TestManager/executeRunner/context"/>
+        <genParameters ecoreParameter="fw-test.ecore#//TestManager/executeRunner/runner"/>
+      </genOperations>
+      <genOperations ecoreOperation="fw-test.ecore#//TestManager/prepareRunner">
+        <genParameters ecoreParameter="fw-test.ecore#//TestManager/prepareRunner/context"/>
+        <genParameters ecoreParameter="fw-test.ecore#//TestManager/prepareRunner/className"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="fw-test.ecore#//TestResult">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-test.ecore#//TestResult/failed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-test.ecore#//TestResult/time"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fw-test.ecore#//TestResult/assertResults"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-test.ecore#//TestRunner">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fw-test.ecore#//TestRunner/testListeners"/>
+      <genOperations ecoreOperation="fw-test.ecore#//TestRunner/runTest"/>
+    </genClasses>
+    <genClasses ecoreClass="fw-test.ecore#//UnitTestRunner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fw-test.ecore#//UnitTestRunner/className"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

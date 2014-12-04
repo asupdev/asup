@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension
+         id="application"
+         name="As.UP Framework Application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="org.asup.fw.core.e4.E4ApplicationImpl">
+         </run>
+      </application>
+   
+   </extension>
+   
+</plugin>

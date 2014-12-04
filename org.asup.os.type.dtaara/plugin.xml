@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+  
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated os-type-dtaara -->
+      <package
+            uri="http://www.asup.org/os/type/dtaara"
+            class="org.asup.os.type.dtaara.QOperatingSystemDataAreaPackage"
+            genModel="model/os-type-dtaara.genmodel"/>
+   </extension>
+
+</plugin>

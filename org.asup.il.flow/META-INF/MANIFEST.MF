@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Integrated Language Flow
+Bundle-SymbolicName: org.asup.il.flow;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: www.smeup.com
+Bundle-Localization: plugin
+Export-Package: org.asup.il.flow,
+ org.asup.il.flow.impl
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.il.core;visibility:=reexport,
+ org.asup.il.data;visibility:=reexport,
+ org.asup.il.isam;visibility:=reexport,
+ org.asup.fw.core;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport,
+ org.asup.db.core;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

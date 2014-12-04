@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.il.isam/src" modelPluginID="org.asup.il.isam" modelName="As.UP Integrated Language ISAM"
+    rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>il-isam.ecore</foreignModel>
+  <genPackages prefix="IntegratedLanguageIsam" basePackage="org.asup.il" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="il-isam.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="il-isam.ecore#//AccessMode">
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//AccessMode/Input"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//AccessMode/Output"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//AccessMode/Update"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="il-isam.ecore#//OperationSet">
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationSet/Chain"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationSet/SetLowerLimit"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationSet/SetGreaterThan"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="il-isam.ecore#//OperationRead">
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationRead/Chain"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationRead/Read"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationRead/ReadEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationRead/ReadPrior"/>
+      <genEnumLiterals ecoreEnumLiteral="il-isam.ecore#//OperationRead/ReadPriorEqual"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="il-isam.ecore#//KeyValue"/>
+    <genClasses image="false" ecoreClass="il-isam.ecore#//DataSet">
+      <genTypeParameters ecoreTypeParameter="il-isam.ecore#//DataSet/DS"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/clear"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/close"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/delete"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/isEndOfData"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/isFound"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/open"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/read"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/readp"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/unlock"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/update"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/write"/>
+      <genOperations ecoreOperation="il-isam.ecore#//DataSet/get"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-isam.ecore#//DataSetTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//DataSetTerm/accessMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//DataSetTerm/fileName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//DataSetTerm/formatName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//DataSetTerm/keyedAccess"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-isam.ecore#//DataSetTerm/record"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//DataSetTerm/userOpen"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-isam.ecore#//KeyList"/>
+    <genClasses image="false" ecoreClass="il-isam.ecore#//KeyListTerm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//KeyListTerm/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-isam.ecore#//KeyListTerm/keyFields"/>
+    </genClasses>
+    <genClasses ecoreClass="il-isam.ecore#//IndexDataSet">
+      <genTypeParameters ecoreTypeParameter="il-isam.ecore#//IndexDataSet/DS"/>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/chain">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/chain/keyList"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/chain.1">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/chain.1/keyField"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/reade">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/reade/keyList"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/reade.1">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/reade.1/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/readpe">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/readpe/keyList"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/readpe.1">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/readpe.1/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/setll">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/setll/keyList"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/setll.1">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/setll.1/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/setgt">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/setgt/keyList"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IndexDataSet/setgt.1">
+        <genParameters ecoreParameter="il-isam.ecore#//IndexDataSet/setgt.1/key"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-isam.ecore#//IsamManager">
+      <genOperations ecoreOperation="il-isam.ecore#//IsamManager/createFactory">
+        <genParameters ecoreParameter="il-isam.ecore#//IsamManager/createFactory/contextID"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-isam.ecore#//IsamFactory">
+      <genOperations ecoreOperation="il-isam.ecore#//IsamFactory/createDataSet">
+        <genParameters ecoreParameter="il-isam.ecore#//IsamFactory/createDataSet/dataSetTerm"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//IsamFactory/createDataSetTerm">
+        <genParameters ecoreParameter="il-isam.ecore#//IsamFactory/createDataSetTerm/type"/>
+        <genParameters ecoreParameter="il-isam.ecore#//IsamFactory/createDataSetTerm/annotations"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="il-isam.ecore#//TableDataSet">
+      <genTypeParameters ecoreTypeParameter="il-isam.ecore#//TableDataSet/DS"/>
+      <genOperations ecoreOperation="il-isam.ecore#//TableDataSet/chain">
+        <genParameters ecoreParameter="il-isam.ecore#//TableDataSet/chain/relativeRecordNumber"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//TableDataSet/setgt">
+        <genParameters ecoreParameter="il-isam.ecore#//TableDataSet/setgt/relativeRecordNumber"/>
+      </genOperations>
+      <genOperations ecoreOperation="il-isam.ecore#//TableDataSet/setll">
+        <genParameters ecoreParameter="il-isam.ecore#//TableDataSet/setll/relativeRecordNumber"/>
+      </genOperations>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

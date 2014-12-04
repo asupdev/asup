@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Framework Test
+Bundle-SymbolicName: org.asup.fw.test;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: www.smeup.com
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.asup.fw.test,
+ org.asup.fw.test.annotation,
+ org.asup.fw.test.impl
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.fw.core;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport
+Bundle-ActivationPolicy: lazy

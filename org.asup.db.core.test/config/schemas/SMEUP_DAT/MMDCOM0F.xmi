@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="D$CODI"/>
+  <columns dataType="CHAR" length="4" name="D$SEQU"/>
+  <columns dataType="CHAR" length="15" name="D$COCO"/>
+  <columns dataType="CHAR" length="40" name="D$DECO"/>
+  <columns dataType="CHAR" length="2" name="D$UMCO"/>
+  <columns dataType="DECIMAL" length="7" name="D$QTCO" scale="2"/>
+  <columns dataType="CHAR" length="3" name="D$TIPO"/>
+</db-core:TableDef>

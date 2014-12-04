@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="DOTPOG"/>
+  <columns dataType="CHAR" length="15" name="DOCDOG"/>
+  <columns dataType="CHAR" length="3" name="DOPROG"/>
+  <columns dataType="DECIMAL" length="8" name="DODTOG"/>
+  <columns dataType="DECIMAL" length="6" name="DOOROG"/>
+  <columns dataType="DECIMAL" length="20" name="DON001" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON002" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON003" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON004" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON005" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON006" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON007" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON008" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON009" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON010" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON011" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON012" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON013" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON014" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON015" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON016" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON017" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON018" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON019" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON020" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON021" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON022" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON023" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON024" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON025" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON026" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON027" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON028" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON029" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON030" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON031" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON032" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON033" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON034" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON035" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON036" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON037" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON038" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON039" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON040" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON041" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON042" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON043" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON044" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON045" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON046" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON047" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON048" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON049" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON050" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON051" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON052" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON053" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON054" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON055" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON056" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON057" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON058" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON059" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON060" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON061" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON062" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON063" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON064" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON065" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON066" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON067" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON068" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON069" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON070" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON071" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON072" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON073" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON074" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON075" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON076" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON077" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON078" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON079" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON080" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON081" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON082" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON083" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON084" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON085" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON086" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON087" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON088" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON089" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON090" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON091" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON092" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON093" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON094" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON095" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON096" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON097" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON098" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON099" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="DON100" scale="6"/>
+  <columns dataType="CHAR" length="1" name="DOLIVE"/>
+  <columns dataType="CHAR" length="2" name="DOSTAT"/>
+  <columns dataType="DECIMAL" length="8" name="DODTIN"/>
+  <columns dataType="DECIMAL" length="6" name="DOORIN"/>
+  <columns dataType="DECIMAL" length="8" name="DODTAG"/>
+  <columns dataType="DECIMAL" length="6" name="DOORAG"/>
+  <columns dataType="CHAR" length="10" name="DOUSIN"/>
+  <columns dataType="CHAR" length="10" name="DOUSAG"/>
+  <columns dataType="CHAR" length="10" name="DOPRIN"/>
+  <columns dataType="CHAR" length="10" name="DOPRAG"/>
+  <columns dataType="CHAR" length="1" name="DOFL01"/>
+  <columns dataType="CHAR" length="1" name="DOFL02"/>
+  <columns dataType="CHAR" length="1" name="DOFL03"/>
+  <columns dataType="CHAR" length="1" name="DOFL04"/>
+  <columns dataType="CHAR" length="1" name="DOFL05"/>
+  <columns dataType="CHAR" length="1" name="DOFL06"/>
+  <columns dataType="CHAR" length="1" name="DOFL07"/>
+  <columns dataType="CHAR" length="1" name="DOFL08"/>
+  <columns dataType="CHAR" length="1" name="DOFL09"/>
+  <columns dataType="CHAR" length="1" name="DOFL10"/>
+  <columns dataType="CHAR" length="1" name="DOFL11"/>
+  <columns dataType="CHAR" length="1" name="DOFL12"/>
+  <columns dataType="CHAR" length="1" name="DOFL13"/>
+  <columns dataType="CHAR" length="1" name="DOFL14"/>
+  <columns dataType="CHAR" length="1" name="DOFL15"/>
+  <columns dataType="CHAR" length="1" name="DOFL16"/>
+  <columns dataType="CHAR" length="1" name="DOFL17"/>
+  <columns dataType="CHAR" length="1" name="DOFL18"/>
+  <columns dataType="CHAR" length="1" name="DOFL19"/>
+  <columns dataType="CHAR" length="1" name="DOFL20"/>
+</db-core:TableDef>

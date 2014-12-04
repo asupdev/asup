@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="L&#xa7;AREA"/>
+  <columns dataType="CHAR" length="3" name="L&#xa7;TEMA"/>
+  <columns dataType="CHAR" length="3" name="L&#xa7;LISI"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;PGM"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;PA01"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;PA02"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;PA03"/>
+  <columns dataType="DECIMAL" length="6" name="L&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="L&#xa7;DAUM"/>
+  <columns dataType="CHAR" length="10" name="L&#xa7;UTEN"/>
+</db-core:TableDef>

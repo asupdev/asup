@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="Y&#xa7;COIN"/>
+  <columns dataType="CHAR" length="2" name="Y&#xa7;TIGC"/>
+  <columns dataType="CHAR" length="2" name="Y&#xa7;SOGC"/>
+  <columns dataType="CHAR" length="3" name="Y&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;COD4"/>
+  <columns dataType="CHAR" length="2" name="Y&#xa7;STAT"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;NCOL"/>
+  <columns dataType="DECIMAL" length="11" name="Y&#xa7;QTPR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="Y&#xa7;QTEF" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="Y&#xa7;QTSC" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="Y&#xa7;PSCO" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="Y&#xa7;VSCO" scale="3"/>
+  <columns dataType="CHAR" length="5" name="Y&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;CSIN"/>
+  <columns dataType="DECIMAL" length="21" name="Y&#xa7;VALO" scale="6"/>
+  <columns dataType="CHAR" length="10" name="Y&#xa7;USCO"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DTCO"/>
+  <columns dataType="DECIMAL" length="6" name="Y&#xa7;ORCO"/>
+  <columns dataType="CHAR" length="10" name="Y&#xa7;USRE"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DTRE"/>
+  <columns dataType="DECIMAL" length="6" name="Y&#xa7;ORRE"/>
+  <columns dataType="DECIMAL" length="9" name="Y&#xa7;NRE1"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DTE1"/>
+  <columns dataType="CHAR" length="4" name="Y&#xa7;CME1"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DT05"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;CD01"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;CD02"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;CD03"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;CD04"/>
+  <columns dataType="CHAR" length="15" name="Y&#xa7;CD05"/>
+  <columns dataType="DECIMAL" length="15" name="Y&#xa7;NR01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="Y&#xa7;NR02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="Y&#xa7;NR03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="Y&#xa7;NR04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="Y&#xa7;NR05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL10"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL11"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL12"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL13"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL14"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="Y&#xa7;FL20"/>
+  <columns dataType="CHAR" length="10" name="Y&#xa7;OGIN"/>
+  <columns dataType="CHAR" length="10" name="Y&#xa7;USIN"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="Y&#xa7;HRIN"/>
+  <columns dataType="CHAR" length="10" name="Y&#xa7;OGAG"/>
+  <columns dataType="CHAR" length="10" name="Y&#xa7;USAG"/>
+  <columns dataType="DECIMAL" length="8" name="Y&#xa7;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="Y&#xa7;ORAG"/>
+</db-core:TableDef>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLR1"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLR2"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;FLR3"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;LOTI"/>
+  <columns dataType="DECIMAL" length="2" name="C&#xa7;PROG"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;QRIL" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;QSCA" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;QCOR" scale="3"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;TCON"/>
+  <columns dataType="CHAR" length="5" name="C&#xa7;UBIC"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;STST"/>
+  <columns dataType="CHAR" length="1" name="C&#xa7;STAM"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;TDUB"/>
+  <columns dataType="CHAR" length="22" name="C&#xa7;JRIF"/>
+  <columns dataType="DECIMAL" length="7" name="C&#xa7;KRIF"/>
+  <columns dataType="DECIMAL" length="4" name="C&#xa7;RMOV"/>
+</db-core:TableDef>

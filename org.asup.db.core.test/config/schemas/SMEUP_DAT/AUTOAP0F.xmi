@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="AA&#xa3;UTE"/>
+  <columns dataType="CHAR" length="40" name="AA&#xa3;FUN"/>
+  <columns dataType="CHAR" length="10" name="AA&#xa3;CAA"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O01"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O02"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O03"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O04"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O05"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O06"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O07"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O08"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O09"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;O10"/>
+  <columns dataType="CHAR" length="2" name="AA&#xa3;VLS"/>
+  <columns dataType="DECIMAL" length="8" name="AADTIN"/>
+  <columns dataType="DECIMAL" length="6" name="AAORIN"/>
+  <columns dataType="CHAR" length="10" name="AAUSIN"/>
+  <columns dataType="CHAR" length="10" name="AAOGIN"/>
+  <columns dataType="DECIMAL" length="8" name="AADTAG"/>
+  <columns dataType="DECIMAL" length="6" name="AAORAG"/>
+  <columns dataType="CHAR" length="10" name="AAUSAG"/>
+  <columns dataType="CHAR" length="10" name="AAOGAG"/>
+</db-core:TableDef>

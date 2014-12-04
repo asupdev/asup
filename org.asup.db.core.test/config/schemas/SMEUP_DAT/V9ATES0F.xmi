@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="5" name="E$TVER"/>
+  <columns dataType="CHAR" length="10" name="E$NVER"/>
+  <columns dataType="DECIMAL" length="8" name="E$DVER"/>
+  <columns dataType="CHAR" length="12" name="E$TIP1"/>
+  <columns dataType="CHAR" length="15" name="E$OGG1"/>
+  <columns dataType="CHAR" length="12" name="E$TIP2"/>
+  <columns dataType="CHAR" length="15" name="E$OGG2"/>
+  <columns dataType="CHAR" length="5" name="E$ATTI"/>
+  <columns dataType="CHAR" length="12" name="E$TPES"/>
+  <columns dataType="CHAR" length="15" name="E$ESEC"/>
+  <columns dataType="DECIMAL" length="8" name="E$DTES"/>
+  <columns dataType="DECIMAL" length="6" name="E$ORES"/>
+  <columns dataType="CHAR" length="12" name="E$TPLG"/>
+  <columns dataType="CHAR" length="15" name="E$LUOG"/>
+  <columns dataType="CHAR" length="4" name="E$UMTP"/>
+  <columns dataType="DECIMAL" length="15" name="E$TEMP" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$COTP" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$CFTP" scale="5"/>
+  <columns dataType="CHAR" length="4" name="E$UMVG"/>
+  <columns dataType="DECIMAL" length="15" name="E$TEVG" scale="5"/>
+  <columns dataType="CHAR" length="4" name="E$UMQV"/>
+  <columns dataType="DECIMAL" length="15" name="E$TEQV" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$COVG" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$SPVG" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$SPVF" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="E$CFVG" scale="5"/>
+  <columns dataType="CHAR" length="1" name="E$TPFT"/>
+  <columns dataType="CHAR" length="1" name="E$FL01"/>
+  <columns dataType="CHAR" length="1" name="E$FL02"/>
+  <columns dataType="CHAR" length="1" name="E$FL03"/>
+  <columns dataType="CHAR" length="1" name="E$FL04"/>
+  <columns dataType="CHAR" length="1" name="E$FL05"/>
+  <columns dataType="CHAR" length="1" name="E$FL06"/>
+  <columns dataType="CHAR" length="1" name="E$FL07"/>
+  <columns dataType="CHAR" length="1" name="E$FL08"/>
+  <columns dataType="CHAR" length="1" name="E$FL09"/>
+  <columns dataType="CHAR" length="1" name="E$FL10"/>
+</db-core:TableDef>

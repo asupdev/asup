@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="D$TIPA"/>
+  <columns dataType="CHAR" length="15" name="D$CODI"/>
+  <columns dataType="CHAR" length="3" name="D$TROT"/>
+  <columns dataType="CHAR" length="15" name="D$COD1"/>
+  <columns dataType="CHAR" length="15" name="D$COD2"/>
+  <columns dataType="CHAR" length="15" name="D$COD3"/>
+  <columns dataType="CHAR" length="10" name="D$DTVA"/>
+  <columns dataType="CHAR" length="2" name="D$SSIN"/>
+  <columns dataType="DECIMAL" length="20" name="D$C001" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C002" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C003" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C004" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C005" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C006" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C007" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C008" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C009" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C010" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C011" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C012" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C013" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C014" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C015" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C016" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C017" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C018" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C019" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C020" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C021" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C022" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C023" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C024" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C025" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C026" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C027" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C028" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C029" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C030" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C031" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C032" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C033" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C034" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C035" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C036" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C037" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C038" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C039" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C040" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C041" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C042" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C043" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C044" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C045" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C046" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C047" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C048" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C049" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C050" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C051" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C052" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C053" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C054" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C055" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C056" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C057" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C058" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C059" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C060" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C061" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C062" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C063" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C064" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C065" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C066" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C067" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C068" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C069" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C070" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C071" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C072" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C073" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C074" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C075" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C076" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C077" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C078" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C079" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C080" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C081" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C082" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C083" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C084" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C085" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C086" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C087" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C088" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C089" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C090" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C091" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C092" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C093" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C094" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C095" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C096" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C097" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C098" scale="6"/>
+  <columns dataType="DECIMAL" length="20" name="D$C099" scale="6"/>
+  <columns dataType="CHAR" length="1" name="D$LIVE"/>
+  <columns dataType="CHAR" length="2" name="D$STAT"/>
+  <columns dataType="DECIMAL" length="8" name="D$DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="D$ORIN"/>
+  <columns dataType="DECIMAL" length="8" name="D$DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="D$ORAG"/>
+  <columns dataType="CHAR" length="10" name="D$USIN"/>
+  <columns dataType="CHAR" length="10" name="D$USAG"/>
+  <columns dataType="CHAR" length="10" name="D$PRIN"/>
+  <columns dataType="CHAR" length="10" name="D$PRAG"/>
+  <columns dataType="CHAR" length="1" name="D$FL01"/>
+  <columns dataType="CHAR" length="1" name="D$FL02"/>
+  <columns dataType="CHAR" length="1" name="D$FL03"/>
+  <columns dataType="CHAR" length="1" name="D$FL04"/>
+  <columns dataType="CHAR" length="1" name="D$FL05"/>
+  <columns dataType="CHAR" length="1" name="D$FL06"/>
+  <columns dataType="CHAR" length="1" name="D$FL07"/>
+  <columns dataType="CHAR" length="1" name="D$FL08"/>
+  <columns dataType="CHAR" length="1" name="D$FL09"/>
+  <columns dataType="CHAR" length="1" name="D$FL10"/>
+  <columns dataType="CHAR" length="1" name="D$FL11"/>
+  <columns dataType="CHAR" length="1" name="D$FL12"/>
+  <columns dataType="CHAR" length="1" name="D$FL13"/>
+  <columns dataType="CHAR" length="1" name="D$FL14"/>
+  <columns dataType="CHAR" length="1" name="D$FL15"/>
+  <columns dataType="CHAR" length="1" name="D$FL16"/>
+  <columns dataType="CHAR" length="1" name="D$FL17"/>
+  <columns dataType="CHAR" length="1" name="D$FL18"/>
+  <columns dataType="CHAR" length="1" name="D$FL19"/>
+  <columns dataType="CHAR" length="1" name="D$FL20"/>
+</db-core:TableDef>

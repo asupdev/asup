@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="R&#xa7;TCIC"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;CODI"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CICL"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;SQCI"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;STAT"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CVAD"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CVAA"/>
+  <columns dataType="CHAR" length="30" name="R&#xa7;DSEC"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;TOPE"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;RISO"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;GRAL"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;CODC"/>
+  <columns dataType="CHAR" length="3" name="R&#xa7;CICC"/>
+  <columns dataType="CHAR" length="6" name="R&#xa7;SQCC"/>
+  <columns dataType="CHAR" length="5" name="R&#xa7;CRSE"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;PAS1"/>
+  <columns dataType="CHAR" length="15" name="R&#xa7;PAS2"/>
+  <columns dataType="CHAR" length="2" name="R&#xa7;UMTE"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE01" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE02" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE03" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE04" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE05" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE06" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE07" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE08" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE09" scale="4"/>
+  <columns dataType="DECIMAL" length="11" name="R&#xa7;TE10" scale="4"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="R&#xa7;FL05"/>
+  <columns dataType="CHAR" length="50" name="R&#xa7;NOTA"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DINV"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DFNV"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="R&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="R&#xa7;USAG"/>
+</db-core:TableDef>

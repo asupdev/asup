@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I6SCEN"/>
+  <columns dataType="CHAR" length="2" name="I6TORI"/>
+  <columns dataType="CHAR" length="3" name="I6TDOC"/>
+  <columns dataType="CHAR" length="10" name="I6NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="I6NRIG"/>
+  <columns dataType="CHAR" length="6" name="I6OPER"/>
+  <columns dataType="CHAR" length="1" name="I6FL12"/>
+  <columns dataType="CHAR" length="10" name="I6IDOJ"/>
+  <columns dataType="DECIMAL" length="8" name="I6DTCR"/>
+  <columns dataType="DECIMAL" length="6" name="I6HRCR"/>
+  <columns dataType="CHAR" length="10" name="I6USIN"/>
+  <columns dataType="DECIMAL" length="8" name="I6DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="I6HRAG"/>
+  <columns dataType="CHAR" length="10" name="I6USAG"/>
+</db-core:TableDef>
