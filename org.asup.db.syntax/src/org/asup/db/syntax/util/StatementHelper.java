@@ -33,7 +33,7 @@ public class StatementHelper {
 		"^[\\s]*[pP][rR][eE][pP][aA][rR][eE][\\s]*.*", /*PREPARE*/
 		"^[\\s]*[dD][eE][cC][lL][aA][rR][eE][\\s]*.*", /*DECLARE*/
 		"^[\\s]*[dD][eE][sS][cC][rR][iI][bB][eE][\\s]*.*", /*DESCRIBE*/
-		"^[\\s]*[fF][eE][tT][cC][hH][\\s]*.*", /*FETCH*/
+		"^[\\s]*[fF][eE][tT][cC][hH].*[fF][rR][oO][mM][\\s][\\s]*.*", /*FETCH FROM*/
 		"^[\\s]*[cC][lL][oO][sS][eE][\\s]*.*", /*CLOSE*/
 		
 	};
