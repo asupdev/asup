@@ -45,4 +45,8 @@ public class SourceFileImpl extends FileImpl implements QSourceFile {
 		return QOperatingSystemFilePackage.Literals.SOURCE_FILE;
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //SourceFileImpl

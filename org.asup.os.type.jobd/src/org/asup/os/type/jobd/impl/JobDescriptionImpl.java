@@ -464,4 +464,8 @@ public class JobDescriptionImpl extends TypedObjectImpl implements QJobDescripti
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //QJobDescriptionImpl

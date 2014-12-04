@@ -454,4 +454,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
+
 } //QCommandImpl

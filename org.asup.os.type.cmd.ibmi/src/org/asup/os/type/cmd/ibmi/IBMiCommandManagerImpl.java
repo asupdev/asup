@@ -52,6 +52,7 @@ import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QScroller;
+import org.asup.il.data.QString;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataDef;
 import org.asup.il.data.QUnaryCompoundDataTerm;
@@ -444,7 +445,6 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 									boolean defaults) throws OperatingSystemException {
 		
 		String structValue = "";
-		QData assignValue = null;
 		CLParmAbstractComponent paramComp;
 		
 		if (parmValue.startsWith("(") && parmValue.endsWith(")")) {
@@ -457,10 +457,13 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			for (int j = values.length; j > 0; j--) {
 				
 				// Recursive Call
-				assignValue = assignValue(compoundDataDef.getElements().get(j-1), dataContext, evaluator, values[values.length - j], variables, defaults);
+				QData assignValue = assignValue(compoundDataDef.getElements().get(j-1), dataContext, evaluator, values[values.length - j], variables, defaults);
 				
 				//assignValue(struct.getElement(j), assignValue.toString());
-				structValue = assignValue.toString() + structValue;
+				if(assignValue instanceof QString)
+					structValue = ((QString)assignValue).asString() + structValue;
+				else
+					structValue = assignValue.toString() + structValue;
 			}
 		} else {
 			
@@ -485,8 +488,11 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					}
 					
 					// Recursive Call
-					assignValue = assignValue(elementIterator.next(), dataContext, evaluator, tmpValue, variables, defaults);					
-					structValue += assignValue.toString();
+					QData assignValue = assignValue(elementIterator.next(), dataContext, evaluator, tmpValue, variables, defaults);
+					if(assignValue instanceof QString)
+						structValue += ((QString)assignValue).asString();
+					else
+						structValue += assignValue.toString();
 			}
 		}
 		return structValue;

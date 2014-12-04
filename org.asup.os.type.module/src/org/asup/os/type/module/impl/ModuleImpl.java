@@ -8,11 +8,9 @@
 package org.asup.os.type.module.impl;
 
 import org.asup.os.type.impl.TypedObjectImpl;
-
 import org.asup.os.type.module.QModule;
 import org.asup.os.type.module.QModuleSource;
 import org.asup.os.type.module.QOperatingSystemModulePackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -181,4 +179,9 @@ public class ModuleImpl extends TypedObjectImpl implements QModule {
 		return super.eIsSet(featureID);
 	}
 
+
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //ModuleImpl

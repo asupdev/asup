@@ -9,6 +9,7 @@ package org.asup.os.type.impl;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.QType;
 import org.eclipse.emf.common.notify.Notification;
@@ -308,4 +309,8 @@ public class TypeImpl extends TypedObjectImpl implements QType {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //TypeImpl

@@ -16,12 +16,12 @@ import org.asup.il.core.QFormat;
 
 public class FormatHelper {
 		
-	private static String COMMAND_STRING_REGEX			="[A-Z][A-Z0-9\\$\\#@()&]{0,255}";  
-	private static String COMMUNICATION_STRING_REGEX	="[A-Z\\$\\#@][A-Z0-9\\$\\#@]*";
+	private static String COMMAND_STRING_REGEX			="[A-Z][A-Z0-9\\$£@()&]{0,255}";  
+	private static String COMMUNICATION_STRING_REGEX	="[A-Z\\$£@][A-Z0-9\\$£@]*";
 	private static String GENERIC_STRING_REGEX 			="[^*]{1,255}$|([^*]{1,254}[*$])";
-	private static String NAME_STRING_REGEX				="[A-Z\\$\\#@*][A-Z0-9\\$\\#@_.]{1,32768}";
+	private static String NAME_STRING_REGEX				="[A-Z\\$£@*][A-Z0-9\\$£@_.]{1,32768}";
 	private static String PATH_NAME_REGEX				="[A-Z0-9]{5000}";
-	private static String SIMPLE_NAME_REGEX				="[A-Z\\$\\#@][A-Z0-9\\$\\#@_]{0,255}";
+	private static String SIMPLE_NAME_REGEX				="[A-Z\\$£@][A-Z0-9\\$£@_]{0,255}";
 
 	public static boolean match(String value, QFormat format) {
 		

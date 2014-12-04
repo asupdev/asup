@@ -218,7 +218,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			}
 			
 			field.setType(parType);
-			variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getFormatName())));
+			if(dataSet.getFormatName()!= null)
+				variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getFormatName())));
 			getTarget().bodyDeclarations().add(field);
 		}
 		

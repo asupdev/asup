@@ -344,4 +344,9 @@ public class ProgramImpl extends TypedObjectImpl implements QProgram {
 		return result.toString();
 	}
 
+
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //QProgramImpl

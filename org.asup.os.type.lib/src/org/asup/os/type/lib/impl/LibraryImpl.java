@@ -9,6 +9,7 @@ package org.asup.os.type.lib.impl;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.asup.os.type.lib.QOperatingSystemLibraryPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -229,4 +230,8 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //QLibraryImpl
