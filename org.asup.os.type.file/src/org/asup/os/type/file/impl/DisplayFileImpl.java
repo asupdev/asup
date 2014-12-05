@@ -160,4 +160,10 @@ public class DisplayFileImpl extends FileImpl implements QDisplayFile {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+
+	@Override
+	public String getAttribute() {
+		return "DSPF";
+	}
 } //DisplayFileImpl

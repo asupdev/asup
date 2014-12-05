@@ -8,14 +8,10 @@
 package org.asup.os.type.usrspc.impl;
 
 import org.asup.os.type.impl.TypedObjectImpl;
-
 import org.asup.os.type.usrspc.QOperatingSystemUserSpacePackage;
 import org.asup.os.type.usrspc.QUserSpace;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -225,4 +221,8 @@ public class UserSpaceImpl extends TypedObjectImpl implements QUserSpace {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //UserSpaceImpl

@@ -11,18 +11,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.asup.os.type.impl.TypedObjectImpl;
-
 import org.asup.os.type.msgf.QMessageDescription;
 import org.asup.os.type.msgf.QMessageFile;
 import org.asup.os.type.msgf.QOperatingSystemMessageFilePackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -183,4 +178,8 @@ public class MessageFileImpl extends TypedObjectImpl implements QMessageFile {
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //MessageFileImpl

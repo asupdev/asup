@@ -41,7 +41,7 @@ public class OverrideDatabaseFile {
 
 		// TODO Intercept library special value
 		QResourceReader<QFile> fileReader = resourceFactory.getResourceReader(job, QFile.class, Scope.LIBRARY_LIST);
-		QFile qFile = fileReader.lookup(fileTo.library.trimR());
+		QFile qFile = fileReader.lookup(fileTo.name.trimR());
 
 		if (qFile == null)
 			throw new OperatingSystemRuntimeException("File not found: " + fileTo);

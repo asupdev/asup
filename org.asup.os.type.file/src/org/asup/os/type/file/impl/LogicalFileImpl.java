@@ -164,4 +164,8 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return "LF";
+	}
 } //QLogicalFileImpl

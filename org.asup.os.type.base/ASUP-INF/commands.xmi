@@ -25955,7 +25955,6 @@
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="objectType"
-          restricted="true"
           default="*ALL">
         <facets
             xsi:type="il-core:Special">

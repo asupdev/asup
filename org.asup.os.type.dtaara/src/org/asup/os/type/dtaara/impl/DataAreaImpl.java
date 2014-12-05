@@ -330,4 +330,8 @@ public class DataAreaImpl extends TypedObjectImpl implements QDataArea {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //DataAreaImpl

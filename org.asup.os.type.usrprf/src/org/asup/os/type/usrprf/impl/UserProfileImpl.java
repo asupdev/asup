@@ -275,4 +275,8 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 		return result.toString();
 	}
 
+	@Override
+	public String getAttribute() {
+		return null;
+	}
 } //QUserProfileImpl

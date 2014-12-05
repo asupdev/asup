@@ -45,4 +45,9 @@ public class PhysicalFileImpl extends DatabaseFileImpl implements QPhysicalFile 
 		return QOperatingSystemFilePackage.Literals.PHYSICAL_FILE;
 	}
 
+
+	@Override
+	public String getAttribute() {
+		return "PF";
+	}
 } //QPhysicalFileImpl

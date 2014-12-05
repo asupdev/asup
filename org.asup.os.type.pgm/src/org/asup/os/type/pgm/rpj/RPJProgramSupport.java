@@ -339,6 +339,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return null;
 	}
 
+	public void qTime(QNumeric datetime) {
+		// TODO
+	}
+	
 	public QString qTrim(QString source) {
 
 		String str = source.trim();

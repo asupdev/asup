@@ -161,4 +161,8 @@ public class PrinterFileImpl extends FileImpl implements QPrinterFile {
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String getAttribute() {
+		return "PRTF";
+	}
 } //PrinterFileImpl
