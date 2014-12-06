@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2014 Sme.UP and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html"
+    modelDirectory="/org.asup.il.esql/src" modelPluginID="org.asup.il.esql" modelName="As.UP Integrated Language Embedded SQL"
+    rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false" language="EN" usedGenPackages="platform:/plugin/org.asup.il.core/model/il-core.genmodel#//core platform:/plugin/org.asup.il.data/model/il-data.genmodel#//data platform:/plugin/org.asup.fw.core/model/fw-core.genmodel#//core platform:/plugin/org.asup.fw.java/model/fw-java.genmodel#//java"
+    interfaceNamePattern="Q{0}" importOrganizing="true">
+  <foreignModel>il-esql.ecore</foreignModel>
+  <genPackages prefix="IntegratedLanguageEmbeddedSQL" basePackage="org.asup.il" disposableProviderFactory="true"
+      adapterFactory="false" ecorePackage="il-esql.ecore#/">
+    <genClasses ecoreClass="il-esql.ecore#//QCommunicationArea"/>
+    <genClasses ecoreClass="il-esql.ecore#//QCursor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-esql.ecore#//QCursor/statement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-esql.ecore#//QCursor/scrollType"/>
+      <genOperations ecoreOperation="il-esql.ecore#//QCursor/open"/>
+      <genOperations ecoreOperation="il-esql.ecore#//QCursor/close"/>
+      <genOperations ecoreOperation="il-esql.ecore#//QCursor/fetch">
+        <genParameters ecoreParameter="il-esql.ecore#//QCursor/fetch/fields"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-esql.ecore#//QSqlTerm">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference il-esql.ecore#//QSqlTerm/sqlArea"/>
+    </genClasses>
+    <genClasses ecoreClass="il-esql.ecore#//QStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-esql.ecore#//QStatement/sqlString"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

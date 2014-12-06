@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Integrated Language Embedded SQL
+Bundle-SymbolicName: org.asup.il.esql;singleton:=true
+Bundle-Version: 0.5.3.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: www.smeup.com
+Bundle-Localization: plugin
+Export-Package: org.asup.il.esql,
+ org.asup.il.esql.impl
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.il.core;visibility:=reexport,
+ org.asup.fw.core;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport,
+ org.asup.il.data;visibility:=reexport,
+ org.asup.db.core
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

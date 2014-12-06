@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esql" nsURI="http://www.asup.org/il/esql" nsPrefix="il-esql">
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationArea" eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cursor" abstract="true" interface="true"
+      eSuperTypes="#//ESqlObject">
+    <eOperations name="fetch">
+      <eParameters name="target" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//BufferedData"/>
+    </eOperations>
+    <eOperations name="open"/>
+    <eOperations name="close"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CursorTerm" eSuperTypes="#//ESqlTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursorType" eType="#//CursorType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hold" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CursorType">
+    <eLiterals name="NotScrollable" value="10" literal="NOTSCROLL"/>
+    <eLiterals name="Scrollable" value="20" literal="SCROLL"/>
+    <eLiterals name="DynamicScroll" value="30" literal="DYNSCROLL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESqlObject" abstract="true" interface="true">
+    <eOperations name="getCommunicationArea" lowerBound="1" eType="#//CommunicationArea"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESqlTerm" abstract="true" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true"
+      eSuperTypes="#//ESqlObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StatementTerm" eSuperTypes="#//ESqlTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostVariable" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESqlManager" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="createFactory" lowerBound="1" eType="#//ESqlFactory">
+      <eParameters name="context" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ESqlFactory" abstract="true" interface="true">
+    <eOperations name="createCursor" lowerBound="1" eType="#//Cursor">
+      <eParameters name="cursorTerm" lowerBound="1" eType="#//CursorTerm"/>
+    </eOperations>
+    <eOperations name="createCursorTerm" lowerBound="1" eType="#//CursorTerm">
+      <eParameters name="type" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaType"/>
+      <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
+    </eOperations>
+    <eOperations name="createStatement" lowerBound="1" eType="#//Statement">
+      <eParameters name="statementTerm" lowerBound="1" eType="#//StatementTerm"/>
+    </eOperations>
+    <eOperations name="createStatementTerm" lowerBound="1" eType="#//StatementTerm">
+      <eParameters name="type" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaType"/>
+      <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FetchPositioning">
+    <eLiterals name="Next" value="10" literal="NEXT"/>
+    <eLiterals name="Prior" value="20" literal="PRIOR"/>
+    <eLiterals name="First" value="30" literal="FIRST"/>
+    <eLiterals name="Last" value="40" literal="LAST"/>
+    <eLiterals name="Before" value="50" literal="BEFORE"/>
+    <eLiterals name="After" value="60" literal="AFTER"/>
+    <eLiterals name="Current" value="70" literal="CURRENT"/>
+    <eLiterals name="Relative" value="80" literal="RELATIVE"/>
+  </eClassifiers>
+</ecore:EPackage>
