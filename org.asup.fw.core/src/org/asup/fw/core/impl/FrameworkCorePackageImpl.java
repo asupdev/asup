@@ -16,6 +16,7 @@ import org.asup.fw.core.QApplicationManager;
 import org.asup.fw.core.QApplicationModule;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QCredentials;
 import org.asup.fw.core.QFrameworkCoreFactory;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QLogger;
@@ -89,6 +90,13 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EClass contextIDEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass credentialsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -392,6 +400,33 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCredentials() {
+		return credentialsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCredentials_User() {
+		return (EAttribute)credentialsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCredentials_Password() {
+		return (EAttribute)credentialsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLogger() {
 		return loggerEClass;
 	}
@@ -688,6 +723,10 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 
 		contextIDEClass = createEClass(CONTEXT_ID);
 
+		credentialsEClass = createEClass(CREDENTIALS);
+		createEAttribute(credentialsEClass, CREDENTIALS__USER);
+		createEAttribute(credentialsEClass, CREDENTIALS__PASSWORD);
+
 		loggerEClass = createEClass(LOGGER);
 
 		pluginEClass = createEClass(PLUGIN);
@@ -879,6 +918,10 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEClass(contextIDEClass, QContextID.class, "ContextID", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(contextIDEClass, ecorePackage.getEString(), "getID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(credentialsEClass, QCredentials.class, "Credentials", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCredentials_User(), ecorePackage.getEString(), "user", null, 1, 1, QCredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCredentials_Password(), ecorePackage.getEString(), "password", null, 1, 1, QCredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(loggerEClass, QLogger.class, "Logger", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
