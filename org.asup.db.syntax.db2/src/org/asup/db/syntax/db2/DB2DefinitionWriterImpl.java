@@ -21,10 +21,8 @@ public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
 	
 	@Override
 	public String dropSchema(Schema schema) {
-		return "DROP SCHEMA " + getNameInSQLFormat(schema) + " RESTRICT";
+		return dropSchema(schema, false);
 	}
-	
-	
 
 	@Override
 	public String createTable(Schema schema, String name, QTableDef table) {
@@ -74,6 +72,19 @@ public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
 			result.append(", PRIMARY KEY (" + pkey_name + ")");
 		result.append(")");
 		return result.toString();
+	}
+
+	@Override
+	public String dropSchema(Schema schema, boolean ignoreFailOnNonEmpty) {
+		
+		if(!ignoreFailOnNonEmpty)
+			return "DROP SCHEMA " + getNameInSQLFormat(schema) + " RESTRICT";
+		else {
+			String sql = "begin " + "  declare l_errschema varchar(128) default 'ERRORSCHEMA';" + "  declare l_errtab varchar(128) default 'ERRORTABLE';" + "  CALL SYSPROC.ADMIN_DROP_SCHEMA('"
+					+ schema.getName() + "', NULL, l_errschema, l_errtab);" + " end";
+			
+			return sql;
+		}		
 	}
 
 }

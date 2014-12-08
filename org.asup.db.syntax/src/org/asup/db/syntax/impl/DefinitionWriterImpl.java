@@ -174,6 +174,17 @@ public abstract class DefinitionWriterImpl extends StatementWriterImpl implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String dropSchema(Schema schema, boolean ignoreFailOnNonEmpty) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public String dropSchema(Schema schema) {

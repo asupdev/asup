@@ -7,6 +7,7 @@
  */
 package org.asup.db.syntax.dml.impl;
 
+import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.ddl.QDdlPackage;
 import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
@@ -88,6 +89,10 @@ public class DatabaseDMLPackageImpl extends EPackageImpl implements QDatabaseDML
 		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DatabaseDMLPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		QDatabaseCorePackage.eINSTANCE.eClass();
+		SQLQueryModelPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		DatabaseSyntaxPackageImpl theDatabaseSyntaxPackage = (DatabaseSyntaxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) instanceof DatabaseSyntaxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) : QDatabaseSyntaxPackage.eINSTANCE);

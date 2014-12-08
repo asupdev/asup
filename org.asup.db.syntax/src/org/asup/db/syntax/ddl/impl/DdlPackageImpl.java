@@ -35,6 +35,7 @@ import org.asup.db.syntax.ddl.TargetItem;
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
 import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
 import org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl;
+import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -221,6 +222,10 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		DdlPackageImpl theDdlPackage = (DdlPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DdlPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DdlPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		QDatabaseCorePackage.eINSTANCE.eClass();
+		SQLQueryModelPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		DatabaseSyntaxPackageImpl theDatabaseSyntaxPackage = (DatabaseSyntaxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) instanceof DatabaseSyntaxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) : QDatabaseSyntaxPackage.eINSTANCE);

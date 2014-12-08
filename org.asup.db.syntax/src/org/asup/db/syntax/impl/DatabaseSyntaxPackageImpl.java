@@ -232,6 +232,10 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		QDatabaseCorePackage.eINSTANCE.eClass();
+		SQLQueryModelPackage.eINSTANCE.eClass();
+
 		// Obtain or create and register interdependencies
 		DdlPackageImpl theDdlPackage = (DdlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) instanceof DdlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) : QDdlPackage.eINSTANCE);
 		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) : QDatabaseDMLPackage.eINSTANCE);
@@ -661,6 +665,7 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "dropSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "ignoreFailOnNonEmpty", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "dropTable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);

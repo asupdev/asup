@@ -64,10 +64,10 @@ public interface QDefinitionWriter extends QStatementWriter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" schemaRequired="true"
+	 * @model required="true" schemaRequired="true" ignoreFailOnNonEmptyRequired="true"
 	 * @generated
 	 */
-	String dropSchema(Schema schema);
+	String dropSchema(Schema schema, boolean ignoreFailOnNonEmpty);
 
 	/**
 	 * <!-- begin-user-doc -->
