@@ -93,7 +93,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getESqlObject()
 	 * @generated
 	 */
-	int ESQL_OBJECT = 3;
+	int ESQL_OBJECT = 4;
 
 	/**
 	 * The number of structural features of the '<em>ESql Object</em>' class.
@@ -131,7 +131,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getESqlTerm()
 	 * @generated
 	 */
-	int ESQL_TERM = 4;
+	int ESQL_TERM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -234,6 +234,25 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	int CURSOR_TERM_FEATURE_COUNT = ESQL_TERM_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.esql.impl.DescriptorAreaImpl <em>Descriptor Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.esql.impl.DescriptorAreaImpl
+	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getDescriptorArea()
+	 * @generated
+	 */
+	int DESCRIPTOR_AREA = 3;
+
+	/**
+	 * The number of structural features of the '<em>Descriptor Area</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTOR_AREA_FEATURE_COUNT = QIntegratedLanguageDataPackage.DATA_STRUCT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.esql.QStatement <em>Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,7 +260,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 5;
+	int STATEMENT = 6;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -260,7 +279,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getStatementTerm()
 	 * @generated
 	 */
-	int STATEMENT_TERM = 6;
+	int STATEMENT_TERM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -306,7 +325,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getESqlManager()
 	 * @generated
 	 */
-	int ESQL_MANAGER = 7;
+	int ESQL_MANAGER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -334,7 +353,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getESqlFactory()
 	 * @generated
 	 */
-	int ESQL_FACTORY = 8;
+	int ESQL_FACTORY = 9;
 
 	/**
 	 * The number of structural features of the '<em>ESql Factory</em>' class.
@@ -353,7 +372,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getCursorType()
 	 * @generated
 	 */
-	int CURSOR_TYPE = 9;
+	int CURSOR_TYPE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.esql.FetchPositioning <em>Fetch Positioning</em>}' enum.
@@ -363,7 +382,7 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getFetchPositioning()
 	 * @generated
 	 */
-	int FETCH_POSITIONING = 10;
+	int FETCH_POSITIONING = 11;
 
 
 	/**
@@ -439,6 +458,16 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCursorTerm_StatementName();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.esql.QDescriptorArea <em>Descriptor Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Descriptor Area</em>'.
+	 * @see org.asup.il.esql.QDescriptorArea
+	 * @generated
+	 */
+	EClass getDescriptorArea();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.esql.QESqlObject <em>ESql Object</em>}'.
@@ -625,6 +654,16 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CURSOR_TERM__STATEMENT_NAME = eINSTANCE.getCursorTerm_StatementName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.esql.impl.DescriptorAreaImpl <em>Descriptor Area</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.esql.impl.DescriptorAreaImpl
+		 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getDescriptorArea()
+		 * @generated
+		 */
+		EClass DESCRIPTOR_AREA = eINSTANCE.getDescriptorArea();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.esql.QESqlObject <em>ESql Object</em>}' class.

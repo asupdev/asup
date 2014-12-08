@@ -14,7 +14,6 @@ package org.asup.il.isam.jdbc;
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QNameHelper;
 import org.asup.db.syntax.QNameHelperRegistry;
 import org.asup.fw.core.QContext;
@@ -29,8 +28,6 @@ import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 
 	@Inject
-	private QDatabaseManager databaseManager;
-	@Inject
 	private QDataManager dataManager;
 	@Inject
 	private QNameHelperRegistry nameHelperRegistry;
@@ -44,7 +41,7 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 		SQLObjectNameHelper sqlObjectNameHelper = new SQLObjectNameHelper();
 		QNameHelper nameHelper = nameHelperRegistry.lookup("*JOB");
 		
-		return new JDBCIsamFactoryImpl(connection, databaseManager, sqlObjectNameHelper, nameHelper, dataFactory);
+		return new JDBCIsamFactoryImpl(connection, sqlObjectNameHelper, nameHelper, dataFactory);
 	}
 
 }

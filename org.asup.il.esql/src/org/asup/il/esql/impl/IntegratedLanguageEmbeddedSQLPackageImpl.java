@@ -20,6 +20,7 @@ import org.asup.il.esql.FetchPositioning;
 import org.asup.il.esql.QCommunicationArea;
 import org.asup.il.esql.QCursor;
 import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QDescriptorArea;
 import org.asup.il.esql.QESqlFactory;
 import org.asup.il.esql.QESqlManager;
 import org.asup.il.esql.QESqlObject;
@@ -64,6 +65,13 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 	 * @generated
 	 */
 	private EClass cursorTermEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass descriptorAreaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +261,15 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDescriptorArea() {
+		return descriptorAreaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getESqlObject() {
 		return eSqlObjectEClass;
 	}
@@ -376,6 +393,8 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		createEAttribute(cursorTermEClass, CURSOR_TERM__SQL);
 		createEAttribute(cursorTermEClass, CURSOR_TERM__STATEMENT_NAME);
 
+		descriptorAreaEClass = createEClass(DESCRIPTOR_AREA);
+
 		eSqlObjectEClass = createEClass(ESQL_OBJECT);
 
 		eSqlTermEClass = createEClass(ESQL_TERM);
@@ -432,6 +451,7 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		communicationAreaEClass.getESuperTypes().add(theIntegratedLanguageDataPackage.getDataStruct());
 		cursorEClass.getESuperTypes().add(this.getESqlObject());
 		cursorTermEClass.getESuperTypes().add(this.getESqlTerm());
+		descriptorAreaEClass.getESuperTypes().add(theIntegratedLanguageDataPackage.getDataStruct());
 		eSqlTermEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getTerm());
 		statementEClass.getESuperTypes().add(this.getESqlObject());
 		statementTermEClass.getESuperTypes().add(this.getESqlTerm());
@@ -454,6 +474,8 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		initEAttribute(getCursorTerm_Hold(), ecorePackage.getEBoolean(), "hold", null, 1, 1, QCursorTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCursorTerm_Sql(), ecorePackage.getEString(), "sql", null, 0, 1, QCursorTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCursorTerm_StatementName(), ecorePackage.getEString(), "statementName", null, 0, 1, QCursorTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(descriptorAreaEClass, QDescriptorArea.class, "DescriptorArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(eSqlObjectEClass, QESqlObject.class, "ESqlObject", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

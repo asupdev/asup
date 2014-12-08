@@ -44,6 +44,7 @@
       <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Assignment"/>
       <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Logical"/>
       <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Relational"/>
+      <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Boolean"/>
       <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Atomic"/>
       <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Compound"/>
       <genEnumLiterals ecoreEnumLiteral="il-expr.ecore#//ExpressionType/Block"/>
@@ -75,6 +76,9 @@
     </genClasses>
     <genClasses ecoreClass="il-expr.ecore#//AtomicTermExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-expr.ecore#//AtomicTermExpression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="il-expr.ecore#//BooleanExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-expr.ecore#//BooleanExpression/operand"/>
     </genClasses>
     <genClasses ecoreClass="il-expr.ecore#//BlockExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-expr.ecore#//BlockExpression/expression"/>
@@ -128,6 +132,9 @@
       <genOperations ecoreOperation="il-expr.ecore#//ExpressionVisitor/endVisit.6">
         <genParameters ecoreParameter="il-expr.ecore#//ExpressionVisitor/endVisit.6/expression"/>
       </genOperations>
+      <genOperations ecoreOperation="il-expr.ecore#//ExpressionVisitor/endVisit.7">
+        <genParameters ecoreParameter="il-expr.ecore#//ExpressionVisitor/endVisit.7/expression"/>
+      </genOperations>
       <genOperations ecoreOperation="il-expr.ecore#//ExpressionVisitor/visit">
         <genParameters ecoreParameter="il-expr.ecore#//ExpressionVisitor/visit/expression"/>
       </genOperations>
@@ -149,6 +156,9 @@
       <genOperations ecoreOperation="il-expr.ecore#//ExpressionVisitor/visit.6">
         <genParameters ecoreParameter="il-expr.ecore#//ExpressionVisitor/visit.6/expression"/>
       </genOperations>
+      <genOperations ecoreOperation="il-expr.ecore#//ExpressionVisitor/visit.7">
+        <genParameters ecoreParameter="il-expr.ecore#//ExpressionVisitor/visit.7/expression"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="il-expr.ecore#//LogicalExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-expr.ecore#//LogicalExpression/leftOperand"/>
@@ -162,6 +172,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-expr.ecore#//RelationalExpression/rightOperand"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-expr.ecore#//TermExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-expr.ecore#//TermExpression/function"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-expr.ecore#//TermExpression/special"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-expr.ecore#//TermExpression/value"/>
     </genClasses>

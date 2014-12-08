@@ -45,6 +45,15 @@ public interface QIntegratedLanguageEmbeddedSQLFactory extends EFactory {
 	QCursorTerm createCursorTerm();
 
 	/**
+	 * Returns a new object of class '<em>Descriptor Area</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Descriptor Area</em>'.
+	 * @generated
+	 */
+	QDescriptorArea createDescriptorArea();
+
+	/**
 	 * Returns a new object of class '<em>Statement Term</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

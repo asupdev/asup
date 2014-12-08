@@ -21,6 +21,7 @@
     <eLiterals name="Scrollable" value="20" literal="SCROLL"/>
     <eLiterals name="DynamicScroll" value="30" literal="DYNSCROLL"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DescriptorArea" eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
   <eClassifiers xsi:type="ecore:EClass" name="ESqlObject" abstract="true" interface="true">
     <eOperations name="getCommunicationArea" lowerBound="1" eType="#//CommunicationArea"/>
   </eClassifiers>

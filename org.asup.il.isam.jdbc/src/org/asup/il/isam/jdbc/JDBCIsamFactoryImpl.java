@@ -13,11 +13,11 @@ package org.asup.il.isam.jdbc;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseManager;
 import org.asup.db.syntax.QNameHelper;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
@@ -36,17 +36,15 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCIsamFactoryImpl implements QIsamFactory {
 
-	private QDatabaseManager databaseManager;
 	private QConnection connection;
 	private SQLObjectNameHelper sqlObjectNameHelper;
 	@SuppressWarnings("unused")
 	private QNameHelper nameHelper;
 	private QDataFactory dataFactory;
 	
-	public JDBCIsamFactoryImpl(QConnection connection, QDatabaseManager databaseManager, SQLObjectNameHelper sqlObjectNameHelper, QNameHelper nameHelper, QDataFactory dataFactory) { 
+	public JDBCIsamFactoryImpl(QConnection connection, SQLObjectNameHelper sqlObjectNameHelper, QNameHelper nameHelper, QDataFactory dataFactory) { 
 
 		this.connection = connection;
-		this.databaseManager = databaseManager;
 		this.sqlObjectNameHelper = sqlObjectNameHelper;
 		this.nameHelper = nameHelper;
 		this.dataFactory = dataFactory;
@@ -65,11 +63,20 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			return new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, index, AccessMode.UPDATE, dataStruct);
 		}
 		else {
-			Table table = getTable(dataSetTerm.getFileName());
-			if(table == null)
+			try {
+				Table table = getTable(dataSetTerm.getFileName());
+				if(table == null)
+					return null;
+				
+				return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+			} catch (SQLException e) {
+				// TODO
+				e.printStackTrace();
+				
 				return null;
+			}
 			
-			return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+
 		}
 		
 	}
@@ -121,9 +128,9 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		return dataSetTerm;
 	}
 
-	public Table getTable(String name) {
+	public Table getTable(String name) throws SQLException {
 		
-		Table table = databaseManager.getTable(connection, null, name);
+		Table table = connection.getCatalogMetaData().getTable(null, name);
 		
 		return table;
 	}
