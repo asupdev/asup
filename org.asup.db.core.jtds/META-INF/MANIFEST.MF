@@ -14,7 +14,8 @@ Export-Package: net.sourceforge.jtds.jdbc,
  net.sourceforge.jtds.ssl,
  net.sourceforge.jtds.util,
  org.asup.db.core.jtds
-Require-Bundle: org.asup.db.core;visibility:=reexport
+Require-Bundle: org.asup.db.core;visibility:=reexport,
+ org.asup.db.core.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.net4j.db,

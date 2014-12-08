@@ -25,11 +25,10 @@ import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
-import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QContext;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
@@ -57,139 +56,103 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 	@Override
 	public void handleEvent(QResourceEvent<QFile> event) {
 
-		switch (event.getType()) {
-		case PRE_SAVE:
-			createFile(event);
-			break;
-		case PRE_DELETE:
-			deleteFile(event);
-		default:
-			break;
-		}
-	}
-
-	private void createFile(QResourceEvent<QFile> event) throws OperatingSystemRuntimeException {
-
 		QJob job = event.getResource().getJob();
-		QContext jobContext = job.getJobContext();
 
 		QFile file = event.getSource();
 		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
 
+		QJobContext jobContext = job.getJobContext();
 		QConnection connection = jobContext.getAdapter(job, QConnection.class);
 
-		Schema schema = databaseManager.getSchema(connection, file.getLibrary());
+		Schema schema;
+		try {
+			schema = connection.getCatalogMetaData().getSchema(file.getLibrary());
+		} catch (SQLException e) {
+			throw new OperatingSystemRuntimeException(e);
+		}
+		
 		if (schema == null)
 			throw new OperatingSystemRuntimeException("Schema not found: " + file.getLibrary());
 
 		try {
 			connection.setAutoCommit(false);
 
-			if (file instanceof QPhysicalFile) {
-				QPhysicalFile physicalFile = (QPhysicalFile) file;
-
-				QTableDef tableDef = jobContext.getAdapter(physicalFile, QTableDef.class);
-				databaseManager.createTable(connection, schema, file.getName(), tableDef);
-			} else if (file instanceof QLogicalFile) {
-				QLogicalFile logicalFile = (QLogicalFile) file;
-
-				QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
-				databaseManager.createView(connection, schema, file.getName(), viewDef);
+			switch (event.getType()) {
+			case PRE_SAVE:
+				createFile(jobContext, file, connection, schema);
+				break;
+			case PRE_DELETE:
+				deleteFile(jobContext, file, connection, schema);
+			default:
+				break;
 			}
 
-			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
-			if (index != null) {
-				Table table = databaseManager.getTable(connection, schema.getName(), file.getName());
-
-				// append clustered index if needed
-				if (!index.isClustered() && !hasClusteredIndex(table)) {
-
-					QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-					pkIndexDef.setClustered(true);
-					pkIndexDef.setUnique(true);
-
-					QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
-					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
-					pkIndexColumnDef.setSequence(1);
-					pkIndexDef.getColumns().add(pkIndexColumnDef);
-
-					databaseManager.createIndex(connection, table, "QAS_" + table.getName() + "_RRN_IDX", pkIndexDef);
-				}
-
-				databaseManager.createIndex(connection, table, file.getName(), index);
-			}
-
+			connection.commit();
+		} catch (Exception exception) {
 			try {
-				connection.commit();
+				connection.rollback();
 			} catch (SQLException e) {
 				throw new OperatingSystemRuntimeException(e);
 			}
-		} catch (Exception e) {
-
+		} finally {
 			try {
-				// TODO rollback on DTP graph
-				connection.rollback();
-			} catch (SQLException e1) {
+				connection.setAutoCommit(true);
+			} catch (SQLException e) {
 				throw new OperatingSystemRuntimeException(e);
 			}
-
-			throw new OperatingSystemRuntimeException(e.getMessage(), e);
-		} finally {
-			connection.resetAutoCommit();
 		}
 	}
 
-	private void deleteFile(QResourceEvent<QFile> event) throws OperatingSystemRuntimeException {
+	private void createFile(QJobContext jobContext, QFile file, QConnection connection, Schema schema) throws Exception {
 
-		QJob job = event.getResource().getJob();
-		QContext jobContext = job.getJobContext();
+		if (file instanceof QPhysicalFile) {
+			QPhysicalFile physicalFile = (QPhysicalFile) file;
 
-		QFile file = event.getSource();
-		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
+			QTableDef tableDef = jobContext.getAdapter(physicalFile, QTableDef.class);
+			databaseManager.createTable(connection, schema, file.getName(), tableDef);
+		} else if (file instanceof QLogicalFile) {
+			QLogicalFile logicalFile = (QLogicalFile) file;
 
-		QConnection connection = jobContext.getAdapter(job, QConnection.class);
-		Schema schema = databaseManager.getSchema(connection, file.getLibrary());
-		if (schema == null)
-			throw new FrameworkCoreRuntimeException("6nv146nzytqweit748zaf");
+			QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
+			databaseManager.createView(connection, schema, file.getName(), viewDef);
+		}
 
-		try {
-			try {
-				Index index = databaseManager.getIndex(connection, schema.getName(), file.getName());
-				if (index != null)
-					databaseManager.dropIndex(connection, index);
-			} catch (Exception e) {
-				throw new OperatingSystemRuntimeException(e.getMessage(), e);
+		QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
+		if (index != null) {
+			Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
+
+			// append clustered index if needed
+			if (!index.isClustered() && !hasClusteredIndex(table)) {
+
+				QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
+				pkIndexDef.setClustered(true);
+				pkIndexDef.setUnique(true);
+
+				QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
+				pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
+				pkIndexColumnDef.setSequence(1);
+				pkIndexDef.getColumns().add(pkIndexColumnDef);
+
+				databaseManager.createIndex(connection, table, "QAS_" + table.getName() + "_RRN_IDX", pkIndexDef);
 			}
 
-			try {
-				if (file instanceof QPhysicalFile) {
-					Table table = databaseManager.getTable(connection, schema.getName(), file.getName());
-					databaseManager.dropTable(connection, table);
-				} else if (file instanceof QLogicalFile) {
-					ViewTable view = databaseManager.getView(connection, schema.getName(), file.getName());
-					databaseManager.dropView(connection, view);
-				}
-			} catch (Exception e) {
-				throw new OperatingSystemRuntimeException(e.getMessage(), e);
-			}
+			databaseManager.createIndex(connection, table, file.getName(), index);
+		}
+	}
 
-			try {
-				connection.commit();
-			} catch (SQLException e) {
-				throw new OperatingSystemRuntimeException(e);
-			}
-		} catch (Exception e) {
+	private void deleteFile(QJobContext jobContext, QFile file, QConnection connection, Schema schema) throws Exception {
 
-			try {
-				// TODO rollback on DTP graph
-				connection.rollback();
-			} catch (SQLException e1) {
-				throw new OperatingSystemRuntimeException(e);
-			}
+		Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
+		
+		Index index = connection.getCatalogMetaData().getIndex(table.getSchema().getName(), table.getName(), file.getName());
+		if (index != null)
+			databaseManager.dropIndex(connection, index);
 
-			throw new OperatingSystemRuntimeException(e.getMessage(), e);
-		} finally {
-			connection.resetAutoCommit();
+		if (file instanceof QPhysicalFile) {
+			databaseManager.dropTable(connection, table);
+		} else if (file instanceof QLogicalFile) {
+			ViewTable view = (ViewTable) table;
+			databaseManager.dropView(connection, view);
 		}
 	}
 

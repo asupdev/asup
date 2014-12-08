@@ -8,7 +8,6 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
-import java.util.Properties;
 import org.asup.fw.core.QService;
 
 /**
@@ -24,41 +23,33 @@ public interface QConnectionManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model connectionConfigRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	QConnection createDatabaseConnection(QConnectionConfig connectionConfig) throws SQLException;
+	QConnection createConnection() throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	QConnection createDatabaseConnection(String name) throws SQLException;
+	QConnection createConnection(String catalog) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model nameRequired="true" connectionConfigRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	void registerConnectionConfig(String name, QConnectionConfig connectionConfig);
+	QConnection createConnection(String user, String password) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.fw.java.JavaProperties" required="true" connectionConfigRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	Properties createPropertiesByConnectionConfig(QConnectionConfig connectionConfig);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.fw.java.JavaProperties" required="true" vendorRequired="true"
-	 * @generated
-	 */
-	Properties createPropertiesByVendorVersion(String vendor, String version);
+	QConnection createConnection(String catalog, String user, String password) throws SQLException;
 
 } // QConnectionManager

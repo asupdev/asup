@@ -1,12 +1,6 @@
 package org.eclipse.datatools.enablement.asup;
 
-import java.sql.SQLException;
-
-import org.asup.db.core.QCatalogContainer;
-import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
-import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseManager;
 import org.eclipse.datatools.connectivity.DriverConnectionBase;
 import org.eclipse.datatools.connectivity.IConnectionProfile;
@@ -15,8 +9,10 @@ import org.eclipse.datatools.connectivity.drivers.jdbc.JDBCConnectionFactory;
 
 public class ASUPConnectionJDBC extends DriverConnectionBase {
 
+	@SuppressWarnings("unused")
 	private QConnectionManager connectionManager;
 
+	@SuppressWarnings("unused")
 	private QDatabaseManager databaseManager;
 
 	public ASUPConnectionJDBC(QConnectionManager connectionManager, QDatabaseManager databaseManager, IConnectionProfile profile, Class<JDBCConnectionFactory> class1) {
@@ -38,7 +34,7 @@ public class ASUPConnectionJDBC extends DriverConnectionBase {
 
 	@Override
 	public String getProviderName() {
-		return "AsUP";
+		return null;
 	}
 
 	@Override
@@ -64,7 +60,7 @@ public class ASUPConnectionJDBC extends DriverConnectionBase {
 
 	@Override
 	protected String getTechnologyRootKey() {
-		return "AsUP";
+		return null;
 	}
 
 	@Override
@@ -79,27 +75,29 @@ public class ASUPConnectionJDBC extends DriverConnectionBase {
 	public Object getRawConnection() {
 
 		if(mConnection == null) {
-			
+/*			
 			try {
 				
 				QDatabaseContainer databaseContainer = databaseManager.getDatabaseContainer();
 				
-				for(QCatalogContainer catalogContainer: databaseContainer.getCatalogs()) {
+				
+				
+				for(QCatalogContainer catalogContainer: databaseContainer.getCatalogContainers()) {
 					
-					if(catalogContainer.getCatalog().equals(databaseContainer.getDefaultCatalog())) {
+//					if(catalogContainer.getCatalog().equals(databaseContainer.getDefaultCatalog())) {
 						QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 						QConnection qConnection = connectionManager.createDatabaseConnection(connectionConfig);
 						mConnection = qConnection;
 						
 						break;
-					}
+//					}
 				}
 				
 				
 //				job.getJobContext().set(QConnection.class, connection);
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
-			}
+			}*/
 		} 
 		if(mConnection == null) {
 			System.err.println("Unexpected condition: qw823nx5734xn32were");

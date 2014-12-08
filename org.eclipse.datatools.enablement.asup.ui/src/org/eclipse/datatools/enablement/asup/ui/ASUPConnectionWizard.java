@@ -25,7 +25,7 @@ public class ASUPConnectionWizard extends NewConnectionProfileWizard implements 
 		
 		ASUPPlugin plugin = ASUPPlugin.getInstance();
 
-		properties = plugin.getConnectionManager().createPropertiesByVendorVersion("AsUP", "053");
+		properties = plugin.createPropertiesByVendorVersion("As.UP", "V0.5");
 	}
 
 	@Override

@@ -9,8 +9,6 @@ package org.asup.db.core;
 
 import java.util.List;
 import org.asup.fw.core.QServiceConfig;
-import org.eclipse.datatools.modelbase.sql.schema.Catalog;
-import org.eclipse.datatools.modelbase.sql.schema.Database;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +18,10 @@ import org.eclipse.datatools.modelbase.sql.schema.Database;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getConnectionProfile <em>Connection Profile</em>}</li>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getDatabase <em>Database</em>}</li>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalog <em>Default Catalog</em>}</li>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getCatalogs <em>Catalogs</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getCatalogContainers <em>Catalog Containers</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getVendor <em>Vendor</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalogContainer <em>Default Catalog Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,97 +31,93 @@ import org.eclipse.datatools.modelbase.sql.schema.Database;
  */
 public interface QDatabaseContainer extends QServiceConfig {
 	/**
-	 * Returns the value of the '<em><b>Database</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Database</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Database</em>' containment reference.
-	 * @see #setDatabase(Database)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_Database()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Database getDatabase();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getDatabase <em>Database</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Database</em>' containment reference.
-	 * @see #getDatabase()
-	 * @generated
-	 */
-	void setDatabase(Database value);
-
-	/**
-	 * Returns the value of the '<em><b>Catalogs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Catalog Containers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.db.core.QCatalogContainer}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Catalogs</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Catalog Containers</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Catalogs</em>' containment reference list.
-	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_Catalogs()
+	 * @return the value of the '<em>Catalog Containers</em>' containment reference list.
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_CatalogContainers()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	List<QCatalogContainer> getCatalogs();
+	List<QCatalogContainer> getCatalogContainers();
 
 	/**
-	 * Returns the value of the '<em><b>Default Catalog</b></em>' reference.
+	 * Returns the value of the '<em><b>Vendor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Default Catalog</em>' reference isn't clear,
+	 * If the meaning of the '<em>Vendor</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Default Catalog</em>' reference.
-	 * @see #setDefaultCatalog(Catalog)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_DefaultCatalog()
+	 * @return the value of the '<em>Vendor</em>' attribute.
+	 * @see #setVendor(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_Vendor()
 	 * @model required="true"
 	 * @generated
 	 */
-	Catalog getDefaultCatalog();
+	String getVendor();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalog <em>Default Catalog</em>}' reference.
+	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getVendor <em>Vendor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Default Catalog</em>' reference.
-	 * @see #getDefaultCatalog()
+	 * @param value the new value of the '<em>Vendor</em>' attribute.
+	 * @see #getVendor()
 	 * @generated
 	 */
-	void setDefaultCatalog(Catalog value);
+	void setVendor(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Connection Profile</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Version</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Connection Profile</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Version</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connection Profile</em>' containment reference.
-	 * @see #setConnectionProfile(QConnectionProfile)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_ConnectionProfile()
-	 * @model containment="true" keys="name" required="true"
+	 * @return the value of the '<em>Version</em>' attribute.
+	 * @see #setVersion(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_Version()
+	 * @model required="true"
 	 * @generated
 	 */
-	QConnectionProfile getConnectionProfile();
+	String getVersion();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getConnectionProfile <em>Connection Profile</em>}' containment reference.
+	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getVersion <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Connection Profile</em>' containment reference.
-	 * @see #getConnectionProfile()
+	 * @param value the new value of the '<em>Version</em>' attribute.
+	 * @see #getVersion()
 	 * @generated
 	 */
-	void setConnectionProfile(QConnectionProfile value);
+	void setVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Catalog Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Catalog Container</em>' reference.
+	 * @see #setDefaultCatalogContainer(QCatalogContainer)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContainer_DefaultCatalogContainer()
+	 * @model required="true"
+	 * @generated
+	 */
+	QCatalogContainer getDefaultCatalogContainer();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalogContainer <em>Default Catalog Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Catalog Container</em>' reference.
+	 * @see #getDefaultCatalogContainer()
+	 * @generated
+	 */
+	void setDefaultCatalogContainer(QCatalogContainer value);
 
 } // QDatabaseContainer

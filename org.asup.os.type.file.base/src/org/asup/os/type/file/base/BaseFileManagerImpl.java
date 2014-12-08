@@ -13,7 +13,6 @@ package org.asup.os.type.file.base;
 
 import javax.inject.Inject;
 
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.annotation.ServiceRegistration;
@@ -33,24 +32,10 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	
 	@ServiceRegistration
 	public void init() {		
-		IAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager, (QConnectionConfig) getConfig());
+		IAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager);
 		AdapterManager.getDefault().registerAdapters(adapterFactory, QJob.class);	
 		AdapterManager.getDefault().registerAdapters(adapterFactory, QDatabaseFile.class);
 	}
-	
-//	@Override
-/*	public QConnection getDatabaseConnection(QJob job) throws OperatingSystemRuntimeException {
-		
-		QConnection databaseConnection = connections.get(job.getID());
-		if(databaseConnection == null) {
-			databaseConnection = connectionManager.getDatabaseConnection(job.getSystem().getSystemDatabase());
-			if(databaseConnection == null)
-				throw new OperatingSystemRuntimeException("Database connection not found; "+job.getSystem().getSystemDatabase());
-			connections.put(job.getID(), databaseConnection);
-		}
-		
-		return databaseConnection;
-	}*/
 
 	@Override
 	public void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {

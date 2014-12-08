@@ -7,24 +7,17 @@
  */
 package org.asup.db.core;
 
+import org.asup.fw.core.QCredentials;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Database Definition</b></em>'.
+ * A representation of the model object '<em><b>Connection Credentials</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseDefinition()
- * @model interface="true" abstract="true"
+ * @see org.asup.db.core.QDatabaseCorePackage#getConnectionCredentials()
+ * @model
  * @generated
  */
-public interface QDatabaseDefinition {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean supportsRelativeRecordNumber();
-} // QDatabaseDefinition
+public interface QConnectionCredentials extends QCredentials {
+} // QConnectionCredentials

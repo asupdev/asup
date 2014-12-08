@@ -26,58 +26,50 @@ import java.sql.SQLXML;
 import java.sql.Savepoint;
 import java.sql.Statement;
 import java.sql.Struct;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+import org.asup.db.core.QCatalogContainer;
+import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionContext;
-import org.asup.db.core.QConnectionManager;
-import org.asup.db.core.QDatabaseDefinition;
-import org.asup.db.core.QPreparedStatement;
+import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.syntax.QQueryParser;
-import org.asup.db.syntax.QQueryWriter;
-import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
-import org.eclipse.datatools.connectivity.ConnectionProfileException;
-import org.eclipse.datatools.connectivity.IConnection;
-import org.eclipse.datatools.connectivity.IConnectionProfile;
-import org.eclipse.datatools.connectivity.ProfileManager;
-import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
-import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
-import org.eclipse.datatools.connectivity.sqm.core.mappings.ProviderIDMappingRegistry;
 
 public class BaseConnectionImpl implements QConnection, Connection {
 
-	private QConnectionContext	connectionContext;
-	private Connection			rawConnection;
-	private QConnectionConfig	connectionConfig;
-	private QQueryParser		queryParser;
-	private QQueryWriter		queryConverter;
-	private String connectionID;
-	private QDatabaseDefinition	databaseDefinition;
+	private QConnectionContext connectionContext;
+	private QDatabaseContainer databaseContainer;
 
-	private String virtualCatalog = null;
+	private QQueryParser queryParser;
 	
-	public BaseConnectionImpl(QConnectionContext connectionContext, String id, QConnectionConfig connectionConfig, QQueryParser queryParser, QQueryWriter queryConverter) {
-		
+	private String virtualCatalog;
+	private BaseCatalogConnection currentCatalogConnection;
+	private List<BaseCatalogConnection> catalogConnections;
+
+	public BaseConnectionImpl(QDatabaseContainer databaseContainer, QConnectionContext connectionContext) {
+
 		this.connectionContext = connectionContext;
-		this.connectionID = id;		
-		this.connectionConfig = connectionConfig;
-		this.queryParser = queryParser;
-		this.queryConverter = queryConverter;
+		this.databaseContainer = databaseContainer;
+		this.queryParser = connectionContext.get(QQueryParser.class);
+		
+		this.catalogConnections = new ArrayList<BaseCatalogConnection>();
+	}
+
+	public BasePreparedStatementImpl prepareStatement(String sql) throws SQLException {
+		return prepareStatement(sql, false);
 	}
 
 	@Override
-	public QConnectionConfig getConnectionConfig() {
-		return connectionConfig;
-	}
+	public BasePreparedStatementImpl prepareStatement(String sql, boolean native_) throws SQLException {
+		BasePreparedStatementImpl basePreparedStatement = new BasePreparedStatementImpl(getRawConnection().prepareStatement(sql));
 
-	@Override
-	public QPreparedStatement prepareStatement(String sql, boolean native_) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return basePreparedStatement;
+
 	}
 
 	@Override
@@ -88,77 +80,56 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	@Override
 	public BaseStatementImpl createStatement(boolean native_) throws SQLException {
 
-		Connection connection = getRawConnection();
+		BaseCatalogConnection connection = getCatalogConnection();
 		BaseStatementImpl statement = null;
 		if (native_)
-			statement = new BaseNativeStatementImpl(connection.createStatement());
+			statement = new BaseNativeStatementImpl(connection.getRawConnection().createStatement());
 		else
-			statement = new BaseStatementImpl(connection.createStatement(), queryParser, queryConverter);
+			statement = new BaseStatementImpl(connection.getRawConnection().createStatement(), queryParser, connection.getQueryWriter());
 
 		return statement;
 	}
 
-	public BasePreparedStatementImpl prepareStatement(String sql) throws SQLException {
+	private BaseCatalogConnection getCatalogConnection() throws SQLException {
 
-		BasePreparedStatementImpl basePreparedStatement = new BasePreparedStatementImpl(rawConnection.prepareStatement(sql));
-		
-		return basePreparedStatement;
-	}
-
-	protected synchronized Connection getRawConnection() {
-
-		if (rawConnection == null) {
-
-			IConnectionProfile profile = null;
-			
-			try {
-
-				QConnectionManager connectionManager = getConnectionContext().get(QConnectionManager.class);
-				Properties properties = connectionManager.createPropertiesByConnectionConfig(connectionConfig);
+		if(currentCatalogConnection != null)
+			return currentCatalogConnection;
 				
-				ProfileManager profileManager = ProfileManager.getInstance();
-
-				ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
-				String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(connectionConfig.getVendor(), connectionConfig.getVersion());
-				if (providerID == null)
-					providerID = "org.eclipse.datatools.connectivity.db.generic.connectionProfile";
-				
-				if(getConnectionConfig().isPersistent()) {					
-					profile = profileManager.getProfileByName(getID());
-					if(profile == null)
-						profile = profileManager.createProfile(getID(), "Text"+connectionConfig.getVendor()+"("+connectionConfig.getVersion()+")", providerID, properties);					
-				}
-				else
-					profile = profileManager.createTransientProfile(providerID, properties);
-				
-			} catch (ConnectionProfileException e) {
-				throw new FrameworkCoreRuntimeException(e);
-			}
+		if(getCatalog() == null) {
+			QCatalogContainer catalogContainer = this.databaseContainer.getDefaultCatalogContainer();
 			
-			IConnection iConnection = profile.createConnection(Connection.class.getName());
-			if(iConnection.getConnectException() != null)
-				throw new FrameworkCoreRuntimeException(iConnection.getConnectException());
-			
-			this.rawConnection = (Connection) iConnection.getRawConnection();
-			if(this.rawConnection == null)
-				throw new FrameworkCoreUnexpectedConditionException("Raw connection is null: "+this);
+			currentCatalogConnection = new BaseCatalogConnection(catalogContainer);			
+			catalogConnections.add(currentCatalogConnection);
 		}
-
-		return rawConnection;
+		else {
+			for(QCatalogContainer catalogContainer: this.databaseContainer.getCatalogContainers()) {
+				if(getCatalog().equals(catalogContainer.getName())) {
+						
+					currentCatalogConnection = new BaseCatalogConnection(catalogContainer);					
+					catalogConnections.add(currentCatalogConnection);
+					
+					break;
+				}
+			}
+		}
+		
+		return currentCatalogConnection;
+	}
+	
+	private Connection getRawConnection() throws SQLException {
+		return getCatalogConnection().getRawConnection();
 	}
 
 	@Override
 	public void commit() throws SQLException {
 		Connection connection = getRawConnection();
 		connection.commit();
-		connection.setAutoCommit(getConnectionConfig().isAutoCommit());
 	}
 
 	@Override
 	public void rollback() throws SQLException {
 		Connection connection = getRawConnection();
 		connection.rollback();
-		connection.setAutoCommit(getConnectionConfig().isAutoCommit());
 	}
 
 	@Override
@@ -174,31 +145,77 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	@Override
 	public void close() throws SQLException {
+		
+		for(BaseCatalogConnection catalogConnection: catalogConnections) {
+			catalogConnection.close();			
+		}
+		
+		this.catalogConnections.clear();
+		this.currentCatalogConnection = null;
+		this.virtualCatalog = null;
+		
 		getConnectionContext().close();
+	}
 
-		if (this.rawConnection != null)
-			this.rawConnection.close();
+	@Override
+	public QCatalogMetaData getCatalogMetaData() throws SQLException {
+		return getCatalogConnection().getCatalogMetaData();
+	}
+	
+	@Override
+	public void setCatalog(String catalog) throws SQLException {
+
+		if(catalog != null && catalog.equals(virtualCatalog))
+			return;
+		
+		virtualCatalog = catalog;
+		currentCatalogConnection = null;
+	
+		getRawConnection();
+		
+	}
+
+	@Override
+	public String getCatalog() throws SQLException {
+		return virtualCatalog;
+	}
+
+	@Override
+	public boolean isClosed() throws SQLException {
+
+		try {
+			if (getRawConnection() == null)
+				return true;
+		} catch (FrameworkCoreUnexpectedConditionException e) {
+			return true;
+		}
+
+		return false;
+	}
+	
+	@Override
+	public void setClientInfo(Properties properties) throws SQLClientInfoException {
+		try {
+			getRawConnection().setClientInfo(properties);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setClientInfo(String name, String value) throws SQLClientInfoException {
+		try {
+			getRawConnection().setClientInfo(name, value);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public String getID() {
-		return connectionID;
-	}
-
-	@Override
-	public QDatabaseDefinition getDatabaseDefinition() {
-
-		if (this.databaseDefinition == null) {
-			DatabaseDefinition dtpDatabaseDefinition = SQMServices.getDatabaseDefinitionRegistry().getDefinition(getConnectionConfig().getVendor(), getConnectionConfig().getVersion());
-			this.databaseDefinition = new BaseDatabaseDefinitionImpl(dtpDatabaseDefinition);
-		}
-
-		return this.databaseDefinition;
-	}
-
-	@Override
-	public String getCurrentCatalog() {
-		return "LOCAL";
+		return connectionContext.getID().getID();
 	}
 
 	public void abort(Executor executor) throws SQLException {
@@ -245,15 +262,6 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		return getRawConnection().getAutoCommit();
 	}
 
-	public String getCatalog() throws SQLException {		
-
-		String current = getRawConnection().getCatalog();
-		if(current == null)
-			current = virtualCatalog;
-					
-		return current;
-	}
-
 	public Properties getClientInfo() throws SQLException {
 		return getRawConnection().getClientInfo();
 	}
@@ -288,19 +296,6 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	public SQLWarning getWarnings() throws SQLException {
 		return getRawConnection().getWarnings();
-	}
-
-	public boolean isClosed() throws SQLException {
-
-		try {
-			if(getRawConnection() == null) 
-				return true;
-		}
-		catch(FrameworkCoreUnexpectedConditionException e) {
-			return true;
-		}
-		
-		return false;
 	}
 
 	public boolean isReadOnly() throws SQLException {
@@ -359,19 +354,6 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		getRawConnection().rollback(savepoint);
 	}
 
-	public void setCatalog(String catalog) throws SQLException {
-		virtualCatalog = catalog;
-		getRawConnection().setCatalog(catalog);
-	}
-
-	public void setClientInfo(Properties properties) throws SQLClientInfoException {
-		getRawConnection().setClientInfo(properties);
-	}
-
-	public void setClientInfo(String name, String value) throws SQLClientInfoException {
-		getRawConnection().setClientInfo(name, value);
-	}
-
 	public void setHoldability(int holdability) throws SQLException {
 		getRawConnection().setHoldability(holdability);
 	}
@@ -406,14 +388,5 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	public <T> T unwrap(Class<T> iface) throws SQLException {
 		return getRawConnection().unwrap(iface);
-	}
-
-	@Override
-	public void resetAutoCommit() {
-		try {
-			setAutoCommit(getConnectionConfig().isAutoCommit());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 }

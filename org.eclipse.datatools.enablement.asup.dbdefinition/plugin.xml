@@ -6,12 +6,12 @@
          point="org.eclipse.datatools.connectivity.sqm.core.databaseDefinition">
       <definition
             allowsConnections="true"
-            description="As.UP Eclipse DataTools Enablement Version V0M5R3"
-            file="runtime/vendors/AsUP_053/AsUP_053.xmi"
-            product="AsUP"
+            description="As.UP Eclipse DataTools Enablement Version V0.5"
+            file="runtime/vendors/AsUP_V05/AsUP_V05.xmi"
+            product="As.UP"
             productDisplayString="As.UP"
-            version="053"
-            versionDisplayString="V0M5R3">
+            version="V0.5"
+            versionDisplayString="V0.5">
       </definition>
    </extension>
    

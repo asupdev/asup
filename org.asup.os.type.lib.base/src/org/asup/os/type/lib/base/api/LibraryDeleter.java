@@ -48,6 +48,7 @@ public class LibraryDeleter {
 			if (qLibrary == null)			
 				throw new OperatingSystemRuntimeException("Library not found: "	+ library);
 			
+			// TODO iterate contents
 			libraryWriter.delete(qLibrary);
 			
 		} catch (OperatingSystemException e) {

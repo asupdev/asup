@@ -6,8 +6,8 @@ Bundle-Version: 0.5.3.qualifier
 Bundle-ClassPath: lib/mysql-connector-java-5.1.13-bin.jar,
  .
 Bundle-Vendor: www.smeup.com
-Export-Package: org.asup.db.core.mysql
-Require-Bundle: org.asup.db.core
+Require-Bundle: org.asup.db.core,
+ org.asup.db.core.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.net4j.db.mysql,
  org.osgi.service.jdbc

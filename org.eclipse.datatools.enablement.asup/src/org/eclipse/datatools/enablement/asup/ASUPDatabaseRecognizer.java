@@ -15,7 +15,7 @@ public class ASUPDatabaseRecognizer implements IDatabaseRecognizer {
 	@Override
 	public DatabaseDefinition recognize(Connection connection) {
 
-		return DatabaseDefinitionRegistryImpl.getInstance().getDefinition("AsUP", "053");
+		return DatabaseDefinitionRegistryImpl.getInstance().getDefinition("As.UP", "V0.5");
 	}
 
 }

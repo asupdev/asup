@@ -15,7 +15,6 @@ import java.sql.SQLException;
 
 import javax.inject.Inject;
 
-import org.asup.db.core.QConnectionFactoryRegistry;
 import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.impl.ServiceImpl;
@@ -28,9 +27,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 @SuppressWarnings("restriction")
 public class CDODatabaseActivatorHook extends ServiceImpl {
 
-	@SuppressWarnings("unused")
-	@Inject
-	private QConnectionFactoryRegistry connectionFactoryRegistry;
 	@SuppressWarnings("unused")
 	@Inject
 	private QConnectionManager connectionManager;

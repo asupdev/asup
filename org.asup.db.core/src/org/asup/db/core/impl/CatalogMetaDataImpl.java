@@ -7,37 +7,50 @@
  */
 package org.asup.db.core.impl;
 
-import java.sql.SQLException;
-import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionManager;
+import java.util.List;
+
+import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QDatabaseCorePackage;
-import org.asup.fw.core.impl.ServiceImpl;
+
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
+
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
+
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Connection Manager</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Catalog Meta Data</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class ConnectionManagerImpl extends ServiceImpl implements QConnectionManager {
+public abstract class CatalogMetaDataImpl extends MinimalEObjectImpl.Container implements QCatalogMetaData {
+	
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConnectionManagerImpl() {
+	protected CatalogMetaDataImpl() {
 		super();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDatabaseCorePackage.Literals.CONNECTION_MANAGER;
+		return QDatabaseCorePackage.Literals.CATALOG_META_DATA;
 	}
 
 	/**
@@ -45,7 +58,7 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnection createConnection() throws SQLException {
+	public Index getIndex(String schema, String table, String index) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -56,7 +69,7 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnection createConnection(String catalog) throws SQLException {
+	public Schema getSchema(String schema) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -67,7 +80,7 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnection createConnection(String user, String password) throws SQLException {
+	public List<Schema> getSchemas() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -78,10 +91,21 @@ public abstract class ConnectionManagerImpl extends ServiceImpl implements QConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QConnection createConnection(String catalog, String user, String password) throws SQLException {
+	public Table getTable(String schema, String table) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-} // ConnectionManagerImpl
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ViewTable getView(String schema, String table) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+} //CatalogMetaDataImpl

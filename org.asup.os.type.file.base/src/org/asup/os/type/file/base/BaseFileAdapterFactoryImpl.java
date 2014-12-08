@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QIndexColumnDef;
@@ -33,12 +32,9 @@ import org.eclipse.core.runtime.IAdapterFactory;
 public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 
 	private QConnectionManager connectionManager;
-	private QConnectionConfig connectionConfig;
-	
-	
-	public BaseFileAdapterFactoryImpl(QConnectionManager connectionManager, QConnectionConfig connectionConfig) {
+
+	public BaseFileAdapterFactoryImpl(QConnectionManager connectionManager) {
 		this.connectionManager = connectionManager;
-		this.connectionConfig = connectionConfig;
 	}
 	
 	@SuppressWarnings("rawtypes")
@@ -74,7 +70,8 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 				connection = job.getJobContext().get(QConnection.class);
 				if(connection == null) {
 					try {
-						connection = connectionManager.createDatabaseConnection(connectionConfig);
+						// TODO credentials
+						connection = connectionManager.createConnection();
 						job.getJobContext().set(QConnection.class, connection);
 					} catch (SQLException e) {
 						throw new OperatingSystemRuntimeException(e);

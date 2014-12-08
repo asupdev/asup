@@ -33,11 +33,6 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class DatabaseManagerImpl extends ServiceImpl implements QDatabaseManager {
 	
-	/*
-	 * @generated NOT
-	 */
-	public static final String TABLE_COLUMN_PRIMARY_KEY_NAME = "QASRRN"; 
-	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -137,7 +132,7 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void dropSchema(QConnection connection, Schema schema) throws SQLException {
+	public void dropSchema(QConnection connection, Schema schema, boolean ignoreFailOnNonEmpty) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -170,60 +165,18 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDatabaseContainer getDatabaseContainer() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Index getIndex(QConnection connection, String schema, String index) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Schema getSchema(QConnection connection, String schema) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Table getTable(QConnection connection, String schema, String table) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ViewTable getView(QConnection connection, String schema, String table) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isStarted() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void start(QDatabaseContainer databaseContainer) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

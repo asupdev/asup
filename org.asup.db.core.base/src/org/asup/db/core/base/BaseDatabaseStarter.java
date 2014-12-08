@@ -1,99 +1,103 @@
 package org.asup.db.core.base;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
+
+import javax.inject.Inject;
 
 import org.asup.db.core.QCatalogContainer;
+import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnectionConfig;
-import org.asup.db.core.QConnectionManager;
-import org.asup.db.core.QConnectionProfile;
+import org.asup.db.core.QConnectionCredentials;
 import org.asup.db.core.QDatabaseContainer;
-import org.asup.db.core.base.graph.BaseCatalogContainer;
-import org.asup.db.core.base.graph.BaseConnectionFilterProvider;
-import org.asup.db.core.base.graph.BaseSchemaLoader;
+import org.asup.db.syntax.QDefinitionWriter;
+import org.asup.db.syntax.QDefinitionWriterRegistry;
+import org.asup.db.syntax.QQueryWriter;
+import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.eclipse.datatools.connectivity.ConnectionProfileException;
-import org.eclipse.datatools.connectivity.IConnectionProfile;
-import org.eclipse.datatools.connectivity.ProfileManager;
-import org.eclipse.datatools.connectivity.sqm.core.SQMServices;
+import org.asup.fw.core.QContext;
 import org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo;
-import org.eclipse.datatools.connectivity.sqm.core.mappings.ProviderIDMappingRegistry;
 import org.eclipse.datatools.modelbase.sql.schema.Catalog;
 import org.eclipse.datatools.modelbase.sql.schema.Database;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class BaseDatabaseStarter {
-	
-	private static final String FACTORY = "org.eclipse.datatools.enablement.asup.connectionFactory";
+
+	@Inject
+	private QContext context;
+	@Inject
+	private QQueryWriterRegistry queryWriterRegistry;
+	@Inject
+	private QDefinitionWriterRegistry definitionWriterRegistry;
 
 	
-	private QConnectionManager connectionManager;
-	private QDatabaseContainer databaseContainer;
-
-
-	public BaseDatabaseStarter(QConnectionManager connectionManager, QDatabaseContainer databaseContainer) {
-		this.connectionManager = connectionManager;
-		this.databaseContainer = databaseContainer;
-	}
-	
-	public void start() {	
+	@SuppressWarnings("unchecked")
+	public void loadDatabase(QDatabaseContainer databaseContainer) {	
 
 		try {
-			ProfileManager profileManager = ProfileManager.getInstance();
 			
-			QConnectionProfile qConnectionProfile = databaseContainer.getConnectionProfile();
-			
-			// check persistent profile
-			IConnectionProfile connectionProfile = profileManager.getProfileByName(qConnectionProfile.getName());
-			
-			// create default DBM connection
-			if (connectionProfile == null) {
-				
-				Database database = databaseContainer.getDatabase();
-				
-				ProviderIDMappingRegistry providerIDMappingRegistry = SQMServices.getProviderIDMappingRegistry();
-				String providerID = providerIDMappingRegistry.getProviderIDforVendorVersion(database.getVendor(), database.getVersion());
-				if (providerID == null)
-					throw new FrameworkCoreRuntimeException("Provider ID not found: "+qConnectionProfile);
-				
-				// TODO create as transient
-				Properties properties = connectionManager.createPropertiesByVendorVersion(database.getVendor(), database.getVersion());
-				connectionProfile = profileManager.createProfile(qConnectionProfile.getName(), qConnectionProfile.getText(), providerID, properties);
-			}
+			// prepare catalog containers
+			for (QCatalogContainer catalogContainer : databaseContainer.getCatalogContainers()) {
 
-			// activate root connection for database
-			ConnectionInfo connectionInfo = (ConnectionInfo) connectionProfile.createConnection(FACTORY);
-			if(connectionInfo == null)
-				throw new FrameworkCoreRuntimeException("Unexpected condition: x67045nx4xnb40hny5x7p");			
-
-
-			for (QCatalogContainer catalogContainer : databaseContainer.getCatalogs()) {
-				
-				Catalog catalog = catalogContainer.getCatalog();
-
-				// activate *LOCAL
-				if (!catalog.equals(databaseContainer.getDefaultCatalog())) 
-					continue;
-
-				// connect to catalog
 				QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
-				BaseConnectionImpl catalogConnection = (BaseConnectionImpl) connectionManager.createDatabaseConnection(connectionConfig);
-				catalogConnection.setCatalog(catalog.getName());
+				QConnectionCredentials credentials = connectionConfig.getCredentials();
 				
-				BaseCatalogContainer baseCatalogContainer = new BaseCatalogContainer(catalogConnection, catalog);
+				ConnectionInfo catalogInfo = catalogContainer.createConnection(ConnectionInfo.class, credentials.getUser(), credentials.getPassword());
+				if(catalogInfo == null)
+					throw new FrameworkCoreRuntimeException("Unexpected condition: x67045nx4xnb40hny5x7p");			
 
-				List<Schema> schemas = new ArrayList<Schema>();
-				BaseSchemaLoader schemaLoader = new BaseSchemaLoader(baseCatalogContainer, new BaseConnectionFilterProvider());
-				schemaLoader.loadSchemas(schemas, Collections.EMPTY_LIST);
+				// load catalog metadata
+				Database catalogDatabase = catalogInfo.getSharedDatabase();
+				List<Catalog> catalogDatabaseCatalogs = (List<Catalog>)catalogDatabase.getCatalogs();
+				List<Schema> catalogMetadataSchemas = null;
+				
+				if(catalogDatabaseCatalogs.isEmpty())
+					catalogMetadataSchemas = catalogDatabase.getSchemas();
+				else { 					
+					for(Catalog catalogDatabaseCatalog: catalogDatabaseCatalogs) {
+						if(connectionConfig.getCatalog().equals(catalogDatabaseCatalog.getName())) {
+							catalogMetadataSchemas = catalogDatabaseCatalog.getSchemas();
+							break;
+						}
+					}
+				}
+							
+				QCatalogMetaData catalogMetaData = new BaseCatalogMetaDataImpl(catalogMetadataSchemas);
+				catalogContainer.setMetaData(catalogMetaData);
 
-				break;
+				// set catalog context
+				QContext catalogContext = new BaseCatalogContextImpl(context.createChild(), catalogContainer.getName());
+				catalogContainer.setCatalogContext(catalogContext);
+				
+				// query writer
+				QQueryWriter queryWriter = queryWriterRegistry.lookup(connectionConfig);
+				catalogContext.set(QQueryWriter.class, queryWriter);
+				
+				// definition writer
+				QDefinitionWriter definitionWriter = definitionWriterRegistry.lookup(connectionConfig);
+				catalogContext.set(QDefinitionWriter.class, definitionWriter);
+
+				catalogInfo.getSharedConnection().setCatalog(connectionConfig.getCatalog());
 			}
-		} catch (ConnectionProfileException | SQLException e) {
+			
+//			printDatabase(databaseContainer);
+			
+		} catch (SQLException e) {
 			throw new FrameworkCoreRuntimeException(e);
 		}
-
-	} 
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void printDatabase(QDatabaseContainer databaseContainer) {
+		for(QCatalogContainer catalogContainer: databaseContainer.getCatalogContainers()) {
+			System.out.println(catalogContainer);
+			for(Schema schema: (List<Schema>)catalogContainer.getMetaData().getSchemas()) {
+				System.out.println("\t"+schema);
+				for(Table table: (List<Table>)schema.getTables()) {
+					System.out.println("\t\t"+table);
+				}
+			}
+		}		
+	}
 }

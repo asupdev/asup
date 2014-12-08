@@ -6,7 +6,7 @@
         class="org.eclipse.datatools.enablement.asup.ui.ASUPConnectionWizard"
         icon="icons/jdbc_16.png"
         id="org.eclipse.datatools.connectivity.ui.wizards.ConnectionProfileDetailsPage"
-        name="AsUP Database 053"
+        name="As.UP Database V0.5"
         profile="org.eclipse.datatools.enablement.asup.connectionProfile">
   </newWizard>
 	</extension>

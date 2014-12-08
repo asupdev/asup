@@ -11,7 +11,6 @@
  */
 package org.asup.os.type.file.base.api;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -21,10 +20,6 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QQueryWriter;
-import org.asup.db.syntax.QQueryWriterRegistry;
-import org.asup.db.syntax.QQueryParser;
-import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -36,7 +31,6 @@ import org.asup.os.core.output.QOutputManager;
 import org.asup.os.omac.QObject;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.pgm.OperatingSystemRuntimeProgramException;
-import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -51,11 +45,6 @@ public class SQLStatementRunner {
 
 	@Inject
 	private QOutputManager outputManager;
-
-	@Inject
-	private QQueryParserRegistry queryParserRegistry;
-	@Inject
-	private QQueryWriterRegistry queryConverterRegistry;
 
 	@Inject
 	private QJob job;
@@ -74,18 +63,9 @@ public class SQLStatementRunner {
 		QStatement statement = null;
 		try {
 
-			QQueryParser queryParser = queryParserRegistry.lookup("ibmi");
-			SQLQueryParseResult query = queryParser.parseQuery(new ByteArrayInputStream(sql.asBytes()));
-
-			QQueryWriter queryConverter = queryConverterRegistry.lookup(databaseConnection.getConnectionConfig());
-			String statementString = queryConverter.writeQuery(query.getQueryStatement());
-
-			statementString = statementString.replaceAll("\\[ ", "[");
-			statementString = statementString.replaceAll(" \\]", "]");
-
 			statement = databaseConnection.createStatement();
 
-			ResultSet resultSet = statement.executeQuery(statementString);
+			ResultSet resultSet = statement.executeQuery(sql.trimR());
 
 			EClass eClass = createEClass(resultSet);
 

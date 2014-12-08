@@ -55,13 +55,13 @@ public class PhysicalFileClearer {
 		if (qFile == null)
 			throw new OperatingSystemRuntimeException("File not found: "+ file);
 		qFile.setLibrary(file.library.trimR());
-		QConnection databaseConnection = job.getJobContext().getAdapter(job, QConnection.class);
+		QConnection connection = job.getJobContext().getAdapter(job, QConnection.class);
 
 		// create
 		try {
 			if(qFile instanceof QPhysicalFile) {
-				Table table = databaseManager.getTable(databaseConnection, qFile.getLibrary(), qFile.getName());				
-				databaseManager.deleteData(databaseConnection, table);
+				Table table = connection.getCatalogMetaData().getTable(qFile.getLibrary(), qFile.getName());				
+				databaseManager.deleteData(connection, table);
 			}			
 		} catch (SQLException e) {
 			throw new OperatingSystemRuntimeException(e);

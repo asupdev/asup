@@ -2,6 +2,7 @@ package org.eclipse.datatools.enablement.asup;
 
 import java.sql.Connection;
 
+import org.asup.db.core.QDatabaseContainer;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.datatools.connectivity.sqm.core.rte.ICatalogProvider;
@@ -15,7 +16,7 @@ public class ASUPCatalogProvider implements ICatalogProvider, IExecutableExtensi
 	@SuppressWarnings("unused")
 	private String version;
 	
-	protected static Database database;
+	protected static QDatabaseContainer databaseContainer;
 
 	public void setInitializationData(IConfigurationElement config, String propertyName, Object data) {
 
@@ -24,6 +25,6 @@ public class ASUPCatalogProvider implements ICatalogProvider, IExecutableExtensi
 	}
 
 	public Database getCatalogDatabase(Connection connection) {
-		return database;
+		return null;
 	}
 }

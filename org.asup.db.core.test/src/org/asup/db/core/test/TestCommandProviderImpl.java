@@ -22,7 +22,6 @@ import javax.inject.Inject;
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseManager;
@@ -53,23 +52,25 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 	@Inject
 	private QDatabaseManager databaseManager;
 
-	public void _copySchema(CommandInterpreter interpreter) throws SQLException {
+	public void _createSchema(CommandInterpreter interpreter) throws SQLException {
 
+		String catalog = interpreter.nextArgument();
 		String schemaName = interpreter.nextArgument();
-		String pluginName = interpreter.nextArgument();
 
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		Enumeration<String> objects = bundle.getEntryPaths("/config/schemas/" + schemaName);
-		QConnectionConfig connectionConfig = loadConfig(pluginName);
+		Enumeration<String> objects = bundle.getEntryPaths("/resources/schemas/" + schemaName);
 
-		QConnection connection = connectionManager.createDatabaseConnection(connectionConfig);
+		// connect to default catalog
+		QConnection connection = connectionManager.createConnection(catalog);
 
-		dropDB2Schema(connection, schemaName);
+		Schema schema = connection.getCatalogMetaData().getSchema(schemaName);
+		if (schema != null)
+			databaseManager.dropSchema(connection, schema, true);
 
 		QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
 		databaseManager.createSchema(connection, schemaName, schemaDef);
-
-		Schema schema = databaseManager.getSchema(connection, schemaName);
+		// TODO
+		schema = connection.getCatalogMetaData().getSchema(schemaName);
 
 		Set<String> fileNames = new TreeSet<String>();
 
@@ -93,7 +94,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 					databaseManager.createView(connection, schema, fileName, viewDef);
 				} else if (file instanceof QIndexDef) {
 					QIndexDef indexDef = (QIndexDef) file;
-					Table table = databaseManager.getTable(connection, schemaName, fileName);
+					Table table = connection.getCatalogMetaData().getTable(schemaName, fileName);
 					databaseManager.createIndex(connection, table, fileName, indexDef);
 				}
 			} catch (SQLException e) {
@@ -105,12 +106,13 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		System.out.println("Creazione schema completata");
 	}
 
-	public void _cSQL(CommandInterpreter interpreter) throws Exception {
+	public void _executeTest(CommandInterpreter interpreter) throws Exception {
 
-		QConnectionConfig connectionConfigTo = loadConfig("DB2");
-
-		QConnection connectionTo = connectionManager.createDatabaseConnection(connectionConfigTo);
-		List<String> statements = readStatementsForTest();
+		String catalog = interpreter.nextArgument();
+		String scriptName = interpreter.nextArgument();
+		
+		QConnection connectionTo = connectionManager.createConnection(catalog);
+		List<String> statements = readStatementsForTest(scriptName);
 
 		for(int i=0; i<10; i++) {
 			long timeIni = System.currentTimeMillis();
@@ -119,10 +121,8 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 					QStatement s = connectionTo.createStatement();
 					s.execute(sql);
 					s.close();
-	//				System.out.print(".");
 				} catch (SQLException e) {
-	//				System.err.println(e.getMessage());
-					// writeToFile(sql, new File("c:\\temp\\sql.log"), true);
+					System.err.println(e.getMessage());
 				}
 			}
 			long timeEnd = System.currentTimeMillis();
@@ -134,27 +134,23 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 	@SuppressWarnings("unchecked")
 	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
 
-		String pluginNameFrom = interpreter.nextArgument();
-		String pluginNameTo = interpreter.nextArgument();
+		String catalogFrom = interpreter.nextArgument();
+		String cataloTo = interpreter.nextArgument();
+		String schemaName = interpreter.nextArgument();
+				
+		QConnection connectionTo = connectionManager.createConnection(cataloTo);
 
-		QConnectionConfig connectionConfigFrom = loadConfig(pluginNameFrom);
-		QConnection connectionFrom = connectionManager.createDatabaseConnection(connectionConfigFrom);
+		Schema schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaName);
+		if(schemaTo != null)
+			databaseManager.dropSchema(connectionTo, schemaTo, true);
 
-		QConnectionConfig connectionConfigTo = loadConfig(pluginNameTo);
-		QConnection connectionTo = connectionManager.createDatabaseConnection(connectionConfigTo);
-
-		System.out.print("Reading schema...");
-		Schema schemaFrom = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
-		System.out.println("...OK");
-
-		try {
-			dropDB2Schema(connectionTo, schemaFrom.getName());
-		} catch (Exception e) {
-		}
-
+		QConnection connectionFrom = connectionManager.createConnection(catalogFrom);
+		Schema schemaFrom = connectionFrom.getCatalogMetaData().getSchema(schemaName);
+		
 		QSchemaDef schemaDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QSchemaDef.class);
 		databaseManager.createSchema(connectionTo, schemaFrom.getName(), schemaDef);
-		Schema schemaTo = databaseManager.getSchema(connectionTo, schemaFrom.getName());
+		// TODO
+		schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaFrom.getName());
 
 		for (Table table : (List<Table>) schemaFrom.getTables()) {
 
@@ -169,7 +165,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 		for (Index index : (List<Index>) schemaFrom.getIndices()) {
 			QIndexDef indexDef = connectionTo.getConnectionContext().getAdapter(index, QIndexDef.class);
-			Table tableTo = databaseManager.getTable(connectionTo, schemaTo.getName(), index.getName());
+			Table tableTo = connectionTo.getCatalogMetaData().getTable(schemaTo.getName(), index.getName());
 			databaseManager.createIndex(connectionTo, tableTo, index.getName(), indexDef);
 		}
 
@@ -177,12 +173,11 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 	}
 
 	// connectionManager e disk
-	public Object _testcon(CommandInterpreter interpreter) throws SQLException {
+	public Object _testConn(CommandInterpreter interpreter) throws SQLException {
 
-		String pluginName = interpreter.nextArgument();
-		QConnectionConfig connectionConfig = loadConfig(pluginName);
+		String catalog = interpreter.nextArgument();
 
-		QConnection connection = connectionManager.createDatabaseConnection(connectionConfig);
+		QConnection connection = connectionManager.createConnection(catalog);
 		System.out.println(connection);
 
 		connection.close();
@@ -192,22 +187,22 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 
 	public Object _testDDL(CommandInterpreter interpreter) throws SQLException {
 
-		String pluginName = interpreter.nextArgument();
-		QConnectionConfig connectionConfig = loadConfig(pluginName);
+		String catalog = interpreter.nextArgument();
 
 		String schemaName = "ASUP_TEST";
 		String tableName = "ASUP_TABLE";
 		String indexName = "ASUP_INDEX";
 
-		QConnection connection = connectionManager.createDatabaseConnection(connectionConfig);
+		QConnection connection = connectionManager.createConnection(catalog);
 
-		Schema schema = databaseManager.getSchema(connection, schemaName);
+		Schema schema = connection.getCatalogMetaData().getSchema(schemaName);
 		if (schema != null)
-			dropDB2Schema(connection, schemaName);
+			databaseManager.dropSchema(connection, schema, true);
+		
 
 		QSchemaDef schemaDef = QDatabaseCoreFactory.eINSTANCE.createSchemaDef();
 		databaseManager.createSchema(connection, schemaName, schemaDef);
-		schema = databaseManager.getSchema(connection, schemaName);
+		schema = connection.getCatalogMetaData().getSchema(schemaName);
 
 		QTableDef tableDef = QDatabaseCoreFactory.eINSTANCE.createTableDef();
 
@@ -220,7 +215,7 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		}
 
 		databaseManager.createTable(connection, schema, tableName, tableDef);
-		Table table = databaseManager.getTable(connection, schema.getName(), tableName);
+		Table table = connection.getCatalogMetaData().getTable(schema.getName(), tableName);
 
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
 
@@ -236,40 +231,12 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
-	public Object _copyV(CommandInterpreter interpreter) throws SQLException {
-
-		QConnectionConfig connectionConfigFrom = loadConfig("MSSQL");
-		QConnection connectionFrom = connectionManager.createDatabaseConnection(connectionConfigFrom);
-
-		QConnectionConfig connectionConfigTo = loadConfig("DB2");
-		QConnection connectionTo = connectionManager.createDatabaseConnection(connectionConfigTo);
-
-		System.out.print("Reading schemas...");
-		Schema schemaFrom = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
-		Schema schemaTo = databaseManager.getSchema(connectionFrom, "SMEUP_DAT");
-		System.out.println("...OK");
-
-		for (Table table : (List<Table>) schemaFrom.getTables()) {
-
-			if (!(table instanceof ViewTable))
-				continue;
-
-			ViewTable view = (ViewTable) table;
-			if (view.getName().equals("A£LIND0L")) {
-				QViewDef viewDef = connectionFrom.getConnectionContext().getAdapter(view, QViewDef.class);
-				databaseManager.createView(connectionTo, schemaTo, view.getName(), viewDef);
-				break;
-			}
-		}
-		return null;
-	}
-
+	/*
 	private void dropDB2Schema(QConnection connection, String schemaName) throws SQLException {
 
 		System.out.print("Dropping schema " + schemaName + "...");
 
-		Schema schema = databaseManager.getSchema(connection, schemaName);
+		Schema schema = connection.getCatalogMetadata().getSchema(schemaName);
 		if (schema == null)
 			return;
 
@@ -284,12 +251,11 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		}
 		System.out.println("schema dropped");
 	}
-
-	private List<String> readStatementsForTest() throws IOException, SQLException {
+*/
+	private List<String> readStatementsForTest(String scriptName) throws IOException, SQLException {
 
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		// URL entry = bundle.getEntry("/config/statements/prova.txt");
-		URL entry = bundle.getEntry("/config/statements/sql_smeup.txt");
+		URL entry = bundle.getEntry("/resources/statements/"+scriptName+".txt");
 		List<String> sourceSQL = readLinesFromInputStream(entry.openStream());
 
 		return sourceSQL;
@@ -328,24 +294,6 @@ public class TestCommandProviderImpl extends AbstractCommandProviderImpl {
 		}
 		in.close();
 		return linee;
-	}
-
-	@Override
-	public String getHelp() {
-		return "Nuovo help";
-	}
-
-	public enum DBType {
-		MSSQL, DB2;
-	}
-
-	public QConnectionConfig loadConfig(String name) {
-
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-
-		URL url = bundle.getEntry("/config/connection/" + name + ".xmi");
-
-		return (QConnectionConfig) load(url);
 	}
 
 	public EObject load(URL url) {

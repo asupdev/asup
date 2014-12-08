@@ -17,14 +17,12 @@ import org.asup.fw.core.QServiceConfig;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QConnectionConfig#isAutoCommit <em>Auto Commit</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#isPersistent <em>Persistent</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getUrl <em>Url</em>}</li>
- *   <li>{@link org.asup.db.core.QConnectionConfig#getUser <em>User</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getCredentials <em>Credentials</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.asup.db.core.QConnectionConfig#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#getCatalog <em>Catalog</em>}</li>
+ *   <li>{@link org.asup.db.core.QConnectionConfig#isPersistent <em>Persistent</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,111 +31,6 @@ import org.asup.fw.core.QServiceConfig;
  * @generated
  */
 public interface QConnectionConfig extends QServiceConfig {
-	/**
-	 * Returns the value of the '<em><b>Auto Commit</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Auto Commit</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Auto Commit</em>' attribute.
-	 * @see #setAutoCommit(boolean)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_AutoCommit()
-	 * @model default="true" required="true"
-	 * @generated
-	 */
-	boolean isAutoCommit();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isAutoCommit <em>Auto Commit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Auto Commit</em>' attribute.
-	 * @see #isAutoCommit()
-	 * @generated
-	 */
-	void setAutoCommit(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Persistent</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Persistent</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Persistent</em>' attribute.
-	 * @see #setPersistent(boolean)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Persistent()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isPersistent();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isPersistent <em>Persistent</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Persistent</em>' attribute.
-	 * @see #isPersistent()
-	 * @generated
-	 */
-	void setPersistent(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Driver Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Driver Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Driver Name</em>' attribute.
-	 * @see #setDriverName(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_DriverName()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getDriverName();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getDriverName <em>Driver Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Driver Name</em>' attribute.
-	 * @see #getDriverName()
-	 * @generated
-	 */
-	void setDriverName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Password</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Password</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Password</em>' attribute.
-	 * @see #setPassword(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Password()
-	 * @model
-	 * @generated
-	 */
-	String getPassword();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getPassword <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Password</em>' attribute.
-	 * @see #getPassword()
-	 * @generated
-	 */
-	void setPassword(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -165,30 +58,56 @@ public interface QConnectionConfig extends QServiceConfig {
 	void setUrl(String value);
 
 	/**
-	 * Returns the value of the '<em><b>User</b></em>' attribute.
+	 * Returns the value of the '<em><b>Catalog</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>User</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Catalog</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>User</em>' attribute.
-	 * @see #setUser(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_User()
+	 * @return the value of the '<em>Catalog</em>' attribute.
+	 * @see #setCatalog(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Catalog()
 	 * @model
 	 * @generated
 	 */
-	String getUser();
+	String getCatalog();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getUser <em>User</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getCatalog <em>Catalog</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>User</em>' attribute.
-	 * @see #getUser()
+	 * @param value the new value of the '<em>Catalog</em>' attribute.
+	 * @see #getCatalog()
 	 * @generated
 	 */
-	void setUser(String value);
+	void setCatalog(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Persistent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Persistent</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Persistent</em>' attribute.
+	 * @see #setPersistent(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Persistent()
+	 * @model
+	 * @generated
+	 */
+	boolean isPersistent();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#isPersistent <em>Persistent</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Persistent</em>' attribute.
+	 * @see #isPersistent()
+	 * @generated
+	 */
+	void setPersistent(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Vendor</b></em>' attribute.
@@ -241,5 +160,31 @@ public interface QConnectionConfig extends QServiceConfig {
 	 * @generated
 	 */
 	void setVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Credentials</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Credentials</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credentials</em>' containment reference.
+	 * @see #setCredentials(QConnectionCredentials)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getConnectionConfig_Credentials()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	QConnectionCredentials getCredentials();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QConnectionConfig#getCredentials <em>Credentials</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Credentials</em>' containment reference.
+	 * @see #getCredentials()
+	 * @generated
+	 */
+	void setCredentials(QConnectionCredentials value);
 
 } // QConnectionConfig

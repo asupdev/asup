@@ -12,7 +12,7 @@
         category="org.eclipse.datatools.connectivity.db.category"
         icon="icons/jdbc_16.png"
         id="org.eclipse.datatools.enablement.asup.connectionProfile"
-        name="AsUP"
+        name="As.UP Profile"
         pingFactory="org.eclipse.datatools.enablement.asup.ASUPConnectionPingFactory"
         propertiesPersistenceHook="org.eclipse.datatools.enablement.asup.ASUPPropertiesPersistenceHook"/>
   <connectionFactory
@@ -33,16 +33,15 @@
 	<extension point="org.eclipse.datatools.connectivity.driverExtension">
 		<category parentCategory="org.eclipse.datatools.connectivity.db.driverCategory"
 			id="org.eclipse.datatools.enablement.asup.driverCategory"
-			name="AsUP" />
+			name="As.UP Driver Category" />
 		<category
 			parentCategory="org.eclipse.datatools.enablement.asup.driverCategory"
-			id="org.eclipse.datatools.enablement.asup.053.driverCategory"
-			name="053" />			
+			id="org.eclipse.datatools.enablement.asup.v05.driverCategory"
+			name="As.UP Driver Category V0.5" />			
 		<driverTemplate createDefault="false" emptyJarListIsOK="true"
-			id="org.eclipse.datatools.enablement.asup.053.driverTemplate"
-			name="AsUP 053 JDBC Driver"
-			parentCategory="org.eclipse.datatools.enablement.asup.053.driverCategory"
-			valuesProvider="org.eclipse.datatools.enablement.asup.ASUPDriverValuesProvider">
+			id="org.eclipse.datatools.enablement.asup.v05.driverTemplate"
+			name="As.UP JDBC Driver V0.5"
+			parentCategory="org.eclipse.datatools.enablement.asup.v05.driverCategory">
 			<properties>
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.driverClass" name="Driver Class"
@@ -50,65 +49,37 @@
 					visible="true" />
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.vendor" name="Vendor"
-					value="AsUP" required="true" visible="false" />
+					value="As.UP" required="true" visible="false" />
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.version" name="Version"
-					value="053" required="true" visible="false" />
-				<property generated="false"
-					id="org.eclipse.datatools.connectivity.db.databaseName" name="Database Name" required="true" visible="true" />
+					value="V0.5" required="true" visible="false" />
+				<property
+          generated="false"
+          id="org.eclipse.datatools.connectivity.db.databaseName"
+          name="Database Name"
+          required="true"
+          value="ASUP_05"
+          visible="true"/>
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.URL" name="Connection URL"
-					value="jdbc:asup://localhost" required="true"
+					value="jdbc:asup://localhost/ASUP_05" required="true"
 					visible="true" />
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.username" name="User ID"
-					value="" required="false" visible="true" />
+					value="ASUP" required="false" visible="true" />
 				<property generated="false"
 					id="org.eclipse.datatools.connectivity.db.password" name="Password"
 					required="false" visible="true" />
 			</properties>
 		</driverTemplate>
 	</extension>
-	<extension point="org.eclipse.datatools.connectivity.sqm.core.catalog">
-		<overrideLoader
-        eclass="org.eclipse.datatools.modelbase.sql.schema.Schema"
-        product="AsUP"
-        provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCSchemaLoader"
-        version="053">
-  </overrideLoader>
-  <overrideLoader
-        eclass="org.eclipse.datatools.modelbase.sql.tables.Table"
-        product="AsUP"
-        provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCTableLoader"
-        version="053">
-  </overrideLoader>
-			
-		<overrideLoader
-			provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCTableColumnLoader"
-			eclass="org.eclipse.datatools.modelbase.sql.tables.Column" 
-			product="AsUP"
-			version="053" />
-			
-		<overrideLoader 
-			provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCRoutineLoader"
-			eclass="org.eclipse.datatools.modelbase.sql.routines.Routine"
-			product="AsUP"
-			version="053" />
-			
-			
-		<overrideLoader 
-			provider="org.eclipse.datatools.connectivity.sqm.loader.JDBCTableIndexLoader"
-			eclass="org.eclipse.datatools.modelbase.sql.constraints.Index"
-			product="AsUP"
-			version="053" />
-	</extension>
 	<extension
        point="org.eclipse.datatools.connectivity.sqm.core.catalog">
     <catalog
           priority="1"
-          product="AsUP"
+          product="As.UP"
           provider="org.eclipse.datatools.enablement.asup.ASUPCatalogProvider"
-          version="053">
+          version="V0.5">
     </catalog>
  </extension>
 	<extension

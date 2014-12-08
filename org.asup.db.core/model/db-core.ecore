@@ -3,24 +3,72 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/db/core" nsPrefix="db-core">
   <eClassifiers xsi:type="ecore:EClass" name="CatalogContainer">
     <eOperations name="isActive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="createConnection" eExceptions="#//DatabaseException">
+      <eGenericType eTypeParameter="#//CatalogContainer/createConnection/C"/>
+      <eTypeParameters name="C"/>
+      <eParameters name="factory" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//CatalogContainer/createConnection/C"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="createConnection" eExceptions="#//DatabaseException">
+      <eGenericType eTypeParameter="#//CatalogContainer/createConnection.1/C"/>
+      <eTypeParameters name="C"/>
+      <eParameters name="factory" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//CatalogContainer/createConnection.1/C"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="catalogContext" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metaData" eType="#//CatalogMetaData"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsRelativeRecordNumber"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsGuestAccess" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectionConfig" lowerBound="1"
         eType="#//ConnectionConfig" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="catalog" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"
-        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CatalogMetaData" abstract="true">
+    <eOperations name="getIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getSchema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getSchemas" lowerBound="1" upperBound="-1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+    <eOperations name="getTable" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getView" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ContextID">
+    <eOperations name="setAutoCommit" eExceptions="#//DatabaseException">
+      <eParameters name="autoCommit" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="close" eExceptions="#//DatabaseException"/>
     <eOperations name="commit" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException">
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="getConnectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
     <eOperations name="getConnectionContext" eType="#//ConnectionContext"/>
-    <eOperations name="getCurrentCatalog" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eOperations name="getDatabaseDefinition" lowerBound="1" eType="#//DatabaseDefinition"/>
+    <eOperations name="getCatalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        eExceptions="#//DatabaseException"/>
+    <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"
+        eExceptions="#//DatabaseException"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -31,78 +79,47 @@
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="rollback" eExceptions="#//DatabaseException"/>
-    <eOperations name="setAutoCommit" eExceptions="#//DatabaseException">
-      <eParameters name="autoCommit" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="setCatalog" eExceptions="#//DatabaseException">
+      <eParameters name="catalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="resetAutoCommit"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionConfig" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoCommit" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistent" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverName" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="credentials" lowerBound="1"
+        eType="#//ConnectionCredentials" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vendor" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="catalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ConnectionFactory" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="createDatabaseConnection" eType="#//Connection">
-      <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConnectionFactoryRegistry" abstract="true">
-    <eOperations name="lookup" lowerBound="1" eType="#//ConnectionFactory">
-      <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
-    </eOperations>
-    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
-      <eTypeArguments eClassifier="#//ConnectionFactory"/>
-    </eGenericSuperTypes>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionCredentials" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Credentials"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="createDatabaseConnection" eType="#//Connection">
-      <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
+    <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException"/>
+    <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException">
+      <eParameters name="catalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="createDatabaseConnection" eType="#//Connection">
-      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException">
+      <eParameters name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="registerConnectionConfig" lowerBound="1">
-      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
+    <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException">
+      <eParameters name="catalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
-    <eOperations name="createPropertiesByConnectionConfig" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaProperties">
-      <eParameters name="connectionConfig" lowerBound="1" eType="#//ConnectionConfig"/>
-    </eOperations>
-    <eOperations name="createPropertiesByVendorVersion" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaProperties">
-      <eParameters name="vendor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConnectionProfile">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseContainer" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ServiceConfig">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionProfile" lowerBound="1"
-        eType="#//ConnectionProfile" containment="true" eKeys="#//ConnectionProfile/name"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Database"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCatalog" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Catalog"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="catalogs" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="catalogContainers" lowerBound="1"
         upperBound="-1" eType="#//CatalogContainer" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DatabaseDefinition" abstract="true"
-      interface="true">
-    <eOperations name="supportsRelativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vendor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultCatalogContainer"
+        lowerBound="1" eType="#//CatalogContainer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseObjectDef" abstract="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseException" instanceClassName="java.sql.SQLException"
@@ -146,6 +163,7 @@
     <eOperations name="dropSchema" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="ignoreFailOnNonEmpty" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="dropTable" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
@@ -155,27 +173,10 @@
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"/>
     </eOperations>
-    <eOperations name="getDatabaseContainer" lowerBound="1" eType="#//DatabaseContainer"/>
-    <eOperations name="getIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="getSchema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="getTable" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="getView" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
     <eOperations name="isStarted" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="start" lowerBound="1">
+      <eParameters name="databaseContainer" lowerBound="1" eType="#//DatabaseContainer"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseResultSet" instanceClassName="java.sql.ResultSet"
       serializable="false"/>

@@ -12,7 +12,6 @@ Require-Bundle: org.asup.db.core.base,
  org.eclipse.datatools.enablement.ibm.db2.luw;visibility:=reexport,
  org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition;visibility:=reexport
 Bundle-ClassPath: .,
- lib/db2jcc_license_cu.jar,
- lib/db2jcc.jar
+ lib/db2jcc4.jar
 Export-Package: com.ibm.db2.jcc
 Bundle-ActivationPolicy: lazy
