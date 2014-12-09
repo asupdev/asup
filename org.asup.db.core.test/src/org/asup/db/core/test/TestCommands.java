@@ -30,7 +30,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	@Inject
 	private QTestManager testManager;
 
-	public void _test(CommandInterpreter interpreter) throws Exception {
+	public void _testDBCORE(CommandInterpreter interpreter) throws Exception {
 
 		String script = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
