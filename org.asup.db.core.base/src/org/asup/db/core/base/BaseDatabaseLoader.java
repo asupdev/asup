@@ -70,7 +70,7 @@ public class BaseDatabaseLoader {
 					if(databaseContainer.getDefaultCatalogContainer() == catalogContainer)
 						databaseContainer.setDefaultCatalogContainer(newCatalogContainer);					
 
-				} catch (SQLException e) {
+				} catch (Exception e) {
 					System.err.println(e.getMessage());
 					continue;
 				}
