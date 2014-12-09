@@ -167,8 +167,8 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 
 		indexDef.getColumns().add(indexColumn);
 
-		databaseManager.createIndex(connection, table, indexName, indexDef);
-
+//		databaseManager.createIndex(connection, table, indexName, indexDef);
+		connection.close();
 		return null;
 	}
 }
