@@ -5,7 +5,9 @@ Bundle-SymbolicName: org.asup.db.core.test
 Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.asup.db.core,
+Require-Bundle: org.asup.fw.util,
+ org.asup.fw.test,
+ org.asup.db.core,
  org.asup.db.syntax,
  org.eclipse.datatools.enablement.msft.sqlserver;bundle-version="1.0.3",
  org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition;bundle-version="1.0.1",

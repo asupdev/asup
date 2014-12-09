@@ -2,7 +2,6 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="core" nsURI="http://www.asup.org/db/core" nsPrefix="db-core">
   <eClassifiers xsi:type="ecore:EClass" name="CatalogContainer">
-    <eOperations name="isActive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="createConnection" eExceptions="#//DatabaseException">
       <eGenericType eTypeParameter="#//CatalogContainer/createConnection/C"/>
       <eTypeParameters name="C"/>
@@ -23,9 +22,36 @@
       <eParameters name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="getMetaData" lowerBound="1" eType="#//CatalogMetaData"/>
+    <eOperations name="getCatalogContext" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
+    <eOperations name="loadIndex" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
+      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="loadSchema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="loadTable" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="loadView" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="removeIndex" lowerBound="1">
+      <eParameters name="index" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index"/>
+    </eOperations>
+    <eOperations name="removeSchema" lowerBound="1">
+      <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
+    </eOperations>
+    <eOperations name="removeTable" lowerBound="1">
+      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
+    </eOperations>
+    <eOperations name="removeView" lowerBound="1">
+      <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="catalogContext" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metaData" eType="#//CatalogMetaData"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsRelativeRecordNumber"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
@@ -125,24 +151,28 @@
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseException" instanceClassName="java.sql.SQLException"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="createIndex" eExceptions="#//DatabaseException">
+    <eOperations name="createIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index"
+        eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="index" lowerBound="1" eType="#//IndexDef"/>
     </eOperations>
-    <eOperations name="createSchema" eExceptions="#//DatabaseException">
+    <eOperations name="createSchema" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"
+        eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="schema" eType="#//SchemaDef"/>
     </eOperations>
-    <eOperations name="createTable" eExceptions="#//DatabaseException">
+    <eOperations name="createTable" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"
+        eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="table" lowerBound="1" eType="#//TableDef"/>
     </eOperations>
-    <eOperations name="createView" eExceptions="#//DatabaseException">
+    <eOperations name="createView" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"
+        eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

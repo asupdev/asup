@@ -86,7 +86,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 			statement = new BaseNativeStatementImpl(connection.getRawConnection().createStatement());
 		else
 			statement = new BaseStatementImpl(connection.getRawConnection().createStatement(), queryParser, connection.getQueryWriter());
-
+		
 		return statement;
 	}
 

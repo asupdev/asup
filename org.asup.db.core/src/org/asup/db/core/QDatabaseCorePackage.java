@@ -84,31 +84,13 @@ public interface QDatabaseCorePackage extends EPackage {
 	int CATALOG_CONTAINER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Catalog Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATALOG_CONTAINER__CATALOG_CONTEXT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Meta Data</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATALOG_CONTAINER__META_DATA = 2;
-
-	/**
 	 * The feature id for the '<em><b>Supports Relative Record Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER = 3;
+	int CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Supports Guest Access</b></em>' attribute.
@@ -117,7 +99,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = 4;
+	int CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Connection Config</b></em>' containment reference.
@@ -126,7 +108,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__CONNECTION_CONFIG = 5;
+	int CATALOG_CONTAINER__CONNECTION_CONFIG = 3;
 
 	/**
 	 * The number of structural features of the '<em>Catalog Container</em>' class.
@@ -135,7 +117,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER_FEATURE_COUNT = 6;
+	int CATALOG_CONTAINER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.CatalogMetaDataImpl <em>Catalog Meta Data</em>}' class.
@@ -832,17 +814,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	EReference getCatalogContainer_ConnectionConfig();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.core.QCatalogContainer#getMetaData <em>Meta Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Meta Data</em>'.
-	 * @see org.asup.db.core.QCatalogContainer#getMetaData()
-	 * @see #getCatalogContainer()
-	 * @generated
-	 */
-	EReference getCatalogContainer_MetaData();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -863,17 +834,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCatalogContainer_SupportsGuestAccess();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.asup.db.core.QCatalogContainer#getCatalogContext <em>Catalog Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Catalog Context</em>'.
-	 * @see org.asup.db.core.QCatalogContainer#getCatalogContext()
-	 * @see #getCatalogContainer()
-	 * @generated
-	 */
-	EReference getCatalogContainer_CatalogContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QCatalogMetaData <em>Catalog Meta Data</em>}'.
@@ -1432,14 +1392,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		EReference CATALOG_CONTAINER__CONNECTION_CONFIG = eINSTANCE.getCatalogContainer_ConnectionConfig();
 
 		/**
-		 * The meta object literal for the '<em><b>Meta Data</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CATALOG_CONTAINER__META_DATA = eINSTANCE.getCatalogContainer_MetaData();
-
-		/**
 		 * The meta object literal for the '<em><b>Supports Relative Record Number</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1454,14 +1406,6 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = eINSTANCE.getCatalogContainer_SupportsGuestAccess();
-
-		/**
-		 * The meta object literal for the '<em><b>Catalog Context</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CATALOG_CONTAINER__CATALOG_CONTEXT = eINSTANCE.getCatalogContainer_CatalogContext();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.impl.CatalogMetaDataImpl <em>Catalog Meta Data</em>}' class.

@@ -10,7 +10,8 @@ Import-Package: org.eclipse.emf.ecore.xmi,
 Require-Bundle: org.asup.db.core.base,
  org.eclipse.datatools.enablement.ibm.db2;visibility:=reexport,
  org.eclipse.datatools.enablement.ibm.db2.luw;visibility:=reexport,
- org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition;visibility:=reexport
+ org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition;visibility:=reexport,
+ org.eclipse.datatools.enablement.ibm;visibility:=reexport
 Bundle-ClassPath: .,
  lib/db2jcc4.jar
 Export-Package: com.ibm.db2.jcc

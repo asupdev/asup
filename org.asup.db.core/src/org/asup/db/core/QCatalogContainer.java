@@ -10,6 +10,10 @@ package org.asup.db.core;
 import java.sql.SQLException;
 
 import org.asup.fw.core.QContext;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 
 
 
@@ -24,8 +28,6 @@ import org.asup.fw.core.QContext;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.db.core.QCatalogContainer#getCatalogContext <em>Catalog Context</em>}</li>
- *   <li>{@link org.asup.db.core.QCatalogContainer#getMetaData <em>Meta Data</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}</li>
@@ -100,14 +102,6 @@ public interface QCatalogContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	boolean isActive();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.db.core.DatabaseException" factoryRequired="true"
 	 * @generated
 	 */
@@ -122,26 +116,12 @@ public interface QCatalogContainer {
 	<C> C createConnection(Class<C> factory, String user, String password) throws SQLException;
 
 	/**
-	 * Returns the value of the '<em><b>Meta Data</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Data</em>' reference.
-	 * @see #setMetaData(QCatalogMetaData)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_MetaData()
-	 * @model
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	QCatalogMetaData getMetaData();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#getMetaData <em>Meta Data</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Meta Data</em>' reference.
-	 * @see #getMetaData()
-	 * @generated
-	 */
-	void setMetaData(QCatalogMetaData value);
 
 	/**
 	 * Returns the value of the '<em><b>Supports Relative Record Number</b></em>' attribute.
@@ -198,29 +178,79 @@ public interface QCatalogContainer {
 	void setSupportsGuestAccess(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Catalog Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Catalog Context</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Catalog Context</em>' reference.
-	 * @see #setCatalogContext(QContext)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_CatalogContext()
-	 * @model
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	QContext getCatalogContext();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#getCatalogContext <em>Catalog Context</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Catalog Context</em>' reference.
-	 * @see #getCatalogContext()
+	 * @model required="true" tableRequired="true" nameRequired="true"
 	 * @generated
 	 */
-	void setCatalogContext(QContext value);
+	Index loadIndex(Table table, String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	Schema loadSchema(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" schemaRequired="true" nameRequired="true"
+	 * @generated
+	 */
+	Table loadTable(Schema schema, String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" schemaRequired="true" nameRequired="true"
+	 * @generated
+	 */
+	ViewTable loadView(Schema schema, String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model indexRequired="true"
+	 * @generated
+	 */
+	void removeIndex(Index index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model schemaRequired="true"
+	 * @generated
+	 */
+	void removeSchema(Schema schema);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model tableRequired="true"
+	 * @generated
+	 */
+	void removeTable(Table table);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model viewRequired="true"
+	 * @generated
+	 */
+	void removeView(ViewTable view);
 
 } // QCatalogContainer

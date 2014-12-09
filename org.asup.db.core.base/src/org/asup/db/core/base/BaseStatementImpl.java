@@ -59,8 +59,8 @@ public class BaseStatementImpl implements QStatement, Statement {
 
 	private String translate(String sql) throws SQLException {
 		
-		String semicolonReplacement = "§SEMICOLON§";
-		sql.replace(";", semicolonReplacement);
+//		String semicolonReplacement = "§SEMICOLON§";
+//		sql.replace(";", semicolonReplacement);
 		try {
 			SQLQueryParseResult query = queryParser.parseQuery(sql);
 	
@@ -72,8 +72,9 @@ public class BaseStatementImpl implements QStatement, Statement {
 		} catch (Exception e) {
 			throw new SQLException(e);
 		}
-		
-		return sql.replace(semicolonReplacement, ";");
+	
+		return sql;
+//		return sql.replace(semicolonReplacement, ";");
 	}
 
 	public void addBatch(String sql) throws SQLException {

@@ -39,7 +39,7 @@ public interface QDatabaseManager extends QService {
 	 * @model exceptions="org.asup.db.core.DatabaseException" tableRequired="true" nameRequired="true" indexRequired="true"
 	 * @generated
 	 */
-	void createIndex(QConnection connection, Table table, String name, QIndexDef index) throws SQLException;
+	Index createIndex(QConnection connection, Table table, String name, QIndexDef index) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public interface QDatabaseManager extends QService {
 	 * @model exceptions="org.asup.db.core.DatabaseException" nameRequired="true"
 	 * @generated
 	 */
-	void createSchema(QConnection connection, String name, QSchemaDef schema) throws SQLException;
+	Schema createSchema(QConnection connection, String name, QSchemaDef schema) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -55,7 +55,7 @@ public interface QDatabaseManager extends QService {
 	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true" nameRequired="true" tableRequired="true"
 	 * @generated
 	 */
-	void createTable(QConnection connection, Schema schema, String name, QTableDef table) throws SQLException;
+	Table createTable(QConnection connection, Schema schema, String name, QTableDef table) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public interface QDatabaseManager extends QService {
 	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true" nameRequired="true"
 	 * @generated
 	 */
-	void createView(QConnection connection, Schema schema, String name, QViewDef view) throws SQLException;
+	ViewTable createView(QConnection connection, Schema schema, String name, QViewDef view) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->

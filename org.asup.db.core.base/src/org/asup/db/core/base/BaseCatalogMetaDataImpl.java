@@ -1,6 +1,19 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi - Initial API and implementation 
+ */
 package org.asup.db.core.base;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.asup.db.core.impl.CatalogMetaDataImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
@@ -10,21 +23,15 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 
 public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 
-	private List<Schema> schemas;
+	private Map<String, Schema> schemas;
 	
-	public BaseCatalogMetaDataImpl(List<Schema> schemas) {
+	public BaseCatalogMetaDataImpl(Map<String, Schema> schemas) {
 		this.schemas = schemas;
 	}
 
 	@Override
 	public Schema getSchema(String schemaName) {
-
-		for (Schema schema : (List<Schema>) getSchemas()) {
-			if (schema.getName().equals(schemaName))
-				return schema;
-		}
-
-		return null;
+		return this.schemas.get(schemaName);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -67,6 +74,6 @@ public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 	}
 
 	public List<Schema> getSchemas() {
-		return schemas;
+		return new ArrayList<Schema>(this.schemas.values());
 	}
 }

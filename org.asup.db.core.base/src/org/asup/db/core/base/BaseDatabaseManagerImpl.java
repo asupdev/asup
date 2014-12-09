@@ -42,39 +42,40 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
 	private QContext context;
-	
+
 	private QDatabaseContainer databaseContainer;
 
 	protected QDatabaseContainer getDatabaseContainer() {
 		return this.databaseContainer;
 	}
-	
+
 	@Override
 	public boolean isStarted() {
 		return getDatabaseContainer() != null;
 	}
-	
+
 	@Override
 	public void start(QDatabaseContainer databaseContainer) {
-		
-		if(isStarted())
-			throw new FrameworkCoreRuntimeException("Database Manager already started: "+this.databaseContainer);
 
-		BaseDatabaseStarter databaseStarter = context.make(BaseDatabaseStarter.class);
+		if (isStarted())
+			throw new FrameworkCoreRuntimeException("Database Manager already started: " + this.databaseContainer);
+
+		BaseDatabaseLoader databaseStarter = context.make(BaseDatabaseLoader.class);
 		databaseStarter.loadDatabase(databaseContainer);
-		
+
 		this.databaseContainer = databaseContainer;
 	}
-	
-	@Override
-	public void createSchema(QConnection connection, String name, QSchemaDef schemaDef) throws SQLException {
 
-		// Schema creation
+	@Override
+	public Schema createSchema(QConnection connection, String name, QSchemaDef schemaDef) throws SQLException {
+
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
+
 		QStatement statement = null;
 
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createSchema(name, schemaDef);
 			statement.execute(command);
 
@@ -82,20 +83,23 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
-		
+
+		Schema schema = getCatalogContainer(connection).loadSchema(name);
+
+		return schema;
 	}
 
 	@Override
-	public void createTable(QConnection connection, Schema schema, String name, QTableDef tableDef) throws SQLException {
+	public Table createTable(QConnection connection, Schema schema, String name, QTableDef tableDef) throws SQLException {
 
 		QCatalogContainer catalogContainer = getCatalogContainer(connection);
-		
+
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
 
 			// relative record number support
-			if (catalogContainer.isSupportsRelativeRecordNumber()) {
+			if (!catalogContainer.isSupportsRelativeRecordNumber()) {
 				tableDef = (QTableDef) EcoreUtil.copy((EObject) tableDef);
 
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
@@ -113,12 +117,17 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
+
+		Table table = catalogContainer.loadTable(schema, name);
+		return table;
 	}
 
 	@Override
-	public void createView(QConnection connection, Schema schema, String name, QViewDef viewDef) throws SQLException {
+	public ViewTable createView(QConnection connection, Schema schema, String name, QViewDef viewDef) throws SQLException {
 
-		QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
+
+		QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 		String command = definitionWriter.createView(schema, name, viewDef);
 		if (command == null)
 			throw new SQLException("Empty view creation command: " + viewDef);
@@ -132,15 +141,20 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
+
+		ViewTable view = getCatalogContainer(connection).loadView(schema, name);
+		return view;
 	}
 
 	@Override
-	public void createIndex(QConnection connection, Table table, String name, QIndexDef indexDef) throws SQLException {
+	public Index createIndex(QConnection connection, Table table, String name, QIndexDef indexDef) throws SQLException {
+
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
 
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createIndex(table, name, indexDef);
 			statement.execute(command);
 
@@ -148,8 +162,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
-	}
 
+		Index index = getCatalogContainer(connection).loadIndex(table, name);
+		return index;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -169,9 +185,9 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	public void deleteData(QConnection connection, Table table) throws SQLException {
 
 		// persistent table only
-		if(table instanceof ViewTable)
+		if (table instanceof ViewTable)
 			return;
-		
+
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
@@ -187,39 +203,31 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 	@Override
 	public void dropSchema(QConnection connection, Schema schema, boolean ignoreFailOnNonEmpty) throws SQLException {
 
-		// schema drop
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
+
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
-			String command = definitionWriter.dropSchema(schema);
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
+			String command = definitionWriter.dropSchema(schema, ignoreFailOnNonEmpty);
 			statement.execute(command);
-
-		}
-		catch(SQLException e) {
-			if(ignoreFailOnNonEmpty) {
-				// TODO
-				throw e;
-			}
-			else
-				throw e;
-		}
-		finally {
+		} finally {
 			if (statement != null)
 				statement.close();
 		}
 
-		schema.setCatalog(null);
-		schema.setDatabase(null);
+		catalogContainer.removeSchema(schema);
 	}
 
 	@Override
 	public void dropTable(QConnection connection, Table table) throws SQLException {
 
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
+
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropTable(table);
 			statement.execute(command);
 
@@ -227,17 +235,19 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
-		
-		table.setSchema(null);
+
+		catalogContainer.removeTable(table);
 	}
 
 	@Override
 	public void dropView(QConnection connection, ViewTable view) throws SQLException {
 
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
+
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropView(view);
 			statement.execute(command);
 
@@ -245,17 +255,19 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
-		
-		view.setSchema(null);
+
+		catalogContainer.removeView(view);
 	}
 
 	@Override
 	public void dropIndex(QConnection connection, Index index) throws SQLException {
 
+		QCatalogContainer catalogContainer = getCatalogContainer(connection);
+
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropIndex(index);
 			statement.execute(command);
 
@@ -263,30 +275,29 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			if (statement != null)
 				statement.close();
 		}
-		
-		index.setTable(null);
+
+		catalogContainer.removeIndex(index);
 	}
 
 	private QCatalogContainer getCatalogContainer(QConnection connection) throws SQLException {
 
 		QCatalogContainer catalogContainer = null;
-		
+
 		String catalogName = connection.getCatalog();
-		if(catalogName == null || catalogName.isEmpty()) {
+		if (catalogName == null || catalogName.isEmpty()) {
 			catalogContainer = this.databaseContainer.getDefaultCatalogContainer();
 		} else {
-			for(QCatalogContainer tempContainer: this.databaseContainer.getCatalogContainers()) {
-				if(tempContainer.getConnectionConfig().getCatalog() == catalogName) {
+			for (QCatalogContainer tempContainer : this.databaseContainer.getCatalogContainers()) {
+				if (tempContainer.getConnectionConfig().getCatalog() == catalogName) {
 					catalogContainer = tempContainer;
 					break;
 				}
 			}
 		}
-		
+
 		return catalogContainer;
-		
 	}
-	
+
 	private QContext getCatalogContext(QConnection connection) throws SQLException {
 		return getCatalogContainer(connection).getCatalogContext();
 	}

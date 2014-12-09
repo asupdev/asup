@@ -11,56 +11,43 @@ import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 
-public class DTPCommandProviderImpl extends AbstractCommandProviderImpl {
+public class PrintCommands extends AbstractCommandProviderImpl {
 
 	@Inject
 	private QConnectionManager connectionManager;
-	
-	public void _connect(CommandInterpreter interpreter) throws SQLException {
 
-		String catalog = interpreter.nextArgument();
-
-		long timeIni = System.currentTimeMillis();
-		QConnection connection = connectionManager.createConnection(catalog);
-		connection.close();
-		long timeEnd = System.currentTimeMillis();
-
-		System.out.println("("+(timeEnd-timeIni)+" ms)");
-
-	}
-	
 	public void _printCatalog(CommandInterpreter interpreter) throws SQLException {
 
 		String catalog = interpreter.nextArgument();
-		
+
 		QConnection connection = connectionManager.createConnection(catalog);
-		
-		for(Schema schema: connection.getCatalogMetaData().getSchemas()) {
+
+		for (Schema schema : connection.getCatalogMetaData().getSchemas()) {
 			System.out.println(schema);
 		}
-		
+
 		connection.close();
-		
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void _printSchema(CommandInterpreter interpreter) throws SQLException {
 
 		String schemaName = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
-		
+
 		QConnection connection = connectionManager.createConnection(catalog);
-		
+
 		Schema schema = connection.getCatalogMetaData().getSchema(schemaName);
-		if(schema == null)
+		if (schema == null)
 			return;
-		
-		System.out.println("\t"+schema);
-		for(Table table: (List<Table>)schema.getTables()) {
-			System.out.println("\t\t"+table);
+
+		System.out.println("\t" + schema);
+		for (Table table : (List<Table>) schema.getTables()) {
+			System.out.println("\t\t" + table);
 		}
 
 		connection.close();
-		
+
 	}
 }

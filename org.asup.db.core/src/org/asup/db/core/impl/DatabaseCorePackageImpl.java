@@ -317,16 +317,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EReference getCatalogContainer_ConnectionConfig() {
-		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCatalogContainer_MetaData() {
-		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(2);
+		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -335,7 +326,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getCatalogContainer_SupportsRelativeRecordNumber() {
-		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -344,16 +335,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getCatalogContainer_SupportsGuestAccess() {
-		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCatalogContainer_CatalogContext() {
-		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -818,8 +800,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Create classes and their features
 		catalogContainerEClass = createEClass(CATALOG_CONTAINER);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__NAME);
-		createEReference(catalogContainerEClass, CATALOG_CONTAINER__CATALOG_CONTEXT);
-		createEReference(catalogContainerEClass, CATALOG_CONTAINER__META_DATA);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS);
 		createEReference(catalogContainerEClass, CATALOG_CONTAINER__CONNECTION_CONFIG);
@@ -921,8 +901,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 		SQLConstraintsPackage theSQLConstraintsPackage = (SQLConstraintsPackage)EPackage.Registry.INSTANCE.getEPackage(SQLConstraintsPackage.eNS_URI);
-		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
 		SQLTablesPackage theSQLTablesPackage = (SQLTablesPackage)EPackage.Registry.INSTANCE.getEPackage(SQLTablesPackage.eNS_URI);
+		SQLSchemaPackage theSQLSchemaPackage = (SQLSchemaPackage)EPackage.Registry.INSTANCE.getEPackage(SQLSchemaPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
@@ -947,13 +927,9 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Initialize classes and features; add operations and parameters
 		initEClass(catalogContainerEClass, QCatalogContainer.class, "CatalogContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCatalogContainer_Name(), ecorePackage.getEString(), "name", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCatalogContainer_CatalogContext(), theFrameworkCorePackage.getContext(), null, "catalogContext", null, 0, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCatalogContainer_MetaData(), this.getCatalogMetaData(), null, "metaData", null, 0, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCatalogContainer_SupportsRelativeRecordNumber(), ecorePackage.getEBoolean(), "supportsRelativeRecordNumber", "false", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCatalogContainer_SupportsGuestAccess(), ecorePackage.getEBoolean(), "supportsGuestAccess", "false", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCatalogContainer_ConnectionConfig(), this.getConnectionConfig(), null, "connectionConfig", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(catalogContainerEClass, ecorePackage.getEBoolean(), "isActive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		EOperation op = addEOperation(catalogContainerEClass, null, "createConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "C");
@@ -976,6 +952,37 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEException(op, this.getDatabaseException());
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
+
+		addEOperation(catalogContainerEClass, this.getCatalogMetaData(), "getMetaData", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(catalogContainerEClass, theFrameworkCorePackage.getContext(), "getCatalogContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, theSQLConstraintsPackage.getIndex(), "loadIndex", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, theSQLSchemaPackage.getSchema(), "loadSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, theSQLTablesPackage.getTable(), "loadTable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, theSQLTablesPackage.getViewTable(), "loadView", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, null, "removeIndex", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLConstraintsPackage.getIndex(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, null, "removeSchema", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, null, "removeTable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(catalogContainerEClass, null, "removeView", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theSQLTablesPackage.getViewTable(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(catalogMetaDataEClass, QCatalogMetaData.class, "CatalogMetaData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1082,27 +1089,27 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		initEClass(databaseManagerEClass, QDatabaseManager.class, "DatabaseManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(databaseManagerEClass, null, "createIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLConstraintsPackage.getIndex(), "createIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getIndexDef(), "index", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
-		op = addEOperation(databaseManagerEClass, null, "createSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLSchemaPackage.getSchema(), "createSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSchemaDef(), "schema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
-		op = addEOperation(databaseManagerEClass, null, "createTable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLTablesPackage.getTable(), "createTable", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTableDef(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
-		op = addEOperation(databaseManagerEClass, null, "createView", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(databaseManagerEClass, theSQLTablesPackage.getViewTable(), "createView", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
