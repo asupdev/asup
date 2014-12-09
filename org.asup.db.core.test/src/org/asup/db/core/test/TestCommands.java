@@ -42,7 +42,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connectionTo.createStatement(false);
+			statement = connectionTo.createStatement();
 
 			for (String sql : statements) {
 				count++;
