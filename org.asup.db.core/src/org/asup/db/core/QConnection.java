@@ -72,6 +72,14 @@ public interface QConnection extends QContextID {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.db.core.DatabaseException" sqlRequired="true"
+	 * @generated
+	 */
+	String translate(String sql) throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.db.core.DatabaseException" autoCommitRequired="true"
 	 * @generated
 	 */

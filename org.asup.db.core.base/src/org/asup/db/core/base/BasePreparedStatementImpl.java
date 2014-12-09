@@ -34,14 +34,15 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
+import org.asup.db.core.QConnection;
 import org.asup.db.core.QPreparedStatement;
 
 public class BasePreparedStatementImpl extends BaseNativeStatementImpl implements QPreparedStatement, PreparedStatement {
 
 	private PreparedStatement rawPreparedStatement;
 	
-	public BasePreparedStatementImpl(PreparedStatement preparedStatement) {
-		super(preparedStatement);
+	public BasePreparedStatementImpl(QConnection connection, PreparedStatement preparedStatement) {
+		super(connection, preparedStatement);
 		this.rawPreparedStatement = preparedStatement;
 	}
 

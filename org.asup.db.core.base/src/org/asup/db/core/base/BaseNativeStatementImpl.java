@@ -17,10 +17,12 @@ import java.sql.SQLException;
 import java.sql.SQLWarning;
 import java.sql.Statement;
 
+import org.asup.db.core.QConnection;
+
 public class BaseNativeStatementImpl extends BaseStatementImpl {
 
-	protected BaseNativeStatementImpl(Statement statement) {
-		super(statement, null, null);
+	protected BaseNativeStatementImpl(QConnection connection, Statement statement) {
+		super(connection, statement);
 	}
 	
 	@Override

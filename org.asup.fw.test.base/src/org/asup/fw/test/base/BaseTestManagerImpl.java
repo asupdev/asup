@@ -26,9 +26,12 @@ import org.asup.fw.test.QTestManager;
 import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.QUnitTestRunner;
+import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.asup.fw.test.impl.FrameworkTestFactoryImpl;
 import org.asup.fw.test.impl.TestContextImpl;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	
@@ -37,9 +40,21 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	
 		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
 		testRunner.setClassName(className);
-//		QTestResult testResult = FrameworkTestFactoryImpl.eINSTANCE.createTestResult();		
-//		testRunner.setTestResult(testResult);
 		
+		return testRunner;
+	}
+
+	@Override
+	public QTestRunner prepareRunner(QTestContext context, Class<?> klass) throws FrameworkCoreException {
+		
+		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
+		
+		Bundle bundle = FrameworkUtil.getBundle(klass);
+		
+		String className = "asup:/omac/"+bundle.getSymbolicName()+"/"+klass.getName();
+		
+		testRunner.setClassName(className);
+
 		return testRunner;
 	}
 
@@ -58,6 +73,10 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 		    if(testClass == null)
 		    	throw new FrameworkCoreException("Invalid runner: "+runner);
 
+		    Test test = testClass.getAnnotation(Test.class);
+		    if(test != null)
+		    	System.out.println(test.category()+"/"+test.object());
+		    
 			Object testCase = context.make(testClass);
 			
 			long start = System.currentTimeMillis();

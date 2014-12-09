@@ -1,92 +1,127 @@
 package org.asup.db.core.test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QStatement;
+import org.asup.fw.core.QContext;
+import org.asup.fw.test.QAssertionResult;
+import org.asup.fw.test.QTestAsserter;
+import org.asup.fw.test.QTestContext;
+import org.asup.fw.test.QTestManager;
+import org.asup.fw.test.QTestResult;
+import org.asup.fw.test.QTestRunner;
+import org.asup.fw.test.annotation.Test;
+import org.asup.fw.test.annotation.TestStarted;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
-import org.osgi.framework.Bundle;
-import org.osgi.framework.FrameworkUtil;
 
 public class TestCommands extends AbstractCommandProviderImpl {
 
 	@Inject
 	private QConnectionManager connectionManager;
+	@Inject
+	private QContext context;
+	@Inject
+	private QTestManager testManager;
 
-	
 	public void _test(CommandInterpreter interpreter) throws Exception {
 
-		String scriptName = interpreter.nextArgument();
+		String script = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
-
-//		QTestRunner testRunner = testManager.prepareRunner(testContext, className.asString());
-//		QTestResult testResult = testManager.executeRunner(testContext, testRunner);
 		
-		QConnection connectionTo = connectionManager.createConnection(catalog);
-		List<String> statements = readStatementsForTest(scriptName);
+		QTestContext testContext = testManager.createTestContext(context);
 
-		long timeIni = System.currentTimeMillis();
-		int count = 0;
+		QConnection connection = connectionManager.createConnection(catalog);
+		testContext.set(QConnection.class, connection);
+		testContext.set("org.asup.db.core.test.script", script);
 
-		QStatement statement = null;
-		try {
-			statement = connectionTo.createStatement();
+		QTestRunner testRunner = null;
+		QTestResult testResult = null;
 
+		// Translate
+		testRunner = testManager.prepareRunner(testContext, Translate.class);
+		testResult = testManager.executeRunner(testContext, testRunner);
+		printTestResult(testResult);
+
+		// Execute
+		testRunner = testManager.prepareRunner(testContext, Execute.class);
+		testResult = testManager.executeRunner(testContext, testRunner);
+		printTestResult(testResult);
+		
+		connection.close();
+	}
+
+	private void printTestResult(QTestResult testResult) {
+		System.out.println(testResult);
+		for (QAssertionResult assertionResult : testResult.getAssertResults()) {
+			System.out.println("\t" + assertionResult);
+		}
+	}
+
+	@Test(category = "DBSYNTAX", object = "TRANSLATE")
+	public static class Translate extends AbstractTest {
+
+		@Inject
+		private QConnection connection;
+		@Inject
+		private QTestAsserter testAsserter;
+
+		@TestStarted
+		public void doTest(@Named("org.asup.db.core.test.script") String script) throws SQLException, IOException {
+
+			List<String> statements = readStatementsForTest(script);
+
+			testAsserter.resetTime();
 			for (String sql : statements) {
-				count++;
+				String result = null;
+				
 				try {
-					statement.execute(sql);
+					result = connection.translate(sql);
 				} catch (SQLException e) {
-//					System.err.println(e.getMessage());
 				}
+				testAsserter.assertNotNull("Test translate: " + sql, result);
 			}
-		} finally {
-			statement.close();
 		}
-
-		long timeEnd = System.currentTimeMillis();
-		System.out.println("DONE! " + count + " " + (timeEnd - timeIni));
-
-		connectionTo.close();
 	}
 
-	private List<String> readStatementsForTest(String scriptName) throws IOException, SQLException {
+	@Test(category = "DBSYNTAX", object = "EXECUTE")
+	public static class Execute extends AbstractTest {
 
-		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		URL entry = bundle.getEntry("/resources/statements/" + scriptName + ".txt");
-		List<String> sourceSQL = readLinesFromInputStream(entry.openStream());
+		@Inject
+		private QConnection connection;
+		@Inject
+		private QTestAsserter testAsserter;
 
-		return sourceSQL;
-	}
+		@TestStarted
+		public void doTest(@Named("org.asup.db.core.test.script") String script) throws SQLException, IOException {
 
-	public static List<String> readLinesFromInputStream(InputStream inputStream) throws IOException {
-		return readLinesFrom(new BufferedReader(new InputStreamReader(inputStream)));
-	}
+			List<String> statements = readStatementsForTest(script);
 
-	public static List<String> readLinesFromFile(File file) throws IOException {
-		return readLinesFrom(new BufferedReader(new FileReader(file)));
-	}
+			testAsserter.resetTime();
+			QStatement statement = null;
+			try {
+				statement = connection.createStatement();
 
-	public static List<String> readLinesFrom(BufferedReader in) throws IOException {
-		ArrayList<String> linee = new ArrayList<String>();
-		String str;
-		while ((str = in.readLine()) != null) {
-			linee.add(str);
+				for (String sql : statements) {
+					boolean result = true;
+					
+					try {
+						statement.execute(sql);
+					} catch (SQLException e) {
+						result = false;
+					}
+					testAsserter.assertTrue("Test execute: " + sql, result);
+				}
+			} finally {
+				statement.close();
+			}
+
 		}
-		in.close();
-		return linee;
 	}
-
 }

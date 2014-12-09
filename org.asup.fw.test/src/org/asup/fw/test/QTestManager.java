@@ -46,4 +46,12 @@ public interface QTestManager extends QService {
 	 */
 	QTestRunner prepareRunner(QTestContext context, String className) throws FrameworkCoreException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.fw.core.FrameworkCoreException" klassRequired="true"
+	 * @generated
+	 */
+	QTestRunner prepareRunner(QTestContext context, Class<?> klass) throws FrameworkCoreException;
+
 } // QTestManager

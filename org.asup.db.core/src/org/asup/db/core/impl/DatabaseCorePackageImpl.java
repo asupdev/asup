@@ -1047,6 +1047,10 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, ecorePackage.getEString(), "catalog", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
+		op = addEOperation(connectionEClass, ecorePackage.getEString(), "translate", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
 		initEClass(connectionConfigEClass, QConnectionConfig.class, "ConnectionConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConnectionConfig_Credentials(), this.getConnectionCredentials(), null, "credentials", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnectionConfig_Vendor(), ecorePackage.getEString(), "vendor", null, 1, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

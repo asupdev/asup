@@ -39,6 +39,7 @@ import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
+import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class BaseConnectionImpl implements QConnection, Connection {
 
@@ -66,7 +67,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	@Override
 	public BasePreparedStatementImpl prepareStatement(String sql, boolean native_) throws SQLException {
-		BasePreparedStatementImpl basePreparedStatement = new BasePreparedStatementImpl(getRawConnection().prepareStatement(sql));
+		BasePreparedStatementImpl basePreparedStatement = new BasePreparedStatementImpl(this, getRawConnection().prepareStatement(sql));
 
 		return basePreparedStatement;
 
@@ -80,12 +81,12 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	@Override
 	public BaseStatementImpl createStatement(boolean native_) throws SQLException {
 
-		BaseCatalogConnection connection = getCatalogConnection();
+		BaseCatalogConnection catalogConnection = getCatalogConnection();
 		BaseStatementImpl statement = null;
 		if (native_)
-			statement = new BaseNativeStatementImpl(connection.getRawConnection().createStatement());
+			statement = new BaseNativeStatementImpl(this, catalogConnection.getRawConnection().createStatement());
 		else
-			statement = new BaseStatementImpl(connection.getRawConnection().createStatement(), queryParser, connection.getQueryWriter());
+			statement = new BaseStatementImpl(this, catalogConnection.getRawConnection().createStatement());
 		
 		return statement;
 	}
@@ -388,5 +389,20 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	public <T> T unwrap(Class<T> iface) throws SQLException {
 		return getRawConnection().unwrap(iface);
+	}
+
+	@Override
+	public String translate(String sql) throws SQLException {
+
+		try {
+			SQLQueryParseResult query = queryParser.parseQuery(sql);
+			BaseCatalogConnection connection = getCatalogConnection();
+			
+			sql = connection.getQueryWriter().writeQuery(query.getQueryStatement());
+		} catch (Exception e) {
+			throw new SQLException(e);
+		}
+
+		return sql;
 	}
 }

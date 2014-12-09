@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -655,6 +656,14 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		op = addEOperation(testManagerEClass, this.getTestRunner(), "prepareRunner", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTestContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "className", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
+
+		op = addEOperation(testManagerEClass, this.getTestRunner(), "prepareRunner", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTestContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
+		EGenericType g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
 
 		initEClass(testResultEClass, QTestResult.class, "TestResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -17,21 +17,17 @@ import java.sql.SQLException;
 import java.sql.SQLWarning;
 import java.sql.Statement;
 
+import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
-import org.asup.db.syntax.QQueryParser;
-import org.asup.db.syntax.QQueryWriter;
-import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class BaseStatementImpl implements QStatement, Statement {
 
+	private QConnection connection;
 	protected Statement rawStatement;
-	private QQueryParser queryParser;
-	private QQueryWriter queryConverter;
 	
-	protected BaseStatementImpl(Statement statement, QQueryParser queryParser, QQueryWriter queryConverter) {
+	protected BaseStatementImpl(QConnection connection, Statement statement) {
+		this.connection = connection;
 		this.rawStatement = statement;
-		this.queryParser = queryParser;
-		this.queryConverter = queryConverter;
 	}
 	
 	@Override
@@ -41,40 +37,20 @@ public class BaseStatementImpl implements QStatement, Statement {
 
 	@Override
 	public boolean execute(String sql) throws SQLException {
-		sql = translate(sql);
+		sql = connection.translate(sql);
 		return rawStatement.execute(sql);
 	}
 
 	@Override
 	public ResultSet executeQuery(String sql) throws SQLException {
-		sql = translate(sql);
+		sql = connection.translate(sql);
 		return rawStatement.executeQuery(sql);
 	}
 
 	@Override
 	public int executeUpdate(String sql) throws SQLException {
-		sql = translate(sql);
+		sql = connection.translate(sql);
 		return rawStatement.executeUpdate(sql);
-	}
-
-	private String translate(String sql) throws SQLException {
-		
-//		String semicolonReplacement = "§SEMICOLON§";
-//		sql.replace(";", semicolonReplacement);
-		try {
-			SQLQueryParseResult query = queryParser.parseQuery(sql);
-	
-			// TODO
-//			QAliasResolver aliasResolver = new BaseSchemaAliasResolverImpl("SMEUP_DAT");
-//			query.setQueryStatement(aliasResolver.resolveAlias(query.getQueryStatement()));
-			
-			sql = queryConverter.writeQuery(query.getQueryStatement());
-		} catch (Exception e) {
-			throw new SQLException(e);
-		}
-	
-		return sql;
-//		return sql.replace(semicolonReplacement, ";");
 	}
 
 	public void addBatch(String sql) throws SQLException {
