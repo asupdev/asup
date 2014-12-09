@@ -288,7 +288,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			catalogContainer = this.databaseContainer.getDefaultCatalogContainer();
 		} else {
 			for (QCatalogContainer tempContainer : this.databaseContainer.getCatalogContainers()) {
-				if (tempContainer.getConnectionConfig().getCatalog() == catalogName) {
+				if (catalogName.equals(tempContainer.getName())) {
 					catalogContainer = tempContainer;
 					break;
 				}
