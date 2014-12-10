@@ -194,8 +194,13 @@ public class RPJCallableUnitLinker {
 
 	public Class<?> loadClass(QContextID contextID, QFile file) {
 
-		String address = "asup:/omac/" + file.getLibrary() + "/" + file.getApplication() + ".file." + file.getName();
+		String address = "asup:/omac/com.smeup.erp.gen.file/" + file.getApplication() + "." + file.getName();
 		Class<?> linkedClass = compilationContext.loadClass(null, address);
+		
+		if (linkedClass == null) {
+			address = "asup:/omac/" + file.getLibrary() + "/" + file.getApplication() + ".file." + file.getName();
+			linkedClass = compilationContext.loadClass(null, address);
+		}
 
 		// search on parent library
 		if (linkedClass == null) {

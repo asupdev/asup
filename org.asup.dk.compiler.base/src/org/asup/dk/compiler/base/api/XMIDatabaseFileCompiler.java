@@ -13,6 +13,7 @@ package org.asup.dk.compiler.base.api;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URI;
 
 import javax.inject.Inject;
 
@@ -34,7 +35,8 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.omac.QObjectIterator;
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
-import org.asup.os.type.file.QPhysicalFile;
+import org.asup.os.type.lib.QLibrary;
+import org.asup.os.type.lib.QLibraryManager;
 
 @Program(name="QASCRTXB")
 public class XMIDatabaseFileCompiler {
@@ -47,9 +49,11 @@ public class XMIDatabaseFileCompiler {
 	private QSourceManager sourceManager;
 	@Inject
 	private QJob job;
+	@Inject
+	private QLibraryManager libraryManager;
 	
 	@Entry
-	public void main(TypedReference<QPhysicalFile> file) throws IOException {
+	public void main(TypedReference<QDatabaseFile> file) throws IOException {
 		
 		// file
 		QResourceReader<QFile> fileReader = null;
@@ -64,6 +68,9 @@ public class XMIDatabaseFileCompiler {
 			files = fileReader.find(null);
 		else
 			files = fileReader.find(file.name.trimR());
+
+		QResourceReader<QLibrary> libraryReader = libraryManager.getLibraryReader(job); 
+		QLibrary library = libraryReader.lookup(file.library.trimR());
 		
 		while(files.hasNext()) {
 			QFile qFile = files.next();
@@ -75,7 +82,7 @@ public class XMIDatabaseFileCompiler {
 				continue;
 			
 			try {
-				createJavaFile(databaseFile);
+				createJavaFile(databaseFile, library);
 			}
 			catch(Exception e) {
 				System.err.println(e);
@@ -84,17 +91,15 @@ public class XMIDatabaseFileCompiler {
 
 	}
 	
-	private void createJavaFile(QDatabaseFile file) throws IOException, OperatingSystemException {
-		
+	private void createJavaFile(QDatabaseFile file, QLibrary library) throws IOException, OperatingSystemException {
+
+		if(file.getApplication() == null)
+			throw new OperatingSystemException("Invalid file application: "+file);
+
 		// create java source
 		QSourceEntry libraryEntry = sourceManager.getLibraryEntry(job, file.getLibrary());
-		String packageName = null;
-		if(file.getApplication() != null)
-			packageName = file.getApplication()+"/file";
-		else
-			throw new OperatingSystemException("Invalid file application: "+file);
-		
-		String javaName = packageName+"/"+file.getName()+".java";
+
+		String javaName = library.getPackageURI().resolve(file.getClassURI()) + ".java";
 		QSourceEntry javaEntry = sourceManager.createChildEntry(job, libraryEntry, javaName, true);
 
 		OutputStream output = javaEntry.getOutputStream();
@@ -104,11 +109,11 @@ public class XMIDatabaseFileCompiler {
 
 		// compilation setup			
 		QCompilationSetup setup = QCompilerFactory.eINSTANCE.createCompilationSetup();		
-		setup.setBasePackage(packageName.replaceAll("/", "."));
+		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
+		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
 		
 		compilerManager.writeDatabaseFile(compilationContext, setup, output);
-		
-		
+
 		output.close();		
 	}
 }

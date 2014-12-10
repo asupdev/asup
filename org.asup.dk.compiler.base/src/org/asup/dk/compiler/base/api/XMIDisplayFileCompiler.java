@@ -13,6 +13,7 @@ package org.asup.dk.compiler.base.api;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URI;
 
 import javax.inject.Inject;
 
@@ -34,6 +35,8 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.omac.QObjectIterator;
 import org.asup.os.type.file.QDisplayFile;
 import org.asup.os.type.file.QFile;
+import org.asup.os.type.lib.QLibrary;
+import org.asup.os.type.lib.QLibraryManager;
 
 @Program(name="QASCRTXD")
 public class XMIDisplayFileCompiler {
@@ -46,6 +49,8 @@ public class XMIDisplayFileCompiler {
 	private QCompilerManager compilerManager;
 	@Inject
 	private QJob job;
+	@Inject
+	private QLibraryManager libraryManager;
 	
 	@Entry
 	public void main(TypedReference<QDisplayFile> file) throws IOException {
@@ -63,14 +68,17 @@ public class XMIDisplayFileCompiler {
 			files = fileReader.find(null);
 		else
 			files = fileReader.find(file.name.trimR());
-		
+
+		QResourceReader<QLibrary> libraryReader = libraryManager.getLibraryReader(job); 
+		QLibrary library = libraryReader.lookup(file.library.trimR());
+
 		while(files.hasNext()) {
 			QFile qFile = files.next();
 			if(!(qFile instanceof QDisplayFile))
 				continue;
 			
 			try {
-				createJavaFile((QDisplayFile)qFile);
+				createJavaFile((QDisplayFile)qFile, library);
 			}
 			catch(Exception e) {
 				System.err.println(e);
@@ -79,17 +87,15 @@ public class XMIDisplayFileCompiler {
 
 	}
 	
-	private void createJavaFile(QDisplayFile file) throws IOException, OperatingSystemException {
-		
+	private void createJavaFile(QDisplayFile file, QLibrary library) throws IOException, OperatingSystemException {
+
+		if(file.getApplication() == null)
+			throw new OperatingSystemException("Invalid file application: "+file);
+
 		// create java source
 		QSourceEntry libraryEntry = sourceManager.getLibraryEntry(job, file.getLibrary());
-		String packageName = null;
-		if(file.getApplication() != null)
-			packageName = file.getApplication()+"/file";
-		else
-			throw new OperatingSystemException("Invalid file application: "+file);
-		
-		String javaName = packageName+"/"+file.getName()+".java";
+
+		String javaName = library.getPackageURI().resolve(file.getClassURI()) + ".java";
 		QSourceEntry javaEntry = sourceManager.createChildEntry(job, libraryEntry, javaName, true);
 
 		OutputStream output = javaEntry.getOutputStream();
@@ -99,7 +105,8 @@ public class XMIDisplayFileCompiler {
 
 		// compilation setup			
 		QCompilationSetup setup = QCompilerFactory.eINSTANCE.createCompilationSetup();		
-		setup.setBasePackage(packageName.replaceAll("/", "."));
+		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
+		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
 		
 		compilerManager.writeDisplayFile(compilationContext, setup, output);
 		

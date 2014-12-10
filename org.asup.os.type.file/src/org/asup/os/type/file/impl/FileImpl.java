@@ -7,6 +7,8 @@
  */
 package org.asup.os.type.file.impl;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
 
@@ -123,6 +125,39 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 		dictionary = newDictionary;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.FILE__DICTIONARY, oldDictionary, dictionary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getClassURI() {
+
+		try {
+//			TODO			
+//			eClass().getEPackage().getNsURI();
+			String classURI = "file/"+ getAttribute().toLowerCase()+"/" + getApplication() + "/" + getName();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getPackageInfoURI() {
+		try {
+			String classURI = "file/"+ getAttribute().toLowerCase()+"/" + getApplication();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
 	}
 
 	/**
