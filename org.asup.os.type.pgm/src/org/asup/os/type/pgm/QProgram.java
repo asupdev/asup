@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.pgm;
 
+import java.net.URI;
 import java.util.List;
 
 import org.asup.os.type.QTypedObject;
@@ -126,5 +127,21 @@ public interface QProgram extends QTypedObject {
 	 * @generated
 	 */
 	void setSource(QProgramSource value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getClassURI();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getPackageInfoURI();
 
 } // QProgram

@@ -46,6 +46,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ParameterList" instanceClassName="org.asup.il.data.QData[]"/>
   <eClassifiers xsi:type="ecore:EClass" name="Program" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
+    <eOperations name="getClassURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
+    <eOperations name="getPackageInfoURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="activationGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="*DFT">
       <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">

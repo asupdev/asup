@@ -8,6 +8,7 @@
 package org.asup.os.type.pgm.impl;
 
 import org.asup.il.data.QData;
+import org.asup.os.type.pgm.*;
 import org.asup.os.type.pgm.QActivationGroup;
 import org.asup.os.type.pgm.QOperatingSystemProgramFactory;
 import org.asup.os.type.pgm.QOperatingSystemProgramPackage;

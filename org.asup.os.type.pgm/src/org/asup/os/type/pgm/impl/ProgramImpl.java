@@ -7,6 +7,8 @@
  */
 package org.asup.os.type.pgm.impl;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
 
@@ -218,6 +220,39 @@ public class ProgramImpl extends TypedObjectImpl implements QProgram {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemProgramPackage.PROGRAM__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getClassURI() {
+
+		try {
+//			TODO			
+//			eClass().getEPackage().getNsURI();
+			String classURI = "pgm/" + getApplication() + "/" + getName();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getPackageInfoURI() {
+		try {
+			String classURI = "pgm/" + getApplication();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
 	}
 
 	/**

@@ -8,6 +8,7 @@
 package org.asup.os.type.pgm.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.data.QData;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
@@ -552,6 +553,7 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
 		QOperatingSystemCorePackage theOperatingSystemCorePackage = (QOperatingSystemCorePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI);
 		QOperatingSystemTypePackage theOperatingSystemTypePackage = (QOperatingSystemTypePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemTypePackage.eNS_URI);
+		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -621,6 +623,10 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getProgram_Address(), ecorePackage.getEString(), "address", null, 0, 1, QProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgram_CreationParams(), ecorePackage.getEString(), "creationParams", null, 0, -1, QProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Source(), this.getProgramSource(), null, "source", null, 0, 1, QProgram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(programEClass, theFrameworkJavaPackage.getJavaURI(), "getClassURI", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(programEClass, theFrameworkJavaPackage.getJavaURI(), "getPackageInfoURI", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(programContainerEClass, QProgramContainer.class, "ProgramContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgramContainer_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, QProgramContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
