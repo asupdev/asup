@@ -219,7 +219,7 @@ public abstract class AssertionResultImpl extends EObjectImpl implements QAssert
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuffer result = new StringBuffer(String.format("%-7s", getAssertionState()));
 		result.append(" (message: ");
 		result.append(message);
 		result.append(", time: ");
