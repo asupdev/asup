@@ -21,7 +21,7 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 public class MsSQLDefinitionWriterImpl extends BaseDefinitionWriterImpl {
 
 	public MsSQLDefinitionWriterImpl() {
-		super(new SQLObjectNameHelper(), new MsSQLQueryWriterImpl());
+		super(new SQLObjectNameHelper(), false, new MsSQLQueryWriterImpl());
 	}
 
 	@Override

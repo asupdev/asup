@@ -402,13 +402,22 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+	 * The feature id for the '<em><b>View Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CREATE_VIEW_STATEMENT__FIELDS = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+	int CREATE_VIEW_STATEMENT__VIEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Fields</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CREATE_VIEW_STATEMENT__FIELDS = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' attribute.
@@ -417,16 +426,7 @@ public interface QDdlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CREATE_VIEW_STATEMENT__QUERY = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>View Name</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_VIEW_STATEMENT__VIEW_NAME = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
+	int CREATE_VIEW_STATEMENT__QUERY = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Create View Statement</em>' class.
@@ -920,15 +920,15 @@ public interface QDdlPackage extends EPackage {
 	EClass getCreateViewStatement();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getFields <em>Fields</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getFields <em>Fields</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Fields</em>'.
+	 * @return the meta object for the attribute list '<em>Fields</em>'.
 	 * @see org.asup.db.syntax.ddl.QCreateViewStatement#getFields()
 	 * @see #getCreateViewStatement()
 	 * @generated
 	 */
-	EReference getCreateViewStatement_Fields();
+	EAttribute getCreateViewStatement_Fields();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QCreateViewStatement#getQuery <em>Query</em>}'.
@@ -1487,12 +1487,12 @@ public interface QDdlPackage extends EPackage {
 		EClass CREATE_VIEW_STATEMENT = eINSTANCE.getCreateViewStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Fields</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CREATE_VIEW_STATEMENT__FIELDS = eINSTANCE.getCreateViewStatement_Fields();
+		EAttribute CREATE_VIEW_STATEMENT__FIELDS = eINSTANCE.getCreateViewStatement_Fields();
 
 		/**
 		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.

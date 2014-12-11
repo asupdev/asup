@@ -18,6 +18,6 @@ import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 public class MySQLDefinitionWriterImpl extends BaseDefinitionWriterImpl {
 
 	protected MySQLDefinitionWriterImpl() {
-		super(new SQLObjectNameHelper(), null);
+		super(new SQLObjectNameHelper(), false, null);
 	}
 }

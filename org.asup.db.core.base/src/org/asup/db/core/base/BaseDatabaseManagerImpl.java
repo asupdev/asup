@@ -121,7 +121,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
-				pkTableComColumnDef.setName(TABLE_COLUMN_PRIMARY_KEY_NAME);
+				pkTableComColumnDef.setName(TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
 
 				tableDef.getColumns().add(pkTableComColumnDef);
 			}

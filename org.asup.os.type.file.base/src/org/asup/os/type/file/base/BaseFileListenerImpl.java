@@ -117,7 +117,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 					pkIndexDef.setUnique(true);
 	
 					QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
-					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
+					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
 					pkIndexColumnDef.setSequence(1);
 					pkIndexDef.getColumns().add(pkIndexColumnDef);
 	

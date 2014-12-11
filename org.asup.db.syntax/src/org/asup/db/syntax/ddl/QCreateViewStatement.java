@@ -8,10 +8,7 @@
 package org.asup.db.syntax.ddl;
 
 import java.util.List;
-
 import org.asup.db.core.QQualifiedName;
-import org.asup.db.core.QTableColumnDef;
-
 import org.asup.db.syntax.QDefinitionStatement;
 
 /**
@@ -22,9 +19,9 @@ import org.asup.db.syntax.QDefinitionStatement;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.db.syntax.ddl.QCreateViewStatement#getViewName <em>View Name</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.QCreateViewStatement#getFields <em>Fields</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.QCreateViewStatement#getQuery <em>Query</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.QCreateViewStatement#getViewName <em>View Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,20 +31,20 @@ import org.asup.db.syntax.QDefinitionStatement;
  */
 public interface QCreateViewStatement extends QDefinitionStatement {
 	/**
-	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
-	 * The list contents are of type {@link org.asup.db.core.QTableColumnDef}.
+	 * Returns the value of the '<em><b>Fields</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fields</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fields</em>' containment reference list.
+	 * @return the value of the '<em>Fields</em>' attribute list.
 	 * @see org.asup.db.syntax.ddl.QDdlPackage#getCreateViewStatement_Fields()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
-	List<QTableColumnDef> getFields();
+	List<String> getFields();
 
 	/**
 	 * Returns the value of the '<em><b>Query</b></em>' attribute.

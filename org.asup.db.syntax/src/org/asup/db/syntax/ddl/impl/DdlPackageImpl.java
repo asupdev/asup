@@ -426,16 +426,7 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCreateViewStatement_Fields() {
-		return (EReference)createViewStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCreateViewStatement_Query() {
+	public EAttribute getCreateViewStatement_Fields() {
 		return (EAttribute)createViewStatementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -444,8 +435,17 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCreateViewStatement_Query() {
+		return (EAttribute)createViewStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCreateViewStatement_ViewName() {
-		return (EReference)createViewStatementEClass.getEStructuralFeatures().get(2);
+		return (EReference)createViewStatementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -801,9 +801,9 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		createEReference(createTableStatementEClass, CREATE_TABLE_STATEMENT__FIELDS);
 
 		createViewStatementEClass = createEClass(CREATE_VIEW_STATEMENT);
-		createEReference(createViewStatementEClass, CREATE_VIEW_STATEMENT__FIELDS);
-		createEAttribute(createViewStatementEClass, CREATE_VIEW_STATEMENT__QUERY);
 		createEReference(createViewStatementEClass, CREATE_VIEW_STATEMENT__VIEW_NAME);
+		createEAttribute(createViewStatementEClass, CREATE_VIEW_STATEMENT__FIELDS);
+		createEAttribute(createViewStatementEClass, CREATE_VIEW_STATEMENT__QUERY);
 
 		disconnectStatementEClass = createEClass(DISCONNECT_STATEMENT);
 		createEAttribute(disconnectStatementEClass, DISCONNECT_STATEMENT__TARGET);
@@ -924,9 +924,9 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		initEReference(getCreateTableStatement_Fields(), theDatabaseCorePackage.getTableColumnDef(), null, "fields", null, 1, -1, QCreateTableStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(createViewStatementEClass, QCreateViewStatement.class, "CreateViewStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCreateViewStatement_Fields(), theDatabaseCorePackage.getTableColumnDef(), null, "fields", null, 1, -1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCreateViewStatement_Query(), theEcorePackage.getEString(), "query", null, 0, 1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCreateViewStatement_ViewName(), theDatabaseCorePackage.getQualifiedName(), null, "viewName", null, 0, 1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreateViewStatement_Fields(), ecorePackage.getEString(), "fields", null, 1, -1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCreateViewStatement_Query(), theEcorePackage.getEString(), "query", null, 0, 1, QCreateViewStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(disconnectStatementEClass, QDisconnectStatement.class, "DisconnectStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDisconnectStatement_Target(), this.getTargetItem(), "target", null, 0, 1, QDisconnectStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

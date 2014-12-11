@@ -196,7 +196,7 @@ public class DB2QuerySourceWriter extends SQLQuerySourceWriter {
 	
 	protected void appendSQLForTableInDatabase(TableInDatabase tableInDB,
 											StringBuffer sb) {
-		sb.append("SMEUP_DAT."+tableInDB.getName());
+		sb.append("P_MULT."+tableInDB.getName());
 	}
 
 	

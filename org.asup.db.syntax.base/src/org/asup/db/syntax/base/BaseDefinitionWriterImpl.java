@@ -21,6 +21,13 @@ import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.ddl.QCreateViewStatement;
 import org.asup.db.syntax.impl.DefinitionWriterImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
+import org.eclipse.datatools.modelbase.sql.query.QuerySelectStatement;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
+import org.eclipse.datatools.modelbase.sql.query.ResultColumn;
+import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelFactory;
+import org.eclipse.datatools.modelbase.sql.query.TableExpression;
+import org.eclipse.datatools.modelbase.sql.query.helper.StatementHelper;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Column;
@@ -34,10 +41,12 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 	private QDatabaseManager databaseManager;
 	
 	protected ISQLObjectNameHelper sqlObjectNameHelper;
+	private boolean supportsRelativeRecordNumber;
 	private QQueryWriter queryWriter;
 
-	protected BaseDefinitionWriterImpl(ISQLObjectNameHelper sqlObjectNameHelper, QQueryWriter queryWriter) {
+	protected BaseDefinitionWriterImpl(ISQLObjectNameHelper sqlObjectNameHelper, boolean supportsRelativeRecordNumber, QQueryWriter queryWriter) {
 		this.sqlObjectNameHelper = sqlObjectNameHelper;
+		this.supportsRelativeRecordNumber = supportsRelativeRecordNumber;
 		this.queryWriter = queryWriter;		
 	}
 	
@@ -94,32 +103,71 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 		return result.toString();
 	}
 	
+	@SuppressWarnings({ "unchecked", "unused" })
 	public String createView(Schema schema, String name, QViewDef view) {
+		
+		if(name.equals("V5RDOC0J"))
+			System.out.println(name);
 		
 		try {
 			QDefinitionParser definitionParser = databaseManager.getDatabaseContext().get(QDefinitionParser.class);
 			QDefinitionParseResult definitionParseResult = definitionParser.parseDefinition(view.getCreationCommand().trim());
 			
 			QCreateViewStatement createViewStatement = (QCreateViewStatement) definitionParseResult.getDefinitionStatement();
+
+			SQLQueryParseResult query = databaseManager.getDatabaseContext().get(QQueryParser.class).parseQuery(createViewStatement.getQuery());				
+			QueryStatement queryStatement = query.getQueryStatement();
 			
+			// retrieve table list for RRNs
+			List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
+						
 			StringBuffer result = new StringBuffer("CREATE VIEW ");
 
 			QQualifiedName viewName = createViewStatement.getViewName();
 			result.append(getNameInSQLFormat(schema) + "." + getNameInSQLFormat(viewName.getLastQualifier()));
-			result.append("(");
+			result.append(" (");
 			
-			List<QTableColumnDef> fields = createViewStatement.getFields(); 
-			for(int i=0; i<fields.size(); i++) {
-				result.append(getNameInSQLFormat(fields.get(i).getName()));
+			List<String> fields = createViewStatement.getFields(); 
+			for(int i=1; i<=fields.size(); i++) {
+				result.append(getNameInSQLFormat(fields.get(i-1)));
 				if(i<fields.size())
-					result.append(",");
+					result.append(", ");
 			}
+			
+			// append RRNs to defined fields
+			if(!supportsRelativeRecordNumber)  {
+				for(TableExpression tableExpression: tableExpressions) {
+					if(tableExpressions.size() > 1) {
+						String fieldName = tableExpression.getSQL()+"_"+QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;						
+						result.append(", "+getNameInSQLFormat(fieldName));
+					}
+					else 
+						result.append(", "+getNameInSQLFormat(QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME));
+				}
+			}
+			
 			result.append(")");
 
 			result.append(" AS ");
 			
-			SQLQueryParseResult query = databaseManager.getDatabaseContext().get(QQueryParser.class).parseQuery(createViewStatement.getQuery());
-			result.append(queryWriter.writeQuery(query.getQueryStatement()));
+			// append RRNs to selected columns
+			if(!supportsRelativeRecordNumber)  {
+				
+				QuerySelectStatement querySelectStatement = (QuerySelectStatement) queryStatement;
+				QuerySelect querySelect = (QuerySelect) querySelectStatement.getQueryExpr().getQuery();
+
+				for(TableExpression tableExpression: tableExpressions) {
+					
+//					String fieldName = tableExpression.getSQL()+"."+QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
+					String fieldName = QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
+					querySelect.getColumnList().add(StatementHelper.createColumnExpression(fieldName));
+					ResultColumn resultColumn = SQLQueryModelFactory.eINSTANCE.createResultColumn();
+					resultColumn.setValueExpr(StatementHelper.createColumnExpression(fieldName));
+					querySelect.getSelectClause().add(resultColumn);
+
+				}
+			}
+			result.append(queryWriter.writeQuery(queryStatement));
 			
 			return result.toString();
 		} catch (SQLException e) {
@@ -135,8 +183,10 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 		if (index.isUnique())
 			result.append("UNIQUE ");
 		
-		if (index.isUnique())
-			result.append("CLUSTERED ");
+		// TODO
+		if (index.isClustered())
+			result.append("");
+//			result.append("CLUSTERED ");
 		
 		result.append("INDEX " + getNameInSQLFormat(name));
 		result.append(" ON " + getQualifiedNameInSQLFormat(table) + " (");

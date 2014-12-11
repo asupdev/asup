@@ -566,33 +566,35 @@ public class DDLModelBuilder {
 			
 			case DDLLexer.COLUMNS_LIST:
 				
-				// Manage columns def
+				// Manage columns definition
 				Tree fieldDefToken = null;
-				QTableColumnDef tableColumnDef = null;
 				
 				for (int k = 0; k < fieldToken.getChildCount(); k++) {
 					
 					fieldDefToken = fieldToken.getChild(k);
-					tableColumnDef = DatabaseCoreFactoryImpl.eINSTANCE.createTableColumnDef();
-					tableColumnDef.setNullable(true);
-					tableColumnDef.setDefault(false);
 					
 					Tree fieldDefParm = null;
 					for (int j = 0; j < fieldDefToken.getChildCount(); j++) {
 						
 						fieldDefParm = fieldDefToken.getChild(j);
 						switch (fieldDefParm.getType()) {
+						// TODO ???
 						case DDLLexer.COLUMN_NAME:
 							
 							String name = fieldDefParm.getChild(0).getText();
-							tableColumnDef.setName(name);
+							createViewStatement.getFields().add(name);
 							
 							break;
 
-						}
-						
+						case DDLLexer.Identifier:
+							
+							createViewStatement.getFields().add(fieldDefParm.getText());
+							
+							break;
+
+						}						
 					}			
-					createViewStatement.getFields().add(tableColumnDef);
+
 				}
 				break;	
 			}

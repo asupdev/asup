@@ -31,7 +31,7 @@ public interface QDatabaseManager extends QService {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public static final String TABLE_COLUMN_PRIMARY_KEY_NAME = "QASRRN"; 
+	public static final String TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME = "QASRRN"; 
 	
 	/**
 	 * <!-- begin-user-doc -->
