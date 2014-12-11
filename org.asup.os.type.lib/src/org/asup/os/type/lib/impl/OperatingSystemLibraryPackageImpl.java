@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.lib.impl;
 
+import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.core.resources.QOperatingSystemResourcesPackage;
 import org.asup.os.type.lib.QLibrary;
@@ -154,6 +155,15 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLibrary_BasePackage() {
+		return (EAttribute)libraryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QOperatingSystemLibraryFactory getOperatingSystemLibraryFactory() {
 		return (QOperatingSystemLibraryFactory)getEFactoryInstance();
 	}
@@ -182,6 +192,7 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 		libraryEClass = createEClass(LIBRARY);
 		createEAttribute(libraryEClass, LIBRARY__DEPENDENCIES);
 		createEAttribute(libraryEClass, LIBRARY__PARENT_LIBRARY);
+		createEAttribute(libraryEClass, LIBRARY__BASE_PACKAGE);
 	}
 
 	/**
@@ -211,6 +222,7 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 		QOperatingSystemTypePackage theOperatingSystemTypePackage = (QOperatingSystemTypePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemTypePackage.eNS_URI);
 		QOperatingSystemResourcesPackage theOperatingSystemResourcesPackage = (QOperatingSystemResourcesPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemResourcesPackage.eNS_URI);
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
+		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -243,10 +255,13 @@ public class OperatingSystemLibraryPackageImpl extends EPackageImpl implements Q
 		initEClass(libraryEClass, QLibrary.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLibrary_Dependencies(), ecorePackage.getEString(), "dependencies", null, 0, -1, QLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLibrary_ParentLibrary(), ecorePackage.getEString(), "parentLibrary", null, 0, 1, QLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLibrary_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, QLibrary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(libraryEClass, ecorePackage.getEBoolean(), "isRootLibrary", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(libraryEClass, ecorePackage.getEBoolean(), "isChildLibrary", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(libraryEClass, theFrameworkJavaPackage.getJavaURI(), "getPackageURI", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

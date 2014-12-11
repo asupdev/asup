@@ -214,13 +214,22 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	int LIBRARY__PARENT_LIBRARY = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__BASE_PACKAGE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Library</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIBRARY_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+	int LIBRARY_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.lib.QLibraryManager <em>Library Manager</em>}'.
@@ -263,6 +272,17 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLibrary_ParentLibrary();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.lib.QLibrary#getBasePackage <em>Base Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Package</em>'.
+	 * @see org.asup.os.type.lib.QLibrary#getBasePackage()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EAttribute getLibrary_BasePackage();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -321,6 +341,14 @@ public interface QOperatingSystemLibraryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LIBRARY__PARENT_LIBRARY = eINSTANCE.getLibrary_ParentLibrary();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIBRARY__BASE_PACKAGE = eINSTANCE.getLibrary_BasePackage();
 
 	}
 

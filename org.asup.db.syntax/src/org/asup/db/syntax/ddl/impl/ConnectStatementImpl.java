@@ -7,16 +7,12 @@
  */
 package org.asup.db.syntax.ddl.impl;
 
-import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QConnectStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
-
+import org.asup.db.syntax.impl.DefinitionStatementImpl;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +21,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.impl.ConnectStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.ConnectStatementImpl#getPwd <em>Pwd</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.ConnectStatementImpl#isReset <em>Reset</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.ConnectStatementImpl#getTo <em>To</em>}</li>
@@ -35,27 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class ConnectStatementImpl extends EObjectImpl implements QConnectStatement {
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected StatementType type = TYPE_EDEFAULT;
-
+public class ConnectStatementImpl extends DefinitionStatementImpl implements QConnectStatement {
 	/**
 	 * The default value of the '{@link #getPwd() <em>Pwd</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -160,27 +135,6 @@ public class ConnectStatementImpl extends EObjectImpl implements QConnectStateme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StatementType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(StatementType newType) {
-		StatementType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CONNECT_STATEMENT__TYPE, oldType, type));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getPwd() {
 		return pwd;
 	}
@@ -268,8 +222,6 @@ public class ConnectStatementImpl extends EObjectImpl implements QConnectStateme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDdlPackage.CONNECT_STATEMENT__TYPE:
-				return getType();
 			case QDdlPackage.CONNECT_STATEMENT__PWD:
 				return getPwd();
 			case QDdlPackage.CONNECT_STATEMENT__RESET:
@@ -290,9 +242,6 @@ public class ConnectStatementImpl extends EObjectImpl implements QConnectStateme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDdlPackage.CONNECT_STATEMENT__TYPE:
-				setType((StatementType)newValue);
-				return;
 			case QDdlPackage.CONNECT_STATEMENT__PWD:
 				setPwd((String)newValue);
 				return;
@@ -317,9 +266,6 @@ public class ConnectStatementImpl extends EObjectImpl implements QConnectStateme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.CONNECT_STATEMENT__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case QDdlPackage.CONNECT_STATEMENT__PWD:
 				setPwd(PWD_EDEFAULT);
 				return;
@@ -344,8 +290,6 @@ public class ConnectStatementImpl extends EObjectImpl implements QConnectStateme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.CONNECT_STATEMENT__TYPE:
-				return type != TYPE_EDEFAULT;
 			case QDdlPackage.CONNECT_STATEMENT__PWD:
 				return PWD_EDEFAULT == null ? pwd != null : !PWD_EDEFAULT.equals(pwd);
 			case QDdlPackage.CONNECT_STATEMENT__RESET:
@@ -368,9 +312,7 @@ public class ConnectStatementImpl extends EObjectImpl implements QConnectStateme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(", pwd: ");
+		result.append(" (pwd: ");
 		result.append(pwd);
 		result.append(", reset: ");
 		result.append(reset);

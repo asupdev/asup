@@ -20,6 +20,7 @@ import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseContainer;
+import org.asup.db.core.QDatabaseContext;
 import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QSchemaDef;
@@ -28,7 +29,11 @@ import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
 import org.asup.db.core.impl.DatabaseManagerImpl;
+import org.asup.db.syntax.QDefinitionParser;
+import org.asup.db.syntax.QDefinitionParserRegistry;
 import org.asup.db.syntax.QDefinitionWriter;
+import org.asup.db.syntax.QQueryParser;
+import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
@@ -42,9 +47,14 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
 	private QContext context;
+	@Inject
+	private QDefinitionParserRegistry definitionParserRegistry;
+	@Inject
+	private QQueryParserRegistry queryParserRegistry;
 
 	private QDatabaseContainer databaseContainer;
-
+	private QDatabaseContext databaseContext;
+	
 	protected QDatabaseContainer getDatabaseContainer() {
 		return this.databaseContainer;
 	}
@@ -59,8 +69,16 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		if (isStarted())
 			throw new FrameworkCoreRuntimeException("Database Manager already started: " + this.databaseContainer);
+		
+		// database context
+		this.databaseContext = new BaseDatabaseContextImpl(context.createChild());		
+		QDefinitionParser definitionParser = this.definitionParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
+		this.databaseContext.set(QDefinitionParser.class, definitionParser);		
+		QQueryParser queryParser = this.queryParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
+		this.databaseContext.set(QQueryParser.class, queryParser);
 
-		BaseDatabaseLoader databaseStarter = context.make(BaseDatabaseLoader.class);
+		// database loader
+		BaseDatabaseLoader databaseStarter = databaseContext.make(BaseDatabaseLoader.class);
 		databaseStarter.loadDatabase(databaseContainer);
 
 		this.databaseContainer = databaseContainer;
@@ -85,7 +103,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 
 		Schema schema = getCatalogContainer(connection).loadSchema(name);
-
 		return schema;
 	}
 
@@ -300,5 +317,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	private QContext getCatalogContext(QConnection connection) throws SQLException {
 		return getCatalogContainer(connection).getCatalogContext();
+	}
+
+	@Override
+	public QDatabaseContext getDatabaseContext() {
+		return this.databaseContext;
 	}
 }

@@ -5,26 +5,19 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax;
+package org.asup.db.core;
 
+import org.asup.fw.core.QContext;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Definition Statement</b></em>'.
+ * A representation of the model object '<em><b>Database Context</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.db.syntax.QDatabaseSyntaxPackage#getDefinitionStatement()
+ * @see org.asup.db.core.QDatabaseCorePackage#getDatabaseContext()
  * @model abstract="true"
  * @generated
  */
-public interface QDefinitionStatement {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	StatementType getStatementType();
-} // QDefinitionStatement
+public interface QDatabaseContext extends QContext {
+} // QDatabaseContext

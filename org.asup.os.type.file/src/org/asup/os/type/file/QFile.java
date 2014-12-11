@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.file;
 
+import java.net.URI;
 import org.asup.il.core.QNamedNode;
 import org.asup.os.type.QTypedObject;
 
@@ -54,5 +55,21 @@ public interface QFile extends QTypedObject, QNamedNode {
 	 * @generated
 	 */
 	void setDictionary(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getClassURI();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getPackageInfoURI();
 
 } // QFile

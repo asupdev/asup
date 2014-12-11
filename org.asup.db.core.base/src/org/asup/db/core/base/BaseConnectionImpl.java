@@ -159,8 +159,13 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	}
 
 	@Override
-	public QCatalogMetaData getCatalogMetaData() throws SQLException {
-		return getCatalogConnection().getCatalogMetaData();
+	public QCatalogMetaData getCatalogMetaData() {
+		try {
+			return getCatalogConnection().getCatalogMetaData();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	@Override

@@ -345,15 +345,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDefinitionStatement_Type() {
-		return (EAttribute)definitionStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEmbeddedStatement() {
 		return embeddedStatementEClass;
 	}
@@ -514,7 +505,6 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		definitionWriterRegistryEClass = createEClass(DEFINITION_WRITER_REGISTRY);
 
 		definitionStatementEClass = createEClass(DEFINITION_STATEMENT);
-		createEAttribute(definitionStatementEClass, DEFINITION_STATEMENT__TYPE);
 
 		embeddedStatementEClass = createEClass(EMBEDDED_STATEMENT);
 		createEAttribute(embeddedStatementEClass, EMBEDDED_STATEMENT__TYPE);
@@ -685,16 +675,14 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "selectData", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(definitionWriterEClass, ecorePackage.getEString(), "writeDefinition", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getDefinitionStatement(), "statement", 1, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(definitionWriterRegistryEClass, QDefinitionWriterRegistry.class, "DefinitionWriterRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(definitionWriterRegistryEClass, this.getDefinitionWriter(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(definitionStatementEClass, QDefinitionStatement.class, "DefinitionStatement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDefinitionStatement_Type(), this.getStatementType(), "type", "DDL", 0, 1, QDefinitionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(definitionStatementEClass, QDefinitionStatement.class, "DefinitionStatement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(definitionStatementEClass, this.getStatementType(), "getStatementType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(embeddedStatementEClass, QEmbeddedStatement.class, "EmbeddedStatement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEmbeddedStatement_Type(), this.getStatementType(), "type", "DBL", 0, 1, QEmbeddedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

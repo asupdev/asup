@@ -41,6 +41,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="File" abstract="true" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject ../../org.asup.il.core/model/il-core.ecore#//NamedNode">
+    <eOperations name="getClassURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
+    <eOperations name="getPackageInfoURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dictionary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileFormat" abstract="true">

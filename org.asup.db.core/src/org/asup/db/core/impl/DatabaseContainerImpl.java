@@ -31,9 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getCatalogContainers <em>Catalog Containers</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getDefaultCatalogContainer <em>Default Catalog Container</em>}</li>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getVersion <em>Version</em>}</li>
- *   <li>{@link org.asup.db.core.impl.DatabaseContainerImpl#getDefaultCatalogContainer <em>Default Catalog Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,6 +49,16 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	 * @ordered
 	 */
 	protected EList<QCatalogContainer> catalogContainers;
+
+	/**
+	 * The cached value of the '{@link #getDefaultCatalogContainer() <em>Default Catalog Container</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultCatalogContainer()
+	 * @generated
+	 * @ordered
+	 */
+	protected QCatalogContainer defaultCatalogContainer;
 
 	/**
 	 * The default value of the '{@link #getVendor() <em>Vendor</em>}' attribute.
@@ -89,16 +99,6 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 	 * @ordered
 	 */
 	protected String version = VERSION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDefaultCatalogContainer() <em>Default Catalog Container</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDefaultCatalogContainer()
-	 * @generated
-	 * @ordered
-	 */
-	protected QCatalogContainer defaultCatalogContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,13 +235,13 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 		switch (featureID) {
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOG_CONTAINERS:
 				return getCatalogContainers();
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
+				if (resolve) return getDefaultCatalogContainer();
+				return basicGetDefaultCatalogContainer();
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VENDOR:
 				return getVendor();
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VERSION:
 				return getVersion();
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
-				if (resolve) return getDefaultCatalogContainer();
-				return basicGetDefaultCatalogContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -259,14 +259,14 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 				getCatalogContainers().clear();
 				getCatalogContainers().addAll((Collection<? extends QCatalogContainer>)newValue);
 				return;
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
+				setDefaultCatalogContainer((QCatalogContainer)newValue);
+				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VENDOR:
 				setVendor((String)newValue);
 				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VERSION:
 				setVersion((String)newValue);
-				return;
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
-				setDefaultCatalogContainer((QCatalogContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,14 +283,14 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOG_CONTAINERS:
 				getCatalogContainers().clear();
 				return;
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
+				setDefaultCatalogContainer((QCatalogContainer)null);
+				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VENDOR:
 				setVendor(VENDOR_EDEFAULT);
 				return;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VERSION:
 				setVersion(VERSION_EDEFAULT);
-				return;
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
-				setDefaultCatalogContainer((QCatalogContainer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -306,12 +306,12 @@ public class DatabaseContainerImpl extends ServiceConfigImpl implements QDatabas
 		switch (featureID) {
 			case QDatabaseCorePackage.DATABASE_CONTAINER__CATALOG_CONTAINERS:
 				return catalogContainers != null && !catalogContainers.isEmpty();
+			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
+				return defaultCatalogContainer != null;
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VENDOR:
 				return VENDOR_EDEFAULT == null ? vendor != null : !VENDOR_EDEFAULT.equals(vendor);
 			case QDatabaseCorePackage.DATABASE_CONTAINER__VERSION:
 				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-			case QDatabaseCorePackage.DATABASE_CONTAINER__DEFAULT_CATALOG_CONTAINER:
-				return defaultCatalogContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

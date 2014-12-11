@@ -9,15 +9,14 @@ package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QQualifiedName;
-import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QCreateIndexStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
+import org.asup.db.syntax.impl.DefinitionStatementImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl#getIndexName <em>Index Name</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl#getOnTable <em>On Table</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CreateIndexStatementImpl#getSortBy <em>Sort By</em>}</li>
@@ -36,27 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CreateIndexStatementImpl extends EObjectImpl implements QCreateIndexStatement {
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected StatementType type = TYPE_EDEFAULT;
-
+public class CreateIndexStatementImpl extends DefinitionStatementImpl implements QCreateIndexStatement {
 	/**
 	 * The cached value of the '{@link #getIndexName() <em>Index Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -124,27 +102,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	@Override
 	protected EClass eStaticClass() {
 		return QDdlPackage.Literals.CREATE_INDEX_STATEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StatementType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(StatementType newType) {
-		StatementType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_INDEX_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -323,8 +280,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_INDEX_STATEMENT__TYPE:
-				return getType();
 			case QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME:
 				return getIndexName();
 			case QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE:
@@ -345,9 +300,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_INDEX_STATEMENT__TYPE:
-				setType((StatementType)newValue);
-				return;
 			case QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME:
 				setIndexName((QQualifiedName)newValue);
 				return;
@@ -372,9 +324,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_INDEX_STATEMENT__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME:
 				setIndexName((QQualifiedName)null);
 				return;
@@ -399,8 +348,6 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_INDEX_STATEMENT__TYPE:
-				return type != TYPE_EDEFAULT;
 			case QDdlPackage.CREATE_INDEX_STATEMENT__INDEX_NAME:
 				return indexName != null;
 			case QDdlPackage.CREATE_INDEX_STATEMENT__ON_TABLE:
@@ -423,9 +370,7 @@ public class CreateIndexStatementImpl extends EObjectImpl implements QCreateInde
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(", unique: ");
+		result.append(" (unique: ");
 		result.append(unique);
 		result.append(')');
 		return result.toString();

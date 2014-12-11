@@ -87,47 +87,6 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 		System.out.println("Creazione schema completata");
 	}
 
-	@SuppressWarnings("unchecked")
-	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
-
-		String catalogFrom = interpreter.nextArgument();
-		String cataloTo = interpreter.nextArgument();
-		String schemaName = interpreter.nextArgument();
-				
-		QConnection connectionTo = connectionManager.createConnection(cataloTo);
-
-		Schema schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaName);
-		if(schemaTo != null)
-			databaseManager.dropSchema(connectionTo, schemaTo, true);
-
-		QConnection connectionFrom = connectionManager.createConnection(catalogFrom);
-		Schema schemaFrom = connectionFrom.getCatalogMetaData().getSchema(schemaName);
-		
-		QSchemaDef schemaDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QSchemaDef.class);
-		databaseManager.createSchema(connectionTo, schemaFrom.getName(), schemaDef);
-		// TODO
-		schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaFrom.getName());
-
-		for (Table table : (List<Table>) schemaFrom.getTables()) {
-
-			if (table instanceof ViewTable) {
-				QViewDef viewDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QViewDef.class);
-				databaseManager.createView(connectionTo, schemaTo, table.getName(), viewDef);
-			} else {
-				QTableDef tableDef = connectionTo.getConnectionContext().getAdapter(table, QTableDef.class);
-				databaseManager.createTable(connectionTo, schemaTo, table.getName(), tableDef);
-			}
-		}
-
-		for (Index index : (List<Index>) schemaFrom.getIndices()) {
-			QIndexDef indexDef = connectionTo.getConnectionContext().getAdapter(index, QIndexDef.class);
-			Table tableTo = connectionTo.getCatalogMetaData().getTable(schemaTo.getName(), index.getName());
-			databaseManager.createIndex(connectionTo, tableTo, index.getName(), indexDef);
-		}
-
-		return null;
-	}
-
 	public Object _testDDL(CommandInterpreter interpreter) throws SQLException {
 
 		String catalog = interpreter.nextArgument();
@@ -167,8 +126,51 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 
 		indexDef.getColumns().add(indexColumn);
 
-//		databaseManager.createIndex(connection, table, indexName, indexDef);
+		databaseManager.createIndex(connection, table, indexName, indexDef);
+
 		connection.close();
+		
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Object _copyDDL(CommandInterpreter interpreter) throws SQLException {
+
+		String catalogFrom = interpreter.nextArgument();
+		String cataloTo = interpreter.nextArgument();
+		String schemaName = interpreter.nextArgument();
+				
+		QConnection connectionTo = connectionManager.createConnection(cataloTo);
+
+		Schema schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaName);
+		if(schemaTo != null)
+			databaseManager.dropSchema(connectionTo, schemaTo, true);
+
+		QConnection connectionFrom = connectionManager.createConnection(catalogFrom);
+		Schema schemaFrom = connectionFrom.getCatalogMetaData().getSchema(schemaName);
+		
+		QSchemaDef schemaDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QSchemaDef.class);
+		databaseManager.createSchema(connectionTo, schemaFrom.getName(), schemaDef);
+		// TODO
+		schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaFrom.getName());
+
+		for (Table table : (List<Table>) schemaFrom.getTables()) {
+
+			if (table instanceof ViewTable) {
+				QViewDef viewDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QViewDef.class);
+				databaseManager.createView(connectionTo, schemaTo, table.getName(), viewDef);
+			} else {
+				QTableDef tableDef = connectionTo.getConnectionContext().getAdapter(table, QTableDef.class);
+				databaseManager.createTable(connectionTo, schemaTo, table.getName(), tableDef);
+			}
+		}
+
+		for (Index index : (List<Index>) schemaFrom.getIndices()) {
+			QIndexDef indexDef = connectionTo.getConnectionContext().getAdapter(index, QIndexDef.class);
+			Table tableTo = connectionTo.getCatalogMetaData().getTable(schemaTo.getName(), index.getName());
+			databaseManager.createIndex(connectionTo, tableTo, index.getName(), indexDef);
+		}
+
 		return null;
 	}
 }

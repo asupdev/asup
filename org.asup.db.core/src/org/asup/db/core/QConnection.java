@@ -32,14 +32,6 @@ public interface QConnection extends QContextID {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException"
-	 * @generated
-	 */
-	void commit() throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model required="true" exceptions="org.asup.db.core.DatabaseException" sqlRequired="true"
 	 * @generated
 	 */
@@ -59,14 +51,6 @@ public interface QConnection extends QContextID {
 	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	void rollback() throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException"
-	 * @generated
-	 */
 	void setCatalog(String catalog) throws SQLException;
 
 	/**
@@ -76,14 +60,6 @@ public interface QConnection extends QContextID {
 	 * @generated
 	 */
 	String translate(String sql) throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException" autoCommitRequired="true"
-	 * @generated
-	 */
-	void setAutoCommit(boolean autoCommit) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,9 +96,9 @@ public interface QConnection extends QContextID {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="org.asup.db.core.DatabaseException"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QCatalogMetaData getCatalogMetaData() throws SQLException;
+	QCatalogMetaData getCatalogMetaData();
 
 } // DatabaseConnection

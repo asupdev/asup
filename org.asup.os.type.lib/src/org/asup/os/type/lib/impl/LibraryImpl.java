@@ -7,6 +7,8 @@
  */
 package org.asup.os.type.lib.impl;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,6 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <ul>
  *   <li>{@link org.asup.os.type.lib.impl.LibraryImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.asup.os.type.lib.impl.LibraryImpl#getParentLibrary <em>Parent Library</em>}</li>
+ *   <li>{@link org.asup.os.type.lib.impl.LibraryImpl#getBasePackage <em>Base Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,6 +75,24 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 	 * @ordered
 	 */
 	protected String parentLibrary = PARENT_LIBRARY_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasePackage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BASE_PACKAGE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBasePackage()
+	 * @generated
+	 * @ordered
+	 */
+	protected String basePackage = BASE_PACKAGE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,6 +148,27 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getBasePackage() {
+		return basePackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBasePackage(String newBasePackage) {
+		String oldBasePackage = basePackage;
+		basePackage = newBasePackage;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemLibraryPackage.LIBRARY__BASE_PACKAGE, oldBasePackage, basePackage));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isRootLibrary() {
@@ -145,6 +187,26 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getPackageURI() {
+		try {
+			String packageURI = getBasePackage();
+			if(packageURI != null)
+				packageURI = packageURI.replaceAll("\\.", "/") + "/";
+			else
+				packageURI = "";
+
+			URI uri = new URI(packageURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -154,6 +216,8 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 				return getDependencies();
 			case QOperatingSystemLibraryPackage.LIBRARY__PARENT_LIBRARY:
 				return getParentLibrary();
+			case QOperatingSystemLibraryPackage.LIBRARY__BASE_PACKAGE:
+				return getBasePackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,6 +238,9 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 			case QOperatingSystemLibraryPackage.LIBRARY__PARENT_LIBRARY:
 				setParentLibrary((String)newValue);
 				return;
+			case QOperatingSystemLibraryPackage.LIBRARY__BASE_PACKAGE:
+				setBasePackage((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -192,6 +259,9 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 			case QOperatingSystemLibraryPackage.LIBRARY__PARENT_LIBRARY:
 				setParentLibrary(PARENT_LIBRARY_EDEFAULT);
 				return;
+			case QOperatingSystemLibraryPackage.LIBRARY__BASE_PACKAGE:
+				setBasePackage(BASE_PACKAGE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,6 +278,8 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 				return dependencies != null && !dependencies.isEmpty();
 			case QOperatingSystemLibraryPackage.LIBRARY__PARENT_LIBRARY:
 				return PARENT_LIBRARY_EDEFAULT == null ? parentLibrary != null : !PARENT_LIBRARY_EDEFAULT.equals(parentLibrary);
+			case QOperatingSystemLibraryPackage.LIBRARY__BASE_PACKAGE:
+				return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -226,6 +298,8 @@ public class LibraryImpl extends TypedObjectImpl implements QLibrary {
 		result.append(dependencies);
 		result.append(", parentLibrary: ");
 		result.append(parentLibrary);
+		result.append(", basePackage: ");
+		result.append(basePackage);
 		result.append(')');
 		return result.toString();
 	}

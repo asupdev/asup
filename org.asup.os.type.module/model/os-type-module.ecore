@@ -2,6 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="module" nsURI="http://www.asup.org/os/type/module" nsPrefix="os-type-module">
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
+    <eOperations name="getClassURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
+    <eOperations name="getPackageInfoURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//ModuleSource"
         containment="true" resolveProxies="false"/>
   </eClassifiers>

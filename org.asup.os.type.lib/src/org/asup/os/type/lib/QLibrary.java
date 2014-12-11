@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.lib;
 
+import java.net.URI;
 import java.util.List;
 import org.asup.os.type.QTypedObject;
 
@@ -20,6 +21,7 @@ import org.asup.os.type.QTypedObject;
  * <ul>
  *   <li>{@link org.asup.os.type.lib.QLibrary#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link org.asup.os.type.lib.QLibrary#getParentLibrary <em>Parent Library</em>}</li>
+ *   <li>{@link org.asup.os.type.lib.QLibrary#getBasePackage <em>Base Package</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +81,32 @@ public interface QLibrary extends QTypedObject {
 	void setParentLibrary(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Base Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Base Package</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Base Package</em>' attribute.
+	 * @see #setBasePackage(String)
+	 * @see org.asup.os.type.lib.QOperatingSystemLibraryPackage#getLibrary_BasePackage()
+	 * @model
+	 * @generated
+	 */
+	String getBasePackage();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.lib.QLibrary#getBasePackage <em>Base Package</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Base Package</em>' attribute.
+	 * @see #getBasePackage()
+	 * @generated
+	 */
+	void setBasePackage(String value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -93,4 +121,12 @@ public interface QLibrary extends QTypedObject {
 	 * @generated
 	 */
 	boolean isChildLibrary();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getPackageURI();
 } // QLibrary

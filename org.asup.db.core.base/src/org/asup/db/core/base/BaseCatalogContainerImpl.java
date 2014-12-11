@@ -108,9 +108,19 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 		return schema;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public Table loadTable(Schema schema, String name) {
+		
+		Table table = loadTable(schema, name, true);
+
+		// activate lazy loading if needed
+		table.getIndex();
+		
+		return table;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Table loadTable(Schema schema, String name, boolean update) {
 		
 		Schema schemaWork = loadSchema(schema.getName(), false);
 		tableFilter.setTableName(name);
@@ -123,15 +133,25 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 		}
 
 		// update container
-		if(table != null)
+		if(update && table != null)
 			table.setSchema(schema);
 		
 		return table;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public ViewTable loadView(Schema schema, String name) {
+	public ViewTable loadView(Schema schema, String name) {	
+		
+		ViewTable view = loadView(schema, name, true);
+		
+		// activate lazy loading if needed
+		view.getIndex();
+		
+		return view;
+	}
+
+	@SuppressWarnings("unchecked")
+	public ViewTable loadView(Schema schema, String name, boolean update) {
 
 		Schema schemaWork = loadSchema(schema.getName(), false);
 		viewFilter.setViewName(name);
@@ -146,16 +166,50 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 		}
 
 		// update container
-		if(view != null)
+		if(update && view != null)
 			view.setSchema(schema);
 		
 		return view;
-
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Index loadIndex(Table table, String name) {
-		throw new UnsupportedOperationException();
+
+		Index index = null;
+		
+		if(table instanceof ViewTable) {
+
+			ViewTable viewWork = loadView(table.getSchema(), table.getName(), false);			
+			viewFilter.setViewName(table.getName());
+			((ICatalogObject)viewWork).refresh();
+
+			for (Index newIndex : (List<Index>) viewWork.getIndex()) {				
+				if(newIndex.getName().equals(name)) {
+					index = newIndex;
+					break;
+				}
+			}
+		}
+		else {
+
+			Table tableWork = loadTable(table.getSchema(), table.getName(), false);			
+			tableFilter.setTableName(table.getName());
+			((ICatalogObject)tableWork).refresh();
+
+			for (Index newIndex : (List<Index>) tableWork.getIndex()) {				
+				if(newIndex.getName().equals(name)) {
+					index = newIndex;
+					break;
+				}
+			}
+		}
+		
+		// update container
+		index.setSchema(table.getSchema());
+		index.setTable(table);
+		
+		return index;
 	}
 
 	@Override

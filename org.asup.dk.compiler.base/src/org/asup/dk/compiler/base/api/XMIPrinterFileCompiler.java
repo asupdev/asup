@@ -13,6 +13,7 @@ package org.asup.dk.compiler.base.api;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URI;
 
 import javax.inject.Inject;
 
@@ -34,6 +35,8 @@ import org.asup.os.data.ds.TypedReference;
 import org.asup.os.omac.QObjectIterator;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QPrinterFile;
+import org.asup.os.type.lib.QLibrary;
+import org.asup.os.type.lib.QLibraryManager;
 
 @Program(name="QASCRTXP")
 public class XMIPrinterFileCompiler {
@@ -46,6 +49,8 @@ public class XMIPrinterFileCompiler {
 	private QCompilerManager compilerManager;
 	@Inject
 	private QJob job;
+	@Inject
+	private QLibraryManager libraryManager;
 	
 	@Entry
 	public void main(TypedReference<QPrinterFile> file) throws IOException {
@@ -63,6 +68,9 @@ public class XMIPrinterFileCompiler {
 			files = fileReader.find(null);
 		else
 			files = fileReader.find(file.name.trimR());
+
+		QResourceReader<QLibrary> libraryReader = libraryManager.getLibraryReader(job); 
+		QLibrary library = libraryReader.lookup(file.library.trimR());
 		
 		while(files.hasNext()) {
 			QFile qFile = files.next();
@@ -70,26 +78,22 @@ public class XMIPrinterFileCompiler {
 				continue;
 			
 			try {
-				createJavaFile((QPrinterFile)qFile);
+				createJavaFile((QPrinterFile)qFile, library);
 			}
 			catch(Exception e) {
 				System.err.println(e);
 			}
 		}
-
 	}
 	
-	private void createJavaFile(QPrinterFile file) throws IOException, OperatingSystemException {
-		
+	private void createJavaFile(QPrinterFile file, QLibrary library) throws IOException, OperatingSystemException {
+		if(file.getApplication() == null)
+			throw new OperatingSystemException("Invalid file application: "+file);
+
 		// create java source
 		QSourceEntry libraryEntry = sourceManager.getLibraryEntry(job, file.getLibrary());
-		String packageName = null;
-		if(file.getApplication() != null)
-			packageName = file.getApplication()+"/file";
-		else
-			throw new OperatingSystemException("Invalid file application: "+file);
-		
-		String javaName = packageName+"/"+file.getName()+".java";
+
+		String javaName = library.getPackageURI().resolve(file.getClassURI()) + ".java";
 		QSourceEntry javaEntry = sourceManager.createChildEntry(job, libraryEntry, javaName, true);
 
 		OutputStream output = javaEntry.getOutputStream();
@@ -99,10 +103,10 @@ public class XMIPrinterFileCompiler {
 
 		// compilation setup			
 		QCompilationSetup setup = QCompilerFactory.eINSTANCE.createCompilationSetup();		
-		setup.setBasePackage(packageName.replaceAll("/", "."));
+		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
+		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
 		
 		compilerManager.writePrinterFile(compilationContext, setup, output);
-		
 		
 		output.close();		
 	}

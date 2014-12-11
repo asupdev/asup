@@ -51,42 +51,31 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 		if (connection == null)
 			throw new OperatingSystemRuntimeException("Database connection not found: " + job);
 
-		try {
-			connection.setAutoCommit(false);
+		switch (event.getType()) {
 
-			switch (event.getType()) {
+		case PRE_SAVE:
 
-			case PRE_SAVE:
-
+			try {
 				createSchema(job, library, connection);
-				break;
+			} catch (SQLException e) {
+				throw new OperatingSystemRuntimeException(e); 
+			}
+			break;
 
-			case PRE_DELETE:
+		case PRE_DELETE:
+			try {
 				dropSchema(job, library, connection);
-				break;
-
-			default:
-				break;
-			}
-
-			connection.commit();
-		} catch (Exception exception) {
-			try {
-				connection.rollback();
 			} catch (SQLException e) {
-				throw new OperatingSystemRuntimeException(e);
+				throw new OperatingSystemRuntimeException(e); 
 			}
-		} finally {
-			try {
-				connection.setAutoCommit(true);
-			} catch (SQLException e) {
-				throw new OperatingSystemRuntimeException(e);
-			}
+			break;
+
+		default:
+			break;
 		}
-
 	}
 
-	private void createSchema(QJob job, QLibrary library, QConnection connection) throws Exception {
+	private void createSchema(QJob job, QLibrary library, QConnection connection) throws SQLException {
 
 		// schema
 		Schema schema = connection.getCatalogMetaData().getSchema(library.getName());
@@ -98,12 +87,12 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 			System.err.println("Schema already exists: " + library.getName());
 	}
 
-	private void dropSchema(QJob job, QLibrary library, QConnection connection) throws Exception {
+	private void dropSchema(QJob job, QLibrary library, QConnection connection) throws SQLException {
 
 		// schema
 		Schema schema = connection.getCatalogMetaData().getSchema(library.getName());
 		if (schema == null)
-			throw new OperatingSystemRuntimeException("Schema not found: " + library.getName());
+			throw new SQLException("Schema not found: " + library.getName());
 
 		databaseManager.dropSchema(connection, schema, false);
 	}

@@ -468,23 +468,14 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int DEFINITION_WRITER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.QDefinitionStatement <em>Definition Statement</em>}' class.
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.DefinitionStatementImpl <em>Definition Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.QDefinitionStatement
+	 * @see org.asup.db.syntax.impl.DefinitionStatementImpl
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionStatement()
 	 * @generated
 	 */
 	int DEFINITION_STATEMENT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEFINITION_STATEMENT__TYPE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Definition Statement</em>' class.
@@ -493,7 +484,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINITION_STATEMENT_FEATURE_COUNT = 1;
+	int DEFINITION_STATEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.QEmbeddedStatement <em>Embedded Statement</em>}' class.
@@ -967,17 +958,6 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	EClass getDefinitionStatement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.QDefinitionStatement#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.asup.db.syntax.QDefinitionStatement#getType()
-	 * @see #getDefinitionStatement()
-	 * @generated
-	 */
-	EAttribute getDefinitionStatement_Type();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QEmbeddedStatement <em>Embedded Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1220,22 +1200,14 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		EClass DEFINITION_WRITER_REGISTRY = eINSTANCE.getDefinitionWriterRegistry();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.QDefinitionStatement <em>Definition Statement</em>}' class.
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.DefinitionStatementImpl <em>Definition Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.QDefinitionStatement
+		 * @see org.asup.db.syntax.impl.DefinitionStatementImpl
 		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionStatement()
 		 * @generated
 		 */
 		EClass DEFINITION_STATEMENT = eINSTANCE.getDefinitionStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DEFINITION_STATEMENT__TYPE = eINSTANCE.getDefinitionStatement_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.QEmbeddedStatement <em>Embedded Statement</em>}' class.
