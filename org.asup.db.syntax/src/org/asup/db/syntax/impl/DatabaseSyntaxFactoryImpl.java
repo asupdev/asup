@@ -8,24 +8,29 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.syntax.*;
+
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
  * @generated
  */
 public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabaseSyntaxFactory {
 	/**
 	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static QDatabaseSyntaxFactory init() {
@@ -43,8 +48,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 
 	/**
 	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public DatabaseSyntaxFactoryImpl() {
@@ -52,12 +57,15 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDatabaseSyntaxPackage.BINDING_PARSE_ERROR: return (EObject)createBindingParseError();
+			case QDatabaseSyntaxPackage.BINDING_PARSE_RESULT: return (EObject)createBindingParseResult();
 			case QDatabaseSyntaxPackage.DEFINITION_PARSE_ERROR: return (EObject)createDefinitionParseError();
 			case QDatabaseSyntaxPackage.DEFINITION_PARSE_RESULT: return (EObject)createDefinitionParseResult();
 			default:
@@ -66,7 +74,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -82,7 +91,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -95,6 +105,26 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QBindingParseError createBindingParseError() {
+		BindingParseErrorImpl bindingParseError = new BindingParseErrorImpl();
+		return bindingParseError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QBindingParseResult createBindingParseResult() {
+		BindingParseResultImpl bindingParseResult = new BindingParseResultImpl();
+		return bindingParseResult;
 	}
 
 	/**
@@ -156,7 +186,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QDatabaseSyntaxPackage getDatabaseSyntaxPackage() {
@@ -164,7 +195,8 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @deprecated
 	 * @generated
 	 */
@@ -173,4 +205,4 @@ public class DatabaseSyntaxFactoryImpl extends EFactoryImpl implements QDatabase
 		return QDatabaseSyntaxPackage.eINSTANCE;
 	}
 
-} // DBSyntaxFactoryImpl
+} //DatabaseSyntaxFactoryImpl
