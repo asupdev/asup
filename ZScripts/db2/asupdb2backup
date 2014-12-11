@@ -1,4 +1,5 @@
 #! /bin/bash
+
 if [ $# -lt 2 ]; then
     echo "Usage: $0 dbName backup_folder"
     exit 1

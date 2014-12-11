@@ -7,23 +7,18 @@
  */
 package org.asup.os.type.module.impl;
 
-import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
-import org.asup.os.core.output.QOperatingSystemOutputPackage;
-import org.asup.os.core.resources.QOperatingSystemResourcesPackage;
+import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
-
 import org.asup.os.type.module.QModule;
 import org.asup.os.type.module.QModuleManager;
 import org.asup.os.type.module.QModuleSource;
 import org.asup.os.type.module.QOperatingSystemModuleFactory;
 import org.asup.os.type.module.QOperatingSystemModulePackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -103,9 +98,6 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 
 		// Initialize simple dependencies
 		QOperatingSystemTypePackage.eINSTANCE.eClass();
-		QOperatingSystemResourcesPackage.eINSTANCE.eClass();
-		QOperatingSystemJobsPackage.eINSTANCE.eClass();
-		QOperatingSystemOutputPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theOperatingSystemModulePackage.createPackageContents();
@@ -239,6 +231,7 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 
 		// Obtain other dependent packages
 		QOperatingSystemTypePackage theOperatingSystemTypePackage = (QOperatingSystemTypePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemTypePackage.eNS_URI);
+		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QOperatingSystemOmacPackage theOperatingSystemOmacPackage = (QOperatingSystemOmacPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOmacPackage.eNS_URI);
 
 		// Create type parameters
@@ -256,6 +249,10 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 		// Initialize classes and features; add operations and parameters
 		initEClass(moduleEClass, QModule.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModule_Source(), this.getModuleSource(), null, "source", null, 0, 1, QModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(moduleEClass, theFrameworkJavaPackage.getJavaURI(), "getClassURI", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(moduleEClass, theFrameworkJavaPackage.getJavaURI(), "getPackageInfoURI", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(moduleManagerEClass, QModuleManager.class, "ModuleManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

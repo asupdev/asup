@@ -7,6 +7,7 @@
  */
 package org.asup.os.type.module;
 
+import java.net.URI;
 import org.asup.os.type.QTypedObject;
 
 /**
@@ -52,4 +53,20 @@ public interface QModule extends QTypedObject {
 	 * @generated
 	 */
 	void setSource(QModuleSource value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getClassURI();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="org.asup.fw.java.JavaURI"
+	 * @generated
+	 */
+	URI getPackageInfoURI();
 } // QModule
