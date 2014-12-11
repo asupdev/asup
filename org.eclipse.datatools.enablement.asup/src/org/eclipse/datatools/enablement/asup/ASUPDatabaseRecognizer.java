@@ -13,6 +13,7 @@ package org.eclipse.datatools.enablement.asup;
 
 import java.sql.Connection;
 
+import org.asup.db.core.QConnection;
 import org.eclipse.datatools.connectivity.sqm.core.definition.DatabaseDefinition;
 import org.eclipse.datatools.connectivity.sqm.core.definition.IDatabaseRecognizer;
 import org.eclipse.datatools.connectivity.sqm.internal.core.definition.DatabaseDefinitionRegistryImpl;
@@ -26,7 +27,10 @@ public class ASUPDatabaseRecognizer implements IDatabaseRecognizer {
 	@Override
 	public DatabaseDefinition recognize(Connection connection) {
 
-		return DatabaseDefinitionRegistryImpl.getInstance().getDefinition("As.UP", "V0.5");
+		if(connection instanceof QConnection)
+			return DatabaseDefinitionRegistryImpl.getInstance().getDefinition("As.UP", "V0.5");
+		else
+			return null;
 	}
 
 }

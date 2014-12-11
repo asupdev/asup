@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="syntax" nsURI="http://www.asup.org/db/syntax" nsPrefix="db-syntax">
+  <eClassifiers xsi:type="ecore:EClass" name="BindingParseError"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingParser" abstract="true" eSuperTypes="#//StatementParser">
+    <eOperations name="parseBinding" eType="#//BindingParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+      <eParameters name="stream" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaInputStream"/>
+    </eOperations>
+    <eOperations name="parseBinding" eType="#//BindingParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
+      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingParseResult">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingStatement" eType="#//BindingStatement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="errorList" upperBound="-1"
+        eType="#//BindingParseError"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingStatement" abstract="true">
+    <eOperations name="getStatementType" lowerBound="1" eType="#//StatementType"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionParser" abstract="true" eSuperTypes="#//StatementParser">
     <eOperations name="parseDefinition" eType="#//DefinitionParseResult" eExceptions="ecore:EDataType ../../org.asup.db.core/model/db-core.ecore#//DatabaseException">
       <eParameters name="stream" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaInputStream"/>
@@ -65,9 +82,6 @@
     <eOperations name="selectData" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
     </eOperations>
-    <eOperations name="writeDefinition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eParameters name="statement" lowerBound="1" eType="#//DefinitionStatement"/>
-    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionWriterRegistry" abstract="true">
     <eOperations name="lookup" lowerBound="1" eType="#//DefinitionWriter">
@@ -77,10 +91,8 @@
       <eTypeArguments eClassifier="#//DefinitionWriter"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatement" abstract="true"
-      interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//StatementType"
-        defaultValueLiteral="DDL"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionStatement" abstract="true">
+    <eOperations name="getStatementType" lowerBound="1" eType="#//StatementType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EmbeddedStatement" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//StatementType"

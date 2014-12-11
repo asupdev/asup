@@ -10,6 +10,7 @@ package org.asup.db.core.impl;
 import java.sql.SQLException;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseContainer;
+import org.asup.db.core.QDatabaseContext;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndexDef;
@@ -155,6 +156,17 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * @generated
 	 */
 	public void dropView(QConnection connection, ViewTable view) throws SQLException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDatabaseContext getDatabaseContext() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

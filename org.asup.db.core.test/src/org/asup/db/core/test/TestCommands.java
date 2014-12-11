@@ -18,12 +18,7 @@ import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QStatement;
 import org.asup.fw.core.QContext;
-import org.asup.fw.test.QAssertionResult;
-import org.asup.fw.test.QTestAsserter;
-import org.asup.fw.test.QTestContext;
-import org.asup.fw.test.QTestManager;
-import org.asup.fw.test.QTestResult;
-import org.asup.fw.test.QTestRunner;
+import org.asup.fw.test.*;
 import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
@@ -68,9 +63,18 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 	private void printTestResult(QTestResult testResult) {
 		System.out.println(testResult);
+		StringBuffer resultString = new StringBuffer();
+		int failedNr = 0;
+		int successNr = 0;		
 		for (QAssertionResult assertionResult : testResult.getAssertResults()) {
-			System.out.println("\t" + assertionResult);
+			if (AssertionState.SUCCESS.equals(assertionResult.getAssertionState())) {
+				successNr++;
+			} else {
+				failedNr++;
+			}
+			resultString.append("\t" + assertionResult + "\n");
 		}
+		System.out.println(resultString + "\nSuccess: " + successNr + " failed: " + failedNr);
 	}
 
 	@Test(category = "DBSYNTAX", object = "TRANSLATE")

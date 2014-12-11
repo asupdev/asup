@@ -5,5 +5,6 @@ Bundle-SymbolicName: org.asup.db.syntax.mysql
 Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.db.syntax.mysql
-Require-Bundle: org.asup.db.syntax
+Require-Bundle: org.asup.db.syntax,
+ org.asup.db.syntax.base
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

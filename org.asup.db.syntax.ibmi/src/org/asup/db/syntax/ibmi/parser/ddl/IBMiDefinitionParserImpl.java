@@ -8,11 +8,11 @@ import java.sql.SQLException;
 import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.impl.DefinitionParserImpl;
 
-public class IBMidefinitionParserImpl extends DefinitionParserImpl {
+public class IBMiDefinitionParserImpl extends DefinitionParserImpl {
 	
 	private DDLModelBuilder definitionBuilder;
 
-	public IBMidefinitionParserImpl() {
+	public IBMiDefinitionParserImpl() {
 		definitionBuilder = new DDLModelBuilder();
 	}
 
