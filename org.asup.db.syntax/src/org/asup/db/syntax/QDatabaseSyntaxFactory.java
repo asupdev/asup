@@ -27,6 +27,24 @@ public interface QDatabaseSyntaxFactory extends EFactory {
 	QDatabaseSyntaxFactory eINSTANCE = org.asup.db.syntax.impl.DatabaseSyntaxFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Binding Parse Error</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binding Parse Error</em>'.
+	 * @generated
+	 */
+	QBindingParseError createBindingParseError();
+
+	/**
+	 * Returns a new object of class '<em>Binding Parse Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binding Parse Result</em>'.
+	 * @generated
+	 */
+	QBindingParseResult createBindingParseResult();
+
+	/**
 	 * Returns a new object of class '<em>Definition Parse Error</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,4 +71,4 @@ public interface QDatabaseSyntaxFactory extends EFactory {
 	 */
 	QDatabaseSyntaxPackage getDatabaseSyntaxPackage();
 
-} //DBSyntaxFactory
+} //QDatabaseSyntaxFactory
