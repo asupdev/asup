@@ -7,6 +7,9 @@
  */
 package org.asup.os.type.module.impl;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import org.asup.os.type.impl.TypedObjectImpl;
 import org.asup.os.type.module.QModule;
 import org.asup.os.type.module.QModuleSource;
@@ -105,6 +108,39 @@ public class ModuleImpl extends TypedObjectImpl implements QModule {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemModulePackage.MODULE__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getClassURI() {
+
+		try {
+//			TODO			
+//			eClass().getEPackage().getNsURI();
+			String classURI = "module/" + getApplication() + "/" + getName();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getPackageInfoURI() {
+		try {
+			String classURI = "module/" + getApplication();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
 	}
 
 	/**

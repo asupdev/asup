@@ -43,4 +43,20 @@ public interface QQualifiedName {
 	 */
 	List<String> getQualifiers();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	String getFirstQualifier();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	String getLastQualifier();
+
 } // QQualifiedName

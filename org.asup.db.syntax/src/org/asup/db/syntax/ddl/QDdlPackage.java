@@ -213,15 +213,6 @@ public interface QDdlPackage extends EPackage {
 	int CALL_STATEMENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALL_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Procedure Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,15 +240,6 @@ public interface QDdlPackage extends EPackage {
 	int CALL_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMMIT_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Hold</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,15 +256,6 @@ public interface QDdlPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMIT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONNECT_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Pwd</b></em>' attribute.
@@ -330,15 +303,6 @@ public interface QDdlPackage extends EPackage {
 	int CONNECT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_ALIAS_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Alias Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -364,15 +328,6 @@ public interface QDdlPackage extends EPackage {
 	 * @ordered
 	 */
 	int CREATE_ALIAS_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_INDEX_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Index Name</b></em>' containment reference.
@@ -420,15 +375,6 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_INDEX_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_TABLE_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Table Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -454,15 +400,6 @@ public interface QDdlPackage extends EPackage {
 	 * @ordered
 	 */
 	int CREATE_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CREATE_VIEW_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
@@ -501,15 +438,6 @@ public interface QDdlPackage extends EPackage {
 	int CREATE_VIEW_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCONNECT_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Target</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,15 +454,6 @@ public interface QDdlPackage extends EPackage {
 	 * @ordered
 	 */
 	int DISCONNECT_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DROP_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -573,15 +492,6 @@ public interface QDdlPackage extends EPackage {
 	int DROP_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCK_TABLE_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Allow Read</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -618,15 +528,6 @@ public interface QDdlPackage extends EPackage {
 	int LOCK_TABLE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELEASE_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Server Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -643,15 +544,6 @@ public interface QDdlPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELEASE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RENAME_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>New Name</b></em>' attribute.
@@ -699,15 +591,6 @@ public interface QDdlPackage extends EPackage {
 	int RENAME_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROLLBACK_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Hold</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -726,15 +609,6 @@ public interface QDdlPackage extends EPackage {
 	int ROLLBACK_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_CONNECTION_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
-
-	/**
 	 * The feature id for the '<em><b>Database Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,15 +625,6 @@ public interface QDdlPackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_CONNECTION_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_TRANSACTION_STATEMENT__TYPE = QDatabaseSyntaxPackage.DEFINITION_STATEMENT__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Isolation Level</b></em>' attribute.

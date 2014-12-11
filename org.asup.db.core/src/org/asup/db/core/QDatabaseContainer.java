@@ -19,9 +19,9 @@ import org.asup.fw.core.QServiceConfig;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getCatalogContainers <em>Catalog Containers</em>}</li>
+ *   <li>{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalogContainer <em>Default Catalog Container</em>}</li>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getVendor <em>Vendor</em>}</li>
  *   <li>{@link org.asup.db.core.QDatabaseContainer#getVersion <em>Version</em>}</li>
- *   <li>{@link org.asup.db.core.QDatabaseContainer#getDefaultCatalogContainer <em>Default Catalog Container</em>}</li>
  * </ul>
  * </p>
  *

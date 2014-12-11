@@ -74,6 +74,32 @@ public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements Q
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getFirstQualifier() {
+		
+		if(getQualifiers().isEmpty())
+			return null;
+		
+		return getQualifiers().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getLastQualifier() {
+		
+		if(getQualifiers().isEmpty())
+			return null;
+		
+		return getQualifiers().get(getQualifiers().size()-1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

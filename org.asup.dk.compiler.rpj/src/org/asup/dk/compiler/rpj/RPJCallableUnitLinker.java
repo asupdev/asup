@@ -1,5 +1,6 @@
 package org.asup.dk.compiler.rpj;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -194,7 +195,13 @@ public class RPJCallableUnitLinker {
 
 	public Class<?> loadClass(QContextID contextID, QFile file) {
 
-		String address = "asup:/omac/com.smeup.erp.gen.file/" + file.getApplication() + "." + file.getName();
+		// TODO		
+		QLibrary library = libraryReader.lookup(file.getLibrary());
+
+		String pathURI = library.getPackageURI().toString().replaceAll("/", ".") + "file/";
+		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
+
+		String address = "asup:/omac/" + pathURI + packageURI.toString().replaceAll("/", ".") + "." + file.getName();
 		Class<?> linkedClass = compilationContext.loadClass(null, address);
 		
 		if (linkedClass == null) {
@@ -205,7 +212,6 @@ public class RPJCallableUnitLinker {
 		// search on parent library
 		if (linkedClass == null) {
 
-			QLibrary library = libraryReader.lookup(file.getLibrary());
 			if (library.getParentLibrary() != null) {
 
 				QLibrary masterLibrary = libraryReader.lookup(library.getParentLibrary());
