@@ -1,7 +1,14 @@
 package org.asup.db.core.test;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,6 +27,8 @@ import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
 public class TestCommands extends AbstractCommandProviderImpl {
 
@@ -34,7 +43,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 		String script = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
-		
+
 		QTestContext testContext = testManager.createTestContext(context);
 
 		QConnection connection = connectionManager.createConnection(catalog);
@@ -53,7 +62,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 		testRunner = testManager.prepareRunner(testContext, Execute.class);
 		testResult = testManager.executeRunner(testContext, testRunner);
 		printTestResult(testResult);
-		
+
 		connection.close();
 	}
 
@@ -79,8 +88,8 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 			testAsserter.resetTime();
 			for (String sql : statements) {
+
 				String result = null;
-				
 				try {
 					result = connection.translate(sql);
 				} catch (SQLException e) {
@@ -100,7 +109,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 		@TestStarted
 		public void doTest(@Named("org.asup.db.core.test.script") String script) throws SQLException, IOException {
-
+			
 			List<String> statements = readStatementsForTest(script);
 
 			testAsserter.resetTime();
@@ -110,7 +119,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 				for (String sql : statements) {
 					boolean result = true;
-					
+
 					try {
 						statement.execute(sql);
 					} catch (SQLException e) {
@@ -123,5 +132,36 @@ public class TestCommands extends AbstractCommandProviderImpl {
 			}
 
 		}
+	}
+	
+	public static abstract class AbstractTest {
+
+		protected List<String> readStatementsForTest(String scriptName) throws IOException, SQLException {
+
+			Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+			URL entry = bundle.getEntry("/resources/statements/" + scriptName + ".txt");
+			List<String> sourceSQL = readLinesFromInputStream(entry.openStream());
+
+			return sourceSQL;
+		}
+
+		public List<String> readLinesFromInputStream(InputStream inputStream) throws IOException {
+			return readLinesFrom(new BufferedReader(new InputStreamReader(inputStream)));
+		}
+
+		public List<String> readLinesFromFile(File file) throws IOException {
+			return readLinesFrom(new BufferedReader(new FileReader(file)));
+		}
+
+		public List<String> readLinesFrom(BufferedReader in) throws IOException {
+			ArrayList<String> linee = new ArrayList<String>();
+			String str;
+			while ((str = in.readLine()) != null) {
+				linee.add(str);
+			}
+			in.close();
+			return linee;
+		}
+
 	}
 }

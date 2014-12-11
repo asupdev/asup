@@ -81,11 +81,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ContextID">
-    <eOperations name="setAutoCommit" eExceptions="#//DatabaseException">
-      <eParameters name="autoCommit" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
     <eOperations name="close" eExceptions="#//DatabaseException"/>
-    <eOperations name="commit" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException">
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -93,8 +89,7 @@
     <eOperations name="getConnectionContext" eType="#//ConnectionContext"/>
     <eOperations name="getCatalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         eExceptions="#//DatabaseException"/>
-    <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"
-        eExceptions="#//DatabaseException"/>
+    <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -104,7 +99,6 @@
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="rollback" eExceptions="#//DatabaseException"/>
     <eOperations name="setCatalog" eExceptions="#//DatabaseException">
       <eParameters name="catalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>

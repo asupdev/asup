@@ -85,7 +85,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 
 		Schema schema = getCatalogContainer(connection).loadSchema(name);
-
 		return schema;
 	}
 
