@@ -97,7 +97,8 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 	public String createView(Schema schema, String name, QViewDef view) {
 		
 		try {
-			QDefinitionParseResult definitionParseResult = databaseManager.getDatabaseContext().get(QDefinitionParser.class).parseDefinition(view.getCreationCommand().trim());
+			QDefinitionParser definitionParser = databaseManager.getDatabaseContext().get(QDefinitionParser.class);
+			QDefinitionParseResult definitionParseResult = definitionParser.parseDefinition(view.getCreationCommand().trim());
 			
 			QCreateViewStatement createViewStatement = (QCreateViewStatement) definitionParseResult.getDefinitionStatement();
 			

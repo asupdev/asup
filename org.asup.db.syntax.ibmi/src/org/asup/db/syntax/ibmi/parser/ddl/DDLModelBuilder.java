@@ -73,10 +73,13 @@ public class DDLModelBuilder {
 			
 			parserResult.setDefinitionStatement(convertModel(tree, queryStrings));
 			
-		} catch (RecognitionException e) {
-			
+		} 
+		catch (RecognitionException e) {
+			e.printStackTrace();
 		}
-
+		catch (Error e) {
+			e.printStackTrace();
+		}
 		return parserResult;
 	}
 
