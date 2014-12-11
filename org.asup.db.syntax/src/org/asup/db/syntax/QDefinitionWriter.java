@@ -112,14 +112,6 @@ public interface QDefinitionWriter extends QStatementWriter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model statementRequired="true"
-	 * @generated
-	 */
-	String writeDefinition(QDefinitionStatement statement);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model required="true" tableRequired="true"
 	 * @generated
 	 */

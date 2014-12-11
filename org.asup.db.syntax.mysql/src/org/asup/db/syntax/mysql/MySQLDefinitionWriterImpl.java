@@ -11,13 +11,13 @@
  */
 package org.asup.db.syntax.mysql;
 
-import org.asup.db.syntax.impl.DefinitionWriterImpl;
+import org.asup.db.syntax.base.BaseDefinitionWriterImpl;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
 
-public class MySQLDefinitionWriterImpl extends DefinitionWriterImpl {
+public class MySQLDefinitionWriterImpl extends BaseDefinitionWriterImpl {
 
 	protected MySQLDefinitionWriterImpl() {
-		super(new SQLObjectNameHelper());
+		super(new SQLObjectNameHelper(), null);
 	}
 }

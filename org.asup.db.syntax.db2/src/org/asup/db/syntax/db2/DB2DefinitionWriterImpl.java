@@ -1,23 +1,17 @@
 package org.asup.db.syntax.db2;
 
-import javax.annotation.PostConstruct;
-
 import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
-import org.asup.db.syntax.impl.DefinitionWriterImpl;
+import org.asup.db.syntax.base.BaseDefinitionWriterImpl;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
-public class DB2DefinitionWriterImpl extends DefinitionWriterImpl {
+public class DB2DefinitionWriterImpl extends BaseDefinitionWriterImpl {
 
 	public DB2DefinitionWriterImpl() {
-		super(new SQLObjectNameHelper());
+		super(new SQLObjectNameHelper(), new DB2QueryWriterImpl());
 	}
 
-	@PostConstruct
-	private void init() {
-		setSQLObjectNameHelper(new SQLObjectNameHelper());
-	}
 
 	@Override
 	public String dropSchema(Schema schema) {

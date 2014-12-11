@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.ViewDefImpl#getCreationPlugin <em>Creation Plugin</em>}</li>
  *   <li>{@link org.asup.db.core.impl.ViewDefImpl#getCreationCommand <em>Creation Command</em>}</li>
  * </ul>
  * </p>
@@ -27,26 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ViewDefImpl extends TableDefImpl implements QViewDef {
-	/**
-	 * The default value of the '{@link #getCreationPlugin() <em>Creation Plugin</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getCreationPlugin()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CREATION_PLUGIN_EDEFAULT = "IBMI";
-
-	/**
-	 * The cached value of the '{@link #getCreationPlugin() <em>Creation Plugin</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getCreationPlugin()
-	 * @generated
-	 * @ordered
-	 */
-	protected String creationPlugin = CREATION_PLUGIN_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getCreationCommand() <em>Creation Command</em>}' attribute.
 	 * <!-- begin-user-doc --> <!--
@@ -107,30 +86,9 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCreationPlugin() {
-		return creationPlugin;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCreationPlugin(String newCreationPlugin) {
-		String oldCreationPlugin = creationPlugin;
-		creationPlugin = newCreationPlugin;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.VIEW_DEF__CREATION_PLUGIN, oldCreationPlugin, creationPlugin));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_PLUGIN:
-				return getCreationPlugin();
 			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
 				return getCreationCommand();
 		}
@@ -144,9 +102,6 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_PLUGIN:
-				setCreationPlugin((String)newValue);
-				return;
 			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
 				setCreationCommand((String)newValue);
 				return;
@@ -161,9 +116,6 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_PLUGIN:
-				setCreationPlugin(CREATION_PLUGIN_EDEFAULT);
-				return;
 			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
 				setCreationCommand(CREATION_COMMAND_EDEFAULT);
 				return;
@@ -178,8 +130,6 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_PLUGIN:
-				return CREATION_PLUGIN_EDEFAULT == null ? creationPlugin != null : !CREATION_PLUGIN_EDEFAULT.equals(creationPlugin);
 			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
 				return CREATION_COMMAND_EDEFAULT == null ? creationCommand != null : !CREATION_COMMAND_EDEFAULT.equals(creationCommand);
 		}
@@ -195,9 +145,7 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (creationPlugin: ");
-		result.append(creationPlugin);
-		result.append(", creationCommand: ");
+		result.append(" (creationCommand: ");
 		result.append(creationCommand);
 		result.append(')');
 		return result.toString();

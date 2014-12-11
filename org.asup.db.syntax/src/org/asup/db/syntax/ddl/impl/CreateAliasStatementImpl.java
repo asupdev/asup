@@ -8,15 +8,14 @@
 package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QQualifiedName;
-import org.asup.db.syntax.StatementType;
 import org.asup.db.syntax.ddl.QCreateAliasStatement;
 import org.asup.db.syntax.ddl.QDdlPackage;
+import org.asup.db.syntax.impl.DefinitionStatementImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +24,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl#getAliasName <em>Alias Name</em>}</li>
  *   <li>{@link org.asup.db.syntax.ddl.impl.CreateAliasStatementImpl#getTableName <em>Table Name</em>}</li>
  * </ul>
@@ -33,27 +31,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAliasStatement {
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final StatementType TYPE_EDEFAULT = StatementType.DDL;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected StatementType type = TYPE_EDEFAULT;
-
+public class CreateAliasStatementImpl extends DefinitionStatementImpl implements QCreateAliasStatement {
 	/**
 	 * The cached value of the '{@link #getAliasName() <em>Alias Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -91,27 +69,6 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	@Override
 	protected EClass eStaticClass() {
 		return QDdlPackage.Literals.CREATE_ALIAS_STATEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StatementType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setType(StatementType newType) {
-		StatementType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.CREATE_ALIAS_STATEMENT__TYPE, oldType, type));
 	}
 
 	/**
@@ -224,8 +181,6 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_ALIAS_STATEMENT__TYPE:
-				return getType();
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME:
 				return getAliasName();
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME:
@@ -242,9 +197,6 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_ALIAS_STATEMENT__TYPE:
-				setType((StatementType)newValue);
-				return;
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME:
 				setAliasName((QQualifiedName)newValue);
 				return;
@@ -263,9 +215,6 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_ALIAS_STATEMENT__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME:
 				setAliasName((QQualifiedName)null);
 				return;
@@ -284,30 +233,12 @@ public class CreateAliasStatementImpl extends EObjectImpl implements QCreateAlia
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.CREATE_ALIAS_STATEMENT__TYPE:
-				return type != TYPE_EDEFAULT;
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__ALIAS_NAME:
 				return aliasName != null;
 			case QDdlPackage.CREATE_ALIAS_STATEMENT__TABLE_NAME:
 				return tableName != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
 	}
 
 } //CreateAliasStatementImpl

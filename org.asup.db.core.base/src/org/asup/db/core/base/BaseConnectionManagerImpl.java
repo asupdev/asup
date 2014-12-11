@@ -20,22 +20,13 @@ import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.impl.ConnectionManagerImpl;
-import org.asup.db.syntax.QQueryParser;
-import org.asup.db.syntax.QQueryParserRegistry;
-import org.asup.fw.core.QContext;
 
 public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
-
-	@Inject
-	private QContext context;
 
 	private static int connectionID = 0;
 
 	@Inject
 	private QDatabaseManager databaseManager;
-	@Inject
-	private QQueryParserRegistry queryParserRegistry;
-
 
 	@Override
 	public QConnection createConnection() throws SQLException {
@@ -51,28 +42,26 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 	public QConnection createConnection(String user, String password) throws SQLException {
 		return createConnection(null, user, password);
 	}
-	
+
 	@Override
 	public QConnection createConnection(String catalog, String user, String password) throws SQLException {
 
-		QConnectionContext connectionContext = new BaseConnectionContextImpl(context.createChild(), nextConnectionID());
-		
-		// query parser from container
-		QDatabaseContainer databaseContainer = ((BaseDatabaseManagerImpl)databaseManager).getDatabaseContainer();
-		QQueryParser queryParser = this.queryParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
-		connectionContext.set(QQueryParser.class, queryParser);
+		QConnectionContext connectionContext = new BaseConnectionContextImpl(databaseManager.getDatabaseContext().createChild(), nextConnectionID());
 
-		QConnection connection = new BaseConnectionImpl(databaseContainer, connectionContext); 
+		// query parser from container
+		QDatabaseContainer databaseContainer = ((BaseDatabaseManagerImpl) databaseManager).getDatabaseContainer();
+
+		QConnection connection = new BaseConnectionImpl(databaseContainer, connectionContext);
 		connection.setCatalog(catalog);
-		
+
 		return connection;
 	}
-	
+
 	protected synchronized String nextConnectionID() {
 
 		connectionID = connectionID++;
-		String stringID = context.getID()+"/"+connectionID;
-		
+		String stringID = databaseManager.getDatabaseContext().getID().getID() + "/" + connectionID;
+
 		return stringID;
 	}
 }

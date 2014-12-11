@@ -101,27 +101,35 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
 			databaseManager.createView(connection, schema, file.getName(), viewDef);
 		}
+		else
+			System.err.println(file);
 
-		QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
-		if (index != null) {
-			Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
-
-			// append clustered index if needed
-			if (!index.isClustered() && !hasClusteredIndex(table)) {
-
-				QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-				pkIndexDef.setClustered(true);
-				pkIndexDef.setUnique(true);
-
-				QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
-				pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
-				pkIndexColumnDef.setSequence(1);
-				pkIndexDef.getColumns().add(pkIndexColumnDef);
-
-				databaseManager.createIndex(connection, table, "QAS_" + table.getName() + "_RRN_IDX", pkIndexDef);
+		try {
+			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
+			if (index != null) {
+				Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
+	
+				// append clustered index if needed
+				if (!index.isClustered() && !hasClusteredIndex(table)) {
+	
+					QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
+					pkIndexDef.setClustered(true);
+					pkIndexDef.setUnique(true);
+	
+					QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
+					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_PRIMARY_KEY_NAME);
+					pkIndexColumnDef.setSequence(1);
+					pkIndexDef.getColumns().add(pkIndexColumnDef);
+	
+					databaseManager.createIndex(connection, table, "QAS_" + table.getName() + "_RRN_IDX", pkIndexDef);
+				}
+	
+				databaseManager.createIndex(connection, table, file.getName(), index);
 			}
-
-			databaseManager.createIndex(connection, table, file.getName(), index);
+		}
+		// TODO issue #77
+		catch(Exception e) {
+			System.err.println(e);
 		}
 	}
 
@@ -148,7 +156,6 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			if (index.isClustered())
 				return true;
 		}
-
 		return false;
 	}
 }
