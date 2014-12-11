@@ -1,0 +1,12 @@
+#! /bin/sh
+
+#
+# Copy this script in /usr/local/bin
+#
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 project/folder/file"
+    exit 1
+fi
+
+wget http://github.com/asupdev/asup/raw/master/$1
