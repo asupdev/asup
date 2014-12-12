@@ -9,7 +9,7 @@ package org.asup.dk.compiler.impl;
 
 import org.asup.dk.compiler.EntryType;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.QCompilerPackage;
+import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -86,7 +86,7 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QCompilerPackage.Literals.COMPILATION_SETUP;
+		return QDevelopmentKitCompilerPackage.Literals.COMPILATION_SETUP;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 		String oldBasePackage = basePackage;
 		basePackage = newBasePackage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE, oldBasePackage, basePackage));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDevelopmentKitCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE, oldBasePackage, basePackage));
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 		EntryType oldEntryType = entryType;
 		entryType = newEntryType == null ? ENTRY_TYPE_EDEFAULT : newEntryType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE, oldEntryType, entryType));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDevelopmentKitCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE, oldEntryType, entryType));
 	}
 
 	/**
@@ -139,9 +139,9 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
 				return getBasePackage();
-			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				return getEntryType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -155,10 +155,10 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
 				setBasePackage((String)newValue);
 				return;
-			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				setEntryType((EntryType)newValue);
 				return;
 		}
@@ -173,10 +173,10 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
 				setBasePackage(BASE_PACKAGE_EDEFAULT);
 				return;
-			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				setEntryType(ENTRY_TYPE_EDEFAULT);
 				return;
 		}
@@ -191,9 +191,9 @@ public class CompilationSetupImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__BASE_PACKAGE:
 				return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
-			case QCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP__ENTRY_TYPE:
 				return entryType != ENTRY_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

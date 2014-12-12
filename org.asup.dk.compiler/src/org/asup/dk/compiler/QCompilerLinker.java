@@ -21,7 +21,7 @@ import org.asup.il.core.QFacet;
  * </ul>
  * </p>
  *
- * @see org.asup.dk.compiler.QCompilerPackage#getCompilerLinker()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilerLinker()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface QCompilerLinker extends QFacet {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Linked Class</em>' attribute.
 	 * @see #setLinkedClass(Class)
-	 * @see org.asup.dk.compiler.QCompilerPackage#getCompilerLinker_LinkedClass()
+	 * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilerLinker_LinkedClass()
 	 * @model transient="true"
 	 * @generated
 	 */

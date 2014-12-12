@@ -29,6 +29,15 @@ public interface QIntegratedLanguageFlowFactory extends EFactory {
 	QIntegratedLanguageFlowFactory eINSTANCE = org.asup.il.flow.impl.IntegratedLanguageFlowFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Annotation Command</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation Command</em>'.
+	 * @generated
+	 */
+	QAnnotationCommand createAnnotationCommand();
+
+	/**
 	 * Returns a new object of class '<em>Block</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

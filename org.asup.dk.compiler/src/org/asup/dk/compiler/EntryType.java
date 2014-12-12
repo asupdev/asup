@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Entry Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.asup.dk.compiler.QCompilerPackage#getEntryType()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getEntryType()
  * @model
  * @generated
  */

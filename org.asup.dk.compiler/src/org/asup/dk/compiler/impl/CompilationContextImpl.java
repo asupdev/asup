@@ -10,7 +10,7 @@ package org.asup.dk.compiler.impl;
 import java.util.List;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.QCompilerPackage;
+import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.fw.core.impl.ContextImpl;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
@@ -48,7 +48,7 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QCompilerPackage.Literals.COMPILATION_CONTEXT;
+		return QDevelopmentKitCompilerPackage.Literals.COMPILATION_CONTEXT;
 	}
 
 	/**

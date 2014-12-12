@@ -10,13 +10,18 @@ package org.asup.il.flow.impl;
 import java.util.Collection;
 import java.util.List;
 
+import org.asup.il.flow.QAnnotation;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.flow.QSetupSection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.il.flow.impl.SetupSectionImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.SetupSectionImpl#getApplication <em>Application</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.SetupSectionImpl#getEncoding <em>Encoding</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.SetupSectionImpl#getExpressionType <em>Expression Type</em>}</li>
@@ -36,6 +42,16 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * @generated
  */
 public class SetupSectionImpl extends UnitSectionImpl implements QSetupSection {
+	/**
+	 * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QAnnotation> annotations;
+
 	/**
 	 * The default value of the '{@link #getApplication() <em>Application</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -150,6 +166,18 @@ public class SetupSectionImpl extends UnitSectionImpl implements QSetupSection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public List<QAnnotation> getAnnotations() {
+		if (annotations == null) {
+			annotations = new EObjectContainmentEList<QAnnotation>(QAnnotation.class, this, QIntegratedLanguageFlowPackage.SETUP_SECTION__ANNOTATIONS);
+		}
+		return annotations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getApplication() {
 		return application;
 	}
@@ -247,8 +275,24 @@ public class SetupSectionImpl extends UnitSectionImpl implements QSetupSection {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ANNOTATIONS:
+				return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ANNOTATIONS:
+				return getAnnotations();
 			case QIntegratedLanguageFlowPackage.SETUP_SECTION__APPLICATION:
 				return getApplication();
 			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ENCODING:
@@ -272,6 +316,10 @@ public class SetupSectionImpl extends UnitSectionImpl implements QSetupSection {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ANNOTATIONS:
+				getAnnotations().clear();
+				getAnnotations().addAll((Collection<? extends QAnnotation>)newValue);
+				return;
 			case QIntegratedLanguageFlowPackage.SETUP_SECTION__APPLICATION:
 				setApplication((String)newValue);
 				return;
@@ -300,6 +348,9 @@ public class SetupSectionImpl extends UnitSectionImpl implements QSetupSection {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ANNOTATIONS:
+				getAnnotations().clear();
+				return;
 			case QIntegratedLanguageFlowPackage.SETUP_SECTION__APPLICATION:
 				setApplication(APPLICATION_EDEFAULT);
 				return;
@@ -327,6 +378,8 @@ public class SetupSectionImpl extends UnitSectionImpl implements QSetupSection {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ANNOTATIONS:
+				return annotations != null && !annotations.isEmpty();
 			case QIntegratedLanguageFlowPackage.SETUP_SECTION__APPLICATION:
 				return APPLICATION_EDEFAULT == null ? application != null : !APPLICATION_EDEFAULT.equals(application);
 			case QIntegratedLanguageFlowPackage.SETUP_SECTION__ENCODING:

@@ -7,7 +7,7 @@
  */
 package org.asup.dk.compiler.impl;
 
-import org.asup.dk.compiler.QCompilerPackage;
+import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.dk.compiler.QUnitConverter;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
@@ -62,7 +62,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QCompilerPackage.Literals.UNIT_CONVERTER;
+		return QDevelopmentKitCompilerPackage.Literals.UNIT_CONVERTER;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 		QServiceConfig oldConfig = config;
 		config = newConfig;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QCompilerPackage.UNIT_CONVERTER__CONFIG, oldConfig, newConfig);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG, oldConfig, newConfig);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -98,14 +98,14 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 		if (newConfig != config) {
 			NotificationChain msgs = null;
 			if (config != null)
-				msgs = ((InternalEObject)config).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QCompilerPackage.UNIT_CONVERTER__CONFIG, null, msgs);
+				msgs = ((InternalEObject)config).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG, null, msgs);
 			if (newConfig != null)
-				msgs = ((InternalEObject)newConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QCompilerPackage.UNIT_CONVERTER__CONFIG, null, msgs);
+				msgs = ((InternalEObject)newConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG, null, msgs);
 			msgs = basicSetConfig(newConfig, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QCompilerPackage.UNIT_CONVERTER__CONFIG, newConfig, newConfig));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG, newConfig, newConfig));
 	}
 
 	/**
@@ -138,7 +138,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QCompilerPackage.UNIT_CONVERTER__CONFIG:
+			case QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG:
 				return basicSetConfig(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -152,7 +152,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QCompilerPackage.UNIT_CONVERTER__CONFIG:
+			case QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG:
 				return getConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -166,7 +166,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QCompilerPackage.UNIT_CONVERTER__CONFIG:
+			case QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG:
 				setConfig((QServiceConfig)newValue);
 				return;
 		}
@@ -181,7 +181,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QCompilerPackage.UNIT_CONVERTER__CONFIG:
+			case QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG:
 				setConfig((QServiceConfig)null);
 				return;
 		}
@@ -196,7 +196,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QCompilerPackage.UNIT_CONVERTER__CONFIG:
+			case QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG:
 				return config != null;
 		}
 		return super.eIsSet(featureID);
@@ -211,7 +211,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == QService.class) {
 			switch (derivedFeatureID) {
-				case QCompilerPackage.UNIT_CONVERTER__CONFIG: return QFrameworkCorePackage.SERVICE__CONFIG;
+				case QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG: return QFrameworkCorePackage.SERVICE__CONFIG;
 				default: return -1;
 			}
 		}
@@ -227,7 +227,7 @@ public abstract class UnitConverterImpl extends PluginImpl implements QUnitConve
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == QService.class) {
 			switch (baseFeatureID) {
-				case QFrameworkCorePackage.SERVICE__CONFIG: return QCompilerPackage.UNIT_CONVERTER__CONFIG;
+				case QFrameworkCorePackage.SERVICE__CONFIG: return QDevelopmentKitCompilerPackage.UNIT_CONVERTER__CONFIG;
 				default: return -1;
 			}
 		}

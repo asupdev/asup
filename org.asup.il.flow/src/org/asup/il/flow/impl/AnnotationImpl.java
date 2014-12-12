@@ -5,32 +5,31 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.dk.compiler.impl;
+package org.asup.il.flow.impl;
 
-import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
-import org.asup.dk.compiler.QUnitConverter;
-import org.asup.dk.compiler.QUnitConverterRegistry;
-
-import org.asup.fw.core.impl.PluginRegistryImpl;
+import org.asup.il.flow.QAnnotation;
+import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Unit Converter Registry</b></em>'.
+ * An implementation of the model object '<em><b>Annotation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class UnitConverterRegistryImpl extends PluginRegistryImpl<QUnitConverter> implements QUnitConverterRegistry {
+public abstract class AnnotationImpl extends MinimalEObjectImpl.Container implements QAnnotation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UnitConverterRegistryImpl() {
+	protected AnnotationImpl() {
 		super();
 	}
 
@@ -41,7 +40,7 @@ public abstract class UnitConverterRegistryImpl extends PluginRegistryImpl<QUnit
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDevelopmentKitCompilerPackage.Literals.UNIT_CONVERTER_REGISTRY;
+		return QIntegratedLanguageFlowPackage.Literals.ANNOTATION;
 	}
 
-} //UnitConverterRegistryImpl
+} //AnnotationImpl

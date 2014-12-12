@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QOverlay;
@@ -168,7 +168,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				QCompilerLinker compilerLinker = unaryCompoundDataTerm.getFacet(QCompilerLinker.class); 
 				if(compilerLinker == null) {
 					
-					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+					QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
 					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), QDataStructDelegator.class, true);
 					dataStructureWriter.writeDataStructure(unaryCompoundDataTerm.getDefinition());
@@ -177,7 +177,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 					if(isOverridden(unaryCompoundDataTerm)) {
 						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
-						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+						QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 	
 						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(unaryCompoundDataTerm), linkedClass, true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
@@ -203,7 +203,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				compilerLinker = multipleCompoundDataTerm.getFacet(QCompilerLinker.class); 
 				if(compilerLinker == null) {
 					
-					QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+					QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
 					JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), QDataStructDelegator.class, true);
 					dataStructureWriter.writeDataStructure(multipleCompoundDataTerm.getDefinition());
@@ -211,7 +211,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				else {
 					if(isOverridden(multipleCompoundDataTerm)) {
 						Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
-						QCompilationSetup compilationSetup = QCompilerFactory.eINSTANCE.createCompilationSetup();
+						QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 	
 						JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationContext(), compilationSetup, getCompilationContext().normalizeTypeName(multipleCompoundDataTerm), linkedClass, true);
 						List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();

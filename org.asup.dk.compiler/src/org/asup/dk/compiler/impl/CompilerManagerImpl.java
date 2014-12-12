@@ -13,7 +13,7 @@ import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilerManager;
-import org.asup.dk.compiler.QCompilerPackage;
+import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
@@ -48,7 +48,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QCompilerPackage.Literals.COMPILER_MANAGER;
+		return QDevelopmentKitCompilerPackage.Literals.COMPILER_MANAGER;
 	}
 
 	/**

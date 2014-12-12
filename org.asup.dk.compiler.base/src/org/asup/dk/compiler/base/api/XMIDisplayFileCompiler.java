@@ -20,7 +20,7 @@ import javax.inject.Inject;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.dk.compiler.QCompilerManager;
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
@@ -104,7 +104,7 @@ public class XMIDisplayFileCompiler {
 		QCompilationContext compilationContext = compilerManager.createCompilationContext(job, file, CaseSensitiveType.LOWER);
 
 		// compilation setup			
-		QCompilationSetup setup = QCompilerFactory.eINSTANCE.createCompilationSetup();		
+		QCompilationSetup setup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();		
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
 		
