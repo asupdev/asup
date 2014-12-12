@@ -5,15 +5,19 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax.ddl.impl;
+package org.asup.db.syntax.dbl.impl;
 
-import org.asup.db.syntax.ddl.IsolationLevel;
-import org.asup.db.syntax.ddl.QDdlPackage;
-import org.asup.db.syntax.ddl.QSetTransactionStatement;
-import org.asup.db.syntax.ddl.RWOperation;
-import org.asup.db.syntax.impl.DefinitionStatementImpl;
+import org.asup.db.syntax.dbl.IsolationLevel;
+import org.asup.db.syntax.dbl.QDblPackage;
+import org.asup.db.syntax.dbl.QSetTransactionStatement;
+import org.asup.db.syntax.dbl.RWOperation;
+
+import org.asup.db.syntax.impl.BindingStatementImpl;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -23,14 +27,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl#getIsolationLevel <em>Isolation Level</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl#getRwOperation <em>Rw Operation</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.impl.SetTransactionStatementImpl#getIsolationLevel <em>Isolation Level</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.impl.SetTransactionStatementImpl#getRwOperation <em>Rw Operation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SetTransactionStatementImpl extends DefinitionStatementImpl implements QSetTransactionStatement {
+public class SetTransactionStatementImpl extends BindingStatementImpl implements QSetTransactionStatement {
 	/**
 	 * The default value of the '{@link #getIsolationLevel() <em>Isolation Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,7 +91,7 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDdlPackage.Literals.SET_TRANSACTION_STATEMENT;
+		return QDblPackage.Literals.SET_TRANSACTION_STATEMENT;
 	}
 
 	/**
@@ -108,7 +112,7 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 		IsolationLevel oldIsolationLevel = isolationLevel;
 		isolationLevel = newIsolationLevel == null ? ISOLATION_LEVEL_EDEFAULT : newIsolationLevel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL, oldIsolationLevel, isolationLevel));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL, oldIsolationLevel, isolationLevel));
 	}
 
 	/**
@@ -129,7 +133,7 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 		RWOperation oldRwOperation = rwOperation;
 		rwOperation = newRwOperation == null ? RW_OPERATION_EDEFAULT : newRwOperation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDdlPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION, oldRwOperation, rwOperation));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION, oldRwOperation, rwOperation));
 	}
 
 	/**
@@ -140,9 +144,9 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
 				return getIsolationLevel();
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
 				return getRwOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -156,10 +160,10 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
 				setIsolationLevel((IsolationLevel)newValue);
 				return;
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
 				setRwOperation((RWOperation)newValue);
 				return;
 		}
@@ -174,10 +178,10 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
 				setIsolationLevel(ISOLATION_LEVEL_EDEFAULT);
 				return;
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
 				setRwOperation(RW_OPERATION_EDEFAULT);
 				return;
 		}
@@ -192,9 +196,9 @@ public class SetTransactionStatementImpl extends DefinitionStatementImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL:
 				return isolationLevel != ISOLATION_LEVEL_EDEFAULT;
-			case QDdlPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
+			case QDblPackage.SET_TRANSACTION_STATEMENT__RW_OPERATION:
 				return rwOperation != RW_OPERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

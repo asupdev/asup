@@ -7,6 +7,9 @@ Bundle-ClassPath: .
 Bundle-Vendor: www.smeup.com
 Bundle-Localization: plugin
 Export-Package: org.asup.db.syntax,
+ org.asup.db.syntax.dbl,
+ org.asup.db.syntax.dbl.impl,
+ org.asup.db.syntax.dbl.util,
  org.asup.db.syntax.ddl,
  org.asup.db.syntax.ddl.impl,
  org.asup.db.syntax.ddl.util,

@@ -30,4 +30,12 @@
             genModel="model/db-syntax.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated db-syntax -->
+      <package
+            uri="http://www.asup.org/db/syntax/dbl"
+            class="org.asup.db.syntax.dbl.QDblPackage"
+            genModel="model/db-syntax.genmodel"/>
+   </extension>
+
 </plugin>

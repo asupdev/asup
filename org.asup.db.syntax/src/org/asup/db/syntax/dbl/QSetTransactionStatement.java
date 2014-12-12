@@ -5,9 +5,9 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax.ddl;
+package org.asup.db.syntax.dbl;
 
-import org.asup.db.syntax.QDefinitionStatement;
+import org.asup.db.syntax.QBindingStatement;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,19 +17,19 @@ import org.asup.db.syntax.QDefinitionStatement;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getIsolationLevel <em>Isolation Level</em>}</li>
- *   <li>{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getRwOperation <em>Rw Operation</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.QSetTransactionStatement#getIsolationLevel <em>Isolation Level</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.QSetTransactionStatement#getRwOperation <em>Rw Operation</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.db.syntax.ddl.QDdlPackage#getSetTransactionStatement()
+ * @see org.asup.db.syntax.dbl.QDblPackage#getSetTransactionStatement()
  * @model
  * @generated
  */
-public interface QSetTransactionStatement extends QDefinitionStatement {
+public interface QSetTransactionStatement extends QBindingStatement {
 	/**
 	 * Returns the value of the '<em><b>Isolation Level</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.asup.db.syntax.ddl.IsolationLevel}.
+	 * The literals are from the enumeration {@link org.asup.db.syntax.dbl.IsolationLevel}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Isolation Level</em>' attribute isn't clear,
@@ -37,20 +37,20 @@ public interface QSetTransactionStatement extends QDefinitionStatement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Isolation Level</em>' attribute.
-	 * @see org.asup.db.syntax.ddl.IsolationLevel
+	 * @see org.asup.db.syntax.dbl.IsolationLevel
 	 * @see #setIsolationLevel(IsolationLevel)
-	 * @see org.asup.db.syntax.ddl.QDdlPackage#getSetTransactionStatement_IsolationLevel()
+	 * @see org.asup.db.syntax.dbl.QDblPackage#getSetTransactionStatement_IsolationLevel()
 	 * @model
 	 * @generated
 	 */
 	IsolationLevel getIsolationLevel();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getIsolationLevel <em>Isolation Level</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QSetTransactionStatement#getIsolationLevel <em>Isolation Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Isolation Level</em>' attribute.
-	 * @see org.asup.db.syntax.ddl.IsolationLevel
+	 * @see org.asup.db.syntax.dbl.IsolationLevel
 	 * @see #getIsolationLevel()
 	 * @generated
 	 */
@@ -58,7 +58,7 @@ public interface QSetTransactionStatement extends QDefinitionStatement {
 
 	/**
 	 * Returns the value of the '<em><b>Rw Operation</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.asup.db.syntax.ddl.RWOperation}.
+	 * The literals are from the enumeration {@link org.asup.db.syntax.dbl.RWOperation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rw Operation</em>' attribute isn't clear,
@@ -66,20 +66,20 @@ public interface QSetTransactionStatement extends QDefinitionStatement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rw Operation</em>' attribute.
-	 * @see org.asup.db.syntax.ddl.RWOperation
+	 * @see org.asup.db.syntax.dbl.RWOperation
 	 * @see #setRwOperation(RWOperation)
-	 * @see org.asup.db.syntax.ddl.QDdlPackage#getSetTransactionStatement_RwOperation()
+	 * @see org.asup.db.syntax.dbl.QDblPackage#getSetTransactionStatement_RwOperation()
 	 * @model
 	 * @generated
 	 */
 	RWOperation getRwOperation();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getRwOperation <em>Rw Operation</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QSetTransactionStatement#getRwOperation <em>Rw Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Rw Operation</em>' attribute.
-	 * @see org.asup.db.syntax.ddl.RWOperation
+	 * @see org.asup.db.syntax.dbl.RWOperation
 	 * @see #getRwOperation()
 	 * @generated
 	 */

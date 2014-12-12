@@ -5,7 +5,7 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.db.syntax.ddl;
+package org.asup.db.syntax.dbl;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Isolation Level</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.asup.db.syntax.ddl.QDdlPackage#getIsolationLevel()
+ * @see org.asup.db.syntax.dbl.QDblPackage#getIsolationLevel()
  * @model
  * @generated
  */

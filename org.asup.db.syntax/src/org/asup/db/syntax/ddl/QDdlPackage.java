@@ -193,16 +193,6 @@ public interface QDdlPackage extends EPackage {
 	int SET_CONNECTION_STATEMENT = 13;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl <em>Set Transaction Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getSetTransactionStatement()
-	 * @generated
-	 */
-	int SET_TRANSACTION_STATEMENT = 14;
-
-	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.impl.CallStatementImpl <em>Call Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -627,33 +617,6 @@ public interface QDdlPackage extends EPackage {
 	int SET_CONNECTION_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Isolation Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Rw Operation</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_TRANSACTION_STATEMENT__RW_OPERATION = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Set Transaction Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_TRANSACTION_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.DEFINITION_STATEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.DropRange <em>Drop Range</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -661,7 +624,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getDropRange()
 	 * @generated
 	 */
-	int DROP_RANGE = 15;
+	int DROP_RANGE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetElement <em>Target Element</em>}' enum.
@@ -671,7 +634,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetElement()
 	 * @generated
 	 */
-	int TARGET_ELEMENT = 16;
+	int TARGET_ELEMENT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.ShareMode <em>Share Mode</em>}' enum.
@@ -681,7 +644,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getShareMode()
 	 * @generated
 	 */
-	int SHARE_MODE = 17;
+	int SHARE_MODE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.ddl.TargetItem <em>Target Item</em>}' enum.
@@ -691,29 +654,7 @@ public interface QDdlPackage extends EPackage {
 	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getTargetItem()
 	 * @generated
 	 */
-	int TARGET_ITEM = 18;
-
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.IsolationLevel <em>Isolation Level</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.IsolationLevel
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getIsolationLevel()
-	 * @generated
-	 */
-	int ISOLATION_LEVEL = 19;
-
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.ddl.RWOperation <em>RW Operation</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.ddl.RWOperation
-	 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRWOperation()
-	 * @generated
-	 */
-	int RW_OPERATION = 20;
+	int TARGET_ITEM = 17;
 
 
 	/**
@@ -1177,38 +1118,6 @@ public interface QDdlPackage extends EPackage {
 	EAttribute getSetConnectionStatement_DatabaseName();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QSetTransactionStatement <em>Set Transaction Statement</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Set Transaction Statement</em>'.
-	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement
-	 * @generated
-	 */
-	EClass getSetTransactionStatement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getIsolationLevel <em>Isolation Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Isolation Level</em>'.
-	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement#getIsolationLevel()
-	 * @see #getSetTransactionStatement()
-	 * @generated
-	 */
-	EAttribute getSetTransactionStatement_IsolationLevel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.ddl.QSetTransactionStatement#getRwOperation <em>Rw Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rw Operation</em>'.
-	 * @see org.asup.db.syntax.ddl.QSetTransactionStatement#getRwOperation()
-	 * @see #getSetTransactionStatement()
-	 * @generated
-	 */
-	EAttribute getSetTransactionStatement_RwOperation();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.ddl.QCallStatement <em>Call Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1279,26 +1188,6 @@ public interface QDdlPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getTargetItem();
-
-	/**
-	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.IsolationLevel <em>Isolation Level</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Isolation Level</em>'.
-	 * @see org.asup.db.syntax.ddl.IsolationLevel
-	 * @generated
-	 */
-	EEnum getIsolationLevel();
-
-	/**
-	 * Returns the meta object for enum '{@link org.asup.db.syntax.ddl.RWOperation <em>RW Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>RW Operation</em>'.
-	 * @see org.asup.db.syntax.ddl.RWOperation
-	 * @generated
-	 */
-	EEnum getRWOperation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1693,32 +1582,6 @@ public interface QDdlPackage extends EPackage {
 		EAttribute SET_CONNECTION_STATEMENT__DATABASE_NAME = eINSTANCE.getSetConnectionStatement_DatabaseName();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl <em>Set Transaction Statement</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.impl.SetTransactionStatementImpl
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getSetTransactionStatement()
-		 * @generated
-		 */
-		EClass SET_TRANSACTION_STATEMENT = eINSTANCE.getSetTransactionStatement();
-
-		/**
-		 * The meta object literal for the '<em><b>Isolation Level</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL = eINSTANCE.getSetTransactionStatement_IsolationLevel();
-
-		/**
-		 * The meta object literal for the '<em><b>Rw Operation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SET_TRANSACTION_STATEMENT__RW_OPERATION = eINSTANCE.getSetTransactionStatement_RwOperation();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.impl.CallStatementImpl <em>Call Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1783,26 +1646,6 @@ public interface QDdlPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum TARGET_ITEM = eINSTANCE.getTargetItem();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.IsolationLevel <em>Isolation Level</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.IsolationLevel
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getIsolationLevel()
-		 * @generated
-		 */
-		EEnum ISOLATION_LEVEL = eINSTANCE.getIsolationLevel();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.ddl.RWOperation <em>RW Operation</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.ddl.RWOperation
-		 * @see org.asup.db.syntax.ddl.impl.DdlPackageImpl#getRWOperation()
-		 * @generated
-		 */
-		EEnum RW_OPERATION = eINSTANCE.getRWOperation();
 
 	}
 

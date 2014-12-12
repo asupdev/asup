@@ -19,7 +19,6 @@ import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDefinitionParseResult;
 import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.ddl.DropRange;
-import org.asup.db.syntax.ddl.IsolationLevel;
 import org.asup.db.syntax.ddl.QCallStatement;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
@@ -34,8 +33,6 @@ import org.asup.db.syntax.ddl.QReleaseStatement;
 import org.asup.db.syntax.ddl.QRenameStatement;
 import org.asup.db.syntax.ddl.QRollbackStatement;
 import org.asup.db.syntax.ddl.QSetConnectionStatement;
-import org.asup.db.syntax.ddl.QSetTransactionStatement;
-import org.asup.db.syntax.ddl.RWOperation;
 import org.asup.db.syntax.ddl.ShareMode;
 import org.asup.db.syntax.ddl.TargetElement;
 import org.asup.db.syntax.ddl.TargetItem;
@@ -161,83 +158,12 @@ public class DDLModelBuilder {
 		case DDLLexer.SET_CONNECTION_STATEMENT:
 			result = manageSetConnectionStatement(tree);
 			break;				
-		
-		case DDLLexer.SET_TRANSACTION_STATEMENT:
-			result = manageSetTransactionStatement(tree);
-			break;				
-		default:
-			break;
 		}
 
 		return result;
 	}
 
-	private QDefinitionStatement manageSetTransactionStatement(Tree tree) {
-		QSetTransactionStatement setTransactionStatement = DdlFactoryImpl.eINSTANCE.createSetTransactionStatement();
-		
-		Tree fieldToken = null;
-		
-		for (int i = 0; i < tree.getChildCount(); i++) {
-			fieldToken = tree.getChild(i);
-		
-			switch (fieldToken.getType()) {
-			
-			case DDLLexer.ISOLATION_LEVEL:
-				
-				if (fieldToken.getChildCount() > 0){
-					fieldToken = fieldToken.getChild(0);
-					
-					switch (fieldToken.getType()) {
-					case DDLLexer.SERIALIZABLE:
-						setTransactionStatement.setIsolationLevel(IsolationLevel.SERIALIZABLE);
-						break;
-						
-					case DDLLexer.NO_COMMIT:
-						setTransactionStatement.setIsolationLevel(IsolationLevel.NO_COMMIT);
-						break;	
-						
-					case DDLLexer.READ_UNCOMMITTED:
-						setTransactionStatement.setIsolationLevel(IsolationLevel.READ_UNCOMMITTED);
-						break;			
-					
-					case DDLLexer.READ_COMMITTED:
-						setTransactionStatement.setIsolationLevel(IsolationLevel.READ_COMMITTED);
-						break;				
-					
-					case DDLLexer.REPEATABLE_READ:
-						setTransactionStatement.setIsolationLevel(IsolationLevel.REPEATABLE_READ);
-						break;				
-					}
-					
-				}			
-				
-				break;
-			
-			case DDLLexer.RW_OPERATION:
-				
-				if (fieldToken.getChildCount() > 0){
-					fieldToken = fieldToken.getChild(0);
-					
-					switch (fieldToken.getType()) {
-					
-					case DDLLexer.READ_ONLY:
-						setTransactionStatement.setRwOperation(RWOperation.READ_ONLY);
-						break;
-						
-					case DDLLexer.READ_WRITE:
-						setTransactionStatement.setRwOperation(RWOperation.READ_WRITE);
-						break;
-					}
-				
-				break;
-				}
-			}
-		}
-		
-		return setTransactionStatement; 
-
-	}
-
+	
 	private QDefinitionStatement manageSetConnectionStatement(Tree tree) {
 		QSetConnectionStatement setConnectionStatement = DdlFactoryImpl.eINSTANCE.createSetConnectionStatement();		
 		

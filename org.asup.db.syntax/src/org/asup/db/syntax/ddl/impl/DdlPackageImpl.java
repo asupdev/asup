@@ -9,8 +9,9 @@ package org.asup.db.syntax.ddl.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
+import org.asup.db.syntax.dbl.QDblPackage;
+import org.asup.db.syntax.dbl.impl.DblPackageImpl;
 import org.asup.db.syntax.ddl.DropRange;
-import org.asup.db.syntax.ddl.IsolationLevel;
 import org.asup.db.syntax.ddl.QCallStatement;
 import org.asup.db.syntax.ddl.QCommitStatement;
 import org.asup.db.syntax.ddl.QConnectStatement;
@@ -27,8 +28,6 @@ import org.asup.db.syntax.ddl.QReleaseStatement;
 import org.asup.db.syntax.ddl.QRenameStatement;
 import org.asup.db.syntax.ddl.QRollbackStatement;
 import org.asup.db.syntax.ddl.QSetConnectionStatement;
-import org.asup.db.syntax.ddl.QSetTransactionStatement;
-import org.asup.db.syntax.ddl.RWOperation;
 import org.asup.db.syntax.ddl.ShareMode;
 import org.asup.db.syntax.ddl.TargetElement;
 import org.asup.db.syntax.ddl.TargetItem;
@@ -134,12 +133,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass setTransactionStatementEClass = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass callStatementEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,18 +158,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * @generated
 	 */
 	private EEnum targetItemEEnum = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum isolationLevelEEnum = null;
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum rwOperationEEnum = null;
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
@@ -230,16 +211,19 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		// Obtain or create and register interdependencies
 		DatabaseSyntaxPackageImpl theDatabaseSyntaxPackage = (DatabaseSyntaxPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) instanceof DatabaseSyntaxPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI) : QDatabaseSyntaxPackage.eINSTANCE);
 		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) : QDatabaseDMLPackage.eINSTANCE);
+		DblPackageImpl theDblPackage = (DblPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDblPackage.eNS_URI) instanceof DblPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDblPackage.eNS_URI) : QDblPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDdlPackage.createPackageContents();
 		theDatabaseSyntaxPackage.createPackageContents();
 		theDatabaseDMLPackage.createPackageContents();
+		theDblPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDdlPackage.initializePackageContents();
 		theDatabaseSyntaxPackage.initializePackageContents();
 		theDatabaseDMLPackage.initializePackageContents();
+		theDblPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDdlPackage.freeze();
@@ -642,33 +626,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSetTransactionStatement() {
-		return setTransactionStatementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSetTransactionStatement_IsolationLevel() {
-		return (EAttribute)setTransactionStatementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSetTransactionStatement_RwOperation() {
-		return (EAttribute)setTransactionStatementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCallStatement() {
 		return callStatementEClass;
 	}
@@ -725,24 +682,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 	 */
 	public EEnum getTargetItem() {
 		return targetItemEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getIsolationLevel() {
-		return isolationLevelEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getRWOperation() {
-		return rwOperationEEnum;
 	}
 
 	/**
@@ -833,17 +772,11 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		setConnectionStatementEClass = createEClass(SET_CONNECTION_STATEMENT);
 		createEAttribute(setConnectionStatementEClass, SET_CONNECTION_STATEMENT__DATABASE_NAME);
 
-		setTransactionStatementEClass = createEClass(SET_TRANSACTION_STATEMENT);
-		createEAttribute(setTransactionStatementEClass, SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL);
-		createEAttribute(setTransactionStatementEClass, SET_TRANSACTION_STATEMENT__RW_OPERATION);
-
 		// Create enums
 		dropRangeEEnum = createEEnum(DROP_RANGE);
 		targetElementEEnum = createEEnum(TARGET_ELEMENT);
 		shareModeEEnum = createEEnum(SHARE_MODE);
 		targetItemEEnum = createEEnum(TARGET_ITEM);
-		isolationLevelEEnum = createEEnum(ISOLATION_LEVEL);
-		rwOperationEEnum = createEEnum(RW_OPERATION);
 	}
 
 	/**
@@ -893,7 +826,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		renameStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		rollbackStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 		setConnectionStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
-		setTransactionStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getDefinitionStatement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(callStatementEClass, QCallStatement.class, "CallStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -956,10 +888,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		initEClass(setConnectionStatementEClass, QSetConnectionStatement.class, "SetConnectionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSetConnectionStatement_DatabaseName(), theEcorePackage.getEString(), "databaseName", null, 0, 1, QSetConnectionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(setTransactionStatementEClass, QSetTransactionStatement.class, "SetTransactionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSetTransactionStatement_IsolationLevel(), this.getIsolationLevel(), "isolationLevel", null, 0, 1, QSetTransactionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSetTransactionStatement_RwOperation(), this.getRWOperation(), "rwOperation", null, 0, 1, QSetTransactionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		// Initialize enums and add enum literals
 		initEEnum(dropRangeEEnum, DropRange.class, "DropRange");
 		addEEnumLiteral(dropRangeEEnum, DropRange.RESTRICT);
@@ -979,17 +907,6 @@ public class DdlPackageImpl extends EPackageImpl implements QDdlPackage {
 		addEEnumLiteral(targetItemEEnum, TargetItem.ALL);
 		addEEnumLiteral(targetItemEEnum, TargetItem.CURRENT);
 		addEEnumLiteral(targetItemEEnum, TargetItem.ALLSQL);
-
-		initEEnum(isolationLevelEEnum, IsolationLevel.class, "IsolationLevel");
-		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.SERIALIZABLE);
-		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.NO_COMMIT);
-		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.READ_UNCOMMITTED);
-		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.READ_COMMITTED);
-		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.REPEATABLE_READ);
-
-		initEEnum(rwOperationEEnum, RWOperation.class, "RWOperation");
-		addEEnumLiteral(rwOperationEEnum, RWOperation.READ_ONLY);
-		addEEnumLiteral(rwOperationEEnum, RWOperation.READ_WRITE);
 	}
 
 } //DdlPackageImpl

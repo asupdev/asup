@@ -33,6 +33,8 @@ import org.asup.db.syntax.QStatementParser;
 import org.asup.db.syntax.QStatementWriter;
 import org.asup.db.syntax.StatementType;
 
+import org.asup.db.syntax.dbl.QDblPackage;
+import org.asup.db.syntax.dbl.impl.DblPackageImpl;
 import org.asup.db.syntax.ddl.QDdlPackage;
 
 import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
@@ -290,16 +292,19 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		// Obtain or create and register interdependencies
 		DdlPackageImpl theDdlPackage = (DdlPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) instanceof DdlPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI) : QDdlPackage.eINSTANCE);
 		DatabaseDMLPackageImpl theDatabaseDMLPackage = (DatabaseDMLPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) instanceof DatabaseDMLPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI) : QDatabaseDMLPackage.eINSTANCE);
+		DblPackageImpl theDblPackage = (DblPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QDblPackage.eNS_URI) instanceof DblPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QDblPackage.eNS_URI) : QDblPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theDatabaseSyntaxPackage.createPackageContents();
 		theDdlPackage.createPackageContents();
 		theDatabaseDMLPackage.createPackageContents();
+		theDblPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theDatabaseSyntaxPackage.initializePackageContents();
 		theDdlPackage.initializePackageContents();
 		theDatabaseDMLPackage.initializePackageContents();
+		theDblPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatabaseSyntaxPackage.freeze();
@@ -680,6 +685,7 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		// Obtain other dependent packages
 		QDdlPackage theDdlPackage = (QDdlPackage)EPackage.Registry.INSTANCE.getEPackage(QDdlPackage.eNS_URI);
 		QDatabaseDMLPackage theDatabaseDMLPackage = (QDatabaseDMLPackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseDMLPackage.eNS_URI);
+		QDblPackage theDblPackage = (QDblPackage)EPackage.Registry.INSTANCE.getEPackage(QDblPackage.eNS_URI);
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
@@ -692,6 +698,7 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		// Add subpackages
 		getESubpackages().add(theDdlPackage);
 		getESubpackages().add(theDatabaseDMLPackage);
+		getESubpackages().add(theDblPackage);
 
 		// Create type parameters
 

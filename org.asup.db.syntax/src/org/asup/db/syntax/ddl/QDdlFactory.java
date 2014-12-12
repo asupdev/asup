@@ -144,15 +144,6 @@ public interface QDdlFactory extends EFactory {
 	QSetConnectionStatement createSetConnectionStatement();
 
 	/**
-	 * Returns a new object of class '<em>Set Transaction Statement</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Set Transaction Statement</em>'.
-	 * @generated
-	 */
-	QSetTransactionStatement createSetTransactionStatement();
-
-	/**
 	 * Returns a new object of class '<em>Call Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
