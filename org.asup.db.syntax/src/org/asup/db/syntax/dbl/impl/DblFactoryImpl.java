@@ -62,7 +62,12 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: return (EObject)createExecuteImmediateStatement();
+			case QDblPackage.EXECUTE_STATEMENT: return (EObject)createExecuteStatement();
+			case QDblPackage.INTO_CLAUSE: return (EObject)createIntoClause();
 			case QDblPackage.SET_TRANSACTION_STATEMENT: return (EObject)createSetTransactionStatement();
+			case QDblPackage.OPEN_STATEMENT: return (EObject)createOpenStatement();
+			case QDblPackage.PREPARE_STATEMENT: return (EObject)createPrepareStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,6 +85,10 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 				return createIsolationLevelFromString(eDataType, initialValue);
 			case QDblPackage.RW_OPERATION:
 				return createRWOperationFromString(eDataType, initialValue);
+			case QDblPackage.OPEN_TYPE:
+				return createOpenTypeFromString(eDataType, initialValue);
+			case QDblPackage.USING_TYPE:
+				return createUsingTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -97,6 +106,10 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 				return convertIsolationLevelToString(eDataType, instanceValue);
 			case QDblPackage.RW_OPERATION:
 				return convertRWOperationToString(eDataType, instanceValue);
+			case QDblPackage.OPEN_TYPE:
+				return convertOpenTypeToString(eDataType, instanceValue);
+			case QDblPackage.USING_TYPE:
+				return convertUsingTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,9 +120,59 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QExecuteImmediateStatement createExecuteImmediateStatement() {
+		ExecuteImmediateStatementImpl executeImmediateStatement = new ExecuteImmediateStatementImpl();
+		return executeImmediateStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QExecuteStatement createExecuteStatement() {
+		ExecuteStatementImpl executeStatement = new ExecuteStatementImpl();
+		return executeStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QSetTransactionStatement createSetTransactionStatement() {
 		SetTransactionStatementImpl setTransactionStatement = new SetTransactionStatementImpl();
 		return setTransactionStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QOpenStatement createOpenStatement() {
+		OpenStatementImpl openStatement = new OpenStatementImpl();
+		return openStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QPrepareStatement createPrepareStatement() {
+		PrepareStatementImpl prepareStatement = new PrepareStatementImpl();
+		return prepareStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QIntoClause createIntoClause() {
+		IntoClauseImpl intoClause = new IntoClauseImpl();
+		return intoClause;
 	}
 
 	/**
@@ -149,6 +212,46 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * @generated
 	 */
 	public String convertRWOperationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OpenType createOpenTypeFromString(EDataType eDataType, String initialValue) {
+		OpenType result = OpenType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOpenTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UsingType createUsingTypeFromString(EDataType eDataType, String initialValue) {
+		UsingType result = UsingType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertUsingTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

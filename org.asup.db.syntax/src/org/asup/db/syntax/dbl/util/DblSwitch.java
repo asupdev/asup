@@ -73,6 +73,26 @@ public class DblSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: {
+				QExecuteImmediateStatement executeImmediateStatement = (QExecuteImmediateStatement)theEObject;
+				T result = caseExecuteImmediateStatement(executeImmediateStatement);
+				if (result == null) result = caseBindingStatement(executeImmediateStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDblPackage.EXECUTE_STATEMENT: {
+				QExecuteStatement executeStatement = (QExecuteStatement)theEObject;
+				T result = caseExecuteStatement(executeStatement);
+				if (result == null) result = caseBindingStatement(executeStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDblPackage.INTO_CLAUSE: {
+				QIntoClause intoClause = (QIntoClause)theEObject;
+				T result = caseIntoClause(intoClause);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QDblPackage.SET_TRANSACTION_STATEMENT: {
 				QSetTransactionStatement setTransactionStatement = (QSetTransactionStatement)theEObject;
 				T result = caseSetTransactionStatement(setTransactionStatement);
@@ -80,8 +100,52 @@ public class DblSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDblPackage.OPEN_STATEMENT: {
+				QOpenStatement openStatement = (QOpenStatement)theEObject;
+				T result = caseOpenStatement(openStatement);
+				if (result == null) result = caseBindingStatement(openStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDblPackage.PREPARE_STATEMENT: {
+				QPrepareStatement prepareStatement = (QPrepareStatement)theEObject;
+				T result = casePrepareStatement(prepareStatement);
+				if (result == null) result = caseBindingStatement(prepareStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execute Immediate Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execute Immediate Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecuteImmediateStatement(QExecuteImmediateStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execute Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execute Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecuteStatement(QExecuteStatement object) {
+		return null;
 	}
 
 	/**
@@ -96,6 +160,51 @@ public class DblSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSetTransactionStatement(QSetTransactionStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Open Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Open Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOpenStatement(QOpenStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Prepare Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Prepare Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePrepareStatement(QPrepareStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Into Clause</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Into Clause</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntoClause(QIntoClause object) {
 		return null;
 	}
 

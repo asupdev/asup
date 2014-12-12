@@ -8,32 +8,31 @@
 package org.asup.db.syntax.dbl.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
-
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
-
 import org.asup.db.syntax.dbl.IsolationLevel;
+import org.asup.db.syntax.dbl.OpenType;
 import org.asup.db.syntax.dbl.QDblFactory;
 import org.asup.db.syntax.dbl.QDblPackage;
+import org.asup.db.syntax.dbl.QExecuteImmediateStatement;
+import org.asup.db.syntax.dbl.QExecuteStatement;
+import org.asup.db.syntax.dbl.QIntoClause;
+import org.asup.db.syntax.dbl.QOpenStatement;
+import org.asup.db.syntax.dbl.QPrepareStatement;
 import org.asup.db.syntax.dbl.QSetTransactionStatement;
 import org.asup.db.syntax.dbl.RWOperation;
-
+import org.asup.db.syntax.dbl.UsingType;
 import org.asup.db.syntax.ddl.QDdlPackage;
-
 import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
-
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
-
 import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
-
 import org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl;
-
 import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -48,7 +47,42 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass executeImmediateStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executeStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass setTransactionStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass openStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass prepareStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass intoClauseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,6 +97,20 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * @generated
 	 */
 	private EEnum rwOperationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum openTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum usingTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -145,6 +193,42 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExecuteImmediateStatement() {
+		return executeImmediateStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExecuteImmediateStatement_Variable() {
+		return (EAttribute)executeImmediateStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecuteStatement() {
+		return executeStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExecuteStatement_Statement() {
+		return (EAttribute)executeStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSetTransactionStatement() {
 		return setTransactionStatementEClass;
 	}
@@ -172,6 +256,105 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOpenStatement() {
+		return openStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenStatement_Cursor() {
+		return (EAttribute)openStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenStatement_Using() {
+		return (EAttribute)openStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOpenStatement_UsingType() {
+		return (EAttribute)openStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPrepareStatement() {
+		return prepareStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPrepareStatement_From() {
+		return (EAttribute)prepareStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPrepareStatement_Into() {
+		return (EReference)prepareStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPrepareStatement_StatementName() {
+		return (EAttribute)prepareStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntoClause() {
+		return intoClauseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntoClause_DescriptorName() {
+		return (EAttribute)intoClauseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntoClause_Using() {
+		return (EAttribute)intoClauseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getIsolationLevel() {
 		return isolationLevelEEnum;
 	}
@@ -183,6 +366,24 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 */
 	public EEnum getRWOperation() {
 		return rwOperationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOpenType() {
+		return openTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getUsingType() {
+		return usingTypeEEnum;
 	}
 
 	/**
@@ -213,13 +414,35 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		executeImmediateStatementEClass = createEClass(EXECUTE_IMMEDIATE_STATEMENT);
+		createEAttribute(executeImmediateStatementEClass, EXECUTE_IMMEDIATE_STATEMENT__VARIABLE);
+
+		executeStatementEClass = createEClass(EXECUTE_STATEMENT);
+		createEAttribute(executeStatementEClass, EXECUTE_STATEMENT__STATEMENT);
+
+		intoClauseEClass = createEClass(INTO_CLAUSE);
+		createEAttribute(intoClauseEClass, INTO_CLAUSE__DESCRIPTOR_NAME);
+		createEAttribute(intoClauseEClass, INTO_CLAUSE__USING);
+
 		setTransactionStatementEClass = createEClass(SET_TRANSACTION_STATEMENT);
 		createEAttribute(setTransactionStatementEClass, SET_TRANSACTION_STATEMENT__ISOLATION_LEVEL);
 		createEAttribute(setTransactionStatementEClass, SET_TRANSACTION_STATEMENT__RW_OPERATION);
 
+		openStatementEClass = createEClass(OPEN_STATEMENT);
+		createEAttribute(openStatementEClass, OPEN_STATEMENT__CURSOR);
+		createEAttribute(openStatementEClass, OPEN_STATEMENT__USING);
+		createEAttribute(openStatementEClass, OPEN_STATEMENT__USING_TYPE);
+
+		prepareStatementEClass = createEClass(PREPARE_STATEMENT);
+		createEAttribute(prepareStatementEClass, PREPARE_STATEMENT__FROM);
+		createEReference(prepareStatementEClass, PREPARE_STATEMENT__INTO);
+		createEAttribute(prepareStatementEClass, PREPARE_STATEMENT__STATEMENT_NAME);
+
 		// Create enums
 		isolationLevelEEnum = createEEnum(ISOLATION_LEVEL);
 		rwOperationEEnum = createEEnum(RW_OPERATION);
+		openTypeEEnum = createEEnum(OPEN_TYPE);
+		usingTypeEEnum = createEEnum(USING_TYPE);
 	}
 
 	/**
@@ -247,18 +470,43 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 
 		// Obtain other dependent packages
 		QDatabaseSyntaxPackage theDatabaseSyntaxPackage = (QDatabaseSyntaxPackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseSyntaxPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		executeImmediateStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getBindingStatement());
+		executeStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getBindingStatement());
 		setTransactionStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getBindingStatement());
+		openStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getBindingStatement());
+		prepareStatementEClass.getESuperTypes().add(theDatabaseSyntaxPackage.getBindingStatement());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(executeImmediateStatementEClass, QExecuteImmediateStatement.class, "ExecuteImmediateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExecuteImmediateStatement_Variable(), theEcorePackage.getEString(), "variable", null, 0, 1, QExecuteImmediateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(executeStatementEClass, QExecuteStatement.class, "ExecuteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExecuteStatement_Statement(), theEcorePackage.getEString(), "statement", null, 0, 1, QExecuteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(intoClauseEClass, QIntoClause.class, "IntoClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntoClause_DescriptorName(), theEcorePackage.getEString(), "descriptorName", null, 1, 1, QIntoClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntoClause_Using(), this.getUsingType(), "using", null, 0, 1, QIntoClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(setTransactionStatementEClass, QSetTransactionStatement.class, "SetTransactionStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSetTransactionStatement_IsolationLevel(), this.getIsolationLevel(), "isolationLevel", null, 0, 1, QSetTransactionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetTransactionStatement_RwOperation(), this.getRWOperation(), "rwOperation", null, 0, 1, QSetTransactionStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(openStatementEClass, QOpenStatement.class, "OpenStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOpenStatement_Cursor(), theEcorePackage.getEString(), "cursor", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenStatement_Using(), theEcorePackage.getEString(), "using", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenStatement_UsingType(), this.getOpenType(), "usingType", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(prepareStatementEClass, QPrepareStatement.class, "PrepareStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPrepareStatement_From(), theEcorePackage.getEString(), "from", null, 1, 1, QPrepareStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrepareStatement_Into(), this.getIntoClause(), null, "into", null, 0, 1, QPrepareStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrepareStatement_StatementName(), theEcorePackage.getEString(), "statementName", null, 0, 1, QPrepareStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(isolationLevelEEnum, IsolationLevel.class, "IsolationLevel");
@@ -271,6 +519,18 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		initEEnum(rwOperationEEnum, RWOperation.class, "RWOperation");
 		addEEnumLiteral(rwOperationEEnum, RWOperation.READ_ONLY);
 		addEEnumLiteral(rwOperationEEnum, RWOperation.READ_WRITE);
+
+		initEEnum(openTypeEEnum, OpenType.class, "OpenType");
+		addEEnumLiteral(openTypeEEnum, OpenType.VARIABLE);
+		addEEnumLiteral(openTypeEEnum, OpenType.DESCRIPTOR);
+
+		initEEnum(usingTypeEEnum, UsingType.class, "UsingType");
+		addEEnumLiteral(usingTypeEEnum, UsingType.NAMES);
+		addEEnumLiteral(usingTypeEEnum, UsingType.SYSTEM_NAMES);
+		addEEnumLiteral(usingTypeEEnum, UsingType.LABELS);
+		addEEnumLiteral(usingTypeEEnum, UsingType.ANY);
+		addEEnumLiteral(usingTypeEEnum, UsingType.BOTH);
+		addEEnumLiteral(usingTypeEEnum, UsingType.ALL);
 	}
 
 } //DblPackageImpl

@@ -75,8 +75,28 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 	protected DblSwitch<Adapter> modelSwitch =
 		new DblSwitch<Adapter>() {
 			@Override
+			public Adapter caseExecuteImmediateStatement(QExecuteImmediateStatement object) {
+				return createExecuteImmediateStatementAdapter();
+			}
+			@Override
+			public Adapter caseExecuteStatement(QExecuteStatement object) {
+				return createExecuteStatementAdapter();
+			}
+			@Override
+			public Adapter caseIntoClause(QIntoClause object) {
+				return createIntoClauseAdapter();
+			}
+			@Override
 			public Adapter caseSetTransactionStatement(QSetTransactionStatement object) {
 				return createSetTransactionStatementAdapter();
+			}
+			@Override
+			public Adapter caseOpenStatement(QOpenStatement object) {
+				return createOpenStatementAdapter();
+			}
+			@Override
+			public Adapter casePrepareStatement(QPrepareStatement object) {
+				return createPrepareStatementAdapter();
 			}
 			@Override
 			public Adapter caseBindingStatement(QBindingStatement object) {
@@ -103,6 +123,34 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QExecuteImmediateStatement <em>Execute Immediate Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QExecuteImmediateStatement
+	 * @generated
+	 */
+	public Adapter createExecuteImmediateStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QExecuteStatement <em>Execute Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QExecuteStatement
+	 * @generated
+	 */
+	public Adapter createExecuteStatementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QSetTransactionStatement <em>Set Transaction Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -113,6 +161,48 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSetTransactionStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QOpenStatement <em>Open Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QOpenStatement
+	 * @generated
+	 */
+	public Adapter createOpenStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QPrepareStatement <em>Prepare Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QPrepareStatement
+	 * @generated
+	 */
+	public Adapter createPrepareStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QIntoClause <em>Into Clause</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QIntoClause
+	 * @generated
+	 */
+	public Adapter createIntoClauseAdapter() {
 		return null;
 	}
 

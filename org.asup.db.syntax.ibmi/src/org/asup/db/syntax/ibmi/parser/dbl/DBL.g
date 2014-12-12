@@ -43,6 +43,7 @@ tokens {
   DESCRIPTOR;
   EMPTY_GROUPING_SET;
   EXECUTE_STATEMENT;
+  EXECUTE_IMMEDIATE_STATEMENT;
   FETCH_POSITION;
   FETCH_STATEMENT;	
   FIELD_NAME;
@@ -95,6 +96,7 @@ tokens {
   QUALIFIED;
   FOR_COLUMN;
   NOT_NULL;
+  USING_DESCRIPTOR;
   VALUES;
   VARIABLE;
   VIEW_NAME;
@@ -504,11 +506,14 @@ blob_type
 sql
   : statement EOF
   ;
+  
 statement
   : 
   set_transaction_statement
   |
   execute_statement
+  |
+  execute_immediate_statement
   |
   open_statement
   |
@@ -585,18 +590,24 @@ read_write
  
  /* EXECUTE STATEMENT*/
  
+ 
  execute_statement
  	:
- 	EXECUTE (IMMEDIATE)? (i=Identifier|v=Variable) -> {$i != null}? ^(EXECUTE_STATEMENT ^(IMMEDIATE)? ^(STATEMENT $i))
-						       -> ^(EXECUTE_STATEMENT ^(IMMEDIATE)? ^(VARIABLE $v))
-	;
+ 	EXECUTE s=Identifier -> ^(EXECUTE_STATEMENT ^(STATEMENT $s))						    
+	;	
+	
+execute_immediate_statement
+ 	:
+ 	EXECUTE IMMEDIATE v=Variable -> ^(EXECUTE_IMMEDIATE_STATEMENT ^(VARIABLE $v))
+	;	
 
 /* OPEN STATEMENT */ 
+ 
  open_statement
  	:	
- 	OPEN c=Identifier ((USING v1=Variable)|(USING DESCRIPTOR (v2=Variable|d=Identifier)))? 	-> {$v1 != null}? ^(OPEN_STATEMENT ^(CURSOR $c) ^(VARIABLE $v1))
- 												-> {$v2 != null}? ^(OPEN_STATEMENT ^(CURSOR $c) ^(VARIABLE $v2))
- 												-> {$d != null}? ^(OPEN_STATEMENT ^(CURSOR $c) ^(DESCRIPTOR $d))
+ 	OPEN c=Identifier ((USING v1=Variable)|(USING DESCRIPTOR (v2=Variable|d=Identifier)))? 	-> {$v1 != null}? ^(OPEN_STATEMENT ^(CURSOR $c) ^(USING ^(VARIABLE $v1)))
+ 												-> {$v2 != null}? ^(OPEN_STATEMENT ^(CURSOR $c) ^(USING_DESCRIPTOR ^(VARIABLE $v2)))
+ 												-> {$d != null}? ^(OPEN_STATEMENT ^(CURSOR $c)  ^(USING_DESCRIPTOR ^(DESCRIPTOR $d)))
  												-> ^(OPEN_STATEMENT ^(CURSOR $c))
  												
  	;

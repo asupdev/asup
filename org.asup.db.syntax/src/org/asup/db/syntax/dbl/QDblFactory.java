@@ -27,6 +27,24 @@ public interface QDblFactory extends EFactory {
 	QDblFactory eINSTANCE = org.asup.db.syntax.dbl.impl.DblFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Execute Immediate Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execute Immediate Statement</em>'.
+	 * @generated
+	 */
+	QExecuteImmediateStatement createExecuteImmediateStatement();
+
+	/**
+	 * Returns a new object of class '<em>Execute Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execute Statement</em>'.
+	 * @generated
+	 */
+	QExecuteStatement createExecuteStatement();
+
+	/**
 	 * Returns a new object of class '<em>Set Transaction Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,6 +52,33 @@ public interface QDblFactory extends EFactory {
 	 * @generated
 	 */
 	QSetTransactionStatement createSetTransactionStatement();
+
+	/**
+	 * Returns a new object of class '<em>Open Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Open Statement</em>'.
+	 * @generated
+	 */
+	QOpenStatement createOpenStatement();
+
+	/**
+	 * Returns a new object of class '<em>Prepare Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Prepare Statement</em>'.
+	 * @generated
+	 */
+	QPrepareStatement createPrepareStatement();
+
+	/**
+	 * Returns a new object of class '<em>Into Clause</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Into Clause</em>'.
+	 * @generated
+	 */
+	QIntoClause createIntoClause();
 
 	/**
 	 * Returns the package supported by this factory.

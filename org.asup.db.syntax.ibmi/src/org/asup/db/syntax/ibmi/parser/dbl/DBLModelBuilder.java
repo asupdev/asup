@@ -8,11 +8,18 @@ import org.antlr.runtime.tree.Tree;
 import org.asup.db.syntax.QBindingParseResult;
 import org.asup.db.syntax.QBindingStatement;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
-import org.asup.db.syntax.QDefinitionStatement;
 import org.asup.db.syntax.dbl.IsolationLevel;
+import org.asup.db.syntax.dbl.OpenType;
+import org.asup.db.syntax.dbl.QExecuteImmediateStatement;
+import org.asup.db.syntax.dbl.QExecuteStatement;
+import org.asup.db.syntax.dbl.QIntoClause;
+import org.asup.db.syntax.dbl.QOpenStatement;
+import org.asup.db.syntax.dbl.QPrepareStatement;
 import org.asup.db.syntax.dbl.QSetTransactionStatement;
 import org.asup.db.syntax.dbl.RWOperation;
+import org.asup.db.syntax.dbl.UsingType;
 import org.asup.db.syntax.dbl.impl.DblFactoryImpl;
+import org.asup.db.syntax.dbl.impl.IntoClauseImpl;
 
 
 
@@ -64,6 +71,10 @@ public class DBLModelBuilder {
 		case DBLLexer.EXECUTE_STATEMENT:
 			result = manageExecuteStatement(tree);
 			break;	
+		
+		case DBLLexer.EXECUTE_IMMEDIATE_STATEMENT:
+			result = manageExecuteImmediateStatement(tree);
+			break;		
 
 		case DBLLexer.PREPARE_STATEMENT:
 			result = managePrepareStatement(tree);
@@ -121,20 +132,169 @@ public class DBLModelBuilder {
 
 
 	private QBindingStatement managePrepareStatement(Tree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QPrepareStatement prepareStatement = DblFactoryImpl.eINSTANCE.createPrepareStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DBLLexer.STATEMENT:
+				
+				prepareStatement.setStatementName(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DBLLexer.INTO:
+				
+				QIntoClause intoClause = DblFactoryImpl.eINSTANCE.createIntoClause();
+				
+				Tree intoToken = null;
+				
+				for (int i2 = 0; i2 < fieldToken.getChildCount(); i2++) {
+					
+					intoToken = fieldToken.getChild(i);
+				
+					switch (intoToken.getType()) {
+					
+					case DBLLexer.VARIABLE:
+												
+						intoClause.setDescriptorName(intoToken.getChild(0).getText());
+						
+						break;
+					
+					case DBLLexer.USING:
+						
+						switch (intoToken.getChild(0).getType()) {
+						
+						case DBLLexer.NAMES:
+							
+							intoClause.setUsing(UsingType.NAMES);;
+							break;
+						
+						case DBLLexer.LABELS:
+							
+							intoClause.setUsing(UsingType.LABELS);;
+							break;	
+						
+						case DBLLexer.ANY:
+							
+							intoClause.setUsing(UsingType.ANY);;
+							break;	
+							
+						case DBLLexer.BOTH:
+							
+							intoClause.setUsing(UsingType.BOTH);;
+							break;	
+						
+						case DBLLexer.ALL:
+							
+							intoClause.setUsing(UsingType.ALL);;
+							break;	
+						
+						case DBLLexer.SYSTEM_NAMES:
+							
+							intoClause.setUsing(UsingType.SYSTEM_NAMES);;
+							break;
+						}
+						
+						break;
+					
+					}
+				}
+				
+				prepareStatement.setInto(intoClause);
+				
+				break;	
+				
+			case DBLLexer.FROM:
+				
+				Tree variableToken = fieldToken.getChild(0);
+				
+				if (variableToken != null && variableToken.getType()==DBLLexer.VARIABLE) { 				
+					prepareStatement.setFrom(variableToken.getChild(0).getText());
+				}
+				
+				break;	
+				
+			}
+			
+		}
+		
+		return prepareStatement;
 	}
 
 
 	private QBindingStatement manageOpenStatement(Tree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QOpenStatement openStatement = DblFactoryImpl.eINSTANCE.createOpenStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DBLLexer.CURSOR:
+				
+				openStatement.setCursor(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DBLLexer.USING:
+				openStatement.setUsingType(OpenType.VARIABLE);
+				
+				Tree variableToken = fieldToken.getChild(0);
+				
+				if (variableToken != null && variableToken.getType()==DBLLexer.VARIABLE) {
+					openStatement.setUsing(variableToken.getChild(0).getText());
+				}
+				
+				break;
+			
+			case DBLLexer.USING_DESCRIPTOR:
+				openStatement.setUsingType(OpenType.DESCRIPTOR);
+				
+				Tree childToken = fieldToken.getChild(0);
+				
+				if ((childToken != null && (childToken.getType()==DBLLexer.VARIABLE || childToken.getType()==DBLLexer.DESCRIPTOR))) {
+					openStatement.setUsing(childToken.getChild(0).getText());
+				}
+				
+				break;	
+			}
+		}
+
+		return openStatement;
+		
 	}
 
+	private QBindingStatement manageExecuteImmediateStatement(Tree tree) {
+		QExecuteImmediateStatement executeImmediateStatement = DblFactoryImpl.eINSTANCE.createExecuteImmediateStatement();
+		
+		Tree statementToken = tree.getChild(0);
+		
+		if (statementToken != null && statementToken.getType() == DBLLexer.VARIABLE) {
+			executeImmediateStatement.setVariable(statementToken.getChild(0).getText());
+		}
+
+		return executeImmediateStatement;
+
+	}
 
 	private QBindingStatement manageExecuteStatement(Tree tree) {
-		// TODO Auto-generated method stub
-		return null;
+
+		QExecuteStatement executeStatement = DblFactoryImpl.eINSTANCE.createExecuteStatement();
+		
+		Tree statementToken = tree.getChild(0);
+		
+		if (statementToken != null && statementToken.getType() == DBLLexer.STATEMENT) {
+			executeStatement.setStatement(statementToken.getChild(0).getText());
+		}
+
+		return executeStatement;
 	}
 
 

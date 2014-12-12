@@ -23,11 +23,11 @@ public class StatementHelper {
 			"^[\\s]*[rR][eE][nN][aA][mM][eE][\\s]*[iI][nN][dD][eE][xX].*", /*RENAME INDEX*/
 			"^[\\s]*[rR][eE][lL][eE][aA][sS][eE].*", /*RELEASE*/
 			"^[\\s]*[rR][oO][lL][lL][bB][aA][cC][kK].*", /*ROLLBACK*/
-			"^[\\s]*[sS][eE][tT][\\s]*[cC][oO][nN][nN][eE][cC][tT][iI][oO][nN].*", /*SET CONNECTION*/
-			"^[\\s]*[sS][eE][tT][\\s]*[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN].*", /*SET TRANSACTION*/
+			"^[\\s]*[sS][eE][tT][\\s]*[cC][oO][nN][nN][eE][cC][tT][iI][oO][nN].*" /*SET CONNECTION*/			
 	};
 	
 	private static String[] dblRegex = {
+		"^[\\s]*[sS][eE][tT][\\s]*[tT][rR][aA][nN][sS][aA][cC][tT][iI][oO][nN].*", /*SET TRANSACTION*/
 		"^[\\s]*[sS][eE][lL][eE][cC][tT].*[iI][nN][tT][oO][\\s]*.*", /*SELECT INTO*/
 		"^[\\s]*[oO][pP][eE][nN][\\s]*.*", /*OPEN*/
 		"^[\\s]*[pP][rR][eE][pP][aA][rR][eE][\\s]*.*", /*PREPARE*/
