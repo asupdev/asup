@@ -9,6 +9,7 @@ package org.asup.il.flow.impl;
 
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.flow.*;
 import org.asup.il.flow.EvalOperator;
 import org.asup.il.flow.PassingType;
 import org.asup.il.flow.QBlock;
@@ -95,6 +96,7 @@ public class IntegratedLanguageFlowFactoryImpl extends EFactoryImpl implements Q
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QIntegratedLanguageFlowPackage.ANNOTATION_COMMAND: return (EObject)createAnnotationCommand();
 			case QIntegratedLanguageFlowPackage.BLOCK: return (EObject)createBlock();
 			case QIntegratedLanguageFlowPackage.BREAK: return (EObject)createBreak();
 			case QIntegratedLanguageFlowPackage.CALL: return (EObject)createCall();
@@ -163,6 +165,16 @@ public class IntegratedLanguageFlowFactoryImpl extends EFactoryImpl implements Q
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QAnnotationCommand createAnnotationCommand() {
+		AnnotationCommandImpl annotationCommand = new AnnotationCommandImpl();
+		return annotationCommand;
 	}
 
 	/**

@@ -5,53 +5,54 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.dk.compiler.impl;
+package org.asup.il.flow.impl;
 
-import org.asup.dk.compiler.QCompilerLinker;
-import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
-
-import org.asup.il.core.impl.FacetImpl;
+import org.asup.il.flow.QAnnotationCommand;
+import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Linker</b></em>'.
+ * An implementation of the model object '<em><b>Annotation Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.dk.compiler.impl.CompilerLinkerImpl#getLinkedClass <em>Linked Class</em>}</li>
+ *   <li>{@link org.asup.il.flow.impl.AnnotationCommandImpl#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
+public class AnnotationCommandImpl extends AnnotationImpl implements QAnnotationCommand {
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * The cached value of the '{@link #getLinkedClass() <em>Linked Class</em>}' attribute.
+	 * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLinkedClass()
+	 * @see #getCommand()
 	 * @generated
 	 * @ordered
 	 */
-	protected Class<?> linkedClass;
+	protected static final String COMMAND_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected String command = COMMAND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompilerLinkerImpl() {
+	protected AnnotationCommandImpl() {
 		super();
 	}
 
@@ -62,7 +63,7 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDevelopmentKitCompilerPackage.Literals.COMPILER_LINKER;
+		return QIntegratedLanguageFlowPackage.Literals.ANNOTATION_COMMAND;
 	}
 
 	/**
@@ -70,8 +71,8 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class<?> getLinkedClass() {
-		return linkedClass;
+	public String getCommand() {
+		return command;
 	}
 
 	/**
@@ -79,11 +80,11 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLinkedClass(Class<?> newLinkedClass) {
-		Class<?> oldLinkedClass = linkedClass;
-		linkedClass = newLinkedClass;
+	public void setCommand(String newCommand) {
+		String oldCommand = command;
+		command = newCommand;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDevelopmentKitCompilerPackage.COMPILER_LINKER__LINKED_CLASS, oldLinkedClass, linkedClass));
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageFlowPackage.ANNOTATION_COMMAND__COMMAND, oldCommand, command));
 	}
 
 	/**
@@ -94,8 +95,8 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDevelopmentKitCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
-				return getLinkedClass();
+			case QIntegratedLanguageFlowPackage.ANNOTATION_COMMAND__COMMAND:
+				return getCommand();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +109,8 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDevelopmentKitCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
-				setLinkedClass((Class<?>)newValue);
+			case QIntegratedLanguageFlowPackage.ANNOTATION_COMMAND__COMMAND:
+				setCommand((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +124,8 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDevelopmentKitCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
-				setLinkedClass((Class<?>)null);
+			case QIntegratedLanguageFlowPackage.ANNOTATION_COMMAND__COMMAND:
+				setCommand(COMMAND_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -138,8 +139,8 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDevelopmentKitCompilerPackage.COMPILER_LINKER__LINKED_CLASS:
-				return linkedClass != null;
+			case QIntegratedLanguageFlowPackage.ANNOTATION_COMMAND__COMMAND:
+				return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,10 +155,10 @@ public class CompilerLinkerImpl extends FacetImpl implements QCompilerLinker {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (linkedClass: ");
-		result.append(linkedClass);
+		result.append(" (command: ");
+		result.append(command);
 		result.append(')');
 		return result.toString();
 	}
 
-} //CompilerLinkerImpl
+} //AnnotationCommandImpl

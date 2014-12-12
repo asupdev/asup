@@ -7,11 +7,12 @@
  */
 package org.asup.il.flow.impl;
 
-import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.flow.EvalOperator;
 import org.asup.il.flow.PassingType;
+import org.asup.il.flow.QAnnotation;
+import org.asup.il.flow.QAnnotationCommand;
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QBreak;
 import org.asup.il.flow.QCall;
@@ -25,8 +26,6 @@ import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFileSection;
 import org.asup.il.flow.QFlowSection;
 import org.asup.il.flow.QFor;
-import org.asup.il.flow.QProcedure;
-import org.asup.il.flow.QProcedureExec;
 import org.asup.il.flow.QIf;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
@@ -39,6 +38,8 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QMonitor;
 import org.asup.il.flow.QOnError;
 import org.asup.il.flow.QParameterList;
+import org.asup.il.flow.QProcedure;
+import org.asup.il.flow.QProcedureExec;
 import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QReturn;
@@ -70,6 +71,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements QIntegratedLanguageFlowPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationCommandEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -397,7 +412,6 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		isInited = true;
 
 		// Initialize simple dependencies
-		QDatabaseCorePackage.eINSTANCE.eClass();
 		QIntegratedLanguageIsamPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -413,6 +427,33 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(QIntegratedLanguageFlowPackage.eNS_URI, theIntegratedLanguageFlowPackage);
 		return theIntegratedLanguageFlowPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnnotationCommand() {
+		return annotationCommandEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnnotationCommand_Command() {
+		return (EAttribute)annotationCommandEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1095,8 +1136,8 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSetupSection_Application() {
-		return (EAttribute)setupSectionEClass.getEStructuralFeatures().get(0);
+	public EReference getSetupSection_Annotations() {
+		return (EReference)setupSectionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1104,7 +1145,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSetupSection_Encoding() {
+	public EAttribute getSetupSection_Application() {
 		return (EAttribute)setupSectionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1113,7 +1154,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSetupSection_ExpressionType() {
+	public EAttribute getSetupSection_Encoding() {
 		return (EAttribute)setupSectionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1122,7 +1163,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSetupSection_Modules() {
+	public EAttribute getSetupSection_ExpressionType() {
 		return (EAttribute)setupSectionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1131,8 +1172,17 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSetupSection_TermSensitive() {
+	public EAttribute getSetupSection_Modules() {
 		return (EAttribute)setupSectionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetupSection_TermSensitive() {
+		return (EAttribute)setupSectionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1298,6 +1348,11 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		isCreated = true;
 
 		// Create classes and their features
+		annotationEClass = createEClass(ANNOTATION);
+
+		annotationCommandEClass = createEClass(ANNOTATION_COMMAND);
+		createEAttribute(annotationCommandEClass, ANNOTATION_COMMAND__COMMAND);
+
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__STATEMENTS);
 
@@ -1406,6 +1461,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		createEAttribute(routineExecEClass, ROUTINE_EXEC__ROUTINE);
 
 		setupSectionEClass = createEClass(SETUP_SECTION);
+		createEReference(setupSectionEClass, SETUP_SECTION__ANNOTATIONS);
 		createEAttribute(setupSectionEClass, SETUP_SECTION__APPLICATION);
 		createEAttribute(setupSectionEClass, SETUP_SECTION__ENCODING);
 		createEAttribute(setupSectionEClass, SETUP_SECTION__EXPRESSION_TYPE);
@@ -1475,6 +1531,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		prototypeEClass_DT.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		annotationCommandEClass.getESuperTypes().add(this.getAnnotation());
 		blockEClass.getESuperTypes().add(this.getStatement());
 		breakEClass.getESuperTypes().add(this.getStatement());
 		callEClass.getESuperTypes().add(this.getInvoke());
@@ -1513,6 +1570,11 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		whileEClass.getESuperTypes().add(this.getIteration());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(annotationEClass, QAnnotation.class, "Annotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotationCommandEClass, QAnnotationCommand.class, "AnnotationCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnnotationCommand_Command(), ecorePackage.getEString(), "command", null, 1, 1, QAnnotationCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(blockEClass, QBlock.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_Statements(), this.getStatement(), null, "statements", null, 0, -1, QBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1635,6 +1697,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getRoutineExec_Routine(), ecorePackage.getEString(), "routine", null, 0, 1, QRoutineExec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(setupSectionEClass, QSetupSection.class, "SetupSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetupSection_Annotations(), this.getAnnotation(), null, "annotations", null, 0, -1, QSetupSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetupSection_Application(), ecorePackage.getEString(), "application", null, 0, 1, QSetupSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetupSection_Encoding(), ecorePackage.getEString(), "encoding", null, 0, 1, QSetupSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetupSection_ExpressionType(), ecorePackage.getEString(), "expressionType", null, 0, 1, QSetupSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

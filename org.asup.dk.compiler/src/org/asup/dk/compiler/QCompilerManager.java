@@ -22,7 +22,7 @@ import org.asup.os.type.file.QFile;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.dk.compiler.QCompilerPackage#getCompilerManager()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilerManager()
  * @model abstract="true"
  * @generated
  */

@@ -24,7 +24,7 @@ import org.asup.il.isam.QKeyListTerm;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.dk.compiler.QCompilerPackage#getCompilationContext()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationContext()
  * @model abstract="true"
  * @generated
  */

@@ -14,17 +14,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.asup.dk.compiler.QCompilerPackage
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage
  * @generated
  */
-public interface QCompilerFactory extends EFactory {
+public interface QDevelopmentKitCompilerFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	QCompilerFactory eINSTANCE = org.asup.dk.compiler.impl.CompilerFactoryImpl.init();
+	QDevelopmentKitCompilerFactory eINSTANCE = org.asup.dk.compiler.impl.DevelopmentKitCompilerFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Compilation Setup</em>'.
@@ -36,10 +36,10 @@ public interface QCompilerFactory extends EFactory {
 	QCompilationSetup createCompilationSetup();
 
 	/**
-	 * Returns a new object of class '<em>Linker</em>'.
+	 * Returns a new object of class '<em>Compiler Linker</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Linker</em>'.
+	 * @return a new object of class '<em>Compiler Linker</em>'.
 	 * @generated
 	 */
 	QCompilerLinker createCompilerLinker();
@@ -51,6 +51,6 @@ public interface QCompilerFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	QCompilerPackage getCompilerPackage();
+	QDevelopmentKitCompilerPackage getDevelopmentKitCompilerPackage();
 
 } //QCompilerFactory

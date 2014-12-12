@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.asup.dk.compiler.QCompilerFactory
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerFactory
  * @model kind="package"
  * @generated
  */
-public interface QCompilerPackage extends EPackage {
+public interface QDevelopmentKitCompilerPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -60,14 +60,14 @@ public interface QCompilerPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	QCompilerPackage eINSTANCE = org.asup.dk.compiler.impl.CompilerPackageImpl.init();
+	QDevelopmentKitCompilerPackage eINSTANCE = org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationContextImpl <em>Compilation Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.impl.CompilationContextImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilationContext()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationContext()
 	 * @generated
 	 */
 	int COMPILATION_CONTEXT = 0;
@@ -86,7 +86,7 @@ public interface QCompilerPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.impl.CompilationSetupImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilationSetup()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationSetup()
 	 * @generated
 	 */
 	int COMPILATION_SETUP = 1;
@@ -123,7 +123,7 @@ public interface QCompilerPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.impl.UnitConverterImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverter()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getUnitConverter()
 	 * @generated
 	 */
 	int UNIT_CONVERTER = 3;
@@ -133,7 +133,7 @@ public interface QCompilerPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.impl.UnitConverterRegistryImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverterRegistry()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getUnitConverterRegistry()
 	 * @generated
 	 */
 	int UNIT_CONVERTER_REGISTRY = 4;
@@ -143,7 +143,7 @@ public interface QCompilerPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.EntryType
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getEntryType()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getEntryType()
 	 * @generated
 	 */
 	int ENTRY_TYPE = 6;
@@ -153,17 +153,17 @@ public interface QCompilerPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.CaseSensitiveType
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCaseSensitiveType()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCaseSensitiveType()
 	 * @generated
 	 */
 	int CASE_SENSITIVE_TYPE = 7;
 
 	/**
-	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Manager</em>}' class.
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Compiler Manager</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.impl.CompilerManagerImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerManager()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilerManager()
 	 * @generated
 	 */
 	int COMPILER_MANAGER = 2;
@@ -178,7 +178,7 @@ public interface QCompilerPackage extends EPackage {
 	int COMPILER_MANAGER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
 
 	/**
-	 * The number of structural features of the '<em>Manager</em>' class.
+	 * The number of structural features of the '<em>Compiler Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -270,11 +270,11 @@ public interface QCompilerPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerLinkerImpl <em>Linker</em>}' class.
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerLinkerImpl <em>Compiler Linker</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.asup.dk.compiler.impl.CompilerLinkerImpl
-	 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerLinker()
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilerLinker()
 	 * @generated
 	 */
 	int COMPILER_LINKER = 5;
@@ -289,7 +289,7 @@ public interface QCompilerPackage extends EPackage {
 	int COMPILER_LINKER__LINKED_CLASS = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Linker</em>' class.
+	 * The number of structural features of the '<em>Compiler Linker</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -360,10 +360,10 @@ public interface QCompilerPackage extends EPackage {
 	EClass getUnitConverterRegistry();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilerLinker <em>Linker</em>}'.
+	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilerLinker <em>Compiler Linker</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Linker</em>'.
+	 * @return the meta object for class '<em>Compiler Linker</em>'.
 	 * @see org.asup.dk.compiler.QCompilerLinker
 	 * @generated
 	 */
@@ -401,23 +401,23 @@ public interface QCompilerPackage extends EPackage {
 	EEnum getCaseSensitiveType();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilerManager <em>Manager</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Manager</em>'.
-	 * @see org.asup.dk.compiler.QCompilerManager
-	 * @generated
-	 */
-	EClass getCompilerManager();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	QCompilerFactory getCompilerFactory();
+	QDevelopmentKitCompilerFactory getDevelopmentKitCompilerFactory();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilerManager <em>Compiler Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compiler Manager</em>'.
+	 * @see org.asup.dk.compiler.QCompilerManager
+	 * @generated
+	 */
+	EClass getCompilerManager();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -437,7 +437,7 @@ public interface QCompilerPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.impl.CompilationContextImpl
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilationContext()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationContext()
 		 * @generated
 		 */
 		EClass COMPILATION_CONTEXT = eINSTANCE.getCompilationContext();
@@ -447,7 +447,7 @@ public interface QCompilerPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.impl.CompilationSetupImpl
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilationSetup()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationSetup()
 		 * @generated
 		 */
 		EClass COMPILATION_SETUP = eINSTANCE.getCompilationSetup();
@@ -473,7 +473,7 @@ public interface QCompilerPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.impl.UnitConverterImpl
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverter()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getUnitConverter()
 		 * @generated
 		 */
 		EClass UNIT_CONVERTER = eINSTANCE.getUnitConverter();
@@ -483,17 +483,17 @@ public interface QCompilerPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.impl.UnitConverterRegistryImpl
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getUnitConverterRegistry()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getUnitConverterRegistry()
 		 * @generated
 		 */
 		EClass UNIT_CONVERTER_REGISTRY = eINSTANCE.getUnitConverterRegistry();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilerLinkerImpl <em>Linker</em>}' class.
+		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilerLinkerImpl <em>Compiler Linker</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.impl.CompilerLinkerImpl
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerLinker()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilerLinker()
 		 * @generated
 		 */
 		EClass COMPILER_LINKER = eINSTANCE.getCompilerLinker();
@@ -511,7 +511,7 @@ public interface QCompilerPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.EntryType
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getEntryType()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getEntryType()
 		 * @generated
 		 */
 		EEnum ENTRY_TYPE = eINSTANCE.getEntryType();
@@ -521,17 +521,17 @@ public interface QCompilerPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.CaseSensitiveType
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCaseSensitiveType()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCaseSensitiveType()
 		 * @generated
 		 */
 		EEnum CASE_SENSITIVE_TYPE = eINSTANCE.getCaseSensitiveType();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Manager</em>}' class.
+		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Compiler Manager</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see org.asup.dk.compiler.impl.CompilerManagerImpl
-		 * @see org.asup.dk.compiler.impl.CompilerPackageImpl#getCompilerManager()
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilerManager()
 		 * @generated
 		 */
 		EClass COMPILER_MANAGER = eINSTANCE.getCompilerManager();

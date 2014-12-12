@@ -18,6 +18,7 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.il.flow.QSetupSection#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link org.asup.il.flow.QSetupSection#getApplication <em>Application</em>}</li>
  *   <li>{@link org.asup.il.flow.QSetupSection#getEncoding <em>Encoding</em>}</li>
  *   <li>{@link org.asup.il.flow.QSetupSection#getExpressionType <em>Expression Type</em>}</li>
@@ -31,6 +32,22 @@ import java.util.List;
  * @generated
  */
 public interface QSetupSection extends QUnitSection {
+	/**
+	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.il.flow.QAnnotation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotations</em>' containment reference list.
+	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getSetupSection_Annotations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QAnnotation> getAnnotations();
+
 	/**
 	 * Returns the value of the '<em><b>Application</b></em>' attribute.
 	 * <!-- begin-user-doc -->

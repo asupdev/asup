@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.QCompilerFactory;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
@@ -73,7 +73,7 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 		if(linkedClass == null)				
 			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: "+externalFile);
 
-		QCompilerLinker compilerLinker = QCompilerFactory.eINSTANCE.createCompilerLinker();
+		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
 		compilerLinker.setLinkedClass(linkedClass);
 		compoundDataTerm.getFacets().add(compilerLinker);
 

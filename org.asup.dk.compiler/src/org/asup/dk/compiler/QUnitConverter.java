@@ -19,7 +19,7 @@ import org.asup.os.core.jobs.QJob;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.dk.compiler.QCompilerPackage#getUnitConverter()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getUnitConverter()
  * @model abstract="true"
  * @generated
  */

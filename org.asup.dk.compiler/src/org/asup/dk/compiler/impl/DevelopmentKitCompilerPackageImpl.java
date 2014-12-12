@@ -7,32 +7,62 @@
  */
 package org.asup.dk.compiler.impl;
 
+import org.asup.db.core.QDatabaseCorePackage;
+
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.EntryType;
 import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.QCompilerFactory;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QCompilerManager;
-import org.asup.dk.compiler.QCompilerPackage;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
+import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.dk.compiler.QUnitConverter;
 import org.asup.dk.compiler.QUnitConverterRegistry;
+
 import org.asup.fw.core.QFrameworkCorePackage;
+
 import org.asup.fw.java.QFrameworkJavaPackage;
+
 import org.asup.il.core.QIntegratedLanguageCorePackage;
+
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
+
 import org.asup.il.isam.QIntegratedLanguageIsamPackage;
+
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
+
 import org.asup.os.type.file.QOperatingSystemFilePackage;
+
 import org.asup.os.type.module.QOperatingSystemModulePackage;
+
 import org.asup.os.type.pgm.QOperatingSystemProgramPackage;
+
+import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
+
+import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
+
+import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
+
+import org.eclipse.datatools.modelbase.sql.expressions.SQLExpressionsPackage;
+
+import org.eclipse.datatools.modelbase.sql.routines.SQLRoutinesPackage;
+
+import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
+
+import org.eclipse.datatools.modelbase.sql.statements.SQLStatementsPackage;
+
+import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -41,7 +71,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackage {
+public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements QDevelopmentKitCompilerPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,6 +85,13 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * @generated
 	 */
 	private EClass compilationSetupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compilerManagerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,13 +129,6 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	private EEnum caseSensitiveTypeEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass compilerManagerEClass = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -109,12 +139,12 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see org.asup.dk.compiler.QCompilerPackage#eNS_URI
+	 * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private CompilerPackageImpl() {
-		super(eNS_URI, QCompilerFactory.eINSTANCE);
+	private DevelopmentKitCompilerPackageImpl() {
+		super(eNS_URI, QDevelopmentKitCompilerFactory.eINSTANCE);
 	}
 
 	/**
@@ -127,7 +157,7 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link QCompilerPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link QDevelopmentKitCompilerPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,33 +166,42 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static QCompilerPackage init() {
-		if (isInited) return (QCompilerPackage)EPackage.Registry.INSTANCE.getEPackage(QCompilerPackage.eNS_URI);
+	public static QDevelopmentKitCompilerPackage init() {
+		if (isInited) return (QDevelopmentKitCompilerPackage)EPackage.Registry.INSTANCE.getEPackage(QDevelopmentKitCompilerPackage.eNS_URI);
 
 		// Obtain or create and register package
-		CompilerPackageImpl theCompilerPackage = (CompilerPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CompilerPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CompilerPackageImpl());
+		DevelopmentKitCompilerPackageImpl theDevelopmentKitCompilerPackage = (DevelopmentKitCompilerPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DevelopmentKitCompilerPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DevelopmentKitCompilerPackageImpl());
 
 		isInited = true;
 
 		// Initialize simple dependencies
+		QDatabaseCorePackage.eINSTANCE.eClass();
 		QIntegratedLanguageFlowPackage.eINSTANCE.eClass();
 		QOperatingSystemFilePackage.eINSTANCE.eClass();
 		QOperatingSystemModulePackage.eINSTANCE.eClass();
 		QOperatingSystemProgramPackage.eINSTANCE.eClass();
+		SQLConstraintsPackage.eINSTANCE.eClass();
+		SQLTablesPackage.eINSTANCE.eClass();
+		SQLSchemaPackage.eINSTANCE.eClass();
+		SQLExpressionsPackage.eINSTANCE.eClass();
+		SQLDataTypesPackage.eINSTANCE.eClass();
+		SQLStatementsPackage.eINSTANCE.eClass();
+		SQLRoutinesPackage.eINSTANCE.eClass();
+		SQLAccessControlPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theCompilerPackage.createPackageContents();
+		theDevelopmentKitCompilerPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theCompilerPackage.initializePackageContents();
+		theDevelopmentKitCompilerPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theCompilerPackage.freeze();
+		theDevelopmentKitCompilerPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(QCompilerPackage.eNS_URI, theCompilerPackage);
-		return theCompilerPackage;
+		EPackage.Registry.INSTANCE.put(QDevelopmentKitCompilerPackage.eNS_URI, theDevelopmentKitCompilerPackage);
+		return theDevelopmentKitCompilerPackage;
 	}
 
 	/**
@@ -199,6 +238,15 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 */
 	public EAttribute getCompilationSetup_EntryType() {
 		return (EAttribute)compilationSetupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompilerManager() {
+		return compilerManagerEClass;
 	}
 
 	/**
@@ -260,17 +308,8 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCompilerManager() {
-		return compilerManagerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QCompilerFactory getCompilerFactory() {
-		return (QCompilerFactory)getEFactoryInstance();
+	public QDevelopmentKitCompilerFactory getDevelopmentKitCompilerFactory() {
+		return (QDevelopmentKitCompilerFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -528,4 +567,4 @@ public class CompilerPackageImpl extends EPackageImpl implements QCompilerPackag
 		createResource(eNS_URI);
 	}
 
-} //CompilerPackageImpl
+} //DevelopmentKitCompilerPackageImpl

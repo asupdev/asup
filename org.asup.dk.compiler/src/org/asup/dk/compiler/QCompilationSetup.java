@@ -21,7 +21,7 @@ package org.asup.dk.compiler;
  * </ul>
  * </p>
  *
- * @see org.asup.dk.compiler.QCompilerPackage#getCompilationSetup()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationSetup()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface QCompilationSetup {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Package</em>' attribute.
 	 * @see #setBasePackage(String)
-	 * @see org.asup.dk.compiler.QCompilerPackage#getCompilationSetup_BasePackage()
+	 * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationSetup_BasePackage()
 	 * @model
 	 * @generated
 	 */
@@ -64,7 +64,7 @@ public interface QCompilationSetup {
 	 * @return the value of the '<em>Entry Type</em>' attribute.
 	 * @see org.asup.dk.compiler.EntryType
 	 * @see #setEntryType(EntryType)
-	 * @see org.asup.dk.compiler.QCompilerPackage#getCompilationSetup_EntryType()
+	 * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationSetup_EntryType()
 	 * @model
 	 * @generated
 	 */

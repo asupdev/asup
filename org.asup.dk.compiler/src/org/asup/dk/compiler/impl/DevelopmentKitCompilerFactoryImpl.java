@@ -24,24 +24,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactory {
+public class DevelopmentKitCompilerFactoryImpl extends EFactoryImpl implements QDevelopmentKitCompilerFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static QCompilerFactory init() {
+	public static QDevelopmentKitCompilerFactory init() {
 		try {
-			QCompilerFactory theCompilerFactory = (QCompilerFactory)EPackage.Registry.INSTANCE.getEFactory(QCompilerPackage.eNS_URI);
-			if (theCompilerFactory != null) {
-				return theCompilerFactory;
+			QDevelopmentKitCompilerFactory theDevelopmentKitCompilerFactory = (QDevelopmentKitCompilerFactory)EPackage.Registry.INSTANCE.getEFactory(QDevelopmentKitCompilerPackage.eNS_URI);
+			if (theDevelopmentKitCompilerFactory != null) {
+				return theDevelopmentKitCompilerFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new CompilerFactoryImpl();
+		return new DevelopmentKitCompilerFactoryImpl();
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompilerFactoryImpl() {
+	public DevelopmentKitCompilerFactoryImpl() {
 		super();
 	}
 
@@ -62,8 +62,8 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QCompilerPackage.COMPILATION_SETUP: return (EObject)createCompilationSetup();
-			case QCompilerPackage.COMPILER_LINKER: return (EObject)createCompilerLinker();
+			case QDevelopmentKitCompilerPackage.COMPILATION_SETUP: return (EObject)createCompilationSetup();
+			case QDevelopmentKitCompilerPackage.COMPILER_LINKER: return (EObject)createCompilerLinker();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -77,9 +77,9 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case QCompilerPackage.ENTRY_TYPE:
+			case QDevelopmentKitCompilerPackage.ENTRY_TYPE:
 				return createEntryTypeFromString(eDataType, initialValue);
-			case QCompilerPackage.CASE_SENSITIVE_TYPE:
+			case QDevelopmentKitCompilerPackage.CASE_SENSITIVE_TYPE:
 				return createCaseSensitiveTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -94,9 +94,9 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case QCompilerPackage.ENTRY_TYPE:
+			case QDevelopmentKitCompilerPackage.ENTRY_TYPE:
 				return convertEntryTypeToString(eDataType, instanceValue);
-			case QCompilerPackage.CASE_SENSITIVE_TYPE:
+			case QDevelopmentKitCompilerPackage.CASE_SENSITIVE_TYPE:
 				return convertCaseSensitiveTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -168,8 +168,8 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCompilerPackage getCompilerPackage() {
-		return (QCompilerPackage)getEPackage();
+	public QDevelopmentKitCompilerPackage getDevelopmentKitCompilerPackage() {
+		return (QDevelopmentKitCompilerPackage)getEPackage();
 	}
 
 	/**
@@ -179,8 +179,8 @@ public class CompilerFactoryImpl extends EFactoryImpl implements QCompilerFactor
 	 * @generated
 	 */
 	@Deprecated
-	public static QCompilerPackage getPackage() {
-		return QCompilerPackage.eINSTANCE;
+	public static QDevelopmentKitCompilerPackage getPackage() {
+		return QDevelopmentKitCompilerPackage.eINSTANCE;
 	}
 
-} //CompilerFactoryImpl
+} //DevelopmentKitCompilerFactoryImpl

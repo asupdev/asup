@@ -15,7 +15,7 @@
       <!-- @generated dk-compiler -->
       <package
             uri="http://ww.asup.org/dk/compiler"
-            class="org.asup.dk.compiler.QCompilerPackage"
+            class="org.asup.dk.compiler.QDevelopmentKitCompilerPackage"
             genModel="model/dk-compiler.genmodel"/>
    </extension>
 
