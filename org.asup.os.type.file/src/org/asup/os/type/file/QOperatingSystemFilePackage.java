@@ -752,13 +752,13 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int DATABASE_FILE_FORMAT__FIELDS = FILE_FORMAT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Format Keys</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Keys</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE_FORMAT__FORMAT_KEYS = FILE_FORMAT_FEATURE_COUNT + 1;
+	int DATABASE_FILE_FORMAT__KEYS = FILE_FORMAT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Unique</b></em>' attribute.
@@ -1888,15 +1888,15 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	EReference getDatabaseFileFormat_Fields();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.asup.os.type.file.QDatabaseFileFormat#getFormatKeys <em>Format Keys</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.asup.os.type.file.QDatabaseFileFormat#getKeys <em>Keys</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Format Keys</em>'.
-	 * @see org.asup.os.type.file.QDatabaseFileFormat#getFormatKeys()
+	 * @return the meta object for the containment reference list '<em>Keys</em>'.
+	 * @see org.asup.os.type.file.QDatabaseFileFormat#getKeys()
 	 * @see #getDatabaseFileFormat()
 	 * @generated
 	 */
-	EReference getDatabaseFileFormat_FormatKeys();
+	EReference getDatabaseFileFormat_Keys();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QDatabaseFileFormat#isUnique <em>Unique</em>}'.
@@ -2408,12 +2408,12 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		EReference DATABASE_FILE_FORMAT__FIELDS = eINSTANCE.getDatabaseFileFormat_Fields();
 
 		/**
-		 * The meta object literal for the '<em><b>Format Keys</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Keys</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DATABASE_FILE_FORMAT__FORMAT_KEYS = eINSTANCE.getDatabaseFileFormat_FormatKeys();
+		EReference DATABASE_FILE_FORMAT__KEYS = eINSTANCE.getDatabaseFileFormat_Keys();
 
 		/**
 		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.

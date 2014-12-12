@@ -134,15 +134,13 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 					result.append(", ");
 			}
 			
-			// append RRNs to defined fields
+			// append RRN to defined columns
 			if(!supportsRelativeRecordNumber)  {
 				for(TableExpression tableExpression: tableExpressions) {
-					if(tableExpressions.size() > 1) {
-						String fieldName = tableExpression.getSQL()+"_"+QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;						
-						result.append(", "+getNameInSQLFormat(fieldName));
-					}
-					else 
-						result.append(", "+getNameInSQLFormat(QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME));
+					result.append(", "+getNameInSQLFormat(QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME));
+					
+					// select first
+					break;
 				}
 			}
 			
@@ -150,7 +148,7 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 
 			result.append(" AS ");
 			
-			// append RRNs to selected columns
+			// append RRN to selected columns
 			if(!supportsRelativeRecordNumber)  {
 				
 				QuerySelectStatement querySelectStatement = (QuerySelectStatement) queryStatement;
@@ -158,13 +156,18 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 
 				for(TableExpression tableExpression: tableExpressions) {
 					
-//					String fieldName = tableExpression.getSQL()+"."+QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
 					String fieldName = QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
+					
+					// column list
 					querySelect.getColumnList().add(StatementHelper.createColumnExpression(fieldName));
+					
+					// result column
 					ResultColumn resultColumn = SQLQueryModelFactory.eINSTANCE.createResultColumn();
 					resultColumn.setValueExpr(StatementHelper.createColumnExpression(fieldName));
 					querySelect.getSelectClause().add(resultColumn);
 
+					// select first
+					break;
 				}
 			}
 			result.append(queryWriter.writeQuery(queryStatement));

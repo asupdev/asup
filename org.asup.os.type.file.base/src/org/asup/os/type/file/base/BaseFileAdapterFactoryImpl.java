@@ -125,14 +125,14 @@ public class BaseFileAdapterFactoryImpl implements IAdapterFactory {
 	private QIndexDef adaptDatabaseFileToIndexDef(QDatabaseFile file) {
 		
 		QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
-		if(databaseFileFormat.getFormatKeys().isEmpty())
+		if(databaseFileFormat.getKeys().isEmpty())
 			return null;
 		
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
 		indexDef.setUnique(databaseFileFormat.isUnique());
 
 		int i=1;
-		for(QFileFormatKey fileFormatKey: databaseFileFormat.getFormatKeys()) {
+		for(QFileFormatKey fileFormatKey: databaseFileFormat.getKeys()) {
 			QIndexColumnDef indexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
 			indexColumnDef.setName(fileFormatKey.getName());
 			indexColumnDef.setSequence(i);

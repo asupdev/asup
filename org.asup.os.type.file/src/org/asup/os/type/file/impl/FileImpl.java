@@ -160,6 +160,7 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 		}
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,6 +7,9 @@
  */
 package org.asup.os.type.file.impl;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QDatabaseFileFormat;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
@@ -113,6 +116,39 @@ public abstract class DatabaseFileImpl extends FileImpl implements QDatabaseFile
 	 */
 	public QDatabaseFileFormat getFileFormat() {
 		return getDatabaseFormat();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getClassURI() {
+
+		try {
+//			TODO			
+//			eClass().getEPackage().getNsURI();
+			String classURI = "file/dbf/" + getApplication() + "/" + getName();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URI getPackageInfoURI() {
+		try {
+			String classURI = "file/dbf/" + getApplication();
+			URI uri = new URI(classURI);
+			return uri;
+		} catch (URISyntaxException e) {
+			return null;
+		}
 	}
 
 	/**

@@ -339,7 +339,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDatabaseFileFormat_FormatKeys() {
+	public EReference getDatabaseFileFormat_Keys() {
 		return (EReference)databaseFileFormatEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -756,7 +756,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		databaseFileFormatEClass = createEClass(DATABASE_FILE_FORMAT);
 		createEReference(databaseFileFormatEClass, DATABASE_FILE_FORMAT__FIELDS);
-		createEReference(databaseFileFormatEClass, DATABASE_FILE_FORMAT__FORMAT_KEYS);
+		createEReference(databaseFileFormatEClass, DATABASE_FILE_FORMAT__KEYS);
 		createEAttribute(databaseFileFormatEClass, DATABASE_FILE_FORMAT__UNIQUE);
 
 		displayFileEClass = createEClass(DISPLAY_FILE);
@@ -932,7 +932,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		initEClass(databaseFileFormatEClass, QDatabaseFileFormat.class, "DatabaseFileFormat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabaseFileFormat_Fields(), this.getDatabaseFileField(), null, "fields", null, 0, -1, QDatabaseFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabaseFileFormat_FormatKeys(), this.getFileFormatKey(), null, "formatKeys", null, 0, -1, QDatabaseFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabaseFileFormat_Keys(), this.getFileFormatKey(), null, "keys", null, 0, -1, QDatabaseFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDatabaseFileFormat_Unique(), ecorePackage.getEBoolean(), "unique", null, 0, 1, QDatabaseFileFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(displayFileEClass, QDisplayFile.class, "DisplayFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

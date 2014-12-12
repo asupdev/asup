@@ -19,7 +19,6 @@ import org.asup.db.syntax.dbl.QSetTransactionStatement;
 import org.asup.db.syntax.dbl.RWOperation;
 import org.asup.db.syntax.dbl.UsingType;
 import org.asup.db.syntax.dbl.impl.DblFactoryImpl;
-import org.asup.db.syntax.dbl.impl.IntoClauseImpl;
 
 
 

@@ -19,7 +19,7 @@ import java.util.List;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getFields <em>Fields</em>}</li>
- *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getFormatKeys <em>Format Keys</em>}</li>
+ *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#getKeys <em>Keys</em>}</li>
  *   <li>{@link org.asup.os.type.file.QDatabaseFileFormat#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
@@ -47,20 +47,20 @@ public interface QDatabaseFileFormat extends QFileFormat<QDatabaseFileField> {
 	List<QDatabaseFileField> getFields();
 
 	/**
-	 * Returns the value of the '<em><b>Format Keys</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Keys</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.os.type.file.QFileFormatKey}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Format Keys</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Keys</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Format Keys</em>' containment reference list.
-	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getDatabaseFileFormat_FormatKeys()
+	 * @return the value of the '<em>Keys</em>' containment reference list.
+	 * @see org.asup.os.type.file.QOperatingSystemFilePackage#getDatabaseFileFormat_Keys()
 	 * @model containment="true"
 	 * @generated
 	 */
-	List<QFileFormatKey> getFormatKeys();
+	List<QFileFormatKey> getKeys();
 
 	/**
 	 * Returns the value of the '<em><b>Unique</b></em>' attribute.

@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getFields <em>Fields</em>}</li>
- *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getFormatKeys <em>Format Keys</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#getKeys <em>Keys</em>}</li>
  *   <li>{@link org.asup.os.type.file.impl.DatabaseFileFormatImpl#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
@@ -49,15 +49,14 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	 */
 	protected EList<QDatabaseFileField> fields;
 	/**
-	 * The cached value of the '{@link #getFormatKeys() <em>Format Keys</em>}' containment reference list.
+	 * The cached value of the '{@link #getKeys() <em>Keys</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFormatKeys()
+	 * @see #getKeys()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QFileFormatKey> formatKeys;
-
+	protected EList<QFileFormatKey> keys;
 	/**
 	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -114,11 +113,11 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<QFileFormatKey> getFormatKeys() {
-		if (formatKeys == null) {
-			formatKeys = new EObjectContainmentEList<QFileFormatKey>(QFileFormatKey.class, this, QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS);
+	public List<QFileFormatKey> getKeys() {
+		if (keys == null) {
+			keys = new EObjectContainmentEList<QFileFormatKey>(QFileFormatKey.class, this, QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__KEYS);
 		}
-		return formatKeys;
+		return keys;
 	}
 
 	/**
@@ -152,8 +151,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 		switch (featureID) {
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
 				return ((InternalEList<?>)getFields()).basicRemove(otherEnd, msgs);
-			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
-				return ((InternalEList<?>)getFormatKeys()).basicRemove(otherEnd, msgs);
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__KEYS:
+				return ((InternalEList<?>)getKeys()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -168,8 +167,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 		switch (featureID) {
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
 				return getFields();
-			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
-				return getFormatKeys();
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__KEYS:
+				return getKeys();
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
 				return isUnique();
 		}
@@ -189,9 +188,9 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 				getFields().clear();
 				getFields().addAll((Collection<? extends QDatabaseFileField>)newValue);
 				return;
-			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
-				getFormatKeys().clear();
-				getFormatKeys().addAll((Collection<? extends QFileFormatKey>)newValue);
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__KEYS:
+				getKeys().clear();
+				getKeys().addAll((Collection<? extends QFileFormatKey>)newValue);
 				return;
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
 				setUnique((Boolean)newValue);
@@ -211,8 +210,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
 				getFields().clear();
 				return;
-			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
-				getFormatKeys().clear();
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__KEYS:
+				getKeys().clear();
 				return;
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
 				setUnique(UNIQUE_EDEFAULT);
@@ -231,8 +230,8 @@ public class DatabaseFileFormatImpl extends FileFormatImpl<QDatabaseFileField> i
 		switch (featureID) {
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FIELDS:
 				return fields != null && !fields.isEmpty();
-			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__FORMAT_KEYS:
-				return formatKeys != null && !formatKeys.isEmpty();
+			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__KEYS:
+				return keys != null && !keys.isEmpty();
 			case QOperatingSystemFilePackage.DATABASE_FILE_FORMAT__UNIQUE:
 				return unique != UNIQUE_EDEFAULT;
 		}
