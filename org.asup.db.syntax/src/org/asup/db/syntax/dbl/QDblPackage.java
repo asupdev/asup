@@ -64,6 +64,79 @@ public interface QDblPackage extends EPackage {
 	QDblPackage eINSTANCE = org.asup.db.syntax.dbl.impl.DblPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl <em>Declare Cursor Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getDeclareCursorStatement()
+	 * @generated
+	 */
+	int DECLARE_CURSOR_STATEMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Cursor Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__CURSOR_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>For Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__FOR_QUERY = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>For Statement Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__DYNAMIC = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Hold</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__HOLD = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Scroll</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__SCROLL = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Declare Cursor Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.ExecuteImmediateStatementImpl <em>Execute Immediate Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -71,7 +144,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getExecuteImmediateStatement()
 	 * @generated
 	 */
-	int EXECUTE_IMMEDIATE_STATEMENT = 0;
+	int EXECUTE_IMMEDIATE_STATEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' attribute.
@@ -99,7 +172,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getExecuteStatement()
 	 * @generated
 	 */
-	int EXECUTE_STATEMENT = 1;
+	int EXECUTE_STATEMENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Statement</b></em>' attribute.
@@ -127,7 +200,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getSetTransactionStatement()
 	 * @generated
 	 */
-	int SET_TRANSACTION_STATEMENT = 3;
+	int SET_TRANSACTION_STATEMENT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.OpenStatementImpl <em>Open Statement</em>}' class.
@@ -137,7 +210,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenStatement()
 	 * @generated
 	 */
-	int OPEN_STATEMENT = 4;
+	int OPEN_STATEMENT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.PrepareStatementImpl <em>Prepare Statement</em>}' class.
@@ -147,7 +220,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getPrepareStatement()
 	 * @generated
 	 */
-	int PREPARE_STATEMENT = 5;
+	int PREPARE_STATEMENT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.IntoClauseImpl <em>Into Clause</em>}' class.
@@ -157,7 +230,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getIntoClause()
 	 * @generated
 	 */
-	int INTO_CLAUSE = 2;
+	int INTO_CLAUSE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Descriptor Name</b></em>' attribute.
@@ -286,6 +359,34 @@ public interface QDblPackage extends EPackage {
 	int PREPARE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.CloseStatementImpl <em>Close Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.dbl.impl.CloseStatementImpl
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getCloseStatement()
+	 * @generated
+	 */
+	int CLOSE_STATEMENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Cursor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOSE_STATEMENT__CURSOR = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Close Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOSE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.IsolationLevel <em>Isolation Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,7 +394,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getIsolationLevel()
 	 * @generated
 	 */
-	int ISOLATION_LEVEL = 6;
+	int ISOLATION_LEVEL = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.RWOperation <em>RW Operation</em>}' enum.
@@ -303,7 +404,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getRWOperation()
 	 * @generated
 	 */
-	int RW_OPERATION = 7;
+	int RW_OPERATION = 9;
 
 
 	/**
@@ -314,7 +415,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenType()
 	 * @generated
 	 */
-	int OPEN_TYPE = 8;
+	int OPEN_TYPE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.UsingType <em>Using Type</em>}' enum.
@@ -324,7 +425,83 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getUsingType()
 	 * @generated
 	 */
-	int USING_TYPE = 9;
+	int USING_TYPE = 11;
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement <em>Declare Cursor Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Declare Cursor Statement</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement
+	 * @generated
+	 */
+	EClass getDeclareCursorStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorName <em>Cursor Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cursor Name</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorName()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_CursorName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getForQuery <em>For Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>For Query</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#getForQuery()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_ForQuery();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getForStatementName <em>For Statement Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>For Statement Name</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#getForStatementName()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_ForStatementName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isDynamic <em>Dynamic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dynamic</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#isDynamic()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_Dynamic();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isHold <em>Hold</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hold</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#isHold()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_Hold();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isScroll <em>Scroll</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scroll</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#isScroll()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_Scroll();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QExecuteImmediateStatement <em>Execute Immediate Statement</em>}'.
@@ -487,6 +664,27 @@ public interface QDblPackage extends EPackage {
 	EAttribute getPrepareStatement_StatementName();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QCloseStatement <em>Close Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Close Statement</em>'.
+	 * @see org.asup.db.syntax.dbl.QCloseStatement
+	 * @generated
+	 */
+	EClass getCloseStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QCloseStatement#getCursor <em>Cursor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cursor</em>'.
+	 * @see org.asup.db.syntax.dbl.QCloseStatement#getCursor()
+	 * @see #getCloseStatement()
+	 * @generated
+	 */
+	EAttribute getCloseStatement_Cursor();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QIntoClause <em>Into Clause</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -580,6 +778,64 @@ public interface QDblPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl <em>Declare Cursor Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getDeclareCursorStatement()
+		 * @generated
+		 */
+		EClass DECLARE_CURSOR_STATEMENT = eINSTANCE.getDeclareCursorStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Cursor Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__CURSOR_NAME = eINSTANCE.getDeclareCursorStatement_CursorName();
+
+		/**
+		 * The meta object literal for the '<em><b>For Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__FOR_QUERY = eINSTANCE.getDeclareCursorStatement_ForQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>For Statement Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME = eINSTANCE.getDeclareCursorStatement_ForStatementName();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__DYNAMIC = eINSTANCE.getDeclareCursorStatement_Dynamic();
+
+		/**
+		 * The meta object literal for the '<em><b>Hold</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__HOLD = eINSTANCE.getDeclareCursorStatement_Hold();
+
+		/**
+		 * The meta object literal for the '<em><b>Scroll</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__SCROLL = eINSTANCE.getDeclareCursorStatement_Scroll();
+
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.ExecuteImmediateStatementImpl <em>Execute Immediate Statement</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -709,6 +965,24 @@ public interface QDblPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PREPARE_STATEMENT__STATEMENT_NAME = eINSTANCE.getPrepareStatement_StatementName();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.CloseStatementImpl <em>Close Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.dbl.impl.CloseStatementImpl
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getCloseStatement()
+		 * @generated
+		 */
+		EClass CLOSE_STATEMENT = eINSTANCE.getCloseStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Cursor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLOSE_STATEMENT__CURSOR = eINSTANCE.getCloseStatement_Cursor();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.IntoClauseImpl <em>Into Clause</em>}' class.

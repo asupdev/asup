@@ -75,6 +75,10 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 	protected DblSwitch<Adapter> modelSwitch =
 		new DblSwitch<Adapter>() {
 			@Override
+			public Adapter caseDeclareCursorStatement(QDeclareCursorStatement object) {
+				return createDeclareCursorStatementAdapter();
+			}
+			@Override
 			public Adapter caseExecuteImmediateStatement(QExecuteImmediateStatement object) {
 				return createExecuteImmediateStatementAdapter();
 			}
@@ -99,6 +103,10 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 				return createPrepareStatementAdapter();
 			}
 			@Override
+			public Adapter caseCloseStatement(QCloseStatement object) {
+				return createCloseStatementAdapter();
+			}
+			@Override
 			public Adapter caseBindingStatement(QBindingStatement object) {
 				return createBindingStatementAdapter();
 			}
@@ -121,6 +129,20 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement <em>Declare Cursor Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement
+	 * @generated
+	 */
+	public Adapter createDeclareCursorStatementAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QExecuteImmediateStatement <em>Execute Immediate Statement</em>}'.
@@ -189,6 +211,20 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPrepareStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QCloseStatement <em>Close Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QCloseStatement
+	 * @generated
+	 */
+	public Adapter createCloseStatementAdapter() {
 		return null;
 	}
 

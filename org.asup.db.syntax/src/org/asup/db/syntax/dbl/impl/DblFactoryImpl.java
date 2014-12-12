@@ -62,12 +62,14 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QDblPackage.DECLARE_CURSOR_STATEMENT: return (EObject)createDeclareCursorStatement();
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: return (EObject)createExecuteImmediateStatement();
 			case QDblPackage.EXECUTE_STATEMENT: return (EObject)createExecuteStatement();
 			case QDblPackage.INTO_CLAUSE: return (EObject)createIntoClause();
 			case QDblPackage.SET_TRANSACTION_STATEMENT: return (EObject)createSetTransactionStatement();
 			case QDblPackage.OPEN_STATEMENT: return (EObject)createOpenStatement();
 			case QDblPackage.PREPARE_STATEMENT: return (EObject)createPrepareStatement();
+			case QDblPackage.CLOSE_STATEMENT: return (EObject)createCloseStatement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -120,6 +122,16 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QDeclareCursorStatement createDeclareCursorStatement() {
+		DeclareCursorStatementImpl declareCursorStatement = new DeclareCursorStatementImpl();
+		return declareCursorStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QExecuteImmediateStatement createExecuteImmediateStatement() {
 		ExecuteImmediateStatementImpl executeImmediateStatement = new ExecuteImmediateStatementImpl();
 		return executeImmediateStatement;
@@ -163,6 +175,16 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	public QPrepareStatement createPrepareStatement() {
 		PrepareStatementImpl prepareStatement = new PrepareStatementImpl();
 		return prepareStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCloseStatement createCloseStatement() {
+		CloseStatementImpl closeStatement = new CloseStatementImpl();
+		return closeStatement;
 	}
 
 	/**

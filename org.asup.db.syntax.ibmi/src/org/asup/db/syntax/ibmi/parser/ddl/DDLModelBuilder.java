@@ -904,7 +904,7 @@ public class DDLModelBuilder {
 		
 		if (definitionString.indexOf("(") != -1 && definitionString.endsWith(")")) {
 		
-			int openBracePos = definitionString.indexOf("(");
+			int openBracePos = definitionString.indexOf("(")+1;
 			String parmsString = definitionString.substring(openBracePos, definitionString.length()-1);
 			StringTokenizer parmTokenizer = new StringTokenizer(parmsString, ",");
 			parms = new String[parmTokenizer.countTokens()];
@@ -939,13 +939,37 @@ public class DDLModelBuilder {
 		if (definitionString.indexOf("(") != -1 && definitionString.endsWith(")")) {
 		
 			int openBracePos = definitionString.indexOf("(");
-			result = definitionString.substring(0, openBracePos) + ")";			
+			result = definitionString.substring(0, openBracePos+1) + ")";			
 		}
 		
 		return result;
 
 	}
 
-	
+	public static void main(String[] args) {
+		
+		DDLModelBuilder modelBuilder = new DDLModelBuilder();
+		
+		String testCreateView = "CREATE VIEW LIBRERIA1/MIAVISTA AS SELECT * FROM MUCONV0F WHERE MUCONT<>' '";
+				
+		System.out.println(testCreateView);
+		
+		String[] parts = modelBuilder.splitCreteViewStatement(testCreateView);
+		
+		for (int i = 0; i < parts.length; i++) {
+			System.out.println(parts[i]);
+		}
+		
+		String testCall = "CALL P_MULT/PROC01 ('A', 1)";
+		System.out.println(testCall);
+		
+		String[] callParms = modelBuilder.getCallParms(testCall);
+		for (int i = 0; i < callParms.length; i++) {
+			System.out.println(callParms[i]);
+		}
+		
+		System.out.println(modelBuilder.removeCallParms(testCall));
+
+	}
 
 }

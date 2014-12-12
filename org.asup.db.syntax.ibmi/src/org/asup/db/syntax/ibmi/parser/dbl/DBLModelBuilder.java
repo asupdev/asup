@@ -1,5 +1,7 @@
 package org.asup.db.syntax.ibmi.parser.dbl;
 
+import java.util.regex.Pattern;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -10,6 +12,8 @@ import org.asup.db.syntax.QBindingStatement;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.dbl.IsolationLevel;
 import org.asup.db.syntax.dbl.OpenType;
+import org.asup.db.syntax.dbl.QCloseStatement;
+import org.asup.db.syntax.dbl.QDeclareCursorStatement;
 import org.asup.db.syntax.dbl.QExecuteImmediateStatement;
 import org.asup.db.syntax.dbl.QExecuteStatement;
 import org.asup.db.syntax.dbl.QIntoClause;
@@ -37,6 +41,10 @@ public class DBLModelBuilder {
 		
 		if (isDeclareStatementWithSelect(builtinString)) {
 			
+			String[] parts = splitDeclareViewStatement(builtinString);
+			
+			builtinString = parts[0];
+			queryStrings = new String[]{parts[1]};
 		}
 		
 		DBLLexer lex = new DBLLexer(new ANTLRStringStream(builtinString));
@@ -107,8 +115,15 @@ public class DBLModelBuilder {
 	}
 
 	private QBindingStatement manageCloseStatement(Tree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QCloseStatement closeStatement =  DblFactoryImpl.eINSTANCE.createCloseStatement();
+		
+		Tree cursorToken = tree.getChild(0);
+		
+		if (cursorToken != null && cursorToken.getType()==DBLLexer.STATEMENT) { 				
+			closeStatement.setCursor(cursorToken.getChild(0).getText());
+		}
+		
+		return closeStatement;
 	}
 
 
@@ -125,8 +140,65 @@ public class DBLModelBuilder {
 
 
 	private QBindingStatement manageDeclareCursorStatement(Tree tree, String[] queryString) {
-		// TODO Auto-generated method stub
-		return null;
+		QDeclareCursorStatement declareCursorStatement =  DblFactoryImpl.eINSTANCE.createDeclareCursorStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DBLLexer.CURSOR:
+				
+				declareCursorStatement.setCursorName(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DBLLexer.SCROLL:
+				
+				declareCursorStatement.setScroll(true);
+				
+				break;
+			
+			case DBLLexer.NO_SCROLL:
+				
+				declareCursorStatement.setScroll(false);
+				
+				break;
+			
+			case DBLLexer.WITH_HOLD:
+				
+				declareCursorStatement.setHold(true);
+				
+				break;
+			
+			case DBLLexer.WITHOUT_HOLD:
+				
+				declareCursorStatement.setHold(false);
+				
+				break;
+				
+			case DBLLexer.FOR:
+				
+				Tree statementToken = fieldToken.getChild(0);
+				
+				if (statementToken != null && statementToken.getType()==DBLLexer.STATEMENT) { 				
+					declareCursorStatement.setForStatementName(statementToken.getChild(0).getText());
+				}
+				
+				break;
+				
+			}
+		}
+		
+		// Manage query in field FOR
+		if (queryString.length > 0) {
+			declareCursorStatement.setForStatementName("");
+			declareCursorStatement.setForQuery(queryString[0]);
+		}
+		
+		return declareCursorStatement;
 	}
 
 
@@ -377,4 +449,38 @@ public class DBLModelBuilder {
 	private boolean isDeclareStatementWithSelect(String statement) {
 		return statement.matches("^[\\s]*[dD][eE][cC][lL][aA][rR][eE][\\s]*[fF][oO][rR][\\s]*[(].*");
 	}
+	
+	
+	/**
+	 * Example:
+	 * 
+	 * Input: "
+	 * 
+	 * Output: [DECLARE c1 CURSOR FOR s1 , SELECT A, B, C FROM FILE]
+	 * 
+	 * @param viewText
+	 * @return
+	 */
+	private String[] splitDeclareViewStatement(String viewText) {
+
+		String[] response = new String[2];
+		String[] tokens = viewText.split("[\\s]*[fF][oO][rR][\\s]*[(]", Pattern.CASE_INSENSITIVE);
+
+		response[0] = tokens[0] + " FOR s1";
+		response[1] = tokens[1].substring(0, tokens[1].length()-1);
+			
+
+		return response;
+	}
+	
+	
+	public static void main(String[] args) {
+		DBLModelBuilder builder = new DBLModelBuilder();
+		
+		String[] parts = builder.splitDeclareViewStatement("DECLARE c1 CURSOR FOR (SELECT A, B, C FROM FILE)");
+		for (int i = 0; i < parts.length; i++) {
+			System.out.println(parts[i]);
+		}
+	}
+
 }

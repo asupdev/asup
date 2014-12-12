@@ -73,6 +73,13 @@ public class DblSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case QDblPackage.DECLARE_CURSOR_STATEMENT: {
+				QDeclareCursorStatement declareCursorStatement = (QDeclareCursorStatement)theEObject;
+				T result = caseDeclareCursorStatement(declareCursorStatement);
+				if (result == null) result = caseBindingStatement(declareCursorStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: {
 				QExecuteImmediateStatement executeImmediateStatement = (QExecuteImmediateStatement)theEObject;
 				T result = caseExecuteImmediateStatement(executeImmediateStatement);
@@ -114,8 +121,30 @@ public class DblSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDblPackage.CLOSE_STATEMENT: {
+				QCloseStatement closeStatement = (QCloseStatement)theEObject;
+				T result = caseCloseStatement(closeStatement);
+				if (result == null) result = caseBindingStatement(closeStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Declare Cursor Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Declare Cursor Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDeclareCursorStatement(QDeclareCursorStatement object) {
+		return null;
 	}
 
 	/**
@@ -190,6 +219,21 @@ public class DblSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePrepareStatement(QPrepareStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Close Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Close Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloseStatement(QCloseStatement object) {
 		return null;
 	}
 
