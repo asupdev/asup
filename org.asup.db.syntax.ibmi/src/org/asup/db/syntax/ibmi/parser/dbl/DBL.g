@@ -58,6 +58,7 @@ tokens {
   MULTIPLE_ROW_FETCH;
   NEW_NAME;
   NO_COMMIT;
+  NO_SCROLL;
   NULL_ORDER;
   OPEN_STATEMENT;
   ORDER;
@@ -101,6 +102,8 @@ tokens {
   VARIABLE;
   VIEW_NAME;
   WITH_DEFAULT;
+  WITH_HOLD;
+  WITHOUT_HOLD;
 }
 
 @header {
@@ -621,9 +624,24 @@ execute_immediate_statement
  /* DECLARE CURSOR STATEMENT */	
  declare_cursor_statement
  	:
- 	DECLARE c=Identifier (d=DYNAMIC)? (sc=(SCROLL|(NO SCROLL))? CURSOR (h=(WITH HOLD)|(WITHOUT HOLD)))? FOR s=Identifier 
+ 	DECLARE c=Identifier (d=DYNAMIC)? (sc=scroll)? CURSOR (h=hold)? FOR s=Identifier 
  	-> ^(DECLARE_CURSOR_STATEMENT ^(CURSOR $c) ($d)? ($sc)? ($h)? ^(FOR ^(STATEMENT $s))) 	
  	;
+
+scroll
+	:
+	SCROLL -> ^(SCROLL)
+	|
+	NO SCROLL -> ^(NO_SCROLL)	
+	; 
+
+hold
+	:
+	WITH HOLD -> ^(WITH_HOLD)	
+	|
+	WITHOUT HOLD -> ^(WITHOUT_HOLD)	
+	;
+ 	
 /* DESCRIBE STATEMENT */
  describe_statement
  	:	

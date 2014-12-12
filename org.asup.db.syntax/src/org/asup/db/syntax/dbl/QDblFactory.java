@@ -27,6 +27,15 @@ public interface QDblFactory extends EFactory {
 	QDblFactory eINSTANCE = org.asup.db.syntax.dbl.impl.DblFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Declare Cursor Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Declare Cursor Statement</em>'.
+	 * @generated
+	 */
+	QDeclareCursorStatement createDeclareCursorStatement();
+
+	/**
 	 * Returns a new object of class '<em>Execute Immediate Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,6 +79,15 @@ public interface QDblFactory extends EFactory {
 	 * @generated
 	 */
 	QPrepareStatement createPrepareStatement();
+
+	/**
+	 * Returns a new object of class '<em>Close Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Close Statement</em>'.
+	 * @generated
+	 */
+	QCloseStatement createCloseStatement();
 
 	/**
 	 * Returns a new object of class '<em>Into Clause</em>'.
