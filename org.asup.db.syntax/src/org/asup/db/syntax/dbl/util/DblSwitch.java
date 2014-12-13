@@ -80,6 +80,13 @@ public class DblSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDblPackage.DESCRIBE_STATEMENT: {
+				QDescribeStatement describeStatement = (QDescribeStatement)theEObject;
+				T result = caseDescribeStatement(describeStatement);
+				if (result == null) result = caseBindingStatement(describeStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: {
 				QExecuteImmediateStatement executeImmediateStatement = (QExecuteImmediateStatement)theEObject;
 				T result = caseExecuteImmediateStatement(executeImmediateStatement);
@@ -144,6 +151,21 @@ public class DblSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDeclareCursorStatement(QDeclareCursorStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Describe Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Describe Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDescribeStatement(QDescribeStatement object) {
 		return null;
 	}
 

@@ -79,6 +79,10 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 				return createDeclareCursorStatementAdapter();
 			}
 			@Override
+			public Adapter caseDescribeStatement(QDescribeStatement object) {
+				return createDescribeStatementAdapter();
+			}
+			@Override
 			public Adapter caseExecuteImmediateStatement(QExecuteImmediateStatement object) {
 				return createExecuteImmediateStatementAdapter();
 			}
@@ -141,6 +145,20 @@ public class DblAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDeclareCursorStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.asup.db.syntax.dbl.QDescribeStatement <em>Describe Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.asup.db.syntax.dbl.QDescribeStatement
+	 * @generated
+	 */
+	public Adapter createDescribeStatementAdapter() {
 		return null;
 	}
 

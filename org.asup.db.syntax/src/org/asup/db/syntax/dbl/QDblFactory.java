@@ -36,6 +36,15 @@ public interface QDblFactory extends EFactory {
 	QDeclareCursorStatement createDeclareCursorStatement();
 
 	/**
+	 * Returns a new object of class '<em>Describe Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Describe Statement</em>'.
+	 * @generated
+	 */
+	QDescribeStatement createDescribeStatement();
+
+	/**
 	 * Returns a new object of class '<em>Execute Immediate Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

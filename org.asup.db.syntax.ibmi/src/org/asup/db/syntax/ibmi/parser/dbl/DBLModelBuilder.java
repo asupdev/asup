@@ -14,6 +14,7 @@ import org.asup.db.syntax.dbl.IsolationLevel;
 import org.asup.db.syntax.dbl.OpenType;
 import org.asup.db.syntax.dbl.QCloseStatement;
 import org.asup.db.syntax.dbl.QDeclareCursorStatement;
+import org.asup.db.syntax.dbl.QDescribeStatement;
 import org.asup.db.syntax.dbl.QExecuteImmediateStatement;
 import org.asup.db.syntax.dbl.QExecuteStatement;
 import org.asup.db.syntax.dbl.QIntoClause;
@@ -134,7 +135,87 @@ public class DBLModelBuilder {
 
 
 	private QBindingStatement manageDescribeStatement(Tree tree) {
-		// TODO Auto-generated method stub
+		
+		QDescribeStatement describeStatement = DblFactoryImpl.eINSTANCE.createDescribeStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DBLLexer.STATEMENT:
+				
+				describeStatement.setStatementName(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DBLLexer.INTO:
+				
+				QIntoClause intoClause = DblFactoryImpl.eINSTANCE.createIntoClause();
+				
+				Tree intoToken = null;
+				
+				for (int i2 = 0; i2 < fieldToken.getChildCount(); i2++) {
+					
+					intoToken = fieldToken.getChild(i);
+				
+					switch (intoToken.getType()) {
+					
+					case DBLLexer.VARIABLE:
+												
+						intoClause.setDescriptorName(intoToken.getChild(0).getText());
+						
+						break;
+					
+					case DBLLexer.USING:
+						
+						switch (intoToken.getChild(0).getType()) {
+						
+						case DBLLexer.NAMES:
+							
+							intoClause.setUsing(UsingType.NAMES);;
+							break;
+						
+						case DBLLexer.LABELS:
+							
+							intoClause.setUsing(UsingType.LABELS);;
+							break;	
+						
+						case DBLLexer.ANY:
+							
+							intoClause.setUsing(UsingType.ANY);;
+							break;	
+							
+						case DBLLexer.BOTH:
+							
+							intoClause.setUsing(UsingType.BOTH);;
+							break;	
+						
+						case DBLLexer.ALL:
+							
+							intoClause.setUsing(UsingType.ALL);;
+							break;	
+						
+						case DBLLexer.SYSTEM_NAMES:
+							
+							intoClause.setUsing(UsingType.SYSTEM_NAMES);;
+							break;
+						}
+						
+						break;
+					
+					}
+				}
+				
+				describeStatement.setInto(intoClause);
+				
+				break;	
+			}
+			
+		}
+
 		return null;
 	}
 

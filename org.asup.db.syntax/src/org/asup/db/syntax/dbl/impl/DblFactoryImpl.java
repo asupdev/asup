@@ -63,6 +63,7 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QDblPackage.DECLARE_CURSOR_STATEMENT: return (EObject)createDeclareCursorStatement();
+			case QDblPackage.DESCRIBE_STATEMENT: return (EObject)createDescribeStatement();
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: return (EObject)createExecuteImmediateStatement();
 			case QDblPackage.EXECUTE_STATEMENT: return (EObject)createExecuteStatement();
 			case QDblPackage.INTO_CLAUSE: return (EObject)createIntoClause();
@@ -125,6 +126,16 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	public QDeclareCursorStatement createDeclareCursorStatement() {
 		DeclareCursorStatementImpl declareCursorStatement = new DeclareCursorStatementImpl();
 		return declareCursorStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDescribeStatement createDescribeStatement() {
+		DescribeStatementImpl describeStatement = new DescribeStatementImpl();
+		return describeStatement;
 	}
 
 	/**
