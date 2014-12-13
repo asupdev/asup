@@ -49,7 +49,13 @@ public class DBLModelBuilder {
 			
 			builtinString = parts[0];
 			queryStrings = new String[]{parts[1]};
-		}
+		}  else if (isExecuteImmediateStatementWithSelect(builtinString)) {
+			
+			String[] parts = splitExecuteImmediateStatement(builtinString);
+			
+			builtinString = parts[0];
+			queryStrings = new String[]{parts[1]};
+		}  
 		
 		DBLLexer lex = new DBLLexer(new ANTLRStringStream(builtinString));
 		CommonTokenStream tokens = new CommonTokenStream(lex);
@@ -84,7 +90,7 @@ public class DBLModelBuilder {
 			break;	
 		
 		case DBLLexer.EXECUTE_IMMEDIATE_STATEMENT:
-			result = manageExecuteImmediateStatement(tree);
+			result = manageExecuteImmediateStatement(tree, queryString);
 			break;		
 
 		case DBLLexer.PREPARE_STATEMENT:
@@ -573,13 +579,19 @@ public class DBLModelBuilder {
 		
 	}
 
-	private QBindingStatement manageExecuteImmediateStatement(Tree tree) {
+	private QBindingStatement manageExecuteImmediateStatement(Tree tree, String[] queryString) {
 		QExecuteImmediateStatement executeImmediateStatement = DblFactoryImpl.eINSTANCE.createExecuteImmediateStatement();
 		
 		Tree statementToken = tree.getChild(0);
 		
 		if (statementToken != null && statementToken.getType() == DBLLexer.VARIABLE) {
 			executeImmediateStatement.setVariable(statementToken.getChild(0).getText());
+		}
+		
+		// Manage query in field FOR
+		if (queryString.length > 0) {
+			executeImmediateStatement.setVariable("");
+			executeImmediateStatement.setQuery(queryString[0]);
 		}
 
 		return executeImmediateStatement;
@@ -678,14 +690,14 @@ public class DBLModelBuilder {
 	 * 
 	 */
 	private boolean isDeclareStatementWithSelect(String statement) {
-		return statement.matches("^[\\s]*[dD][eE][cC][lL][aA][rR][eE][\\s]*[fF][oO][rR][\\s]*[(].*");
+		return statement.matches("^[\\s]*[dD][eE][cC][lL][aA][rR][eE].*[fF][oO][rR][\\s]*[(].*");
 	}
 	
 	
 	/**
 	 * Example:
 	 * 
-	 * Input: "
+	 * Input: DECLARE c1 CURSOR FOR (SELECT A, B, C FROM FILE)
 	 * 
 	 * Output: [DECLARE c1 CURSOR FOR s1 , SELECT A, B, C FROM FILE]
 	 * 
@@ -704,13 +716,65 @@ public class DBLModelBuilder {
 		return response;
 	}
 	
+	// Utility methods
+	
+		/*
+		 * Identity EXECUTE IMMEDIATE statements with nested SQL query
+		 * For example: 
+		 * 
+		 *  EXECUTE IMMEDIATE (INSERT INTO WORK_TABLE SELECT * FROM EMPROJACT)
+		 * 
+		 */
+		private boolean isExecuteImmediateStatementWithSelect(String statement) {
+			return statement.matches("^[\\s]*[eE][xX][eE][cC][uU][tT][eE][\\s]*[iI][mM][mM][eE][dD][iI][aA][tT][eE][\\s]*[(].*[)]");
+		}
+		
+		
+		/**
+		 * Example:
+		 * 
+		 * Input: EXECUTE IMMEDIATE (INSERT INTO WORK_TABLE SELECT * FROM EMPROJACT)
+		 * 
+		 * Output: [EXECUTE IMMEDIATE :v1 , INSERT INTO WORK_TABLE SELECT * FROM EMPROJACT]
+		 * 
+		 * @param viewText
+		 * @return
+		 */
+		private String[] splitExecuteImmediateStatement(String viewText) {
+
+			String[] response = new String[2];
+			String[] tokens = viewText.split("[\\s]*[iI][mM][mM][eE][dD][iI][aA][tT][eE][\\s]*[(]", Pattern.CASE_INSENSITIVE);
+
+			response[0] = tokens[0] + " IMMEDIATE :v1";
+			response[1] = tokens[1].substring(0, tokens[1].length()-1);
+				
+
+			return response;
+		}
+	
 	
 	public static void main(String[] args) {
 		DBLModelBuilder builder = new DBLModelBuilder();
 		
-		String[] parts = builder.splitDeclareViewStatement("DECLARE c1 CURSOR FOR (SELECT A, B, C FROM FILE)");
-		for (int i = 0; i < parts.length; i++) {
-			System.out.println(parts[i]);
+		String test = "DECLARE c1 CURSOR FOR (SELECT A, B, C FROM FILE)";
+		
+		System.out.println("Test: " + test);
+		if (builder.isDeclareStatementWithSelect(test)) {
+			System.out.println("Stetement identified");
+			String[] parts = builder.splitDeclareViewStatement(test);
+			for (int i = 0; i < parts.length; i++) {
+				System.out.println(parts[i]);
+			}
+		}
+		
+		test = "EXECUTE IMMEDIATE (INSERT INTO WORK_TABLE SELECT * FROM EMPROJACT)";
+		System.out.println("Test: " + test);
+		if (builder.isExecuteImmediateStatementWithSelect(test)) {
+			System.out.println("Stetement identified");
+			String[] parts = builder.splitExecuteImmediateStatement(test);
+			for (int i = 0; i < parts.length; i++) {
+				System.out.println(parts[i]);
+			}
 		}
 	}
 

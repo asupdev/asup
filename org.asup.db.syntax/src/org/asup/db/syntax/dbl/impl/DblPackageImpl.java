@@ -349,6 +349,15 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getExecuteImmediateStatement_Query() {
+		return (EAttribute)executeImmediateStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExecuteStatement() {
 		return executeStatementEClass;
 	}
@@ -683,6 +692,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 
 		executeImmediateStatementEClass = createEClass(EXECUTE_IMMEDIATE_STATEMENT);
 		createEAttribute(executeImmediateStatementEClass, EXECUTE_IMMEDIATE_STATEMENT__VARIABLE);
+		createEAttribute(executeImmediateStatementEClass, EXECUTE_IMMEDIATE_STATEMENT__QUERY);
 
 		executeStatementEClass = createEClass(EXECUTE_STATEMENT);
 		createEAttribute(executeStatementEClass, EXECUTE_STATEMENT__STATEMENT);
@@ -785,6 +795,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 
 		initEClass(executeImmediateStatementEClass, QExecuteImmediateStatement.class, "ExecuteImmediateStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExecuteImmediateStatement_Variable(), theEcorePackage.getEString(), "variable", null, 0, 1, QExecuteImmediateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExecuteImmediateStatement_Query(), theEcorePackage.getEString(), "query", null, 0, 1, QExecuteImmediateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(executeStatementEClass, QExecuteStatement.class, "ExecuteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExecuteStatement_Statement(), theEcorePackage.getEString(), "statement", null, 0, 1, QExecuteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
