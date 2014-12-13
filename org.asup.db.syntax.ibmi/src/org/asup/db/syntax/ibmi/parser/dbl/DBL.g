@@ -675,16 +675,13 @@ hold
  	
  multiple_row_fetch
  	:	
- 	FOR (v=Variable|NUMBER) ROWS mi= multiple_row_into	-> {$v != null}?^(MULTIPLE_ROW_FETCH ^(FOR ^(VARIABLE $v)) $mi)
- 								->		^(MULTIPLE_ROW_FETCH ^(FOR NUMBER) $mi) 	
+ 	FOR (v=Variable|NUMBER) ROWS (mi=multiple_row)? INTO ds=Variable	-> {$v != null}?^(MULTIPLE_ROW_FETCH ^(FOR ^(VARIABLE $v)) ($mi)? ^(INTO ^(VARIABLE $ds)))
+ 										->		^(MULTIPLE_ROW_FETCH ^(FOR NUMBER) ($mi)? ^(INTO ^(VARIABLE $ds))) 	
  	;		
  	
- multiple_row_into
+ multiple_row
  	:
- 	INTO ds=Variable -> ^(INTO ^(VARIABLE $ds))
- 	|
- 	USING DESCRIPTOR d=Variable INTO ds=Variable ->^(DESCRIPTOR ^(VARIABLE $d) ^(INTO ^(VARIABLE $ds)))
- 	
+ 	USING DESCRIPTOR d=Variable ->^(DESCRIPTOR ^(VARIABLE $d)) 	
  	;	
  	
  /*CLOSE STATEMENT*/

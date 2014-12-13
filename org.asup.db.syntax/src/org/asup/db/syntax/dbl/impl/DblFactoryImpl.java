@@ -66,7 +66,9 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 			case QDblPackage.DESCRIBE_STATEMENT: return (EObject)createDescribeStatement();
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT: return (EObject)createExecuteImmediateStatement();
 			case QDblPackage.EXECUTE_STATEMENT: return (EObject)createExecuteStatement();
+			case QDblPackage.FETCH_STATEMENT: return (EObject)createFetchStatement();
 			case QDblPackage.INTO_CLAUSE: return (EObject)createIntoClause();
+			case QDblPackage.MULTIPLE_ROW_FETCH_CLAUSE: return (EObject)createMultipleRowFetchClause();
 			case QDblPackage.SET_TRANSACTION_STATEMENT: return (EObject)createSetTransactionStatement();
 			case QDblPackage.OPEN_STATEMENT: return (EObject)createOpenStatement();
 			case QDblPackage.PREPARE_STATEMENT: return (EObject)createPrepareStatement();
@@ -84,6 +86,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case QDblPackage.FETCH_POSITION:
+				return createFetchPositionFromString(eDataType, initialValue);
 			case QDblPackage.ISOLATION_LEVEL:
 				return createIsolationLevelFromString(eDataType, initialValue);
 			case QDblPackage.RW_OPERATION:
@@ -105,6 +109,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case QDblPackage.FETCH_POSITION:
+				return convertFetchPositionToString(eDataType, instanceValue);
 			case QDblPackage.ISOLATION_LEVEL:
 				return convertIsolationLevelToString(eDataType, instanceValue);
 			case QDblPackage.RW_OPERATION:
@@ -163,6 +169,16 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QFetchStatement createFetchStatement() {
+		FetchStatementImpl fetchStatement = new FetchStatementImpl();
+		return fetchStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QSetTransactionStatement createSetTransactionStatement() {
 		SetTransactionStatementImpl setTransactionStatement = new SetTransactionStatementImpl();
 		return setTransactionStatement;
@@ -203,9 +219,39 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FetchPosition createFetchPositionFromString(EDataType eDataType, String initialValue) {
+		FetchPosition result = FetchPosition.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFetchPositionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QIntoClause createIntoClause() {
 		IntoClauseImpl intoClause = new IntoClauseImpl();
 		return intoClause;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QMultipleRowFetchClause createMultipleRowFetchClause() {
+		MultipleRowFetchClauseImpl multipleRowFetchClause = new MultipleRowFetchClauseImpl();
+		return multipleRowFetchClause;
 	}
 
 	/**

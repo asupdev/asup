@@ -31,7 +31,7 @@ public enum UsingType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NAMES(0, "NAMES", "SERIALIZABLE"), /**
+	NAMES(0, "NAMES", "NAMES"), /**
 	 * The '<em><b>SYSTEM NAMES</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,7 +82,7 @@ public enum UsingType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NAMES
-	 * @model literal="SERIALIZABLE"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */

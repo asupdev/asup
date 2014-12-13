@@ -101,9 +101,22 @@ public class DblSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QDblPackage.FETCH_STATEMENT: {
+				QFetchStatement fetchStatement = (QFetchStatement)theEObject;
+				T result = caseFetchStatement(fetchStatement);
+				if (result == null) result = caseBindingStatement(fetchStatement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QDblPackage.INTO_CLAUSE: {
 				QIntoClause intoClause = (QIntoClause)theEObject;
 				T result = caseIntoClause(intoClause);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QDblPackage.MULTIPLE_ROW_FETCH_CLAUSE: {
+				QMultipleRowFetchClause multipleRowFetchClause = (QMultipleRowFetchClause)theEObject;
+				T result = caseMultipleRowFetchClause(multipleRowFetchClause);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,6 +213,21 @@ public class DblSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Fetch Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Fetch Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFetchStatement(QFetchStatement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Set Transaction Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -271,6 +299,21 @@ public class DblSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIntoClause(QIntoClause object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Multiple Row Fetch Clause</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Multiple Row Fetch Clause</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMultipleRowFetchClause(QMultipleRowFetchClause object) {
 		return null;
 	}
 

@@ -230,6 +230,70 @@ public interface QDblPackage extends EPackage {
 	int EXECUTE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.FetchStatementImpl <em>Fetch Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.dbl.impl.FetchStatementImpl
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getFetchStatement()
+	 * @generated
+	 */
+	int FETCH_STATEMENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Cursor Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FETCH_STATEMENT__CURSOR_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Into</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FETCH_STATEMENT__INTO = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FETCH_STATEMENT__POSITION = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Relative Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FETCH_STATEMENT__RELATIVE_POSITION = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Multiple Row Clause</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FETCH_STATEMENT__MULTIPLE_ROW_CLAUSE = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Fetch Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FETCH_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.SetTransactionStatementImpl <em>Set Transaction Statement</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,7 +301,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getSetTransactionStatement()
 	 * @generated
 	 */
-	int SET_TRANSACTION_STATEMENT = 5;
+	int SET_TRANSACTION_STATEMENT = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.OpenStatementImpl <em>Open Statement</em>}' class.
@@ -247,7 +311,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenStatement()
 	 * @generated
 	 */
-	int OPEN_STATEMENT = 6;
+	int OPEN_STATEMENT = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.PrepareStatementImpl <em>Prepare Statement</em>}' class.
@@ -257,7 +321,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getPrepareStatement()
 	 * @generated
 	 */
-	int PREPARE_STATEMENT = 7;
+	int PREPARE_STATEMENT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.IntoClauseImpl <em>Into Clause</em>}' class.
@@ -267,7 +331,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getIntoClause()
 	 * @generated
 	 */
-	int INTO_CLAUSE = 4;
+	int INTO_CLAUSE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Descriptor Name</b></em>' attribute.
@@ -295,6 +359,52 @@ public interface QDblPackage extends EPackage {
 	 * @ordered
 	 */
 	int INTO_CLAUSE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.MultipleRowFetchClauseImpl <em>Multiple Row Fetch Clause</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.dbl.impl.MultipleRowFetchClauseImpl
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getMultipleRowFetchClause()
+	 * @generated
+	 */
+	int MULTIPLE_ROW_FETCH_CLAUSE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Descriptor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ROW_FETCH_CLAUSE__DESCRIPTOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Rows Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ROW_FETCH_CLAUSE__ROWS_NUMBER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Using Descriptor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ROW_FETCH_CLAUSE__USING_DESCRIPTOR = 2;
+
+	/**
+	 * The number of structural features of the '<em>Multiple Row Fetch Clause</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE_ROW_FETCH_CLAUSE_FEATURE_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Isolation Level</b></em>' attribute.
@@ -403,7 +513,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getCloseStatement()
 	 * @generated
 	 */
-	int CLOSE_STATEMENT = 8;
+	int CLOSE_STATEMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Cursor</b></em>' attribute.
@@ -424,6 +534,16 @@ public interface QDblPackage extends EPackage {
 	int CLOSE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.FetchPosition <em>Fetch Position</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.dbl.FetchPosition
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getFetchPosition()
+	 * @generated
+	 */
+	int FETCH_POSITION = 11;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.IsolationLevel <em>Isolation Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -431,7 +551,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getIsolationLevel()
 	 * @generated
 	 */
-	int ISOLATION_LEVEL = 9;
+	int ISOLATION_LEVEL = 12;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.RWOperation <em>RW Operation</em>}' enum.
@@ -441,7 +561,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getRWOperation()
 	 * @generated
 	 */
-	int RW_OPERATION = 10;
+	int RW_OPERATION = 13;
 
 
 	/**
@@ -452,7 +572,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenType()
 	 * @generated
 	 */
-	int OPEN_TYPE = 11;
+	int OPEN_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.UsingType <em>Using Type</em>}' enum.
@@ -462,7 +582,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getUsingType()
 	 * @generated
 	 */
-	int USING_TYPE = 12;
+	int USING_TYPE = 15;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement <em>Declare Cursor Statement</em>}'.
@@ -615,6 +735,71 @@ public interface QDblPackage extends EPackage {
 	EAttribute getExecuteStatement_Statement();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QFetchStatement <em>Fetch Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Fetch Statement</em>'.
+	 * @see org.asup.db.syntax.dbl.QFetchStatement
+	 * @generated
+	 */
+	EClass getFetchStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QFetchStatement#getCursorName <em>Cursor Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cursor Name</em>'.
+	 * @see org.asup.db.syntax.dbl.QFetchStatement#getCursorName()
+	 * @see #getFetchStatement()
+	 * @generated
+	 */
+	EAttribute getFetchStatement_CursorName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QFetchStatement#getInto <em>Into</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Into</em>'.
+	 * @see org.asup.db.syntax.dbl.QFetchStatement#getInto()
+	 * @see #getFetchStatement()
+	 * @generated
+	 */
+	EAttribute getFetchStatement_Into();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QFetchStatement#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see org.asup.db.syntax.dbl.QFetchStatement#getPosition()
+	 * @see #getFetchStatement()
+	 * @generated
+	 */
+	EAttribute getFetchStatement_Position();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QFetchStatement#getRelativePosition <em>Relative Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relative Position</em>'.
+	 * @see org.asup.db.syntax.dbl.QFetchStatement#getRelativePosition()
+	 * @see #getFetchStatement()
+	 * @generated
+	 */
+	EAttribute getFetchStatement_RelativePosition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.db.syntax.dbl.QFetchStatement#getMultipleRowClause <em>Multiple Row Clause</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Multiple Row Clause</em>'.
+	 * @see org.asup.db.syntax.dbl.QFetchStatement#getMultipleRowClause()
+	 * @see #getFetchStatement()
+	 * @generated
+	 */
+	EReference getFetchStatement_MultipleRowClause();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QSetTransactionStatement <em>Set Transaction Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -754,6 +939,16 @@ public interface QDblPackage extends EPackage {
 	EAttribute getCloseStatement_Cursor();
 
 	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.FetchPosition <em>Fetch Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Fetch Position</em>'.
+	 * @see org.asup.db.syntax.dbl.FetchPosition
+	 * @generated
+	 */
+	EEnum getFetchPosition();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QIntoClause <em>Into Clause</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -784,6 +979,49 @@ public interface QDblPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIntoClause_Using();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QMultipleRowFetchClause <em>Multiple Row Fetch Clause</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multiple Row Fetch Clause</em>'.
+	 * @see org.asup.db.syntax.dbl.QMultipleRowFetchClause
+	 * @generated
+	 */
+	EClass getMultipleRowFetchClause();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QMultipleRowFetchClause#getDescriptor <em>Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Descriptor</em>'.
+	 * @see org.asup.db.syntax.dbl.QMultipleRowFetchClause#getDescriptor()
+	 * @see #getMultipleRowFetchClause()
+	 * @generated
+	 */
+	EAttribute getMultipleRowFetchClause_Descriptor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QMultipleRowFetchClause#getRowsNumber <em>Rows Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rows Number</em>'.
+	 * @see org.asup.db.syntax.dbl.QMultipleRowFetchClause#getRowsNumber()
+	 * @see #getMultipleRowFetchClause()
+	 * @generated
+	 */
+	EAttribute getMultipleRowFetchClause_RowsNumber();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QMultipleRowFetchClause#isUsingDescriptor <em>Using Descriptor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Using Descriptor</em>'.
+	 * @see org.asup.db.syntax.dbl.QMultipleRowFetchClause#isUsingDescriptor()
+	 * @see #getMultipleRowFetchClause()
+	 * @generated
+	 */
+	EAttribute getMultipleRowFetchClause_UsingDescriptor();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.IsolationLevel <em>Isolation Level</em>}'.
@@ -968,6 +1206,56 @@ public interface QDblPackage extends EPackage {
 		EAttribute EXECUTE_STATEMENT__STATEMENT = eINSTANCE.getExecuteStatement_Statement();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.FetchStatementImpl <em>Fetch Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.dbl.impl.FetchStatementImpl
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getFetchStatement()
+		 * @generated
+		 */
+		EClass FETCH_STATEMENT = eINSTANCE.getFetchStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Cursor Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FETCH_STATEMENT__CURSOR_NAME = eINSTANCE.getFetchStatement_CursorName();
+
+		/**
+		 * The meta object literal for the '<em><b>Into</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FETCH_STATEMENT__INTO = eINSTANCE.getFetchStatement_Into();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FETCH_STATEMENT__POSITION = eINSTANCE.getFetchStatement_Position();
+
+		/**
+		 * The meta object literal for the '<em><b>Relative Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FETCH_STATEMENT__RELATIVE_POSITION = eINSTANCE.getFetchStatement_RelativePosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Multiple Row Clause</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FETCH_STATEMENT__MULTIPLE_ROW_CLAUSE = eINSTANCE.getFetchStatement_MultipleRowClause();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.SetTransactionStatementImpl <em>Set Transaction Statement</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1080,6 +1368,16 @@ public interface QDblPackage extends EPackage {
 		EAttribute CLOSE_STATEMENT__CURSOR = eINSTANCE.getCloseStatement_Cursor();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.FetchPosition <em>Fetch Position</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.dbl.FetchPosition
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getFetchPosition()
+		 * @generated
+		 */
+		EEnum FETCH_POSITION = eINSTANCE.getFetchPosition();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.IntoClauseImpl <em>Into Clause</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1104,6 +1402,40 @@ public interface QDblPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INTO_CLAUSE__USING = eINSTANCE.getIntoClause_Using();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.MultipleRowFetchClauseImpl <em>Multiple Row Fetch Clause</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.dbl.impl.MultipleRowFetchClauseImpl
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getMultipleRowFetchClause()
+		 * @generated
+		 */
+		EClass MULTIPLE_ROW_FETCH_CLAUSE = eINSTANCE.getMultipleRowFetchClause();
+
+		/**
+		 * The meta object literal for the '<em><b>Descriptor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_ROW_FETCH_CLAUSE__DESCRIPTOR = eINSTANCE.getMultipleRowFetchClause_Descriptor();
+
+		/**
+		 * The meta object literal for the '<em><b>Rows Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_ROW_FETCH_CLAUSE__ROWS_NUMBER = eINSTANCE.getMultipleRowFetchClause_RowsNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Using Descriptor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE_ROW_FETCH_CLAUSE__USING_DESCRIPTOR = eINSTANCE.getMultipleRowFetchClause_UsingDescriptor();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.IsolationLevel <em>Isolation Level</em>}' enum.

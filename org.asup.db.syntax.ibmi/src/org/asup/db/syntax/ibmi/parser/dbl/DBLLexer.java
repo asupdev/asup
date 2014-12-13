@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 DBL.g 2014-12-12 17:47:57
+// $ANTLR 3.5.1 DBL.g 2014-12-13 10:07:55
 
 package org.asup.db.syntax.ibmi.parser.dbl;
 
@@ -5920,8 +5920,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = ASSIGN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1131:9: ( ':=' )
-			// DBL.g:1131:11: ':='
+			// DBL.g:1128:9: ( ':=' )
+			// DBL.g:1128:11: ':='
 			{
 			match(":="); 
 
@@ -5941,8 +5941,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = EQUAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1132:8: ( '=' )
-			// DBL.g:1132:10: '='
+			// DBL.g:1129:8: ( '=' )
+			// DBL.g:1129:10: '='
 			{
 			match('='); 
 			}
@@ -5961,8 +5961,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = SEMI_COLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1133:12: ( ';' )
-			// DBL.g:1133:15: ';'
+			// DBL.g:1130:12: ( ';' )
+			// DBL.g:1130:15: ';'
 			{
 			match(';'); 
 			}
@@ -5981,8 +5981,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = COMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1134:7: ( ',' )
-			// DBL.g:1134:9: ','
+			// DBL.g:1131:7: ( ',' )
+			// DBL.g:1131:9: ','
 			{
 			match(','); 
 			}
@@ -6001,7 +6001,7 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = NOT_EQUAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1135:12: ( '<>' | '!=' | '~=' | '^=' )
+			// DBL.g:1132:12: ( '<>' | '!=' | '~=' | '^=' )
 			int alt1=4;
 			switch ( input.LA(1) ) {
 			case '<':
@@ -6031,28 +6031,28 @@ public class DBLLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// DBL.g:1135:14: '<>'
+					// DBL.g:1132:14: '<>'
 					{
 					match("<>"); 
 
 					}
 					break;
 				case 2 :
-					// DBL.g:1135:21: '!='
+					// DBL.g:1132:21: '!='
 					{
 					match("!="); 
 
 					}
 					break;
 				case 3 :
-					// DBL.g:1135:28: '~='
+					// DBL.g:1132:28: '~='
 					{
 					match("~="); 
 
 					}
 					break;
 				case 4 :
-					// DBL.g:1135:34: '^='
+					// DBL.g:1132:34: '^='
 					{
 					match("^="); 
 
@@ -6074,8 +6074,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = LTH;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1136:5: ( '<' )
-			// DBL.g:1136:7: '<'
+			// DBL.g:1133:5: ( '<' )
+			// DBL.g:1133:7: '<'
 			{
 			match('<'); 
 			}
@@ -6094,8 +6094,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = LEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1137:5: ( '<=' )
-			// DBL.g:1137:7: '<='
+			// DBL.g:1134:5: ( '<=' )
+			// DBL.g:1134:7: '<='
 			{
 			match("<="); 
 
@@ -6115,8 +6115,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = GTH;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1138:7: ( '>' )
-			// DBL.g:1138:9: '>'
+			// DBL.g:1135:7: ( '>' )
+			// DBL.g:1135:9: '>'
 			{
 			match('>'); 
 			}
@@ -6135,8 +6135,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = GEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1139:7: ( '>=' )
-			// DBL.g:1139:9: '>='
+			// DBL.g:1136:7: ( '>=' )
+			// DBL.g:1136:9: '>='
 			{
 			match(">="); 
 
@@ -6156,8 +6156,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = LEFT_PAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1140:12: ( '(' )
-			// DBL.g:1140:15: '('
+			// DBL.g:1137:12: ( '(' )
+			// DBL.g:1137:15: '('
 			{
 			match('('); 
 			}
@@ -6176,8 +6176,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = RIGHT_PAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1141:13: ( ')' )
-			// DBL.g:1141:15: ')'
+			// DBL.g:1138:13: ( ')' )
+			// DBL.g:1138:15: ')'
 			{
 			match(')'); 
 			}
@@ -6196,8 +6196,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1142:7: ( '+' )
-			// DBL.g:1142:9: '+'
+			// DBL.g:1139:7: ( '+' )
+			// DBL.g:1139:9: '+'
 			{
 			match('+'); 
 			}
@@ -6216,8 +6216,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1143:7: ( '-' )
-			// DBL.g:1143:9: '-'
+			// DBL.g:1140:7: ( '-' )
+			// DBL.g:1140:9: '-'
 			{
 			match('-'); 
 			}
@@ -6236,8 +6236,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = MULTIPLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1144:9: ( '*' )
-			// DBL.g:1144:11: '*'
+			// DBL.g:1141:9: ( '*' )
+			// DBL.g:1141:11: '*'
 			{
 			match('*'); 
 			}
@@ -6256,8 +6256,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = DIVIDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1145:9: ( '/' )
-			// DBL.g:1145:11: '/'
+			// DBL.g:1142:9: ( '/' )
+			// DBL.g:1142:11: '/'
 			{
 			match('/'); 
 			}
@@ -6276,8 +6276,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = MODULAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1146:9: ( '%' )
-			// DBL.g:1146:11: '%'
+			// DBL.g:1143:9: ( '%' )
+			// DBL.g:1143:11: '%'
 			{
 			match('%'); 
 			}
@@ -6296,8 +6296,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = DOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1147:5: ( '.' )
-			// DBL.g:1147:7: '.'
+			// DBL.g:1144:5: ( '.' )
+			// DBL.g:1144:7: '.'
 			{
 			match('.'); 
 			}
@@ -6316,10 +6316,10 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1148:8: ( ( Digit )+ )
-			// DBL.g:1148:10: ( Digit )+
+			// DBL.g:1145:8: ( ( Digit )+ )
+			// DBL.g:1145:10: ( Digit )+
 			{
-			// DBL.g:1148:10: ( Digit )+
+			// DBL.g:1145:10: ( Digit )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -6366,7 +6366,7 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "Digit"
 	public final void mDigit() throws RecognitionException {
 		try {
-			// DBL.g:1151:7: ( '0' .. '9' )
+			// DBL.g:1148:7: ( '0' .. '9' )
 			// DBL.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -6391,14 +6391,14 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = REAL_NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1152:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+			// DBL.g:1149:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
 			int alt9=3;
 			alt9 = dfa9.predict(input);
 			switch (alt9) {
 				case 1 :
-					// DBL.g:1152:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+					// DBL.g:1149:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
 					{
-					// DBL.g:1152:9: ( '0' .. '9' )+
+					// DBL.g:1149:9: ( '0' .. '9' )+
 					int cnt3=0;
 					loop3:
 					while (true) {
@@ -6432,7 +6432,7 @@ public class DBLLexer extends Lexer {
 					}
 
 					match('.'); 
-					// DBL.g:1152:25: ( '0' .. '9' )*
+					// DBL.g:1149:25: ( '0' .. '9' )*
 					loop4:
 					while (true) {
 						int alt4=2;
@@ -6461,7 +6461,7 @@ public class DBLLexer extends Lexer {
 						}
 					}
 
-					// DBL.g:1152:37: ( EXPONENT )?
+					// DBL.g:1149:37: ( EXPONENT )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0=='E'||LA5_0=='e') ) {
@@ -6469,7 +6469,7 @@ public class DBLLexer extends Lexer {
 					}
 					switch (alt5) {
 						case 1 :
-							// DBL.g:1152:37: EXPONENT
+							// DBL.g:1149:37: EXPONENT
 							{
 							mEXPONENT(); 
 
@@ -6481,10 +6481,10 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DBL.g:1153:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+					// DBL.g:1150:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
 					{
 					match('.'); 
-					// DBL.g:1153:13: ( '0' .. '9' )+
+					// DBL.g:1150:13: ( '0' .. '9' )+
 					int cnt6=0;
 					loop6:
 					while (true) {
@@ -6517,7 +6517,7 @@ public class DBLLexer extends Lexer {
 						cnt6++;
 					}
 
-					// DBL.g:1153:25: ( EXPONENT )?
+					// DBL.g:1150:25: ( EXPONENT )?
 					int alt7=2;
 					int LA7_0 = input.LA(1);
 					if ( (LA7_0=='E'||LA7_0=='e') ) {
@@ -6525,7 +6525,7 @@ public class DBLLexer extends Lexer {
 					}
 					switch (alt7) {
 						case 1 :
-							// DBL.g:1153:25: EXPONENT
+							// DBL.g:1150:25: EXPONENT
 							{
 							mEXPONENT(); 
 
@@ -6537,9 +6537,9 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// DBL.g:1154:9: ( '0' .. '9' )+ EXPONENT
+					// DBL.g:1151:9: ( '0' .. '9' )+ EXPONENT
 					{
-					// DBL.g:1154:9: ( '0' .. '9' )+
+					// DBL.g:1151:9: ( '0' .. '9' )+
 					int cnt8=0;
 					loop8:
 					while (true) {
@@ -6592,7 +6592,7 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1157:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+			// DBL.g:1154:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0=='/') ) {
@@ -6626,11 +6626,11 @@ public class DBLLexer extends Lexer {
 
 			switch (alt13) {
 				case 1 :
-					// DBL.g:1157:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+					// DBL.g:1154:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 					{
 					match("//"); 
 
-					// DBL.g:1157:14: (~ ( '\\n' | '\\r' ) )*
+					// DBL.g:1154:14: (~ ( '\\n' | '\\r' ) )*
 					loop10:
 					while (true) {
 						int alt10=2;
@@ -6659,7 +6659,7 @@ public class DBLLexer extends Lexer {
 						}
 					}
 
-					// DBL.g:1157:28: ( '\\r' )?
+					// DBL.g:1154:28: ( '\\r' )?
 					int alt11=2;
 					int LA11_0 = input.LA(1);
 					if ( (LA11_0=='\r') ) {
@@ -6667,7 +6667,7 @@ public class DBLLexer extends Lexer {
 					}
 					switch (alt11) {
 						case 1 :
-							// DBL.g:1157:28: '\\r'
+							// DBL.g:1154:28: '\\r'
 							{
 							match('\r'); 
 							}
@@ -6680,11 +6680,11 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DBL.g:1158:9: '/*' ( options {greedy=false; } : . )* '*/'
+					// DBL.g:1155:9: '/*' ( options {greedy=false; } : . )* '*/'
 					{
 					match("/*"); 
 
-					// DBL.g:1158:14: ( options {greedy=false; } : . )*
+					// DBL.g:1155:14: ( options {greedy=false; } : . )*
 					loop12:
 					while (true) {
 						int alt12=2;
@@ -6705,7 +6705,7 @@ public class DBLLexer extends Lexer {
 
 						switch (alt12) {
 						case 1 :
-							// DBL.g:1158:42: .
+							// DBL.g:1155:42: .
 							{
 							matchAny(); 
 							}
@@ -6737,8 +6737,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = Identifier;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1166:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' | ':' )* )
-			// DBL.g:1166:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' | ':' )*
+			// DBL.g:1163:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' | ':' )* )
+			// DBL.g:1163:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' | ':' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -6748,7 +6748,7 @@ public class DBLLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// DBL.g:1166:29: ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' | ':' )*
+			// DBL.g:1163:29: ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' | ':' )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -6793,11 +6793,11 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = Variable;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1176:3: ( ':' ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' )+ )
-			// DBL.g:1176:5: ':' ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' )+
+			// DBL.g:1173:3: ( ':' ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' )+ )
+			// DBL.g:1173:5: ':' ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' )+
 			{
 			match(':'); 
-			// DBL.g:1176:8: ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' )+
+			// DBL.g:1173:8: ( 'a' .. 'z' | 'A' .. 'Z' | Digit | '_' )+
 			int cnt15=0;
 			loop15:
 			while (true) {
@@ -6844,7 +6844,7 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "Control_Characters"
 	public final void mControl_Characters() throws RecognitionException {
 		try {
-			// DBL.g:1188:37: ( '\\u0001' .. '\\u001F' )
+			// DBL.g:1185:37: ( '\\u0001' .. '\\u001F' )
 			// DBL.g:
 			{
 			if ( (input.LA(1) >= '\u0001' && input.LA(1) <= '\u001F') ) {
@@ -6867,7 +6867,7 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "Extended_Control_Characters"
 	public final void mExtended_Control_Characters() throws RecognitionException {
 		try {
-			// DBL.g:1190:37: ( '\\u0080' .. '\\u009F' )
+			// DBL.g:1187:37: ( '\\u0080' .. '\\u009F' )
 			// DBL.g:
 			{
 			if ( (input.LA(1) >= '\u0080' && input.LA(1) <= '\u009F') ) {
@@ -6892,7 +6892,7 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = Character_String_Literal;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1191:5: ( Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote | Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote )
+			// DBL.g:1188:5: ( Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote | Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote )
 			int alt18=2;
 			int LA18_0 = input.LA(1);
 			if ( (LA18_0=='\'') ) {
@@ -6910,11 +6910,11 @@ public class DBLLexer extends Lexer {
 
 			switch (alt18) {
 				case 1 :
-					// DBL.g:1191:7: Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote
+					// DBL.g:1188:7: Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote
 					{
 					mQuote(); 
 
-					// DBL.g:1191:13: ( ESC_SEQ |~ ( '\\\\' | Quote ) )*
+					// DBL.g:1188:13: ( ESC_SEQ |~ ( '\\\\' | Quote ) )*
 					loop16:
 					while (true) {
 						int alt16=3;
@@ -6928,14 +6928,14 @@ public class DBLLexer extends Lexer {
 
 						switch (alt16) {
 						case 1 :
-							// DBL.g:1191:15: ESC_SEQ
+							// DBL.g:1188:15: ESC_SEQ
 							{
 							mESC_SEQ(); 
 
 							}
 							break;
 						case 2 :
-							// DBL.g:1191:25: ~ ( '\\\\' | Quote )
+							// DBL.g:1188:25: ~ ( '\\\\' | Quote )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -6959,11 +6959,11 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DBL.g:1193:7: Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote
+					// DBL.g:1190:7: Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote
 					{
 					mDouble_Quote(); 
 
-					// DBL.g:1193:20: ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )*
+					// DBL.g:1190:20: ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )*
 					loop17:
 					while (true) {
 						int alt17=3;
@@ -6977,14 +6977,14 @@ public class DBLLexer extends Lexer {
 
 						switch (alt17) {
 						case 1 :
-							// DBL.g:1193:22: ESC_SEQ
+							// DBL.g:1190:22: ESC_SEQ
 							{
 							mESC_SEQ(); 
 
 							}
 							break;
 						case 2 :
-							// DBL.g:1193:32: ~ ( '\\\\' | Double_Quote )
+							// DBL.g:1190:32: ~ ( '\\\\' | Double_Quote )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -7023,8 +7023,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = Quote;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1197:3: ( '\\'' )
-			// DBL.g:1197:5: '\\''
+			// DBL.g:1194:3: ( '\\'' )
+			// DBL.g:1194:5: '\\''
 			{
 			match('\''); 
 			}
@@ -7043,8 +7043,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = Double_Quote;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1199:3: ( '\"' )
-			// DBL.g:1199:5: '\"'
+			// DBL.g:1196:3: ( '\"' )
+			// DBL.g:1196:5: '\"'
 			{
 			match('\"'); 
 			}
@@ -7061,8 +7061,8 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "EXPONENT"
 	public final void mEXPONENT() throws RecognitionException {
 		try {
-			// DBL.g:1202:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-			// DBL.g:1202:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+			// DBL.g:1199:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+			// DBL.g:1199:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 				input.consume();
@@ -7072,7 +7072,7 @@ public class DBLLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// DBL.g:1202:22: ( '+' | '-' )?
+			// DBL.g:1199:22: ( '+' | '-' )?
 			int alt19=2;
 			int LA19_0 = input.LA(1);
 			if ( (LA19_0=='+'||LA19_0=='-') ) {
@@ -7095,7 +7095,7 @@ public class DBLLexer extends Lexer {
 
 			}
 
-			// DBL.g:1202:33: ( '0' .. '9' )+
+			// DBL.g:1199:33: ( '0' .. '9' )+
 			int cnt20=0;
 			loop20:
 			while (true) {
@@ -7140,7 +7140,7 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "HEX_DIGIT"
 	public final void mHEX_DIGIT() throws RecognitionException {
 		try {
-			// DBL.g:1204:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+			// DBL.g:1201:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
 			// DBL.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -7163,7 +7163,7 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "ESC_SEQ"
 	public final void mESC_SEQ() throws RecognitionException {
 		try {
-			// DBL.g:1207:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
+			// DBL.g:1204:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
 			int alt21=3;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0=='\\') ) {
@@ -7218,7 +7218,7 @@ public class DBLLexer extends Lexer {
 
 			switch (alt21) {
 				case 1 :
-					// DBL.g:1207:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+					// DBL.g:1204:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
 					{
 					match('\\'); 
 					if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -7232,14 +7232,14 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DBL.g:1208:9: UNICODE_ESC
+					// DBL.g:1205:9: UNICODE_ESC
 					{
 					mUNICODE_ESC(); 
 
 					}
 					break;
 				case 3 :
-					// DBL.g:1209:9: OCTAL_ESC
+					// DBL.g:1206:9: OCTAL_ESC
 					{
 					mOCTAL_ESC(); 
 
@@ -7257,7 +7257,7 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "OCTAL_ESC"
 	public final void mOCTAL_ESC() throws RecognitionException {
 		try {
-			// DBL.g:1213:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+			// DBL.g:1210:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
 			int alt22=3;
 			int LA22_0 = input.LA(1);
 			if ( (LA22_0=='\\') ) {
@@ -7315,7 +7315,7 @@ public class DBLLexer extends Lexer {
 
 			switch (alt22) {
 				case 1 :
-					// DBL.g:1213:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+					// DBL.g:1210:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '3') ) {
@@ -7345,7 +7345,7 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DBL.g:1214:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+					// DBL.g:1211:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
@@ -7367,7 +7367,7 @@ public class DBLLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// DBL.g:1215:9: '\\\\' ( '0' .. '7' )
+					// DBL.g:1212:9: '\\\\' ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
@@ -7392,8 +7392,8 @@ public class DBLLexer extends Lexer {
 	// $ANTLR start "UNICODE_ESC"
 	public final void mUNICODE_ESC() throws RecognitionException {
 		try {
-			// DBL.g:1219:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-			// DBL.g:1219:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+			// DBL.g:1216:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+			// DBL.g:1216:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
 			{
 			match('\\'); 
 			match('u'); 
@@ -7419,8 +7419,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = Space;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1225:7: ( ' ' )
-			// DBL.g:1225:9: ' '
+			// DBL.g:1222:7: ( ' ' )
+			// DBL.g:1222:9: ' '
 			{
 			match(' '); 
 
@@ -7442,10 +7442,10 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = White_Space;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1229:13: ( ( Control_Characters | Extended_Control_Characters )+ )
-			// DBL.g:1229:15: ( Control_Characters | Extended_Control_Characters )+
+			// DBL.g:1226:13: ( ( Control_Characters | Extended_Control_Characters )+ )
+			// DBL.g:1226:15: ( Control_Characters | Extended_Control_Characters )+
 			{
-			// DBL.g:1229:15: ( Control_Characters | Extended_Control_Characters )+
+			// DBL.g:1226:15: ( Control_Characters | Extended_Control_Characters )+
 			int cnt23=0;
 			loop23:
 			while (true) {
@@ -7497,8 +7497,8 @@ public class DBLLexer extends Lexer {
 		try {
 			int _type = BAD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DBL.g:1233:5: ( . )
-			// DBL.g:1233:7: .
+			// DBL.g:1230:5: ( . )
+			// DBL.g:1230:7: .
 			{
 			matchAny(); 
 
@@ -8937,7 +8937,7 @@ public class DBLLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1151:1: REAL_NUMBER : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
+			return "1148:1: REAL_NUMBER : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
 		}
 	}
 

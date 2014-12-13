@@ -31,7 +31,7 @@ public enum OpenType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	VARIABLE(0, "VARIABLE", "SERIALIZABLE"),
+	VARIABLE(0, "VARIABLE", "VARIABLE"),
 
 	/**
 	 * The '<em><b>DESCRIPTOR</b></em>' literal object.
@@ -52,7 +52,7 @@ public enum OpenType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VARIABLE
-	 * @model literal="SERIALIZABLE"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */

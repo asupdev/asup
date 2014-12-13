@@ -63,6 +63,15 @@ public interface QDblFactory extends EFactory {
 	QExecuteStatement createExecuteStatement();
 
 	/**
+	 * Returns a new object of class '<em>Fetch Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Fetch Statement</em>'.
+	 * @generated
+	 */
+	QFetchStatement createFetchStatement();
+
+	/**
 	 * Returns a new object of class '<em>Set Transaction Statement</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,6 +115,15 @@ public interface QDblFactory extends EFactory {
 	 * @generated
 	 */
 	QIntoClause createIntoClause();
+
+	/**
+	 * Returns a new object of class '<em>Multiple Row Fetch Clause</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multiple Row Fetch Clause</em>'.
+	 * @generated
+	 */
+	QMultipleRowFetchClause createMultipleRowFetchClause();
 
 	/**
 	 * Returns the package supported by this factory.

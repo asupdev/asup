@@ -10,6 +10,7 @@ import org.antlr.runtime.tree.Tree;
 import org.asup.db.syntax.QBindingParseResult;
 import org.asup.db.syntax.QBindingStatement;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
+import org.asup.db.syntax.dbl.FetchPosition;
 import org.asup.db.syntax.dbl.IsolationLevel;
 import org.asup.db.syntax.dbl.OpenType;
 import org.asup.db.syntax.dbl.QCloseStatement;
@@ -17,7 +18,9 @@ import org.asup.db.syntax.dbl.QDeclareCursorStatement;
 import org.asup.db.syntax.dbl.QDescribeStatement;
 import org.asup.db.syntax.dbl.QExecuteImmediateStatement;
 import org.asup.db.syntax.dbl.QExecuteStatement;
+import org.asup.db.syntax.dbl.QFetchStatement;
 import org.asup.db.syntax.dbl.QIntoClause;
+import org.asup.db.syntax.dbl.QMultipleRowFetchClause;
 import org.asup.db.syntax.dbl.QOpenStatement;
 import org.asup.db.syntax.dbl.QPrepareStatement;
 import org.asup.db.syntax.dbl.QSetTransactionStatement;
@@ -129,8 +132,155 @@ public class DBLModelBuilder {
 
 
 	private QBindingStatement manageFetchStatement(Tree tree) {
-		// TODO Auto-generated method stub
-		return null;
+		QFetchStatement fetchStatement =  DblFactoryImpl.eINSTANCE.createFetchStatement();
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DBLLexer.CURSOR:
+				
+				fetchStatement.setCursorName(fieldToken.getChild(0).getText());
+				
+				break;
+			
+			case DBLLexer.FETCH_POSITION:
+				
+				switch (fieldToken.getChild(0).getType()) {
+				
+				case DBLLexer.NEXT:
+					
+					fetchStatement.setPosition(FetchPosition.NEXT);
+					
+					break;
+					
+				case DBLLexer.PRIOR:
+					
+					fetchStatement.setPosition(FetchPosition.PRIOR);
+					
+					break;	
+				
+				case DBLLexer.FIRST:
+					
+					fetchStatement.setPosition(FetchPosition.FIRST);
+					
+					break;	
+					
+				case DBLLexer.LAST:
+					
+					fetchStatement.setPosition(FetchPosition.LAST);
+					
+					break;	
+					
+				case DBLLexer.BEFORE:
+					
+					fetchStatement.setPosition(FetchPosition.BEFORE);
+					
+					break;	
+				
+				case DBLLexer.AFTER:
+					
+					fetchStatement.setPosition(FetchPosition.AFTER);
+					
+					break;	
+					
+				case DBLLexer.CURRENT:
+					
+					fetchStatement.setPosition(FetchPosition.CURRENT);
+					
+					break;	
+				
+				case DBLLexer.RELATIVE:
+					
+					fetchStatement.setPosition(FetchPosition.RELATIVE);
+					
+					Tree relativeNumberToken = fieldToken.getChild(0).getChild(0);
+					
+					if (relativeNumberToken != null 
+							&& 
+						(relativeNumberToken.getType() == DBLLexer.NUMBER || relativeNumberToken.getType() == DBLLexer.VARIABLE)) {
+						
+						fetchStatement.setRelativePosition(relativeNumberToken.getText());
+					}
+					
+					break;	
+				}
+				
+				
+				break;	
+				
+			case DBLLexer.SINGLE_FETCH:
+				
+				Tree intoToken = fieldToken.getChild(0);
+				
+				if (intoToken != null && intoToken.getType() == DBLLexer.INTO) {
+					
+					Tree variableToken = intoToken.getChild(0);
+					
+					if (variableToken != null && variableToken.getType() == DBLLexer.VARIABLE) {
+						fetchStatement.setInto(variableToken.getChild(0).getText());
+					}					
+				}
+				
+				break;
+				
+			case DBLLexer.MULTIPLE_ROW_FETCH:
+				
+				QMultipleRowFetchClause multipleRowClause = DblFactoryImpl.eINSTANCE.createMultipleRowFetchClause();
+				multipleRowClause.setUsingDescriptor(false);
+					
+				Tree multipleRowChildToken = fieldToken.getChild(0); 
+				switch (multipleRowChildToken.getType()) {
+				
+				case DBLLexer.FOR:
+					
+					Tree forNumberToken = fieldToken.getChild(0);
+					
+					if (forNumberToken != null 
+							&& 
+						(forNumberToken.getType() == DBLLexer.NUMBER || forNumberToken.getType() == DBLLexer.VARIABLE)) {
+						
+						multipleRowClause.setRowsNumber(forNumberToken.getText());
+					}
+					
+					
+					break;
+					
+				case DBLLexer.DESCRIPTOR:
+					
+					multipleRowClause.setUsingDescriptor(true);
+					
+					Tree varToken = multipleRowChildToken.getChild(0);
+					
+					if (varToken != null && varToken.getType() == DBLLexer.VARIABLE) {
+						multipleRowClause.setDescriptor(varToken.getChild(0).getText());
+					}
+					
+					break;
+					
+				case DBLLexer.INTO:
+					
+					Tree variableToken = multipleRowChildToken.getChild(0);
+					
+					if (variableToken != null && variableToken.getType() == DBLLexer.VARIABLE) {
+						fetchStatement.setInto(variableToken.getChild(0).getText());
+					}						
+					
+					break;	
+					
+				}
+				
+				fetchStatement.setMultipleRowClause(multipleRowClause);
+				
+				break;
+				
+			}
+		}
+		
+		return fetchStatement;
 	}
 
 

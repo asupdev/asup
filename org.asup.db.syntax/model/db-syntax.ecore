@@ -276,6 +276,26 @@
     <eClassifiers xsi:type="ecore:EClass" name="ExecuteStatement" eSuperTypes="#//BindingStatement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="statement" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FetchPosition">
+      <eLiterals name="NEXT" literal="NEXT"/>
+      <eLiterals name="PRIOR" value="1"/>
+      <eLiterals name="FIRST" value="3" literal="FIRST"/>
+      <eLiterals name="LAST" value="4" literal="LAST"/>
+      <eLiterals name="BEFORE" value="5" literal="BEFORE"/>
+      <eLiterals name="AFTER" value="6" literal="AFTER"/>
+      <eLiterals name="CURRENT" value="7" literal="CURRENT"/>
+      <eLiterals name="RELATIVE" value="8" literal="RELATIVE"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FetchStatement" eSuperTypes="#//BindingStatement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursorName" lowerBound="1"
+          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="into" lowerBound="1"
+          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="#//dbl/FetchPosition"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativePosition" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="multipleRowClause" eType="#//dbl/MultipleRowFetchClause"
+          containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IntoClause">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptorName" lowerBound="1"
           eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -287,6 +307,13 @@
       <eLiterals name="READ_UNCOMMITTED" value="2"/>
       <eLiterals name="READ_COMMITTED" value="3"/>
       <eLiterals name="REPEATABLE_READ" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MultipleRowFetchClause">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowsNumber" lowerBound="1"
+          eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usingDescriptor" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="RWOperation">
       <eLiterals name="READ_ONLY" literal="READ_ONLY"/>
@@ -302,11 +329,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="usingType" eType="#//dbl/OpenType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="OpenType">
-      <eLiterals name="VARIABLE" literal="SERIALIZABLE"/>
+      <eLiterals name="VARIABLE" literal="VARIABLE"/>
       <eLiterals name="DESCRIPTOR" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="UsingType">
-      <eLiterals name="NAMES" literal="SERIALIZABLE"/>
+      <eLiterals name="NAMES" literal="NAMES"/>
       <eLiterals name="SYSTEM_NAMES" value="1"/>
       <eLiterals name="LABELS" value="2"/>
       <eLiterals name="ANY" value="3"/>
