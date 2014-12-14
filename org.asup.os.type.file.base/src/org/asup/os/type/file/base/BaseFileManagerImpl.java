@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.QAdapterFactory;
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
@@ -30,15 +30,15 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	private QConnectionManager connectionManager;
 	
 	@Inject
-	private QContext context;
+	private QApplication application;
 	
 	@ServiceRegistration
 	public void init() {		
 
 		QAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager);
 		
-		context.registerAdapterFactory(adapterFactory, QJob.class);
-		context.registerAdapterFactory(adapterFactory, QDatabaseFile.class);
+		application.getContext().registerAdapterFactory(adapterFactory, QJob.class);
+		application.getContext().registerAdapterFactory(adapterFactory, QDatabaseFile.class);
 	}
 
 	@Override

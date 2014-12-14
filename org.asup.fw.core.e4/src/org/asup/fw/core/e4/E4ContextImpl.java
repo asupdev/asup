@@ -18,17 +18,19 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QAdapterFactory;
-import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
-import org.eclipse.core.runtime.Platform;
+import org.asup.fw.core.impl.ContextImpl;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.Bundle;
+//github.com/asupdev/asup.git
+import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.QAdapterFactory;
+import org.asup.fw.core.QContextID;
+//github.com/asupdev/asup.git
+import org.eclipse.core.runtime.Platform;
 
-public abstract class E4ContextImpl implements QContext {
+public abstract class E4ContextImpl extends ContextImpl {
 
 	protected static final String ADAPTER_FACTORIES_NAME = "org.asup.fw.core.e4.context.adapterFactories";
 	

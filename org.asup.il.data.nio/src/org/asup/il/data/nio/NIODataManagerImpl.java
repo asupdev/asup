@@ -16,7 +16,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.il.data.QDataContainer;
@@ -28,7 +28,7 @@ import org.asup.il.data.QDataTerm;
 public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 
 	@Inject
-	private QContext applicationContext;
+	private QApplication application;
 	
 	private List<QDataDictionary> dictionaries = new ArrayList<QDataDictionary>();
 
@@ -45,7 +45,7 @@ public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 	 * @generated NOT
 	 */
 	public QDataFactory createFactory(QContextID contextID) {
-		return new NIODataFactoryImpl(applicationContext, contextID);
+		return new NIODataFactoryImpl(application.getContext().createLocalContext(contextID.getID()), contextID);
 	}
 
 	/**

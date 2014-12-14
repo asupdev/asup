@@ -14,13 +14,9 @@ public class E4ApplicationManagerImpl implements QApplicationManager {
 
 	    try {
 			// Start application
-	    	BundleContext bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
-			E4ApplicationStarter applicationStarter = new E4ApplicationStarter(application, bundleContext, output);
+	    	BundleContext bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();			
+			return new E4ApplicationStarter(application, bundleContext, output).start();
 			
-			application = applicationStarter.start();
-		    bundleContext.registerService(QApplication.class, application, null);
-			
-			return application;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

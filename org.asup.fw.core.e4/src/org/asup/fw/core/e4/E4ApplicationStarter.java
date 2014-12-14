@@ -55,25 +55,19 @@ public class E4ApplicationStarter {
 		this.writer = new OutputStreamWriter(outputStream);
 	}
 	
-	public QApplication start() throws Exception {
-		
-		int i = 0;
-		
-		for(i++; true; i++) {
-			
-			if(i==100)			
-				break;
-		}
+	public QApplication start() throws Exception {		
 		
 		println("");
 		
-		println(">application "+application);
-		
+		println(">application "+application);		
 
 		// root context
         QContext context = new E4ContextRootImpl(bundleContext, bundleContext.getBundle().getSymbolicName());
 
-		// hooks
+        QApplication application = new E4ApplicationImpl(this.application, context);
+	    bundleContext.registerService(QApplication.class, application, null);
+
+	    // hooks
 		messageLevel++;			
 		for(QServiceHook hook: application.getHooks()) {
 
@@ -117,14 +111,11 @@ public class E4ApplicationStarter {
 			}
 			messageLevel--;
 			
-			QContext contextLevel = context.createLocalContext(level.getName());
-			contextLevel.set(QApplicationLevel.class, level);			
-	
 			// LevelStarting event
 			messageLevel++;
 			for(QService hook: loadHooks(level)) {
 				println("!level starting "+hook);
-				contextLevel.invoke(hook, LevelStarting.class);
+				context.invoke(hook, LevelStarting.class);
 			}
 			messageLevel--;
 			
@@ -135,7 +126,7 @@ public class E4ApplicationStarter {
 				messageLevel++;
 				for(QServiceReference serviceReference: module.getServices()) {
 					try {
-						registerService(application, level, contextLevel, serviceReference);
+						registerService(application, level, context, serviceReference);
 					}
 					catch(Exception e) {
 						e.printStackTrace();
@@ -149,7 +140,7 @@ public class E4ApplicationStarter {
 			messageLevel++;
 			for(QService hook: loadHooks(level)) {
 				println("!level started "+hook);
-				contextLevel.invoke(hook, LevelStarted.class);
+				context.invoke(hook, LevelStarted.class);
 			}
 			messageLevel--;
 			
@@ -166,7 +157,7 @@ public class E4ApplicationStarter {
 
 		messageLevel--;
 		
-		return new E4ApplicationImpl(application, context);
+		return application;
 	}
 
 	public void registerService(QApplication application, QApplicationLevel level, QContext context, QServiceReference serviceReference) throws ClassNotFoundException {
