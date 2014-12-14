@@ -8,61 +8,40 @@
 package org.asup.dk.compiler.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
-
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.EntryType;
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QCompilerManager;
 import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.dk.compiler.QUnitConverter;
 import org.asup.dk.compiler.QUnitConverterRegistry;
-
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.asup.fw.java.QFrameworkJavaPackage;
-
 import org.asup.il.core.QIntegratedLanguageCorePackage;
-
 import org.asup.il.data.QIntegratedLanguageDataPackage;
-
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
-
 import org.asup.il.isam.QIntegratedLanguageIsamPackage;
-
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
-
 import org.asup.os.type.file.QOperatingSystemFilePackage;
-
 import org.asup.os.type.module.QOperatingSystemModulePackage;
-
 import org.asup.os.type.pgm.QOperatingSystemProgramPackage;
-
 import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
-
 import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
-
 import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
-
 import org.eclipse.datatools.modelbase.sql.expressions.SQLExpressionsPackage;
-
 import org.eclipse.datatools.modelbase.sql.routines.SQLRoutinesPackage;
-
 import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
-
 import org.eclipse.datatools.modelbase.sql.statements.SQLStatementsPackage;
-
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -77,7 +56,7 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass compilationContextEClass = null;
+	private EClass compilationUnitEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -209,8 +188,8 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCompilationContext() {
-		return compilationContextEClass;
+	public EClass getCompilationUnit() {
+		return compilationUnitEClass;
 	}
 
 	/**
@@ -331,7 +310,7 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		isCreated = true;
 
 		// Create classes and their features
-		compilationContextEClass = createEClass(COMPILATION_CONTEXT);
+		compilationUnitEClass = createEClass(COMPILATION_UNIT);
 
 		compilationSetupEClass = createEClass(COMPILATION_SETUP);
 		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__BASE_PACKAGE);
@@ -391,7 +370,6 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		compilationContextEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
 		compilerManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		unitConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		unitConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
@@ -402,21 +380,23 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		compilerLinkerEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getFacet());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(compilationContextEClass, QCompilationContext.class, "CompilationContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(compilationUnitEClass, QCompilationUnit.class, "CompilationUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(compilationContextEClass, ecorePackage.getEBoolean(), "equalsTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(compilationUnitEClass, ecorePackage.getEBoolean(), "equalsTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(compilationContextEClass, this.getCaseSensitiveType(), "getCaseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(compilationUnitEClass, this.getCaseSensitiveType(), "getCaseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(compilationContextEClass, this.getCompilationContext(), "getChildContexts", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(compilationUnitEClass, this.getCompilationUnit(), "getChildCompilationUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theIntegratedLanguageIsamPackage.getDataSetTerm(), "getDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(compilationUnitEClass, theFrameworkCorePackage.getContext(), "getContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageIsamPackage.getDataSetTerm(), "getDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, null, "getDataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, null, "getDataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());
@@ -424,23 +404,23 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(compilationContextEClass, theIntegratedLanguageIsamPackage.getKeyListTerm(), "getKeyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageIsamPackage.getKeyListTerm(), "getKeyList", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getModule(), "getModule", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageFlowPackage.getModule(), "getModule", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getNamedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getNamedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getProcedure(), "getProcedure", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageFlowPackage.getProcedure(), "getProcedure", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, null, "getPrototype", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, null, "getPrototype", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theIntegratedLanguageFlowPackage.getPrototype());
@@ -448,22 +428,22 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "getQualifiedName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, ecorePackage.getEString(), "getQualifiedName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageCorePackage.getNamedNode(), "namedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(compilationContextEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getRoot", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(compilationUnitEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getRoot", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, theIntegratedLanguageFlowPackage.getRoutine(), "getRoutine", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageFlowPackage.getRoutine(), "getRoutine", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "normalizeTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, ecorePackage.getEString(), "normalizeTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "normalizeTypeName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, ecorePackage.getEString(), "normalizeTypeName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilationContextEClass, ecorePackage.getEString(), "normalizeTypeName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilationUnitEClass, ecorePackage.getEString(), "normalizeTypeName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -475,60 +455,60 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 
 		initEClass(compilerManagerEClass, QCompilerManager.class, "CompilerManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createChildContext", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "master", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilerManagerEClass, this.getCompilationUnit(), "createChildCompilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "master", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageFlowPackage.getProcedure(), "procedure", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilerManagerEClass, this.getCompilationUnit(), "createCompilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemFilePackage.getFile(), "file", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilerManagerEClass, this.getCompilationUnit(), "createCompilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageFlowPackage.getModule(), "module", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilerManagerEClass, this.getCompilationContext(), "createCompilationContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilerManagerEClass, this.getCompilationUnit(), "createCompilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageFlowPackage.getProgram(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCaseSensitiveType(), "caseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(compilerManagerEClass, null, "linkCompilationContext", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(compilerManagerEClass, null, "linkCompilationUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilerManagerEClass, null, "writeDatabaseFile", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		op = addEOperation(compilerManagerEClass, null, "writeDisplayFile", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		op = addEOperation(compilerManagerEClass, null, "writeModule", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		op = addEOperation(compilerManagerEClass, null, "writePrinterFile", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		op = addEOperation(compilerManagerEClass, null, "writeProgram", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
 		op = addEOperation(compilerManagerEClass, null, "writeStub", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCompilationContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());

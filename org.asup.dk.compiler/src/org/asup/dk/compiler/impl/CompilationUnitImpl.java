@@ -9,9 +9,9 @@ package org.asup.dk.compiler.impl;
 
 import java.util.List;
 import org.asup.dk.compiler.CaseSensitiveType;
-import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
-import org.asup.fw.core.impl.ContextImpl;
+import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.flow.QModule;
@@ -21,6 +21,7 @@ import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,13 +32,13 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class CompilationContextImpl extends ContextImpl implements QCompilationContext {
+public abstract class CompilationUnitImpl extends MinimalEObjectImpl.Container implements QCompilationUnit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompilationContextImpl() {
+	protected CompilationUnitImpl() {
 		super();
 	}
 
@@ -48,7 +49,7 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QDevelopmentKitCompilerPackage.Literals.COMPILATION_CONTEXT;
+		return QDevelopmentKitCompilerPackage.Literals.COMPILATION_UNIT;
 	}
 
 	/**
@@ -78,7 +79,18 @@ public abstract class CompilationContextImpl extends ContextImpl implements QCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<QCompilationContext> getChildContexts() {
+	public List<QCompilationUnit> getChildCompilationUnits() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QContext getContext() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

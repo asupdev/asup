@@ -15,26 +15,30 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.FrameworkCoreException;
+import org.asup.fw.core.QAdapterFactory;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.impl.FileManagerImpl;
-import org.eclipse.core.internal.runtime.AdapterManager;
-import org.eclipse.core.runtime.IAdapterFactory;
 
-@SuppressWarnings("restriction")
 public class BaseFileManagerImpl extends FileManagerImpl {
 
 	@Inject
 	private QConnectionManager connectionManager;
 	
+	@Inject
+	private QContext context;
+	
 	@ServiceRegistration
 	public void init() {		
-		IAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager);
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QJob.class);	
-		AdapterManager.getDefault().registerAdapters(adapterFactory, QDatabaseFile.class);
+
+		QAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager);
+		
+		context.registerAdapterFactory(adapterFactory, QJob.class);
+		context.registerAdapterFactory(adapterFactory, QDatabaseFile.class);
 	}
 
 	@Override
@@ -78,10 +82,10 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	}
 
 	private BaseOverridedFileMap getOverridedFile(QJob job) throws FrameworkCoreException {
-		BaseOverridedFileMap overrideFileMap = job.getJobContext().get(BaseOverridedFileMap.class);
+		BaseOverridedFileMap overrideFileMap = job.getContext().get(BaseOverridedFileMap.class);
 		if(overrideFileMap == null) {
 			overrideFileMap = new BaseOverridedFileMap();
-			job.getJobContext().set(BaseOverridedFileMap.class, overrideFileMap);
+			job.getContext().set(BaseOverridedFileMap.class, overrideFileMap);
 		}
 		return overrideFileMap;
 	}

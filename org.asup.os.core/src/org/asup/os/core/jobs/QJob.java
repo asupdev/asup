@@ -9,6 +9,7 @@ package org.asup.os.core.jobs;
 
 import java.util.List;
 
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.os.core.QSystem;
 import org.asup.os.omac.QCreationInfo;
@@ -32,7 +33,7 @@ import org.asup.os.omac.QObjectNameable;
  *   <li>{@link org.asup.os.core.jobs.QJob#getMessages <em>Messages</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getSystem <em>System</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getCreationInfo <em>Creation Info</em>}</li>
- *   <li>{@link org.asup.os.core.jobs.QJob#getJobContext <em>Job Context</em>}</li>
+ *   <li>{@link org.asup.os.core.jobs.QJob#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -289,29 +290,25 @@ public interface QJob extends QObjectNameable, QContextID {
 	void setCreationInfo(QCreationInfo value);
 
 	/**
-	 * Returns the value of the '<em><b>Job Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Job Context</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Job Context</em>' containment reference.
-	 * @see #setJobContext(QJobContext)
-	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJob_JobContext()
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(QContext)
+	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJob_Context()
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	QJobContext getJobContext();
+	QContext getContext();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.core.jobs.QJob#getJobContext <em>Job Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.asup.os.core.jobs.QJob#getContext <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Job Context</em>' containment reference.
-	 * @see #getJobContext()
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
 	 * @generated
 	 */
-	void setJobContext(QJobContext value);
+	void setContext(QContext value);
 
 } // QJob

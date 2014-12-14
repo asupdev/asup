@@ -11,7 +11,7 @@
  */
 package org.asup.os.type.cmd.ibmi;
 
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDataTermVisitor;
 import org.asup.il.data.QMultipleAtomicDataTerm;
@@ -23,11 +23,11 @@ public class IBMiCommandStringBuilder implements QDataTermVisitor {
 	
 	private StringBuffer buffer = new StringBuffer();
 	
-	QDataContext targetDataContext = null;
+	QDataContainer targetDataContainer = null;
 	
 	
-	public void setTarget(QDataContext dataContext) {
-		targetDataContext = dataContext;
+	public void setTarget(QDataContainer dataContainer) {
+		targetDataContainer = dataContainer;
 		clear();
 	}
 	

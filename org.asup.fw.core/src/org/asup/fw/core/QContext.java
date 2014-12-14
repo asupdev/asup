@@ -16,7 +16,7 @@ import java.lang.annotation.Annotation;
  *
  *
  * @see org.asup.fw.core.QFrameworkCorePackage#getContext()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface QContext {
@@ -31,10 +31,10 @@ public interface QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException"
+	 * @model required="true" exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException" nameRequired="true"
 	 * @generated
 	 */
-	QContext createChild() throws FrameworkCoreRuntimeException;
+	QContext createLocalContext(String name) throws FrameworkCoreRuntimeException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,6 +91,14 @@ public interface QContext {
 	 * @generated
 	 */
 	<T> T make(Class<T> klass) throws FrameworkCoreRuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model factoryRequired="true" adapterTypeRequired="true" TBounds="org.eclipse.emf.ecore.EJavaObject"
+	 * @generated
+	 */
+	<T extends Object> void registerAdapterFactory(QAdapterFactory factory, Class<T> adapterType);
 
 	/**
 	 * <!-- begin-user-doc -->

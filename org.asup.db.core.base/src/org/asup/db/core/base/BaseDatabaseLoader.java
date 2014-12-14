@@ -23,6 +23,7 @@ import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QDefinitionWriterRegistry;
 import org.asup.db.syntax.QQueryWriter;
 import org.asup.db.syntax.QQueryWriterRegistry;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
@@ -30,7 +31,7 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 public class BaseDatabaseLoader {
 
 	@Inject
-	private QContext context;
+	private QApplication application;
 	@Inject
 	private QQueryWriterRegistry queryWriterRegistry;
 	@Inject
@@ -48,7 +49,7 @@ public class BaseDatabaseLoader {
 				QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 				
 				// build catalog context
-				QContext catalogContext = new BaseCatalogContextImpl(context.createChild(), catalogContainer.getName());
+				QContext catalogContext = application.getContext().createLocalContext(catalogContainer.getName());
 				QQueryWriter queryWriter = queryWriterRegistry.lookup(connectionConfig);
 				catalogContext.set(QQueryWriter.class, queryWriter);
 				QDefinitionWriter definitionWriter = definitionWriterRegistry.lookup(connectionConfig);
@@ -60,7 +61,6 @@ public class BaseDatabaseLoader {
 					newCatalogContainer.setName(catalogContainer.getName());
 					newCatalogContainer.setConnectionConfig(catalogContainer.getConnectionConfig());
 					newCatalogContainer.setSupportsGuestAccess(catalogContainer.isSupportsGuestAccess());
-					newCatalogContainer.setSupportsRelativeRecordNumber(catalogContainer.isSupportsRelativeRecordNumber());					
 					newCatalogContainer.initialize();
 					
 					// update references

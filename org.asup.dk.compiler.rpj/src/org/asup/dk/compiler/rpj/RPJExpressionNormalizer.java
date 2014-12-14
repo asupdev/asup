@@ -17,7 +17,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.data.QAtomicDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleAtomicBufferedDataDef;
@@ -37,7 +37,7 @@ import org.asup.il.flow.impl.StatementVisitorImpl;
 public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 	@Inject
-	private QCompilationContext compilationContext;
+	private QCompilationUnit compilationUnit;
 	@Inject
 	private QExpressionParser expressionParser;
 
@@ -45,16 +45,14 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 	@PostConstruct
 	public void init() {
-		this.expressionBuilder = compilationContext
-				.make(RPJExpressionStringBuilder.class);
+		this.expressionBuilder = compilationUnit.getContext().make(RPJExpressionStringBuilder.class);
 	}
 
 	@Override
 	public boolean visit(QCall statement) {
 
 		// program
-		QTermExpression expression = expressionParser.parseTerm(statement
-				.getProgram());
+		QTermExpression expression = expressionParser.parseTerm(statement.getProgram());
 		expression.accept(expressionBuilder.reset());
 		statement.setProgram(expressionBuilder.getResult());
 
@@ -75,8 +73,7 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 	public boolean visit(QIf statement) {
 
 		// program
-		QPredicateExpression expression = expressionParser
-				.parsePredicate(statement.getCondition());
+		QPredicateExpression expression = expressionParser.parsePredicate(statement.getCondition());
 		expression.accept(expressionBuilder.reset());
 		statement.setCondition(expressionBuilder.getResult());
 
@@ -106,26 +103,26 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 	@Override
 	public boolean visit(QEval statement) {
-		
+
 		QAssignmentExpression assignmentExpression = expressionParser.parseAssignment(statement.getAssignment());
 
 		// function
 		QTermExpression leftExpression = assignmentExpression.getLeftOperand();
-		if(leftExpression.isFunction()) 
+		if (leftExpression.isFunction())
 			return super.visit(statement);
-		
+
 		// dataTerm
-		QDataTerm<?> dataTerm = compilationContext.getDataTerm(leftExpression.getValue(), true);
-		if(dataTerm == null)
+		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(leftExpression.getValue(), true);
+		if (dataTerm == null)
 			return super.visit(statement);
-		
+
 		// unary
-		if(dataTerm.getDataTermType().isUnary()) 
+		if (dataTerm.getDataTermType().isUnary())
 			return super.visit(statement);
-		
+
 		// multiple
-		QMultipleDataTerm<?	> multipleDataTerm = (QMultipleDataTerm<?>) dataTerm;
-					
+		QMultipleDataTerm<?> multipleDataTerm = (QMultipleDataTerm<?>) dataTerm;
+
 		// search QArray<QNumeric>.eval(0)
 		QExpression rightExpression = assignmentExpression.getRightOperand();
 		switch (rightExpression.getExpressionType()) {
@@ -147,30 +144,29 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 			case INDICATOR:
 				break;
 			case INTEGER:
-				if(multipleDataTerm.getDefinition() instanceof QMultipleAtomicBufferedDataDef<?>) {
-					if(((QMultipleAtomicBufferedDataDef<?>)multipleDataTerm.getDefinition()).getArgument().getJavaClass().equals(Integer.class)) {
+				if (multipleDataTerm.getDefinition() instanceof QMultipleAtomicBufferedDataDef<?>) {
+					if (((QMultipleAtomicBufferedDataDef<?>) multipleDataTerm.getDefinition()).getArgument().getJavaClass().equals(Integer.class)) {
 						try {
 							int i = Integer.parseInt(atomicTermExpression.getValue());
-							if(i==0) {
+							if (i == 0) {
 								atomicTermExpression.setValue("*ZEROS");
 
 								RPJExpressionStringBuilder expressionStringBuilder = new RPJExpressionStringBuilder();
-								expressionStringBuilder.visit(assignmentExpression);											
+								expressionStringBuilder.visit(assignmentExpression);
 								statement.setAssignment(expressionStringBuilder.getResult());
 							}
-						}
-						catch(NumberFormatException e) {
+						} catch (NumberFormatException e) {
 							System.err.println(e);
 						}
 					}
 				}
 				break;
 			case NAME:
-				QAtomicDataTerm<?> atomicDataTerm = (QAtomicDataTerm<?>) compilationContext.getDataTerm(atomicTermExpression.getValue(), true);;
-				if(atomicDataTerm != null) {
-					atomicDataTerm.toString();	
-				}
-				else
+				QAtomicDataTerm<?> atomicDataTerm = (QAtomicDataTerm<?>) compilationUnit.getDataTerm(atomicTermExpression.getValue(), true);
+				;
+				if (atomicDataTerm != null) {
+					atomicDataTerm.toString();
+				} else
 					System.err.println("d684350dgfsd6654");
 				break;
 			case SPECIAL:

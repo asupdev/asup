@@ -20,15 +20,15 @@ import java.net.SocketAddress;
 
 import org.asup.co.core.ConnectorCoreHelper;
 import org.asup.co.core.QServerSocketConfig;
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 
 public class ShellServerSocketImpl implements Runnable {
 
-	private QContext context;
+	private QApplication application;
 	private QServerSocketConfig config;
 	
-	public ShellServerSocketImpl(QContext context, QServerSocketConfig config) {
-		this.context = context;
+	public ShellServerSocketImpl(QApplication application, QServerSocketConfig config) {
+		this.application = application;
 		this.config = config;
 	}
 	
@@ -47,9 +47,8 @@ public class ShellServerSocketImpl implements Runnable {
 				Socket socket = serverSocket.accept();
 
 				// start thread handler
-				QContext threadContext = context.createChild();
 				ShellSocketHandler shellThread = new ShellSocketHandler(socket);
-				threadContext.inject(shellThread);
+				application.getContext().inject(shellThread);
 
 				shellThread.start();
 			}

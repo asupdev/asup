@@ -32,7 +32,7 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 	public String getResult() {
 		return result;
 	}
-	
+
 	public RPJExpressionStringBuilder reset() {
 		result = "";
 		return this;
@@ -61,18 +61,18 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 			result += " or ";
 			break;
 		}
-		
-		if(expression.getRightOperand() != null)
+
+		if (expression.getRightOperand() != null)
 			expression.getRightOperand().accept(this);
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QRelationalExpression expression) {
-		
+
 		expression.getLeftOperand().accept(this);
-		
+
 		switch (expression.getOperator()) {
 		case EQUAL:
 			result += " = ";
@@ -93,25 +93,24 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 			result += " <> ";
 			break;
 		}
-		
-		if(expression.getRightOperand() != null)
+
+		if (expression.getRightOperand() != null)
 			expression.getRightOperand().accept(this);
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QArithmeticExpression expression) {
 
-		if(expression.getOperator() == ArithmeticOperator.NEGATE) {
+		if (expression.getOperator() == ArithmeticOperator.NEGATE) {
 			result += "-";
 			expression.getLeftOperand().accept(this);
-			if(expression.getRightOperand() != null)
+			if (expression.getRightOperand() != null)
 				throw new IntegratedLanguageExpressionRuntimeException("Unexpected condition: kdsf43g77q35n4v5");
-		}
-		else {
+		} else {
 			expression.getLeftOperand().accept(this);
-			
+
 			switch (expression.getOperator()) {
 			case BCAT:
 				result += "|>";
@@ -138,22 +137,22 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 				result += "**";
 				break;
 			case NEGATE:
-				throw new IntegratedLanguageExpressionRuntimeException("Unexpected condition: mct8734034vn7q35n4v5");				
+				throw new IntegratedLanguageExpressionRuntimeException("Unexpected condition: mct8734034vn7q35n4v5");
 			}
-			
-			if(expression.getRightOperand() != null)
+
+			if (expression.getRightOperand() != null)
 				expression.getRightOperand().accept(this);
 		}
-		
+
 		return false;
 
 	}
 
 	@Override
 	public boolean visit(QAssignmentExpression expression) {
-		
+
 		expression.getLeftOperand().accept(this);
-		
+
 		switch (expression.getOperator()) {
 		case ASSIGN:
 			result += " = ";
@@ -162,7 +161,7 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 			result += " /= ";
 			break;
 		case MINUS_ASSIGN:
-		result += " -= ";
+			result += " -= ";
 			break;
 		case PLUS_ASSIGN:
 			result += " += ";
@@ -176,33 +175,32 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 		default:
 			break;
 		}
-		
-		if(expression.getRightOperand() != null)
+
+		if (expression.getRightOperand() != null)
 			expression.getRightOperand().accept(this);
-		
+
 		return false;
 
 	}
 
 	@Override
 	public boolean visit(QAtomicTermExpression expression) {
-		
-		if(expression.getType() == AtomicType.STRING) {
+
+		if (expression.getType() == AtomicType.STRING) {
 			String value = expression.getValue().replaceAll("\'", "\''");
-			result += "'"+value+"'";
-		}
-		else
+			result += "'" + value + "'";
+		} else
 			result += expression.getValue();
-		
-		if(expression.isFunction())
+
+		if (expression.isFunction())
 			result += "()";
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QBlockExpression expression) {
-		
+
 		result += "(";
 		expression.getExpression().accept(this);
 		result += ")";
@@ -212,33 +210,31 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 
 	@Override
 	public boolean visit(QCompoundTermExpression expression) {
-		
-		if(expression.isFunction()) {
-			if(expression.isSpecial()) {
-				result += " %"+expression.getValue().substring(1);
+
+		if (expression.isFunction()) {
+			if (expression.isSpecial()) {
+				result += " %" + expression.getValue().substring(1);
+			} else {
+				result += " " + expression.getValue();
 			}
-			else {
-				result += " "+expression.getValue();
-			}
-			
-			if(!expression.getElements().isEmpty()) {
+
+			if (!expression.getElements().isEmpty()) {
 				boolean first = true;
 				result += "(";
-				for(QExpression child: expression.getElements()) {
-					if(!first)
+				for (QExpression child : expression.getElements()) {
+					if (!first)
 						result += ": ";
 					child.accept(this);
 					first = false;
 				}
 				result += ")";
 			}
-		}
-		else {
-			
-			result += " "+expression.getValue();
+		} else {
 
-			if(!result.contains(".")) {
-				for(QExpression child: expression.getElements()) {
+			result += " " + expression.getValue();
+
+			if (!result.contains(".")) {
+				for (QExpression child : expression.getElements()) {
 					result += ".";
 					child.accept(this);
 				}
@@ -247,4 +243,4 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 
 		return false;
 	}
-}	
+}

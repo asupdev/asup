@@ -389,7 +389,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 		if(argument.getClassDelegator() != null) { 
 
 			if(!argument.getElements().isEmpty())
-				throw new FrameworkCoreRuntimeException("Error sdf9dfg7574c2dn");
+				throw new FrameworkCoreRuntimeException("Unexpected condition: sdf9dfg7574c2dn");
 			
 			delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, argument.getClassDelegator());
 			

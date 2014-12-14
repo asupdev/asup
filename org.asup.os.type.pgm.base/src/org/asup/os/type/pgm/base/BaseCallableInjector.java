@@ -111,7 +111,7 @@ public class BaseCallableInjector {
 							Map<String, Object> sharedModules) throws IllegalArgumentException, IllegalAccessException, InstantiationException {
 		
 		C callable = klass.newInstance();
-		QContext context = job.getJobContext();
+		QContext jobContext = job.getContext();
 		for(Field field: klass.getDeclaredFields()) {
 
 			field.setAccessible(true);
@@ -146,10 +146,10 @@ public class BaseCallableInjector {
 			}
 			else if(QDataSet.class.isAssignableFrom(fieldKlass)) {
 				
-				QIsamFactory isamFactory = job.getJobContext().get(QIsamFactory.class);
+				QIsamFactory isamFactory = job.getContext().get(QIsamFactory.class);
 				if(isamFactory == null) {
-					isamFactory = isamManager.createFactory(job.getJobContext(), job);
-					job.getJobContext().set(QIsamFactory.class, isamFactory);
+					isamFactory = isamManager.createFactory(job.getContext(), job);
+					job.getContext().set(QIsamFactory.class, isamFactory);
 				}
 				
 				FileDef fileDef = field.getAnnotation(FileDef.class);
@@ -189,7 +189,7 @@ public class BaseCallableInjector {
 				field.set(callable, data);
 			}
 			else if(field.getAnnotation(Inject.class) != null){
-				Object object = context.get(fieldKlass); 
+				Object object = jobContext.get(fieldKlass); 
 				if(object == null) {
 					field.setAccessible(false);
 					throw new OperatingSystemRuntimeException("Unknown field type: "+type);
@@ -201,7 +201,7 @@ public class BaseCallableInjector {
 			field.setAccessible(false);
 		}
 
-		context.invoke(callable, PostConstruct.class);
+		jobContext.invoke(callable, PostConstruct.class);
 		
 		return callable;
 	}

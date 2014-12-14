@@ -11,40 +11,37 @@
  */
 package org.asup.fw.core.e4;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QContext;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 
 public class E4ContextChildImpl extends E4ContextImpl implements QContext {
 	
 	private IEclipseContext eclipseContext;
-	private int level;
-	private String text;
 	
-	public E4ContextChildImpl(IEclipseContext eclipseContext, int level, String id, String text) {
-		super(id);
+	public E4ContextChildImpl(IEclipseContext eclipseContext, String name) {
+		super(name);
 		
 		this.eclipseContext = eclipseContext;
-		this.level = level;
-		this.text = text;
 	}
 
 	@Override
 	IEclipseContext getEclipseContext() {		
 		return eclipseContext;
 	}
+	
 	@Override
-	public QContext createChild() throws FrameworkCoreRuntimeException {
-
-		for(int l=1; l<=level; l++)
-			System.out.print("\t");
+	public QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
 		
 		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-		int childLevel = level+1;
-		String childID = getID()+"@"+childLevel;
-		QContext contextChild = new E4ContextChildImpl(eclipseChildContext, childLevel, childID, text+"("+childLevel+")");
+		eclipseChildContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
 		
-
+		QContext contextChild = new E4ContextChildImpl(eclipseChildContext, name);
+		
 		return contextChild;
 	}
 }

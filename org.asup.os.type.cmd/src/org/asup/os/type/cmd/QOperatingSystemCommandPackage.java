@@ -102,13 +102,13 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	int CALLABLE_COMMAND__VARIABLES = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Data Context</b></em>' containment reference.
+	 * The feature id for the '<em><b>Data Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALLABLE_COMMAND__DATA_CONTEXT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 3;
+	int CALLABLE_COMMAND__DATA_CONTAINER = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Callable Command</em>' class.
@@ -561,15 +561,15 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	EAttribute getCallableCommand_Variables();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.asup.os.type.cmd.QCallableCommand#getDataContext <em>Data Context</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.os.type.cmd.QCallableCommand#getDataContainer <em>Data Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Data Context</em>'.
-	 * @see org.asup.os.type.cmd.QCallableCommand#getDataContext()
+	 * @return the meta object for the containment reference '<em>Data Container</em>'.
+	 * @see org.asup.os.type.cmd.QCallableCommand#getDataContainer()
 	 * @see #getCallableCommand()
 	 * @generated
 	 */
-	EReference getCallableCommand_DataContext();
+	EReference getCallableCommand_DataContainer();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.cmd.QCommand <em>Command</em>}'.
@@ -863,12 +863,12 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 		EAttribute CALLABLE_COMMAND__VARIABLES = eINSTANCE.getCallableCommand_Variables();
 
 		/**
-		 * The meta object literal for the '<em><b>Data Context</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Data Container</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CALLABLE_COMMAND__DATA_CONTEXT = eINSTANCE.getCallableCommand_DataContext();
+		EReference CALLABLE_COMMAND__DATA_CONTAINER = eINSTANCE.getCallableCommand_DataContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.cmd.impl.CommandImpl <em>Command</em>}' class.

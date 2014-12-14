@@ -9,7 +9,7 @@ import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QAtomicDataTerm;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QList;
@@ -29,7 +29,7 @@ public class IBMiCommandDecoder {
 		
 		String result = callableCommand.getCommand().getName() + SPACE;
 		
-		QDataContext dataContext = callableCommand.getDataContext();
+		QDataContainer dataContainer = callableCommand.getDataContainer();
 		
     	List<QCommandParameter> parameterList = callableCommand.getCommand().getParameters();
 			
@@ -43,11 +43,11 @@ public class IBMiCommandDecoder {
 			QDataTerm<?> dataTerm = dataContext.getTerms().get(position);
 			*/
 			
-			if (defaults || dataContext.isSet(dataTerm)) {
+			if (defaults || dataContainer.isSet(dataTerm)) {
 	
 				result += commandParameter.getName() + "(";
 		
-				result = writeDataTermString(result, dataTerm, dataContext.getData(dataTerm));
+				result = writeDataTermString(result, dataTerm, dataContainer.getData(dataTerm));
 				
 				result += ")" + SPACE;
 			}

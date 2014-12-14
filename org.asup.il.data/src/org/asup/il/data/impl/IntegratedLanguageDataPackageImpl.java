@@ -7,6 +7,7 @@
  */
 package org.asup.il.data.impl;
 
+
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
@@ -37,7 +38,7 @@ import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataDictionary;
@@ -251,7 +252,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dataContextEClass = null;
+	private EClass dataContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1014,8 +1015,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDataContext() {
-		return dataContextEClass;
+	public EClass getDataContainer() {
+		return dataContainerEClass;
 	}
 
 	/**
@@ -1895,7 +1896,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		dataEClass = createEClass(DATA);
 
-		dataContextEClass = createEClass(DATA_CONTEXT);
+		dataContainerEClass = createEClass(DATA_CONTAINER);
 
 		dataDefEClass = createEClass(DATA_DEF);
 		createEAttribute(dataDefEClass, DATA_DEF__FORMULAS);
@@ -2293,7 +2294,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(compoundDataTermEClass_DD);
 		g1.getETypeArguments().add(g2);
 		compoundDataTermEClass.getEGenericSuperTypes().add(g1);
-		dataContextEClass.getESuperTypes().add(this.getDataTermContainer());
+		dataContainerEClass.getESuperTypes().add(this.getDataTermContainer());
 		g1 = createEGenericType(theIntegratedLanguageCorePackage.getDictionary());
 		g2 = createEGenericType(this.getDataTerm());
 		g1.getETypeArguments().add(g2);
@@ -2660,34 +2661,34 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(dataEClass, ecorePackage.getEBoolean(), "ne", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDataEvaluator(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(dataContextEClass, QDataContext.class, "DataContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(dataContainerEClass, QDataContainer.class, "DataContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(dataContextEClass, null, "clearData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(dataContainerEClass, null, "clearData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataContextEClass, this.getData(), "getData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataContainerEClass, this.getData(), "getData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataContextEClass, this.getData(), "getData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataContainerEClass, this.getData(), "getData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataContextEClass, ecorePackage.getEBoolean(), "isSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataContainerEClass, ecorePackage.getEBoolean(), "isSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataContextEClass, ecorePackage.getEBoolean(), "isSet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataContainerEClass, ecorePackage.getEBoolean(), "isSet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "dataTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(dataContainerEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataContainerEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataContextEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataContainerEClass, null, "resetData", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
@@ -2894,7 +2895,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(dataManagerEClass, QDataManager.class, "DataManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(dataManagerEClass, this.getDataContext(), "createContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataManagerEClass, this.getDataContainer(), "createDataContainer", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getDataTerm());
 		g2 = createEGenericType();
@@ -2910,8 +2911,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(dataManagerEClass, null, "registerDictionary", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDataDictionary(), "dictionary", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(dataManagerEClass, null, "validateContext", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getDataContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataManagerEClass, null, "validateDataContainer", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getDataContainer(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataStructEClass, QDataStruct.class, "DataStruct", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

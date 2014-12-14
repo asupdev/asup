@@ -16,7 +16,7 @@ import java.util.Stack;
 
 import javax.inject.Inject;
 
-import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.core.QTerm;
@@ -84,7 +84,7 @@ import org.eclipse.jdt.core.dom.WhileStatement;
 public class JDTStatementWriter extends StatementVisitorImpl {
 
 	@Inject
-	private QCompilationContext compilationContext;
+	private QCompilationUnit compilationUnit;
 	@Inject
 	private QExpressionParser expressionParser;
 
@@ -103,9 +103,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public void endVisit(QBlock statement) {
 
 		// double {} on if statement
-		EObject eObject = (EObject)statement;
-		if(!(eObject.eContainer() instanceof QIf) &&
-		   !(eObject.eContainer() instanceof QIteration))
+		EObject eObject = (EObject) statement;
+		if (!(eObject.eContainer() instanceof QIf) && !(eObject.eContainer() instanceof QIteration))
 			blocks.pop();
 	}
 
@@ -140,9 +139,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		Block block = blocks.peek();
 
 		// double {} on if statement
-		EObject eObject = (EObject)statement;
-		if(!(eObject.eContainer() instanceof QIf) &&
-			!(eObject.eContainer() instanceof QIteration)) {
+		EObject eObject = (EObject) statement;
+		if (!(eObject.eContainer() instanceof QIf) && !(eObject.eContainer() instanceof QIteration)) {
 			Block newBlock = ast.newBlock();
 			block.statements().add(newBlock);
 			blocks.push(newBlock);
@@ -179,10 +177,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		methodInvocation.arguments().add(jdtExpression);
 
 		// array of parameter
-		ArrayCreation arrayCreation= ast.newArrayCreation();
+		ArrayCreation arrayCreation = ast.newArrayCreation();
 		arrayCreation.setType(ast.newArrayType(ast.newSimpleType(ast.newSimpleName(QData.class.getSimpleName()))));
 		ArrayInitializer arrayInitializer = ast.newArrayInitializer();
-		for (String parameter :statement.getParameters()){
+		for (String parameter : statement.getParameters()) {
 			expression = expressionParser.parseTerm(parameter);
 			jdtExpression = buildExpression(ast, expression, null);
 			arrayInitializer.expressions().add(jdtExpression);
@@ -233,31 +231,31 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean visit(QEval statement) {
-		
+
 		Block block = blocks.peek();
 
 		QAssignmentExpression assignmentExpression = expressionParser.parseAssignment(statement.getAssignment());
-		MethodInvocation methodInvocation = buildAssignmentMethod(assignmentExpression);	
+		MethodInvocation methodInvocation = buildAssignmentMethod(assignmentExpression);
 
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
 
 		return super.visit(statement);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean visit(QIf statement) {
-		
+
 		Block block = blocks.peek();
 
 		IfStatement ifSt = ast.newIfStatement();
 		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());
 
 		Expression expression = null;
-		
-		if(CompilationContextHelper.isPrimitive(compilationContext, condition))
- 			expression = buildExpression(ast, condition, Boolean.class);
+
+		if (CompilationContextHelper.isPrimitive(compilationUnit, condition))
+			expression = buildExpression(ast, condition, Boolean.class);
 		else
 			expression = buildExpression(ast, condition, null);
 
@@ -267,7 +265,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		// then
 		Block thenBlock = null;
-		if(ifSt.getThenStatement() instanceof Block)
+		if (ifSt.getThenStatement() instanceof Block)
 			thenBlock = (Block) ifSt.getThenStatement();
 		else {
 			thenBlock = ast.newBlock();
@@ -280,9 +278,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		blocks.pop();
 
 		// else
-		if(statement.getElse() != null) {
+		if (statement.getElse() != null) {
 			Block elseBlock = null;
-			if(ifSt.getElseStatement() instanceof Block)
+			if (ifSt.getElseStatement() instanceof Block)
 				elseBlock = (Block) ifSt.getElseStatement();
 			else {
 				elseBlock = ast.newBlock();
@@ -310,16 +308,16 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		// initialization
 		QAssignmentExpression assignment = expressionParser.parseAssignment(statement.getInitialization());
 		forSt.initializers().add(buildAssignmentMethod(assignment));
-		
+
 		// condition
-		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());			
-		Expression expression = buildExpression(ast, condition, CompilationContextHelper.getJavaClass(compilationContext, condition));
+		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());
+		Expression expression = buildExpression(ast, condition, CompilationContextHelper.getJavaClass(compilationUnit, condition));
 		forSt.setExpression(expression);
-		
+
 		// increment
 		QAssignmentExpression increment = expressionParser.parseAssignment(statement.getIncrement());
 		forSt.updaters().add(buildAssignmentMethod(increment));
-		
+
 		block.statements().add(forSt);
 
 		// body
@@ -334,59 +332,55 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean visit(QProcedureExec statement) {
-		
+
 		Block block = blocks.peek();
 
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 
-		QPrototype<?> prototype = compilationContext.getPrototype(statement.getProcedure(), true);
-		if(prototype == null) 
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure: "+statement.getProcedure());
-		
-		methodInvocation.setName(ast.newSimpleName(compilationContext.normalizeTermName(prototype.getName())));
+		QPrototype<?> prototype = compilationUnit.getPrototype(statement.getProcedure(), true);
+		if (prototype == null)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure: " + statement.getProcedure());
 
-		if(prototype.isChild() && prototype.getParent() != compilationContext.getRoot()) {
+		methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(prototype.getName())));
+
+		if (prototype.isChild() && prototype.getParent() != compilationUnit.getRoot()) {
 			QNode parent = prototype.getParent();
-			if(parent instanceof QNamedNode) {
-				String qualifiedParent = compilationContext.getQualifiedName((QNamedNode) parent); 
+			if (parent instanceof QNamedNode) {
+				String qualifiedParent = compilationUnit.getQualifiedName((QNamedNode) parent);
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(qualifiedParent), null));
-			}
-			else
-				throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure: "+statement.getProcedure());
+			} else
+				throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure: " + statement.getProcedure());
 		}
 
 		// entry
-		if(prototype.getEntry() != null) {
-			Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();		
-			
-			for(String parameter: statement.getParameters()){
+		if (prototype.getEntry() != null) {
+			Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();
+
+			for (String parameter : statement.getParameters()) {
 				QTermExpression expression = expressionParser.parseTerm(parameter);
-				if(entryParameters.hasNext()) {
+				if (entryParameters.hasNext()) {
 					QEntryParameter<?> entryParameter = entryParameters.next();
-					QTerm parameterDelegate = entryParameter.getDelegate(); 
-					
-					if(parameterDelegate instanceof QDataTerm) {
-						QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
-						
-						if(dataTerm.isConstant()) {
+					QTerm parameterDelegate = entryParameter.getDelegate();
+
+					if (parameterDelegate instanceof QDataTerm) {
+						QDataTerm<?> dataTerm = (QDataTerm<?>) parameterDelegate;
+
+						if (dataTerm.isConstant()) {
 							Expression jdtExpression = buildExpression(ast, expression, dataTerm.getDefinition().getJavaClass());
 							methodInvocation.arguments().add(jdtExpression);
-						}
-						else {
+						} else {
 							Expression jdtExpression = buildExpression(ast, expression, dataTerm.getDefinition().getDataClass());
 							methodInvocation.arguments().add(jdtExpression);
 						}
-					}
-					else if(parameterDelegate instanceof QDataSetTerm) {
+					} else if (parameterDelegate instanceof QDataSetTerm) {
 						Expression jdtExpression = buildExpression(ast, expression, QDataSet.class);
 						methodInvocation.arguments().add(jdtExpression);
 					}
-				}
-				else
-					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: "+statement.getProcedure());
+				} else
+					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
 			}
 		}
-		
+
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
 
@@ -402,9 +396,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 		methodInvocation.setExpression(ast.newSimpleName("qRPJ"));
 		methodInvocation.setName(ast.newSimpleName("qJump"));
-		
-		Name labelName = ast.newName(new String[] {"TAG", statement.getLabel()});
-		methodInvocation.arguments().add(0,labelName);
+
+		Name labelName = ast.newName(new String[] { "TAG", statement.getLabel() });
+		methodInvocation.arguments().add(0, labelName);
 
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
@@ -422,8 +416,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		methodInvocation.setExpression(ast.newSimpleName("qRPJ"));
 		methodInvocation.setName(ast.newSimpleName("qLabel"));
 
-		Name labelName = ast.newName(new String[] {"TAG", statement.getName()});
-		methodInvocation.arguments().add(0,labelName);
+		Name labelName = ast.newName(new String[] { "TAG", statement.getName() });
+		methodInvocation.arguments().add(0, labelName);
 
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
@@ -439,14 +433,14 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			Block block = blocks.peek();
 
 			MethodInvocation methodInvocation = ast.newMethodInvocation();
-			methodInvocation.setName(ast.newSimpleName(compilationContext.normalizeTermName(statement.getMethod())));
+			methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(statement.getMethod())));
 
-			if(statement.getObject()!=null)
+			if (statement.getObject() != null)
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
 
-			if(statement.getParameters()!=null){
-				for(String parameter:statement.getParameters()) {					
-					
+			if (statement.getParameters() != null) {
+				for (String parameter : statement.getParameters()) {
+
 					QTermExpression expression = expressionParser.parseTerm(parameter);
 					Expression jdtExpression = buildExpression(ast, expression, null);
 					methodInvocation.arguments().add(jdtExpression);
@@ -458,8 +452,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			block.statements().add(expressionStatement);
 
 			return super.visit(statement);
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
 	}
@@ -473,11 +466,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		// -> try
 		TryStatement tryStatement = ast.newTryStatement();
 		blocks.push(tryStatement.getBody());
-		for(QStatement child: statement.getBody().getStatements()) {
+		for (QStatement child : statement.getBody().getStatements()) {
 			child.accept(this);
 		}
 
-		
 		// catch
 		CatchClause catchClause = ast.newCatchClause();
 		SingleVariableDeclaration exceptionDeclaration = ast.newSingleVariableDeclaration();
@@ -500,17 +492,17 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		blocks.peek().statements().add(switchStatement);
 
-		for(QOnError error: statement.getOnErrors()) {
+		for (QOnError error : statement.getOnErrors()) {
 			if (error.getBody() != null) {
 
 				// Case
 				SwitchCase switchCase = ast.newSwitchCase();
 				StringLiteral caseLiteral = ast.newStringLiteral();
-				if(error.getError() != null)
+				if (error.getError() != null)
 					caseLiteral.setLiteralValue(error.getError());
 				else
 					caseLiteral.setLiteralValue("*ALL");
-				
+
 				switchCase.setExpression(caseLiteral);
 				switchStatement.statements().add(switchCase);
 
@@ -520,7 +512,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				Block caseBlock = ast.newBlock();
 				blocks.push(caseBlock);
 
-				for(QStatement child: error.getBody().getStatements()) {
+				for (QStatement child : error.getBody().getStatements()) {
 					child.accept(this);
 				}
 
@@ -574,11 +566,11 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		Block block = blocks.peek();
 
 		DoStatement doSt = ast.newDoStatement();
-		
-		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());			
-		Expression expression = buildExpression(ast, condition, CompilationContextHelper.getJavaClass(compilationContext, condition));
+
+		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());
+		Expression expression = buildExpression(ast, condition, CompilationContextHelper.getJavaClass(compilationUnit, condition));
 		doSt.setExpression(expression);
-		
+
 		block.statements().add(doSt);
 
 		// body
@@ -594,15 +586,15 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QWhile statement) {
 
-		if(statement.getCondition() == null)
+		if (statement.getCondition() == null)
 			statement.setCondition("true");
-		
+
 		Block block = blocks.peek();
 
 		WhileStatement whileSt = ast.newWhileStatement();
 
 		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());
-		Expression expression = buildExpression(ast, condition, CompilationContextHelper.getJavaClass(compilationContext, condition));
+		Expression expression = buildExpression(ast, condition, CompilationContextHelper.getJavaClass(compilationUnit, condition));
 		whileSt.setExpression(expression);
 
 		block.statements().add(whileSt);
@@ -621,15 +613,15 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		ASTParser parser = ASTParser.newParser(AST.JLS8);
 		parser.setKind(ASTParser.K_EXPRESSION);
 
-		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
+		JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
 		builder.setTarget(target);
 		expression.accept(builder);
 		String value = builder.getResult();
-		
+
 		parser.setSource(value.toCharArray());
 		ASTNode node = parser.createAST(null);
-		if(node.getLength()==0) 
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: "+value);
+		if (node.getLength() == 0)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: " + value);
 
 		Expression jdtExpression = (Expression) node;
 
@@ -643,20 +635,19 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 
-		QNamedNode routine = compilationContext.getRoutine(statement.getRoutine(), true);
-		if(routine == null) 
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid routine: "+statement.getRoutine());
-		
-		methodInvocation.setName(ast.newSimpleName(compilationContext.normalizeTermName(routine.getName())));
+		QNamedNode routine = compilationUnit.getRoutine(statement.getRoutine(), true);
+		if (routine == null)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid routine: " + statement.getRoutine());
 
-		if(routine.isChild() && routine.getParent() != compilationContext.getRoot()) {
+		methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(routine.getName())));
+
+		if (routine.isChild() && routine.getParent() != compilationUnit.getRoot()) {
 			QNode parent = routine.getParent();
-			if(parent instanceof QNamedNode) {
-				String qualifiedParent = compilationContext.getQualifiedName((QNamedNode) parent); 
+			if (parent instanceof QNamedNode) {
+				String qualifiedParent = compilationUnit.getQualifiedName((QNamedNode) parent);
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(qualifiedParent), null));
-			}
-			else
-				throw new IntegratedLanguageExpressionRuntimeException("Invalid routine: "+statement.getRoutine());
+			} else
+				throw new IntegratedLanguageExpressionRuntimeException("Invalid routine: " + statement.getRoutine());
 		}
 
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
@@ -664,45 +655,44 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		return super.visit(statement);
 	}
-	
 
 	@SuppressWarnings("unchecked")
 	private MethodInvocation buildAssignmentMethod(QAssignmentExpression assignmentExpression) {
-	
+
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 
 		Expression expression = buildExpression(ast, assignmentExpression.getLeftOperand(), null);
 		methodInvocation.setExpression(expression);
 
-		int p=0;
+		int p = 0;
 		switch (assignmentExpression.getOperator()) {
 		case ASSIGN:
 			methodInvocation.setName(ast.newSimpleName("eval"));
 			break;
 		case DIVIDE_ASSIGN:
 			methodInvocation.setName(ast.newSimpleName("divide"));
-//			methodInvocation.arguments().add(p, "/");
-//			p++;
+			// methodInvocation.arguments().add(p, "/");
+			// p++;
 			break;
 		case MINUS_ASSIGN:
 			methodInvocation.setName(ast.newSimpleName("minus"));
-//			methodInvocation.arguments().add(p, "-");
-//			p++;
+			// methodInvocation.arguments().add(p, "-");
+			// p++;
 			break;
 		case PLUS_ASSIGN:
 			methodInvocation.setName(ast.newSimpleName("plus"));
-//			methodInvocation.arguments().add(p, "+");
-//			p++;
+			// methodInvocation.arguments().add(p, "+");
+			// p++;
 			break;
 		case TIMES_ASSIGN:
 			methodInvocation.setName(ast.newSimpleName("mult"));
-//			methodInvocation.arguments().add(p, "*");
-//			p++;
+			// methodInvocation.arguments().add(p, "*");
+			// p++;
 			break;
 		case POWER_ASSIGN:
 			methodInvocation.setName(ast.newSimpleName("power"));
-//			methodInvocation.arguments().add(p, "^");
-//			p++;
+			// methodInvocation.arguments().add(p, "^");
+			// p++;
 			break;
 		}
 

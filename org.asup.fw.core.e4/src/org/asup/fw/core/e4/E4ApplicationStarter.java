@@ -39,23 +39,23 @@ import org.asup.fw.core.annotation.LevelStarting;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 
 public class E4ApplicationStarter {
 
-	private BundleContext bundleContext;
 	private QApplication application;
+	private BundleContext bundleContext;
 	
 	private int messageLevel;
 	private Writer writer;
 	
-	protected E4ApplicationStarter(QApplication application, OutputStream outputStream) {
+	protected E4ApplicationStarter(QApplication application, BundleContext bundleContext, OutputStream outputStream) {
 		this.application = application;
+		this.bundleContext = bundleContext;
 		this.writer = new OutputStreamWriter(outputStream);
 	}
 	
-	public QContext start() throws Exception {
+	public QApplication start() throws Exception {
 		
 		int i = 0;
 		
@@ -69,13 +69,9 @@ public class E4ApplicationStarter {
 		
 		println(">application "+application);
 		
-        bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();
 
-		// framework context
-        QContext applicationContext = new E4ContextRootImpl(bundleContext, bundleContext.getBundle().getSymbolicName());
-
-        // TODO
-		bundleContext.registerService(QContext.class, applicationContext, null);
+		// root context
+        QContext context = new E4ContextRootImpl(bundleContext, bundleContext.getBundle().getSymbolicName());
 
 		// hooks
 		messageLevel++;			
@@ -88,12 +84,12 @@ public class E4ApplicationStarter {
 			}
 
 			println("+hook "+hook);				
-			QService service = (QService)loadObject(applicationContext, hook.getClassName());
+			QService service = (QService)loadObject(context, hook.getClassName());
 			service.setConfig(hook.getConfig());
 			Dictionary<String, Object> properties = new Hashtable<String, Object>();
 			properties.put("org.asup.fw.core.hook.application", application.getText());
 			bundleContext.registerService(QService.class, service, properties);
-			applicationContext.invoke(service, ApplicationStarting.class);			
+			context.invoke(service, ApplicationStarting.class);			
 		}
 
 		messageLevel--;
@@ -113,7 +109,7 @@ public class E4ApplicationStarter {
 				}
 
 				println("+hook "+hook);				
-				QService service = (QService)loadObject(applicationContext, hook.getClassName());
+				QService service = (QService)loadObject(context, hook.getClassName());
 				service.setConfig(hook.getConfig());
 				Dictionary<String, Object> properties = new Hashtable<String, Object>();
 				properties.put("org.asup.fw.core.hook.level", level.getValue());
@@ -121,7 +117,7 @@ public class E4ApplicationStarter {
 			}
 			messageLevel--;
 			
-			QContext contextLevel = applicationContext.createChild();
+			QContext contextLevel = context.createLocalContext(level.getName());
 			contextLevel.set(QApplicationLevel.class, level);			
 	
 			// LevelStarting event
@@ -165,12 +161,12 @@ public class E4ApplicationStarter {
 
 		for(QService hook: loadHooks(application)) {
 			println("+hook "+hook);		
-			applicationContext.invoke(hook, ApplicationStarted.class);			
+			context.invoke(hook, ApplicationStarted.class);			
 		}
 
 		messageLevel--;
 		
-		return applicationContext;
+		return new E4ApplicationImpl(application, context);
 	}
 
 	public void registerService(QApplication application, QApplicationLevel level, QContext context, QServiceReference serviceReference) throws ClassNotFoundException {
@@ -257,7 +253,7 @@ public class E4ApplicationStarter {
 
 	public void registerService(QApplication application, QApplicationLevel level, QContext context, String name, Object service, Dictionary<String, Object> properties, boolean remoteExport) {
 
-		QContext contextService = context.createChild();
+		QContext contextService = context.createLocalContext(name);
 		contextService.set("org.asup.fw.core.service.name", name);
 		contextService.set("org.asup.fw.core.service.object", service);			
 		contextService.set("org.asup.fw.core.service.properties", properties);

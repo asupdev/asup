@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QApplicationLevel;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QServiceHook;
 import org.eclipse.emf.common.notify.Notification;
@@ -138,6 +139,17 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements QAp
 		text = newText;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QFrameworkCorePackage.APPLICATION__TEXT, oldText, text));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QContext getContext() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

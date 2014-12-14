@@ -15,7 +15,7 @@ package org.asup.db.core;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.core.QViewDef#getCreationCommand <em>Creation Command</em>}</li>
+ *   <li>{@link org.asup.db.core.QViewDef#getQuerySelect <em>Query Select</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,29 @@ package org.asup.db.core;
  */
 public interface QViewDef extends QTableDef {
 	/**
-	 * Returns the value of the '<em><b>Creation Command</b></em>' attribute.
+	 * Returns the value of the '<em><b>Query Select</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Creation Command</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Query Select</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Creation Command</em>' attribute.
-	 * @see #setCreationCommand(String)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getViewDef_CreationCommand()
+	 * @return the value of the '<em>Query Select</em>' attribute.
+	 * @see #setQuerySelect(String)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getViewDef_QuerySelect()
 	 * @model
 	 * @generated
 	 */
-	String getCreationCommand();
+	String getQuerySelect();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QViewDef#getCreationCommand <em>Creation Command</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @param value the new value of the '<em>Creation Command</em>' attribute.
-	 * @see #getCreationCommand()
+	 * Sets the value of the '{@link org.asup.db.core.QViewDef#getQuerySelect <em>Query Select</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Query Select</em>' attribute.
+	 * @see #getQuerySelect()
 	 * @generated
 	 */
-	void setCreationCommand(String value);
+	void setQuerySelect(String value);
 
 } // View

@@ -12,7 +12,7 @@ package org.asup.os.type.cmd.impl;
 
 import java.util.Map;
 
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.os.omac.impl.ObjectImpl;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommand;
@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.os.type.cmd.impl.CallableCommandImpl#getCommand <em>Command</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CallableCommandImpl#getCommandString <em>Command String</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CallableCommandImpl#getVariables <em>Variables</em>}</li>
- *   <li>{@link org.asup.os.type.cmd.impl.CallableCommandImpl#getDataContext <em>Data Context</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.impl.CallableCommandImpl#getDataContainer <em>Data Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,14 +88,14 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 	protected Map<String, Object> variables;
 
 	/**
-	 * The cached value of the '{@link #getDataContext() <em>Data Context</em>}' containment reference.
+	 * The cached value of the '{@link #getDataContainer() <em>Data Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDataContext()
+	 * @see #getDataContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected QDataContext dataContext;
+	protected QDataContainer dataContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,8 +201,8 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDataContext getDataContext() {
-		return dataContext;
+	public QDataContainer getDataContainer() {
+		return dataContainer;
 	}
 
 	/**
@@ -210,11 +210,11 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDataContext(QDataContext newDataContext, NotificationChain msgs) {
-		QDataContext oldDataContext = dataContext;
-		dataContext = newDataContext;
+	public NotificationChain basicSetDataContainer(QDataContainer newDataContainer, NotificationChain msgs) {
+		QDataContainer oldDataContainer = dataContainer;
+		dataContainer = newDataContainer;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT, oldDataContext, newDataContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER, oldDataContainer, newDataContainer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -225,18 +225,18 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDataContext(QDataContext newDataContext) {
-		if (newDataContext != dataContext) {
+	public void setDataContainer(QDataContainer newDataContainer) {
+		if (newDataContainer != dataContainer) {
 			NotificationChain msgs = null;
-			if (dataContext != null)
-				msgs = ((InternalEObject)dataContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT, null, msgs);
-			if (newDataContext != null)
-				msgs = ((InternalEObject)newDataContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT, null, msgs);
-			msgs = basicSetDataContext(newDataContext, msgs);
+			if (dataContainer != null)
+				msgs = ((InternalEObject)dataContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER, null, msgs);
+			if (newDataContainer != null)
+				msgs = ((InternalEObject)newDataContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER, null, msgs);
+			msgs = basicSetDataContainer(newDataContainer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT, newDataContext, newDataContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER, newDataContainer, newDataContainer));
 	}
 
 	/**
@@ -247,8 +247,8 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT:
-				return basicSetDataContext(null, msgs);
+			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER:
+				return basicSetDataContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -268,8 +268,8 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 				return getCommandString();
 			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__VARIABLES:
 				return getVariables();
-			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT:
-				return getDataContext();
+			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER:
+				return getDataContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -292,8 +292,8 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__VARIABLES:
 				setVariables((Map<String, Object>)newValue);
 				return;
-			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT:
-				setDataContext((QDataContext)newValue);
+			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER:
+				setDataContainer((QDataContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -316,8 +316,8 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__VARIABLES:
 				setVariables((Map<String, Object>)null);
 				return;
-			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT:
-				setDataContext((QDataContext)null);
+			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER:
+				setDataContainer((QDataContainer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -337,8 +337,8 @@ public class CallableCommandImpl extends ObjectImpl implements QCallableCommand 
 				return COMMAND_STRING_EDEFAULT == null ? commandString != null : !COMMAND_STRING_EDEFAULT.equals(commandString);
 			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__VARIABLES:
 				return variables != null;
-			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTEXT:
-				return dataContext != null;
+			case QOperatingSystemCommandPackage.CALLABLE_COMMAND__DATA_CONTAINER:
+				return dataContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

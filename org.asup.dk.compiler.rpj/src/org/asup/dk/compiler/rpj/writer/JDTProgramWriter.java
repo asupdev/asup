@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
@@ -36,30 +36,30 @@ import org.eclipse.jdt.core.dom.StringLiteral;
 
 public class JDTProgramWriter extends JDTCallableUnitWriter {
 
-	public JDTProgramWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
-		super(root, compilationContext, compilationSetup, name);
-		
+	public JDTProgramWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
+		super(root, compilationUnit, compilationSetup, name);
+
 		writeImport(Program.class);
 	}
-	
+
 	public void writeProgram(QProgram program) throws IOException {
-		
+
 		// analyze callable unit
 		analyzeCallableUnit(program);
-		
+
 		// refactoring callable unit
 		refactCallableUnit(program);
-		
+
 		// analyze callable unit
 		analyzeCallableUnit(program);
-		
+
 		// modules
 		List<String> modules = new ArrayList<>();
-		if(program.getSetupSection()!=null){
-			for(String module: program.getSetupSection().getModules()) 
+		if (program.getSetupSection() != null) {
+			for (String module : program.getSetupSection().getModules())
 				loadModules(modules, module);
-			
-			for(String module: modules) {
+
+			for (String module : modules) {
 				writeImport(module);
 			}
 		}
@@ -68,25 +68,25 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		writeProgramAnnotation(program);
 
 		writeSupportFields();
-		
+
 		writeModuleFields(modules);
-		
-		if(program.getDataSection() != null)
+
+		if (program.getDataSection() != null)
 			writeDataFields(program.getDataSection());
-			
-		if(program.getFileSection() != null) {
+
+		if (program.getFileSection() != null) {
 			writeDataSets(program.getFileSection().getDataSets());
 			writeKeyLists(program.getFileSection().getKeyLists());
 		}
-				
-		if(program.getEntry() != null)
+
+		if (program.getEntry() != null)
 			writeEntry(program.getEntry(), "qEntry");
-				
+
 		// labels
 		writeLabels(getCallableUnitInfo().getLabels().keySet());
 
 		// main
-		if(program.getMain() != null) {
+		if (program.getMain() != null) {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
 			routine.setName("main");
 			routine.setMain(program.getMain());
@@ -94,22 +94,22 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		}
 
 		// functions
-		if(program.getFlowSection() != null) {
-			
+		if (program.getFlowSection() != null) {
+
 			// routines
-			for(QRoutine routine: program.getFlowSection().getRoutines()) {
+			for (QRoutine routine : program.getFlowSection().getRoutines()) {
 				writeRoutine(routine);
 			}
-			
+
 			// prototype
-			for(QPrototype<?> prototype: program.getFlowSection().getPrototypes()) {
+			for (QPrototype<?> prototype : program.getFlowSection().getPrototypes()) {
 				writePrototype(prototype);
 			}
 		}
 
-		if(program.getDataSection() != null) {
-			for(QDataTerm<?> dataTerm: program.getDataSection().getDatas()) {
-				writeInnerTerm(dataTerm);	
+		if (program.getDataSection() != null) {
+			for (QDataTerm<?> dataTerm : program.getDataSection().getDatas()) {
+				writeInnerTerm(dataTerm);
 			}
 		}
 	}
@@ -117,9 +117,9 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 	@SuppressWarnings("unchecked")
 	public void writeProgramAnnotation(QProgram program) {
 		QConversion conversion = program.getFacet(QConversion.class);
-		if(conversion != null) {
+		if (conversion != null) {
 			MarkerAnnotation conversionAnnotation = getAST().newMarkerAnnotation();
-			
+
 			switch (conversion.getStatus()) {
 			case POSSIBLE:
 				break;
@@ -140,7 +140,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 				break;
 			}
 		}
-		
+
 		// @Program(name=)
 		NormalAnnotation programAnnotation = getAST().newNormalAnnotation();
 		programAnnotation.setTypeName(getAST().newSimpleName(Program.class.getSimpleName()));
@@ -151,16 +151,16 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		memberValuePair.setValue(stringLiteral);
 		programAnnotation.values().add(memberValuePair);
 
-		getTarget().modifiers().add(programAnnotation);		
+		getTarget().modifiers().add(programAnnotation);
 	}
-	
+
 	private void loadModules(Collection<String> modules, String module) {
 
-		if(!modules.contains(module))
+		if (!modules.contains(module))
 			modules.add(module);
-		
-		QModule qModule = getCompilationContext().getModule(module, true);
-		for(String moduleName: qModule.getSetupSection().getModules()) 
+
+		QModule qModule = getCompilationUnit().getModule(module, true);
+		for (String moduleName : qModule.getSetupSection().getModules())
 			loadModules(modules, moduleName);
 	}
 }

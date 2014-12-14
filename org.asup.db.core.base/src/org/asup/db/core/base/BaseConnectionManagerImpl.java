@@ -16,15 +16,17 @@ import java.sql.SQLException;
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionContext;
-import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.impl.ConnectionManagerImpl;
+import org.asup.fw.core.QApplication;
+import org.asup.fw.core.QContext;
 
 public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 
 	private static int connectionID = 0;
 
+	@Inject
+	private QApplication application;
 	@Inject
 	private QDatabaseManager databaseManager;
 
@@ -46,21 +48,24 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 	@Override
 	public QConnection createConnection(String catalog, String user, String password) throws SQLException {
 
-		QConnectionContext connectionContext = new BaseConnectionContextImpl(databaseManager.getDatabaseContext().createChild(), nextConnectionID());
+		if (!(databaseManager instanceof BaseDatabaseManagerImpl))
+			return null;
 
-		// query parser from container
-		QDatabaseContainer databaseContainer = ((BaseDatabaseManagerImpl) databaseManager).getDatabaseContainer();
+		BaseDatabaseManagerImpl baseDatabaseManagerImpl = (BaseDatabaseManagerImpl) databaseManager;
 
-		QConnection connection = new BaseConnectionImpl(databaseContainer, connectionContext);
+		String connectionID = nextConnectionID(baseDatabaseManagerImpl);
+		QContext context = application.getContext().createLocalContext(catalog + "/" + connectionID);
+
+		QConnection connection = new BaseConnectionImpl(baseDatabaseManagerImpl.getDatabaseContainer(), context);
 		connection.setCatalog(catalog);
 
 		return connection;
 	}
 
-	protected synchronized String nextConnectionID() {
+	protected synchronized String nextConnectionID(BaseDatabaseManagerImpl baseDatabaseManagerImpl) {
 
 		connectionID = connectionID++;
-		String stringID = databaseManager.getDatabaseContext().getID().getID() + "/" + connectionID;
+		String stringID = application.getContext().getID() + "/" + connectionID;
 
 		return stringID;
 	}

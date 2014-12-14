@@ -206,16 +206,6 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int CHARACTER_DEF = 16;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.data.impl.DataContextImpl <em>Data Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.data.impl.DataContextImpl
-	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataContext()
-	 * @generated
-	 */
-	int DATA_CONTEXT = 20;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.data.impl.DataDictionaryImpl <em>Data Dictionary</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1642,13 +1632,23 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int DATA_TERM_CONTAINER_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Data Context</em>' class.
+	 * The meta object id for the '{@link org.asup.il.data.impl.DataContainerImpl <em>Data Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.data.impl.DataContainerImpl
+	 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataContainer()
+	 * @generated
+	 */
+	int DATA_CONTAINER = 20;
+
+	/**
+	 * The number of structural features of the '<em>Data Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_CONTEXT_FEATURE_COUNT = DATA_TERM_CONTAINER_FEATURE_COUNT + 0;
+	int DATA_CONTAINER_FEATURE_COUNT = DATA_TERM_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3398,14 +3398,14 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EClass getData();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.il.data.QDataContext <em>Data Context</em>}'.
+	 * Returns the meta object for class '{@link org.asup.il.data.QDataContainer <em>Data Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Context</em>'.
-	 * @see org.asup.il.data.QDataContext
+	 * @return the meta object for class '<em>Data Container</em>'.
+	 * @see org.asup.il.data.QDataContainer
 	 * @generated
 	 */
-	EClass getDataContext();
+	EClass getDataContainer();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QDataDef <em>Data Def</em>}'.
@@ -4599,14 +4599,14 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		EClass DATA = eINSTANCE.getData();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.il.data.impl.DataContextImpl <em>Data Context</em>}' class.
+		 * The meta object literal for the '{@link org.asup.il.data.impl.DataContainerImpl <em>Data Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.data.impl.DataContextImpl
-		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataContext()
+		 * @see org.asup.il.data.impl.DataContainerImpl
+		 * @see org.asup.il.data.impl.IntegratedLanguageDataPackageImpl#getDataContainer()
 		 * @generated
 		 */
-		EClass DATA_CONTEXT = eINSTANCE.getDataContext();
+		EClass DATA_CONTAINER = eINSTANCE.getDataContainer();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.impl.DataDefImpl <em>Data Def</em>}' class.

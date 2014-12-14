@@ -5,35 +5,31 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.fw.core.impl;
+package org.asup.il.data.impl;
 
-import java.lang.annotation.Annotation;
-
-import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
-import org.asup.fw.core.QFrameworkCorePackage;
-
+import java.lang.String;
+import org.asup.il.data.QData;
+import org.asup.il.data.QDataContainer;
+import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Context</b></em>'.
+ * An implementation of the model object '<em><b>Data Context</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public abstract class ContextImpl extends MinimalEObjectImpl.Container implements QContext {
+public abstract class DataContainerImpl extends DataTermContainerImpl implements QDataContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ContextImpl() {
+	protected DataContainerImpl() {
 		super();
 	}
 
@@ -44,7 +40,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QFrameworkCorePackage.Literals.CONTEXT;
+		return QIntegratedLanguageDataPackage.Literals.DATA_CONTAINER;
 	}
 
 	/**
@@ -52,7 +48,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void close() throws FrameworkCoreRuntimeException {
+	public void clearData() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -63,7 +59,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContext createChild() throws FrameworkCoreRuntimeException {
+	public QData getData(String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -74,7 +70,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T> T get(Class<T> clazz) {
+	public QData getData(QDataTerm<?> dataTerm) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -85,7 +81,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T extends Object> T getAdapter(Object adaptable, Class<T> adapterType) {
+	public boolean isSet(String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -96,7 +92,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContextID getID() {
+	public boolean isSet(QDataTerm<?> dataTerm) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -107,7 +103,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void inject(Object object) throws FrameworkCoreRuntimeException {
+	public void resetData() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -118,7 +114,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class<?> loadClass(QContextID contextID, String address) {
+	public void resetData(String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -129,43 +125,10 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <A extends Annotation> void invoke(Object object, Class<A> qualifier) throws FrameworkCoreRuntimeException {
+	public void resetData(QDataTerm<?> dataTerm) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T> T make(Class<T> klass) throws FrameworkCoreRuntimeException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T> void set(Class<T> klass, T object) throws FrameworkCoreRuntimeException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T> void set(String name, T object) throws FrameworkCoreRuntimeException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-} //ContextImpl
+} //DataContextImpl

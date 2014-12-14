@@ -11,20 +11,20 @@
  */
 package org.asup.fw.core.e4;
 
-import javax.inject.Inject;
-
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QPlugin;
 import org.asup.fw.core.QPluginRegistry;
 import org.asup.fw.core.impl.PluginRegistryFactoryImpl;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
 
 public class E4PluginRegistryFactoryImpl extends PluginRegistryFactoryImpl {
 
-	@Inject
-	private QContext asupContext;
-
 	@Override
 	public <T extends QPlugin> QPluginRegistry<T> createPluginRegistry(Class<T> pluginClass) {
-		return new E4PluginRegistryImpl<T>(((E4ContextRootImpl)asupContext).bundleContext, pluginClass);
+		
+		BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
+		
+		return new E4PluginRegistryImpl<T>(bundleContext, pluginClass);
 	}
 }

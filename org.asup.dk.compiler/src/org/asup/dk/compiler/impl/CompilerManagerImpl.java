@@ -10,8 +10,8 @@ package org.asup.dk.compiler.impl;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.asup.dk.compiler.CaseSensitiveType;
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerManager;
 import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.fw.core.impl.ServiceImpl;
@@ -56,7 +56,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCompilationContext createChildContext(QCompilationContext master, QProcedure procedure) {
+	public QCompilationUnit createChildCompilationUnit(QCompilationUnit master, QProcedure procedure) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -67,7 +67,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCompilationContext createCompilationContext(QJob job, QFile file, CaseSensitiveType caseSensitive) {
+	public QCompilationUnit createCompilationUnit(QJob job, QFile file, CaseSensitiveType caseSensitive) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -78,7 +78,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCompilationContext createCompilationContext(QJob job, QModule module, CaseSensitiveType caseSensitive) {
+	public QCompilationUnit createCompilationUnit(QJob job, QModule module, CaseSensitiveType caseSensitive) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -89,7 +89,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCompilationContext createCompilationContext(QJob job, QProgram program, CaseSensitiveType caseSensitive) {
+	public QCompilationUnit createCompilationUnit(QJob job, QProgram program, CaseSensitiveType caseSensitive) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -100,7 +100,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void linkCompilationContext(QCompilationContext context) {
+	public void linkCompilationUnit(QCompilationUnit compilationUnit) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -111,7 +111,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeDatabaseFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDatabaseFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -122,7 +122,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeDisplayFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDisplayFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -133,7 +133,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeModule(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -144,7 +144,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeStub(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writePrinterFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -155,7 +155,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeProgram(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -166,7 +166,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writePrinterFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

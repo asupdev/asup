@@ -17,8 +17,14 @@ import javax.inject.Named;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QStatement;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
-import org.asup.fw.test.*;
+import org.asup.fw.test.AssertionState;
+import org.asup.fw.test.QAssertionResult;
+import org.asup.fw.test.QTestAsserter;
+import org.asup.fw.test.QTestManager;
+import org.asup.fw.test.QTestResult;
+import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
@@ -30,7 +36,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	@Inject
 	private QConnectionManager connectionManager;
 	@Inject
-	private QContext context;
+	private QApplication application;
 	@Inject
 	private QTestManager testManager;
 
@@ -39,7 +45,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 		String script = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
 
-		QTestContext testContext = testManager.createTestContext(context);
+		QContext testContext = application.getContext().createLocalContext(catalog+"/"+script);
 
 		QConnection connection = connectionManager.createConnection(catalog);
 		testContext.set(QConnection.class, connection);

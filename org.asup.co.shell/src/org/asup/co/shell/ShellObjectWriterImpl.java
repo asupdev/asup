@@ -19,7 +19,7 @@ import org.asup.fw.core.QContextID;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
@@ -48,7 +48,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	private QStringUtil stringUtil;
 
 	private EClass eClass = null;
-	private QDataContext dataContext = null;
+	private QDataContainer dataContainer = null;
 	private QDataFactory dataFactory = null;
 	
 	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
@@ -64,11 +64,11 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			streamWrite("\n");
 			
 			this.eClass = eClass;			
-			dataContext = dataManager.createContext(contextID, QOperatingSystemDataHelper.buildDataTerms(eClass));
+			dataContainer = dataManager.createDataContainer(contextID, QOperatingSystemDataHelper.buildDataTerms(eClass));
 			dataFactory = dataManager.createFactory(contextID);
 			
-			for(QDataTerm<?> dataTerm: dataContext.getTerms()) {				
-				QData data = dataContext.getData(dataTerm);
+			for(QDataTerm<?> dataTerm: dataContainer.getTerms()) {				
+				QData data = dataContainer.getData(dataTerm);
 				if(data instanceof QString) {
 					data.accept(evaluator.set(stringUtil.firstToUpper(dataTerm.getName())));
 					streamWrite(data + "|");
@@ -84,10 +84,10 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			streamWrite("\n");
 		}
 
-		dataContext.clearData();
+		dataContainer.clearData();
 
-		for(QDataTerm<?> dataTerm: dataContext.getTerms()) {
-			QData data = dataContext.getData(dataTerm);
+		for(QDataTerm<?> dataTerm: dataContainer.getTerms()) {
+			QData data = dataContainer.getData(dataTerm);
 
 			Object value = eObject.eGet(eClass.getEStructuralFeature(dataTerm.getName()));
 			if(value == null) {

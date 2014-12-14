@@ -63,23 +63,23 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	QDevelopmentKitCompilerPackage eINSTANCE = org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationContextImpl <em>Compilation Context</em>}' class.
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.dk.compiler.impl.CompilationContextImpl
-	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationContext()
+	 * @see org.asup.dk.compiler.impl.CompilationUnitImpl
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationUnit()
 	 * @generated
 	 */
-	int COMPILATION_CONTEXT = 0;
+	int COMPILATION_UNIT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Compilation Context</em>' class.
+	 * The number of structural features of the '<em>Compilation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_CONTEXT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_FEATURE_COUNT + 0;
+	int COMPILATION_UNIT_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.
@@ -157,6 +157,16 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @generated
 	 */
 	int CASE_SENSITIVE_TYPE = 7;
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationUnit <em>Compilation Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compilation Unit</em>'.
+	 * @see org.asup.dk.compiler.QCompilationUnit
+	 * @generated
+	 */
+	EClass getCompilationUnit();
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Compiler Manager</em>}' class.
@@ -298,16 +308,6 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	int COMPILER_LINKER_FEATURE_COUNT = QIntegratedLanguageCorePackage.FACET_FEATURE_COUNT + 1;
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationContext <em>Compilation Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Compilation Context</em>'.
-	 * @see org.asup.dk.compiler.QCompilationContext
-	 * @generated
-	 */
-	EClass getCompilationContext();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationSetup <em>Compilation Setup</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,14 +433,14 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilationContextImpl <em>Compilation Context</em>}' class.
+		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilationUnitImpl <em>Compilation Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.dk.compiler.impl.CompilationContextImpl
-		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationContext()
+		 * @see org.asup.dk.compiler.impl.CompilationUnitImpl
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationUnit()
 		 * @generated
 		 */
-		EClass COMPILATION_CONTEXT = eINSTANCE.getCompilationContext();
+		EClass COMPILATION_UNIT = eINSTANCE.getCompilationUnit();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.

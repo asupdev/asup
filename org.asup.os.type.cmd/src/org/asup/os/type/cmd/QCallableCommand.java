@@ -9,7 +9,7 @@ package org.asup.os.type.cmd;
 
 import java.util.Map;
 
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.os.omac.QObject;
 
 /**
@@ -23,7 +23,7 @@ import org.asup.os.omac.QObject;
  *   <li>{@link org.asup.os.type.cmd.QCallableCommand#getCommand <em>Command</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCallableCommand#getCommandString <em>Command String</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCallableCommand#getVariables <em>Variables</em>}</li>
- *   <li>{@link org.asup.os.type.cmd.QCallableCommand#getDataContext <em>Data Context</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.QCallableCommand#getDataContainer <em>Data Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,29 +111,29 @@ public interface QCallableCommand extends QObject {
 	void setVariables(Map<String, Object> value);
 
 	/**
-	 * Returns the value of the '<em><b>Data Context</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Data Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Data Context</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Data Container</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Context</em>' containment reference.
-	 * @see #setDataContext(QDataContext)
-	 * @see org.asup.os.type.cmd.QOperatingSystemCommandPackage#getCallableCommand_DataContext()
+	 * @return the value of the '<em>Data Container</em>' containment reference.
+	 * @see #setDataContainer(QDataContainer)
+	 * @see org.asup.os.type.cmd.QOperatingSystemCommandPackage#getCallableCommand_DataContainer()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	QDataContext getDataContext();
+	QDataContainer getDataContainer();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.type.cmd.QCallableCommand#getDataContext <em>Data Context</em>}' containment reference.
+	 * Sets the value of the '{@link org.asup.os.type.cmd.QCallableCommand#getDataContainer <em>Data Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Context</em>' containment reference.
-	 * @see #getDataContext()
+	 * @param value the new value of the '<em>Data Container</em>' containment reference.
+	 * @see #getDataContainer()
 	 * @generated
 	 */
-	void setDataContext(QDataContext value);
+	void setDataContainer(QDataContainer value);
 
 } // QCallableCommand

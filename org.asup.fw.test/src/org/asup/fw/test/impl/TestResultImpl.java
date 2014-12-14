@@ -264,13 +264,13 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		return new StringBuffer("Test result: ")
-			   .append(" (")
-			   .append(failed ? "failed" : "success")
-			   .append(", time: ")
-			   .append(time)
-			   .append(')')
-			   .toString();
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (failed: ");
+		result.append(failed);
+		result.append(", time: ");
+		result.append(time);
+		result.append(')');
+		return result.toString();
 	}
 
 } //TestResultImpl

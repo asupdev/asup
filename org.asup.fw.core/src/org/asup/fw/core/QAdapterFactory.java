@@ -7,25 +7,24 @@
  */
 package org.asup.fw.core;
 
-import java.io.OutputStream;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Application Manager</b></em>'.
+ * A representation of the model object '<em><b>Adapter Factory</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.fw.core.QFrameworkCorePackage#getApplicationManager()
+ * @see org.asup.fw.core.QFrameworkCorePackage#getAdapterFactory()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QApplicationManager {
+public interface QAdapterFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" applicationRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream"
+	 * @model contextRequired="true" adaptableRequired="true" adapterTypeRequired="true" TBounds="org.eclipse.emf.ecore.EJavaObject"
 	 * @generated
 	 */
-	QApplication start(QApplication application, OutputStream output);
+	<T extends Object> T getAdapter(QContext context, Object adaptable, Class<T> adapterType);
 
-} // QApplicationManager
+} // QAdapterFactory

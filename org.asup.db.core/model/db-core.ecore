@@ -52,13 +52,13 @@
       <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionConfig" lowerBound="1"
+        eType="#//ConnectionConfig" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsGuestAccess" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsRelativeRecordNumber"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsGuestAccess" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionConfig" lowerBound="1"
-        eType="#//ConnectionConfig" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CatalogMetaData" abstract="true">
     <eOperations name="getIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index">
@@ -86,7 +86,7 @@
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException">
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="getConnectionContext" eType="#//ConnectionContext"/>
+    <eOperations name="getContext" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
     <eOperations name="getCatalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         eExceptions="#//DatabaseException"/>
     <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"/>
@@ -118,7 +118,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="catalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConnectionContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionCredentials" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Credentials"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException"/>
@@ -148,7 +147,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseObjectDef" abstract="true"/>
   <eClassifiers xsi:type="ecore:EDataType" name="DatabaseException" instanceClassName="java.sql.SQLException"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DatabaseContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createIndex" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index"
         eExceptions="#//DatabaseException">
@@ -202,7 +200,6 @@
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"/>
     </eOperations>
-    <eOperations name="getDatabaseContext" eType="#//DatabaseContext"/>
     <eOperations name="isStarted" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="start" lowerBound="1">
       <eParameters name="databaseContainer" lowerBound="1" eType="#//DatabaseContainer"/>
@@ -294,6 +291,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewDef" eSuperTypes="#//TableDef">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationCommand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="querySelect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -47,7 +47,7 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 		QLibrary library = event.getSource();
 		QJob job = event.getResource().getJob();
 
-		QConnection connection = job.getJobContext().getAdapter(job, QConnection.class);
+		QConnection connection = job.getContext().getAdapter(job, QConnection.class);
 		if (connection == null)
 			throw new OperatingSystemRuntimeException("Database connection not found: " + job);
 

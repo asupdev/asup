@@ -9,21 +9,17 @@ package org.asup.il.data;
 
 import java.lang.String;
 
-
-
-
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Data Context</b></em>'.
+ * A representation of the model object '<em><b>Data Container</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataContext()
+ * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataContainer()
  * @model abstract="true"
  * @generated
  */
-public interface QDataContext extends QDataTermContainer {
-
+public interface QDataContainer extends QDataTermContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,4 +83,5 @@ public interface QDataContext extends QDataTermContainer {
 	 * @generated
 	 */
 	void resetData(QDataTerm<?> dataTerm);
-} // QDataContext
+
+} // QDataContainer

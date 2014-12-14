@@ -28,9 +28,9 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
- *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}</li>
+ *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
+ *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
  * </ul>
  * </p>
  *
@@ -124,33 +124,6 @@ public interface QCatalogContainer {
 	QCatalogMetaData getMetaData();
 
 	/**
-	 * Returns the value of the '<em><b>Supports Relative Record Number</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supports Relative Record Number</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supports Relative Record Number</em>' attribute.
-	 * @see #setSupportsRelativeRecordNumber(boolean)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_SupportsRelativeRecordNumber()
-	 * @model default="false" required="true"
-	 * @generated
-	 */
-	boolean isSupportsRelativeRecordNumber();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supports Relative Record Number</em>' attribute.
-	 * @see #isSupportsRelativeRecordNumber()
-	 * @generated
-	 */
-	void setSupportsRelativeRecordNumber(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Supports Guest Access</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
@@ -176,6 +149,33 @@ public interface QCatalogContainer {
 	 * @generated
 	 */
 	void setSupportsGuestAccess(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Supports Relative Record Number</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Supports Relative Record Number</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Supports Relative Record Number</em>' attribute.
+	 * @see #setSupportsRelativeRecordNumber(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_SupportsRelativeRecordNumber()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isSupportsRelativeRecordNumber();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Supports Relative Record Number</em>' attribute.
+	 * @see #isSupportsRelativeRecordNumber()
+	 * @generated
+	 */
+	void setSupportsRelativeRecordNumber(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

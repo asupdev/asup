@@ -8,28 +8,31 @@
 package org.asup.dk.compiler;
 
 import java.util.List;
+
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
+
 import org.asup.il.data.QDataTerm;
-import org.asup.il.flow.QProcedure;
+
 import org.asup.il.flow.QModule;
+import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
+
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Compilation Context</b></em>'.
+ * A representation of the model object '<em><b>Compilation Unit</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationContext()
+ * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationUnit()
  * @model abstract="true"
  * @generated
  */
-public interface QCompilationContext extends QContext {
-
+public interface QCompilationUnit {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,31 +55,15 @@ public interface QCompilationContext extends QContext {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	List<QCompilationContext> getChildContexts();
+	List<QCompilationUnit> getChildCompilationUnits();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" nameRequired="true"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	String normalizeTermName(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" nameRequired="true"
-	 * @generated
-	 */
-	String normalizeTypeName(String name);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" dataTermRequired="true"
-	 * @generated
-	 */
-	String normalizeTypeName(QDataTerm<?> dataTerm);
+	QContext getContext();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,22 +103,6 @@ public interface QCompilationContext extends QContext {
 	 * @model required="true" nameRequired="true"
 	 * @generated
 	 */
-	QPrototype<?> getPrototype(String name, boolean deep);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" nameRequired="true"
-	 * @generated
-	 */
-	QRoutine getRoutine(String name, boolean deep);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" nameRequired="true"
-	 * @generated
-	 */
 	QNamedNode getNamedNode(String name, boolean deep);
 
 	/**
@@ -141,6 +112,14 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	QProcedure getProcedure(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QPrototype<?> getPrototype(String name, boolean deep);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,4 +136,37 @@ public interface QCompilationContext extends QContext {
 	 * @generated
 	 */
 	QNamedNode getRoot();
-} // QCompilationContext
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QRoutine getRoutine(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	String normalizeTermName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	String normalizeTypeName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" dataTermRequired="true"
+	 * @generated
+	 */
+	String normalizeTypeName(QDataTerm<?> dataTerm);
+
+} // QCompilationUnit

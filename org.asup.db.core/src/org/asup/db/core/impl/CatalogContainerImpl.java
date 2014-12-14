@@ -37,9 +37,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
- *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getConnectionConfig <em>Connection Config</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,24 +67,14 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSupportsRelativeRecordNumber() <em>Supports Relative Record Number</em>}' attribute.
+	 * The cached value of the '{@link #getConnectionConfig() <em>Connection Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSupportsRelativeRecordNumber()
+	 * @see #getConnectionConfig()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isSupportsRelativeRecordNumber() <em>Supports Relative Record Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSupportsRelativeRecordNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean supportsRelativeRecordNumber = SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT;
+	protected QConnectionConfig connectionConfig;
 
 	/**
 	 * The default value of the '{@link #isSupportsGuestAccess() <em>Supports Guest Access</em>}' attribute.
@@ -107,14 +97,24 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 	protected boolean supportsGuestAccess = SUPPORTS_GUEST_ACCESS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConnectionConfig() <em>Connection Config</em>}' containment reference.
+	 * The default value of the '{@link #isSupportsRelativeRecordNumber() <em>Supports Relative Record Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConnectionConfig()
+	 * @see #isSupportsRelativeRecordNumber()
 	 * @generated
 	 * @ordered
 	 */
-	protected QConnectionConfig connectionConfig;
+	protected static final boolean SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSupportsRelativeRecordNumber() <em>Supports Relative Record Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSupportsRelativeRecordNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean supportsRelativeRecordNumber = SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,27 +161,6 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSupportsRelativeRecordNumber() {
-		return supportsRelativeRecordNumber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSupportsRelativeRecordNumber(boolean newSupportsRelativeRecordNumber) {
-		boolean oldSupportsRelativeRecordNumber = supportsRelativeRecordNumber;
-		supportsRelativeRecordNumber = newSupportsRelativeRecordNumber;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER, oldSupportsRelativeRecordNumber, supportsRelativeRecordNumber));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isSupportsGuestAccess() {
 		return supportsGuestAccess;
 	}
@@ -196,6 +175,27 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		supportsGuestAccess = newSupportsGuestAccess;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS, oldSupportsGuestAccess, supportsGuestAccess));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSupportsRelativeRecordNumber() {
+		return supportsRelativeRecordNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupportsRelativeRecordNumber(boolean newSupportsRelativeRecordNumber) {
+		boolean oldSupportsRelativeRecordNumber = supportsRelativeRecordNumber;
+		supportsRelativeRecordNumber = newSupportsRelativeRecordNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER, oldSupportsRelativeRecordNumber, supportsRelativeRecordNumber));
 	}
 
 	/**
@@ -397,12 +397,12 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				return getName();
-			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
-				return isSupportsRelativeRecordNumber();
-			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
-				return isSupportsGuestAccess();
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
 				return getConnectionConfig();
+			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
+				return isSupportsGuestAccess();
+			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
+				return isSupportsRelativeRecordNumber();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -418,14 +418,14 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				setName((String)newValue);
 				return;
-			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
-				setSupportsRelativeRecordNumber((Boolean)newValue);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				setConnectionConfig((QConnectionConfig)newValue);
 				return;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
 				setSupportsGuestAccess((Boolean)newValue);
 				return;
-			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
-				setConnectionConfig((QConnectionConfig)newValue);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
+				setSupportsRelativeRecordNumber((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -442,14 +442,14 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
-				setSupportsRelativeRecordNumber(SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
+				setConnectionConfig((QConnectionConfig)null);
 				return;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
 				setSupportsGuestAccess(SUPPORTS_GUEST_ACCESS_EDEFAULT);
 				return;
-			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
-				setConnectionConfig((QConnectionConfig)null);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
+				setSupportsRelativeRecordNumber(SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -465,12 +465,12 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
-				return supportsRelativeRecordNumber != SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT;
-			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
-				return supportsGuestAccess != SUPPORTS_GUEST_ACCESS_EDEFAULT;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
 				return connectionConfig != null;
+			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
+				return supportsGuestAccess != SUPPORTS_GUEST_ACCESS_EDEFAULT;
+			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER:
+				return supportsRelativeRecordNumber != SUPPORTS_RELATIVE_RECORD_NUMBER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -487,10 +487,10 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", supportsRelativeRecordNumber: ");
-		result.append(supportsRelativeRecordNumber);
 		result.append(", supportsGuestAccess: ");
 		result.append(supportsGuestAccess);
+		result.append(", supportsRelativeRecordNumber: ");
+		result.append(supportsRelativeRecordNumber);
 		result.append(')');
 		return result.toString();
 	}

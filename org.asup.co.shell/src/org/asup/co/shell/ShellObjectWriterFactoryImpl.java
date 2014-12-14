@@ -20,7 +20,7 @@ public class ShellObjectWriterFactoryImpl extends ObjectWriterFactoryImpl {
 	@Override
 	public QObjectWriter createObjectWriter(QJob job) {
 
-		QObjectWriter objectWriter = job.getJobContext().make(ShellObjectWriterImpl.class);
+		QObjectWriter objectWriter = job.getContext().make(ShellObjectWriterImpl.class);
 		return objectWriter;
 	}
 }

@@ -8,7 +8,6 @@
 package org.asup.fw.test.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.asup.fw.test.AssertionState;
 import org.asup.fw.test.FrameworkTestFailureError;
 import org.asup.fw.test.QAsserter;
@@ -20,13 +19,11 @@ import org.asup.fw.test.QFrameworkTestPackage;
 import org.asup.fw.test.QSuiteTestRunner;
 import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.QTestContainer;
-import org.asup.fw.test.QTestContext;
 import org.asup.fw.test.QTestListener;
 import org.asup.fw.test.QTestManager;
 import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.QUnitTestRunner;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -35,7 +32,6 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -93,13 +89,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EClass testContainerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass testContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,15 +298,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTestContext() {
-		return testContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTestListener() {
 		return testListenerEClass;
 	}
@@ -466,8 +446,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		testContainerEClass = createEClass(TEST_CONTAINER);
 		createEReference(testContainerEClass, TEST_CONTAINER__TESTS);
 
-		testContextEClass = createEClass(TEST_CONTEXT);
-
 		testListenerEClass = createEClass(TEST_LISTENER);
 
 		testManagerEClass = createEClass(TEST_MANAGER);
@@ -525,7 +503,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		assertionSuccessEClass.getESuperTypes().add(this.getAssertionResult());
 		suiteTestRunnerEClass.getESuperTypes().add(this.getTestRunner());
 		testAsserterEClass.getESuperTypes().add(this.getAsserter());
-		testContextEClass.getESuperTypes().add(theFrameworkCorePackage.getContext());
 		testManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		unitTestRunnerEClass.getESuperTypes().add(this.getTestRunner());
 
@@ -629,8 +606,6 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		initEClass(testContainerEClass, QTestContainer.class, "TestContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTestContainer_Tests(), this.getTestRunner(), null, "tests", null, 0, -1, QTestContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(testContextEClass, QTestContext.class, "TestContext", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(testListenerEClass, QTestListener.class, "TestListener", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(testListenerEClass, null, "addAssertionResult", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -644,22 +619,18 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 
 		initEClass(testManagerEClass, QTestManager.class, "TestManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(testManagerEClass, this.getTestContext(), "createTestContext", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFrameworkCorePackage.getContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
-
 		op = addEOperation(testManagerEClass, this.getTestResult(), "executeRunner", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTestContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTestRunner(), "runner", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
 
 		op = addEOperation(testManagerEClass, this.getTestRunner(), "prepareRunner", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTestContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "className", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkCorePackage.getFrameworkCoreException());
 
 		op = addEOperation(testManagerEClass, this.getTestRunner(), "prepareRunner", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTestContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEJavaClass());
 		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);

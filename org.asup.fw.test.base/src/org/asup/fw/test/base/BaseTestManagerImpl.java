@@ -12,8 +12,6 @@
  */
 package org.asup.fw.test.base;
 
-import java.lang.annotation.Annotation;
-
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
@@ -21,7 +19,6 @@ import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.fw.test.QFrameworkTestFactory;
 import org.asup.fw.test.QTestAsserter;
-import org.asup.fw.test.QTestContext;
 import org.asup.fw.test.QTestManager;
 import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
@@ -29,14 +26,13 @@ import org.asup.fw.test.QUnitTestRunner;
 import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.asup.fw.test.impl.FrameworkTestFactoryImpl;
-import org.asup.fw.test.impl.TestContextImpl;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	
 	@Override
-	public QTestRunner prepareRunner(QTestContext context, String className) throws FrameworkCoreException {
+	public QTestRunner prepareRunner(QContext context, String className) throws FrameworkCoreException {
 	
 		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
 		testRunner.setClassName(className);
@@ -45,7 +41,7 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	}
 
 	@Override
-	public QTestRunner prepareRunner(QTestContext context, Class<?> klass) throws FrameworkCoreException {
+	public QTestRunner prepareRunner(QContext context, Class<?> klass) throws FrameworkCoreException {
 		
 		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
 		
@@ -59,7 +55,7 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	}
 
 	@Override
-	public QTestResult executeRunner(QTestContext context, QTestRunner runner) throws FrameworkCoreException {
+	public QTestResult executeRunner(QContext context, QTestRunner runner) throws FrameworkCoreException {
 
 	    // result
 		QTestResult testResult = QFrameworkTestFactory.eINSTANCE.createTestResult();
@@ -96,68 +92,5 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 		}
 		
 		return testResult;
-	}
-
-	@Override
-	public QTestContext createTestContext(QContext context) throws FrameworkCoreException {
-
-	    // runner context
-	    QContext runnerContext = context.createChild();
-	    
-		return new MyTestContext(runnerContext);
-	}
-	
-	public class MyTestContext extends TestContextImpl {
-		
-		private QContext delegate;
-		
-		protected MyTestContext(QContext delegate) {
-			this.delegate = delegate;
-		}
-		
-		@Override
-		public QContextID getID() {
-			return delegate.getID();
-		}
-
-		@Override
-		public QContext createChild() throws FrameworkCoreRuntimeException {
-			return delegate.createChild();
-		}
-
-		@Override
-		public <T> T get(Class<T> clazz) {
-			return delegate.get(clazz);
-		}
-
-		@Override
-		public void inject(Object object) throws FrameworkCoreRuntimeException {
-			delegate.inject(object);
-		}
-
-		@Override
-		public Class<?> loadClass(QContextID contextID, String address) {
-			return delegate.loadClass(contextID, address);
-		}
-
-		@Override
-		public <A extends Annotation> void invoke(Object object, Class<A> qualifier) throws FrameworkCoreRuntimeException {
-			delegate.invoke(object, qualifier);
-		}
-
-		@Override
-		public <T> T make(Class<T> klass) throws FrameworkCoreRuntimeException {
-			return delegate.make(klass);
-		}
-
-		@Override
-		public <T> void set(Class<T> klass, T object) throws FrameworkCoreRuntimeException {
-			delegate.set(klass, object);
-		}
-
-		@Override
-		public <T> void set(String name, T object) throws FrameworkCoreRuntimeException {
-			delegate.set(name, object);
-		}
 	}
 }

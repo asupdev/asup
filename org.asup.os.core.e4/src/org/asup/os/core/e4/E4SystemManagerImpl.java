@@ -16,6 +16,7 @@ import java.util.Calendar;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.QLocker;
@@ -24,12 +25,11 @@ import org.asup.os.core.QSystem;
 import org.asup.os.core.impl.SystemManagerImpl;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.jobs.QJobContext;
 
 public class E4SystemManagerImpl extends SystemManagerImpl {
 	
 	@Inject
-	private QContext context;
+	private QApplication application;
 	
 	private QSystem system;
 	private QLocker<QSystem> locker;
@@ -64,7 +64,6 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 		this.locker= new E4SystemLockerImpl(this.system);
 
 		this.startupJob = createJob(JobType.KERNEL, "QASUP");
-		this.startupJob.setJobContext(new E4JobContextImpl(context.createChild()));
 		
 		return startupJob;
 	}
@@ -91,9 +90,9 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 	protected QJob createJob(JobType jobType, String user) throws OperatingSystemException {
 		return super.createJob(jobType, user);
 	}
-
+	
 	@Override
-	protected QJobContext createJobContext() throws OperatingSystemException {
-		return new E4JobContextImpl(context.createChild());
+	protected QContext createContext(String name) throws OperatingSystemException {
+		return application.getContext().createLocalContext(name);
 	}
 }

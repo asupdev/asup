@@ -33,7 +33,7 @@ public interface QCompilerManager extends QService {
 	 * @model required="true" masterRequired="true" procedureRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createChildContext(QCompilationContext master, QProcedure procedure);
+	QCompilationUnit createChildCompilationUnit(QCompilationUnit master, QProcedure procedure);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public interface QCompilerManager extends QService {
 	 * @model required="true" jobRequired="true" fileRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createCompilationContext(QJob job, QFile file, CaseSensitiveType caseSensitive);
+	QCompilationUnit createCompilationUnit(QJob job, QFile file, CaseSensitiveType caseSensitive);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public interface QCompilerManager extends QService {
 	 * @model required="true" jobRequired="true" moduleRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createCompilationContext(QJob job, QModule module, CaseSensitiveType caseSensitive);
+	QCompilationUnit createCompilationUnit(QJob job, QModule module, CaseSensitiveType caseSensitive);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,62 +57,62 @@ public interface QCompilerManager extends QService {
 	 * @model required="true" jobRequired="true" programRequired="true" caseSensitiveRequired="true"
 	 * @generated
 	 */
-	QCompilationContext createCompilationContext(QJob job, QProgram program, CaseSensitiveType caseSensitive);
+	QCompilationUnit createCompilationUnit(QJob job, QProgram program, CaseSensitiveType caseSensitive);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model contextRequired="true"
+	 * @model compilationUnitRequired="true"
 	 * @generated
 	 */
-	void linkCompilationContext(QCompilationContext context);
+	void linkCompilationUnit(QCompilationUnit compilationUnit);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeDatabaseFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeDatabaseFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeDisplayFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeDisplayFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeModule(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeStub(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writePrinterFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeProgram(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.fw.java.JavaIOException" contextRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
+	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writePrinterFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 } // QCompilerManager

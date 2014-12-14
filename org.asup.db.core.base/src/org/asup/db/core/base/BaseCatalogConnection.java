@@ -35,6 +35,10 @@ public class BaseCatalogConnection {
 		this.definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 	}
 
+	public QCatalogContainer getCatalogContainer() {
+		return this.catalogContainer;
+	}
+	
 	public QQueryWriter getQueryWriter() {
 		return queryWriter;
 	}

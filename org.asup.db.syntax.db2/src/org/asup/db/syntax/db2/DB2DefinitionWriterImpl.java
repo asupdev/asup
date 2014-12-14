@@ -9,7 +9,7 @@ import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 public class DB2DefinitionWriterImpl extends BaseDefinitionWriterImpl {
 
 	public DB2DefinitionWriterImpl() {
-		super(new SQLObjectNameHelper(), false, new DB2QueryWriterImpl());
+		super(new SQLObjectNameHelper());
 	}
 
 

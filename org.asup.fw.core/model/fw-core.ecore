@@ -5,7 +5,23 @@
   <eClassifiers xsi:type="ecore:EDataType" name="FrameowrkCoreRuntimeException" instanceClassName="org.asup.fw.core.FrameworkCoreRuntimeException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="FrameworkCoreUnexpectedConditionException"
       instanceClassName="org.asup.fw.core.FrameworkCoreUnexpectedConditionException"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AdapterFactory" abstract="true" interface="true">
+    <eOperations name="getAdapter">
+      <eGenericType eTypeParameter="#//AdapterFactory/getAdapter/T"/>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="context" lowerBound="1" eType="#//Context"/>
+      <eParameters name="adaptable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="adapterType" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//AdapterFactory/getAdapter/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
+    <eOperations name="getContext" lowerBound="1" eType="#//Context"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
         eType="#//ServiceHook" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
@@ -22,7 +38,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationManager" abstract="true"
       interface="true">
-    <eOperations name="start" lowerBound="1" eType="#//Context">
+    <eOperations name="start" lowerBound="1" eType="#//Application">
       <eParameters name="application" lowerBound="1" eType="#//Application"/>
       <eParameters name="output" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
     </eOperations>
@@ -33,9 +49,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
         eType="#//ServiceReference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true" interface="true">
     <eOperations name="close" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException"/>
-    <eOperations name="createChild" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException"/>
+    <eOperations name="createLocalContext" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="get" lowerBound="1">
       <eGenericType eTypeParameter="#//Context/get/T"/>
       <eTypeParameters name="T"/>
@@ -85,6 +103,17 @@
       <eParameters name="klass" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//Context/make/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="registerAdapterFactory">
+      <eTypeParameters name="T">
+        <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eTypeParameters>
+      <eParameters name="factory" lowerBound="1" eType="#//AdapterFactory"/>
+      <eParameters name="adapterType" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//Context/registerAdapterFactory/T"/>
         </eGenericType>
       </eParameters>
     </eOperations>

@@ -14,6 +14,7 @@ package org.asup.os.core.cdo.impl;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
 import org.asup.os.core.LockType;
 import org.asup.os.core.OperatingSystemException;
@@ -28,7 +29,6 @@ import org.asup.os.core.impl.SystemManagerImpl;
 import org.asup.os.core.jobs.JobStatus;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.jobs.QJobContext;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 public class CDOSystemManagerImpl extends SystemManagerImpl {
 
 	@Inject
-	private QContext context;
+	private QApplication application;
 
 	private static final String CDO_CORE = "os/core";
 	
@@ -264,7 +264,7 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 	}
 
 	@Override
-	protected QJobContext createJobContext() throws OperatingSystemException {
-		return new CDOJobContextImpl(this.context.createChild());
+	protected QContext createContext(String name) throws OperatingSystemException {
+		return this.application.getContext().createLocalContext(name);
 	}	
 }

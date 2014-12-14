@@ -7,15 +7,16 @@
  *
  * 
  * Contributors: 
- *   Mattia Rocchi				- Initial API and implementation 
+ *   Mattia Rocchi 			 - Initial API and implementation 
+ *   Giuliano Giancristofaro - Implementation
  */
 package org.asup.dk.compiler.rpj.writer;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
 import org.asup.fw.core.annotation.Supported;
@@ -60,44 +61,43 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
-	public JDTCallableUnitWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
-		super(root, compilationContext, compilationSetup, name);
+	public JDTCallableUnitWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
+		super(root, compilationUnit, compilationSetup, name);
 	}
-	
+
 	public void analyzeCallableUnit(QCallableUnit callableUnit) {
-		
+
 		getCallableUnitInfo().reset();
-		
+
 		// analyze statement
 		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(getCallableUnitInfo());
-		
+
 		// main
-		if(callableUnit.getMain() != null) {
-			for(QStatement statement: callableUnit.getMain().getStatements()) {				
+		if (callableUnit.getMain() != null) {
+			for (QStatement statement : callableUnit.getMain().getStatements()) {
 				statement.accept(callableUnitAnalyzer);
 			}
 		}
-		
+
 		// flow section
-		if(callableUnit.getFlowSection() != null) {
-			
+		if (callableUnit.getFlowSection() != null) {
+
 			// routines
-			for(QRoutine routine: callableUnit.getFlowSection().getRoutines()) {
-				for(QStatement statement: routine.getMain().getStatements()) {				
+			for (QRoutine routine : callableUnit.getFlowSection().getRoutines()) {
+				for (QStatement statement : routine.getMain().getStatements()) {
 					statement.accept(callableUnitAnalyzer);
-				}		
+				}
 			}
 		}
 
 	}
-	
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeLabels(Collection<String> labels) {
-		
-		if(labels.isEmpty())
+
+		if (labels.isEmpty())
 			return;
-		
+
 		EnumDeclaration enumType = getAST().newEnumDeclaration();
 		enumType.setName(getAST().newSimpleName("TAG"));
 		enumType.modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
@@ -105,22 +105,22 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		// elements
 		int num = 0;
-		
-		for (String label: labels) {
+
+		for (String label : labels) {
 
 			EnumConstantDeclaration constantDeclaration = getAST().newEnumConstantDeclaration();
 			constantDeclaration.setName(getAST().newSimpleName(normalizeEnumName(label)));
-			
+
 			enumType.enumConstants().add(num, constantDeclaration);
 			num++;
 		}
 
 		getTarget().bodyDeclarations().add(enumType);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeMessages(Collection<String> messages) {
-			
+
 		EnumDeclaration enumType = getAST().newEnumDeclaration();
 		enumType.setName(getAST().newSimpleName("QCPFMSG"));
 		enumType.modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.PUBLIC_KEYWORD));
@@ -128,121 +128,119 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		// elements
 		int num = 0;
-		
-		for (String message: messages) {
-			if(message.equalsIgnoreCase("CPF0000"))
+
+		for (String message : messages) {
+			if (message.equalsIgnoreCase("CPF0000"))
 				continue;
 			EnumConstantDeclaration constantDeclaration = getAST().newEnumConstantDeclaration();
 			constantDeclaration.setName(getAST().newSimpleName(normalizeEnumName(message)));
-			
+
 			enumType.enumConstants().add(num, constantDeclaration);
 			num++;
 		}
 
 		getTarget().bodyDeclarations().add(enumType);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeModuleFields(List<String> modules) {
-		
-		for(String module: modules) {
 
-			String moduleName = getCompilationContext().normalizeTermName(module).toUpperCase();
-			
+		for (String module : modules) {
+
+			String moduleName = getCompilationUnit().normalizeTermName(module).toUpperCase();
+
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
-			FieldDeclaration field = getAST().newFieldDeclaration(variable);			
-			writeAnnotation(field, ModuleDef.class, "name", moduleName);			
+			FieldDeclaration field = getAST().newFieldDeclaration(variable);
+			writeAnnotation(field, ModuleDef.class, "name", moduleName);
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 			field.setType(getAST().newSimpleType(getAST().newName(moduleName)));
-			
-			variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(module)));
-			
+
+			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(module)));
+
 			getTarget().bodyDeclarations().add(field);
 		}
-		
+
 	}
-		
+
 	public void writeDataFields(QDataSection dataSection) {
 
 		// fields
 		for (QDataTerm<?> dataTerm : dataSection.getDatas()) {
-			
-			if(dataTerm.getDefinition() == null)
+
+			if (dataTerm.getDefinition() == null)
 				continue;
-			
-			dataTerm = getCompilationContext().getDataTerm(dataTerm.getName(), true);
-			
-			writePublicField(dataTerm, false);			
+
+			dataTerm = getCompilationUnit().getDataTerm(dataTerm.getName(), true);
+
+			writePublicField(dataTerm, false);
 		}
 
 	}
+
 	@SuppressWarnings("unchecked")
 	public void writeDataSets(List<QDataSetTerm> dataSets) {
-		
+
 		writeImport(QDataSet.class);
-		
-		for(QDataSetTerm dataSet: dataSets) {
-	
+
+		for (QDataSetTerm dataSet : dataSets) {
+
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());			
+			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());
 			writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 			String className = null;
-			if(dataSet.isKeyedAccess()) { 
+			if (dataSet.isKeyedAccess()) {
 				writeImport(QIndexDataSet.class);
 				className = QIndexDataSet.class.getSimpleName();
-			}
-			else {
+			} else {
 				writeImport(QTableDataSet.class);
 				className = QTableDataSet.class.getSimpleName();
 			}
-			
+
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 
-			if(dataSet.getFileName().equals("PRT198"))
+			if (dataSet.getFileName().equals("PRT198"))
 				parType.typeArguments().add(getAST().newWildcardType());
 			else {
 				QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
-				if(compilerLinker != null) {
+				if (compilerLinker != null) {
 					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getName().split("\\."))));
+				} else {
+					String argument = dataSet.getFileName();
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
 				}
-				else {
-					String argument = dataSet.getFileName(); 
-					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));					
-				}
-
 
 			}
-			
+
 			field.setType(parType);
-			if(dataSet.getFormatName()!= null)
-				variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataSet.getFormatName())));
+			if (dataSet.getFormatName() != null)
+				variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataSet.getFormatName())));
 			getTarget().bodyDeclarations().add(field);
 		}
-		
+
 	}
-	
+
 	public void writeKeyLists(List<QKeyListTerm> keyLists) {
-		
+
 		writeImport(QBufferedData.class);
-		
-		for(QKeyListTerm keyList: keyLists) {
+
+		for (QKeyListTerm keyList : keyLists) {
 			writeKeyList(keyList);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeKeyList(QKeyListTerm keyList) {
-		
+
 		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
-		variable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(keyList.getName())));
-		FieldDeclaration field = getAST().newFieldDeclaration(variable);		
+		variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(keyList.getName())));
+		FieldDeclaration field = getAST().newFieldDeclaration(variable);
 		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
-		Type bufferedType = getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()));		
+		Type bufferedType = getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()));
 		field.setType(getAST().newArrayType(bufferedType));
 
 		// array of bufferedData
@@ -250,153 +248,151 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		arrayCreation.setType(getAST().newArrayType(getAST().newSimpleType(getAST().newSimpleName(QBufferedData.class.getSimpleName()))));
 
 		ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
-		for (String keyField: keyList.getKeyFields()) {
-			
-			QNamedNode namedNode = getCompilationContext().getNamedNode(keyField, true);
-			String qualifiedName = getCompilationContext().getQualifiedName(namedNode);
-			arrayInitializer.expressions().add(getAST().newName(getCompilationContext().normalizeTermName(qualifiedName).split("\\.")));
+		for (String keyField : keyList.getKeyFields()) {
+
+			QNamedNode namedNode = getCompilationUnit().getNamedNode(keyField, true);
+			String qualifiedName = getCompilationUnit().getQualifiedName(namedNode);
+			arrayInitializer.expressions().add(getAST().newName(getCompilationUnit().normalizeTermName(qualifiedName).split("\\.")));
 		}
 		arrayCreation.setInitializer(arrayInitializer);
 
 		variable.setInitializer(arrayCreation);
-		
+
 		getTarget().bodyDeclarations().add(field);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QRoutine routine) {
-				
+
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
-		methodDeclaration.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(routine.getName())));
+		methodDeclaration.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(routine.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
-//		writeSuppressWarning(methodDeclaration);
-		
+		// writeSuppressWarning(methodDeclaration);
+
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
-		if(routine.getMain() != null) {
+		if (routine.getMain() != null) {
 
 			// write java AST
-			JDTStatementWriter statementWriter = getCompilationContext().make(JDTStatementWriter.class);
-			statementWriter.setAST(getAST());		
+			JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
+			statementWriter.setAST(getAST());
 
 			statementWriter.getBlocks().push(block);
-		
-			for(QStatement statement: routine.getMain().getStatements()) {
+
+			for (QStatement statement : routine.getMain().getStatements()) {
 				statement.accept(statementWriter);
 			}
-			
+
 			statementWriter.getBlocks().pop();
 		}
-				
+
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writePrototype(QPrototype<?> prototype) {
-		
+
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
-		methodDeclaration.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(prototype.getName())));
+		methodDeclaration.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(prototype.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
-//		writeSuppressWarning(methodDeclaration);
-		
-		if(prototype.getDelegate() != null) {
+		// writeSuppressWarning(methodDeclaration);
+
+		if (prototype.getDelegate() != null) {
 			Type type = getJavaType(prototype.getDelegate());
 			methodDeclaration.setReturnType2(type);
 		}
-		
-		if(prototype.getEntry() != null) {
-			
-			int p=0;
-			for(QEntryParameter<?> entryParameter: prototype.getEntry().getParameters()) {
+
+		if (prototype.getEntry() != null) {
+
+			int p = 0;
+			for (QEntryParameter<?> entryParameter : prototype.getEntry().getParameters()) {
 
 				QTerm parameterDelegate = entryParameter.getDelegate();
-				
-				SingleVariableDeclaration singleVar = getAST().newSingleVariableDeclaration();			
+
+				SingleVariableDeclaration singleVar = getAST().newSingleVariableDeclaration();
 				String parameterName = parameterDelegate.getName();
-				if(parameterName == null) 
-					parameterName = "arg"+p;
-				singleVar.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(parameterName)));
-				
-				if(parameterDelegate instanceof QDataTerm) {
-					QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
+				if (parameterName == null)
+					parameterName = "arg" + p;
+				singleVar.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(parameterName)));
+
+				if (parameterDelegate instanceof QDataTerm) {
+					QDataTerm<?> dataTerm = (QDataTerm<?>) parameterDelegate;
 
 					// primitive
-					if(dataTerm.isConstant())
+					if (dataTerm.isConstant())
 						singleVar.setType(getJavaPrimitive(dataTerm));
 					else {
 						Type type = getJavaType(dataTerm);
 						singleVar.setType(type);
 					}
-				}
-				else if(parameterDelegate instanceof QDataSetTerm) {
-					
+				} else if (parameterDelegate instanceof QDataSetTerm) {
+
 					Type dataSet = getAST().newSimpleType(getAST().newSimpleName(QDataSet.class.getSimpleName()));
 					ParameterizedType parType = getAST().newParameterizedType(dataSet);
 					parType.typeArguments().add(getAST().newWildcardType());
-					
-					singleVar.setType(parType);	
+
+					singleVar.setType(parType);
 				}
 
 				methodDeclaration.parameters().add(singleVar);
-				
+
 				p++;
 			}
 		}
-		
+
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
 		// write java AST
-		JDTStatementWriter statementWriter = getCompilationContext().make(JDTStatementWriter.class);
-		statementWriter.setAST(getAST());		
+		JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
+		statementWriter.setAST(getAST());
 
 		statementWriter.getBlocks().push(block);
 
-		if(prototype.getDelegate() != null) {
+		if (prototype.getDelegate() != null) {
 			ReturnStatement returnStatement = getAST().newReturnStatement();
 			returnStatement.setExpression(getAST().newNullLiteral());
 			block.statements().add(returnStatement);
 		}
-		
+
 		statementWriter.getBlocks().pop();
-				
+
 	}
 
-	
 	@SuppressWarnings("unchecked")
 	public void writeMain(QParameterList parameterList, String name) {
-			
+
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
 		methodDeclaration.setName(getAST().newSimpleName(name));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
-//		writeSuppressWarning(methodDeclaration);
-		
+		// writeSuppressWarning(methodDeclaration);
+
 		MarkerAnnotation entryAnnotation = getAST().newMarkerAnnotation();
 		entryAnnotation.setTypeName(getAST().newSimpleName(Entry.class.getSimpleName()));
 		writeImport(Entry.class);
 		methodDeclaration.modifiers().add(entryAnnotation);
 
-		for(String parameterName: parameterList.getParameters()) {
-			QDataTerm<?> dataTerm = getCompilationContext().getDataTerm(parameterName, true);
-			
+		for (String parameterName : parameterList.getParameters()) {
+			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
+
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
-			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));
+			parameterVariable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataTerm.getName())));
 			Type type = getJavaType(dataTerm);
 			parameterVariable.setType(type);
-			
+
 			QConversion conversion = dataTerm.getFacet(QConversion.class);
-			if(conversion != null) {
+			if (conversion != null) {
 				MarkerAnnotation conversionAnnotation = getAST().newMarkerAnnotation();
-				
+
 				switch (conversion.getStatus()) {
 				case POSSIBLE:
 					break;
@@ -417,9 +413,9 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 					break;
 				}
 			}
-			
+
 			writeDataDefAnnotation(parameterVariable, dataTerm.getDefinition());
-			
+
 			methodDeclaration.parameters().add(parameterVariable);
 		}
 
@@ -429,7 +425,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 	@SuppressWarnings("unchecked")
 	public void writeEntry(QParameterList parameterList, String name) {
-		
+
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
@@ -441,31 +437,30 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		writeImport(Entry.class);
 		methodDeclaration.modifiers().add(entryAnnotation);
 
-		for(String parameterName: parameterList.getParameters()) {
-			QDataTerm<?> dataTerm = getCompilationContext().getDataTerm(parameterName, true);
-			
+		for (String parameterName : parameterList.getParameters()) {
+			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
+
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
-			parameterVariable.setName(getAST().newSimpleName(getCompilationContext().normalizeTermName(dataTerm.getName())));
+			parameterVariable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataTerm.getName())));
 			Type type = getJavaType(dataTerm);
 			parameterVariable.setType(type);
-			
+
 			writeDataDefAnnotation(parameterVariable, dataTerm.getDefinition());
-			
+
 			methodDeclaration.parameters().add(parameterVariable);
 		}
 
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 	}
-	
-	
+
 	public void refactCallableUnit(QCallableUnit callableUnit) {
-		
+
 		refactUnit(callableUnit);
-		
+
 		// main
-		if(callableUnit.getFlowSection() != null) {
-			for(QUnit unit: callableUnit.getFlowSection().getRoutines()) {
+		if (callableUnit.getFlowSection() != null) {
+			for (QUnit unit : callableUnit.getFlowSection().getRoutines()) {
 				refactUnit(unit);
 			}
 		}

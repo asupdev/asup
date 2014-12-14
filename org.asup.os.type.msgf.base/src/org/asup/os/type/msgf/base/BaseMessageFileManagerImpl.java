@@ -106,10 +106,10 @@ public class BaseMessageFileManagerImpl extends MessageFileManagerImpl {
 	}
 
 	private BaseOverridedMessageFileMap getOverridedMessageFile(QJob job) throws FrameworkCoreException {
-		BaseOverridedMessageFileMap overrideMessageFileMap = job.getJobContext().get(BaseOverridedMessageFileMap.class);
+		BaseOverridedMessageFileMap overrideMessageFileMap = job.getContext().get(BaseOverridedMessageFileMap.class);
 		if(overrideMessageFileMap == null) {
 			overrideMessageFileMap = new BaseOverridedMessageFileMap();
-			job.getJobContext().set(BaseOverridedMessageFileMap.class, overrideMessageFileMap);
+			job.getContext().set(BaseOverridedMessageFileMap.class, overrideMessageFileMap);
 		}
 		return overrideMessageFileMap;
 	}

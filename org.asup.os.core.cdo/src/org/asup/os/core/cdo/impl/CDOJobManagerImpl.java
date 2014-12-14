@@ -159,7 +159,7 @@ public class CDOJobManagerImpl extends JobManagerImpl {
 			job = (QJob)contextID;
 			
 			// not active reference
-			if(job.getJobContext() == null)
+			if(job.getContext() == null)
 				job = activeJobs.get(contextID.getID());
 		}
 		else

@@ -10,11 +10,11 @@ package org.asup.os.core.jobs.impl;
 import java.util.Collection;
 import java.util.List;
 
+import org.asup.fw.core.QContext;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.jobs.JobStatus;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.impl.ObjectNameableImpl;
@@ -44,7 +44,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getMessages <em>Messages</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getCreationInfo <em>Creation Info</em>}</li>
- *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getJobContext <em>Job Context</em>}</li>
+ *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -219,14 +219,14 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	protected QCreationInfo creationInfo;
 
 	/**
-	 * The cached value of the '{@link #getJobContext() <em>Job Context</em>}' containment reference.
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getJobContext()
-	 * @generated NOT
+	 * @see #getContext()
+	 * @generated
 	 * @ordered
 	 */
-	protected transient QJobContext jobContext;
+	protected QContext context;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -483,8 +483,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QJobContext getJobContext() {
-		return jobContext;
+	public QContext getContext() {
+		return context;
 	}
 
 	/**
@@ -492,11 +492,11 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetJobContext(QJobContext newJobContext, NotificationChain msgs) {
-		QJobContext oldJobContext = jobContext;
-		jobContext = newJobContext;
+	public NotificationChain basicSetContext(QContext newContext, NotificationChain msgs) {
+		QContext oldContext = context;
+		context = newContext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB__JOB_CONTEXT, oldJobContext, newJobContext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB__CONTEXT, oldContext, newContext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -507,18 +507,18 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJobContext(QJobContext newJobContext) {
-		if (newJobContext != jobContext) {
+	public void setContext(QContext newContext) {
+		if (newContext != context) {
 			NotificationChain msgs = null;
-			if (jobContext != null)
-				msgs = ((InternalEObject)jobContext).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobsPackage.JOB__JOB_CONTEXT, null, msgs);
-			if (newJobContext != null)
-				msgs = ((InternalEObject)newJobContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobsPackage.JOB__JOB_CONTEXT, null, msgs);
-			msgs = basicSetJobContext(newJobContext, msgs);
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobsPackage.JOB__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemJobsPackage.JOB__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB__JOB_CONTEXT, newJobContext, newJobContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB__CONTEXT, newContext, newContext));
 	}
 
 	/**
@@ -540,8 +540,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 		switch (featureID) {
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				return basicSetCreationInfo(null, msgs);
-			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				return basicSetJobContext(null, msgs);
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				return basicSetContext(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -575,8 +575,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 				return basicGetSystem();
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				return getCreationInfo();
-			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				return getJobContext();
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				return getContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -622,8 +622,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				setCreationInfo((QCreationInfo)newValue);
 				return;
-			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				setJobContext((QJobContext)newValue);
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				setContext((QContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -667,8 +667,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				setCreationInfo((QCreationInfo)null);
 				return;
-			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				setJobContext((QJobContext)null);
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				setContext((QContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -702,8 +702,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 				return system != null;
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				return creationInfo != null;
-			case QOperatingSystemJobsPackage.JOB__JOB_CONTEXT:
-				return jobContext != null;
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				return context != null;
 		}
 		return super.eIsSet(featureID);
 	}

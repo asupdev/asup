@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 import org.asup.ui.pdm.e4.console.ConsoleRequestHandler;
 import org.asup.ui.pdm.e4.console.ConsoleSystem;
 import org.asup.ui.pdm.e4.console.ConsoleSystemHelper;
@@ -101,10 +101,10 @@ public class ShellCommandView extends ViewPart {
 						consoleHandler = new ConsoleRequestHandler(consoleSystem.newOutputStream());
 
 						// TODO delete me
-					    BundleContext bundleContext = FrameworkUtil.getBundle(QContext.class).getBundleContext();
-					    ServiceReference<QContext> serviceReference = bundleContext.getServiceReference(QContext.class);
-					    QContext context = bundleContext.getService(serviceReference);
-					    context.inject(consoleHandler);
+					    BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
+					    ServiceReference<QApplication> serviceReference = bundleContext.getServiceReference(QApplication.class);
+					    QApplication application = bundleContext.getService(serviceReference);
+					    application.getContext().inject(consoleHandler);
 					    
 					}
 					
@@ -148,7 +148,7 @@ public class ShellCommandView extends ViewPart {
 					
 					if (text.getText().length() > 0) {
 												
-						BundleContext bundleContext = FrameworkUtil.getBundle(QContext.class).getBundleContext();
+						BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
 						ServiceReference<ShellCommandWizard> serviceReference = bundleContext.getServiceReference(ShellCommandWizard.class);
 						
 						if (serviceReference != null) {

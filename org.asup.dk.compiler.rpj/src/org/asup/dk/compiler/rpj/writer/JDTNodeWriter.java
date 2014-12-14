@@ -1,3 +1,15 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi 			 - Initial API and implementation 
+ *   Giuliano Giancristofaro - Implementation
+ */
 package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
@@ -5,8 +17,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.ImportDeclaration;
@@ -15,33 +27,32 @@ import org.eclipse.jdt.core.dom.PackageDeclaration;
 public class JDTNodeWriter {
 
 	private AST ast;
-	private CompilationUnit compilationUnit;
+	private CompilationUnit jdtCompilationUnit;
 	private List<String> imports;
 
-	private QCompilationContext compilationContext;
+	private QCompilationUnit compilationUnit;
 	private QCompilationSetup compilationSetup;
-	
-	public JDTNodeWriter(JDTNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup) {
-		
-		this.compilationContext = compilationContext;
+
+	public JDTNodeWriter(JDTNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup) {
+
+		this.compilationUnit = compilationUnit;
 		this.compilationSetup = compilationSetup;
-		if(root != null) {
+		if (root != null) {
 			this.ast = root.getAST();
 			this.compilationUnit = root.getCompilationUnit();
 			this.imports = root.imports;
-		}
-		else {
+		} else {
 			this.ast = AST.newAST(AST.JLS8);
-			this.compilationUnit = ast.newCompilationUnit();
+			this.jdtCompilationUnit = ast.newCompilationUnit();
 			this.imports = new ArrayList<String>();
-			
+
 			// package
 			PackageDeclaration packageDeclaration = ast.newPackageDeclaration();
 			packageDeclaration.setName(ast.newName(compilationSetup.getBasePackage().split("\\.")));
-			this.compilationUnit.setPackage(packageDeclaration);
+			this.jdtCompilationUnit.setPackage(packageDeclaration);
 		}
 	}
-	
+
 	public void writeImport(Class<?> klass) {
 		writeImport(klass.getCanonicalName());
 	}
@@ -49,13 +60,13 @@ public class JDTNodeWriter {
 	@SuppressWarnings("unchecked")
 	public void writeImport(String klassName) {
 
-		if(imports.contains(klassName))
+		if (imports.contains(klassName))
 			return;
-		
+
 		ImportDeclaration importDeclaration = getAST().newImportDeclaration();
 		importDeclaration.setName(getAST().newName(klassName.split("\\.")));
-		getCompilationUnit().imports().add(importDeclaration);
-		
+		getJDTCompilationUnit().imports().add(importDeclaration);
+
 		imports.add(klassName);
 	}
 
@@ -63,18 +74,18 @@ public class JDTNodeWriter {
 		return this.compilationSetup;
 	}
 
-	public QCompilationContext getCompilationContext() {
-		return this.compilationContext;
+	public QCompilationUnit getCompilationUnit() {
+		return this.compilationUnit;
 	}
-	
+
 	public AST getAST() {
 		return this.ast;
 	}
-	
-	public CompilationUnit getCompilationUnit() {
-		return this.compilationUnit;
+
+	public CompilationUnit getJDTCompilationUnit() {
+		return this.jdtCompilationUnit;
 	}
-	
+
 	public void writeOutputStream(OutputStream outputStream) throws IOException {
 		// write file output
 		byte[] contentInBytes = compilationUnit.toString().getBytes();

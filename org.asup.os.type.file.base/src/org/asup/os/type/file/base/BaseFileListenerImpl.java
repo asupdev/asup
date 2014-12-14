@@ -18,17 +18,14 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseCoreFactory;
 import org.asup.db.core.QDatabaseManager;
-import org.asup.db.core.QIndexColumnDef;
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.core.QViewDef;
-import org.asup.db.core.impl.DatabaseManagerImpl;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
@@ -61,7 +58,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		QFile file = event.getSource();
 		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
 
-		QJobContext jobContext = job.getJobContext();
+		QContext jobContext = job.getContext();
 		QConnection connection = jobContext.getAdapter(job, QConnection.class);
 
 		Schema schema = connection.getCatalogMetaData().getSchema(file.getLibrary());
@@ -74,21 +71,21 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			try {
 				createFile(jobContext, file, connection, schema);
 			} catch (SQLException e) {
-				throw new OperatingSystemRuntimeException(e); 
+				throw new OperatingSystemRuntimeException(e);
 			}
 			break;
 		case PRE_DELETE:
 			try {
 				deleteFile(jobContext, file, connection, schema);
 			} catch (SQLException e) {
-				throw new OperatingSystemRuntimeException(e); 
+				throw new OperatingSystemRuntimeException(e);
 			}
 		default:
 			break;
 		}
 	}
 
-	private void createFile(QJobContext jobContext, QFile file, QConnection connection, Schema schema) throws SQLException {
+	private void createFile(QContext jobContext, QFile file, QConnection connection, Schema schema) throws SQLException {
 
 		if (file instanceof QPhysicalFile) {
 			QPhysicalFile physicalFile = (QPhysicalFile) file;
@@ -100,40 +97,24 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 
 			QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
 			databaseManager.createView(connection, schema, file.getName(), viewDef);
-		}
-		else
-			System.err.println(file);
+		} else
+			return;
 
+		
 		try {
 			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
 			if (index != null) {
 				Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
-	
-				// append clustered index if needed
-				if (!index.isClustered() && !hasClusteredIndex(table)) {
-	
-					QIndexDef pkIndexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
-					pkIndexDef.setClustered(true);
-					pkIndexDef.setUnique(true);
-	
-					QIndexColumnDef pkIndexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
-					pkIndexColumnDef.setName(DatabaseManagerImpl.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
-					pkIndexColumnDef.setSequence(1);
-					pkIndexDef.getColumns().add(pkIndexColumnDef);
-	
-					databaseManager.createIndex(connection, table, "QAS_" + table.getName() + "_RRN_IDX", pkIndexDef);
-				}
-	
 				databaseManager.createIndex(connection, table, file.getName(), index);
 			}
 		}
 		// TODO issue #77
-		catch(Exception e) {
+		catch (Exception e) {
 			System.err.println(e);
 		}
 	}
 
-	private void deleteFile(QJobContext jobContext, QFile file, QConnection connection, Schema schema) throws SQLException {
+	private void deleteFile(QContext jobContext, QFile file, QConnection connection, Schema schema) throws SQLException {
 
 		Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
 
@@ -146,10 +127,11 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		} else if (file instanceof QLogicalFile) {
 			ViewTable view = (ViewTable) table;
 			databaseManager.dropView(connection, view);
-		}
+		} else
+			return;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	private boolean hasClusteredIndex(Table table) {
 
 		for (Index index : (List<Index>) table.getIndex()) {

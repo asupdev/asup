@@ -7,7 +7,8 @@
  *
  * 
  * Contributors: 
- *   Mattia Rocchi - Initial API and implementation 
+ *   Mattia Rocchi 			 - Initial API and implementation 
+ *   Giuliano Giancristofaro - Implementation
  */
 package org.asup.dk.compiler.base.api;
 
@@ -18,10 +19,10 @@ import java.net.URI;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.CaseSensitiveType;
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
-import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerManager;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
 import org.asup.il.data.annotation.Entry;
@@ -104,15 +105,15 @@ public class XMIDatabaseFileCompiler {
 
 		OutputStream output = javaEntry.getOutputStream();
 
-		// compilation context
-		QCompilationContext compilationContext = compilerManager.createCompilationContext(job, file, CaseSensitiveType.LOWER);
+		// compilation unit
+		QCompilationUnit compilationUnit = compilerManager.createCompilationUnit(job, file, CaseSensitiveType.LOWER);
 
 		// compilation setup			
 		QCompilationSetup setup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();		
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
 		
-		compilerManager.writeDatabaseFile(compilationContext, setup, output);
+		compilerManager.writeDatabaseFile(compilationUnit, setup, output);
 
 		output.close();		
 	}

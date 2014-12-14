@@ -1,3 +1,15 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi 			 - Initial API and implementation 
+ *   Giuliano Giancristofaro - Implementation
+ */
 package org.asup.dk.compiler.rpj;
 
 import java.net.URI;
@@ -8,9 +20,9 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
-import org.asup.dk.compiler.QCompilationContext;
-import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
@@ -30,12 +42,10 @@ import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 
-//github.com/asupdev/asup.git
-
 public class RPJCallableUnitLinker {
 
 	@Inject
-	private QCompilationContext compilationContext;
+	private QCompilationUnit compilationUnit;
 	@Inject
 	private QJob job;
 	@Inject
@@ -54,16 +64,16 @@ public class RPJCallableUnitLinker {
 
 	public void linkExternalDatas() {
 
-		if (!(compilationContext.getRoot() instanceof QCallableUnit))
+		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
 			return;
 
-		QCallableUnit callableUnit = (QCallableUnit) compilationContext.getRoot();
+		QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
 
 		QDataSection dataSection = callableUnit.getDataSection();
 		if (dataSection == null)
 			return;
 
-		RPJDataTermLinker externalNameLinker = new RPJDataTermLinker(compilationContext);
+		RPJDataTermLinker externalNameLinker = new RPJDataTermLinker(compilationUnit);
 		for (QDataTerm<?> dataTerm : dataSection.getDatas()) {
 			dataTerm.accept(externalNameLinker);
 		}
@@ -72,10 +82,10 @@ public class RPJCallableUnitLinker {
 
 	public void linkLikeDatas() {
 
-		if (!(compilationContext.getRoot() instanceof QCallableUnit))
+		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
 			return;
 
-		QCallableUnit callableUnit = (QCallableUnit) compilationContext.getRoot();
+		QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
 
 		QDataSection dataSection = callableUnit.getDataSection();
 		if (dataSection == null)
@@ -83,7 +93,7 @@ public class RPJCallableUnitLinker {
 
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(dataSection.getDatas());
 
-		RPJDataLikeRefactor dataLikeVisitor = new RPJDataLikeRefactor(compilationContext);
+		RPJDataLikeRefactor dataLikeVisitor = new RPJDataLikeRefactor(compilationUnit);
 		for (QDataTerm<?> dataTerm : dataTerms) {
 			dataLikeVisitor.reset();
 
@@ -96,10 +106,10 @@ public class RPJCallableUnitLinker {
 
 	public void linkOverlayDatas() {
 
-		if (!(compilationContext.getRoot() instanceof QCallableUnit))
+		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
 			return;
 
-		QCallableUnit callableUnit = (QCallableUnit) compilationContext.getRoot();
+		QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
 
 		QDataSection dataSection = callableUnit.getDataSection();
 		if (dataSection == null)
@@ -107,7 +117,7 @@ public class RPJCallableUnitLinker {
 
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(dataSection.getDatas());
 
-		RPJDataOverlayRefactor dataOverlayVisitor = new RPJDataOverlayRefactor(compilationContext);
+		RPJDataOverlayRefactor dataOverlayVisitor = new RPJDataOverlayRefactor(compilationUnit);
 		for (QDataTerm<?> dataTerm : dataTerms) {
 			dataOverlayVisitor.reset();
 
@@ -120,10 +130,10 @@ public class RPJCallableUnitLinker {
 
 	public void linkFiles() {
 
-		if (!(compilationContext.getRoot() instanceof QCallableUnit))
+		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
 			return;
 
-		QCallableUnit callableUnit = (QCallableUnit) compilationContext.getRoot();
+		QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
 
 		QFileSection fileSection = callableUnit.getFileSection();
 		if (fileSection == null)
@@ -147,7 +157,7 @@ public class RPJCallableUnitLinker {
 			linkFileSingleFormat(dataSet, fileSingleFormat);
 		} else {
 			// TODO
-			System.err.println("File multiformat found: "+file);
+			System.err.println("File multiformat found: " + file);
 		}
 
 	}
@@ -195,18 +205,18 @@ public class RPJCallableUnitLinker {
 
 	public Class<?> loadClass(QContextID contextID, QFile file) {
 
-		// TODO		
+		// TODO
 		QLibrary library = libraryReader.lookup(file.getLibrary());
 
 		String pathURI = library.getPackageURI().toString().replaceAll("/", ".") + "file/";
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 
 		String address = "asup:/omac/" + pathURI + packageURI.toString().replaceAll("/", ".") + "." + file.getName();
-		Class<?> linkedClass = compilationContext.loadClass(null, address);
-		
+		Class<?> linkedClass = compilationUnit.getContext().loadClass(null, address);
+
 		if (linkedClass == null) {
 			address = "asup:/omac/" + file.getLibrary() + "/" + file.getApplication() + ".file." + file.getName();
-			linkedClass = compilationContext.loadClass(null, address);
+			linkedClass = compilationUnit.getContext().loadClass(null, address);
 		}
 
 		// search on parent library
@@ -219,7 +229,7 @@ public class RPJCallableUnitLinker {
 					throw new OperatingSystemRuntimeException("Master library not found: " + library);
 
 				address = "asup:/omac/" + masterLibrary.getName() + "/" + file.getApplication() + ".file." + file.getName();
-				linkedClass = compilationContext.loadClass(null, address);
+				linkedClass = compilationUnit.getContext().loadClass(null, address);
 			}
 		}
 

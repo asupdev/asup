@@ -10,6 +10,7 @@ package org.asup.os.core.impl;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.core.QService;
@@ -22,7 +23,6 @@ import org.asup.os.core.QSystem;
 import org.asup.os.core.QSystemManager;
 import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.jobs.QJobContext;
 import org.asup.os.core.jobs.QOperatingSystemJobsFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -291,12 +291,12 @@ public abstract class SystemManagerImpl extends EObjectImpl implements QSystemMa
 //	    YYYYMMDD.format(CALENDAR.getTime())+"/"+HHMMSS.format(CALENDAR.getTime();
 	    job.setJobName ("QAS"+job.getJobNumber());
 	     
-	    // libraries
+	    // system libraries
 	    job.getLibraries().add(getSystem().getSystemLibrary());		
 
 	    // job context
-	    QJobContext jobContext = createJobContext();
-	    job.setJobContext(jobContext);
+	    QContext jobContext = createContext(job.getJobName());
+	    job.setContext(jobContext);
 	    
 	    jobContext.set(QContextID.class, job);
 	    jobContext.set(QJob.class, job);
@@ -306,5 +306,5 @@ public abstract class SystemManagerImpl extends EObjectImpl implements QSystemMa
 	
 	protected abstract int nextJobID() throws OperatingSystemException;
 	
-	protected abstract QJobContext createJobContext() throws OperatingSystemException;
+	protected abstract QContext createContext(String name) throws OperatingSystemException;
 } //QSystemManagerImpl

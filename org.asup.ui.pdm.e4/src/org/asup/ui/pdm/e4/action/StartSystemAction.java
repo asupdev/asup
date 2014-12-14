@@ -16,7 +16,6 @@ import java.util.Map;
 
 import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QApplicationManager;
-import org.asup.fw.core.QContext;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.ui.pdm.e4.Activator;
 import org.asup.ui.pdm.e4.console.ConsoleSystem;
@@ -125,9 +124,8 @@ public class StartSystemAction implements IObjectActionDelegate {
 			    	ServiceReference<QApplicationManager> applicationManagerReference = bundleContext.getServiceReference(QApplicationManager.class);
 			    	
 			    	QApplicationManager applicationManager = bundleContext.getService(applicationManagerReference);			    	
-			    	QContext applicationContext = applicationManager.start(application, stream);
 
-					Activator.getDefault().setApplicationContext(applicationContext);
+					Activator.getDefault().setApplication(applicationManager.start(application, stream));
 					
 			        return Status.OK_STATUS;
 				} catch (Exception e) {
@@ -147,7 +145,7 @@ public class StartSystemAction implements IObjectActionDelegate {
 		this.resource = null;
 		action.setEnabled(false);		
 		
-		if(Activator.getDefault().getApplicationContext() != null) 
+		if(Activator.getDefault().getApplication() != null) 
 			return;
 		
 		if(selection instanceof TreeSelection) {

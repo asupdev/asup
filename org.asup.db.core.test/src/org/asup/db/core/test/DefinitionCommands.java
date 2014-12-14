@@ -149,7 +149,7 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 		QConnection connectionFrom = connectionManager.createConnection(catalogFrom);
 		Schema schemaFrom = connectionFrom.getCatalogMetaData().getSchema(schemaName);
 		
-		QSchemaDef schemaDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QSchemaDef.class);
+		QSchemaDef schemaDef = connectionTo.getContext().getAdapter(schemaFrom, QSchemaDef.class);
 		databaseManager.createSchema(connectionTo, schemaFrom.getName(), schemaDef);
 		// TODO
 		schemaTo = connectionTo.getCatalogMetaData().getSchema(schemaFrom.getName());
@@ -157,16 +157,16 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 		for (Table table : (List<Table>) schemaFrom.getTables()) {
 
 			if (table instanceof ViewTable) {
-				QViewDef viewDef = connectionTo.getConnectionContext().getAdapter(schemaFrom, QViewDef.class);
+				QViewDef viewDef = connectionTo.getContext().getAdapter(schemaFrom, QViewDef.class);
 				databaseManager.createView(connectionTo, schemaTo, table.getName(), viewDef);
 			} else {
-				QTableDef tableDef = connectionTo.getConnectionContext().getAdapter(table, QTableDef.class);
+				QTableDef tableDef = connectionTo.getContext().getAdapter(table, QTableDef.class);
 				databaseManager.createTable(connectionTo, schemaTo, table.getName(), tableDef);
 			}
 		}
 
 		for (Index index : (List<Index>) schemaFrom.getIndices()) {
-			QIndexDef indexDef = connectionTo.getConnectionContext().getAdapter(index, QIndexDef.class);
+			QIndexDef indexDef = connectionTo.getContext().getAdapter(index, QIndexDef.class);
 			Table tableTo = connectionTo.getCatalogMetaData().getTable(schemaTo.getName(), index.getName());
 			databaseManager.createIndex(connectionTo, tableTo, index.getName(), indexDef);
 		}

@@ -55,7 +55,7 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 	    	jobLog = QOperatingSystemJobsFactory.eINSTANCE.createJobLog();
 	    	jobLog.setJobID(job.getID());
 	    
-	    	job.getJobContext().set(QJobLog.class, jobLog);
+	    	job.getContext().set(QJobLog.class, jobLog);
 	    }
 
 		// entry
@@ -81,13 +81,8 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 	public QJobLog lookup(QJob job) {
 		QJobLog jobLog = null;
 		
-		if(job.getJobContext() != null)
-			jobLog = job.getJobContext().get(QJobLog.class);
-
-		if(jobLog == null) {
-			QResourceReader<QJobLog> jobLogReader = resourceFactory.getResourceReader(job, QJobLog.class, job.getSystem().getSystemLibrary());
-			jobLog = jobLogReader.lookup(job.getName());
-		}
+		if(job.getContext() != null)
+			jobLog = job.getContext().get(QJobLog.class);
 		
 		return jobLog;
 	}
@@ -95,11 +90,9 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 	@Override
 	public QJobLog lookup(QContextID contextID, String name, String user, int number) {
 		
-		QJob jobCaller = jobManager.lookup(contextID);
-		QJob job = jobManager.lookup(contextID, name, user, number);
-		
-		QResourceReader<QJobLog> jobLogReader = resourceFactory.getResourceReader(jobCaller, QJobLog.class, jobCaller.getSystem().getSystemLibrary());
-		QJobLog jobLog = jobLogReader.lookup(job.getName());
+		QJob job = jobManager.lookup(contextID);
+		QResourceReader<QJobLog> jobLogReader = resourceFactory.getResourceReader(job, QJobLog.class, job.getSystem().getSystemLibrary());
+		QJobLog jobLog = jobLogReader.lookup(name);
 		
 		return jobLog;
 	}

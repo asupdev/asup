@@ -23,8 +23,8 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.CaseSensitiveType;
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.impl.CompilerManagerImpl;
 import org.asup.dk.compiler.rpj.writer.JDTDatabaseFileWriter;
 import org.asup.dk.compiler.rpj.writer.JDTDisplayFileWriter;
@@ -69,90 +69,90 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	private ResourceSet resourceSet = new ResourceSetImpl();
 
 	@Override
-	public QCompilationContext createCompilationContext(QJob job, QModule module, CaseSensitiveType caseSensitive) {
+	public QCompilationUnit createCompilationUnit(QJob job, QModule module, CaseSensitiveType caseSensitive) {
 
-		Map<String, QCompilationContext> globalContexts = new HashMap<>();
-		return createCompilationContext(job, globalContexts, module, caseSensitive);
+		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
+		return createCompilationUnit(job, globalContexts, module, caseSensitive);
 	}
 
-	private QCompilationContext createCompilationContext(QJob job, Map<String, QCompilationContext> globalContexts, QModule module, CaseSensitiveType caseSensitive) {
+	private QCompilationUnit createCompilationUnit(QJob job, Map<String, QCompilationUnit> globalContexts, QModule module, CaseSensitiveType caseSensitive) {
 
-		List<QCompilationContext> moduleContexts = null;
+		List<QCompilationUnit> moduleContexts = null;
 		if (!module.getName().startsWith("*"))
 			moduleContexts = prepareContexts(job, globalContexts, module, caseSensitive);
 		else
-			moduleContexts = new ArrayList<QCompilationContext>();
+			moduleContexts = new ArrayList<QCompilationUnit>();
 
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(), module, moduleContexts, caseSensitive);
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createLocalContext(module.getName()), module, moduleContexts, caseSensitive);
 
-		compilationContext.set(QCompilationContext.class, compilationContext);
+		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
 		if (module.getSetupSection() != null) {
 			String expressionType = module.getSetupSection().getExpressionType();
 			if (expressionType != null) {
 				QExpressionParser expressionParser = expressionParserRegistry.lookup(expressionType);
-				compilationContext.set(QExpressionParser.class, expressionParser);
+				compilationUnit.getContext().set(QExpressionParser.class, expressionParser);
 			}
 		}
 
-		compilationContext.set(QModule.class, module);
+		compilationUnit.getContext().set(QModule.class, module);
 
-		return compilationContext;
+		return compilationUnit;
 	}
 
 	@Override
-	public QCompilationContext createCompilationContext(QJob job, QProgram program, CaseSensitiveType caseSensitive) {
+	public QCompilationUnit createCompilationUnit(QJob job, QProgram program, CaseSensitiveType caseSensitive) {
 
-		Map<String, QCompilationContext> globalContexts = new HashMap<>();
-		List<QCompilationContext> moduleContexts = prepareContexts(job, globalContexts, program, caseSensitive);
+		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
+		List<QCompilationUnit> moduleContexts = prepareContexts(job, globalContexts, program, caseSensitive);
 
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(), program, moduleContexts, caseSensitive);
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createLocalContext(program.getName()), program, moduleContexts, caseSensitive);
 
-		compilationContext.set(QCompilationContext.class, compilationContext);
+		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
 		if (program.getSetupSection() != null) {
 			String expressionType = program.getSetupSection().getExpressionType();
 			if (expressionType != null) {
 
 				QExpressionParser expressionParser = expressionParserRegistry.lookup(expressionType);
-				compilationContext.set(QExpressionParser.class, expressionParser);
+				compilationUnit.getContext().set(QExpressionParser.class, expressionParser);
 			}
 		}
 
-		compilationContext.set(QProgram.class, program);
+		compilationUnit.getContext().set(QProgram.class, program);
 
-		return compilationContext;
+		return compilationUnit;
 	}
 
 	@Override
-	public QCompilationContext createChildContext(QCompilationContext master, QProcedure procedure) {
+	public QCompilationUnit createChildCompilationUnit(QCompilationUnit master, QProcedure procedure) {
 
-		QJob job = master.get(QJob.class);
+		QJob job = master.getContext().get(QJob.class);
 
-		Map<String, QCompilationContext> globalContexts = new HashMap<>();
-		List<QCompilationContext> moduleContexts = prepareContexts(job, globalContexts, procedure, master.getCaseSensitive());
+		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
+		List<QCompilationUnit> moduleContexts = prepareContexts(job, globalContexts, procedure, master.getCaseSensitive());
 		moduleContexts.add(master);
 
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(master.createChild(), procedure, moduleContexts, master.getCaseSensitive());
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(master.getContext().createLocalContext(procedure.getName()), procedure, moduleContexts, master.getCaseSensitive());
 
-		compilationContext.set(QCompilationContext.class, compilationContext);
+		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
-		return compilationContext;
+		return compilationUnit;
 	}
 
 	@Override
-	public QCompilationContext createCompilationContext(QJob job, QFile file, CaseSensitiveType caseSensitive) {
+	public QCompilationUnit createCompilationUnit(QJob job, QFile file, CaseSensitiveType caseSensitive) {
 
-		List<QCompilationContext> contexts = new ArrayList<QCompilationContext>();
+		List<QCompilationUnit> compilationUnits = new ArrayList<QCompilationUnit>();
 
-		RPJCompilationContextImpl compilationContext = new RPJCompilationContextImpl(job.getJobContext().createChild(), file, contexts, caseSensitive);
-		compilationContext.set(QCompilationContext.class, compilationContext);
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createLocalContext(file.getName()), file, compilationUnits, caseSensitive);
+		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
-		return compilationContext;
+		return compilationUnit;
 	}
 
-	private void prepareDefaultContext(List<QCompilationContext> contexts, QJob job, CaseSensitiveType caseSensitive) {
-		// default context
+	private void prepareDefaultContext(List<QCompilationUnit> compilationUnits, QJob job, CaseSensitiveType caseSensitive) {
+
 		try {
 			URL entry = FrameworkUtil.getBundle(this.getClass()).getEntry("./ASUP-INF/modules.xmi");
 			Resource resource = resourceSet.createResource(URI.createURI(entry.toString()));
@@ -164,8 +164,8 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 				QModule module = (QModule) eObject;
 
 				// add *RPJ module
-				QCompilationContext moduleContext = createCompilationContext(job, new HashMap<String, QCompilationContext>(), module, caseSensitive);
-				contexts.add(moduleContext);
+				QCompilationUnit moduleContext = createCompilationUnit(job, new HashMap<String, QCompilationUnit>(), module, caseSensitive);
+				compilationUnits.add(moduleContext);
 			}
 
 		} catch (Exception e) {
@@ -173,9 +173,9 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		}
 	}
 
-	private List<QCompilationContext> prepareContexts(QJob job, Map<String, QCompilationContext> globalContexts, QCallableUnit unit, CaseSensitiveType caseSensitive) {
+	private List<QCompilationUnit> prepareContexts(QJob job, Map<String, QCompilationUnit> globalContexts, QCallableUnit unit, CaseSensitiveType caseSensitive) {
 
-		List<QCompilationContext> moduleContexts = new ArrayList<QCompilationContext>();
+		List<QCompilationUnit> moduleContexts = new ArrayList<QCompilationUnit>();
 		prepareDefaultContext(moduleContexts, job, caseSensitive);
 
 		if (unit.getSetupSection() == null)
@@ -184,7 +184,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		QResourceReader<org.asup.os.type.module.QModule> moduleReader = moduleManager.getResourceReader(job, Scope.LIBRARY_LIST);
 		for (String moduleName : unit.getSetupSection().getModules()) {
 
-			QCompilationContext moduleContext = globalContexts.get(moduleName);
+			QCompilationUnit moduleContext = globalContexts.get(moduleName);
 
 			if (moduleContext != null) {
 				moduleContexts.add(moduleContext);
@@ -212,7 +212,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 				resourceModule.load(xmiModuleSource.getInputStream(), Collections.EMPTY_MAP);
 				QModule flowModel = (QModule) resourceModule.getContents().get(0);
 
-				moduleContext = createCompilationContext(job, globalContexts, flowModel, caseSensitive);
+				moduleContext = createCompilationUnit(job, globalContexts, flowModel, caseSensitive);
 
 				moduleContexts.add(moduleContext);
 				globalContexts.put(moduleName, moduleContext);
@@ -225,105 +225,97 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	}
 
 	@Override
-	public void writeProgram(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeProgram(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		QProgram program = (QProgram) context.getRoot();
+		QProgram program = (QProgram) compilationUnit.getRoot();
 
-		JDTProgramWriter programWriter = new JDTProgramWriter(null, context, setup, context.getRoot().getName());
+		JDTProgramWriter programWriter = new JDTProgramWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
 		programWriter.writeProgram(program);
 
 		programWriter.writeOutputStream(output);
 	}
 
 	@Override
-	public void writeModule(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeModule(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		QModule module = (QModule) context.getRoot();
+		QModule module = (QModule) compilationUnit.getRoot();
 
-		JDTModuleWriter moduleWriter = new JDTModuleWriter(null, context, setup, context.getRoot().getName());
+		JDTModuleWriter moduleWriter = new JDTModuleWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
 		moduleWriter.writeModule(module);
 
 		moduleWriter.writeOutputStream(output);
 	}
 
 	@Override
-	public void writeDatabaseFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDatabaseFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		QDatabaseFile databaseFile = (QDatabaseFile) context.getRoot();
+		QDatabaseFile databaseFile = (QDatabaseFile) compilationUnit.getRoot();
 
-		JDTDatabaseFileWriter databaseFileWriter = new JDTDatabaseFileWriter(null, context, setup, context.getRoot().getName());
+		JDTDatabaseFileWriter databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
 		databaseFileWriter.writeDatabaseFile(databaseFile);
 
 		databaseFileWriter.writeOutputStream(output);
 	}
 
 	@Override
-	public void writeDisplayFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeDisplayFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		QDisplayFile displayFile = (QDisplayFile) context.getRoot();
+		QDisplayFile displayFile = (QDisplayFile) compilationUnit.getRoot();
 
-		JDTDisplayFileWriter displayFileWriter = new JDTDisplayFileWriter(null, context, setup, context.getRoot().getName());
+		JDTDisplayFileWriter displayFileWriter = new JDTDisplayFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
 		displayFileWriter.writeDisplayFile(displayFile);
 
 		displayFileWriter.writeOutputStream(output);
 	}
 
 	@Override
-	public void writePrinterFile(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
-/*
-		QDatabaseFile databaseFile = (QDatabaseFile) context.getRoot();
+	public void writePrinterFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		JDTDatabaseFileWriter databaseFileWriter = new JDTDatabaseFileWriter(null, context, setup, context.getRoot().getName());
-		databaseFileWriter.writeDatabaseFile(databaseFile);
+		QPrinterFile printerFile = (QPrinterFile) compilationUnit.getRoot();
 
-		databaseFileWriter.writeOutputStream(output);
-		
-*/
-		QPrinterFile printerFile = (QPrinterFile) context.getRoot();
-
-		JDTPrinterFileWriter printerFileWriter = new JDTPrinterFileWriter(null, context, setup, context.getRoot().getName());
+		JDTPrinterFileWriter printerFileWriter = new JDTPrinterFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
 		printerFileWriter.writerPrinterFile(printerFile);
 
 		printerFileWriter.writeOutputStream(output);
-		
+
 	}
 
 	@Override
-	public void writeStub(QCompilationContext context, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
-		QProgram program = (QProgram) context.getRoot();
+		QProgram program = (QProgram) compilationUnit.getRoot();
 
-		JDTStubWriter skeletonWriter = new JDTStubWriter(null, context, setup, context.getRoot().getName());
+		JDTStubWriter skeletonWriter = new JDTStubWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
 		skeletonWriter.writeSkeleton(program);
 
 		skeletonWriter.writeOutputStream(output);
 	}
 
 	@Override
-	public void linkCompilationContext(QCompilationContext context) {
+	public void linkCompilationUnit(QCompilationUnit compilationUnit) {
 
 		// load childs
-		List<String> contexts = new ArrayList<String>();
-		linkCompilationContext(contexts, context);
+		List<String> compilationUnits = new ArrayList<String>();
+		linkCompilationUnit(compilationUnits, compilationUnit);
 
 	}
 
-	private void linkCompilationContext(List<String> contexts, QCompilationContext context) {
+	private void linkCompilationUnit(List<String> compilationUnits, QCompilationUnit compilationUnit) {
 
-		if (contexts.contains(context.getRoot().getName()))
+		if (compilationUnits.contains(compilationUnit.getRoot().getName()))
 			return;
 
-		contexts.add(context.getRoot().getName());
+		compilationUnits.add(compilationUnit.getRoot().getName());
 
 		// link childs
-		for (QCompilationContext childCompilationContext : context.getChildContexts())
-			linkCompilationContext(contexts, childCompilationContext);
+		for (QCompilationUnit childCompilationUnit : compilationUnit.getChildCompilationUnits())
+			linkCompilationUnit(compilationUnits, childCompilationUnit);
 
 		// link root
-		RPJCallableUnitLinker callableUnitLinker = context.make(RPJCallableUnitLinker.class);
+		RPJCallableUnitLinker callableUnitLinker = compilationUnit.getContext().make(RPJCallableUnitLinker.class);
 
-		// register linker on context
-		context.set(RPJCallableUnitLinker.class, callableUnitLinker);
+		// register linker on compilationUnit
+		compilationUnit.getContext().set(RPJCallableUnitLinker.class, callableUnitLinker);
 
 		callableUnitLinker.linkFiles();
 

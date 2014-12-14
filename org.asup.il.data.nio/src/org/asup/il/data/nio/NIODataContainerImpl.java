@@ -26,9 +26,9 @@ import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.QStruct;
-import org.asup.il.data.impl.DataContextImpl;
+import org.asup.il.data.impl.DataContainerImpl;
 
-public class NIODataContextImpl extends DataContextImpl implements Serializable {
+public class NIODataContainerImpl extends DataContainerImpl implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -43,7 +43,7 @@ public class NIODataContextImpl extends DataContextImpl implements Serializable 
 
 	private QDataEvaluator evaluator;
 	
-	protected NIODataContextImpl(QContextID contextID, QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
+	protected NIODataContainerImpl(QContextID contextID, QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
 		this.contextID = contextID;
 		this.dataFactory = dataFactory;
 		this.dataTerms = dataTerms;

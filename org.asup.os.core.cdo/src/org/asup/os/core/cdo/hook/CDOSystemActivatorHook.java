@@ -11,9 +11,7 @@
  */
 package org.asup.os.core.cdo.hook;
 
-import javax.inject.Inject;
-
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.OperatingSystemException;
@@ -23,13 +21,10 @@ import org.asup.os.core.jobs.QJobManager;
 
 public class CDOSystemActivatorHook extends ServiceImpl {
 
-	@Inject
-	private QContext frameworkContext;
-	
 	@LevelStarted
-	public void init(QSystemManager systemManager, QJobManager jobManager) throws OperatingSystemException {
+	public void init(QApplication application, QSystemManager systemManager, QJobManager jobManager) throws OperatingSystemException {
 		QJob qJob = systemManager.start();
-		frameworkContext.set(QJob.class, qJob);
+		application.getContext().set(QJob.class, qJob);
 	}
 
 }

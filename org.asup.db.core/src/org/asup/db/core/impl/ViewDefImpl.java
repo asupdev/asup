@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.core.impl.ViewDefImpl#getCreationCommand <em>Creation Command</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.ViewDefImpl#getQuerySelect <em>Query Select</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,24 +27,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	/**
-	 * The default value of the '{@link #getCreationCommand() <em>Creation Command</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getCreationCommand()
+	 * The default value of the '{@link #getQuerySelect() <em>Query Select</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuerySelect()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CREATION_COMMAND_EDEFAULT = null;
+	protected static final String QUERY_SELECT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCreationCommand() <em>Creation Command</em>}' attribute.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @see #getCreationCommand()
+	 * The cached value of the '{@link #getQuerySelect() <em>Query Select</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuerySelect()
 	 * @generated
 	 * @ordered
 	 */
-	protected String creationCommand = CREATION_COMMAND_EDEFAULT;
+	protected String querySelect = QUERY_SELECT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -64,22 +64,24 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCreationCommand() {
-		return creationCommand;
+	public String getQuerySelect() {
+		return querySelect;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreationCommand(String newCreationCommand) {
-		String oldCreationCommand = creationCommand;
-		creationCommand = newCreationCommand;
+	public void setQuerySelect(String newQuerySelect) {
+		String oldQuerySelect = querySelect;
+		querySelect = newQuerySelect;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND, oldCreationCommand, creationCommand));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.VIEW_DEF__QUERY_SELECT, oldQuerySelect, querySelect));
 	}
 
 	/**
@@ -89,8 +91,8 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
-				return getCreationCommand();
+			case QDatabaseCorePackage.VIEW_DEF__QUERY_SELECT:
+				return getQuerySelect();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -102,8 +104,8 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
-				setCreationCommand((String)newValue);
+			case QDatabaseCorePackage.VIEW_DEF__QUERY_SELECT:
+				setQuerySelect((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -116,8 +118,8 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
-				setCreationCommand(CREATION_COMMAND_EDEFAULT);
+			case QDatabaseCorePackage.VIEW_DEF__QUERY_SELECT:
+				setQuerySelect(QUERY_SELECT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -130,8 +132,8 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDatabaseCorePackage.VIEW_DEF__CREATION_COMMAND:
-				return CREATION_COMMAND_EDEFAULT == null ? creationCommand != null : !CREATION_COMMAND_EDEFAULT.equals(creationCommand);
+			case QDatabaseCorePackage.VIEW_DEF__QUERY_SELECT:
+				return QUERY_SELECT_EDEFAULT == null ? querySelect != null : !QUERY_SELECT_EDEFAULT.equals(querySelect);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -145,8 +147,8 @@ public class ViewDefImpl extends TableDefImpl implements QViewDef {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (creationCommand: ");
-		result.append(creationCommand);
+		result.append(" (querySelect: ");
+		result.append(querySelect);
 		result.append(')');
 		return result.toString();
 	}

@@ -13,7 +13,7 @@ package org.asup.os.type.cmd.base;
 
 import org.asup.fw.core.QContextID;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.jobs.QJobManager;
@@ -30,8 +30,7 @@ public abstract class BaseCommandManagerImpl extends CommandManagerImpl {
 	protected QJobLogManager jobLogManager;
 	protected QProgramManager programManager;
 
-	public BaseCommandManagerImpl(QResourceFactory resourceFactory, QJobManager jobManager, 
-			QJobLogManager jobLogManager, QProgramManager programManager) {
+	public BaseCommandManagerImpl(QResourceFactory resourceFactory, QJobManager jobManager, QJobLogManager jobLogManager, QProgramManager programManager) {
 		this.resourceFactory = resourceFactory;
 		this.jobManager = jobManager;
 		this.jobLogManager = jobLogManager;
@@ -39,17 +38,16 @@ public abstract class BaseCommandManagerImpl extends CommandManagerImpl {
 	}
 
 	@Override
-	public void executeCommand(QContextID contextID,
-			QCallableCommand callableCommand) throws OperatingSystemException {
+	public void executeCommand(QContextID contextID, QCallableCommand callableCommand) throws OperatingSystemException {
 
 		jobLogManager.info(jobManager.lookup(contextID), callableCommand.getCommandString());
-		
-		QDataContext dataContext = callableCommand.getDataContext();
+
+		QDataContainer dataContainer = callableCommand.getDataContainer();
 
 		QData[] parameters = new QData[callableCommand.getCommand().getParameters().size()];
 		for (QCommandParameter commandParameter : callableCommand.getCommand().getParameters()) {
 			int position = commandParameter.getPosition() - 1;
-			parameters[position] = dataContext.getData(dataContext.getTerms().get(position));
+			parameters[position] = dataContainer.getData(dataContainer.getTerms().get(position));
 		}
 
 		programManager.callProgram(contextID, null, callableCommand.getCommand().getProgram(), parameters);

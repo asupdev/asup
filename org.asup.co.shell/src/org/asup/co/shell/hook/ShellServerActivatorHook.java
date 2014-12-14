@@ -13,17 +13,17 @@ package org.asup.co.shell.hook;
 
 import org.asup.co.core.QServerSocketConfig;
 import org.asup.co.shell.ShellServerSocketImpl;
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.impl.ServiceImpl;
 
 public class ShellServerActivatorHook extends ServiceImpl {
 
 	@LevelStarted
-	public void init(QContext context) {
+	public void init(QApplication application) {
 		
 		QServerSocketConfig config = (QServerSocketConfig) getConfig();
-		ShellServerSocketImpl serverSocket = new ShellServerSocketImpl(context, config);
+		ShellServerSocketImpl serverSocket = new ShellServerSocketImpl(application, config);
 		
 		new Thread(serverSocket).start();
 	}

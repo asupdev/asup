@@ -12,7 +12,7 @@
             thread="main"
             visible="true">
          <run
-               class="org.asup.fw.core.e4.E4ApplicationImpl">
+               class="org.asup.fw.core.e4.E4EquinoxApplicationImpl">
          </run>
       </application>
    

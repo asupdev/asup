@@ -255,7 +255,7 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DataArray" instanceTypeName="D[]"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataContext" abstract="true" eSuperTypes="#//DataTermContainer">
+  <eClassifiers xsi:type="ecore:EClass" name="DataContainer" abstract="true" eSuperTypes="#//DataTermContainer">
     <eOperations name="clearData"/>
     <eOperations name="getData" eType="#//Data">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -516,7 +516,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="createContext" lowerBound="1" eType="#//DataContext">
+    <eOperations name="createDataContainer" lowerBound="1" eType="#//DataContainer">
       <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
       <eParameters name="dataTerms" upperBound="-1">
         <eGenericType eClassifier="#//DataTerm">
@@ -533,8 +533,8 @@
     <eOperations name="registerDictionary">
       <eParameters name="dictionary" lowerBound="1" eType="#//DataDictionary"/>
     </eOperations>
-    <eOperations name="validateContext" lowerBound="1">
-      <eParameters name="context" lowerBound="1" eType="#//DataContext"/>
+    <eOperations name="validateDataContainer" lowerBound="1">
+      <eParameters name="container" lowerBound="1" eType="#//DataContainer"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataStruct" abstract="true" interface="true">

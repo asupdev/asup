@@ -10,6 +10,7 @@ package org.asup.fw.core.impl;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
+import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QApplicationLevel;
 import org.asup.fw.core.QApplicationManager;
@@ -49,6 +50,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class FrameworkCorePackageImpl extends EPackageImpl implements QFrameworkCorePackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass adapterFactoryEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,6 +266,15 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(QFrameworkCorePackage.eNS_URI, theFrameworkCorePackage);
 		return theFrameworkCorePackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAdapterFactory() {
+		return adapterFactoryEClass;
 	}
 
 	/**
@@ -702,6 +719,8 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		isCreated = true;
 
 		// Create classes and their features
+		adapterFactoryEClass = createEClass(ADAPTER_FACTORY);
+
 		applicationEClass = createEClass(APPLICATION);
 		createEReference(applicationEClass, APPLICATION__HOOKS);
 		createEReference(applicationEClass, APPLICATION__LEVELS);
@@ -813,10 +832,27 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		servicePluginRegistryEClass.getESuperTypes().add(this.getServiceReference());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(adapterFactoryEClass, QAdapterFactory.class, "AdapterFactory", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(adapterFactoryEClass, null, "getAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(ecorePackage.getEJavaObject());
+		t1.getEBounds().add(g1);
+		addEParameter(op, this.getContext(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "adaptable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		EGenericType g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "adapterType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(t1);
+		initEOperation(op, g1);
+
 		initEClass(applicationEClass, QApplication.class, "Application", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplication_Hooks(), this.getServiceHook(), null, "hooks", null, 0, -1, QApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_Levels(), this.getApplicationLevel(), null, "levels", null, 0, -1, QApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Text(), ecorePackage.getEString(), "text", null, 0, 1, QApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(applicationEClass, this.getContext(), "getContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(applicationLevelEClass, QApplicationLevel.class, "ApplicationLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationLevel_Hooks(), this.getServiceHook(), null, "hooks", null, 0, -1, QApplicationLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -826,7 +862,7 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 
 		initEClass(applicationManagerEClass, QApplicationManager.class, "ApplicationManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(applicationManagerEClass, this.getContext(), "start", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(applicationManagerEClass, this.getApplication(), "start", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getApplication(), "application", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -834,18 +870,19 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEAttribute(getApplicationModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, QApplicationModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplicationModule_Services(), this.getServiceReference(), null, "services", null, 0, -1, QApplicationModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(contextEClass, QContext.class, "Context", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(contextEClass, QContext.class, "Context", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(contextEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
-		op = addEOperation(contextEClass, this.getContext(), "createChild", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(contextEClass, this.getContext(), "createLocalContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
 		op = addEOperation(contextEClass, null, "get", 1, 1, IS_UNIQUE, IS_ORDERED);
-		ETypeParameter t1 = addETypeParameter(op, "T");
+		t1 = addETypeParameter(op, "T");
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
-		EGenericType g2 = createEGenericType(t1);
+		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "clazz", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
@@ -897,6 +934,16 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
+
+		op = addEOperation(contextEClass, null, "registerAdapterFactory", 0, 1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "T");
+		g1 = createEGenericType(ecorePackage.getEJavaObject());
+		t1.getEBounds().add(g1);
+		addEParameter(op, this.getAdapterFactory(), "factory", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "adapterType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(contextEClass, null, "set", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "T");

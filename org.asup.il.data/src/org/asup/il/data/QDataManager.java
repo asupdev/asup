@@ -30,7 +30,7 @@ public interface QDataManager extends QService {
 	 * @model required="true" contextIDRequired="true" dataTermsMany="true"
 	 * @generated
 	 */
-	QDataContext createContext(QContextID contextID, List<QDataTerm<?>> dataTerms);
+	QDataContainer createDataContainer(QContextID contextID, List<QDataTerm<?>> dataTerms);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,9 +59,9 @@ public interface QDataManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model contextRequired="true"
+	 * @model containerRequired="true"
 	 * @generated
 	 */
-	void validateContext(QDataContext context);
+	void validateDataContainer(QDataContainer container);
 
 } // QDataManager

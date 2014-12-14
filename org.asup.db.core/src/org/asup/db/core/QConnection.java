@@ -8,6 +8,7 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 
 /**
@@ -83,7 +84,7 @@ public interface QConnection extends QContextID {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	QConnectionContext getConnectionContext();
+	QContext getContext();
 
 	/**
 	 * <!-- begin-user-doc -->

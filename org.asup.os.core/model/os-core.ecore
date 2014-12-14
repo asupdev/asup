@@ -219,10 +219,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" lowerBound="1"
           eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="jobContext" eType="#//jobs/JobContext"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"
           transient="true" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="JobContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
     <eClassifiers xsi:type="ecore:EClass" name="JobLog" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entries" lowerBound="1"
           upperBound="-1" eType="#//jobs/JobLogEntry" containment="true"/>

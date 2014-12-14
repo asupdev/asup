@@ -211,7 +211,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCallableCommand_DataContext() {
+	public EReference getCallableCommand_DataContainer() {
 		return (EReference)callableCommandEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -445,7 +445,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		createEReference(callableCommandEClass, CALLABLE_COMMAND__COMMAND);
 		createEAttribute(callableCommandEClass, CALLABLE_COMMAND__COMMAND_STRING);
 		createEAttribute(callableCommandEClass, CALLABLE_COMMAND__VARIABLES);
-		createEReference(callableCommandEClass, CALLABLE_COMMAND__DATA_CONTEXT);
+		createEReference(callableCommandEClass, CALLABLE_COMMAND__DATA_CONTAINER);
 
 		commandEClass = createEClass(COMMAND);
 		createEAttribute(commandEClass, COMMAND__ALLOW_BATCH);
@@ -535,7 +535,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getCallableCommand_Variables(), g1, "variables", null, 1, 1, QCallableCommand.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCallableCommand_DataContext(), theIntegratedLanguageDataPackage.getDataContext(), null, "dataContext", null, 1, 1, QCallableCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallableCommand_DataContainer(), theIntegratedLanguageDataPackage.getDataContainer(), null, "dataContainer", null, 1, 1, QCallableCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandEClass, QCommand.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_AllowBatch(), ecorePackage.getEBoolean(), "allowBatch", "true", 0, 1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -87,4 +87,12 @@ public interface QApplication {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	QContext getContext();
 } // Application

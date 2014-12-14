@@ -55,7 +55,7 @@ public class E4JobManagerImpl extends JobManagerImpl {
 			QJob job = (QJob)contextID;
 			
 			// not active reference
-			if(job.getJobContext() == null)
+			if(job.getContext() == null)
 				return activeJobs.get(contextID.getID());
 			return job;
 		}
@@ -103,9 +103,7 @@ public class E4JobManagerImpl extends JobManagerImpl {
 	    // add job description libraries
 	    if(userProfile.getJobDescription() != null) {
 		    QResourceReader<QJobDescription> jobDescriptionResource = resourceFactory.getResourceReader(startupJob, QJobDescription.class, Scope.ALL);
-//		    QJobDescription jobDescription = jobDescriptionResource.lookup(userProfile.getJobDescription());
-		    // TODO remove
-		    QJobDescription jobDescription = jobDescriptionResource.lookup("ASUP");		    
+		    QJobDescription jobDescription = jobDescriptionResource.lookup(userProfile.getJobDescription());
 	    	if(jobDescription != null) {
 		    	for(String library: jobDescription.getLibraries()) {
 		    		job.getLibraries().add(library);

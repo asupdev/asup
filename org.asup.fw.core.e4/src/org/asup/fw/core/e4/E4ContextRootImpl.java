@@ -11,7 +11,11 @@
  */
 package org.asup.fw.core.e4;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QContext;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -23,35 +27,29 @@ import org.osgi.service.remoteserviceadmin.RemoteConstants;
 
 public class E4ContextRootImpl extends E4ContextImpl {
 
-	protected BundleContext bundleContext;
+	private BundleContext bundleContext;
 	private IEclipseContext eclipseContext;
 
-	public E4ContextRootImpl(BundleContext bundleContext, String id) {
-		super(id);
+	public E4ContextRootImpl(BundleContext bundleContext, String name) {
+		super(name);
 
 		this.bundleContext = bundleContext;
 		this.eclipseContext = EclipseContextFactory.getServiceContext(bundleContext);
-
+		this.eclipseContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
 	}
 
 	@Override
-	public IEclipseContext getEclipseContext() {
-
-		if (eclipseContext == null)
-			eclipseContext = EclipseContextFactory.getServiceContext(bundleContext);
-
+	public IEclipseContext getEclipseContext() {		
 		return eclipseContext;
 	}
 
 	@Override
-	public QContext createChild() throws FrameworkCoreRuntimeException {
-
+	public QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
 		// System.out.println("Create child context of: "+getID());
 
 		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-
-		QContext contextChild = new E4ContextChildImpl(eclipseChildContext, 1, getID().toString(), bundleContext.getBundle().getSymbolicName() + " child");
-
+		eclipseContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
+		
 		// bind remote service
 		try {
 			for (ServiceReference<?> serviceReference : bundleContext.getAllServiceReferences(null, null)) {
@@ -68,18 +66,17 @@ public class E4ContextRootImpl extends E4ContextImpl {
 							if (object == null)
 								continue;
 
-							contextChild.set(className, object);
+							eclipseChildContext.set(className, object);
 							break;
 						}
 					}
-					// if(object == null)
-					// System.err.println("Remote Service not found: "+className);
 				}
 			}
 		} catch (InvalidSyntaxException e) {
 			throw new FrameworkCoreRuntimeException(e);
 		}
-		return contextChild;
+		
+		return new E4ContextChildImpl(eclipseChildContext, name);
 	}
 
 }

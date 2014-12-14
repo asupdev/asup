@@ -55,7 +55,7 @@ public class PhysicalFileClearer {
 		if (qFile == null)
 			throw new OperatingSystemRuntimeException("File not found: "+ file);
 		qFile.setLibrary(file.library.trimR());
-		QConnection connection = job.getJobContext().getAdapter(job, QConnection.class);
+		QConnection connection = job.getContext().getAdapter(job, QConnection.class);
 
 		// create
 		try {

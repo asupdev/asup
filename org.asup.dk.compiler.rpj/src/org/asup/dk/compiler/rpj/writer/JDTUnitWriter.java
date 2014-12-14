@@ -11,8 +11,8 @@
  */
 package org.asup.dk.compiler.rpj.writer;
 
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.dk.compiler.rpj.RPJExpressionNormalizer;
 import org.asup.il.data.QData;
@@ -30,24 +30,24 @@ import org.eclipse.jdt.core.dom.StringLiteral;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
-	
-	RPJCallableUnitInfo callableUnitInfo;		
-	
-	public JDTUnitWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {		
-		super(root, compilationContext, compilationSetup, name);
-		
+
+	RPJCallableUnitInfo callableUnitInfo;
+
+	public JDTUnitWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
+		super(root, compilationUnit, compilationSetup, name);
+
 		callableUnitInfo = new RPJCallableUnitInfo();
 	}
 
 	public RPJCallableUnitInfo getCallableUnitInfo() {
 		return this.callableUnitInfo;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeSuppressWarning(BodyDeclaration target) {
-		
+
 		AST ast = target.getAST();
-		
+
 		NormalAnnotation annotation = ast.newNormalAnnotation();
 		annotation.setTypeName(ast.newSimpleName(SuppressWarnings.class.getSimpleName()));
 
@@ -56,32 +56,38 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 		StringLiteral stringLiteral = ast.newStringLiteral();
 		stringLiteral.setLiteralValue("static-access");
 		memberValuePair.setValue(stringLiteral);
-		annotation.values().add(memberValuePair);		
+		annotation.values().add(memberValuePair);
 		target.modifiers().add(annotation);
-		
+
 	}
 
 	@SuppressWarnings("unchecked")
 	public void writeSupportFields() {
-		
-	
-/*		VariableDeclarationFragment variable = ast.newVariableDeclarationFragment();
-		FieldDeclaration field = ast.newFieldDeclaration(variable);
-		field.modifiers().add(ast.newModifier(ModifierKeyword.PRIVATE_KEYWORD));
-		field.setType(ast.newSimpleType(ast.newName("RPJProgramSupport.Indicators".split("\\."))));
-		variable.setName(ast.newSimpleName("qIN"));
-		target.bodyDeclarations().add(field);
-		
-		variable = ast.newVariableDeclarationFragment();
-		field = ast.newFieldDeclaration(variable);
-		field.modifiers().add(ast.newModifier(ModifierKeyword.PRIVATE_KEYWORD));
-		field.setType(ast.newSimpleType(ast.newName("RPJProgramSupport.Specials".split("\\."))));
-		variable.setName(ast.newSimpleName("qSP"));
-		target.bodyDeclarations().add(field);*/
+
+		/*
+		 * VariableDeclarationFragment variable =
+		 * ast.newVariableDeclarationFragment(); FieldDeclaration field =
+		 * ast.newFieldDeclaration(variable);
+		 * field.modifiers().add(ast.newModifier
+		 * (ModifierKeyword.PRIVATE_KEYWORD));
+		 * field.setType(ast.newSimpleType(ast
+		 * .newName("RPJProgramSupport.Indicators".split("\\."))));
+		 * variable.setName(ast.newSimpleName("qIN"));
+		 * target.bodyDeclarations().add(field);
+		 * 
+		 * variable = ast.newVariableDeclarationFragment(); field =
+		 * ast.newFieldDeclaration(variable);
+		 * field.modifiers().add(ast.newModifier
+		 * (ModifierKeyword.PRIVATE_KEYWORD));
+		 * field.setType(ast.newSimpleType(ast
+		 * .newName("RPJProgramSupport.Specials".split("\\."))));
+		 * variable.setName(ast.newSimpleName("qSP"));
+		 * target.bodyDeclarations().add(field);
+		 */
 
 		writeImport(QData.class);
 		writeImport(RPJProgramSupport.class);
-		
+
 		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 		FieldDeclaration field = getAST().newFieldDeclaration(variable);
 		writeAnnotation(field, ModuleDef.class, "name", "*RPJ");
@@ -89,25 +95,25 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 		field.setType(getAST().newSimpleType(getAST().newName(RPJProgramSupport.class.getSimpleName())));
 		variable.setName(getAST().newSimpleName("qRPJ"));
 		getTarget().bodyDeclarations().add(field);
-		
-	}
-/*	
-	public void writeOutputStream(CompilationUnit compilationUnit, OutputStream outputStream) throws IOException {
-		// write file output
-		byte[] contentInBytes = compilationUnit.toString().getBytes();
 
-		outputStream.write(contentInBytes);
-		outputStream.flush();
-		outputStream.close();
-	}*/
-	
+	}
+
+	/*
+	 * public void writeOutputStream(CompilationUnit compilationUnit,
+	 * OutputStream outputStream) throws IOException { // write file output
+	 * byte[] contentInBytes = compilationUnit.toString().getBytes();
+	 * 
+	 * outputStream.write(contentInBytes); outputStream.flush();
+	 * outputStream.close(); }
+	 */
+
 	public void refactUnit(QUnit unit) {
-		
-		RPJExpressionNormalizer expressionNormalizer = getCompilationContext().make(RPJExpressionNormalizer.class);
-		
+
+		RPJExpressionNormalizer expressionNormalizer = getCompilationUnit().getContext().make(RPJExpressionNormalizer.class);
+
 		// main
-		if(unit.getMain() != null) {
-			for(QStatement statement: unit.getMain().getStatements()) {
+		if (unit.getMain() != null) {
+			for (QStatement statement : unit.getMain().getStatements()) {
 				statement.accept(expressionNormalizer);
 			}
 		}

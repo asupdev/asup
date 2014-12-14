@@ -1,11 +1,23 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi 			 - Initial API and implementation 
+ *   Giuliano Giancristofaro - Implementation
+ */
 package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.asup.dk.compiler.QCompilationContext;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.data.QDataTerm;
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QDatabaseFileDelegator;
@@ -14,18 +26,18 @@ import org.eclipse.jdt.core.dom.Modifier;
 public class JDTDatabaseFileWriter extends JDTDataStructureWriter {
 
 	@SuppressWarnings("unchecked")
-	public JDTDatabaseFileWriter(JDTNamedNodeWriter root, QCompilationContext compilationContext, QCompilationSetup compilationSetup, String name) {
-		super(root, compilationContext, compilationSetup, name, QDatabaseFileDelegator.class, false);
+	public JDTDatabaseFileWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
+		super(root, compilationUnit, compilationSetup, name, QDatabaseFileDelegator.class, false);
 
-		if(root != null)
+		if (root != null)
 			getTarget().modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));
 	}
 
 	public void writeDatabaseFile(QDatabaseFile databaseFile) throws IOException {
-		
+
 		List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 		elements.addAll(databaseFile.getDatabaseFormat().getFields());
-		
+
 		writeElements(elements);
 	}
 }

@@ -202,7 +202,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestRunner()
 	 * @generated
 	 */
-	int TEST_RUNNER = 11;
+	int TEST_RUNNER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -298,25 +298,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_CONTAINER_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.fw.test.impl.TestContextImpl <em>Test Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.test.impl.TestContextImpl
-	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContext()
-	 * @generated
-	 */
-	int TEST_CONTEXT = 7;
-
-	/**
-	 * The number of structural features of the '<em>Test Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_CONTEXT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,7 +305,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestListener()
 	 * @generated
 	 */
-	int TEST_LISTENER = 8;
+	int TEST_LISTENER = 7;
 
 	/**
 	 * The number of structural features of the '<em>Test Listener</em>' class.
@@ -343,7 +324,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestManager()
 	 * @generated
 	 */
-	int TEST_MANAGER = 9;
+	int TEST_MANAGER = 8;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -371,7 +352,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestResult()
 	 * @generated
 	 */
-	int TEST_RESULT = 10;
+	int TEST_RESULT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Failed</b></em>' attribute.
@@ -417,7 +398,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getUnitTestRunner()
 	 * @generated
 	 */
-	int UNIT_TEST_RUNNER = 12;
+	int UNIT_TEST_RUNNER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -454,7 +435,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getAssertionState()
 	 * @generated
 	 */
-	int ASSERTION_STATE = 13;
+	int ASSERTION_STATE = 12;
 
 	/**
 	 * The meta object id for the '<em>Faillure Error</em>' data type.
@@ -464,7 +445,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getFrameworkTestFaillureError()
 	 * @generated
 	 */
-	int FRAMEWORK_TEST_FAILLURE_ERROR = 14;
+	int FRAMEWORK_TEST_FAILLURE_ERROR = 13;
 
 
 	/**
@@ -569,16 +550,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTestContainer_Tests();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.fw.test.QTestContext <em>Test Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Test Context</em>'.
-	 * @see org.asup.fw.test.QTestContext
-	 * @generated
-	 */
-	EClass getTestContext();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}'.
@@ -821,16 +792,6 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEST_CONTAINER__TESTS = eINSTANCE.getTestContainer_Tests();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.fw.test.impl.TestContextImpl <em>Test Context</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.fw.test.impl.TestContextImpl
-		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContext()
-		 * @generated
-		 */
-		EClass TEST_CONTEXT = eINSTANCE.getTestContext();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.QTestListener <em>Test Listener</em>}' class.

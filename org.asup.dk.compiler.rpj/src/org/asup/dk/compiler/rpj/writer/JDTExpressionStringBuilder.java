@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 import javax.inject.Inject;
 
-import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
@@ -49,21 +49,21 @@ import org.asup.il.isam.QDataSetTerm;
 public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 	@Inject
-	private QCompilationContext compilationContext; 
+	private QCompilationUnit compilationUnit;
 	@Inject
 	private QStringUtil stringUtil;
-	
+
 	private StringBuffer buffer = new StringBuffer();
 	private Class<?> target;
-	
+
 	public void setTarget(Class<?> target) {
 		this.target = target;
 	}
-	
+
 	public String getResult() {
 		return buffer.toString();
 	}
-	
+
 	public void clear() {
 		buffer = new StringBuffer();
 	}
@@ -72,9 +72,9 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 	public boolean visit(QAtomicTermExpression expression) {
 
 		Class<?> source = null;
-		
+
 		String value = null;
-		
+
 		switch (expression.getType()) {
 		case BOOLEAN:
 			value = expression.getValue();
@@ -94,36 +94,36 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			break;
 		case HEXADECIMAL:
 			value = expression.getValue();
-			if(value.startsWith("X'")) {
+			if (value.startsWith("X'")) {
 				value = value.substring(2);
-				value = "0x"+value.substring(0, value.length()-1);
-				value = "\""+value+"\"";
+				value = "0x" + value.substring(0, value.length() - 1);
+				value = "\"" + value + "\"";
 			}
-				
+
 			source = QHexadecimal.class;
 			break;
 		case SPECIAL:
 			source = Enum.class;
-			value = "qRPJ.qSP."+stringUtil.removeFirstChar(expression.getValue()).toUpperCase();
+			value = "qRPJ.qSP." + stringUtil.removeFirstChar(expression.getValue()).toUpperCase();
 			break;
 		case STRING:
-			
+
 			value = expression.getValue().replaceAll("\\\\", "\\\\\\\\");
-			value = value.replaceAll("\\\"", "\\\\\"");			
-			value = "\""+value+"\"";
-			
+			value = value.replaceAll("\\\"", "\\\\\"");
+			value = "\"" + value + "\"";
+
 			source = String.class;
 			break;
-		case INDICATOR:			
+		case INDICATOR:
 		case NAME:
-			QNamedNode namedNode = compilationContext.getNamedNode(expression.getValue(), true);
-			if(namedNode == null)  
-				throw new IntegratedLanguageExpressionRuntimeException("Invalid term: "+expression.getValue());
-			
-			value = compilationContext.getQualifiedName(namedNode);
-			
-			if(namedNode instanceof QDataTerm) {
-				QDataTerm<?> dataTerm = (QDataTerm<?>)namedNode;
+			QNamedNode namedNode = compilationUnit.getNamedNode(expression.getValue(), true);
+			if (namedNode == null)
+				throw new IntegratedLanguageExpressionRuntimeException("Invalid term: " + expression.getValue());
+
+			value = compilationUnit.getQualifiedName(namedNode);
+
+			if (namedNode instanceof QDataTerm) {
+				QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
 				source = dataTerm.getDefinition().getDataClass();
 			}
 
@@ -131,169 +131,165 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		}
 
 		writeValue(source, target, value);
-		
+
 		return false;
 	}
 
 	@SuppressWarnings("unused")
 	@Override
 	public boolean visit(QCompoundTermExpression expression) {
-		
-		QNamedNode namedNode = compilationContext.getNamedNode(expression.getValue(), true);
-		if(namedNode == null) 
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid term: "+expression.getValue());
+
+		QNamedNode namedNode = compilationUnit.getNamedNode(expression.getValue(), true);
+		if (namedNode == null)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid term: " + expression.getValue());
 
 		// datSrtuct
-		if(namedNode instanceof QUnaryCompoundDataTerm) {
-			buffer.append(compilationContext.getQualifiedName(namedNode));
+		if (namedNode instanceof QUnaryCompoundDataTerm) {
+			buffer.append(compilationUnit.getQualifiedName(namedNode));
 		}
 		// array
-		else if(namedNode instanceof QMultipleDataTerm) {
-			
-			StringBuffer value = new StringBuffer(); 
-			value.append(compilationContext.getQualifiedName(namedNode));
+		else if (namedNode instanceof QMultipleDataTerm) {
+
+			StringBuffer value = new StringBuffer();
+			value.append(compilationUnit.getQualifiedName(namedNode));
 			value.append(".get");
 			value.append("(");
-			
-			JDTExpressionStringBuilder indexBuilder = compilationContext.make(JDTExpressionStringBuilder.class);
-			indexBuilder.setTarget(null);				
-			for(QExpression element: expression.getElements()) {
-				element.accept(indexBuilder);
-			}				
-			value.append(indexBuilder.getResult());
-			
-			value.append(")");		
 
-			QDataTerm<?> dataTerm = (QDataTerm<?>)namedNode;
-			
+			JDTExpressionStringBuilder indexBuilder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+			indexBuilder.setTarget(null);
+			for (QExpression element : expression.getElements()) {
+				element.accept(indexBuilder);
+			}
+			value.append(indexBuilder.getResult());
+
+			value.append(")");
+
+			QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
+
 			writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
 
 		}
 		// dataSet
-		else if(namedNode instanceof QDataSetTerm) {
-			buffer.append(compilationContext.getQualifiedName(namedNode));
+		else if (namedNode instanceof QDataSetTerm) {
+			buffer.append(compilationUnit.getQualifiedName(namedNode));
 			buffer.append(".get");
 			buffer.append("(");
 			buffer.append(")");
 		}
 		// prototype
-		else if(namedNode instanceof QPrototype) {
-			QPrototype<?> prototype = (QPrototype<?>)namedNode;
+		else if (namedNode instanceof QPrototype) {
+			QPrototype<?> prototype = (QPrototype<?>) namedNode;
 
 			StringBuffer value = new StringBuffer();
-			
-			value.append(compilationContext.getQualifiedName(namedNode));								
+
+			value.append(compilationUnit.getQualifiedName(namedNode));
 			value.append("(");
-			
-			if(prototype.getEntry() != null) {
-				Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();		
-				
+
+			if (prototype.getEntry() != null) {
+				Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();
+
 				// parameters
 				boolean first = true;
-				for(QExpression element: expression.getElements()) {
-					
-					if(!entryParameters.hasNext())
-						throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: "+namedNode.getName());
+				for (QExpression element : expression.getElements()) {
+
+					if (!entryParameters.hasNext())
+						throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + namedNode.getName());
 
 					QEntryParameter<?> entryParameter = entryParameters.next();
 					QTerm parameterDelegate = entryParameter.getDelegate();
-					
-					JDTExpressionStringBuilder parameterBuilder = compilationContext.make(JDTExpressionStringBuilder.class);
-					
-					if(parameterDelegate instanceof QDataTerm) {
-						QDataTerm<?> dataTerm = (QDataTerm<?>)parameterDelegate;
-						if(dataTerm.isConstant())
+
+					JDTExpressionStringBuilder parameterBuilder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+
+					if (parameterDelegate instanceof QDataTerm) {
+						QDataTerm<?> dataTerm = (QDataTerm<?>) parameterDelegate;
+						if (dataTerm.isConstant())
 							parameterBuilder.setTarget(dataTerm.getDefinition().getJavaClass());
 						else
-							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());						
-					}
-					else if(parameterDelegate instanceof QDataSetTerm) {
+							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());
+					} else if (parameterDelegate instanceof QDataSetTerm) {
 						parameterBuilder.setTarget(QDataSet.class);
 					}
-					
+
 					element.accept(parameterBuilder);
-					
-					if(!first)
+
+					if (!first)
 						value.append(", ");
-					
+
 					value.append(parameterBuilder.getResult());
-					
-					first = false;							
+
+					first = false;
 				}
-				
-				while(entryParameters.hasNext()) {
+
+				while (entryParameters.hasNext()) {
 					QEntryParameter<?> entryParameter = entryParameters.next();
-					if(!first)
-						value.append(", ");					
+					if (!first)
+						value.append(", ");
 					value.append("null");
 					first = false;
 				}
+			} else {
+				if (!expression.getElements().isEmpty())
+					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + namedNode.getName());
 			}
-			else {
-				if(!expression.getElements().isEmpty())
-					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: "+namedNode.getName());
-			}
-			
+
 			value.append(")");
-			
+
 			writeValue(prototype.getDelegate().getDefinition().getDataClass(), target, value.toString());
-		}
-		else if(namedNode instanceof QUnaryAtomicDataTerm<?>) {
-			buffer.append(compilationContext.getQualifiedName(namedNode));
-		}
-		else
+		} else if (namedNode instanceof QUnaryAtomicDataTerm<?>) {
+			buffer.append(compilationUnit.getQualifiedName(namedNode));
+		} else
 			System.err.println("Unexpected condition: xm4t609543m487mxz");
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QAssignmentExpression expression) {
-		
+
 		expression.getLeftOperand().accept(this);
 		buffer.append(toJavaPrimitive(expression.getOperator()));
-		expression.getRightOperand().accept(this);							
-		
+		expression.getRightOperand().accept(this);
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QArithmeticExpression expression) {
 
-		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
-		
+		JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+
 		// pointer
-		if(CompilationContextHelper.isPointer(compilationContext, expression.getLeftOperand())) {
-			
+		if (CompilationContextHelper.isPointer(compilationUnit, expression.getLeftOperand())) {
+
 			// left
 			builder.setTarget(null);
-			builder.clear();			
-			expression.getLeftOperand().accept(builder);			
+			builder.clear();
+			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
 
 			// operator
-			buffer.append("."+toJavaMethod(expression));
+			buffer.append("." + toJavaMethod(expression));
 			buffer.append("(");
-			
-			// right		
+
+			// right
 			builder.clear();
 			expression.getRightOperand().accept(builder);
-			buffer.append(builder.getResult());				
-	
+			buffer.append(builder.getResult());
+
 			buffer.append(")");
 
 		}
 		// plus, minus, multiple ..
-		else if(expression.getRightOperand() != null) {				
+		else if (expression.getRightOperand() != null) {
 
-			builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getLeftOperand()));
-			builder.clear();			
-			expression.getLeftOperand().accept(builder);			
+			builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand()));
+			builder.clear();
+			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
-			
+
 			buffer.append(toJavaPrimitive(expression.getOperator()));
-			
-			builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getRightOperand()));
+
+			builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand()));
 			builder.clear();
 			expression.getRightOperand().accept(builder);
 			buffer.append(builder.getResult());
@@ -303,67 +299,67 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			buffer.append(toJavaPrimitive(expression.getOperator()));
 
-			if(!CompilationContextHelper.isPrimitive(compilationContext, expression.getLeftOperand()))
+			if (!CompilationContextHelper.isPrimitive(compilationUnit, expression.getLeftOperand()))
 				builder.setTarget(Integer.class);
 			else
 				builder.setTarget(null);
-			
-			builder.clear();			
-			expression.getLeftOperand().accept(builder);			
-			buffer.append(builder.getResult());				
+
+			builder.clear();
+			expression.getLeftOperand().accept(builder);
+			buffer.append(builder.getResult());
 
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QBooleanExpression expression) {
 
-		if(expression.getOperand() != null) {
-			JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
+		if (expression.getOperand() != null) {
+			JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
 			builder.setTarget(Boolean.class);
-/*			if(!CompilationContextHelper.isPrimitive(compilationContext, expression.getOperand()))
-				builder.setTarget(Boolean.class);
-			else
-				builder.setTarget(null);*/
-			
-			expression.getOperand().accept(builder);			
+			/*
+			 * if(!CompilationContextHelper.isPrimitive(compilationUnit,
+			 * expression.getOperand())) builder.setTarget(Boolean.class); else
+			 * builder.setTarget(null);
+			 */
+
+			expression.getOperand().accept(builder);
 			buffer.append(builder.getResult());
 		}
-		
+
 		return false;
-		
+
 	}
-	
+
 	@Override
 	public boolean visit(QLogicalExpression expression) {
 
-		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
+		JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
 
 		// and/or
-		if(expression.getRightOperand() != null) {
-			
+		if (expression.getRightOperand() != null) {
+
 			// left
-			if(!CompilationContextHelper.isPrimitive(compilationContext, expression.getLeftOperand()))
-				builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getLeftOperand()));
+			if (!CompilationContextHelper.isPrimitive(compilationUnit, expression.getLeftOperand()))
+				builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand()));
 			else
-				builder.setTarget(null);				
+				builder.setTarget(null);
 
 			builder.clear();
 			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
 
-
 			// operator
 			buffer.append(toJavaPrimitive(expression.getOperator()));
-			
+
 			// right
-			if(!CompilationContextHelper.isPrimitive(compilationContext, expression.getRightOperand()))
-				builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getRightOperand()));
-			else			
+			if (!CompilationContextHelper.isPrimitive(compilationUnit, expression.getRightOperand()))
+				builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand()));
+			else
 				builder.setTarget(null);
-			
+
 			builder.clear();
 			expression.getRightOperand().accept(builder);
 			buffer.append(builder.getResult());
@@ -371,88 +367,87 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		}
 		// negate
 		else {
-			
+
 			// operator
 			buffer.append(toJavaPrimitive(expression.getOperator()));
-			
+
 			// left
-			if(!CompilationContextHelper.isPrimitive(compilationContext, expression.getLeftOperand()))
-				builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getLeftOperand()));
+			if (!CompilationContextHelper.isPrimitive(compilationUnit, expression.getLeftOperand()))
+				builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand()));
 			else
-				builder.setTarget(null);				
+				builder.setTarget(null);
 
 			builder.clear();
 			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
 
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QRelationalExpression expression) {
-		JDTExpressionStringBuilder builder = compilationContext.make(JDTExpressionStringBuilder.class);
-		
-		if(CompilationContextHelper.isPrimitive(compilationContext, expression.getLeftOperand())) {
-		
+		JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+
+		if (CompilationContextHelper.isPrimitive(compilationUnit, expression.getLeftOperand())) {
+
 			// left
 			builder.setTarget(null);
-			builder.clear();			
-			expression.getLeftOperand().accept(builder);			
+			builder.clear();
+			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
-	
+
 			// operator
 			buffer.append(toJavaPrimitive(expression.getOperator()));
-			
+
 			// right
-			if(CompilationContextHelper.isPrimitive(compilationContext, expression.getRightOperand())) 			
+			if (CompilationContextHelper.isPrimitive(compilationUnit, expression.getRightOperand()))
 				builder.setTarget(null);
 			else
-				builder.setTarget(CompilationContextHelper.getJavaClass(compilationContext, expression.getRightOperand()));
-			
+				builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand()));
+
 			builder.clear();
 			expression.getRightOperand().accept(builder);
-			buffer.append(builder.getResult());				
+			buffer.append(builder.getResult());
 
-		}
-		else {
+		} else {
 
 			// left
 			builder.setTarget(null);
-			builder.clear();			
-			expression.getLeftOperand().accept(builder);			
+			builder.clear();
+			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
 
 			// operator
-			buffer.append("."+toJavaMethod(expression));
+			buffer.append("." + toJavaMethod(expression));
 			buffer.append("(");
-			
-			// right		
+
+			// right
 			builder.clear();
 			expression.getRightOperand().accept(builder);
-			buffer.append(builder.getResult());				
-	
+			buffer.append(builder.getResult());
+
 			buffer.append(")");
 		}
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QBlockExpression expression) {
-	
+
 		buffer.append("(");
 		expression.getExpression().accept(this);
 		buffer.append(")");
-				
+
 		return false;
 	}
-	
+
 	private String toJavaPrimitive(AssignmentOperator assignOperator) {
-		
-		String result = null;		
-		
+
+		String result = null;
+
 		switch (assignOperator) {
 		case ASSIGN:
 			result = "=";
@@ -473,13 +468,13 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			result = "*";
 			break;
 		}
-		
+
 		return result;
 	}
-	
+
 	private String toJavaPrimitive(ArithmeticOperator operator) {
-		
-		String result = null;		
+
+		String result = null;
 
 		switch (operator) {
 		case DIVIDE:
@@ -495,7 +490,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			result = "-";
 			break;
 		case PLUS:
-			result = "+";	
+			result = "+";
 			break;
 		case POWER:
 			result = "^";
@@ -509,13 +504,13 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		default:
 			break;
 		}
-		
+
 		return result;
 	}
-	
+
 	private String toJavaPrimitive(LogicalOperator operator) {
-		
-		String result = null;		
+
+		String result = null;
 
 		switch (operator) {
 		case AND:
@@ -528,13 +523,13 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			result = " || ";
 			break;
 		}
-		
+
 		return result;
 	}
 
 	private String toJavaPrimitive(RelationalOperator operator) {
-		
-		String result = null;		
+
+		String result = null;
 
 		switch (operator) {
 		case EQUAL:
@@ -558,28 +553,28 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		default:
 			break;
 		}
-		
+
 		return result;
 	}
-	
+
 	private String toJavaMethod(QExpression expression) {
-		
+
 		String result = null;
-		
+
 		switch (expression.getExpressionType()) {
 		case ARITHMETIC:
-			result =  ((QArithmeticExpression)expression).getOperator().getLiteral().toLowerCase();
+			result = ((QArithmeticExpression) expression).getOperator().getLiteral().toLowerCase();
 			break;
 		case ASSIGNMENT:
-			result = ((QAssignmentExpression)expression).getOperator().getLiteral().toLowerCase();
+			result = ((QAssignmentExpression) expression).getOperator().getLiteral().toLowerCase();
 			break;
-		case COMPOUND:			
+		case COMPOUND:
 			break;
 		case LOGICAL:
-			result = ((QLogicalExpression)expression).getOperator().getLiteral().toLowerCase();
+			result = ((QLogicalExpression) expression).getOperator().getLiteral().toLowerCase();
 			break;
 		case RELATIONAL:
-			result = ((QRelationalExpression)expression).getOperator().getLiteral().toLowerCase();
+			result = ((QRelationalExpression) expression).getOperator().getLiteral().toLowerCase();
 			break;
 		case ATOMIC:
 			break;
@@ -591,68 +586,56 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 		return result;
 	}
-	
+
 	public void writeValue(Class<?> source, Class<?> target, String value) {
-		
-		if(value == null)
+
+		if (value == null)
 			return;
-		
-		if(source == null || target == null) {
+
+		if (source == null || target == null) {
 			buffer.append(value);
 			return;
 		}
-		
-		if(target.isAssignableFrom(source)) {
+
+		if (target.isAssignableFrom(source)) {
 			buffer.append(value);
 			return;
 		}
-		if(source.isAssignableFrom(QHexadecimal.class)) {
-			buffer.append(value);			
-		}
-		else if(target.isAssignableFrom(String.class)) {
+		if (source.isAssignableFrom(QHexadecimal.class)) {
+			buffer.append(value);
+		} else if (target.isAssignableFrom(String.class)) {
 			buffer.append(value);
 			buffer.append(".asString()");
-		}
-		else if(target.isAssignableFrom(Byte.class)) {
+		} else if (target.isAssignableFrom(Byte.class)) {
 			buffer.append(value);
 			buffer.append(".asInteger()");
-		}
-		else if(target.isAssignableFrom(Integer.class)) {
+		} else if (target.isAssignableFrom(Integer.class)) {
 			buffer.append(value);
 			buffer.append(".asInteger()");
-		}
-		else if(target.isAssignableFrom(Boolean.class)) {
+		} else if (target.isAssignableFrom(Boolean.class)) {
 			buffer.append(value);
 			buffer.append(".asBoolean()");
-		}
-		else if(target.isAssignableFrom(Short.class)) {
+		} else if (target.isAssignableFrom(Short.class)) {
 			buffer.append(value);
 			buffer.append(".asShort()");
-		}
-		else if(target.isAssignableFrom(Long.class)) {
+		} else if (target.isAssignableFrom(Long.class)) {
 			buffer.append(value);
 			buffer.append(".asLong()");
-		}
-		else if(target.isAssignableFrom(Float.class)) {
+		} else if (target.isAssignableFrom(Float.class)) {
 			buffer.append(value);
 			buffer.append(".asFloat()");
-		}
-		else if(target.isAssignableFrom(Double.class)) {
+		} else if (target.isAssignableFrom(Double.class)) {
 			buffer.append(value);
 			buffer.append(".asDouble()");
-		}
-		else if(target.isAssignableFrom(Date.class)) {
+		} else if (target.isAssignableFrom(Date.class)) {
 			buffer.append(value);
 			buffer.append(".getTime()");
-		}
-		else if(target.isAssignableFrom(Object.class)) {
+		} else if (target.isAssignableFrom(Object.class)) {
 			buffer.append(value);
-			buffer.append(".asObject()");					
-		}
-		else if(QData.class.isAssignableFrom(target)) {
-			buffer.append("qRPJ.qBox("+value+")");
-		}
-		else
+			buffer.append(".asObject()");
+		} else if (QData.class.isAssignableFrom(target)) {
+			buffer.append("qRPJ.qBox(" + value + ")");
+		} else
 			System.err.println("Unexpected condition: xm4tnfdgs78f87mxz");
 	}
 }

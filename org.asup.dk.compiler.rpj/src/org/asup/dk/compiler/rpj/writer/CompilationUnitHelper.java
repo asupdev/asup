@@ -25,7 +25,7 @@ import org.asup.il.expr.QCompoundTermExpression;
 import org.asup.il.expr.QExpression;
 import org.asup.il.flow.QPrototype;
 
-public class CompilationContextHelper {
+public class CompilationUnitHelper {
 
 	public static boolean isPrimitive(QCompilationUnit compilationUnit, QExpression expression) {
 

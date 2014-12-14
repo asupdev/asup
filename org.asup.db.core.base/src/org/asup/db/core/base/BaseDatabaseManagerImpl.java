@@ -20,8 +20,8 @@ import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseContainer;
-import org.asup.db.core.QDatabaseContext;
 import org.asup.db.core.QDatabaseCoreFactory;
+import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QIndexDef;
 import org.asup.db.core.QSchemaDef;
 import org.asup.db.core.QStatement;
@@ -35,25 +35,33 @@ import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
+import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
+import org.eclipse.datatools.modelbase.sql.query.QuerySelectStatement;
+import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
+import org.eclipse.datatools.modelbase.sql.query.ResultColumn;
+import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelFactory;
+import org.eclipse.datatools.modelbase.sql.query.TableExpression;
+import org.eclipse.datatools.modelbase.sql.query.helper.StatementHelper;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
+import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	@Inject
-	private QContext context;
+	private QApplication application;
 	@Inject
 	private QDefinitionParserRegistry definitionParserRegistry;
 	@Inject
 	private QQueryParserRegistry queryParserRegistry;
 
 	private QDatabaseContainer databaseContainer;
-	private QDatabaseContext databaseContext;
 	
 	protected QDatabaseContainer getDatabaseContainer() {
 		return this.databaseContainer;
@@ -71,11 +79,11 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			throw new FrameworkCoreRuntimeException("Database Manager already started: " + this.databaseContainer);
 		
 		// database context
-		this.databaseContext = new BaseDatabaseContextImpl(context.createChild());		
+		QContext databaseContext = application.getContext().createLocalContext("DBM/"+databaseContainer.getVendor()+"("+databaseContainer.getVersion()+")");		
 		QDefinitionParser definitionParser = this.definitionParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
-		this.databaseContext.set(QDefinitionParser.class, definitionParser);		
+		databaseContext.set(QDefinitionParser.class, definitionParser);		
 		QQueryParser queryParser = this.queryParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
-		this.databaseContext.set(QQueryParser.class, queryParser);
+		databaseContext.set(QQueryParser.class, queryParser);
 
 		// database loader
 		BaseDatabaseLoader databaseStarter = databaseContext.make(BaseDatabaseLoader.class);
@@ -128,6 +136,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createTable(schema, name, tableDef);
+			
 			statement.execute(command);
 
 		} finally {
@@ -139,19 +148,58 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		return table;
 	}
 
+	@SuppressWarnings({ "unchecked", "unused" })
 	@Override
 	public ViewTable createView(QConnection connection, Schema schema, String name, QViewDef viewDef) throws SQLException {
 
 		QCatalogContainer catalogContainer = getCatalogContainer(connection);
-
-		QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
-		String command = definitionWriter.createView(schema, name, viewDef);
-		if (command == null)
-			throw new SQLException("Empty view creation command: " + viewDef);
+		
 
 		QStatement statement = null;
 		try {
 			statement = connection.createStatement(true);
+			
+			// append RRN to defined columns
+			if(!catalogContainer.isSupportsRelativeRecordNumber())  {
+				viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);
+				
+				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
+				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
+				pkTableComColumnDef.setName(TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
+				
+				viewDef.getColumns().add(pkTableComColumnDef);
+			}
+			
+			SQLQueryParseResult query = connection.getContext().get(QQueryParser.class).parseQuery(viewDef.getQuerySelect());				
+			QueryStatement queryStatement = query.getQueryStatement();
+			QuerySelectStatement querySelectStatement = (QuerySelectStatement) queryStatement;
+			QuerySelect querySelect = (QuerySelect) querySelectStatement.getQueryExpr().getQuery();
+
+			// append RRN to selected columns
+			if(!catalogContainer.isSupportsRelativeRecordNumber())  {
+					
+				String fieldName = QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
+				
+				// column list
+				querySelect.getColumnList().add(StatementHelper.createColumnExpression(fieldName));
+				
+				// result column
+				ResultColumn resultColumn = SQLQueryModelFactory.eINSTANCE.createResultColumn();
+				resultColumn.setValueExpr(StatementHelper.createColumnExpression(fieldName));
+				querySelect.getSelectClause().add(resultColumn);
+
+			}
+			
+			
+			// retrieve table list for RRNs
+			List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
+			for(TableExpression tableExpression: tableExpressions) {
+			}
+
+			
+			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
+			String command = definitionWriter.createView(schema, name, viewDef);
+
 			statement.execute(command);
 
 		} finally {
@@ -317,10 +365,5 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 	private QContext getCatalogContext(QConnection connection) throws SQLException {
 		return getCatalogContainer(connection).getCatalogContext();
-	}
-
-	@Override
-	public QDatabaseContext getDatabaseContext() {
-		return this.databaseContext;
 	}
 }

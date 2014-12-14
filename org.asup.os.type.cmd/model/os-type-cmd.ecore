@@ -13,8 +13,8 @@
         <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
       </eGenericType>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataContext" lowerBound="1"
-        eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataContext"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataContainer" lowerBound="1"
+        eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataContainer"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">

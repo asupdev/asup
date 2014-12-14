@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
-import org.asup.il.data.QDataContext;
+import org.asup.il.data.QDataContainer;
 import org.asup.il.data.QDataDictionary;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
@@ -28,7 +28,7 @@ import org.asup.il.data.QDataTerm;
 public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 
 	@Inject
-	private QContext context;
+	private QContext applicationContext;
 	
 	private List<QDataDictionary> dictionaries = new ArrayList<QDataDictionary>();
 
@@ -36,8 +36,8 @@ public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QDataContext createContext(QContextID contextID, List<QDataTerm<?>> dataTerms) {
-		return new NIODataContextImpl(contextID, createFactory(contextID), dataTerms);
+	public QDataContainer createDataContainer(QContextID contextID, List<QDataTerm<?>> dataTerms) {
+		return new NIODataContainerImpl(contextID, createFactory(contextID), dataTerms);
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 	 * @generated NOT
 	 */
 	public QDataFactory createFactory(QContextID contextID) {
-		return new NIODataFactoryImpl(context, contextID);
+		return new NIODataFactoryImpl(applicationContext, contextID);
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void validateContext(QDataContext context) {
+	public void validateDataContainer(QDataContainer dataContainer) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

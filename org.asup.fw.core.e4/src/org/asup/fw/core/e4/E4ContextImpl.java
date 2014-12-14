@@ -12,28 +12,32 @@
 package org.asup.fw.core.e4;
 
 import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
 import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.QAdapterFactory;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
-import org.asup.fw.core.impl.ContextImpl;
-import org.eclipse.core.internal.runtime.AdapterManager;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.Bundle;
 
-@SuppressWarnings("restriction")
-public abstract class E4ContextImpl extends ContextImpl {
+public abstract class E4ContextImpl implements QContext {
 
+	protected static final String ADAPTER_FACTORIES_NAME = "org.asup.fw.core.e4.context.adapterFactories";
+	
 	private static Boolean postConstruct = null;
 
 	private QContextID contextID = null;
 
 	public E4ContextImpl(final String id) {
-		
+
 		this.contextID = new QContextID() {
 
 			@Override
@@ -41,6 +45,7 @@ public abstract class E4ContextImpl extends ContextImpl {
 				return id;
 			}
 		};
+
 	}
 
 	abstract IEclipseContext getEclipseContext();
@@ -138,15 +143,76 @@ public abstract class E4ContextImpl extends ContextImpl {
 		}
 	}
 
-	@SuppressWarnings({ "unchecked" })
-	@Override
-	public <T> T getAdapter(Object adaptable, Class<T> adapter) {
-		AdapterManager adapterManager = AdapterManager.getDefault();
-		return (T) adapterManager.getAdapter(adaptable, adapter);
-	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void close() throws FrameworkCoreRuntimeException {
+		
+		Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) getEclipseContext().get(ADAPTER_FACTORIES_NAME);
+		adapterFactories.clear();
+		
 		getEclipseContext().dispose();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> T getAdapter(Object adaptable, Class<T> adapterType) {
+
+		T adaptee = searchAdapter(getEclipseContext(), adaptable, adapterType);
+		if(adaptee != null)
+			return adaptee;
+
+		if (adaptee == null && adapterType.isInstance(adaptable))
+			adaptee = (T) adaptable;		
+
+		return adaptee;
+	}
+
+	@SuppressWarnings("unchecked")
+	private <T> T searchAdapter(IEclipseContext eclipseContext, Object adaptable,  Class<T> adapterType) {
+		
+		T adaptee = null;
+
+		Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) eclipseContext.get(ADAPTER_FACTORIES_NAME);
+		if(adapterFactories == null)
+			return null;
+		
+		List<QAdapterFactory> factories = adapterFactories.get(adapterType);
+		if(factories != null) {
+			
+			// search adaptee on naturally registration order
+			for(QAdapterFactory adapterFactory: factories) {
+				adaptee = adapterFactory.getAdapter(this, adaptable, adapterType);
+				if(adaptee != null)
+					break;
+			}
+		}
+
+		if(adaptee != null)
+			return adaptee;
+		
+		// search on parent
+		IEclipseContext parentContext = eclipseContext.getParent();
+		if(parentContext != null)
+			adaptee = searchAdapter(parentContext, adaptable, adapterType);
+		
+		return adaptee;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public <T> void registerAdapterFactory(QAdapterFactory factory, Class<T> adapterType) {
+		
+		synchronized (adapterType) {
+			
+			Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) getEclipseContext().get(ADAPTER_FACTORIES_NAME);
+			
+			List<QAdapterFactory> factories = adapterFactories.get(adapterType);
+			if(factories == null) {
+				factories = new ArrayList<QAdapterFactory>();
+				adapterFactories.put(adapterType, factories);
+			}
+			
+			factories.add(factory);
+		}
 	}
 }

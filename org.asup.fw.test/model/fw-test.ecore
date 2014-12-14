@@ -101,7 +101,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tests" upperBound="-1"
         eType="#//TestRunner" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TestContext" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
   <eClassifiers xsi:type="ecore:EClass" name="TestListener" abstract="true" interface="true">
     <eOperations name="addAssertionResult">
       <eParameters name="assertionResult" eType="#//AssertionResult"/>
@@ -115,19 +114,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
-    <eOperations name="createTestContext" lowerBound="1" eType="#//TestContext" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
-      <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
-    </eOperations>
     <eOperations name="executeRunner" lowerBound="1" eType="#//TestResult" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
-      <eParameters name="context" eType="#//TestContext"/>
+      <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
       <eParameters name="runner" eType="#//TestRunner"/>
     </eOperations>
     <eOperations name="prepareRunner" lowerBound="1" eType="#//TestRunner" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
-      <eParameters name="context" eType="#//TestContext"/>
+      <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
       <eParameters name="className" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="prepareRunner" lowerBound="1" eType="#//TestRunner" eExceptions="ecore:EDataType ../../org.asup.fw.core/model/fw-core.ecore#//FrameworkCoreException">
-      <eParameters name="context" eType="#//TestContext"/>
+      <eParameters name="context" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
       <eParameters name="klass" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments/>

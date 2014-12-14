@@ -1,3 +1,15 @@
+/**
+ *  Copyright (c) 2012, 2014 Sme.UP and others.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *
+ * 
+ * Contributors: 
+ *   Mattia Rocchi 			 - Initial API and implementation 
+ *   Giuliano Giancristofaro - Implementation
+ */
 package org.asup.dk.compiler.rpj;
 
 import java.util.ArrayList;
@@ -5,7 +17,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.asup.dk.compiler.QCompilationContext;
+import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QFacet;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QCompoundDataDef;
@@ -29,16 +41,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 
-	private QCompilationContext compilationContext;
+	private QCompilationUnit compilationUnit;
 	private QDataTerm<?> dataTerm;
-	
+
 	@Inject
-	public RPJAbstractDataRefactor(QCompilationContext compilationContext) {
-		this.compilationContext = compilationContext;
+	public RPJAbstractDataRefactor(QCompilationUnit compilationUnit) {
+		this.compilationUnit = compilationUnit;
 	}
 
-	protected QCompilationContext getCompilationContext() {
-		return this.compilationContext;
+	protected QCompilationUnit getCompilationContext() {
+		return this.compilationUnit;
 	}
 
 	public abstract RPJAbstractDataRefactor copy();
@@ -46,38 +58,37 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 	public void reset() {
 		this.dataTerm = null;
 	}
-	
+
 	public QDataTerm<?> getDataTerm() {
 		return dataTerm;
 	}
-	
+
 	protected void setDataTerm(QDataTerm<?> dataTerm) {
 		this.dataTerm = dataTerm;
 	}
-	
+
 	protected QDataTerm<?> buildUnaryDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
 
-		if(termFrom.getDataTermType().isAtomic()) {
-		
+		if (termFrom.getDataTermType().isAtomic()) {
+
 			// term
 			QUnaryAtomicDataTerm<QUnaryAtomicDataDef<?>> unaryAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryAtomicDataTerm();
 			copyDataTerm(termTo, unaryAtomicDataTerm);
-						
+
 			// unary definition
-			if(termFrom.getDataTermType().isUnary()) {
-				QUnaryAtomicBufferedDataDef<?> unaryAtomicBufferedDataDef = (QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition());
+			if (termFrom.getDataTermType().isUnary()) {
+				QUnaryAtomicBufferedDataDef<?> unaryAtomicBufferedDataDef = (QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
 				unaryAtomicDataTerm.setDefinition(unaryAtomicBufferedDataDef);
 			}
 			// multiple definition
 			else {
-				QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>)termFrom.getDefinition();
-				unaryAtomicDataTerm.setDefinition((QUnaryAtomicDataDef<?>)EcoreUtil.copy((EObject)multipleAtomicBufferedDataDef.getArgument()));
+				QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) termFrom.getDefinition();
+				unaryAtomicDataTerm.setDefinition((QUnaryAtomicDataDef<?>) EcoreUtil.copy((EObject) multipleAtomicBufferedDataDef.getArgument()));
 			}
-			
+
 			return unaryAtomicDataTerm;
-		}
-		else {
-			
+		} else {
+
 			// term
 			QUnaryCompoundDataTerm<QUnaryCompoundDataDef<?>> unaryCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
 			copyDataTerm(termTo, unaryCompoundDataTerm);
@@ -86,47 +97,45 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 			QUnaryCompoundDataDef<?> unaryCompoundDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
 			copyCompoundDataDef((QCompoundDataDef<?>) termFrom.getDefinition(), unaryCompoundDataDef);
 			unaryCompoundDataTerm.setDefinition(unaryCompoundDataDef);
-			
+
 			return unaryCompoundDataTerm;
 		}
 	}
-	
+
 	protected QDataTerm<?> buildMultipleDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
-		
-		if(termFrom.getDataTermType().isAtomic()) {
-			
+
+		if (termFrom.getDataTermType().isAtomic()) {
+
 			// term
 			QMultipleAtomicDataTerm<QMultipleAtomicDataDef<?>> multipleAtomicDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleAtomicDataTerm();
 			copyDataTerm(termTo, multipleAtomicDataTerm);
-			
+
 			// buffered definition
-			if(termFrom.getDefinition() instanceof QBufferedDataDef) {
-				
+			if (termFrom.getDefinition() instanceof QBufferedDataDef) {
+
 				// unary
-				if(termFrom.getDataTermType().isUnary()) {
+				if (termFrom.getDataTermType().isUnary()) {
 					QMultipleAtomicBufferedDataDef<?> multipleAtomicDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
-					multipleAtomicDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition()));
+					multipleAtomicDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition()));
 					multipleAtomicDataTerm.setDefinition(multipleAtomicDataDef);
 				}
 				// multiple
 				else {
-					QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition());
-					if(termTo.getDefinition() != null)
+					QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
+					if (termTo.getDefinition() != null)
 						multipleAtomicBufferedDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) termTo.getDefinition());
 
 					multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
 				}
-			}
-			else {
-				QListDef<?> listDef = (QListDef<?>) EcoreUtil.copy((EObject)termTo.getDefinition());
-				listDef.setArgument((QUnaryAtomicDataDef<?>) EcoreUtil.copy((EObject)termFrom.getDefinition()));
+			} else {
+				QListDef<?> listDef = (QListDef<?>) EcoreUtil.copy((EObject) termTo.getDefinition());
+				listDef.setArgument((QUnaryAtomicDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition()));
 				multipleAtomicDataTerm.setDefinition(listDef);
 			}
 
 			return multipleAtomicDataTerm;
-		}
-		else {
-			
+		} else {
+
 			// term
 			QMultipleCompoundDataTerm<QMultipleCompoundDataDef<?>> multipleCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();
 			copyDataTerm(termTo, multipleCompoundDataTerm);
@@ -135,12 +144,12 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 			QMultipleCompoundDataDef<?> multipleCompoundDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createStrollerDef();
 			copyCompoundDataDef((QCompoundDataDef<?>) termFrom.getDefinition(), multipleCompoundDataDef);
 			multipleCompoundDataTerm.setDefinition(multipleCompoundDataDef);
-			
+
 			return multipleCompoundDataTerm;
 		}
 
 	}
-	
+
 	private void copyDataTerm(QDataTerm<?> dataTerm, QDataTerm<?> dataTermTo) {
 
 		dataTermTo.setName(dataTerm.getName());
@@ -148,43 +157,42 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 		dataTermTo.setInitialized(dataTerm.isInitialized());
 		dataTermTo.setRestricted(dataTerm.isRestricted());
 		dataTermTo.setText(dataTerm.getText());
-		
-		
-		for(QFacet facet: dataTerm.getFacets()) {
-			
-			if(dataTermTo.getFacet(facet.getClass()) == null) {
-				dataTermTo.getFacets().add((QFacet) EcoreUtil.copy((EObject)facet));
+
+		for (QFacet facet : dataTerm.getFacets()) {
+
+			if (dataTermTo.getFacet(facet.getClass()) == null) {
+				dataTermTo.getFacets().add((QFacet) EcoreUtil.copy((EObject) facet));
 			}
 		}
 
 	}
-	
+
 	private void copyCompoundDataDef(QCompoundDataDef<?> compoundDataDef, QCompoundDataDef<?> compoundDataDefTo) {
 
 		compoundDataDefTo.setClassDelegator(compoundDataDef.getClassDelegator());
 		compoundDataDefTo.setPrefix(compoundDataDef.getPrefix());
 		compoundDataDefTo.setQualified(compoundDataDef.isQualified());
-		
+
 		RPJAbstractDataRefactor elementVisitor = this.copy();
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(compoundDataDef.getElements());
-		for(QDataTerm<?> element: dataTerms) {
+		for (QDataTerm<?> element : dataTerms) {
 			elementVisitor.reset();
 			element.accept(elementVisitor);
-			compoundDataDefTo.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject)elementVisitor.getDataTerm()));
+			compoundDataDefTo.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject) elementVisitor.getDataTerm()));
 		}
-		
+
 		copyDataDef(compoundDataDef, compoundDataDefTo);
-	}	
-	
+	}
+
 	private void copyDataDef(QDataDef<?> dataDef, QDataDef<?> dataDefTo) {
 		dataDefTo.getFormulas().addAll(EcoreUtil.copyAll(dataDef.getFormulas()));
 	}
 
 	@Override
 	public boolean visit(QMultipleAtomicDataTerm<?> term) {
-		
+
 		dataTerm = term;
-		
+
 		return false;
 	}
 
@@ -192,45 +200,45 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 	public boolean visit(QMultipleCompoundDataTerm<?> term) {
 
 		dataTerm = term;
-		
+
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(term.getDefinition().getElements());
 
 		RPJAbstractDataRefactor visitor = this.copy();
-		for(QDataTerm<?> dataTerm: dataTerms) {
+		for (QDataTerm<?> dataTerm : dataTerms) {
 			visitor.reset();
-			
-			dataTerm.accept(visitor);			
-			term.getDefinition().getElements().remove(dataTerm);			
+
+			dataTerm.accept(visitor);
+			term.getDefinition().getElements().remove(dataTerm);
 			term.getDefinition().getElements().add(visitor.getDataTerm());
 		}
-		
-		return false;		
+
+		return false;
 	}
 
 	@Override
 	public boolean visit(QUnaryAtomicDataTerm<?> term) {
 
 		dataTerm = term;
-		
+
 		return false;
 	}
 
 	@Override
 	public boolean visit(QUnaryCompoundDataTerm<?> term) {
-		
+
 		dataTerm = term;
 
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(term.getDefinition().getElements());
 
 		RPJAbstractDataRefactor visitor = this.copy();
-		for(QDataTerm<?> dataTerm: dataTerms) {
+		for (QDataTerm<?> dataTerm : dataTerms) {
 			visitor.reset();
-			
-			dataTerm.accept(visitor);			
-			term.getDefinition().getElements().remove(dataTerm);			
+
+			dataTerm.accept(visitor);
+			term.getDefinition().getElements().remove(dataTerm);
 			term.getDefinition().getElements().add(visitor.getDataTerm());
 		}
-		
+
 		return false;
 	}
 

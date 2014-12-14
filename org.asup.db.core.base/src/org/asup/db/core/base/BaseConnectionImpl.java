@@ -35,15 +35,15 @@ import java.util.concurrent.Executor;
 import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QConnectionContext;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
+import org.asup.fw.core.QContext;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class BaseConnectionImpl implements QConnection, Connection {
 
-	private QConnectionContext connectionContext;
+	private QContext context;
 	private QDatabaseContainer databaseContainer;
 
 	private QQueryParser queryParser;
@@ -52,11 +52,11 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	private BaseCatalogConnection currentCatalogConnection;
 	private List<BaseCatalogConnection> catalogConnections;
 
-	public BaseConnectionImpl(QDatabaseContainer databaseContainer, QConnectionContext connectionContext) {
+	public BaseConnectionImpl(QDatabaseContainer databaseContainer, QContext context) {
 
-		this.connectionContext = connectionContext;
+		this.context = context;
 		this.databaseContainer = databaseContainer;
-		this.queryParser = connectionContext.get(QQueryParser.class);
+		this.queryParser = context.get(QQueryParser.class);
 		
 		this.catalogConnections = new ArrayList<BaseCatalogConnection>();
 	}
@@ -97,13 +97,31 @@ public class BaseConnectionImpl implements QConnection, Connection {
 			return currentCatalogConnection;
 				
 		if(getCatalog() == null) {
+
 			QCatalogContainer catalogContainer = this.databaseContainer.getDefaultCatalogContainer();
+
+			// search on connected catalog
+			for(BaseCatalogConnection catalogConnection: catalogConnections) {
+				
+				if(catalogConnection.getCatalogContainer().equals(catalogContainer))
+					return catalogConnection;
+			}
 			
 			currentCatalogConnection = new BaseCatalogConnection(catalogContainer);			
 			catalogConnections.add(currentCatalogConnection);
 		}
 		else {
+			
+			// search on connected catalog
+			for(BaseCatalogConnection catalogConnection: catalogConnections) {
+
+				if(getCatalog().equals(catalogConnection.getCatalogContainer().getName()))
+					return catalogConnection;
+			}
+			
 			for(QCatalogContainer catalogContainer: this.databaseContainer.getCatalogContainers()) {
+
+				
 				if(getCatalog().equals(catalogContainer.getName())) {
 						
 					currentCatalogConnection = new BaseCatalogConnection(catalogContainer);					
@@ -140,8 +158,8 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	}
 
 	@Override
-	public QConnectionContext getConnectionContext() {
-		return connectionContext;
+	public QContext getContext() {
+		return context;
 	}
 
 	@Override
@@ -155,7 +173,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		this.currentCatalogConnection = null;
 		this.virtualCatalog = null;
 		
-		getConnectionContext().close();
+		getContext().close();
 	}
 
 	@Override
@@ -221,7 +239,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	@Override
 	public String getID() {
-		return connectionContext.getID().getID();
+		return context.getID().getID();
 	}
 
 	public void abort(Executor executor) throws SQLException {
