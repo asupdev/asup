@@ -370,6 +370,7 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		compilationUnitEClass.getESuperTypes().add(theFrameworkCorePackage.getContextProvider());
 		compilerManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		unitConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		unitConverterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
@@ -389,8 +390,6 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		addEOperation(compilationUnitEClass, this.getCaseSensitiveType(), "getCaseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(compilationUnitEClass, this.getCompilationUnit(), "getChildCompilationUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(compilationUnitEClass, theFrameworkCorePackage.getContext(), "getContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilationUnitEClass, theIntegratedLanguageIsamPackage.getDataSetTerm(), "getDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);

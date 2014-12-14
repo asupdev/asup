@@ -79,7 +79,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = 0;
+	int COMPILATION_UNIT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.

@@ -11,11 +11,7 @@
  */
 package org.asup.fw.core.e4;
 
-import java.util.HashMap;
-import java.util.List;
-
 import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QContext;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -35,7 +31,8 @@ public class E4ContextRootImpl extends E4ContextImpl {
 
 		this.bundleContext = bundleContext;
 		this.eclipseContext = EclipseContextFactory.getServiceContext(bundleContext);
-		this.eclipseContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
+		
+		initializeContext(this.eclipseContext);
 	}
 
 	@Override
@@ -45,10 +42,8 @@ public class E4ContextRootImpl extends E4ContextImpl {
 
 	@Override
 	public QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
-		// System.out.println("Create child context of: "+getID());
 
 		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-		eclipseContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
 		
 		// bind remote service
 		try {
@@ -75,6 +70,8 @@ public class E4ContextRootImpl extends E4ContextImpl {
 		} catch (InvalidSyntaxException e) {
 			throw new FrameworkCoreRuntimeException(e);
 		}
+
+		initializeContext(eclipseChildContext);
 		
 		return new E4ContextChildImpl(eclipseChildContext, name);
 	}

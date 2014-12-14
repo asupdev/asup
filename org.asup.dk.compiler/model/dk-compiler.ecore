@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="compiler" nsURI="http://ww.asup.org/dk/compiler" nsPrefix="dk-compiler">
-  <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ContextProvider">
     <eOperations name="equalsTermName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="source" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="target" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getCaseSensitive" lowerBound="1" eType="#//CaseSensitiveType"/>
     <eOperations name="getChildCompilationUnits" upperBound="-1" eType="#//CompilationUnit"/>
-    <eOperations name="getContext" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
     <eOperations name="getDataSet" lowerBound="1" eType="ecore:EClass ../../org.asup.il.isam/model/il-isam.ecore#//DataSetTerm">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

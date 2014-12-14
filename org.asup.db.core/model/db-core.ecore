@@ -80,13 +80,12 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" interface="true"
-      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ContextID">
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//ContextID ../../org.asup.fw.core/model/fw-core.ecore#//ContextProvider">
     <eOperations name="close" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException"/>
     <eOperations name="createStatement" lowerBound="1" eType="#//Statement" eExceptions="#//DatabaseException">
       <eParameters name="native" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="getContext" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//Context"/>
     <eOperations name="getCatalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         eExceptions="#//DatabaseException"/>
     <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"/>

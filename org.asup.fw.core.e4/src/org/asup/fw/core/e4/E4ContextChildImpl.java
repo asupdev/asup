@@ -11,15 +11,11 @@
  */
 package org.asup.fw.core.e4;
 
-import java.util.HashMap;
-import java.util.List;
-
 import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QContext;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 
-public class E4ContextChildImpl extends E4ContextImpl implements QContext {
+public class E4ContextChildImpl extends E4ContextImpl {
 	
 	private IEclipseContext eclipseContext;
 	
@@ -38,7 +34,8 @@ public class E4ContextChildImpl extends E4ContextImpl implements QContext {
 	public QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
 		
 		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-		eclipseChildContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
+		
+		initializeContext(eclipseChildContext);
 		
 		QContext contextChild = new E4ContextChildImpl(eclipseChildContext, name);
 		

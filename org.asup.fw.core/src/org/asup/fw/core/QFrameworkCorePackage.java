@@ -83,6 +83,25 @@ public interface QFrameworkCorePackage extends EPackage {
 	int ADAPTER_FACTORY_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.fw.core.QContextProvider <em>Context Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.core.QContextProvider
+	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getContextProvider()
+	 * @generated
+	 */
+	int CONTEXT_PROVIDER = 7;
+
+	/**
+	 * The number of structural features of the '<em>Context Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTEXT_PROVIDER_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.fw.core.impl.ApplicationImpl <em>Application</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,7 +169,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getService()
 	 * @generated
 	 */
-	int SERVICE = 12;
+	int SERVICE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Hooks</b></em>' containment reference list.
@@ -159,7 +178,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__HOOKS = 0;
+	int APPLICATION__HOOKS = CONTEXT_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Levels</b></em>' containment reference list.
@@ -168,7 +187,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__LEVELS = 1;
+	int APPLICATION__LEVELS = CONTEXT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -177,7 +196,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION__TEXT = 2;
+	int APPLICATION__TEXT = CONTEXT_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Application</em>' class.
@@ -186,7 +205,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int APPLICATION_FEATURE_COUNT = 3;
+	int APPLICATION_FEATURE_COUNT = CONTEXT_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Hooks</b></em>' containment reference list.
@@ -295,7 +314,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getCredentials()
 	 * @generated
 	 */
-	int CREDENTIALS = 7;
+	int CREDENTIALS = 8;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -350,7 +369,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getLogger()
 	 * @generated
 	 */
-	int LOGGER = 8;
+	int LOGGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -378,7 +397,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getPlugin()
 	 * @generated
 	 */
-	int PLUGIN = 9;
+	int PLUGIN = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -433,7 +452,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getPluginRegistry()
 	 * @generated
 	 */
-	int PLUGIN_REGISTRY = 10;
+	int PLUGIN_REGISTRY = 11;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -470,7 +489,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getPluginRegistryFactory()
 	 * @generated
 	 */
-	int PLUGIN_REGISTRY_FACTORY = 11;
+	int PLUGIN_REGISTRY_FACTORY = 12;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -498,7 +517,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServiceConfig()
 	 * @generated
 	 */
-	int SERVICE_CONFIG = 13;
+	int SERVICE_CONFIG = 14;
 
 	/**
 	 * The number of structural features of the '<em>Service Config</em>' class.
@@ -517,7 +536,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServiceReference()
 	 * @generated
 	 */
-	int SERVICE_REFERENCE = 17;
+	int SERVICE_REFERENCE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -581,7 +600,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServiceHook()
 	 * @generated
 	 */
-	int SERVICE_HOOK = 14;
+	int SERVICE_HOOK = 15;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -645,7 +664,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServicePlugin()
 	 * @generated
 	 */
-	int SERVICE_PLUGIN = 15;
+	int SERVICE_PLUGIN = 16;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -754,7 +773,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServicePluginRegistry()
 	 * @generated
 	 */
-	int SERVICE_PLUGIN_REGISTRY = 16;
+	int SERVICE_PLUGIN_REGISTRY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -836,7 +855,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServiceStatus()
 	 * @generated
 	 */
-	int SERVICE_STATUS = 18;
+	int SERVICE_STATUS = 19;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -846,7 +865,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameworkCoreException()
 	 * @generated
 	 */
-	int FRAMEWORK_CORE_EXCEPTION = 19;
+	int FRAMEWORK_CORE_EXCEPTION = 20;
 
 	/**
 	 * The meta object id for the '<em>Frameowrk Core Runtime Exception</em>' data type.
@@ -856,7 +875,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameowrkCoreRuntimeException()
 	 * @generated
 	 */
-	int FRAMEOWRK_CORE_RUNTIME_EXCEPTION = 20;
+	int FRAMEOWRK_CORE_RUNTIME_EXCEPTION = 21;
 
 	/**
 	 * The meta object id for the '<em>Unexpected Condition Exception</em>' data type.
@@ -866,7 +885,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameworkCoreUnexpectedConditionException()
 	 * @generated
 	 */
-	int FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION = 21;
+	int FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION = 22;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.core.QAdapterFactory <em>Adapter Factory</em>}'.
@@ -1036,6 +1055,16 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getContextID();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.fw.core.QContextProvider <em>Context Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Context Provider</em>'.
+	 * @see org.asup.fw.core.QContextProvider
+	 * @generated
+	 */
+	EClass getContextProvider();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.core.QCredentials <em>Credentials</em>}'.
@@ -1530,6 +1559,16 @@ public interface QFrameworkCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTEXT_ID = eINSTANCE.getContextID();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.fw.core.QContextProvider <em>Context Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.core.QContextProvider
+		 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getContextProvider()
+		 * @generated
+		 */
+		EClass CONTEXT_PROVIDER = eINSTANCE.getContextProvider();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.core.impl.CredentialsImpl <em>Credentials</em>}' class.

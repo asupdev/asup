@@ -481,6 +481,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		// Add supertypes to classes
 		jobEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObjectNameable());
 		jobEClass.getESuperTypes().add(theFrameworkCorePackage.getContextID());
+		jobEClass.getESuperTypes().add(theFrameworkCorePackage.getContextProvider());
 		jobLogEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObjectNameable());
 		jobLogEntryEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
 		jobLogManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());

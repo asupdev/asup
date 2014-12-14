@@ -8,8 +8,8 @@
 package org.asup.db.core;
 
 import java.sql.SQLException;
-import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -20,7 +20,7 @@ import org.asup.fw.core.QContextID;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QConnection extends QContextID {
+public interface QConnection extends QContextID, QContextProvider {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,14 +77,6 @@ public interface QConnection extends QContextID {
 	 * @generated
 	 */
 	QStatement createStatement(boolean native_) throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	QContext getContext();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -184,7 +184,7 @@
     <eLiterals name="Stopped" value="80" literal="STP"/>
   </eClassifiers>
   <eSubpackages name="jobs" nsURI="http://www.asup.org/os/core/jobs" nsPrefix="os-core-jobs">
-    <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable ../../org.asup.fw.core/model/fw-core.ecore#//ContextID">
+    <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable ../../org.asup.fw.core/model/fw-core.ecore#//ContextID ../../org.asup.fw.core/model/fw-core.ecore#//ContextProvider">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobID" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>

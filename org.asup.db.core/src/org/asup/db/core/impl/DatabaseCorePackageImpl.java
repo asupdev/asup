@@ -882,6 +882,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		// Add supertypes to classes
 		connectionEClass.getESuperTypes().add(theFrameworkCorePackage.getContextID());
+		connectionEClass.getESuperTypes().add(theFrameworkCorePackage.getContextProvider());
 		connectionConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
 		connectionCredentialsEClass.getESuperTypes().add(theFrameworkCorePackage.getCredentials());
 		connectionManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
@@ -985,8 +986,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		op = addEOperation(connectionEClass, this.getStatement(), "createStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "native_", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
-
-		addEOperation(connectionEClass, theFrameworkCorePackage.getContext(), "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(connectionEClass, ecorePackage.getEString(), "getCatalog", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());

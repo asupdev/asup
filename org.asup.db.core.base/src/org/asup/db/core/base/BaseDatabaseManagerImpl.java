@@ -79,14 +79,13 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			throw new FrameworkCoreRuntimeException("Database Manager already started: " + this.databaseContainer);
 		
 		// database context
-		QContext databaseContext = application.getContext().createLocalContext("DBM/"+databaseContainer.getVendor()+"("+databaseContainer.getVersion()+")");		
 		QDefinitionParser definitionParser = this.definitionParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
-		databaseContext.set(QDefinitionParser.class, definitionParser);		
+		application.getContext().set(QDefinitionParser.class, definitionParser);		
 		QQueryParser queryParser = this.queryParserRegistry.lookupByVendorVersion(databaseContainer.getVendor(), databaseContainer.getVersion());
-		databaseContext.set(QQueryParser.class, queryParser);
+		application.getContext().set(QQueryParser.class, queryParser);
 
 		// database loader
-		BaseDatabaseLoader databaseStarter = databaseContext.make(BaseDatabaseLoader.class);
+		BaseDatabaseLoader databaseStarter = application.getContext().make(BaseDatabaseLoader.class);
 		databaseStarter.loadDatabase(databaseContainer);
 
 		this.databaseContainer = databaseContainer;

@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.os.core.QSystem;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QObjectNameable;
@@ -41,7 +42,7 @@ import org.asup.os.omac.QObjectNameable;
  * @model
  * @generated
  */
-public interface QJob extends QObjectNameable, QContextID {
+public interface QJob extends QObjectNameable, QContextID, QContextProvider {
 	/**
 	 * Returns the value of the '<em><b>Job ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->

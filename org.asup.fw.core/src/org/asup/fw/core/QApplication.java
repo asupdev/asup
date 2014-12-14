@@ -28,7 +28,7 @@ import java.util.List;
  * @model
  * @generated
  */
-public interface QApplication {
+public interface QApplication extends QContextProvider {
 
 	/**
 	 * Returns the value of the '<em><b>Hooks</b></em>' containment reference list.
@@ -87,12 +87,4 @@ public interface QApplication {
 	 * @generated
 	 */
 	void setText(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	QContext getContext();
 } // Application

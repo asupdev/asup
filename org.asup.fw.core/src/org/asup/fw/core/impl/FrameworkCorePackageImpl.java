@@ -17,6 +17,7 @@ import org.asup.fw.core.QApplicationManager;
 import org.asup.fw.core.QApplicationModule;
 import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.fw.core.QCredentials;
 import org.asup.fw.core.QFrameworkCoreFactory;
 import org.asup.fw.core.QFrameworkCorePackage;
@@ -98,6 +99,13 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EClass contextIDEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass contextProviderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -410,6 +418,15 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 */
 	public EClass getContextID() {
 		return contextIDEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getContextProvider() {
+		return contextProviderEClass;
 	}
 
 	/**
@@ -742,6 +759,8 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 
 		contextIDEClass = createEClass(CONTEXT_ID);
 
+		contextProviderEClass = createEClass(CONTEXT_PROVIDER);
+
 		credentialsEClass = createEClass(CREDENTIALS);
 		createEAttribute(credentialsEClass, CREDENTIALS__USER);
 		createEAttribute(credentialsEClass, CREDENTIALS__PASSWORD);
@@ -823,6 +842,7 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		pluginRegistryEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		applicationEClass.getESuperTypes().add(this.getContextProvider());
 		loggerEClass.getESuperTypes().add(this.getService());
 		pluginRegistryEClass.getESuperTypes().add(this.getService());
 		pluginRegistryFactoryEClass.getESuperTypes().add(this.getService());
@@ -851,8 +871,6 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEReference(getApplication_Hooks(), this.getServiceHook(), null, "hooks", null, 0, -1, QApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplication_Levels(), this.getApplicationLevel(), null, "levels", null, 0, -1, QApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getApplication_Text(), ecorePackage.getEString(), "text", null, 0, 1, QApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		addEOperation(applicationEClass, this.getContext(), "getContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(applicationLevelEClass, QApplicationLevel.class, "ApplicationLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApplicationLevel_Hooks(), this.getServiceHook(), null, "hooks", null, 0, -1, QApplicationLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -965,6 +983,10 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEClass(contextIDEClass, QContextID.class, "ContextID", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(contextIDEClass, ecorePackage.getEString(), "getID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(contextProviderEClass, QContextProvider.class, "ContextProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(contextProviderEClass, this.getContext(), "getContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(credentialsEClass, QCredentials.class, "Credentials", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCredentials_User(), ecorePackage.getEString(), "user", null, 1, 1, QCredentials.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

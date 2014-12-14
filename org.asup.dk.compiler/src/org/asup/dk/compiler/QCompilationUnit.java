@@ -8,17 +8,13 @@
 package org.asup.dk.compiler;
 
 import java.util.List;
-
-import org.asup.fw.core.QContext;
+import org.asup.fw.core.QContextProvider;
 import org.asup.il.core.QNamedNode;
-
 import org.asup.il.data.QDataTerm;
-
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
-
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
 
@@ -32,7 +28,7 @@ import org.asup.il.isam.QKeyListTerm;
  * @model abstract="true"
  * @generated
  */
-public interface QCompilationUnit {
+public interface QCompilationUnit extends QContextProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,14 +52,6 @@ public interface QCompilationUnit {
 	 * @generated
 	 */
 	List<QCompilationUnit> getChildCompilationUnits();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	QContext getContext();
 
 	/**
 	 * <!-- begin-user-doc -->

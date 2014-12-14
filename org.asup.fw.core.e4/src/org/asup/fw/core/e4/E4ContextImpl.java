@@ -13,24 +13,27 @@ package org.asup.fw.core.e4;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QAdapterFactory;
-import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
-import org.eclipse.core.runtime.Platform;
+import org.asup.fw.core.impl.ContextImpl;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.Bundle;
+//github.com/asupdev/asup.git
+import org.asup.fw.core.FrameworkCoreRuntimeException;
+import org.asup.fw.core.QAdapterFactory;
+import org.asup.fw.core.QContextID;
+//github.com/asupdev/asup.git
+import org.eclipse.core.runtime.Platform;
 
-public abstract class E4ContextImpl implements QContext {
+public abstract class E4ContextImpl extends ContextImpl {
 
-	protected static final String ADAPTER_FACTORIES_NAME = "org.asup.fw.core.e4.context.adapterFactories";
+	private static final String ADAPTER_FACTORIES_NAME = "org.asup.fw.core.e4.context.adapterFactories";
 	
 	private static Boolean postConstruct = null;
 
@@ -50,6 +53,10 @@ public abstract class E4ContextImpl implements QContext {
 
 	abstract IEclipseContext getEclipseContext();
 
+	protected void initializeContext(IEclipseContext eclipseContext) {
+		eclipseContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
+	}
+	
 	@Override
 	public QContextID getID() {
 		return this.contextID;
@@ -77,19 +84,6 @@ public abstract class E4ContextImpl implements QContext {
 		return object;
 	}
 
-	private boolean isActivePostConstruct() {
-
-		if (postConstruct == null) {
-
-			IEclipseContext eclipseContext = getEclipseContext();
-			Dummy dummy = ContextInjectionFactory.make(Dummy.class, eclipseContext);
-			postConstruct = !dummy.isLoaded();
-
-		}
-
-		return postConstruct;
-	}
-
 	@Override
 	public void inject(Object consumer) throws FrameworkCoreRuntimeException {
 		ContextInjectionFactory.inject(consumer, getEclipseContext());
@@ -106,24 +100,6 @@ public abstract class E4ContextImpl implements QContext {
 			ContextInjectionFactory.invoke(object, qualifier, getEclipseContext());
 		} catch (Exception e) {
 			// e.printStackTrace();
-		}
-	}
-
-	public static class Dummy {
-
-		private boolean loaded = false;
-
-		public Dummy() {
-
-		}
-
-		@PostConstruct
-		public void init() {
-			this.loaded = true;
-		}
-
-		public boolean isLoaded() {
-			return loaded;
 		}
 	}
 
@@ -213,6 +189,37 @@ public abstract class E4ContextImpl implements QContext {
 			}
 			
 			factories.add(factory);
+		}
+	}
+
+	private boolean isActivePostConstruct() {
+
+		if (postConstruct == null) {
+
+			IEclipseContext eclipseContext = getEclipseContext();
+			Dummy dummy = ContextInjectionFactory.make(Dummy.class, eclipseContext);
+			postConstruct = !dummy.isLoaded();
+
+		}
+
+		return postConstruct;
+	}
+	
+	public static class Dummy {
+
+		private boolean loaded = false;
+
+		public Dummy() {
+
+		}
+
+		@PostConstruct
+		public void init() {
+			this.loaded = true;
+		}
+
+		public boolean isLoaded() {
+			return loaded;
 		}
 	}
 }

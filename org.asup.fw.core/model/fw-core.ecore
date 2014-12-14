@@ -20,8 +20,7 @@
       </eParameters>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Application">
-    <eOperations name="getContext" lowerBound="1" eType="#//Context"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Application" eSuperTypes="#//ContextProvider">
     <eStructuralFeatures xsi:type="ecore:EReference" name="hooks" upperBound="-1"
         eType="#//ServiceHook" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
@@ -138,6 +137,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextID" abstract="true" interface="true">
     <eOperations name="getID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextProvider" abstract="true" interface="true">
+    <eOperations name="getContext" lowerBound="1" eType="#//Context"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Credentials" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
