@@ -206,8 +206,10 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 		}
 		
 		// update container
-		index.setSchema(table.getSchema());
-		index.setTable(table);
+		if(index != null) {
+			index.setSchema(table.getSchema());
+			index.setTable(table);
+		}
 		
 		return index;
 	}

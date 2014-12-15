@@ -29,7 +29,7 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
-import org.asup.os.core.resources.QResourceWriter;
+import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
@@ -56,7 +56,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		QJob job = event.getResource().getJob();
 
 		QFile file = event.getSource();
-		file.setLibrary(((QResourceWriter<QFile>) event.getResource()).getContainer());
+		file.setLibrary(((QResourceReader<QFile>) event.getResource()).getContainer());
 
 		QContext jobContext = job.getContext();
 		QConnection connection = jobContext.getAdapter(job, QConnection.class);
@@ -104,7 +104,13 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		try {
 			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
 			if (index != null) {
-				Table table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
+
+				Table table = null;
+				if(file.getDictionary() != null && !file.getDictionary().isEmpty()) 
+					table = connection.getCatalogMetaData().getTable(schema.getName(), file.getDictionary());
+				else
+					table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
+				
 				databaseManager.createIndex(connection, table, file.getName(), index);
 			}
 		}

@@ -88,7 +88,7 @@ public class JDTNodeWriter {
 
 	public void writeOutputStream(OutputStream outputStream) throws IOException {
 		// write file output
-		byte[] contentInBytes = compilationUnit.toString().getBytes();
+		byte[] contentInBytes = getJDTCompilationUnit().toString().getBytes();
 
 		outputStream.write(contentInBytes);
 		outputStream.flush();
