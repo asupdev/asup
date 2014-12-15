@@ -54,10 +54,13 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 			}
 		} else if (adaptableObject instanceof QDatabaseFile) {
 			QDatabaseFile databaseFile = (QDatabaseFile) adaptableObject;
+
 			if (QViewDef.class.isAssignableFrom(adapterType) && databaseFile instanceof QLogicalFile)
 				adaptee = (T) adaptDatabaseFileToViewDef(context, (QLogicalFile) databaseFile);
+
 			else if (QTableDef.class.isAssignableFrom(adapterType))
 				adaptee = (T) adaptDatabaseFileToTableDef(databaseFile);
+
 			else if (QIndexDef.class.isAssignableFrom(adapterType))
 				adaptee = (T) adaptDatabaseFileToIndexDef(databaseFile);
 		}
@@ -91,7 +94,7 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 		QTableDef tableDef = QDatabaseCoreFactory.eINSTANCE.createTableDef();
 
 		QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
-		
+
 		for (QDatabaseFileField field : databaseFileFormat.getFields()) {
 
 			QUnaryAtomicBufferedDataDef<?> dataDef = field.getDefinition();
@@ -111,22 +114,21 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 		QViewDef viewDef = QDatabaseCoreFactory.eINSTANCE.createViewDef();
 
 		/*
-		QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
-		for (QDatabaseFileField field : databaseFileFormat.getFields()) {
+		 * QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
+		 * for (QDatabaseFileField field : databaseFileFormat.getFields()) {
+		 * 
+		 * QUnaryAtomicBufferedDataDef<?> dataDef = field.getDefinition();
+		 * QTableColumnDef tableColumnDef =
+		 * adaptDataDefToTableColumnDef(dataDef); if (tableColumnDef == null)
+		 * return null;
+		 * 
+		 * viewDef.getColumns().add(tableColumnDef); }
+		 */
 
-			QUnaryAtomicBufferedDataDef<?> dataDef = field.getDefinition();
-			QTableColumnDef tableColumnDef = adaptDataDefToTableColumnDef(dataDef);
-			if (tableColumnDef == null)
-				return null;
-
-			viewDef.getColumns().add(tableColumnDef);
-		}
-		*/
-		
 		try {
 			QDefinitionParser definitionParser = context.get(QDefinitionParser.class);
 			QDefinitionParseResult definitionParseResult = definitionParser.parseDefinition(file.getCreationStatement());
-			
+
 			QCreateViewStatement createViewStatement = (QCreateViewStatement) definitionParseResult.getDefinitionStatement();
 			viewDef.setQuerySelect(createViewStatement.getQuery());
 

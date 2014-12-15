@@ -58,7 +58,7 @@ public interface QContext {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QContextID getID();
+	String getName();
 
 	/**
 	 * <!-- begin-user-doc -->

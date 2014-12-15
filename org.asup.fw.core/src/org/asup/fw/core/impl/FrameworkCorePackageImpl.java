@@ -918,7 +918,7 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
 
-		addEOperation(contextEClass, this.getContextID(), "getID", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(contextEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(contextEClass, null, "inject", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "object", 1, 1, IS_UNIQUE, IS_ORDERED);

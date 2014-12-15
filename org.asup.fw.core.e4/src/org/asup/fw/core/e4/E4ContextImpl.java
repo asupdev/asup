@@ -19,17 +19,17 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.asup.fw.core.impl.ContextImpl;
-import org.eclipse.e4.core.contexts.ContextInjectionFactory;
-import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.eclipse.emf.common.util.URI;
-import org.osgi.framework.Bundle;
 //github.com/asupdev/asup.git
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QContextID;
+import org.asup.fw.core.impl.ContextImpl;
 //github.com/asupdev/asup.git
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.e4.core.contexts.ContextInjectionFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.emf.common.util.URI;
+import org.osgi.framework.Bundle;
 
 public abstract class E4ContextImpl extends ContextImpl {
 
@@ -37,18 +37,10 @@ public abstract class E4ContextImpl extends ContextImpl {
 	
 	private static Boolean postConstruct = null;
 
-	private QContextID contextID = null;
+	private String name;
 
-	public E4ContextImpl(final String id) {
-
-		this.contextID = new QContextID() {
-
-			@Override
-			public String getID() {
-				return id;
-			}
-		};
-
+	public E4ContextImpl(String name) {
+		this.name = name;
 	}
 
 	abstract IEclipseContext getEclipseContext();
@@ -58,8 +50,8 @@ public abstract class E4ContextImpl extends ContextImpl {
 	}
 	
 	@Override
-	public QContextID getID() {
-		return this.contextID;
+	public String getName() {
+		return this.name;
 	}
 
 	@Override
@@ -152,17 +144,20 @@ public abstract class E4ContextImpl extends ContextImpl {
 		if(adapterFactories == null)
 			return null;
 		
-		List<QAdapterFactory> factories = adapterFactories.get(adapterType);
-		if(factories != null) {
+		for(Class<?> _interface: adaptable.getClass().getInterfaces()) {
 			
-			// search adaptee on naturally registration order
-			for(QAdapterFactory adapterFactory: factories) {
-				adaptee = adapterFactory.getAdapter(this, adaptable, adapterType);
-				if(adaptee != null)
-					break;
+			List<QAdapterFactory> factories = adapterFactories.get(_interface);
+			if(factories != null) {				
+				// search adaptee on naturally registration order
+				for(QAdapterFactory adapterFactory: factories) {
+					adaptee = adapterFactory.getAdapter(this, adaptable, adapterType);
+					if(adaptee != null)
+						break;
+				}
 			}
+			if(adaptee != null)
+				break;
 		}
-
 		if(adaptee != null)
 			return adaptee;
 		

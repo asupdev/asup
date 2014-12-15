@@ -110,7 +110,7 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 		}
 		// TODO issue #77
 		catch (Exception e) {
-			System.err.println(e);
+			System.err.println("Issue #77: "+e);
 		}
 	}
 

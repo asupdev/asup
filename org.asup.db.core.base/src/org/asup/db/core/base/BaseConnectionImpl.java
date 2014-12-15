@@ -239,7 +239,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	@Override
 	public String getID() {
-		return context.getID().getID();
+		return context.getName();
 	}
 
 	public void abort(Executor executor) throws SQLException {

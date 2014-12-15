@@ -34,6 +34,7 @@ import org.asup.db.syntax.QDefinitionParserRegistry;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.QQueryParserRegistry;
+import org.asup.db.syntax.QQueryWriter;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
@@ -44,6 +45,8 @@ import org.eclipse.datatools.modelbase.sql.query.QueryStatement;
 import org.eclipse.datatools.modelbase.sql.query.ResultColumn;
 import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelFactory;
 import org.eclipse.datatools.modelbase.sql.query.TableExpression;
+import org.eclipse.datatools.modelbase.sql.query.TableInDatabase;
+import org.eclipse.datatools.modelbase.sql.query.ValueExpressionColumn;
 import org.eclipse.datatools.modelbase.sql.query.helper.StatementHelper;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
@@ -99,9 +102,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		QStatement statement = null;
 
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createSchema(name, schemaDef);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {
@@ -120,9 +124,9 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 
 			// relative record number support
+			// TODO QTableDef.getPrimaryKey()
 			if (!catalogContainer.isSupportsRelativeRecordNumber()) {
 				tableDef = (QTableDef) EcoreUtil.copy((EObject) tableDef);
 
@@ -136,6 +140,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createTable(schema, name, tableDef);
 			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {
@@ -153,30 +158,47 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QCatalogContainer catalogContainer = getCatalogContainer(connection);
 		
-
+		boolean copy = false;
+		
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
-			
-			// append RRN to defined columns
+						
+			SQLQueryParseResult query = connection.getContext().get(QQueryParser.class).parseQuery(viewDef.getQuerySelect());				
+			QueryStatement queryStatement = query.getQueryStatement();
+			QuerySelectStatement querySelectStatement = (QuerySelectStatement) queryStatement;
+			QuerySelect querySelect = (QuerySelect) querySelectStatement.getQueryExpr().getQuery();
+
+
+			// complete column definition
+			if(viewDef.getColumns().isEmpty()) {
+
+				if(!copy) {
+					viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);
+					copy = true;
+				}
+				
+				for(ValueExpressionColumn expressionColumn: (List<ValueExpressionColumn>)querySelect.getColumnList()) {
+					QTableColumnDef tableColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
+					tableColumnDef.setName(expressionColumn.getName());
+					viewDef.getColumns().add(tableColumnDef);
+				}
+			}
+
+			// relative record number support
+			// TODO QViewDef.getPrimaryKey()
 			if(!catalogContainer.isSupportsRelativeRecordNumber())  {
-				viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);
+
+				if(!copy) {
+					viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);
+					copy = true;
+				}
 				
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
 				pkTableComColumnDef.setName(TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
 				
 				viewDef.getColumns().add(pkTableComColumnDef);
-			}
-			
-			SQLQueryParseResult query = connection.getContext().get(QQueryParser.class).parseQuery(viewDef.getQuerySelect());				
-			QueryStatement queryStatement = query.getQueryStatement();
-			QuerySelectStatement querySelectStatement = (QuerySelectStatement) queryStatement;
-			QuerySelect querySelect = (QuerySelect) querySelectStatement.getQueryExpr().getQuery();
 
-			// append RRN to selected columns
-			if(!catalogContainer.isSupportsRelativeRecordNumber())  {
-					
 				String fieldName = QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
 				
 				// column list
@@ -189,16 +211,40 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 			}
 			
-			
 			// retrieve table list for RRNs
+			if(name.equals("V5RDOC0J")) {
+	
+				List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
+				for(TableExpression tableExpression: tableExpressions) {
+				}
+			}
+			
 			List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
 			for(TableExpression tableExpression: tableExpressions) {
+				
+				if(tableExpression instanceof TableInDatabase) {
+					TableInDatabase tableInDatabase = (TableInDatabase)tableExpression;
+					Schema tableSchema = tableInDatabase.getDatabaseTable().getSchema();
+					tableSchema.setName(schema.getName());
+				}
 			}
-
+			
+			// rewrite query
+			// TODO connection.getContext().get(QQueryWriter.class);
+			//      ERROR: get the last inject writer from OSGIContainer
+			QQueryWriter queryWriter = catalogContainer.getCatalogContext().get(QQueryWriter.class);
+			String sqlQuerySelect = queryWriter.writeQuery(querySelectStatement);
+						
+			if(!copy) {
+				viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);
+				copy = true;
+			}
+			viewDef.setQuerySelect(sqlQuerySelect);
 			
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createView(schema, name, viewDef);
 
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {
@@ -217,9 +263,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.createIndex(table, name, indexDef);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {
@@ -254,9 +301,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
 			String command = definitionWriter.deleteData(table);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 		} finally {
 			if (statement != null)
@@ -271,9 +319,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropSchema(schema, ignoreFailOnNonEmpty);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 		} finally {
 			if (statement != null)
@@ -290,9 +339,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropTable(table);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {
@@ -310,9 +360,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropView(view);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {
@@ -330,9 +381,10 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		QStatement statement = null;
 		try {
-			statement = connection.createStatement(true);
 			QDefinitionWriter definitionWriter = catalogContainer.getCatalogContext().get(QDefinitionWriter.class);
 			String command = definitionWriter.dropIndex(index);
+			
+			statement = connection.createStatement(true);
 			statement.execute(command);
 
 		} finally {

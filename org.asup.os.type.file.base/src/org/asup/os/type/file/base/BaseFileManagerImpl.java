@@ -20,8 +20,9 @@ import org.asup.fw.core.QApplication;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
+import org.asup.os.type.file.QLogicalFile;
+import org.asup.os.type.file.QPhysicalFile;
 import org.asup.os.type.file.impl.FileManagerImpl;
 
 public class BaseFileManagerImpl extends FileManagerImpl {
@@ -38,7 +39,8 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 		QAdapterFactory adapterFactory = new BaseFileAdapterFactoryImpl(connectionManager);
 		
 		application.getContext().registerAdapterFactory(adapterFactory, QJob.class);
-		application.getContext().registerAdapterFactory(adapterFactory, QDatabaseFile.class);
+		application.getContext().registerAdapterFactory(adapterFactory, QPhysicalFile.class);
+		application.getContext().registerAdapterFactory(adapterFactory, QLogicalFile.class);
 	}
 
 	@Override

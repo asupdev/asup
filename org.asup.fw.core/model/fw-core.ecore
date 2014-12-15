@@ -74,7 +74,7 @@
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eOperations name="getID" lowerBound="1" eType="#//ContextID"/>
+    <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="inject" eExceptions="#//FrameowrkCoreRuntimeException">
       <eParameters name="object" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
