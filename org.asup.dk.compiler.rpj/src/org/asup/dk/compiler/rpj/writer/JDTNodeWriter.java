@@ -39,7 +39,7 @@ public class JDTNodeWriter {
 		this.compilationSetup = compilationSetup;
 		if (root != null) {
 			this.ast = root.getAST();
-			this.compilationUnit = root.getCompilationUnit();
+			this.jdtCompilationUnit = root.getJDTCompilationUnit();
 			this.imports = root.imports;
 		} else {
 			this.ast = AST.newAST(AST.JLS8);

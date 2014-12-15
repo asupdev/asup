@@ -127,7 +127,7 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 		try {
 			QDefinitionParser definitionParser = context.get(QDefinitionParser.class);
-			QDefinitionParseResult definitionParseResult = definitionParser.parseDefinition(file.getCreationStatement());
+			QDefinitionParseResult definitionParseResult = definitionParser.parseDefinition(file.getCreationStatement().trim());
 
 			QCreateViewStatement createViewStatement = (QCreateViewStatement) definitionParseResult.getDefinitionStatement();
 			viewDef.setQuerySelect(createViewStatement.getQuery());

@@ -43,8 +43,7 @@ public class JDTDisplayFileWriter extends JDTNamedNodeWriter {
 			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 			elements.addAll(displayFileFormat.getFields());
 
-			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), displayFileFormat.getName(), QDataStructDelegator.class,
-					true);
+			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), displayFileFormat.getName(), QDataStructDelegator.class, true);
 			dataStructureWriter.writeElements(elements);
 		}
 
