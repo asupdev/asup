@@ -116,26 +116,6 @@ package org.asup.db.syntax.ibmi.parser.ddl;
 
 }
 
-@lexer::members {
-   @Override
-   public void reportError(RecognitionException e) {
-    throw new Error(e);
-   }
-}
-
-@members {
-   @Override
-   public void reportError(RecognitionException e) {
-     throw new Error(e);
-   }
-   @Override
-   public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
-     String hdr = getErrorHeader(e);
-     String msg = getErrorMessage(e, tokenNames);
-     throw new Error(e);
-   }
-}
-
 /*
 ===============================================================================
   Tokens for Case Insensitive Keywords
@@ -1199,7 +1179,7 @@ COMMENT
 ===============================================================================
 */
 Identifier
-  : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|Digit|'_'|':')*
+  : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|Digit|CHAR_SPECIAL)*
   ;
 /*
 ===============================================================================
@@ -1241,6 +1221,41 @@ fragment
 UNICODE_ESC
     :   '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
     ;
+
+fragment
+CHAR_SPECIAL
+  :
+  (
+    '\u00A7'  //§
+    | '$'
+    | '_'
+    | '.'    
+    | '^'
+    | '\u00e0' //à
+    | '\u00e8' //è
+    | '\u00e9' //é
+    | '\u00ec' //ì
+    | '\u00f2' //ò
+    | '\u00f9' //ù
+    | '"'
+    | '?'    
+    | ','   
+    | '\u00a3' //£	
+    | '&'
+    | '*'    
+    | '/'
+    | '='
+    | '>'
+    | '<'	
+    | '+'
+    | '-' 	
+    | '!'
+    | '\\'
+    | '%'
+    | ':'
+  )
+  ;    
+    
 /*
 ===============================================================================
  Whitespace Tokens

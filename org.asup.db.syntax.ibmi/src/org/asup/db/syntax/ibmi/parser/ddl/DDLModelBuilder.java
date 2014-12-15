@@ -1,5 +1,6 @@
 package org.asup.db.syntax.ibmi.parser.ddl;
 
+import java.sql.SQLException;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
@@ -45,8 +46,9 @@ public class DDLModelBuilder {
 	 * Parse definition string and convert result in db-syntax model
 	 * @param definitionString
 	 * @return
+	 * @throws SQLException 
 	 */
-	public QDefinitionParseResult parseDefinition(String definitionString)
+	public QDefinitionParseResult parseDefinition(String definitionString) throws SQLException
 	{
 		QDefinitionParseResult parserResult = (QDefinitionParseResult) QDatabaseSyntaxFactory.eINSTANCE.createDefinitionParseResult();
 		
@@ -73,9 +75,12 @@ public class DDLModelBuilder {
 		} 
 		catch (RecognitionException e) {
 			e.printStackTrace();
+			throw new SQLException(e);
+			
 		}
 		catch (Error e) {
 			e.printStackTrace();
+			throw new SQLException(e);
 		}
 		return parserResult;
 	}

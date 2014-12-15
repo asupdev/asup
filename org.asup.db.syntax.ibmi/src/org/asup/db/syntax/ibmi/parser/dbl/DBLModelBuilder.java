@@ -1,5 +1,6 @@
 package org.asup.db.syntax.ibmi.parser.dbl;
 
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -36,8 +37,9 @@ public class DBLModelBuilder {
 	 * Parse definition string and convert result in db-syntax model
 	 * @param builtinString
 	 * @return
+	 * @throws SQLException 
 	 */
-	public QBindingParseResult parseBinding(String builtinString)
+	public QBindingParseResult parseBinding(String builtinString) throws SQLException
 	{
 		QBindingParseResult parserResult = (QBindingParseResult) QDatabaseSyntaxFactory.eINSTANCE.createBindingParseResult();
 		
@@ -68,7 +70,7 @@ public class DBLModelBuilder {
 			parserResult.setBindingStatement(convertModel(tree.getChild(0), queryStrings));
 			
 		} catch (RecognitionException e) {
-			
+			throw new SQLException(e);
 		}
 
 		return parserResult;
