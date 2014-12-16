@@ -28,6 +28,7 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.db.core.QCatalogContainer#isActive <em>Active</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
@@ -65,6 +66,33 @@ public interface QCatalogContainer {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Active</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Active</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Active</em>' attribute.
+	 * @see #setActive(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_Active()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isActive();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#isActive <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Active</em>' attribute.
+	 * @see #isActive()
+	 * @generated
+	 */
+	void setActive(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

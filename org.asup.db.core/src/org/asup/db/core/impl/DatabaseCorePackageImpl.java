@@ -308,8 +308,17 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCatalogContainer_Active() {
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCatalogContainer_ConnectionConfig() {
-		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(1);
+		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -318,7 +327,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getCatalogContainer_SupportsGuestAccess() {
-		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -327,7 +336,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getCatalogContainer_SupportsRelativeRecordNumber() {
-		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -774,6 +783,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Create classes and their features
 		catalogContainerEClass = createEClass(CATALOG_CONTAINER);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__NAME);
+		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__ACTIVE);
 		createEReference(catalogContainerEClass, CATALOG_CONTAINER__CONNECTION_CONFIG);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER);
@@ -898,6 +908,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Initialize classes and features; add operations and parameters
 		initEClass(catalogContainerEClass, QCatalogContainer.class, "CatalogContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCatalogContainer_Name(), ecorePackage.getEString(), "name", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCatalogContainer_Active(), ecorePackage.getEBoolean(), "active", "true", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCatalogContainer_ConnectionConfig(), this.getConnectionConfig(), null, "connectionConfig", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCatalogContainer_SupportsGuestAccess(), ecorePackage.getEBoolean(), "supportsGuestAccess", "false", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCatalogContainer_SupportsRelativeRecordNumber(), ecorePackage.getEBoolean(), "supportsRelativeRecordNumber", "false", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

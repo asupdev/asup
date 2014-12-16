@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isActive <em>Active</em>}</li>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#getConnectionConfig <em>Connection Config</em>}</li>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
  *   <li>{@link org.asup.db.core.impl.CatalogContainerImpl#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
@@ -65,6 +66,26 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ACTIVE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isActive() <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean active = ACTIVE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getConnectionConfig() <em>Connection Config</em>}' containment reference.
@@ -154,6 +175,27 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isActive() {
+		return active;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActive(boolean newActive) {
+		boolean oldActive = active;
+		active = newActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDatabaseCorePackage.CATALOG_CONTAINER__ACTIVE, oldActive, active));
 	}
 
 	/**
@@ -397,6 +439,8 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				return getName();
+			case QDatabaseCorePackage.CATALOG_CONTAINER__ACTIVE:
+				return isActive();
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
 				return getConnectionConfig();
 			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
@@ -417,6 +461,9 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				setName((String)newValue);
+				return;
+			case QDatabaseCorePackage.CATALOG_CONTAINER__ACTIVE:
+				setActive((Boolean)newValue);
 				return;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
 				setConnectionConfig((QConnectionConfig)newValue);
@@ -442,6 +489,9 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case QDatabaseCorePackage.CATALOG_CONTAINER__ACTIVE:
+				setActive(ACTIVE_EDEFAULT);
+				return;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
 				setConnectionConfig((QConnectionConfig)null);
 				return;
@@ -465,6 +515,8 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case QDatabaseCorePackage.CATALOG_CONTAINER__ACTIVE:
+				return active != ACTIVE_EDEFAULT;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__CONNECTION_CONFIG:
 				return connectionConfig != null;
 			case QDatabaseCorePackage.CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS:
@@ -487,6 +539,8 @@ public class CatalogContainerImpl extends MinimalEObjectImpl.Container implement
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", active: ");
+		result.append(active);
 		result.append(", supportsGuestAccess: ");
 		result.append(supportsGuestAccess);
 		result.append(", supportsRelativeRecordNumber: ");

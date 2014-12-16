@@ -84,13 +84,22 @@ public interface QDatabaseCorePackage extends EPackage {
 	int CATALOG_CONTAINER__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG_CONTAINER__ACTIVE = 1;
+
+	/**
 	 * The feature id for the '<em><b>Connection Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__CONNECTION_CONFIG = 1;
+	int CATALOG_CONTAINER__CONNECTION_CONFIG = 2;
 
 	/**
 	 * The feature id for the '<em><b>Supports Guest Access</b></em>' attribute.
@@ -99,7 +108,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = 2;
+	int CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Supports Relative Record Number</b></em>' attribute.
@@ -108,7 +117,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER = 3;
+	int CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER = 4;
 
 	/**
 	 * The number of structural features of the '<em>Catalog Container</em>' class.
@@ -117,7 +126,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER_FEATURE_COUNT = 4;
+	int CATALOG_CONTAINER_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.CatalogMetaDataImpl <em>Catalog Meta Data</em>}' class.
@@ -775,6 +784,17 @@ public interface QDatabaseCorePackage extends EPackage {
 	EAttribute getCatalogContainer_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.core.QCatalogContainer#isActive <em>Active</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Active</em>'.
+	 * @see org.asup.db.core.QCatalogContainer#isActive()
+	 * @see #getCatalogContainer()
+	 * @generated
+	 */
+	EAttribute getCatalogContainer_Active();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1333,6 +1353,14 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CATALOG_CONTAINER__NAME = eINSTANCE.getCatalogContainer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATALOG_CONTAINER__ACTIVE = eINSTANCE.getCatalogContainer_Active();
 
 		/**
 		 * The meta object literal for the '<em><b>Connection Config</b></em>' containment reference feature.

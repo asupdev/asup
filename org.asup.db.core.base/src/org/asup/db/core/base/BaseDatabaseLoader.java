@@ -46,6 +46,8 @@ public class BaseDatabaseLoader {
 			
 			for (QCatalogContainer catalogContainer : catalogContainers) {
 
+				if(!catalogContainer.isActive())
+					continue;
 				QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 				
 				// build catalog context
