@@ -92,6 +92,14 @@ public interface QConnection extends QContextID, QContextProvider {
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
+	QCatalogGenerationStrategy getCatalogGenerationStrategy();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
 	QCatalogMetaData getCatalogMetaData();
 
 } // DatabaseConnection

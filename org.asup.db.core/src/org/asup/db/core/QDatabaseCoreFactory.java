@@ -34,6 +34,15 @@ public interface QDatabaseCoreFactory extends EFactory {
 	QCatalogContainer createCatalogContainer();
 
 	/**
+	 * Returns a new object of class '<em>Catalog Generation Strategy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Catalog Generation Strategy</em>'.
+	 * @generated
+	 */
+	QCatalogGenerationStrategy createCatalogGenerationStrategy();
+
+	/**
 	 * Returns a new object of class '<em>Connection Config</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -126,8 +126,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		try {
 
 			// relative record number support
-			// TODO QTableDef.getPrimaryKey()
-			if (!catalogContainer.isSupportsRelativeRecordNumber()) {
+			if (catalogContainer.getGenerationStrategy().isCreateRelativeRecordNumber()) {
 				tableDef = (QTableDef) EcoreUtil.copy((EObject) tableDef);
 
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
@@ -185,8 +184,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			}
 
 			// relative record number support
-			// TODO QViewDef.getPrimaryKey()
-			if(!catalogContainer.isSupportsRelativeRecordNumber())  {
+			if(catalogContainer.getGenerationStrategy().isCreateRelativeRecordNumber())  {
 
 				if(!copy) {
 					viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);

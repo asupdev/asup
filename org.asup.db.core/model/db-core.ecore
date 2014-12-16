@@ -58,7 +58,13 @@
         eType="#//ConnectionConfig" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsGuestAccess" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsRelativeRecordNumber"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generationStrategy" lowerBound="1"
+        eType="#//CatalogGenerationStrategy" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CatalogGenerationStrategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createIndexOnView" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createRelativeRecordNumber"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
@@ -90,6 +96,7 @@
     </eOperations>
     <eOperations name="getCatalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         eExceptions="#//DatabaseException"/>
+    <eOperations name="getCatalogGenerationStrategy" lowerBound="1" eType="#//CatalogGenerationStrategy"/>
     <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">

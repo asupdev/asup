@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import org.asup.db.core.QCatalogContainer;
+import org.asup.db.core.QCatalogGenerationStrategy;
 import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.db.syntax.QQueryWriter;
@@ -49,6 +50,10 @@ public class BaseCatalogConnection {
 
 	public QCatalogMetaData getCatalogMetaData() {
 		return catalogContainer.getMetaData();
+	}
+	
+	public QCatalogGenerationStrategy getCatalogGenerationStrategy() {
+		return catalogContainer.getGenerationStrategy();
 	}
 	
 	protected synchronized Connection getRawConnection() throws SQLException {
