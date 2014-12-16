@@ -60,6 +60,9 @@
         <genParameters ecoreParameter="os-type.ecore#//TypeManager/lookupByClass/klass"/>
         <genTypeParameters ecoreTypeParameter="os-type.ecore#//TypeManager/lookupByClass/T"/>
       </genOperations>
+      <genOperations ecoreOperation="os-type.ecore#//TypeManager/getTypeReader">
+        <genParameters ecoreParameter="os-type.ecore#//TypeManager/getTypeReader/job"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="os-type.ecore#//TypeRegistry">
       <genOperations ecoreOperation="os-type.ecore#//TypeRegistry/lookup">

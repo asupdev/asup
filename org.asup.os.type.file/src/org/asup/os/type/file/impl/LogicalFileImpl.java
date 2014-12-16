@@ -7,11 +7,15 @@
  */
 package org.asup.os.type.file.impl;
 
+import java.util.Collection;
+import java.util.List;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.LogicalFileImpl#getCreationStatement <em>Creation Statement</em>}</li>
+ *   <li>{@link org.asup.os.type.file.impl.LogicalFileImpl#getTables <em>Tables</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +50,15 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 	 * @ordered
 	 */
 	protected String creationStatement = CREATION_STATEMENT_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getTables() <em>Tables</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> tables;
 	/**
 	 * 
 	 */
@@ -95,11 +109,25 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public List<String> getTables() {
+		if (tables == null) {
+			tables = new EDataTypeUniqueEList<String>(String.class, this, QOperatingSystemFilePackage.LOGICAL_FILE__TABLES);
+		}
+		return tables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__CREATION_STATEMENT:
 				return getCreationStatement();
+			case QOperatingSystemFilePackage.LOGICAL_FILE__TABLES:
+				return getTables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,11 +137,16 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__CREATION_STATEMENT:
 				setCreationStatement((String)newValue);
+				return;
+			case QOperatingSystemFilePackage.LOGICAL_FILE__TABLES:
+				getTables().clear();
+				getTables().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -130,6 +163,9 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__CREATION_STATEMENT:
 				setCreationStatement(CREATION_STATEMENT_EDEFAULT);
 				return;
+			case QOperatingSystemFilePackage.LOGICAL_FILE__TABLES:
+				getTables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -144,6 +180,8 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.LOGICAL_FILE__CREATION_STATEMENT:
 				return CREATION_STATEMENT_EDEFAULT == null ? creationStatement != null : !CREATION_STATEMENT_EDEFAULT.equals(creationStatement);
+			case QOperatingSystemFilePackage.LOGICAL_FILE__TABLES:
+				return tables != null && !tables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -160,6 +198,8 @@ public class LogicalFileImpl extends DatabaseFileImpl implements QLogicalFile {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (creationStatement: ");
 		result.append(creationStatement);
+		result.append(", tables: ");
+		result.append(tables);
 		result.append(')');
 		return result.toString();
 	}

@@ -411,15 +411,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFile_Dictionary() {
-		return (EAttribute)fileEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFileFormat() {
 		return fileFormatEClass;
 	}
@@ -636,6 +627,15 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLogicalFile_Tables() {
+		return (EAttribute)logicalFileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPhysicalFile() {
 		return physicalFileEClass;
 	}
@@ -772,7 +772,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		createEAttribute(externalFileEClass, EXTERNAL_FILE__FORMAT);
 
 		fileEClass = createEClass(FILE);
-		createEAttribute(fileEClass, FILE__DICTIONARY);
 
 		fileFormatEClass = createEClass(FILE_FORMAT);
 		createEAttribute(fileFormatEClass, FILE_FORMAT__NAME);
@@ -808,6 +807,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		logicalFileEClass = createEClass(LOGICAL_FILE);
 		createEAttribute(logicalFileEClass, LOGICAL_FILE__CREATION_STATEMENT);
+		createEAttribute(logicalFileEClass, LOGICAL_FILE__TABLES);
 
 		physicalFileEClass = createEClass(PHYSICAL_FILE);
 
@@ -948,7 +948,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEAttribute(getExternalFile_Format(), ecorePackage.getEString(), "format", null, 1, 1, QExternalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, QFile.class, "File", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFile_Dictionary(), ecorePackage.getEString(), "dictionary", null, 0, 1, QFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(fileEClass, theFrameworkJavaPackage.getJavaURI(), "getClassURI", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1026,6 +1025,7 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		initEClass(logicalFileEClass, QLogicalFile.class, "LogicalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLogicalFile_CreationStatement(), ecorePackage.getEString(), "creationStatement", null, 0, 1, QLogicalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLogicalFile_Tables(), ecorePackage.getEString(), "tables", null, 1, -1, QLogicalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(physicalFileEClass, QPhysicalFile.class, "PhysicalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

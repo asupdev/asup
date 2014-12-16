@@ -514,6 +514,13 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(typeManagerEClass, null, "getTypeReader", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theOperatingSystemResourcesPackage.getResourceReader());
+		g2 = createEGenericType(this.getType());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		initEClass(typeRegistryEClass, QTypeRegistry.class, "TypeRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(typeRegistryEClass, null, "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);

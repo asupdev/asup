@@ -7,6 +7,9 @@
  */
 package org.asup.os.type;
 
+import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.resources.QResourceReader;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -35,4 +38,12 @@ public interface QTypeManager extends QTypedManager<QType> {
 	 * @generated
 	 */
 	<T extends QTypedObject> QType lookupByClass(Class<T> klass);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model jobRequired="true"
+	 * @generated
+	 */
+	QResourceReader<QType> getTypeReader(QJob job);
 } // QTypeManager

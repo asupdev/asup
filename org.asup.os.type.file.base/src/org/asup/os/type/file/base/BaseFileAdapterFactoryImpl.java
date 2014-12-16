@@ -145,10 +145,6 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 		if (databaseFileFormat.getKeys().isEmpty())
 			return null;
 
-		// logicalFile without physical reference
-		if (file instanceof QLogicalFile && (file.getDictionary() == null || file.getDictionary().isEmpty()))
-			return null;
-
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();
 		indexDef.setUnique(databaseFileFormat.isUnique());
 

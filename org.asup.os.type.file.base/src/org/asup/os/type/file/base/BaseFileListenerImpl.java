@@ -91,33 +91,35 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 			QPhysicalFile physicalFile = (QPhysicalFile) file;
 
 			QTableDef tableDef = jobContext.getAdapter(physicalFile, QTableDef.class);
-			databaseManager.createTable(connection, schema, file.getName(), tableDef);
+			Table table = databaseManager.createTable(connection, schema, file.getName(), tableDef);
+			
+			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
+			if (index != null)
+				databaseManager.createIndex(connection, table, file.getName(), index);
+			
 		} else if (file instanceof QLogicalFile) {
 			QLogicalFile logicalFile = (QLogicalFile) file;
 
 			QViewDef viewDef = jobContext.getAdapter(logicalFile, QViewDef.class);
-			databaseManager.createView(connection, schema, file.getName(), viewDef);
-		} else
-			return;
-
+			Table table = databaseManager.createView(connection, schema, file.getName(), viewDef);
 		
-		try {
-			QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
-			if (index != null) {
+			try {
+				QIndexDef index = jobContext.getAdapter(file, QIndexDef.class);
+				if (index != null) {
 
-				Table table = null;
-				if(file.getDictionary() != null && !file.getDictionary().isEmpty()) 
-					table = connection.getCatalogMetaData().getTable(schema.getName(), file.getDictionary());
-				else
-					table = connection.getCatalogMetaData().getTable(schema.getName(), file.getName());
-				
-				databaseManager.createIndex(connection, table, file.getName(), index);
+					// retrieve first table
+					if(!connection.getCatalogGenerationStrategy().isCreateIndexOnView())
+						table = connection.getCatalogMetaData().getTable(schema.getName(), logicalFile.getTables().get(0));
+					
+					databaseManager.createIndex(connection, table, file.getName(), index);
+				}
 			}
-		}
-		// TODO issue #77
-		catch (Exception e) {
-			System.err.println("Issue #77: "+e);
-		}
+			// TODO issue #77
+			catch (SQLException e) {
+				System.err.println("Issue #77: "+e);
+			}
+
+		}		
 	}
 
 	private void deleteFile(QContext jobContext, QFile file, QConnection connection, Schema schema) throws SQLException {

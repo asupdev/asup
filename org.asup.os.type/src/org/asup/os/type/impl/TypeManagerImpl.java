@@ -7,6 +7,8 @@
  */
 package org.asup.os.type.impl;
 
+import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.QType;
 import org.asup.os.type.QTypeManager;
@@ -59,6 +61,17 @@ public abstract class TypeManagerImpl extends TypedManagerImpl<QType> implements
 	 * @generated
 	 */
 	public <T extends QTypedObject> QType lookupByClass(Class<T> klass) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QResourceReader<QType> getTypeReader(QJob job) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
