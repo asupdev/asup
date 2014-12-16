@@ -10,6 +10,8 @@ package org.asup.il.flow.impl;
 import java.util.Collection;
 import java.util.List;
 
+import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QFileSection;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.isam.QDataSetTerm;
@@ -30,6 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getDataSets <em>Data Sets</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getKeyLists <em>Key Lists</em>}</li>
+ *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getCursors <em>Cursors</em>}</li>
+ *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +58,25 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 	 * @ordered
 	 */
 	protected EList<QKeyListTerm> keyLists;
+
+	/**
+	 * The cached value of the '{@link #getCursors() <em>Cursors</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCursors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QCursorTerm> cursors;
+	/**
+	 * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStatements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QStatementTerm> statements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +126,30 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public List<QCursorTerm> getCursors() {
+		if (cursors == null) {
+			cursors = new EObjectContainmentEList<QCursorTerm>(QCursorTerm.class, this, QIntegratedLanguageFlowPackage.FILE_SECTION__CURSORS);
+		}
+		return cursors;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<QStatementTerm> getStatements() {
+		if (statements == null) {
+			statements = new EObjectContainmentEList<QStatementTerm>(QStatementTerm.class, this, QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS);
+		}
+		return statements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -110,6 +157,10 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				return ((InternalEList<?>)getDataSets()).basicRemove(otherEnd, msgs);
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__KEY_LISTS:
 				return ((InternalEList<?>)getKeyLists()).basicRemove(otherEnd, msgs);
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__CURSORS:
+				return ((InternalEList<?>)getCursors()).basicRemove(otherEnd, msgs);
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
+				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -126,6 +177,10 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				return getDataSets();
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__KEY_LISTS:
 				return getKeyLists();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__CURSORS:
+				return getCursors();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
+				return getStatements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -147,6 +202,14 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				getKeyLists().clear();
 				getKeyLists().addAll((Collection<? extends QKeyListTerm>)newValue);
 				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__CURSORS:
+				getCursors().clear();
+				getCursors().addAll((Collection<? extends QCursorTerm>)newValue);
+				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
+				getStatements().clear();
+				getStatements().addAll((Collection<? extends QStatementTerm>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -165,6 +228,12 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__KEY_LISTS:
 				getKeyLists().clear();
 				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__CURSORS:
+				getCursors().clear();
+				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
+				getStatements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -181,6 +250,10 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				return dataSets != null && !dataSets.isEmpty();
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__KEY_LISTS:
 				return keyLists != null && !keyLists.isEmpty();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__CURSORS:
+				return cursors != null && !cursors.isEmpty();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
+				return statements != null && !statements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

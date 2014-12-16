@@ -169,10 +169,10 @@ public class RPJCallableUnitLinker {
 
 		if (fileSingleFormat instanceof QLogicalFile && fileSingleFormat.getFileFormat().isEmpty()) {
 			QLogicalFile logicalFile = (QLogicalFile) fileSingleFormat;
-			fileSingleFormat = (QFileSingleFormat<?>) getFile(logicalFile.getDictionary());
+			fileSingleFormat = (QFileSingleFormat<?>) getFile(logicalFile.getTables().get(0));
 
 			if (fileSingleFormat == null)
-				throw new OperatingSystemRuntimeException("File not found: " + logicalFile.getDictionary());
+				throw new OperatingSystemRuntimeException("File not found: " + logicalFile);
 		}
 
 		Class<?> linkedClass = loadClass(null, fileSingleFormat);
