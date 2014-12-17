@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="MT&#xa7;NUPR" sequence="1"/>
+  <columns name="MT&#xa7;TIMO" sequence="2"/>
+  <columns name="MT&#xa7;NUMO" sequence="3"/>
+</db-core:IndexDef>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="J&#xa7;IDEN" sequence="1"/>
+  <columns name="J&#xa7;DATA" sequence="2"/>
+  <columns name="J&#xa7;TIGC" sequence="3"/>
+  <columns name="J&#xa7;SOGC" sequence="4"/>
+  <columns name="J&#xa7;CDMG" sequence="5"/>
+  <columns name="J&#xa7;ARTI" sequence="6"/>
+  <columns name="J&#xa7;COD1" sequence="7"/>
+  <columns name="J&#xa7;COD2" sequence="8"/>
+  <columns name="J&#xa7;COD3" sequence="9"/>
+  <columns name="J&#xa7;COD4" sequence="10"/>
+  <columns name="J&#xa7;NCOL" sequence="11"/>
+</db-core:IndexDef>

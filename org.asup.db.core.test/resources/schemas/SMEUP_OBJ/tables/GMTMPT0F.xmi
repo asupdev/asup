@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="YYNREC"/>
+  <columns dataType="CHAR" length="15" name="YYCOD1"/>
+  <columns dataType="CHAR" length="15" name="YYCOD2"/>
+  <columns dataType="CHAR" length="15" name="YYCOD3"/>
+  <columns dataType="CHAR" length="15" name="YYCOD4"/>
+  <columns dataType="CHAR" length="15" name="YYCOD5"/>
+  <columns dataType="CHAR" length="15" name="YYCOD6"/>
+  <columns dataType="CHAR" length="15" name="YYCOD7"/>
+  <columns dataType="CHAR" length="15" name="YYCOD8"/>
+  <columns dataType="CHAR" length="15" name="YYCOD9"/>
+  <columns dataType="DECIMAL" length="11" name="YYQTGZ" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="YYQTAL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="YYQTAT" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="YYTTGZ" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="YYTTAL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="YYTTAT" scale="3"/>
+</db-core:TableDef>

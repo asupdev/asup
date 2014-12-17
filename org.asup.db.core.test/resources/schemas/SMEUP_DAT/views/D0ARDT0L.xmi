@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   D&#xa7;TIPD ,   D&#xa7;CONF ,   D&#xa7;ARTI ,   D&#xa7;NRUT ,   D&#xa7;NRCO ,   D&#xa7;LOLE ,   D&#xa7;LOLW   FROM D0ARDT0F   ;"/>

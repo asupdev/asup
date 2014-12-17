@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I01TREC"/>
+  <columns dataType="CHAR" length="35" name="I01NDOC"/>
+  <columns dataType="DECIMAL" length="12" name="I01DTDO"/>
+  <columns dataType="CHAR" length="17" name="I01FOCD"/>
+  <columns dataType="CHAR" length="35" name="I01FODE"/>
+  <columns dataType="CHAR" length="35" name="I01FOI1"/>
+  <columns dataType="CHAR" length="35" name="I01FOI2"/>
+  <columns dataType="CHAR" length="17" name="I01FOPI"/>
+  <columns dataType="CHAR" length="17" name="I01CLCD"/>
+  <columns dataType="CHAR" length="35" name="I01CLDE"/>
+  <columns dataType="CHAR" length="35" name="I01CLI1"/>
+  <columns dataType="CHAR" length="35" name="I01CLI2"/>
+  <columns dataType="CHAR" length="17" name="I01CLPI"/>
+  <columns dataType="CHAR" length="17" name="I01BACD"/>
+  <columns dataType="CHAR" length="35" name="I01BADE"/>
+  <columns dataType="CHAR" length="17" name="I01BECD"/>
+  <columns dataType="CHAR" length="3" name="I01VALU"/>
+  <columns dataType="DECIMAL" length="12" name="I01DSCP"/>
+  <columns dataType="CHAR" length="17" name="I01PACD"/>
+  <columns dataType="CHAR" length="35" name="I01PADE"/>
+  <columns dataType="CHAR" length="3" name="I01TPDO"/>
+</db-core:TableDef>

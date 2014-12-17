@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="IM&#xa3;STA"/>
+  <columns dataType="CHAR" length="10" name="IM&#xa3;LIB"/>
+  <columns dataType="CHAR" length="10" name="IM&#xa3;FIL"/>
+  <columns dataType="CHAR" length="10" name="IM&#xa3;MBR"/>
+  <columns dataType="DECIMAL" length="10" name="IM&#xa3;REC"/>
+  <columns dataType="DECIMAL" length="10" name="IM&#xa3;RAN"/>
+  <columns dataType="DECIMAL" length="10" name="IM&#xa3;INC"/>
+  <columns dataType="DECIMAL" length="6" name="IM&#xa3;OCC" scale="3"/>
+  <columns dataType="CHAR" length="75" name="IM&#xa3;CON"/>
+  <columns dataType="CHAR" length="10" name="IM&#xa3;PGM"/>
+  <columns dataType="CHAR" length="10" name="IM&#xa3;DEV"/>
+  <columns dataType="CHAR" length="10" name="IM&#xa3;LSA"/>
+</db-core:TableDef>

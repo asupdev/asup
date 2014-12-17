@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="ATTR"/>
+  <columns dataType="CHAR" length="4" name="CAUS"/>
+  <columns dataType="CHAR" length="10" name="CCOS"/>
+  <columns dataType="CHAR" length="3" name="CICC"/>
+  <columns dataType="CHAR" length="3" name="CICL"/>
+  <columns dataType="CHAR" length="15" name="CLAV"/>
+  <columns dataType="CHAR" length="15" name="CLIE"/>
+  <columns dataType="CHAR" length="15" name="COAR"/>
+  <columns dataType="DECIMAL" length="11" name="COCA" scale="4"/>
+  <columns dataType="CHAR" length="15" name="CODC"/>
+  <columns dataType="CHAR" length="15" name="COMS"/>
+  <columns dataType="CHAR" length="15" name="CREP"/>
+  <columns dataType="CHAR" length="30" name="CROR"/>
+  <columns dataType="CHAR" length="35" name="DEAR"/>
+  <columns dataType="CHAR" length="30" name="DEOP"/>
+  <columns dataType="CHAR" length="35" name="DESC"/>
+  <columns dataType="DECIMAL" length="8" name="DFRI"/>
+  <columns dataType="DECIMAL" length="8" name="DFSC"/>
+  <columns dataType="DECIMAL" length="8" name="DIEF"/>
+  <columns dataType="DECIMAL" length="8" name="DIRI"/>
+  <columns dataType="DECIMAL" length="8" name="DISC"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="DECIMAL" length="8" name="DTCR"/>
+  <columns dataType="DECIMAL" length="8" name="DTFI"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTPP"/>
+  <columns dataType="DECIMAL" length="8" name="DTPT"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="CHAR" length="5" name="GRAL"/>
+  <columns dataType="DECIMAL" length="5" name="HATR" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="HFSC" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="HISC" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="HRFI" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="HRIN" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="HRPP" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="HRPT" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="HTOT" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="HUNI" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="INDI" scale="5"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="DECIMAL" length="4" name="LOTT"/>
+  <columns dataType="CHAR" length="15" name="MACC"/>
+  <columns dataType="CHAR" length="3" name="MAGC"/>
+  <columns dataType="CHAR" length="10" name="NORD"/>
+  <columns dataType="CHAR" length="50" name="NOTA"/>
+  <columns dataType="CHAR" length="6" name="OPER"/>
+  <columns dataType="CHAR" length="2" name="PRIO"/>
+  <columns dataType="DECIMAL" length="11" name="QORD" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="QUET" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QTOR" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="QTSC" scale="3"/>
+  <columns dataType="CHAR" length="15" name="REPA"/>
+  <columns dataType="CHAR" length="15" name="SINT"/>
+  <columns dataType="CHAR" length="6" name="SQCC"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="3" name="TCIC"/>
+  <columns dataType="DECIMAL" length="11" name="TEOP" scale="4"/>
+  <columns dataType="CHAR" length="3" name="TIEN"/>
+  <columns dataType="CHAR" length="2" name="TIOR"/>
+  <columns dataType="CHAR" length="3" name="TIRI"/>
+  <columns dataType="CHAR" length="3" name="TIRP"/>
+  <columns dataType="CHAR" length="3" name="TIRS"/>
+  <columns dataType="CHAR" length="3" name="TOPE"/>
+  <columns dataType="CHAR" length="1" name="TRFI"/>
+  <columns dataType="CHAR" length="1" name="TRIN"/>
+  <columns dataType="CHAR" length="12" name="UBIC"/>
+  <columns dataType="CHAR" length="2" name="UMIS"/>
+  <columns dataType="CHAR" length="2" name="UMTE"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="DECIMAL" length="8" name="VEFD"/>
+  <columns dataType="DECIMAL" length="4" name="VEFH" scale="2"/>
+  <columns dataType="CHAR" length="2" name="VEFT"/>
+  <columns dataType="DECIMAL" length="8" name="VEID"/>
+  <columns dataType="DECIMAL" length="4" name="VEIH" scale="2"/>
+  <columns dataType="CHAR" length="2" name="VEIT"/>
+</db-core:TableDef>

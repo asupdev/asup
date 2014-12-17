@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="E&#xa7;TRAG" sequence="1"/>
+  <columns name="E&#xa7;RAGS" sequence="2"/>
+  <columns name="E&#xa7;CRAG" sequence="3"/>
+  <columns name="E&#xa7;SCEN" sequence="4"/>
+  <columns name="E&#xa7;DINV" sequence="5"/>
+  <columns name="E&#xa7;DFNV" sequence="6"/>
+  <columns name="E&#xa7;IDOJ" sequence="7"/>
+</db-core:IndexDef>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="S&#xa7;&#xa7;CA1"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;&#xa7;CA2"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;&#xa7;CA3"/>
+  <columns dataType="CHAR" length="3" name="S&#xa7;TRAG"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CRAG"/>
+  <columns dataType="CHAR" length="3" name="S&#xa7;TEST"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CEST"/>
+  <columns dataType="CHAR" length="30" name="S&#xa7;CODR"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;STAT"/>
+  <columns dataType="CHAR" length="200" name="S&#xa7;DESE"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FES1"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FES2"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FES3"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FES4"/>
+  <columns dataType="CHAR" length="1" name="S&#xa7;FES5"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="S&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="S&#xa7;USAG"/>
+</db-core:TableDef>

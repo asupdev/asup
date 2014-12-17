@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="C&#xa7;NUDO" sequence="1"/>
+  <columns name="C&#xa7;TIGR" sequence="2"/>
+  <columns name="C&#xa7;GRUP" sequence="3"/>
+  <columns name="C&#xa7;TIIM" sequence="4"/>
+  <columns name="C&#xa7;COIM" sequence="5"/>
+  <columns name="C&#xa7;DCOD" sequence="6"/>
+  <columns name="C&#xa7;DCOC" sequence="7"/>
+  <columns name="C&#xa7;DTMR" sequence="8"/>
+  <columns name="C&#xa7;TIME" sequence="9"/>
+</db-core:IndexDef>

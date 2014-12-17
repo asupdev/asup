@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="STAREA" sequence="1"/>
+  <columns name="STTEMA" sequence="2"/>
+  <columns name="STLISI" sequence="3"/>
+  <columns name="STCOD2" sequence="4"/>
+  <columns name="STCOD1" sequence="5"/>
+  <columns name="STCOD3" sequence="6"/>
+  <columns name="STPERI" sequence="7"/>
+</db-core:IndexDef>

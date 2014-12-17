@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   SOTIOR ,   SONORD ,   SOCOAR ,   SODTIN ,   SOHRIN ,   SODTFI ,   SOHRFI ,   SODISC ,   SOHISC ,   SODFSC ,   SOHFSC ,   SOMAGC ,   SODEAR ,   SOTIEN ,   SOCLIE ,   SOCOMS ,   SOPRIO ,   SODIRI ,   SODFRI ,   SOIN01 ,   SOIN02 ,   SOIN03 ,   SOIN04 ,   SOIN05 ,   SOFL01 ,   SOFL02 ,   SOFL03 ,   SOFL04 ,   SOFL05   FROM P5SORD0F   ;"/>

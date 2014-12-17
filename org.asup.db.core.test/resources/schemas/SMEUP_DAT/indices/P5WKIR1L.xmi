@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="SWNSES" sequence="1"/>
+  <columns name="SWTIRP" sequence="2"/>
+  <columns name="SWCLAV" sequence="3"/>
+  <columns name="SWTIRF" sequence="4"/>
+  <columns name="SWMACC" sequence="5"/>
+  <columns name="SWSOSP" sequence="6"/>
+  <columns name="SWDTIN" sequence="7"/>
+  <columns name="SWHRIN" sequence="8"/>
+  <columns name="SWCROR" sequence="9"/>
+</db-core:IndexDef>

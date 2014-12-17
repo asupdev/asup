@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="40" name="E&#xa7;1C01"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S01"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1C02"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S02"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1C03"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S03"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1C04"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S04"/>
+  <columns dataType="CHAR" length="30" name="E&#xa7;1C05"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S05"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1C06"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S06"/>
+  <columns dataType="CHAR" length="30" name="E&#xa7;1C07"/>
+  <columns dataType="CHAR" length="1" name="E&#xa7;1S07"/>
+</db-core:TableDef>

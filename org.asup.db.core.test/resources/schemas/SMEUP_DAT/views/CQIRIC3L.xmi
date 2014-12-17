@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   I&#xa7;ANNU ,   I&#xa7;GRUP ,   I&#xa7;ERIF ,   I&#xa7;ETIP ,   I&#xa7;EKY1 ,   I&#xa7;EKY2 ,   I&#xa7;EKY3 ,   I&#xa7;EANN ,   I&#xa7;ORIF ,   I&#xa7;OTIP ,   I&#xa7;OKY1 ,   I&#xa7;OKY2 ,   I&#xa7;OKY3 ,   I&#xa7;OANN   FROM CQIRIC0F   ;"/>

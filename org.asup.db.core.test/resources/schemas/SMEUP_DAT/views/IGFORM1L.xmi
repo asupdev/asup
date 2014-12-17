@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   F&#xa7;TEMA ,   F&#xa7;INDI ,   F&#xa7;DESC ,   F&#xa7;FOR1 ,   F&#xa7;FOR2 ,   F&#xa7;FOR3 ,   F&#xa7;FOR4 ,   F&#xa7;DATI ,   F&#xa7;DAUM ,   F&#xa7;UTEN   FROM IGFORM0F   ;"/>

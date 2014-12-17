@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="BTTPK1"/>
+  <columns dataType="CHAR" length="100" name="BTKEY1"/>
+  <columns dataType="DECIMAL" length="5" name="BTRIG1"/>
+  <columns dataType="CHAR" length="3" name="BTTPK2"/>
+  <columns dataType="CHAR" length="100" name="BTKEY2"/>
+  <columns dataType="DECIMAL" length="5" name="BTRIG2"/>
+  <columns dataType="CHAR" length="30" name="BTCD01"/>
+  <columns dataType="CHAR" length="30" name="BTCD02"/>
+  <columns dataType="CHAR" length="30" name="BTCD03"/>
+  <columns dataType="CHAR" length="30" name="BTCD04"/>
+  <columns dataType="CHAR" length="30" name="BTCD05"/>
+  <columns dataType="CHAR" length="30" name="BTCD06"/>
+  <columns dataType="CHAR" length="30" name="BTCD07"/>
+  <columns dataType="CHAR" length="30" name="BTCD08"/>
+  <columns dataType="CHAR" length="30" name="BTCD09"/>
+  <columns dataType="CHAR" length="30" name="BTCD10"/>
+  <columns dataType="CHAR" length="30" name="BTCD11"/>
+  <columns dataType="CHAR" length="30" name="BTCD12"/>
+  <columns dataType="CHAR" length="30" name="BTCD13"/>
+  <columns dataType="CHAR" length="30" name="BTCD14"/>
+  <columns dataType="CHAR" length="30" name="BTCD15"/>
+  <columns dataType="CHAR" length="30" name="BTCD16"/>
+  <columns dataType="CHAR" length="30" name="BTCD17"/>
+  <columns dataType="CHAR" length="30" name="BTCD18"/>
+  <columns dataType="CHAR" length="30" name="BTCD19"/>
+  <columns dataType="CHAR" length="30" name="BTCD20"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT01"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT02"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT03"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT04"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT05"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT06"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT07"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT08"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT09"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT10"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT11"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT12"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT13"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT14"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT15"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT16"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT17"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT18"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT19"/>
+  <columns dataType="DECIMAL" length="8" name="BTDT20"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR01"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR02"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR03"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR04"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR05"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR06"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR07"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR08"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR09"/>
+  <columns dataType="DECIMAL" length="11" name="BTNR10"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT01" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT02" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT03" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT04" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT05" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT06" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT07" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT08" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT09" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT10" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT11" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT12" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT13" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT14" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT15" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT16" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT17" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT18" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT19" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="BTQT20" scale="9"/>
+  <columns dataType="CHAR" length="1" name="BTFL01"/>
+  <columns dataType="CHAR" length="1" name="BTFL02"/>
+  <columns dataType="CHAR" length="1" name="BTFL03"/>
+  <columns dataType="CHAR" length="1" name="BTFL04"/>
+  <columns dataType="CHAR" length="1" name="BTFL05"/>
+  <columns dataType="CHAR" length="1" name="BTFL06"/>
+  <columns dataType="CHAR" length="1" name="BTFL07"/>
+  <columns dataType="CHAR" length="1" name="BTFL08"/>
+  <columns dataType="CHAR" length="1" name="BTFL09"/>
+  <columns dataType="CHAR" length="1" name="BTFL10"/>
+  <columns dataType="CHAR" length="1" name="BTFL11"/>
+  <columns dataType="CHAR" length="1" name="BTFL12"/>
+  <columns dataType="CHAR" length="1" name="BTFL13"/>
+  <columns dataType="CHAR" length="1" name="BTFL14"/>
+  <columns dataType="CHAR" length="1" name="BTFL15"/>
+  <columns dataType="CHAR" length="1" name="BTFL16"/>
+  <columns dataType="CHAR" length="1" name="BTFL17"/>
+  <columns dataType="CHAR" length="1" name="BTFL18"/>
+  <columns dataType="CHAR" length="1" name="BTFL19"/>
+  <columns dataType="CHAR" length="1" name="BTFL20"/>
+  <columns dataType="CHAR" length="2000" name="BTLIBE"/>
+</db-core:TableDef>

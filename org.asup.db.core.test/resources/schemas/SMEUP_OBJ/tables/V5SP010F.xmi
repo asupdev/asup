@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="R$TDOC"/>
+  <columns dataType="CHAR" length="15" name="R$CODF"/>
+  <columns dataType="CHAR" length="15" name="R$CODS"/>
+  <columns dataType="DECIMAL" length="8" name="R$DTRI"/>
+  <columns dataType="DECIMAL" length="8" name="R$DTCO"/>
+  <columns dataType="CHAR" length="3" name="R$ZONA"/>
+  <columns dataType="CHAR" length="15" name="R$5DAR"/>
+  <columns dataType="CHAR" length="35" name="R$5DAD"/>
+  <columns dataType="CHAR" length="10" name="R$5DND"/>
+  <columns dataType="CHAR" length="4" name="R$5DNR"/>
+  <columns dataType="DECIMAL" length="11" name="R$5DQR" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="R$5DDR"/>
+  <columns dataType="DECIMAL" length="11" name="R$5DQE" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="R$5DDE"/>
+  <columns dataType="CHAR" length="1" name="R$5DFD"/>
+  <columns dataType="CHAR" length="1" name="R$FLEV"/>
+  <columns dataType="CHAR" length="3" name="XXGRUP"/>
+  <columns dataType="CHAR" length="5" name="XXCLGE"/>
+</db-core:TableDef>

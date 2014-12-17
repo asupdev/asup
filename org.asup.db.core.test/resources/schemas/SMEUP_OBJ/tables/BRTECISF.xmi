@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="A&#xa7;&#xa7;CA1"/>
+  <columns dataType="CHAR" length="30" name="A&#xa7;&#xa7;CA2"/>
+  <columns dataType="CHAR" length="30" name="A&#xa7;&#xa7;CA3"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;TCIC"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CODI"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;CICL"/>
+  <columns dataType="CHAR" length="30" name="T&#xa7;DESC"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;CODC"/>
+  <columns dataType="CHAR" length="3" name="T&#xa7;CICC"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;PRTY"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DINV"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DFNV"/>
+  <columns dataType="DECIMAL" length="9" name="T&#xa7;QMIP"/>
+  <columns dataType="DECIMAL" length="9" name="T&#xa7;QMXP"/>
+  <columns dataType="CHAR" length="5" name="T&#xa7;CRSE"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;PAS1"/>
+  <columns dataType="CHAR" length="15" name="T&#xa7;PAS2"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;FLG1"/>
+  <columns dataType="CHAR" length="2" name="T&#xa7;FLG2"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="T&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="T&#xa7;USAG"/>
+</db-core:TableDef>

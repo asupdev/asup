@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="6" name="CDVI"/>
+  <columns dataType="CHAR" length="15" name="DIPE"/>
+  <columns dataType="CHAR" length="2" name="TPVI"/>
+  <columns dataType="CHAR" length="6" name="CDES"/>
+  <columns dataType="DECIMAL" length="8" name="DTRI"/>
+  <columns dataType="DECIMAL" length="8" name="DTEF"/>
+  <columns dataType="CHAR" length="5" name="ENDE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="5" name="ESIT"/>
+  <columns dataType="CHAR" length="50" name="NOTA"/>
+</db-core:TableDef>

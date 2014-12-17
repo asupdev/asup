@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="S1AMOR" sequence="1"/>
+  <columns name="S1STOR" sequence="2"/>
+  <columns name="S1TIPA" sequence="3"/>
+  <columns name="S1CODI" sequence="4"/>
+  <columns name="S1DET1" sequence="5"/>
+  <columns name="S1DET2" sequence="6"/>
+  <columns name="S1DET3" sequence="7"/>
+  <columns name="S1DET4" sequence="8"/>
+  <columns name="S1FRAS" sequence="9"/>
+</db-core:IndexDef>

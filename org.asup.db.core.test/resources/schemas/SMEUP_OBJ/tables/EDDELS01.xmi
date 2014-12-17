@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="D01TREC"/>
+  <columns dataType="CHAR" length="35" name="D01NDOC"/>
+  <columns dataType="DECIMAL" length="12" name="D01DTDO"/>
+  <columns dataType="CHAR" length="17" name="D01SELC"/>
+  <columns dataType="CHAR" length="17" name="D01BUYC"/>
+  <columns dataType="CHAR" length="3" name="D01RLTC"/>
+  <columns dataType="CHAR" length="3" name="D01SCHT"/>
+  <columns dataType="DECIMAL" length="12" name="D01EFRD"/>
+  <columns dataType="DECIMAL" length="12" name="D01ETOD"/>
+  <columns dataType="CHAR" length="17" name="D01INVC"/>
+  <columns dataType="CHAR" length="35" name="D01INV1"/>
+  <columns dataType="CHAR" length="35" name="D01INV2"/>
+  <columns dataType="CHAR" length="35" name="D01INV3"/>
+  <columns dataType="CHAR" length="35" name="D01INV4"/>
+  <columns dataType="CHAR" length="35" name="D01CON1"/>
+  <columns dataType="CHAR" length="35" name="D01CON2"/>
+  <columns dataType="CHAR" length="17" name="D01IDME"/>
+  <columns dataType="CHAR" length="35" name="D01COFF"/>
+  <columns dataType="CHAR" length="35" name="D01COF2"/>
+  <columns dataType="CHAR" length="35" name="D01COF3"/>
+</db-core:TableDef>

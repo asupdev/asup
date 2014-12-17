@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="V$USAG" sequence="1"/>
+  <columns name="V$LIVE" sequence="2"/>
+  <columns name="V$CDVG" sequence="3"/>
+</db-core:IndexDef>

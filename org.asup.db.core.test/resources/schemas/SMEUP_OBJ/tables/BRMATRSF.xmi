@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="A&#xa7;&#xa7;CA1"/>
+  <columns dataType="CHAR" length="30" name="A&#xa7;&#xa7;CA2"/>
+  <columns dataType="CHAR" length="30" name="A&#xa7;&#xa7;CA3"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TMAT"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;NMAT"/>
+  <columns dataType="CHAR" length="35" name="F&#xa7;NMEX"/>
+  <columns dataType="CHAR" length="2" name="F&#xa7;TPCD"/>
+  <columns dataType="CHAR" length="10" name="F&#xa7;PACD"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;CODC"/>
+  <columns dataType="CHAR" length="2" name="F&#xa7;SSGR"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;GRUP"/>
+  <columns dataType="CHAR" length="30" name="F&#xa7;DESC"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="F&#xa7;STAT"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TIE1"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COE1"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TIE2"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COE2"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TDO1"/>
+  <columns dataType="CHAR" length="10" name="F&#xa7;NDO1"/>
+  <columns dataType="DECIMAL" length="4" name="F&#xa7;NRI1"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DTD1"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TDO2"/>
+  <columns dataType="CHAR" length="10" name="F&#xa7;NDO2"/>
+  <columns dataType="DECIMAL" length="4" name="F&#xa7;NRI2"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DTD2"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TDO3"/>
+  <columns dataType="CHAR" length="10" name="F&#xa7;NDO3"/>
+  <columns dataType="DECIMAL" length="4" name="F&#xa7;NRI3"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DTD3"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;CESP"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="12" name="F&#xa7;LOCN"/>
+  <columns dataType="DECIMAL" length="9" name="F&#xa7;NUR1"/>
+  <columns dataType="DECIMAL" length="9" name="F&#xa7;NUR2"/>
+  <columns dataType="DECIMAL" length="9" name="F&#xa7;NUR3"/>
+  <columns dataType="CHAR" length="3" name="F&#xa7;TMAS"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;NMAS"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="F&#xa7;COD5"/>
+  <columns dataType="DECIMAL" length="15" name="F&#xa7;NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F&#xa7;NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F&#xa7;NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F&#xa7;NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="F&#xa7;NUM5" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DT05"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="F&#xa7;FL10"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="F&#xa7;DTAG"/>
+  <columns dataType="CHAR" length="10" name="F&#xa7;USAG"/>
+</db-core:TableDef>

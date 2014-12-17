@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="MUCONT" sequence="1"/>
+  <columns name="MULIBR" sequence="2"/>
+  <columns name="MUTIPO" sequence="3"/>
+  <columns name="MUOGGE" sequence="4"/>
+</db-core:IndexDef>

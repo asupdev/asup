@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   AWIDOG ,   AWDATA ,   AWISTA ,   AWDALF ,   AWMODU ,   AWTOGG ,   AWCOGG ,   AWNR01 ,   AWNOTA ,   AWNOT2 ,   AWFL01 ,   AWFL02 ,   AWUSIN ,   AWDTIN ,   AWORIN ,   AWOGIN ,   AWUSAG ,   AWDTAG ,   AWORAG ,   AWOGAG   FROM A&#xa3;WORK0F   ;"/>

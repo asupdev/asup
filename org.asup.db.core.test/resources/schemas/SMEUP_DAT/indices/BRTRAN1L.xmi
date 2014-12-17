@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="W5IDTR" sequence="1"/>
+  <columns name="W5TREC" sequence="2"/>
+  <columns name="W5TRAG" sequence="3"/>
+  <columns name="W5CRAG" sequence="4"/>
+  <columns name="W5SCEN" sequence="5"/>
+  <columns name="W5KEY" sequence="6"/>
+  <columns name="W5DINV" sequence="7"/>
+  <columns name="W5DFNV" sequence="8"/>
+  <columns name="W5IDOJ" sequence="9"/>
+</db-core:IndexDef>

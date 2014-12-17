@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="W&#xa7;LIB1" sequence="1"/>
+  <columns name="W&#xa7;TIOR" sequence="2"/>
+  <columns name="W&#xa7;CDOR" sequence="3"/>
+  <columns name="W&#xa7;TDOC" sequence="4"/>
+  <columns name="W&#xa7;TMOD" sequence="5"/>
+  <columns name="W&#xa7;MAGA" sequence="6"/>
+  <columns name="W&#xa7;TRIG" sequence="7"/>
+  <columns name="W&#xa7;TIOG" sequence="8"/>
+  <columns name="W&#xa7;CDOG" sequence="9"/>
+</db-core:IndexDef>

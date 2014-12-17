@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="L$TCEL" sequence="1"/>
+  <columns name="L$PCEL" sequence="2"/>
+  <columns name="L$COEL" sequence="3"/>
+  <columns name="L$ESIT" sequence="4"/>
+  <columns name="L$TIPC" sequence="5"/>
+  <columns name="L$KYC1" sequence="6"/>
+  <columns name="L$KYC2" sequence="7"/>
+  <columns name="L$KYC3" sequence="8"/>
+  <columns name="L$TIPI" sequence="9"/>
+</db-core:IndexDef>

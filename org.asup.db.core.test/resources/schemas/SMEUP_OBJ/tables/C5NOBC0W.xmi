@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="C5CONT"/>
+  <columns dataType="CHAR" length="3" name="C5SOCO"/>
+  <columns dataType="CHAR" length="15" name="C5OGRI"/>
+  <columns dataType="CHAR" length="35" name="C5DES1"/>
+  <columns dataType="CHAR" length="4" name="C5VALU"/>
+  <columns dataType="DECIMAL" length="21" name="C5IMPO" scale="6"/>
+  <columns dataType="CHAR" length="1" name="C5SEGN"/>
+  <columns dataType="CHAR" length="2" name="C5UNMS"/>
+  <columns dataType="DECIMAL" length="21" name="C5QUAN" scale="6"/>
+</db-core:TableDef>

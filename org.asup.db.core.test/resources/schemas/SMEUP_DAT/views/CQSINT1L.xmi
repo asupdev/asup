@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   S&#xa7;TTRI ,   S&#xa7;TDRI ,   S&#xa7;TART ,   S&#xa7;TEFO ,   S&#xa7;TCFO ,   S&#xa7;TCNC ,   S&#xa7;TQSC ,   S&#xa7;TQRL ,   S&#xa7;TTEM   FROM CQSINT0F   ;"/>

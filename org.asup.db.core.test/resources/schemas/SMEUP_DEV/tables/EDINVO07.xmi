@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I07TREC"/>
+  <columns dataType="CHAR" length="35" name="I07NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="I07PRAR"/>
+  <columns dataType="DECIMAL" length="4" name="I07NRIG"/>
+  <columns dataType="CHAR" length="132" name="I07NOTA"/>
+</db-core:TableDef>

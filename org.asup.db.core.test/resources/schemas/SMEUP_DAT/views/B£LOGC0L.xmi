@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   B&#xa7;TIPO ,   B&#xa7;COD1 ,   B&#xa7;COD2 ,   B&#xa7;DAST ,   B&#xa7;ORST ,   B&#xa7;CODI ,   B&#xa7;VALO ,   B&#xa7;UTEN ,   B&#xa7;WKST   FROM B&#xa3;LOGC0F   ;"/>

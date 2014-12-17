@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="MUCONT"/>
+  <columns dataType="CHAR" length="10" name="MULIBR"/>
+  <columns dataType="CHAR" length="10" name="MUTIPO"/>
+  <columns dataType="CHAR" length="10" name="MUOGGE"/>
+  <columns dataType="CHAR" length="50" name="MUDESC"/>
+  <columns dataType="CHAR" length="10" name="MUATTR"/>
+  <columns dataType="CHAR" length="2" name="MUAPPL"/>
+  <columns dataType="CHAR" length="6" name="MUMODU"/>
+  <columns dataType="CHAR" length="10" name="MUUSCR"/>
+  <columns dataType="DECIMAL" length="8" name="MUDTCR"/>
+  <columns dataType="DECIMAL" length="6" name="MUORCR"/>
+  <columns dataType="DECIMAL" length="8" name="MUDTMO"/>
+  <columns dataType="DECIMAL" length="6" name="MUORMO"/>
+  <columns dataType="DECIMAL" length="8" name="MUDTLS"/>
+  <columns dataType="DECIMAL" length="6" name="MUGGLS"/>
+  <columns dataType="CHAR" length="1" name="MULIVE"/>
+  <columns dataType="CHAR" length="2" name="MUSTAT"/>
+  <columns dataType="CHAR" length="2" name="MUGRAV"/>
+  <columns dataType="CHAR" length="7" name="MUMESS"/>
+  <columns dataType="CHAR" length="256" name="MUINFO"/>
+  <columns dataType="CHAR" length="10" name="MUFILE"/>
+  <columns dataType="CHAR" length="10" name="MUMEMB"/>
+  <columns dataType="DECIMAL" length="8" name="MUDT01"/>
+  <columns dataType="DECIMAL" length="8" name="MUDT02"/>
+  <columns dataType="DECIMAL" length="8" name="MUDT03"/>
+  <columns dataType="DECIMAL" length="8" name="MUDT04"/>
+  <columns dataType="DECIMAL" length="8" name="MUDT05"/>
+  <columns dataType="CHAR" length="15" name="MUCD01"/>
+  <columns dataType="CHAR" length="15" name="MUCD02"/>
+  <columns dataType="CHAR" length="15" name="MUCD03"/>
+  <columns dataType="CHAR" length="15" name="MUCD04"/>
+  <columns dataType="CHAR" length="15" name="MUCD05"/>
+  <columns dataType="DECIMAL" length="15" name="MUNU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MUNU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MUNU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MUNU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MUNU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="MUFL01"/>
+  <columns dataType="CHAR" length="1" name="MUFL02"/>
+  <columns dataType="CHAR" length="1" name="MUFL03"/>
+  <columns dataType="CHAR" length="1" name="MUFL04"/>
+  <columns dataType="CHAR" length="1" name="MUFL05"/>
+  <columns dataType="CHAR" length="1" name="MUFL06"/>
+  <columns dataType="CHAR" length="1" name="MUFL07"/>
+  <columns dataType="CHAR" length="1" name="MUFL08"/>
+  <columns dataType="CHAR" length="1" name="MUFL09"/>
+  <columns dataType="CHAR" length="1" name="MUFL10"/>
+  <columns dataType="CHAR" length="10" name="MUUSES"/>
+  <columns dataType="DECIMAL" length="8" name="MUDTES"/>
+  <columns dataType="DECIMAL" length="6" name="MUORES"/>
+  <columns dataType="CHAR" length="6" name="MUJOES"/>
+</db-core:TableDef>

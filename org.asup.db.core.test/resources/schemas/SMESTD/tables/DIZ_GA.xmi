@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="6" name="NRIC"/>
+  <columns dataType="DECIMAL" length="4" name="NRIG"/>
+  <columns dataType="CHAR" length="4" name="TGAR"/>
+  <columns dataType="CHAR" length="3" name="TORD"/>
+  <columns dataType="CHAR" length="10" name="ORDI"/>
+  <columns dataType="CHAR" length="3" name="TIDC"/>
+  <columns dataType="CHAR" length="10" name="NRDC"/>
+  <columns dataType="DECIMAL" length="4" name="NRID"/>
+  <columns dataType="CHAR" length="3" name="TIOR"/>
+  <columns dataType="CHAR" length="3" name="TCDS"/>
+  <columns dataType="CHAR" length="15" name="CDCS"/>
+  <columns dataType="CHAR" length="10" name="CCOS"/>
+  <columns dataType="CHAR" length="10" name="COMM"/>
+  <columns dataType="CHAR" length="6" name="VOSP"/>
+  <columns dataType="CHAR" length="2" name="URGE"/>
+  <columns dataType="CHAR" length="2" name="TICO"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="CHAR" length="35" name="DESC"/>
+  <columns dataType="DECIMAL" length="15" name="NUME" scale="5"/>
+  <columns dataType="CHAR" length="20" name="CONF"/>
+  <columns dataType="CHAR" length="3" name="MAGA"/>
+  <columns dataType="CHAR" length="6" name="OPER"/>
+  <columns dataType="CHAR" length="2" name="ESMO"/>
+  <columns dataType="CHAR" length="6" name="UNMI"/>
+  <columns dataType="DECIMAL" length="11" name="QTRI" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="QTRV" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="QTOV" scale="3"/>
+  <columns dataType="CHAR" length="2" name="UNMV"/>
+  <columns dataType="DECIMAL" length="15" name="FATC" scale="5"/>
+  <columns dataType="DECIMAL" length="21" name="VALO" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="SCON" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="SC02" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="SC03" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="CHAR" length="15" name="ORIG"/>
+  <columns dataType="CHAR" length="6" name="CLAS"/>
+  <columns dataType="CHAR" length="4" name="VALU"/>
+  <columns dataType="CHAR" length="10" name="BUYE"/>
+  <columns dataType="CHAR" length="10" name="OFFE"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="CHAR" length="10" name="UTEN"/>
+  <columns dataType="CHAR" length="15" name="DEST"/>
+</db-core:TableDef>

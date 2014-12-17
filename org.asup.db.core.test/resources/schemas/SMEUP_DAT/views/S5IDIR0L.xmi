@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   I6SCEN ,   I6TORI ,   I6TDOC ,   I6NDOC ,   I6NRIG ,   I6OPER ,   I6FL12 ,   I6IDOJ ,   I6DTCR ,   I6HRCR ,   I6USIN ,   I6DTAG ,   I6HRAG ,   I6USAG   FROM S5IDIR0F   ;"/>

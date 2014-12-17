@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="B5AZIE" sequence="1"/>
+  <columns name="B5TIBC" sequence="2"/>
+  <columns name="B5ESER" sequence="3"/>
+  <columns name="B5DATA" sequence="4"/>
+  <columns name="B5SOCE" sequence="5"/>
+  <columns name="B5CONT" sequence="6"/>
+  <columns name="B5SOCO" sequence="7"/>
+  <columns name="B5OGRI" sequence="8"/>
+</db-core:IndexDef>

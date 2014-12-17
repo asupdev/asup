@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="RFRCEN"/>
+  <columns dataType="CHAR" length="6" name="RFRDAT"/>
+  <columns dataType="CHAR" length="6" name="RFRTIM"/>
+  <columns dataType="CHAR" length="10" name="RFFILE"/>
+  <columns dataType="CHAR" length="10" name="RFLIB"/>
+  <columns dataType="CHAR" length="1" name="RFFTYP"/>
+  <columns dataType="CHAR" length="4" name="RFFILA"/>
+  <columns dataType="CHAR" length="1" name="RFMXDD"/>
+  <columns dataType="CHAR" length="1" name="RFMXDC"/>
+  <columns dataType="CHAR" length="1" name="RFMXDB"/>
+  <columns dataType="CHAR" length="6" name="RFFATR"/>
+  <columns dataType="CHAR" length="8" name="RFSYSN"/>
+  <columns dataType="DECIMAL" length="3" name="RFASP"/>
+  <columns dataType="CHAR" length="4" name="RFRES"/>
+  <columns dataType="DECIMAL" length="4" name="RFTOTF"/>
+  <columns dataType="CHAR" length="10" name="RFNAME"/>
+  <columns dataType="DECIMAL" length="5" name="RFFLDN"/>
+  <columns dataType="DECIMAL" length="5" name="RFLEN"/>
+  <columns dataType="CHAR" length="13" name="RFID"/>
+  <columns dataType="DECIMAL" length="1" name="RFTYPE"/>
+  <columns dataType="CHAR" length="10" name="RFASFN"/>
+  <columns dataType="CHAR" length="50" name="RFFTXT"/>
+  <columns dataType="DECIMAL" length="4" name="RFHIGH"/>
+  <columns dataType="DECIMAL" length="5" name="RFWIDE"/>
+  <columns dataType="CHAR" length="10" name="RFFONT"/>
+  <columns dataType="DECIMAL" length="3" name="RFPGRT"/>
+  <columns dataType="DECIMAL" length="3" name="RFLPI" scale="1"/>
+  <columns dataType="DECIMAL" length="3" name="RFCHWD" scale="1"/>
+  <columns dataType="DECIMAL" length="3" name="RFCHHI" scale="1"/>
+  <columns dataType="DECIMAL" length="4" name="RFPNTS" scale="1"/>
+  <columns dataType="CHAR" length="1" name="RFWIN"/>
+  <columns dataType="CHAR" length="10" name="RFFCSN"/>
+  <columns dataType="CHAR" length="10" name="RFFCSL"/>
+  <columns dataType="CHAR" length="10" name="RFFCPN"/>
+  <columns dataType="CHAR" length="10" name="RFFCPL"/>
+  <columns dataType="CHAR" length="10" name="RFCDFN"/>
+  <columns dataType="CHAR" length="10" name="RFCDFL"/>
+  <columns dataType="CHAR" length="10" name="RFDCDF"/>
+  <columns dataType="CHAR" length="10" name="RFDCDL"/>
+  <columns dataType="CHAR" length="1" name="RFMNB"/>
+  <columns dataType="CHAR" length="1" name="RFPLD"/>
+  <columns dataType="CHAR" length="1" name="RFGRD"/>
+  <columns dataType="DECIMAL" length="4" name="RFFSPS" scale="1"/>
+  <columns dataType="DECIMAL" length="4" name="RFCFPS" scale="1"/>
+  <columns dataType="DECIMAL" length="4" name="RFIFPS" scale="1"/>
+  <columns dataType="CHAR" length="1" name="RFSPGG"/>
+  <columns dataType="CHAR" length="1" name="RFEPGG"/>
+  <columns dataType="CHAR" length="1" name="RFDITG"/>
+  <columns dataType="CHAR" length="1" name="RFIDTM"/>
+  <columns dataType="DECIMAL" length="4" name="RFFPSW" scale="1"/>
+  <columns dataType="DECIMAL" length="4" name="RFCPSW" scale="1"/>
+  <columns dataType="DECIMAL" length="4" name="RFSPSW" scale="1"/>
+  <columns dataType="DECIMAL" length="4" name="RFGPSW" scale="1"/>
+</db-core:TableDef>

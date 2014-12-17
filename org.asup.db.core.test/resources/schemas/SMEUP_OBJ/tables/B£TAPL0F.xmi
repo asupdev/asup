@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="K$NOME"/>
+  <columns dataType="CHAR" length="10" name="K$TIME"/>
+  <columns dataType="CHAR" length="10" name="K$PROG"/>
+  <columns dataType="CHAR" length="30" name="K$LIVE"/>
+  <columns dataType="CHAR" length="30" name="K$TIRI"/>
+  <columns dataType="CHAR" length="30" name="K$TRAC"/>
+  <columns dataType="CHAR" length="256" name="K$PARA"/>
+  <columns dataType="CHAR" length="2050" name="K$DATI"/>
+</db-core:TableDef>

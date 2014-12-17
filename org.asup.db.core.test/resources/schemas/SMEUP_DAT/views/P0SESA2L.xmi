@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   E&#xa7;CDVI ,   E&#xa7;CDES ,   E&#xa7;DTRE ,   E&#xa7;DTEE ,   E&#xa7;ENES ,   E&#xa7;STES ,   E&#xa7;ESES ,   E&#xa7;NOTA   FROM P0SESA0F   ;"/>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="ARTI"/>
+  <columns dataType="CHAR" length="35" name="DEAR"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="5" name="TIAR"/>
+  <columns dataType="CHAR" length="15" name="BARC"/>
+  <columns dataType="CHAR" length="15" name="GRDI"/>
+  <columns dataType="CHAR" length="15" name="GRCI"/>
+  <columns dataType="CHAR" length="2" name="UNMS"/>
+  <columns dataType="DECIMAL" length="12" name="PESO" scale="5"/>
+  <columns dataType="CHAR" length="3" name="TPAR"/>
+  <columns dataType="CHAR" length="5" name="CLMA"/>
+  <columns dataType="CHAR" length="5" name="CLPR"/>
+  <columns dataType="CHAR" length="5" name="CLGE"/>
+  <columns dataType="CHAR" length="5" name="CLCO"/>
+  <columns dataType="CHAR" length="5" name="CDLF"/>
+  <columns dataType="CHAR" length="5" name="CLVA"/>
+  <columns dataType="CHAR" length="5" name="CSVQ"/>
+  <columns dataType="CHAR" length="5" name="CSVA"/>
+  <columns dataType="DECIMAL" length="11" name="LOTR" scale="3"/>
+  <columns dataType="CHAR" length="3" name="TRAG"/>
+  <columns dataType="CHAR" length="15" name="CRAG"/>
+  <columns dataType="CHAR" length="35" name="RAGS"/>
+  <columns dataType="CHAR" length="10" name="IDOJ"/>
+  <columns dataType="CHAR" length="15" name="SCEN"/>
+  <columns dataType="CHAR" length="35" name="INDI"/>
+  <columns dataType="CHAR" length="35" name="LOCA"/>
+  <columns dataType="CHAR" length="10" name="PROV"/>
+  <columns dataType="CHAR" length="25" name="NAZI"/>
+  <columns dataType="CHAR" length="10" name="CAPA"/>
+  <columns dataType="CHAR" length="30" name="CPAI"/>
+  <columns dataType="CHAR" length="20" name="COFI"/>
+  <columns dataType="CHAR" length="3" name="TSOG"/>
+  <columns dataType="CHAR" length="20" name="TELE"/>
+  <columns dataType="CHAR" length="20" name="TFAX"/>
+  <columns dataType="CHAR" length="20" name="TELX"/>
+  <columns dataType="CHAR" length="35" name="NMNE"/>
+  <columns dataType="CHAR" length="3" name="GRUP"/>
+  <columns dataType="CHAR" length="3" name="AGEN"/>
+  <columns dataType="CHAR" length="3" name="ZONA"/>
+  <columns dataType="CHAR" length="3" name="LING"/>
+  <columns dataType="CHAR" length="6" name="CNAZ"/>
+  <columns dataType="CHAR" length="4" name="VALU"/>
+  <columns dataType="CHAR" length="3" name="COPA"/>
+  <columns dataType="CHAR" length="3" name="LIST"/>
+  <columns dataType="CHAR" length="3" name="CONS"/>
+  <columns dataType="CHAR" length="3" name="SPED"/>
+  <columns dataType="CHAR" length="3" name="IMBA"/>
+  <columns dataType="CHAR" length="2" name="CASI"/>
+  <columns dataType="CHAR" length="15" name="CODS"/>
+  <columns dataType="CHAR" length="15" name="CODF"/>
+  <columns dataType="CHAR" length="15" name="VETT"/>
+  <columns dataType="CHAR" length="5" name="CAUS"/>
+  <columns dataType="CHAR" length="1" name="RABF"/>
+  <columns dataType="CHAR" length="2" name="PRIO"/>
+  <columns dataType="DECIMAL" length="4" name="PERP" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="SCON" scale="2"/>
+  <columns dataType="CHAR" length="2" name="GCHI"/>
+  <columns dataType="CHAR" length="2" name="GCON"/>
+  <columns dataType="CHAR" length="2" name="GCOL"/>
+  <columns dataType="CHAR" length="15" name="BANC"/>
+  <columns dataType="CHAR" length="35" name="IBAN"/>
+  <columns dataType="CHAR" length="15" name="SWIF"/>
+  <columns dataType="CHAR" length="15" name="BANA"/>
+  <columns dataType="CHAR" length="15" name="CCOR"/>
+  <columns dataType="CHAR" length="1" name="BLOO"/>
+  <columns dataType="CHAR" length="3" name="SPIM"/>
+  <columns dataType="CHAR" length="3" name="SPTR"/>
+  <columns dataType="CHAR" length="3" name="SPBO"/>
+  <columns dataType="CHAR" length="2" name="ALLE"/>
+  <columns dataType="CHAR" length="15" name="CACO"/>
+  <columns dataType="CHAR" length="1" name="BLOP"/>
+  <columns dataType="DECIMAL" length="21" name="FIDO" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="DULP"/>
+  <columns dataType="DECIMAL" length="8" name="DULF"/>
+  <columns dataType="CHAR" length="20" name="PECO"/>
+  <columns dataType="CHAR" length="15" name="NCOD"/>
+  <columns dataType="CHAR" length="132" name="IEMA"/>
+  <columns dataType="CHAR" length="10" name="CCOM"/>
+  <columns dataType="CHAR" length="10" name="CREG"/>
+  <columns dataType="CHAR" length="30" name="CPAE"/>
+  <columns dataType="CHAR" length="3" name="CACR"/>
+  <columns dataType="CHAR" length="4" name="CLAB"/>
+  <columns dataType="CHAR" length="4" name="CLAV"/>
+  <columns dataType="CHAR" length="6" name="CSME"/>
+  <columns dataType="CHAR" length="2" name="FLAG"/>
+  <columns dataType="CHAR" length="6" name="CTAS"/>
+  <columns dataType="CHAR" length="3" name="CSPE"/>
+  <columns dataType="DECIMAL" length="8" name="DDIN"/>
+  <columns dataType="CHAR" length="15" name="CDIN"/>
+  <columns dataType="DECIMAL" length="8" name="DVES"/>
+  <columns dataType="CHAR" length="5" name="CRCP"/>
+  <columns dataType="CHAR" length="3" name="TEST"/>
+  <columns dataType="CHAR" length="15" name="CEST"/>
+  <columns dataType="CHAR" length="30" name="CODR"/>
+  <columns dataType="CHAR" length="200" name="DESE"/>
+  <columns dataType="CHAR" length="1" name="FEST"/>
+  <columns dataType="CHAR" length="4" name="CAPR"/>
+  <columns dataType="CHAR" length="35" name="RAGC"/>
+  <columns dataType="CHAR" length="35" name="RAGN"/>
+  <columns dataType="CHAR" length="1" name="SESS"/>
+  <columns dataType="DECIMAL" length="8" name="DTNA"/>
+  <columns dataType="CHAR" length="35" name="LONA"/>
+  <columns dataType="CHAR" length="10" name="PRNA"/>
+  <columns dataType="CHAR" length="2" name="STCI"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="15" name="CDCF"/>
+  <columns dataType="DECIMAL" length="10" name="ASQT" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="ASGG" scale="1"/>
+  <columns dataType="CHAR" length="3" name="APOL"/>
+  <columns dataType="DECIMAL" length="10" name="AQMV" scale="3"/>
+  <columns dataType="DECIMAL" length="10" name="AQPV" scale="3"/>
+  <columns dataType="CHAR" length="5" name="ACRD"/>
+  <columns dataType="DECIMAL" length="8" name="AICO"/>
+  <columns dataType="DECIMAL" length="8" name="AIVE"/>
+  <columns dataType="CHAR" length="5" name="ACVI"/>
+  <columns dataType="DECIMAL" length="8" name="AFSE"/>
+  <columns dataType="DECIMAL" length="3" name="APRI"/>
+  <columns dataType="CHAR" length="15" name="ASOS"/>
+  <columns dataType="CHAR" length="3" name="APGP"/>
+  <columns dataType="DECIMAL" length="3" name="CGTR"/>
+  <columns dataType="DECIMAL" length="3" name="CGRI"/>
+  <columns dataType="CHAR" length="1" name="CEPA"/>
+  <columns dataType="CHAR" length="3" name="CCAC"/>
+  <columns dataType="CHAR" length="20" name="CONF"/>
+  <columns dataType="CHAR" length="30" name="ARCF"/>
+  <columns dataType="DECIMAL" length="15" name="FATC" scale="5"/>
+  <columns dataType="DECIMAL" length="3" name="QUOC" scale="1"/>
+  <columns dataType="DECIMAL" length="8" name="DINV"/>
+  <columns dataType="DECIMAL" length="8" name="DFNV"/>
+  <columns dataType="CHAR" length="20" name="NOMC"/>
+  <columns dataType="CHAR" length="3" name="TIPD"/>
+  <columns dataType="CHAR" length="15" name="ASSI"/>
+  <columns dataType="CHAR" length="4" name="USRS"/>
+  <columns dataType="CHAR" length="15" name="COMP"/>
+  <columns dataType="DECIMAL" length="3" name="LTAD"/>
+  <columns dataType="CHAR" length="5" name="CRSE"/>
+  <columns dataType="CHAR" length="15" name="PASE"/>
+  <columns dataType="DECIMAL" length="15" name="COEF" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="CORS" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="CORC" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="CORM" scale="6"/>
+  <columns dataType="DECIMAL" length="11" name="QTLO" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="QUAD" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="PERT" scale="3"/>
+  <columns dataType="CHAR" length="1" name="FLGD"/>
+  <columns dataType="CHAR" length="5" name="DISP"/>
+  <columns dataType="CHAR" length="6" name="SQCI"/>
+  <columns dataType="CHAR" length="3" name="TCIC"/>
+  <columns dataType="CHAR" length="3" name="CICL"/>
+  <columns dataType="CHAR" length="15" name="CODC"/>
+  <columns dataType="CHAR" length="3" name="CICC"/>
+  <columns dataType="CHAR" length="2" name="PRTY"/>
+  <columns dataType="DECIMAL" length="9" name="QMIP"/>
+  <columns dataType="DECIMAL" length="9" name="QMXP"/>
+  <columns dataType="CHAR" length="15" name="ESMI"/>
+  <columns dataType="CHAR" length="15" name="ESMX"/>
+  <columns dataType="CHAR" length="2" name="FLG1"/>
+  <columns dataType="CHAR" length="2" name="FLG2"/>
+  <columns dataType="CHAR" length="3" name="CVAD"/>
+  <columns dataType="CHAR" length="3" name="CVAA"/>
+  <columns dataType="CHAR" length="30" name="DSEC"/>
+  <columns dataType="CHAR" length="3" name="TOPE"/>
+  <columns dataType="CHAR" length="15" name="RISO"/>
+  <columns dataType="CHAR" length="5" name="GRAL"/>
+  <columns dataType="CHAR" length="6" name="SQCC"/>
+  <columns dataType="DECIMAL" length="11" name="TEOP" scale="4"/>
+  <columns dataType="CHAR" length="2" name="UMTE"/>
+  <columns dataType="DECIMAL" length="11" name="VALO" scale="3"/>
+  <columns dataType="CHAR" length="2" name="UMCO"/>
+  <columns dataType="CHAR" length="50" name="NOTA"/>
+  <columns dataType="CHAR" length="3" name="TRIS"/>
+  <columns dataType="CHAR" length="15" name="CDAP"/>
+  <columns dataType="CHAR" length="5" name="DEPT"/>
+  <columns dataType="DECIMAL" length="11" name="CODA" scale="3"/>
+  <columns dataType="CHAR" length="12" name="LOCN"/>
+  <columns dataType="CHAR" length="3" name="CDMG"/>
+  <columns dataType="DECIMAL" length="5" name="NRUT"/>
+  <columns dataType="DECIMAL" length="5" name="NRCO"/>
+  <columns dataType="DECIMAL" length="5" name="LOLE"/>
+  <columns dataType="DECIMAL" length="5" name="NROP"/>
+  <columns dataType="DECIMAL" length="5" name="NRCI"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="CHAR" length="2" name="TIOG"/>
+  <columns dataType="CHAR" length="30" name="DESC"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="DECIMAL" length="15" name="NUME" scale="5"/>
+  <columns dataType="CHAR" length="2" name="SUBS"/>
+  <columns dataType="DECIMAL" length="5" name="CMEF" scale="2"/>
+  <columns dataType="DECIMAL" length="5" name="CMTE" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="ESTD" scale="4"/>
+  <columns dataType="CHAR" length="2" name="CDCA"/>
+  <columns dataType="DECIMAL" length="2" name="NRRS"/>
+  <columns dataType="DECIMAL" length="5" name="CMGG" scale="2"/>
+  <columns dataType="CHAR" length="15" name="RESP"/>
+  <columns dataType="CHAR" length="10" name="NCOM"/>
+  <columns dataType="DECIMAL" length="12" name="VOLU" scale="5"/>
+  <columns dataType="CHAR" length="15" name="CALT"/>
+  <columns dataType="CHAR" length="15" name="CESP"/>
+  <columns dataType="CHAR" length="15" name="CONT"/>
+  <columns dataType="CHAR" length="15" name="ARRI"/>
+  <columns dataType="CHAR" length="20" name="DISE"/>
+  <columns dataType="CHAR" length="15" name="RCDV"/>
+  <columns dataType="CHAR" length="3" name="ENIR"/>
+  <columns dataType="CHAR" length="5" name="CLFU"/>
+  <columns dataType="CHAR" length="3" name="TMAT"/>
+  <columns dataType="CHAR" length="15" name="NMAT"/>
+  <columns dataType="CHAR" length="2" name="TIPO"/>
+  <columns dataType="CHAR" length="10" name="PARA"/>
+  <columns dataType="CHAR" length="3" name="TDOC"/>
+  <columns dataType="CHAR" length="10" name="NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="NRIG"/>
+  <columns dataType="DECIMAL" length="8" name="DTDO"/>
+  <columns dataType="CHAR" length="35" name="NMEX"/>
+  <columns dataType="DECIMAL" length="8" name="DATL"/>
+  <columns dataType="DECIMAL" length="9" name="NURE"/>
+  <columns dataType="CHAR" length="1" name="FLGM"/>
+  <columns dataType="CHAR" length="3" name="TBRJ"/>
+  <columns dataType="CHAR" length="3" name="TBRK"/>
+  <columns dataType="CHAR" length="10" name="ATPR"/>
+  <columns dataType="CHAR" length="10" name="COMM"/>
+  <columns dataType="CHAR" length="35" name="DECM"/>
+  <columns dataType="CHAR" length="3" name="TICM"/>
+  <columns dataType="CHAR" length="2" name="NACM"/>
+  <columns dataType="CHAR" length="3" name="TIEN"/>
+  <columns dataType="CHAR" length="15" name="COEN"/>
+  <columns dataType="CHAR" length="30" name="RFES"/>
+  <columns dataType="CHAR" length="10" name="PAOG"/>
+  <columns dataType="CHAR" length="15" name="CDOG"/>
+  <columns dataType="CHAR" length="35" name="DSOG"/>
+  <columns dataType="CHAR" length="15" name="CODX"/>
+  <columns dataType="DECIMAL" length="15" name="NUMR" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="DECIMAL" length="6" name="ORA6"/>
+  <columns dataType="CHAR" length="12" name="TIPR"/>
+  <columns dataType="CHAR" length="15" name="RICL"/>
+  <columns dataType="CHAR" length="10" name="OGIN"/>
+  <columns dataType="CHAR" length="10" name="OGAG"/>
+</db-core:TableDef>

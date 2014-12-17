@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   J&#xa7;TIP1 ,   J&#xa7;COD1 ,   J&#xa7;TIP2 ,   J&#xa7;COD2 ,   J&#xa7;DOCU ,   J&#xa7;DATI   FROM JADOCU0F   ;"/>

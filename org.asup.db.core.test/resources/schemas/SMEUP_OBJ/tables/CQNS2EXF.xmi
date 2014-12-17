@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="EXCKE1"/>
+  <columns dataType="CHAR" length="35" name="EXDKE1"/>
+  <columns dataType="CHAR" length="15" name="EXCKE2"/>
+  <columns dataType="CHAR" length="35" name="EXDKE2"/>
+  <columns dataType="CHAR" length="15" name="EXCKE3"/>
+  <columns dataType="CHAR" length="35" name="EXDKE3"/>
+  <columns dataType="DECIMAL" length="10" name="EXLQ01" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="EXLQ02" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="EXLQ03" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="EXLQ04" scale="4"/>
+</db-core:TableDef>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   AT&#xa3;KEY ,   AT&#xa3;LIN ,   AT&#xa3;DES ,   AT&#xa3;STA ,   AT&#xa3;LIV ,   AT&#xa3;USI ,   AT&#xa3;DTI ,   AT&#xa3;ORI ,   AT&#xa3;USA ,   AT&#xa3;DTA ,   AT&#xa3;ORA   FROM A&#xa3;LINT0F   ;"/>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   M&#xa7;MCST ,   M&#xa7;MDST ,   M&#xa7;MTPS ,   M&#xa7;MCLP ,   M&#xa7;MGRD ,   M&#xa7;MUNM ,   M&#xa7;MICN ,   M&#xa7;MSNS ,   M&#xa7;MINS ,   M&#xa7;MFDS ,   M&#xa7;APRO ,   M&#xa7;MQ1P ,   M&#xa7;MQ2P ,   M&#xa7;MQ3P ,   M&#xa7;MQ4P ,   M&#xa7;MQ5P ,   M&#xa7;DTCR ,   M&#xa7;UTEN ,   M&#xa7;DTMR   FROM CQMCSM0F   ;"/>

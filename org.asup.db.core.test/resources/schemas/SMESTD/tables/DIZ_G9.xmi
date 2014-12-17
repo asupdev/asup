@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="NREG"/>
+  <columns dataType="DECIMAL" length="3" name="RREG"/>
+  <columns dataType="DECIMAL" length="8" name="DMOV"/>
+  <columns dataType="DECIMAL" length="6" name="NPRO"/>
+  <columns dataType="DECIMAL" length="8" name="DDOC"/>
+  <columns dataType="CHAR" length="10" name="NRIF"/>
+  <columns dataType="DECIMAL" length="8" name="DRIF"/>
+  <columns dataType="CHAR" length="3" name="TCON"/>
+  <columns dataType="CHAR" length="6" name="CDC"/>
+  <columns dataType="CHAR" length="6" name="VDS"/>
+  <columns dataType="CHAR" length="10" name="COMM"/>
+  <columns dataType="CHAR" length="12" name="CONT"/>
+  <columns dataType="CHAR" length="1" name="DAAV"/>
+  <columns dataType="CHAR" length="15" name="CODF"/>
+  <columns dataType="CHAR" length="1" name="TRIG"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="DECIMAL" length="15" name="IMIM" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="IMPO" scale="3"/>
+  <columns dataType="CHAR" length="2" name="CASI"/>
+  <columns dataType="CHAR" length="1" name="RIVA"/>
+  <columns dataType="CHAR" length="2" name="NIVA"/>
+  <columns dataType="CHAR" length="4" name="CAUS"/>
+  <columns dataType="CHAR" length="35" name="DESC"/>
+  <columns dataType="CHAR" length="4" name="VALU"/>
+  <columns dataType="DECIMAL" length="12" name="CAMB" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="DVAL"/>
+  <columns dataType="CHAR" length="3" name="COPA"/>
+  <columns dataType="CHAR" length="2" name="TIPA"/>
+  <columns dataType="DECIMAL" length="8" name="DSCA"/>
+  <columns dataType="DECIMAL" length="3" name="NRAT"/>
+  <columns dataType="DECIMAL" length="5" name="PRAT" scale="2"/>
+  <columns dataType="CHAR" length="15" name="BANC"/>
+  <columns dataType="CHAR" length="2" name="TOPE"/>
+  <columns dataType="DECIMAL" length="8" name="DOPE"/>
+  <columns dataType="CHAR" length="1" name="ESEC"/>
+  <columns dataType="CHAR" length="1" name="MPRO"/>
+  <columns dataType="CHAR" length="1" name="MVAL"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="DECIMAL" length="21" name="NUME" scale="6"/>
+  <columns dataType="CHAR" length="3" name="DIVI"/>
+  <columns dataType="CHAR" length="3" name="CAUR"/>
+</db-core:TableDef>

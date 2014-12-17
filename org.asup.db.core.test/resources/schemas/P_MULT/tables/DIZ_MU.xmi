@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="CONT"/>
+  <columns dataType="CHAR" length="10" name="LIBR"/>
+  <columns dataType="CHAR" length="10" name="TIPO"/>
+  <columns dataType="CHAR" length="10" name="OGGE"/>
+  <columns dataType="CHAR" length="30" name="DESC"/>
+  <columns dataType="CHAR" length="10" name="ATTR"/>
+  <columns dataType="CHAR" length="2" name="APPL"/>
+  <columns dataType="CHAR" length="6" name="MODU"/>
+  <columns dataType="CHAR" length="10" name="USCR"/>
+  <columns dataType="DECIMAL" length="8" name="DTCR"/>
+  <columns dataType="DECIMAL" length="6" name="ORCR"/>
+  <columns dataType="DECIMAL" length="8" name="DTMO"/>
+  <columns dataType="DECIMAL" length="6" name="ORMO"/>
+  <columns dataType="DECIMAL" length="8" name="DTLS"/>
+  <columns dataType="DECIMAL" length="6" name="GGLS"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="2" name="GRAV"/>
+  <columns dataType="CHAR" length="7" name="MESS"/>
+  <columns dataType="CHAR" length="256" name="INFO"/>
+  <columns dataType="CHAR" length="10" name="FILE"/>
+  <columns dataType="CHAR" length="10" name="MEMB"/>
+  <columns dataType="CHAR" length="15" name="ROUT"/>
+  <columns dataType="CHAR" length="20" name="PROC"/>
+  <columns dataType="CHAR" length="10" name="VERB"/>
+  <columns dataType="CHAR" length="15" name="CATE"/>
+  <columns dataType="CHAR" length="30" name="OGTS"/>
+  <columns dataType="CHAR" length="1" name="ERRO"/>
+  <columns dataType="DECIMAL" length="15" name="TIME"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="DECIMAL" length="15" name="NUMR" scale="5"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="CHAR" length="10" name="USES"/>
+  <columns dataType="DECIMAL" length="8" name="DTES"/>
+  <columns dataType="DECIMAL" length="8" name="ORES"/>
+  <columns dataType="CHAR" length="6" name="JOES"/>
+</db-core:TableDef>

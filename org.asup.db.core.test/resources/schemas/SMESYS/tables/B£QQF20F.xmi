@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="B&#xa7;FIDE"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;FTIP"/>
+  <columns dataType="CHAR" length="500" name="B&#xa7;FPTH"/>
+  <columns dataType="CHAR" length="50" name="B&#xa7;FNAM"/>
+  <columns dataType="CHAR" length="50" name="B&#xa7;FDES"/>
+  <columns dataType="CHAR" length="2000" name="B&#xa7;FATT"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;STAT"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;CODA"/>
+  <columns dataType="CHAR" length="2" name="B&#xa7;AZIE"/>
+  <columns dataType="CHAR" length="5" name="B&#xa7;AMBI"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;AMBL"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="B&#xa7;FL10"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;USIN"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="B&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="10" name="B&#xa7;USAG"/>
+  <columns dataType="DECIMAL" length="8" name="B&#xa7;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="B&#xa7;ORAG"/>
+</db-core:TableDef>

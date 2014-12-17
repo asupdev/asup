@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="C&#xa7;NUDO"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;CARR"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;ESMO"/>
+  <columns dataType="CHAR" length="6" name="C&#xa7;CFAL"/>
+  <columns dataType="CHAR" length="6" name="C&#xa7;CFAC"/>
+  <columns dataType="DECIMAL" length="9" name="C&#xa7;QRES" scale="3"/>
+  <columns dataType="CHAR" length="2" name="C&#xa7;TIEA"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;COEA"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;LOTI"/>
+  <columns dataType="CHAR" length="3" name="C&#xa7;CMAG"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="15" name="C&#xa7;COIM"/>
+</db-core:TableDef>

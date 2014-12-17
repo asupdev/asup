@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="I&#xa3;NSES" sequence="1"/>
+  <columns name="I&#xa3;CDMG" sequence="2"/>
+  <columns name="I&#xa3;TICO" sequence="3"/>
+  <columns name="I&#xa3;PACO" sequence="4"/>
+  <columns name="I&#xa3;OGCO" sequence="5"/>
+  <columns name="I&#xa3;TIP1" sequence="6"/>
+  <columns name="I&#xa3;DTCF" sequence="7"/>
+</db-core:IndexDef>

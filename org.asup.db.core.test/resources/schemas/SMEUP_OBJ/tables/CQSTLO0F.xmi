@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="S&#xa7;PERI"/>
+  <columns dataType="CHAR" length="2" name="S&#xa7;TIEA"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;COEA"/>
+  <columns dataType="CHAR" length="35" name="S&#xa7;DEEA"/>
+  <columns dataType="CHAR" length="15" name="S&#xa7;CARR"/>
+  <columns dataType="CHAR" length="35" name="S&#xa7;DEAR"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;NRAR"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;NRLO"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;QLOT"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;QRIL"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;QTCO"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;QSCA"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;QRLV"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;TNSC"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;TQSC"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;TTSC"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;TNRL"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;TQRL"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;TTRL"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;LNSC"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;LQSC"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;LTSC"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;LNRL"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;LQRL"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;LTRL"/>
+  <columns dataType="DECIMAL" length="5" name="S&#xa7;RNRE"/>
+  <columns dataType="DECIMAL" length="9" name="S&#xa7;RQRE"/>
+</db-core:TableDef>

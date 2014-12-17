@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="CB&#xa3;STA"/>
+  <columns dataType="CHAR" length="3" name="CB&#xa3;TRG"/>
+  <columns dataType="CHAR" length="15" name="CB&#xa3;RIS"/>
+  <columns dataType="CHAR" length="15" name="CB&#xa3;RIC"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O01"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P01" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R01"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O02"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P02" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R02"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O03"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P03" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R03"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O04"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P04" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R04"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O05"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P05" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R05"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O06"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P06" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R06"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O07"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P07" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R07"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O08"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P08" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R08"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O09"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P09" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R09"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O10"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P10" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R10"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O11"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P11" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R11"/>
+  <columns dataType="CHAR" length="2" name="CB&#xa3;O12"/>
+  <columns dataType="DECIMAL" length="5" name="CB&#xa3;P12" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CB&#xa3;R12"/>
+</db-core:TableDef>

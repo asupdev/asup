@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="P&#xa7;&#xa7;CA1"/>
+  <columns dataType="CHAR" length="30" name="P&#xa7;&#xa7;CA2"/>
+  <columns dataType="CHAR" length="30" name="P&#xa7;&#xa7;CA3"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;IDOJ"/>
+  <columns dataType="CHAR" length="5" name="P&#xa7;TFAT"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;NFAT"/>
+  <columns dataType="CHAR" length="3" name="P&#xa7;TPRO"/>
+  <columns dataType="CHAR" length="2" name="P&#xa7;TIPO"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;PARA"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;CODI"/>
+  <columns dataType="DECIMAL" length="6" name="P&#xa7;PERP" scale="3"/>
+  <columns dataType="CHAR" length="3" name="P&#xa7;PLIQ"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DTEL"/>
+  <columns dataType="CHAR" length="3" name="P&#xa7;TCDF"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;CODF"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DFAT"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="P&#xa7;STAT"/>
+  <columns dataType="CHAR" length="3" name="P&#xa7;COPA"/>
+  <columns dataType="CHAR" length="4" name="P&#xa7;VALU"/>
+  <columns dataType="DECIMAL" length="12" name="P&#xa7;CAMB" scale="6"/>
+  <columns dataType="CHAR" length="3" name="P&#xa7;TDOS"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;NDOS"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA01" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA02" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA03" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA04" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA05" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA06" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA07" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA08" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA09" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="P&#xa7;VA10" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DAT1"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DAT2"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DAT3"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DAT4"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DAT5"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="P&#xa7;COD5"/>
+  <columns dataType="DECIMAL" length="15" name="P&#xa7;NUM1" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P&#xa7;NUM2" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P&#xa7;NUM3" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P&#xa7;NUM4" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="P&#xa7;NUM5" scale="5"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL10"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL11"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL12"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL13"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL14"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL20"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL21"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL22"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL23"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL24"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL25"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL26"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL27"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL28"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL29"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL30"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL31"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL32"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL33"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL34"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL35"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL36"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL37"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL38"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL39"/>
+  <columns dataType="CHAR" length="1" name="P&#xa7;FL40"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="P&#xa7;ORIN"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;USIN"/>
+  <columns dataType="DECIMAL" length="8" name="P&#xa7;DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="P&#xa7;ORAG"/>
+  <columns dataType="CHAR" length="10" name="P&#xa7;USAG"/>
+</db-core:TableDef>

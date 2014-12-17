@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I03TREC"/>
+  <columns dataType="CHAR" length="35" name="I03NDOC"/>
+  <columns dataType="CHAR" length="4" name="I03CSC1"/>
+  <columns dataType="DECIMAL" length="15" name="I03CSI1" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I03CSC2"/>
+  <columns dataType="DECIMAL" length="15" name="I03CSI2" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I03CSC3"/>
+  <columns dataType="DECIMAL" length="15" name="I03CSI3" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I03CSC4"/>
+  <columns dataType="DECIMAL" length="15" name="I03CSI4" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I03CSC5"/>
+  <columns dataType="DECIMAL" length="15" name="I03CSI5" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="I03IIV1" scale="2"/>
+  <columns dataType="CHAR" length="3" name="I03CIV1"/>
+  <columns dataType="DECIMAL" length="6" name="I03AIV1" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I03VIV1" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="I03IIV2" scale="2"/>
+  <columns dataType="CHAR" length="3" name="I03CIV2"/>
+  <columns dataType="DECIMAL" length="6" name="I03AIV2" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I03VIV2" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="I03IIV3" scale="2"/>
+  <columns dataType="CHAR" length="3" name="I03CIV3"/>
+  <columns dataType="DECIMAL" length="6" name="I03AIV3" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I03VIV3" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="I03IIV4" scale="2"/>
+  <columns dataType="CHAR" length="3" name="I03CIV4"/>
+  <columns dataType="DECIMAL" length="6" name="I03AIV4" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I03VIV4" scale="2"/>
+  <columns dataType="DECIMAL" length="15" name="I03IIV5" scale="2"/>
+  <columns dataType="CHAR" length="3" name="I03CIV5"/>
+  <columns dataType="DECIMAL" length="6" name="I03AIV5" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="I03VIV5" scale="2"/>
+  <columns dataType="DECIMAL" length="17" name="I03TOAR" scale="2"/>
+  <columns dataType="DECIMAL" length="17" name="I03TOFA" scale="2"/>
+  <columns dataType="DECIMAL" length="17" name="I03TOIM" scale="2"/>
+  <columns dataType="DECIMAL" length="17" name="I03TOIV" scale="2"/>
+  <columns dataType="DECIMAL" length="17" name="I03TOCS" scale="2"/>
+</db-core:TableDef>

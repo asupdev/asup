@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="F3TREC" sequence="1"/>
+  <columns name="F3NURE" sequence="2"/>
+  <columns name="F3TRAN" sequence="3"/>
+  <columns name="F3CLUO" sequence="4"/>
+</db-core:IndexDef>

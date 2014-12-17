@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="M1DTVA" sequence="1"/>
+  <columns name="M1TIPA" sequence="2"/>
+  <columns name="M1CODI" sequence="3"/>
+  <columns name="M1TROT" sequence="4"/>
+  <columns name="M1COD1" sequence="5"/>
+  <columns name="M1COD2" sequence="6"/>
+  <columns name="M1COD3" sequence="7"/>
+  <columns name="M1NUME" sequence="8"/>
+</db-core:IndexDef>

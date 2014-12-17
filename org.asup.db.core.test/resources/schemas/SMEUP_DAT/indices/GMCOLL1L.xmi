@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="Z&#xa7;TIEO" sequence="1"/>
+  <columns name="Z&#xa7;COEO" sequence="2"/>
+  <columns name="Z&#xa7;STAC" sequence="3"/>
+  <columns name="Z&#xa7;NCOL" sequence="4"/>
+</db-core:IndexDef>

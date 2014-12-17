@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   O$COAR ,   O$TCOS ,   O$OPSQ ,   O$LEV1 ,   O$LEF1 ,   O$LEA1 ,   O$LES1 ,   O$LAV1 ,   O$LAF1 ,   O$LAA1 ,   O$LAS1 ,   O$MCV1 ,   O$MCF1 ,   O$MCA1 ,   O$MCS1   FROM COSARO0F   ;"/>

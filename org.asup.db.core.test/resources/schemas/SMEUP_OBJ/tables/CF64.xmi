@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="G0FUNZ"/>
+  <columns dataType="CHAR" length="10" name="G0METO"/>
+  <columns dataType="DECIMAL" length="9" name="G0NURE"/>
+  <columns dataType="DECIMAL" length="21" name="G0PREZ" scale="6"/>
+  <columns dataType="CHAR" length="4" name="G0VALU"/>
+  <columns dataType="DECIMAL" length="12" name="G0CAMB" scale="6"/>
+  <columns dataType="CHAR" length="3" name="G0TDOC"/>
+  <columns dataType="CHAR" length="10" name="G0NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="G0NRIG"/>
+  <columns dataType="CHAR" length="10" name="G0NFAT"/>
+  <columns dataType="DECIMAL" length="8" name="G0DFAT"/>
+</db-core:TableDef>

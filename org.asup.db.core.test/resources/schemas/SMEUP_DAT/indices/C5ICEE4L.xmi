@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="I5AZIE" sequence="1"/>
+  <columns name="I5TPOR" sequence="2"/>
+  <columns name="I5CDOR" sequence="3"/>
+  <columns name="I5CDSE" sequence="4"/>
+  <columns name="I5PEST" sequence="5"/>
+  <columns name="I5NCOM" sequence="6"/>
+  <columns name="I5NFAT" sequence="7"/>
+  <columns name="I5DFAT" sequence="8"/>
+  <columns name="I5NAZP" sequence="9"/>
+  <columns name="I5SEZD" sequence="10"/>
+  <columns name="I5PTRE" sequence="11"/>
+  <columns name="I5PRRE" sequence="12"/>
+</db-core:IndexDef>

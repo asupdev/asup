@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="G9TIFU"/>
+  <columns dataType="CHAR" length="15" name="G9CODI"/>
+  <columns dataType="CHAR" length="7" name="G900CR"/>
+  <columns dataType="CHAR" length="10" name="G900FI"/>
+  <columns dataType="CHAR" length="1" name="G90036"/>
+  <columns dataType="CHAR" length="30" name="G901DS"/>
+  <columns dataType="CHAR" length="1" name="G901CF"/>
+  <columns dataType="CHAR" length="1" name="G901NC"/>
+  <columns dataType="CHAR" length="1" name="G901TR"/>
+  <columns dataType="CHAR" length="2" name="G901NR"/>
+  <columns dataType="CHAR" length="1" name="G901OI"/>
+  <columns dataType="CHAR" length="4" name="G901CC"/>
+  <columns dataType="CHAR" length="35" name="G902DS"/>
+  <columns dataType="CHAR" length="16" name="G902PI"/>
+  <columns dataType="CHAR" length="6" name="G902MS"/>
+  <columns dataType="CHAR" length="6" name="G902AI"/>
+  <columns dataType="CHAR" length="3" name="G902CP"/>
+  <columns dataType="CHAR" length="3" name="G902VA"/>
+  <columns dataType="CHAR" length="15" name="G902BA"/>
+  <columns dataType="CHAR" length="30" name="G903DS"/>
+  <columns dataType="CHAR" length="12" name="G903CI"/>
+  <columns dataType="DECIMAL" length="7" name="G903PI" scale="4"/>
+  <columns dataType="CHAR" length="2" name="G903NA"/>
+  <columns dataType="CHAR" length="2" name="G903OI"/>
+  <columns dataType="CHAR" length="30" name="G904DS"/>
+  <columns dataType="CHAR" length="30" name="G905DS"/>
+  <columns dataType="DECIMAL" length="12" name="G905CM" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="G905DI"/>
+  <columns dataType="DECIMAL" length="8" name="G905DE"/>
+  <columns dataType="CHAR" length="1" name="G905DA"/>
+  <columns dataType="CHAR" length="1" name="G905TA"/>
+  <columns dataType="CHAR" length="4" name="G906VA"/>
+  <columns dataType="DECIMAL" length="8" name="G906DA"/>
+  <columns dataType="DECIMAL" length="12" name="G906CM" scale="6"/>
+  <columns dataType="DECIMAL" length="5" name="G906DI"/>
+  <columns dataType="CHAR" length="35" name="G907DS"/>
+  <columns dataType="CHAR" length="35" name="G907DA"/>
+  <columns dataType="CHAR" length="15" name="G907BA"/>
+  <columns dataType="DECIMAL" length="7" name="G909ND"/>
+  <columns dataType="DECIMAL" length="8" name="G909DC"/>
+  <columns dataType="CHAR" length="1" name="G909GT"/>
+  <columns dataType="CHAR" length="1" name="G910SE"/>
+  <columns dataType="CHAR" length="30" name="G911DS"/>
+</db-core:TableDef>

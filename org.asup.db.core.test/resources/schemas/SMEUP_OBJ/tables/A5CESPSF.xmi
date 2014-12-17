@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="TAACA1"/>
+  <columns dataType="CHAR" length="30" name="TAACA2"/>
+  <columns dataType="CHAR" length="30" name="TAACA3"/>
+  <columns dataType="CHAR" length="2" name="TAAZIE"/>
+  <columns dataType="CHAR" length="3" name="TADIVI"/>
+  <columns dataType="CHAR" length="1" name="TALIVE"/>
+  <columns dataType="CHAR" length="2" name="TASTAT"/>
+  <columns dataType="CHAR" length="15" name="TACESP"/>
+  <columns dataType="CHAR" length="35" name="TADECE"/>
+  <columns dataType="CHAR" length="35" name="TADECA"/>
+  <columns dataType="CHAR" length="10" name="TACACE"/>
+  <columns dataType="CHAR" length="10" name="TARCAC"/>
+  <columns dataType="CHAR" length="15" name="TACERI"/>
+  <columns dataType="CHAR" length="12" name="TATPOR"/>
+  <columns dataType="CHAR" length="15" name="TACDOR"/>
+  <columns dataType="CHAR" length="12" name="TATC01"/>
+  <columns dataType="CHAR" length="12" name="TATC02"/>
+  <columns dataType="CHAR" length="12" name="TATC03"/>
+  <columns dataType="CHAR" length="12" name="TATC04"/>
+  <columns dataType="CHAR" length="12" name="TATC05"/>
+  <columns dataType="CHAR" length="12" name="TATC06"/>
+  <columns dataType="CHAR" length="15" name="TACL01"/>
+  <columns dataType="CHAR" length="15" name="TACL02"/>
+  <columns dataType="CHAR" length="15" name="TACL03"/>
+  <columns dataType="CHAR" length="15" name="TACL04"/>
+  <columns dataType="CHAR" length="15" name="TACL05"/>
+  <columns dataType="CHAR" length="15" name="TACL06"/>
+  <columns dataType="CHAR" length="15" name="TARGVA"/>
+  <columns dataType="CHAR" length="15" name="TAUBIC"/>
+  <columns dataType="CHAR" length="15" name="TANUMA"/>
+  <columns dataType="CHAR" length="15" name="TANUIN"/>
+  <columns dataType="DECIMAL" length="8" name="TADTAQ"/>
+  <columns dataType="DECIMAL" length="8" name="TADTIA"/>
+  <columns dataType="DECIMAL" length="8" name="TADT01"/>
+  <columns dataType="DECIMAL" length="8" name="TADT02"/>
+  <columns dataType="DECIMAL" length="8" name="TADT03"/>
+  <columns dataType="DECIMAL" length="8" name="TADT04"/>
+  <columns dataType="DECIMAL" length="8" name="TADT05"/>
+  <columns dataType="CHAR" length="15" name="TAAA01"/>
+  <columns dataType="CHAR" length="15" name="TAAA02"/>
+  <columns dataType="CHAR" length="15" name="TAAA03"/>
+  <columns dataType="CHAR" length="15" name="TAAA04"/>
+  <columns dataType="CHAR" length="15" name="TAAA05"/>
+  <columns dataType="DECIMAL" length="15" name="TANU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="TANU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="TANU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="TANU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="TANU05" scale="5"/>
+  <columns dataType="CHAR" length="1" name="TAFL01"/>
+  <columns dataType="CHAR" length="1" name="TAFL02"/>
+  <columns dataType="CHAR" length="1" name="TAFL03"/>
+  <columns dataType="CHAR" length="1" name="TAFL04"/>
+  <columns dataType="CHAR" length="1" name="TAFL05"/>
+  <columns dataType="CHAR" length="1" name="TAFL06"/>
+  <columns dataType="CHAR" length="1" name="TAFL07"/>
+  <columns dataType="CHAR" length="1" name="TAFL08"/>
+  <columns dataType="CHAR" length="1" name="TAFL09"/>
+  <columns dataType="CHAR" length="1" name="TAFL10"/>
+  <columns dataType="CHAR" length="1" name="TAFL11"/>
+  <columns dataType="CHAR" length="1" name="TAFL12"/>
+  <columns dataType="CHAR" length="1" name="TAFL13"/>
+  <columns dataType="CHAR" length="1" name="TAFL14"/>
+  <columns dataType="CHAR" length="1" name="TAFL15"/>
+  <columns dataType="CHAR" length="1" name="TAFL16"/>
+  <columns dataType="CHAR" length="1" name="TAFL17"/>
+  <columns dataType="CHAR" length="1" name="TAFL18"/>
+  <columns dataType="CHAR" length="1" name="TAFL19"/>
+  <columns dataType="CHAR" length="1" name="TAFL20"/>
+  <columns dataType="CHAR" length="1" name="TAFL21"/>
+  <columns dataType="CHAR" length="1" name="TAFL22"/>
+  <columns dataType="CHAR" length="1" name="TAFL23"/>
+  <columns dataType="CHAR" length="1" name="TAFL24"/>
+  <columns dataType="CHAR" length="1" name="TAFL25"/>
+  <columns dataType="CHAR" length="1" name="TAFL26"/>
+  <columns dataType="CHAR" length="1" name="TAFL27"/>
+  <columns dataType="CHAR" length="1" name="TAFL28"/>
+  <columns dataType="CHAR" length="1" name="TAFL29"/>
+  <columns dataType="CHAR" length="1" name="TAFL30"/>
+  <columns dataType="CHAR" length="1" name="TAFL31"/>
+  <columns dataType="CHAR" length="1" name="TAFL32"/>
+  <columns dataType="CHAR" length="1" name="TAFL33"/>
+  <columns dataType="CHAR" length="1" name="TAFL34"/>
+  <columns dataType="CHAR" length="1" name="TAFL35"/>
+  <columns dataType="CHAR" length="1" name="TAFL36"/>
+  <columns dataType="CHAR" length="1" name="TAFL37"/>
+  <columns dataType="CHAR" length="1" name="TAFL38"/>
+  <columns dataType="CHAR" length="1" name="TAFL39"/>
+  <columns dataType="CHAR" length="1" name="TAFL40"/>
+  <columns dataType="DECIMAL" length="8" name="TADTIN"/>
+  <columns dataType="DECIMAL" length="6" name="TAORIN"/>
+  <columns dataType="CHAR" length="10" name="TAUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="TADTAG"/>
+  <columns dataType="DECIMAL" length="6" name="TAORAG"/>
+  <columns dataType="CHAR" length="10" name="TAUSAG"/>
+</db-core:TableDef>

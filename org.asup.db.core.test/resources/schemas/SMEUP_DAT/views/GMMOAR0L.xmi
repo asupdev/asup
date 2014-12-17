@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   B&#xa7;NURE ,   B&#xa7;ARTI ,   B&#xa7;CDMG ,   B&#xa7;CAMO ,   B&#xa7;GRAR ,   B&#xa7;ENUS ,   B&#xa7;TIGC ,   B&#xa7;ARES ,   B&#xa7;ARPT ,   B&#xa7;SOGC ,   B&#xa7;SOSE ,   B&#xa7;DTRE ,   B&#xa7;NPRO ,   B&#xa7;FL01 ,   B&#xa7;FL02 ,   B&#xa7;FL03 ,   B&#xa7;FL04 ,   B&#xa7;FL05   FROM GMMOAR0F   ;"/>

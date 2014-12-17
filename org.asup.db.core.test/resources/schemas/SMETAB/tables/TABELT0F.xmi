@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="TTANNU"/>
+  <columns dataType="CHAR" length="5" name="TTSETT"/>
+  <columns dataType="CHAR" length="15" name="TTELEM"/>
+  <columns dataType="CHAR" length="30" name="TTDESC"/>
+  <columns dataType="CHAR" length="100" name="TTLIBE"/>
+  <columns dataType="CHAR" length="200" name="TTUSER"/>
+  <columns dataType="CHAR" length="1" name="TTFL01"/>
+  <columns dataType="CHAR" length="1" name="TTFL02"/>
+  <columns dataType="CHAR" length="1" name="TTFL03"/>
+  <columns dataType="CHAR" length="1" name="TTFL04"/>
+  <columns dataType="CHAR" length="1" name="TTFL05"/>
+  <columns dataType="CHAR" length="1" name="TTFL06"/>
+  <columns dataType="CHAR" length="1" name="TTFL07"/>
+  <columns dataType="CHAR" length="1" name="TTFL08"/>
+  <columns dataType="CHAR" length="1" name="TTFL09"/>
+  <columns dataType="CHAR" length="1" name="TTFL10"/>
+  <columns dataType="CHAR" length="1" name="TTFL11"/>
+  <columns dataType="CHAR" length="1" name="TTFL12"/>
+  <columns dataType="CHAR" length="1" name="TTFL13"/>
+  <columns dataType="CHAR" length="1" name="TTFL14"/>
+  <columns dataType="CHAR" length="1" name="TTFL15"/>
+  <columns dataType="CHAR" length="1" name="TTFL16"/>
+  <columns dataType="CHAR" length="1" name="TTFL17"/>
+  <columns dataType="CHAR" length="1" name="TTFL18"/>
+  <columns dataType="CHAR" length="1" name="TTFL19"/>
+  <columns dataType="CHAR" length="1" name="TTFL20"/>
+  <columns dataType="CHAR" length="10" name="TTUSIN"/>
+  <columns dataType="DECIMAL" length="8" name="TTDTIN"/>
+  <columns dataType="DECIMAL" length="6" name="TTORIN"/>
+  <columns dataType="CHAR" length="10" name="TTUSAG"/>
+  <columns dataType="DECIMAL" length="8" name="TTDTAG"/>
+  <columns dataType="DECIMAL" length="6" name="TTORAG"/>
+</db-core:TableDef>
