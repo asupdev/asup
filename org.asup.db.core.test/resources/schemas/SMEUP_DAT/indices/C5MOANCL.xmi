@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="A5AZIE" sequence="1"/>
+  <columns name="A5TPN2" sequence="2"/>
+  <columns name="A5CDN2" sequence="3"/>
+  <columns name="A5CONT" sequence="4"/>
+  <columns name="A5DCOM" sequence="5"/>
+  <columns name="A5TPN1" sequence="6"/>
+  <columns name="A5CDN1" sequence="7"/>
+  <columns name="A5TPN3" sequence="8"/>
+  <columns name="A5CDN3" sequence="9"/>
+  <columns name="A5TPOR" sequence="10"/>
+  <columns name="A5CDOR" sequence="11"/>
+</db-core:IndexDef>

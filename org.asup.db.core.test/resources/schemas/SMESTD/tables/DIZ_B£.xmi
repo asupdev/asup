@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="TIPA"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="DECIMAL" length="21" name="NUMR" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="CHAR" length="10" name="PROG"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="CHAR" length="10" name="USIN"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="DECIMAL" length="6" name="ORIN"/>
+  <columns dataType="DECIMAL" length="6" name="ORAG"/>
+  <columns dataType="CHAR" length="10" name="OGIN"/>
+  <columns dataType="CHAR" length="10" name="OGAG"/>
+  <columns dataType="DECIMAL" length="15" name="NUML" scale="5"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+</db-core:TableDef>

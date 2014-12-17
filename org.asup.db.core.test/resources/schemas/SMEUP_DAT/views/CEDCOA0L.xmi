@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   C$ANNU ,   C$CDC ,   C$TICO ,   C$ALI1 ,   C$ALI2 ,   C$ALI3 ,   C$ALI4 ,   C$ALI5 ,   C$ALI6   FROM CEDCOA0F   ;"/>

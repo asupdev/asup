@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="WKATTR"/>
+  <columns dataType="CHAR" length="15" name="WKCODI"/>
+  <columns dataType="CHAR" length="1" name="WKTPAR"/>
+  <columns dataType="DECIMAL" length="2" name="WKLIVE"/>
+  <columns dataType="DECIMAL" length="4" name="WKNUME"/>
+  <columns dataType="DECIMAL" length="15" name="WKQTOT" scale="6"/>
+</db-core:TableDef>

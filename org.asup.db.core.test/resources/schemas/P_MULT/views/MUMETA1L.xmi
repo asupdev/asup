@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   MMLIVE ,   MMSTAT ,   MMLIB1 ,   MMTIP1 ,   MMOGG1 ,   MMATT1 ,   MMAPP1 ,   MMMOD1 ,   MMROUT ,   MMPROC ,   MMVERB ,   MMLIB2 ,   MMTIP2 ,   MMOGG2 ,   MMATT2 ,   MMAPP2 ,   MMMOD2 ,   MMFL01 ,   MMFL02 ,   MMFL03 ,   MMFL04 ,   MMFL05 ,   MMFL06 ,   MMFL07 ,   MMFL08 ,   MMFL09 ,   MMFL10 ,   MMUSES ,   MMDTES ,   MMORES ,   MMJOES   FROM MUMETA0F   ;"/>

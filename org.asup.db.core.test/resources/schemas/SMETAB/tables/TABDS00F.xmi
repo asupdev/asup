@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="S$SETT"/>
+  <columns dataType="CHAR" length="2" name="S$SUBS"/>
+  <columns dataType="CHAR" length="30" name="S$DESC"/>
+  <columns dataType="CHAR" length="1" name="S$ABES"/>
+  <columns dataType="CHAR" length="10" name="S$UT01"/>
+  <columns dataType="CHAR" length="10" name="S$UT02"/>
+  <columns dataType="CHAR" length="10" name="S$UT03"/>
+  <columns dataType="CHAR" length="10" name="S$UT04"/>
+  <columns dataType="CHAR" length="10" name="S$UT05"/>
+  <columns dataType="CHAR" length="10" name="S$UT06"/>
+  <columns dataType="CHAR" length="10" name="S$UT07"/>
+  <columns dataType="CHAR" length="10" name="S$UT08"/>
+  <columns dataType="CHAR" length="10" name="S$UT09"/>
+  <columns dataType="CHAR" length="10" name="S$UT10"/>
+  <columns dataType="CHAR" length="1" name="S$FISS"/>
+  <columns dataType="CHAR" length="10" name="S$PGMC"/>
+  <columns dataType="CHAR" length="1" name="S$ARAP"/>
+  <columns dataType="CHAR" length="10" name="S$UTCS"/>
+  <columns dataType="DECIMAL" length="6" name="S$DTCS"/>
+  <columns dataType="DECIMAL" length="6" name="S$HRCS"/>
+  <columns dataType="CHAR" length="10" name="S$UTUS"/>
+  <columns dataType="DECIMAL" length="6" name="S$DTUS"/>
+  <columns dataType="DECIMAL" length="6" name="S$HRUS"/>
+  <columns dataType="CHAR" length="10" name="S$UTCE"/>
+  <columns dataType="DECIMAL" length="6" name="S$DTCE"/>
+  <columns dataType="DECIMAL" length="6" name="S$HRCE"/>
+  <columns dataType="CHAR" length="10" name="S$UTUE"/>
+  <columns dataType="DECIMAL" length="6" name="S$DTUE"/>
+  <columns dataType="DECIMAL" length="6" name="S$HRUE"/>
+</db-core:TableDef>

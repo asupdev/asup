@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="WDNSES"/>
+  <columns dataType="CHAR" length="15" name="WDARTI"/>
+  <columns dataType="DECIMAL" length="8" name="WDDTFR"/>
+  <columns dataType="DECIMAL" length="11" name="WDQUAN" scale="3"/>
+</db-core:TableDef>

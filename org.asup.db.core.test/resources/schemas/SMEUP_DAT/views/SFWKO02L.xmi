@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   WKORDI ,   WKNREC ,   WKPR01 ,   WKPR02 ,   WKPR03 ,   WKPR04 ,   WKPR05 ,   WKPR06 ,   WKPR07 ,   WKPR08 ,   WKPR09 ,   WKPR10 ,   WKDE01 ,   WKDE02 ,   WKDE03 ,   WKDE04 ,   WKDE05 ,   WKDE06 ,   WKDE07 ,   WKDE08 ,   WKDE09 ,   WKDE10   FROM SFWKO00F   ;"/>

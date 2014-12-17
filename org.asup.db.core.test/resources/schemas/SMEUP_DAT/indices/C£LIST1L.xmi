@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="L&#xa7;CDSS" sequence="1"/>
+  <columns name="L&#xa7;CDLI" sequence="2"/>
+  <columns name="L&#xa7;CDSL" sequence="3"/>
+  <columns name="L&#xa7;COD2" sequence="4"/>
+  <columns name="L&#xa7;COD1" sequence="5"/>
+  <columns name="L&#xa7;COD3" sequence="6"/>
+  <columns name="L&#xa7;CDVA" sequence="7"/>
+  <columns name="L&#xa7;DTVA" sequence="8"/>
+  <columns name="L&#xa7;LTVA" sequence="9"/>
+</db-core:IndexDef>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="J1ASLA" sequence="1"/>
+  <columns name="J1ASUT" sequence="2"/>
+  <columns name="J1ASNR" sequence="3"/>
+  <columns name="J1DTIN" sequence="4"/>
+  <columns name="J1ORIN" sequence="5"/>
+  <columns name="J1IDOG" sequence="6"/>
+</db-core:IndexDef>

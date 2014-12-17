@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="Q&#xa7;TORI" sequence="1"/>
+  <columns name="Q&#xa7;TDOC" sequence="2"/>
+  <columns name="Q&#xa7;NDOC" sequence="3"/>
+  <columns name="Q&#xa7;USR1" sequence="4"/>
+  <columns name="Q&#xa7;ARTI" sequence="5"/>
+  <columns name="Q&#xa7;USR2" sequence="6"/>
+  <columns name="Q&#xa7;OPER" sequence="7"/>
+</db-core:IndexDef>

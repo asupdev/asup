@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="T&#xa3;TIDM" sequence="1"/>
+  <columns name="T&#xa3;LIVE" sequence="2"/>
+  <columns name="T&#xa3;STAT" sequence="3"/>
+  <columns name="T&#xa3;DADO" sequence="4"/>
+</db-core:IndexDef>

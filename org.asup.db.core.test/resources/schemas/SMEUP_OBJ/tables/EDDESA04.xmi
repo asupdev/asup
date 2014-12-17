@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="A04TREC"/>
+  <columns dataType="CHAR" length="17" name="A04NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="A04PRET"/>
+  <columns dataType="CHAR" length="17" name="A04NEUC"/>
+  <columns dataType="CHAR" length="17" name="A04NEUM"/>
+  <columns dataType="CHAR" length="17" name="A04ORDI"/>
+</db-core:TableDef>

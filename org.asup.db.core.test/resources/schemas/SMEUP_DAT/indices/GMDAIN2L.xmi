@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="Y&#xa7;CDMG" sequence="1"/>
+  <columns name="Y&#xa7;ARTI" sequence="2"/>
+  <columns name="Y&#xa7;TIGC" sequence="3"/>
+  <columns name="Y&#xa7;SOGC" sequence="4"/>
+  <columns name="Y&#xa7;COD1" sequence="5"/>
+  <columns name="Y&#xa7;COD2" sequence="6"/>
+  <columns name="Y&#xa7;COD3" sequence="7"/>
+  <columns name="Y&#xa7;COD4" sequence="8"/>
+  <columns name="Y&#xa7;COIN" sequence="9"/>
+</db-core:IndexDef>

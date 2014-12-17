@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   C&#xa7;NUDO ,   C&#xa7;CARR ,   C&#xa7;ESMO ,   C&#xa7;CFAL ,   C&#xa7;CFAC ,   C&#xa7;QRES ,   C&#xa7;TIEA ,   C&#xa7;COEA ,   C&#xa7;LOTI ,   C&#xa7;CMAG ,   C&#xa7;ARTI ,   C&#xa7;COIM   FROM CQNCV0F   ;"/>

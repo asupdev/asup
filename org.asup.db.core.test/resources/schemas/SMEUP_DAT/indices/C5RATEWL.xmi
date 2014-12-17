@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="S5AZIE" sequence="1"/>
+  <columns name="S5TPOG" sequence="2"/>
+  <columns name="S5CDOG" sequence="3"/>
+  <columns name="S5DREG" sequence="4"/>
+</db-core:IndexDef>

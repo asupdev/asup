@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="DCTIPS" sequence="1"/>
+  <columns name="DCCODS" sequence="2"/>
+  <columns name="DCDTVA" sequence="3"/>
+  <columns name="DCTIPA" sequence="4"/>
+  <columns name="DCTROT" sequence="5"/>
+  <columns name="DCFL03" sequence="6"/>
+  <columns name="DCERCD" sequence="7"/>
+  <columns name="DCERTO" sequence="8"/>
+  <columns name="DCERCO" sequence="9"/>
+</db-core:IndexDef>

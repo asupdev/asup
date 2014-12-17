@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="D0CONT"/>
+  <columns dataType="CHAR" length="15" name="D0OGGE"/>
+  <columns dataType="CHAR" length="2" name="D0TIP1"/>
+  <columns dataType="CHAR" length="2" name="D0TIP2"/>
+  <columns dataType="CHAR" length="2" name="D0TIP3"/>
+  <columns dataType="CHAR" length="10" name="D0PAR1"/>
+  <columns dataType="CHAR" length="10" name="D0PAR2"/>
+  <columns dataType="CHAR" length="10" name="D0PAR3"/>
+  <columns dataType="CHAR" length="15" name="D0COD1"/>
+  <columns dataType="CHAR" length="15" name="D0COD2"/>
+  <columns dataType="CHAR" length="15" name="D0COD3"/>
+  <columns dataType="CHAR" length="50" name="D0CORD"/>
+</db-core:TableDef>

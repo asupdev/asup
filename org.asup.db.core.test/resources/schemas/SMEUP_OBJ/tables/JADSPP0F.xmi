@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="JATREC"/>
+  <columns dataType="CHAR" length="10" name="JAFUNZ"/>
+  <columns dataType="CHAR" length="10" name="JAMETO"/>
+  <columns dataType="CHAR" length="2" name="JATIP1"/>
+  <columns dataType="CHAR" length="10" name="JAPAR1"/>
+  <columns dataType="CHAR" length="15" name="JACOD1"/>
+  <columns dataType="CHAR" length="15" name="JACOD2"/>
+  <columns dataType="CHAR" length="15" name="JALIVE"/>
+  <columns dataType="CHAR" length="3" name="JASEQ1"/>
+  <columns dataType="CHAR" length="10" name="JACONT"/>
+  <columns dataType="CHAR" length="30002" name="JADATI"/>
+</db-core:TableDef>

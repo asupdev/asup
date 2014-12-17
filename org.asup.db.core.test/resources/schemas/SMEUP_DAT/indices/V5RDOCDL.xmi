@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="R&#xa7;TDOC" sequence="1"/>
+  <columns name="R&#xa7;CDMG" sequence="2"/>
+  <columns name="R&#xa7;TIOG" sequence="3"/>
+  <columns name="R&#xa7;CDOG" sequence="4"/>
+  <columns name="R&#xa7;TCCL" sequence="5"/>
+  <columns name="R&#xa7;CDCL" sequence="6"/>
+  <columns name="R&#xa7;DTCC" sequence="7"/>
+</db-core:IndexDef>

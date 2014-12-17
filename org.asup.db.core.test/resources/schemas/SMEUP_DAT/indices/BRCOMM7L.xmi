@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="M$TIEN" sequence="1"/>
+  <columns name="M$COEN" sequence="2"/>
+  <columns name="M$COMM" sequence="3"/>
+</db-core:IndexDef>

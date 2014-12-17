@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   T&#xa7;TIPO ,   T&#xa7;CODI ,   T&#xa7;LING ,   T&#xa7;DESC ,   T&#xa7;DEA1 ,   T&#xa7;DEA2 ,   T&#xa7;DEA3 ,   T&#xa7;DTIN ,   T&#xa7;ORIN ,   T&#xa7;USIN ,   T&#xa7;OGIN ,   T&#xa7;DTAG ,   T&#xa7;ORAG ,   T&#xa7;USAG ,   T&#xa7;OGAG   FROM C&#xa3;LING0F   ;"/>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="D1CODI"/>
+  <columns dataType="CHAR" length="15" name="D1COD1"/>
+  <columns dataType="CHAR" length="15" name="D1COD2"/>
+  <columns dataType="CHAR" length="15" name="D1COD3"/>
+  <columns dataType="CHAR" length="15" name="D1EB&#xa3;J"/>
+  <columns dataType="CHAR" length="100" name="D1TB&#xa3;J"/>
+  <columns dataType="CHAR" length="15" name="D1CDOG"/>
+  <columns dataType="CHAR" length="12" name="D1TPO1"/>
+  <columns dataType="CHAR" length="15" name="D1CDO1"/>
+  <columns dataType="CHAR" length="12" name="D1TPO2"/>
+  <columns dataType="CHAR" length="15" name="D1CDO2"/>
+  <columns dataType="CHAR" length="12" name="D1TPO3"/>
+  <columns dataType="CHAR" length="15" name="D1CDO3"/>
+  <columns dataType="DECIMAL" length="21" name="D1QUAN" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="D1QTOT" scale="6"/>
+  <columns dataType="CHAR" length="12" name="D1TPEV"/>
+  <columns dataType="CHAR" length="15" name="D1CDEV"/>
+  <columns dataType="DECIMAL" length="8" name="D1DTEV"/>
+  <columns dataType="CHAR" length="15" name="D1ERCD"/>
+  <columns dataType="CHAR" length="300" name="D1ERDS"/>
+  <columns dataType="CHAR" length="1" name="D1FL01"/>
+  <columns dataType="CHAR" length="1" name="D1FL02"/>
+  <columns dataType="CHAR" length="1" name="D1FL03"/>
+  <columns dataType="CHAR" length="1" name="D1FL04"/>
+  <columns dataType="CHAR" length="1" name="D1FL05"/>
+  <columns dataType="CHAR" length="1" name="D1FL06"/>
+  <columns dataType="CHAR" length="1" name="D1FL07"/>
+  <columns dataType="CHAR" length="1" name="D1FL08"/>
+  <columns dataType="CHAR" length="1" name="D1FL09"/>
+  <columns dataType="CHAR" length="1" name="D1FL10"/>
+  <columns dataType="CHAR" length="50" name="D1CORD"/>
+  <columns dataType="CHAR" length="50" name="D1COR2"/>
+</db-core:TableDef>

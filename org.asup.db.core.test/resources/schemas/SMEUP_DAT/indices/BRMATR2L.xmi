@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="F&#xa7;TMAT" sequence="1"/>
+  <columns name="F&#xa7;CODC" sequence="2"/>
+  <columns name="F&#xa7;NMAT" sequence="3"/>
+</db-core:IndexDef>

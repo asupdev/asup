@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   WKKEY1 ,   WKKEY2 ,   WKKEY3 ,   WKLQOR ,   WKLQ01 ,   WKLQ02 ,   WKLQ03 ,   WKLQ04 ,   WKTIPR ,   WKNUDO ,   WKARTI ,   WKCFAL ,   WKCFAC ,   WKLOTI   FROM CQNS2WKF   WHERE   WKTIPR = +0 ;"/>

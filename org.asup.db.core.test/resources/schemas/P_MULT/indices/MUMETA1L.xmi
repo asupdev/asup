@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="MMLIB1" sequence="1"/>
+  <columns name="MMTIP1" sequence="2"/>
+  <columns name="MMOGG1" sequence="3"/>
+  <columns name="MMSTAT" sequence="4"/>
+  <columns name="MMROUT" sequence="5"/>
+  <columns name="MMPROC" sequence="6"/>
+  <columns name="MMVERB" sequence="7"/>
+  <columns name="MMLIB2" sequence="8"/>
+  <columns name="MMTIP2" sequence="9"/>
+  <columns name="MMOGG2" sequence="10"/>
+</db-core:IndexDef>

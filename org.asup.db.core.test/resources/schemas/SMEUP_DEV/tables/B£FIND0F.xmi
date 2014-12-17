@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="B1TIP1"/>
+  <columns dataType="CHAR" length="15" name="B1COD1"/>
+  <columns dataType="CHAR" length="12" name="B1TIP2"/>
+  <columns dataType="CHAR" length="15" name="B1COD2"/>
+  <columns dataType="CHAR" length="15" name="B1DOCU"/>
+  <columns dataType="CHAR" length="30000" name="B1DATI"/>
+  <columns dataType="CHAR" length="10" name="B1USIN"/>
+  <columns dataType="DECIMAL" length="8" name="B1DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="B1ORIN"/>
+  <columns dataType="CHAR" length="10" name="B1OGIN"/>
+  <columns dataType="CHAR" length="10" name="B1USAG"/>
+  <columns dataType="DECIMAL" length="8" name="B1DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="B1ORAG"/>
+  <columns dataType="CHAR" length="10" name="B1OGAG"/>
+</db-core:TableDef>

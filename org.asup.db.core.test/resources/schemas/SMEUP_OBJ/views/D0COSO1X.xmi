@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   D1CODI ,   D1COD1 ,   D1COD2 ,   D1COD3 ,   D1EB&#xa3;J ,   D1TB&#xa3;J ,   D1CDOG ,   D1TPO1 ,   D1CDO1 ,   D1TPO2 ,   D1CDO2 ,   D1TPO3 ,   D1CDO3 ,   D1QUAN ,   D1QTOT ,   D1TPEV ,   D1CDEV ,   D1DTEV ,   D1ERCD ,   D1ERDS ,   D1FL01 ,   D1FL02 ,   D1FL03 ,   D1FL04 ,   D1FL05 ,   D1FL06 ,   D1FL07 ,   D1FL08 ,   D1FL09 ,   D1FL10 ,   D1CORD ,   D1COR2   FROM D0COSO1W   ;"/>

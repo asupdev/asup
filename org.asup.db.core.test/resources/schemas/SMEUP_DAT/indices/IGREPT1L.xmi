@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="STAREA" sequence="1"/>
+  <columns name="STTEMA" sequence="2"/>
+  <columns name="STLISI" sequence="3"/>
+  <columns name="STLIAG" sequence="4"/>
+  <columns name="STCA01" sequence="5"/>
+  <columns name="STCA02" sequence="6"/>
+  <columns name="STCA03" sequence="7"/>
+  <columns name="STCA04" sequence="8"/>
+  <columns name="STCA05" sequence="9"/>
+  <columns name="STCA06" sequence="10"/>
+  <columns name="STCA07" sequence="11"/>
+  <columns name="STCA08" sequence="12"/>
+  <columns name="STCA09" sequence="13"/>
+  <columns name="STPERI" sequence="14"/>
+</db-core:IndexDef>

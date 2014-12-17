@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="R&#xa3;DEAR" sequence="1"/>
+  <columns name="R&#xa3;DETG" sequence="2"/>
+  <columns name="R&#xa3;DEMG" sequence="3"/>
+  <columns name="R&#xa3;ARTI" sequence="4"/>
+  <columns name="R&#xa3;DEC1" sequence="5"/>
+  <columns name="R&#xa3;DEC2" sequence="6"/>
+  <columns name="R&#xa3;DEC3" sequence="7"/>
+  <columns name="R&#xa3;DEC4" sequence="8"/>
+  <columns name="R&#xa3;DECO" sequence="9"/>
+</db-core:IndexDef>

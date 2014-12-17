@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="WKTDOC"/>
+  <columns dataType="CHAR" length="10" name="WKNDOC"/>
+  <columns dataType="DECIMAL" length="8" name="WKDTDO"/>
+  <columns dataType="DECIMAL" length="3" name="WKTCDF"/>
+  <columns dataType="CHAR" length="15" name="WKCODF"/>
+  <columns dataType="DECIMAL" length="3" name="WKTCDS"/>
+  <columns dataType="CHAR" length="15" name="WKCODS"/>
+  <columns dataType="DECIMAL" length="3" name="WKTCDC"/>
+  <columns dataType="CHAR" length="15" name="WKCDCL"/>
+  <columns dataType="CHAR" length="10" name="WKNFAT"/>
+  <columns dataType="DECIMAL" length="8" name="WKDFAT"/>
+  <columns dataType="CHAR" length="10" name="WKNBOL"/>
+  <columns dataType="DECIMAL" length="8" name="WKDBOL"/>
+  <columns dataType="CHAR" length="4" name="WKVALU"/>
+  <columns dataType="CHAR" length="3" name="WKCOPA"/>
+  <columns dataType="DECIMAL" length="12" name="WKCAMB" scale="6"/>
+  <columns dataType="CHAR" length="20" name="WKCORD"/>
+  <columns dataType="DECIMAL" length="4" name="WKNRIG"/>
+  <columns dataType="CHAR" length="15" name="WKCDOG"/>
+  <columns dataType="CHAR" length="35" name="WKDSOG"/>
+  <columns dataType="CHAR" length="3" name="WKTDOR"/>
+  <columns dataType="CHAR" length="10" name="WKNDOR"/>
+  <columns dataType="DECIMAL" length="4" name="WKNRIR"/>
+  <columns dataType="DECIMAL" length="8" name="WKDTOR"/>
+  <columns dataType="CHAR" length="3" name="WKAGEN"/>
+  <columns dataType="DECIMAL" length="4" name="WKPERC" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="WKQUAN" scale="3"/>
+  <columns dataType="DECIMAL" length="30" name="WKVADO" scale="6"/>
+  <columns dataType="DECIMAL" length="30" name="WKVACO" scale="6"/>
+  <columns dataType="DECIMAL" length="30" name="WKVAEU" scale="6"/>
+  <columns dataType="DECIMAL" length="30" name="WKPRDO" scale="6"/>
+  <columns dataType="DECIMAL" length="30" name="WKPRCO" scale="6"/>
+  <columns dataType="DECIMAL" length="30" name="WKPREU" scale="6"/>
+  <columns dataType="CHAR" length="1" name="WKFL01"/>
+  <columns dataType="CHAR" length="1" name="WKFL02"/>
+  <columns dataType="CHAR" length="1" name="WKFL03"/>
+  <columns dataType="CHAR" length="1" name="WKFL04"/>
+  <columns dataType="CHAR" length="1" name="WKFL05"/>
+  <columns dataType="CHAR" length="1" name="WKFL06"/>
+  <columns dataType="CHAR" length="1" name="WKFL07"/>
+  <columns dataType="CHAR" length="1" name="WKFL08"/>
+  <columns dataType="CHAR" length="1" name="WKFL09"/>
+  <columns dataType="CHAR" length="1" name="WKFL10"/>
+</db-core:TableDef>

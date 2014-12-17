@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="U1ORDI"/>
+  <columns dataType="CHAR" length="15" name="U1COMP"/>
+  <columns dataType="CHAR" length="6" name="U1SEQU"/>
+  <columns dataType="DECIMAL" length="11" name="U1QTA1" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U1QTA2" scale="3"/>
+</db-core:TableDef>

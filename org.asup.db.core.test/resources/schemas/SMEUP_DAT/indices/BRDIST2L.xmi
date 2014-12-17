@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="D&#xa7;TIPD" sequence="1"/>
+  <columns name="D&#xa7;ASSI" sequence="2"/>
+  <columns name="D&#xa7;SQCI" sequence="3"/>
+  <columns name="D&#xa7;USR1" sequence="4"/>
+  <columns name="D&#xa7;COMP" sequence="5"/>
+  <columns name="D&#xa7;USR2" sequence="6"/>
+</db-core:IndexDef>

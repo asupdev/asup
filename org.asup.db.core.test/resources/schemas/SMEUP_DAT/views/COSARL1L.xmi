@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   L$COAR ,   L$TCOS ,   L$CLAR ,   L$TREK ,   L$MAV1 ,   L$MAF1 ,   L$MAA1 ,   L$MAS1 ,   L$MAV2 ,   L$MAF2 ,   L$MAA2 ,   L$MAS2   FROM COSARL0F   ;"/>

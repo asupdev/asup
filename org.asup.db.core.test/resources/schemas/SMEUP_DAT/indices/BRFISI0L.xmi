@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="P&#xa7;TRAG" sequence="1"/>
+  <columns name="P&#xa7;CRAG" sequence="2"/>
+</db-core:IndexDef>

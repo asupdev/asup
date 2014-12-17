@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="T&#xa7;&#xa7;CA1"/>
+  <columns dataType="CHAR" length="30" name="T&#xa7;&#xa7;CA2"/>
+  <columns dataType="CHAR" length="30" name="T&#xa7;&#xa7;CA3"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DATI"/>
+  <columns dataType="DECIMAL" length="6" name="MT&#xa7;ORAI"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DATM"/>
+  <columns dataType="DECIMAL" length="6" name="MT&#xa7;ORAM"/>
+  <columns dataType="CHAR" length="10" name="MT&#xa7;UTIN"/>
+  <columns dataType="CHAR" length="10" name="MT&#xa7;UTEN"/>
+  <columns dataType="CHAR" length="10" name="MT&#xa7;WKST"/>
+  <columns dataType="CHAR" length="10" name="MT&#xa7;PROG"/>
+  <columns dataType="CHAR" length="4" name="MT&#xa7;TIMO"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;NUMO"/>
+  <columns dataType="CHAR" length="2" name="MT&#xa7;STMO"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;LIVE"/>
+  <columns dataType="CHAR" length="2" name="MT&#xa7;CURG"/>
+  <columns dataType="CHAR" length="10" name="MT&#xa7;NUPR"/>
+  <columns dataType="CHAR" length="6" name="MT&#xa7;AGGR"/>
+  <columns dataType="CHAR" length="60" name="MT&#xa7;OBIE"/>
+  <columns dataType="CHAR" length="40" name="MT&#xa7;OGGE"/>
+  <columns dataType="CHAR" length="10" name="MT&#xa7;COMM"/>
+  <columns dataType="CHAR" length="6" name="MT&#xa7;MDIN"/>
+  <columns dataType="CHAR" length="4" name="MT&#xa7;MQTD"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;MQCD"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DTEM"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DTAP"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DTAN"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DTAE"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DTIP"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DTIE"/>
+  <columns dataType="DECIMAL" length="6" name="MT&#xa7;ORIE"/>
+  <columns dataType="CHAR" length="2" name="MT&#xa7;TEEM"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CEEM"/>
+  <columns dataType="CHAR" length="2" name="MT&#xa7;TEAP"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CEAP"/>
+  <columns dataType="CHAR" length="2" name="MT&#xa7;TEAN"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CEAN"/>
+  <columns dataType="CHAR" length="2" name="MT&#xa7;TEAE"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CEAE"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPP1"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPP2"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPP3"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPP4"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPE1"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPE2"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPE3"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CPE4"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CD01"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CD02"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CD03"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CD04"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;CD05"/>
+  <columns dataType="DECIMAL" length="15" name="MT&#xa7;NU01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MT&#xa7;NU02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MT&#xa7;NU03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MT&#xa7;NU04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="MT&#xa7;NU05" scale="5"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DT01"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DT02"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DT03"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DT04"/>
+  <columns dataType="DECIMAL" length="8" name="MT&#xa7;DT05"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;LIB1"/>
+  <columns dataType="CHAR" length="15" name="MT&#xa7;LIB2"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL10"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL11"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL12"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL13"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL14"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL15"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL16"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL17"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL18"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL19"/>
+  <columns dataType="CHAR" length="1" name="MT&#xa7;FL20"/>
+</db-core:TableDef>

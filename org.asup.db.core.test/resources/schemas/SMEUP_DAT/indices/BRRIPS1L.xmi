@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="I&#xa7;TBRK" sequence="1"/>
+  <columns name="I&#xa7;KEY3" sequence="2"/>
+  <columns name="I&#xa7;TBRJ" sequence="3"/>
+  <columns name="I&#xa7;KEY1" sequence="4"/>
+  <columns name="I&#xa7;KEY2" sequence="5"/>
+  <columns name="I&#xa7;DINV" sequence="6"/>
+</db-core:IndexDef>

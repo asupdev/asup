@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   J&#xa7;OGCA ,   J&#xa7;CD01 ,   J&#xa7;SECO ,   J&#xa7;SEAZ ,   J&#xa7;TICA ,   J&#xa7;DESC ,   J&#xa7;COAZ ,   J&#xa7;LIVE ,   J&#xa7;STAT ,   J&#xa7;DTIN ,   J&#xa7;DTAG ,   J&#xa7;USAG   FROM C&#xa3;COAZ0F   ;"/>

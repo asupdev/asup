@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="C&#xa7;CDLG" sequence="1"/>
+  <columns name="C&#xa7;COD1" sequence="2"/>
+  <columns name="C&#xa7;COD2" sequence="3"/>
+  <columns name="C&#xa7;LIMF" sequence="4"/>
+  <columns name="C&#xa7;LIMI" sequence="5"/>
+</db-core:IndexDef>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I06TREC"/>
+  <columns dataType="CHAR" length="35" name="I06NDOC"/>
+  <columns dataType="CHAR" length="256" name="I06FILE"/>
+  <columns dataType="DECIMAL" length="8" name="I06DCRF"/>
+  <columns dataType="DECIMAL" length="6" name="I06OCRF"/>
+  <columns dataType="CHAR" length="15" name="I06ESIN"/>
+  <columns dataType="DECIMAL" length="8" name="I06DINF"/>
+  <columns dataType="DECIMAL" length="6" name="I06OINF"/>
+  <columns dataType="CHAR" length="256" name="I06MSIN"/>
+  <columns dataType="CHAR" length="1" name="I06ST01"/>
+  <columns dataType="DECIMAL" length="8" name="I06DT01"/>
+  <columns dataType="DECIMAL" length="6" name="I06OR01"/>
+  <columns dataType="CHAR" length="256" name="I06MS01"/>
+  <columns dataType="CHAR" length="1" name="I06ST02"/>
+  <columns dataType="DECIMAL" length="8" name="I06DT02"/>
+  <columns dataType="DECIMAL" length="6" name="I06OR02"/>
+  <columns dataType="CHAR" length="256" name="I06MS02"/>
+  <columns dataType="CHAR" length="1" name="I06ST03"/>
+  <columns dataType="DECIMAL" length="8" name="I06DT03"/>
+  <columns dataType="DECIMAL" length="6" name="I06OR03"/>
+  <columns dataType="CHAR" length="256" name="I06MS03"/>
+</db-core:TableDef>

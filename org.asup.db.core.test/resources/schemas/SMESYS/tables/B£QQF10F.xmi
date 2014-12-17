@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="5" name="F1TREC"/>
+  <columns dataType="CHAR" length="15" name="F1CODI"/>
+  <columns dataType="CHAR" length="50" name="F1DESC"/>
+  <columns dataType="DECIMAL" length="4" name="F1PROG"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1A"/>
+  <columns dataType="CHAR" length="15" name="F1B&#xa7;1B"/>
+  <columns dataType="CHAR" length="10" name="F1B&#xa7;1C"/>
+  <columns dataType="CHAR" length="50" name="F1B&#xa7;1D"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1E"/>
+  <columns dataType="CHAR" length="10" name="F1B&#xa7;1F"/>
+  <columns dataType="DECIMAL" length="2" name="F1B&#xa7;1G"/>
+  <columns dataType="CHAR" length="2" name="F1B&#xa7;1H"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1I"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1L"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1N"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1O"/>
+  <columns dataType="CHAR" length="1" name="F1B&#xa7;1P"/>
+  <columns dataType="CHAR" length="10" name="F1JOBQ"/>
+  <columns dataType="CHAR" length="10" name="F1GRPA"/>
+  <columns dataType="CHAR" length="3" name="F1CDMG"/>
+  <columns dataType="CHAR" length="200" name="F1USER"/>
+  <columns dataType="CHAR" length="5" name="F1CSID"/>
+  <columns dataType="CHAR" length="15" name="F1EXML"/>
+  <columns dataType="CHAR" length="2" name="F1CSP1"/>
+  <columns dataType="CHAR" length="2" name="F1CSP2"/>
+  <columns dataType="CHAR" length="2" name="F1CSP3"/>
+  <columns dataType="CHAR" length="15" name="F1CD01"/>
+  <columns dataType="CHAR" length="15" name="F1CD02"/>
+  <columns dataType="CHAR" length="15" name="F1CD03"/>
+  <columns dataType="CHAR" length="15" name="F1CD04"/>
+  <columns dataType="CHAR" length="15" name="F1CD05"/>
+  <columns dataType="CHAR" length="15" name="F1CD06"/>
+  <columns dataType="CHAR" length="15" name="F1CD07"/>
+  <columns dataType="CHAR" length="15" name="F1CD08"/>
+  <columns dataType="CHAR" length="15" name="F1CD09"/>
+  <columns dataType="CHAR" length="15" name="F1CD10"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR01" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR02" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR03" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR04" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR05" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR06" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR07" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR08" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR09" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="F1NR10" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT01"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT02"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT03"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT04"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT05"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT06"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT07"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT08"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT09"/>
+  <columns dataType="DECIMAL" length="8" name="F1DT10"/>
+  <columns dataType="CHAR" length="2000" name="F1DATI"/>
+  <columns dataType="CHAR" length="10" name="F1USIN"/>
+  <columns dataType="DECIMAL" length="8" name="F1DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="F1ORIN"/>
+  <columns dataType="CHAR" length="10" name="F1OGIN"/>
+  <columns dataType="CHAR" length="10" name="F1USAG"/>
+  <columns dataType="DECIMAL" length="8" name="F1DTAG"/>
+  <columns dataType="DECIMAL" length="6" name="F1ORAG"/>
+  <columns dataType="CHAR" length="10" name="F1OGAG"/>
+</db-core:TableDef>

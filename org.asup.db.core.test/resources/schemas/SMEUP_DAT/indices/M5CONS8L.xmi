@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="H&#xa7;SCEN" sequence="1"/>
+  <columns name="H&#xa7;CDMG" sequence="2"/>
+  <columns name="H&#xa7;CROT" sequence="3"/>
+  <columns name="H&#xa7;ARTI" sequence="4"/>
+</db-core:IndexDef>

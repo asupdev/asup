@@ -64,7 +64,7 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 
 	protected synchronized String nextConnectionID(BaseDatabaseManagerImpl baseDatabaseManagerImpl) {
 
-		connectionID = connectionID++;
+		connectionID++;
 		String stringID = application.getContext().getName() + "/" + connectionID;
 
 		return stringID;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="WKKEY1"/>
+  <columns dataType="CHAR" length="15" name="WKKEY2"/>
+  <columns dataType="CHAR" length="15" name="WKKEY3"/>
+  <columns dataType="DECIMAL" length="10" name="WKLQOR" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="WKLQ01" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="WKLQ02" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="WKLQ03" scale="4"/>
+  <columns dataType="DECIMAL" length="10" name="WKLQ04" scale="4"/>
+  <columns dataType="DECIMAL" length="1" name="WKTIPR"/>
+  <columns dataType="CHAR" length="10" name="WKNUDO"/>
+  <columns dataType="CHAR" length="15" name="WKARTI"/>
+  <columns dataType="CHAR" length="6" name="WKCFAL"/>
+  <columns dataType="CHAR" length="6" name="WKCFAC"/>
+  <columns dataType="CHAR" length="15" name="WKLOTI"/>
+</db-core:TableDef>

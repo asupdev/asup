@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="IM&#xa3;LIB" sequence="1"/>
+  <columns name="IM&#xa3;FIL" sequence="2"/>
+  <columns name="IM&#xa3;MBR" sequence="3"/>
+</db-core:IndexDef>
