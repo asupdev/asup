@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="MESR"/>
+  <columns dataType="CHAR" length="15" name="MESS"/>
+  <columns dataType="CHAR" length="15" name="ENOR"/>
+  <columns dataType="CHAR" length="15" name="ENDE"/>
+  <columns dataType="CHAR" length="15" name="CODR"/>
+  <columns dataType="DECIMAL" length="8" name="DTNA"/>
+  <columns dataType="DECIMAL" length="6" name="ORNA"/>
+  <columns dataType="DECIMAL" length="8" name="DTES"/>
+  <columns dataType="DECIMAL" length="6" name="ORES"/>
+  <columns dataType="CHAR" length="10" name="BATC"/>
+  <columns dataType="DECIMAL" length="9" name="NRTR"/>
+  <columns dataType="CHAR" length="2050" name="DATI"/>
+  <columns dataType="CHAR" length="10" name="TTRA"/>
+  <columns dataType="CHAR" length="10" name="NTRA"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+</db-core:TableDef>

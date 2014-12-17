@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="TIPA"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="CHAR" length="3" name="TROT"/>
+  <columns dataType="CHAR" length="2" name="SSIN"/>
+  <columns dataType="CHAR" length="10" name="DTVA"/>
+  <columns dataType="DECIMAL" length="20" name="COST" scale="6"/>
+  <columns dataType="DECIMAL" length="3" name="NRCO"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="DECIMAL" length="8" name="DTDO"/>
+  <columns dataType="CHAR" length="10" name="NUDO"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="ORIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="CHAR" length="10" name="PROG"/>
+  <columns dataType="CHAR" length="10" name="PERI"/>
+  <columns dataType="CHAR" length="2" name="SSFO"/>
+  <columns dataType="CHAR" length="15" name="FONT"/>
+  <columns dataType="CHAR" length="4" name="VALU"/>
+  <columns dataType="DECIMAL" length="12" name="CAMB" scale="6"/>
+  <columns dataType="CHAR" length="12" name="CONT"/>
+  <columns dataType="CHAR" length="15" name="CDOG"/>
+  <columns dataType="CHAR" length="2" name="TIOG"/>
+  <columns dataType="CHAR" length="10" name="PAOG"/>
+  <columns dataType="CHAR" length="35" name="DSOG"/>
+  <columns dataType="CHAR" length="35" name="DESC"/>
+  <columns dataType="CHAR" length="6" name="CAUS"/>
+  <columns dataType="DECIMAL" length="13" name="QTMO" scale="3"/>
+  <columns dataType="CHAR" length="15" name="CODA"/>
+  <columns dataType="DECIMAL" length="20" name="CODN" scale="6"/>
+  <columns dataType="CHAR" length="10" name="SCRE"/>
+  <columns dataType="CHAR" length="3" name="TICO"/>
+  <columns dataType="CHAR" length="3" name="LICO"/>
+  <columns dataType="DECIMAL" length="7" name="NURE"/>
+  <columns dataType="DECIMAL" length="8" name="DTRE"/>
+  <columns dataType="DECIMAL" length="20" name="NUME" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="DTOG"/>
+  <columns dataType="DECIMAL" length="6" name="OROG"/>
+</db-core:TableDef>

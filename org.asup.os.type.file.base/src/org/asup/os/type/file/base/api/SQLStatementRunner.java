@@ -21,15 +21,15 @@ import javax.inject.Inject;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
-import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.output.QObjectWriter;
+import org.asup.os.core.output.QOperatingSystemOutputPackage;
 import org.asup.os.core.output.QOutputManager;
 import org.asup.os.omac.QObject;
-import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.pgm.OperatingSystemRuntimeProgramException;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EAttribute;
@@ -49,35 +49,30 @@ public class SQLStatementRunner {
 	@Inject
 	private QJob job;
 
-	@SuppressWarnings("null")
 	@Entry
-	public void main(@DataDef(varying = true) QCharacter sql) {
+	public void main(@DataDef(length = 512) QCharacter sql) {
 
 		QObjectWriter objectWriter = outputManager.getDefaultWriter(job);
 		objectWriter.initialize();
 
-		QConnection databaseConnection = null; 
-				
+		QConnection databaseConnection = job.getContext().getAdapter(job, QConnection.class);
+
 		// fileManager.getDatabaseConnection(job);
 
 		QStatement statement = null;
 		try {
 
-			statement = databaseConnection.createStatement();
+			statement = databaseConnection.createStatement(true);
 
 			ResultSet resultSet = statement.executeQuery(sql.trimR());
 
 			EClass eClass = createEClass(resultSet);
-
+			QObject qObject = (QObject) eClass.getEPackage().getEFactoryInstance().create(eClass);
+			
 			while (resultSet.next()) {
 
-				QObject qObject = (QObject) eClass.getEPackage()
-						.getEFactoryInstance().create(eClass);
-
-				for (EStructuralFeature eStructuralFeature : eClass
-						.getEStructuralFeatures()) {
-					String value = resultSet.getString(eStructuralFeature
-							.getName());
+				for (EStructuralFeature eStructuralFeature : eClass.getEStructuralFeatures()) {
+					String value = resultSet.getString(eStructuralFeature.getName());
 					((EObject) qObject).eSet(eStructuralFeature, value);
 				}
 
@@ -117,8 +112,7 @@ public class SQLStatementRunner {
 
 		EClass eClass = ecoreFactory.createEClass();
 		eClass.setName(this.getClass().getSimpleName());
-		eClass.getESuperTypes().add(
-				QOperatingSystemOmacPackage.eINSTANCE.getObject());
+		eClass.getESuperTypes().add(QOperatingSystemOutputPackage.eINSTANCE.getObjectRow());
 
 		ePackage.getEClassifiers().add(eClass);
 
@@ -134,9 +128,9 @@ public class SQLStatementRunner {
 			eAttribute.setEType(EcorePackage.eINSTANCE.getEString());
 
 			EAnnotation eAnnotation = ecoreFactory.createEAnnotation();
-			eAnnotation.setSource(QOperatingSystemCorePackage.eNS_URI);
-			eAnnotation.getDetails().put("columnLength",
-					Integer.toString(columnLength));
+			eAnnotation.setSource(QIntegratedLanguageDataPackage.eNS_PREFIX);
+			eAnnotation.getReferences().add(QIntegratedLanguageDataPackage.eINSTANCE.getCharacterDef());
+			eAnnotation.getDetails().put("length", Integer.toString(columnLength));
 			eAttribute.getEAnnotations().add(eAnnotation);
 
 			eClass.getEStructuralFeatures().add(eAttribute);

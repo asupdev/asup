@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="YYCOD1" sequence="1"/>
+  <columns name="YYCOD2" sequence="2"/>
+  <columns name="YYCOD3" sequence="3"/>
+  <columns name="YYCOD4" sequence="4"/>
+  <columns name="YYCOD5" sequence="5"/>
+  <columns name="YYCOD6" sequence="6"/>
+  <columns name="YYCOD7" sequence="7"/>
+  <columns name="YYCOD8" sequence="8"/>
+  <columns name="YYCOD9" sequence="9"/>
+</db-core:IndexDef>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="C$SETT"/>
+  <columns dataType="CHAR" length="6" name="C$CAMP"/>
+  <columns dataType="CHAR" length="20" name="C$DESC"/>
+  <columns dataType="CHAR" length="2" name="C$TIPO"/>
+  <columns dataType="DECIMAL" length="3" name="C$LUNG"/>
+  <columns dataType="DECIMAL" length="1" name="C$NDEC"/>
+  <columns dataType="CHAR" length="1" name="C$OBBL"/>
+  <columns dataType="CHAR" length="1" name="C$NOCN"/>
+  <columns dataType="CHAR" length="1" name="C$FLLV"/>
+  <columns dataType="CHAR" length="15" name="C$LV01"/>
+  <columns dataType="CHAR" length="15" name="C$LV02"/>
+  <columns dataType="CHAR" length="15" name="C$LV03"/>
+  <columns dataType="CHAR" length="15" name="C$LV04"/>
+  <columns dataType="CHAR" length="10" name="C$TABE"/>
+  <columns dataType="DECIMAL" length="3" name="C$FILP"/>
+  <columns dataType="DECIMAL" length="3" name="C$PSIN"/>
+  <columns dataType="DECIMAL" length="2" name="C$CRIG"/>
+  <columns dataType="DECIMAL" length="2" name="C$CCOL"/>
+  <columns dataType="CHAR" length="2" name="C$CATT"/>
+  <columns dataType="DECIMAL" length="2" name="C$DLUN"/>
+  <columns dataType="DECIMAL" length="2" name="C$DRIG"/>
+  <columns dataType="DECIMAL" length="2" name="C$DCOL"/>
+  <columns dataType="CHAR" length="2" name="C$DATT"/>
+  <columns dataType="DECIMAL" length="2" name="C$FLUN"/>
+  <columns dataType="DECIMAL" length="2" name="C$FRIG"/>
+  <columns dataType="DECIMAL" length="2" name="C$FCOL"/>
+  <columns dataType="CHAR" length="2" name="C$FATT"/>
+  <columns dataType="CHAR" length="20" name="C$IS01"/>
+  <columns dataType="CHAR" length="20" name="C$IS02"/>
+</db-core:TableDef>

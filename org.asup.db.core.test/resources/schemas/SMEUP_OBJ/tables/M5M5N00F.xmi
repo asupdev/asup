@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="BWTIPK"/>
+  <columns dataType="CHAR" length="80" name="BWKEY0"/>
+  <columns dataType="CHAR" length="1" name="BWKEY1"/>
+  <columns dataType="DECIMAL" length="11" name="BWQT01" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="BWQT02" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="BWQT03" scale="6"/>
+  <columns dataType="DECIMAL" length="11" name="BWQT04" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="BWQT05" scale="3"/>
+  <columns dataType="CHAR" length="1" name="BWFL01"/>
+  <columns dataType="CHAR" length="1" name="BWFL02"/>
+  <columns dataType="CHAR" length="1" name="BWFL03"/>
+  <columns dataType="CHAR" length="1" name="BWFL04"/>
+  <columns dataType="CHAR" length="1" name="BWFL05"/>
+  <columns dataType="CHAR" length="1" name="BWFL06"/>
+  <columns dataType="CHAR" length="1" name="BWFL07"/>
+  <columns dataType="CHAR" length="10" name="BWSCEN"/>
+  <columns dataType="CHAR" length="3" name="BWCDMG"/>
+  <columns dataType="CHAR" length="15" name="BWARTI"/>
+  <columns dataType="CHAR" length="20" name="BWCROT"/>
+  <columns dataType="DECIMAL" length="9" name="BWNORI"/>
+  <columns dataType="DECIMAL" length="8" name="BWDTFO"/>
+  <columns dataType="CHAR" length="100" name="BWCORD"/>
+</db-core:TableDef>

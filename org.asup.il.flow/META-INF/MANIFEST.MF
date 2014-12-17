@@ -13,6 +13,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.asup.il.core;visibility:=reexport,
  org.asup.il.data;visibility:=reexport,
  org.asup.il.isam;visibility:=reexport,
+ org.asup.il.esql;visibility:=reexport,
  org.asup.fw.core;visibility:=reexport,
  org.asup.fw.java;visibility:=reexport,
  org.asup.db.core;visibility:=reexport

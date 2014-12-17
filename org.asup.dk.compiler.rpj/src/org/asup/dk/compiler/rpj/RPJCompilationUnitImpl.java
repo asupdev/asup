@@ -518,4 +518,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	public QContext getContext() {
 		return this.context;
 	}
+
+	@Override
+	public List<QCompilationUnit> getChildCompilationUnits() {
+		return new ArrayList<QCompilationUnit>(compilationUnits);
+	}
 }

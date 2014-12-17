@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   S$SETT ,   S$SUBS ,   S$DESC ,   S$ABES ,   S$UT01 ,   S$UT02 ,   S$UT03 ,   S$UT04 ,   S$UT05 ,   S$UT06 ,   S$UT07 ,   S$UT08 ,   S$UT09 ,   S$UT10 ,   S$FISS ,   S$PGMC ,   S$ARAP ,   S$UTCS ,   S$DTCS ,   S$HRCS ,   S$UTUS ,   S$DTUS ,   S$HRUS ,   S$UTCE ,   S$DTCE ,   S$HRCE ,   S$UTUE ,   S$DTUE ,   S$HRUE   FROM TABDS00F   WHERE   ( ( NOT S$SUBS &lt;> '  ' ) OR S$SUBS IS NULL ) ;"/>

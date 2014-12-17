@@ -58,6 +58,7 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QDatabaseCorePackage.CATALOG_CONTAINER: return (EObject)createCatalogContainer();
+			case QDatabaseCorePackage.CATALOG_GENERATION_STRATEGY: return (EObject)createCatalogGenerationStrategy();
 			case QDatabaseCorePackage.CONNECTION_CONFIG: return (EObject)createConnectionConfig();
 			case QDatabaseCorePackage.CONNECTION_CREDENTIALS: return (EObject)createConnectionCredentials();
 			case QDatabaseCorePackage.DATABASE_CONTAINER: return (EObject)createDatabaseContainer();
@@ -113,6 +114,16 @@ public class DatabaseCoreFactoryImpl extends EFactoryImpl implements QDatabaseCo
 	public QCatalogContainer createCatalogContainer() {
 		CatalogContainerImpl catalogContainer = new CatalogContainerImpl();
 		return catalogContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCatalogGenerationStrategy createCatalogGenerationStrategy() {
+		CatalogGenerationStrategyImpl catalogGenerationStrategy = new CatalogGenerationStrategyImpl();
+		return catalogGenerationStrategy;
 	}
 
 	/**

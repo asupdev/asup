@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="A01TREC"/>
+  <columns dataType="CHAR" length="17" name="A01NDOC"/>
+  <columns dataType="DECIMAL" length="12" name="A01DTDO"/>
+  <columns dataType="CHAR" length="17" name="A01NDDT"/>
+  <columns dataType="DECIMAL" length="12" name="A01DDDT"/>
+  <columns dataType="CHAR" length="17" name="A01NFAT"/>
+  <columns dataType="DECIMAL" length="12" name="A01DFAT"/>
+  <columns dataType="CHAR" length="17" name="A01FOCC"/>
+  <columns dataType="CHAR" length="35" name="A01FODE"/>
+  <columns dataType="CHAR" length="35" name="A01FOI1"/>
+  <columns dataType="CHAR" length="35" name="A01FOI2"/>
+  <columns dataType="CHAR" length="17" name="A01FOPI"/>
+  <columns dataType="CHAR" length="17" name="A01CLCD"/>
+  <columns dataType="CHAR" length="35" name="A01CLDE"/>
+  <columns dataType="CHAR" length="35" name="A01CLI1"/>
+  <columns dataType="CHAR" length="35" name="A01CLI2"/>
+  <columns dataType="CHAR" length="17" name="A01CLPI"/>
+  <columns dataType="CHAR" length="17" name="A01DECD"/>
+  <columns dataType="CHAR" length="35" name="A01DEDE"/>
+  <columns dataType="CHAR" length="35" name="A01DEI1"/>
+  <columns dataType="CHAR" length="35" name="A01DEI2"/>
+  <columns dataType="CHAR" length="17" name="A01PTCO"/>
+  <columns dataType="CHAR" length="17" name="A01CFCD"/>
+  <columns dataType="CHAR" length="35" name="A01CFDE"/>
+  <columns dataType="CHAR" length="35" name="A01CFI1"/>
+  <columns dataType="CHAR" length="35" name="A01CFI2"/>
+  <columns dataType="CHAR" length="17" name="A01CFPI"/>
+  <columns dataType="CHAR" length="17" name="A01TRCD"/>
+  <columns dataType="CHAR" length="35" name="A01TRDE"/>
+  <columns dataType="CHAR" length="17" name="A01TAR1"/>
+  <columns dataType="CHAR" length="17" name="A01TAR2"/>
+  <columns dataType="DECIMAL" length="12" name="A01PESL" scale="5"/>
+  <columns dataType="DECIMAL" length="12" name="A01PESN" scale="5"/>
+  <columns dataType="DECIMAL" length="12" name="A01VOLU" scale="5"/>
+  <columns dataType="DECIMAL" length="12" name="A01CPDT"/>
+</db-core:TableDef>

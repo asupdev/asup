@@ -55,8 +55,9 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 		schema = databaseManager.createSchema(connection, schemaName, schemaDef);
 		
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-		Enumeration<URL> tables = bundle.findEntries("/resources/schemas/" + schemaName + "/tables", null, false);
 
+		// tables
+		Enumeration<URL> tables = bundle.findEntries("/resources/schemas/" + schemaName + "/tables", null, false);
 		while (tables.hasMoreElements()) {
 
 			URL tableURL = tables.nextElement();
@@ -66,23 +67,63 @@ public class DefinitionCommands extends AbstractCommandProviderImpl {
 			
 			SQLObject sqlObject = null;
 			try {
-				if (file instanceof QViewDef) {
-					QViewDef viewDef = (QViewDef) file;
-					sqlObject = databaseManager.createView(connection, schema, fileName, viewDef);
-				} else if (file instanceof QTableDef) {
-					QTableDef tableDef = (QTableDef) file;
-					sqlObject = databaseManager.createTable(connection, schema, fileName, tableDef);
-				} else if (file instanceof QIndexDef) {
-					QIndexDef indexDef = (QIndexDef) file;
-					Table table = connection.getCatalogMetaData().getTable(schemaName, fileName);
-					sqlObject = databaseManager.createIndex(connection, table, fileName, indexDef);
-				}
+				QTableDef tableDef = (QTableDef) file;
+				sqlObject = databaseManager.createTable(connection, schema, fileName, tableDef);
 				System.out.println(sqlObject);
 			} catch (Exception e) {
 				System.err.println(e.toString());
 			}
 		}
 
+		// views
+		Enumeration<URL> views = bundle.findEntries("/resources/schemas/" + schemaName + "/views", null, false);
+		while (views.hasMoreElements()) {
+
+			URL viewURL = views.nextElement();
+			String fileName = fileUtil.getBaseName(viewURL.getFile());
+
+			QDatabaseObjectDef file = (QDatabaseObjectDef) load(viewURL);
+			
+			SQLObject sqlObject = null;
+			try {
+				QViewDef viewDef = (QViewDef) file;
+				sqlObject = databaseManager.createView(connection, schema, fileName, viewDef);
+				System.out.println(sqlObject);
+			} catch (Exception e) {
+				System.err.println(e.toString());
+			}
+		}
+		
+		// indices
+		Enumeration<URL> indices = bundle.findEntries("/resources/schemas/" + schemaName + "/indices", null, false);
+		while (indices.hasMoreElements()) {
+
+			URL indexURL = indices.nextElement();
+			String fileName = fileUtil.getBaseName(indexURL.getFile());
+
+			QDatabaseObjectDef file = (QDatabaseObjectDef) load(indexURL);
+			
+			SQLObject sqlObject = null;
+			try {
+				QIndexDef indexDef = (QIndexDef) file;
+				
+				Table table = null;
+				if(connection.getCatalogGenerationStrategy().isCreateIndexOnView()) {
+					table = connection.getCatalogMetaData().getView(schemaName, fileName);
+	
+					if(table != null) {
+						sqlObject = databaseManager.createIndex(connection, table, fileName, indexDef);
+						System.out.println(sqlObject);
+					}
+				}
+				else {
+					// TODO 	
+				}
+			} catch (Exception e) {
+				System.err.println(e.toString());
+			}
+		}
+		
 		connection.close();
 		System.out.println("Creazione schema completata");
 	}

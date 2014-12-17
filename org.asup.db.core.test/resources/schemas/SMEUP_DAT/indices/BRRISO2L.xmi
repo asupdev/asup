@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="C&#xa7;TRIS" sequence="1"/>
+  <columns name="C&#xa7;CDAP" sequence="2"/>
+  <columns name="C&#xa7;RISO" sequence="3"/>
+</db-core:IndexDef>

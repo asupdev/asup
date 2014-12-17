@@ -47,7 +47,7 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 	private IConnectionProfile iConnectionProfile;
 	private ConnectionInfo connectionGraph;
 	private ConnectionInfo connectionWork;
-	
+
 	private Map<String, Schema> schemas;
 
 	private boolean nativeCatalogSupport;
@@ -55,27 +55,29 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 	private BaseSchemaFilterImpl schemaFilter;
 	private BaseTableFilterImpl tableFilter;
 	private BaseViewFilterImpl viewFilter;
-	
+
 	public BaseCatalogContainerImpl(QContext catalogContext) {
 		this.catalogContext = catalogContext;
 	}
 
 	@Override
 	public Schema loadSchema(String name) {
-		
-		Schema schema = loadSchema(name, true);
 
-		// activate lazy loading if needed
-		schema.getTables();
+		synchronized (this) {
+			Schema schema = loadSchema(name, true);
 
-		return schema;
+			// activate lazy loading if needed
+			schema.getTables();
+
+			return schema;
+		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	public Schema loadSchema(String name, boolean update) {
+	private Schema loadSchema(String name, boolean update) {
 
 		ICatalogObject iCatalogWork = getCatalogWork();
-		
+
 		schemaFilter.setSchemaName(name);
 		iCatalogWork.refresh();
 
@@ -83,92 +85,96 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 
 		if (nativeCatalogSupport) {
 			Catalog catalog = (Catalog) getCatalogWork();
-			for (Schema newSchema : (List<Schema>) catalog.getSchemas()) {
+			for (Schema newSchema : (List<Schema>) catalog.getSchemas())
 				schema = newSchema;
-			}
 
 			// update container
-			if(update && schema != null)
+			if (update && schema != null)
 				schema.setCatalog((Catalog) getCatalogGraph());
-		}
-		else {
+		} else {
 			Database database = (Database) getCatalogWork();
-			for (Schema newSchema : (List<Schema>) database.getSchemas()) {
+			for (Schema newSchema : (List<Schema>) database.getSchemas())
 				schema = newSchema;
-			}
-			
+
 			// update container
-			if(update && schema != null)
+			if (update && schema != null)
 				schema.setDatabase((Database) getCatalogGraph());
 		}
 
-		if(update && schema != null)
+		if (update && schema != null)
 			this.schemas.put(schema.getName(), schema);
-		
+
 		return schema;
 	}
-	
+
 	@Override
 	public Table loadTable(Schema schema, String name) {
-		
-		Table table = loadTable(schema, name, true);
 
-		// activate lazy loading if needed
-		table.getIndex();
-		
-		return table;
+		synchronized (this) {
+
+			Table table = loadTable(schema, name, true);
+
+			// activate lazy loading if needed
+			table.getIndex();
+
+			return table;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public Table loadTable(Schema schema, String name, boolean update) {
-		
+	private Table loadTable(Schema schema, String name, boolean update) {
+
 		Schema schemaWork = loadSchema(schema.getName(), false);
 		tableFilter.setTableName(name);
-		((ICatalogObject)schemaWork).refresh();
+		viewFilter.setViewName("*NONE");
+		((ICatalogObject) schemaWork).refresh();
 
 		Table table = null;
 
-		for (Table newTable : (List<Table>) schemaWork.getTables()) {
+		for (Table newTable : (List<Table>) schemaWork.getTables())
 			table = newTable;
-		}
 
 		// update container
-		if(update && table != null)
+		if (update && table != null)
 			table.setSchema(schema);
-		
+
 		return table;
 	}
 
 	@Override
-	public ViewTable loadView(Schema schema, String name) {	
-		
-		ViewTable view = loadView(schema, name, true);
-		
-		// activate lazy loading if needed
-		view.getIndex();
-		
-		return view;
+	public ViewTable loadView(Schema schema, String name) {
+
+		synchronized (this) {
+
+			ViewTable view = loadView(schema, name, true);
+
+			// activate lazy loading if needed
+			view.getIndex();
+
+			return view;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
-	public ViewTable loadView(Schema schema, String name, boolean update) {
+	private ViewTable loadView(Schema schema, String name, boolean update) {
 
 		Schema schemaWork = loadSchema(schema.getName(), false);
 		viewFilter.setViewName(name);
-		((ICatalogObject)schemaWork).refresh();
+		tableFilter.setTableName("*NONE");
+		((ICatalogObject) schemaWork).refresh();
 
 		ViewTable view = null;
 
 		for (Table newTable : (List<Table>) schemaWork.getTables()) {
-			
-			if(newTable instanceof ViewTable)
+
+			if (newTable instanceof ViewTable)
 				view = (ViewTable) newTable;
 		}
 
 		// update container
-		if(update && view != null)
+		if (update && view != null)
 			view.setSchema(schema);
-		
+
 		return view;
 	}
 
@@ -176,42 +182,48 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 	@Override
 	public Index loadIndex(Table table, String name) {
 
-		Index index = null;
-		
-		if(table instanceof ViewTable) {
+		synchronized (this) {
 
-			ViewTable viewWork = loadView(table.getSchema(), table.getName(), false);			
-			viewFilter.setViewName(table.getName());
-			((ICatalogObject)viewWork).refresh();
+			Index index = null;
 
-			for (Index newIndex : (List<Index>) viewWork.getIndex()) {				
-				if(newIndex.getName().equals(name)) {
-					index = newIndex;
-					break;
+			if (table instanceof ViewTable) {
+
+				ViewTable viewWork = loadView(table.getSchema(), table.getName(), false);
+
+				viewFilter.setViewName(table.getName());
+				tableFilter.setTableName("*NONE");
+				((ICatalogObject) viewWork).refresh();
+
+				for (Index newIndex : (List<Index>) viewWork.getIndex()) {
+					if (newIndex.getName().equals(name)) {
+						index = newIndex;
+						break;
+					}
+				}
+			} else {
+
+				Table tableWork = loadTable(table.getSchema(), table.getName(), false);
+
+				tableFilter.setTableName(table.getName());
+				viewFilter.setViewName("*NONE");
+				((ICatalogObject) tableWork).refresh();
+
+				for (Index newIndex : (List<Index>) tableWork.getIndex()) {
+					if (newIndex.getName().equals(name)) {
+						index = newIndex;
+						break;
+					}
 				}
 			}
-		}
-		else {
 
-			Table tableWork = loadTable(table.getSchema(), table.getName(), false);			
-			tableFilter.setTableName(table.getName());
-			((ICatalogObject)tableWork).refresh();
-
-			for (Index newIndex : (List<Index>) tableWork.getIndex()) {				
-				if(newIndex.getName().equals(name)) {
-					index = newIndex;
-					break;
-				}
+			// update container
+			if (index != null) {
+				index.setSchema(table.getSchema());
+				index.setTable(table);
 			}
+
+			return index;
 		}
-		
-		// update container
-		if(index != null) {
-			index.setSchema(table.getSchema());
-			index.setTable(table);
-		}
-		
-		return index;
 	}
 
 	@Override
@@ -241,7 +253,6 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 	@SuppressWarnings("unchecked")
 	protected void initialize() throws SQLException {
 
-
 		this.connectionGraph = null;
 		this.connectionWork = null;
 		this.schemas = new HashMap<String, Schema>();
@@ -249,11 +260,11 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 		this.schemaFilter = new BaseSchemaFilterImpl();
 		this.tableFilter = new BaseTableFilterImpl();
 		this.viewFilter = new BaseViewFilterImpl();
-		
+
 		QConnectionCredentials credentials = getConnectionConfig().getCredentials();
 		this.connectionGraph = (ConnectionInfo) createConnection(org.eclipse.datatools.connectivity.sqm.core.connection.ConnectionInfo.class, credentials.getUser(), credentials.getPassword());
 		if (getConnectionConfig().getCatalog() != null && !getConnectionConfig().getCatalog().isEmpty())
-			this.connectionGraph.getSharedConnection().setCatalog(getConnectionConfig().getCatalog());					
+			this.connectionGraph.getSharedConnection().setCatalog(getConnectionConfig().getCatalog());
 
 		// load catalog metadata
 		Database database = this.connectionGraph.getSharedDatabase();
@@ -270,8 +281,7 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 
 				this.schemas.put(schema.getName(), schema);
 			}
-		}
-		else {
+		} else {
 
 			for (Catalog databaseCatalog : databaseGraphCatalogs) {
 				if (getConnectionConfig().getCatalog().equals(databaseCatalog.getName())) {
@@ -396,31 +406,31 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 		ICatalogObject iCatalogWork = null;
 		try {
 			if (nativeCatalogSupport) {
-	
+
 				for (Catalog databaseCatalogWork : (List<Catalog>) getConnectionWork().getSharedDatabase().getCatalogs()) {
-	
+
 					if (getConnectionConfig().getCatalog().equals(databaseCatalogWork.getName())) {
 						iCatalogWork = (ICatalogObject) databaseCatalogWork;
 						break;
 					}
 				}
-	
+
 			} else
 				iCatalogWork = (ICatalogObject) getConnectionWork().getSharedDatabase();
 		} catch (SQLException e) {
 			e.printStackTrace();
-	
+
 			return null;
 		}
-		
+
 		return iCatalogWork;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private ICatalogObject getCatalogGraph() {
 
 		ICatalogObject iCatalogGraph = null;
-		
+
 		if (nativeCatalogSupport) {
 
 			for (Catalog databaseCatalogGraph : (List<Catalog>) this.connectionGraph.getSharedDatabase().getCatalogs()) {
@@ -433,7 +443,7 @@ public class BaseCatalogContainerImpl extends CatalogContainerImpl {
 
 		} else
 			iCatalogGraph = (ICatalogObject) connectionGraph.getSharedDatabase();
-		
+
 		return iCatalogGraph;
 	}
 }

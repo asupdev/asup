@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="&#xa3;DIBFU"/>
+  <columns dataType="CHAR" length="10" name="&#xa3;DIBME"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBSP"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;DIBIT"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBIC"/>
+  <columns dataType="CHAR" length="20" name="&#xa3;DIBCG"/>
+  <columns dataType="DECIMAL" length="11" name="&#xa3;DIBQT" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;DIBDT"/>
+  <columns dataType="DECIMAL" length="2" name="&#xa3;DIBLM"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;DIBIS"/>
+  <columns dataType="CHAR" length="6" name="&#xa3;DIBIQ"/>
+  <columns dataType="DECIMAL" length="9" name="&#xa3;DIBIR"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBI1"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBI2"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;DIBTD"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBAS"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBCO"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;DIBST"/>
+  <columns dataType="CHAR" length="6" name="&#xa3;DIBSQ"/>
+  <columns dataType="DECIMAL" length="9" name="&#xa3;DIBNR"/>
+  <columns dataType="DECIMAL" length="2" name="&#xa3;DIBLV"/>
+  <columns dataType="DECIMAL" length="3" name="&#xa3;DIBNL"/>
+  <columns dataType="CHAR" length="4" name="&#xa3;DIBU1"/>
+  <columns dataType="CHAR" length="4" name="&#xa3;DIBU2"/>
+  <columns dataType="DECIMAL" length="3" name="&#xa3;DIBLA"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;DIBDI"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;DIBDF"/>
+  <columns dataType="CHAR" length="5" name="&#xa3;DIBSZ"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBS1"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBS2"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIBCF" scale="6"/>
+  <columns dataType="DECIMAL" length="11" name="&#xa3;DIBQL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="&#xa3;DIBPR" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV01" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV02" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV03" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV04" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV05" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV06" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV07" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV08" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV09" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV10" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV11" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV12" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV13" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV14" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV15" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV16" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV17" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV18" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV19" scale="6"/>
+  <columns dataType="DECIMAL" length="15" name="&#xa3;DIV20" scale="6"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBF1"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBF2"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBF3"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBF4"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBF5"/>
+  <columns dataType="CHAR" length="50" name="&#xa3;DIBNA"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;DIBDS"/>
+  <columns dataType="CHAR" length="5" name="&#xa3;DIBPO"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;DIBDC"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;DIBDU"/>
+  <columns dataType="CHAR" length="10" name="&#xa3;DIBUA"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBFD"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIBFP"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIB35"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;DIB36"/>
+  <columns dataType="CHAR" length="7" name="&#xa3;DIBMS"/>
+  <columns dataType="CHAR" length="10" name="&#xa3;DIBFI"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;DIBEO_I"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;DIBDV_I"/>
+</db-core:TableDef>

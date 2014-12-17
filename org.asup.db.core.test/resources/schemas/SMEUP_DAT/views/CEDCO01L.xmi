@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   C$ANNU ,   C$TIPO ,   C$GCDC ,   C$CDC ,   C$DESC ,   C$INDR ,   C$VDS ,   C$VDSA ,   C$CO01 ,   C$CO02 ,   C$CO03 ,   C$CO04 ,   C$CO05 ,   C$CO06 ,   C$UNOP ,   C$DIRE ,   C$AREA ,   C$DIPR ,   C$DFPR ,   C$DIEF ,   C$DFEF ,   C$COCL ,   C$STAT ,   C$GCC4 ,   C$GCC5 ,   C$GCC6 ,   C$GCC7 ,   C$GCC8 ,   C$GCC9   FROM CEDCO00F   WHERE   ( ( NOT C$ANNU &lt;> ' ' ) OR C$ANNU IS NULL ) ;"/>

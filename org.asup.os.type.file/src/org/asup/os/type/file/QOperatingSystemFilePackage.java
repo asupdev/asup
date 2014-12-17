@@ -139,22 +139,13 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int FILE__FACETS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE__DICTIONARY = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+	int FILE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.QFileSingleFormat <em>File Single Format</em>}' class.
@@ -228,15 +219,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE_SINGLE_FORMAT__FACETS = FILE__FACETS;
-
-	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__DICTIONARY = FILE__DICTIONARY;
 
 	/**
 	 * The number of structural features of the '<em>File Single Format</em>' class.
@@ -319,15 +301,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int DATABASE_FILE__FACETS = FILE_SINGLE_FORMAT__FACETS;
-
-	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_FILE__DICTIONARY = FILE_SINGLE_FORMAT__DICTIONARY;
 
 	/**
 	 * The feature id for the '<em><b>Database Format</b></em>' containment reference.
@@ -842,15 +815,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int FILE_MULTI_FORMAT__FACETS = FILE__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_MULTI_FORMAT__DICTIONARY = FILE__DICTIONARY;
-
-	/**
 	 * The number of structural features of the '<em>File Multi Format</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -921,15 +885,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int DISPLAY_FILE__FACETS = FILE_MULTI_FORMAT__FACETS;
-
-	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__DICTIONARY = FILE_MULTI_FORMAT__DICTIONARY;
 
 	/**
 	 * The feature id for the '<em><b>Display Formats</b></em>' containment reference list.
@@ -1383,15 +1338,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int LOGICAL_FILE__FACETS = DATABASE_FILE__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOGICAL_FILE__DICTIONARY = DATABASE_FILE__DICTIONARY;
-
-	/**
 	 * The feature id for the '<em><b>Database Format</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1410,13 +1356,22 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int LOGICAL_FILE__CREATION_STATEMENT = DATABASE_FILE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_FILE__TABLES = DATABASE_FILE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Logical File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOGICAL_FILE_FEATURE_COUNT = DATABASE_FILE_FEATURE_COUNT + 1;
+	int LOGICAL_FILE_FEATURE_COUNT = DATABASE_FILE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -1480,15 +1435,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int PHYSICAL_FILE__FACETS = DATABASE_FILE__FACETS;
-
-	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHYSICAL_FILE__DICTIONARY = DATABASE_FILE__DICTIONARY;
 
 	/**
 	 * The feature id for the '<em><b>Database Format</b></em>' containment reference.
@@ -1570,15 +1516,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRINTER_FILE__FACETS = FILE_MULTI_FORMAT__FACETS;
-
-	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRINTER_FILE__DICTIONARY = FILE_MULTI_FORMAT__DICTIONARY;
 
 	/**
 	 * The feature id for the '<em><b>Printer Formats</b></em>' containment reference list.
@@ -1818,15 +1755,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int SOURCE_FILE__FACETS = FILE__FACETS;
 
 	/**
-	 * The feature id for the '<em><b>Dictionary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOURCE_FILE__DICTIONARY = FILE__DICTIONARY;
-
-	/**
 	 * The number of structural features of the '<em>Source File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1970,17 +1898,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFile();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.file.QFile#getDictionary <em>Dictionary</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dictionary</em>'.
-	 * @see org.asup.os.type.file.QFile#getDictionary()
-	 * @see #getFile()
-	 * @generated
-	 */
-	EAttribute getFile_Dictionary();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.file.QFileFormat <em>File Format</em>}'.
@@ -2236,6 +2153,17 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	EAttribute getLogicalFile_CreationStatement();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.asup.os.type.file.QLogicalFile#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Tables</em>'.
+	 * @see org.asup.os.type.file.QLogicalFile#getTables()
+	 * @see #getLogicalFile()
+	 * @generated
+	 */
+	EAttribute getLogicalFile_Tables();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.file.QPhysicalFile <em>Physical File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2480,14 +2408,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		EClass FILE = eINSTANCE.getFile();
 
 		/**
-		 * The meta object literal for the '<em><b>Dictionary</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FILE__DICTIONARY = eINSTANCE.getFile_Dictionary();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.os.type.file.impl.FileFormatImpl <em>File Format</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2700,6 +2620,14 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LOGICAL_FILE__CREATION_STATEMENT = eINSTANCE.getLogicalFile_CreationStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Tables</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOGICAL_FILE__TABLES = eINSTANCE.getLogicalFile_Tables();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.file.impl.PhysicalFileImpl <em>Physical File</em>}' class.

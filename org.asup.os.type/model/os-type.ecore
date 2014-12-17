@@ -130,6 +130,12 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="getTypeReader">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//resources/ResourceReader">
+        <eTypeArguments eClassifier="#//Type"/>
+      </eGenericType>
+      <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
+    </eOperations>
     <eGenericSuperTypes eClassifier="#//TypedManager">
       <eTypeArguments eClassifier="#//Type"/>
     </eGenericSuperTypes>

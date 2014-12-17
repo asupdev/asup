@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="S&#xa7;&#xa7;CA1"/>
+  <columns dataType="DECIMAL" length="20" name="STNABC" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STIABC" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STPABC" scale="5"/>
+  <columns dataType="DECIMAL" length="20" name="STTABC" scale="5"/>
+</db-core:TableDef>

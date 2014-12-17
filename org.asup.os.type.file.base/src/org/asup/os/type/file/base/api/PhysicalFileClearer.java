@@ -16,7 +16,8 @@ import java.sql.SQLException;
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.core.QDatabaseManager;
+import org.asup.db.core.QStatement;
+import org.asup.db.syntax.QDefinitionWriter;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
@@ -33,6 +34,7 @@ import org.asup.os.type.QTypedObject;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QPhysicalFile;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
 
 @Program(name = "QDBCLRPF")
 public class PhysicalFileClearer {
@@ -41,9 +43,6 @@ public class PhysicalFileClearer {
 	private QResourceFactory resourceFactory;
 	@Inject
 	private QJob job;
-	@Inject 
-	private QDatabaseManager databaseManager;	
-
 
 	@Entry
 	public void main(TypedReference<QTypedObject> file, @DataDef(length = 10) QEnum<Member, QCharacter> member) {
@@ -61,7 +60,7 @@ public class PhysicalFileClearer {
 		try {
 			if(qFile instanceof QPhysicalFile) {
 				Table table = connection.getCatalogMetaData().getTable(qFile.getLibrary(), qFile.getName());				
-				databaseManager.deleteData(connection, table);
+				deleteData(connection, table);
 			}			
 		} catch (SQLException e) {
 			throw new OperatingSystemRuntimeException(e);
@@ -75,6 +74,26 @@ public class PhysicalFileClearer {
 		LAST, 
 		@Special(value = "*ALL")
 		ALL, OTHER
+	}
+
+
+	public void deleteData(QConnection connection, Table table) throws SQLException {
+
+		// persistent table only
+		if (table instanceof ViewTable)
+			return;
+
+		QStatement statement = null;
+		try {
+			QDefinitionWriter definitionWriter = connection.getContext().get(QDefinitionWriter.class);
+			String command = definitionWriter.deleteData(table);
+			
+			statement = connection.createStatement(true);
+			statement.execute(command);
+		} finally {
+			if (statement != null)
+				statement.close();
+		}
 	}
 
 }

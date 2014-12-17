@@ -15,7 +15,7 @@ import org.asup.fw.core.QServiceConfig;
 import org.asup.fw.core.impl.PluginImpl;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.resources.QResourceProvider;
+import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.core.resources.QResourceSetReader;
 import org.asup.os.core.resources.QResourceWriter;
@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public abstract class TypedManagerImpl<T extends QTypedObject> extends PluginImpl implements QTypedManager<T> {
 	
 	@Inject
-	private QResourceProvider resourceProvider;
+	private QResourceFactory resourceFactory;
 	
 	/**
 	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference.
@@ -132,7 +132,7 @@ public abstract class TypedManagerImpl<T extends QTypedObject> extends PluginImp
 	 * @generated NOT
 	 */
 	public QResourceReader<T> getResourceReader(QJob job, String container) {
-		return resourceProvider.getResourceReader(job, getTypedClass(), container);
+		return resourceFactory.getResourceReader(job, getTypedClass(), container);
 	}
 
 	/**
@@ -141,7 +141,7 @@ public abstract class TypedManagerImpl<T extends QTypedObject> extends PluginImp
 	 * @generated NOT
 	 */
 	public QResourceSetReader<T> getResourceReader(QJob job, Scope scope) {
-		return resourceProvider.getResourceReader(job, getTypedClass(), scope);
+		return resourceFactory.getResourceReader(job, getTypedClass(), scope);
 	}
 
 	/**
@@ -150,7 +150,7 @@ public abstract class TypedManagerImpl<T extends QTypedObject> extends PluginImp
 	 * @generated NOT
 	 */
 	public QResourceWriter<T> getResourceWriter(QJob job, String container) {
-		return resourceProvider.getResourceWriter(job, getTypedClass(), container);
+		return resourceFactory.getResourceWriter(job, getTypedClass(), container);
 	}
 
 	/**
@@ -159,7 +159,7 @@ public abstract class TypedManagerImpl<T extends QTypedObject> extends PluginImp
 	 * @generated NOT
 	 */
 	public QResourceWriter<T> getResourceWriter(QJob job, Scope scope) {
-		return resourceProvider.getResourceWriter(job, getTypedClass(), scope);
+		return resourceFactory.getResourceWriter(job, getTypedClass(), scope);
 	}
 
 	/**

@@ -111,6 +111,9 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 	private QViewDef adaptDatabaseFileToViewDef(QContext context, QLogicalFile file) {
 
+		if(file.getCreationStatement() == null)
+			return null;
+		
 		QViewDef viewDef = QDatabaseCoreFactory.eINSTANCE.createViewDef();
 
 		/*
@@ -143,10 +146,6 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 		QDatabaseFileFormat databaseFileFormat = file.getDatabaseFormat();
 		if (databaseFileFormat.getKeys().isEmpty())
-			return null;
-
-		// logicalFile without physical reference
-		if (file instanceof QLogicalFile && (file.getDictionary() == null || file.getDictionary().isEmpty()))
 			return null;
 
 		QIndexDef indexDef = QDatabaseCoreFactory.eINSTANCE.createIndexDef();

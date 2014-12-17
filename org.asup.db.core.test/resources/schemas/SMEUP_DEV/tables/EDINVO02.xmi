@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="I02TREC"/>
+  <columns dataType="CHAR" length="35" name="I02NDOC"/>
+  <columns dataType="CHAR" length="35" name="I02NDDT"/>
+  <columns dataType="DECIMAL" length="12" name="I02DDDT"/>
+  <columns dataType="CHAR" length="17" name="I02NORC"/>
+  <columns dataType="DECIMAL" length="12" name="I02DORC"/>
+  <columns dataType="CHAR" length="17" name="I02DECD"/>
+  <columns dataType="CHAR" length="35" name="I02DEDE"/>
+  <columns dataType="DECIMAL" length="4" name="I02PRAR"/>
+  <columns dataType="CHAR" length="35" name="I02IDOJ"/>
+  <columns dataType="CHAR" length="35" name="I02ARCC"/>
+  <columns dataType="CHAR" length="35" name="I02ARCD"/>
+  <columns dataType="CHAR" length="35" name="I02ARFC"/>
+  <columns dataType="DECIMAL" length="15" name="I02QTFA" scale="3"/>
+  <columns dataType="CHAR" length="3" name="I02UNMS"/>
+  <columns dataType="DECIMAL" length="21" name="I02PRUN" scale="6"/>
+  <columns dataType="DECIMAL" length="17" name="I02TOAR" scale="2"/>
+  <columns dataType="CHAR" length="3" name="I02VALU"/>
+  <columns dataType="CHAR" length="3" name="I02CIVA"/>
+  <columns dataType="CHAR" length="4" name="I02CSC1"/>
+  <columns dataType="DECIMAL" length="15" name="I02CSI1" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I02CSC2"/>
+  <columns dataType="DECIMAL" length="15" name="I02CSI2" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I02CSC3"/>
+  <columns dataType="DECIMAL" length="15" name="I02CSI3" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I02CSC4"/>
+  <columns dataType="DECIMAL" length="15" name="I02CSI4" scale="2"/>
+  <columns dataType="CHAR" length="4" name="I02CSC5"/>
+  <columns dataType="DECIMAL" length="15" name="I02CSI5" scale="2"/>
+  <columns dataType="DECIMAL" length="21" name="I02PRUL" scale="6"/>
+  <columns dataType="DECIMAL" length="7" name="I02AIVA" scale="4"/>
+  <columns dataType="CHAR" length="10" name="I02NATU"/>
+  <columns dataType="CHAR" length="10" name="I02TPS1"/>
+  <columns dataType="CHAR" length="10" name="I02TPS2"/>
+  <columns dataType="CHAR" length="10" name="I02TPS3"/>
+  <columns dataType="CHAR" length="10" name="I02TPS4"/>
+  <columns dataType="CHAR" length="10" name="I02TPS5"/>
+  <columns dataType="DECIMAL" length="7" name="I02PCS1" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="I02PCS2" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="I02PCS3" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="I02PCS4" scale="4"/>
+  <columns dataType="DECIMAL" length="7" name="I02PCS5" scale="4"/>
+  <columns dataType="CHAR" length="10" name="I02TPRI"/>
+  <columns dataType="CHAR" length="35" name="I02ARFD"/>
+  <columns dataType="CHAR" length="35" name="I02RIDA"/>
+  <columns dataType="CHAR" length="1" name="I02FL01"/>
+  <columns dataType="CHAR" length="1" name="I02FL02"/>
+  <columns dataType="CHAR" length="35" name="I02NFAN"/>
+  <columns dataType="DECIMAL" length="8" name="I02DFAN"/>
+</db-core:TableDef>

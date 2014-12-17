@@ -33,6 +33,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 import org.asup.db.core.QCatalogContainer;
+import org.asup.db.core.QCatalogGenerationStrategy;
 import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseContainer;
@@ -427,5 +428,16 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		}
 
 		return sql;
+	}
+
+	@Override
+	public QCatalogGenerationStrategy getCatalogGenerationStrategy() {
+		try {
+			return getCatalogConnection().getCatalogGenerationStrategy();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="E01AZI"/>
+  <columns dataType="CHAR" length="10" name="E01BAN"/>
+  <columns dataType="CHAR" length="15" name="E01RAB"/>
+  <columns dataType="CHAR" length="1" name="E01CIN"/>
+  <columns dataType="CHAR" length="10" name="E01ABC"/>
+  <columns dataType="CHAR" length="12" name="E01CCO"/>
+  <columns dataType="CHAR" length="30" name="E01IDM"/>
+  <columns dataType="DECIMAL" length="8" name="E01DTC"/>
+  <columns dataType="DECIMAL" length="8" name="E01DTV"/>
+  <columns dataType="DECIMAL" length="8" name="E01DTO"/>
+  <columns dataType="DECIMAL" length="21" name="E01IMP" scale="6"/>
+  <columns dataType="CHAR" length="1" name="E01SEG"/>
+  <columns dataType="CHAR" length="4" name="E01DIV"/>
+  <columns dataType="CHAR" length="2" name="E01CAB"/>
+  <columns dataType="CHAR" length="2" name="E01CCI"/>
+  <columns dataType="CHAR" length="15" name="E01NAS"/>
+  <columns dataType="CHAR" length="16" name="E01RBA"/>
+  <columns dataType="CHAR" length="9" name="E01RCL"/>
+  <columns dataType="CHAR" length="35" name="E01DES"/>
+  <columns dataType="DECIMAL" length="21" name="E01SDI" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="E01SDF" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="E01SLF" scale="6"/>
+  <columns dataType="CHAR" length="23" name="E01IDR"/>
+  <columns dataType="DECIMAL" length="8" name="E01ODT"/>
+  <columns dataType="CHAR" length="24" name="E01OFI"/>
+  <columns dataType="CHAR" length="80" name="E01ODE"/>
+  <columns dataType="DECIMAL" length="21" name="E01EIO" scale="6"/>
+  <columns dataType="CHAR" length="4" name="E01EDV"/>
+  <columns dataType="DECIMAL" length="21" name="E01EIR" scale="6"/>
+  <columns dataType="CHAR" length="4" name="E01EDR"/>
+  <columns dataType="DECIMAL" length="21" name="E01EIN" scale="6"/>
+  <columns dataType="CHAR" length="4" name="E01EDN"/>
+  <columns dataType="DECIMAL" length="12" name="E01ECA" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="E01ECO" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="E01ESP" scale="6"/>
+  <columns dataType="CHAR" length="104" name="E01EOR"/>
+  <columns dataType="CHAR" length="50" name="E01EBE"/>
+  <columns dataType="CHAR" length="174" name="E01EMO"/>
+  <columns dataType="CHAR" length="535" name="E01DEA"/>
+</db-core:TableDef>

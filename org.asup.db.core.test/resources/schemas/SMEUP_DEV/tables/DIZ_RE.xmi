@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="IDOJ"/>
+  <columns dataType="CHAR" length="6" name="TREA"/>
+  <columns dataType="CHAR" length="6" name="TREB"/>
+  <columns dataType="CHAR" length="6" name="TREC"/>
+  <columns dataType="CHAR" length="30" name="NOME"/>
+  <columns dataType="CHAR" length="30" name="COGN"/>
+  <columns dataType="CHAR" length="35" name="INDI"/>
+  <columns dataType="CHAR" length="20" name="TITO"/>
+  <columns dataType="CHAR" length="256" name="MAIL"/>
+  <columns dataType="CHAR" length="100" name="DOMI"/>
+  <columns dataType="CHAR" length="3" name="TIEN"/>
+  <columns dataType="CHAR" length="15" name="COEN"/>
+  <columns dataType="CHAR" length="100" name="TV&#xa3;F"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="DECIMAL" length="15" name="NUMR" scale="5"/>
+  <columns dataType="DECIMAL" length="6" name="ORA6"/>
+  <columns dataType="CHAR" length="10" name="OGIN"/>
+  <columns dataType="CHAR" length="10" name="OGAG"/>
+  <columns dataType="CHAR" length="12" name="TIOG"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+</db-core:TableDef>

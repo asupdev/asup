@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="B&#xa3;TOGG" sequence="1"/>
+  <columns name="B&#xa3;POGG" sequence="2"/>
+  <columns name="B&#xa3;TOGS" sequence="3"/>
+  <columns name="B&#xa3;POGS" sequence="4"/>
+  <columns name="B&#xa3;AOGG" sequence="5"/>
+</db-core:IndexDef>

@@ -8,6 +8,7 @@
 package org.asup.os.core.output;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -208,6 +209,25 @@ public interface QOperatingSystemOutputPackage extends EPackage {
 	int OUTPUT_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.os.core.output.impl.ObjectRowImpl <em>Object Row</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.core.output.impl.ObjectRowImpl
+	 * @see org.asup.os.core.output.impl.OperatingSystemOutputPackageImpl#getObjectRow()
+	 * @generated
+	 */
+	int OBJECT_ROW = 4;
+
+	/**
+	 * The number of structural features of the '<em>Object Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_ROW_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.core.output.QObjectWriter <em>Object Writer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +266,16 @@ public interface QOperatingSystemOutputPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOutputManager();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.os.core.output.QObjectRow <em>Object Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Object Row</em>'.
+	 * @see org.asup.os.core.output.QObjectRow
+	 * @generated
+	 */
+	EClass getObjectRow();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -308,6 +338,16 @@ public interface QOperatingSystemOutputPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OUTPUT_MANAGER = eINSTANCE.getOutputManager();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.core.output.impl.ObjectRowImpl <em>Object Row</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.core.output.impl.ObjectRowImpl
+		 * @see org.asup.os.core.output.impl.OperatingSystemOutputPackageImpl#getObjectRow()
+		 * @generated
+		 */
+		EClass OBJECT_ROW = eINSTANCE.getObjectRow();
 
 	}
 

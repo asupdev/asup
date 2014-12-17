@@ -9,6 +9,8 @@ package org.asup.il.flow;
 
 import java.util.List;
 
+import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
 
@@ -22,6 +24,8 @@ import org.asup.il.isam.QKeyListTerm;
  * <ul>
  *   <li>{@link org.asup.il.flow.QFileSection#getDataSets <em>Data Sets</em>}</li>
  *   <li>{@link org.asup.il.flow.QFileSection#getKeyLists <em>Key Lists</em>}</li>
+ *   <li>{@link org.asup.il.flow.QFileSection#getCursors <em>Cursors</em>}</li>
+ *   <li>{@link org.asup.il.flow.QFileSection#getStatements <em>Statements</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,4 +66,36 @@ public interface QFileSection extends QUnitSection {
 	 * @generated
 	 */
 	List<QKeyListTerm> getKeyLists();
+
+	/**
+	 * Returns the value of the '<em><b>Cursors</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.il.esql.QCursorTerm}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cursors</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cursors</em>' containment reference list.
+	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getFileSection_Cursors()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QCursorTerm> getCursors();
+
+	/**
+	 * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.il.esql.QStatementTerm}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Statements</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Statements</em>' containment reference list.
+	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getFileSection_Statements()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QStatementTerm> getStatements();
 } // QDataSetSection

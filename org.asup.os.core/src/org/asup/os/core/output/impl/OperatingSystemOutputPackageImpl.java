@@ -16,6 +16,7 @@ import org.asup.os.core.datetime.impl.DatetimePackageImpl;
 import org.asup.os.core.impl.OperatingSystemCorePackageImpl;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl;
+import org.asup.os.core.output.QObjectRow;
 import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QObjectWriterFactory;
 import org.asup.os.core.output.QObjectWriterFactoryRegistry;
@@ -65,6 +66,13 @@ public class OperatingSystemOutputPackageImpl extends EPackageImpl implements QO
 	 * @generated
 	 */
 	private EClass outputManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass objectRowEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -186,6 +194,15 @@ public class OperatingSystemOutputPackageImpl extends EPackageImpl implements QO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getObjectRow() {
+		return objectRowEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QOperatingSystemOutputFactory getOperatingSystemOutputFactory() {
 		return (QOperatingSystemOutputFactory)getEFactoryInstance();
 	}
@@ -216,6 +233,8 @@ public class OperatingSystemOutputPackageImpl extends EPackageImpl implements QO
 		objectWriterFactoryEClass = createEClass(OBJECT_WRITER_FACTORY);
 
 		outputManagerEClass = createEClass(OUTPUT_MANAGER);
+
+		objectRowEClass = createEClass(OBJECT_ROW);
 	}
 
 	/**
@@ -261,6 +280,7 @@ public class OperatingSystemOutputPackageImpl extends EPackageImpl implements QO
 		objectWriterFactoryEClass.getESuperTypes().add(theFrameworkCorePackage.getPlugin());
 		objectWriterFactoryEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		outputManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
+		objectRowEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(objectWriterEClass, QObjectWriter.class, "ObjectWriter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -300,6 +320,8 @@ public class OperatingSystemOutputPackageImpl extends EPackageImpl implements QO
 		op = addEOperation(outputManagerEClass, null, "setDefaultWriter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(objectRowEClass, QObjectRow.class, "ObjectRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //OSCoreOutputPackageImpl

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="JWKNRE"/>
+  <columns dataType="CHAR" length="30" name="J&#xa7;&#xa7;CA1"/>
+  <columns dataType="CHAR" length="30" name="J&#xa7;&#xa7;CA2"/>
+  <columns dataType="CHAR" length="30" name="J&#xa7;&#xa7;CA3"/>
+  <columns dataType="DECIMAL" length="2" name="JMPLLC"/>
+  <columns dataType="CHAR" length="3" name="JMPMAG"/>
+  <columns dataType="CHAR" length="15" name="JMPART"/>
+  <columns dataType="CHAR" length="2" name="JMPSTA"/>
+  <columns dataType="CHAR" length="1" name="JMPLIV"/>
+  <columns dataType="DECIMAL" length="8" name="JMPDTF"/>
+  <columns dataType="DECIMAL" length="5" name="JMPNFP"/>
+  <columns dataType="CHAR" length="2" name="JMPPRI"/>
+  <columns dataType="CHAR" length="10" name="JMPCMF"/>
+  <columns dataType="DECIMAL" length="11" name="JMPQTF" scale="3"/>
+  <columns dataType="CHAR" length="1" name="JMPFPF"/>
+  <columns dataType="CHAR" length="3" name="JMPFNT"/>
+  <columns dataType="CHAR" length="2" name="JMPOFN"/>
+  <columns dataType="CHAR" length="1" name="JMPTRK"/>
+  <columns dataType="CHAR" length="1" name="JMPSQN"/>
+  <columns dataType="DECIMAL" length="8" name="JMPDTD"/>
+  <columns dataType="CHAR" length="3" name="JMPTDO"/>
+  <columns dataType="CHAR" length="10" name="JMPORD"/>
+  <columns dataType="DECIMAL" length="4" name="JMPRIG"/>
+  <columns dataType="CHAR" length="10" name="JMPCMD"/>
+  <columns dataType="DECIMAL" length="11" name="JMPQTD" scale="3"/>
+  <columns dataType="CHAR" length="3" name="JMPTEN"/>
+  <columns dataType="CHAR" length="15" name="JMPCEN"/>
+  <columns dataType="DECIMAL" length="9" name="JMPRFN"/>
+  <columns dataType="DECIMAL" length="8" name="JMPDT1"/>
+  <columns dataType="DECIMAL" length="8" name="JMPDT2"/>
+  <columns dataType="DECIMAL" length="11" name="JMPQT1" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="JMPQT2" scale="3"/>
+  <columns dataType="CHAR" length="15" name="JMPCD1"/>
+  <columns dataType="CHAR" length="15" name="JMPCD2"/>
+  <columns dataType="CHAR" length="1" name="JMPFL1"/>
+  <columns dataType="CHAR" length="1" name="JMPFL2"/>
+  <columns dataType="CHAR" length="1" name="JMPFL3"/>
+  <columns dataType="CHAR" length="1" name="JMPFL4"/>
+  <columns dataType="CHAR" length="1" name="JMPFL5"/>
+  <columns dataType="CHAR" length="60" name="JMPPTH"/>
+  <columns dataType="DECIMAL" length="2" name="JMDLLC"/>
+  <columns dataType="CHAR" length="3" name="JMDMAG"/>
+  <columns dataType="CHAR" length="15" name="JMDART"/>
+  <columns dataType="CHAR" length="2" name="JMDSTA"/>
+  <columns dataType="CHAR" length="1" name="JMDLIV"/>
+  <columns dataType="DECIMAL" length="8" name="JMDDTF"/>
+  <columns dataType="DECIMAL" length="5" name="JMDNFP"/>
+  <columns dataType="CHAR" length="2" name="JMDPRI"/>
+  <columns dataType="CHAR" length="10" name="JMDCMF"/>
+  <columns dataType="DECIMAL" length="11" name="JMDQTF" scale="3"/>
+  <columns dataType="CHAR" length="1" name="JMDFPF"/>
+  <columns dataType="CHAR" length="3" name="JMDFNT"/>
+  <columns dataType="CHAR" length="2" name="JMDOFN"/>
+  <columns dataType="CHAR" length="1" name="JMDTRK"/>
+  <columns dataType="CHAR" length="1" name="JMDSQN"/>
+  <columns dataType="DECIMAL" length="8" name="JMDDTD"/>
+  <columns dataType="CHAR" length="3" name="JMDTDO"/>
+  <columns dataType="CHAR" length="10" name="JMDORD"/>
+  <columns dataType="DECIMAL" length="4" name="JMDRIG"/>
+  <columns dataType="CHAR" length="10" name="JMDCMD"/>
+  <columns dataType="DECIMAL" length="11" name="JMDQTD" scale="3"/>
+  <columns dataType="CHAR" length="3" name="JMDTEN"/>
+  <columns dataType="CHAR" length="15" name="JMDCEN"/>
+  <columns dataType="DECIMAL" length="9" name="JMDRFN"/>
+  <columns dataType="DECIMAL" length="8" name="JMDDT1"/>
+  <columns dataType="DECIMAL" length="8" name="JMDDT2"/>
+  <columns dataType="DECIMAL" length="11" name="JMDQT1" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="JMDQT2" scale="3"/>
+  <columns dataType="CHAR" length="15" name="JMDCD1"/>
+  <columns dataType="CHAR" length="15" name="JMDCD2"/>
+  <columns dataType="CHAR" length="1" name="JMDFL1"/>
+  <columns dataType="CHAR" length="1" name="JMDFL2"/>
+  <columns dataType="CHAR" length="1" name="JMDFL3"/>
+  <columns dataType="CHAR" length="1" name="JMDFL4"/>
+  <columns dataType="CHAR" length="1" name="JMDFL5"/>
+  <columns dataType="CHAR" length="60" name="JMDPTH"/>
+</db-core:TableDef>

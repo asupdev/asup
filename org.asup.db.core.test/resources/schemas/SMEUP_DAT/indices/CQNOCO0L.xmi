@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="N&#xa7;ARTI" sequence="1"/>
+  <columns name="N&#xa7;ESMO" sequence="2"/>
+  <columns name="N&#xa7;CFAL" sequence="3"/>
+  <columns name="N&#xa7;DCOD" sequence="4"/>
+  <columns name="N&#xa7;DCOC" sequence="5"/>
+  <columns name="N&#xa7;DPRO" sequence="6"/>
+</db-core:IndexDef>

@@ -52,11 +52,19 @@
       <eParameters name="view" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="active" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectionConfig" lowerBound="1"
         eType="#//ConnectionConfig" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsGuestAccess" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportsRelativeRecordNumber"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generationStrategy" lowerBound="1"
+        eType="#//CatalogGenerationStrategy" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CatalogGenerationStrategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createIndexOnView" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createRelativeRecordNumber"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
@@ -88,6 +96,7 @@
     </eOperations>
     <eOperations name="getCatalog" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         eExceptions="#//DatabaseException"/>
+    <eOperations name="getCatalogGenerationStrategy" lowerBound="1" eType="#//CatalogGenerationStrategy"/>
     <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
@@ -173,14 +182,6 @@
       <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="view" eType="#//ViewDef"/>
-    </eOperations>
-    <eOperations name="deleteData" eExceptions="#//DatabaseException">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
-    </eOperations>
-    <eOperations name="deleteData" eExceptions="#//DatabaseException">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
     </eOperations>
     <eOperations name="dropIndex" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="R&#xa7;TDOC" sequence="1"/>
+  <columns name="R&#xa7;TRIG" sequence="2"/>
+  <columns name="R&#xa7;NDOC" sequence="3"/>
+  <columns name="R&#xa7;LIVE" sequence="4"/>
+</db-core:IndexDef>

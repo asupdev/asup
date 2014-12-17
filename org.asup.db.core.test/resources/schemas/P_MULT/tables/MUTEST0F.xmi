@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="MTCATE"/>
+  <columns dataType="CHAR" length="30" name="MTOGGE"/>
+  <columns dataType="CHAR" length="1" name="MTERRO"/>
+  <columns dataType="CHAR" length="7" name="MTMESS"/>
+  <columns dataType="DECIMAL" length="15" name="MTTIME"/>
+  <columns dataType="CHAR" length="10" name="MTUSES"/>
+  <columns dataType="DECIMAL" length="8" name="MTDTES"/>
+  <columns dataType="DECIMAL" length="8" name="MTORES"/>
+  <columns dataType="CHAR" length="6" name="MTJOES"/>
+</db-core:TableDef>

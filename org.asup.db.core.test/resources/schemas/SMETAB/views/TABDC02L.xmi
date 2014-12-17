@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   C$SETT ,   C$CAMP ,   C$DESC ,   C$TIPO ,   C$LUNG ,   C$NDEC ,   C$OBBL ,   C$NOCN ,   C$FLLV ,   C$LV01 ,   C$LV02 ,   C$LV03 ,   C$LV04 ,   C$TABE ,   C$FILP ,   C$PSIN ,   C$CRIG ,   C$CCOL ,   C$CATT ,   C$DLUN ,   C$DRIG ,   C$DCOL ,   C$DATT ,   C$FLUN ,   C$FRIG ,   C$FCOL ,   C$FATT ,   C$IS01 ,   C$IS02   FROM TABDC00F   ;"/>

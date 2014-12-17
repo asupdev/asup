@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="M$STAT"/>
+  <columns dataType="CHAR" length="1" name="M$TRIG"/>
+  <columns dataType="CHAR" length="15" name="M$FORN"/>
+  <columns dataType="CHAR" length="3" name="M$TIOG"/>
+  <columns dataType="CHAR" length="15" name="M$CDOG"/>
+  <columns dataType="CHAR" length="35" name="M$DSOG"/>
+  <columns dataType="CHAR" length="15" name="M$OPER"/>
+  <columns dataType="DECIMAL" length="8" name="M$DABO"/>
+  <columns dataType="CHAR" length="10" name="M$NUBO"/>
+  <columns dataType="DECIMAL" length="8" name="M$DAFA"/>
+  <columns dataType="CHAR" length="10" name="M$NUFA"/>
+  <columns dataType="DECIMAL" length="8" name="M$DREG"/>
+  <columns dataType="DECIMAL" length="11" name="M$QTAM" scale="3"/>
+  <columns dataType="DECIMAL" length="21" name="M$PORD" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M$PFAT" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M$COST" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M$FAOR" scale="6"/>
+  <columns dataType="CHAR" length="2" name="M$STA1"/>
+  <columns dataType="CHAR" length="5" name="M$CLMA"/>
+  <columns dataType="CHAR" length="10" name="M$RECO"/>
+  <columns dataType="CHAR" length="3" name="M$TDOC"/>
+  <columns dataType="CHAR" length="4" name="M$VALU"/>
+  <columns dataType="CHAR" length="3" name="M$TPRI"/>
+  <columns dataType="CHAR" length="10" name="M$NDOC"/>
+  <columns dataType="DECIMAL" length="21" name="M$UORD" scale="6"/>
+  <columns dataType="DECIMAL" length="21" name="M$UFAT" scale="6"/>
+  <columns dataType="CHAR" length="3" name="M$CDMG"/>
+  <columns dataType="CHAR" length="2" name="M$UNMS"/>
+  <columns dataType="CHAR" length="2" name="M$UNMV"/>
+  <columns dataType="CHAR" length="20" name="M$CONF"/>
+  <columns dataType="CHAR" length="10" name="M$CRIC"/>
+  <columns dataType="CHAR" length="10" name="M$COMM"/>
+  <columns dataType="CHAR" length="15" name="M$LOTT"/>
+  <columns dataType="CHAR" length="3" name="M$AGE1"/>
+  <columns dataType="CHAR" length="3" name="M$AGE2"/>
+  <columns dataType="CHAR" length="15" name="M$CODS"/>
+  <columns dataType="CHAR" length="3" name="M$TCDS"/>
+  <columns dataType="CHAR" length="3" name="M$TDOR"/>
+  <columns dataType="CHAR" length="10" name="M$NDOR"/>
+  <columns dataType="DECIMAL" length="4" name="M$NRIR"/>
+  <columns dataType="DECIMAL" length="8" name="M$DTDO"/>
+  <columns dataType="DECIMAL" length="4" name="M$NRIG"/>
+  <columns dataType="DECIMAL" length="9" name="M$NURE"/>
+  <columns dataType="DECIMAL" length="4" name="M$PER1" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="M$PER2" scale="2"/>
+  <columns dataType="DECIMAL" length="12" name="M$CAMB" scale="6"/>
+  <columns dataType="CHAR" length="12" name="M$CONT"/>
+  <columns dataType="CHAR" length="15" name="M$ATTR"/>
+  <columns dataType="CHAR" length="35" name="M$KEY1"/>
+  <columns dataType="CHAR" length="35" name="M$KEY2"/>
+  <columns dataType="CHAR" length="35" name="M$KEY3"/>
+</db-core:TableDef>

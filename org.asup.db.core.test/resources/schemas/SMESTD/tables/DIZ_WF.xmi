@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="IDOJ"/>
+  <columns dataType="CHAR" length="20" name="NDOR"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="DECIMAL" length="8" name="DMOV"/>
+  <columns dataType="DECIMAL" length="8" name="DREG"/>
+  <columns dataType="DECIMAL" length="8" name="DDOC"/>
+  <columns dataType="DECIMAL" length="8" name="DRIF"/>
+  <columns dataType="DECIMAL" length="8" name="DCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DVAL"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="DECIMAL" length="4" name="ANNO"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTAG"/>
+  <columns dataType="CHAR" length="10" name="USAG"/>
+  <columns dataType="DECIMAL" length="6" name="ORA6"/>
+</db-core:TableDef>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="T$TIOG"/>
+  <columns dataType="CHAR" length="15" name="T$CDOG"/>
+  <columns dataType="DECIMAL" length="21" name="T$COSM" scale="6"/>
+</db-core:TableDef>

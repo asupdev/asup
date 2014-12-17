@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   R&#xa7;ANNU ,   R&#xa7;NUDO ,   R&#xa7;TIGR ,   R&#xa7;GRUP ,   R&#xa7;TIIM ,   R&#xa7;COIM ,   R&#xa7;CLIS ,   R&#xa7;FFUN ,   R&#xa7;FCRI ,   R&#xa7;FLG1 ,   R&#xa7;FLG2 ,   R&#xa7;FLG3 ,   R&#xa7;FLG4 ,   R&#xa7;FLG5 ,   R&#xa7;DTCR ,   R&#xa7;DTMR ,   R&#xa7;UTEN   FROM CQFMER0F   ;"/>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   T&#xa7;TCIC ,   T&#xa7;CODI ,   T&#xa7;CICL ,   T&#xa7;DESC ,   T&#xa7;CODC ,   T&#xa7;CICC ,   T&#xa7;PRTY ,   T&#xa7;DINV ,   T&#xa7;DFNV ,   T&#xa7;QMIP ,   T&#xa7;QMXP ,   T&#xa7;CRSE ,   T&#xa7;PAS1 ,   T&#xa7;PAS2 ,   T&#xa7;FLG1 ,   T&#xa7;FLG2 ,   T&#xa7;DTIN ,   T&#xa7;DTAG ,   T&#xa7;USAG   FROM BRTECI0F   ;"/>

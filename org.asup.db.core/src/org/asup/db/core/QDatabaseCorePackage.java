@@ -84,13 +84,22 @@ public interface QDatabaseCorePackage extends EPackage {
 	int CATALOG_CONTAINER__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG_CONTAINER__ACTIVE = 1;
+
+	/**
 	 * The feature id for the '<em><b>Connection Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__CONNECTION_CONFIG = 1;
+	int CATALOG_CONTAINER__CONNECTION_CONFIG = 2;
 
 	/**
 	 * The feature id for the '<em><b>Supports Guest Access</b></em>' attribute.
@@ -99,16 +108,16 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = 2;
+	int CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Supports Relative Record Number</b></em>' attribute.
+	 * The feature id for the '<em><b>Generation Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER = 3;
+	int CATALOG_CONTAINER__GENERATION_STRATEGY = 4;
 
 	/**
 	 * The number of structural features of the '<em>Catalog Container</em>' class.
@@ -117,7 +126,44 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CATALOG_CONTAINER_FEATURE_COUNT = 4;
+	int CATALOG_CONTAINER_FEATURE_COUNT = 5;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.core.impl.CatalogGenerationStrategyImpl <em>Catalog Generation Strategy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.impl.CatalogGenerationStrategyImpl
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getCatalogGenerationStrategy()
+	 * @generated
+	 */
+	int CATALOG_GENERATION_STRATEGY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Create Index On View</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG_GENERATION_STRATEGY__CREATE_INDEX_ON_VIEW = 0;
+
+	/**
+	 * The feature id for the '<em><b>Create Relative Record Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG_GENERATION_STRATEGY__CREATE_RELATIVE_RECORD_NUMBER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Catalog Generation Strategy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATALOG_GENERATION_STRATEGY_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.CatalogMetaDataImpl <em>Catalog Meta Data</em>}' class.
@@ -127,7 +173,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getCatalogMetaData()
 	 * @generated
 	 */
-	int CATALOG_META_DATA = 1;
+	int CATALOG_META_DATA = 2;
 
 	/**
 	 * The number of structural features of the '<em>Catalog Meta Data</em>' class.
@@ -146,7 +192,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getConnection()
 	 * @generated
 	 */
-	int CONNECTION = 2;
+	int CONNECTION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Connection</em>' class.
@@ -165,7 +211,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getConnectionConfig()
 	 * @generated
 	 */
-	int CONNECTION_CONFIG = 3;
+	int CONNECTION_CONFIG = 4;
 
 	/**
 	 * The feature id for the '<em><b>Credentials</b></em>' containment reference.
@@ -238,7 +284,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getConnectionCredentials()
 	 * @generated
 	 */
-	int CONNECTION_CREDENTIALS = 4;
+	int CONNECTION_CREDENTIALS = 5;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' attribute.
@@ -275,7 +321,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getConnectionManager()
 	 * @generated
 	 */
-	int CONNECTION_MANAGER = 5;
+	int CONNECTION_MANAGER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -303,7 +349,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseContainer()
 	 * @generated
 	 */
-	int DATABASE_CONTAINER = 6;
+	int DATABASE_CONTAINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Catalog Containers</b></em>' containment reference list.
@@ -358,7 +404,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseObjectDef()
 	 * @generated
 	 */
-	int DATABASE_OBJECT_DEF = 7;
+	int DATABASE_OBJECT_DEF = 8;
 
 	/**
 	 * The number of structural features of the '<em>Database Object Def</em>' class.
@@ -377,7 +423,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseManager()
 	 * @generated
 	 */
-	int DATABASE_MANAGER = 8;
+	int DATABASE_MANAGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -405,7 +451,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexDef()
 	 * @generated
 	 */
-	int INDEX_DEF = 9;
+	int INDEX_DEF = 10;
 
 	/**
 	 * The feature id for the '<em><b>Clustered</b></em>' attribute.
@@ -451,7 +497,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexColumnDef()
 	 * @generated
 	 */
-	int INDEX_COLUMN_DEF = 10;
+	int INDEX_COLUMN_DEF = 11;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -497,7 +543,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getPreparedStatement()
 	 * @generated
 	 */
-	int PREPARED_STATEMENT = 11;
+	int PREPARED_STATEMENT = 12;
 
 	/**
 	 * The number of structural features of the '<em>Prepared Statement</em>' class.
@@ -516,7 +562,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getQualifiedName()
 	 * @generated
 	 */
-	int QUALIFIED_NAME = 12;
+	int QUALIFIED_NAME = 13;
 
 	/**
 	 * The feature id for the '<em><b>Qualifiers</b></em>' attribute list.
@@ -544,7 +590,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getSchemaDef()
 	 * @generated
 	 */
-	int SCHEMA_DEF = 13;
+	int SCHEMA_DEF = 14;
 
 	/**
 	 * The number of structural features of the '<em>Schema Def</em>' class.
@@ -563,7 +609,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 14;
+	int STATEMENT = 15;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -582,7 +628,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableDef()
 	 * @generated
 	 */
-	int TABLE_DEF = 15;
+	int TABLE_DEF = 16;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -610,7 +656,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableColumnDef()
 	 * @generated
 	 */
-	int TABLE_COLUMN_DEF = 16;
+	int TABLE_COLUMN_DEF = 17;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -683,7 +729,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getViewDef()
 	 * @generated
 	 */
-	int VIEW_DEF = 17;
+	int VIEW_DEF = 18;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -720,7 +766,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 	 * @generated
 	 */
-	int DATABASE_DATA_TYPE = 18;
+	int DATABASE_DATA_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.OrderingType <em>Ordering Type</em>}' enum.
@@ -730,7 +776,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getOrderingType()
 	 * @generated
 	 */
-	int ORDERING_TYPE = 19;
+	int ORDERING_TYPE = 20;
 
 	/**
 	 * The meta object id for the '<em>Database Exception</em>' data type.
@@ -740,7 +786,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseException()
 	 * @generated
 	 */
-	int DATABASE_EXCEPTION = 20;
+	int DATABASE_EXCEPTION = 21;
 
 	/**
 	 * The meta object id for the '<em>Database Result Set</em>' data type.
@@ -750,7 +796,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseResultSet()
 	 * @generated
 	 */
-	int DATABASE_RESULT_SET = 21;
+	int DATABASE_RESULT_SET = 22;
 
 
 	/**
@@ -775,6 +821,17 @@ public interface QDatabaseCorePackage extends EPackage {
 	EAttribute getCatalogContainer_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.core.QCatalogContainer#isActive <em>Active</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Active</em>'.
+	 * @see org.asup.db.core.QCatalogContainer#isActive()
+	 * @see #getCatalogContainer()
+	 * @generated
+	 */
+	EAttribute getCatalogContainer_Active();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -797,15 +854,47 @@ public interface QDatabaseCorePackage extends EPackage {
 	EAttribute getCatalogContainer_SupportsGuestAccess();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.db.core.QCatalogContainer#getGenerationStrategy <em>Generation Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Supports Relative Record Number</em>'.
-	 * @see org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber()
+	 * @return the meta object for the containment reference '<em>Generation Strategy</em>'.
+	 * @see org.asup.db.core.QCatalogContainer#getGenerationStrategy()
 	 * @see #getCatalogContainer()
 	 * @generated
 	 */
-	EAttribute getCatalogContainer_SupportsRelativeRecordNumber();
+	EReference getCatalogContainer_GenerationStrategy();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.core.QCatalogGenerationStrategy <em>Catalog Generation Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Catalog Generation Strategy</em>'.
+	 * @see org.asup.db.core.QCatalogGenerationStrategy
+	 * @generated
+	 */
+	EClass getCatalogGenerationStrategy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.core.QCatalogGenerationStrategy#isCreateIndexOnView <em>Create Index On View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Create Index On View</em>'.
+	 * @see org.asup.db.core.QCatalogGenerationStrategy#isCreateIndexOnView()
+	 * @see #getCatalogGenerationStrategy()
+	 * @generated
+	 */
+	EAttribute getCatalogGenerationStrategy_CreateIndexOnView();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.core.QCatalogGenerationStrategy#isCreateRelativeRecordNumber <em>Create Relative Record Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Create Relative Record Number</em>'.
+	 * @see org.asup.db.core.QCatalogGenerationStrategy#isCreateRelativeRecordNumber()
+	 * @see #getCatalogGenerationStrategy()
+	 * @generated
+	 */
+	EAttribute getCatalogGenerationStrategy_CreateRelativeRecordNumber();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QCatalogMetaData <em>Catalog Meta Data</em>}'.
@@ -1335,6 +1424,14 @@ public interface QDatabaseCorePackage extends EPackage {
 		EAttribute CATALOG_CONTAINER__NAME = eINSTANCE.getCatalogContainer_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Active</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATALOG_CONTAINER__ACTIVE = eINSTANCE.getCatalogContainer_Active();
+
+		/**
 		 * The meta object literal for the '<em><b>Connection Config</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1351,12 +1448,38 @@ public interface QDatabaseCorePackage extends EPackage {
 		EAttribute CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS = eINSTANCE.getCatalogContainer_SupportsGuestAccess();
 
 		/**
-		 * The meta object literal for the '<em><b>Supports Relative Record Number</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Generation Strategy</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER = eINSTANCE.getCatalogContainer_SupportsRelativeRecordNumber();
+		EReference CATALOG_CONTAINER__GENERATION_STRATEGY = eINSTANCE.getCatalogContainer_GenerationStrategy();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.core.impl.CatalogGenerationStrategyImpl <em>Catalog Generation Strategy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.core.impl.CatalogGenerationStrategyImpl
+		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getCatalogGenerationStrategy()
+		 * @generated
+		 */
+		EClass CATALOG_GENERATION_STRATEGY = eINSTANCE.getCatalogGenerationStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Index On View</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATALOG_GENERATION_STRATEGY__CREATE_INDEX_ON_VIEW = eINSTANCE.getCatalogGenerationStrategy_CreateIndexOnView();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Relative Record Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CATALOG_GENERATION_STRATEGY__CREATE_RELATIVE_RECORD_NUMBER = eINSTANCE.getCatalogGenerationStrategy_CreateRelativeRecordNumber();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.impl.CatalogMetaDataImpl <em>Catalog Meta Data</em>}' class.

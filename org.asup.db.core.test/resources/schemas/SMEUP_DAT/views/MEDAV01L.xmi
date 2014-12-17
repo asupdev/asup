@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   MD&#xa3;STA ,   MD&#xa3;UTE ,   MD&#xa3;PGM ,   MD&#xa3;DAT ,   MD&#xa3;DTU   FROM MEDAV00F   ;"/>

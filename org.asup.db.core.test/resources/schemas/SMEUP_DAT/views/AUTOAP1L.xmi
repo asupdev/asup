@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   AA&#xa3;UTE ,   AA&#xa3;FUN ,   AA&#xa3;CAA ,   AA&#xa3;O01 ,   AA&#xa3;O02 ,   AA&#xa3;O03 ,   AA&#xa3;O04 ,   AA&#xa3;O05 ,   AA&#xa3;O06 ,   AA&#xa3;O07 ,   AA&#xa3;O08 ,   AA&#xa3;O09 ,   AA&#xa3;O10 ,   AA&#xa3;VLS ,   AADTIN ,   AAORIN ,   AAUSIN ,   AAOGIN ,   AADTAG ,   AAORAG ,   AAUSAG ,   AAOGAG   FROM AUTOAP0F   ;"/>

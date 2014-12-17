@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="U2ORDI"/>
+  <columns dataType="CHAR" length="6" name="U2OPER"/>
+  <columns dataType="CHAR" length="1" name="U2TIPO"/>
+  <columns dataType="CHAR" length="15" name="U2WCTR"/>
+  <columns dataType="CHAR" length="20" name="U2DEOP"/>
+  <columns dataType="DECIMAL" length="11" name="U2QTA1" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="U2QTA2" scale="3"/>
+</db-core:TableDef>

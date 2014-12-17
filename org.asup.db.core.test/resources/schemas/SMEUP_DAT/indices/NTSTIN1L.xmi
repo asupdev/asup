@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="I$TIPC" sequence="1"/>
+  <columns name="I$KYC1" sequence="2"/>
+  <columns name="I$KYC2" sequence="3"/>
+  <columns name="I$KYC3" sequence="4"/>
+  <columns name="I$TIPI" sequence="5"/>
+</db-core:IndexDef>

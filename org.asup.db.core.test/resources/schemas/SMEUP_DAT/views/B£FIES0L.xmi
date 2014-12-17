@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   F&#xa3;TREC ,   F&#xa3;OGGE ,   F&#xa3;KEY1 ,   F&#xa3;KEY2 ,   F&#xa3;KEY3 ,   F&#xa3;KEY4 ,   F&#xa3;KEY5 ,   F&#xa3;OGES   FROM B&#xa3;FIES0F   ;"/>

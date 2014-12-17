@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   BWTIPK ,   BWKEY0 ,   BWKEY1 ,   BWQT01 ,   BWQT02 ,   BWQT03 ,   BWQT04 ,   BWQT05 ,   BWFL01 ,   BWFL02 ,   BWFL03 ,   BWFL04 ,   BWFL05 ,   BWFL06 ,   BWFL07 ,   BWSCEN ,   BWCDMG ,   BWARTI ,   BWCROT ,   BWNORI ,   BWDTFO ,   BWCORD   FROM M5M5N00F   ;"/>

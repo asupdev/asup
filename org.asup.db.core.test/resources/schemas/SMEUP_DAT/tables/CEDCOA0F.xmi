@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="C$ANNU"/>
+  <columns dataType="CHAR" length="6" name="C$CDC"/>
+  <columns dataType="CHAR" length="3" name="C$TICO"/>
+  <columns dataType="DECIMAL" length="11" name="C$ALI1" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="C$ALI2" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="C$ALI3" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="C$ALI4" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="C$ALI5" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="C$ALI6" scale="3"/>
+</db-core:TableDef>

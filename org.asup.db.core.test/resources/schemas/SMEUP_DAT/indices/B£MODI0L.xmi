@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="M&#xa7;APPL" sequence="1"/>
+  <columns name="M&#xa7;ASST" sequence="2"/>
+  <columns name="M&#xa7;ASK1" sequence="3"/>
+  <columns name="M&#xa7;ASK2" sequence="4"/>
+  <columns name="M&#xa7;ASK3" sequence="5"/>
+  <columns name="M&#xa7;COMT" sequence="6"/>
+  <columns name="M&#xa7;COK1" sequence="7"/>
+  <columns name="M&#xa7;COK2" sequence="8"/>
+  <columns name="M&#xa7;COK3" sequence="9"/>
+</db-core:IndexDef>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="E02AZI"/>
+  <columns dataType="CHAR" length="10" name="E02ABI"/>
+  <columns dataType="CHAR" length="3" name="E02BAN"/>
+  <columns dataType="CHAR" length="35" name="E02NAV"/>
+  <columns dataType="DECIMAL" length="8" name="E02DTC"/>
+  <columns dataType="DECIMAL" length="8" name="E02DTS"/>
+  <columns dataType="CHAR" length="90" name="E02CRE"/>
+  <columns dataType="CHAR" length="15" name="E02CFI"/>
+  <columns dataType="DECIMAL" length="21" name="E02IMP" scale="6"/>
+  <columns dataType="CHAR" length="90" name="E02RIF"/>
+  <columns dataType="CHAR" length="2" name="E02TIP"/>
+  <columns dataType="CHAR" length="1" name="E02VIS"/>
+</db-core:TableDef>

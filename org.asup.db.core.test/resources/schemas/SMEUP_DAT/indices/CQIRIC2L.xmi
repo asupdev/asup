@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="I&#xa7;GRUP" sequence="1"/>
+  <columns name="I&#xa7;OTIP" sequence="2"/>
+  <columns name="I&#xa7;ORIF" sequence="3"/>
+  <columns name="I&#xa7;OKY1" sequence="4"/>
+  <columns name="I&#xa7;OKY2" sequence="5"/>
+  <columns name="I&#xa7;OKY3" sequence="6"/>
+  <columns name="I&#xa7;ETIP" sequence="7"/>
+  <columns name="I&#xa7;ERIF" sequence="8"/>
+  <columns name="I&#xa7;EKY1" sequence="9"/>
+  <columns name="I&#xa7;EKY2" sequence="10"/>
+  <columns name="I&#xa7;EKY3" sequence="11"/>
+</db-core:IndexDef>

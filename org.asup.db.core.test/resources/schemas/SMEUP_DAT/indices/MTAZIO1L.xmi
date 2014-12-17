@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="MD&#xa7;TIMO" sequence="1"/>
+  <columns name="MD&#xa7;NUMO" sequence="2"/>
+  <columns name="MD&#xa7;SEQO" sequence="3"/>
+  <columns name="MD&#xa7;CDAZ" sequence="4"/>
+  <columns name="MD&#xa7;COD0" sequence="5"/>
+  <columns name="MD&#xa7;COD1" sequence="6"/>
+  <columns name="MD&#xa7;COD2" sequence="7"/>
+  <columns name="MD&#xa7;COD3" sequence="8"/>
+  <columns name="MD&#xa7;COD4" sequence="9"/>
+  <columns name="MD&#xa7;COD5" sequence="10"/>
+  <columns name="MD&#xa7;COD6" sequence="11"/>
+  <columns name="MD&#xa7;COD7" sequence="12"/>
+  <columns name="MD&#xa7;COD8" sequence="13"/>
+  <columns name="MD&#xa7;COD9" sequence="14"/>
+  <columns name="MD&#xa7;SEQA" sequence="15"/>
+</db-core:IndexDef>

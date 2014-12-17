@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="IDOG"/>
+  <columns dataType="CHAR" length="3" name="TREC"/>
+  <columns dataType="CHAR" length="3" name="ORIG"/>
+  <columns dataType="CHAR" length="10" name="ASLA"/>
+  <columns dataType="CHAR" length="10" name="ASUT"/>
+  <columns dataType="DECIMAL" length="6" name="ASNR"/>
+  <columns dataType="CHAR" length="10" name="AMBI"/>
+  <columns dataType="CHAR" length="10" name="WEUT"/>
+  <columns dataType="CHAR" length="10" name="WEMS"/>
+  <columns dataType="CHAR" length="10" name="WEFU"/>
+  <columns dataType="CHAR" length="10" name="WEME"/>
+  <columns dataType="CHAR" length="1" name="LIVE"/>
+  <columns dataType="CHAR" length="2" name="STAT"/>
+  <columns dataType="DECIMAL" length="8" name="DTIN"/>
+  <columns dataType="DECIMAL" length="6" name="ORIN"/>
+  <columns dataType="DECIMAL" length="8" name="DTUL"/>
+  <columns dataType="DECIMAL" length="6" name="ORUL"/>
+  <columns dataType="DECIMAL" length="8" name="DTFI"/>
+  <columns dataType="DECIMAL" length="6" name="ORFI"/>
+  <columns dataType="CHAR" length="2" name="TOGG"/>
+  <columns dataType="CHAR" length="10" name="PAOG"/>
+  <columns dataType="CHAR" length="12" name="TIPA"/>
+  <columns dataType="CHAR" length="15" name="COOG"/>
+  <columns dataType="CHAR" length="2050" name="LIBE"/>
+  <columns dataType="CHAR" length="15" name="CODI"/>
+  <columns dataType="DECIMAL" length="21" name="NUME" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="DATA"/>
+  <columns dataType="CHAR" length="1" name="FLAG"/>
+</db-core:TableDef>

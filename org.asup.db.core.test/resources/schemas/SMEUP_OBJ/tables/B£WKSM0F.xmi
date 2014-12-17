@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="BWTIPK"/>
+  <columns dataType="CHAR" length="50" name="BWKEY0"/>
+  <columns dataType="CHAR" length="15" name="BWCD01"/>
+  <columns dataType="CHAR" length="15" name="BWCD02"/>
+  <columns dataType="CHAR" length="15" name="BWCD03"/>
+  <columns dataType="CHAR" length="15" name="BWCD04"/>
+  <columns dataType="CHAR" length="15" name="BWCD05"/>
+  <columns dataType="DECIMAL" length="8" name="BWDT01"/>
+  <columns dataType="DECIMAL" length="8" name="BWDT02"/>
+  <columns dataType="DECIMAL" length="8" name="BWDT03"/>
+  <columns dataType="DECIMAL" length="8" name="BWDT04"/>
+  <columns dataType="DECIMAL" length="8" name="BWDT05"/>
+  <columns dataType="DECIMAL" length="8" name="BWNR01"/>
+  <columns dataType="DECIMAL" length="8" name="BWNR02"/>
+  <columns dataType="DECIMAL" length="8" name="BWNR03"/>
+  <columns dataType="DECIMAL" length="8" name="BWNR04"/>
+  <columns dataType="DECIMAL" length="8" name="BWNR05"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT01" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT02" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT03" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT04" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT05" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT06" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT07" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT08" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT09" scale="7"/>
+  <columns dataType="DECIMAL" length="16" name="BWQT10" scale="7"/>
+  <columns dataType="CHAR" length="1" name="BWFL01"/>
+  <columns dataType="CHAR" length="1" name="BWFL02"/>
+  <columns dataType="CHAR" length="1" name="BWFL03"/>
+  <columns dataType="CHAR" length="1" name="BWFL04"/>
+  <columns dataType="CHAR" length="1" name="BWFL05"/>
+  <columns dataType="CHAR" length="1" name="BWFL06"/>
+  <columns dataType="CHAR" length="1" name="BWFL07"/>
+  <columns dataType="CHAR" length="1" name="BWFL08"/>
+  <columns dataType="CHAR" length="1" name="BWFL09"/>
+  <columns dataType="CHAR" length="1" name="BWFL10"/>
+  <columns dataType="CHAR" length="512" name="BWLIBE"/>
+</db-core:TableDef>

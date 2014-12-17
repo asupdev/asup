@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="V&#xa7;COIN" sequence="1"/>
+  <columns name="V&#xa7;CDMG" sequence="2"/>
+  <columns name="V&#xa7;ARTI" sequence="3"/>
+  <columns name="V&#xa7;LOCO" sequence="4"/>
+  <columns name="V&#xa7;NUCO" sequence="5"/>
+</db-core:IndexDef>

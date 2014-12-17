@@ -28,9 +28,10 @@ import org.eclipse.datatools.modelbase.sql.tables.ViewTable;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getName <em>Name</em>}</li>
+ *   <li>{@link org.asup.db.core.QCatalogContainer#isActive <em>Active</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#getConnectionConfig <em>Connection Config</em>}</li>
  *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsGuestAccess <em>Supports Guest Access</em>}</li>
- *   <li>{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}</li>
+ *   <li>{@link org.asup.db.core.QCatalogContainer#getGenerationStrategy <em>Generation Strategy</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +66,33 @@ public interface QCatalogContainer {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Active</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Active</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Active</em>' attribute.
+	 * @see #setActive(boolean)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_Active()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isActive();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#isActive <em>Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Active</em>' attribute.
+	 * @see #isActive()
+	 * @generated
+	 */
+	void setActive(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,31 +179,30 @@ public interface QCatalogContainer {
 	void setSupportsGuestAccess(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Supports Relative Record Number</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * Returns the value of the '<em><b>Generation Strategy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Supports Relative Record Number</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Generation Strategy</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supports Relative Record Number</em>' attribute.
-	 * @see #setSupportsRelativeRecordNumber(boolean)
-	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_SupportsRelativeRecordNumber()
-	 * @model default="false" required="true"
+	 * @return the value of the '<em>Generation Strategy</em>' containment reference.
+	 * @see #setGenerationStrategy(QCatalogGenerationStrategy)
+	 * @see org.asup.db.core.QDatabaseCorePackage#getCatalogContainer_GenerationStrategy()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	boolean isSupportsRelativeRecordNumber();
+	QCatalogGenerationStrategy getGenerationStrategy();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#isSupportsRelativeRecordNumber <em>Supports Relative Record Number</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.core.QCatalogContainer#getGenerationStrategy <em>Generation Strategy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supports Relative Record Number</em>' attribute.
-	 * @see #isSupportsRelativeRecordNumber()
+	 * @param value the new value of the '<em>Generation Strategy</em>' containment reference.
+	 * @see #getGenerationStrategy()
 	 * @generated
 	 */
-	void setSupportsRelativeRecordNumber(boolean value);
+	void setGenerationStrategy(QCatalogGenerationStrategy value);
 
 	/**
 	 * <!-- begin-user-doc -->

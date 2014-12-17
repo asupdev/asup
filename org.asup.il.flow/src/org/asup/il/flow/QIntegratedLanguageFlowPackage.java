@@ -674,13 +674,31 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int FILE_SECTION__KEY_LISTS = UNIT_SECTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Cursors</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SECTION__CURSORS = UNIT_SECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SECTION__STATEMENTS = UNIT_SECTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>File Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_SECTION_FEATURE_COUNT = UNIT_SECTION_FEATURE_COUNT + 2;
+	int FILE_SECTION_FEATURE_COUNT = UNIT_SECTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.FlowSectionImpl <em>Flow Section</em>}' class.
@@ -1989,6 +2007,28 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	EReference getFileSection_KeyLists();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.flow.QFileSection#getCursors <em>Cursors</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cursors</em>'.
+	 * @see org.asup.il.flow.QFileSection#getCursors()
+	 * @see #getFileSection()
+	 * @generated
+	 */
+	EReference getFileSection_Cursors();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.flow.QFileSection#getStatements <em>Statements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Statements</em>'.
+	 * @see org.asup.il.flow.QFileSection#getStatements()
+	 * @see #getFileSection()
+	 * @generated
+	 */
+	EReference getFileSection_Statements();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.flow.QFlowSection <em>Flow Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3008,6 +3048,22 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FILE_SECTION__KEY_LISTS = eINSTANCE.getFileSection_KeyLists();
+
+		/**
+		 * The meta object literal for the '<em><b>Cursors</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_SECTION__CURSORS = eINSTANCE.getFileSection_Cursors();
+
+		/**
+		 * The meta object literal for the '<em><b>Statements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_SECTION__STATEMENTS = eINSTANCE.getFileSection_Statements();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.flow.impl.FlowSectionImpl <em>Flow Section</em>}' class.

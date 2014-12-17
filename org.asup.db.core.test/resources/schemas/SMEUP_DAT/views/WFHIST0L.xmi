@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   F3TREC ,   F3NURE ,   F3CLUO ,   F3TRAN ,   F3VALR   FROM WFHIST0F   ;"/>

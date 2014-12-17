@@ -7,7 +7,7 @@
     rootImplementsInterface="" suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="7.0" copyrightFields="false" editPluginID="org.asup.il.flow.edit"
     editorPluginID="org.asup.il.flow.editor" testsPluginID="org.asup.il.flow.tests"
-    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.isam/model/il-isam.genmodel#//isam"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.esql/model/il-esql.genmodel#//esql ../../org.asup.il.isam/model/il-isam.genmodel#//isam"
     interfaceNamePattern="Q{0}">
   <foreignModel>il-flow.ecore</foreignModel>
   <genPackages prefix="IntegratedLanguageFlow" basePackage="org.asup.il" disposableProviderFactory="true"
@@ -25,7 +25,9 @@
       <genEnumLiterals ecoreEnumLiteral="il-flow.ecore#//PassingType/ByValue"/>
     </genEnums>
     <genClasses image="false" ecoreClass="il-flow.ecore#//Annotation"/>
-    <genClasses ecoreClass="il-flow.ecore#//AnnotationCommand"/>
+    <genClasses ecoreClass="il-flow.ecore#//AnnotationCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-flow.ecore#//AnnotationCommand/command"/>
+    </genClasses>
     <genClasses ecoreClass="il-flow.ecore#//Block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-flow.ecore#//Block/statements"/>
     </genClasses>
@@ -61,6 +63,8 @@
     <genClasses ecoreClass="il-flow.ecore#//FileSection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-flow.ecore#//FileSection/dataSets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-flow.ecore#//FileSection/keyLists"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-flow.ecore#//FileSection/cursors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-flow.ecore#//FileSection/statements"/>
     </genClasses>
     <genClasses ecoreClass="il-flow.ecore#//FlowSection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-flow.ecore#//FlowSection/parameterLists"/>

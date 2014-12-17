@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="S4SCEN" sequence="1"/>
+  <columns name="S4TORI" sequence="2"/>
+  <columns name="S4TDOC" sequence="3"/>
+  <columns name="S4NDOC" sequence="4"/>
+  <columns name="S4NRIG" sequence="5"/>
+  <columns name="S4OPER" sequence="6"/>
+  <columns name="S4CDRS" sequence="7"/>
+  <columns name="S4TIPA" sequence="8"/>
+  <columns name="S4CODI" sequence="9"/>
+</db-core:IndexDef>

@@ -297,7 +297,6 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		// load childs
 		List<String> compilationUnits = new ArrayList<String>();
 		linkCompilationUnit(compilationUnits, compilationUnit);
-
 	}
 
 	private void linkCompilationUnit(List<String> compilationUnits, QCompilationUnit compilationUnit) {

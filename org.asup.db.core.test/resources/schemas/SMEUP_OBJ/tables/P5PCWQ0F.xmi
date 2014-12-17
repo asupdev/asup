@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="WQNSES"/>
+  <columns dataType="CHAR" length="15" name="WQNCON"/>
+  <columns dataType="CHAR" length="15" name="WQARTI"/>
+  <columns dataType="DECIMAL" length="8" name="WQDTFR"/>
+  <columns dataType="CHAR" length="10" name="WQPRIC"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ001" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ002" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ003" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ004" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ005" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ006" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ007" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ008" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ009" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ010" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ011" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ012" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ013" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ014" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ015" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ016" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ017" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ018" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ019" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ020" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ021" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ022" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ023" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ024" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ025" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ026" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ027" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ028" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ029" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ030" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ031" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ032" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ033" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ034" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ035" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ036" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ037" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ038" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ039" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ040" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ041" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ042" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ043" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ044" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ045" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ046" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ047" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ048" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ049" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ050" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ051" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ052" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ053" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ054" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ055" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ056" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ057" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ058" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ059" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="WQQ060" scale="3"/>
+  <columns dataType="CHAR" length="1" name="WQFL01"/>
+  <columns dataType="CHAR" length="1" name="WQFL02"/>
+  <columns dataType="CHAR" length="1" name="WQFL03"/>
+  <columns dataType="CHAR" length="1" name="WQFL04"/>
+  <columns dataType="CHAR" length="1" name="WQFL05"/>
+  <columns dataType="CHAR" length="1" name="WQFL06"/>
+  <columns dataType="CHAR" length="1" name="WQFL07"/>
+  <columns dataType="CHAR" length="1" name="WQFL08"/>
+  <columns dataType="CHAR" length="1" name="WQFL09"/>
+  <columns dataType="CHAR" length="1" name="WQFL10"/>
+</db-core:TableDef>

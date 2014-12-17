@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   CR&#xa3;PCH ,   CR&#xa3;TCH ,   CR&#xa3;OCH   FROM CRSREF0F   ;"/>

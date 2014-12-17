@@ -71,7 +71,7 @@ public class MsSQLDefinitionWriterImpl extends BaseDefinitionWriterImpl {
 		result.append(")");
 		return result.toString();
 	}
-
+	
 	@Override
 	public String deleteData(Table table) {
 		return "TRUNCATE TABLE " + getQualifiedNameInSQLFormat(table);

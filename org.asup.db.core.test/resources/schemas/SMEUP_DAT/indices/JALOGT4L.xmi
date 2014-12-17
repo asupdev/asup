@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" unique="true">
+  <columns name="J1IDOG" sequence="1"/>
+</db-core:IndexDef>

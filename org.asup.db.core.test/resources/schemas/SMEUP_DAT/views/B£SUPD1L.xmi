@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   ARIDRC ,   ARCNAM ,   ARFLIX ,   ARSSID ,   AROGGE ,   ARVAL1 ,   ARNUM1 ,   ARUSE1 ,   ARVAL2 ,   ARNUM2 ,   ARUSE2 ,   AREVEN ,   ARFD35 ,   ARFDLV ,   ARFDMS ,   ARRC35 ,   ARRCMS ,   ARNMOD ,   ARIDUS ,   ARDTIN ,   ARORIN ,   ARUSIN ,   AROGIN ,   ARDTAG ,   ARORAG ,   ARUSAG ,   AROGAG   FROM B&#xa3;SUPD0F   ;"/>

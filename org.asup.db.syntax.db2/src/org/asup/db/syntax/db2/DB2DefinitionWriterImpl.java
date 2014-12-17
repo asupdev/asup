@@ -3,6 +3,7 @@ package org.asup.db.syntax.db2;
 import org.asup.db.core.QTableColumnDef;
 import org.asup.db.core.QTableDef;
 import org.asup.db.syntax.base.BaseDefinitionWriterImpl;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
@@ -66,6 +67,11 @@ public class DB2DefinitionWriterImpl extends BaseDefinitionWriterImpl {
 			result.append(", PRIMARY KEY (" + pkey_name + ")");
 		result.append(")");
 		return result.toString();
+	}
+
+	@Override
+	public String dropIndex(Index index) {
+		return "DROP INDEX " + getNameInSQLFormat(index);
 	}
 
 	@Override

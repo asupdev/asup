@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="Q&#xa7;PPOS" sequence="1"/>
+  <columns name="Q&#xa7;TIER" sequence="2"/>
+  <columns name="Q&#xa7;COER" sequence="3"/>
+  <columns name="Q&#xa7;PSBF" sequence="4"/>
+  <columns name="Q&#xa7;PDCO" sequence="5"/>
+</db-core:IndexDef>

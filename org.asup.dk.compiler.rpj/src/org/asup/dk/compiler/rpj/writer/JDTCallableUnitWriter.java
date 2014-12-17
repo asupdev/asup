@@ -43,6 +43,7 @@ import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QTableDataSet;
+import org.asup.os.type.pgm.rpj.RPJServiceSupport;
 import org.eclipse.jdt.core.dom.ArrayCreation;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.Block;
@@ -51,6 +52,7 @@ import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.ParameterizedType;
@@ -357,8 +359,10 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		if (prototype.getDelegate() != null) {
 			ReturnStatement returnStatement = getAST().newReturnStatement();
-			returnStatement.setExpression(getAST().newNullLiteral());
-			block.statements().add(returnStatement);
+		
+//			returnStatement.setExpression(getAST().newNullLiteral());
+//			block.statements().add(returnStatement);
+			block.statements().add(getReturnStatement(returnStatement, prototype, methodDeclaration));
 		}
 
 		statementWriter.getBlocks().pop();
@@ -464,5 +468,54 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 				refactUnit(unit);
 			}
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private ReturnStatement getReturnStatement(ReturnStatement returnStatement, QPrototype<?> prototype, MethodDeclaration methodDeclaration){
+		
+		String namePrototype = getCompilationUnit().normalizeTermName(prototype.getName());
+		MethodInvocation methodInvocation = getAST().newMethodInvocation();
+		switch (namePrototype){
+		case "p_rxatt":
+			writeImport(RPJServiceSupport.class);
+//			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+			methodInvocation.setExpression(getAST().newName("qJAX"));
+			methodInvocation.setName(getAST().newSimpleName(namePrototype));
+			for(Object entryParameter : methodDeclaration.parameters()) {
+					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
+					methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
+			}
+			
+			returnStatement.setExpression(methodInvocation);
+		break;
+		case "p_rxsos":
+			writeImport(RPJServiceSupport.class);
+//			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+			methodInvocation.setExpression(getAST().newName("qJAX"));
+			methodInvocation.setName(getAST().newSimpleName(namePrototype));
+			for(Object entryParameter : methodDeclaration.parameters()) {
+					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
+					methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
+			}
+			
+			returnStatement.setExpression(methodInvocation);
+		break;
+		case "p_rxlate":
+			writeImport(RPJServiceSupport.class);
+//			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+			methodInvocation.setExpression(getAST().newName("qJAX"));
+			methodInvocation.setName(getAST().newSimpleName(namePrototype));
+			for(Object entryParameter : methodDeclaration.parameters()) {
+					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
+					methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
+			}
+			
+			returnStatement.setExpression(methodInvocation);
+		break;
+		default:
+			returnStatement.setExpression(getAST().newNullLiteral());
+		}
+		
+		return returnStatement;
 	}
 }

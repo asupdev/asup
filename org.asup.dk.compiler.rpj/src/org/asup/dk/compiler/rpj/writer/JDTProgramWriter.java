@@ -77,6 +77,9 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		if (program.getFileSection() != null) {
 			writeDataSets(program.getFileSection().getDataSets());
 			writeKeyLists(program.getFileSection().getKeyLists());
+			// TODO
+			// writeStatements
+			// wtiteCursors
 		}
 
 		if (program.getEntry() != null)

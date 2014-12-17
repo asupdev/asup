@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="MMLIVE"/>
+  <columns dataType="CHAR" length="2" name="MMSTAT"/>
+  <columns dataType="CHAR" length="10" name="MMLIB1"/>
+  <columns dataType="CHAR" length="10" name="MMTIP1"/>
+  <columns dataType="CHAR" length="10" name="MMOGG1"/>
+  <columns dataType="CHAR" length="10" name="MMATT1"/>
+  <columns dataType="CHAR" length="2" name="MMAPP1"/>
+  <columns dataType="CHAR" length="6" name="MMMOD1"/>
+  <columns dataType="CHAR" length="15" name="MMROUT"/>
+  <columns dataType="CHAR" length="20" name="MMPROC"/>
+  <columns dataType="CHAR" length="10" name="MMVERB"/>
+  <columns dataType="CHAR" length="10" name="MMLIB2"/>
+  <columns dataType="CHAR" length="10" name="MMTIP2"/>
+  <columns dataType="CHAR" length="15" name="MMOGG2"/>
+  <columns dataType="CHAR" length="10" name="MMATT2"/>
+  <columns dataType="CHAR" length="2" name="MMAPP2"/>
+  <columns dataType="CHAR" length="6" name="MMMOD2"/>
+  <columns dataType="CHAR" length="1" name="MMFL01"/>
+  <columns dataType="CHAR" length="1" name="MMFL02"/>
+  <columns dataType="CHAR" length="1" name="MMFL03"/>
+  <columns dataType="CHAR" length="1" name="MMFL04"/>
+  <columns dataType="CHAR" length="1" name="MMFL05"/>
+  <columns dataType="CHAR" length="1" name="MMFL06"/>
+  <columns dataType="CHAR" length="1" name="MMFL07"/>
+  <columns dataType="CHAR" length="1" name="MMFL08"/>
+  <columns dataType="CHAR" length="1" name="MMFL09"/>
+  <columns dataType="CHAR" length="1" name="MMFL10"/>
+  <columns dataType="CHAR" length="10" name="MMUSES"/>
+  <columns dataType="DECIMAL" length="8" name="MMDTES"/>
+  <columns dataType="DECIMAL" length="6" name="MMORES"/>
+  <columns dataType="CHAR" length="6" name="MMJOES"/>
+</db-core:TableDef>

@@ -9,6 +9,7 @@ package org.asup.il.flow.impl;
 
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.esql.QIntegratedLanguageEmbeddedSQLPackage;
 import org.asup.il.flow.EvalOperator;
 import org.asup.il.flow.PassingType;
 import org.asup.il.flow.QAnnotation;
@@ -412,6 +413,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		isInited = true;
 
 		// Initialize simple dependencies
+		QIntegratedLanguageEmbeddedSQLPackage.eINSTANCE.eClass();
 		QIntegratedLanguageIsamPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
@@ -688,6 +690,24 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 */
 	public EReference getFileSection_KeyLists() {
 		return (EReference)fileSectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFileSection_Cursors() {
+		return (EReference)fileSectionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFileSection_Statements() {
+		return (EReference)fileSectionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1389,6 +1409,8 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		fileSectionEClass = createEClass(FILE_SECTION);
 		createEReference(fileSectionEClass, FILE_SECTION__DATA_SETS);
 		createEReference(fileSectionEClass, FILE_SECTION__KEY_LISTS);
+		createEReference(fileSectionEClass, FILE_SECTION__CURSORS);
+		createEReference(fileSectionEClass, FILE_SECTION__STATEMENTS);
 
 		flowSectionEClass = createEClass(FLOW_SECTION);
 		createEReference(flowSectionEClass, FLOW_SECTION__PARAMETER_LISTS);
@@ -1517,6 +1539,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
 		QIntegratedLanguageCorePackage theIntegratedLanguageCorePackage = (QIntegratedLanguageCorePackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageCorePackage.eNS_URI);
 		QIntegratedLanguageIsamPackage theIntegratedLanguageIsamPackage = (QIntegratedLanguageIsamPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageIsamPackage.eNS_URI);
+		QIntegratedLanguageEmbeddedSQLPackage theIntegratedLanguageEmbeddedSQLPackage = (QIntegratedLanguageEmbeddedSQLPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageEmbeddedSQLPackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter entryParameterEClass_T = addETypeParameter(entryParameterEClass, "T");
@@ -1618,6 +1641,8 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEClass(fileSectionEClass, QFileSection.class, "FileSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFileSection_DataSets(), theIntegratedLanguageIsamPackage.getDataSetTerm(), null, "dataSets", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFileSection_KeyLists(), theIntegratedLanguageIsamPackage.getKeyListTerm(), null, "keyLists", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFileSection_Cursors(), theIntegratedLanguageEmbeddedSQLPackage.getCursorTerm(), null, "cursors", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFileSection_Statements(), theIntegratedLanguageEmbeddedSQLPackage.getStatementTerm(), null, "statements", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowSectionEClass, QFlowSection.class, "FlowSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlowSection_ParameterLists(), this.getParameterList(), null, "parameterLists", null, 0, -1, QFlowSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

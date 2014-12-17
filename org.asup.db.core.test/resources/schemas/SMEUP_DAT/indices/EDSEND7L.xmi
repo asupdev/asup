@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="R$MESS" sequence="1"/>
+  <columns name="R$ENOR" sequence="2"/>
+  <columns name="R$ENDE" sequence="3"/>
+  <columns name="R$BATC" sequence="4"/>
+  <columns name="R$NTRA" sequence="5"/>
+  <columns name="R$CD02" sequence="6"/>
+  <columns name="R$CD03" sequence="7"/>
+  <columns name="R$NRTR" sequence="8"/>
+</db-core:IndexDef>

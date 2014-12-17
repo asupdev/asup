@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="&#xa3;CIRFU"/>
+  <columns dataType="CHAR" length="10" name="&#xa3;CIRME"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRSP"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRIT"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRIA"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRIC"/>
+  <columns dataType="CHAR" length="20" name="&#xa3;CIRCG"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CIRQT" scale="6"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIRDT"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;CIRUP"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRIZ"/>
+  <columns dataType="CHAR" length="6" name="&#xa3;CIRIQ"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;CIRIS"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRIO"/>
+  <columns dataType="DECIMAL" length="9" name="&#xa3;CIRIR"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRI1"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRI2"/>
+  <columns dataType="DECIMAL" length="9" name="&#xa3;CIRNR"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRTC"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRCO"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRCS"/>
+  <columns dataType="CHAR" length="6" name="&#xa3;CIRSE"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRRI"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;CIRST"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRTO"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRCI"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRCF"/>
+  <columns dataType="CHAR" length="30" name="&#xa3;CIRDE"/>
+  <columns dataType="CHAR" length="5" name="&#xa3;CIRGA"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRAC"/>
+  <columns dataType="CHAR" length="3" name="&#xa3;CIRCC"/>
+  <columns dataType="CHAR" length="6" name="&#xa3;CIRSC"/>
+  <columns dataType="CHAR" length="5" name="&#xa3;CIRSZ"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRS1"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIRS2"/>
+  <columns dataType="CHAR" length="2" name="&#xa3;CIRUT"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV01" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV02" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV03" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV04" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV05" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV06" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV07" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV08" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV09" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV10" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV11" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV12" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV13" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV14" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV15" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV16" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV17" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV18" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV19" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV20" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV21" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV22" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV23" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV24" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV25" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV26" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV27" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV28" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV29" scale="6"/>
+  <columns dataType="DECIMAL" length="16" name="&#xa3;CRV30" scale="6"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRFT"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRF2"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRF3"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRF4"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRF5"/>
+  <columns dataType="CHAR" length="50" name="&#xa3;CIRNA"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIRDI"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIRDF"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIRDC"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIRDU"/>
+  <columns dataType="CHAR" length="10" name="&#xa3;CIRUA"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRFD"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRFC"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIRFP"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIR35"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIR36"/>
+  <columns dataType="CHAR" length="7" name="&#xa3;CIRMS"/>
+  <columns dataType="CHAR" length="10" name="&#xa3;CIRFI"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL01"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL02"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL03"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL04"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL05"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL06"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL07"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL08"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL09"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL10"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL11"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL12"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL13"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL14"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL15"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL16"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL17"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL18"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL19"/>
+  <columns dataType="CHAR" length="1" name="&#xa3;CIXFL20"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR01" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR02" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR03" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR04" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR05" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR06" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR07" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR08" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR09" scale="9"/>
+  <columns dataType="DECIMAL" length="30" name="&#xa3;CIXNR10" scale="9"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT01"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT02"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT03"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT04"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT05"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT06"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT07"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT08"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT09"/>
+  <columns dataType="DECIMAL" length="8" name="&#xa3;CIXDT10"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF01"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF02"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF03"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF04"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF05"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF06"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF07"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF08"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF09"/>
+  <columns dataType="CHAR" length="15" name="&#xa3;CIXAF10"/>
+</db-core:TableDef>

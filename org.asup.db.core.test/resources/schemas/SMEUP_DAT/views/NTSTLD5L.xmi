@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   L$TIPC ,   L$KYC1 ,   L$KYC2 ,   L$KYC3 ,   L$TIPI ,   L$SSLD ,   L$TCEL ,   L$PCEL ,   L$COEL ,   L$RIRI ,   L$DRIC ,   L$DRIS ,   L$ESIT ,   L$CDOR ,   L$NOT1 ,   L$UTCR ,   L$DTCR ,   L$UTAG ,   L$DTAG   FROM NTSTLD0F   ;"/>

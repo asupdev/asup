@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   Q&#xa7;ANNU ,   Q&#xa7;CPDC ,   Q&#xa7;CAM1 ,   Q&#xa7;CAM2 ,   Q&#xa7;CAM3 ,   Q&#xa7;CAM4 ,   Q&#xa7;CAM5 ,   Q&#xa7;CAM6 ,   Q&#xa7;CAM7 ,   Q&#xa7;DTCR ,   Q&#xa7;UTEN ,   Q&#xa7;DTMR   FROM CQPIAN0F   WHERE   ( ( NOT Q&#xa7;ANNU &lt;> ' ' ) OR Q&#xa7;ANNU IS NULL ) ;"/>

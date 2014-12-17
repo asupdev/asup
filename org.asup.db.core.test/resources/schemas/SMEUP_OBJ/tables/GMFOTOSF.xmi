@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="30" name="J&#xa7;CA01"/>
+  <columns dataType="CHAR" length="30" name="J&#xa7;CA02"/>
+  <columns dataType="CHAR" length="30" name="J&#xa7;CA03"/>
+  <columns dataType="CHAR" length="10" name="J&#xa7;IDEN"/>
+  <columns dataType="DECIMAL" length="8" name="J&#xa7;DATA"/>
+  <columns dataType="CHAR" length="2" name="J&#xa7;TIGC"/>
+  <columns dataType="CHAR" length="2" name="J&#xa7;SOGC"/>
+  <columns dataType="CHAR" length="3" name="J&#xa7;CDMG"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;ARTI"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;COD1"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;COD2"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;COD3"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;COD4"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;NCOL"/>
+  <columns dataType="CHAR" length="2" name="J&#xa7;STAT"/>
+  <columns dataType="DECIMAL" length="11" name="J&#xa7;QTGZ" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV01" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV02" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV03" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV04" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV05" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV06" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV07" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV08" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV09" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VV10" scale="5"/>
+  <columns dataType="DECIMAL" length="15" name="J&#xa7;VAOR" scale="3"/>
+  <columns dataType="CHAR" length="3" name="J&#xa7;TCOS"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;SIO1"/>
+  <columns dataType="CHAR" length="15" name="J&#xa7;SIO2"/>
+  <columns dataType="CHAR" length="2" name="J&#xa7;GRAR"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL01"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL02"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL03"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL04"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL05"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL06"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL07"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL08"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL09"/>
+  <columns dataType="CHAR" length="1" name="J&#xa7;FL10"/>
+</db-core:TableDef>

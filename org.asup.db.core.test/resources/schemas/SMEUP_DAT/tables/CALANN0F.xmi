@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="CA&#xa3;STA"/>
+  <columns dataType="CHAR" length="3" name="CA&#xa3;TRG"/>
+  <columns dataType="DECIMAL" length="4" name="CA&#xa3;ANN"/>
+  <columns dataType="CHAR" length="372" name="CA&#xa3;TOG"/>
+  <columns dataType="CHAR" length="372" name="CA&#xa3;TGI"/>
+  <columns dataType="CHAR" length="744" name="CA&#xa3;SET"/>
+</db-core:TableDef>

@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import org.asup.db.core.DatabaseDataType;
 import org.asup.db.core.OrderingType;
 import org.asup.db.core.QCatalogContainer;
+import org.asup.db.core.QCatalogGenerationStrategy;
 import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
@@ -65,6 +66,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass catalogContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass catalogGenerationStrategyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -308,8 +316,17 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCatalogContainer_Active() {
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCatalogContainer_ConnectionConfig() {
-		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(1);
+		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -318,7 +335,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	public EAttribute getCatalogContainer_SupportsGuestAccess() {
-		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -326,8 +343,35 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCatalogContainer_SupportsRelativeRecordNumber() {
-		return (EAttribute)catalogContainerEClass.getEStructuralFeatures().get(3);
+	public EReference getCatalogContainer_GenerationStrategy() {
+		return (EReference)catalogContainerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCatalogGenerationStrategy() {
+		return catalogGenerationStrategyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCatalogGenerationStrategy_CreateIndexOnView() {
+		return (EAttribute)catalogGenerationStrategyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCatalogGenerationStrategy_CreateRelativeRecordNumber() {
+		return (EAttribute)catalogGenerationStrategyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -774,9 +818,14 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Create classes and their features
 		catalogContainerEClass = createEClass(CATALOG_CONTAINER);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__NAME);
+		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__ACTIVE);
 		createEReference(catalogContainerEClass, CATALOG_CONTAINER__CONNECTION_CONFIG);
 		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__SUPPORTS_GUEST_ACCESS);
-		createEAttribute(catalogContainerEClass, CATALOG_CONTAINER__SUPPORTS_RELATIVE_RECORD_NUMBER);
+		createEReference(catalogContainerEClass, CATALOG_CONTAINER__GENERATION_STRATEGY);
+
+		catalogGenerationStrategyEClass = createEClass(CATALOG_GENERATION_STRATEGY);
+		createEAttribute(catalogGenerationStrategyEClass, CATALOG_GENERATION_STRATEGY__CREATE_INDEX_ON_VIEW);
+		createEAttribute(catalogGenerationStrategyEClass, CATALOG_GENERATION_STRATEGY__CREATE_RELATIVE_RECORD_NUMBER);
 
 		catalogMetaDataEClass = createEClass(CATALOG_META_DATA);
 
@@ -898,9 +947,10 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Initialize classes and features; add operations and parameters
 		initEClass(catalogContainerEClass, QCatalogContainer.class, "CatalogContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCatalogContainer_Name(), ecorePackage.getEString(), "name", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCatalogContainer_Active(), ecorePackage.getEBoolean(), "active", "true", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCatalogContainer_ConnectionConfig(), this.getConnectionConfig(), null, "connectionConfig", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCatalogContainer_SupportsGuestAccess(), ecorePackage.getEBoolean(), "supportsGuestAccess", "false", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCatalogContainer_SupportsRelativeRecordNumber(), ecorePackage.getEBoolean(), "supportsRelativeRecordNumber", "false", 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCatalogContainer_GenerationStrategy(), this.getCatalogGenerationStrategy(), null, "generationStrategy", null, 1, 1, QCatalogContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(catalogContainerEClass, null, "createConnection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "C");
@@ -955,6 +1005,10 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		op = addEOperation(catalogContainerEClass, null, "removeView", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theSQLTablesPackage.getViewTable(), "view", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(catalogGenerationStrategyEClass, QCatalogGenerationStrategy.class, "CatalogGenerationStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCatalogGenerationStrategy_CreateIndexOnView(), ecorePackage.getEBoolean(), "createIndexOnView", "false", 1, 1, QCatalogGenerationStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCatalogGenerationStrategy_CreateRelativeRecordNumber(), ecorePackage.getEBoolean(), "createRelativeRecordNumber", "false", 1, 1, QCatalogGenerationStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(catalogMetaDataEClass, QCatalogMetaData.class, "CatalogMetaData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(catalogMetaDataEClass, theSQLConstraintsPackage.getIndex(), "getIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -989,6 +1043,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		op = addEOperation(connectionEClass, ecorePackage.getEString(), "getCatalog", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
+
+		addEOperation(connectionEClass, this.getCatalogGenerationStrategy(), "getCatalogGenerationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(connectionEClass, this.getCatalogMetaData(), "getCatalogMetaData", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1074,16 +1130,6 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getViewDef(), "view", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getDatabaseException());
-
-		op = addEOperation(databaseManagerEClass, null, "deleteData", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLSchemaPackage.getSchema(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getDatabaseException());
-
-		op = addEOperation(databaseManagerEClass, null, "deleteData", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getConnection(), "connection", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theSQLTablesPackage.getTable(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(databaseManagerEClass, null, "dropIndex", 0, 1, IS_UNIQUE, IS_ORDERED);

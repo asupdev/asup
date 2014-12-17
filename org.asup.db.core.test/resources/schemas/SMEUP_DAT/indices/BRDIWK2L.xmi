@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="W&#xa7;TERM" sequence="1"/>
+  <columns name="W&#xa7;UTEN" sequence="2"/>
+  <columns name="W&#xa7;TIPD" sequence="3"/>
+  <columns name="W&#xa7;COD2" sequence="4"/>
+  <columns name="W&#xa7;USR1" sequence="5"/>
+  <columns name="W&#xa7;USR2" sequence="6"/>
+  <columns name="W&#xa7;FLGC" sequence="7"/>
+  <columns name="W&#xa7;COD1" sequence="8"/>
+</db-core:IndexDef>

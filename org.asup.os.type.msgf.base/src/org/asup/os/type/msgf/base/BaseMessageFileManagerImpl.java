@@ -21,7 +21,7 @@ import org.asup.fw.core.QContextID;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.resources.QResourceProvider;
+import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.msgf.MessageException;
 import org.asup.os.type.msgf.QMessageDescription;
@@ -31,7 +31,7 @@ import org.asup.os.type.msgf.impl.MessageFileManagerImpl;
 public class BaseMessageFileManagerImpl extends MessageFileManagerImpl {
 
 	@Inject
-	private QResourceProvider resourceProvider;
+	private QResourceFactory resourceFactory;
 	
 	@Inject
 	private QJob job;
@@ -40,7 +40,7 @@ public class BaseMessageFileManagerImpl extends MessageFileManagerImpl {
 	
 	@PostConstruct
 	public void init() {
-		messageFileReader = resourceProvider.getResourceReader(job, QMessageFile.class, Scope.ALL);
+		messageFileReader = resourceFactory.getResourceReader(job, QMessageFile.class, Scope.ALL);
 	}
 	
 	@Override
@@ -49,9 +49,12 @@ public class BaseMessageFileManagerImpl extends MessageFileManagerImpl {
 			Object[] variables) {
 		
 		QMessageFile qMessageFile = messageFileReader.lookup(messageName.getClass().getSimpleName());
-		QMessageDescription messageDescription = qMessageFile.lookup(messageName);
+				
+		QMessageDescription messageDescription = null;
+		if(qMessageFile != null)
+			messageDescription = qMessageFile.lookup(messageName);
 		
-		String messageText = "";
+		String messageText = "Invalid message file: "+messageName;
 		String name = messageName.toString();
 		int severity = 0;
 		

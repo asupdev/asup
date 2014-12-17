@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="GXCOD1" sequence="1"/>
+  <columns name="GXCOD2" sequence="2"/>
+  <columns name="GXCOD3" sequence="3"/>
+  <columns name="GXCOD4" sequence="4"/>
+  <columns name="GXCOD5" sequence="5"/>
+  <columns name="GXCOD6" sequence="6"/>
+  <columns name="GXCOD7" sequence="7"/>
+  <columns name="GXCOD8" sequence="8"/>
+  <columns name="GXCOD9" sequence="9"/>
+</db-core:IndexDef>

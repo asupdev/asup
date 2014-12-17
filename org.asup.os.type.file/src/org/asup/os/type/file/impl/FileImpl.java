@@ -19,12 +19,10 @@ import org.asup.il.core.QNode;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.asup.os.type.impl.TypedObjectImpl;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.os.type.file.impl.FileImpl#getFacets <em>Facets</em>}</li>
- *   <li>{@link org.asup.os.type.file.impl.FileImpl#getDictionary <em>Dictionary</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,24 +49,6 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 	 * @ordered
 	 */
 	protected EList<QFacet> facets;
-	/**
-	 * The default value of the '{@link #getDictionary() <em>Dictionary</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDictionary()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DICTIONARY_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getDictionary() <em>Dictionary</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDictionary()
-	 * @generated
-	 * @ordered
-	 */
-	protected String dictionary = DICTIONARY_EDEFAULT;
 	/**
 	 * 
 	 */
@@ -104,27 +83,6 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 			facets = new EObjectContainmentEList<QFacet>(QFacet.class, this, QOperatingSystemFilePackage.FILE__FACETS);
 		}
 		return facets;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDictionary() {
-		return dictionary;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDictionary(String newDictionary) {
-		String oldDictionary = dictionary;
-		dictionary = newDictionary;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemFilePackage.FILE__DICTIONARY, oldDictionary, dictionary));
 	}
 
 	/**
@@ -218,8 +176,6 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.FILE__FACETS:
 				return getFacets();
-			case QOperatingSystemFilePackage.FILE__DICTIONARY:
-				return getDictionary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,9 +193,6 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 				getFacets().clear();
 				getFacets().addAll((Collection<? extends QFacet>)newValue);
 				return;
-			case QOperatingSystemFilePackage.FILE__DICTIONARY:
-				setDictionary((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -255,9 +208,6 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 			case QOperatingSystemFilePackage.FILE__FACETS:
 				getFacets().clear();
 				return;
-			case QOperatingSystemFilePackage.FILE__DICTIONARY:
-				setDictionary(DICTIONARY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,8 +222,6 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 		switch (featureID) {
 			case QOperatingSystemFilePackage.FILE__FACETS:
 				return facets != null && !facets.isEmpty();
-			case QOperatingSystemFilePackage.FILE__DICTIONARY:
-				return DICTIONARY_EDEFAULT == null ? dictionary != null : !DICTIONARY_EDEFAULT.equals(dictionary);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -318,21 +266,5 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dictionary: ");
-		result.append(dictionary);
-		result.append(')');
-		return result.toString();
 	}
 } //QFileImpl

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="EXLIVL"/>
+  <columns dataType="CHAR" length="15" name="EXCOD1"/>
+  <columns dataType="CHAR" length="30" name="EXDES1"/>
+  <columns dataType="CHAR" length="15" name="EXCOD2"/>
+  <columns dataType="CHAR" length="30" name="EXDES2"/>
+  <columns dataType="CHAR" length="15" name="EXCOD3"/>
+  <columns dataType="CHAR" length="30" name="EXDES3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQLOT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQCNT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQSEL" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQNOC" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQSCA" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQRLV" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXQRID" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVLOT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVCNT" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVSEL" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVNOC" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVSCA" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVRLV" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVRID" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVAMA" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVAMS" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVALE" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVALI" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVACP" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXVARA" scale="3"/>
+  <columns dataType="DECIMAL" length="15" name="EXCONT" scale="3"/>
+</db-core:TableDef>

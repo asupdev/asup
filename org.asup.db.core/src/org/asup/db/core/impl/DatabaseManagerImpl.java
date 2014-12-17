@@ -99,28 +99,6 @@ public abstract class DatabaseManagerImpl extends ServiceImpl implements QDataba
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void deleteData(QConnection connection, Schema schema) throws SQLException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void deleteData(QConnection connection, Table table) throws SQLException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void dropIndex(QConnection connection, Index index) throws SQLException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

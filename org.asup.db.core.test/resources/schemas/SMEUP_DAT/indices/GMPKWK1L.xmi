@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="W&#xa7;SESS" sequence="1"/>
+  <columns name="W&#xa7;TIDO" sequence="2"/>
+  <columns name="W&#xa7;NRDM" sequence="3"/>
+  <columns name="W&#xa7;ARTI" sequence="4"/>
+</db-core:IndexDef>

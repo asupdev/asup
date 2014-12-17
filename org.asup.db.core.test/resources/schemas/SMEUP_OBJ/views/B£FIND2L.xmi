@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:ViewDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core" querySelect="SELECT   B1TIP1 ,   B1COD1 ,   B1TIP2 ,   B1COD2 ,   B1DOCU ,   B1DATI ,   B1USIN ,   B1DTIN ,   B1ORIN ,   B1OGIN ,   B1USAG ,   B1DTAG ,   B1ORAG ,   B1OGAG   FROM B&#xa3;FIND0F   ;"/>

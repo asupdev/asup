@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="6" name="W&#xa7;NRIC"/>
+  <columns dataType="DECIMAL" length="4" name="W&#xa7;NRIG"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TIOR"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CDOR"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;MAGA"/>
+  <columns dataType="CHAR" length="2" name="W&#xa7;TIOG"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;CDOG"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TDOC"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TMOD"/>
+  <columns dataType="CHAR" length="3" name="W&#xa7;TRIG"/>
+  <columns dataType="CHAR" length="10" name="W&#xa7;NDOC"/>
+  <columns dataType="DECIMAL" length="4" name="W&#xa7;NRID"/>
+  <columns dataType="CHAR" length="15" name="W&#xa7;LIB1"/>
+</db-core:TableDef>

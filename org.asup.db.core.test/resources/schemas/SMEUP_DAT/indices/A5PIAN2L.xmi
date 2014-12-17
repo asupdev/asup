@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:IndexDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns name="PALIVR" sequence="1"/>
+  <columns name="PACACE" sequence="2"/>
+  <columns name="PACESP" sequence="3"/>
+  <columns name="PALINE" sequence="4"/>
+  <columns name="PAESER" sequence="5"/>
+  <columns name="PAAZIE" sequence="6"/>
+  <columns name="PAIDOJ" sequence="7"/>
+</db-core:IndexDef>

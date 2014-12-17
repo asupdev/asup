@@ -37,7 +37,6 @@ import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.QQueryWriter;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QApplication;
-import org.asup.fw.core.QContext;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.QuerySelectStatement;
@@ -126,8 +125,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		try {
 
 			// relative record number support
-			// TODO QTableDef.getPrimaryKey()
-			if (!catalogContainer.isSupportsRelativeRecordNumber()) {
+			if (catalogContainer.getGenerationStrategy().isCreateRelativeRecordNumber()) {
 				tableDef = (QTableDef) EcoreUtil.copy((EObject) tableDef);
 
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
@@ -185,8 +183,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			}
 
 			// relative record number support
-			// TODO QViewDef.getPrimaryKey()
-			if(!catalogContainer.isSupportsRelativeRecordNumber())  {
+			if(catalogContainer.getGenerationStrategy().isCreateRelativeRecordNumber())  {
 
 				if(!copy) {
 					viewDef = (QViewDef) EcoreUtil.copy((EObject) viewDef);
@@ -276,40 +273,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		Index index = getCatalogContainer(connection).loadIndex(table, name);
 		return index;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void deleteData(QConnection connection, Schema schema) throws SQLException {
-
-		for (Table table : (List<Table>) schema.getTables()) {
-			try {
-				if (!(table instanceof ViewTable))
-					deleteData(connection, table);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	@Override
-	public void deleteData(QConnection connection, Table table) throws SQLException {
-
-		// persistent table only
-		if (table instanceof ViewTable)
-			return;
-
-		QStatement statement = null;
-		try {
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
-			String command = definitionWriter.deleteData(table);
-			
-			statement = connection.createStatement(true);
-			statement.execute(command);
-		} finally {
-			if (statement != null)
-				statement.close();
-		}
 	}
 
 	@Override
@@ -413,8 +376,22 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		return catalogContainer;
 	}
+	
+	protected QCatalogContainer getCatalogContainer(String catalogName) throws SQLException {
 
-	private QContext getCatalogContext(QConnection connection) throws SQLException {
-		return getCatalogContainer(connection).getCatalogContext();
+		QCatalogContainer catalogContainer = null;
+
+		if (catalogName == null || catalogName.isEmpty()) {
+			catalogContainer = this.databaseContainer.getDefaultCatalogContainer();
+		} else {
+			for (QCatalogContainer tempContainer : this.databaseContainer.getCatalogContainers()) {
+				if (catalogName.equals(tempContainer.getName())) {
+					catalogContainer = tempContainer;
+					break;
+				}
+			}
+		}
+
+		return catalogContainer;
 	}
 }
