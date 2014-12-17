@@ -43,7 +43,7 @@ import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QTableDataSet;
-import org.asup.os.type.pgm.rpj.RPJStringSupport;
+import org.asup.os.type.pgm.rpj.RPJServiceSupport;
 import org.eclipse.jdt.core.dom.ArrayCreation;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.Block;
@@ -477,8 +477,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		MethodInvocation methodInvocation = getAST().newMethodInvocation();
 		switch (namePrototype){
 		case "p_rxatt":
-			writeImport(RPJStringSupport.class);
-			methodInvocation.setExpression(getAST().newName(RPJStringSupport.class.getSimpleName()));
+			writeImport(RPJServiceSupport.class);
+			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
 			for(Object entryParameter : methodDeclaration.parameters()) {
 					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
@@ -488,8 +488,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			returnStatement.setExpression(methodInvocation);
 		break;
 		case "p_rxsos":
-			writeImport(RPJStringSupport.class);
-			methodInvocation.setExpression(getAST().newName(RPJStringSupport.class.getSimpleName()));
+			writeImport(RPJServiceSupport.class);
+			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
 			for(Object entryParameter : methodDeclaration.parameters()) {
 					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
@@ -499,8 +499,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			returnStatement.setExpression(methodInvocation);
 		break;
 		case "p_rxlate":
-			writeImport(RPJStringSupport.class);
-			methodInvocation.setExpression(getAST().newName(RPJStringSupport.class.getSimpleName()));
+			writeImport(RPJServiceSupport.class);
+			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
 			for(Object entryParameter : methodDeclaration.parameters()) {
 					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
