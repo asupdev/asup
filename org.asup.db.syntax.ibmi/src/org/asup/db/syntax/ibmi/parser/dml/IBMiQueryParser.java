@@ -14,11 +14,13 @@ import org.eclipse.datatools.modelbase.sql.query.*;
 import org.eclipse.datatools.modelbase.sql.query.helper.*;
 import org.eclipse.datatools.modelbase.sql.query.util.*;
 
-
 import lpg.lpgjavaruntime.*;
+
 import java.util.List;
+
 import org.eclipse.datatools.sqltools.parsers.sql.SQLParserInternalException;
 
+@SuppressWarnings("rawtypes")
 class IBMiQueryParser extends  org.eclipse.datatools.sqltools.parsers.sql.query.AbstractSQLQueryParser  //SQLParser
 {
 IBMiQueryParserFactory m_factory;
@@ -92,6 +94,7 @@ protected int getTokenInt(int p_tok) {
     }
     return Integer.parseInt(getTokenName(tok));
 }
+
 
 
 

@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.asup.db.syntax.ibmi.parser.dml;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
@@ -18,7 +17,6 @@ import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.dml.QDatabaseDMLFactory;
 import org.asup.db.syntax.dml.QExtendedQuerySelect;
 import org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl;
-import org.eclipse.datatools.modelbase.sql.query.QueryResultSpecification;
 import org.eclipse.datatools.modelbase.sql.query.QuerySearchCondition;
 import org.eclipse.datatools.modelbase.sql.query.ValueExpressionVariable;
 import org.eclipse.datatools.modelbase.sql.query.util.SQLQuerySourceFormat;
@@ -98,6 +96,8 @@ public class IBMiQueryParserFactory extends SQLQueryParserFactory {
 		return qrySel;
 	}
 	
+	
+	@SuppressWarnings("unchecked")
 	public List createIntoClause( List aResultSpecList, ValueExpressionVariable aResultCol ) {
 		  //if (statementTypeOnly) {return null;}
 		  if (aResultSpecList == null)

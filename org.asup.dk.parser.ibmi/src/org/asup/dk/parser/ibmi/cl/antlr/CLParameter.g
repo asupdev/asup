@@ -67,7 +67,7 @@ tokens
 
 parse
   :
-  (elem)* -> ^(LIST[$parse.text] (elem)*) 
+  (elem)* -> ^(LIST["LIST: " + $parse.text] (elem)*) 
   ;
   
 elem	
@@ -78,12 +78,12 @@ elem
   
   composite
   :      
-   value (operator value)* -> ^(VALUE[$composite.text] value (operator value)*)
+   value (operator value)* -> ^(VALUE["COMPOSITE: " + $composite.text] value (operator value)*)
   ;	   
    
 list
   : 
-  OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST[$list.text]  (elem)*)    
+  OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST["LIST: " + $list.text]  (elem)*)    
   ;
   
 
@@ -101,8 +101,8 @@ value
   |
   HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)]
   |
-  STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
-  |  
+  STRING -> ^(STRING[$STRING.text.substring(1, $STRING.text.length()-1)])
+  |
   function
   ;
 
@@ -119,7 +119,7 @@ operator:
 
  
 function:
-  FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
+  FUNCTION_NAME list	-> ^(FUNCTION["FUN: " + $FUNCTION_NAME.text] list)
 	;
 	
 CAT     : '!!' | '*CAT';
@@ -133,7 +133,7 @@ FUNCTION_NAME:
 	;  	
   
 STRING	:	
-   APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&')+ APOS	
+   APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&'|ASTERISK|OPEN_BRACE|CLOSE_BRACE)+ APOS	
    ;	  
 
 TOKEN: 
@@ -146,19 +146,20 @@ VARIABLE:
  
 SPECIAL	:	
    ASTERISK TOKEN
- ;   	 
+ ;  
  
-FILTER :
-   TOKEN ASTERISK
- ; 
- 
+FILTER	:	
+	TOKEN ASTERISK
+	;  	
+
 ASTERISK:
 	'*'	
-;
- 
- HEX	:
+	;
+	
+
+HEX	:
 	'X' APOS ('0'..'9'|'A'..'F'|'a'..'f')+ APOS	
- ;
+	;	 
       
 OPEN_BRACE
   :
@@ -219,7 +220,7 @@ CHAR_SPECIAL
     | '+'
     | '-'
     | '/'	
-    | '\\'   
-    | ':'  
+    | '\\' 
+    | ':'        
   )
   ;

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-10-10 16:15:53
+// $ANTLR 3.5.1 CLParameter.g 2014-12-17 18:27:50
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -103,7 +103,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "parse"
-	// CLParameter.g:68:1: parse : ( elem )* -> ^( LIST[$parse.text] ( elem )* ) ;
+	// CLParameter.g:68:1: parse : ( elem )* -> ^( LIST[\"LIST: \" + $parse.text] ( elem )* ) ;
 	public final CLParameterParser.parse_return parse() throws RecognitionException {
 		CLParameterParser.parse_return retval = new CLParameterParser.parse_return();
 		retval.start = input.LT(1);
@@ -115,7 +115,7 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_elem=new RewriteRuleSubtreeStream(adaptor,"rule elem");
 
 		try {
-			// CLParameter.g:69:3: ( ( elem )* -> ^( LIST[$parse.text] ( elem )* ) )
+			// CLParameter.g:69:3: ( ( elem )* -> ^( LIST[\"LIST: \" + $parse.text] ( elem )* ) )
 			// CLParameter.g:70:3: ( elem )*
 			{
 			// CLParameter.g:70:3: ( elem )*
@@ -155,13 +155,13 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 70:11: -> ^( LIST[$parse.text] ( elem )* )
+			// 70:11: -> ^( LIST[\"LIST: \" + $parse.text] ( elem )* )
 			{
-				// CLParameter.g:70:14: ^( LIST[$parse.text] ( elem )* )
+				// CLParameter.g:70:14: ^( LIST[\"LIST: \" + $parse.text] ( elem )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, input.toString(retval.start,input.LT(-1))), root_1);
-				// CLParameter.g:70:34: ( elem )*
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, "LIST: " + input.toString(retval.start,input.LT(-1))), root_1);
+				// CLParameter.g:70:45: ( elem )*
 				while ( stream_elem.hasNext() ) {
 					adaptor.addChild(root_1, stream_elem.nextTree());
 				}
@@ -292,7 +292,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "composite"
-	// CLParameter.g:79:3: composite : value ( operator value )* -> ^( VALUE[$composite.text] value ( operator value )* ) ;
+	// CLParameter.g:79:3: composite : value ( operator value )* -> ^( VALUE[\"COMPOSITE: \" + $composite.text] value ( operator value )* ) ;
 	public final CLParameterParser.composite_return composite() throws RecognitionException {
 		CLParameterParser.composite_return retval = new CLParameterParser.composite_return();
 		retval.start = input.LT(1);
@@ -307,7 +307,7 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_operator=new RewriteRuleSubtreeStream(adaptor,"rule operator");
 
 		try {
-			// CLParameter.g:80:3: ( value ( operator value )* -> ^( VALUE[$composite.text] value ( operator value )* ) )
+			// CLParameter.g:80:3: ( value ( operator value )* -> ^( VALUE[\"COMPOSITE: \" + $composite.text] value ( operator value )* ) )
 			// CLParameter.g:81:4: value ( operator value )*
 			{
 			pushFollow(FOLLOW_value_in_composite174);
@@ -357,14 +357,14 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 81:28: -> ^( VALUE[$composite.text] value ( operator value )* )
+			// 81:28: -> ^( VALUE[\"COMPOSITE: \" + $composite.text] value ( operator value )* )
 			{
-				// CLParameter.g:81:31: ^( VALUE[$composite.text] value ( operator value )* )
+				// CLParameter.g:81:31: ^( VALUE[\"COMPOSITE: \" + $composite.text] value ( operator value )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VALUE, input.toString(retval.start,input.LT(-1))), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VALUE, "COMPOSITE: " + input.toString(retval.start,input.LT(-1))), root_1);
 				adaptor.addChild(root_1, stream_value.nextTree());
-				// CLParameter.g:81:62: ( operator value )*
+				// CLParameter.g:81:78: ( operator value )*
 				while ( stream_value.hasNext()||stream_operator.hasNext() ) {
 					adaptor.addChild(root_1, stream_operator.nextTree());
 					adaptor.addChild(root_1, stream_value.nextTree());
@@ -410,7 +410,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "list"
-	// CLParameter.g:84:1: list : OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[$list.text] ( elem )* ) ;
+	// CLParameter.g:84:1: list : OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[\"LIST: \" + $list.text] ( elem )* ) ;
 	public final CLParameterParser.list_return list() throws RecognitionException {
 		CLParameterParser.list_return retval = new CLParameterParser.list_return();
 		retval.start = input.LT(1);
@@ -428,7 +428,7 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_elem=new RewriteRuleSubtreeStream(adaptor,"rule elem");
 
 		try {
-			// CLParameter.g:85:3: ( OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[$list.text] ( elem )* ) )
+			// CLParameter.g:85:3: ( OPEN_BRACE ( elem )* CLOSE_BRACE -> ^( LIST[\"LIST: \" + $list.text] ( elem )* ) )
 			// CLParameter.g:86:3: OPEN_BRACE ( elem )* CLOSE_BRACE
 			{
 			OPEN_BRACE7=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_list220);  
@@ -474,13 +474,13 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 86:34: -> ^( LIST[$list.text] ( elem )* )
+			// 86:34: -> ^( LIST[\"LIST: \" + $list.text] ( elem )* )
 			{
-				// CLParameter.g:86:37: ^( LIST[$list.text] ( elem )* )
+				// CLParameter.g:86:37: ^( LIST[\"LIST: \" + $list.text] ( elem )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, input.toString(retval.start,input.LT(-1))), root_1);
-				// CLParameter.g:86:57: ( elem )*
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LIST, "LIST: " + input.toString(retval.start,input.LT(-1))), root_1);
+				// CLParameter.g:86:68: ( elem )*
 				while ( stream_elem.hasNext() ) {
 					adaptor.addChild(root_1, stream_elem.nextTree());
 				}
@@ -524,7 +524,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// CLParameter.g:90:1: value : ( ASTERISK -> ^( TOKEN[$ASTERISK.text] ) | TOKEN | VARIABLE | SPECIAL | FILTER | HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)] | STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)] | function );
+	// CLParameter.g:90:1: value : ( ASTERISK -> ^( TOKEN[$ASTERISK.text] ) | TOKEN | VARIABLE | SPECIAL | FILTER | HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)] | STRING -> ^( STRING[$STRING.text.substring(1, $STRING.text.length()-1)] ) | function );
 	public final CLParameterParser.value_return value() throws RecognitionException {
 		CLParameterParser.value_return retval = new CLParameterParser.value_return();
 		retval.start = input.LT(1);
@@ -552,7 +552,7 @@ public class CLParameterParser extends Parser {
 		RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
 		try {
-			// CLParameter.g:91:3: ( ASTERISK -> ^( TOKEN[$ASTERISK.text] ) | TOKEN | VARIABLE | SPECIAL | FILTER | HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)] | STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)] | function )
+			// CLParameter.g:91:3: ( ASTERISK -> ^( TOKEN[$ASTERISK.text] ) | TOKEN | VARIABLE | SPECIAL | FILTER | HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)] | STRING -> ^( STRING[$STRING.text.substring(1, $STRING.text.length()-1)] ) | function )
 			int alt5=8;
 			switch ( input.LA(1) ) {
 			case ASTERISK:
@@ -726,9 +726,15 @@ public class CLParameterParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 104:10: -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
+					// 104:10: -> ^( STRING[$STRING.text.substring(1, $STRING.text.length()-1)] )
 					{
-						adaptor.addChild(root_0, (CommonTree)adaptor.create(STRING, (STRING16!=null?STRING16.getText():null).substring(1, (STRING16!=null?STRING16.getText():null).length()-1)));
+						// CLParameter.g:104:13: ^( STRING[$STRING.text.substring(1, $STRING.text.length()-1)] )
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STRING, (STRING16!=null?STRING16.getText():null).substring(1, (STRING16!=null?STRING16.getText():null).length()-1)), root_1);
+						adaptor.addChild(root_0, root_1);
+						}
+
 					}
 
 
@@ -838,7 +844,7 @@ public class CLParameterParser extends Parser {
 
 
 	// $ANTLR start "function"
-	// CLParameter.g:121:1: function : FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) ;
+	// CLParameter.g:121:1: function : FUNCTION_NAME list -> ^( FUNCTION[\"FUN: \" + $FUNCTION_NAME.text] list ) ;
 	public final CLParameterParser.function_return function() throws RecognitionException {
 		CLParameterParser.function_return retval = new CLParameterParser.function_return();
 		retval.start = input.LT(1);
@@ -853,7 +859,7 @@ public class CLParameterParser extends Parser {
 		RewriteRuleSubtreeStream stream_list=new RewriteRuleSubtreeStream(adaptor,"rule list");
 
 		try {
-			// CLParameter.g:121:9: ( FUNCTION_NAME list -> ^( FUNCTION[$FUNCTION_NAME.text] list ) )
+			// CLParameter.g:121:9: ( FUNCTION_NAME list -> ^( FUNCTION[\"FUN: \" + $FUNCTION_NAME.text] list ) )
 			// CLParameter.g:122:3: FUNCTION_NAME list
 			{
 			FUNCTION_NAME19=(Token)match(input,FUNCTION_NAME,FOLLOW_FUNCTION_NAME_in_function383);  
@@ -875,12 +881,12 @@ public class CLParameterParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 122:22: -> ^( FUNCTION[$FUNCTION_NAME.text] list )
+			// 122:22: -> ^( FUNCTION[\"FUN: \" + $FUNCTION_NAME.text] list )
 			{
-				// CLParameter.g:122:25: ^( FUNCTION[$FUNCTION_NAME.text] list )
+				// CLParameter.g:122:25: ^( FUNCTION[\"FUN: \" + $FUNCTION_NAME.text] list )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, (FUNCTION_NAME19!=null?FUNCTION_NAME19.getText():null)), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION, "FUN: " + (FUNCTION_NAME19!=null?FUNCTION_NAME19.getText():null)), root_1);
 				adaptor.addChild(root_1, stream_list.nextTree());
 				adaptor.addChild(root_0, root_1);
 				}
