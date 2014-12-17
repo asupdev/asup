@@ -376,4 +376,22 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 		return catalogContainer;
 	}
+	
+	protected QCatalogContainer getCatalogContainer(String catalogName) throws SQLException {
+
+		QCatalogContainer catalogContainer = null;
+
+		if (catalogName == null || catalogName.isEmpty()) {
+			catalogContainer = this.databaseContainer.getDefaultCatalogContainer();
+		} else {
+			for (QCatalogContainer tempContainer : this.databaseContainer.getCatalogContainers()) {
+				if (catalogName.equals(tempContainer.getName())) {
+					catalogContainer = tempContainer;
+					break;
+				}
+			}
+		}
+
+		return catalogContainer;
+	}
 }

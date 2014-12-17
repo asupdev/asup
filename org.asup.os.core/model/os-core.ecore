@@ -343,6 +343,7 @@
         <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectRow" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
   </eSubpackages>
   <eSubpackages name="resources" nsURI="http://www.asup.org/os/core/resource" nsPrefix="os-core-resources">
     <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">

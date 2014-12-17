@@ -61,9 +61,20 @@ public class OperatingSystemOutputFactoryImpl extends EFactoryImpl implements QO
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QOperatingSystemOutputPackage.OBJECT_ROW: return (EObject)createObjectRow();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QObjectRow createObjectRow() {
+		ObjectRowImpl objectRow = new ObjectRowImpl();
+		return objectRow;
 	}
 
 	/**

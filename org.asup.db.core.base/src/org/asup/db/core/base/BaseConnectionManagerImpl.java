@@ -15,6 +15,7 @@ import java.sql.SQLException;
 
 import javax.inject.Inject;
 
+import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.impl.ConnectionManagerImpl;
@@ -54,7 +55,10 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 		BaseDatabaseManagerImpl baseDatabaseManagerImpl = (BaseDatabaseManagerImpl) databaseManager;
 
 		String connectionID = nextConnectionID(baseDatabaseManagerImpl);
-		QContext context = application.getContext().createLocalContext(catalog + "/" + connectionID);
+		
+		QCatalogContainer catalogContainer = baseDatabaseManagerImpl.getCatalogContainer(catalog);
+		
+		QContext context = catalogContainer.getCatalogContext().createLocalContext(catalog + "/" + connectionID);
 
 		QConnection connection = new BaseConnectionImpl(baseDatabaseManagerImpl.getDatabaseContainer(), context);
 		connection.setCatalog(catalog);

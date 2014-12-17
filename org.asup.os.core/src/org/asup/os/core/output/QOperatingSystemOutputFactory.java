@@ -27,6 +27,15 @@ public interface QOperatingSystemOutputFactory extends EFactory {
 	QOperatingSystemOutputFactory eINSTANCE = org.asup.os.core.output.impl.OperatingSystemOutputFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Object Row</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Row</em>'.
+	 * @generated
+	 */
+	QObjectRow createObjectRow();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

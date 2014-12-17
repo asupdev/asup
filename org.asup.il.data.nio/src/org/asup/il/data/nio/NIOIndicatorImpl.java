@@ -16,7 +16,7 @@ import org.asup.il.data.QIndicator;
 public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
 
 	private static final long serialVersionUID = 1L;
-	private static byte INIT = (byte) 48;
+	private static byte INIT = (byte) 32;
 
 	public NIOIndicatorImpl() {
 		super(1);
