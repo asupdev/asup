@@ -478,7 +478,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		switch (namePrototype){
 		case "p_rxatt":
 			writeImport(RPJServiceSupport.class);
-			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+//			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+			methodInvocation.setExpression(getAST().newName("qJAX"));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
 			for(Object entryParameter : methodDeclaration.parameters()) {
 					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
@@ -489,7 +490,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		break;
 		case "p_rxsos":
 			writeImport(RPJServiceSupport.class);
-			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+//			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+			methodInvocation.setExpression(getAST().newName("qJAX"));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
 			for(Object entryParameter : methodDeclaration.parameters()) {
 					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
@@ -500,7 +502,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		break;
 		case "p_rxlate":
 			writeImport(RPJServiceSupport.class);
-			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+//			methodInvocation.setExpression(getAST().newName(RPJServiceSupport.class.getSimpleName()));
+			methodInvocation.setExpression(getAST().newName("qJAX"));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
 			for(Object entryParameter : methodDeclaration.parameters()) {
 					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
