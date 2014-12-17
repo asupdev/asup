@@ -11,6 +11,8 @@
  */
 package org.asup.os.type.pgm.rpj;
 
+import org.asup.il.data.QCharacter;
+
 public class TestString {
 
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class TestString {
 		System.out.println("-----------------------------");
 
 		String a = "CAMPO(ALFA(12) BETA(13) GAMMA(14))"; 
-		String result = RPJStringSupport.p_rxatt(a, "ALFA(", "", false, "");
+		QCharacter result = RPJStringSupport.p_rxatt(a, "ALFA(", "", null, null);
 		System.out.println("Risultato " + result);
 
 		System.out.println("-----------------------------");

@@ -12,6 +12,7 @@
 package org.asup.os.type.pgm.rpj;
 
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QIndicator;
 import org.asup.il.data.annotation.DataDef;
 
 public class RPJStringSupport {
@@ -66,7 +67,7 @@ public class RPJStringSupport {
 		return value; 
 //		return nameBuffer.toString();
 	}
-	public static QCharacter p_rxatt(String arg0, String arg1, String arg2, boolean arg3, String arg4){
+	public static QCharacter p_rxatt(String arg0, String arg1, String arg2, QIndicator arg3, QCharacter arg4){
 		value.clear();
 		// data una stringa cerca il valore fra "()" di un attributo
 		// cerco "(" nell'attributo
