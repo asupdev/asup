@@ -48,10 +48,11 @@ public class BaseDatabaseLoader {
 
 				if(!catalogContainer.isActive())
 					continue;
-				QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 				
 				// build catalog context
 				QContext catalogContext = application.getContext().createLocalContext(catalogContainer.getName());
+				
+				QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 				QQueryWriter queryWriter = queryWriterRegistry.lookup(connectionConfig);
 				catalogContext.set(QQueryWriter.class, queryWriter);
 				QDefinitionWriter definitionWriter = definitionWriterRegistry.lookup(connectionConfig);
@@ -61,6 +62,8 @@ public class BaseDatabaseLoader {
 					// initialize new container
 					BaseCatalogContainerImpl newCatalogContainer = new BaseCatalogContainerImpl(catalogContext);
 					newCatalogContainer.setName(catalogContainer.getName());
+					newCatalogContainer.setActive(true);
+					newCatalogContainer.setGenerationStrategy(catalogContainer.getGenerationStrategy());
 					newCatalogContainer.setConnectionConfig(catalogContainer.getConnectionConfig());
 					newCatalogContainer.setSupportsGuestAccess(catalogContainer.isSupportsGuestAccess());
 					newCatalogContainer.initialize();

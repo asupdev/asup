@@ -43,6 +43,7 @@ public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 			return null;
 
 		for (Table table : (List<Table>) schema.getTables()) {
+			
 			if (table.getName().equals(tableName))
 				return table;
 		}
@@ -54,6 +55,9 @@ public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 	public ViewTable getView(String schemaName, String tableName) {
 
 		Table table = getTable(schemaName, tableName);
+		if(table == null)
+			return null;
+		
 		if (table instanceof ViewTable)
 			return (ViewTable) table;
 		else
@@ -64,8 +68,11 @@ public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 	@Override
 	public Index getIndex(String schemaName, String tableName, String indexName) {
 
-		Schema schema = getSchema(schemaName);
-		for (Index index : (List<Index>) schema.getIndices()) {
+		Table table = getTable(schemaName, tableName);
+		if(table == null)
+			return null;
+		
+		for (Index index : (List<Index>) table.getIndex()) {
 			if (index.getName().equalsIgnoreCase(indexName))
 				return index;
 		}

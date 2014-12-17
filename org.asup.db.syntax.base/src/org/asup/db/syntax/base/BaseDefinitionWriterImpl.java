@@ -141,7 +141,7 @@ public abstract class BaseDefinitionWriterImpl extends DefinitionWriterImpl {
 	}
 	
 	public String dropIndex(Index index) {
-		return "DROP INDEX " + getNameInSQLFormat(index) + " ON TABLE " + getQualifiedNameInSQLFormat(index.getTable());
+		return "DROP INDEX " + getNameInSQLFormat(index) + " ON " + getNameInSQLFormat(index.getTable());
 	}
 	
 	public String deleteData(Table table) {

@@ -111,6 +111,9 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 	private QViewDef adaptDatabaseFileToViewDef(QContext context, QLogicalFile file) {
 
+		if(file.getCreationStatement() == null)
+			return null;
+		
 		QViewDef viewDef = QDatabaseCoreFactory.eINSTANCE.createViewDef();
 
 		/*

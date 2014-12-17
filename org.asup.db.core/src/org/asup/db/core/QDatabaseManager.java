@@ -68,22 +68,6 @@ public interface QDatabaseManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException" schemaRequired="true"
-	 * @generated
-	 */
-	void deleteData(QConnection connection, Schema schema) throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="org.asup.db.core.DatabaseException" tableRequired="true"
-	 * @generated
-	 */
-	void deleteData(QConnection connection, Table table) throws SQLException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.db.core.DatabaseException" indexRequired="true"
 	 * @generated
 	 */

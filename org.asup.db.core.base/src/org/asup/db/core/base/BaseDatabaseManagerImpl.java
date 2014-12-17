@@ -37,7 +37,6 @@ import org.asup.db.syntax.QQueryParserRegistry;
 import org.asup.db.syntax.QQueryWriter;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QApplication;
-import org.asup.fw.core.QContext;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.query.QuerySelect;
 import org.eclipse.datatools.modelbase.sql.query.QuerySelectStatement;
@@ -276,40 +275,6 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		return index;
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public void deleteData(QConnection connection, Schema schema) throws SQLException {
-
-		for (Table table : (List<Table>) schema.getTables()) {
-			try {
-				if (!(table instanceof ViewTable))
-					deleteData(connection, table);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	@Override
-	public void deleteData(QConnection connection, Table table) throws SQLException {
-
-		// persistent table only
-		if (table instanceof ViewTable)
-			return;
-
-		QStatement statement = null;
-		try {
-			QDefinitionWriter definitionWriter = getCatalogContext(connection).get(QDefinitionWriter.class);
-			String command = definitionWriter.deleteData(table);
-			
-			statement = connection.createStatement(true);
-			statement.execute(command);
-		} finally {
-			if (statement != null)
-				statement.close();
-		}
-	}
-
 	@Override
 	public void dropSchema(QConnection connection, Schema schema, boolean ignoreFailOnNonEmpty) throws SQLException {
 
@@ -410,9 +375,5 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		}
 
 		return catalogContainer;
-	}
-
-	private QContext getCatalogContext(QConnection connection) throws SQLException {
-		return getCatalogContainer(connection).getCatalogContext();
 	}
 }

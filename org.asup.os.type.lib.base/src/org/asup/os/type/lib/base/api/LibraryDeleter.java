@@ -27,6 +27,7 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.omac.QObjectIterator;
+import org.asup.os.type.QType;
 import org.asup.os.type.QTypeRegistry;
 import org.asup.os.type.QTypedManager;
 import org.asup.os.type.QTypedObject;
@@ -56,6 +57,9 @@ public class LibraryDeleter {
 
 			for (QTypedManager<? extends QTypedObject> typedManager : typeRegistry.list()) {
 
+				if(QType.class.isAssignableFrom(typedManager.getTypedClass()))
+					continue;
+				
 				if(QFile.class.isAssignableFrom(typedManager.getTypedClass()))
 					deleteFileType(typedManager, qLibrary.getName());
 				else
@@ -100,7 +104,6 @@ public class LibraryDeleter {
 				typeWriter.delete(typedObject);
 		}
 
-		
 		for(T physicalFile: physicalFiles) 
 			typeWriter.delete(physicalFile);
 	}

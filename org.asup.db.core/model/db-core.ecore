@@ -183,14 +183,6 @@
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="view" eType="#//ViewDef"/>
     </eOperations>
-    <eOperations name="deleteData" eExceptions="#//DatabaseException">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="schema" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//schema/Schema"/>
-    </eOperations>
-    <eOperations name="deleteData" eExceptions="#//DatabaseException">
-      <eParameters name="connection" eType="#//Connection"/>
-      <eParameters name="table" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table"/>
-    </eOperations>
     <eOperations name="dropIndex" eExceptions="#//DatabaseException">
       <eParameters name="connection" eType="#//Connection"/>
       <eParameters name="index" lowerBound="1" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//constraints/Index"/>
