@@ -11,9 +11,17 @@
  */
 package org.asup.os.type.pgm.rpj;
 
+import org.asup.il.data.QCharacter;
+import org.asup.il.data.annotation.DataDef;
+
 public class RPJStringSupport {
 	
-	public static String p_rxsos(String arg1, String arg2){
+	@DataDef(length = 256)
+	private static QCharacter value;
+
+	
+	public static QCharacter p_rxsos(String arg1, String arg2){
+		value.clear();
 
 		StringBuffer nameBuffer = new StringBuffer();
 		String a = "";
@@ -54,10 +62,12 @@ public class RPJStringSupport {
 				firstToUpper = false;
 			}
 		}
-		
-		return nameBuffer.toString();
+		value.eval(nameBuffer.toString());
+		return value; 
+//		return nameBuffer.toString();
 	}
-	public static String p_rxatt(String arg0, String arg1, String arg2, boolean arg3, String arg4){
+	public static QCharacter p_rxatt(String arg0, String arg1, String arg2, boolean arg3, String arg4){
+		value.clear();
 		// data una stringa cerca il valore fra "()" di un attributo
 		// cerco "(" nell'attributo
 		if(arg1.indexOf("(")==-1){
@@ -67,15 +77,25 @@ public class RPJStringSupport {
 		int $L = arg1.length();
 		// indice iniziale 
 		int $I = arg0.indexOf(arg1);
-		if($I == -1) return "";
+		if($I == -1){
+			value.eval("");
+			return value;
+		}
 		// indice iniziale 
 		int $F = arg0.indexOf(")", $I);
-		if($F == -1) return "";
+		if($F == -1){
+			value.eval("");
+			return value;
+		}
 		
 		// dati i due indici estraggo il testo
-		return arg0.substring($I+$L,$F);
+//		return arg0.substring($I+$L,$F);
+		value.eval(arg0.substring($I+$L,$F));
+		return value; 
+
 	}
-	public static String p_rxlate(String arg0, String arg1, String arg2, String arg3){
+	public static QCharacter p_rxlate(String arg0, String arg1, String arg2, String arg3){
+		value.clear();
 		if(arg0==null) 
 			arg0 = "";
 		if(arg1==null) 
@@ -90,16 +110,20 @@ public class RPJStringSupport {
 		if($B<=$A){
 			int $I = 0;
 			$I = arg0.substring($I).indexOf(arg1);
-			if($I==0)
-				return "";
+			if($I==0){
+				value.eval("");
+				return value;
+			}
 			nameBuffer.append(arg0.substring(0,$I));
 			if(arg3.equals("1")){
 				nameBuffer.append(arg0.substring($I).replaceFirst(arg1,arg2));
 			}else{
 				nameBuffer.append(arg0.substring($I).replace(arg1,arg2));
 			}
-			return nameBuffer.toString();
+			value.eval(nameBuffer.toString());
+			return value; 
 		}
-		return "";
+		value.eval("");
+		return value; 
 	}
 }
