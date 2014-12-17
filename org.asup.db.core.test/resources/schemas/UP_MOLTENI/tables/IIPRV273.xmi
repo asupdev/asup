@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="5" name="NFAPRO"/>
+  <columns dataType="CHAR" length="6" name="X01PRO"/>
+  <columns dataType="CHAR" length="1" name="ANNPRO"/>
+  <columns dataType="DECIMAL" length="2" name="CAGPRO"/>
+  <columns dataType="DECIMAL" length="2" name="CZOPRO"/>
+  <columns dataType="DECIMAL" length="2" name="CDEPRO"/>
+  <columns dataType="DECIMAL" length="3" name="CPAPRO"/>
+  <columns dataType="DECIMAL" length="6" name="CLIPRO"/>
+  <columns dataType="DECIMAL" length="9" name="IMPPRO"/>
+  <columns dataType="CHAR" length="1" name="LIQPRO"/>
+  <columns dataType="CHAR" length="6" name="X02PRO"/>
+  <columns dataType="DECIMAL" length="1" name="NACPRO"/>
+  <columns dataType="DECIMAL" length="5" name="NRRPRO"/>
+  <columns dataType="CHAR" length="1" name="FORPRO"/>
+  <columns dataType="CHAR" length="3" name="CVAPRO"/>
+  <columns dataType="DECIMAL" length="7" name="CAMPRO" scale="3"/>
+  <columns dataType="DECIMAL" length="9" name="SPEPRO"/>
+  <columns dataType="CHAR" length="5" name="X03PRO"/>
+  <columns dataType="DECIMAL" length="13" name="TOTPRO"/>
+  <columns dataType="DECIMAL" length="13" name="TOVPRO" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="DFAPRO"/>
+  <columns dataType="DECIMAL" length="8" name="DLIPRO"/>
+  <columns dataType="DECIMAL" length="12" name="CA2PRO" scale="6"/>
+  <columns dataType="DECIMAL" length="11" name="IMVPRO" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IMEPRO" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="SEEPRO" scale="2"/>
+  <columns dataType="DECIMAL" length="12" name="TOEPRO" scale="2"/>
+  <columns dataType="CHAR" length="48" name="X04PRO"/>
+</db-core:TableDef>

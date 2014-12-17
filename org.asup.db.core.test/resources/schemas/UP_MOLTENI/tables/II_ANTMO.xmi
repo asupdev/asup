@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="5" name="KEYANM"/>
+  <columns dataType="CHAR" length="1" name="ANNANM"/>
+  <columns dataType="DECIMAL" length="8" name="DATANM"/>
+  <columns dataType="DECIMAL" length="6" name="CLIANM"/>
+  <columns dataType="CHAR" length="5" name="CPRANM"/>
+  <columns dataType="CHAR" length="50" name="DE1ANM"/>
+  <columns dataType="CHAR" length="50" name="DE2ANM"/>
+  <columns dataType="CHAR" length="3" name="CVAANM"/>
+  <columns dataType="DECIMAL" length="5" name="PERANM" scale="2"/>
+  <columns dataType="DECIMAL" length="14" name="IMPANM" scale="2"/>
+  <columns dataType="CHAR" length="1" name="EVAANM"/>
+  <columns dataType="CHAR" length="102" name="X01ANM"/>
+</db-core:TableDef>

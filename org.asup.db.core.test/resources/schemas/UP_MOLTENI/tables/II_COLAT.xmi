@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="KEYCOL"/>
+  <columns dataType="CHAR" length="1" name="ANNCOL"/>
+  <columns dataType="CHAR" length="10" name="COLCOL"/>
+  <columns dataType="CHAR" length="2" name="MATCOL"/>
+  <columns dataType="CHAR" length="35" name="ACCCOL"/>
+  <columns dataType="CHAR" length="12" name="CERCOL"/>
+  <columns dataType="DECIMAL" length="5" name="CH1COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH2COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH3COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH4COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH5COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH6COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH7COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH8COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH9COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C10COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C11COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C12COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C13COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C14COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C15COL" scale="3"/>
+  <columns dataType="DECIMAL" length="7" name="PM1COL" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="PM2COL" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="PM3COL" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="PM4COL" scale="2"/>
+  <columns dataType="DECIMAL" length="3" name="RE1COL"/>
+  <columns dataType="DECIMAL" length="3" name="RE2COL"/>
+  <columns dataType="DECIMAL" length="3" name="RE3COL"/>
+  <columns dataType="CHAR" length="3" name="TIPCOL"/>
+  <columns dataType="CHAR" length="5" name="TEMCOL"/>
+  <columns dataType="CHAR" length="8" name="DURCOL"/>
+  <columns dataType="CHAR" length="1" name="ESACOL"/>
+  <columns dataType="CHAR" length="4" name="BILCOL"/>
+  <columns dataType="CHAR" length="11" name="RIFCOL"/>
+  <columns dataType="DECIMAL" length="5" name="CS1COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS2COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS3COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS4COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS5COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS6COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS7COL" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CS8COL" scale="3"/>
+  <columns dataType="CHAR" length="2" name="EL1COL"/>
+  <columns dataType="CHAR" length="2" name="EL2COL"/>
+  <columns dataType="CHAR" length="2" name="EL3COL"/>
+  <columns dataType="CHAR" length="2" name="EL4COL"/>
+  <columns dataType="CHAR" length="2" name="EL5COL"/>
+  <columns dataType="CHAR" length="2" name="EL6COL"/>
+  <columns dataType="CHAR" length="2" name="EL7COL"/>
+  <columns dataType="CHAR" length="2" name="EL8COL"/>
+  <columns dataType="DECIMAL" length="8" name="DATCOL"/>
+  <columns dataType="CHAR" length="1" name="DDVCOL"/>
+  <columns dataType="CHAR" length="32" name="X01COL"/>
+</db-core:TableDef>

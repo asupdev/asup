@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="2" name="TDOCLM"/>
+  <columns dataType="DECIMAL" length="4" name="ABOCLM"/>
+  <columns dataType="DECIMAL" length="5" name="NBOCLM"/>
+  <columns dataType="DECIMAL" length="1" name="CF1CLM"/>
+  <columns dataType="DECIMAL" length="6" name="CF2CLM"/>
+  <columns dataType="CHAR" length="1" name="ANNCLM"/>
+  <columns dataType="DECIMAL" length="8" name="DBOCLM"/>
+  <columns dataType="CHAR" length="2" name="X01CLM"/>
+  <columns dataType="CHAR" length="1" name="SIGCLM"/>
+  <columns dataType="CHAR" length="1" name="EVACLM"/>
+  <columns dataType="CHAR" length="6" name="X02CLM"/>
+  <columns dataType="DECIMAL" length="3" name="PRGCLM"/>
+  <columns dataType="CHAR" length="1" name="FLGCLM"/>
+  <columns dataType="DECIMAL" length="8" name="DRECLM"/>
+  <columns dataType="DECIMAL" length="8" name="DEVCLM"/>
+  <columns dataType="CHAR" length="7" name="X03CLM"/>
+</db-core:TableDef>

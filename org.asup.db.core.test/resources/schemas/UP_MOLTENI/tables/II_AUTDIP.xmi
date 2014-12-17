@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="5" name="AUTADI"/>
+  <columns dataType="DECIMAL" length="4" name="DIPADI"/>
+  <columns dataType="DECIMAL" length="8" name="DATADI"/>
+</db-core:TableDef>

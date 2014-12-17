@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="DATCAM"/>
+  <columns dataType="CHAR" length="3" name="VALCAM"/>
+  <columns dataType="DECIMAL" length="12" name="CAMCAM" scale="6"/>
+</db-core:TableDef>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="12" name="NUMCET"/>
+  <columns dataType="CHAR" length="8" name="COMCET"/>
+  <columns dataType="DECIMAL" length="4" name="POSCET"/>
+  <columns dataType="CHAR" length="13" name="ARTCET"/>
+  <columns dataType="DECIMAL" length="11" name="QTACET" scale="3"/>
+  <columns dataType="CHAR" length="5" name="UBICET"/>
+  <columns dataType="CHAR" length="255" name="NOTCET"/>
+  <columns dataType="CHAR" length="1" name="STACET"/>
+  <columns dataType="CHAR" length="1" name="ACOCET"/>
+  <columns dataType="DECIMAL" length="5" name="FURCET"/>
+</db-core:TableDef>

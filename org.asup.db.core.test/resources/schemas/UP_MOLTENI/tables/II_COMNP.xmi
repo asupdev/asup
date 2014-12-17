@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="KCOCNO"/>
+  <columns dataType="DECIMAL" length="4" name="KPRCNO"/>
+  <columns dataType="CHAR" length="1" name="ANNCNO"/>
+  <columns dataType="CHAR" length="70" name="RIGCNO"/>
+  <columns dataType="CHAR" length="7" name="X01CNO"/>
+</db-core:TableDef>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="SIGINF"/>
+  <columns dataType="DECIMAL" length="5" name="NOMINF"/>
+  <columns dataType="DECIMAL" length="1" name="PRGINF"/>
+  <columns dataType="CHAR" length="1" name="ANNINF"/>
+  <columns dataType="DECIMAL" length="2" name="FONINF"/>
+  <columns dataType="CHAR" length="6" name="X01INF"/>
+  <columns dataType="DECIMAL" length="4" name="AFOINF"/>
+  <columns dataType="DECIMAL" length="6" name="CAPINF"/>
+  <columns dataType="DECIMAL" length="2" name="PAGINF"/>
+  <columns dataType="DECIMAL" length="6" name="FATINF"/>
+  <columns dataType="DECIMAL" length="4" name="AFAINF"/>
+  <columns dataType="DECIMAL" length="4" name="NDIINF"/>
+  <columns dataType="DECIMAL" length="2" name="ANDINF"/>
+  <columns dataType="CHAR" length="30" name="BANINF"/>
+  <columns dataType="CHAR" length="30" name="NOTINF"/>
+  <columns dataType="DECIMAL" length="8" name="DAIINF"/>
+  <columns dataType="DECIMAL" length="11" name="CEUINF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FEUINF" scale="2"/>
+  <columns dataType="CHAR" length="58" name="X02INF"/>
+</db-core:TableDef>

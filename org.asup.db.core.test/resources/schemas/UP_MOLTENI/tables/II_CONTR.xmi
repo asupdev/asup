@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCTR"/>
+  <columns dataType="DECIMAL" length="7" name="NUMCTR"/>
+  <columns dataType="DECIMAL" length="3" name="NRICTR"/>
+  <columns dataType="DECIMAL" length="2" name="MSDCTR"/>
+  <columns dataType="DECIMAL" length="2" name="GRDCTR"/>
+  <columns dataType="DECIMAL" length="2" name="CNDCTR"/>
+  <columns dataType="DECIMAL" length="6" name="STDCTR"/>
+  <columns dataType="DECIMAL" length="2" name="MSACTR"/>
+  <columns dataType="DECIMAL" length="2" name="GRACTR"/>
+  <columns dataType="DECIMAL" length="2" name="CNACTR"/>
+  <columns dataType="DECIMAL" length="6" name="STACTR"/>
+  <columns dataType="DECIMAL" length="13" name="IMVCTR" scale="2"/>
+  <columns dataType="CHAR" length="3" name="VALCTR"/>
+  <columns dataType="DECIMAL" length="12" name="CAMCTR" scale="6"/>
+  <columns dataType="DECIMAL" length="13" name="EURCTR" scale="2"/>
+  <columns dataType="CHAR" length="1" name="TIVCTR"/>
+  <columns dataType="DECIMAL" length="2" name="AIVCTR"/>
+  <columns dataType="CHAR" length="8" name="COMCTR"/>
+  <columns dataType="DECIMAL" length="4" name="POSCTR"/>
+  <columns dataType="DECIMAL" length="3" name="CDCCTR"/>
+  <columns dataType="DECIMAL" length="8" name="DVACTR"/>
+  <columns dataType="CHAR" length="1" name="TOTCTR"/>
+  <columns dataType="CHAR" length="35" name="DE1CTR"/>
+  <columns dataType="CHAR" length="35" name="DE2CTR"/>
+  <columns dataType="CHAR" length="35" name="DE3CTR"/>
+  <columns dataType="CHAR" length="1" name="FL2CTR"/>
+  <columns dataType="CHAR" length="1" name="FL3CTR"/>
+  <columns dataType="CHAR" length="1" name="ANNCTR"/>
+  <columns dataType="CHAR" length="1" name="IMFCTR"/>
+  <columns dataType="CHAR" length="1" name="GPACTR"/>
+</db-core:TableDef>

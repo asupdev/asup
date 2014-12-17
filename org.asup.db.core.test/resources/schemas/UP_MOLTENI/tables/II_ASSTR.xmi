@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="DIVATR"/>
+  <columns dataType="DECIMAL" length="7" name="PRGATR"/>
+  <columns dataType="CHAR" length="13" name="PARATR"/>
+  <columns dataType="DECIMAL" length="7" name="TARATR" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="NPEATR"/>
+  <columns dataType="DECIMAL" length="3" name="NGGATR"/>
+  <columns dataType="CHAR" length="1" name="ADDATR"/>
+  <columns dataType="DECIMAL" length="8" name="QTAATR" scale="2"/>
+</db-core:TableDef>

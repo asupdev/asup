@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="NRRMOV"/>
+  <columns dataType="DECIMAL" length="2" name="CATMOV"/>
+  <columns dataType="DECIMAL" length="4" name="PRGMOV"/>
+  <columns dataType="DECIMAL" length="2" name="SOTMOV"/>
+  <columns dataType="CHAR" length="1" name="TREMOV"/>
+  <columns dataType="DECIMAL" length="4" name="ESEMOV"/>
+  <columns dataType="CHAR" length="30" name="DESMOV"/>
+  <columns dataType="DECIMAL" length="11" name="IMPMOV"/>
+  <columns dataType="CHAR" length="1" name="SEGMOV"/>
+  <columns dataType="CHAR" length="1" name="TMOMOV"/>
+  <columns dataType="CHAR" length="1" name="FLGMOV"/>
+  <columns dataType="CHAR" length="1" name="ANNMOV"/>
+  <columns dataType="CHAR" length="1" name="RIVMOV"/>
+  <columns dataType="DECIMAL" length="4" name="ANSMOV"/>
+  <columns dataType="DECIMAL" length="11" name="EURMOV" scale="2"/>
+  <columns dataType="CHAR" length="70" name="NOTMOV"/>
+  <columns dataType="DECIMAL" length="8" name="ACQMOV"/>
+  <columns dataType="DECIMAL" length="8" name="DATMOV"/>
+  <columns dataType="CHAR" length="1" name="CIFMOV"/>
+  <columns dataType="CHAR" length="42" name="X02MOV"/>
+</db-core:TableDef>

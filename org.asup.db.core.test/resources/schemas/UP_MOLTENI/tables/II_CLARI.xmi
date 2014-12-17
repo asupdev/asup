@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="2" name="TDOCLR"/>
+  <columns dataType="DECIMAL" length="4" name="ABOCLR"/>
+  <columns dataType="DECIMAL" length="5" name="NBOCLR"/>
+  <columns dataType="DECIMAL" length="1" name="CF1CLR"/>
+  <columns dataType="DECIMAL" length="6" name="CF2CLR"/>
+  <columns dataType="DECIMAL" length="3" name="PRGCLR"/>
+  <columns dataType="CHAR" length="1" name="ANNCLR"/>
+  <columns dataType="CHAR" length="13" name="ARTCLR"/>
+  <columns dataType="DECIMAL" length="3" name="CCICLR"/>
+  <columns dataType="CHAR" length="35" name="DE1CLR"/>
+  <columns dataType="CHAR" length="35" name="DE2CLR"/>
+  <columns dataType="CHAR" length="35" name="DE3CLR"/>
+  <columns dataType="CHAR" length="2" name="UMMCLR"/>
+  <columns dataType="DECIMAL" length="9" name="QTACLR" scale="3"/>
+  <columns dataType="CHAR" length="4" name="X01CLR"/>
+  <columns dataType="CHAR" length="1" name="EVACLR"/>
+  <columns dataType="CHAR" length="6" name="X02CLR"/>
+  <columns dataType="DECIMAL" length="2" name="PRSCLR"/>
+  <columns dataType="CHAR" length="8" name="COMCLR"/>
+  <columns dataType="DECIMAL" length="4" name="POSCLR"/>
+  <columns dataType="DECIMAL" length="9" name="PRZCLR"/>
+  <columns dataType="DECIMAL" length="9" name="QVLCLR" scale="3"/>
+  <columns dataType="CHAR" length="1" name="FLGCLR"/>
+  <columns dataType="DECIMAL" length="7" name="NORCLR"/>
+  <columns dataType="DECIMAL" length="4" name="NRICLR"/>
+  <columns dataType="DECIMAL" length="8" name="DCOCLR"/>
+  <columns dataType="DECIMAL" length="8" name="DEVCLR"/>
+  <columns dataType="CHAR" length="2" name="REVCLR"/>
+  <columns dataType="DECIMAL" length="13" name="EURCLR" scale="5"/>
+  <columns dataType="CHAR" length="28" name="X03CLR"/>
+</db-core:TableDef>

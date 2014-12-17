@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="SIGPER"/>
+  <columns dataType="DECIMAL" length="5" name="NOMPER"/>
+  <columns dataType="DECIMAL" length="3" name="KPRPER"/>
+  <columns dataType="CHAR" length="1" name="ANNPER"/>
+  <columns dataType="CHAR" length="35" name="PERPER"/>
+  <columns dataType="CHAR" length="35" name="MANPER"/>
+  <columns dataType="CHAR" length="30" name="TELPER"/>
+  <columns dataType="CHAR" length="30" name="TE2PER"/>
+  <columns dataType="CHAR" length="50" name="EMAPER"/>
+  <columns dataType="CHAR" length="35" name="SKYPER"/>
+  <columns dataType="CHAR" length="1" name="FLGPER"/>
+  <columns dataType="DECIMAL" length="8" name="DCRPER"/>
+  <columns dataType="CHAR" length="166" name="X01PER"/>
+</db-core:TableDef>

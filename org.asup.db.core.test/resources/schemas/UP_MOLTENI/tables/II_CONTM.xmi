@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCTM"/>
+  <columns dataType="DECIMAL" length="7" name="NUMCTM"/>
+  <columns dataType="DECIMAL" length="3" name="CAUCTM"/>
+  <columns dataType="CHAR" length="1" name="PRVCTM"/>
+  <columns dataType="DECIMAL" length="8" name="DATCTM"/>
+  <columns dataType="DECIMAL" length="4" name="ACOCTM"/>
+  <columns dataType="DECIMAL" length="8" name="DCOCTM"/>
+  <columns dataType="DECIMAL" length="5" name="NPRCTM"/>
+  <columns dataType="CHAR" length="7" name="NDOCTM"/>
+  <columns dataType="DECIMAL" length="8" name="DDOCTM"/>
+  <columns dataType="DECIMAL" length="8" name="DBOCTM"/>
+  <columns dataType="DECIMAL" length="1" name="TCLCTM"/>
+  <columns dataType="DECIMAL" length="6" name="CLICTM"/>
+  <columns dataType="CHAR" length="3" name="VALCTM"/>
+  <columns dataType="DECIMAL" length="12" name="CAMCTM" scale="6"/>
+  <columns dataType="DECIMAL" length="3" name="PAGCTM"/>
+  <columns dataType="CHAR" length="3" name="CTSCTM"/>
+  <columns dataType="DECIMAL" length="7" name="COLCTM"/>
+</db-core:TableDef>

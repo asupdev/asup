@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="KEYFIS"/>
+  <columns dataType="DECIMAL" length="2" name="TDOFIS"/>
+  <columns dataType="DECIMAL" length="5" name="PR1FIS"/>
+  <columns dataType="DECIMAL" length="5" name="PR2FIS"/>
+  <columns dataType="DECIMAL" length="5" name="NBOFIS"/>
+  <columns dataType="CHAR" length="1" name="SIGFIS"/>
+  <columns dataType="DECIMAL" length="8" name="DBOFIS"/>
+  <columns dataType="DECIMAL" length="1" name="CL1FIS"/>
+  <columns dataType="DECIMAL" length="6" name="CL2FIS"/>
+  <columns dataType="DECIMAL" length="5" name="NFAFIS"/>
+  <columns dataType="DECIMAL" length="8" name="DFAFIS"/>
+  <columns dataType="CHAR" length="1" name="PRFFIS"/>
+  <columns dataType="CHAR" length="1" name="MODFIS"/>
+  <columns dataType="CHAR" length="1" name="ANNFIS"/>
+  <columns dataType="CHAR" length="8" name="COMFIS"/>
+  <columns dataType="CHAR" length="25" name="VSOFIS"/>
+  <columns dataType="CHAR" length="25" name="NSRFIS"/>
+  <columns dataType="CHAR" length="139" name="X01FIS"/>
+</db-core:TableDef>

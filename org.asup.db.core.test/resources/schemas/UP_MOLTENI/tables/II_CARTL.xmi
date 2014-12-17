@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCAL"/>
+  <columns dataType="CHAR" length="8" name="COMCAL"/>
+  <columns dataType="DECIMAL" length="4" name="POSCAL"/>
+  <columns dataType="DECIMAL" length="8" name="CONCAL"/>
+  <columns dataType="CHAR" length="13" name="ARTCAL"/>
+  <columns dataType="CHAR" length="35" name="DEPCAL"/>
+  <columns dataType="CHAR" length="35" name="NOPCAL"/>
+  <columns dataType="CHAR" length="13" name="MATCAL"/>
+  <columns dataType="CHAR" length="35" name="DEMCAL"/>
+  <columns dataType="CHAR" length="35" name="NOUCAL"/>
+  <columns dataType="CHAR" length="2" name="UMMCAL"/>
+  <columns dataType="DECIMAL" length="9" name="QTUCAL" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="QTTCAL" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="NPZCAL"/>
+  <columns dataType="CHAR" length="1" name="UB1CAL"/>
+  <columns dataType="CHAR" length="20" name="UB2CAL"/>
+  <columns dataType="DECIMAL" length="7" name="NBOCAL"/>
+  <columns dataType="CHAR" length="20" name="DSTCAL"/>
+  <columns dataType="CHAR" length="30" name="PRVCAL"/>
+  <columns dataType="CHAR" length="25" name="NSBCAL"/>
+  <columns dataType="CHAR" length="1" name="TIPCAL"/>
+  <columns dataType="DECIMAL" length="2" name="RMECAL"/>
+  <columns dataType="CHAR" length="63" name="X01CAL"/>
+</db-core:TableDef>

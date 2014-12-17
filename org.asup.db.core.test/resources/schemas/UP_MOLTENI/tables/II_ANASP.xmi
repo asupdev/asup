@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="1" name="TREASP"/>
+  <columns dataType="DECIMAL" length="6" name="CODASP"/>
+  <columns dataType="DECIMAL" length="2" name="PRGASP"/>
+  <columns dataType="CHAR" length="1" name="ANNASP"/>
+  <columns dataType="CHAR" length="35" name="RSOASP"/>
+  <columns dataType="CHAR" length="35" name="INDASP"/>
+  <columns dataType="CHAR" length="8" name="CAPASP"/>
+  <columns dataType="CHAR" length="20" name="LOCASP"/>
+  <columns dataType="CHAR" length="4" name="PROASP"/>
+  <columns dataType="CHAR" length="17" name="X02ASP"/>
+  <columns dataType="CHAR" length="1" name="ESTASP"/>
+  <columns dataType="CHAR" length="1" name="FLGASP"/>
+  <columns dataType="CHAR" length="8" name="NMGASP"/>
+  <columns dataType="CHAR" length="35" name="IN2ASP"/>
+  <columns dataType="CHAR" length="35" name="RS2ASP"/>
+  <columns dataType="CHAR" length="30" name="TELASP"/>
+  <columns dataType="CHAR" length="20" name="FAXASP"/>
+  <columns dataType="CHAR" length="61" name="X01ASP"/>
+</db-core:TableDef>

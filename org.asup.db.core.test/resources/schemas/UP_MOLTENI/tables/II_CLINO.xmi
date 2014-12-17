@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="SIGNOT"/>
+  <columns dataType="DECIMAL" length="5" name="NOMNOT"/>
+  <columns dataType="DECIMAL" length="1" name="KPRNOT"/>
+  <columns dataType="CHAR" length="1" name="ANNNOT"/>
+  <columns dataType="CHAR" length="70" name="RIGNOT"/>
+  <columns dataType="CHAR" length="1" name="FLGNOT"/>
+  <columns dataType="CHAR" length="1" name="X01NOT"/>
+</db-core:TableDef>

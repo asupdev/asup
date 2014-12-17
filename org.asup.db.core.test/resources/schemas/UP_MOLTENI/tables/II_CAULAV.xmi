@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="3" name="KEYCLV"/>
+  <columns dataType="CHAR" length="35" name="DESCLV"/>
+  <columns dataType="DECIMAL" length="1" name="SCACLV"/>
+  <columns dataType="CHAR" length="89" name="X01CLV"/>
+</db-core:TableDef>

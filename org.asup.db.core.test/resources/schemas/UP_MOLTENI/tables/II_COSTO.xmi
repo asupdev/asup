@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="3" name="CDCSTO"/>
+  <columns dataType="DECIMAL" length="4" name="AAASTO"/>
+  <columns dataType="CHAR" length="1" name="ANNSTO"/>
+  <columns dataType="DECIMAL" length="7" name="COFSTO"/>
+  <columns dataType="DECIMAL" length="7" name="COISTO"/>
+  <columns dataType="DECIMAL" length="13" name="CFESTO" scale="5"/>
+  <columns dataType="DECIMAL" length="13" name="CIESTO" scale="5"/>
+  <columns dataType="DECIMAL" length="13" name="CFTSTO" scale="5"/>
+  <columns dataType="DECIMAL" length="13" name="CITSTO" scale="5"/>
+  <columns dataType="CHAR" length="6" name="X01STO"/>
+</db-core:TableDef>

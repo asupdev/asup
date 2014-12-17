@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="NMOCHI"/>
+  <columns dataType="CHAR" length="8" name="COMCHI"/>
+  <columns dataType="DECIMAL" length="4" name="POSCHI"/>
+  <columns dataType="DECIMAL" length="1" name="ACCCHI"/>
+  <columns dataType="DECIMAL" length="8" name="NPCCHI"/>
+  <columns dataType="DECIMAL" length="4" name="DIPCHI"/>
+  <columns dataType="DECIMAL" length="8" name="DATCHI"/>
+  <columns dataType="DECIMAL" length="1" name="ANLCHI"/>
+  <columns dataType="CHAR" length="35" name="NO1CHI"/>
+  <columns dataType="CHAR" length="35" name="NO2CHI"/>
+  <columns dataType="CHAR" length="35" name="NO3CHI"/>
+</db-core:TableDef>

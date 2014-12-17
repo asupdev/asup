@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCANA"/>
+  <columns dataType="CHAR" length="15" name="KKKANA"/>
+  <columns dataType="CHAR" length="25" name="DRMANA"/>
+  <columns dataType="DECIMAL" length="11" name="OREANA" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="CLIANA" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CLEANA" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PREANA" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="RESANA" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ACQANA" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="TOTANA" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="TRIANA" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="RIVANA"/>
+</db-core:TableDef>

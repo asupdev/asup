@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMCNL"/>
+  <columns dataType="DECIMAL" length="4" name="POSCNL"/>
+  <columns dataType="CHAR" length="13" name="ARTCNL"/>
+  <columns dataType="DECIMAL" length="3" name="PRGCNL"/>
+  <columns dataType="CHAR" length="1" name="ANNCNL"/>
+  <columns dataType="DECIMAL" length="3" name="SEQCNL"/>
+  <columns dataType="CHAR" length="3" name="TOPCNL"/>
+  <columns dataType="CHAR" length="13" name="VA1CNL"/>
+  <columns dataType="CHAR" length="13" name="VA2CNL"/>
+  <columns dataType="CHAR" length="10" name="RESCNL"/>
+  <columns dataType="CHAR" length="10" name="TERCNL"/>
+  <columns dataType="CHAR" length="50" name="NOT1"/>
+  <columns dataType="CHAR" length="50" name="NOT2"/>
+  <columns dataType="CHAR" length="50" name="NOT3"/>
+  <columns dataType="CHAR" length="50" name="NOT4"/>
+  <columns dataType="CHAR" length="50" name="NOT5"/>
+  <columns dataType="CHAR" length="50" name="NOT6"/>
+  <columns dataType="CHAR" length="50" name="NOT7"/>
+  <columns dataType="CHAR" length="50" name="NOT8"/>
+  <columns dataType="CHAR" length="50" name="NOT9"/>
+  <columns dataType="CHAR" length="109" name="X01CNL"/>
+</db-core:TableDef>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCOR"/>
+  <columns dataType="DECIMAL" length="4" name="PRGCOR"/>
+  <columns dataType="DECIMAL" length="2" name="LIVCOR"/>
+  <columns dataType="CHAR" length="13" name="ARTCOR"/>
+  <columns dataType="CHAR" length="35" name="DESCOR"/>
+  <columns dataType="CHAR" length="10" name="LOTCOR"/>
+  <columns dataType="DECIMAL" length="8" name="DVECOR"/>
+  <columns dataType="DECIMAL" length="8" name="DPRCOR"/>
+  <columns dataType="CHAR" length="8" name="COMCOR"/>
+  <columns dataType="DECIMAL" length="4" name="POSCOR"/>
+  <columns dataType="DECIMAL" length="7" name="NMOCOR"/>
+  <columns dataType="DECIMAL" length="2" name="CAUCOR"/>
+  <columns dataType="CHAR" length="20" name="DECCOR"/>
+  <columns dataType="DECIMAL" length="5" name="NBOCOR"/>
+  <columns dataType="DECIMAL" length="8" name="DBOCOR"/>
+  <columns dataType="CHAR" length="8" name="NMGCOR"/>
+  <columns dataType="CHAR" length="13" name="AR1COR"/>
+  <columns dataType="CHAR" length="35" name="DE1COR"/>
+  <columns dataType="CHAR" length="8" name="CO1COR"/>
+  <columns dataType="DECIMAL" length="4" name="PO1COR"/>
+  <columns dataType="CHAR" length="91" name="X01COR"/>
+</db-core:TableDef>

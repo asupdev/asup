@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMREM"/>
+  <columns dataType="CHAR" length="1" name="ANNREM"/>
+  <columns dataType="CHAR" length="1" name="X01REM"/>
+  <columns dataType="DECIMAL" length="7" name="OP1REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP2REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP3REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP4REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP5REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP6REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP7REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OP8REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC1REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC2REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC3REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC4REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC5REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC6REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC7REM" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="OC8REM" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="DC1REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC2REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC3REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC4REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC5REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC6REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC7REM"/>
+  <columns dataType="DECIMAL" length="8" name="DC8REM"/>
+  <columns dataType="CHAR" length="1" name="FORREM"/>
+  <columns dataType="CHAR" length="35" name="X02REM"/>
+</db-core:TableDef>

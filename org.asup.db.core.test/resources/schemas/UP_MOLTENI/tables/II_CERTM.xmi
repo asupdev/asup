@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="NUMCRM"/>
+  <columns dataType="CHAR" length="1" name="ANNCRM"/>
+  <columns dataType="CHAR" length="8" name="DATCRM"/>
+  <columns dataType="CHAR" length="25" name="VSOCRM"/>
+  <columns dataType="CHAR" length="8" name="DORCRM"/>
+  <columns dataType="CHAR" length="5" name="COMCRM"/>
+  <columns dataType="CHAR" length="35" name="CL1CRM"/>
+  <columns dataType="CHAR" length="35" name="CL2CRM"/>
+  <columns dataType="CHAR" length="35" name="CL3CRM"/>
+  <columns dataType="CHAR" length="12" name="ES1CRM"/>
+  <columns dataType="CHAR" length="12" name="ES2CRM"/>
+  <columns dataType="CHAR" length="12" name="ES3CRM"/>
+  <columns dataType="CHAR" length="25" name="FIRCRM"/>
+  <columns dataType="CHAR" length="1" name="STACRM"/>
+  <columns dataType="CHAR" length="2" name="REVCRM"/>
+  <columns dataType="CHAR" length="3" name="RESCRM"/>
+  <columns dataType="CHAR" length="25" name="X01CRM"/>
+</db-core:TableDef>

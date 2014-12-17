@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCON"/>
+  <columns dataType="CHAR" length="1" name="TIPCON"/>
+  <columns dataType="DECIMAL" length="8" name="DATCON"/>
+  <columns dataType="DECIMAL" length="4" name="PRGCON"/>
+  <columns dataType="CHAR" length="8" name="COMCON"/>
+  <columns dataType="DECIMAL" length="4" name="POSCON"/>
+  <columns dataType="CHAR" length="13" name="ARTCON"/>
+  <columns dataType="CHAR" length="105" name="DESCON"/>
+  <columns dataType="CHAR" length="35" name="FL1CON"/>
+  <columns dataType="CHAR" length="105" name="FL2CON"/>
+  <columns dataType="CHAR" length="35" name="FL3CON"/>
+  <columns dataType="CHAR" length="2" name="UMMCON"/>
+  <columns dataType="DECIMAL" length="11" name="QTACON" scale="3"/>
+  <columns dataType="DECIMAL" length="13" name="CUNCON" scale="5"/>
+  <columns dataType="DECIMAL" length="11" name="VALCON" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="CAUCON"/>
+  <columns dataType="CHAR" length="20" name="DCACON"/>
+  <columns dataType="DECIMAL" length="3" name="CDCCON"/>
+  <columns dataType="CHAR" length="30" name="DCDCON"/>
+  <columns dataType="DECIMAL" length="5" name="CDLCON"/>
+  <columns dataType="CHAR" length="30" name="DCLCON"/>
+  <columns dataType="DECIMAL" length="4" name="DIPCON"/>
+  <columns dataType="CHAR" length="30" name="DDICON"/>
+  <columns dataType="DECIMAL" length="7" name="CLFCON"/>
+  <columns dataType="CHAR" length="35" name="DCFCON"/>
+  <columns dataType="DECIMAL" length="5" name="NFACON"/>
+  <columns dataType="DECIMAL" length="8" name="DFACON"/>
+  <columns dataType="DECIMAL" length="2" name="TDOCON"/>
+  <columns dataType="DECIMAL" length="5" name="NDOCON"/>
+  <columns dataType="DECIMAL" length="8" name="NPZCON"/>
+  <columns dataType="DECIMAL" length="2" name="MAGCON"/>
+  <columns dataType="CHAR" length="35" name="NOTCON"/>
+</db-core:TableDef>

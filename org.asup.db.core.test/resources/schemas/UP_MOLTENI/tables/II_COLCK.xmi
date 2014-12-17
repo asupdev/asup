@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="10" name="KEYCCK"/>
+  <columns dataType="CHAR" length="1" name="ANNCCK"/>
+  <columns dataType="CHAR" length="2" name="MATCCK"/>
+  <columns dataType="DECIMAL" length="5" name="CH1CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH2CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH3CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH4CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH5CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH6CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH7CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH8CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CH9CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C10CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C11CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C12CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C13CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C14CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="C15CCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHACCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHBCCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHCCCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHDCCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHECCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHFCCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHGCCK" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="CHHCCK" scale="3"/>
+  <columns dataType="CHAR" length="2" name="ELACCK"/>
+  <columns dataType="CHAR" length="2" name="ELBCCK"/>
+  <columns dataType="CHAR" length="2" name="ELCCCK"/>
+  <columns dataType="CHAR" length="2" name="ELDCCK"/>
+  <columns dataType="CHAR" length="2" name="ELECCK"/>
+  <columns dataType="CHAR" length="2" name="ELFCCK"/>
+  <columns dataType="CHAR" length="2" name="ELGCCK"/>
+  <columns dataType="CHAR" length="2" name="ELHCCK"/>
+  <columns dataType="CHAR" length="30" name="X01CCK"/>
+</db-core:TableDef>

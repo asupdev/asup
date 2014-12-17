@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="KEYCOM"/>
+  <columns dataType="CHAR" length="1" name="ANNCOM"/>
+  <columns dataType="DECIMAL" length="6" name="CLICOM"/>
+  <columns dataType="CHAR" length="13" name="MACCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DCOCOM"/>
+  <columns dataType="CHAR" length="4" name="X01COM"/>
+  <columns dataType="CHAR" length="10" name="NSRCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DULCOM"/>
+  <columns dataType="CHAR" length="2" name="X02COM"/>
+  <columns dataType="CHAR" length="15" name="RICCOM"/>
+  <columns dataType="CHAR" length="15" name="RESCOM"/>
+  <columns dataType="CHAR" length="2" name="ADDCOM"/>
+  <columns dataType="CHAR" length="2" name="PENCOM"/>
+  <columns dataType="CHAR" length="1" name="REPCOM"/>
+  <columns dataType="CHAR" length="1" name="VISCOM"/>
+  <columns dataType="DECIMAL" length="2" name="RAPCOM"/>
+  <columns dataType="CHAR" length="1" name="NDTCOM"/>
+  <columns dataType="DECIMAL" length="4" name="PROCOM"/>
+  <columns dataType="CHAR" length="1" name="STACOM"/>
+  <columns dataType="CHAR" length="3" name="RE4COM"/>
+  <columns dataType="CHAR" length="1" name="TRSCOM"/>
+  <columns dataType="CHAR" length="1" name="URGCOM"/>
+  <columns dataType="CHAR" length="1" name="ESPCOM"/>
+  <columns dataType="CHAR" length="1" name="ESOCOM"/>
+  <columns dataType="CHAR" length="1" name="RIOCOM"/>
+  <columns dataType="CHAR" length="2" name="X04COM"/>
+  <columns dataType="CHAR" length="8" name="COPCOM"/>
+  <columns dataType="CHAR" length="15" name="RSOCOM"/>
+  <columns dataType="DECIMAL" length="4" name="PRRCOM"/>
+  <columns dataType="DECIMAL" length="4" name="PRNCOM"/>
+  <columns dataType="DECIMAL" length="4" name="PRFCOM"/>
+  <columns dataType="CHAR" length="50" name="DE1COM"/>
+  <columns dataType="CHAR" length="50" name="DE2COM"/>
+  <columns dataType="CHAR" length="50" name="DE3COM"/>
+  <columns dataType="CHAR" length="50" name="DE4COM"/>
+  <columns dataType="DECIMAL" length="4" name="PRSCOM"/>
+  <columns dataType="CHAR" length="1" name="VIDCOM"/>
+  <columns dataType="CHAR" length="1" name="COLCOM"/>
+  <columns dataType="CHAR" length="1" name="PRICOM"/>
+  <columns dataType="CHAR" length="1" name="ANCCOM"/>
+  <columns dataType="CHAR" length="1" name="ANDCOM"/>
+  <columns dataType="CHAR" length="1" name="GARCOM"/>
+  <columns dataType="DECIMAL" length="4" name="PRACOM"/>
+  <columns dataType="DECIMAL" length="2" name="TDOCOM"/>
+  <columns dataType="DECIMAL" length="5" name="NORCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DVCCOM"/>
+  <columns dataType="CHAR" length="2" name="LINCOM"/>
+  <columns dataType="CHAR" length="5" name="MTRCOM"/>
+  <columns dataType="CHAR" length="9" name="AVC1"/>
+  <columns dataType="CHAR" length="9" name="AVC2"/>
+  <columns dataType="CHAR" length="9" name="AVC3"/>
+  <columns dataType="CHAR" length="1" name="SCHCOM"/>
+  <columns dataType="DECIMAL" length="4" name="TPACOM"/>
+  <columns dataType="DECIMAL" length="6" name="FATCOM"/>
+  <columns dataType="DECIMAL" length="2" name="NLACOM"/>
+  <columns dataType="CHAR" length="1" name="BLOCOM"/>
+  <columns dataType="CHAR" length="1" name="FLGCOM"/>
+  <columns dataType="DECIMAL" length="11" name="VMTCOM"/>
+  <columns dataType="DECIMAL" length="5" name="ORTCOM"/>
+  <columns dataType="DECIMAL" length="11" name="VMICOM"/>
+  <columns dataType="DECIMAL" length="5" name="ORICOM"/>
+  <columns dataType="CHAR" length="1" name="TOPCOM"/>
+  <columns dataType="CHAR" length="3" name="RE1COM"/>
+  <columns dataType="CHAR" length="3" name="RE2COM"/>
+  <columns dataType="CHAR" length="5" name="UBICOM"/>
+  <columns dataType="DECIMAL" length="8" name="DCCCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DSTCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DVDCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DCPCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DIPCOM"/>
+  <columns dataType="DECIMAL" length="11" name="EMTCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EMICOM" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="DSCCOM"/>
+  <columns dataType="DECIMAL" length="2" name="NMECOM"/>
+  <columns dataType="CHAR" length="8" name="CRICOM"/>
+  <columns dataType="DECIMAL" length="11" name="PINCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CONCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CAFCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CMLCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IMOCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IMFCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IMACOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IPFCOM" scale="2"/>
+  <columns dataType="CHAR" length="6" name="SMFCOM"/>
+  <columns dataType="CHAR" length="1" name="CLACOM"/>
+  <columns dataType="DECIMAL" length="6" name="CDCCOM"/>
+  <columns dataType="CHAR" length="6" name="VOCCOM"/>
+  <columns dataType="CHAR" length="6" name="BASCOM"/>
+  <columns dataType="DECIMAL" length="11" name="CINCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CIFCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CITCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CFTCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="DAPCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DSPCOM"/>
+  <columns dataType="DECIMAL" length="8" name="DARCOM"/>
+  <columns dataType="DECIMAL" length="11" name="NPNCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="NPFCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="NNTCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="NFTCOM" scale="2"/>
+  <columns dataType="CHAR" length="50" name="CRTCOM"/>
+  <columns dataType="DECIMAL" length="4" name="ACOCOM"/>
+  <columns dataType="CHAR" length="1" name="AVACOM"/>
+  <columns dataType="DECIMAL" length="11" name="PRPCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PVPCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ACPCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PRECOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PCECOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ACECOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CFRCOM" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="MLRCOM" scale="2"/>
+  <columns dataType="CHAR" length="105" name="X06COM"/>
+</db-core:TableDef>

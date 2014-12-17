@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="5" name="KEYAUT"/>
+  <columns dataType="DECIMAL" length="3" name="TRXAUT"/>
+  <columns dataType="CHAR" length="150" name="TIPAUT"/>
+  <columns dataType="DECIMAL" length="5" name="CDLAUT"/>
+  <columns dataType="CHAR" length="150" name="STAAUT"/>
+  <columns dataType="DECIMAL" length="3" name="GCLAUT"/>
+  <columns dataType="DECIMAL" length="3" name="GBMAUT"/>
+  <columns dataType="CHAR" length="2" name="TATAUT"/>
+  <columns dataType="DECIMAL" length="1" name="DFTAUT"/>
+  <columns dataType="DECIMAL" length="2" name="RQTAUT"/>
+  <columns dataType="DECIMAL" length="2" name="TQTAUT"/>
+  <columns dataType="DECIMAL" length="8" name="DATAUT"/>
+  <columns dataType="DECIMAL" length="1" name="ABTAUT"/>
+  <columns dataType="DECIMAL" length="1" name="TPUAUT"/>
+  <columns dataType="DECIMAL" length="1" name="GLOAUT"/>
+  <columns dataType="DECIMAL" length="1" name="RHFAUT"/>
+</db-core:TableDef>

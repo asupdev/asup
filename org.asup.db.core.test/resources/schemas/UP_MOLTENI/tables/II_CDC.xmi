@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="3" name="KEYCDC"/>
+  <columns dataType="CHAR" length="30" name="DESCDC"/>
+  <columns dataType="DECIMAL" length="3" name="REPCDC"/>
+  <columns dataType="CHAR" length="1" name="TIPCDC"/>
+  <columns dataType="DECIMAL" length="13" name="CFTCDC" scale="5"/>
+  <columns dataType="DECIMAL" length="13" name="CITCDC" scale="5"/>
+  <columns dataType="DECIMAL" length="6" name="ORECDC" scale="2"/>
+  <columns dataType="DECIMAL" length="6" name="ORSCDC" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="RMECDC"/>
+  <columns dataType="CHAR" length="1" name="HLMCDC"/>
+  <columns dataType="CHAR" length="2" name="SIGCDC"/>
+  <columns dataType="DECIMAL" length="1" name="NOCCDC"/>
+  <columns dataType="CHAR" length="6" name="TRICDC"/>
+  <columns dataType="CHAR" length="169" name="X01CDL"/>
+</db-core:TableDef>

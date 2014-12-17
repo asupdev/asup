@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="1" name="TREASC"/>
+  <columns dataType="DECIMAL" length="6" name="CCLASC"/>
+  <columns dataType="DECIMAL" length="2" name="RMEASC"/>
+  <columns dataType="CHAR" length="1" name="ANNASC"/>
+  <columns dataType="DECIMAL" length="4" name="SC1ASC" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="SC2ASC" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="SC3ASC" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="SEDASC"/>
+  <columns dataType="DECIMAL" length="2" name="DEPASC"/>
+  <columns dataType="CHAR" length="54" name="X01ASP"/>
+</db-core:TableDef>

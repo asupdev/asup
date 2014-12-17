@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="CLIANF"/>
+  <columns dataType="DECIMAL" length="4" name="ANNANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL1ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL2ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL3ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL4ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL5ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL6ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL7ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL8ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL9ANF"/>
+  <columns dataType="DECIMAL" length="11" name="FL10NF"/>
+  <columns dataType="DECIMAL" length="11" name="FL11NF"/>
+  <columns dataType="DECIMAL" length="11" name="FL12NF"/>
+  <columns dataType="DECIMAL" length="11" name="FE1ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE2ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE3ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE4ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE5ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE6ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE7ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE8ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE9ANF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE10NF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE11NF" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FE12NF" scale="2"/>
+  <columns dataType="CHAR" length="1" name="SCAANF"/>
+  <columns dataType="CHAR" length="64" name="X01ANF"/>
+</db-core:TableDef>

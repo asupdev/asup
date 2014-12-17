@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCTD"/>
+  <columns dataType="DECIMAL" length="3" name="CAUCTD"/>
+  <columns dataType="DECIMAL" length="8" name="DATCTD"/>
+  <columns dataType="DECIMAL" length="4" name="ACOCTD"/>
+  <columns dataType="CHAR" length="35" name="DE1CTD"/>
+  <columns dataType="DECIMAL" length="12" name="DARCTD"/>
+  <columns dataType="DECIMAL" length="12" name="AVECTD"/>
+  <columns dataType="CHAR" length="1" name="TIVCTD"/>
+  <columns dataType="DECIMAL" length="2" name="AIVCTD"/>
+  <columns dataType="DECIMAL" length="13" name="IMPCTD" scale="2"/>
+  <columns dataType="CHAR" length="35" name="DE2CTD"/>
+  <columns dataType="CHAR" length="35" name="DE3CTD"/>
+</db-core:TableDef>

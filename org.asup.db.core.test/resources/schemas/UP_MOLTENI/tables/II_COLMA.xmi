@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="ANNCMA"/>
+  <columns dataType="CHAR" length="1" name="AVVCMA"/>
+  <columns dataType="DECIMAL" length="3" name="NUMCMA"/>
+  <columns dataType="CHAR" length="25" name="TIPCMA"/>
+  <columns dataType="CHAR" length="25" name="COLCMA"/>
+  <columns dataType="DECIMAL" length="8" name="DAVCMA"/>
+  <columns dataType="CHAR" length="2" name="VALCMA"/>
+  <columns dataType="DECIMAL" length="8" name="DSCCMA"/>
+  <columns dataType="CHAR" length="25" name="COSCMA"/>
+  <columns dataType="CHAR" length="3" name="REPCMA"/>
+  <columns dataType="CHAR" length="9" name="X01CMA"/>
+</db-core:TableDef>

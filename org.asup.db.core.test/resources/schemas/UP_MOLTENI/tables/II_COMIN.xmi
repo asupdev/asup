@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMCIN"/>
+  <columns dataType="DECIMAL" length="4" name="ANNCIN"/>
+  <columns dataType="CHAR" length="1" name="ANLCIN"/>
+  <columns dataType="DECIMAL" length="11" name="VALCIN"/>
+  <columns dataType="DECIMAL" length="9" name="ORECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="LAVCIN"/>
+  <columns dataType="DECIMAL" length="11" name="ESTCIN"/>
+  <columns dataType="DECIMAL" length="11" name="ACQCIN"/>
+  <columns dataType="DECIMAL" length="11" name="PRECIN"/>
+  <columns dataType="DECIMAL" length="11" name="RESCIN"/>
+  <columns dataType="DECIMAL" length="11" name="VERCIN"/>
+  <columns dataType="DECIMAL" length="11" name="FATCIN"/>
+  <columns dataType="DECIMAL" length="11" name="VAECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="LAECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ESECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ACECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEUCIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="REECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="VEECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FAECIN" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="CRICIN" scale="2"/>
+  <columns dataType="CHAR" length="95" name="X06CIN"/>
+</db-core:TableDef>

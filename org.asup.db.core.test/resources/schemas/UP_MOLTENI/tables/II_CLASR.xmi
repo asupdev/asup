@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="2" name="TDOCLS"/>
+  <columns dataType="DECIMAL" length="4" name="ABOCLS"/>
+  <columns dataType="DECIMAL" length="5" name="NBOCLS"/>
+  <columns dataType="DECIMAL" length="1" name="CF1CLS"/>
+  <columns dataType="DECIMAL" length="6" name="CF2CLS"/>
+  <columns dataType="DECIMAL" length="3" name="PRGCLS"/>
+  <columns dataType="DECIMAL" length="2" name="PRSCLS"/>
+  <columns dataType="CHAR" length="1" name="ANNCLS"/>
+  <columns dataType="DECIMAL" length="2" name="TDSCLS"/>
+  <columns dataType="DECIMAL" length="5" name="NBSCLS"/>
+  <columns dataType="CHAR" length="10" name="X01CLS"/>
+  <columns dataType="CHAR" length="35" name="NOTCLS"/>
+  <columns dataType="DECIMAL" length="5" name="NFACLS"/>
+  <columns dataType="CHAR" length="6" name="X02CLS"/>
+  <columns dataType="DECIMAL" length="5" name="NPRCLS"/>
+  <columns dataType="CHAR" length="1" name="FLGCLS"/>
+  <columns dataType="DECIMAL" length="8" name="DBOCLS"/>
+  <columns dataType="DECIMAL" length="8" name="DRECLS"/>
+  <columns dataType="DECIMAL" length="8" name="DFACLS"/>
+  <columns dataType="CHAR" length="11" name="X03CLS"/>
+</db-core:TableDef>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCAR"/>
+  <columns dataType="CHAR" length="8" name="COMCAR"/>
+  <columns dataType="DECIMAL" length="4" name="POSCAR"/>
+  <columns dataType="DECIMAL" length="7" name="NUMCAR"/>
+  <columns dataType="DECIMAL" length="4" name="PGRCAR"/>
+  <columns dataType="CHAR" length="35" name="RSOCAR"/>
+  <columns dataType="DECIMAL" length="7" name="NORCAR"/>
+  <columns dataType="DECIMAL" length="4" name="NRICAR"/>
+  <columns dataType="CHAR" length="8" name="ITECAR"/>
+  <columns dataType="DECIMAL" length="8" name="CONCAR"/>
+  <columns dataType="CHAR" length="13" name="FINCAR"/>
+  <columns dataType="CHAR" length="35" name="DE1CAR"/>
+  <columns dataType="CHAR" length="35" name="DE2CAR"/>
+  <columns dataType="CHAR" length="35" name="DE3CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QTACAR"/>
+  <columns dataType="CHAR" length="10" name="LO1CAR"/>
+  <columns dataType="CHAR" length="10" name="LO2CAR"/>
+  <columns dataType="CHAR" length="10" name="LO3CAR"/>
+  <columns dataType="CHAR" length="10" name="LO4CAR"/>
+  <columns dataType="CHAR" length="10" name="LO5CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QTPCAR"/>
+  <columns dataType="CHAR" length="14" name="X02CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QL1CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QL2CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QL3CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QL4CAR"/>
+  <columns dataType="DECIMAL" length="6" name="QL5CAR"/>
+  <columns dataType="CHAR" length="10" name="CO1CAR"/>
+  <columns dataType="CHAR" length="10" name="CO2CAR"/>
+  <columns dataType="CHAR" length="10" name="CO3CAR"/>
+  <columns dataType="CHAR" length="10" name="CO4CAR"/>
+  <columns dataType="CHAR" length="10" name="CO5CAR"/>
+  <columns dataType="CHAR" length="9" name="DISCAR"/>
+  <columns dataType="CHAR" length="1" name="CN1CAR"/>
+  <columns dataType="CHAR" length="1" name="CN2CAR"/>
+  <columns dataType="CHAR" length="1" name="CN3CAR"/>
+  <columns dataType="CHAR" length="1" name="CN4CAR"/>
+  <columns dataType="CHAR" length="1" name="CN5CAR"/>
+  <columns dataType="CHAR" length="1" name="VISCAR"/>
+  <columns dataType="CHAR" length="1" name="CFTCAR"/>
+  <columns dataType="CHAR" length="1" name="X03CAR"/>
+  <columns dataType="DECIMAL" length="9" name="PESCAR" scale="3"/>
+  <columns dataType="DECIMAL" length="5" name="NUFCAR"/>
+  <columns dataType="DECIMAL" length="7" name="DIFCAR" scale="2"/>
+  <columns dataType="DECIMAL" length="7" name="CEFCAR" scale="2"/>
+  <columns dataType="CHAR" length="1" name="NOFCAR"/>
+  <columns dataType="CHAR" length="13" name="ARTCAR"/>
+  <columns dataType="CHAR" length="35" name="DEPCAR"/>
+  <columns dataType="CHAR" length="35" name="NOPCAR"/>
+  <columns dataType="CHAR" length="25" name="TITCAR"/>
+  <columns dataType="CHAR" length="1" name="TIPCAR"/>
+  <columns dataType="DECIMAL" length="4" name="PLACAR"/>
+  <columns dataType="CHAR" length="8" name="PR1CAR"/>
+  <columns dataType="CHAR" length="8" name="PR2CAR"/>
+  <columns dataType="CHAR" length="8" name="PR3CAR"/>
+  <columns dataType="CHAR" length="8" name="PR4CAR"/>
+  <columns dataType="CHAR" length="8" name="PR5CAR"/>
+  <columns dataType="CHAR" length="2" name="MATCAR"/>
+  <columns dataType="CHAR" length="3" name="DIMCAR"/>
+  <columns dataType="CHAR" length="1" name="TIFCAR"/>
+  <columns dataType="CHAR" length="3" name="PRNCAR"/>
+  <columns dataType="CHAR" length="2" name="RIFCAR"/>
+  <columns dataType="CHAR" length="2" name="SCHCAR"/>
+  <columns dataType="CHAR" length="9" name="DI2CAR"/>
+  <columns dataType="DECIMAL" length="2" name="CRQCAR"/>
+  <columns dataType="CHAR" length="35" name="DP2CAR"/>
+  <columns dataType="CHAR" length="35" name="DP3CAR"/>
+  <columns dataType="CHAR" length="33" name="X01CAR"/>
+</db-core:TableDef>

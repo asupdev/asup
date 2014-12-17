@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMNAV"/>
+  <columns dataType="DECIMAL" length="4" name="PRGNAV"/>
+  <columns dataType="CHAR" length="1" name="ANNNAV"/>
+  <columns dataType="CHAR" length="50" name="NOTNAV"/>
+  <columns dataType="CHAR" length="27" name="X01NAV"/>
+</db-core:TableDef>
