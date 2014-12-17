@@ -96,14 +96,14 @@ public class TestParser extends AbstractCommandProviderImpl {
 
 			testAsserter.resetTime();
 			
-			SQLQueryParseResult parseResult = null;
+			
 			for (String sql : statements) {
-
+				SQLQueryParseResult parseResult = null;
 				try {
 					parseResult = queryParser.parseQuery(sql);
 					
 				} catch (Exception e) {	
-					
+					e.printStackTrace();
 				}
 				
 				testAsserter.assertNotNull("Test parser: " + sql, parseResult);

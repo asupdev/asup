@@ -12,7 +12,7 @@ Options in effect for C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.i
     NOGOTO-DEFAULT  
     GRM-FILE="C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\src\org\asup\db\syntax\ibmi\parser\dml\sqlIBMiQueryParser.lpg"
     NOGOTO-DEFAULT  IMP-FILE="IBMiQueryParserimp.java"  
-    INCLUDE-DIRECTORY=".;..;C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.lexer\src\org\eclipse\datatools\sqltools\parsers\sql\lexer;C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query;C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql\src\org\eclipse\datatools\sqltools\parsers\sql"
+    INCLUDE-DIRECTORY=".;..;C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\lexer;C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query;C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\sql"
     NOGOTO-DEFAULT  IMP-FILE="IBMiQueryParserimp.java"  LALR=1  NOLIST  MARGIN=8
     MAX-CASES=1024  NAMES=OPTIMIZED  NONT-CHECK  OR_MARKER='|'  
     PACKAGE="org.asup.db.syntax.ibmi.parser.dml"  NOPARENT-SAVE  
@@ -38,14 +38,14 @@ Options in effect for C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.i
     HEX_STRING_LITERAL CHAR_STRING_LITERAL  COMMENT_STRING  
     DELIMITED_TYPE_IDENTIFIER VERSION_IDENTIFIER  STATEMENT_TERMINATOR  
     HOSTVARIABLE PARAMETER_MARKER  LEFT_BRACKET_TRIGRAPH  RIGHT_BRACKET_TRIGRAPH  
-The macro "$NON" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 242 is undefined. No susbtitution made
-The macro "$" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 242 is undefined. No susbtitution made
-The macro "$NON" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 245 is undefined. No susbtitution made
-The macro "$" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 245 is undefined. No susbtitution made
-The macro "$NON" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 248 is undefined. No susbtitution made
-The macro "$" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 248 is undefined. No susbtitution made
-The macro "$NON" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 624 is undefined. No susbtitution made
-The macro "$" used in file C:\EclipseWorkspaces\JavaEclipseProjects\org.eclipse.datatools.sqltools.parsers.sql.query\src\org\eclipse\datatools\sqltools\parsers\sql\query/sqlqueryparserRules.lpg at line 624 is undefined. No susbtitution made
+The macro "$NON" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 242 is undefined. No susbtitution made
+The macro "$" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 242 is undefined. No susbtitution made
+The macro "$NON" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 245 is undefined. No susbtitution made
+The macro "$" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 245 is undefined. No susbtitution made
+The macro "$NON" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 248 is undefined. No susbtitution made
+The macro "$" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 248 is undefined. No susbtitution made
+The macro "$NON" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 624 is undefined. No susbtitution made
+The macro "$" used in file C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\lpg_include\query/sqlqueryparserRules.lpg at line 624 is undefined. No susbtitution made
 
 
 Strongly-connected components in ranks:
@@ -70,15 +70,15 @@ RANK RULE
 11   211   <insert_stmt> ::= INSERT INTO <target_table> <opt_target_column_list> VALUES <insert_row_commalist>
 12   309   <query_exp> ::= <query_combined>
 13   310   <query_exp> ::= <query_term>
-14   367   <super_groups_element> ::= LEFT_PAREN <super_groups_element_exp_list> RIGHT_PAREN
-15   368   <super_groups_element> ::= <super_groups_element_exp>
-16   405   <values_row> ::= LEFT_PAREN <expression_commalist> RIGHT_PAREN
-17   409   <with_clause> ::= WITH <with_table_spec_list>
-18   410   <with_clause> ::=
+14   366   <super_groups_element> ::= LEFT_PAREN <super_groups_element_exp_list> RIGHT_PAREN
+15   367   <super_groups_element> ::= <super_groups_element_exp>
+16   404   <values_row> ::= LEFT_PAREN <expression_commalist> RIGHT_PAREN
+17   408   <with_clause> ::= WITH <with_table_spec_list>
+18   409   <with_clause> ::=
 19   311   <query_exp_root> ::= <with_clause> <query_exp>
-20   313   <query_stmt> ::= <query_exp_root> <opt_order_by_clause> <opt_updatability_clause>
+20   312   <query_stmt> ::= <query_exp_root> <opt_order_by_clause> <opt_updatability_clause>
 21   212   <insert_stmt> ::= INSERT INTO <target_table> <opt_target_column_list> <query_exp_root>
-22   403   <update_stmt> ::= UPDATE <target_table> <opt_as_target_table> SET <update_assignment_clause> <opt_where_clause>
+22   402   <update_stmt> ::= UPDATE <target_table> <opt_as_target_table> SET <update_assignment_clause> <opt_where_clause>
 23   140   <delete_stmt> ::= DELETE FROM <target_table> <opt_as_target_table> <opt_where_clause>
 24   219   <merge statement> ::= MERGE INTO <merge_target_table> USING <merge_source_table> ON <merge_on_condition> <merge operation specification list>
 25   37    <call_statement> ::= CALL <procedure_object> <opt_argument_list>
@@ -105,7 +105,7 @@ RANK RULE
 46   296   <parameter> ::= PARAMETER_MARKER
 47   198   <identifier> ::= REGULAR_IDENTIFIER
 48   199   <identifier> ::= DELIMITED_IDENTIFIER
-49   330   <schema> ::= <identifier>
+49   329   <schema> ::= <identifier>
 50   280   <opt_schema_dot> ::= <schema> PERIOD
 51   281   <opt_schema_dot> ::=
 52   181   <function> ::= <opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN
@@ -131,9 +131,9 @@ RANK RULE
 72   151   <expression> ::= <expression> PLUS_SIGN <expression_term>
 73   152   <expression> ::= <expression> MINUS_SIGN <expression_term>
 74   153   <expression> ::= <expression_term>
-75   329   <scalar_comparison> ::= <expression> <relop> <expression>
-76   404   <value_expr_row> ::= LEFT_PAREN <expression_commalist_multiple_elements> RIGHT_PAREN
-77   326   <row_comparison> ::= <value_expr_row> <relop> <value_expr_row>
+75   328   <scalar_comparison> ::= <expression> <relop> <expression>
+76   403   <value_expr_row> ::= LEFT_PAREN <expression_commalist_multiple_elements> RIGHT_PAREN
+77   325   <row_comparison> ::= <value_expr_row> <relop> <value_expr_row>
 78   213   <intervaltest> ::= <expression> NOT BETWEEN <expression> AND <expression>
 79   214   <intervaltest> ::= <expression> BETWEEN <expression> AND <expression>
 80   231   <nulltest> ::= <expression> IS NOT NULL
@@ -152,14 +152,14 @@ RANK RULE
 93   14    <all_or_any_cond> ::= <expression> <relop> ALL <subquery>
 94   15    <all_or_any_cond> ::= LEFT_PAREN <expression_commalist_multiple_elements> RIGHT_PAREN EQUALS_OPERATOR ANY <subquery>
 95   16    <all_or_any_cond> ::= LEFT_PAREN <expression_commalist_multiple_elements> RIGHT_PAREN EQUALS_OPERATOR SOME <subquery>
-96   335   <simplecomp> ::= <scalar_comparison>
-97   336   <simplecomp> ::= <row_comparison>
-98   337   <simplecomp> ::= <intervaltest>
-99   338   <simplecomp> ::= <nulltest>
-100  339   <simplecomp> ::= <liketest>
-101  340   <simplecomp> ::= <in_cond>
-102  341   <simplecomp> ::= <exists>
-103  342   <simplecomp> ::= <all_or_any_cond>
+96   334   <simplecomp> ::= <scalar_comparison>
+97   335   <simplecomp> ::= <row_comparison>
+98   336   <simplecomp> ::= <intervaltest>
+99   337   <simplecomp> ::= <nulltest>
+100  338   <simplecomp> ::= <liketest>
+101  339   <simplecomp> ::= <in_cond>
+102  340   <simplecomp> ::= <exists>
+103  341   <simplecomp> ::= <all_or_any_cond>
 104  33    <boolean_primary> ::= <simplecomp>
 105  34    <boolean_primary> ::= NOT <simplecomp>
 106  35    <boolean_primary> ::= LEFT_PAREN <boolean_expression> RIGHT_PAREN
@@ -173,37 +173,37 @@ RANK RULE
 114  25    <boolean_expression> ::= <boolean_expression> OR <boolean_term>
 115  56    <condition> ::= <boolean_expression>
 116  222   <merge_on_condition> ::= <condition>
-117  371   <table> ::= <identifier>
-118  387   <table_simple> ::= <table> <opt_table_correlation>
-119  376   <table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation>
-120  420   <table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation>
-121  421   <table_qualified> ::= <schema> SOLIDUS <table> <opt_table_correlation>
-122  377   <table_query> ::= LEFT_PAREN <query_exp> RIGHT_PAREN <table_correlation>
-123  378   <table_query> ::= TABLE LEFT_PAREN <query_exp> RIGHT_PAREN <table_correlation>
-124  375   <table_nested> ::= LEFT_PAREN <table_ref> RIGHT_PAREN
-125  373   <table_func> ::= TABLE LEFT_PAREN <opt_schema_dot> <identifier> LEFT_PAREN <opt_expression_commalist> RIGHT_PAREN RIGHT_PAREN <table_correlation>
-126  374   <table_join> ::= <table_ref> <opt_join_type> JOIN <table_ref> ON <condition>
-127  379   <table_ref> ::= <table_simple>
-128  380   <table_ref> ::= <table_qualified>
-129  381   <table_ref> ::= <table_join>
-130  382   <table_ref> ::= <table_query>
-131  383   <table_ref> ::= <table_nested>
-132  384   <table_ref> ::= <table_func>
+117  370   <table> ::= <identifier>
+118  386   <table_simple> ::= <table> <opt_table_correlation>
+119  375   <table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation>
+120  426   <table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation>
+121  427   <table_qualified> ::= <schema> SOLIDUS <table> <opt_table_correlation>
+122  376   <table_query> ::= LEFT_PAREN <query_exp> RIGHT_PAREN <table_correlation>
+123  377   <table_query> ::= TABLE LEFT_PAREN <query_exp> RIGHT_PAREN <table_correlation>
+124  374   <table_nested> ::= LEFT_PAREN <table_ref> RIGHT_PAREN
+125  372   <table_func> ::= TABLE LEFT_PAREN <opt_schema_dot> <identifier> LEFT_PAREN <opt_expression_commalist> RIGHT_PAREN RIGHT_PAREN <table_correlation>
+126  373   <table_join> ::= <table_ref> <opt_join_type> JOIN <table_ref> ON <condition>
+127  378   <table_ref> ::= <table_simple>
+128  379   <table_ref> ::= <table_qualified>
+129  380   <table_ref> ::= <table_join>
+130  381   <table_ref> ::= <table_query>
+131  382   <table_ref> ::= <table_nested>
+132  383   <table_ref> ::= <table_func>
 133  221   <merge_source_table> ::= <table_ref>
-134  390   <target_table> ::= <table>
-135  391   <target_table> ::= <schema> PERIOD <table>
-136  428   <target_table> ::= <table>
-137  429   <target_table> ::= <schema> PERIOD <table>
-138  430   <target_table> ::= <schema> SOLIDUS <table>
+134  389   <target_table> ::= <table>
+135  390   <target_table> ::= <schema> PERIOD <table>
+136  434   <target_table> ::= <table>
+137  435   <target_table> ::= <schema> PERIOD <table>
+138  436   <target_table> ::= <schema> SOLIDUS <table>
 139  220   <merge_target_table> ::= <target_table> <opt_as_alias>
 140  11    <alias_name> ::= <identifier>
-141  318   <relop> ::= EQUALS_OPERATOR
-142  319   <relop> ::= LESS_THAN_OPERATOR
-143  320   <relop> ::= LESS_THAN_OR_EQUALS_OPERATOR
-144  321   <relop> ::= NOT_EQUALS_OPERATOR
-145  322   <relop> ::= GREATER_THAN_OPERATOR
-146  323   <relop> ::= GREATER_THAN_OR_EQUALS_OPERATOR
-147  360   <subquery> ::= LEFT_PAREN <query_exp_root> RIGHT_PAREN
+141  317   <relop> ::= EQUALS_OPERATOR
+142  318   <relop> ::= LESS_THAN_OPERATOR
+143  319   <relop> ::= LESS_THAN_OR_EQUALS_OPERATOR
+144  320   <relop> ::= NOT_EQUALS_OPERATOR
+145  321   <relop> ::= GREATER_THAN_OPERATOR
+146  322   <relop> ::= GREATER_THAN_OR_EQUALS_OPERATOR
+147  359   <subquery> ::= LEFT_PAREN <query_exp_root> RIGHT_PAREN
 148  154   <expression_commalist> ::= <expression>
 149  155   <expression_commalist> ::= <expression_commalist> COMMA <expression>
 150  157   <expression_commalist_multiple_elements> ::= <expression_commalist> COMMA <expression>
@@ -305,8 +305,8 @@ RANK RULE
 246  70    <datatype_collection_type> ::= <datatype_multiset_type>
 247  215   <left_bracket_or_trigraph> ::= LEFT_BRACKET
 248  216   <left_bracket_or_trigraph> ::= LEFT_BRACKET_TRIGRAPH
-249  324   <right_bracket_or_trigraph> ::= RIGHT_BRACKET
-250  325   <right_bracket_or_trigraph> ::= RIGHT_BRACKET_TRIGRAPH
+249  323   <right_bracket_or_trigraph> ::= RIGHT_BRACKET
+250  324   <right_bracket_or_trigraph> ::= RIGHT_BRACKET_TRIGRAPH
 251  127   <datatype_opt_size_unit> ::= K
 252  128   <datatype_opt_size_unit> ::= M
 253  129   <datatype_opt_size_unit> ::= G
@@ -322,8 +322,8 @@ RANK RULE
 263  246   <opt_as_target_table> ::=
 264  290   <opt_where_clause> ::= WHERE <condition>
 265  291   <opt_where_clause> ::=
-266  388   <target_column_list> ::= <column_ref>
-267  389   <target_column_list> ::= <target_column_list> COMMA <column_ref>
+266  387   <target_column_list> ::= <column_ref>
+267  388   <target_column_list> ::= <target_column_list> COMMA <column_ref>
 268  141   <derived_column_list> ::= <column_ref>
 269  142   <derived_column_list> ::= <target_column_list> COMMA <column_ref>
 270  143   <duration> ::= DAYS
@@ -333,29 +333,29 @@ RANK RULE
 274  147   <duration> ::= MONTHS
 275  148   <duration> ::= SECONDS
 276  149   <duration> ::= YEARS
-277  343   <special_register> ::= CURRENT_DATE
-278  344   <special_register> ::= CURRENT_TIME
-279  345   <special_register> ::= CURRENT_TIMESTAMP
-280  346   <special_register> ::= CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> RIGHT_PAREN
-281  347   <special_register> ::= LOCALTIME
-282  348   <special_register> ::= LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN
-283  349   <special_register> ::= LOCALTIMESTAMP
-284  350   <special_register> ::= LOCALTIMESTAMP LEFT_PAREN <timestamp precision> RIGHT_PAREN
-285  351   <special_register> ::= CURRENT_DEFAULT_TRANSFORM_GROUP
-286  352   <special_register> ::= CURRENT_PATH
-287  353   <special_register> ::= CURRENT_ROLE
-288  354   <special_register> ::= CURRENT_TRANSFORM_GROUP_FOR_TYPE <datatype_path-resolved_user-defined_type_name>
-289  355   <special_register> ::= CURRENT_USER
-290  356   <special_register> ::= SESSION_USER
-291  357   <special_register> ::= SYSTEM_USER
-292  358   <special_register> ::= USER
-293  359   <special_register> ::= VALUE
+277  342   <special_register> ::= CURRENT_DATE
+278  343   <special_register> ::= CURRENT_TIME
+279  344   <special_register> ::= CURRENT_TIMESTAMP
+280  345   <special_register> ::= CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> RIGHT_PAREN
+281  346   <special_register> ::= LOCALTIME
+282  347   <special_register> ::= LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN
+283  348   <special_register> ::= LOCALTIMESTAMP
+284  349   <special_register> ::= LOCALTIMESTAMP LEFT_PAREN <timestamp precision> RIGHT_PAREN
+285  350   <special_register> ::= CURRENT_DEFAULT_TRANSFORM_GROUP
+286  351   <special_register> ::= CURRENT_PATH
+287  352   <special_register> ::= CURRENT_ROLE
+288  353   <special_register> ::= CURRENT_TRANSFORM_GROUP_FOR_TYPE <datatype_path-resolved_user-defined_type_name>
+289  354   <special_register> ::= CURRENT_USER
+290  355   <special_register> ::= SESSION_USER
+291  356   <special_register> ::= SYSTEM_USER
+292  357   <special_register> ::= USER
+293  358   <special_register> ::= VALUE
 294  177   <string_value_expression> ::= <expression>
 295  178   <fetch_first_clause> ::= FETCH FIRST <opt_fetch_first_row_count> <row_or_rows> ONLY
 296  288   <opt_fetch_first_row_count> ::= UNSIGNED_INTEGER
 297  289   <opt_fetch_first_row_count> ::=
-298  327   <row_or_rows> ::= ROW
-299  328   <row_or_rows> ::= ROWS
+298  326   <row_or_rows> ::= ROW
+299  327   <row_or_rows> ::= ROWS
 300  179   <func_ref> ::= <identifier>
 301  180   <func_ref> ::= <alias_name> PERIOD <identifier>
 302  235   <opt_all_distinct> ::= ALL
@@ -364,9 +364,9 @@ RANK RULE
 305  258   <opt_expression_commalist> ::= <expression_commalist>
 306  259   <opt_expression_commalist> ::=
 307  185   <grouping_exp> ::= <expression>
-308  361   <super_groups> ::= CUBE LEFT_PAREN <super_groups_element_list> RIGHT_PAREN
-309  362   <super_groups> ::= ROLLUP LEFT_PAREN <super_groups_element_list> RIGHT_PAREN
-310  363   <super_groups> ::= LEFT_PAREN RIGHT_PAREN
+308  360   <super_groups> ::= CUBE LEFT_PAREN <super_groups_element_list> RIGHT_PAREN
+309  361   <super_groups> ::= ROLLUP LEFT_PAREN <super_groups_element_list> RIGHT_PAREN
+310  362   <super_groups> ::= LEFT_PAREN RIGHT_PAREN
 311  183   <grouping> ::= <grouping_exp>
 312  184   <grouping> ::= <super_groups>
 313  186   <grouping_sets> ::= GROUPING SETS LEFT_PAREN <grouping_sets_element_list> RIGHT_PAREN
@@ -397,12 +397,12 @@ RANK RULE
 338  244   <opt_as_alias> ::=
 339  229   <merge update specification> ::= UPDATE SET <update_assignment_clause>
 340  230   <merge insert specification> ::= INSERT <opt_target_column_list> VALUES <insert_row>
-341  398   <update_assignment_expression> ::= <column_ref> EQUALS_OPERATOR <expression>
-342  399   <update_assignment_expression> ::= LEFT_PAREN <target_column_list> RIGHT_PAREN EQUALS_OPERATOR LEFT_PAREN <query_exp> RIGHT_PAREN
-343  400   <update_assignment_expression> ::= LEFT_PAREN <target_column_list> RIGHT_PAREN EQUALS_OPERATOR LEFT_PAREN <expression_commalist> RIGHT_PAREN
-344  401   <update_assignment_expression_commalist> ::= <update_assignment_expression>
-345  402   <update_assignment_expression_commalist> ::= <update_assignment_expression_commalist> COMMA <update_assignment_expression>
-346  397   <update_assignment_clause> ::= <update_assignment_expression_commalist>
+341  397   <update_assignment_expression> ::= <column_ref> EQUALS_OPERATOR <expression>
+342  398   <update_assignment_expression> ::= LEFT_PAREN <target_column_list> RIGHT_PAREN EQUALS_OPERATOR LEFT_PAREN <query_exp> RIGHT_PAREN
+343  399   <update_assignment_expression> ::= LEFT_PAREN <target_column_list> RIGHT_PAREN EQUALS_OPERATOR LEFT_PAREN <expression_commalist> RIGHT_PAREN
+344  400   <update_assignment_expression_commalist> ::= <update_assignment_expression>
+345  401   <update_assignment_expression_commalist> ::= <update_assignment_expression_commalist> COMMA <update_assignment_expression>
+346  396   <update_assignment_clause> ::= <update_assignment_expression_commalist>
 347  247   <opt_asc_desc> ::= ASC
 348  248   <opt_asc_desc> ::= DESC
 349  249   <opt_asc_desc> ::=
@@ -416,8 +416,8 @@ RANK RULE
 357  263   <opt_group_by_clause> ::= GROUP BY <super_groups_element_list> WITH CUBE
 358  264   <opt_group_by_clause> ::= GROUP BY <super_groups_element_list> WITH ROLLUP
 359  265   <opt_group_by_clause> ::=
-360  369   <super_groups_element_list> ::= <super_groups_element>
-361  370   <super_groups_element_list> ::= <super_groups_element_list> COMMA <super_groups_element>
+360  368   <super_groups_element_list> ::= <super_groups_element>
+361  369   <super_groups_element_list> ::= <super_groups_element_list> COMMA <super_groups_element>
 362  266   <opt_having_clause> ::= HAVING <condition>
 363  267   <opt_having_clause> ::=
 364  268   <opt_join_type> ::= INNER
@@ -435,24 +435,24 @@ RANK RULE
 376  292   <ordering_spec> ::= <expression> <opt_asc_desc> <opt_null_order>
 377  293   <ordering_spec_commalist> ::= <ordering_spec>
 378  294   <ordering_spec_commalist> ::= <ordering_spec_commalist> COMMA <ordering_spec>
-379  372   <table_correlation> ::= <as_alias> <opt_column_name_list>
+379  371   <table_correlation> ::= <as_alias> <opt_column_name_list>
 380  282   <opt_table_correlation> ::= <table_correlation>
 381  283   <opt_table_correlation> ::=
-382  394   <updatability_expression> ::= FOR READ ONLY
-383  395   <updatability_expression> ::= FOR UPDATE
-384  396   <updatability_expression> ::= FOR UPDATE OF <column_name_list>
+382  393   <updatability_expression> ::= FOR READ ONLY
+383  394   <updatability_expression> ::= FOR UPDATE
+384  395   <updatability_expression> ::= FOR UPDATE OF <column_name_list>
 385  286   <opt_updatability_clause> ::= <updatability_expression>
 386  287   <opt_updatability_clause> ::=
 387  298   <project> ::= <expression> <opt_as_alias>
 388  299   <project> ::= ASTERISK
 389  300   <project> ::= <table> PERIOD ASTERISK
 390  301   <project> ::= <schema> PERIOD <table> PERIOD ASTERISK
-391  422   <project> ::= <expression> <opt_as_alias>
-392  423   <project> ::= ASTERISK
-393  424   <project> ::= <table> PERIOD ASTERISK
-394  425   <project> ::= <table> SOLIDUS ASTERISK
-395  426   <project> ::= <schema> PERIOD <table> PERIOD ASTERISK
-396  427   <project> ::= <schema> SOLIDUS <table> SOLIDUS ASTERISK
+391  428   <project> ::= <expression> <opt_as_alias>
+392  429   <project> ::= ASTERISK
+393  430   <project> ::= <table> PERIOD ASTERISK
+394  431   <project> ::= <table> SOLIDUS ASTERISK
+395  432   <project> ::= <schema> PERIOD <table> PERIOD ASTERISK
+396  433   <project> ::= <schema> SOLIDUS <table> SOLIDUS ASTERISK
 397  302   <query_combined> ::= <query_exp> <query_combined_operator> <query_term> <opt_order_by_clause> <opt_fetch_first_clause>
 398  303   <query_combined_operator> ::= UNION
 399  304   <query_combined_operator> ::= UNION ALL
@@ -460,34 +460,40 @@ RANK RULE
 401  306   <query_combined_operator> ::= INTERSECT ALL
 402  307   <query_combined_operator> ::= EXCEPT
 403  308   <query_combined_operator> ::= EXCEPT ALL
-404  312   <query_select> ::= SELECT <opt_all_distinct> <selection> FROM <table_ref_commalist> <opt_where_clause> <opt_group_by_clause> <opt_having_clause> <opt_order_by_clause> <opt_fetch_first_clause>
-405  414   <query_select> ::= SELECT <opt_all_distinct> <selection> FROM <table_ref_commalist> <opt_where_clause> <opt_group_by_clause> <opt_having_clause> <opt_order_by_clause> <opt_fetch_first_clause> <opt_optimize_clause>
-406  317   <query_values> ::= VALUES <values_row_commalist> <opt_order_by_clause> <opt_fetch_first_clause>
-407  314   <query_term> ::= <query_select>
-408  315   <query_term> ::= <query_values>
-409  316   <query_term> ::= LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause> <opt_fetch_first_clause>
-410  333   <selection> ::= <project>
-411  334   <selection> ::= <selection> COMMA <project>
-412  385   <table_ref_commalist> ::= <table_ref>
-413  386   <table_ref_commalist> ::= <table_ref_commalist> COMMA <table_ref>
-414  406   <values_row> ::= <expression>
-415  407   <values_row_commalist> ::= <values_row>
-416  408   <values_row_commalist> ::= <values_row_commalist> COMMA <values_row>
-417  331   <schema_qualified_name> ::= <identifier>
-418  332   <schema_qualified_name> ::= <schema> PERIOD <identifier>
-419  393   <timestamp precision> ::= UNSIGNED_INTEGER
-420  392   <time precision> ::= UNSIGNED_INTEGER
-421  364   <super_groups_element_exp> ::= <grouping_exp>
-422  365   <super_groups_element_exp_list> ::= <super_groups_element_exp>
-423  366   <super_groups_element_exp_list> ::= <super_groups_element_exp_list> COMMA <super_groups_element_exp>
-424  413   <with_table_spec> ::= <table> <opt_column_name_list> AS LEFT_PAREN <query_exp> RIGHT_PAREN
-425  411   <with_table_spec_list> ::= <with_table_spec>
-426  412   <with_table_spec_list> ::= <with_table_spec_list> COMMA <with_table_spec>
-427  417   <optimize_clause> ::= OPTIMIZE FOR <opt_optimize_row_count> <row_or_rows>
-428  415   <opt_optimize_clause> ::= <optimize_clause>
-429  416   <opt_optimize_clause> ::=
-430  418   <opt_optimize_row_count> ::= UNSIGNED_INTEGER
-431  419   <opt_optimize_row_count> ::=
+404  413   <query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> FROM <table_ref_commalist> <opt_where_clause> <opt_group_by_clause> <opt_having_clause> <opt_order_by_clause> <opt_fetch_first_clause> <opt_optimize_clause>
+405  316   <query_values> ::= VALUES <values_row_commalist> <opt_order_by_clause> <opt_fetch_first_clause>
+406  313   <query_term> ::= <query_select>
+407  314   <query_term> ::= <query_values>
+408  315   <query_term> ::= LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause> <opt_fetch_first_clause>
+409  405   <values_row> ::= <expression>
+410  406   <values_row_commalist> ::= <values_row>
+411  407   <values_row_commalist> ::= <values_row_commalist> COMMA <values_row>
+412  330   <schema_qualified_name> ::= <identifier>
+413  331   <schema_qualified_name> ::= <schema> PERIOD <identifier>
+414  332   <selection> ::= <project>
+415  333   <selection> ::= <selection> COMMA <project>
+416  392   <timestamp precision> ::= UNSIGNED_INTEGER
+417  391   <time precision> ::= UNSIGNED_INTEGER
+418  363   <super_groups_element_exp> ::= <grouping_exp>
+419  364   <super_groups_element_exp_list> ::= <super_groups_element_exp>
+420  365   <super_groups_element_exp_list> ::= <super_groups_element_exp_list> COMMA <super_groups_element_exp>
+421  384   <table_ref_commalist> ::= <table_ref>
+422  385   <table_ref_commalist> ::= <table_ref_commalist> COMMA <table_ref>
+423  412   <with_table_spec> ::= <table> <opt_column_name_list> AS LEFT_PAREN <query_exp> RIGHT_PAREN
+424  410   <with_table_spec_list> ::= <with_table_spec>
+425  411   <with_table_spec_list> ::= <with_table_spec_list> COMMA <with_table_spec>
+426  416   <into_clause> ::= INTO <into_list>
+427  414   <opt_into_clause> ::= <into_clause>
+428  415   <opt_into_clause> ::=
+429  423   <optimize_clause> ::= OPTIMIZE FOR <opt_optimize_row_count> <row_or_rows>
+430  421   <opt_optimize_clause> ::= <optimize_clause>
+431  422   <opt_optimize_clause> ::=
+432  420   <into_item> ::= HOSTVARIABLE
+433  417   <into_list> ::= <into_item>
+434  418   <into_list> ::= <into_list> COMMA <into_item>
+435  419   <into_list> ::=
+436  424   <opt_optimize_row_count> ::= UNSIGNED_INTEGER
+437  425   <opt_optimize_row_count> ::=
 *** The following Terminals are useless: 
         ACCESS  ACCTNG  ACTION  ACTIVATE  ADD  ADMIN  ADMINISTRATION  AFTER  AGE  
     ALIAS ALLOCATE  ALLOW  ALTER  ALTERIN  ALWAYS  APPEND  APPL_ID  APPL_NAME  
@@ -609,20 +615,20 @@ STATE 3 ------------------------------------------------------------------------
 STATE 19 -----------------------------------------------------------------------
 ( 6 15 16 21 )
 
-<target_table> ::= <table> . (390)
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (389)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "REGULAR_IDENTIFIER" between rule 390 and 428
+*** Reduce/reduce conflict on "REGULAR_IDENTIFIER" between rule 389 and 434
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "EOF" between rule 390 and 428
+*** Reduce/reduce conflict on "EOF" between rule 389 and 434
 
 '$accept' ::= .<sql_dml_stmt_list> 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
@@ -630,7 +636,7 @@ STATE 19 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 '$accept' ::= .<sql_dml_stmt_list> 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
@@ -638,9 +644,9 @@ STATE 19 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 390 and 428
+*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 389 and 434
 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
                         <sql_dml_stmt_xspan> 
@@ -649,7 +655,7 @@ STATE 19 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
                         <sql_dml_stmt_xspan> 
@@ -658,108 +664,108 @@ STATE 19 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "DELIMITED_IDENTIFIER" between rule 390 and 428
+*** Reduce/reduce conflict on "DELIMITED_IDENTIFIER" between rule 389 and 434
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "LEFT_PAREN" between rule 390 and 428
+*** Reduce/reduce conflict on "LEFT_PAREN" between rule 389 and 434
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "WITH" between rule 390 and 428
+*** Reduce/reduce conflict on "WITH" between rule 389 and 434
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "WHERE" between rule 390 and 428
+*** Reduce/reduce conflict on "WHERE" between rule 389 and 434
 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "VALUES" between rule 390 and 428
+*** Reduce/reduce conflict on "VALUES" between rule 389 and 434
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "USING" between rule 390 and 428
+*** Reduce/reduce conflict on "USING" between rule 389 and 434
 
 <merge statement> ::= MERGE INTO  .<merge_target_table> USING 
                       <merge_source_table> ON <merge_on_condition> 
                       <merge operation specification list> 
 <merge_target_table> ::= .<target_table> <opt_as_alias> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <merge statement> ::= MERGE INTO  .<merge_target_table> USING 
                       <merge_source_table> ON <merge_on_condition> 
                       <merge operation specification list> 
 <merge_target_table> ::= .<target_table> <opt_as_alias> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "SET" between rule 390 and 428
+*** Reduce/reduce conflict on "SET" between rule 389 and 434
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "SELECT" between rule 390 and 428
+*** Reduce/reduce conflict on "SELECT" between rule 389 and 434
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
-*** Reduce/reduce conflict on "AS" between rule 390 and 428
+*** Reduce/reduce conflict on "AS" between rule 389 and 434
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (390)
+<target_table> ::= <table> . (389)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <table> . (428)
+<target_table> ::= <table> . (434)
 
 *** 7 Keyword/Identifier Reduce/reduce conflicts detected
 
 
 
 STATE 23 -----------------------------------------------------------------------
-( 8 24 58 119 163 177 179 198 325 359 )
+( 8 24 58 119 164 178 180 199 326 360 )
 
 <query_values> ::= VALUES  .<values_row_commalist> <opt_order_by_clause> 
                    <opt_fetch_first_clause> 
@@ -969,12 +975,8 @@ STATE 38 -----------------------------------------------------------------------
 STATE 39 -----------------------------------------------------------------------
 ( 22 )
 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -1101,10 +1103,10 @@ STATE 40 -----------------------------------------------------------------------
 
 
 STATE 41 -----------------------------------------------------------------------
-( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 129 141 
-  143 146 152 160 166 168 181 185 195 196 204 205 208 210 211 214 230 257 260 
-  264 265 266 274 286 314 318 323 324 325 328 329 352 359 368 388 389 390 392 
-  407 409 411 412 419 420 422 424 )
+( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 130 142 
+  144 147 153 161 167 169 182 186 196 197 205 206 209 211 212 215 231 259 262 
+  266 267 268 276 288 315 319 324 325 326 353 360 362 363 390 402 403 404 406 
+  415 417 419 420 421 424 426 428 )
 
 <expression_factor> ::= MINUS_SIGN  .<expression_factor> 
 
@@ -1184,10 +1186,10 @@ STATE 41 -----------------------------------------------------------------------
 
 
 STATE 42 -----------------------------------------------------------------------
-( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 129 141 
-  143 146 152 160 166 168 181 185 195 196 204 205 208 210 211 214 230 257 260 
-  264 265 266 274 286 314 318 323 324 325 328 329 352 359 368 388 389 390 392 
-  407 409 411 412 419 420 422 424 )
+( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 130 142 
+  144 147 153 161 167 169 182 186 196 197 205 206 209 211 212 215 231 259 262 
+  266 267 268 276 288 315 319 324 325 326 353 360 362 363 390 402 403 404 406 
+  415 417 419 420 421 424 426 428 )
 
 <expression_factor> ::= PLUS_SIGN  .<expression_factor> 
 
@@ -1267,10 +1269,10 @@ STATE 42 -----------------------------------------------------------------------
 
 
 STATE 44 -----------------------------------------------------------------------
-( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 129 141 
-  143 146 152 160 166 168 181 185 195 196 204 205 208 210 211 214 230 257 260 
-  264 265 266 274 286 314 318 323 324 325 328 329 352 359 368 388 389 390 392 
-  407 409 411 412 419 420 422 424 )
+( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 130 142 
+  144 147 153 161 167 169 182 186 196 197 205 206 209 211 212 215 231 259 262 
+  266 267 268 276 288 315 319 324 325 326 353 360 362 363 390 402 403 404 406 
+  415 417 419 420 421 424 426 428 )
 
 <case_expression> ::= CASE  .<case_search_when_list> <opt_case_else> END 
 <case_expression> ::= CASE  .<expression> <case_simple_when_list> 
@@ -1364,10 +1366,10 @@ STATE 44 -----------------------------------------------------------------------
 
 
 STATE 45 -----------------------------------------------------------------------
-( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 129 141 
-  143 146 152 160 166 168 181 185 195 196 204 205 208 210 211 214 230 257 260 
-  264 265 266 274 286 314 318 323 324 325 328 329 352 359 368 388 389 390 392 
-  407 409 411 412 419 420 422 424 )
+( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 130 142 
+  144 147 153 161 167 169 182 186 196 197 205 206 209 211 212 215 231 259 262 
+  266 267 268 276 288 315 319 324 325 326 353 360 362 363 390 402 403 404 406 
+  415 417 419 420 421 424 426 428 )
 
 <constant> ::= UNSIGNED_INTEGER . (61)
 <constant> ::= UNSIGNED_INTEGER . (62)
@@ -1926,8 +1928,8 @@ STATE 45 -----------------------------------------------------------------------
 
 *** Reduce/reduce conflict on "OPTIMIZE" between rule 61 and 62
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause>  .
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -1941,8 +1943,8 @@ STATE 45 -----------------------------------------------------------------------
 <expression_factor> ::= .<constant> 
 <constant> ::= UNSIGNED_INTEGER . (61)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause>  .
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -2180,6 +2182,32 @@ STATE 45 -----------------------------------------------------------------------
 <expression_factor> ::= .<constant> 
 <constant> ::= UNSIGNED_INTEGER . (62)
 
+*** Reduce/reduce conflict on "INTO" between rule 61 and 62
+
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= .<expression> <opt_as_alias> 
+<expression> ::= .<expression_term> 
+<expression_term> ::= .<expression_factor> 
+<expression_factor> ::= .<constant> 
+<constant> ::= UNSIGNED_INTEGER . (61)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= .<expression> <opt_as_alias> 
+<expression> ::= .<expression_term> 
+<expression_term> ::= .<expression_factor> 
+<expression_factor> ::= .<constant> 
+<constant> ::= UNSIGNED_INTEGER . (62)
+
 *** Reduce/reduce conflict on "INTERSECT" between rule 61 and 62
 
 <query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
@@ -2276,10 +2304,11 @@ STATE 45 -----------------------------------------------------------------------
 
 *** Reduce/reduce conflict on "HAVING" between rule 61 and 62
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist>  .<opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist>  .<opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <opt_where_clause> ::= WHERE  .<condition> 
 <condition> -> .<boolean_expression> 
 <boolean_expression> ::= .<boolean_term> 
@@ -2295,10 +2324,11 @@ STATE 45 -----------------------------------------------------------------------
 <expression_factor> ::= .<constant> 
 <constant> ::= UNSIGNED_INTEGER . (61)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist>  .<opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist>  .<opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <opt_where_clause> ::= WHERE  .<condition> 
 <condition> -> .<boolean_expression> 
 <boolean_expression> ::= .<boolean_term> 
@@ -2316,10 +2346,11 @@ STATE 45 -----------------------------------------------------------------------
 
 *** Reduce/reduce conflict on "GROUP" between rule 61 and 62
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist>  .<opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist>  .<opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <opt_where_clause> ::= WHERE  .<condition> 
 <condition> -> .<boolean_expression> 
 <boolean_expression> ::= .<boolean_term> 
@@ -2335,10 +2366,11 @@ STATE 45 -----------------------------------------------------------------------
 <expression_factor> ::= .<constant> 
 <constant> ::= UNSIGNED_INTEGER . (61)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist>  .<opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist>  .<opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <opt_where_clause> ::= WHERE  .<condition> 
 <condition> -> .<boolean_expression> 
 <boolean_expression> ::= .<boolean_term> 
@@ -2392,10 +2424,11 @@ STATE 45 -----------------------------------------------------------------------
 
 *** Reduce/reduce conflict on "FROM" between rule 61 and 62
 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
 <project> ::= .<expression> <opt_as_alias> 
 <expression> ::= .<expression_term> 
@@ -2403,10 +2436,11 @@ STATE 45 -----------------------------------------------------------------------
 <expression_factor> ::= .<constant> 
 <constant> ::= UNSIGNED_INTEGER . (61)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
 <project> ::= .<expression> <opt_as_alias> 
 <expression> ::= .<expression_term> 
@@ -2672,15 +2706,15 @@ STATE 45 -----------------------------------------------------------------------
 <expression_factor> ::= .<constant> 
 <constant> ::= UNSIGNED_INTEGER . (62)
 
-*** 42 Keyword/Identifier Reduce/reduce conflicts detected
+*** 43 Keyword/Identifier Reduce/reduce conflicts detected
 
 
 
 STATE 50 -----------------------------------------------------------------------
-( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 129 141 
-  143 146 152 160 166 168 181 185 195 196 204 205 208 210 211 214 230 257 260 
-  264 265 266 274 286 314 318 323 324 325 328 329 352 359 368 388 389 390 392 
-  407 409 411 412 419 420 422 424 )
+( 23 30 39 41 42 44 56 66 68 84 86 88 96 97 98 99 100 101 114 121 127 130 142 
+  144 147 153 161 167 169 182 186 196 197 205 206 209 211 212 215 231 259 262 
+  266 267 268 276 288 315 319 324 325 326 353 360 362 363 390 402 403 404 406 
+  415 417 419 420 421 424 426 428 )
 
 <special_register> ::= CURRENT_TRANSFORM_GROUP_FOR_TYPE  .
                        <datatype_path-resolved_user-defined_type_name> 
@@ -2788,17 +2822,17 @@ STATE 56 -----------------------------------------------------------------------
 <special_register> ::= .VALUE 
 <subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -2903,9 +2937,9 @@ STATE 66 -----------------------------------------------------------------------
 
 
 STATE 68 -----------------------------------------------------------------------
-( 30 39 41 42 44 56 66 68 86 96 97 98 99 100 101 114 129 141 152 160 166 181 
-  185 195 204 205 208 214 257 260 264 265 266 274 286 314 318 324 352 368 407 
-  409 412 )
+( 30 39 41 42 44 56 66 68 86 96 97 98 99 100 101 114 130 142 153 161 167 182 
+  186 196 205 206 209 215 259 262 266 267 268 276 288 315 319 325 353 390 415 
+  417 420 )
 
 <expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
 <subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
@@ -2981,17 +3015,17 @@ STATE 68 -----------------------------------------------------------------------
 <special_register> ::= .VALUE 
 <subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -3046,20 +3080,20 @@ STATE 74 -----------------------------------------------------------------------
 STATE 75 -----------------------------------------------------------------------
 ( 37 )
 
-<target_table> ::= <schema> PERIOD <table> . (391)
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (390)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "REGULAR_IDENTIFIER" between rule 391 and 429
+*** Reduce/reduce conflict on "REGULAR_IDENTIFIER" between rule 390 and 435
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "EOF" between rule 391 and 429
+*** Reduce/reduce conflict on "EOF" between rule 390 and 435
 
 '$accept' ::= .<sql_dml_stmt_list> 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
@@ -3067,7 +3101,7 @@ STATE 75 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 '$accept' ::= .<sql_dml_stmt_list> 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
@@ -3075,9 +3109,9 @@ STATE 75 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 391 and 429
+*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 390 and 435
 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
                         <sql_dml_stmt_xspan> 
@@ -3086,7 +3120,7 @@ STATE 75 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
                         <sql_dml_stmt_xspan> 
@@ -3095,101 +3129,101 @@ STATE 75 -----------------------------------------------------------------------
 <sql_dml_stmt> -> .<delete_stmt> 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "DELIMITED_IDENTIFIER" between rule 391 and 429
+*** Reduce/reduce conflict on "DELIMITED_IDENTIFIER" between rule 390 and 435
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "LEFT_PAREN" between rule 391 and 429
+*** Reduce/reduce conflict on "LEFT_PAREN" between rule 390 and 435
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "WITH" between rule 391 and 429
+*** Reduce/reduce conflict on "WITH" between rule 390 and 435
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "WHERE" between rule 391 and 429
+*** Reduce/reduce conflict on "WHERE" between rule 390 and 435
 
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <delete_stmt> ::= DELETE FROM  .<target_table> <opt_as_target_table> 
                   <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "VALUES" between rule 391 and 429
+*** Reduce/reduce conflict on "VALUES" between rule 390 and 435
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> VALUES 
                   <insert_row_commalist> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "USING" between rule 391 and 429
+*** Reduce/reduce conflict on "USING" between rule 390 and 435
 
 <merge statement> ::= MERGE INTO  .<merge_target_table> USING 
                       <merge_source_table> ON <merge_on_condition> 
                       <merge operation specification list> 
 <merge_target_table> ::= .<target_table> <opt_as_alias> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <merge statement> ::= MERGE INTO  .<merge_target_table> USING 
                       <merge_source_table> ON <merge_on_condition> 
                       <merge operation specification list> 
 <merge_target_table> ::= .<target_table> <opt_as_alias> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "SET" between rule 391 and 429
+*** Reduce/reduce conflict on "SET" between rule 390 and 435
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "SELECT" between rule 391 and 429
+*** Reduce/reduce conflict on "SELECT" between rule 390 and 435
 
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <insert_stmt> ::= INSERT INTO  .<target_table> <opt_target_column_list> 
                   <query_exp_root> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
-*** Reduce/reduce conflict on "AS" between rule 391 and 429
+*** Reduce/reduce conflict on "AS" between rule 390 and 435
 
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (391)
+<target_table> ::= <schema> PERIOD <table> . (390)
 ------------------------------------------------------------------------------
 <update_stmt> ::= UPDATE  .<target_table> <opt_as_target_table> SET 
                   <update_assignment_clause> <opt_where_clause> 
-<target_table> ::= <schema> PERIOD <table> . (429)
+<target_table> ::= <schema> PERIOD <table> . (435)
 
 *** 7 Keyword/Identifier Reduce/reduce conflicts detected
 
@@ -3205,18 +3239,18 @@ STATE 76 -----------------------------------------------------------------------
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
-*** Shift/reduce conflict on "VALUES" with rule 410
+*** Shift/reduce conflict on "VALUES" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 
 
 
 STATE 77 -----------------------------------------------------------------------
-( 38 403 )
+( 38 398 )
 
 <opt_target_column_list> ::= LEFT_PAREN  .<target_column_list> RIGHT_PAREN 
 
@@ -3245,13 +3279,13 @@ STATE 77 -----------------------------------------------------------------------
 
 
 STATE 79 -----------------------------------------------------------------------
-( 39 129 )
+( 39 130 )
 
 <column> -> <identifier> . (50)
-<schema> ::= <identifier> . (330)
-<table> ::= <identifier> . (371)
+<schema> ::= <identifier> . (329)
+<table> ::= <identifier> . (370)
 
-*** Reduce/reduce conflict on "SOLIDUS" between rule 50 and 371
+*** Reduce/reduce conflict on "SOLIDUS" between rule 50 and 370
 
 <expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
 <expression_term> ::= .<expression_factor> 
@@ -3260,9 +3294,9 @@ STATE 79 -----------------------------------------------------------------------
 <column> -> <identifier> . (50)
 ------------------------------------------------------------------------------
 <project> ::= .<table> SOLIDUS ASTERISK 
-<table> ::= <identifier> . (371)
+<table> ::= <identifier> . (370)
 
-*** Reduce/reduce conflict on "SOLIDUS" between rule 50 and 330
+*** Reduce/reduce conflict on "SOLIDUS" between rule 50 and 329
 
 <expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
 <expression_term> ::= .<expression_factor> 
@@ -3271,26 +3305,26 @@ STATE 79 -----------------------------------------------------------------------
 <column> -> <identifier> . (50)
 ------------------------------------------------------------------------------
 <project> ::= .<schema> SOLIDUS <table> SOLIDUS ASTERISK 
-<schema> ::= <identifier> . (330)
+<schema> ::= <identifier> . (329)
 
-*** Reduce/reduce conflict on "PERIOD" between rule 330 and 371
+*** Reduce/reduce conflict on "PERIOD" between rule 329 and 370
 
 <opt_schema_dot> ::= .<schema> PERIOD 
-<schema> ::= <identifier> . (330)
+<schema> ::= <identifier> . (329)
 ------------------------------------------------------------------------------
 <project> ::= .<table> PERIOD ASTERISK 
-<table> ::= <identifier> . (371)
+<table> ::= <identifier> . (370)
 
 
 
 
 STATE 82 -----------------------------------------------------------------------
-( 39 129 )
+( 39 130 )
 
 <project> ::= ASTERISK . (299)
-<project> ::= ASTERISK . (423)
+<project> ::= ASTERISK . (429)
 
-*** Reduce/reduce conflict on "COMMA" between rule 299 and 423
+*** Reduce/reduce conflict on "COMMA" between rule 299 and 429
 
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
@@ -3298,23 +3332,43 @@ STATE 82 -----------------------------------------------------------------------
 ------------------------------------------------------------------------------
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
-<project> ::= ASTERISK . (423)
+<project> ::= ASTERISK . (429)
 
-*** Reduce/reduce conflict on "FROM" between rule 299 and 423
+*** Reduce/reduce conflict on "INTO" between rule 299 and 429
 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
 <project> ::= ASTERISK . (299)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
-<project> ::= ASTERISK . (423)
+<project> ::= ASTERISK . (429)
+
+*** Reduce/reduce conflict on "FROM" between rule 299 and 429
+
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= ASTERISK . (299)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= ASTERISK . (429)
 
 
 
@@ -3664,7 +3718,7 @@ STATE 88 -----------------------------------------------------------------------
 
 
 STATE 96 -----------------------------------------------------------------------
-( 54 158 159 )
+( 54 159 160 )
 
 <expression_term> ::= <expression_term> CONCAT_OPERATOR  .<expression_factor> 
 
@@ -3744,7 +3798,7 @@ STATE 96 -----------------------------------------------------------------------
 
 
 STATE 97 -----------------------------------------------------------------------
-( 54 158 159 )
+( 54 159 160 )
 
 <expression_term> ::= <expression_term> CONCAT  .<expression_factor> 
 
@@ -3824,7 +3878,7 @@ STATE 97 -----------------------------------------------------------------------
 
 
 STATE 98 -----------------------------------------------------------------------
-( 54 158 159 )
+( 54 159 160 )
 
 <expression_term> ::= <expression_term> SOLIDUS  .<expression_factor> 
 
@@ -3904,7 +3958,7 @@ STATE 98 -----------------------------------------------------------------------
 
 
 STATE 99 -----------------------------------------------------------------------
-( 54 158 159 )
+( 54 159 160 )
 
 <expression_term> ::= <expression_term> ASTERISK  .<expression_factor> 
 
@@ -3984,8 +4038,8 @@ STATE 99 -----------------------------------------------------------------------
 
 
 STATE 100 ----------------------------------------------------------------------
-( 55 69 83 89 104 112 113 139 147 184 194 202 213 216 229 255 262 263 271 277 
-  312 316 317 320 326 351 364 383 395 )
+( 55 69 83 89 104 112 113 140 148 185 195 203 214 217 230 257 264 265 273 279 
+  313 317 318 321 327 352 378 386 409 )
 
 <expression> ::= <expression> MINUS_SIGN  .<expression_term> 
 
@@ -4071,8 +4125,8 @@ STATE 100 ----------------------------------------------------------------------
 
 
 STATE 101 ----------------------------------------------------------------------
-( 55 69 83 89 104 112 113 139 147 184 194 202 213 216 229 255 262 263 271 277 
-  312 316 317 320 326 351 364 383 395 )
+( 55 69 83 89 104 112 113 140 148 185 195 203 214 217 230 257 264 265 273 279 
+  313 317 318 321 327 352 378 386 409 )
 
 <expression> ::= <expression> PLUS_SIGN  .<expression_term> 
 
@@ -4158,7 +4212,7 @@ STATE 101 ----------------------------------------------------------------------
 
 
 STATE 104 ----------------------------------------------------------------------
-( 56 185 )
+( 56 186 )
 
 <expression> ::= <expression>  .PLUS_SIGN <expression_term> 
 <expression> ::= <expression>  .MINUS_SIGN <expression_term> 
@@ -4308,7 +4362,7 @@ STATE 114 ----------------------------------------------------------------------
 
 
 STATE 121 ----------------------------------------------------------------------
-( 73 122 187 )
+( 73 122 234 )
 
 <opt_where_clause> ::= WHERE  .<condition> 
 
@@ -4444,7 +4498,7 @@ STATE 121 ----------------------------------------------------------------------
 
 
 STATE 123 ----------------------------------------------------------------------
-( 74 182 404 )
+( 74 183 399 )
 
 <update_assignment_expression> ::= LEFT_PAREN  .<target_column_list> 
                                    RIGHT_PAREN EQUALS_OPERATOR LEFT_PAREN 
@@ -4572,7 +4626,7 @@ STATE 127 ----------------------------------------------------------------------
 
 
 
-STATE 129 ----------------------------------------------------------------------
+STATE 130 ----------------------------------------------------------------------
 ( 78 )
 
 <selection> ::= <selection> COMMA  .<project> 
@@ -4672,7 +4726,7 @@ STATE 129 ----------------------------------------------------------------------
 
 
 
-STATE 132 ----------------------------------------------------------------------
+STATE 133 ----------------------------------------------------------------------
 ( 80 )
 
 <opt_schema_dot> ::= <schema> PERIOD . (280)
@@ -4696,13 +4750,13 @@ STATE 132 ----------------------------------------------------------------------
 
 
 
-STATE 135 ----------------------------------------------------------------------
+STATE 136 ----------------------------------------------------------------------
 ( 83 )
 
 <project> ::= <expression> <opt_as_alias> . (298)
-<project> ::= <expression> <opt_as_alias> . (422)
+<project> ::= <expression> <opt_as_alias> . (428)
 
-*** Reduce/reduce conflict on "COMMA" between rule 298 and 422
+*** Reduce/reduce conflict on "COMMA" between rule 298 and 428
 
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
@@ -4710,28 +4764,48 @@ STATE 135 ----------------------------------------------------------------------
 ------------------------------------------------------------------------------
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
-<project> ::= <expression> <opt_as_alias> . (422)
+<project> ::= <expression> <opt_as_alias> . (428)
 
-*** Reduce/reduce conflict on "FROM" between rule 298 and 422
+*** Reduce/reduce conflict on "INTO" between rule 298 and 428
 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
 <project> ::= <expression> <opt_as_alias> . (298)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
-<project> ::= <expression> <opt_as_alias> . (422)
+<project> ::= <expression> <opt_as_alias> . (428)
+
+*** Reduce/reduce conflict on "FROM" between rule 298 and 428
+
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= <expression> <opt_as_alias> . (298)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= <expression> <opt_as_alias> . (428)
 
 
 
 
-STATE 138 ----------------------------------------------------------------------
+STATE 139 ----------------------------------------------------------------------
 ( 86 )
 
 <expression_factor> ::= NULL . (170)
@@ -4755,8 +4829,8 @@ STATE 138 ----------------------------------------------------------------------
 
 
 
-STATE 141 ----------------------------------------------------------------------
-( 87 151 )
+STATE 142 ----------------------------------------------------------------------
+( 87 152 )
 
 <opt_case_else> ::= ELSE  .<expression> 
 
@@ -4844,8 +4918,8 @@ STATE 141 ----------------------------------------------------------------------
 
 
 
-STATE 143 ----------------------------------------------------------------------
-( 88 121 146 168 196 210 211 323 328 )
+STATE 144 ----------------------------------------------------------------------
+( 88 121 147 169 197 211 212 324 362 )
 
 <boolean_primary> ::= NOT  .<simplecomp> 
 <boolean_primary> ::= NOT  .LEFT_PAREN <boolean_expression> RIGHT_PAREN 
@@ -4969,8 +5043,8 @@ STATE 143 ----------------------------------------------------------------------
 
 
 
-STATE 146 ----------------------------------------------------------------------
-( 88 121 146 168 196 210 211 323 328 )
+STATE 147 ----------------------------------------------------------------------
+( 88 121 147 169 197 211 212 324 362 )
 
 <all_or_any_cond> ::= LEFT_PAREN  .<expression_commalist_multiple_elements> 
                       RIGHT_PAREN EQUALS_OPERATOR ANY <subquery> 
@@ -5108,17 +5182,17 @@ STATE 146 ----------------------------------------------------------------------
 <value_expr_row> ::= .LEFT_PAREN <expression_commalist_multiple_elements> 
                      RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -5130,8 +5204,8 @@ STATE 146 ----------------------------------------------------------------------
 
 
 
-STATE 152 ----------------------------------------------------------------------
-( 89 151 )
+STATE 153 ----------------------------------------------------------------------
+( 89 152 )
 
 <case_simple_when> ::= WHEN  .<expression> THEN <expression> 
 
@@ -5219,8 +5293,8 @@ STATE 152 ----------------------------------------------------------------------
 
 
 
-STATE 160 ----------------------------------------------------------------------
-( 103 276 315 353 358 )
+STATE 161 ----------------------------------------------------------------------
+( 103 278 316 354 359 )
 
 <expression_commalist> ::= <expression_commalist> COMMA  .<expression> 
 
@@ -5308,8 +5382,8 @@ STATE 160 ----------------------------------------------------------------------
 
 
 
-STATE 161 ----------------------------------------------------------------------
-( 105 282 )
+STATE 162 ----------------------------------------------------------------------
+( 105 284 )
 
 <query_term> ::= LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause>  .
                  <opt_fetch_first_clause> 
@@ -5330,7 +5404,7 @@ STATE 161 ----------------------------------------------------------------------
 
 
 
-STATE 166 ----------------------------------------------------------------------
+STATE 167 ----------------------------------------------------------------------
 ( 111 )
 
 <ordering_spec_commalist> ::= <ordering_spec_commalist> COMMA  .<ordering_spec> 
@@ -5420,7 +5494,7 @@ STATE 166 ----------------------------------------------------------------------
 
 
 
-STATE 168 ----------------------------------------------------------------------
+STATE 169 ----------------------------------------------------------------------
 ( 115 )
 
 <merge statement> ::= MERGE INTO <merge_target_table> USING 
@@ -5559,7 +5633,7 @@ STATE 168 ----------------------------------------------------------------------
 
 
 
-STATE 179 ----------------------------------------------------------------------
+STATE 180 ----------------------------------------------------------------------
 ( 120 )
 
 <table_func> ::= TABLE LEFT_PAREN  .<opt_schema_dot> <identifier> LEFT_PAREN 
@@ -5576,10 +5650,6 @@ STATE 179 ----------------------------------------------------------------------
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_exp> ::= .<query_combined> 
 <query_exp> ::= .<query_term> 
-<query_select> ::= .SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_term> ::= .<query_select> 
 <query_term> ::= .<query_values> 
 <query_term> ::= .LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause> 
@@ -5587,8 +5657,8 @@ STATE 179 ----------------------------------------------------------------------
 <query_values> ::= .VALUES <values_row_commalist> <opt_order_by_clause> 
                    <opt_fetch_first_clause> 
 <schema> ::= .<identifier> 
-<query_select> ::= .SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= .SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -5611,7 +5681,7 @@ STATE 179 ----------------------------------------------------------------------
 
 
 
-STATE 181 ----------------------------------------------------------------------
+STATE 182 ----------------------------------------------------------------------
 ( 124 )
 
 <update_assignment_expression> ::= <column_ref> EQUALS_OPERATOR  .<expression> 
@@ -5700,7 +5770,7 @@ STATE 181 ----------------------------------------------------------------------
 
 
 
-STATE 182 ----------------------------------------------------------------------
+STATE 183 ----------------------------------------------------------------------
 ( 126 )
 
 <update_assignment_expression_commalist> ::= 
@@ -5736,8 +5806,8 @@ STATE 182 ----------------------------------------------------------------------
 
 
 
-STATE 185 ----------------------------------------------------------------------
-( 127 230 420 )
+STATE 186 ----------------------------------------------------------------------
+( 127 231 421 )
 
 <expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
 <insert_row> ::= LEFT_PAREN  .<expression_commalist_multiple_elements> 
@@ -5820,17 +5890,17 @@ STATE 185 ----------------------------------------------------------------------
 <special_register> ::= .VALUE 
 <subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -5842,8 +5912,8 @@ STATE 185 ----------------------------------------------------------------------
 
 
 
-STATE 186 ----------------------------------------------------------------------
-( 128 180 )
+STATE 187 ----------------------------------------------------------------------
+( 128 181 )
 
 <target_column_list> ::= <target_column_list> COMMA  .<column_ref> 
 
@@ -5869,13 +5939,13 @@ STATE 186 ----------------------------------------------------------------------
 
 
 
-STATE 191 ----------------------------------------------------------------------
-( 134 )
+STATE 192 ----------------------------------------------------------------------
+( 135 )
 
 <project> ::= <table> PERIOD ASTERISK . (300)
-<project> ::= <table> PERIOD ASTERISK . (424)
+<project> ::= <table> PERIOD ASTERISK . (430)
 
-*** Reduce/reduce conflict on "COMMA" between rule 300 and 424
+*** Reduce/reduce conflict on "COMMA" between rule 300 and 430
 
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
@@ -5883,29 +5953,49 @@ STATE 191 ----------------------------------------------------------------------
 ------------------------------------------------------------------------------
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
-<project> ::= <table> PERIOD ASTERISK . (424)
+<project> ::= <table> PERIOD ASTERISK . (430)
 
-*** Reduce/reduce conflict on "FROM" between rule 300 and 424
+*** Reduce/reduce conflict on "INTO" between rule 300 and 430
 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
 <project> ::= <table> PERIOD ASTERISK . (300)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
-<project> ::= <table> PERIOD ASTERISK . (424)
+<project> ::= <table> PERIOD ASTERISK . (430)
+
+*** Reduce/reduce conflict on "FROM" between rule 300 and 430
+
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= <table> PERIOD ASTERISK . (300)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= <table> PERIOD ASTERISK . (430)
 
 
 
 
-STATE 193 ----------------------------------------------------------------------
-( 137 )
+STATE 194 ----------------------------------------------------------------------
+( 138 )
 
 <cast_expression> ::= CAST LEFT_PAREN <cast_operand> AS  .<cast_target> 
                       RIGHT_PAREN 
@@ -6015,8 +6105,8 @@ STATE 193 ----------------------------------------------------------------------
 
 
 
-STATE 195 ----------------------------------------------------------------------
-( 142 )
+STATE 196 ----------------------------------------------------------------------
+( 143 )
 
 <case_search_when> ::= WHEN <condition> THEN  .<expression> 
 
@@ -6104,8 +6194,8 @@ STATE 195 ----------------------------------------------------------------------
 
 
 
-STATE 196 ----------------------------------------------------------------------
-( 143 )
+STATE 197 ----------------------------------------------------------------------
+( 144 )
 
 <all_or_any_cond> ::= LEFT_PAREN  .<expression_commalist_multiple_elements> 
                       RIGHT_PAREN EQUALS_OPERATOR ANY <subquery> 
@@ -6243,17 +6333,17 @@ STATE 196 ----------------------------------------------------------------------
 <value_expr_row> ::= .LEFT_PAREN <expression_commalist_multiple_elements> 
                      RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -6265,8 +6355,8 @@ STATE 196 ----------------------------------------------------------------------
 
 
 
-STATE 204 ----------------------------------------------------------------------
-( 147 202 )
+STATE 205 ----------------------------------------------------------------------
+( 148 203 )
 
 <liketest> ::= <expression> LIKE  .<expression> <opt_escape> 
 
@@ -6354,8 +6444,8 @@ STATE 204 ----------------------------------------------------------------------
 
 
 
-STATE 205 ----------------------------------------------------------------------
-( 147 202 )
+STATE 206 ----------------------------------------------------------------------
+( 148 203 )
 
 <intervaltest> ::= <expression> BETWEEN  .<expression> AND <expression> 
 
@@ -6443,8 +6533,8 @@ STATE 205 ----------------------------------------------------------------------
 
 
 
-STATE 208 ----------------------------------------------------------------------
-( 147 202 )
+STATE 209 ----------------------------------------------------------------------
+( 148 203 )
 
 <all_or_any_cond> ::= <expression> <relop>  .ANY <subquery> 
 <all_or_any_cond> ::= <expression> <relop>  .SOME <subquery> 
@@ -6535,8 +6625,8 @@ STATE 208 ----------------------------------------------------------------------
 
 
 
-STATE 210 ----------------------------------------------------------------------
-( 149 201 256 )
+STATE 211 ----------------------------------------------------------------------
+( 150 202 258 )
 
 <boolean_expression> ::= <boolean_expression> OR  .<boolean_term> 
 
@@ -6668,8 +6758,8 @@ STATE 210 ----------------------------------------------------------------------
 
 
 
-STATE 211 ----------------------------------------------------------------------
-( 150 273 )
+STATE 212 ----------------------------------------------------------------------
+( 151 275 )
 
 <boolean_term> ::= <boolean_term> AND  .<boolean_factor> 
 
@@ -6799,8 +6889,8 @@ STATE 211 ----------------------------------------------------------------------
 
 
 
-STATE 214 ----------------------------------------------------------------------
-( 154 )
+STATE 215 ----------------------------------------------------------------------
+( 155 )
 
 <function> ::= <opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct>  .
                <opt_expression_commalist> RIGHT_PAREN 
@@ -6893,8 +6983,8 @@ STATE 214 ----------------------------------------------------------------------
 
 
 
-STATE 230 ----------------------------------------------------------------------
-( 183 )
+STATE 231 ----------------------------------------------------------------------
+( 184 )
 
 <insert_row_commalist> ::= <insert_row_commalist> COMMA  .<insert_row> 
 
@@ -6985,8 +7075,8 @@ STATE 230 ----------------------------------------------------------------------
 
 
 
-STATE 257 ----------------------------------------------------------------------
-( 197 )
+STATE 259 ----------------------------------------------------------------------
+( 198 )
 
 <value_expr_row> ::= LEFT_PAREN  .<expression_commalist_multiple_elements> 
                      RIGHT_PAREN 
@@ -7080,27 +7170,27 @@ STATE 257 ----------------------------------------------------------------------
 
 
 
-STATE 259 ----------------------------------------------------------------------
-( 199 )
+STATE 261 ----------------------------------------------------------------------
+( 200 )
 
 <all_or_any_cond> ::= LEFT_PAREN <expression_commalist_multiple_elements> 
                       RIGHT_PAREN  .EQUALS_OPERATOR ANY <subquery> 
 <all_or_any_cond> ::= LEFT_PAREN <expression_commalist_multiple_elements> 
                       RIGHT_PAREN  .EQUALS_OPERATOR SOME <subquery> 
 <value_expr_row> ::= LEFT_PAREN <expression_commalist_multiple_elements> 
-                     RIGHT_PAREN . (404)
+                     RIGHT_PAREN . (403)
 
-*** Shift/reduce conflict on "EQUALS_OPERATOR" with rule 404
+*** Shift/reduce conflict on "EQUALS_OPERATOR" with rule 403
 
 <row_comparison> ::= .<value_expr_row> <relop> <value_expr_row> 
 <value_expr_row> ::= LEFT_PAREN <expression_commalist_multiple_elements> 
-                     RIGHT_PAREN . (404)
+                     RIGHT_PAREN . (403)
 
 
 
 
-STATE 260 ----------------------------------------------------------------------
-( 200 )
+STATE 262 ----------------------------------------------------------------------
+( 201 )
 
 <expression_commalist> ::= <expression_commalist> COMMA  .<expression> 
 <expression_commalist_multiple_elements> ::= <expression_commalist> COMMA  .
@@ -7109,196 +7199,6 @@ STATE 260 ----------------------------------------------------------------------
               RIGHT_PAREN NOT IN <subquery> 
 <in_cond> ::= LEFT_PAREN <expression_commalist> COMMA  .<expression> 
               RIGHT_PAREN IN <subquery> 
-
-<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
-<case_expression> ::= .CASE <expression> <case_simple_when_list> 
-                      <opt_case_else> END 
-<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
-                      RIGHT_PAREN 
-<column> -> .<identifier> 
-<column_ref> ::= .<column> 
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<constant> ::= .CHAR_STRING_LITERAL 
-<constant> ::= .G CHAR_STRING_LITERAL 
-<constant> ::= .N CHAR_STRING_LITERAL 
-<constant> ::= .HEX_STRING_LITERAL 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .EXACT_NUMERIC_LITERAL 
-<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
-<expression> ::= .<expression> PLUS_SIGN <expression_term> 
-<expression> ::= .<expression> MINUS_SIGN <expression_term> 
-<expression> ::= .<expression_term> 
-<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
-<expression_factor> ::= .<subquery> 
-<expression_factor> ::= .<special_register> 
-<expression_factor> ::= .<column_ref> 
-<expression_factor> ::= .<constant> 
-<expression_factor> ::= .<parameter> 
-<expression_factor> ::= .<function> 
-<expression_factor> ::= .<case_expression> 
-<expression_factor> ::= .<cast_expression> 
-<expression_factor> ::= .PLUS_SIGN <expression_factor> 
-<expression_factor> ::= .MINUS_SIGN <expression_factor> 
-<expression_factor> ::= .DEFAULT 
-<expression_factor> ::= .NULL 
-<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
-<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
-<expression_term> ::= .<expression_term> <duration> 
-<expression_term> ::= .<expression_factor> 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
-               <opt_expression_commalist> RIGHT_PAREN 
-<identifier> ::= .REGULAR_IDENTIFIER 
-<identifier> ::= .DELIMITED_IDENTIFIER 
-<opt_schema_dot> ::= .<schema> PERIOD 
-<opt_schema_dot> ::= . (281)
-<parameter> ::= .HOSTVARIABLE 
-<parameter> ::= .PARAMETER_MARKER 
-<schema> ::= .<identifier> 
-<special_register> ::= .CURRENT_DATE 
-<special_register> ::= .CURRENT_TIME 
-<special_register> ::= .CURRENT_TIMESTAMP 
-<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .LOCALTIME 
-<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
-<special_register> ::= .LOCALTIMESTAMP 
-<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
-<special_register> ::= .CURRENT_PATH 
-<special_register> ::= .CURRENT_ROLE 
-<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
-                       <datatype_path-resolved_user-defined_type_name> 
-<special_register> ::= .CURRENT_USER 
-<special_register> ::= .SESSION_USER 
-<special_register> ::= .SYSTEM_USER 
-<special_register> ::= .USER 
-<special_register> ::= .VALUE 
-<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
-
-*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** 20 Keyword/Identifier Shift/shift conflicts detected
-
-
-
-STATE 264 ----------------------------------------------------------------------
-( 206 )
-
-<in_cond> ::= <expression> IN LEFT_PAREN  .<expression_commalist> RIGHT_PAREN 
-<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
-
-<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
-<case_expression> ::= .CASE <expression> <case_simple_when_list> 
-                      <opt_case_else> END 
-<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
-                      RIGHT_PAREN 
-<column> -> .<identifier> 
-<column_ref> ::= .<column> 
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<constant> ::= .CHAR_STRING_LITERAL 
-<constant> ::= .G CHAR_STRING_LITERAL 
-<constant> ::= .N CHAR_STRING_LITERAL 
-<constant> ::= .HEX_STRING_LITERAL 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .EXACT_NUMERIC_LITERAL 
-<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
-<expression> ::= .<expression> PLUS_SIGN <expression_term> 
-<expression> ::= .<expression> MINUS_SIGN <expression_term> 
-<expression> ::= .<expression_term> 
-<expression_commalist> ::= .<expression> 
-<expression_commalist> ::= .<expression_commalist> COMMA <expression> 
-<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
-<expression_factor> ::= .<subquery> 
-<expression_factor> ::= .<special_register> 
-<expression_factor> ::= .<column_ref> 
-<expression_factor> ::= .<constant> 
-<expression_factor> ::= .<parameter> 
-<expression_factor> ::= .<function> 
-<expression_factor> ::= .<case_expression> 
-<expression_factor> ::= .<cast_expression> 
-<expression_factor> ::= .PLUS_SIGN <expression_factor> 
-<expression_factor> ::= .MINUS_SIGN <expression_factor> 
-<expression_factor> ::= .DEFAULT 
-<expression_factor> ::= .NULL 
-<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
-<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
-<expression_term> ::= .<expression_term> <duration> 
-<expression_term> ::= .<expression_factor> 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
-               <opt_expression_commalist> RIGHT_PAREN 
-<identifier> ::= .REGULAR_IDENTIFIER 
-<identifier> ::= .DELIMITED_IDENTIFIER 
-<opt_schema_dot> ::= .<schema> PERIOD 
-<opt_schema_dot> ::= . (281)
-<parameter> ::= .HOSTVARIABLE 
-<parameter> ::= .PARAMETER_MARKER 
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<schema> ::= .<identifier> 
-<special_register> ::= .CURRENT_DATE 
-<special_register> ::= .CURRENT_TIME 
-<special_register> ::= .CURRENT_TIMESTAMP 
-<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .LOCALTIME 
-<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
-<special_register> ::= .LOCALTIMESTAMP 
-<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
-<special_register> ::= .CURRENT_PATH 
-<special_register> ::= .CURRENT_ROLE 
-<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
-                       <datatype_path-resolved_user-defined_type_name> 
-<special_register> ::= .CURRENT_USER 
-<special_register> ::= .SESSION_USER 
-<special_register> ::= .SYSTEM_USER 
-<special_register> ::= .USER 
-<special_register> ::= .VALUE 
-<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
-<with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
-
-*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
-
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
-
-*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** 21 Keyword/Identifier Shift/shift conflicts detected
-*** 2 Keyword/Identifier Shift/reduce conflicts detected
-
-
-
-STATE 265 ----------------------------------------------------------------------
-( 207 )
-
-<liketest> ::= <expression> NOT LIKE  .<expression> <opt_escape> 
 
 <case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
 <case_expression> ::= .CASE <expression> <case_simple_when_list> 
@@ -7387,6 +7287,196 @@ STATE 265 ----------------------------------------------------------------------
 STATE 266 ----------------------------------------------------------------------
 ( 207 )
 
+<in_cond> ::= <expression> IN LEFT_PAREN  .<expression_commalist> RIGHT_PAREN 
+<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
+
+<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
+<case_expression> ::= .CASE <expression> <case_simple_when_list> 
+                      <opt_case_else> END 
+<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
+                      RIGHT_PAREN 
+<column> -> .<identifier> 
+<column_ref> ::= .<column> 
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<constant> ::= .CHAR_STRING_LITERAL 
+<constant> ::= .G CHAR_STRING_LITERAL 
+<constant> ::= .N CHAR_STRING_LITERAL 
+<constant> ::= .HEX_STRING_LITERAL 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .EXACT_NUMERIC_LITERAL 
+<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
+<expression> ::= .<expression> PLUS_SIGN <expression_term> 
+<expression> ::= .<expression> MINUS_SIGN <expression_term> 
+<expression> ::= .<expression_term> 
+<expression_commalist> ::= .<expression> 
+<expression_commalist> ::= .<expression_commalist> COMMA <expression> 
+<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
+<expression_factor> ::= .<subquery> 
+<expression_factor> ::= .<special_register> 
+<expression_factor> ::= .<column_ref> 
+<expression_factor> ::= .<constant> 
+<expression_factor> ::= .<parameter> 
+<expression_factor> ::= .<function> 
+<expression_factor> ::= .<case_expression> 
+<expression_factor> ::= .<cast_expression> 
+<expression_factor> ::= .PLUS_SIGN <expression_factor> 
+<expression_factor> ::= .MINUS_SIGN <expression_factor> 
+<expression_factor> ::= .DEFAULT 
+<expression_factor> ::= .NULL 
+<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
+<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
+<expression_term> ::= .<expression_term> <duration> 
+<expression_term> ::= .<expression_factor> 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
+               <opt_expression_commalist> RIGHT_PAREN 
+<identifier> ::= .REGULAR_IDENTIFIER 
+<identifier> ::= .DELIMITED_IDENTIFIER 
+<opt_schema_dot> ::= .<schema> PERIOD 
+<opt_schema_dot> ::= . (281)
+<parameter> ::= .HOSTVARIABLE 
+<parameter> ::= .PARAMETER_MARKER 
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<schema> ::= .<identifier> 
+<special_register> ::= .CURRENT_DATE 
+<special_register> ::= .CURRENT_TIME 
+<special_register> ::= .CURRENT_TIMESTAMP 
+<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .LOCALTIME 
+<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
+<special_register> ::= .LOCALTIMESTAMP 
+<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
+<special_register> ::= .CURRENT_PATH 
+<special_register> ::= .CURRENT_ROLE 
+<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
+                       <datatype_path-resolved_user-defined_type_name> 
+<special_register> ::= .CURRENT_USER 
+<special_register> ::= .SESSION_USER 
+<special_register> ::= .SYSTEM_USER 
+<special_register> ::= .USER 
+<special_register> ::= .VALUE 
+<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
+<with_clause> ::= .WITH <with_table_spec_list> 
+<with_clause> ::= . (409)
+
+*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
+
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<with_clause> ::= . (409)
+
+*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** 21 Keyword/Identifier Shift/shift conflicts detected
+*** 2 Keyword/Identifier Shift/reduce conflicts detected
+
+
+
+STATE 267 ----------------------------------------------------------------------
+( 208 )
+
+<liketest> ::= <expression> NOT LIKE  .<expression> <opt_escape> 
+
+<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
+<case_expression> ::= .CASE <expression> <case_simple_when_list> 
+                      <opt_case_else> END 
+<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
+                      RIGHT_PAREN 
+<column> -> .<identifier> 
+<column_ref> ::= .<column> 
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<constant> ::= .CHAR_STRING_LITERAL 
+<constant> ::= .G CHAR_STRING_LITERAL 
+<constant> ::= .N CHAR_STRING_LITERAL 
+<constant> ::= .HEX_STRING_LITERAL 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .EXACT_NUMERIC_LITERAL 
+<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
+<expression> ::= .<expression> PLUS_SIGN <expression_term> 
+<expression> ::= .<expression> MINUS_SIGN <expression_term> 
+<expression> ::= .<expression_term> 
+<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
+<expression_factor> ::= .<subquery> 
+<expression_factor> ::= .<special_register> 
+<expression_factor> ::= .<column_ref> 
+<expression_factor> ::= .<constant> 
+<expression_factor> ::= .<parameter> 
+<expression_factor> ::= .<function> 
+<expression_factor> ::= .<case_expression> 
+<expression_factor> ::= .<cast_expression> 
+<expression_factor> ::= .PLUS_SIGN <expression_factor> 
+<expression_factor> ::= .MINUS_SIGN <expression_factor> 
+<expression_factor> ::= .DEFAULT 
+<expression_factor> ::= .NULL 
+<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
+<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
+<expression_term> ::= .<expression_term> <duration> 
+<expression_term> ::= .<expression_factor> 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
+               <opt_expression_commalist> RIGHT_PAREN 
+<identifier> ::= .REGULAR_IDENTIFIER 
+<identifier> ::= .DELIMITED_IDENTIFIER 
+<opt_schema_dot> ::= .<schema> PERIOD 
+<opt_schema_dot> ::= . (281)
+<parameter> ::= .HOSTVARIABLE 
+<parameter> ::= .PARAMETER_MARKER 
+<schema> ::= .<identifier> 
+<special_register> ::= .CURRENT_DATE 
+<special_register> ::= .CURRENT_TIME 
+<special_register> ::= .CURRENT_TIMESTAMP 
+<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .LOCALTIME 
+<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
+<special_register> ::= .LOCALTIMESTAMP 
+<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
+<special_register> ::= .CURRENT_PATH 
+<special_register> ::= .CURRENT_ROLE 
+<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
+                       <datatype_path-resolved_user-defined_type_name> 
+<special_register> ::= .CURRENT_USER 
+<special_register> ::= .SESSION_USER 
+<special_register> ::= .SYSTEM_USER 
+<special_register> ::= .USER 
+<special_register> ::= .VALUE 
+<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
+
+*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** 20 Keyword/Identifier Shift/shift conflicts detected
+
+
+
+STATE 268 ----------------------------------------------------------------------
+( 208 )
+
 <intervaltest> ::= <expression> NOT BETWEEN  .<expression> AND <expression> 
 
 <case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
@@ -7473,8 +7563,8 @@ STATE 266 ----------------------------------------------------------------------
 
 
 
-STATE 274 ----------------------------------------------------------------------
-( 213 )
+STATE 276 ----------------------------------------------------------------------
+( 214 )
 
 <case_simple_when> ::= WHEN <expression> THEN  .<expression> 
 
@@ -7562,13 +7652,13 @@ STATE 274 ----------------------------------------------------------------------
 
 
 
-STATE 280 ----------------------------------------------------------------------
-( 222 )
+STATE 282 ----------------------------------------------------------------------
+( 223 )
 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "EOF" between rule 376 and 420
+*** Reduce/reduce conflict on "EOF" between rule 375 and 426
 
 '$accept' ::= .<sql_dml_stmt_list> 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
@@ -7579,13 +7669,14 @@ STATE 280 ----------------------------------------------------------------------
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 '$accept' ::= .<sql_dml_stmt_list> 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
@@ -7596,15 +7687,16 @@ STATE 280 ----------------------------------------------------------------------
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 376 and 420
+*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 375 and 426
 
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
                         <sql_dml_stmt_xspan> 
@@ -7616,13 +7708,14 @@ STATE 280 ----------------------------------------------------------------------
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
                         <sql_dml_stmt_xspan> 
@@ -7634,323 +7727,342 @@ STATE 280 ----------------------------------------------------------------------
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "COMMA" between rule 376 and 420
-
-<table_ref_commalist> ::= .<table_ref_commalist> COMMA <table_ref> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-------------------------------------------------------------------------------
-<table_ref_commalist> ::= .<table_ref_commalist> COMMA <table_ref> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "RIGHT_PAREN" between rule 376 and 420
-
-<table_nested> ::= LEFT_PAREN  .<table_ref> RIGHT_PAREN 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-------------------------------------------------------------------------------
-<table_nested> ::= LEFT_PAREN  .<table_ref> RIGHT_PAREN 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "WHERE" between rule 376 and 420
-
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "UNION" between rule 376 and 420
-
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-------------------------------------------------------------------------------
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "RIGHT" between rule 376 and 420
-
-<table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-------------------------------------------------------------------------------
-<table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "ORDER" between rule 376 and 420
-
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
-------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<table_ref_commalist> ::= .<table_ref> 
-<table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
-
-*** Reduce/reduce conflict on "OPTIMIZE" between rule 376 and 420
-
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "COMMA" between rule 375 and 426
+
+<table_ref_commalist> ::= .<table_ref_commalist> COMMA <table_ref> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<table_ref_commalist> ::= .<table_ref_commalist> COMMA <table_ref> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "RIGHT_PAREN" between rule 375 and 426
+
+<table_nested> ::= LEFT_PAREN  .<table_ref> RIGHT_PAREN 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+------------------------------------------------------------------------------
+<table_nested> ::= LEFT_PAREN  .<table_ref> RIGHT_PAREN 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "WHERE" between rule 375 and 426
+
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "ON" between rule 376 and 420
+*** Reduce/reduce conflict on "UNION" between rule 375 and 426
+
+<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
+                     <opt_order_by_clause> <opt_fetch_first_clause> 
+<query_exp> ::= .<query_term> 
+<query_term> ::= .<query_select> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+------------------------------------------------------------------------------
+<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
+                     <opt_order_by_clause> <opt_fetch_first_clause> 
+<query_exp> ::= .<query_term> 
+<query_term> ::= .<query_select> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "RIGHT" between rule 375 and 426
+
+<table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+------------------------------------------------------------------------------
+<table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "ORDER" between rule 375 and 426
+
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "OPTIMIZE" between rule 375 and 426
+
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<table_ref_commalist> ::= .<table_ref> 
+<table_ref> ::= .<table_qualified> 
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
+
+*** Reduce/reduce conflict on "ON" between rule 375 and 426
 
 <merge statement> ::= MERGE INTO <merge_target_table> USING  .
                       <merge_source_table> ON <merge_on_condition> 
                       <merge operation specification list> 
 <merge_source_table> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <merge statement> ::= MERGE INTO <merge_target_table> USING  .
                       <merge_source_table> ON <merge_on_condition> 
                       <merge operation specification list> 
 <merge_source_table> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "LEFT" between rule 376 and 420
+*** Reduce/reduce conflict on "LEFT" between rule 375 and 426
 
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "JOIN" between rule 376 and 420
+*** Reduce/reduce conflict on "JOIN" between rule 375 and 426
 
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "INTERSECT" between rule 376 and 420
+*** Reduce/reduce conflict on "INTERSECT" between rule 375 and 426
 
 <query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "INNER" between rule 376 and 420
+*** Reduce/reduce conflict on "INNER" between rule 375 and 426
 
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "HAVING" between rule 376 and 420
+*** Reduce/reduce conflict on "HAVING" between rule 375 and 426
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "GROUP" between rule 376 and 420
+*** Reduce/reduce conflict on "GROUP" between rule 375 and 426
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "FULL" between rule 376 and 420
+*** Reduce/reduce conflict on "FULL" between rule 375 and 426
 
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <table_join> ::= .<table_ref> <opt_join_type> JOIN <table_ref> ON <condition> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "FOR" between rule 376 and 420
+*** Reduce/reduce conflict on "FOR" between rule 375 and 426
 
 <query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
                  <opt_updatability_clause> 
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
                  <opt_updatability_clause> 
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "FETCH" between rule 376 and 420
+*** Reduce/reduce conflict on "FETCH" between rule 375 and 426
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
-*** Reduce/reduce conflict on "EXCEPT" between rule 376 and 420
+*** Reduce/reduce conflict on "EXCEPT" between rule 375 and 426
 
 <query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (376)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (375)
 ------------------------------------------------------------------------------
 <query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM  .
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM  .<table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <table_ref_commalist> ::= .<table_ref> 
 <table_ref> ::= .<table_qualified> 
-<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (420)
+<table_qualified> ::= <schema> PERIOD <table> <opt_table_correlation> . (426)
 
 
 
 
-STATE 286 ----------------------------------------------------------------------
-( 232 )
+STATE 288 ----------------------------------------------------------------------
+( 233 )
 
 <expression_commalist> ::= <expression_commalist> COMMA  .<expression> 
 <expression_commalist_multiple_elements> ::= <expression_commalist> COMMA  .
@@ -8040,13 +8152,13 @@ STATE 286 ----------------------------------------------------------------------
 
 
 
-STATE 290 ----------------------------------------------------------------------
-( 236 )
+STATE 291 ----------------------------------------------------------------------
+( 238 )
 
 <project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (301)
-<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (426)
+<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (432)
 
-*** Reduce/reduce conflict on "COMMA" between rule 301 and 426
+*** Reduce/reduce conflict on "COMMA" between rule 301 and 432
 
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
@@ -8054,29 +8166,49 @@ STATE 290 ----------------------------------------------------------------------
 ------------------------------------------------------------------------------
 <selection> ::= .<selection> COMMA <project> 
 <selection> ::= .<project> 
-<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (426)
+<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (432)
 
-*** Reduce/reduce conflict on "FROM" between rule 301 and 426
+*** Reduce/reduce conflict on "INTO" between rule 301 and 432
 
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
 <project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (301)
 ------------------------------------------------------------------------------
-<query_select> ::= SELECT <opt_all_distinct>  .<selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <selection> ::= .<project> 
-<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (426)
+<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (432)
+
+*** Reduce/reduce conflict on "FROM" between rule 301 and 432
+
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (301)
+------------------------------------------------------------------------------
+<query_select> ::= SELECT <opt_all_distinct>  .<selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
+                   <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
+<selection> ::= .<project> 
+<project> ::= <schema> PERIOD <table> PERIOD ASTERISK . (432)
 
 
 
 
-STATE 312 ----------------------------------------------------------------------
-( 260 )
+STATE 313 ----------------------------------------------------------------------
+( 262 )
 
 <expression> ::= <expression>  .PLUS_SIGN <expression_term> 
 <expression> ::= <expression>  .MINUS_SIGN <expression_term> 
@@ -8098,8 +8230,8 @@ STATE 312 ----------------------------------------------------------------------
 
 
 
-STATE 314 ----------------------------------------------------------------------
-( 263 )
+STATE 315 ----------------------------------------------------------------------
+( 265 )
 
 <intervaltest> ::= <expression> BETWEEN <expression> AND  .<expression> 
 
@@ -8187,8 +8319,8 @@ STATE 314 ----------------------------------------------------------------------
 
 
 
-STATE 318 ----------------------------------------------------------------------
-( 267 )
+STATE 319 ----------------------------------------------------------------------
+( 269 )
 
 <in_cond> ::= <expression> NOT IN LEFT_PAREN  .<expression_commalist> 
               RIGHT_PAREN 
@@ -8267,17 +8399,17 @@ STATE 318 ----------------------------------------------------------------------
 <special_register> ::= .VALUE 
 <subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -8289,8 +8421,8 @@ STATE 318 ----------------------------------------------------------------------
 
 
 
-STATE 323 ----------------------------------------------------------------------
-( 281 )
+STATE 324 ----------------------------------------------------------------------
+( 283 )
 
 <table_join> ::= <table_ref> <opt_join_type> JOIN <table_ref> ON  .<condition> 
 
@@ -8425,8 +8557,8 @@ STATE 323 ----------------------------------------------------------------------
 
 
 
-STATE 324 ----------------------------------------------------------------------
-( 283 )
+STATE 325 ----------------------------------------------------------------------
+( 285 )
 
 <table_func> ::= TABLE LEFT_PAREN <opt_schema_dot> <identifier> LEFT_PAREN  .
                  <opt_expression_commalist> RIGHT_PAREN RIGHT_PAREN 
@@ -8520,8 +8652,8 @@ STATE 324 ----------------------------------------------------------------------
 
 
 
-STATE 325 ----------------------------------------------------------------------
-( 285 )
+STATE 326 ----------------------------------------------------------------------
+( 287 )
 
 <update_assignment_expression> ::= LEFT_PAREN <target_column_list> 
                                    RIGHT_PAREN EQUALS_OPERATOR LEFT_PAREN  .
@@ -8583,10 +8715,6 @@ STATE 325 ----------------------------------------------------------------------
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_exp> ::= .<query_combined> 
 <query_exp> ::= .<query_term> 
-<query_select> ::= .SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_term> ::= .<query_select> 
 <query_term> ::= .<query_values> 
 <query_term> ::= .LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause> 
@@ -8615,8 +8743,8 @@ STATE 325 ----------------------------------------------------------------------
 <special_register> ::= .USER 
 <special_register> ::= .VALUE 
 <subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
-<query_select> ::= .SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= .SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -8635,15 +8763,225 @@ STATE 325 ----------------------------------------------------------------------
 
 
 
-STATE 327 ----------------------------------------------------------------------
-( 288 )
+STATE 353 ----------------------------------------------------------------------
+( 318 )
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause>  .
+<intervaltest> ::= <expression> NOT BETWEEN <expression> AND  .<expression> 
+
+<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
+<case_expression> ::= .CASE <expression> <case_simple_when_list> 
+                      <opt_case_else> END 
+<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
+                      RIGHT_PAREN 
+<column> -> .<identifier> 
+<column_ref> ::= .<column> 
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<constant> ::= .CHAR_STRING_LITERAL 
+<constant> ::= .G CHAR_STRING_LITERAL 
+<constant> ::= .N CHAR_STRING_LITERAL 
+<constant> ::= .HEX_STRING_LITERAL 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .EXACT_NUMERIC_LITERAL 
+<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
+<expression> ::= .<expression> PLUS_SIGN <expression_term> 
+<expression> ::= .<expression> MINUS_SIGN <expression_term> 
+<expression> ::= .<expression_term> 
+<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
+<expression_factor> ::= .<subquery> 
+<expression_factor> ::= .<special_register> 
+<expression_factor> ::= .<column_ref> 
+<expression_factor> ::= .<constant> 
+<expression_factor> ::= .<parameter> 
+<expression_factor> ::= .<function> 
+<expression_factor> ::= .<case_expression> 
+<expression_factor> ::= .<cast_expression> 
+<expression_factor> ::= .PLUS_SIGN <expression_factor> 
+<expression_factor> ::= .MINUS_SIGN <expression_factor> 
+<expression_factor> ::= .DEFAULT 
+<expression_factor> ::= .NULL 
+<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
+<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
+<expression_term> ::= .<expression_term> <duration> 
+<expression_term> ::= .<expression_factor> 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
+               <opt_expression_commalist> RIGHT_PAREN 
+<identifier> ::= .REGULAR_IDENTIFIER 
+<identifier> ::= .DELIMITED_IDENTIFIER 
+<opt_schema_dot> ::= .<schema> PERIOD 
+<opt_schema_dot> ::= . (281)
+<parameter> ::= .HOSTVARIABLE 
+<parameter> ::= .PARAMETER_MARKER 
+<schema> ::= .<identifier> 
+<special_register> ::= .CURRENT_DATE 
+<special_register> ::= .CURRENT_TIME 
+<special_register> ::= .CURRENT_TIMESTAMP 
+<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .LOCALTIME 
+<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
+<special_register> ::= .LOCALTIMESTAMP 
+<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
+<special_register> ::= .CURRENT_PATH 
+<special_register> ::= .CURRENT_ROLE 
+<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
+                       <datatype_path-resolved_user-defined_type_name> 
+<special_register> ::= .CURRENT_USER 
+<special_register> ::= .SESSION_USER 
+<special_register> ::= .SYSTEM_USER 
+<special_register> ::= .USER 
+<special_register> ::= .VALUE 
+<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
+
+*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** 20 Keyword/Identifier Shift/shift conflicts detected
+
+
+
+STATE 360 ----------------------------------------------------------------------
+( 326 360 )
+
+<expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
+<query_term> ::= LEFT_PAREN  .<query_exp> RIGHT_PAREN <opt_order_by_clause> 
+                 <opt_fetch_first_clause> 
+<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
+
+<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
+<case_expression> ::= .CASE <expression> <case_simple_when_list> 
+                      <opt_case_else> END 
+<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
+                      RIGHT_PAREN 
+<column> -> .<identifier> 
+<column_ref> ::= .<column> 
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<constant> ::= .CHAR_STRING_LITERAL 
+<constant> ::= .G CHAR_STRING_LITERAL 
+<constant> ::= .N CHAR_STRING_LITERAL 
+<constant> ::= .HEX_STRING_LITERAL 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .EXACT_NUMERIC_LITERAL 
+<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
+<expression> ::= .<expression> PLUS_SIGN <expression_term> 
+<expression> ::= .<expression> MINUS_SIGN <expression_term> 
+<expression> ::= .<expression_term> 
+<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
+<expression_factor> ::= .<subquery> 
+<expression_factor> ::= .<special_register> 
+<expression_factor> ::= .<column_ref> 
+<expression_factor> ::= .<constant> 
+<expression_factor> ::= .<parameter> 
+<expression_factor> ::= .<function> 
+<expression_factor> ::= .<case_expression> 
+<expression_factor> ::= .<cast_expression> 
+<expression_factor> ::= .PLUS_SIGN <expression_factor> 
+<expression_factor> ::= .MINUS_SIGN <expression_factor> 
+<expression_factor> ::= .DEFAULT 
+<expression_factor> ::= .NULL 
+<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
+<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
+<expression_term> ::= .<expression_term> <duration> 
+<expression_term> ::= .<expression_factor> 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
+               <opt_expression_commalist> RIGHT_PAREN 
+<identifier> ::= .REGULAR_IDENTIFIER 
+<identifier> ::= .DELIMITED_IDENTIFIER 
+<opt_schema_dot> ::= .<schema> PERIOD 
+<opt_schema_dot> ::= . (281)
+<parameter> ::= .HOSTVARIABLE 
+<parameter> ::= .PARAMETER_MARKER 
+<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
+                     <opt_order_by_clause> <opt_fetch_first_clause> 
+<query_exp> ::= .<query_combined> 
+<query_exp> ::= .<query_term> 
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<query_term> ::= .<query_select> 
+<query_term> ::= .<query_values> 
+<query_term> ::= .LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause> 
+                 <opt_fetch_first_clause> 
+<query_values> ::= .VALUES <values_row_commalist> <opt_order_by_clause> 
+                   <opt_fetch_first_clause> 
+<schema> ::= .<identifier> 
+<special_register> ::= .CURRENT_DATE 
+<special_register> ::= .CURRENT_TIME 
+<special_register> ::= .CURRENT_TIMESTAMP 
+<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .LOCALTIME 
+<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
+<special_register> ::= .LOCALTIMESTAMP 
+<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
+<special_register> ::= .CURRENT_PATH 
+<special_register> ::= .CURRENT_ROLE 
+<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
+                       <datatype_path-resolved_user-defined_type_name> 
+<special_register> ::= .CURRENT_USER 
+<special_register> ::= .SESSION_USER 
+<special_register> ::= .SYSTEM_USER 
+<special_register> ::= .USER 
+<special_register> ::= .VALUE 
+<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
+<with_clause> ::= .WITH <with_table_spec_list> 
+<with_clause> ::= . (409)
+<query_select> ::= .SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
+                   <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+                   <opt_optimize_clause> 
+
+*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
+
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<with_clause> ::= . (409)
+
+*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** Shift/reduce conflict on "SELECT" with rule 409
+
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<with_clause> ::= . (409)
+
+*** Shift/reduce conflict on "VALUES" with rule 409
+
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<with_clause> ::= . (409)
+
+*** 23 Keyword/Identifier Shift/shift conflicts detected
+
+
+
+STATE 361 ----------------------------------------------------------------------
+( 328 )
+
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause>  .
                    <opt_order_by_clause> <opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -8658,17 +8996,18 @@ STATE 327 ----------------------------------------------------------------------
 <query_exp_root> ::= <with_clause>  .<query_exp> 
 <query_exp> ::= .<query_term> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause>  .
                    <opt_order_by_clause> <opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <opt_order_by_clause> ::= . (279)
 
 
 
 
-STATE 328 ----------------------------------------------------------------------
-( 288 )
+STATE 362 ----------------------------------------------------------------------
+( 328 )
 
 <opt_having_clause> ::= HAVING  .<condition> 
 
@@ -8803,8 +9142,8 @@ STATE 328 ----------------------------------------------------------------------
 
 
 
-STATE 329 ----------------------------------------------------------------------
-( 289 )
+STATE 363 ----------------------------------------------------------------------
+( 329 )
 
 <opt_group_by_clause> ::= GROUP BY  .<grouping_spec_list> 
 <opt_group_by_clause> ::= GROUP BY  .<super_groups_element_list> WITH CUBE 
@@ -8913,233 +9252,11 @@ STATE 329 ----------------------------------------------------------------------
 
 
 
-STATE 352 ----------------------------------------------------------------------
-( 317 )
+STATE 382 ----------------------------------------------------------------------
+( 361 )
 
-<intervaltest> ::= <expression> NOT BETWEEN <expression> AND  .<expression> 
-
-<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
-<case_expression> ::= .CASE <expression> <case_simple_when_list> 
-                      <opt_case_else> END 
-<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
-                      RIGHT_PAREN 
-<column> -> .<identifier> 
-<column_ref> ::= .<column> 
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<constant> ::= .CHAR_STRING_LITERAL 
-<constant> ::= .G CHAR_STRING_LITERAL 
-<constant> ::= .N CHAR_STRING_LITERAL 
-<constant> ::= .HEX_STRING_LITERAL 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .EXACT_NUMERIC_LITERAL 
-<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
-<expression> ::= .<expression> PLUS_SIGN <expression_term> 
-<expression> ::= .<expression> MINUS_SIGN <expression_term> 
-<expression> ::= .<expression_term> 
-<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
-<expression_factor> ::= .<subquery> 
-<expression_factor> ::= .<special_register> 
-<expression_factor> ::= .<column_ref> 
-<expression_factor> ::= .<constant> 
-<expression_factor> ::= .<parameter> 
-<expression_factor> ::= .<function> 
-<expression_factor> ::= .<case_expression> 
-<expression_factor> ::= .<cast_expression> 
-<expression_factor> ::= .PLUS_SIGN <expression_factor> 
-<expression_factor> ::= .MINUS_SIGN <expression_factor> 
-<expression_factor> ::= .DEFAULT 
-<expression_factor> ::= .NULL 
-<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
-<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
-<expression_term> ::= .<expression_term> <duration> 
-<expression_term> ::= .<expression_factor> 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
-               <opt_expression_commalist> RIGHT_PAREN 
-<identifier> ::= .REGULAR_IDENTIFIER 
-<identifier> ::= .DELIMITED_IDENTIFIER 
-<opt_schema_dot> ::= .<schema> PERIOD 
-<opt_schema_dot> ::= . (281)
-<parameter> ::= .HOSTVARIABLE 
-<parameter> ::= .PARAMETER_MARKER 
-<schema> ::= .<identifier> 
-<special_register> ::= .CURRENT_DATE 
-<special_register> ::= .CURRENT_TIME 
-<special_register> ::= .CURRENT_TIMESTAMP 
-<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .LOCALTIME 
-<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
-<special_register> ::= .LOCALTIMESTAMP 
-<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
-<special_register> ::= .CURRENT_PATH 
-<special_register> ::= .CURRENT_ROLE 
-<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
-                       <datatype_path-resolved_user-defined_type_name> 
-<special_register> ::= .CURRENT_USER 
-<special_register> ::= .SESSION_USER 
-<special_register> ::= .SYSTEM_USER 
-<special_register> ::= .USER 
-<special_register> ::= .VALUE 
-<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
-
-*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** 20 Keyword/Identifier Shift/shift conflicts detected
-
-
-
-STATE 359 ----------------------------------------------------------------------
-( 325 359 )
-
-<expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
-<query_term> ::= LEFT_PAREN  .<query_exp> RIGHT_PAREN <opt_order_by_clause> 
-                 <opt_fetch_first_clause> 
-<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
-
-<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
-<case_expression> ::= .CASE <expression> <case_simple_when_list> 
-                      <opt_case_else> END 
-<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
-                      RIGHT_PAREN 
-<column> -> .<identifier> 
-<column_ref> ::= .<column> 
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<constant> ::= .CHAR_STRING_LITERAL 
-<constant> ::= .G CHAR_STRING_LITERAL 
-<constant> ::= .N CHAR_STRING_LITERAL 
-<constant> ::= .HEX_STRING_LITERAL 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .EXACT_NUMERIC_LITERAL 
-<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
-<expression> ::= .<expression> PLUS_SIGN <expression_term> 
-<expression> ::= .<expression> MINUS_SIGN <expression_term> 
-<expression> ::= .<expression_term> 
-<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
-<expression_factor> ::= .<subquery> 
-<expression_factor> ::= .<special_register> 
-<expression_factor> ::= .<column_ref> 
-<expression_factor> ::= .<constant> 
-<expression_factor> ::= .<parameter> 
-<expression_factor> ::= .<function> 
-<expression_factor> ::= .<case_expression> 
-<expression_factor> ::= .<cast_expression> 
-<expression_factor> ::= .PLUS_SIGN <expression_factor> 
-<expression_factor> ::= .MINUS_SIGN <expression_factor> 
-<expression_factor> ::= .DEFAULT 
-<expression_factor> ::= .NULL 
-<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
-<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
-<expression_term> ::= .<expression_term> <duration> 
-<expression_term> ::= .<expression_factor> 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
-               <opt_expression_commalist> RIGHT_PAREN 
-<identifier> ::= .REGULAR_IDENTIFIER 
-<identifier> ::= .DELIMITED_IDENTIFIER 
-<opt_schema_dot> ::= .<schema> PERIOD 
-<opt_schema_dot> ::= . (281)
-<parameter> ::= .HOSTVARIABLE 
-<parameter> ::= .PARAMETER_MARKER 
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_combined> 
-<query_exp> ::= .<query_term> 
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<query_select> ::= .SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_term> ::= .<query_select> 
-<query_term> ::= .<query_values> 
-<query_term> ::= .LEFT_PAREN <query_exp> RIGHT_PAREN <opt_order_by_clause> 
-                 <opt_fetch_first_clause> 
-<query_values> ::= .VALUES <values_row_commalist> <opt_order_by_clause> 
-                   <opt_fetch_first_clause> 
-<schema> ::= .<identifier> 
-<special_register> ::= .CURRENT_DATE 
-<special_register> ::= .CURRENT_TIME 
-<special_register> ::= .CURRENT_TIMESTAMP 
-<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .LOCALTIME 
-<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
-<special_register> ::= .LOCALTIMESTAMP 
-<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
-<special_register> ::= .CURRENT_PATH 
-<special_register> ::= .CURRENT_ROLE 
-<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
-                       <datatype_path-resolved_user-defined_type_name> 
-<special_register> ::= .CURRENT_USER 
-<special_register> ::= .SESSION_USER 
-<special_register> ::= .SYSTEM_USER 
-<special_register> ::= .USER 
-<special_register> ::= .VALUE 
-<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
-<with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
-<query_select> ::= .SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> 
-                   <opt_optimize_clause> 
-
-*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
-
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
-
-*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "SELECT" with rule 410
-
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
-
-*** Shift/reduce conflict on "VALUES" with rule 410
-
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
-
-*** 23 Keyword/Identifier Shift/shift conflicts detected
-
-
-
-STATE 360 ----------------------------------------------------------------------
-( 327 )
-
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause>  .<opt_fetch_first_clause> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause>  .<opt_fetch_first_clause> 
                    <opt_optimize_clause> 
@@ -9154,22 +9271,23 @@ STATE 360 ----------------------------------------------------------------------
 <query_combined> ::= <query_exp> <query_combined_operator>  .<query_term> 
                      <opt_order_by_clause> <opt_fetch_first_clause> 
 <query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
+<query_select> ::= SELECT <opt_all_distinct> <selection> <opt_into_clause> 
+                   FROM <table_ref_commalist> <opt_where_clause> 
                    <opt_group_by_clause> <opt_having_clause> 
                    <opt_order_by_clause>  .<opt_fetch_first_clause> 
+                   <opt_optimize_clause> 
 <opt_fetch_first_clause> ::= . (261)
 
 
 
 
-STATE 367 ----------------------------------------------------------------------
-( 329 )
+STATE 389 ----------------------------------------------------------------------
+( 363 )
 
 <grouping> -> <grouping_exp> . (183)
-<super_groups_element_exp> ::= <grouping_exp> . (364)
+<super_groups_element_exp> ::= <grouping_exp> . (363)
 
-*** Reduce/reduce conflict on "COMMA" between rule 183 and 364
+*** Reduce/reduce conflict on "COMMA" between rule 183 and 363
 
 <grouping_spec_list> ::= .<grouping_spec_list> COMMA <grouping_spec> 
 <grouping_spec_list> ::= .<grouping_spec> 
@@ -9180,13 +9298,13 @@ STATE 367 ----------------------------------------------------------------------
                                 <super_groups_element> 
 <super_groups_element_list> ::= .<super_groups_element> 
 <super_groups_element> ::= .<super_groups_element_exp> 
-<super_groups_element_exp> ::= <grouping_exp> . (364)
+<super_groups_element_exp> ::= <grouping_exp> . (363)
 
 
 
 
-STATE 368 ----------------------------------------------------------------------
-( 329 )
+STATE 390 ----------------------------------------------------------------------
+( 363 )
 
 <expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
 <subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
@@ -9270,17 +9388,17 @@ STATE 368 ----------------------------------------------------------------------
 <super_groups_element_exp_list> ::= .<super_groups_element_exp_list> COMMA 
                                     <super_groups_element_exp> 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -9292,250 +9410,47 @@ STATE 368 ----------------------------------------------------------------------
 
 
 
-STATE 387 ----------------------------------------------------------------------
-( 360 )
+STATE 399 ----------------------------------------------------------------------
+( 380 )
 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
+<merge update specification> ::= UPDATE SET  .<update_assignment_clause> 
 
-<opt_optimize_clause> ::= .<optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-<optimize_clause> ::= .OPTIMIZE FOR <opt_optimize_row_count> <row_or_rows> 
+<column> -> .<identifier> 
+<column_ref> ::= .<column> 
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<identifier> ::= .REGULAR_IDENTIFIER 
+<identifier> ::= .DELIMITED_IDENTIFIER 
+<opt_schema_dot> ::= .<schema> PERIOD 
+<opt_schema_dot> ::= . (281)
+<schema> ::= .<identifier> 
+<update_assignment_clause> -> .<update_assignment_expression_commalist> 
+<update_assignment_expression> ::= .<column_ref> EQUALS_OPERATOR <expression> 
+<update_assignment_expression> ::= .LEFT_PAREN <target_column_list> RIGHT_PAREN 
+                                   EQUALS_OPERATOR LEFT_PAREN <query_exp> 
+                                   RIGHT_PAREN 
+<update_assignment_expression> ::= .LEFT_PAREN <target_column_list> RIGHT_PAREN 
+                                   EQUALS_OPERATOR LEFT_PAREN 
+                                   <expression_commalist> RIGHT_PAREN 
+<update_assignment_expression_commalist> ::= .<update_assignment_expression> 
+<update_assignment_expression_commalist> ::= .
+                                        <update_assignment_expression_commalist> 
+                                        COMMA <update_assignment_expression> 
 
-*** Reduce/reduce conflict on "EOF" between rule 416 and 312
+*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
-'$accept' ::= .<sql_dml_stmt_list> 
-<sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
-<sql_dml_stmt_xspan> ::= .<sql_dml_stmt> 
-<sql_dml_stmt> -> .<query_stmt> 
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-'$accept' ::= .<sql_dml_stmt_list> 
-<sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
-<sql_dml_stmt_xspan> ::= .<sql_dml_stmt> 
-<sql_dml_stmt> -> .<query_stmt> 
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
 
-*** Reduce/reduce conflict on "STATEMENT_TERMINATOR" between rule 416 and 312
+*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
-<sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
-                        <sql_dml_stmt_xspan> 
-<sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
-<sql_dml_stmt_xspan> ::= .<sql_dml_stmt> 
-<sql_dml_stmt> -> .<query_stmt> 
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<sql_dml_stmt_list> ::= .<sql_dml_stmt_list> STATEMENT_TERMINATOR 
-                        <sql_dml_stmt_xspan> 
-<sql_dml_stmt_list> ::= .<sql_dml_stmt_xspan> 
-<sql_dml_stmt_xspan> ::= .<sql_dml_stmt> 
-<sql_dml_stmt> -> .<query_stmt> 
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "RIGHT_PAREN" between rule 416 and 312
-
-<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "UNION" between rule 416 and 312
-
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "ORDER" between rule 416 and 312
-
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "INTERSECT" between rule 416 and 312
-
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "FOR" between rule 416 and 312
-
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<query_stmt> ::= .<query_exp_root> <opt_order_by_clause> 
-                 <opt_updatability_clause> 
-<query_exp_root> ::= <with_clause>  .<query_exp> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "FETCH" between rule 416 and 312
-
-<query_combined> ::= <query_exp> <query_combined_operator>  .<query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<query_combined> ::= <query_exp> <query_combined_operator>  .<query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
-
-*** Reduce/reduce conflict on "EXCEPT" between rule 416 and 312
-
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause>  .
-                   <opt_optimize_clause> 
-<opt_optimize_clause> ::= . (416)
-------------------------------------------------------------------------------
-<query_combined> ::= .<query_exp> <query_combined_operator> <query_term> 
-                     <opt_order_by_clause> <opt_fetch_first_clause> 
-<query_exp> ::= .<query_term> 
-<query_term> ::= .<query_select> 
-<query_select> ::= SELECT <opt_all_distinct> <selection> FROM 
-                   <table_ref_commalist> <opt_where_clause> 
-                   <opt_group_by_clause> <opt_having_clause> 
-                   <opt_order_by_clause> <opt_fetch_first_clause> . (312)
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
 
 
 
 
-STATE 388 ----------------------------------------------------------------------
-( 361 )
+STATE 402 ----------------------------------------------------------------------
+( 383 )
 
 <grouping_spec_list> ::= <grouping_spec_list> COMMA  .<grouping_spec> 
 
@@ -9633,8 +9548,8 @@ STATE 388 ----------------------------------------------------------------------
 
 
 
-STATE 389 ----------------------------------------------------------------------
-( 362 )
+STATE 403 ----------------------------------------------------------------------
+( 384 )
 
 <super_groups> ::= ROLLUP LEFT_PAREN  .<super_groups_element_list> RIGHT_PAREN 
 
@@ -9730,8 +9645,8 @@ STATE 389 ----------------------------------------------------------------------
 
 
 
-STATE 390 ----------------------------------------------------------------------
-( 363 )
+STATE 404 ----------------------------------------------------------------------
+( 385 )
 
 <super_groups> ::= CUBE LEFT_PAREN  .<super_groups_element_list> RIGHT_PAREN 
 
@@ -9827,8 +9742,8 @@ STATE 390 ----------------------------------------------------------------------
 
 
 
-STATE 392 ----------------------------------------------------------------------
-( 366 408 410 )
+STATE 406 ----------------------------------------------------------------------
+( 388 416 418 )
 
 <super_groups_element_list> ::= <super_groups_element_list> COMMA  .
                                 <super_groups_element> 
@@ -9922,8 +9837,8 @@ STATE 392 ----------------------------------------------------------------------
 
 
 
-STATE 395 ----------------------------------------------------------------------
-( 368 409 419 )
+STATE 409 ----------------------------------------------------------------------
+( 390 417 424 )
 
 <expression> ::= <expression>  .PLUS_SIGN <expression_term> 
 <expression> ::= <expression>  .MINUS_SIGN <expression_term> 
@@ -9941,47 +9856,8 @@ STATE 395 ----------------------------------------------------------------------
 
 
 
-STATE 404 ----------------------------------------------------------------------
-( 385 )
-
-<merge update specification> ::= UPDATE SET  .<update_assignment_clause> 
-
-<column> -> .<identifier> 
-<column_ref> ::= .<column> 
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<identifier> ::= .REGULAR_IDENTIFIER 
-<identifier> ::= .DELIMITED_IDENTIFIER 
-<opt_schema_dot> ::= .<schema> PERIOD 
-<opt_schema_dot> ::= . (281)
-<schema> ::= .<identifier> 
-<update_assignment_clause> -> .<update_assignment_expression_commalist> 
-<update_assignment_expression> ::= .<column_ref> EQUALS_OPERATOR <expression> 
-<update_assignment_expression> ::= .LEFT_PAREN <target_column_list> RIGHT_PAREN 
-                                   EQUALS_OPERATOR LEFT_PAREN <query_exp> 
-                                   RIGHT_PAREN 
-<update_assignment_expression> ::= .LEFT_PAREN <target_column_list> RIGHT_PAREN 
-                                   EQUALS_OPERATOR LEFT_PAREN 
-                                   <expression_commalist> RIGHT_PAREN 
-<update_assignment_expression_commalist> ::= .<update_assignment_expression> 
-<update_assignment_expression_commalist> ::= .
-                                        <update_assignment_expression_commalist> 
-                                        COMMA <update_assignment_expression> 
-
-*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-
-
-
-STATE 407 ----------------------------------------------------------------------
-( 388 419 424 )
+STATE 415 ----------------------------------------------------------------------
+( 402 424 428 )
 
 <expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
 <subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
@@ -10058,17 +9934,17 @@ STATE 407 ----------------------------------------------------------------------
 <special_register> ::= .VALUE 
 <subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -10080,8 +9956,8 @@ STATE 407 ----------------------------------------------------------------------
 
 
 
-STATE 409 ----------------------------------------------------------------------
-( 389 390 392 )
+STATE 417 ----------------------------------------------------------------------
+( 403 404 406 )
 
 <expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
 <subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
@@ -10164,17 +10040,17 @@ STATE 409 ----------------------------------------------------------------------
 <super_groups_element_exp_list> ::= .<super_groups_element_exp_list> COMMA 
                                     <super_groups_element_exp> 
 <with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
 
 <column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
 <opt_schema_dot> ::= . (281)
 
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
 
 <query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
+<with_clause> ::= . (409)
 
 *** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
 
@@ -10186,8 +10062,8 @@ STATE 409 ----------------------------------------------------------------------
 
 
 
-STATE 411 ----------------------------------------------------------------------
-( 391 )
+STATE 419 ----------------------------------------------------------------------
+( 405 )
 
 <grouping_sets> ::= GROUPING SETS LEFT_PAREN  .<grouping_sets_element_list> 
                     RIGHT_PAREN 
@@ -10289,8 +10165,8 @@ STATE 411 ----------------------------------------------------------------------
 
 
 
-STATE 412 ----------------------------------------------------------------------
-( 394 )
+STATE 420 ----------------------------------------------------------------------
+( 408 )
 
 <super_groups_element_exp_list> ::= <super_groups_element_exp_list> COMMA  .
                                     <super_groups_element_exp> 
@@ -10381,120 +10257,8 @@ STATE 412 ----------------------------------------------------------------------
 
 
 
-STATE 419 ----------------------------------------------------------------------
-( 411 422 )
-
-<expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
-<grouping_sets_element> ::= LEFT_PAREN  .<grouping_sets_element_exp_list> 
-                            RIGHT_PAREN 
-<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
-<super_groups> ::= LEFT_PAREN  .RIGHT_PAREN 
-
-<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
-<case_expression> ::= .CASE <expression> <case_simple_when_list> 
-                      <opt_case_else> END 
-<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
-                      RIGHT_PAREN 
-<column> -> .<identifier> 
-<column_ref> ::= .<column> 
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<constant> ::= .CHAR_STRING_LITERAL 
-<constant> ::= .G CHAR_STRING_LITERAL 
-<constant> ::= .N CHAR_STRING_LITERAL 
-<constant> ::= .HEX_STRING_LITERAL 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .UNSIGNED_INTEGER 
-<constant> ::= .EXACT_NUMERIC_LITERAL 
-<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
-<expression> ::= .<expression> PLUS_SIGN <expression_term> 
-<expression> ::= .<expression> MINUS_SIGN <expression_term> 
-<expression> ::= .<expression_term> 
-<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
-<expression_factor> ::= .<subquery> 
-<expression_factor> ::= .<special_register> 
-<expression_factor> ::= .<column_ref> 
-<expression_factor> ::= .<constant> 
-<expression_factor> ::= .<parameter> 
-<expression_factor> ::= .<function> 
-<expression_factor> ::= .<case_expression> 
-<expression_factor> ::= .<cast_expression> 
-<expression_factor> ::= .PLUS_SIGN <expression_factor> 
-<expression_factor> ::= .MINUS_SIGN <expression_factor> 
-<expression_factor> ::= .DEFAULT 
-<expression_factor> ::= .NULL 
-<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
-<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
-<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
-<expression_term> ::= .<expression_term> <duration> 
-<expression_term> ::= .<expression_factor> 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
-<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
-               <opt_expression_commalist> RIGHT_PAREN 
-<grouping> -> .<grouping_exp> 
-<grouping> -> .<super_groups> 
-<grouping_exp> ::= .<expression> 
-<grouping_sets_element_exp> ::= .<grouping> 
-<grouping_sets_element_exp_list> ::= .<grouping_sets_element_exp> 
-<grouping_sets_element_exp_list> ::= .<grouping_sets_element_exp_list> COMMA 
-                                     <grouping_sets_element_exp> 
-<identifier> ::= .REGULAR_IDENTIFIER 
-<identifier> ::= .DELIMITED_IDENTIFIER 
-<opt_schema_dot> ::= .<schema> PERIOD 
-<opt_schema_dot> ::= . (281)
-<parameter> ::= .HOSTVARIABLE 
-<parameter> ::= .PARAMETER_MARKER 
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<schema> ::= .<identifier> 
-<special_register> ::= .CURRENT_DATE 
-<special_register> ::= .CURRENT_TIME 
-<special_register> ::= .CURRENT_TIMESTAMP 
-<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .LOCALTIME 
-<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
-<special_register> ::= .LOCALTIMESTAMP 
-<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
-                       RIGHT_PAREN 
-<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
-<special_register> ::= .CURRENT_PATH 
-<special_register> ::= .CURRENT_ROLE 
-<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
-                       <datatype_path-resolved_user-defined_type_name> 
-<special_register> ::= .CURRENT_USER 
-<special_register> ::= .SESSION_USER 
-<special_register> ::= .SYSTEM_USER 
-<special_register> ::= .USER 
-<special_register> ::= .VALUE 
-<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
-<super_groups> ::= .CUBE LEFT_PAREN <super_groups_element_list> RIGHT_PAREN 
-<super_groups> ::= .ROLLUP LEFT_PAREN <super_groups_element_list> RIGHT_PAREN 
-<super_groups> ::= .LEFT_PAREN RIGHT_PAREN 
-<with_clause> ::= .WITH <with_table_spec_list> 
-<with_clause> ::= . (410)
-
-*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** Shift/reduce conflict on "LEFT_PAREN" with rule 410
-
-<query_exp_root> ::= .<with_clause> <query_exp> 
-<with_clause> ::= . (410)
-
-*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
-
-<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
-<opt_schema_dot> ::= . (281)
-
-*** 23 Keyword/Identifier Shift/shift conflicts detected
-*** 2 Keyword/Identifier Shift/reduce conflicts detected
-
-
-
-STATE 420 ----------------------------------------------------------------------
-( 416 )
+STATE 421 ----------------------------------------------------------------------
+( 413 )
 
 <merge insert specification> ::= INSERT <opt_target_column_list> VALUES  .
                                  <insert_row> 
@@ -10586,8 +10350,120 @@ STATE 420 ----------------------------------------------------------------------
 
 
 
-STATE 422 ----------------------------------------------------------------------
-( 418 )
+STATE 424 ----------------------------------------------------------------------
+( 419 426 )
+
+<expression_factor> ::= LEFT_PAREN  .<expression> RIGHT_PAREN 
+<grouping_sets_element> ::= LEFT_PAREN  .<grouping_sets_element_exp_list> 
+                            RIGHT_PAREN 
+<subquery> ::= LEFT_PAREN  .<query_exp_root> RIGHT_PAREN 
+<super_groups> ::= LEFT_PAREN  .RIGHT_PAREN 
+
+<case_expression> ::= .CASE <case_search_when_list> <opt_case_else> END 
+<case_expression> ::= .CASE <expression> <case_simple_when_list> 
+                      <opt_case_else> END 
+<cast_expression> ::= .CAST LEFT_PAREN <cast_operand> AS <cast_target> 
+                      RIGHT_PAREN 
+<column> -> .<identifier> 
+<column_ref> ::= .<column> 
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<constant> ::= .CHAR_STRING_LITERAL 
+<constant> ::= .G CHAR_STRING_LITERAL 
+<constant> ::= .N CHAR_STRING_LITERAL 
+<constant> ::= .HEX_STRING_LITERAL 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .UNSIGNED_INTEGER 
+<constant> ::= .EXACT_NUMERIC_LITERAL 
+<constant> ::= .APPROXIMATE_NUMERIC_LITERAL 
+<expression> ::= .<expression> PLUS_SIGN <expression_term> 
+<expression> ::= .<expression> MINUS_SIGN <expression_term> 
+<expression> ::= .<expression_term> 
+<expression_factor> ::= .LEFT_PAREN <expression> RIGHT_PAREN 
+<expression_factor> ::= .<subquery> 
+<expression_factor> ::= .<special_register> 
+<expression_factor> ::= .<column_ref> 
+<expression_factor> ::= .<constant> 
+<expression_factor> ::= .<parameter> 
+<expression_factor> ::= .<function> 
+<expression_factor> ::= .<case_expression> 
+<expression_factor> ::= .<cast_expression> 
+<expression_factor> ::= .PLUS_SIGN <expression_factor> 
+<expression_factor> ::= .MINUS_SIGN <expression_factor> 
+<expression_factor> ::= .DEFAULT 
+<expression_factor> ::= .NULL 
+<expression_term> ::= .<expression_term> ASTERISK <expression_factor> 
+<expression_term> ::= .<expression_term> SOLIDUS <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT <expression_factor> 
+<expression_term> ::= .<expression_term> CONCAT_OPERATOR <expression_factor> 
+<expression_term> ::= .<expression_term> <duration> 
+<expression_term> ::= .<expression_factor> 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN ASTERISK RIGHT_PAREN 
+<function> ::= .<opt_schema_dot> <identifier> LEFT_PAREN <opt_all_distinct> 
+               <opt_expression_commalist> RIGHT_PAREN 
+<grouping> -> .<grouping_exp> 
+<grouping> -> .<super_groups> 
+<grouping_exp> ::= .<expression> 
+<grouping_sets_element_exp> ::= .<grouping> 
+<grouping_sets_element_exp_list> ::= .<grouping_sets_element_exp> 
+<grouping_sets_element_exp_list> ::= .<grouping_sets_element_exp_list> COMMA 
+                                     <grouping_sets_element_exp> 
+<identifier> ::= .REGULAR_IDENTIFIER 
+<identifier> ::= .DELIMITED_IDENTIFIER 
+<opt_schema_dot> ::= .<schema> PERIOD 
+<opt_schema_dot> ::= . (281)
+<parameter> ::= .HOSTVARIABLE 
+<parameter> ::= .PARAMETER_MARKER 
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<schema> ::= .<identifier> 
+<special_register> ::= .CURRENT_DATE 
+<special_register> ::= .CURRENT_TIME 
+<special_register> ::= .CURRENT_TIMESTAMP 
+<special_register> ::= .CURRENT_TIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .LOCALTIME 
+<special_register> ::= .LOCALTIME LEFT_PAREN <time precision> RIGHT_PAREN 
+<special_register> ::= .LOCALTIMESTAMP 
+<special_register> ::= .LOCALTIMESTAMP LEFT_PAREN <timestamp precision> 
+                       RIGHT_PAREN 
+<special_register> ::= .CURRENT_DEFAULT_TRANSFORM_GROUP 
+<special_register> ::= .CURRENT_PATH 
+<special_register> ::= .CURRENT_ROLE 
+<special_register> ::= .CURRENT_TRANSFORM_GROUP_FOR_TYPE 
+                       <datatype_path-resolved_user-defined_type_name> 
+<special_register> ::= .CURRENT_USER 
+<special_register> ::= .SESSION_USER 
+<special_register> ::= .SYSTEM_USER 
+<special_register> ::= .USER 
+<special_register> ::= .VALUE 
+<subquery> ::= .LEFT_PAREN <query_exp_root> RIGHT_PAREN 
+<super_groups> ::= .CUBE LEFT_PAREN <super_groups_element_list> RIGHT_PAREN 
+<super_groups> ::= .ROLLUP LEFT_PAREN <super_groups_element_list> RIGHT_PAREN 
+<super_groups> ::= .LEFT_PAREN RIGHT_PAREN 
+<with_clause> ::= .WITH <with_table_spec_list> 
+<with_clause> ::= . (409)
+
+*** Shift/reduce conflict on "DELIMITED_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** Shift/reduce conflict on "LEFT_PAREN" with rule 409
+
+<query_exp_root> ::= .<with_clause> <query_exp> 
+<with_clause> ::= . (409)
+
+*** Shift/reduce conflict on "REGULAR_IDENTIFIER" with rule 281
+
+<column_ref> ::= .<opt_schema_dot> <table> PERIOD <column> 
+<opt_schema_dot> ::= . (281)
+
+*** 23 Keyword/Identifier Shift/shift conflicts detected
+*** 2 Keyword/Identifier Shift/reduce conflicts detected
+
+
+
+STATE 426 ----------------------------------------------------------------------
+( 423 )
 
 <grouping_sets_element_list> ::= <grouping_sets_element_list> COMMA  .
                                  <grouping_sets_element> 
@@ -10686,8 +10562,8 @@ STATE 422 ----------------------------------------------------------------------
 
 
 
-STATE 424 ----------------------------------------------------------------------
-( 423 )
+STATE 428 ----------------------------------------------------------------------
+( 427 )
 
 <grouping_sets_element_exp_list> ::= <grouping_sets_element_exp_list> COMMA  .
                                      <grouping_sets_element_exp> 
@@ -10787,76 +10663,76 @@ C:\Users\dario.foresti\git\asup_0_5_3\org.asup.db.syntax.ibmi\src\org\asup\db\sy
 
 
 Number of Terminals: 779
-Number of Nonterminals: 174
-Number of Productions: 431
-Number of Items: 1344
-Number of Scopes: 57
-Number of States: 424
-Number of Shift actions: 57568
-Number of Goto actions: 610
-Number of Shift/Reduce actions: 23564
-Number of Goto/Reduce actions: 1063
-Number of Reduce actions: 38790
+Number of Nonterminals: 178
+Number of Productions: 437
+Number of Items: 1349
+Number of Scopes: 56
+Number of States: 428
+Number of Shift actions: 57570
+Number of Goto actions: 612
+Number of Shift/Reduce actions: 23566
+Number of Goto/Reduce actions: 1066
+Number of Reduce actions: 38785
 Number of Shift-Reduce conflicts: 187
-Number of Reduce-Reduce conflicts: 125
+Number of Reduce-Reduce conflicts: 121
 Number of Keyword/Identifier Shift conflicts: 1467
 Number of Keyword/Identifier Shift-Reduce conflicts: 62
-Number of Keyword/Identifier Reduce-Reduce conflicts: 112
+Number of Keyword/Identifier Reduce-Reduce conflicts: 114
 
 Number of Shift entries saved by default: 257
 Number of Shift/Reduce entries saved by default: 440
 Number of conflict entries saved by default: 48834
 
-Number of entries in base Action Table: 2097
-Additional space required for compaction of Action Table: 3.0%
+Number of entries in base Action Table: 2106
+Additional space required for compaction of Action Table: 3.2%
 
-Number of entries in Shift Check Table: 5480
-Additional space required for compaction of Shift Check Table: 12.5%
+Number of entries in Shift Check Table: 5476
+Additional space required for compaction of Shift Check Table: 13.9%
 
-Number of unique terminal states: 335
+Number of unique terminal states: 339
 Number of Shift actions saved by merging: 16177
 Number of Conflict points saved by merging: 5274
 Number of Reduce actions saved by merging: 2239
-Number of Reduce saved by default: 14548
+Number of Reduce saved by default: 14560
 
-Number of entries in Terminal Action Table: 11377
-Additional space required for compaction of Terminal Table: 6.2%
+Number of entries in Terminal Action Table: 11381
+Additional space required for compaction of Terminal Table: 6.1%
 
 Actions in Compressed Tables:
-     Number of Shifts: 337
-     Number of Shift/Reduces: 4494
-     Number of conflict points: 6191
-     Number of Gotos: 610
-     Number of Goto/Reduces: 1063
+     Number of Shifts: 339
+     Number of Shift/Reduces: 4496
+     Number of conflict points: 6187
+     Number of Gotos: 612
+     Number of Goto/Reduces: 1066
      Number of Reduces: 20
-     Number of Defaults: 115
+     Number of Defaults: 119
 
 Parsing Tables storage:
-    Storage required for BASE_CHECK: 5186 Bytes
-    Storage required for BASE_ACTION: 6220 Bytes
-    Storage required for TERM_CHECK: 24258 Bytes
-    Storage required for TERM_ACTION: 24180 Bytes
-    Storage required for DEFAULT_REDUCE: 672 Bytes
-    Storage required for SHIFT_STATE: 672 Bytes
-    Storage required for SHIFT_CHECK: 12580 Bytes
+    Storage required for BASE_CHECK: 5224 Bytes
+    Storage required for BASE_ACTION: 6246 Bytes
+    Storage required for TERM_CHECK: 24240 Bytes
+    Storage required for TERM_ACTION: 24160 Bytes
+    Storage required for DEFAULT_REDUCE: 680 Bytes
+    Storage required for SHIFT_STATE: 680 Bytes
+    Storage required for SHIFT_CHECK: 12592 Bytes
     Storage required for DEFAULT_SHIFT: 1560 Bytes
 
 Error maps storage:
-    Storage required for ACTION_SYMBOLS_BASE map: 850 Bytes
-    Storage required for ACTION_SYMBOLS_RANGE map: 9496 Bytes
-    Storage required for NACTION_SYMBOLS_BASE map: 850 Bytes
-    Storage required for NACTION_SYMBOLS_RANGE map: 312 Bytes
+    Storage required for ACTION_SYMBOLS_BASE map: 858 Bytes
+    Storage required for ACTION_SYMBOLS_RANGE map: 9506 Bytes
+    Storage required for NACTION_SYMBOLS_BASE map: 858 Bytes
+    Storage required for NACTION_SYMBOLS_RANGE map: 324 Bytes
     Storage required for TERMINAL_INDEX map: 1560 Bytes
-    Storage required for NON_TERMINAL_INDEX map: 352 Bytes
+    Storage required for NON_TERMINAL_INDEX map: 360 Bytes
 
-    Storage required for SCOPE_PREFIX map: 114 Bytes
-    Storage required for SCOPE_SUFFIX map: 114 Bytes
-    Storage required for SCOPE_LHS_SYMBOL map: 114 Bytes
-    Storage required for SCOPE_LOOK_AHEAD map: 114 Bytes
-    Storage required for SCOPE_STATE_SET map: 114 Bytes
-    Storage required for SCOPE_RIGHT_SIDE map: 590 Bytes
+    Storage required for SCOPE_PREFIX map: 112 Bytes
+    Storage required for SCOPE_SUFFIX map: 112 Bytes
+    Storage required for SCOPE_LHS_SYMBOL map: 112 Bytes
+    Storage required for SCOPE_LOOK_AHEAD map: 112 Bytes
+    Storage required for SCOPE_STATE_SET map: 112 Bytes
+    Storage required for SCOPE_RIGHT_SIDE map: 576 Bytes
     Storage required for SCOPE_STATE map: 322 Bytes
-    Storage required for IN_SYMB map: 850 Bytes
+    Storage required for IN_SYMB map: 858 Bytes
 
-    Number of names: 864
-    Number of characters in name: 7400
+    Number of names: 865
+    Number of characters in name: 7411

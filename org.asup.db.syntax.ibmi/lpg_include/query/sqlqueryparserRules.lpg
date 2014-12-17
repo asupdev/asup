@@ -1123,15 +1123,15 @@ $Rules
 
 
 -- returns QuerySelect (subselect)
-<query_select> ::=
-            SELECT <opt_all_distinct> <selection>
-            FROM <table_ref_commalist>
-            <opt_where_clause>
-            <opt_group_by_clause>
-            <opt_having_clause>
-            <opt_order_by_clause>
-            <opt_fetch_first_clause>
-                /. $BeginAction setSym1(m_factory.createQuerySelect(getString(2),getList(3),getList(5),($RT_opt_where_clause)getSym(6),getList(7),($RT_opt_having_clause)getSym(8), getList(9), getInt(10))); $EndAction ./
+-- <query_select> ::=
+--            SELECT <opt_all_distinct> <selection>
+--            FROM <table_ref_commalist>
+--            <opt_where_clause>
+--            <opt_group_by_clause>
+--            <opt_having_clause>
+--            <opt_order_by_clause>
+--            <opt_fetch_first_clause>
+--                /. $BeginAction setSym1(m_factory.createQuerySelect(getString(2),getList(3),getList(5),($RT_opt_where_clause)getSym(6),getList(7),($RT_opt_having_clause)getSym(8), getList(9), getInt(10))); $EndAction ./
 
 
 -- returns QuerySelectStatement (select-statement)

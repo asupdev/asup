@@ -95,6 +95,7 @@ $Define
 	$RT_insert_row_commalist 			/. ./
 	$RT_insert_stmt 					/.QueryInsertStatement./
 	$RT_intervaltest 					/.PredicateBetween./
+	$RT_into_item                       /.ValueExpressionVariable./
 	$RT_liketest 						/. ./
 	$RT_merge_on_condition              /.MergeOnCondition./
 	$RT_merge_source_table              /.MergeSourceTable./
