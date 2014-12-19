@@ -265,10 +265,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaDef" eSuperTypes="#//DatabaseObjectDef"/>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true">
-    <eOperations name="addBatch" eExceptions="#//DatabaseException">
-      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="clearBatch" eExceptions="#//DatabaseException"/>
     <eOperations name="close" lowerBound="1" eExceptions="#//DatabaseException"/>
     <eOperations name="execute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         eExceptions="#//DatabaseException">
@@ -281,6 +277,10 @@
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="addBatch" eExceptions="#//DatabaseException">
+      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="clearBatch" eExceptions="#//DatabaseException"/>
     <eOperations name="executeBatch" lowerBound="1" eType="#//StatementBatchResult"
         eExceptions="#//DatabaseException"/>
   </eClassifiers>
