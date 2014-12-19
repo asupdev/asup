@@ -54,6 +54,7 @@ public class BaseStatementImpl implements QStatement, Statement {
 	}
 
 	public void addBatch(String sql) throws SQLException {
+		sql = connection.translate(sql);
 		rawStatement.addBatch(sql);
 	}
 
@@ -84,7 +85,7 @@ public class BaseStatementImpl implements QStatement, Statement {
 	public boolean execute(String sql, String[] columnNames) throws SQLException {
 		return rawStatement.execute(sql, columnNames);
 	}
-
+	
 	public int[] executeBatch() throws SQLException {
 		return rawStatement.executeBatch();
 	}
