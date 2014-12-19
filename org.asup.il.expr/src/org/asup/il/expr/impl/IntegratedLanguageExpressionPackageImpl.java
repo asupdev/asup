@@ -22,7 +22,6 @@ import org.asup.il.expr.QBlockExpression;
 import org.asup.il.expr.QBooleanExpression;
 import org.asup.il.expr.QCompoundTermExpression;
 import org.asup.il.expr.QExpression;
-import org.asup.il.expr.QExpressionDef;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QExpressionParserRegistry;
 import org.asup.il.expr.QExpressionVisitor;
@@ -98,13 +97,6 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 	 * @generated
 	 */
 	private EClass expressionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass expressionDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -433,24 +425,6 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExpressionDef() {
-		return expressionDefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExpressionDef_Type() {
-		return (EAttribute)expressionDefEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getExpressionParser() {
 		return expressionParserEClass;
 	}
@@ -714,9 +688,6 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 
 		expressionEClass = createEClass(EXPRESSION);
 
-		expressionDefEClass = createEClass(EXPRESSION_DEF);
-		createEAttribute(expressionDefEClass, EXPRESSION_DEF__TYPE);
-
 		expressionParserEClass = createEClass(EXPRESSION_PARSER);
 
 		expressionParserRegistryEClass = createEClass(EXPRESSION_PARSER_REGISTRY);
@@ -830,9 +801,6 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 		addEParameter(op, this.getExpressionVisitor(), "visitor", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(expressionEClass, this.getExpressionType(), "getExpressionType", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(expressionDefEClass, QExpressionDef.class, "ExpressionDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExpressionDef_Type(), this.getExpressionType(), "type", null, 1, 1, QExpressionDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionParserEClass, QExpressionParser.class, "ExpressionParser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -72,7 +72,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getRelationalExpression()
 	 * @generated
 	 */
-	int RELATIONAL_EXPRESSION = 13;
+	int RELATIONAL_EXPRESSION = 12;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.ArithmeticOperator <em>Arithmetic Operator</em>}' enum.
@@ -82,7 +82,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getArithmeticOperator()
 	 * @generated
 	 */
-	int ARITHMETIC_OPERATOR = 15;
+	int ARITHMETIC_OPERATOR = 14;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -115,16 +115,6 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	int ASSIGNMENT_EXPRESSION = 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.expr.impl.ExpressionDefImpl <em>Expression Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.expr.impl.ExpressionDefImpl
-	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getExpressionDef()
-	 * @generated
-	 */
-	int EXPRESSION_DEF = 7;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.ExpressionParserImpl <em>Expression Parser</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,7 +122,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getExpressionParser()
 	 * @generated
 	 */
-	int EXPRESSION_PARSER = 8;
+	int EXPRESSION_PARSER = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.ExpressionParserRegistryImpl <em>Expression Parser Registry</em>}' class.
@@ -142,7 +132,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getExpressionParserRegistry()
 	 * @generated
 	 */
-	int EXPRESSION_PARSER_REGISTRY = 9;
+	int EXPRESSION_PARSER_REGISTRY = 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.ExpressionVisitorImpl <em>Expression Visitor</em>}' class.
@@ -152,7 +142,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getExpressionVisitor()
 	 * @generated
 	 */
-	int EXPRESSION_VISITOR = 10;
+	int EXPRESSION_VISITOR = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.PredicateExpressionImpl <em>Predicate Expression</em>}' class.
@@ -162,7 +152,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getPredicateExpression()
 	 * @generated
 	 */
-	int PREDICATE_EXPRESSION = 12;
+	int PREDICATE_EXPRESSION = 11;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.LogicalExpressionImpl <em>Logical Expression</em>}' class.
@@ -172,7 +162,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getLogicalExpression()
 	 * @generated
 	 */
-	int LOGICAL_EXPRESSION = 11;
+	int LOGICAL_EXPRESSION = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.TermExpressionImpl <em>Term Expression</em>}' class.
@@ -182,7 +172,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getTermExpression()
 	 * @generated
 	 */
-	int TERM_EXPRESSION = 14;
+	int TERM_EXPRESSION = 13;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.impl.AtomicTermExpressionImpl <em>Atomic Term Expression</em>}' class.
@@ -477,24 +467,6 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	int COMPOUND_TERM_EXPRESSION_FEATURE_COUNT = TERM_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_DEF__TYPE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Expression Def</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPRESSION_DEF_FEATURE_COUNT = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -664,7 +636,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getAssignmentOperator()
 	 * @generated
 	 */
-	int ASSIGNMENT_OPERATOR = 16;
+	int ASSIGNMENT_OPERATOR = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.AtomicType <em>Atomic Type</em>}' enum.
@@ -674,7 +646,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getAtomicType()
 	 * @generated
 	 */
-	int ATOMIC_TYPE = 17;
+	int ATOMIC_TYPE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.ExpressionType <em>Expression Type</em>}' enum.
@@ -684,7 +656,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getExpressionType()
 	 * @generated
 	 */
-	int EXPRESSION_TYPE = 18;
+	int EXPRESSION_TYPE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -694,7 +666,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 19;
+	int LOGICAL_OPERATOR = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.expr.RelationalOperator <em>Relational Operator</em>}' enum.
@@ -704,7 +676,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getRelationalOperator()
 	 * @generated
 	 */
-	int RELATIONAL_OPERATOR = 20;
+	int RELATIONAL_OPERATOR = 19;
 
 	/**
 	 * The meta object id for the '<em>IL Expression Exception</em>' data type.
@@ -714,7 +686,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getILExpressionException()
 	 * @generated
 	 */
-	int IL_EXPRESSION_EXCEPTION = 21;
+	int IL_EXPRESSION_EXCEPTION = 20;
 
 
 	/**
@@ -725,7 +697,7 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getILExpressionRuntimeException()
 	 * @generated
 	 */
-	int IL_EXPRESSION_RUNTIME_EXCEPTION = 22;
+	int IL_EXPRESSION_RUNTIME_EXCEPTION = 21;
 
 
 	/**
@@ -907,27 +879,6 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExpression();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.il.expr.QExpressionDef <em>Expression Def</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Expression Def</em>'.
-	 * @see org.asup.il.expr.QExpressionDef
-	 * @generated
-	 */
-	EClass getExpressionDef();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.expr.QExpressionDef#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.asup.il.expr.QExpressionDef#getType()
-	 * @see #getExpressionDef()
-	 * @generated
-	 */
-	EAttribute getExpressionDef_Type();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.expr.QExpressionParser <em>Expression Parser</em>}'.
@@ -1352,24 +1303,6 @@ public interface QIntegratedLanguageExpressionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXPRESSION = eINSTANCE.getExpression();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.il.expr.impl.ExpressionDefImpl <em>Expression Def</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.il.expr.impl.ExpressionDefImpl
-		 * @see org.asup.il.expr.impl.IntegratedLanguageExpressionPackageImpl#getExpressionDef()
-		 * @generated
-		 */
-		EClass EXPRESSION_DEF = eINSTANCE.getExpressionDef();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXPRESSION_DEF__TYPE = eINSTANCE.getExpressionDef_Type();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.expr.impl.ExpressionParserImpl <em>Expression Parser</em>}' class.

@@ -10,6 +10,7 @@ package org.asup.os.core.output.impl;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.expr.QIntegratedLanguageExpressionPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.datetime.QDatetimePackage;
 import org.asup.os.core.datetime.impl.DatetimePackageImpl;
@@ -122,6 +123,7 @@ public class OperatingSystemOutputPackageImpl extends EPackageImpl implements QO
 
 		// Initialize simple dependencies
 		QIntegratedLanguageDataPackage.eINSTANCE.eClass();
+		QIntegratedLanguageExpressionPackage.eINSTANCE.eClass();
 		QOperatingSystemOmacPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies

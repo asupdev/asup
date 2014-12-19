@@ -7,15 +7,15 @@
  */
 package org.asup.os.core.datetime.impl;
 
-import org.asup.os.core.datetime.*;
-
+import org.asup.os.core.datetime.DateFormat;
+import org.asup.os.core.datetime.QDatetimeFactory;
+import org.asup.os.core.datetime.QDatetimePackage;
+import org.asup.os.core.datetime.TimeFormat;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**

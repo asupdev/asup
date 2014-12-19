@@ -10,9 +10,9 @@ package org.asup.os.core.impl;
 import java.util.Collection;
 import java.util.List;
 
-import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.QContentLock;
 import org.asup.os.core.QObjectContent;
+import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.omac.QObject;
 import org.asup.os.omac.impl.ObjectImpl;
 import org.eclipse.emf.common.notify.Notification;

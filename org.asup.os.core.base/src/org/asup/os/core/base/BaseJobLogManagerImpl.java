@@ -31,7 +31,7 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 	private QResourceFactory resourceFactory;
 	@Inject
 	private QJobManager jobManager;
-	
+
 	@Override
 	public void info(QJob job, String message) {
 		addEntry(job, 10, message);
@@ -89,10 +89,14 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 
 	@Override
 	public QJobLog lookup(QContextID contextID, String name, String user, int number) {
+		QJob jobCaller = jobManager.lookup(contextID);
 		
-		QJob job = jobManager.lookup(contextID);
-		QResourceReader<QJobLog> jobLogReader = resourceFactory.getResourceReader(job, QJobLog.class, job.getSystem().getSystemLibrary());
-		QJobLog jobLog = jobLogReader.lookup(name);
+		QJob jobTarget = jobManager.lookup(contextID, name, user, number);
+		if(jobTarget == null)
+			return null;
+		
+		QResourceReader<QJobLog> jobLogReader = resourceFactory.getResourceReader(jobCaller, QJobLog.class, jobCaller.getSystem().getSystemLibrary());
+		QJobLog jobLog = jobLogReader.lookup(jobTarget.getID());
 		
 		return jobLog;
 	}

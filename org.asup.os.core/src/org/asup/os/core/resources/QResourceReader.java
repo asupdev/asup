@@ -7,6 +7,7 @@
  */
 package org.asup.os.core.resources;
 
+import org.asup.il.expr.QLogicalExpression;
 import org.asup.os.core.QLockable;
 import org.asup.os.omac.QObjectIterator;
 import org.asup.os.omac.QObjectNameable;
@@ -70,6 +71,14 @@ public interface QResourceReader<T extends QObjectNameable> extends QResource<T>
 	 * @generated
 	 */
 	QObjectIterator<T> find(String nameFilter);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	QObjectIterator<T> findByExpression(QLogicalExpression filter);
 
 	/**
 	 * <!-- begin-user-doc -->

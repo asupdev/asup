@@ -72,7 +72,7 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	@Override
 	public Number readNumber() {
-		return Long.parseLong(new String(asBytes()));
+		return Double.parseDouble(new String(asBytes()));
 	}
 
 	@Override

@@ -16,9 +16,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
+import org.asup.il.expr.QExpressionParser;
+import org.asup.il.expr.QExpressionParserRegistry;
+import org.asup.il.expr.QLogicalExpression;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.QSystemManager;
 import org.asup.os.core.Scope;
@@ -39,6 +43,8 @@ public class E4JobManagerImpl extends JobManagerImpl {
 	
 	private E4SystemManagerImpl systemManager;
 	private QResourceFactory resourceFactory;
+
+	private QExpressionParser expressionParser;
 	
 	@Inject
 	public E4JobManagerImpl(QSystemManager systemManager, QResourceFactory resourceFactory) {
@@ -46,7 +52,11 @@ public class E4JobManagerImpl extends JobManagerImpl {
 		this.resourceFactory = resourceFactory;
 		this.activeJobs = new HashMap<String, QJob>();
 	}
-	
+
+	@PostConstruct
+	public void init(QExpressionParserRegistry expressionParserRegistry) {
+		this.expressionParser = expressionParserRegistry.lookup("ASUP");
+	}
 
 	@Override
 	public QJob lookup(QContextID contextID) {
@@ -67,17 +77,19 @@ public class E4JobManagerImpl extends JobManagerImpl {
 	public QJob lookup(QContextID contextID, String name, String user, int number) {
 
 		QJob jobCaller = lookup(contextID);
+
+		QLogicalExpression filter = (QLogicalExpression) expressionParser.parsePredicate("jobName *EQ '"+name+"' *AND jobNumber *EQ " + number + " *AND jobUser *EQ '"+user+"'");
 		
+		QJob jobTarget = null;
+
 		QResourceReader<QJob> jobReader = resourceFactory.getResourceReader(jobCaller, QJob.class, jobCaller.getSystem().getSystemLibrary());
-		QObjectIterator<QJob> jobs = jobReader.find(null);
-		while(jobs.hasNext()) {
-			QJob job = jobs.next();
-			if(job.getJobName().equals(name) &&
-			   job.getJobUser().equals(user) &&
-			   job.getJobNumber() == number)
-				return job;
-		}
-		return null;
+		QObjectIterator<QJob> jobs = jobReader.findByExpression(filter);
+
+		// first element
+		if(jobs.hasNext())
+			jobTarget = jobs.next();
+
+		return jobTarget;
 	}
 
 	@Override

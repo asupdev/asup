@@ -55,6 +55,7 @@ public interface QJob extends QObjectNameable, QContextID, QContextProvider {
 	 * @see #setJobID(String)
 	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJob_JobID()
 	 * @model id="true" required="true"
+	 *        annotation="il-data length='13'"
 	 * @generated
 	 */
 	String getJobID();

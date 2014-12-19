@@ -9,6 +9,7 @@ package org.asup.os.core.jobs.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.expr.QIntegratedLanguageExpressionPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.datetime.QDatetimePackage;
 import org.asup.os.core.datetime.impl.DatetimePackageImpl;
@@ -148,6 +149,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 
 		// Initialize simple dependencies
 		QIntegratedLanguageDataPackage.eINSTANCE.eClass();
+		QIntegratedLanguageExpressionPackage.eINSTANCE.eClass();
 		QOperatingSystemOmacPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -591,6 +593,15 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 */
 	protected void createIldataAnnotations() {
 		String source = "il-data";	
+		addAnnotation
+		  (getJob_JobID(), 
+		   source, 
+		   new String[] {
+			 "length", "13"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
 		addAnnotation
 		  (getJob_JobName(), 
 		   source, 

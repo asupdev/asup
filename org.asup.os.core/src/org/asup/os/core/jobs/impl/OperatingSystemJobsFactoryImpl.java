@@ -7,15 +7,19 @@
  */
 package org.asup.os.core.jobs.impl;
 
-import org.asup.os.core.jobs.*;
-
+import org.asup.os.core.jobs.JobStatus;
+import org.asup.os.core.jobs.JobType;
+import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobLog;
+import org.asup.os.core.jobs.QJobLogEntry;
+import org.asup.os.core.jobs.QLog;
+import org.asup.os.core.jobs.QOperatingSystemJobsFactory;
+import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**

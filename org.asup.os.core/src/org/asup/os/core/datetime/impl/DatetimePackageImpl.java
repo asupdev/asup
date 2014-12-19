@@ -8,33 +8,22 @@
 package org.asup.os.core.datetime.impl;
 
 import org.asup.il.data.QIntegratedLanguageDataPackage;
-
+import org.asup.il.expr.QIntegratedLanguageExpressionPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
-
 import org.asup.os.core.datetime.DateFormat;
 import org.asup.os.core.datetime.QDatetimeFactory;
 import org.asup.os.core.datetime.QDatetimePackage;
 import org.asup.os.core.datetime.TimeFormat;
-
 import org.asup.os.core.impl.OperatingSystemCorePackageImpl;
-
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
-
 import org.asup.os.core.jobs.impl.OperatingSystemJobsPackageImpl;
-
 import org.asup.os.core.output.QOperatingSystemOutputPackage;
-
 import org.asup.os.core.output.impl.OperatingSystemOutputPackageImpl;
-
 import org.asup.os.core.resources.QOperatingSystemResourcesPackage;
-
 import org.asup.os.core.resources.impl.OperatingSystemResourcesPackageImpl;
-
 import org.asup.os.omac.QOperatingSystemOmacPackage;
-
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -106,6 +95,7 @@ public class DatetimePackageImpl extends EPackageImpl implements QDatetimePackag
 
 		// Initialize simple dependencies
 		QIntegratedLanguageDataPackage.eINSTANCE.eClass();
+		QIntegratedLanguageExpressionPackage.eINSTANCE.eClass();
 		QOperatingSystemOmacPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies

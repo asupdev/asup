@@ -11,5 +11,6 @@ Export-Package: org.asup.il.expr,
  org.asup.il.expr.impl
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.asup.fw.core
+ org.asup.fw.core;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport
 Bundle-ActivationPolicy: lazy

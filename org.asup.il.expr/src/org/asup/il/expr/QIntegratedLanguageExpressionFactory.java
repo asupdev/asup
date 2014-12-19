@@ -81,15 +81,6 @@ public interface QIntegratedLanguageExpressionFactory extends EFactory {
 	QCompoundTermExpression createCompoundTermExpression();
 
 	/**
-	 * Returns a new object of class '<em>Expression Def</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Expression Def</em>'.
-	 * @generated
-	 */
-	QExpressionDef createExpressionDef();
-
-	/**
 	 * Returns a new object of class '<em>Logical Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

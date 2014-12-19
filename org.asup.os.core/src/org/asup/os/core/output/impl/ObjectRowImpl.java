@@ -9,9 +9,7 @@ package org.asup.os.core.output.impl;
 
 import org.asup.os.core.output.QObjectRow;
 import org.asup.os.core.output.QOperatingSystemOutputPackage;
-
 import org.asup.os.omac.impl.ObjectImpl;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

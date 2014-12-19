@@ -7,6 +7,11 @@
  */
 package org.asup.os.core.resources.impl;
 
+import org.asup.il.expr.LogicalOperator;
+import org.asup.il.expr.QLogicalExpression;
+import org.asup.il.expr.QRelationalExpression;
+import org.asup.il.expr.QTermExpression;
+import org.asup.il.expr.impl.ExpressionVisitorImpl;
 import org.asup.os.core.QLocker;
 import org.asup.os.core.resources.QOperatingSystemResourcesPackage;
 import org.asup.os.core.resources.QResourceReader;
@@ -14,16 +19,18 @@ import org.asup.os.omac.QObjectIterator;
 import org.asup.os.omac.QObjectNameable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>QResource</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>QResource</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.core.resources.impl.ResourceReaderImpl#getContainer <em>Container</em>}</li>
+ * <li>{@link org.asup.os.core.resources.impl.ResourceReaderImpl#getContainer
+ * <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,26 +38,27 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class ResourceReaderImpl<T extends QObjectNameable> extends ResourceImpl<T> implements QResourceReader<T> {
 	/**
-	 * The default value of the '{@link #getContainer() <em>Container</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getContainer() <em>Container</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getContainer()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String CONTAINER_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getContainer() <em>Container</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getContainer() <em>Container</em>}'
+	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getContainer()
 	 * @generated
 	 * @ordered
 	 */
 	protected String container = CONTAINER_EDEFAULT;
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ResourceReaderImpl() {
@@ -58,8 +66,8 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,8 +76,8 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getContainer() {
@@ -77,8 +85,8 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setContainer(String newContainer) {
@@ -89,8 +97,8 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean exists(String name) {
@@ -100,8 +108,8 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public QObjectIterator<T> find(String nameFilter) {
@@ -111,8 +119,18 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public QObjectIterator<T> findByExpression(QLogicalExpression filter) {
+
+		return new ObjectIterator(find(null), filter);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public T lookup(String name) {
@@ -122,8 +140,8 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public QLocker<T> getLocker() {
@@ -133,71 +151,72 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-				return getContainer();
+		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+			return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-				setContainer((String)newValue);
-				return;
+		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+			setContainer((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-				setContainer(CONTAINER_EDEFAULT);
-				return;
+		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+			setContainer(CONTAINER_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-				return CONTAINER_EDEFAULT == null ? container != null : !CONTAINER_EDEFAULT.equals(container);
+		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+			return CONTAINER_EDEFAULT == null ? container != null : !CONTAINER_EDEFAULT.equals(container);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (container: ");
@@ -206,4 +225,127 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 		return result.toString();
 	}
 
-} //QResourceImpl
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	private class ObjectIterator implements QObjectIterator<T> {
+
+		private QObjectIterator<T> iterator;
+		private QLogicalExpression filter;
+
+		private T nextObject;
+
+		public ObjectIterator(QObjectIterator<T> delegate, QLogicalExpression filter) {
+			this.iterator = delegate;
+			this.filter = filter;
+
+			doNext();
+		}
+
+		@Override
+		public void close() {
+			this.iterator.close();
+		}
+
+		@Override
+		public boolean hasNext() {
+			return this.nextObject != null;
+		}
+
+		@Override
+		public T next() {
+
+			T object = nextObject;
+			doNext();
+
+			return object;
+
+		}
+
+		@Override
+		public void remove() {
+			this.iterator.remove();
+		}
+
+		private void doNext() {
+
+			nextObject = null;
+			while (iterator.hasNext()) {
+				T object = iterator.next();
+
+				ExpressionVisitor expressionVisitor = new ExpressionVisitor((EObject) object);
+				filter.accept(expressionVisitor);
+
+				if (!expressionVisitor.isValid())
+					continue;
+
+				nextObject = object;
+			}
+		}
+	}
+
+	private class ExpressionVisitor extends ExpressionVisitorImpl {
+
+		boolean result = true;
+
+		private EObject eObject;
+
+		public ExpressionVisitor(EObject eObject) {
+			this.eObject = eObject;
+		}
+
+		public boolean isValid() {
+			return result;
+		}
+
+		@Override
+		public boolean visit(QLogicalExpression expression) {
+
+			expression.getLeftOperand().accept(this);
+			if(isValid() || expression.getExpressionType().equals(LogicalOperator.OR))
+				expression.getRightOperand().accept(this);
+			
+			return isValid();
+		}
+
+		@Override
+		public boolean visit(QRelationalExpression expression) {
+
+			// TODO
+			QTermExpression leftOperand = (QTermExpression) expression.getLeftOperand();			
+			String feature = leftOperand.getValue();			
+			EStructuralFeature eFeature = eObject.eClass().getEStructuralFeature(feature);			
+			String eValue = eObject.eGet(eFeature).toString();
+			
+			// TODO
+			QTermExpression rightOperand = (QTermExpression) expression.getRightOperand();
+			String value = rightOperand.getValue();
+			
+			switch (expression.getOperator()) {
+			case EQUAL:
+				this.result = value.equalsIgnoreCase(eValue);
+				break;
+			case GREATER_THAN:
+				this.result = value.compareTo(eValue) > 0;
+				break;
+			case GREATER_THAN_EQUAL:
+				this.result = value.compareTo(eValue) >= 0;
+				break;
+			case LESS_THAN:
+				this.result = value.compareTo(eValue) < 0;
+				break;
+			case LESS_THAN_EQUAL:
+				this.result = value.compareTo(eValue) <= 0;
+				break;
+			case NOT_EQUAL:
+				this.result = !value.equalsIgnoreCase(eValue); 
+				break;
+			}
+			
+			return super.visit(expression);
+		}
+
+	}
+} // QResourceImpl

@@ -8,11 +8,8 @@
 package org.asup.os.core.resources;
 
 import org.asup.fw.core.QService;
-
 import org.asup.os.core.Scope;
-
 import org.asup.os.core.jobs.QJob;
-
 import org.asup.os.omac.QObjectNameable;
 
 /**
