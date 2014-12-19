@@ -68,7 +68,6 @@ public class IntegratedLanguageExpressionFactoryImpl extends EFactoryImpl implem
 			case QIntegratedLanguageExpressionPackage.BOOLEAN_EXPRESSION: return (EObject)createBooleanExpression();
 			case QIntegratedLanguageExpressionPackage.BLOCK_EXPRESSION: return (EObject)createBlockExpression();
 			case QIntegratedLanguageExpressionPackage.COMPOUND_TERM_EXPRESSION: return (EObject)createCompoundTermExpression();
-			case QIntegratedLanguageExpressionPackage.EXPRESSION_DEF: return (EObject)createExpressionDef();
 			case QIntegratedLanguageExpressionPackage.LOGICAL_EXPRESSION: return (EObject)createLogicalExpression();
 			case QIntegratedLanguageExpressionPackage.RELATIONAL_EXPRESSION: return (EObject)createRelationalExpression();
 			default:
@@ -192,16 +191,6 @@ public class IntegratedLanguageExpressionFactoryImpl extends EFactoryImpl implem
 	public QCompoundTermExpression createCompoundTermExpression() {
 		CompoundTermExpressionImpl compoundTermExpression = new CompoundTermExpressionImpl();
 		return compoundTermExpression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QExpressionDef createExpressionDef() {
-		ExpressionDefImpl expressionDef = new ExpressionDefImpl();
-		return expressionDef;
 	}
 
 	/**

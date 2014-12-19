@@ -7,8 +7,8 @@
  */
 package org.asup.os.core.jobs.impl;
 
-import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.core.jobs.QJobLogEntry;
+import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.omac.impl.ObjectImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;

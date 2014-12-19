@@ -4,7 +4,7 @@
     modelDirectory="/org.asup.os.core/src" modelPluginID="org.asup.os.core" runtimeJar="true"
     modelName="As.UP Operating System Core" rootExtendsInterface="" suppressEMFTypes="true"
     booleanFlagsField="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.expr/model/il-expr.genmodel#//expr ../../org.asup.os.omac/model/os-omac.genmodel#//omac"
     interfaceNamePattern="Q{0}">
   <foreignModel>os-core.ecore</foreignModel>
   <genPackages prefix="OperatingSystemCore" basePackage="org.asup.os" disposableProviderFactory="true"
@@ -106,6 +106,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//ObjectContent/writeLock"/>
     </genClasses>
     <genClasses ecoreClass="os-core.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//System/context"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//System/creationInfo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//System/installPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//System/lastJobNumber"/>
@@ -137,6 +138,7 @@
         <genEnumLiterals ecoreEnumLiteral="os-core.ecore#//jobs/JobType/Batch"/>
       </genEnums>
       <genClasses ecoreClass="os-core.ecore#//jobs/Job">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//jobs/Job/context"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//jobs/Job/jobID"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//jobs/Job/jobName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//jobs/Job/jobNumber"/>
@@ -148,7 +150,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference os-core.ecore#//jobs/Job/system"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//jobs/Job/creationInfo"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//jobs/Job/context"/>
       </genClasses>
       <genClasses ecoreClass="os-core.ecore#//jobs/JobLog">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//jobs/JobLog/entries"/>
@@ -243,6 +244,7 @@
           <genParameters ecoreParameter="os-core.ecore#//output/OutputManager/setDefaultWriter/name"/>
         </genOperations>
       </genClasses>
+      <genClasses ecoreClass="os-core.ecore#//output/ObjectRow"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="OperatingSystemResources" basePackage="org.asup.os.core"
         disposableProviderFactory="true" adapterFactory="false" ecorePackage="os-core.ecore#//resources">
@@ -334,6 +336,9 @@
         </genOperations>
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/find">
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/find/nameFilter"/>
+        </genOperations>
+        <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/iterate">
+          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/iterate/filter"/>
         </genOperations>
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/lookup">
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/lookup/name"/>

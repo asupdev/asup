@@ -7,14 +7,13 @@
  */
 package org.asup.os.core.output.impl;
 
-import org.asup.os.core.output.*;
-
+import org.asup.os.core.output.QObjectRow;
+import org.asup.os.core.output.QOperatingSystemOutputFactory;
+import org.asup.os.core.output.QOperatingSystemOutputPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**

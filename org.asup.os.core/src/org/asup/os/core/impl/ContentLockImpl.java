@@ -7,9 +7,9 @@
  */
 package org.asup.os.core.impl;
 
-import org.asup.os.core.QOperatingSystemCorePackage;
-import org.asup.os.core.QContentLock;
 import org.asup.os.core.ContentLockType;
+import org.asup.os.core.QContentLock;
+import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.omac.impl.ObjectImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;

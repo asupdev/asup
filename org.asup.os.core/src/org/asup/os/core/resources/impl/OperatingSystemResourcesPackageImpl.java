@@ -9,6 +9,7 @@ package org.asup.os.core.resources.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.expr.QIntegratedLanguageExpressionPackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.datetime.QDatetimePackage;
 import org.asup.os.core.datetime.impl.DatetimePackageImpl;
@@ -165,6 +166,7 @@ public class OperatingSystemResourcesPackageImpl extends EPackageImpl implements
 
 		// Initialize simple dependencies
 		QIntegratedLanguageDataPackage.eINSTANCE.eClass();
+		QIntegratedLanguageExpressionPackage.eINSTANCE.eClass();
 		QOperatingSystemOmacPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -434,6 +436,7 @@ public class OperatingSystemResourcesPackageImpl extends EPackageImpl implements
 		QOperatingSystemJobsPackage theOperatingSystemJobsPackage = (QOperatingSystemJobsPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemJobsPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 		QOperatingSystemCorePackage theOperatingSystemCorePackage = (QOperatingSystemCorePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI);
+		QIntegratedLanguageExpressionPackage theIntegratedLanguageExpressionPackage = (QIntegratedLanguageExpressionPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageExpressionPackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter resourceEClass_T = addETypeParameter(resourceEClass, "T");
@@ -623,6 +626,13 @@ public class OperatingSystemResourcesPackageImpl extends EPackageImpl implements
 
 		op = addEOperation(resourceReaderEClass, null, "find", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "nameFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theOperatingSystemOmacPackage.getObjectIterator());
+		g2 = createEGenericType(resourceReaderEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(resourceReaderEClass, null, "findByExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageExpressionPackage.getLogicalExpression(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theOperatingSystemOmacPackage.getObjectIterator());
 		g2 = createEGenericType(resourceReaderEClass_T);
 		g1.getETypeArguments().add(g2);

@@ -8,19 +8,14 @@
 package org.asup.os.core.resources.impl;
 
 import org.asup.fw.core.impl.ServiceImpl;
-
 import org.asup.os.core.Scope;
-
 import org.asup.os.core.jobs.QJob;
-
 import org.asup.os.core.resources.QOperatingSystemResourcesPackage;
 import org.asup.os.core.resources.QResourceProvider;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.core.resources.QResourceSetReader;
 import org.asup.os.core.resources.QResourceWriter;
-
 import org.asup.os.omac.QObjectNameable;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -7,8 +7,10 @@
  */
 package org.asup.os.core.impl;
 
+
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.expr.QIntegratedLanguageExpressionPackage;
 import org.asup.os.core.ContentLockType;
 import org.asup.os.core.LockType;
 import org.asup.os.core.OperatingSystemException;
@@ -215,6 +217,7 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 
 		// Initialize simple dependencies
 		QIntegratedLanguageDataPackage.eINSTANCE.eClass();
+		QIntegratedLanguageExpressionPackage.eINSTANCE.eClass();
 		QOperatingSystemOmacPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies

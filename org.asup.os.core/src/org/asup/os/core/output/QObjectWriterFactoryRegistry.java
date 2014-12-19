@@ -9,7 +9,6 @@ package org.asup.os.core.output;
 
 import org.asup.fw.core.QPluginRegistry;
 import org.asup.fw.core.QService;
-
 import org.asup.os.core.jobs.JobType;
 
 /**
