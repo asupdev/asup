@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 import javax.inject.Inject;
 
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.test.annotation.TestStarted;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
@@ -13,7 +13,7 @@ import org.asup.il.data.QDataManager;
 public class TestHexadecimal {
 	
 	@Inject
-	private QContextID contextID;
+	private QApplication application;
 	@Inject
 	private QDataManager dataManager;
 	
@@ -22,7 +22,7 @@ public class TestHexadecimal {
 	@TestStarted
 	public void doTest() throws UnsupportedEncodingException {
 		
-		QDataFactory dataFactory = dataManager.createFactory(contextID);
+		QDataFactory dataFactory = dataManager.createFactory(application);
 		
 		String inputHex = "C1A24BE4D7";
 		

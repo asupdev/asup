@@ -9,10 +9,10 @@ package org.asup.fw.core.impl;
 
 import java.lang.annotation.Annotation;
 
+import org.asup.fw.core.ContextInjectionStrategy;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QAdapterFactory;
 import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
 import org.asup.fw.core.QFrameworkCorePackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -64,7 +64,18 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
+	public QContext createChildContext(String name) throws FrameworkCoreRuntimeException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QContext createChildContext(String name, ContextInjectionStrategy injectionStrategy) throws FrameworkCoreRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -97,7 +108,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContextID getID() {
+	public String getName() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -119,7 +130,7 @@ public abstract class ContextImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class<?> loadClass(QContextID contextID, String address) {
+	public Class<?> loadClass(String address) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

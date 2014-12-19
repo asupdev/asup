@@ -34,6 +34,8 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 	private QSystem system;
 	private QLocker<QSystem> locker;
 	private QJob startupJob;
+	
+	private QContext systemContext;
 
 	private int nextJobNumber = Integer.parseInt(HHMMSS.format(Calendar.getInstance().getTime())); 
 	
@@ -63,7 +65,11 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 
 		this.locker= new E4SystemLockerImpl(this.system);
 
+		this.systemContext = this.application.getContext().createChildContext(this.system.getName());
+		
 		this.startupJob = createJob(JobType.KERNEL, "QASUP");
+
+		getSystem().setContext(systemContext);
 		
 		return startupJob;
 	}
@@ -93,6 +99,6 @@ public class E4SystemManagerImpl extends SystemManagerImpl {
 	
 	@Override
 	protected QContext createContext(String name) throws OperatingSystemException {
-		return application.getContext().createLocalContext(name);
+		return this.systemContext.createChildContext(name);
 	}
 }

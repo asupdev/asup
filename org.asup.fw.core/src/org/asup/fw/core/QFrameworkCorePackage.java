@@ -142,10 +142,10 @@ public interface QFrameworkCorePackage extends EPackage {
 	int APPLICATION_MODULE = 4;
 
 	/**
-	 * The meta object id for the '{@link org.asup.fw.core.QContext <em>Context</em>}' class.
+	 * The meta object id for the '{@link org.asup.fw.core.impl.ContextImpl <em>Context</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.fw.core.QContext
+	 * @see org.asup.fw.core.impl.ContextImpl
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getContext()
 	 * @generated
 	 */
@@ -848,6 +848,16 @@ public interface QFrameworkCorePackage extends EPackage {
 	int SERVICE_PLUGIN_REGISTRY_FEATURE_COUNT = SERVICE_REFERENCE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.asup.fw.core.ContextInjectionStrategy <em>Context Injection Strategy</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.fw.core.ContextInjectionStrategy
+	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getContextInjectionStrategy()
+	 * @generated
+	 */
+	int CONTEXT_INJECTION_STRATEGY = 19;
+
+	/**
 	 * The meta object id for the '{@link org.asup.fw.core.ServiceStatus <em>Service Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -855,7 +865,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getServiceStatus()
 	 * @generated
 	 */
-	int SERVICE_STATUS = 19;
+	int SERVICE_STATUS = 20;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -865,7 +875,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameworkCoreException()
 	 * @generated
 	 */
-	int FRAMEWORK_CORE_EXCEPTION = 20;
+	int FRAMEWORK_CORE_EXCEPTION = 21;
 
 	/**
 	 * The meta object id for the '<em>Frameowrk Core Runtime Exception</em>' data type.
@@ -875,7 +885,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameowrkCoreRuntimeException()
 	 * @generated
 	 */
-	int FRAMEOWRK_CORE_RUNTIME_EXCEPTION = 21;
+	int FRAMEOWRK_CORE_RUNTIME_EXCEPTION = 22;
 
 	/**
 	 * The meta object id for the '<em>Unexpected Condition Exception</em>' data type.
@@ -885,7 +895,7 @@ public interface QFrameworkCorePackage extends EPackage {
 	 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getFrameworkCoreUnexpectedConditionException()
 	 * @generated
 	 */
-	int FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION = 22;
+	int FRAMEWORK_CORE_UNEXPECTED_CONDITION_EXCEPTION = 23;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.core.QAdapterFactory <em>Adapter Factory</em>}'.
@@ -1353,6 +1363,16 @@ public interface QFrameworkCorePackage extends EPackage {
 	EAttribute getServiceReference_Status();
 
 	/**
+	 * Returns the meta object for enum '{@link org.asup.fw.core.ContextInjectionStrategy <em>Context Injection Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Context Injection Strategy</em>'.
+	 * @see org.asup.fw.core.ContextInjectionStrategy
+	 * @generated
+	 */
+	EEnum getContextInjectionStrategy();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.fw.core.ServiceStatus <em>Service Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1541,10 +1561,10 @@ public interface QFrameworkCorePackage extends EPackage {
 		EReference APPLICATION_MODULE__SERVICES = eINSTANCE.getApplicationModule_Services();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.fw.core.QContext <em>Context</em>}' class.
+		 * The meta object literal for the '{@link org.asup.fw.core.impl.ContextImpl <em>Context</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.fw.core.QContext
+		 * @see org.asup.fw.core.impl.ContextImpl
 		 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getContext()
 		 * @generated
 		 */
@@ -1807,6 +1827,16 @@ public interface QFrameworkCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SERVICE_REFERENCE__STATUS = eINSTANCE.getServiceReference_Status();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.fw.core.ContextInjectionStrategy <em>Context Injection Strategy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.fw.core.ContextInjectionStrategy
+		 * @see org.asup.fw.core.impl.FrameworkCorePackageImpl#getContextInjectionStrategy()
+		 * @generated
+		 */
+		EEnum CONTEXT_INJECTION_STRATEGY = eINSTANCE.getContextInjectionStrategy();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.core.ServiceStatus <em>Service Status</em>}' enum.

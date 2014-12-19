@@ -50,7 +50,7 @@ public class BaseActivationGroupManagerImpl extends ActivationGroupManagerImpl {
 		// create
 		QActivationGroup activationGroup = QOperatingSystemProgramFactory.eINSTANCE.createActivationGroup();
 		activationGroup.setName(name);
-		activationGroup.setFrameworkContext(job.getContext().createLocalContext(job.getJobName()+"/"+name));
+		activationGroup.setFrameworkContext(job.getContext().createChildContext(job.getJobName()+"/"+name));
 
 		// register on job
 		if(register)

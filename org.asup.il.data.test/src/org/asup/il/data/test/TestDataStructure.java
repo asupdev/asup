@@ -15,7 +15,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
@@ -33,7 +33,7 @@ import org.asup.il.data.annotation.DataDef;
 public class TestDataStructure {
 
 	@Inject
-	private QContextID contextID;
+	private QApplication application;
 	@Inject
 	private QDataManager dataManager;
 	@Inject
@@ -44,7 +44,7 @@ public class TestDataStructure {
 	@TestStarted
 	public void doTest() throws IOException, ClassNotFoundException {
 
-		QDataFactory dataFactory = dataManager.createFactory(contextID);
+		QDataFactory dataFactory = dataManager.createFactory(application);
 
 		testAsserter.resetTime();
 		DataStructure dataStruct = dataFactory.createDataStruct(DataStructure.class, 0, true);

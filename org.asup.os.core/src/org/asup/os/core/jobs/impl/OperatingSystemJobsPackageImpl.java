@@ -194,15 +194,6 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	public EAttribute getJob_JobID() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJob_JobName() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -211,7 +202,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_JobNumber() {
+	public EAttribute getJob_JobName() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -220,7 +211,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_JobStatus() {
+	public EAttribute getJob_JobNumber() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -229,7 +220,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_JobType() {
+	public EAttribute getJob_JobStatus() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -238,7 +229,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_JobUser() {
+	public EAttribute getJob_JobType() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -247,7 +238,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Libraries() {
+	public EAttribute getJob_JobUser() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -256,7 +247,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Messages() {
+	public EAttribute getJob_Libraries() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -265,8 +256,8 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJob_System() {
-		return (EReference)jobEClass.getEStructuralFeatures().get(8);
+	public EAttribute getJob_Messages() {
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -274,7 +265,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJob_CreationInfo() {
+	public EReference getJob_System() {
 		return (EReference)jobEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -283,8 +274,17 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJob_Context() {
+	public EReference getJob_CreationInfo() {
 		return (EReference)jobEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJob_Context() {
+		return (EReference)jobEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -415,6 +415,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 
 		// Create classes and their features
 		jobEClass = createEClass(JOB);
+		createEReference(jobEClass, JOB__CONTEXT);
 		createEAttribute(jobEClass, JOB__JOB_ID);
 		createEAttribute(jobEClass, JOB__JOB_NAME);
 		createEAttribute(jobEClass, JOB__JOB_NUMBER);
@@ -425,7 +426,6 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		createEAttribute(jobEClass, JOB__MESSAGES);
 		createEReference(jobEClass, JOB__SYSTEM);
 		createEReference(jobEClass, JOB__CREATION_INFO);
-		createEReference(jobEClass, JOB__CONTEXT);
 
 		jobLogEClass = createEClass(JOB_LOG);
 		createEReference(jobLogEClass, JOB_LOG__ENTRIES);
@@ -490,6 +490,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(jobEClass, QJob.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJob_Context(), theFrameworkCorePackage.getContext(), null, "context", null, 0, 1, QJob.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_JobID(), ecorePackage.getEString(), "jobID", null, 1, 1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_JobName(), ecorePackage.getEString(), "jobName", null, 0, 1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_JobNumber(), ecorePackage.getEInt(), "jobNumber", null, 0, 1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -500,7 +501,6 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		initEAttribute(getJob_Messages(), ecorePackage.getEString(), "messages", null, 0, -1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_System(), theOperatingSystemCorePackage.getSystem(), null, "system", null, 1, 1, QJob.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJob_CreationInfo(), theOperatingSystemOmacPackage.getCreationInfo(), null, "creationInfo", null, 1, 1, QJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJob_Context(), theFrameworkCorePackage.getContext(), null, "context", null, 0, 1, QJob.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobLogEClass, QJobLog.class, "JobLog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobLog_Entries(), this.getJobLogEntry(), null, "entries", null, 1, -1, QJobLog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

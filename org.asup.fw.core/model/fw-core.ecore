@@ -48,10 +48,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
         eType="#//ServiceReference" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Context" abstract="true">
     <eOperations name="close" lowerBound="1" eExceptions="#//FrameowrkCoreRuntimeException"/>
-    <eOperations name="createLocalContext" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException">
+    <eOperations name="createChildContext" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="createChildContext" lowerBound="1" eType="#//Context" eExceptions="#//FrameowrkCoreRuntimeException">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="injectionStrategy" lowerBound="1" eType="#//ContextInjectionStrategy"/>
     </eOperations>
     <eOperations name="get" lowerBound="1">
       <eGenericType eTypeParameter="#//Context/get/T"/>
@@ -82,7 +86,6 @@
       <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
         <eTypeArguments/>
       </eGenericType>
-      <eParameters name="contextID" lowerBound="1" eType="#//ContextID"/>
       <eParameters name="address" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="invoke" eExceptions="#//FrameowrkCoreRuntimeException">
@@ -134,6 +137,10 @@
         <eGenericType eTypeParameter="#//Context/set.1/T"/>
       </eParameters>
     </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ContextInjectionStrategy">
+    <eLiterals name="Local" value="10" literal="LOCAL"/>
+    <eLiterals name="Remote" value="20" literal="REMOTE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContextID" abstract="true" interface="true">
     <eOperations name="getID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

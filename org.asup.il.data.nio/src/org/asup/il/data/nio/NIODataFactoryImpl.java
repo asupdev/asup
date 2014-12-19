@@ -21,7 +21,6 @@ import java.util.List;
 
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QOverlay;
 import org.asup.il.core.annotation.Overlay;
@@ -94,19 +93,13 @@ import org.osgi.framework.FrameworkUtil;
 public class NIODataFactoryImpl implements QDataFactory {
 
 	private QContext context;
-	private QContextID contextID;
 	
-	protected NIODataFactoryImpl(QContext context, QContextID contextID) {
+	protected NIODataFactoryImpl(QContext context) {
 		this.context = context;
-		this.contextID = contextID;
 	}
 	
 	protected QContext getContext() {
 		return context;
-	}
-
-	protected QContextID getContextID() {
-		return contextID;
 	}
 	
 	@Override	
@@ -160,7 +153,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 				if(!dataStructDef.getElements().isEmpty())
 					throw new FrameworkCoreRuntimeException("Error sdf9dfg7574c2dn");
 				
-				delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, dataStructDef.getClassDelegator());
+				delegator = (Class<? extends QDataStruct>) context.loadClass(dataStructDef.getClassDelegator());
 				
 				QDataStruct bufferedData = createDataStruct(delegator, dataStructDef.getLength(), initialize); 
 				data = (D) bufferedData;
@@ -391,7 +384,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 			if(!argument.getElements().isEmpty())
 				throw new FrameworkCoreRuntimeException("Unexpected condition: sdf9dfg7574c2dn");
 			
-			delegator = (Class<? extends QDataStruct>) context.loadClass(contextID, argument.getClassDelegator());
+			delegator = (Class<? extends QDataStruct>) context.loadClass(argument.getClassDelegator());
 			
 			QDataStruct bufferedData = createDataStruct(delegator, 0, false); 
 			model = bufferedData;

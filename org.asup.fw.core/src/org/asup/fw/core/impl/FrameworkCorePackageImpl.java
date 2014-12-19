@@ -7,6 +7,7 @@
  */
 package org.asup.fw.core.impl;
 
+import org.asup.fw.core.ContextInjectionStrategy;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
@@ -183,6 +184,13 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * @generated
 	 */
 	private EClass serviceReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum contextInjectionStrategyEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -677,6 +685,15 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getContextInjectionStrategy() {
+		return contextInjectionStrategyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getServiceStatus() {
 		return serviceStatusEEnum;
 	}
@@ -800,6 +817,7 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		createEAttribute(serviceReferenceEClass, SERVICE_REFERENCE__STATUS);
 
 		// Create enums
+		contextInjectionStrategyEEnum = createEEnum(CONTEXT_INJECTION_STRATEGY);
 		serviceStatusEEnum = createEEnum(SERVICE_STATUS);
 
 		// Create data types
@@ -888,13 +906,18 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEAttribute(getApplicationModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, QApplicationModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApplicationModule_Services(), this.getServiceReference(), null, "services", null, 0, -1, QApplicationModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(contextEClass, QContext.class, "Context", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(contextEClass, QContext.class, "Context", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(contextEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
-		op = addEOperation(contextEClass, this.getContext(), "createLocalContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(contextEClass, this.getContext(), "createChildContext", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getFrameowrkCoreRuntimeException());
+
+		op = addEOperation(contextEClass, this.getContext(), "createChildContext", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getContextInjectionStrategy(), "injectionStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
 		op = addEOperation(contextEClass, null, "get", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -925,7 +948,6 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		addEException(op, this.getFrameowrkCoreRuntimeException());
 
 		op = addEOperation(contextEClass, null, "loadClass", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "address", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType();
@@ -1081,6 +1103,10 @@ public class FrameworkCorePackageImpl extends EPackageImpl implements QFramework
 		initEAttribute(getServiceReference_Status(), this.getServiceStatus(), "status", null, 1, 1, QServiceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(contextInjectionStrategyEEnum, ContextInjectionStrategy.class, "ContextInjectionStrategy");
+		addEEnumLiteral(contextInjectionStrategyEEnum, ContextInjectionStrategy.LOCAL);
+		addEEnumLiteral(contextInjectionStrategyEEnum, ContextInjectionStrategy.REMOTE);
+
 		initEEnum(serviceStatusEEnum, ServiceStatus.class, "ServiceStatus");
 		addEEnumLiteral(serviceStatusEEnum, ServiceStatus.ACTIVE);
 		addEEnumLiteral(serviceStatusEEnum, ServiceStatus.STOPPED);

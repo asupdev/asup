@@ -16,7 +16,7 @@ import java.lang.annotation.Annotation;
  *
  *
  * @see org.asup.fw.core.QFrameworkCorePackage#getContext()
- * @model interface="true" abstract="true"
+ * @model abstract="true"
  * @generated
  */
 public interface QContext {
@@ -34,7 +34,15 @@ public interface QContext {
 	 * @model required="true" exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException" nameRequired="true"
 	 * @generated
 	 */
-	QContext createLocalContext(String name) throws FrameworkCoreRuntimeException;
+	QContext createChildContext(String name) throws FrameworkCoreRuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.fw.core.FrameowrkCoreRuntimeException" nameRequired="true" injectionStrategyRequired="true"
+	 * @generated
+	 */
+	QContext createChildContext(String name, ContextInjectionStrategy injectionStrategy) throws FrameworkCoreRuntimeException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,10 +79,10 @@ public interface QContext {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" contextIDRequired="true" addressRequired="true"
+	 * @model required="true" addressRequired="true"
 	 * @generated
 	 */
-	Class<?> loadClass(QContextID contextID, String address);
+	Class<?> loadClass(String address);
 
 	/**
 	 * <!-- begin-user-doc -->

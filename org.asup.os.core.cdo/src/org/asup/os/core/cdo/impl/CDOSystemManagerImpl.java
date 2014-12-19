@@ -43,6 +43,8 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 
 	@Inject
 	private QApplication application;
+	
+	private QContext systemContext;
 
 	private static final String CDO_CORE = "os/core";
 	
@@ -96,6 +98,8 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 		try {
 			transactionSystem.setStatus(SystemStatus.STARTED);			
 			transaction.commit();
+			
+			this.systemContext = this.application.getContext().createChildContext(this.viewSystem.getName());
 						
 		} catch (CommitException e) {
 			throw new OperatingSystemException(e);
@@ -265,6 +269,6 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 
 	@Override
 	protected QContext createContext(String name) throws OperatingSystemException {
-		return this.application.getContext().createLocalContext(name);
+		return this.systemContext.createChildContext(name);
 	}	
 }

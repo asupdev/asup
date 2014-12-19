@@ -138,7 +138,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		}
 
 		// data container
-		QDataContainer dataContainer = dataManager.createDataContainer(contextID, arrayTerms);
+		QDataContainer dataContainer = dataManager.createDataContainer(job, arrayTerms);
 		callableCommand.setDataContainer(dataContainer);
 
 		QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();

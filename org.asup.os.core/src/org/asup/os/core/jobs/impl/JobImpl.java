@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getJobID <em>Job ID</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getJobName <em>Job Name</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getJobNumber <em>Job Number</em>}</li>
@@ -44,7 +45,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getMessages <em>Messages</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getSystem <em>System</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getCreationInfo <em>Creation Info</em>}</li>
- *   <li>{@link org.asup.os.core.jobs.impl.JobImpl#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +59,17 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 
 
 	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected QContext context;
+
+
+	/**
 	 * The default value of the '{@link #getJobID() <em>Job ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +78,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected static final String JOB_ID_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getJobID() <em>Job ID</em>}' attribute.
@@ -78,6 +90,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected String jobID = JOB_ID_EDEFAULT;
 
+
 	/**
 	 * The default value of the '{@link #getJobName() <em>Job Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -87,6 +100,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected static final String JOB_NAME_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getJobName() <em>Job Name</em>}' attribute.
@@ -98,6 +112,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected String jobName = JOB_NAME_EDEFAULT;
 
+
 	/**
 	 * The default value of the '{@link #getJobNumber() <em>Job Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,6 +122,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected static final int JOB_NUMBER_EDEFAULT = 0;
+
 
 	/**
 	 * The cached value of the '{@link #getJobNumber() <em>Job Number</em>}' attribute.
@@ -118,6 +134,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected int jobNumber = JOB_NUMBER_EDEFAULT;
 
+
 	/**
 	 * The default value of the '{@link #getJobStatus() <em>Job Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -127,6 +144,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected static final JobStatus JOB_STATUS_EDEFAULT = JobStatus.ACTIVE;
+
 
 	/**
 	 * The cached value of the '{@link #getJobStatus() <em>Job Status</em>}' attribute.
@@ -138,6 +156,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected JobStatus jobStatus = JOB_STATUS_EDEFAULT;
 
+
 	/**
 	 * The default value of the '{@link #getJobType() <em>Job Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -147,6 +166,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected static final JobType JOB_TYPE_EDEFAULT = JobType.KERNEL;
+
 
 	/**
 	 * The cached value of the '{@link #getJobType() <em>Job Type</em>}' attribute.
@@ -158,6 +178,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected JobType jobType = JOB_TYPE_EDEFAULT;
 
+
 	/**
 	 * The default value of the '{@link #getJobUser() <em>Job User</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -167,6 +188,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected static final String JOB_USER_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getJobUser() <em>Job User</em>}' attribute.
@@ -178,6 +200,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected String jobUser = JOB_USER_EDEFAULT;
 
+
 	/**
 	 * The cached value of the '{@link #getLibraries() <em>Libraries</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -187,6 +210,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected EList<String> libraries;
+
 
 	/**
 	 * The cached value of the '{@link #getMessages() <em>Messages</em>}' attribute list.
@@ -198,6 +222,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected EList<String> messages;
 
+
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -208,6 +233,7 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 */
 	protected QSystem system;
 
+
 	/**
 	 * The cached value of the '{@link #getCreationInfo() <em>Creation Info</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -217,16 +243,6 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	 * @ordered
 	 */
 	protected QCreationInfo creationInfo;
-
-	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected QContext context;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -538,10 +554,10 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
-				return basicSetCreationInfo(null, msgs);
 			case QOperatingSystemJobsPackage.JOB__CONTEXT:
 				return basicSetContext(null, msgs);
+			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
+				return basicSetCreationInfo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -554,6 +570,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				return getContext();
 			case QOperatingSystemJobsPackage.JOB__JOB_ID:
 				return getJobID();
 			case QOperatingSystemJobsPackage.JOB__JOB_NAME:
@@ -575,8 +593,6 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 				return basicGetSystem();
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				return getCreationInfo();
-			case QOperatingSystemJobsPackage.JOB__CONTEXT:
-				return getContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -590,6 +606,9 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				setContext((QContext)newValue);
+				return;
 			case QOperatingSystemJobsPackage.JOB__JOB_ID:
 				setJobID((String)newValue);
 				return;
@@ -622,9 +641,6 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				setCreationInfo((QCreationInfo)newValue);
 				return;
-			case QOperatingSystemJobsPackage.JOB__CONTEXT:
-				setContext((QContext)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -637,6 +653,9 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				setContext((QContext)null);
+				return;
 			case QOperatingSystemJobsPackage.JOB__JOB_ID:
 				setJobID(JOB_ID_EDEFAULT);
 				return;
@@ -667,9 +686,6 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				setCreationInfo((QCreationInfo)null);
 				return;
-			case QOperatingSystemJobsPackage.JOB__CONTEXT:
-				setContext((QContext)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -682,6 +698,8 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemJobsPackage.JOB__CONTEXT:
+				return context != null;
 			case QOperatingSystemJobsPackage.JOB__JOB_ID:
 				return JOB_ID_EDEFAULT == null ? jobID != null : !JOB_ID_EDEFAULT.equals(jobID);
 			case QOperatingSystemJobsPackage.JOB__JOB_NAME:
@@ -702,8 +720,6 @@ public class JobImpl extends ObjectNameableImpl implements QJob {
 				return system != null;
 			case QOperatingSystemJobsPackage.JOB__CREATION_INFO:
 				return creationInfo != null;
-			case QOperatingSystemJobsPackage.JOB__CONTEXT:
-				return context != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -7,6 +7,8 @@
  */
 package org.asup.os.core;
 
+import org.asup.fw.core.QContext;
+import org.asup.fw.core.QContextProvider;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QObjectNameable;
 
@@ -19,6 +21,7 @@ import org.asup.os.omac.QObjectNameable;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.os.core.QSystem#getContext <em>Context</em>}</li>
  *   <li>{@link org.asup.os.core.QSystem#getCreationInfo <em>Creation Info</em>}</li>
  *   <li>{@link org.asup.os.core.QSystem#getInstallPath <em>Install Path</em>}</li>
  *   <li>{@link org.asup.os.core.QSystem#getLastJobNumber <em>Last Job Number</em>}</li>
@@ -33,8 +36,34 @@ import org.asup.os.omac.QObjectNameable;
  * @model
  * @generated
  */
-public interface QSystem extends QObjectNameable {
+public interface QSystem extends QObjectNameable, QContextProvider {
 	
+	/**
+	 * Returns the value of the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Context</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Context</em>' containment reference.
+	 * @see #setContext(QContext)
+	 * @see org.asup.os.core.QOperatingSystemCorePackage#getSystem_Context()
+	 * @model containment="true" transient="true"
+	 * @generated
+	 */
+	QContext getContext();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.QSystem#getContext <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Context</em>' containment reference.
+	 * @see #getContext()
+	 * @generated
+	 */
+	void setContext(QContext value);
+
 	public static final long LOCK_TIMEOUT = 1000;
 	
 	/**

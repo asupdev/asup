@@ -16,8 +16,7 @@ import javax.inject.Inject;
 import org.asup.db.core.QConnection;
 import org.asup.db.syntax.QNameHelper;
 import org.asup.db.syntax.QNameHelperRegistry;
-import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
@@ -33,10 +32,10 @@ public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 	private QNameHelperRegistry nameHelperRegistry;
 	
 	@Override
-	public QIsamFactory createFactory(QContext context, QContextID contextID) {
+	public QIsamFactory createFactory(QContextProvider contextProvider) {
 				
-		QConnection connection = context.getAdapter(contextID, QConnection.class);
-		QDataFactory dataFactory = dataManager.createFactory(contextID);
+		QConnection connection = contextProvider.getContext().getAdapter(contextProvider, QConnection.class);
+		QDataFactory dataFactory = dataManager.createFactory(contextProvider);
 		
 		SQLObjectNameHelper sqlObjectNameHelper = new SQLObjectNameHelper();
 		QNameHelper nameHelper = nameHelperRegistry.lookup("*JOB");

@@ -7,8 +7,7 @@
  */
 package org.asup.il.isam;
 
-import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.fw.core.QService;
 
 /**
@@ -25,9 +24,9 @@ public interface QIsamManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" contextRequired="true" contextIDRequired="true"
+	 * @model required="true" contextProviderRequired="true"
 	 * @generated
 	 */
-	QIsamFactory createFactory(QContext context, QContextID contextID);
+	QIsamFactory createFactory(QContextProvider contextProvider);
 
 } // QIsamManager

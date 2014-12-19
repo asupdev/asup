@@ -7,10 +7,9 @@
  */
 package org.asup.il.data;
 
-import java.lang.String;
 import java.util.List;
 
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.fw.core.QService;
 
 /**
@@ -27,18 +26,18 @@ public interface QDataManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" contextIDRequired="true" dataTermsMany="true"
+	 * @model required="true" contextProviderRequired="true" dataTermsMany="true"
 	 * @generated
 	 */
-	QDataContainer createDataContainer(QContextID contextID, List<QDataTerm<?>> dataTerms);
+	QDataContainer createDataContainer(QContextProvider contextProvider, List<QDataTerm<?>> dataTerms);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" contextIDRequired="true"
+	 * @model required="true" contextProviderRequired="true"
 	 * @generated
 	 */
-	QDataFactory createFactory(QContextID contextID);
+	QDataFactory createFactory(QContextProvider contextProvider);
 
 	/**
 	 * <!-- begin-user-doc -->

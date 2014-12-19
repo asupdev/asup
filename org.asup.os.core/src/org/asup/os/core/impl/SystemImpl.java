@@ -7,6 +7,7 @@
  */
 package org.asup.os.core.impl;
 
+import org.asup.fw.core.QContext;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.SystemStatus;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.os.core.impl.SystemImpl#getContext <em>Context</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getCreationInfo <em>Creation Info</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getInstallPath <em>Install Path</em>}</li>
  *   <li>{@link org.asup.os.core.impl.SystemImpl#getLastJobNumber <em>Last Job Number</em>}</li>
@@ -38,6 +40,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class SystemImpl extends ObjectNameableImpl implements QSystem {
+	/**
+	 * The cached value of the '{@link #getContext() <em>Context</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected QContext context;
+
 	/**
 	 * 
 	 */
@@ -323,6 +335,49 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QContext getContext() {
+		return context;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContext(QContext newContext, NotificationChain msgs) {
+		QContext oldContext = context;
+		context = newContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemCorePackage.SYSTEM__CONTEXT, oldContext, newContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setContext(QContext newContext) {
+		if (newContext != context) {
+			NotificationChain msgs = null;
+			if (context != null)
+				msgs = ((InternalEObject)context).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCorePackage.SYSTEM__CONTEXT, null, msgs);
+			if (newContext != null)
+				msgs = ((InternalEObject)newContext).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QOperatingSystemCorePackage.SYSTEM__CONTEXT, null, msgs);
+			msgs = basicSetContext(newContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCorePackage.SYSTEM__CONTEXT, newContext, newContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QCreationInfo getCreationInfo() {
 		return creationInfo;
 	}
@@ -369,6 +424,8 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
+				return basicSetContext(null, msgs);
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				return basicSetCreationInfo(null, msgs);
 		}
@@ -383,6 +440,8 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
+				return getContext();
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				return getCreationInfo();
 			case QOperatingSystemCorePackage.SYSTEM__INSTALL_PATH:
@@ -409,6 +468,9 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
+				setContext((QContext)newValue);
+				return;
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				setCreationInfo((QCreationInfo)newValue);
 				return;
@@ -442,6 +504,9 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
+				setContext((QContext)null);
+				return;
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				setCreationInfo((QCreationInfo)null);
 				return;
@@ -475,6 +540,8 @@ public class SystemImpl extends ObjectNameableImpl implements QSystem {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemCorePackage.SYSTEM__CONTEXT:
+				return context != null;
 			case QOperatingSystemCorePackage.SYSTEM__CREATION_INFO:
 				return creationInfo != null;
 			case QOperatingSystemCorePackage.SYSTEM__INSTALL_PATH:

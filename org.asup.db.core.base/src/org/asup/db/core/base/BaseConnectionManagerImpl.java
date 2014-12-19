@@ -58,7 +58,7 @@ public class BaseConnectionManagerImpl extends ConnectionManagerImpl {
 		
 		QCatalogContainer catalogContainer = baseDatabaseManagerImpl.getCatalogContainer(catalog);
 		
-		QContext context = catalogContainer.getCatalogContext().createLocalContext(catalog + "/" + connectionID);
+		QContext context = catalogContainer.getCatalogContext().createChildContext(connectionID);
 
 		QConnection connection = new BaseConnectionImpl(baseDatabaseManagerImpl.getDatabaseContainer(), context);
 		connection.setCatalog(catalog);

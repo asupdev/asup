@@ -83,7 +83,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		else
 			moduleContexts = new ArrayList<QCompilationUnit>();
 
-		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createLocalContext(module.getName()), module, moduleContexts, caseSensitive);
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createChildContext(module.getName()), module, moduleContexts, caseSensitive);
 
 		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
@@ -106,7 +106,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
 		List<QCompilationUnit> moduleContexts = prepareContexts(job, globalContexts, program, caseSensitive);
 
-		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createLocalContext(program.getName()), program, moduleContexts, caseSensitive);
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createChildContext(program.getName()), program, moduleContexts, caseSensitive);
 
 		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
@@ -133,7 +133,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		List<QCompilationUnit> moduleContexts = prepareContexts(job, globalContexts, procedure, master.getCaseSensitive());
 		moduleContexts.add(master);
 
-		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(master.getContext().createLocalContext(procedure.getName()), procedure, moduleContexts, master.getCaseSensitive());
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(master.getContext().createChildContext(procedure.getName()), procedure, moduleContexts, master.getCaseSensitive());
 
 		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
@@ -145,7 +145,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		List<QCompilationUnit> compilationUnits = new ArrayList<QCompilationUnit>();
 
-		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createLocalContext(file.getName()), file, compilationUnits, caseSensitive);
+		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createChildContext(file.getName()), file, compilationUnits, caseSensitive);
 		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
 		return compilationUnit;

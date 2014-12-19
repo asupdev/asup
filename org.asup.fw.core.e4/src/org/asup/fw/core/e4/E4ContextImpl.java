@@ -19,27 +19,32 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-//github.com/asupdev/asup.git
+import org.asup.fw.core.ContextInjectionStrategy;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QAdapterFactory;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContext;
 import org.asup.fw.core.impl.ContextImpl;
-//github.com/asupdev/asup.git
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.remoteserviceadmin.RemoteConstants;
 
-public abstract class E4ContextImpl extends ContextImpl {
+public abstract class E4ContextImpl extends  ContextImpl {
 
 	private static final String ADAPTER_FACTORIES_NAME = "org.asup.fw.core.e4.context.adapterFactories";
 	
 	private static Boolean postConstruct = null;
 
+	private BundleContext bundleContext;
 	private String name;
 
-	public E4ContextImpl(String name) {
+	public E4ContextImpl(BundleContext bundleContext, String name) {
+		this.bundleContext = bundleContext;
 		this.name = name;
 	}
 
@@ -96,7 +101,7 @@ public abstract class E4ContextImpl extends ContextImpl {
 	}
 
 	@Override
-	public Class<?> loadClass(QContextID contextID, String address) {
+	public Class<?> loadClass(String address) {
 
 		URI uriAddress = URI.createURI(address);
 
@@ -187,6 +192,73 @@ public abstract class E4ContextImpl extends ContextImpl {
 		}
 	}
 
+
+	@Override
+	public QContext createChildContext(String name) throws FrameworkCoreRuntimeException {
+		return createChildContext(name, ContextInjectionStrategy.LOCAL);
+	}
+	
+	@Override
+	public QContext createChildContext(String name, ContextInjectionStrategy injectionStrategy) throws FrameworkCoreRuntimeException {
+
+		
+		switch (injectionStrategy) {
+		case LOCAL:
+			return createLocalContext(name);
+		case REMOTE:
+			return createRemoteContext(name);
+		}
+
+		// TODO
+		return null;
+	}
+
+	private QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
+		
+		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
+		
+		initializeContext(eclipseChildContext);
+		
+		QContext contextChild = new E4ContextChildImpl(bundleContext, eclipseChildContext, name);
+		
+		return contextChild;
+	}
+	
+	private QContext createRemoteContext(String name) throws FrameworkCoreRuntimeException {
+
+		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
+		
+		// bind remote service
+		try {
+			for (ServiceReference<?> serviceReference : bundleContext.getAllServiceReferences(null, null)) {
+				if (serviceReference.getProperty(RemoteConstants.SERVICE_IMPORTED) != null) {
+
+					Object object = null;
+					String className = ((String[]) serviceReference.getProperty("objectClass"))[0];
+
+					for (Bundle bundle : bundleContext.getBundles()) {
+						if (className.startsWith(bundle.getSymbolicName())) {
+							if (bundle.getSymbolicName().equals("org.asup.os.type"))
+								continue;
+							object = bundle.getBundleContext().getService(serviceReference);
+							if (object == null)
+								continue;
+
+							eclipseChildContext.set(className, object);
+							break;
+						}
+					}
+				}
+			}
+		} catch (InvalidSyntaxException e) {
+			throw new FrameworkCoreRuntimeException(e);
+		}
+
+		initializeContext(eclipseChildContext);
+		
+		return new E4ContextChildImpl(bundleContext, eclipseChildContext, name);
+	}
+	
 	private boolean isActivePostConstruct() {
 
 		if (postConstruct == null) {
@@ -217,4 +289,5 @@ public abstract class E4ContextImpl extends ContextImpl {
 			return loaded;
 		}
 	}
+
 }

@@ -212,11 +212,11 @@ public class RPJCallableUnitLinker {
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 
 		String address = "asup:/omac/" + pathURI + packageURI.toString().replaceAll("/", ".") + "." + file.getName();
-		Class<?> linkedClass = compilationUnit.getContext().loadClass(null, address);
+		Class<?> linkedClass = compilationUnit.getContext().loadClass(address);
 
 		if (linkedClass == null) {
 			address = "asup:/omac/" + file.getLibrary() + "/" + file.getApplication() + ".file." + file.getName();
-			linkedClass = compilationUnit.getContext().loadClass(null, address);
+			linkedClass = compilationUnit.getContext().loadClass(address);
 		}
 
 		// search on parent library
@@ -229,7 +229,7 @@ public class RPJCallableUnitLinker {
 					throw new OperatingSystemRuntimeException("Master library not found: " + library);
 
 				address = "asup:/omac/" + masterLibrary.getName() + "/" + file.getApplication() + ".file." + file.getName();
-				linkedClass = compilationUnit.getContext().loadClass(null, address);
+				linkedClass = compilationUnit.getContext().loadClass(address);
 			}
 		}
 

@@ -50,7 +50,7 @@ public class BaseDatabaseLoader {
 					continue;
 				
 				// build catalog context
-				QContext catalogContext = application.getContext().createLocalContext(catalogContainer.getName());
+				QContext catalogContext = application.getContext().createChildContext(catalogContainer.getName());
 				
 				QConnectionConfig connectionConfig = catalogContainer.getConnectionConfig();
 				QQueryWriter queryWriter = queryWriterRegistry.lookup(connectionConfig);

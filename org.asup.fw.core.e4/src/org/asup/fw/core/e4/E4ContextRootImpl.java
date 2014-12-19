@@ -11,25 +11,17 @@
  */
 package org.asup.fw.core.e4;
 
-import org.asup.fw.core.FrameworkCoreRuntimeException;
-import org.asup.fw.core.QContext;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
-import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceReference;
-import org.osgi.service.remoteserviceadmin.RemoteConstants;
 
 public class E4ContextRootImpl extends E4ContextImpl {
 
-	private BundleContext bundleContext;
 	private IEclipseContext eclipseContext;
 
 	public E4ContextRootImpl(BundleContext bundleContext, String name) {
-		super(name);
+		super(bundleContext, name);
 
-		this.bundleContext = bundleContext;
 		this.eclipseContext = EclipseContextFactory.getServiceContext(bundleContext);
 		
 		initializeContext(this.eclipseContext);
@@ -39,41 +31,4 @@ public class E4ContextRootImpl extends E4ContextImpl {
 	public IEclipseContext getEclipseContext() {		
 		return eclipseContext;
 	}
-
-	@Override
-	public QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
-
-		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-		
-		// bind remote service
-		try {
-			for (ServiceReference<?> serviceReference : bundleContext.getAllServiceReferences(null, null)) {
-				if (serviceReference.getProperty(RemoteConstants.SERVICE_IMPORTED) != null) {
-
-					Object object = null;
-					String className = ((String[]) serviceReference.getProperty("objectClass"))[0];
-
-					for (Bundle bundle : bundleContext.getBundles()) {
-						if (className.startsWith(bundle.getSymbolicName())) {
-							if (bundle.getSymbolicName().equals("org.asup.os.type"))
-								continue;
-							object = bundle.getBundleContext().getService(serviceReference);
-							if (object == null)
-								continue;
-
-							eclipseChildContext.set(className, object);
-							break;
-						}
-					}
-				}
-			}
-		} catch (InvalidSyntaxException e) {
-			throw new FrameworkCoreRuntimeException(e);
-		}
-
-		initializeContext(eclipseChildContext);
-		
-		return new E4ContextChildImpl(eclipseChildContext, name);
-	}
-
 }

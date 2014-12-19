@@ -121,7 +121,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		else				
 			address = "asup:/omac/"+program.getLibrary()+"/"+program.getApplication()+".pgm."+program.getName();
 
-		Class<?> klass = job.getContext().loadClass(job, address);
+		Class<?> klass = job.getContext().loadClass(address);
 		
 		if(klass == null)
 			throw new OperatingSystemRuntimeProgramException("Class not found: "+address);

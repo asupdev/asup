@@ -7,8 +7,7 @@
  */
 package org.asup.il.esql;
 
-import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.fw.core.QService;
 
 /**
@@ -25,9 +24,9 @@ public interface QESqlManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" contextRequired="true" contextIDRequired="true"
+	 * @model required="true" contextProviderRequired="true"
 	 * @generated
 	 */
-	QESqlFactory createFactory(QContext context, QContextID contextID);
+	QESqlFactory createFactory(QContextProvider contextProvider);
 
 } // QESqlManager

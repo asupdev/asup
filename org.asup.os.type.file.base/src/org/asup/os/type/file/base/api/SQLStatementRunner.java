@@ -62,7 +62,7 @@ public class SQLStatementRunner {
 		QStatement statement = null;
 		try {
 
-			statement = databaseConnection.createStatement(true);
+			statement = databaseConnection.createStatement();
 
 			ResultSet resultSet = statement.executeQuery(sql.trimR());
 

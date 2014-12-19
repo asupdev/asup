@@ -24,6 +24,7 @@ import org.asup.os.omac.QObjectNameable;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.os.core.jobs.QJob#getContext <em>Context</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getJobID <em>Job ID</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getJobName <em>Job Name</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getJobNumber <em>Job Number</em>}</li>
@@ -34,7 +35,6 @@ import org.asup.os.omac.QObjectNameable;
  *   <li>{@link org.asup.os.core.jobs.QJob#getMessages <em>Messages</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getSystem <em>System</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJob#getCreationInfo <em>Creation Info</em>}</li>
- *   <li>{@link org.asup.os.core.jobs.QJob#getContext <em>Context</em>}</li>
  * </ul>
  * </p>
  *

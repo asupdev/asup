@@ -24,7 +24,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataEvaluator;
@@ -76,9 +76,9 @@ public class BaseCallableInjector {
 		return callable;
 	}
 	
-	public QData[] buildEntry(QContextID contextID, Method method) {
+	public QData[] buildEntry(QContextProvider contextProvider, Method method) {
 		
-		QDataFactory dataFactory = dataManager.createFactory(contextID);
+		QDataFactory dataFactory = dataManager.createFactory(contextProvider);
 		
 		Type[] types = method.getGenericParameterTypes();					
 		Annotation[][] annotationss = method.getParameterAnnotations();
@@ -148,7 +148,7 @@ public class BaseCallableInjector {
 				
 				QIsamFactory isamFactory = job.getContext().get(QIsamFactory.class);
 				if(isamFactory == null) {
-					isamFactory = isamManager.createFactory(job.getContext(), job);
+					isamFactory = isamManager.createFactory(job);
 					job.getContext().set(QIsamFactory.class, isamFactory);
 				}
 				

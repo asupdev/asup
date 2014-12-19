@@ -244,7 +244,7 @@ public class E4ApplicationStarter {
 
 	public void registerService(QApplication application, QApplicationLevel level, QContext context, String name, Object service, Dictionary<String, Object> properties, boolean remoteExport) {
 
-		QContext contextService = context.createLocalContext(name);
+		QContext contextService = context.createChildContext(name);
 		contextService.set("org.asup.fw.core.service.name", name);
 		contextService.set("org.asup.fw.core.service.object", service);			
 		contextService.set("org.asup.fw.core.service.properties", properties);

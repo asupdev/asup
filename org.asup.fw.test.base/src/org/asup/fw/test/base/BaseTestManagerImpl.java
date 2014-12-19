@@ -15,7 +15,6 @@ package org.asup.fw.test.base;
 import org.asup.fw.core.FrameworkCoreException;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.fw.core.QContext;
-import org.asup.fw.core.QContextID;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.fw.test.QFrameworkTestFactory;
 import org.asup.fw.test.QTestAsserter;
@@ -43,7 +42,7 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 	@Override
 	public QTestRunner prepareRunner(QContext context, Class<?> klass) throws FrameworkCoreException {
 		
-		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();
+		QUnitTestRunner testRunner = FrameworkTestFactoryImpl.eINSTANCE.createUnitTestRunner();		
 		
 		Bundle bundle = FrameworkUtil.getBundle(klass);
 		
@@ -64,8 +63,7 @@ public class BaseTestManagerImpl extends ServiceImpl implements QTestManager {
 
 		if(runner instanceof QUnitTestRunner) {
 
-			QContextID contextID = context.get(QContextID.class);
-			Class<?> testClass = context.loadClass(contextID, ((QUnitTestRunner) runner).getClassName());
+			Class<?> testClass = context.loadClass(((QUnitTestRunner) runner).getClassName());
 		    if(testClass == null)
 		    	throw new FrameworkCoreException("Invalid runner: "+runner);
 

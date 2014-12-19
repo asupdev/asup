@@ -21,6 +21,7 @@ import java.net.SocketAddress;
 import org.asup.co.core.ConnectorCoreHelper;
 import org.asup.co.core.QServerSocketConfig;
 import org.asup.fw.core.QApplication;
+import org.asup.fw.core.QContext;
 
 public class ShellServerSocketImpl implements Runnable {
 
@@ -48,7 +49,9 @@ public class ShellServerSocketImpl implements Runnable {
 
 				// start thread handler
 				ShellSocketHandler shellThread = new ShellSocketHandler(socket);
-				application.getContext().inject(shellThread);
+				
+				QContext connectionContext = application.getContext().createChildContext(shellThread.toString());
+				connectionContext.inject(shellThread);
 
 				shellThread.start();
 			}

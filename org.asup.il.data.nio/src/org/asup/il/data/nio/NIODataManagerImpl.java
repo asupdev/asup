@@ -14,10 +14,7 @@ package org.asup.il.data.nio;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
-import org.asup.fw.core.QApplication;
-import org.asup.fw.core.QContextID;
+import org.asup.fw.core.QContextProvider;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.il.data.QDataContainer;
 import org.asup.il.data.QDataDictionary;
@@ -26,9 +23,6 @@ import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataTerm;
 
 public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
-
-	@Inject
-	private QApplication application;
 	
 	private List<QDataDictionary> dictionaries = new ArrayList<QDataDictionary>();
 
@@ -36,16 +30,16 @@ public class NIODataManagerImpl extends ServiceImpl implements QDataManager {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QDataContainer createDataContainer(QContextID contextID, List<QDataTerm<?>> dataTerms) {
-		return new NIODataContainerImpl(contextID, createFactory(contextID), dataTerms);
+	public QDataContainer createDataContainer(QContextProvider contextProvider, List<QDataTerm<?>> dataTerms) {
+		return new NIODataContainerImpl(createFactory(contextProvider), dataTerms);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QDataFactory createFactory(QContextID contextID) {
-		return new NIODataFactoryImpl(application.getContext().createLocalContext(contextID.getID()), contextID);
+	public QDataFactory createFactory(QContextProvider contextProvider) {
+		return new NIODataFactoryImpl(contextProvider.getContext());
 	}
 
 	/**

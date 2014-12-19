@@ -74,13 +74,22 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	int JOB = 0;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__CONTEXT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Job ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__JOB_ID = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 0;
+	int JOB__JOB_ID = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Job Name</b></em>' attribute.
@@ -89,7 +98,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__JOB_NAME = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 1;
+	int JOB__JOB_NAME = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Job Number</b></em>' attribute.
@@ -98,7 +107,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__JOB_NUMBER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 2;
+	int JOB__JOB_NUMBER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Job Status</b></em>' attribute.
@@ -107,7 +116,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__JOB_STATUS = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
+	int JOB__JOB_STATUS = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Job Type</b></em>' attribute.
@@ -116,7 +125,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__JOB_TYPE = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
+	int JOB__JOB_TYPE = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Job User</b></em>' attribute.
@@ -125,7 +134,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__JOB_USER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
+	int JOB__JOB_USER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Libraries</b></em>' attribute list.
@@ -134,7 +143,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__LIBRARIES = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
+	int JOB__LIBRARIES = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Messages</b></em>' attribute list.
@@ -143,7 +152,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__MESSAGES = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
+	int JOB__MESSAGES = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>System</b></em>' reference.
@@ -152,7 +161,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__SYSTEM = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 8;
+	int JOB__SYSTEM = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
@@ -161,16 +170,7 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__CREATION_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__CONTEXT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 10;
+	int JOB__CREATION_INFO = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.

@@ -17,7 +17,6 @@ import javax.inject.Named;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.syntax.QQueryParser;
-import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContext;
 import org.asup.fw.test.AssertionState;
 import org.asup.fw.test.QAssertionResult;
@@ -37,8 +36,6 @@ public class TestParser extends AbstractCommandProviderImpl {
 	@Inject
 	private QConnectionManager connectionManager;
 	@Inject
-	private QApplication application;
-	@Inject
 	private QTestManager testManager;
 
 	public void _testParser(CommandInterpreter interpreter) throws Exception {
@@ -46,12 +43,10 @@ public class TestParser extends AbstractCommandProviderImpl {
 		String script = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
 		
-		
-		QContext testContext = application.getContext().createLocalContext(catalog+"/"+script);
-		
 		QConnection connection = connectionManager.createConnection(catalog);
-		testContext.set(QConnection.class, connection);
 		
+		QContext testContext = connection.getContext().createChildContext(script);
+		testContext.set(QConnection.class, connection);		
 		testContext.set("org.asup.db.core.test.script", script);
 
 		QTestRunner testRunner = null;

@@ -517,7 +517,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createDataContainer" lowerBound="1" eType="#//DataContainer">
-      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="contextProvider" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextProvider"/>
       <eParameters name="dataTerms" upperBound="-1">
         <eGenericType eClassifier="#//DataTerm">
           <eTypeArguments/>
@@ -525,7 +525,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="createFactory" lowerBound="1" eType="#//DataFactory">
-      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="contextProvider" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextProvider"/>
     </eOperations>
     <eOperations name="lookupDictionary" lowerBound="1" eType="#//DataDictionary">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

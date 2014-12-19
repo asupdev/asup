@@ -15,7 +15,6 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
-import org.asup.fw.core.QContextID;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
@@ -27,6 +26,7 @@ import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
+import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.data.QOperatingSystemDataHelper;
 import org.asup.os.omac.QObject;
@@ -41,7 +41,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	@Inject
 	private QOutputWrapper outputWrapper;
 	@Inject
-	private QContextID contextID;	
+	private QJob job;	
 	@Inject
 	private QDataManager dataManager;
 	@Inject
@@ -64,8 +64,8 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			streamWrite("\n");
 			
 			this.eClass = eClass;			
-			dataContainer = dataManager.createDataContainer(contextID, QOperatingSystemDataHelper.buildDataTerms(eClass));
-			dataFactory = dataManager.createFactory(contextID);
+			dataContainer = dataManager.createDataContainer(job, QOperatingSystemDataHelper.buildDataTerms(eClass));
+			dataFactory = dataManager.createFactory(job);
 			
 			for(QDataTerm<?> dataTerm: dataContainer.getTerms()) {				
 				QData data = dataContainer.getData(dataTerm);
@@ -137,7 +137,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	private void streamWrite(String data) throws IOException {
 
 //		if (outputWrapper.contains(contextID.getID())) {
-			outputWrapper.write(contextID.getID(), data);
+			outputWrapper.write(job.getJobID(), data);
 /*		}
 		else {
 			System.err.println("Unexpected condition 98sedr2q38sedhrf");
@@ -148,7 +148,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	private void streamFlush() throws IOException {
 
 //		if (outputWrapper.contains(contextID.getID())) {
-			outputWrapper.flush(contextID.getID());
+			outputWrapper.flush(job.getJobID());
 /*		}
 		else{
 			System.err.println("Unexpected condition 38sedr2q38se8756hrf");

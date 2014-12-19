@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.asup.fw.core.QContextID;
 import org.asup.il.core.QNode;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
@@ -31,9 +30,6 @@ import org.asup.il.data.impl.DataContainerImpl;
 public class NIODataContainerImpl extends DataContainerImpl implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	@SuppressWarnings("unused")
-	private QContextID contextID;
 	
 	private transient QDataFactory dataFactory;
 
@@ -43,8 +39,7 @@ public class NIODataContainerImpl extends DataContainerImpl implements Serializa
 
 	private QDataEvaluator evaluator;
 	
-	protected NIODataContainerImpl(QContextID contextID, QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
-		this.contextID = contextID;
+	protected NIODataContainerImpl(QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
 		this.dataFactory = dataFactory;
 		this.dataTerms = dataTerms;
 		this.datas = new HashMap<String, QData>();

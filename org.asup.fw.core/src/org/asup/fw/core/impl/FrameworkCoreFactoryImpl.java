@@ -82,6 +82,8 @@ public class FrameworkCoreFactoryImpl extends EFactoryImpl implements QFramework
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case QFrameworkCorePackage.CONTEXT_INJECTION_STRATEGY:
+				return createContextInjectionStrategyFromString(eDataType, initialValue);
 			case QFrameworkCorePackage.SERVICE_STATUS:
 				return createServiceStatusFromString(eDataType, initialValue);
 			case QFrameworkCorePackage.FRAMEWORK_CORE_EXCEPTION:
@@ -103,6 +105,8 @@ public class FrameworkCoreFactoryImpl extends EFactoryImpl implements QFramework
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case QFrameworkCorePackage.CONTEXT_INJECTION_STRATEGY:
+				return convertContextInjectionStrategyToString(eDataType, instanceValue);
 			case QFrameworkCorePackage.SERVICE_STATUS:
 				return convertServiceStatusToString(eDataType, instanceValue);
 			case QFrameworkCorePackage.FRAMEWORK_CORE_EXCEPTION:
@@ -184,6 +188,26 @@ public class FrameworkCoreFactoryImpl extends EFactoryImpl implements QFramework
 	public QServiceReference createServiceReference() {
 		ServiceReferenceImpl serviceReference = new ServiceReferenceImpl();
 		return serviceReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ContextInjectionStrategy createContextInjectionStrategyFromString(EDataType eDataType, String initialValue) {
+		ContextInjectionStrategy result = ContextInjectionStrategy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertContextInjectionStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
