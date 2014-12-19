@@ -800,6 +800,16 @@ public interface QDatabaseCorePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Statement Batch Result</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatementBatchResult()
+	 * @generated
+	 */
+	int STATEMENT_BATCH_RESULT = 23;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QCatalogContainer <em>Catalog Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1384,6 +1394,16 @@ public interface QDatabaseCorePackage extends EPackage {
 	EDataType getDatabaseResultSet();
 
 	/**
+	 * Returns the meta object for data type '<em>Statement Batch Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Statement Batch Result</em>'.
+	 * @model instanceClass="int[]" serializeable="false"
+	 * @generated
+	 */
+	EDataType getStatementBatchResult();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1890,6 +1910,15 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType DATABASE_RESULT_SET = eINSTANCE.getDatabaseResultSet();
+
+		/**
+		 * The meta object literal for the '<em>Statement Batch Result</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatementBatchResult()
+		 * @generated
+		 */
+		EDataType STATEMENT_BATCH_RESULT = eINSTANCE.getStatementBatchResult();
 
 	}
 
