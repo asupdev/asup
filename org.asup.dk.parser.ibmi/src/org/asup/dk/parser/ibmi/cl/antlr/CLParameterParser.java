@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLParameter.g 2014-12-19 17:54:09
+// $ANTLR 3.5.1 CLParameter.g 2014-12-19 18:50:43
 
   package org.asup.dk.parser.ibmi.cl.antlr;
   
@@ -17,7 +17,7 @@ import org.antlr.runtime.tree.*;
 public class CLParameterParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "APOS", "ASTERISK", "BCAT", "CAT", 
-		"CHAR_SPECIAL", "CLOSE_BRACE", "COMMENT", "CR", "FILTER", "FUNCTION", 
+		"CHAR_SPECIAL", "CLOSE_BRACE", "COMMENT", "CR", "ESCAPE", "FILTER", "FUNCTION", 
 		"FUNCTION_NAME", "HEX", "LIST", "OPEN_BRACE", "SPECIAL", "STRING", "TCAT", 
 		"TOKEN", "VALUE", "VARIABLE", "WS"
 	};
@@ -30,19 +30,20 @@ public class CLParameterParser extends Parser {
 	public static final int CLOSE_BRACE=9;
 	public static final int COMMENT=10;
 	public static final int CR=11;
-	public static final int FILTER=12;
-	public static final int FUNCTION=13;
-	public static final int FUNCTION_NAME=14;
-	public static final int HEX=15;
-	public static final int LIST=16;
-	public static final int OPEN_BRACE=17;
-	public static final int SPECIAL=18;
-	public static final int STRING=19;
-	public static final int TCAT=20;
-	public static final int TOKEN=21;
-	public static final int VALUE=22;
-	public static final int VARIABLE=23;
-	public static final int WS=24;
+	public static final int ESCAPE=12;
+	public static final int FILTER=13;
+	public static final int FUNCTION=14;
+	public static final int FUNCTION_NAME=15;
+	public static final int HEX=16;
+	public static final int LIST=17;
+	public static final int OPEN_BRACE=18;
+	public static final int SPECIAL=19;
+	public static final int STRING=20;
+	public static final int TCAT=21;
+	public static final int TOKEN=22;
+	public static final int VALUE=23;
+	public static final int VARIABLE=24;
+	public static final int WS=25;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -921,14 +922,14 @@ public class CLParameterParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_elem_in_parse109 = new BitSet(new long[]{0x0000000000AED022L});
+	public static final BitSet FOLLOW_elem_in_parse109 = new BitSet(new long[]{0x00000000015DA022L});
 	public static final BitSet FOLLOW_composite_in_elem143 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_list_in_elem145 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_value_in_composite174 = new BitSet(new long[]{0x00000000001000C2L});
-	public static final BitSet FOLLOW_operator_in_composite177 = new BitSet(new long[]{0x0000000000ACD020L});
-	public static final BitSet FOLLOW_value_in_composite179 = new BitSet(new long[]{0x00000000001000C2L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_list220 = new BitSet(new long[]{0x0000000000AED220L});
-	public static final BitSet FOLLOW_elem_in_list223 = new BitSet(new long[]{0x0000000000AED220L});
+	public static final BitSet FOLLOW_value_in_composite174 = new BitSet(new long[]{0x00000000002000C2L});
+	public static final BitSet FOLLOW_operator_in_composite177 = new BitSet(new long[]{0x000000000159A020L});
+	public static final BitSet FOLLOW_value_in_composite179 = new BitSet(new long[]{0x00000000002000C2L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_list220 = new BitSet(new long[]{0x00000000015DA220L});
+	public static final BitSet FOLLOW_elem_in_list223 = new BitSet(new long[]{0x00000000015DA220L});
 	public static final BitSet FOLLOW_CLOSE_BRACE_in_list227 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ASTERISK_in_value262 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TOKEN_in_value277 = new BitSet(new long[]{0x0000000000000002L});
@@ -938,6 +939,6 @@ public class CLParameterParser extends Parser {
 	public static final BitSet FOLLOW_HEX_in_value311 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_STRING_in_value324 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_function_in_value339 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FUNCTION_NAME_in_function383 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_FUNCTION_NAME_in_function383 = new BitSet(new long[]{0x0000000000040000L});
 	public static final BitSet FOLLOW_list_in_function385 = new BitSet(new long[]{0x0000000000000002L});
 }

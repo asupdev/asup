@@ -133,7 +133,7 @@ FUNCTION_NAME:
 	;  	
   
 STRING	:	
-   APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&'|ASTERISK|OPEN_BRACE|CLOSE_BRACE)+ APOS	
+   APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&'|ASTERISK|OPEN_BRACE|CLOSE_BRACE|ESCAPE)+ APOS	
    ;	  
 
 TOKEN: 
@@ -170,6 +170,11 @@ CLOSE_BRACE
   :
   ')' 
   ;
+ 
+ESCAPE
+	:
+	APOS APOS
+	;  
   
 APOS	:
 	'\''	
