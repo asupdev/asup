@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="NUMCER"/>
+  <columns dataType="CHAR" length="1" name="TIPCER"/>
+  <columns dataType="DECIMAL" length="3" name="PRGCER"/>
+  <columns dataType="CHAR" length="1" name="ANNCER"/>
+  <columns dataType="CHAR" length="117" name="RECCER"/>
+  <columns dataType="CHAR" length="10" name="COLCER"/>
+  <columns dataType="CHAR" length="8" name="PRVCER"/>
+  <columns dataType="CHAR" length="4" name="X01CER"/>
+</db-core:TableDef>

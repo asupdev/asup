@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="1" name="TREAFI"/>
+  <columns dataType="DECIMAL" length="6" name="CODAFI"/>
+  <columns dataType="CHAR" length="1" name="ANNAFI"/>
+  <columns dataType="DECIMAL" length="8" name="DATAFI"/>
+  <columns dataType="DECIMAL" length="8" name="DVAAFI"/>
+  <columns dataType="DECIMAL" length="8" name="DREAFI"/>
+  <columns dataType="DECIMAL" length="1" name="TIPAFI"/>
+  <columns dataType="DECIMAL" length="13" name="IASAFI"/>
+  <columns dataType="DECIMAL" length="13" name="IAGAFI"/>
+  <columns dataType="CHAR" length="1" name="BLOAFI"/>
+  <columns dataType="CHAR" length="1" name="DDTAFI"/>
+  <columns dataType="DECIMAL" length="12" name="EASAFI" scale="2"/>
+  <columns dataType="DECIMAL" length="12" name="EAGAFI" scale="2"/>
+  <columns dataType="CHAR" length="70" name="NOTAFI"/>
+  <columns dataType="CHAR" length="45" name="X01AFI"/>
+</db-core:TableDef>

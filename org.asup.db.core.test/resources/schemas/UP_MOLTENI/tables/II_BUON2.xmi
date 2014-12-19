@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="4" name="NLIBU2"/>
+  <columns dataType="CHAR" length="8" name="COMBU2"/>
+  <columns dataType="DECIMAL" length="4" name="POSBU2"/>
+  <columns dataType="CHAR" length="1" name="FLGBU2"/>
+  <columns dataType="DECIMAL" length="4" name="PRGBU2"/>
+  <columns dataType="DECIMAL" length="4" name="ORDBU2"/>
+  <columns dataType="CHAR" length="7" name="X01BU2"/>
+</db-core:TableDef>

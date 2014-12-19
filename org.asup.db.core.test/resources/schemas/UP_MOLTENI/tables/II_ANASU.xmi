@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="1" name="TREANS"/>
+  <columns dataType="DECIMAL" length="6" name="CODANS"/>
+  <columns dataType="CHAR" length="1" name="ANNANS"/>
+  <columns dataType="CHAR" length="35" name="RSOANS"/>
+  <columns dataType="CHAR" length="16" name="VSCANS"/>
+  <columns dataType="CHAR" length="2" name="TIPANS"/>
+  <columns dataType="CHAR" length="35" name="DBAANS"/>
+  <columns dataType="DECIMAL" length="2" name="FIDANS"/>
+  <columns dataType="DECIMAL" length="6" name="CPGANS"/>
+  <columns dataType="CHAR" length="20" name="CGNANS"/>
+  <columns dataType="CHAR" length="20" name="NOMANS"/>
+  <columns dataType="CHAR" length="1" name="FFMANS"/>
+  <columns dataType="DECIMAL" length="2" name="AG2ANS"/>
+  <columns dataType="CHAR" length="35" name="NO1ANS"/>
+  <columns dataType="CHAR" length="35" name="NO2ANS"/>
+  <columns dataType="CHAR" length="4" name="X03ANS"/>
+  <columns dataType="DECIMAL" length="2" name="SOLANS"/>
+  <columns dataType="DECIMAL" length="2" name="ASSANS"/>
+  <columns dataType="DECIMAL" length="2" name="RICANS"/>
+  <columns dataType="CHAR" length="2" name="CCMANS"/>
+  <columns dataType="CHAR" length="1" name="LISANS"/>
+  <columns dataType="CHAR" length="3" name="VALANS"/>
+  <columns dataType="CHAR" length="4" name="LINANS"/>
+  <columns dataType="DECIMAL" length="5" name="ABIANS"/>
+  <columns dataType="DECIMAL" length="5" name="CABANS"/>
+  <columns dataType="DECIMAL" length="3" name="BANANS"/>
+  <columns dataType="CHAR" length="2" name="OF1ANS"/>
+  <columns dataType="CHAR" length="2" name="OF2ANS"/>
+  <columns dataType="CHAR" length="2" name="OF3ANS"/>
+  <columns dataType="CHAR" length="2" name="OF4ANS"/>
+  <columns dataType="CHAR" length="2" name="OF5ANS"/>
+  <columns dataType="CHAR" length="35" name="IN2ANS"/>
+  <columns dataType="CHAR" length="2" name="RIBANS"/>
+  <columns dataType="DECIMAL" length="8" name="DVIANS"/>
+  <columns dataType="CHAR" length="2" name="FF1ANS"/>
+  <columns dataType="CHAR" length="2" name="FF2ANS"/>
+  <columns dataType="CHAR" length="2" name="FF3ANS"/>
+  <columns dataType="CHAR" length="2" name="FF4ANS"/>
+  <columns dataType="CHAR" length="2" name="FF5ANS"/>
+  <columns dataType="DECIMAL" length="4" name="D1AANS"/>
+  <columns dataType="DECIMAL" length="4" name="A1AANS"/>
+  <columns dataType="DECIMAL" length="4" name="N1AANS"/>
+  <columns dataType="DECIMAL" length="4" name="D2AANS"/>
+  <columns dataType="DECIMAL" length="4" name="A2AANS"/>
+  <columns dataType="DECIMAL" length="4" name="N2AANS"/>
+  <columns dataType="DECIMAL" length="4" name="SFFANS" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="SC1ANS" scale="2"/>
+  <columns dataType="DECIMAL" length="4" name="SC2ANS" scale="2"/>
+  <columns dataType="CHAR" length="12" name="CCCANS"/>
+  <columns dataType="CHAR" length="2" name="PAEANS"/>
+  <columns dataType="CHAR" length="2" name="DIGANS"/>
+  <columns dataType="CHAR" length="1" name="CINANS"/>
+  <columns dataType="CHAR" length="34" name="IBAANS"/>
+  <columns dataType="CHAR" length="11" name="BICANS"/>
+  <columns dataType="DECIMAL" length="8" name="DNAANS"/>
+  <columns dataType="CHAR" length="40" name="CNAANS"/>
+  <columns dataType="CHAR" length="2" name="PNAANS"/>
+  <columns dataType="CHAR" length="35" name="CFIANS"/>
+  <columns dataType="CHAR" length="35" name="PIVANS"/>
+  <columns dataType="CHAR" length="50" name="PECANS"/>
+  <columns dataType="CHAR" length="221" name="X04ANS"/>
+</db-core:TableDef>

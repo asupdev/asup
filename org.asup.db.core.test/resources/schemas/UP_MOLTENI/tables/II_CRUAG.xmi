@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="13" name="CODUAG"/>
+  <columns dataType="DECIMAL" length="4" name="PRGUAG"/>
+  <columns dataType="CHAR" length="16" name="CCOUAG"/>
+  <columns dataType="DECIMAL" length="11" name="QTAUAG" scale="3"/>
+  <columns dataType="DECIMAL" length="8" name="DCRUAG"/>
+  <columns dataType="DECIMAL" length="8" name="DVAUAG"/>
+  <columns dataType="CHAR" length="540" name="X01UAG"/>
+</db-core:TableDef>

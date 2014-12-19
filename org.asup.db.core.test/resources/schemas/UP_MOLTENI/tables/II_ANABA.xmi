@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="1" name="TREABA"/>
+  <columns dataType="DECIMAL" length="6" name="CODABA"/>
+  <columns dataType="DECIMAL" length="2" name="PRGABA"/>
+  <columns dataType="CHAR" length="1" name="ANNABA"/>
+  <columns dataType="CHAR" length="35" name="DESABA"/>
+  <columns dataType="CHAR" length="2" name="PAEABA"/>
+  <columns dataType="CHAR" length="2" name="DIGABA"/>
+  <columns dataType="CHAR" length="1" name="CINABA"/>
+  <columns dataType="CHAR" length="5" name="ABIABA"/>
+  <columns dataType="CHAR" length="5" name="CABABA"/>
+  <columns dataType="CHAR" length="12" name="CCOABA"/>
+  <columns dataType="CHAR" length="56" name="X01ABA"/>
+</db-core:TableDef>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMACC"/>
+  <columns dataType="CHAR" length="2" name="TILACC"/>
+  <columns dataType="CHAR" length="13" name="ARTACC"/>
+  <columns dataType="DECIMAL" length="4" name="PASACC"/>
+  <columns dataType="DECIMAL" length="2" name="PRGACC"/>
+  <columns dataType="DECIMAL" length="3" name="CCFACC"/>
+  <columns dataType="DECIMAL" length="9" name="QTAACC"/>
+  <columns dataType="CHAR" length="9" name="ATTACC"/>
+  <columns dataType="DECIMAL" length="9" name="PRZACC"/>
+  <columns dataType="CHAR" length="1" name="FONACC"/>
+  <columns dataType="CHAR" length="1" name="ANNACC"/>
+  <columns dataType="CHAR" length="1" name="STMACC"/>
+  <columns dataType="CHAR" length="13" name="CPNACC"/>
+  <columns dataType="DECIMAL" length="13" name="EURACC" scale="5"/>
+  <columns dataType="CHAR" length="40" name="X01ACC"/>
+</db-core:TableDef>

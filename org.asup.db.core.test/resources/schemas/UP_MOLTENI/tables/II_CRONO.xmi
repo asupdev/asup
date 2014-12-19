@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="8" name="DATCRO"/>
+  <columns dataType="DECIMAL" length="4" name="MATCRO"/>
+  <columns dataType="DECIMAL" length="4" name="MINCRO"/>
+  <columns dataType="CHAR" length="50" name="NOTCRO"/>
+  <columns dataType="CHAR" length="3" name="TIPCRO"/>
+</db-core:TableDef>

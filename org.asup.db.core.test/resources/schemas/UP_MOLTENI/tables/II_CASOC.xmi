@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="DATCCF"/>
+  <columns dataType="DECIMAL" length="6" name="CLICCF"/>
+  <columns dataType="DECIMAL" length="7" name="ORDCCF"/>
+  <columns dataType="DECIMAL" length="8" name="SCACCF"/>
+  <columns dataType="CHAR" length="1" name="ANNCCF"/>
+  <columns dataType="DECIMAL" length="13" name="IMPCCF"/>
+  <columns dataType="DECIMAL" length="3" name="BANCCF"/>
+  <columns dataType="DECIMAL" length="13" name="EURCCF" scale="2"/>
+  <columns dataType="CHAR" length="19" name="X01CCF"/>
+</db-core:TableDef>

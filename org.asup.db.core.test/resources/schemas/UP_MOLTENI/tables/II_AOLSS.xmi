@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="1" name="TREAOL"/>
+  <columns dataType="DECIMAL" length="6" name="CODAOL"/>
+  <columns dataType="DECIMAL" length="8" name="DATAOL"/>
+  <columns dataType="CHAR" length="1" name="ANNAOL"/>
+  <columns dataType="CHAR" length="35" name="RSOAOL"/>
+  <columns dataType="CHAR" length="35" name="INDAOL"/>
+  <columns dataType="CHAR" length="20" name="LOCAOL"/>
+  <columns dataType="CHAR" length="4" name="PROAOL"/>
+  <columns dataType="CHAR" length="11" name="X02AOL"/>
+  <columns dataType="CHAR" length="20" name="CGNAOL"/>
+  <columns dataType="CHAR" length="20" name="NOMAOL"/>
+  <columns dataType="CHAR" length="35" name="RS2AOL"/>
+  <columns dataType="CHAR" length="35" name="CFSAOL"/>
+  <columns dataType="CHAR" length="35" name="PIVAOL"/>
+  <columns dataType="CHAR" length="54" name="X01AOL"/>
+</db-core:TableDef>

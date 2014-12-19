@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="2" name="CATCDE"/>
+  <columns dataType="DECIMAL" length="4" name="PRGCDE"/>
+  <columns dataType="DECIMAL" length="2" name="SOTCDE"/>
+  <columns dataType="CHAR" length="1" name="ANNCDE"/>
+  <columns dataType="CHAR" length="420" name="DESCDE"/>
+  <columns dataType="CHAR" length="71" name="X01CDE"/>
+</db-core:TableDef>

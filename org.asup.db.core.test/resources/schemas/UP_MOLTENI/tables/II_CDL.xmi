@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="5" name="KEYCDL"/>
+  <columns dataType="CHAR" length="30" name="DESCDL"/>
+  <columns dataType="DECIMAL" length="3" name="CDCCDL"/>
+  <columns dataType="CHAR" length="15" name="CESCDL"/>
+  <columns dataType="DECIMAL" length="1" name="DISCDL"/>
+  <columns dataType="CHAR" length="6" name="GRPCDL"/>
+  <columns dataType="DECIMAL" length="3" name="CICCDL"/>
+  <columns dataType="CHAR" length="193" name="X01CDL"/>
+</db-core:TableDef>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="SIGLNO"/>
+  <columns dataType="DECIMAL" length="5" name="NOMLNO"/>
+  <columns dataType="DECIMAL" length="4" name="PROLNO"/>
+  <columns dataType="CHAR" length="1" name="ANNLNO"/>
+  <columns dataType="CHAR" length="70" name="NOTLNO"/>
+  <columns dataType="CHAR" length="14" name="X01LNO"/>
+</db-core:TableDef>

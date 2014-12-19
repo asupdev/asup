@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="4" name="KANBCE"/>
+  <columns dataType="DECIMAL" length="1" name="KE0BCE"/>
+  <columns dataType="CHAR" length="1" name="KE1BCE"/>
+  <columns dataType="DECIMAL" length="1" name="KE2BCE"/>
+  <columns dataType="DECIMAL" length="2" name="KE3BCE"/>
+  <columns dataType="DECIMAL" length="1" name="KE4BCE"/>
+  <columns dataType="CHAR" length="1" name="KE5BCE"/>
+  <columns dataType="CHAR" length="35" name="DE1BCE"/>
+  <columns dataType="CHAR" length="35" name="DE2BCE"/>
+  <columns dataType="CHAR" length="35" name="DE3BCE"/>
+  <columns dataType="DECIMAL" length="12" name="IMABCE"/>
+  <columns dataType="DECIMAL" length="12" name="IMMBCE"/>
+  <columns dataType="DECIMAL" length="12" name="IMPBCE"/>
+  <columns dataType="DECIMAL" length="12" name="IPMBCE"/>
+  <columns dataType="DECIMAL" length="11" name="EUABCE" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EUMBCE" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EURBCE" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EUPBCE" scale="2"/>
+  <columns dataType="CHAR" length="1" name="ANNBCE"/>
+  <columns dataType="CHAR" length="11" name="X01BCE"/>
+</db-core:TableDef>

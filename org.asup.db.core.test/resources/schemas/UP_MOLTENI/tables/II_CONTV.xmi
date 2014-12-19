@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCTV"/>
+  <columns dataType="DECIMAL" length="7" name="NUMCTV"/>
+  <columns dataType="DECIMAL" length="13" name="IM1CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="IM2CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="IM3CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="IM4CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="IM5CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="IM6CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="IM7CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV1CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV2CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV3CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV4CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV5CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV6CTV" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="IV7CTV" scale="2"/>
+  <columns dataType="CHAR" length="1" name="AS1CTV"/>
+  <columns dataType="CHAR" length="1" name="AS2CTV"/>
+  <columns dataType="CHAR" length="1" name="AS3CTV"/>
+  <columns dataType="CHAR" length="1" name="AS4CTV"/>
+  <columns dataType="CHAR" length="1" name="AS5CTV"/>
+  <columns dataType="CHAR" length="1" name="AS6CTV"/>
+  <columns dataType="CHAR" length="1" name="AS7CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL1CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL2CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL3CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL4CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL5CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL6CTV"/>
+  <columns dataType="DECIMAL" length="2" name="AL7CTV"/>
+</db-core:TableDef>

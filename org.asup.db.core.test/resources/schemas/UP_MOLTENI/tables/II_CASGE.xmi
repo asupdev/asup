@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="DATCAS"/>
+  <columns dataType="DECIMAL" length="3" name="BANCAS"/>
+  <columns dataType="CHAR" length="1" name="ANNCAS"/>
+  <columns dataType="DECIMAL" length="6" name="D01CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D02CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D03CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D04CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D05CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D06CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D07CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D08CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D09CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D10CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D11CAS"/>
+  <columns dataType="DECIMAL" length="6" name="D12CAS"/>
+  <columns dataType="DECIMAL" length="8" name="DAECAS"/>
+  <columns dataType="CHAR" length="4" name="X01CAS"/>
+  <columns dataType="DECIMAL" length="13" name="I01CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I02CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I03CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I04CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I05CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I06CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I07CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I08CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I09CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I10CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I11CAS" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="I12CAS" scale="2"/>
+  <columns dataType="CHAR" length="42" name="X02CAS"/>
+</db-core:TableDef>

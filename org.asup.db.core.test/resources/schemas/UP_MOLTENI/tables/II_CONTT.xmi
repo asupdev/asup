@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="NUMCTT"/>
+  <columns dataType="CHAR" length="10" name="USRCTT"/>
+  <columns dataType="CHAR" length="2" name="WSTCTT"/>
+</db-core:TableDef>

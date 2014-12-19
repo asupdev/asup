@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="2" name="NUMBIB"/>
+  <columns dataType="DECIMAL" length="4" name="AAABIB"/>
+  <columns dataType="DECIMAL" length="3" name="VOCBIB"/>
+  <columns dataType="CHAR" length="1" name="ANNBIB"/>
+  <columns dataType="DECIMAL" length="12" name="BUD01"/>
+  <columns dataType="DECIMAL" length="12" name="BUD02"/>
+  <columns dataType="DECIMAL" length="12" name="BUD03"/>
+  <columns dataType="DECIMAL" length="12" name="BUD04"/>
+  <columns dataType="DECIMAL" length="12" name="BUD05"/>
+  <columns dataType="DECIMAL" length="12" name="BUD06"/>
+  <columns dataType="DECIMAL" length="12" name="BUD07"/>
+  <columns dataType="DECIMAL" length="12" name="BUD08"/>
+  <columns dataType="DECIMAL" length="12" name="BUD09"/>
+  <columns dataType="DECIMAL" length="12" name="BUD10"/>
+  <columns dataType="DECIMAL" length="12" name="BUD11"/>
+  <columns dataType="DECIMAL" length="12" name="BUD12"/>
+  <columns dataType="DECIMAL" length="12" name="PRE01"/>
+  <columns dataType="DECIMAL" length="12" name="PRE02"/>
+  <columns dataType="DECIMAL" length="12" name="PRE03"/>
+  <columns dataType="DECIMAL" length="12" name="PRE04"/>
+  <columns dataType="DECIMAL" length="12" name="PRE05"/>
+  <columns dataType="DECIMAL" length="12" name="PRE06"/>
+  <columns dataType="DECIMAL" length="12" name="PRE07"/>
+  <columns dataType="DECIMAL" length="12" name="PRE08"/>
+  <columns dataType="DECIMAL" length="12" name="PRE09"/>
+  <columns dataType="DECIMAL" length="12" name="PRE10"/>
+  <columns dataType="DECIMAL" length="12" name="PRE11"/>
+  <columns dataType="DECIMAL" length="12" name="PRE12"/>
+  <columns dataType="DECIMAL" length="11" name="BEU01" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU02" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU03" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU04" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU05" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU06" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU07" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU08" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU09" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU10" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU11" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="BEU12" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU01" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU02" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU03" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU04" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU05" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU06" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU07" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU08" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU09" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU10" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU11" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="PEU12" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU01" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU02" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU03" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU04" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU05" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU06" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU07" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU08" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU09" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU10" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU11" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="QEU12" scale="2"/>
+  <columns dataType="CHAR" length="6" name="X01BIB"/>
+</db-core:TableDef>

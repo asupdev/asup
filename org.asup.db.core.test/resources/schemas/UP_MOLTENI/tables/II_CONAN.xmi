@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="FORCAN"/>
+  <columns dataType="DECIMAL" length="3" name="PRGCAN"/>
+  <columns dataType="CHAR" length="1" name="ANNCAN"/>
+  <columns dataType="DECIMAL" length="7" name="NORCAN"/>
+  <columns dataType="DECIMAL" length="8" name="DORCAN"/>
+  <columns dataType="CHAR" length="1" name="X01CAN"/>
+  <columns dataType="DECIMAL" length="8" name="DBOCAN"/>
+  <columns dataType="CHAR" length="13" name="ARTCAN"/>
+  <columns dataType="DECIMAL" length="9" name="QTACAN" scale="3"/>
+  <columns dataType="CHAR" length="2" name="UMMCAN"/>
+  <columns dataType="DECIMAL" length="9" name="IMPCAN"/>
+  <columns dataType="CHAR" length="1" name="STACAN"/>
+  <columns dataType="CHAR" length="1" name="TRECAN"/>
+  <columns dataType="DECIMAL" length="4" name="NRICAN"/>
+  <columns dataType="CHAR" length="1" name="RESCAN"/>
+  <columns dataType="DECIMAL" length="5" name="NBOCAN"/>
+  <columns dataType="DECIMAL" length="11" name="EURCAN" scale="2"/>
+  <columns dataType="DECIMAL" length="2" name="TDBCAN"/>
+  <columns dataType="CHAR" length="1" name="X02CAN"/>
+</db-core:TableDef>

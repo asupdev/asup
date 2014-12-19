@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="1" name="CRDCAL"/>
+  <columns dataType="DECIMAL" length="4" name="PRGCAL"/>
+  <columns dataType="CHAR" length="6" name="X01CAL"/>
+  <columns dataType="DECIMAL" length="13" name="IMPCAL"/>
+  <columns dataType="CHAR" length="35" name="DESCAL"/>
+  <columns dataType="CHAR" length="1" name="FLGCAL"/>
+  <columns dataType="DECIMAL" length="12" name="CONCAL"/>
+  <columns dataType="CHAR" length="1" name="ANNCAL"/>
+  <columns dataType="DECIMAL" length="3" name="BANCAL"/>
+  <columns dataType="DECIMAL" length="8" name="SCACAL"/>
+  <columns dataType="DECIMAL" length="13" name="EURCAL" scale="2"/>
+  <columns dataType="CHAR" length="15" name="X02CAL"/>
+</db-core:TableDef>

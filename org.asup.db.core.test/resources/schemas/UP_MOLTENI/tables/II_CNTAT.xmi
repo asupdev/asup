@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="6" name="KEYCNT"/>
+  <columns dataType="CHAR" length="60" name="NOMCNT"/>
+  <columns dataType="CHAR" length="60" name="DESCNT"/>
+  <columns dataType="CHAR" length="60" name="EMACNT"/>
+  <columns dataType="DECIMAL" length="4" name="DIPCNT"/>
+</db-core:TableDef>

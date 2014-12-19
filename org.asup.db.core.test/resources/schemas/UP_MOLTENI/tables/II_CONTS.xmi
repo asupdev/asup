@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCTS"/>
+  <columns dataType="DECIMAL" length="7" name="NUMCTS"/>
+  <columns dataType="DECIMAL" length="3" name="NRICTS"/>
+  <columns dataType="DECIMAL" length="8" name="SCACTS"/>
+  <columns dataType="DECIMAL" length="13" name="IMVCTS" scale="2"/>
+  <columns dataType="CHAR" length="3" name="VALCTS"/>
+  <columns dataType="DECIMAL" length="12" name="CAMCTS" scale="6"/>
+  <columns dataType="CHAR" length="2" name="GRPCTS"/>
+  <columns dataType="DECIMAL" length="3" name="BANCTS"/>
+  <columns dataType="DECIMAL" length="2" name="PBACTS"/>
+  <columns dataType="DECIMAL" length="8" name="DAICTS"/>
+  <columns dataType="DECIMAL" length="8" name="DAPCTS"/>
+  <columns dataType="CHAR" length="1" name="ANNCTS"/>
+</db-core:TableDef>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="DIVQZA"/>
+  <columns dataType="CHAR" length="1" name="FLGQZA"/>
+  <columns dataType="DECIMAL" length="5" name="ACPQZA"/>
+  <columns dataType="DECIMAL" length="2" name="AZNQZA"/>
+</db-core:TableDef>

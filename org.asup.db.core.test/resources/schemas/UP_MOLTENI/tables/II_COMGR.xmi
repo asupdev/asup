@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="KCOGRU"/>
+  <columns dataType="DECIMAL" length="4" name="KPRGRU"/>
+  <columns dataType="CHAR" length="1" name="ANNGRU"/>
+  <columns dataType="DECIMAL" length="3" name="SEQGRU"/>
+  <columns dataType="CHAR" length="13" name="CODGRU"/>
+  <columns dataType="CHAR" length="1" name="FLGGRU"/>
+  <columns dataType="CHAR" length="1" name="VCQGRU"/>
+  <columns dataType="CHAR" length="5" name="X01GRU"/>
+  <columns dataType="CHAR" length="8" name="CDEGRU"/>
+  <columns dataType="DECIMAL" length="4" name="PDEGRU"/>
+  <columns dataType="CHAR" length="4" name="X02GRU"/>
+  <columns dataType="DECIMAL" length="11" name="QTAGRU" scale="3"/>
+  <columns dataType="CHAR" length="1" name="ESPGRU"/>
+  <columns dataType="CHAR" length="35" name="NOTGRU"/>
+  <columns dataType="CHAR" length="1" name="TLIGRU"/>
+  <columns dataType="CHAR" length="1" name="DALGRU"/>
+  <columns dataType="CHAR" length="1" name="LANGRU"/>
+  <columns dataType="DECIMAL" length="7" name="NBUGRU"/>
+  <columns dataType="CHAR" length="1" name="NBNGRU"/>
+  <columns dataType="CHAR" length="1" name="FCOGRU"/>
+  <columns dataType="CHAR" length="1" name="MATGRU"/>
+  <columns dataType="DECIMAL" length="9" name="NPCGRU"/>
+  <columns dataType="DECIMAL" length="11" name="QTCGRU" scale="3"/>
+  <columns dataType="DECIMAL" length="2" name="MAGGRU"/>
+  <columns dataType="CHAR" length="6" name="X03GRU"/>
+  <columns dataType="DECIMAL" length="2" name="NLAGRU"/>
+  <columns dataType="CHAR" length="1" name="TREGRU"/>
+  <columns dataType="DECIMAL" length="8" name="DINGRU"/>
+  <columns dataType="DECIMAL" length="8" name="DCOGRU"/>
+  <columns dataType="DECIMAL" length="8" name="DDLGRU"/>
+  <columns dataType="CHAR" length="10" name="LOTGRU"/>
+  <columns dataType="DECIMAL" length="8" name="DMPGRU"/>
+  <columns dataType="CHAR" length="152" name="X04GRU"/>
+  <columns dataType="CHAR" length="2" name="UFAGRU"/>
+  <columns dataType="DECIMAL" length="8" name="DUFGRU"/>
+  <columns dataType="CHAR" length="2" name="REVGRU"/>
+  <columns dataType="DECIMAL" length="13" name="PRZGRU" scale="5"/>
+  <columns dataType="CHAR" length="5" name="X05GRU"/>
+</db-core:TableDef>

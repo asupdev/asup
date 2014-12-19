@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMCAN"/>
+  <columns dataType="DECIMAL" length="4" name="AAACAN"/>
+  <columns dataType="CHAR" length="1" name="ANNCAN"/>
+  <columns dataType="CHAR" length="1" name="DA1CAN"/>
+  <columns dataType="DECIMAL" length="13" name="IM1CAN"/>
+  <columns dataType="CHAR" length="1" name="DA2CAN"/>
+  <columns dataType="DECIMAL" length="13" name="IM2CAN"/>
+  <columns dataType="DECIMAL" length="13" name="EU1CAN" scale="2"/>
+  <columns dataType="DECIMAL" length="13" name="EU2CAN" scale="2"/>
+  <columns dataType="CHAR" length="85" name="X01CAN"/>
+</db-core:TableDef>

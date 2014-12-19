@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="5" name="KEYANR"/>
+  <columns dataType="DECIMAL" length="3" name="PRGANR"/>
+  <columns dataType="CHAR" length="1" name="ANNANR"/>
+  <columns dataType="DECIMAL" length="14" name="IMPANR" scale="2"/>
+  <columns dataType="CHAR" length="1" name="TIPANR"/>
+  <columns dataType="DECIMAL" length="5" name="NFAANR"/>
+  <columns dataType="DECIMAL" length="8" name="DFAANR"/>
+  <columns dataType="CHAR" length="45" name="NOTANR"/>
+  <columns dataType="CHAR" length="18" name="X01ANR"/>
+</db-core:TableDef>

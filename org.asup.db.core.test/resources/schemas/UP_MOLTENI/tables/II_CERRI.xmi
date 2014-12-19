@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="7" name="NRRCRI"/>
+  <columns dataType="DECIMAL" length="5" name="NBOCRI"/>
+  <columns dataType="DECIMAL" length="12" name="KORCRI"/>
+  <columns dataType="DECIMAL" length="4" name="KRICRI"/>
+  <columns dataType="CHAR" length="8" name="ITECRI"/>
+  <columns dataType="CHAR" length="35" name="DE1CRI"/>
+  <columns dataType="CHAR" length="35" name="DE2CRI"/>
+  <columns dataType="DECIMAL" length="6" name="CLICRI"/>
+  <columns dataType="CHAR" length="2" name="MATCRI"/>
+  <columns dataType="CHAR" length="1" name="SEPCRI"/>
+  <columns dataType="CHAR" length="10" name="RIFCRI"/>
+  <columns dataType="CHAR" length="4" name="X02CRI"/>
+  <columns dataType="DECIMAL" length="6" name="QTACRI"/>
+  <columns dataType="CHAR" length="1" name="SOSCRI"/>
+  <columns dataType="CHAR" length="8" name="PRVCRI"/>
+  <columns dataType="DECIMAL" length="2" name="TDBCRI"/>
+  <columns dataType="DECIMAL" length="8" name="DBOCRI"/>
+  <columns dataType="CHAR" length="46" name="X01CRI"/>
+</db-core:TableDef>

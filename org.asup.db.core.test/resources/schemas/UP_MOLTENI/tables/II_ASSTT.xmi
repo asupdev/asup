@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="2" name="DIVATT"/>
+  <columns dataType="DECIMAL" length="2" name="KEYATT"/>
+  <columns dataType="CHAR" length="25" name="DESATT"/>
+  <columns dataType="DECIMAL" length="3" name="SEQATT"/>
+</db-core:TableDef>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="DECIMAL" length="2" name="CATCES"/>
+  <columns dataType="DECIMAL" length="4" name="PRGCES"/>
+  <columns dataType="DECIMAL" length="2" name="SOTCES"/>
+  <columns dataType="CHAR" length="1" name="ANNCES"/>
+  <columns dataType="CHAR" length="1" name="X01CES"/>
+  <columns dataType="CHAR" length="30" name="DE1CES"/>
+  <columns dataType="CHAR" length="30" name="DE2CES"/>
+  <columns dataType="CHAR" length="40" name="FORCES"/>
+  <columns dataType="CHAR" length="6" name="X02CES"/>
+  <columns dataType="DECIMAL" length="5" name="FATCES"/>
+  <columns dataType="CHAR" length="40" name="RIFCES"/>
+  <columns dataType="DECIMAL" length="5" name="CANCES" scale="2"/>
+  <columns dataType="DECIMAL" length="5" name="CAACES" scale="2"/>
+  <columns dataType="DECIMAL" length="5" name="CRVCES" scale="2"/>
+  <columns dataType="DECIMAL" length="3" name="CDCCES"/>
+  <columns dataType="DECIMAL" length="7" name="CPSCES"/>
+  <columns dataType="DECIMAL" length="11" name="CO1CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO2CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO3CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO4CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO5CES"/>
+  <columns dataType="CHAR" length="1" name="VENCES"/>
+  <columns dataType="CHAR" length="1" name="RIVCES"/>
+  <columns dataType="DECIMAL" length="11" name="CO6CES"/>
+  <columns dataType="DECIMAL" length="5" name="CFNCES" scale="2"/>
+  <columns dataType="CHAR" length="1" name="AS4CES"/>
+  <columns dataType="CHAR" length="1" name="FISCES"/>
+  <columns dataType="CHAR" length="1" name="VEACES"/>
+  <columns dataType="CHAR" length="1" name="X03CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO7CES"/>
+  <columns dataType="CHAR" length="5" name="UBICES"/>
+  <columns dataType="CHAR" length="1" name="AS1CES"/>
+  <columns dataType="CHAR" length="1" name="AS2CES"/>
+  <columns dataType="CHAR" length="1" name="AS3CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO8CES"/>
+  <columns dataType="DECIMAL" length="11" name="CO9CES"/>
+  <columns dataType="DECIMAL" length="11" name="C10CES"/>
+  <columns dataType="DECIMAL" length="6" name="FRACES"/>
+  <columns dataType="DECIMAL" length="8" name="NEWCES"/>
+  <columns dataType="DECIMAL" length="8" name="DATCES"/>
+  <columns dataType="DECIMAL" length="5" name="RIPCES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="VMDCES"/>
+  <columns dataType="DECIMAL" length="11" name="EU1CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU2CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU3CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU4CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU5CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU6CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU7CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU8CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="EU9CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E10CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="VMECES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E11CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E12CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E13CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E14CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E15CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E16CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E17CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E18CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E19CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E20CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E21CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E22CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E23CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E24CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E25CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E26CES" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="E27CES" scale="2"/>
+  <columns dataType="CHAR" length="149" name="X04CES"/>
+</db-core:TableDef>

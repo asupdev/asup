@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="15" name="NPCCON"/>
+  <columns dataType="DECIMAL" length="2" name="PRFCON"/>
+  <columns dataType="DECIMAL" length="8" name="DATCON"/>
+  <columns dataType="DECIMAL" length="4" name="PRGCON"/>
+  <columns dataType="CHAR" length="8" name="COMCON"/>
+  <columns dataType="DECIMAL" length="4" name="POSCON"/>
+  <columns dataType="CHAR" length="1" name="TIPCON"/>
+  <columns dataType="CHAR" length="13" name="ARTCON"/>
+  <columns dataType="CHAR" length="35" name="DESCON"/>
+  <columns dataType="CHAR" length="2" name="UMMCON"/>
+  <columns dataType="DECIMAL" length="11" name="QTACON" scale="3"/>
+  <columns dataType="DECIMAL" length="2" name="CAUCON"/>
+  <columns dataType="DECIMAL" length="3" name="CDCCON"/>
+  <columns dataType="DECIMAL" length="5" name="CDLCON"/>
+  <columns dataType="DECIMAL" length="4" name="DIPCON"/>
+  <columns dataType="DECIMAL" length="7" name="CLFCON"/>
+  <columns dataType="CHAR" length="2" name="FASCON"/>
+  <columns dataType="CHAR" length="20" name="DE1CON"/>
+  <columns dataType="CHAR" length="30" name="DE2CON"/>
+  <columns dataType="CHAR" length="30" name="DE3CON"/>
+  <columns dataType="CHAR" length="30" name="DE4CON"/>
+  <columns dataType="CHAR" length="35" name="DE5CON"/>
+  <columns dataType="DECIMAL" length="8" name="NPZCON"/>
+  <columns dataType="CHAR" length="10" name="CO1CON"/>
+  <columns dataType="CHAR" length="10" name="CO2CON"/>
+  <columns dataType="CHAR" length="10" name="CO3CON"/>
+  <columns dataType="CHAR" length="10" name="CO4CON"/>
+  <columns dataType="CHAR" length="10" name="CO5CON"/>
+  <columns dataType="CHAR" length="3" name="CALCON"/>
+  <columns dataType="DECIMAL" length="7" name="NMOCON"/>
+  <columns dataType="DECIMAL" length="1" name="PRVCON"/>
+  <columns dataType="CHAR" length="10" name="LOTCON"/>
+  <columns dataType="CHAR" length="150" name="X01CAR"/>
+</db-core:TableDef>

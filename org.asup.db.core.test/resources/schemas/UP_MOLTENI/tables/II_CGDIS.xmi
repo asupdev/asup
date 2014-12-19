@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<db-core:TableDef xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:db-core="http://www.asup.org/db/core">
+  <columns dataType="CHAR" length="8" name="COMCON"/>
+  <columns dataType="CHAR" length="1" name="TIPCON"/>
+  <columns dataType="DECIMAL" length="3" name="CDCCON"/>
+  <columns dataType="DECIMAL" length="2" name="MASCON"/>
+  <columns dataType="DECIMAL" length="2" name="GRUCON"/>
+  <columns dataType="DECIMAL" length="2" name="CONCON"/>
+  <columns dataType="DECIMAL" length="6" name="SOTCON"/>
+  <columns dataType="DECIMAL" length="8" name="DATCON"/>
+  <columns dataType="DECIMAL" length="4" name="AAACON"/>
+  <columns dataType="DECIMAL" length="11" name="THHCON" scale="3"/>
+  <columns dataType="DECIMAL" length="11" name="VFICON" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="VINCON" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FTNCON" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FTSCON" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ITNCON" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="ITSCON" scale="2"/>
+  <columns dataType="DECIMAL" length="11" name="FATCON" scale="2"/>
+  <columns dataType="DECIMAL" length="8" name="DCFCON"/>
+</db-core:TableDef>
