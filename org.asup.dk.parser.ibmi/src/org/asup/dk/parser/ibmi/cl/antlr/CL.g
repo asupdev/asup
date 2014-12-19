@@ -159,7 +159,7 @@ FUN	:
 	;
 
 STRING	:
-   {(openBraces - closeBraces) == 0}?=> APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|':')+ APOS
+   {(openBraces - closeBraces) == 0}?=> APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|':'|ESCAPE)+ APOS
    ;
 
 TOKEN: {(openBraces - closeBraces) == 0}?=>('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL)+
@@ -194,6 +194,10 @@ WS  :   ( ' '
         )
         //{$channel=HIDDEN;}
     ;
+	
+ESCAPE	:
+	APOS APOS	
+	;	
 
 APOS	:
 	'\''

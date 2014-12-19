@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CL.g 2014-10-13 17:53:33
+// $ANTLR 3.5.1 CL.g 2014-12-19 11:49:55
 
   package org.asup.dk.parser.ibmi.cl.antlr;
 
@@ -21,18 +21,19 @@ public class CLLexer extends Lexer {
 	public static final int COMMAND=9;
 	public static final int COMMENT=10;
 	public static final int CR=11;
-	public static final int FUN=12;
-	public static final int LABEL=13;
-	public static final int OPEN_BRACE=14;
-	public static final int PAR=15;
-	public static final int PAREN=16;
-	public static final int PAR_NAME=17;
-	public static final int PAR_VALUE=18;
-	public static final int POS_PAR=19;
-	public static final int ROW=20;
-	public static final int STRING=21;
-	public static final int TOKEN=22;
-	public static final int WS=23;
+	public static final int ESCAPE=12;
+	public static final int FUN=13;
+	public static final int LABEL=14;
+	public static final int OPEN_BRACE=15;
+	public static final int PAR=16;
+	public static final int PAREN=17;
+	public static final int PAR_NAME=18;
+	public static final int PAR_VALUE=19;
+	public static final int POS_PAR=20;
+	public static final int ROW=21;
+	public static final int STRING=22;
+	public static final int TOKEN=23;
+	public static final int WS=24;
 
 	  int openBraces = 0;
 	  int closeBraces = 0;
@@ -102,36 +103,197 @@ public class CLLexer extends Lexer {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CL.g:161:8: ({...}? => APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | ':' )+ APOS )
-			// CL.g:162:4: {...}? => APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | ':' )+ APOS
+			// CL.g:161:8: ({...}? => APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | ':' | ESCAPE )+ APOS )
+			// CL.g:162:4: {...}? => APOS ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | ':' | ESCAPE )+ APOS
 			{
 			if ( !(((openBraces - closeBraces) == 0)) ) {
 				throw new FailedPredicateException(input, "STRING", "(openBraces - closeBraces) == 0");
 			}
 			mAPOS(); 
 
-			// CL.g:162:46: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | ':' )+
+			// CL.g:162:46: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | CHAR_SPECIAL | ' ' | '%' | ':' | ESCAPE )+
 			int cnt1=0;
 			loop1:
 			while (true) {
-				int alt1=2;
-				int LA1_0 = input.LA(1);
-				if ( ((LA1_0 >= ' ' && LA1_0 <= '\"')||(LA1_0 >= '$' && LA1_0 <= '&')||(LA1_0 >= '*' && LA1_0 <= ':')||(LA1_0 >= '<' && LA1_0 <= '?')||(LA1_0 >= 'A' && LA1_0 <= 'Z')||LA1_0=='\\'||(LA1_0 >= '^' && LA1_0 <= '_')||(LA1_0 >= 'a' && LA1_0 <= 'z')||LA1_0=='\u00A3'||LA1_0=='\u00A7'||LA1_0=='\u00E0'||(LA1_0 >= '\u00E8' && LA1_0 <= '\u00E9')||LA1_0=='\u00EC'||LA1_0=='\u00F2'||LA1_0=='\u00F9') ) {
-					alt1=1;
-				}
+				int alt1=9;
+				switch ( input.LA(1) ) {
+				case '\'':
+					{
+					int LA1_1 = input.LA(2);
+					if ( (LA1_1=='\'') ) {
+						alt1=8;
+					}
 
+					}
+					break;
+				case 'a':
+				case 'b':
+				case 'c':
+				case 'd':
+				case 'e':
+				case 'f':
+				case 'g':
+				case 'h':
+				case 'i':
+				case 'j':
+				case 'k':
+				case 'l':
+				case 'm':
+				case 'n':
+				case 'o':
+				case 'p':
+				case 'q':
+				case 'r':
+				case 's':
+				case 't':
+				case 'u':
+				case 'v':
+				case 'w':
+				case 'x':
+				case 'y':
+				case 'z':
+					{
+					alt1=1;
+					}
+					break;
+				case 'A':
+				case 'B':
+				case 'C':
+				case 'D':
+				case 'E':
+				case 'F':
+				case 'G':
+				case 'H':
+				case 'I':
+				case 'J':
+				case 'K':
+				case 'L':
+				case 'M':
+				case 'N':
+				case 'O':
+				case 'P':
+				case 'Q':
+				case 'R':
+				case 'S':
+				case 'T':
+				case 'U':
+				case 'V':
+				case 'W':
+				case 'X':
+				case 'Y':
+				case 'Z':
+					{
+					alt1=2;
+					}
+					break;
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+					{
+					alt1=3;
+					}
+					break;
+				case '!':
+				case '\"':
+				case '$':
+				case '&':
+				case '*':
+				case '+':
+				case ',':
+				case '-':
+				case '.':
+				case '/':
+				case '<':
+				case '=':
+				case '>':
+				case '?':
+				case '\\':
+				case '^':
+				case '_':
+				case '\u00A3':
+				case '\u00A7':
+				case '\u00E0':
+				case '\u00E8':
+				case '\u00E9':
+				case '\u00EC':
+				case '\u00F2':
+				case '\u00F9':
+					{
+					alt1=4;
+					}
+					break;
+				case ' ':
+					{
+					alt1=5;
+					}
+					break;
+				case '%':
+					{
+					alt1=6;
+					}
+					break;
+				case ':':
+					{
+					alt1=7;
+					}
+					break;
+				}
 				switch (alt1) {
 				case 1 :
-					// CL.g:
+					// CL.g:162:47: 'a' .. 'z'
 					{
-					if ( (input.LA(1) >= ' ' && input.LA(1) <= '\"')||(input.LA(1) >= '$' && input.LA(1) <= '&')||(input.LA(1) >= '*' && input.LA(1) <= ':')||(input.LA(1) >= '<' && input.LA(1) <= '?')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='\\'||(input.LA(1) >= '^' && input.LA(1) <= '_')||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
-						input.consume();
+					matchRange('a','z'); 
 					}
-					else {
-						MismatchedSetException mse = new MismatchedSetException(null,input);
-						recover(mse);
-						throw mse;
+					break;
+				case 2 :
+					// CL.g:162:56: 'A' .. 'Z'
+					{
+					matchRange('A','Z'); 
 					}
+					break;
+				case 3 :
+					// CL.g:162:65: '0' .. '9'
+					{
+					matchRange('0','9'); 
+					}
+					break;
+				case 4 :
+					// CL.g:162:74: CHAR_SPECIAL
+					{
+					mCHAR_SPECIAL(); 
+
+					}
+					break;
+				case 5 :
+					// CL.g:162:87: ' '
+					{
+					match(' '); 
+					}
+					break;
+				case 6 :
+					// CL.g:162:91: '%'
+					{
+					match('%'); 
+					}
+					break;
+				case 7 :
+					// CL.g:162:95: ':'
+					{
+					match(':'); 
+					}
+					break;
+				case 8 :
+					// CL.g:162:99: ESCAPE
+					{
+					mESCAPE(); 
+
 					}
 					break;
 
@@ -682,13 +844,36 @@ public class CLLexer extends Lexer {
 	}
 	// $ANTLR end "WS"
 
+	// $ANTLR start "ESCAPE"
+	public final void mESCAPE() throws RecognitionException {
+		try {
+			int _type = ESCAPE;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// CL.g:198:8: ( APOS APOS )
+			// CL.g:199:2: APOS APOS
+			{
+			mAPOS(); 
+
+			mAPOS(); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "ESCAPE"
+
 	// $ANTLR start "APOS"
 	public final void mAPOS() throws RecognitionException {
 		try {
 			int _type = APOS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CL.g:198:6: ( '\\'' )
-			// CL.g:199:2: '\\''
+			// CL.g:202:6: ( '\\'' )
+			// CL.g:203:2: '\\''
 			{
 			match('\''); 
 			}
@@ -705,7 +890,7 @@ public class CLLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// CL.g:205:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '&' | '*' | '/' | '=' | '>' | '<' | '+' | '-' | '!' | '\\\\' ) )
+			// CL.g:209:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '&' | '*' | '/' | '=' | '>' | '<' | '+' | '-' | '!' | '\\\\' ) )
 			// CL.g:
 			{
 			if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||input.LA(1)=='$'||input.LA(1)=='&'||(input.LA(1) >= '*' && input.LA(1) <= '/')||(input.LA(1) >= '<' && input.LA(1) <= '?')||input.LA(1)=='\\'||(input.LA(1) >= '^' && input.LA(1) <= '_')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
@@ -727,8 +912,8 @@ public class CLLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// CL.g:1:8: ( LABEL | FUN | STRING | TOKEN | PAREN | OPEN_BRACE | CLOSE_BRACE | COMMENT | CR | WS | APOS )
-		int alt9=11;
+		// CL.g:1:8: ( LABEL | FUN | STRING | TOKEN | PAREN | OPEN_BRACE | CLOSE_BRACE | COMMENT | CR | WS | ESCAPE | APOS )
+		int alt9=12;
 		alt9 = dfa9.predict(input);
 		switch (alt9) {
 			case 1 :
@@ -802,7 +987,14 @@ public class CLLexer extends Lexer {
 				}
 				break;
 			case 11 :
-				// CL.g:1:76: APOS
+				// CL.g:1:76: ESCAPE
+				{
+				mESCAPE(); 
+
+				}
+				break;
+			case 12 :
+				// CL.g:1:83: APOS
 				{
 				mAPOS(); 
 
@@ -815,22 +1007,22 @@ public class CLLexer extends Lexer {
 
 	protected DFA9 dfa9 = new DFA9(this);
 	static final String DFA9_eotS =
-		"\1\uffff\1\14\1\uffff\1\16\1\20\1\uffff\1\14\1\11\2\uffff\2\14\7\uffff"+
-		"\1\15\1\uffff\2\14\1\15\1\14\1\32\1\uffff";
+		"\1\uffff\1\14\1\uffff\1\16\1\21\1\uffff\1\14\1\11\2\uffff\2\14\4\uffff"+
+		"\1\32\3\uffff\1\15\1\uffff\2\14\1\15\1\14\1\uffff\1\34\1\uffff";
 	static final String DFA9_eofS =
-		"\33\uffff";
+		"\35\uffff";
 	static final String DFA9_minS =
-		"\1\11\1\41\1\uffff\2\40\1\uffff\1\41\1\12\2\uffff\2\0\7\uffff\1\0\1\uffff"+
-		"\6\0";
+		"\1\11\1\41\1\uffff\2\40\1\uffff\1\41\1\12\2\uffff\2\0\4\uffff\1\47\3\uffff"+
+		"\1\0\1\uffff\4\0\1\uffff\2\0";
 	static final String DFA9_maxS =
-		"\2\u00f9\1\uffff\2\u00f9\1\uffff\1\u00f9\1\12\2\uffff\2\uffff\7\uffff"+
-		"\1\uffff\1\uffff\5\uffff\1\0";
+		"\2\u00f9\1\uffff\2\u00f9\1\uffff\1\u00f9\1\12\2\uffff\2\uffff\4\uffff"+
+		"\1\47\3\uffff\1\uffff\1\uffff\4\uffff\1\uffff\1\uffff\1\0";
 	static final String DFA9_acceptS =
-		"\2\uffff\1\2\2\uffff\1\7\2\uffff\1\11\1\12\2\uffff\1\4\1\1\1\13\1\3\1"+
-		"\6\1\5\1\11\1\uffff\1\10\6\uffff";
+		"\2\uffff\1\2\2\uffff\1\7\2\uffff\1\11\1\12\2\uffff\1\4\1\1\1\14\1\3\1"+
+		"\uffff\1\6\1\5\1\11\1\uffff\1\10\4\uffff\1\13\2\uffff";
 	static final String DFA9_specialS =
-		"\1\5\1\0\1\uffff\1\2\2\uffff\1\13\3\uffff\1\1\1\11\7\uffff\1\4\1\uffff"+
-		"\1\3\1\12\1\14\1\7\1\6\1\10}>";
+		"\1\5\1\2\1\uffff\1\3\2\uffff\1\15\3\uffff\1\4\1\13\4\uffff\1\12\3\uffff"+
+		"\1\0\1\uffff\1\1\1\6\1\7\1\10\1\uffff\1\11\1\14}>";
 	static final String[] DFA9_transitionS = {
 			"\1\11\1\10\2\uffff\1\7\22\uffff\1\11\2\6\1\uffff\1\6\1\2\1\6\1\3\1\4"+
 			"\1\5\5\6\1\1\12\6\2\uffff\4\6\1\uffff\32\6\1\uffff\1\6\1\uffff\2\6\1"+
@@ -841,47 +1033,49 @@ public class CLLexer extends Lexer {
 			"\uffff\1\6\70\uffff\1\6\7\uffff\2\6\2\uffff\1\6\5\uffff\1\6\6\uffff\1"+
 			"\6",
 			"",
-			"\3\17\1\uffff\3\17\3\uffff\21\17\1\uffff\4\17\1\uffff\32\17\1\uffff"+
+			"\3\17\1\uffff\3\17\1\20\2\uffff\21\17\1\uffff\4\17\1\uffff\32\17\1\uffff"+
 			"\1\17\1\uffff\2\17\1\uffff\32\17\50\uffff\1\17\3\uffff\1\17\70\uffff"+
 			"\1\17\7\uffff\2\17\2\uffff\1\17\5\uffff\1\17\6\uffff\1\17",
-			"\3\21\1\uffff\27\21\1\uffff\4\21\1\uffff\32\21\1\uffff\1\21\1\uffff"+
-			"\2\21\1\uffff\32\21\50\uffff\1\21\3\uffff\1\21\70\uffff\1\21\7\uffff"+
-			"\2\21\2\uffff\1\21\5\uffff\1\21\6\uffff\1\21",
+			"\3\22\1\uffff\27\22\1\uffff\4\22\1\uffff\32\22\1\uffff\1\22\1\uffff"+
+			"\2\22\1\uffff\32\22\50\uffff\1\22\3\uffff\1\22\70\uffff\1\22\7\uffff"+
+			"\2\22\2\uffff\1\22\5\uffff\1\22\6\uffff\1\22",
 			"",
 			"\2\6\1\uffff\1\6\1\uffff\1\6\3\uffff\20\6\1\15\1\uffff\4\6\1\uffff\32"+
 			"\6\1\uffff\1\6\1\uffff\2\6\1\uffff\32\6\50\uffff\1\6\3\uffff\1\6\70\uffff"+
 			"\1\6\7\uffff\2\6\2\uffff\1\6\5\uffff\1\6\6\uffff\1\6",
-			"\1\22",
+			"\1\23",
 			"",
 			"",
-			"\41\24\2\25\1\24\1\25\1\24\1\25\3\24\20\25\1\23\1\24\4\25\1\24\32\25"+
-			"\1\24\1\25\1\24\2\25\1\24\32\25\50\24\1\25\3\24\1\25\70\24\1\25\7\24"+
-			"\2\25\2\24\1\25\5\24\1\25\6\24\1\25\uff06\24",
-			"\41\24\2\30\1\24\1\30\1\24\1\30\3\24\1\26\17\30\1\27\1\24\4\30\1\24"+
-			"\32\30\1\24\1\30\1\24\2\30\1\24\32\30\50\24\1\30\3\24\1\30\70\24\1\30"+
-			"\7\24\2\30\2\24\1\30\5\24\1\30\6\24\1\30\uff06\24",
-			"",
-			"",
-			"",
+			"\41\25\2\26\1\25\1\26\1\25\1\26\3\25\20\26\1\24\1\25\4\26\1\25\32\26"+
+			"\1\25\1\26\1\25\2\26\1\25\32\26\50\25\1\26\3\25\1\26\70\25\1\26\7\25"+
+			"\2\26\2\25\1\26\5\25\1\26\6\25\1\26\uff06\25",
+			"\41\25\2\31\1\25\1\31\1\25\1\31\3\25\1\27\17\31\1\30\1\25\4\31\1\25"+
+			"\32\31\1\25\1\31\1\25\2\31\1\25\32\31\50\25\1\31\3\25\1\31\70\25\1\31"+
+			"\7\25\2\31\2\25\1\31\5\25\1\31\6\25\1\31\uff06\25",
 			"",
 			"",
 			"",
 			"",
-			"\0\24",
+			"\1\17",
 			"",
-			"\41\24\2\25\1\24\1\25\1\24\1\25\3\24\20\25\1\23\1\24\4\25\1\24\32\25"+
-			"\1\24\1\25\1\24\2\25\1\24\32\25\50\24\1\25\3\24\1\25\70\24\1\25\7\24"+
-			"\2\25\2\24\1\25\5\24\1\25\6\24\1\25\uff06\24",
-			"\41\24\2\30\1\24\1\30\1\24\1\30\3\24\1\26\4\30\1\31\12\30\1\27\1\24"+
-			"\4\30\1\24\32\30\1\24\1\30\1\24\2\30\1\24\32\30\50\24\1\30\3\24\1\30"+
-			"\70\24\1\30\7\24\2\30\2\24\1\30\5\24\1\30\6\24\1\30\uff06\24",
-			"\0\24",
-			"\41\24\2\30\1\24\1\30\1\24\1\30\3\24\1\26\17\30\1\27\1\24\4\30\1\24"+
-			"\32\30\1\24\1\30\1\24\2\30\1\24\32\30\50\24\1\30\3\24\1\30\70\24\1\30"+
-			"\7\24\2\30\2\24\1\30\5\24\1\30\6\24\1\30\uff06\24",
-			"\41\24\2\30\1\24\1\30\1\24\1\30\3\24\1\26\17\30\1\27\1\24\4\30\1\24"+
-			"\32\30\1\24\1\30\1\24\2\30\1\24\32\30\50\24\1\30\3\24\1\30\70\24\1\30"+
-			"\7\24\2\30\2\24\1\30\5\24\1\30\6\24\1\30\uff06\24",
+			"",
+			"",
+			"\0\25",
+			"",
+			"\41\25\2\26\1\25\1\26\1\25\1\26\3\25\20\26\1\24\1\25\4\26\1\25\32\26"+
+			"\1\25\1\26\1\25\2\26\1\25\32\26\50\25\1\26\3\25\1\26\70\25\1\26\7\25"+
+			"\2\26\2\25\1\26\5\25\1\26\6\25\1\26\uff06\25",
+			"\41\25\2\31\1\25\1\31\1\25\1\31\3\25\1\27\4\31\1\33\12\31\1\30\1\25"+
+			"\4\31\1\25\32\31\1\25\1\31\1\25\2\31\1\25\32\31\50\25\1\31\3\25\1\31"+
+			"\70\25\1\31\7\25\2\31\2\25\1\31\5\25\1\31\6\25\1\31\uff06\25",
+			"\0\25",
+			"\41\25\2\31\1\25\1\31\1\25\1\31\3\25\1\27\17\31\1\30\1\25\4\31\1\25"+
+			"\32\31\1\25\1\31\1\25\2\31\1\25\32\31\50\25\1\31\3\25\1\31\70\25\1\31"+
+			"\7\25\2\31\2\25\1\31\5\25\1\31\6\25\1\31\uff06\25",
+			"",
+			"\41\25\2\31\1\25\1\31\1\25\1\31\3\25\1\27\17\31\1\30\1\25\4\31\1\25"+
+			"\32\31\1\25\1\31\1\25\2\31\1\25\32\31\50\25\1\31\3\25\1\31\70\25\1\31"+
+			"\7\25\2\31\2\25\1\31\5\25\1\31\6\25\1\31\uff06\25",
 			"\1\uffff"
 	};
 
@@ -916,7 +1110,7 @@ public class CLLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( LABEL | FUN | STRING | TOKEN | PAREN | OPEN_BRACE | CLOSE_BRACE | COMMENT | CR | WS | APOS );";
+			return "1:1: Tokens : ( LABEL | FUN | STRING | TOKEN | PAREN | OPEN_BRACE | CLOSE_BRACE | COMMENT | CR | WS | ESCAPE | APOS );";
 		}
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
@@ -924,6 +1118,34 @@ public class CLLexer extends Lexer {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
+						int LA9_20 = input.LA(1);
+						 
+						int index9_20 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA9_20 >= '\u0000' && LA9_20 <= '\uFFFF')) ) {s = 21;}
+						else s = 13;
+						 
+						input.seek(index9_20);
+						if ( s>=0 ) return s;
+						break;
+
+					case 1 : 
+						int LA9_22 = input.LA(1);
+						 
+						int index9_22 = input.index();
+						input.rewind();
+						s = -1;
+						if ( ((LA9_22 >= '\u0000' && LA9_22 <= ' ')||LA9_22=='#'||LA9_22=='%'||(LA9_22 >= '\'' && LA9_22 <= ')')||LA9_22==';'||LA9_22=='@'||LA9_22=='['||LA9_22==']'||LA9_22=='`'||(LA9_22 >= '{' && LA9_22 <= '\u00A2')||(LA9_22 >= '\u00A4' && LA9_22 <= '\u00A6')||(LA9_22 >= '\u00A8' && LA9_22 <= '\u00DF')||(LA9_22 >= '\u00E1' && LA9_22 <= '\u00E7')||(LA9_22 >= '\u00EA' && LA9_22 <= '\u00EB')||(LA9_22 >= '\u00ED' && LA9_22 <= '\u00F1')||(LA9_22 >= '\u00F3' && LA9_22 <= '\u00F8')||(LA9_22 >= '\u00FA' && LA9_22 <= '\uFFFF')) ) {s = 21;}
+						else if ( (LA9_22==':') ) {s = 20;}
+						else if ( ((LA9_22 >= '!' && LA9_22 <= '\"')||LA9_22=='$'||LA9_22=='&'||(LA9_22 >= '*' && LA9_22 <= '9')||(LA9_22 >= '<' && LA9_22 <= '?')||(LA9_22 >= 'A' && LA9_22 <= 'Z')||LA9_22=='\\'||(LA9_22 >= '^' && LA9_22 <= '_')||(LA9_22 >= 'a' && LA9_22 <= 'z')||LA9_22=='\u00A3'||LA9_22=='\u00A7'||LA9_22=='\u00E0'||(LA9_22 >= '\u00E8' && LA9_22 <= '\u00E9')||LA9_22=='\u00EC'||LA9_22=='\u00F2'||LA9_22=='\u00F9') ) {s = 22;}
+						else s = 12;
+						 
+						input.seek(index9_22);
+						if ( s>=0 ) return s;
+						break;
+
+					case 2 : 
 						int LA9_1 = input.LA(1);
 						 
 						int index9_1 = input.index();
@@ -939,59 +1161,32 @@ public class CLLexer extends Lexer {
 						if ( s>=0 ) return s;
 						break;
 
-					case 1 : 
-						int LA9_10 = input.LA(1);
-						 
-						int index9_10 = input.index();
-						input.rewind();
-						s = -1;
-						if ( (LA9_10==':') ) {s = 19;}
-						else if ( ((LA9_10 >= '\u0000' && LA9_10 <= ' ')||LA9_10=='#'||LA9_10=='%'||(LA9_10 >= '\'' && LA9_10 <= ')')||LA9_10==';'||LA9_10=='@'||LA9_10=='['||LA9_10==']'||LA9_10=='`'||(LA9_10 >= '{' && LA9_10 <= '\u00A2')||(LA9_10 >= '\u00A4' && LA9_10 <= '\u00A6')||(LA9_10 >= '\u00A8' && LA9_10 <= '\u00DF')||(LA9_10 >= '\u00E1' && LA9_10 <= '\u00E7')||(LA9_10 >= '\u00EA' && LA9_10 <= '\u00EB')||(LA9_10 >= '\u00ED' && LA9_10 <= '\u00F1')||(LA9_10 >= '\u00F3' && LA9_10 <= '\u00F8')||(LA9_10 >= '\u00FA' && LA9_10 <= '\uFFFF')) ) {s = 20;}
-						else if ( ((LA9_10 >= '!' && LA9_10 <= '\"')||LA9_10=='$'||LA9_10=='&'||(LA9_10 >= '*' && LA9_10 <= '9')||(LA9_10 >= '<' && LA9_10 <= '?')||(LA9_10 >= 'A' && LA9_10 <= 'Z')||LA9_10=='\\'||(LA9_10 >= '^' && LA9_10 <= '_')||(LA9_10 >= 'a' && LA9_10 <= 'z')||LA9_10=='\u00A3'||LA9_10=='\u00A7'||LA9_10=='\u00E0'||(LA9_10 >= '\u00E8' && LA9_10 <= '\u00E9')||LA9_10=='\u00EC'||LA9_10=='\u00F2'||LA9_10=='\u00F9') ) {s = 21;}
-						else s = 12;
-						 
-						input.seek(index9_10);
-						if ( s>=0 ) return s;
-						break;
-
-					case 2 : 
+					case 3 : 
 						int LA9_3 = input.LA(1);
 						 
 						int index9_3 = input.index();
 						input.rewind();
 						s = -1;
 						if ( ((LA9_3 >= ' ' && LA9_3 <= '\"')||(LA9_3 >= '$' && LA9_3 <= '&')||(LA9_3 >= '*' && LA9_3 <= ':')||(LA9_3 >= '<' && LA9_3 <= '?')||(LA9_3 >= 'A' && LA9_3 <= 'Z')||LA9_3=='\\'||(LA9_3 >= '^' && LA9_3 <= '_')||(LA9_3 >= 'a' && LA9_3 <= 'z')||LA9_3=='\u00A3'||LA9_3=='\u00A7'||LA9_3=='\u00E0'||(LA9_3 >= '\u00E8' && LA9_3 <= '\u00E9')||LA9_3=='\u00EC'||LA9_3=='\u00F2'||LA9_3=='\u00F9') && (((openBraces - closeBraces) == 0))) {s = 15;}
+						else if ( (LA9_3=='\'') ) {s = 16;}
 						else s = 14;
 						 
 						input.seek(index9_3);
 						if ( s>=0 ) return s;
 						break;
 
-					case 3 : 
-						int LA9_21 = input.LA(1);
+					case 4 : 
+						int LA9_10 = input.LA(1);
 						 
-						int index9_21 = input.index();
+						int index9_10 = input.index();
 						input.rewind();
 						s = -1;
-						if ( ((LA9_21 >= '\u0000' && LA9_21 <= ' ')||LA9_21=='#'||LA9_21=='%'||(LA9_21 >= '\'' && LA9_21 <= ')')||LA9_21==';'||LA9_21=='@'||LA9_21=='['||LA9_21==']'||LA9_21=='`'||(LA9_21 >= '{' && LA9_21 <= '\u00A2')||(LA9_21 >= '\u00A4' && LA9_21 <= '\u00A6')||(LA9_21 >= '\u00A8' && LA9_21 <= '\u00DF')||(LA9_21 >= '\u00E1' && LA9_21 <= '\u00E7')||(LA9_21 >= '\u00EA' && LA9_21 <= '\u00EB')||(LA9_21 >= '\u00ED' && LA9_21 <= '\u00F1')||(LA9_21 >= '\u00F3' && LA9_21 <= '\u00F8')||(LA9_21 >= '\u00FA' && LA9_21 <= '\uFFFF')) ) {s = 20;}
-						else if ( (LA9_21==':') ) {s = 19;}
-						else if ( ((LA9_21 >= '!' && LA9_21 <= '\"')||LA9_21=='$'||LA9_21=='&'||(LA9_21 >= '*' && LA9_21 <= '9')||(LA9_21 >= '<' && LA9_21 <= '?')||(LA9_21 >= 'A' && LA9_21 <= 'Z')||LA9_21=='\\'||(LA9_21 >= '^' && LA9_21 <= '_')||(LA9_21 >= 'a' && LA9_21 <= 'z')||LA9_21=='\u00A3'||LA9_21=='\u00A7'||LA9_21=='\u00E0'||(LA9_21 >= '\u00E8' && LA9_21 <= '\u00E9')||LA9_21=='\u00EC'||LA9_21=='\u00F2'||LA9_21=='\u00F9') ) {s = 21;}
+						if ( (LA9_10==':') ) {s = 20;}
+						else if ( ((LA9_10 >= '\u0000' && LA9_10 <= ' ')||LA9_10=='#'||LA9_10=='%'||(LA9_10 >= '\'' && LA9_10 <= ')')||LA9_10==';'||LA9_10=='@'||LA9_10=='['||LA9_10==']'||LA9_10=='`'||(LA9_10 >= '{' && LA9_10 <= '\u00A2')||(LA9_10 >= '\u00A4' && LA9_10 <= '\u00A6')||(LA9_10 >= '\u00A8' && LA9_10 <= '\u00DF')||(LA9_10 >= '\u00E1' && LA9_10 <= '\u00E7')||(LA9_10 >= '\u00EA' && LA9_10 <= '\u00EB')||(LA9_10 >= '\u00ED' && LA9_10 <= '\u00F1')||(LA9_10 >= '\u00F3' && LA9_10 <= '\u00F8')||(LA9_10 >= '\u00FA' && LA9_10 <= '\uFFFF')) ) {s = 21;}
+						else if ( ((LA9_10 >= '!' && LA9_10 <= '\"')||LA9_10=='$'||LA9_10=='&'||(LA9_10 >= '*' && LA9_10 <= '9')||(LA9_10 >= '<' && LA9_10 <= '?')||(LA9_10 >= 'A' && LA9_10 <= 'Z')||LA9_10=='\\'||(LA9_10 >= '^' && LA9_10 <= '_')||(LA9_10 >= 'a' && LA9_10 <= 'z')||LA9_10=='\u00A3'||LA9_10=='\u00A7'||LA9_10=='\u00E0'||(LA9_10 >= '\u00E8' && LA9_10 <= '\u00E9')||LA9_10=='\u00EC'||LA9_10=='\u00F2'||LA9_10=='\u00F9') ) {s = 22;}
 						else s = 12;
 						 
-						input.seek(index9_21);
-						if ( s>=0 ) return s;
-						break;
-
-					case 4 : 
-						int LA9_19 = input.LA(1);
-						 
-						int index9_19 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA9_19 >= '\u0000' && LA9_19 <= '\uFFFF')) ) {s = 20;}
-						else s = 13;
-						 
-						input.seek(index9_19);
+						input.seek(index9_10);
 						if ( s>=0 ) return s;
 						break;
 
@@ -1016,13 +1211,19 @@ public class CLLexer extends Lexer {
 						break;
 
 					case 6 : 
-						int LA9_25 = input.LA(1);
+						int LA9_23 = input.LA(1);
+						 
+						int index9_23 = input.index();
+						input.rewind();
 						s = -1;
-						if ( (LA9_25=='*') ) {s = 22;}
-						else if ( (LA9_25==':') ) {s = 23;}
-						else if ( ((LA9_25 >= '!' && LA9_25 <= '\"')||LA9_25=='$'||LA9_25=='&'||(LA9_25 >= '+' && LA9_25 <= '9')||(LA9_25 >= '<' && LA9_25 <= '?')||(LA9_25 >= 'A' && LA9_25 <= 'Z')||LA9_25=='\\'||(LA9_25 >= '^' && LA9_25 <= '_')||(LA9_25 >= 'a' && LA9_25 <= 'z')||LA9_25=='\u00A3'||LA9_25=='\u00A7'||LA9_25=='\u00E0'||(LA9_25 >= '\u00E8' && LA9_25 <= '\u00E9')||LA9_25=='\u00EC'||LA9_25=='\u00F2'||LA9_25=='\u00F9') ) {s = 24;}
-						else if ( ((LA9_25 >= '\u0000' && LA9_25 <= ' ')||LA9_25=='#'||LA9_25=='%'||(LA9_25 >= '\'' && LA9_25 <= ')')||LA9_25==';'||LA9_25=='@'||LA9_25=='['||LA9_25==']'||LA9_25=='`'||(LA9_25 >= '{' && LA9_25 <= '\u00A2')||(LA9_25 >= '\u00A4' && LA9_25 <= '\u00A6')||(LA9_25 >= '\u00A8' && LA9_25 <= '\u00DF')||(LA9_25 >= '\u00E1' && LA9_25 <= '\u00E7')||(LA9_25 >= '\u00EA' && LA9_25 <= '\u00EB')||(LA9_25 >= '\u00ED' && LA9_25 <= '\u00F1')||(LA9_25 >= '\u00F3' && LA9_25 <= '\u00F8')||(LA9_25 >= '\u00FA' && LA9_25 <= '\uFFFF')) ) {s = 20;}
-						else s = 26;
+						if ( (LA9_23=='/') ) {s = 27;}
+						else if ( (LA9_23=='*') ) {s = 23;}
+						else if ( (LA9_23==':') ) {s = 24;}
+						else if ( ((LA9_23 >= '!' && LA9_23 <= '\"')||LA9_23=='$'||LA9_23=='&'||(LA9_23 >= '+' && LA9_23 <= '.')||(LA9_23 >= '0' && LA9_23 <= '9')||(LA9_23 >= '<' && LA9_23 <= '?')||(LA9_23 >= 'A' && LA9_23 <= 'Z')||LA9_23=='\\'||(LA9_23 >= '^' && LA9_23 <= '_')||(LA9_23 >= 'a' && LA9_23 <= 'z')||LA9_23=='\u00A3'||LA9_23=='\u00A7'||LA9_23=='\u00E0'||(LA9_23 >= '\u00E8' && LA9_23 <= '\u00E9')||LA9_23=='\u00EC'||LA9_23=='\u00F2'||LA9_23=='\u00F9') ) {s = 25;}
+						else if ( ((LA9_23 >= '\u0000' && LA9_23 <= ' ')||LA9_23=='#'||LA9_23=='%'||(LA9_23 >= '\'' && LA9_23 <= ')')||LA9_23==';'||LA9_23=='@'||LA9_23=='['||LA9_23==']'||LA9_23=='`'||(LA9_23 >= '{' && LA9_23 <= '\u00A2')||(LA9_23 >= '\u00A4' && LA9_23 <= '\u00A6')||(LA9_23 >= '\u00A8' && LA9_23 <= '\u00DF')||(LA9_23 >= '\u00E1' && LA9_23 <= '\u00E7')||(LA9_23 >= '\u00EA' && LA9_23 <= '\u00EB')||(LA9_23 >= '\u00ED' && LA9_23 <= '\u00F1')||(LA9_23 >= '\u00F3' && LA9_23 <= '\u00F8')||(LA9_23 >= '\u00FA' && LA9_23 <= '\uFFFF')) ) {s = 21;}
+						else s = 12;
+						 
+						input.seek(index9_23);
 						if ( s>=0 ) return s;
 						break;
 
@@ -1032,63 +1233,83 @@ public class CLLexer extends Lexer {
 						int index9_24 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA9_24=='*') ) {s = 22;}
-						else if ( (LA9_24==':') ) {s = 23;}
-						else if ( ((LA9_24 >= '!' && LA9_24 <= '\"')||LA9_24=='$'||LA9_24=='&'||(LA9_24 >= '+' && LA9_24 <= '9')||(LA9_24 >= '<' && LA9_24 <= '?')||(LA9_24 >= 'A' && LA9_24 <= 'Z')||LA9_24=='\\'||(LA9_24 >= '^' && LA9_24 <= '_')||(LA9_24 >= 'a' && LA9_24 <= 'z')||LA9_24=='\u00A3'||LA9_24=='\u00A7'||LA9_24=='\u00E0'||(LA9_24 >= '\u00E8' && LA9_24 <= '\u00E9')||LA9_24=='\u00EC'||LA9_24=='\u00F2'||LA9_24=='\u00F9') ) {s = 24;}
-						else if ( ((LA9_24 >= '\u0000' && LA9_24 <= ' ')||LA9_24=='#'||LA9_24=='%'||(LA9_24 >= '\'' && LA9_24 <= ')')||LA9_24==';'||LA9_24=='@'||LA9_24=='['||LA9_24==']'||LA9_24=='`'||(LA9_24 >= '{' && LA9_24 <= '\u00A2')||(LA9_24 >= '\u00A4' && LA9_24 <= '\u00A6')||(LA9_24 >= '\u00A8' && LA9_24 <= '\u00DF')||(LA9_24 >= '\u00E1' && LA9_24 <= '\u00E7')||(LA9_24 >= '\u00EA' && LA9_24 <= '\u00EB')||(LA9_24 >= '\u00ED' && LA9_24 <= '\u00F1')||(LA9_24 >= '\u00F3' && LA9_24 <= '\u00F8')||(LA9_24 >= '\u00FA' && LA9_24 <= '\uFFFF')) ) {s = 20;}
-						else s = 12;
+						if ( ((LA9_24 >= '\u0000' && LA9_24 <= '\uFFFF')) ) {s = 21;}
+						else s = 13;
 						 
 						input.seek(index9_24);
 						if ( s>=0 ) return s;
 						break;
 
 					case 8 : 
-						int LA9_26 = input.LA(1);
+						int LA9_25 = input.LA(1);
 						 
-						int index9_26 = input.index();
+						int index9_25 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (((openBraces - closeBraces) == 0)) ) {s = 12;}
-						else if ( (true) ) {s = 20;}
+						if ( (LA9_25=='*') ) {s = 23;}
+						else if ( (LA9_25==':') ) {s = 24;}
+						else if ( ((LA9_25 >= '!' && LA9_25 <= '\"')||LA9_25=='$'||LA9_25=='&'||(LA9_25 >= '+' && LA9_25 <= '9')||(LA9_25 >= '<' && LA9_25 <= '?')||(LA9_25 >= 'A' && LA9_25 <= 'Z')||LA9_25=='\\'||(LA9_25 >= '^' && LA9_25 <= '_')||(LA9_25 >= 'a' && LA9_25 <= 'z')||LA9_25=='\u00A3'||LA9_25=='\u00A7'||LA9_25=='\u00E0'||(LA9_25 >= '\u00E8' && LA9_25 <= '\u00E9')||LA9_25=='\u00EC'||LA9_25=='\u00F2'||LA9_25=='\u00F9') ) {s = 25;}
+						else if ( ((LA9_25 >= '\u0000' && LA9_25 <= ' ')||LA9_25=='#'||LA9_25=='%'||(LA9_25 >= '\'' && LA9_25 <= ')')||LA9_25==';'||LA9_25=='@'||LA9_25=='['||LA9_25==']'||LA9_25=='`'||(LA9_25 >= '{' && LA9_25 <= '\u00A2')||(LA9_25 >= '\u00A4' && LA9_25 <= '\u00A6')||(LA9_25 >= '\u00A8' && LA9_25 <= '\u00DF')||(LA9_25 >= '\u00E1' && LA9_25 <= '\u00E7')||(LA9_25 >= '\u00EA' && LA9_25 <= '\u00EB')||(LA9_25 >= '\u00ED' && LA9_25 <= '\u00F1')||(LA9_25 >= '\u00F3' && LA9_25 <= '\u00F8')||(LA9_25 >= '\u00FA' && LA9_25 <= '\uFFFF')) ) {s = 21;}
+						else s = 12;
 						 
-						input.seek(index9_26);
+						input.seek(index9_25);
 						if ( s>=0 ) return s;
 						break;
 
 					case 9 : 
+						int LA9_27 = input.LA(1);
+						s = -1;
+						if ( (LA9_27=='*') ) {s = 23;}
+						else if ( (LA9_27==':') ) {s = 24;}
+						else if ( ((LA9_27 >= '!' && LA9_27 <= '\"')||LA9_27=='$'||LA9_27=='&'||(LA9_27 >= '+' && LA9_27 <= '9')||(LA9_27 >= '<' && LA9_27 <= '?')||(LA9_27 >= 'A' && LA9_27 <= 'Z')||LA9_27=='\\'||(LA9_27 >= '^' && LA9_27 <= '_')||(LA9_27 >= 'a' && LA9_27 <= 'z')||LA9_27=='\u00A3'||LA9_27=='\u00A7'||LA9_27=='\u00E0'||(LA9_27 >= '\u00E8' && LA9_27 <= '\u00E9')||LA9_27=='\u00EC'||LA9_27=='\u00F2'||LA9_27=='\u00F9') ) {s = 25;}
+						else if ( ((LA9_27 >= '\u0000' && LA9_27 <= ' ')||LA9_27=='#'||LA9_27=='%'||(LA9_27 >= '\'' && LA9_27 <= ')')||LA9_27==';'||LA9_27=='@'||LA9_27=='['||LA9_27==']'||LA9_27=='`'||(LA9_27 >= '{' && LA9_27 <= '\u00A2')||(LA9_27 >= '\u00A4' && LA9_27 <= '\u00A6')||(LA9_27 >= '\u00A8' && LA9_27 <= '\u00DF')||(LA9_27 >= '\u00E1' && LA9_27 <= '\u00E7')||(LA9_27 >= '\u00EA' && LA9_27 <= '\u00EB')||(LA9_27 >= '\u00ED' && LA9_27 <= '\u00F1')||(LA9_27 >= '\u00F3' && LA9_27 <= '\u00F8')||(LA9_27 >= '\u00FA' && LA9_27 <= '\uFFFF')) ) {s = 21;}
+						else s = 28;
+						if ( s>=0 ) return s;
+						break;
+
+					case 10 : 
+						int LA9_16 = input.LA(1);
+						 
+						int index9_16 = input.index();
+						input.rewind();
+						s = -1;
+						if ( (LA9_16=='\'') && (((openBraces - closeBraces) == 0))) {s = 15;}
+						else s = 26;
+						 
+						input.seek(index9_16);
+						if ( s>=0 ) return s;
+						break;
+
+					case 11 : 
 						int LA9_11 = input.LA(1);
 						 
 						int index9_11 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA9_11=='*') ) {s = 22;}
-						else if ( (LA9_11==':') ) {s = 23;}
-						else if ( ((LA9_11 >= '!' && LA9_11 <= '\"')||LA9_11=='$'||LA9_11=='&'||(LA9_11 >= '+' && LA9_11 <= '9')||(LA9_11 >= '<' && LA9_11 <= '?')||(LA9_11 >= 'A' && LA9_11 <= 'Z')||LA9_11=='\\'||(LA9_11 >= '^' && LA9_11 <= '_')||(LA9_11 >= 'a' && LA9_11 <= 'z')||LA9_11=='\u00A3'||LA9_11=='\u00A7'||LA9_11=='\u00E0'||(LA9_11 >= '\u00E8' && LA9_11 <= '\u00E9')||LA9_11=='\u00EC'||LA9_11=='\u00F2'||LA9_11=='\u00F9') ) {s = 24;}
-						else if ( ((LA9_11 >= '\u0000' && LA9_11 <= ' ')||LA9_11=='#'||LA9_11=='%'||(LA9_11 >= '\'' && LA9_11 <= ')')||LA9_11==';'||LA9_11=='@'||LA9_11=='['||LA9_11==']'||LA9_11=='`'||(LA9_11 >= '{' && LA9_11 <= '\u00A2')||(LA9_11 >= '\u00A4' && LA9_11 <= '\u00A6')||(LA9_11 >= '\u00A8' && LA9_11 <= '\u00DF')||(LA9_11 >= '\u00E1' && LA9_11 <= '\u00E7')||(LA9_11 >= '\u00EA' && LA9_11 <= '\u00EB')||(LA9_11 >= '\u00ED' && LA9_11 <= '\u00F1')||(LA9_11 >= '\u00F3' && LA9_11 <= '\u00F8')||(LA9_11 >= '\u00FA' && LA9_11 <= '\uFFFF')) ) {s = 20;}
+						if ( (LA9_11=='*') ) {s = 23;}
+						else if ( (LA9_11==':') ) {s = 24;}
+						else if ( ((LA9_11 >= '!' && LA9_11 <= '\"')||LA9_11=='$'||LA9_11=='&'||(LA9_11 >= '+' && LA9_11 <= '9')||(LA9_11 >= '<' && LA9_11 <= '?')||(LA9_11 >= 'A' && LA9_11 <= 'Z')||LA9_11=='\\'||(LA9_11 >= '^' && LA9_11 <= '_')||(LA9_11 >= 'a' && LA9_11 <= 'z')||LA9_11=='\u00A3'||LA9_11=='\u00A7'||LA9_11=='\u00E0'||(LA9_11 >= '\u00E8' && LA9_11 <= '\u00E9')||LA9_11=='\u00EC'||LA9_11=='\u00F2'||LA9_11=='\u00F9') ) {s = 25;}
+						else if ( ((LA9_11 >= '\u0000' && LA9_11 <= ' ')||LA9_11=='#'||LA9_11=='%'||(LA9_11 >= '\'' && LA9_11 <= ')')||LA9_11==';'||LA9_11=='@'||LA9_11=='['||LA9_11==']'||LA9_11=='`'||(LA9_11 >= '{' && LA9_11 <= '\u00A2')||(LA9_11 >= '\u00A4' && LA9_11 <= '\u00A6')||(LA9_11 >= '\u00A8' && LA9_11 <= '\u00DF')||(LA9_11 >= '\u00E1' && LA9_11 <= '\u00E7')||(LA9_11 >= '\u00EA' && LA9_11 <= '\u00EB')||(LA9_11 >= '\u00ED' && LA9_11 <= '\u00F1')||(LA9_11 >= '\u00F3' && LA9_11 <= '\u00F8')||(LA9_11 >= '\u00FA' && LA9_11 <= '\uFFFF')) ) {s = 21;}
 						else s = 12;
 						 
 						input.seek(index9_11);
 						if ( s>=0 ) return s;
 						break;
 
-					case 10 : 
-						int LA9_22 = input.LA(1);
+					case 12 : 
+						int LA9_28 = input.LA(1);
 						 
-						int index9_22 = input.index();
+						int index9_28 = input.index();
 						input.rewind();
 						s = -1;
-						if ( (LA9_22=='/') ) {s = 25;}
-						else if ( (LA9_22=='*') ) {s = 22;}
-						else if ( (LA9_22==':') ) {s = 23;}
-						else if ( ((LA9_22 >= '!' && LA9_22 <= '\"')||LA9_22=='$'||LA9_22=='&'||(LA9_22 >= '+' && LA9_22 <= '.')||(LA9_22 >= '0' && LA9_22 <= '9')||(LA9_22 >= '<' && LA9_22 <= '?')||(LA9_22 >= 'A' && LA9_22 <= 'Z')||LA9_22=='\\'||(LA9_22 >= '^' && LA9_22 <= '_')||(LA9_22 >= 'a' && LA9_22 <= 'z')||LA9_22=='\u00A3'||LA9_22=='\u00A7'||LA9_22=='\u00E0'||(LA9_22 >= '\u00E8' && LA9_22 <= '\u00E9')||LA9_22=='\u00EC'||LA9_22=='\u00F2'||LA9_22=='\u00F9') ) {s = 24;}
-						else if ( ((LA9_22 >= '\u0000' && LA9_22 <= ' ')||LA9_22=='#'||LA9_22=='%'||(LA9_22 >= '\'' && LA9_22 <= ')')||LA9_22==';'||LA9_22=='@'||LA9_22=='['||LA9_22==']'||LA9_22=='`'||(LA9_22 >= '{' && LA9_22 <= '\u00A2')||(LA9_22 >= '\u00A4' && LA9_22 <= '\u00A6')||(LA9_22 >= '\u00A8' && LA9_22 <= '\u00DF')||(LA9_22 >= '\u00E1' && LA9_22 <= '\u00E7')||(LA9_22 >= '\u00EA' && LA9_22 <= '\u00EB')||(LA9_22 >= '\u00ED' && LA9_22 <= '\u00F1')||(LA9_22 >= '\u00F3' && LA9_22 <= '\u00F8')||(LA9_22 >= '\u00FA' && LA9_22 <= '\uFFFF')) ) {s = 20;}
-						else s = 12;
+						if ( (((openBraces - closeBraces) == 0)) ) {s = 12;}
+						else if ( (true) ) {s = 21;}
 						 
-						input.seek(index9_22);
+						input.seek(index9_28);
 						if ( s>=0 ) return s;
 						break;
 
-					case 11 : 
+					case 13 : 
 						int LA9_6 = input.LA(1);
 						 
 						int index9_6 = input.index();
@@ -1099,19 +1320,6 @@ public class CLLexer extends Lexer {
 						else s = 12;
 						 
 						input.seek(index9_6);
-						if ( s>=0 ) return s;
-						break;
-
-					case 12 : 
-						int LA9_23 = input.LA(1);
-						 
-						int index9_23 = input.index();
-						input.rewind();
-						s = -1;
-						if ( ((LA9_23 >= '\u0000' && LA9_23 <= '\uFFFF')) ) {s = 20;}
-						else s = 13;
-						 
-						input.seek(index9_23);
 						if ( s>=0 ) return s;
 						break;
 			}

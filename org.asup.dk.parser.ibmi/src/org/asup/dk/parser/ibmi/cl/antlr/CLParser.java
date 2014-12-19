@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CL.g 2014-10-13 17:53:33
+// $ANTLR 3.5.1 CL.g 2014-12-19 11:49:55
 
   package org.asup.dk.parser.ibmi.cl.antlr;
 
@@ -17,9 +17,9 @@ import org.antlr.runtime.tree.*;
 public class CLParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "APOS", "CHAR_SPECIAL", "CL", 
-		"CLOSE_BRACE", "CMD_NAME", "COMMAND", "COMMENT", "CR", "FUN", "LABEL", 
-		"OPEN_BRACE", "PAR", "PAREN", "PAR_NAME", "PAR_VALUE", "POS_PAR", "ROW", 
-		"STRING", "TOKEN", "WS"
+		"CLOSE_BRACE", "CMD_NAME", "COMMAND", "COMMENT", "CR", "ESCAPE", "FUN", 
+		"LABEL", "OPEN_BRACE", "PAR", "PAREN", "PAR_NAME", "PAR_VALUE", "POS_PAR", 
+		"ROW", "STRING", "TOKEN", "WS"
 	};
 	public static final int EOF=-1;
 	public static final int APOS=4;
@@ -30,18 +30,19 @@ public class CLParser extends Parser {
 	public static final int COMMAND=9;
 	public static final int COMMENT=10;
 	public static final int CR=11;
-	public static final int FUN=12;
-	public static final int LABEL=13;
-	public static final int OPEN_BRACE=14;
-	public static final int PAR=15;
-	public static final int PAREN=16;
-	public static final int PAR_NAME=17;
-	public static final int PAR_VALUE=18;
-	public static final int POS_PAR=19;
-	public static final int ROW=20;
-	public static final int STRING=21;
-	public static final int TOKEN=22;
-	public static final int WS=23;
+	public static final int ESCAPE=12;
+	public static final int FUN=13;
+	public static final int LABEL=14;
+	public static final int OPEN_BRACE=15;
+	public static final int PAR=16;
+	public static final int PAREN=17;
+	public static final int PAR_NAME=18;
+	public static final int PAR_VALUE=19;
+	public static final int POS_PAR=20;
+	public static final int ROW=21;
+	public static final int STRING=22;
+	public static final int TOKEN=23;
+	public static final int WS=24;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -801,7 +802,7 @@ public class CLParser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: pos_parm, parm, cmd_name
+			// elements: parm, cmd_name, pos_parm
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1242,7 +1243,7 @@ public class CLParser extends Parser {
 
 			stream_parm_value.add(parm_value30.getTree());
 			// AST REWRITE
-			// elements: parm_name, parm_value
+			// elements: parm_value, parm_name
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1452,15 +1453,15 @@ public class CLParser extends Parser {
 	static final String DFA2_minS =
 		"\1\13\1\uffff\1\13\2\uffff";
 	static final String DFA2_maxS =
-		"\1\27\1\uffff\1\27\2\uffff";
+		"\1\30\1\uffff\1\30\2\uffff";
 	static final String DFA2_acceptS =
 		"\1\uffff\1\3\1\uffff\1\1\1\2";
 	static final String DFA2_specialS =
 		"\5\uffff}>";
 	static final String[] DFA2_transitionS = {
-			"\1\4\1\uffff\1\3\10\uffff\1\3\1\2",
+			"\1\4\2\uffff\1\3\10\uffff\1\3\1\2",
 			"",
-			"\1\4\1\uffff\1\3\10\uffff\1\3\1\2",
+			"\1\4\2\uffff\1\3\10\uffff\1\3\1\2",
 			"",
 			""
 	};
@@ -1505,9 +1506,9 @@ public class CLParser extends Parser {
 	static final String DFA3_eofS =
 		"\6\uffff";
 	static final String DFA3_minS =
-		"\2\15\1\13\1\uffff\1\13\1\uffff";
+		"\2\16\1\13\1\uffff\1\13\1\uffff";
 	static final String DFA3_maxS =
-		"\3\27\1\uffff\1\27\1\uffff";
+		"\3\30\1\uffff\1\30\1\uffff";
 	static final String DFA3_acceptS =
 		"\3\uffff\1\2\1\uffff\1\1";
 	static final String DFA3_specialS =
@@ -1515,9 +1516,9 @@ public class CLParser extends Parser {
 	static final String[] DFA3_transitionS = {
 			"\1\2\10\uffff\1\3\1\1",
 			"\1\2\10\uffff\1\3\1\1",
-			"\1\5\12\uffff\1\3\1\4",
+			"\1\5\13\uffff\1\3\1\4",
 			"",
-			"\1\5\12\uffff\1\3\1\4",
+			"\1\5\13\uffff\1\3\1\4",
 			""
 	};
 
@@ -1561,9 +1562,9 @@ public class CLParser extends Parser {
 	static final String DFA5_eofS =
 		"\4\uffff";
 	static final String DFA5_minS =
-		"\2\15\2\uffff";
+		"\2\16\2\uffff";
 	static final String DFA5_maxS =
-		"\2\27\2\uffff";
+		"\2\30\2\uffff";
 	static final String DFA5_acceptS =
 		"\2\uffff\1\1\1\2";
 	static final String DFA5_specialS =
@@ -1617,16 +1618,16 @@ public class CLParser extends Parser {
 	static final String DFA9_minS =
 		"\2\13\1\uffff\1\13\1\uffff";
 	static final String DFA9_maxS =
-		"\2\27\1\uffff\1\27\1\uffff";
+		"\2\30\1\uffff\1\30\1\uffff";
 	static final String DFA9_acceptS =
 		"\2\uffff\1\2\1\uffff\1\1";
 	static final String DFA9_specialS =
 		"\5\uffff}>";
 	static final String[] DFA9_transitionS = {
-			"\1\2\13\uffff\1\1",
-			"\1\2\1\4\3\uffff\1\4\4\uffff\1\4\1\3\1\1",
+			"\1\2\14\uffff\1\1",
+			"\1\2\1\uffff\1\4\3\uffff\1\4\4\uffff\1\4\1\3\1\1",
 			"",
-			"\1\4\4\uffff\1\2\6\uffff\1\4",
+			"\1\4\5\uffff\1\2\6\uffff\1\4",
 			""
 	};
 
@@ -1672,14 +1673,14 @@ public class CLParser extends Parser {
 	static final String DFA11_minS =
 		"\2\13\2\uffff";
 	static final String DFA11_maxS =
-		"\2\27\2\uffff";
+		"\2\30\2\uffff";
 	static final String DFA11_acceptS =
 		"\2\uffff\1\2\1\1";
 	static final String DFA11_specialS =
 		"\4\uffff}>";
 	static final String[] DFA11_transitionS = {
-			"\1\2\13\uffff\1\1",
-			"\1\2\12\uffff\1\3\1\1",
+			"\1\2\14\uffff\1\1",
+			"\1\2\13\uffff\1\3\1\1",
 			"",
 			""
 	};
@@ -1719,35 +1720,35 @@ public class CLParser extends Parser {
 		}
 	}
 
-	public static final BitSet FOLLOW_row_in_parse129 = new BitSet(new long[]{0x0000000000C02800L});
-	public static final BitSet FOLLOW_WS_in_parse135 = new BitSet(new long[]{0x0000000000800800L});
-	public static final BitSet FOLLOW_CR_in_parse139 = new BitSet(new long[]{0x0000000000C02800L});
+	public static final BitSet FOLLOW_row_in_parse129 = new BitSet(new long[]{0x0000000001804800L});
+	public static final BitSet FOLLOW_WS_in_parse135 = new BitSet(new long[]{0x0000000001000800L});
+	public static final BitSet FOLLOW_CR_in_parse139 = new BitSet(new long[]{0x0000000001804800L});
 	public static final BitSet FOLLOW_EOF_in_parse144 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_single_label_in_row168 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_command_row_in_row176 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_label_in_single_label194 = new BitSet(new long[]{0x0000000000800800L});
-	public static final BitSet FOLLOW_WS_in_single_label197 = new BitSet(new long[]{0x0000000000800800L});
+	public static final BitSet FOLLOW_label_in_single_label194 = new BitSet(new long[]{0x0000000001000800L});
+	public static final BitSet FOLLOW_WS_in_single_label197 = new BitSet(new long[]{0x0000000001000800L});
 	public static final BitSet FOLLOW_CR_in_single_label201 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_label_in_command_row223 = new BitSet(new long[]{0x0000000000C00000L});
-	public static final BitSet FOLLOW_WS_in_command_row228 = new BitSet(new long[]{0x0000000000C00000L});
+	public static final BitSet FOLLOW_label_in_command_row223 = new BitSet(new long[]{0x0000000001800000L});
+	public static final BitSet FOLLOW_WS_in_command_row228 = new BitSet(new long[]{0x0000000001800000L});
 	public static final BitSet FOLLOW_command_in_command_row232 = new BitSet(new long[]{0x0000000000000800L});
 	public static final BitSet FOLLOW_CR_in_command_row234 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WS_in_label259 = new BitSet(new long[]{0x0000000000802000L});
+	public static final BitSet FOLLOW_WS_in_label259 = new BitSet(new long[]{0x0000000001004000L});
 	public static final BitSet FOLLOW_LABEL_in_label263 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_cmd_name_in_command278 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_WS_in_command282 = new BitSet(new long[]{0x0000000000E11000L});
-	public static final BitSet FOLLOW_pos_parm_in_command286 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_WS_in_command292 = new BitSet(new long[]{0x0000000000C00000L});
-	public static final BitSet FOLLOW_parm_in_command296 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_WS_in_command301 = new BitSet(new long[]{0x0000000000800002L});
+	public static final BitSet FOLLOW_cmd_name_in_command278 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_WS_in_command282 = new BitSet(new long[]{0x0000000001C22000L});
+	public static final BitSet FOLLOW_pos_parm_in_command286 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_WS_in_command292 = new BitSet(new long[]{0x0000000001800000L});
+	public static final BitSet FOLLOW_parm_in_command296 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_WS_in_command301 = new BitSet(new long[]{0x0000000001000002L});
 	public static final BitSet FOLLOW_TOKEN_in_cmd_name337 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TOKEN_in_pos_parm359 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_PAREN_in_pos_parm375 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_STRING_in_pos_parm390 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_fun_in_pos_parm405 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FUN_in_fun420 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_FUN_in_fun420 = new BitSet(new long[]{0x0000000000020000L});
 	public static final BitSet FOLLOW_PAREN_in_fun422 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parm_name_in_parm444 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_parm_name_in_parm444 = new BitSet(new long[]{0x0000000000020000L});
 	public static final BitSet FOLLOW_parm_value_in_parm446 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TOKEN_in_parm_name473 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_PAREN_in_parm_value496 = new BitSet(new long[]{0x0000000000000002L});
