@@ -222,6 +222,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	private EDataType databaseResultSetEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType statementBatchResultEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -793,6 +800,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getStatementBatchResult() {
+		return statementBatchResultEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QDatabaseCoreFactory getDatabaseCoreFactory() {
 		return (QDatabaseCoreFactory)getEFactoryInstance();
 	}
@@ -893,6 +909,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Create data types
 		databaseExceptionEDataType = createEDataType(DATABASE_EXCEPTION);
 		databaseResultSetEDataType = createEDataType(DATABASE_RESULT_SET);
+		statementBatchResultEDataType = createEDataType(STATEMENT_BATCH_RESULT);
 	}
 
 	/**
@@ -939,6 +956,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		databaseManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		indexDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
 		indexColumnDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
+		preparedStatementEClass.getESuperTypes().add(this.getStatement());
 		schemaDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
 		tableDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
 		tableColumnDefEClass.getESuperTypes().add(this.getDatabaseObjectDef());
@@ -1170,9 +1188,10 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		initEClass(preparedStatementEClass, QPreparedStatement.class, "PreparedStatement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(preparedStatementEClass, null, "clearParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(preparedStatementEClass, null, "addBatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
-		op = addEOperation(preparedStatementEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(preparedStatementEClass, null, "clearParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(preparedStatementEClass, ecorePackage.getEBoolean(), "execute", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1187,10 +1206,12 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		op = addEOperation(preparedStatementEClass, null, "setInt", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "position", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(preparedStatementEClass, null, "setString", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "position", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		initEClass(qualifiedNameEClass, QQualifiedName.class, "QualifiedName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQualifiedName_Qualifiers(), theEcorePackage.getEString(), "qualifiers", null, 1, 3, QQualifiedName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1202,6 +1223,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		initEClass(schemaDefEClass, QSchemaDef.class, "SchemaDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(statementEClass, QStatement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(statementEClass, null, "addBatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(statementEClass, null, "clearBatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
 
 		op = addEOperation(statementEClass, null, "close", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
@@ -1216,6 +1244,9 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		op = addEOperation(statementEClass, ecorePackage.getEInt(), "executeUpdate", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getDatabaseException());
+
+		op = addEOperation(statementEClass, this.getStatementBatchResult(), "executeBatch", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getDatabaseException());
 
 		initEClass(tableDefEClass, QTableDef.class, "TableDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1255,6 +1286,7 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		// Initialize data types
 		initEDataType(databaseExceptionEDataType, SQLException.class, "DatabaseException", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(databaseResultSetEDataType, ResultSet.class, "DatabaseResultSet", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(statementBatchResultEDataType, int[].class, "StatementBatchResult", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

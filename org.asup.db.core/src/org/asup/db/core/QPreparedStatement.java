@@ -20,14 +20,14 @@ import java.sql.SQLException;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QPreparedStatement {
+public interface QPreparedStatement extends QStatement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	void clearParameters();
+	void addBatch() throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public interface QPreparedStatement {
 	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
-	void close() throws SQLException;
+	void clearParameters() throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,17 +64,17 @@ public interface QPreparedStatement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model positionRequired="true" valueRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException" positionRequired="true" valueRequired="true"
 	 * @generated
 	 */
-	void setInt(int position, int value);
+	void setInt(int position, int value) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model positionRequired="true" valueRequired="true"
+	 * @model exceptions="org.asup.db.core.DatabaseException" positionRequired="true" valueRequired="true"
 	 * @generated
 	 */
-	void setString(int position, String value);
+	void setString(int position, String value) throws SQLException;
 
 } // QPreparedStatement

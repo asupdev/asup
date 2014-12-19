@@ -546,15 +546,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	int PREPARED_STATEMENT = 12;
 
 	/**
-	 * The number of structural features of the '<em>Prepared Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PREPARED_STATEMENT_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.QualifiedNameImpl <em>Qualified Name</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -563,6 +554,44 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	int QUALIFIED_NAME = 13;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.core.impl.SchemaDefImpl <em>Schema Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.impl.SchemaDefImpl
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getSchemaDef()
+	 * @generated
+	 */
+	int SCHEMA_DEF = 14;
+
+	/**
+	 * The meta object id for the '{@link org.asup.db.core.QStatement <em>Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.QStatement
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatement()
+	 * @generated
+	 */
+	int STATEMENT = 15;
+
+	/**
+	 * The number of structural features of the '<em>Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Prepared Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREPARED_STATEMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Qualifiers</b></em>' attribute list.
@@ -583,16 +612,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	int QUALIFIED_NAME_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.core.impl.SchemaDefImpl <em>Schema Def</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.core.impl.SchemaDefImpl
-	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getSchemaDef()
-	 * @generated
-	 */
-	int SCHEMA_DEF = 14;
-
-	/**
 	 * The number of structural features of the '<em>Schema Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -600,25 +619,6 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHEMA_DEF_FEATURE_COUNT = DATABASE_OBJECT_DEF_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link org.asup.db.core.QStatement <em>Statement</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.db.core.QStatement
-	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatement()
-	 * @generated
-	 */
-	int STATEMENT = 15;
-
-	/**
-	 * The number of structural features of the '<em>Statement</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.TableDefImpl <em>Table Def</em>}' class.
@@ -797,6 +797,16 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	int DATABASE_RESULT_SET = 22;
+
+
+	/**
+	 * The meta object id for the '<em>Statement Batch Result</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatementBatchResult()
+	 * @generated
+	 */
+	int STATEMENT_BATCH_RESULT = 23;
 
 
 	/**
@@ -1384,6 +1394,16 @@ public interface QDatabaseCorePackage extends EPackage {
 	EDataType getDatabaseResultSet();
 
 	/**
+	 * Returns the meta object for data type '<em>Statement Batch Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Statement Batch Result</em>'.
+	 * @model instanceClass="int[]" serializeable="false"
+	 * @generated
+	 */
+	EDataType getStatementBatchResult();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1890,6 +1910,15 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType DATABASE_RESULT_SET = eINSTANCE.getDatabaseResultSet();
+
+		/**
+		 * The meta object literal for the '<em>Statement Batch Result</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatementBatchResult()
+		 * @generated
+		 */
+		EDataType STATEMENT_BATCH_RESULT = eINSTANCE.getStatementBatchResult();
 
 	}
 

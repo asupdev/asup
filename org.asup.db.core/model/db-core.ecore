@@ -239,19 +239,20 @@
     <eLiterals name="Ascend" value="10" literal="A"/>
     <eLiterals name="Descend" value="20" literal="D"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PreparedStatement" abstract="true" interface="true">
-    <eOperations name="clearParameters"/>
-    <eOperations name="close" lowerBound="1" eExceptions="#//DatabaseException"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreparedStatement" abstract="true" interface="true"
+      eSuperTypes="#//Statement">
+    <eOperations name="addBatch" eExceptions="#//DatabaseException"/>
+    <eOperations name="clearParameters" eExceptions="#//DatabaseException"/>
     <eOperations name="execute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         eExceptions="#//DatabaseException"/>
     <eOperations name="executeQuery" lowerBound="1" eType="#//DatabaseResultSet" eExceptions="#//DatabaseException"/>
     <eOperations name="executeUpdate" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         eExceptions="#//DatabaseException"/>
-    <eOperations name="setInt">
+    <eOperations name="setInt" eExceptions="#//DatabaseException">
       <eParameters name="position" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eOperations name="setString">
+    <eOperations name="setString" eExceptions="#//DatabaseException">
       <eParameters name="position" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -264,6 +265,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaDef" eSuperTypes="#//DatabaseObjectDef"/>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true">
+    <eOperations name="addBatch" eExceptions="#//DatabaseException">
+      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="clearBatch" eExceptions="#//DatabaseException"/>
     <eOperations name="close" lowerBound="1" eExceptions="#//DatabaseException"/>
     <eOperations name="execute" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         eExceptions="#//DatabaseException">
@@ -276,7 +281,11 @@
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="executeBatch" lowerBound="1" eType="#//StatementBatchResult"
+        eExceptions="#//DatabaseException"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="StatementBatchResult" instanceClassName="int[]"
+      serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="TableDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//TableColumnDef" containment="true"/>
