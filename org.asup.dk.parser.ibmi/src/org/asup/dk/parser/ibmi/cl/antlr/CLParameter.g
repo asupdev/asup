@@ -67,7 +67,7 @@ tokens
 
 parse
   :
-  (elem)* -> ^(LIST["LIST: " + $parse.text] (elem)*) 
+  (elem)* -> ^(LIST[$parse.text] (elem)*) 
   ;
   
 elem	
@@ -78,12 +78,12 @@ elem
   
   composite
   :      
-   value (operator value)* -> ^(VALUE["COMPOSITE: " + $composite.text] value (operator value)*)
+   value (operator value)* -> ^(VALUE[$composite.text] value (operator value)*)
   ;	   
    
 list
   : 
-  OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST["LIST: " + $list.text]  (elem)*)    
+  OPEN_BRACE (elem)* CLOSE_BRACE -> ^(LIST[$list.text]  (elem)*)    
   ;
   
 
@@ -119,7 +119,7 @@ operator:
 
  
 function:
-  FUNCTION_NAME list	-> ^(FUNCTION["FUN: " + $FUNCTION_NAME.text] list)
+  FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
 	;
 	
 CAT     : '!!' | '*CAT';
