@@ -197,7 +197,12 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 			numeric.eval((QBufferedData)object);	
 		}		
 		else {
-			numeric.eval(Double.parseDouble(object.toString()));
+			try {
+				numeric.eval(Double.parseDouble(object.toString()));
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
