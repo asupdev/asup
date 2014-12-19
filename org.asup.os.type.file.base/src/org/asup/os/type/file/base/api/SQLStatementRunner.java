@@ -63,7 +63,7 @@ public class SQLStatementRunner {
 		try {
 
 			statement = databaseConnection.createStatement();
-
+			
 			ResultSet resultSet = statement.executeQuery(sql.trimR());
 
 			EClass eClass = createEClass(resultSet);

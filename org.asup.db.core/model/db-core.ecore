@@ -276,7 +276,15 @@
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="addBatch" eExceptions="#//DatabaseException">
+      <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="clearBatch" eExceptions="#//DatabaseException"/>
+    <eOperations name="executeBatch" lowerBound="1" eType="#//StatementBatchResult"
+        eExceptions="#//DatabaseException"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="StatementBatchResult" instanceClassName="int[]"
+      serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="TableDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//TableColumnDef" containment="true"/>

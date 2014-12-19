@@ -53,4 +53,28 @@ public interface QStatement {
 	 */
 	int executeUpdate(String sql) throws SQLException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException" sqlRequired="true"
+	 * @generated
+	 */
+	void addBatch(String sql) throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.db.core.DatabaseException"
+	 * @generated
+	 */
+	void clearBatch() throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="org.asup.db.core.StatementBatchResult" required="true" exceptions="org.asup.db.core.DatabaseException"
+	 * @generated
+	 */
+	int[] executeBatch() throws SQLException;
+
 } // QStatement
