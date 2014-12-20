@@ -101,7 +101,7 @@ value
   |
   HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)]
   |
-  STRING -> ^(STRING[$STRING.text.substring(1, $STRING.text.length()-1)])
+  STRING -> ^(STRING[$STRING.text.substring(1, $STRING.text.length()-1).replace("''", "'")])
   |
   function
   ;
