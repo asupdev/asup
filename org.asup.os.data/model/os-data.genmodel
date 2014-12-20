@@ -4,7 +4,7 @@
     modelDirectory="/org.asup.os.data/src" modelPluginID="org.asup.os.data" modelName="As.UP Operating System Data"
     modelPluginClass="" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.os.core/model/os-core.genmodel#//core"
+    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.il.expr/model/il-expr.genmodel#//expr"
     interfaceNamePattern="Q{0}" classNamePattern="" importOrganizing="true">
   <foreignModel>os-data.ecore</foreignModel>
   <genPackages prefix="OperatingSystemData" basePackage="org.asup.os" disposableProviderFactory="true"

@@ -68,10 +68,13 @@ public class BaseConnectionImpl implements QConnection, Connection {
 
 	@Override
 	public BasePreparedStatementImpl prepareStatement(String sql, boolean native_) throws SQLException {
-		BasePreparedStatementImpl basePreparedStatement = new BasePreparedStatementImpl(this, getRawConnection().prepareStatement(sql));
+		
+		if(!native_)
+			sql = translate(sql);
+		
+		BasePreparedStatementImpl statement = new BasePreparedStatementImpl(this, getRawConnection().prepareStatement(sql), native_);
 
-		return basePreparedStatement;
-
+		return statement;
 	}
 
 	@Override
@@ -82,12 +85,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 	@Override
 	public BaseStatementImpl createStatement(boolean native_) throws SQLException {
 
-		BaseCatalogConnection catalogConnection = getCatalogConnection();
-		BaseStatementImpl statement = null;
-		if (native_)
-			statement = new BaseNativeStatementImpl(this, catalogConnection.getRawConnection().createStatement());
-		else
-			statement = new BaseStatementImpl(this, catalogConnection.getRawConnection().createStatement());
+		BaseStatementImpl statement = new BaseStatementImpl(this, getRawConnection().createStatement(), native_);
 		
 		return statement;
 	}
