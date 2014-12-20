@@ -50,9 +50,9 @@ public class SQLStatementRunner {
 	private QJob job;
 
 	@Entry
-	public void main(@DataDef(length = 512) QCharacter sql) {
+	public void main(@DataDef(length = 512) QCharacter sql, @DataDef(length=1) QCharacter output) {
 
-		QObjectWriter objectWriter = outputManager.getDefaultWriter(job);
+		QObjectWriter objectWriter = outputManager.getObjectWriter(job,  output.trimR());
 		objectWriter.initialize();
 
 		QConnection databaseConnection = job.getContext().getAdapter(job, QConnection.class);

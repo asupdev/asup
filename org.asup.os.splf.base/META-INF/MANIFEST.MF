@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System SpoolFile Base
+Bundle-SymbolicName: org.asup.os.splf.base
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.asup.os.core,
+ org.asup.os.splf
+Export-Package: org.asup.os.splf.base.api

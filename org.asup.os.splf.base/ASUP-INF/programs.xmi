@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<os-type-pgm:ProgramContainer
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:os-type-pgm="http://www.asup.org/os/type/pgm"
+    name="os-splf-program"
+    basePackage="org.asup.os.splf.base.api"
+    scanPackage="true"/>
