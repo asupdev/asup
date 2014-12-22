@@ -8,14 +8,10 @@
 package org.asup.db.syntax.dbl.util;
 
 import org.asup.db.syntax.QBindingStatement;
-
 import org.asup.db.syntax.dbl.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

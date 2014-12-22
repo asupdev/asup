@@ -4,7 +4,8 @@ Bundle-Name: As.UP Database Syntax IBMi
 Bundle-SymbolicName: org.asup.db.syntax.ibmi
 Bundle-Version: 0.5.3.qualifier
 Bundle-Vendor: www.smeup.com
-Export-Package: org.asup.db.syntax.ibmi.parser.ddl,
+Export-Package: org.asup.db.syntax.ibmi.parser.dbl,
+ org.asup.db.syntax.ibmi.parser.ddl,
  org.asup.db.syntax.ibmi.parser.dml
 Require-Bundle: org.asup.db.syntax,
  net.sourceforge.lpg.lpgjavaruntime;bundle-version="1.1.0",

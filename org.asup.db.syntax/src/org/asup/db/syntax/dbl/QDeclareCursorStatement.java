@@ -18,11 +18,10 @@ import org.asup.db.syntax.QBindingStatement;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorName <em>Cursor Name</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorType <em>Cursor Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getForQuery <em>For Query</em>}</li>
  *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getForStatementName <em>For Statement Name</em>}</li>
- *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isDynamic <em>Dynamic</em>}</li>
  *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isHold <em>Hold</em>}</li>
- *   <li>{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isScroll <em>Scroll</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,6 +30,7 @@ import org.asup.db.syntax.QBindingStatement;
  * @generated
  */
 public interface QDeclareCursorStatement extends QBindingStatement {
+
 	/**
 	 * Returns the value of the '<em><b>Cursor Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,6 +56,35 @@ public interface QDeclareCursorStatement extends QBindingStatement {
 	 * @generated
 	 */
 	void setCursorName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Cursor Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.asup.db.syntax.dbl.CursorType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cursor Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cursor Type</em>' attribute.
+	 * @see org.asup.db.syntax.dbl.CursorType
+	 * @see #setCursorType(CursorType)
+	 * @see org.asup.db.syntax.dbl.QDblPackage#getDeclareCursorStatement_CursorType()
+	 * @model
+	 * @generated
+	 */
+	CursorType getCursorType();
+
+	/**
+	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorType <em>Cursor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cursor Type</em>' attribute.
+	 * @see org.asup.db.syntax.dbl.CursorType
+	 * @see #getCursorType()
+	 * @generated
+	 */
+	void setCursorType(CursorType value);
 
 	/**
 	 * Returns the value of the '<em><b>For Query</b></em>' attribute.
@@ -110,32 +139,6 @@ public interface QDeclareCursorStatement extends QBindingStatement {
 	void setForStatementName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Dynamic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dynamic</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dynamic</em>' attribute.
-	 * @see #setDynamic(boolean)
-	 * @see org.asup.db.syntax.dbl.QDblPackage#getDeclareCursorStatement_Dynamic()
-	 * @model
-	 * @generated
-	 */
-	boolean isDynamic();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isDynamic <em>Dynamic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dynamic</em>' attribute.
-	 * @see #isDynamic()
-	 * @generated
-	 */
-	void setDynamic(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Hold</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -160,31 +163,5 @@ public interface QDeclareCursorStatement extends QBindingStatement {
 	 * @generated
 	 */
 	void setHold(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Scroll</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scroll</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scroll</em>' attribute.
-	 * @see #setScroll(boolean)
-	 * @see org.asup.db.syntax.dbl.QDblPackage#getDeclareCursorStatement_Scroll()
-	 * @model
-	 * @generated
-	 */
-	boolean isScroll();
-
-	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isScroll <em>Scroll</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scroll</em>' attribute.
-	 * @see #isScroll()
-	 * @generated
-	 */
-	void setScroll(boolean value);
 
 } // QDeclareCursorStatement

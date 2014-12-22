@@ -83,13 +83,22 @@ public interface QDblPackage extends EPackage {
 	int DECLARE_CURSOR_STATEMENT__CURSOR_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Cursor Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECLARE_CURSOR_STATEMENT__CURSOR_TYPE = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>For Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARE_CURSOR_STATEMENT__FOR_QUERY = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
+	int DECLARE_CURSOR_STATEMENT__FOR_QUERY = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>For Statement Name</b></em>' attribute.
@@ -98,16 +107,7 @@ public interface QDblPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Dynamic</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECLARE_CURSOR_STATEMENT__DYNAMIC = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 3;
+	int DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Hold</b></em>' attribute.
@@ -119,22 +119,13 @@ public interface QDblPackage extends EPackage {
 	int DECLARE_CURSOR_STATEMENT__HOLD = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Scroll</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DECLARE_CURSOR_STATEMENT__SCROLL = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Declare Cursor Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECLARE_CURSOR_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 6;
+	int DECLARE_CURSOR_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.DescribeStatementImpl <em>Describe Statement</em>}' class.
@@ -543,6 +534,16 @@ public interface QDblPackage extends EPackage {
 	int CLOSE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.CursorType <em>Cursor Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.dbl.CursorType
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getCursorType()
+	 * @generated
+	 */
+	int CURSOR_TYPE = 11;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.FetchPosition <em>Fetch Position</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,7 +551,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getFetchPosition()
 	 * @generated
 	 */
-	int FETCH_POSITION = 11;
+	int FETCH_POSITION = 12;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.IsolationLevel <em>Isolation Level</em>}' enum.
@@ -560,7 +561,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getIsolationLevel()
 	 * @generated
 	 */
-	int ISOLATION_LEVEL = 12;
+	int ISOLATION_LEVEL = 13;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.RWOperation <em>RW Operation</em>}' enum.
@@ -570,7 +571,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getRWOperation()
 	 * @generated
 	 */
-	int RW_OPERATION = 13;
+	int RW_OPERATION = 14;
 
 
 	/**
@@ -581,7 +582,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenType()
 	 * @generated
 	 */
-	int OPEN_TYPE = 14;
+	int OPEN_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.UsingType <em>Using Type</em>}' enum.
@@ -591,7 +592,7 @@ public interface QDblPackage extends EPackage {
 	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getUsingType()
 	 * @generated
 	 */
-	int USING_TYPE = 15;
+	int USING_TYPE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement <em>Declare Cursor Statement</em>}'.
@@ -613,6 +614,17 @@ public interface QDblPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDeclareCursorStatement_CursorName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorType <em>Cursor Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cursor Type</em>'.
+	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#getCursorType()
+	 * @see #getDeclareCursorStatement()
+	 * @generated
+	 */
+	EAttribute getDeclareCursorStatement_CursorType();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#getForQuery <em>For Query</em>}'.
@@ -637,17 +649,6 @@ public interface QDblPackage extends EPackage {
 	EAttribute getDeclareCursorStatement_ForStatementName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isDynamic <em>Dynamic</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Dynamic</em>'.
-	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#isDynamic()
-	 * @see #getDeclareCursorStatement()
-	 * @generated
-	 */
-	EAttribute getDeclareCursorStatement_Dynamic();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isHold <em>Hold</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,17 +658,6 @@ public interface QDblPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDeclareCursorStatement_Hold();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QDeclareCursorStatement#isScroll <em>Scroll</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scroll</em>'.
-	 * @see org.asup.db.syntax.dbl.QDeclareCursorStatement#isScroll()
-	 * @see #getDeclareCursorStatement()
-	 * @generated
-	 */
-	EAttribute getDeclareCursorStatement_Scroll();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QDescribeStatement <em>Describe Statement</em>}'.
@@ -959,6 +949,16 @@ public interface QDblPackage extends EPackage {
 	EAttribute getCloseStatement_Cursor();
 
 	/**
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.CursorType <em>Cursor Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cursor Type</em>'.
+	 * @see org.asup.db.syntax.dbl.CursorType
+	 * @generated
+	 */
+	EEnum getCursorType();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.FetchPosition <em>Fetch Position</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,6 +1124,14 @@ public interface QDblPackage extends EPackage {
 		EAttribute DECLARE_CURSOR_STATEMENT__CURSOR_NAME = eINSTANCE.getDeclareCursorStatement_CursorName();
 
 		/**
+		 * The meta object literal for the '<em><b>Cursor Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DECLARE_CURSOR_STATEMENT__CURSOR_TYPE = eINSTANCE.getDeclareCursorStatement_CursorType();
+
+		/**
 		 * The meta object literal for the '<em><b>For Query</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1140,28 +1148,12 @@ public interface QDblPackage extends EPackage {
 		EAttribute DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME = eINSTANCE.getDeclareCursorStatement_ForStatementName();
 
 		/**
-		 * The meta object literal for the '<em><b>Dynamic</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DECLARE_CURSOR_STATEMENT__DYNAMIC = eINSTANCE.getDeclareCursorStatement_Dynamic();
-
-		/**
 		 * The meta object literal for the '<em><b>Hold</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute DECLARE_CURSOR_STATEMENT__HOLD = eINSTANCE.getDeclareCursorStatement_Hold();
-
-		/**
-		 * The meta object literal for the '<em><b>Scroll</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DECLARE_CURSOR_STATEMENT__SCROLL = eINSTANCE.getDeclareCursorStatement_Scroll();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.DescribeStatementImpl <em>Describe Statement</em>}' class.
@@ -1394,6 +1386,16 @@ public interface QDblPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLOSE_STATEMENT__CURSOR = eINSTANCE.getCloseStatement_Cursor();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.CursorType <em>Cursor Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.dbl.CursorType
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getCursorType()
+		 * @generated
+		 */
+		EEnum CURSOR_TYPE = eINSTANCE.getCursorType();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.FetchPosition <em>Fetch Position</em>}' enum.

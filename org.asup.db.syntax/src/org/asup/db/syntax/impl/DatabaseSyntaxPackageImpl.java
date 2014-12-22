@@ -8,7 +8,6 @@
 package org.asup.db.syntax.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
-
 import org.asup.db.syntax.QBindingParseError;
 import org.asup.db.syntax.QBindingParseResult;
 import org.asup.db.syntax.QBindingParser;
@@ -33,33 +32,20 @@ import org.asup.db.syntax.QQueryWriterRegistry;
 import org.asup.db.syntax.QStatementParser;
 import org.asup.db.syntax.QStatementWriter;
 import org.asup.db.syntax.StatementType;
-
 import org.asup.db.syntax.dbl.QDblPackage;
 import org.asup.db.syntax.dbl.impl.DblPackageImpl;
 import org.asup.db.syntax.ddl.QDdlPackage;
-
 import org.asup.db.syntax.ddl.impl.DdlPackageImpl;
-
 import org.asup.db.syntax.dml.QDatabaseDMLPackage;
-
 import org.asup.db.syntax.dml.impl.DatabaseDMLPackageImpl;
-
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.asup.fw.java.QFrameworkJavaPackage;
-
 import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
-
 import org.eclipse.datatools.modelbase.sql.query.SQLQueryModelPackage;
-
 import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
-
 import org.eclipse.datatools.modelbase.sql.schema.helper.ISQLObjectNameHelper;
-
 import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
-
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -69,7 +55,6 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**

@@ -7,15 +7,12 @@
  */
 package org.asup.db.syntax.dbl.impl;
 
+import org.asup.db.syntax.dbl.CursorType;
 import org.asup.db.syntax.dbl.QDblPackage;
 import org.asup.db.syntax.dbl.QDeclareCursorStatement;
-
 import org.asup.db.syntax.impl.BindingStatementImpl;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -26,11 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#getCursorName <em>Cursor Name</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#getCursorType <em>Cursor Type</em>}</li>
  *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#getForQuery <em>For Query</em>}</li>
  *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#getForStatementName <em>For Statement Name</em>}</li>
- *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#isDynamic <em>Dynamic</em>}</li>
  *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#isHold <em>Hold</em>}</li>
- *   <li>{@link org.asup.db.syntax.dbl.impl.DeclareCursorStatementImpl#isScroll <em>Scroll</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +52,26 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 	 * @ordered
 	 */
 	protected String cursorName = CURSOR_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCursorType() <em>Cursor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCursorType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CursorType CURSOR_TYPE_EDEFAULT = CursorType.NOTSCROLL;
+
+	/**
+	 * The cached value of the '{@link #getCursorType() <em>Cursor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCursorType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CursorType cursorType = CURSOR_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getForQuery() <em>For Query</em>}' attribute.
@@ -98,26 +114,6 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 	protected String forStatementName = FOR_STATEMENT_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isDynamic() <em>Dynamic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isDynamic()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean DYNAMIC_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isDynamic() <em>Dynamic</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isDynamic()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean dynamic = DYNAMIC_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isHold() <em>Hold</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,26 +132,6 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 	 * @ordered
 	 */
 	protected boolean hold = HOLD_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isScroll() <em>Scroll</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isScroll()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SCROLL_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isScroll() <em>Scroll</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isScroll()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean scroll = SCROLL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,6 +171,27 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 		cursorName = newCursorName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_NAME, oldCursorName, cursorName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CursorType getCursorType() {
+		return cursorType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCursorType(CursorType newCursorType) {
+		CursorType oldCursorType = cursorType;
+		cursorType = newCursorType == null ? CURSOR_TYPE_EDEFAULT : newCursorType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_TYPE, oldCursorType, cursorType));
 	}
 
 	/**
@@ -244,27 +241,6 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isDynamic() {
-		return dynamic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDynamic(boolean newDynamic) {
-		boolean oldDynamic = dynamic;
-		dynamic = newDynamic;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.DECLARE_CURSOR_STATEMENT__DYNAMIC, oldDynamic, dynamic));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isHold() {
 		return hold;
 	}
@@ -286,42 +262,19 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isScroll() {
-		return scroll;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setScroll(boolean newScroll) {
-		boolean oldScroll = scroll;
-		scroll = newScroll;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.DECLARE_CURSOR_STATEMENT__SCROLL, oldScroll, scroll));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_NAME:
 				return getCursorName();
+			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_TYPE:
+				return getCursorType();
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_QUERY:
 				return getForQuery();
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME:
 				return getForStatementName();
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__DYNAMIC:
-				return isDynamic();
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__HOLD:
 				return isHold();
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__SCROLL:
-				return isScroll();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,12 +283,15 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 */	
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_NAME:
 				setCursorName((String)newValue);
+				return;
+			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_TYPE:
+				setCursorType((CursorType)newValue);
 				return;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_QUERY:
 				setForQuery((String)newValue);
@@ -343,14 +299,8 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME:
 				setForStatementName((String)newValue);
 				return;
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__DYNAMIC:
-				setDynamic((Boolean)newValue);
-				return;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__HOLD:
 				setHold((Boolean)newValue);
-				return;
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__SCROLL:
-				setScroll((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,20 +317,17 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_NAME:
 				setCursorName(CURSOR_NAME_EDEFAULT);
 				return;
+			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_TYPE:
+				setCursorType(CURSOR_TYPE_EDEFAULT);
+				return;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_QUERY:
 				setForQuery(FOR_QUERY_EDEFAULT);
 				return;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME:
 				setForStatementName(FOR_STATEMENT_NAME_EDEFAULT);
 				return;
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__DYNAMIC:
-				setDynamic(DYNAMIC_EDEFAULT);
-				return;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__HOLD:
 				setHold(HOLD_EDEFAULT);
-				return;
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__SCROLL:
-				setScroll(SCROLL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -396,16 +343,14 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 		switch (featureID) {
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_NAME:
 				return CURSOR_NAME_EDEFAULT == null ? cursorName != null : !CURSOR_NAME_EDEFAULT.equals(cursorName);
+			case QDblPackage.DECLARE_CURSOR_STATEMENT__CURSOR_TYPE:
+				return cursorType != CURSOR_TYPE_EDEFAULT;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_QUERY:
 				return FOR_QUERY_EDEFAULT == null ? forQuery != null : !FOR_QUERY_EDEFAULT.equals(forQuery);
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME:
 				return FOR_STATEMENT_NAME_EDEFAULT == null ? forStatementName != null : !FOR_STATEMENT_NAME_EDEFAULT.equals(forStatementName);
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__DYNAMIC:
-				return dynamic != DYNAMIC_EDEFAULT;
 			case QDblPackage.DECLARE_CURSOR_STATEMENT__HOLD:
 				return hold != HOLD_EDEFAULT;
-			case QDblPackage.DECLARE_CURSOR_STATEMENT__SCROLL:
-				return scroll != SCROLL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -422,16 +367,14 @@ public class DeclareCursorStatementImpl extends BindingStatementImpl implements 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (cursorName: ");
 		result.append(cursorName);
+		result.append(", cursorType: ");
+		result.append(cursorType);
 		result.append(", forQuery: ");
 		result.append(forQuery);
 		result.append(", forStatementName: ");
 		result.append(forStatementName);
-		result.append(", dynamic: ");
-		result.append(dynamic);
 		result.append(", hold: ");
 		result.append(hold);
-		result.append(", scroll: ");
-		result.append(scroll);
 		result.append(')');
 		return result.toString();
 	}

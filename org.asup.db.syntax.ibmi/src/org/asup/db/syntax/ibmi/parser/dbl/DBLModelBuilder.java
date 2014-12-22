@@ -11,6 +11,7 @@ import org.antlr.runtime.tree.Tree;
 import org.asup.db.syntax.QBindingParseResult;
 import org.asup.db.syntax.QBindingStatement;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
+import org.asup.db.syntax.dbl.CursorType;
 import org.asup.db.syntax.dbl.FetchPosition;
 import org.asup.db.syntax.dbl.IsolationLevel;
 import org.asup.db.syntax.dbl.OpenType;
@@ -396,16 +397,22 @@ public class DBLModelBuilder {
 			
 			case DBLLexer.SCROLL:
 				
-				declareCursorStatement.setScroll(true);
+				declareCursorStatement.setCursorType(CursorType.SCROLL);
 				
 				break;
 			
 			case DBLLexer.NO_SCROLL:
 				
-				declareCursorStatement.setScroll(false);
+				declareCursorStatement.setCursorType(CursorType.NOTSCROLL);
 				
 				break;
 			
+			case DBLLexer.DYNAMIC:
+				
+				declareCursorStatement.setCursorType(CursorType.DYNSCROLL);
+				
+				break;	
+
 			case DBLLexer.WITH_HOLD:
 				
 				declareCursorStatement.setHold(true);

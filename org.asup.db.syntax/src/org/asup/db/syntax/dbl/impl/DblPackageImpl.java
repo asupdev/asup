@@ -9,6 +9,7 @@ package org.asup.db.syntax.dbl.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
+import org.asup.db.syntax.dbl.CursorType;
 import org.asup.db.syntax.dbl.FetchPosition;
 import org.asup.db.syntax.dbl.IsolationLevel;
 import org.asup.db.syntax.dbl.OpenType;
@@ -110,6 +111,13 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * @generated
 	 */
 	private EClass closeStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cursorTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,7 +267,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclareCursorStatement_ForQuery() {
+	public EAttribute getDeclareCursorStatement_CursorType() {
 		return (EAttribute)declareCursorStatementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -268,7 +276,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclareCursorStatement_ForStatementName() {
+	public EAttribute getDeclareCursorStatement_ForQuery() {
 		return (EAttribute)declareCursorStatementEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -277,7 +285,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclareCursorStatement_Dynamic() {
+	public EAttribute getDeclareCursorStatement_ForStatementName() {
 		return (EAttribute)declareCursorStatementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -288,15 +296,6 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 */
 	public EAttribute getDeclareCursorStatement_Hold() {
 		return (EAttribute)declareCursorStatementEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDeclareCursorStatement_Scroll() {
-		return (EAttribute)declareCursorStatementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -547,6 +546,15 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getCursorType() {
+		return cursorTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getFetchPosition() {
 		return fetchPositionEEnum;
 	}
@@ -680,11 +688,10 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		// Create classes and their features
 		declareCursorStatementEClass = createEClass(DECLARE_CURSOR_STATEMENT);
 		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__CURSOR_NAME);
+		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__CURSOR_TYPE);
 		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__FOR_QUERY);
 		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__FOR_STATEMENT_NAME);
-		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__DYNAMIC);
 		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__HOLD);
-		createEAttribute(declareCursorStatementEClass, DECLARE_CURSOR_STATEMENT__SCROLL);
 
 		describeStatementEClass = createEClass(DESCRIBE_STATEMENT);
 		createEReference(describeStatementEClass, DESCRIBE_STATEMENT__INTO);
@@ -731,6 +738,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		createEAttribute(closeStatementEClass, CLOSE_STATEMENT__CURSOR);
 
 		// Create enums
+		cursorTypeEEnum = createEEnum(CURSOR_TYPE);
 		fetchPositionEEnum = createEEnum(FETCH_POSITION);
 		isolationLevelEEnum = createEEnum(ISOLATION_LEVEL);
 		rwOperationEEnum = createEEnum(RW_OPERATION);
@@ -783,11 +791,10 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(declareCursorStatementEClass, QDeclareCursorStatement.class, "DeclareCursorStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeclareCursorStatement_CursorName(), theEcorePackage.getEString(), "cursorName", null, 1, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeclareCursorStatement_CursorType(), this.getCursorType(), "cursorType", null, 0, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeclareCursorStatement_ForQuery(), theEcorePackage.getEString(), "forQuery", null, 0, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeclareCursorStatement_ForStatementName(), theEcorePackage.getEString(), "forStatementName", null, 0, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDeclareCursorStatement_Dynamic(), theEcorePackage.getEBoolean(), "dynamic", null, 0, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeclareCursorStatement_Hold(), theEcorePackage.getEBoolean(), "hold", null, 0, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDeclareCursorStatement_Scroll(), theEcorePackage.getEBoolean(), "scroll", null, 0, 1, QDeclareCursorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(describeStatementEClass, QDescribeStatement.class, "DescribeStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDescribeStatement_Into(), this.getIntoClause(), null, "into", null, 0, 1, QDescribeStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -834,6 +841,11 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		initEAttribute(getCloseStatement_Cursor(), theEcorePackage.getEString(), "cursor", null, 0, 1, QCloseStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(cursorTypeEEnum, CursorType.class, "CursorType");
+		addEEnumLiteral(cursorTypeEEnum, CursorType.NOTSCROLL);
+		addEEnumLiteral(cursorTypeEEnum, CursorType.SCROLL);
+		addEEnumLiteral(cursorTypeEEnum, CursorType.DYNSCROLL);
+
 		initEEnum(fetchPositionEEnum, FetchPosition.class, "FetchPosition");
 		addEEnumLiteral(fetchPositionEEnum, FetchPosition.NEXT);
 		addEEnumLiteral(fetchPositionEEnum, FetchPosition.PRIOR);

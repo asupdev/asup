@@ -8,12 +8,9 @@
 package org.asup.db.syntax.dbl.util;
 
 import org.asup.db.syntax.QBindingStatement;
-
 import org.asup.db.syntax.dbl.*;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
 
 /**

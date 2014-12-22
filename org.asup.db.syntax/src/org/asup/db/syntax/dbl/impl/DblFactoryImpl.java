@@ -86,6 +86,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case QDblPackage.CURSOR_TYPE:
+				return createCursorTypeFromString(eDataType, initialValue);
 			case QDblPackage.FETCH_POSITION:
 				return createFetchPositionFromString(eDataType, initialValue);
 			case QDblPackage.ISOLATION_LEVEL:
@@ -109,6 +111,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case QDblPackage.CURSOR_TYPE:
+				return convertCursorTypeToString(eDataType, instanceValue);
 			case QDblPackage.FETCH_POSITION:
 				return convertFetchPositionToString(eDataType, instanceValue);
 			case QDblPackage.ISOLATION_LEVEL:
@@ -212,6 +216,26 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	public QCloseStatement createCloseStatement() {
 		CloseStatementImpl closeStatement = new CloseStatementImpl();
 		return closeStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CursorType createCursorTypeFromString(EDataType eDataType, String initialValue) {
+		CursorType result = CursorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCursorTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
