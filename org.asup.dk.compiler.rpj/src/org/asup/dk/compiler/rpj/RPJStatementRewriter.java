@@ -25,6 +25,7 @@ import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
 import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.QMonitor;
+import org.asup.il.flow.QOnError;
 import org.asup.il.flow.QProcedureExec;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutineExec;
@@ -34,8 +35,7 @@ import org.asup.il.flow.QUntil;
 import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
-public class RPJStatementRewriter extends StatementVisitorImpl {
-
+public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	
 	private QBlock target;
 	
@@ -43,127 +43,228 @@ public class RPJStatementRewriter extends StatementVisitorImpl {
 		this.target = target;
 	}
 
+	protected abstract RPJStatementRewriter copy(QBlock block);
+
+	protected void write(QStatement statement) {
+		this.target.getStatements().add(statement);
+	}
+	
 	@Override
 	public boolean visit(QBlock statement) {
 		
 		QBlock newBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
 		
-		RPJStatementRewriter newRewriter = new RPJStatementRewriter(newBlock);
+		RPJStatementRewriter newRewriter = copy(newBlock);
 		statement.accept(newRewriter);
 		
-		this.target.getStatements().add(newBlock);
+		write(newBlock);
 		
-		return super.visit(statement);
+		return false;
 	}
-
-	@Override
-	public boolean visit(QBreak statement) {
-		
-		this.target.getStatements().add(statement);
-
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QCall statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QCommandExec statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QContinue statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QEval statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
-
+	
 	@Override
 	public boolean visit(QFor statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		QFor newFor = QIntegratedLanguageFlowFactory.eINSTANCE.createFor();
+		newFor.setInitialization(statement.getInitialization());
+		newFor.setCondition(statement.getCondition());
+		newFor.setIncrement(statement.getIncrement());
+		
+		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+		newFor.setBody(newBody);
+		
+		RPJStatementRewriter newRewriter = copy(newBody);
+		statement.accept(newRewriter);
+		
+		write(newFor);
+		
+		return false;
 	}
-
-	@Override
-	public boolean visit(QProcedureExec statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QStatement statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
-
+	
 	@Override
 	public boolean visit(QUntil statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		QUntil newUntil = QIntegratedLanguageFlowFactory.eINSTANCE.createUntil();
+		newUntil.setCondition(statement.getCondition());
+		
+		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+		newUntil.setBody(newBody);
+		
+		RPJStatementRewriter newRewriter = copy(newBody);
+		statement.accept(newRewriter);
+		
+		write(newUntil);
+		
+		return false;
 	}
 
 	@Override
 	public boolean visit(QWhile statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		QWhile newWhile = QIntegratedLanguageFlowFactory.eINSTANCE.createWhile();
+		newWhile.setCondition(statement.getCondition());
+		
+		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+		newWhile.setBody(newBody);
+		
+		RPJStatementRewriter newRewriter = copy(newBody);
+		statement.accept(newRewriter);
+		
+		write(newWhile);
+		
+		return false;
+	}
+	
+	@Override
+	public boolean visit(QIf statement) {
+	
+		QIf newIf = QIntegratedLanguageFlowFactory.eINSTANCE.createIf();
+		newIf.setCondition(statement.getCondition());
+		
+		QBlock thenBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+		newIf.setThen(thenBlock);
+		
+		RPJStatementRewriter newRewriter = copy(thenBlock);
+		statement.getThen().accept(newRewriter);
+				
+		if(statement.getElse() != null) {
+			QBlock elseBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+			newIf.setElse(elseBlock);
+			
+			newRewriter = copy(elseBlock);
+			statement.getElse().accept(newRewriter);
+		}
+		
+		write(newIf);
+
+		return false;
+	}
+	
+	@Override
+	public boolean visit(QMonitor statement) {
+		
+		QMonitor newMonitor = QIntegratedLanguageFlowFactory.eINSTANCE.createMonitor();
+
+		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+		newMonitor.setBody(newBody);
+		
+		RPJStatementRewriter newRewriter = copy(newBody);
+		statement.accept(newRewriter);
+		
+		for(QOnError onError: statement.getOnErrors()) {
+
+			QOnError newOnError = QIntegratedLanguageFlowFactory.eINSTANCE.createOnError();
+			newOnError.setError(onError.getError());
+			
+			QBlock newErrorBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+			newOnError.setBody(newErrorBody);
+			
+			newRewriter = copy(newErrorBody);
+			onError.getBody().accept(newRewriter);			
+			
+		}
+				
+		write(newMonitor);
+
+		return false;
+	}
+
+	
+	
+	@Override
+	public boolean visit(QBreak statement) {
+		
+		write(statement);
+
+		return false;
 	}
 
 	@Override
-	public boolean visit(QIf statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+	public boolean visit(QCall statement) {
+		
+		write(statement);
+
+		return false;
+	}
+
+	@Override
+	public boolean visit(QCommandExec statement) {
+		
+		write(statement);
+
+		return false;
+	}
+
+	@Override
+	public boolean visit(QContinue statement) {
+		
+		write(statement);
+
+		return false;
+	}
+
+	@Override
+	public boolean visit(QEval statement) {
+		
+		write(statement);
+
+		return false;
+	}
+
+	@Override
+	public boolean visit(QProcedureExec statement) {
+		
+		write(statement);
+
+		return false;
 	}
 
 	@Override
 	public boolean visit(QJump statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		write(statement);
+
+		return false;
 	}
 
 	@Override
 	public boolean visit(QLabel statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		write(statement);
+
+		return false;
 	}
 
 	@Override
 	public boolean visit(QMethodExec statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
-	}
+		
+		write(statement);
 
-	@Override
-	public boolean visit(QMonitor statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		return false;
 	}
 
 	@Override
 	public boolean visit(QReturn statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		write(statement);
+
+		return false;
 	}
 
 	@Override
 	public boolean visit(QRoutineExec statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		write(statement);
+
+		return false;
 	}
 
 	@Override
 	public boolean visit(QSQLExec statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
+		
+		write(statement);
+
+		return false;
 	}
 
 }
