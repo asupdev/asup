@@ -41,9 +41,13 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	
 	public RPJStatementRewriter(QBlock target) {
 		this.target = target;
-	}
+	}	
 
 	protected abstract RPJStatementRewriter copy(QBlock block);
+	
+	public QBlock getTarget() {
+		return target;
+	}
 
 	protected void write(QStatement statement) {
 		this.target.getStatements().add(statement);
