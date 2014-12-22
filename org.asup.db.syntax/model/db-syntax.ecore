@@ -10,6 +10,14 @@
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingParserRegistry" abstract="true">
+    <eOperations name="lookup" lowerBound="1" eType="#//BindingParser">
+      <eParameters name="connectionConfig" lowerBound="1" eType="ecore:EClass ../../org.asup.db.core/model/db-core.ecore#//ConnectionConfig"/>
+    </eOperations>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//PluginRegistry">
+      <eTypeArguments eClassifier="#//BindingParser"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingParseResult">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingStatement" eType="#//BindingStatement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="errorList" upperBound="-1"

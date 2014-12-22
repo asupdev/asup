@@ -12,6 +12,7 @@ import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.db.syntax.QBindingParseError;
 import org.asup.db.syntax.QBindingParseResult;
 import org.asup.db.syntax.QBindingParser;
+import org.asup.db.syntax.QBindingParserRegistry;
 import org.asup.db.syntax.QBindingStatement;
 import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.QDatabaseSyntaxPackage;
@@ -91,6 +92,13 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 * @generated
 	 */
 	private EClass bindingParserEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bindingParserRegistryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -331,6 +339,15 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 	 */
 	public EClass getBindingParser() {
 		return bindingParserEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBindingParserRegistry() {
+		return bindingParserRegistryEClass;
 	}
 
 	/**
@@ -608,6 +625,8 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		bindingParserEClass = createEClass(BINDING_PARSER);
 
+		bindingParserRegistryEClass = createEClass(BINDING_PARSER_REGISTRY);
+
 		bindingParseResultEClass = createEClass(BINDING_PARSE_RESULT);
 		createEReference(bindingParseResultEClass, BINDING_PARSE_RESULT__BINDING_STATEMENT);
 		createEReference(bindingParseResultEClass, BINDING_PARSE_RESULT__ERROR_LIST);
@@ -706,9 +725,13 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 
 		// Add supertypes to classes
 		bindingParserEClass.getESuperTypes().add(this.getStatementParser());
-		definitionParserEClass.getESuperTypes().add(this.getStatementParser());
 		EGenericType g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
-		EGenericType g2 = createEGenericType(this.getDefinitionParser());
+		EGenericType g2 = createEGenericType(this.getBindingParser());
+		g1.getETypeArguments().add(g2);
+		bindingParserRegistryEClass.getEGenericSuperTypes().add(g1);
+		definitionParserEClass.getESuperTypes().add(this.getStatementParser());
+		g1 = createEGenericType(theFrameworkCorePackage.getPluginRegistry());
+		g2 = createEGenericType(this.getDefinitionParser());
 		g1.getETypeArguments().add(g2);
 		definitionParserRegistryEClass.getEGenericSuperTypes().add(g1);
 		definitionWriterEClass.getESuperTypes().add(this.getStatementWriter());
@@ -750,6 +773,11 @@ public class DatabaseSyntaxPackageImpl extends EPackageImpl implements QDatabase
 		op = addEOperation(bindingParserEClass, this.getBindingParseResult(), "parseBinding", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theDatabaseCorePackage.getDatabaseException());
+
+		initEClass(bindingParserRegistryEClass, QBindingParserRegistry.class, "BindingParserRegistry", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(bindingParserRegistryEClass, this.getBindingParser(), "lookup", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatabaseCorePackage.getConnectionConfig(), "connectionConfig", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bindingParseResultEClass, QBindingParseResult.class, "BindingParseResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBindingParseResult_BindingStatement(), this.getBindingStatement(), null, "bindingStatement", null, 0, 1, QBindingParseResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

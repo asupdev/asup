@@ -91,7 +91,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementParser()
 	 * @generated
 	 */
-	int STATEMENT_PARSER = 20;
+	int STATEMENT_PARSER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -212,6 +212,43 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	int BINDING_PARSER_FEATURE_COUNT = STATEMENT_PARSER_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.db.syntax.impl.BindingParserRegistryImpl <em>Binding Parser Registry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.db.syntax.impl.BindingParserRegistryImpl
+	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getBindingParserRegistry()
+	 * @generated
+	 */
+	int BINDING_PARSER_REGISTRY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PARSER_REGISTRY__CONFIG = QFrameworkCorePackage.PLUGIN_REGISTRY__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Store</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PARSER_REGISTRY__STORE = QFrameworkCorePackage.PLUGIN_REGISTRY__STORE;
+
+	/**
+	 * The number of structural features of the '<em>Binding Parser Registry</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING_PARSER_REGISTRY_FEATURE_COUNT = QFrameworkCorePackage.PLUGIN_REGISTRY_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.impl.BindingParseResultImpl <em>Binding Parse Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,7 +256,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getBindingParseResult()
 	 * @generated
 	 */
-	int BINDING_PARSE_RESULT = 2;
+	int BINDING_PARSE_RESULT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Binding Statement</b></em>' reference.
@@ -256,7 +293,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getBindingStatement()
 	 * @generated
 	 */
-	int BINDING_STATEMENT = 3;
+	int BINDING_STATEMENT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Binding Statement</em>' class.
@@ -275,7 +312,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParser()
 	 * @generated
 	 */
-	int DEFINITION_PARSER = 4;
+	int DEFINITION_PARSER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -339,7 +376,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParserRegistry()
 	 * @generated
 	 */
-	int DEFINITION_PARSER_REGISTRY = 5;
+	int DEFINITION_PARSER_REGISTRY = 6;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -376,7 +413,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParseError()
 	 * @generated
 	 */
-	int DEFINITION_PARSE_ERROR = 6;
+	int DEFINITION_PARSE_ERROR = 7;
 
 	/**
 	 * The number of structural features of the '<em>Definition Parse Error</em>' class.
@@ -395,7 +432,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionParseResult()
 	 * @generated
 	 */
-	int DEFINITION_PARSE_RESULT = 7;
+	int DEFINITION_PARSE_RESULT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Definition Statement</b></em>' reference.
@@ -432,7 +469,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementWriter()
 	 * @generated
 	 */
-	int STATEMENT_WRITER = 19;
+	int STATEMENT_WRITER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -505,7 +542,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriter()
 	 * @generated
 	 */
-	int DEFINITION_WRITER = 8;
+	int DEFINITION_WRITER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -578,7 +615,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionWriterRegistry()
 	 * @generated
 	 */
-	int DEFINITION_WRITER_REGISTRY = 9;
+	int DEFINITION_WRITER_REGISTRY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -615,7 +652,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getDefinitionStatement()
 	 * @generated
 	 */
-	int DEFINITION_STATEMENT = 10;
+	int DEFINITION_STATEMENT = 11;
 
 	/**
 	 * The number of structural features of the '<em>Definition Statement</em>' class.
@@ -634,7 +671,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getEmbeddedStatement()
 	 * @generated
 	 */
-	int EMBEDDED_STATEMENT = 11;
+	int EMBEDDED_STATEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -662,7 +699,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getNameHelper()
 	 * @generated
 	 */
-	int NAME_HELPER = 12;
+	int NAME_HELPER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -726,7 +763,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getNameHelperRegistry()
 	 * @generated
 	 */
-	int NAME_HELPER_REGISTRY = 13;
+	int NAME_HELPER_REGISTRY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -763,7 +800,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriter()
 	 * @generated
 	 */
-	int QUERY_WRITER = 14;
+	int QUERY_WRITER = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -836,7 +873,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryWriterRegistry()
 	 * @generated
 	 */
-	int QUERY_WRITER_REGISTRY = 15;
+	int QUERY_WRITER_REGISTRY = 16;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -873,7 +910,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParser()
 	 * @generated
 	 */
-	int QUERY_PARSER = 16;
+	int QUERY_PARSER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -937,7 +974,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getQueryParserRegistry()
 	 * @generated
 	 */
-	int QUERY_PARSER_REGISTRY = 17;
+	int QUERY_PARSER_REGISTRY = 18;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -974,7 +1011,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSQLObjectNameHelper()
 	 * @generated
 	 */
-	int SQL_OBJECT_NAME_HELPER = 18;
+	int SQL_OBJECT_NAME_HELPER = 19;
 
 	/**
 	 * The number of structural features of the '<em>SQL Object Name Helper</em>' class.
@@ -993,7 +1030,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getStatementType()
 	 * @generated
 	 */
-	int STATEMENT_TYPE = 21;
+	int STATEMENT_TYPE = 22;
 
 	/**
 	 * The meta object id for the '<em>SQL Query Parse Result</em>' data type.
@@ -1003,7 +1040,7 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getSQLQueryParseResult()
 	 * @generated
 	 */
-	int SQL_QUERY_PARSE_RESULT = 22;
+	int SQL_QUERY_PARSE_RESULT = 23;
 
 
 	/**
@@ -1025,6 +1062,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBindingParser();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.db.syntax.QBindingParserRegistry <em>Binding Parser Registry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binding Parser Registry</em>'.
+	 * @see org.asup.db.syntax.QBindingParserRegistry
+	 * @generated
+	 */
+	EClass getBindingParserRegistry();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.QBindingParseResult <em>Binding Parse Result</em>}'.
@@ -1345,6 +1392,16 @@ public interface QDatabaseSyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BINDING_PARSER = eINSTANCE.getBindingParser();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.db.syntax.impl.BindingParserRegistryImpl <em>Binding Parser Registry</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.db.syntax.impl.BindingParserRegistryImpl
+		 * @see org.asup.db.syntax.impl.DatabaseSyntaxPackageImpl#getBindingParserRegistry()
+		 * @generated
+		 */
+		EClass BINDING_PARSER_REGISTRY = eINSTANCE.getBindingParserRegistry();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.impl.BindingParseResultImpl <em>Binding Parse Result</em>}' class.

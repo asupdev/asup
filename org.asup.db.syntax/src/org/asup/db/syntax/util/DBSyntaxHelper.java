@@ -2,7 +2,7 @@ package org.asup.db.syntax.util;
 
 import org.asup.db.syntax.StatementType;
 
-public class StatementHelper {
+public class DBSyntaxHelper {
 	
 	private static String[] ddlRegex = {
 			"^[\\s]*[cC][aA][lL][lL][\\s]*.*", /*CALL*/			

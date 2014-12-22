@@ -15,7 +15,8 @@ Export-Package: org.asup.db.syntax,
  org.asup.db.syntax.ddl.util,
  org.asup.db.syntax.dml,
  org.asup.db.syntax.dml.impl,
- org.asup.db.syntax.impl
+ org.asup.db.syntax.impl,
+ org.asup.db.syntax.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.asup.fw.core;visibility:=reexport,
