@@ -150,7 +150,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 		return table;
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({ "unchecked"})
 	@Override
 	public ViewTable createView(QConnection connection, Schema schema, String name, QViewDef viewDef) throws SQLException {
 
@@ -165,7 +165,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			QueryStatement queryStatement = query.getQueryStatement();
 			QuerySelectStatement querySelectStatement = (QuerySelectStatement) queryStatement;
 			QuerySelect querySelect = (QuerySelect) querySelectStatement.getQueryExpr().getQuery();
-
+			List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
 
 			// complete column definition
 			if(viewDef.getColumns().isEmpty()) {
@@ -203,20 +203,19 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 				
 				// result column
 				ResultColumn resultColumn = SQLQueryModelFactory.eINSTANCE.createResultColumn();
-				resultColumn.setValueExpr(StatementHelper.createColumnExpression(fieldName));
+				ValueExpressionColumn columnExpr = StatementHelper.createColumnExpression(fieldName);
+				
+				// select table as.. 
+				if(tableExpressions.get(0).getTableCorrelation() != null) {
+					columnExpr.setTableExpr(tableExpressions.get(0).getTableCorrelation().getTableExpr());
+				}
+				
+				resultColumn.setValueExpr(columnExpr);				
+
 				querySelect.getSelectClause().add(resultColumn);
 
 			}
 			
-			// retrieve table list for RRNs
-			if(name.equals("V5RDOC0J")) {
-	
-				List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
-				for(TableExpression tableExpression: tableExpressions) {
-				}
-			}
-			
-			List<TableExpression> tableExpressions = (List<TableExpression>)StatementHelper.getTablesForStatement(queryStatement);
 			for(TableExpression tableExpression: tableExpressions) {
 				
 				if(tableExpression instanceof TableInDatabase) {
@@ -242,6 +241,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 			String command = definitionWriter.createView(schema, name, viewDef);
 
 			statement = connection.createStatement(true);
+			
 			statement.execute(command);
 
 		} finally {
