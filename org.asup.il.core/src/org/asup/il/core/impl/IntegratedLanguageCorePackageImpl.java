@@ -951,7 +951,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
 
-		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(nodeEClass, this.getNode(), "getParent", 1, 1, IS_UNIQUE, IS_ORDERED);
 

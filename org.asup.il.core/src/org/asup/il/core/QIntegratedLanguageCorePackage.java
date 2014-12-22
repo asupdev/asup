@@ -182,10 +182,10 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int MULTIPLE_TERM = 10;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.core.QNode <em>Node</em>}' class.
+	 * The meta object id for the '{@link org.asup.il.core.impl.NodeImpl <em>Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.QNode
+	 * @see org.asup.il.core.impl.NodeImpl
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNode()
 	 * @generated
 	 */
@@ -1586,10 +1586,10 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EReference NAMED_NODE__FACETS = eINSTANCE.getNamedNode_Facets();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.il.core.QNode <em>Node</em>}' class.
+		 * The meta object literal for the '{@link org.asup.il.core.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.core.QNode
+		 * @see org.asup.il.core.impl.NodeImpl
 		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNode()
 		 * @generated
 		 */

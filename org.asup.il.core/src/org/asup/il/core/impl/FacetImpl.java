@@ -9,9 +9,7 @@ package org.asup.il.core.impl;
 
 import org.asup.il.core.QFacet;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
-import org.asup.il.core.QNode;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class FacetImpl extends MinimalEObjectImpl.Container implements QFacet {
+public abstract class FacetImpl extends NodeImpl implements QFacet {
 	/**
 	 * 
 	 */
@@ -45,28 +43,6 @@ public abstract class FacetImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	protected EClass eStaticClass() {
 		return QIntegratedLanguageCorePackage.Literals.FACET;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QNode getParent() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isChild() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 } //FacetImpl
