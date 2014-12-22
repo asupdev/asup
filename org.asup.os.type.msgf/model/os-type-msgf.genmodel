@@ -6,7 +6,7 @@
     modelName="As.UP Operating System MessageFile" rootExtendsInterface="" suppressEMFTypes="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     editPluginID="org.asup.os.type.msgf.edit" editorPluginID="org.asup.os.type.msgf.editor"
-    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.il.expr/model/il-expr.genmodel#//expr"
     interfaceNamePattern="Q{0}">
   <foreignModel>os-type-msgf.ecore</foreignModel>
   <genPackages prefix="OperatingSystemMessageFile" basePackage="org.asup.os.type"
@@ -18,6 +18,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-msgf.ecore#//MessageDescription/severity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-msgf.ecore#//MessageDescription/messageHelp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-msgf.ecore#//MessageDescription/messageText"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-msgf.ecore#//MessageDescription/messageDataFields"/>
+    </genClasses>
+    <genClasses ecoreClass="os-type-msgf.ecore#//MessageDescriptionDataField">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-msgf.ecore#//MessageDescriptionDataField/dataDef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-msgf.ecore#//MessageDescriptionDataField/outputMask"/>
     </genClasses>
     <genClasses ecoreClass="os-type-msgf.ecore#//MessageFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-msgf.ecore#//MessageFile/messages"/>
@@ -33,10 +38,18 @@
     <genClasses image="false" ecoreClass="os-type-msgf.ecore#//MessageFileManager">
       <genOperations ecoreOperation="os-type-msgf.ecore#//MessageFileManager/prepareException">
         <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/prepareException/contextID"/>
-        <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/prepareException/messageFile"/>
         <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/prepareException/messageName"/>
         <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/prepareException/variables"/>
         <genTypeParameters ecoreTypeParameter="os-type-msgf.ecore#//MessageFileManager/prepareException/E"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-msgf.ecore#//MessageFileManager/overrideMessageFile">
+        <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/overrideMessageFile/job"/>
+        <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/overrideMessageFile/messageFileFrom"/>
+        <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/overrideMessageFile/messageFileTo"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-msgf.ecore#//MessageFileManager/getOverrideMessageFile">
+        <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/getOverrideMessageFile/job"/>
+        <genParameters ecoreParameter="os-type-msgf.ecore#//MessageFileManager/getOverrideMessageFile/messageFileName"/>
       </genOperations>
     </genClasses>
   </genPackages>

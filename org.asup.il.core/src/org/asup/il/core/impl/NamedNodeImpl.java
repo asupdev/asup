@@ -13,10 +13,12 @@ import java.util.List;
 import org.asup.il.core.QFacet;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.core.QNamedNode;
+import org.asup.il.core.QNode;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class NamedNodeImpl extends NodeImpl implements QNamedNode {
+public abstract class NamedNodeImpl extends MinimalEObjectImpl.Container implements QNamedNode {
 	/**
 	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -101,6 +103,28 @@ public abstract class NamedNodeImpl extends NodeImpl implements QNamedNode {
 	 * @generated NOT
 	 */
 	public abstract String getName();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QNode getParent() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isChild() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

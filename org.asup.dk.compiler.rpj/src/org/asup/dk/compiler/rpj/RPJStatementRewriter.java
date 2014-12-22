@@ -20,6 +20,7 @@ import org.asup.il.flow.QContinue;
 import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFor;
 import org.asup.il.flow.QIf;
+import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
 import org.asup.il.flow.QMethodExec;
@@ -33,23 +34,33 @@ import org.asup.il.flow.QUntil;
 import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
-public class RPJStatementRefactor extends StatementVisitorImpl {
+public class RPJStatementRewriter extends StatementVisitorImpl {
 
-	private QStatement statement;
-
-	protected QStatement getStatement() {
-		return this.statement;
+	
+	private QBlock target;
+	
+	public RPJStatementRewriter(QBlock target) {
+		this.target = target;
 	}
 
 	@Override
 	public boolean visit(QBlock statement) {
-		// TODO Auto-generated method stub
+		
+		QBlock newBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
+		
+		RPJStatementRewriter newRewriter = new RPJStatementRewriter(newBlock);
+		statement.accept(newRewriter);
+		
+		this.target.getStatements().add(newBlock);
+		
 		return super.visit(statement);
 	}
 
 	@Override
 	public boolean visit(QBreak statement) {
-		// TODO Auto-generated method stub
+		
+		this.target.getStatements().add(statement);
+
 		return super.visit(statement);
 	}
 

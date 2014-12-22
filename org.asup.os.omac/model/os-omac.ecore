@@ -77,7 +77,5 @@
     </eOperations>
     <eOperations name="remove"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectNameable" abstract="true" eSuperTypes="#//Object">
-    <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectNameable" abstract="true" eSuperTypes="#//Object ../../org.asup.il.core/model/il-core.ecore#//Nameable"/>
 </ecore:EPackage>

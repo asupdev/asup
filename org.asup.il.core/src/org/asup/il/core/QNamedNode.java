@@ -26,7 +26,7 @@ import java.util.List;
  * @model abstract="true"
  * @generated
  */
-public interface QNamedNode extends QNode {
+public interface QNamedNode extends QNode, QNameable {
 	/**
 	 * Returns the value of the '<em><b>Facets</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.il.core.QFacet}.
@@ -50,13 +50,5 @@ public interface QNamedNode extends QNode {
 	 * @generated
 	 */
 	<F extends QFacet> F getFacet(Class<F> klass);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	String getName();
 
 } // QNamedNode

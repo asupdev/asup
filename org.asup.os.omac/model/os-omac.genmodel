@@ -4,21 +4,11 @@
     modelDirectory="/org.asup.os.omac/src" modelPluginID="org.asup.os.omac" modelName="As.UP Operating System OMAC"
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core"
     interfaceNamePattern="Q{0}" importOrganizing="true">
   <foreignModel>os-omac.ecore</foreignModel>
   <genPackages prefix="OperatingSystemOmac" basePackage="org.asup.os" disposableProviderFactory="true"
       adapterFactory="false" ecorePackage="os-omac.ecore#/">
-    <genClasses image="false" ecoreClass="os-omac.ecore#//Adaptable">
-      <genOperations ecoreOperation="os-omac.ecore#//Adaptable/adaptTo">
-        <genParameters ecoreParameter="os-omac.ecore#//Adaptable/adaptTo/klass"/>
-        <genTypeParameters ecoreTypeParameter="os-omac.ecore#//Adaptable/adaptTo/T"/>
-      </genOperations>
-      <genOperations ecoreOperation="os-omac.ecore#//Adaptable/isAdapterForType">
-        <genParameters ecoreParameter="os-omac.ecore#//Adaptable/isAdapterForType/klass"/>
-        <genTypeParameters ecoreTypeParameter="os-omac.ecore#//Adaptable/isAdapterForType/T"/>
-      </genOperations>
-    </genClasses>
     <genClasses image="false" ecoreClass="os-omac.ecore#//BundleManager">
       <genOperations ecoreOperation="os-omac.ecore#//BundleManager/isRegisterable">
         <genParameters ecoreParameter="os-omac.ecore#//BundleManager/isRegisterable/contextID"/>
@@ -49,6 +39,7 @@
         <genParameters ecoreParameter="os-omac.ecore#//BundleVisitor/visitExit/container"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="os-omac.ecore#//Class"/>
     <genClasses ecoreClass="os-omac.ecore#//CreationInfo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-omac.ecore#//CreationInfo/creationDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-omac.ecore#//CreationInfo/creationUser"/>
@@ -75,8 +66,6 @@
       <genOperations ecoreOperation="os-omac.ecore#//ObjectIterator/next"/>
       <genOperations ecoreOperation="os-omac.ecore#//ObjectIterator/remove"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="os-omac.ecore#//ObjectNameable">
-      <genOperations ecoreOperation="os-omac.ecore#//ObjectNameable/getName"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="os-omac.ecore#//ObjectNameable"/>
   </genPackages>
 </genmodel:GenModel>

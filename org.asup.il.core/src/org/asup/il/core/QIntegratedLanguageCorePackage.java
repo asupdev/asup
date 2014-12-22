@@ -182,10 +182,10 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int MULTIPLE_TERM = 10;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.NodeImpl <em>Node</em>}' class.
+	 * The meta object id for the '{@link org.asup.il.core.QNode <em>Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.NodeImpl
+	 * @see org.asup.il.core.QNode
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNode()
 	 * @generated
 	 */
@@ -356,31 +356,13 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int DERIVED_FEATURE_COUNT = FACET_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TERM_CONTAINER__TERMS = 0;
-
-	/**
 	 * The number of structural features of the '<em>Term Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TERM_CONTAINER_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Terms</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DICTIONARY__TERMS = TERM_CONTAINER__TERMS;
+	int TERM_CONTAINER_FEATURE_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -785,6 +767,25 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int UNARY_TERM_FEATURE_COUNT = TERM_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.core.QNameable <em>Nameable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QNameable
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
+	 * @generated
+	 */
+	int NAMEABLE = 21;
+
+	/**
+	 * The number of structural features of the '<em>Nameable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMEABLE_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.core.ConversionStatus <em>Conversion Status</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -792,7 +793,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversionStatus()
 	 * @generated
 	 */
-	int CONVERSION_STATUS = 21;
+	int CONVERSION_STATUS = 22;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.FormatType <em>Format Type</em>}' enum.
@@ -802,7 +803,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFormatType()
 	 * @generated
 	 */
-	int FORMAT_TYPE = 22;
+	int FORMAT_TYPE = 23;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QAtomicTerm <em>Atomic Term</em>}'.
@@ -1259,17 +1260,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EClass getTermContainer();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.asup.il.core.QTermContainer#getTerms <em>Terms</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Terms</em>'.
-	 * @see org.asup.il.core.QTermContainer#getTerms()
-	 * @see #getTermContainer()
-	 * @generated
-	 */
-	EReference getTermContainer_Terms();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QVerb <em>Verb</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1310,6 +1300,16 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnaryTerm();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.core.QNameable <em>Nameable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Nameable</em>'.
+	 * @see org.asup.il.core.QNameable
+	 * @generated
+	 */
+	EClass getNameable();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.il.core.ConversionStatus <em>Conversion Status</em>}'.
@@ -1586,10 +1586,10 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EReference NAMED_NODE__FACETS = eINSTANCE.getNamedNode_Facets();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.il.core.impl.NodeImpl <em>Node</em>}' class.
+		 * The meta object literal for the '{@link org.asup.il.core.QNode <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.core.impl.NodeImpl
+		 * @see org.asup.il.core.QNode
 		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNode()
 		 * @generated
 		 */
@@ -1736,14 +1736,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EClass TERM_CONTAINER = eINSTANCE.getTermContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Terms</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TERM_CONTAINER__TERMS = eINSTANCE.getTermContainer_Terms();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.il.core.impl.VerbImpl <em>Verb</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1778,6 +1770,16 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNARY_TERM = eINSTANCE.getUnaryTerm();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.core.QNameable <em>Nameable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.core.QNameable
+		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
+		 * @generated
+		 */
+		EClass NAMEABLE = eINSTANCE.getNameable();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.core.ConversionStatus <em>Conversion Status</em>}' enum.

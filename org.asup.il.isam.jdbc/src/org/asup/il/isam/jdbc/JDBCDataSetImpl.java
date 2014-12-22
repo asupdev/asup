@@ -65,11 +65,12 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 
 	protected boolean _isEndOfData;
 
-	protected JDBCDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqlObjectNameHelper, Table table, AccessMode accessMode, DS dataStruct) {
+	protected JDBCDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqlObjectNameHelper, Table table, AccessMode accessMode, DS record) {
 		this.databaseConnection = databaseConnection;
 		this.sqlObjectNameHelper = sqlObjectNameHelper;
+		this.table = table;
 		this.accessMode = accessMode;
-		this.record = dataStruct;
+		this.record = record;
 	}
 
 	protected SQLObjectNameHelper getSQLObjectNameHelper() {

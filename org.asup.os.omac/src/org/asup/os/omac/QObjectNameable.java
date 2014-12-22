@@ -8,6 +8,7 @@
 package org.asup.os.omac;
 
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>QObject Nameable</b></em>'.
@@ -18,13 +19,6 @@ package org.asup.os.omac;
  * @model abstract="true"
  * @generated
  */
-public interface QObjectNameable extends QObject {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	String getName();
+public interface QObjectNameable extends QObject, org.asup.il.core.QNameable {
 
 } // QObjectNameable

@@ -346,12 +346,12 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//DataManager">
-      <genOperations ecoreOperation="il-data.ecore#//DataManager/createContainer">
-        <genParameters ecoreParameter="il-data.ecore#//DataManager/createContainer/contextID"/>
-        <genParameters ecoreParameter="il-data.ecore#//DataManager/createContainer/dataTerms"/>
+      <genOperations ecoreOperation="il-data.ecore#//DataManager/createDataContainer">
+        <genParameters ecoreParameter="il-data.ecore#//DataManager/createDataContainer/contextProvider"/>
+        <genParameters ecoreParameter="il-data.ecore#//DataManager/createDataContainer/dataTerms"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//DataManager/createFactory">
-        <genParameters ecoreParameter="il-data.ecore#//DataManager/createFactory/contextID"/>
+        <genParameters ecoreParameter="il-data.ecore#//DataManager/createFactory/contextProvider"/>
       </genOperations>
       <genOperations ecoreOperation="il-data.ecore#//DataManager/lookupDictionary">
         <genParameters ecoreParameter="il-data.ecore#//DataManager/lookupDictionary/name"/>
@@ -359,8 +359,8 @@
       <genOperations ecoreOperation="il-data.ecore#//DataManager/registerDictionary">
         <genParameters ecoreParameter="il-data.ecore#//DataManager/registerDictionary/dictionary"/>
       </genOperations>
-      <genOperations ecoreOperation="il-data.ecore#//DataManager/validateContainer">
-        <genParameters ecoreParameter="il-data.ecore#//DataManager/validateContainer/container"/>
+      <genOperations ecoreOperation="il-data.ecore#//DataManager/validateDataContainer">
+        <genParameters ecoreParameter="il-data.ecore#//DataManager/validateDataContainer/container"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-data.ecore#//DataStruct"/>
