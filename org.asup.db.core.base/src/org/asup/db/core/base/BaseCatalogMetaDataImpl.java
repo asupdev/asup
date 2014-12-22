@@ -73,7 +73,6 @@ public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 			return null;
 		
 		for (Index index : (List<Index>) table.getIndex()) {
-			System.out.println(index.getName());
 			if (index.getName().equalsIgnoreCase(indexName))
 				return index;
 		}
