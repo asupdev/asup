@@ -22,6 +22,7 @@ import org.asup.il.core.QFormat;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.core.QMultipleTerm;
+import org.asup.il.core.QNameable;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.core.QOverlay;
@@ -196,6 +197,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass unaryTermEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nameableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -667,15 +675,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTermContainer_Terms() {
-		return (EReference)termContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getVerb() {
 		return verbEClass;
 	}
@@ -705,6 +704,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getUnaryTerm() {
 		return unaryTermEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNameable() {
+		return nameableEClass;
 	}
 
 	/**
@@ -814,13 +822,14 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		termEClass = createEClass(TERM);
 
 		termContainerEClass = createEClass(TERM_CONTAINER);
-		createEReference(termContainerEClass, TERM_CONTAINER__TERMS);
 
 		verbEClass = createEClass(VERB);
 		createEAttribute(verbEClass, VERB__NAME);
 		createEAttribute(verbEClass, VERB__TEXT);
 
 		unaryTermEClass = createEClass(UNARY_TERM);
+
+		nameableEClass = createEClass(NAMEABLE);
 
 		// Create enums
 		conversionStatusEEnum = createEEnum(CONVERSION_STATUS);
@@ -879,6 +888,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		overlayEClass.getESuperTypes().add(this.getFacet());
 		multipleTermEClass.getESuperTypes().add(this.getTerm());
 		namedNodeEClass.getESuperTypes().add(this.getNode());
+		namedNodeEClass.getESuperTypes().add(this.getNameable());
 		rangeEClass.getESuperTypes().add(this.getFacet());
 		specialEClass.getESuperTypes().add(this.getFacet());
 		specialElementEClass.getESuperTypes().add(this.getNamedNode());
@@ -941,9 +951,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
 
-		addEOperation(namedNodeEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(nodeEClass, this.getNode(), "getParent", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -974,14 +982,20 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		addEOperation(termEClass, theFrameworkJavaPackage.getJavaURI(), "getURI", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(termContainerEClass, QTermContainer.class, "TermContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(termContainerEClass, null, "getTerms", 0, -1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(termContainerEClass_T);
-		initEReference(getTermContainer_Terms(), g1, null, "terms", null, 0, -1, QTermContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(op, g1);
 
 		initEClass(verbEClass, QVerb.class, "Verb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVerb_Name(), ecorePackage.getEString(), "name", null, 0, 1, QVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVerb_Text(), ecorePackage.getEString(), "text", null, 0, 1, QVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unaryTermEClass, QUnaryTerm.class, "UnaryTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(nameableEClass, QNameable.class, "Nameable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(nameableEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(conversionStatusEEnum, ConversionStatus.class, "ConversionStatus");

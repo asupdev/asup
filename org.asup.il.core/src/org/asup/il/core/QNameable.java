@@ -7,26 +7,24 @@
  */
 package org.asup.il.core;
 
-import java.util.List;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Term Container</b></em>'.
+ * A representation of the model object '<em><b>Nameable</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.core.QIntegratedLanguageCorePackage#getTermContainer()
- * @model abstract="true"
+ * @see org.asup.il.core.QIntegratedLanguageCorePackage#getNameable()
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface QTermContainer<T extends QTerm> {
-
+public interface QNameable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	List<T> getTerms();
+	String getName();
 
-} // QTermContainer
+} // QNameable

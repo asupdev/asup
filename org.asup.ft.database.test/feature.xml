@@ -21,6 +21,10 @@
          id="org.asup.ft.database"
          version="0.0.0"/>
 
+   <includes
+         id="org.asup.ft.framework.base"
+         version="0.0.0"/>
+
    <plugin
          id="org.asup.db.core.test"
          download-size="0"
@@ -37,34 +41,6 @@
 
    <plugin
          id="org.eclipse.help"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.asup.fw.test"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.asup.fw.test.base"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.asup.fw.java"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.asup.fw.core"
          download-size="0"
          install-size="0"
          version="0.0.0"

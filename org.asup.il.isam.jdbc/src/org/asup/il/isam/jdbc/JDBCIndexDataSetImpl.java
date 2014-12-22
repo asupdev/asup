@@ -12,7 +12,6 @@
 package org.asup.il.isam.jdbc;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.asup.db.core.QConnection;
@@ -28,15 +27,14 @@ import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 
 public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImpl<DS> implements QIndexDataSet<DS> {
 
-	protected Index index;
-
-	protected List<String> _keys;
-	protected QBufferedDataDef<?>[] _fields;
+	private Index _index;
+	private QBufferedDataDef<?>[] _fields;
 	
 	protected JDBCIndexDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqkObjectNameHelper, Index index, AccessMode accessMode, DS dataStruct) {
 		super(databaseConnection, sqkObjectNameHelper, index.getTable(), accessMode, dataStruct);
-		if(index != null)
-			setIndex(index);
+		
+		_index = index;		
+		_fields = new QBufferedDataDef<?>[_index.getIncludedMembers().size()];
 	}
 
 	@Override
@@ -164,17 +162,6 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		
 	} 
 
-	@SuppressWarnings("unchecked")
-	private void setIndex(Index newIndex) {
-		index = newIndex;
-		
-		_fields = new QBufferedDataDef<?>[index.getIncludedMembers().size()];
-		_keys = new ArrayList<>(_fields.length);
-	
-		for(IndexMember indexKey: (List<IndexMember>)index.getIncludedMembers())
-			_keys.add(indexKey.getName());
-	}
-
 	@Override
 	protected String buildWhere(Object[] keySet, Object[] keyRead) {
 
@@ -206,7 +193,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		
 		StringBuffer sbOrderBy = new StringBuffer();
 		
-		for(IndexMember column: (List<IndexMember>)index.getIncludedMembers()) {
+		for(IndexMember column: (List<IndexMember>)_index.getIncludedMembers()) {
 			if(sbOrderBy.length() != 0)sbOrderBy.append(", ");
 			
 			sbOrderBy.append(getSQLObjectNameHelper().getIdentifierQuoteString()+column.getName()+getSQLObjectNameHelper().getIdentifierQuoteString());
@@ -216,10 +203,13 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		return sbOrderBy.toString();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void buildWhereSet(Object[] keySet, StringBuffer sbWhere) {
 		
 		StringBuffer sbFields = new StringBuffer();
 		StringBuffer sbValues = new StringBuffer();
+
+		List<IndexMember> indexMembers = (List<IndexMember>)_index.getIncludedMembers();
 		
 		if(_keySet.length >1) 
 			sbFields.append("(");
@@ -230,9 +220,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 			
 			// append field
 			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString());
+				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexMembers.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString());
 			else 
-				sbFields.append("cast("+getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()+" as CHARACTER)");
+				sbFields.append("cast("+getSQLObjectNameHelper().getIdentifierQuoteString()+indexMembers.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()+" as CHARACTER)");
 			
 			// append value
 			sbValues.append(keySet[i].toString());
@@ -274,10 +264,13 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		buildWhereRead(keyRead, sbWhere);
 	} 
 
+	@SuppressWarnings("unchecked")
 	private void buildWhereRead(Object[] keyRead, StringBuffer sbWhere) {
 
 		if(keyRead == null)
 			return;
+
+		List<IndexMember> indexMembers = (List<IndexMember>)_index.getIncludedMembers();
 		
 		for(int i=0; i<keyRead.length; i++) {
 
@@ -297,9 +290,9 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 			
 			// append field
 			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'"+value+"'");
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexMembers.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'"+value+"'");
 			else 
-				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+_keys.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);						
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexMembers.get(i)+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);						
 		}
 	}
 }

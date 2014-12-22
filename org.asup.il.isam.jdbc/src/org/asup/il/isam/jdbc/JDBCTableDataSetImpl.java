@@ -21,8 +21,6 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCTableDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImpl<DS> implements QTableDataSet<DS> {
 
-	protected Table table;
-
 	protected JDBCTableDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqlObjectNameHelper, Table table, AccessMode accessMode, DS dataStruct) {
 		super(databaseConnection, sqlObjectNameHelper, table, accessMode, dataStruct);
 	}
@@ -31,7 +29,6 @@ public class JDBCTableDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	protected String buildOrderBy(OpDir dir) {
 		
 		StringBuffer sbOrderBy = new StringBuffer();
-//		sbOrderBy.append("QMUKEY");
 		
 		return sbOrderBy.toString();
 	}

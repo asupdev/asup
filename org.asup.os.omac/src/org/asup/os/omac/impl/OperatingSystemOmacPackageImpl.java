@@ -8,6 +8,7 @@
 package org.asup.os.omac.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QManager;
 import org.asup.os.omac.QMemoryInfo;
@@ -154,6 +155,7 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 
 		// Initialize simple dependencies
 		QFrameworkCorePackage.eINSTANCE.eClass();
+		QIntegratedLanguageCorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theOperatingSystemOmacPackage.createPackageContents();
@@ -384,6 +386,7 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
+		QIntegratedLanguageCorePackage theIntegratedLanguageCorePackage = (QIntegratedLanguageCorePackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageCorePackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter objectContainerEClass_T = addETypeParameter(objectContainerEClass, "T");
@@ -401,6 +404,7 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		managerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		memoryInfoEClass.getESuperTypes().add(this.getObject());
 		objectNameableEClass.getESuperTypes().add(this.getObject());
+		objectNameableEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getNameable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(bundleManagerEClass, QBundleManager.class, "BundleManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -477,8 +481,6 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		addEOperation(objectIteratorEClass, null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(objectNameableEClass, QObjectNameable.class, "ObjectNameable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		addEOperation(objectNameableEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
