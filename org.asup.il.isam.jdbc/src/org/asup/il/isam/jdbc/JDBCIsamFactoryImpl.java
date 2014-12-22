@@ -30,7 +30,6 @@ import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIsamFactory;
-import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
@@ -53,32 +52,25 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	@Override
 	public QDataSet<?> createDataSet(QDataSetTerm dataSetTerm) {
 
-		QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
-		
-		if(dataSetTerm.isKeyedAccess()) {
-			Index index = getIndex(dataSetTerm.getFileName());
-			if(index == null)
+		try {
+			Table table = getTable(dataSetTerm.getFileName());
+			if(table == null)
 				return null;
 			
-			return new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, index, AccessMode.UPDATE, dataStruct);
-		}
-		else {
-			try {
-				Table table = getTable(dataSetTerm.getFileName());
-				if(table == null)
-					return null;
-				
-				return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
-			} catch (SQLException e) {
-				// TODO
-				e.printStackTrace();
-				
-				return null;
+			QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
+			
+			if(dataSetTerm.isKeyedAccess()) {			
+	//			QIndex index = connection.getContext().getAdapter(adaptable, adapterType)
+				return new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, null, AccessMode.UPDATE, dataStruct);
 			}
-			
-
+			else {
+				return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+			}
 		}
-		
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -133,12 +125,5 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		Table table = connection.getCatalogMetaData().getTable(null, name);
 		
 		return table;
-	}
-	
-	public Index getIndex(String name) {
-		
-		Index index = null;
-		
-		return index;
 	}
 }

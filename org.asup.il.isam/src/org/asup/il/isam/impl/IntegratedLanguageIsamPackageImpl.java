@@ -17,6 +17,8 @@ import org.asup.il.isam.OperationSet;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QIndex;
+import org.asup.il.isam.QIndexColumn;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIntegratedLanguageIsamPackage;
@@ -90,6 +92,20 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass tableDataSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass indexEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass indexColumnEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,6 +348,60 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIndex() {
+		return indexEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIndex_Columns() {
+		return (EReference)indexEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIndex_Name() {
+		return (EAttribute)indexEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIndexColumn() {
+		return indexColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIndexColumn_Name() {
+		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIndexColumn_Descend() {
+		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAccessMode() {
 		return accessModeEEnum;
 	}
@@ -413,6 +483,14 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		isamFactoryEClass = createEClass(ISAM_FACTORY);
 
 		tableDataSetEClass = createEClass(TABLE_DATA_SET);
+
+		indexEClass = createEClass(INDEX);
+		createEReference(indexEClass, INDEX__COLUMNS);
+		createEAttribute(indexEClass, INDEX__NAME);
+
+		indexColumnEClass = createEClass(INDEX_COLUMN);
+		createEAttribute(indexColumnEClass, INDEX_COLUMN__NAME);
+		createEAttribute(indexColumnEClass, INDEX_COLUMN__DESCEND);
 
 		// Create enums
 		accessModeEEnum = createEEnum(ACCESS_MODE);
@@ -600,6 +678,14 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(tableDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(indexEClass, QIndex.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIndex_Columns(), this.getIndexColumn(), null, "columns", null, 0, -1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndex_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(indexColumnEClass, QIndexColumn.class, "IndexColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIndexColumn_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexColumn_Descend(), ecorePackage.getEBoolean(), "descend", null, 0, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessModeEEnum, AccessMode.class, "AccessMode");

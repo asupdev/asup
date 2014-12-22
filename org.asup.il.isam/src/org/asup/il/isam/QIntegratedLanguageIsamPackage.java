@@ -306,6 +306,80 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int TABLE_DATA_SET_FEATURE_COUNT = DATA_SET_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.isam.impl.IndexImpl <em>Index</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.impl.IndexImpl
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndex()
+	 * @generated
+	 */
+	int INDEX = 7;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__COLUMNS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Index</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.isam.impl.IndexColumnImpl <em>Index Column</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.impl.IndexColumnImpl
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndexColumn()
+	 * @generated
+	 */
+	int INDEX_COLUMN = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_COLUMN__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Descend</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_COLUMN__DESCEND = 1;
+
+	/**
+	 * The number of structural features of the '<em>Index Column</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_COLUMN_FEATURE_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,7 +387,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getAccessMode()
 	 * @generated
 	 */
-	int ACCESS_MODE = 7;
+	int ACCESS_MODE = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationSet <em>Operation Set</em>}' enum.
@@ -323,7 +397,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationSet()
 	 * @generated
 	 */
-	int OPERATION_SET = 8;
+	int OPERATION_SET = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationRead <em>Operation Read</em>}' enum.
@@ -333,7 +407,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationRead()
 	 * @generated
 	 */
-	int OPERATION_READ = 9;
+	int OPERATION_READ = 11;
 
 	/**
 	 * The meta object id for the '<em>Key Value</em>' data type.
@@ -342,7 +416,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyValue()
 	 * @generated
 	 */
-	int KEY_VALUE = 10;
+	int KEY_VALUE = 12;
 
 
 	/**
@@ -513,6 +587,70 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTableDataSet();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QIndex <em>Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Index</em>'.
+	 * @see org.asup.il.isam.QIndex
+	 * @generated
+	 */
+	EClass getIndex();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.isam.QIndex#getColumns <em>Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see org.asup.il.isam.QIndex#getColumns()
+	 * @see #getIndex()
+	 * @generated
+	 */
+	EReference getIndex_Columns();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QIndex#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.asup.il.isam.QIndex#getName()
+	 * @see #getIndex()
+	 * @generated
+	 */
+	EAttribute getIndex_Name();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QIndexColumn <em>Index Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Index Column</em>'.
+	 * @see org.asup.il.isam.QIndexColumn
+	 * @generated
+	 */
+	EClass getIndexColumn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QIndexColumn#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.asup.il.isam.QIndexColumn#getName()
+	 * @see #getIndexColumn()
+	 * @generated
+	 */
+	EAttribute getIndexColumn_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QIndexColumn#isDescend <em>Descend</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Descend</em>'.
+	 * @see org.asup.il.isam.QIndexColumn#isDescend()
+	 * @see #getIndexColumn()
+	 * @generated
+	 */
+	EAttribute getIndexColumn_Descend();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}'.
@@ -717,6 +855,58 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TABLE_DATA_SET = eINSTANCE.getTableDataSet();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.impl.IndexImpl <em>Index</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.impl.IndexImpl
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndex()
+		 * @generated
+		 */
+		EClass INDEX = eINSTANCE.getIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INDEX__COLUMNS = eINSTANCE.getIndex_Columns();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INDEX__NAME = eINSTANCE.getIndex_Name();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.impl.IndexColumnImpl <em>Index Column</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.impl.IndexColumnImpl
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndexColumn()
+		 * @generated
+		 */
+		EClass INDEX_COLUMN = eINSTANCE.getIndexColumn();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INDEX_COLUMN__NAME = eINSTANCE.getIndexColumn_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Descend</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INDEX_COLUMN__DESCEND = eINSTANCE.getIndexColumn_Descend();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}' enum.
