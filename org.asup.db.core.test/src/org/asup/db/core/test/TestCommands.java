@@ -17,6 +17,7 @@ import javax.inject.Named;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QStatement;
+import org.asup.db.syntax.QQueryParser;
 import org.asup.fw.core.QContext;
 import org.asup.fw.test.AssertionState;
 import org.asup.fw.test.QAssertionResult;
@@ -26,6 +27,7 @@ import org.asup.fw.test.QTestResult;
 import org.asup.fw.test.QTestRunner;
 import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
+import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
@@ -37,7 +39,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	@Inject
 	private QTestManager testManager;
 
-	public void _testDBCORE(CommandInterpreter interpreter) throws Exception {
+	public void _testDBCore(CommandInterpreter interpreter) throws Exception {
 
 		String script = interpreter.nextArgument();
 		String catalog = interpreter.nextArgument();
@@ -47,20 +49,31 @@ public class TestCommands extends AbstractCommandProviderImpl {
 		testContext.set(QConnection.class, connection);
 		testContext.set("org.asup.db.core.test.script", script);
 
-		QTestRunner testRunner = null;
-		QTestResult testResult = null;
-
-		// Translate
-		testRunner = testManager.prepareRunner(testContext, Translate.class);
-		testResult = testManager.executeRunner(testContext, testRunner);
-		printTestResult(testResult);
-
-		// Execute
-		testRunner = testManager.prepareRunner(testContext, Execute.class);
-		testResult = testManager.executeRunner(testContext, testRunner);
-		printTestResult(testResult);
-
-		connection.close();
+		try {
+			// Translate
+			QTestRunner testRunner = testManager.prepareRunner(testContext, Translate.class);
+			QTestResult testResult = testRunner.call();
+			
+			printTestResult(testResult);
+	
+			// Parse
+			testRunner = testManager.prepareRunner(testContext, Parse.class);
+			testResult = testRunner.call();
+			
+			printTestResult(testResult);
+			
+			// Execute
+			testRunner = testManager.prepareRunner(testContext, Execute.class);
+			testResult = testRunner.call();
+					
+			printTestResult(testResult);
+		}
+		finally {
+			// TODO remove and listen context.close()
+			connection.close();
+			
+			testContext.close();
+		}
 	}
 
 	private void printTestResult(QTestResult testResult) {
@@ -105,6 +118,37 @@ public class TestCommands extends AbstractCommandProviderImpl {
 		}
 	}
 
+	@Test(category = "DBSYNTAX", object = "PARSE")
+	public static class Parse extends AbstractTest {
+
+		@Inject
+		private QTestAsserter testAsserter;
+		
+		@Inject
+		private QQueryParser queryParser;
+		
+
+		@TestStarted
+		public void doTest(@Named("org.asup.db.core.test.script") String script) throws SQLException, IOException {
+
+			List<String> statements = readStatementsForTest(script);
+
+			testAsserter.resetTime();
+						
+			for (String sql : statements) {
+				SQLQueryParseResult parseResult = null;
+				try {
+					parseResult = queryParser.parseQuery(sql);
+					
+				} catch (Exception e) {	
+//					e.printStackTrace();
+				}
+				
+				testAsserter.assertNotNull("Test parser: " + sql, parseResult);
+			}
+		}
+	}
+	
 	@Test(category = "DBSYNTAX", object = "EXECUTE")
 	public static class Execute extends AbstractTest {
 

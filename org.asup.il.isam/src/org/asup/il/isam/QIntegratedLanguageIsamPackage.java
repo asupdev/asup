@@ -306,10 +306,10 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int TABLE_DATA_SET_FEATURE_COUNT = DATA_SET_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.isam.impl.IndexImpl <em>Index</em>}' class.
+	 * The meta object id for the '{@link org.asup.il.isam.QIndex <em>Index</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.il.isam.impl.IndexImpl
+	 * @see org.asup.il.isam.QIndex
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndex()
 	 * @generated
 	 */
@@ -371,13 +371,22 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int INDEX_COLUMN__DESCEND = 1;
 
 	/**
+	 * The feature id for the '<em><b>Numeric</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_COLUMN__NUMERIC = 2;
+
+	/**
 	 * The number of structural features of the '<em>Index Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDEX_COLUMN_FEATURE_COUNT = 2;
+	int INDEX_COLUMN_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}' enum.
@@ -653,6 +662,17 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	EAttribute getIndexColumn_Descend();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QIndexColumn#isNumeric <em>Numeric</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Numeric</em>'.
+	 * @see org.asup.il.isam.QIndexColumn#isNumeric()
+	 * @see #getIndexColumn()
+	 * @generated
+	 */
+	EAttribute getIndexColumn_Numeric();
+
+	/**
 	 * Returns the meta object for enum '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -857,10 +877,10 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		EClass TABLE_DATA_SET = eINSTANCE.getTableDataSet();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.il.isam.impl.IndexImpl <em>Index</em>}' class.
+		 * The meta object literal for the '{@link org.asup.il.isam.QIndex <em>Index</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.isam.impl.IndexImpl
+		 * @see org.asup.il.isam.QIndex
 		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndex()
 		 * @generated
 		 */
@@ -907,6 +927,14 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute INDEX_COLUMN__DESCEND = eINSTANCE.getIndexColumn_Descend();
+
+		/**
+		 * The meta object literal for the '<em><b>Numeric</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INDEX_COLUMN__NUMERIC = eINSTANCE.getIndexColumn_Numeric();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}' enum.

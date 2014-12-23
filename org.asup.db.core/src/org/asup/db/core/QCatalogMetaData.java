@@ -62,6 +62,14 @@ public interface QCatalogMetaData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model connectionDescriptionRequired="true" tableRequired="true"
+	 * @generated
+	 */
+	Table getTable(QConnectionDescription connectionDescription, String table);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model schemaRequired="true" tableRequired="true"
 	 * @generated
 	 */

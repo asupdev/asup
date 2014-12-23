@@ -402,6 +402,15 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIndexColumn_Numeric() {
+		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAccessMode() {
 		return accessModeEEnum;
 	}
@@ -491,6 +500,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		indexColumnEClass = createEClass(INDEX_COLUMN);
 		createEAttribute(indexColumnEClass, INDEX_COLUMN__NAME);
 		createEAttribute(indexColumnEClass, INDEX_COLUMN__DESCEND);
+		createEAttribute(indexColumnEClass, INDEX_COLUMN__NUMERIC);
 
 		// Create enums
 		accessModeEEnum = createEEnum(ACCESS_MODE);
@@ -664,6 +674,19 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		op = addEOperation(isamFactoryEClass, null, "createDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "DS");
+		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataStruct());
+		t1.getEBounds().add(g1);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "dataStruct", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getDataSet());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		op = addEOperation(isamFactoryEClass, this.getDataSetTerm(), "createDataSetTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkJavaPackage.getJavaAnnotation(), "annotations", 1, -1, IS_UNIQUE, IS_ORDERED);
@@ -671,21 +694,22 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		initEClass(tableDataSetEClass, QTableDataSet.class, "TableDataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(tableDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(tableDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(tableDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(indexEClass, QIndex.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(indexEClass, QIndex.class, "Index", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIndex_Columns(), this.getIndexColumn(), null, "columns", null, 0, -1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndex_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(indexColumnEClass, QIndexColumn.class, "IndexColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(indexColumnEClass, QIndexColumn.class, "IndexColumn", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIndexColumn_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIndexColumn_Descend(), ecorePackage.getEBoolean(), "descend", null, 0, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexColumn_Numeric(), ecorePackage.getEBoolean(), "numeric", null, 0, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessModeEEnum, AccessMode.class, "AccessMode");

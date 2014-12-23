@@ -17,9 +17,11 @@ import java.util.List;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.fw.test.QTestResult#isFailed <em>Failed</em>}</li>
- *   <li>{@link org.asup.fw.test.QTestResult#getTime <em>Time</em>}</li>
  *   <li>{@link org.asup.fw.test.QTestResult#getAssertResults <em>Assert Results</em>}</li>
+ *   <li>{@link org.asup.fw.test.QTestResult#getCategory <em>Category</em>}</li>
+ *   <li>{@link org.asup.fw.test.QTestResult#isFailed <em>Failed</em>}</li>
+ *   <li>{@link org.asup.fw.test.QTestResult#getObject <em>Object</em>}</li>
+ *   <li>{@link org.asup.fw.test.QTestResult#getTime <em>Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +56,32 @@ public interface QTestResult {
 	 * @generated
 	 */
 	void setFailed(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Object</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Object</em>' attribute.
+	 * @see #setObject(String)
+	 * @see org.asup.fw.test.QFrameworkTestPackage#getTestResult_Object()
+	 * @model
+	 * @generated
+	 */
+	String getObject();
+
+	/**
+	 * Sets the value of the '{@link org.asup.fw.test.QTestResult#getObject <em>Object</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Object</em>' attribute.
+	 * @see #getObject()
+	 * @generated
+	 */
+	void setObject(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Time</b></em>' attribute.
@@ -96,5 +124,31 @@ public interface QTestResult {
 	 * @generated
 	 */
 	List<QAssertionResult> getAssertResults();
+
+	/**
+	 * Returns the value of the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Category</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Category</em>' attribute.
+	 * @see #setCategory(String)
+	 * @see org.asup.fw.test.QFrameworkTestPackage#getTestResult_Category()
+	 * @model
+	 * @generated
+	 */
+	String getCategory();
+
+	/**
+	 * Sets the value of the '{@link org.asup.fw.test.QTestResult#getCategory <em>Category</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Category</em>' attribute.
+	 * @see #getCategory()
+	 * @generated
+	 */
+	void setCategory(String value);
 
 } // QTestResult

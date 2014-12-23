@@ -45,15 +45,6 @@ public interface QFrameworkTestFactory extends EFactory {
 	QAssertionSuccess createAssertionSuccess();
 
 	/**
-	 * Returns a new object of class '<em>Suite Test Runner</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Suite Test Runner</em>'.
-	 * @generated
-	 */
-	QSuiteTestRunner createSuiteTestRunner();
-
-	/**
 	 * Returns a new object of class '<em>Test Result</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,15 +52,6 @@ public interface QFrameworkTestFactory extends EFactory {
 	 * @generated
 	 */
 	QTestResult createTestResult();
-
-	/**
-	 * Returns a new object of class '<em>Unit Test Runner</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unit Test Runner</em>'.
-	 * @generated
-	 */
-	QUnitTestRunner createUnitTestRunner();
 
 	/**
 	 * Returns a new object of class '<em>Test Container</em>'.

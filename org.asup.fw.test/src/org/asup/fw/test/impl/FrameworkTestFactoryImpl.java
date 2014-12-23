@@ -64,10 +64,8 @@ public class FrameworkTestFactoryImpl extends EFactoryImpl implements QFramework
 		switch (eClass.getClassifierID()) {
 			case QFrameworkTestPackage.ASSERTION_FAILED: return (EObject)createAssertionFailed();
 			case QFrameworkTestPackage.ASSERTION_SUCCESS: return (EObject)createAssertionSuccess();
-			case QFrameworkTestPackage.SUITE_TEST_RUNNER: return (EObject)createSuiteTestRunner();
 			case QFrameworkTestPackage.TEST_CONTAINER: return (EObject)createTestContainer();
 			case QFrameworkTestPackage.TEST_RESULT: return (EObject)createTestResult();
-			case QFrameworkTestPackage.UNIT_TEST_RUNNER: return (EObject)createUnitTestRunner();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,29 +130,9 @@ public class FrameworkTestFactoryImpl extends EFactoryImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QSuiteTestRunner createSuiteTestRunner() {
-		SuiteTestRunnerImpl suiteTestRunner = new SuiteTestRunnerImpl();
-		return suiteTestRunner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QTestResult createTestResult() {
 		TestResultImpl testResult = new TestResultImpl();
 		return testResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QUnitTestRunner createUnitTestRunner() {
-		UnitTestRunnerImpl unitTestRunner = new UnitTestRunnerImpl();
-		return unitTestRunner;
 	}
 
 	/**

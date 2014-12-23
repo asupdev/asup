@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.asup.db.core.QConnectionDescription;
 import org.asup.db.core.impl.CatalogMetaDataImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
@@ -47,6 +48,18 @@ public class BaseCatalogMetaDataImpl extends CatalogMetaDataImpl {
 			if (table.getName().equals(tableName))
 				return table;
 		}
+		
+		return null;
+	}
+
+	@Override
+	public Table getTable(QConnectionDescription connectionDescription, String tableName) {
+
+		for(String schema: connectionDescription.getSchemas()) {
+			Table table = getTable(schema, tableName);
+			if(table != null)
+				return table;
+		} 		
 
 		return null;
 	}

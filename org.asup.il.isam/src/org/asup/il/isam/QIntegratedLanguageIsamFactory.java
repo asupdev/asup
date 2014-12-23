@@ -45,24 +45,6 @@ public interface QIntegratedLanguageIsamFactory extends EFactory {
 	QKeyListTerm createKeyListTerm();
 
 	/**
-	 * Returns a new object of class '<em>Index</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Index</em>'.
-	 * @generated
-	 */
-	QIndex createIndex();
-
-	/**
-	 * Returns a new object of class '<em>Index Column</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Index Column</em>'.
-	 * @generated
-	 */
-	QIndexColumn createIndexColumn();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

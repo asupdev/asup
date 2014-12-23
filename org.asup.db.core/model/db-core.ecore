@@ -82,6 +82,10 @@
       <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="getTable" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/Table">
+      <eParameters name="connectionDescription" lowerBound="1" eType="#//ConnectionDescription"/>
+      <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="getView" eType="ecore:EClass ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.ecore#//tables/ViewTable">
       <eParameters name="schema" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="table" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -98,6 +102,7 @@
         eExceptions="#//DatabaseException"/>
     <eOperations name="getCatalogGenerationStrategy" lowerBound="1" eType="#//CatalogGenerationStrategy"/>
     <eOperations name="getCatalogMetaData" lowerBound="1" eType="#//CatalogMetaData"/>
+    <eOperations name="getConnectionDescription" eType="#//ConnectionDescription"/>
     <eOperations name="prepareStatement" lowerBound="1" eType="#//PreparedStatement"
         eExceptions="#//DatabaseException">
       <eParameters name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -127,6 +132,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionCredentials" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Credentials"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionDescription" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemas" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException"/>
     <eOperations name="createConnection" eType="#//Connection" eExceptions="#//DatabaseException">

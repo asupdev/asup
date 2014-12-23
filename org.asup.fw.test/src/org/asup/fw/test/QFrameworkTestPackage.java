@@ -8,7 +8,6 @@
 package org.asup.fw.test;
 
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -195,6 +194,25 @@ public interface QFrameworkTestPackage extends EPackage {
 	int ASSERTION_SUCCESS_FEATURE_COUNT = ASSERTION_RESULT_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link java.util.concurrent.Callable<QTestResult> <em>Callable Test</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.concurrent.Callable<QTestResult>
+	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getCallableTest()
+	 * @generated
+	 */
+	int CALLABLE_TEST = 4;
+
+	/**
+	 * The number of structural features of the '<em>Callable Test</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLABLE_TEST_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.TestRunnerImpl <em>Test Runner</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,7 +220,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestRunner()
 	 * @generated
 	 */
-	int TEST_RUNNER = 10;
+	int TEST_RUNNER = 11;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -211,7 +229,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RUNNER__TEST_LISTENERS = 0;
+	int TEST_RUNNER__TEST_LISTENERS = CALLABLE_TEST_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Test Runner</em>' class.
@@ -220,7 +238,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RUNNER_FEATURE_COUNT = 1;
+	int TEST_RUNNER_FEATURE_COUNT = CALLABLE_TEST_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.SuiteTestRunnerImpl <em>Suite Test Runner</em>}' class.
@@ -230,7 +248,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getSuiteTestRunner()
 	 * @generated
 	 */
-	int SUITE_TEST_RUNNER = 4;
+	int SUITE_TEST_RUNNER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -258,7 +276,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestAsserter()
 	 * @generated
 	 */
-	int TEST_ASSERTER = 5;
+	int TEST_ASSERTER = 6;
 
 	/**
 	 * The number of structural features of the '<em>Test Asserter</em>' class.
@@ -277,7 +295,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestContainer()
 	 * @generated
 	 */
-	int TEST_CONTAINER = 6;
+	int TEST_CONTAINER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Tests</b></em>' containment reference list.
@@ -305,7 +323,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestListener()
 	 * @generated
 	 */
-	int TEST_LISTENER = 7;
+	int TEST_LISTENER = 8;
 
 	/**
 	 * The number of structural features of the '<em>Test Listener</em>' class.
@@ -324,7 +342,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestManager()
 	 * @generated
 	 */
-	int TEST_MANAGER = 8;
+	int TEST_MANAGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -352,25 +370,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getTestResult()
 	 * @generated
 	 */
-	int TEST_RESULT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Failed</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_RESULT__FAILED = 0;
-
-	/**
-	 * The feature id for the '<em><b>Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST_RESULT__TIME = 1;
+	int TEST_RESULT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Assert Results</b></em>' containment reference list.
@@ -379,7 +379,43 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RESULT__ASSERT_RESULTS = 2;
+	int TEST_RESULT__ASSERT_RESULTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RESULT__CATEGORY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Failed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RESULT__FAILED = 2;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RESULT__OBJECT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RESULT__TIME = 4;
 
 	/**
 	 * The number of structural features of the '<em>Test Result</em>' class.
@@ -388,7 +424,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RESULT_FEATURE_COUNT = 3;
+	int TEST_RESULT_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.
@@ -398,7 +434,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getUnitTestRunner()
 	 * @generated
 	 */
-	int UNIT_TEST_RUNNER = 11;
+	int UNIT_TEST_RUNNER = 12;
 
 	/**
 	 * The feature id for the '<em><b>Test Listeners</b></em>' containment reference list.
@@ -410,22 +446,13 @@ public interface QFrameworkTestPackage extends EPackage {
 	int UNIT_TEST_RUNNER__TEST_LISTENERS = TEST_RUNNER__TEST_LISTENERS;
 
 	/**
-	 * The feature id for the '<em><b>Class Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNIT_TEST_RUNNER__CLASS_NAME = TEST_RUNNER_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Unit Test Runner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNIT_TEST_RUNNER_FEATURE_COUNT = TEST_RUNNER_FEATURE_COUNT + 1;
+	int UNIT_TEST_RUNNER_FEATURE_COUNT = TEST_RUNNER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.AssertionState <em>Assertion State</em>}' enum.
@@ -435,7 +462,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getAssertionState()
 	 * @generated
 	 */
-	int ASSERTION_STATE = 12;
+	int ASSERTION_STATE = 13;
 
 	/**
 	 * The meta object id for the '<em>Faillure Error</em>' data type.
@@ -445,7 +472,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getFrameworkTestFaillureError()
 	 * @generated
 	 */
-	int FRAMEWORK_TEST_FAILLURE_ERROR = 13;
+	int FRAMEWORK_TEST_FAILLURE_ERROR = 14;
 
 
 	/**
@@ -509,6 +536,17 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAssertionSuccess();
+
+	/**
+	 * Returns the meta object for class '{@link java.util.concurrent.Callable<QTestResult> <em>Callable Test</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Callable Test</em>'.
+	 * @see java.util.concurrent.Callable<QTestResult>
+	 * @model instanceClass="java.util.concurrent.Callable<QTestResult>"
+	 * @generated
+	 */
+	EClass getCallableTest();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QSuiteTestRunner <em>Suite Test Runner</em>}'.
@@ -593,6 +631,17 @@ public interface QFrameworkTestPackage extends EPackage {
 	EAttribute getTestResult_Failed();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QTestResult#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Object</em>'.
+	 * @see org.asup.fw.test.QTestResult#getObject()
+	 * @see #getTestResult()
+	 * @generated
+	 */
+	EAttribute getTestResult_Object();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QTestResult#getTime <em>Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -613,6 +662,17 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTestResult_AssertResults();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QTestResult#getCategory <em>Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Category</em>'.
+	 * @see org.asup.fw.test.QTestResult#getCategory()
+	 * @see #getTestResult()
+	 * @generated
+	 */
+	EAttribute getTestResult_Category();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.fw.test.QTestRunner <em>Test Runner</em>}'.
@@ -644,17 +704,6 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getUnitTestRunner();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QUnitTestRunner#getClassName <em>Class Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Class Name</em>'.
-	 * @see org.asup.fw.test.QUnitTestRunner#getClassName()
-	 * @see #getUnitTestRunner()
-	 * @generated
-	 */
-	EAttribute getUnitTestRunner_ClassName();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.fw.test.AssertionState <em>Assertion State</em>}'.
@@ -756,6 +805,16 @@ public interface QFrameworkTestPackage extends EPackage {
 		EClass ASSERTION_SUCCESS = eINSTANCE.getAssertionSuccess();
 
 		/**
+		 * The meta object literal for the '{@link java.util.concurrent.Callable<QTestResult> <em>Callable Test</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.concurrent.Callable<QTestResult>
+		 * @see org.asup.fw.test.impl.FrameworkTestPackageImpl#getCallableTest()
+		 * @generated
+		 */
+		EClass CALLABLE_TEST = eINSTANCE.getCallableTest();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.impl.SuiteTestRunnerImpl <em>Suite Test Runner</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -832,6 +891,14 @@ public interface QFrameworkTestPackage extends EPackage {
 		EAttribute TEST_RESULT__FAILED = eINSTANCE.getTestResult_Failed();
 
 		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_RESULT__OBJECT = eINSTANCE.getTestResult_Object();
+
+		/**
 		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -846,6 +913,14 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEST_RESULT__ASSERT_RESULTS = eINSTANCE.getTestResult_AssertResults();
+
+		/**
+		 * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_RESULT__CATEGORY = eINSTANCE.getTestResult_Category();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.impl.TestRunnerImpl <em>Test Runner</em>}' class.
@@ -874,14 +949,6 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EClass UNIT_TEST_RUNNER = eINSTANCE.getUnitTestRunner();
-
-		/**
-		 * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNIT_TEST_RUNNER__CLASS_NAME = eINSTANCE.getUnitTestRunner_ClassName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.fw.test.AssertionState <em>Assertion State</em>}' enum.

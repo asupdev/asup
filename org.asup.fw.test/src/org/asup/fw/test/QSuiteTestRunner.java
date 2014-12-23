@@ -15,7 +15,7 @@ package org.asup.fw.test;
  *
  *
  * @see org.asup.fw.test.QFrameworkTestPackage#getSuiteTestRunner()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface QSuiteTestRunner extends QTestRunner {

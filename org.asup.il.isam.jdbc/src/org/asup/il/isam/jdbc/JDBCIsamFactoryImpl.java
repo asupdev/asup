@@ -17,7 +17,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionDescription;
 import org.asup.db.syntax.QNameHelper;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
@@ -27,6 +29,7 @@ import org.asup.il.data.annotation.FileDef;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QIndex;
 import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIsamFactory;
@@ -60,8 +63,11 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
 			
 			if(dataSetTerm.isKeyedAccess()) {			
-	//			QIndex index = connection.getContext().getAdapter(adaptable, adapterType)
-				return new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, null, AccessMode.UPDATE, dataStruct);
+				QIndex index = connection.getContext().getAdapter(dataStruct, QIndex.class);
+				JDBCIndexDataSetImpl<QDataStruct> jdbcIndexDataSetImpl = new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+				jdbcIndexDataSetImpl.init(index);
+				
+				return jdbcIndexDataSetImpl;
 			}
 			else {
 				return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
@@ -73,6 +79,26 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 	}
 
+	@Override
+	public <DS extends QDataStruct> QDataSet<DS> createDataSet(Class<DS> klass) {
+
+		try {
+			Table table = getTable(klass.getSimpleName());
+			if(table == null)
+				return null;
+			
+			DS dataStruct = dataFactory.createDataStruct(klass, 0, true);
+
+			return new JDBCTableDataSetImpl<DS>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public QDataSetTerm createDataSetTerm(Type type, List<Annotation> annotations) {
@@ -122,8 +148,10 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 
 	public Table getTable(String name) throws SQLException {
 		
-		Table table = connection.getCatalogMetaData().getTable(null, name);
+		QCatalogMetaData catalogMetaData = connection.getCatalogMetaData();
 		
-		return table;
+		QConnectionDescription connectionDescription = connection.getConnectionDescription();
+		
+		return catalogMetaData.getTable(connectionDescription, name);
 	}
 }

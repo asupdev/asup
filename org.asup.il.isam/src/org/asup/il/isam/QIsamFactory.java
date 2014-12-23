@@ -10,6 +10,7 @@ package org.asup.il.isam;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.List;
+import org.asup.il.data.QDataStruct;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,14 @@ public interface QIsamFactory {
 	 * @generated
 	 */
 	QDataSet<?> createDataSet(QDataSetTerm dataSetTerm);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" dataStructRequired="true"
+	 * @generated
+	 */
+	<DS extends QDataStruct> QDataSet<DS> createDataSet(Class<DS> dataStruct);
 
 	/**
 	 * <!-- begin-user-doc -->

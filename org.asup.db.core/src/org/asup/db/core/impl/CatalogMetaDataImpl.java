@@ -10,6 +10,7 @@ package org.asup.db.core.impl;
 import java.util.List;
 
 import org.asup.db.core.QCatalogMetaData;
+import org.asup.db.core.QConnectionDescription;
 import org.asup.db.core.QDatabaseCorePackage;
 
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
@@ -92,6 +93,17 @@ public abstract class CatalogMetaDataImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	public Table getTable(String schema, String table) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Table getTable(QConnectionDescription connectionDescription, String table) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

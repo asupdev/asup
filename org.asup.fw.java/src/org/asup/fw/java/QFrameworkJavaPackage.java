@@ -60,6 +60,25 @@ public interface QFrameworkJavaPackage extends EPackage {
 	QFrameworkJavaPackage eINSTANCE = org.asup.fw.java.impl.FrameworkJavaPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link java.util.concurrent.Callable<V> <em>Java Callable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.util.concurrent.Callable<V>
+	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaCallable()
+	 * @generated
+	 */
+	int JAVA_CALLABLE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Java Callable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JAVA_CALLABLE_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link java.lang.Enum<E> <em>Java Enum</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,7 +86,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaEnum()
 	 * @generated
 	 */
-	int JAVA_ENUM = 0;
+	int JAVA_ENUM = 1;
 
 	/**
 	 * The number of structural features of the '<em>Java Enum</em>' class.
@@ -86,7 +105,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaList()
 	 * @generated
 	 */
-	int JAVA_LIST = 1;
+	int JAVA_LIST = 2;
 
 	/**
 	 * The number of structural features of the '<em>Java List</em>' class.
@@ -105,7 +124,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaNumber()
 	 * @generated
 	 */
-	int JAVA_NUMBER = 2;
+	int JAVA_NUMBER = 3;
 
 	/**
 	 * The number of structural features of the '<em>Java Number</em>' class.
@@ -124,7 +143,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaAnnotation()
 	 * @generated
 	 */
-	int JAVA_ANNOTATION = 3;
+	int JAVA_ANNOTATION = 4;
 
 	/**
 	 * The meta object id for the '<em>Java Closeable</em>' data type.
@@ -134,7 +153,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaCloseable()
 	 * @generated
 	 */
-	int JAVA_CLOSEABLE = 4;
+	int JAVA_CLOSEABLE = 5;
 
 	/**
 	 * The meta object id for the '<em>Java Dictionary</em>' data type.
@@ -144,7 +163,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaDictionary()
 	 * @generated
 	 */
-	int JAVA_DICTIONARY = 5;
+	int JAVA_DICTIONARY = 6;
 
 	/**
 	 * The meta object id for the '<em>Java Exception</em>' data type.
@@ -154,7 +173,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaException()
 	 * @generated
 	 */
-	int JAVA_EXCEPTION = 6;
+	int JAVA_EXCEPTION = 7;
 
 	/**
 	 * The meta object id for the '<em>Java Input Stream</em>' data type.
@@ -164,7 +183,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaInputStream()
 	 * @generated
 	 */
-	int JAVA_INPUT_STREAM = 7;
+	int JAVA_INPUT_STREAM = 8;
 
 	/**
 	 * The meta object id for the '<em>Java IO Exception</em>' data type.
@@ -174,7 +193,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaIOException()
 	 * @generated
 	 */
-	int JAVA_IO_EXCEPTION = 8;
+	int JAVA_IO_EXCEPTION = 9;
 
 	/**
 	 * The meta object id for the '<em>Java Iterable</em>' data type.
@@ -184,7 +203,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaIterable()
 	 * @generated
 	 */
-	int JAVA_ITERABLE = 9;
+	int JAVA_ITERABLE = 10;
 
 	/**
 	 * The meta object id for the '<em>Java Iterator</em>' data type.
@@ -194,7 +213,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaIterator()
 	 * @generated
 	 */
-	int JAVA_ITERATOR = 10;
+	int JAVA_ITERATOR = 11;
 
 	/**
 	 * The meta object id for the '<em>Java Map</em>' data type.
@@ -204,7 +223,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaMap()
 	 * @generated
 	 */
-	int JAVA_MAP = 11;
+	int JAVA_MAP = 12;
 
 	/**
 	 * The meta object id for the '<em>Java Properties</em>' data type.
@@ -214,7 +233,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaProperties()
 	 * @generated
 	 */
-	int JAVA_PROPERTIES = 12;
+	int JAVA_PROPERTIES = 14;
 
 	/**
 	 * The meta object id for the '<em>Java Output Stream</em>' data type.
@@ -234,7 +253,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaRunnable()
 	 * @generated
 	 */
-	int JAVA_RUNNABLE = 14;
+	int JAVA_RUNNABLE = 15;
 
 	/**
 	 * The meta object id for the '<em>Java Type</em>' data type.
@@ -244,7 +263,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaType()
 	 * @generated
 	 */
-	int JAVA_TYPE = 15;
+	int JAVA_TYPE = 17;
 
 	/**
 	 * The meta object id for the '<em>Java Throwable</em>' data type.
@@ -264,7 +283,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaURI()
 	 * @generated
 	 */
-	int JAVA_URI = 17;
+	int JAVA_URI = 18;
 
 	/**
 	 * The meta object id for the '<em>Java URL</em>' data type.
@@ -274,7 +293,7 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaURL()
 	 * @generated
 	 */
-	int JAVA_URL = 18;
+	int JAVA_URL = 19;
 
 	/**
 	 * The meta object id for the '<em>Java Writer</em>' data type.
@@ -284,8 +303,19 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaWriter()
 	 * @generated
 	 */
-	int JAVA_WRITER = 19;
+	int JAVA_WRITER = 20;
 
+
+	/**
+	 * Returns the meta object for class '{@link java.util.concurrent.Callable<V> <em>Java Callable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Java Callable</em>'.
+	 * @see java.util.concurrent.Callable<V>
+	 * @model instanceClass="java.util.concurrent.Callable<V>"
+	 * @generated
+	 */
+	EClass getJavaCallable();
 
 	/**
 	 * Returns the meta object for class '{@link java.lang.Enum<E> <em>Java Enum</em>}'.
@@ -529,6 +559,16 @@ public interface QFrameworkJavaPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link java.util.concurrent.Callable<V> <em>Java Callable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.util.concurrent.Callable<V>
+		 * @see org.asup.fw.java.impl.FrameworkJavaPackageImpl#getJavaCallable()
+		 * @generated
+		 */
+		EClass JAVA_CALLABLE = eINSTANCE.getJavaCallable();
+
 		/**
 		 * The meta object literal for the '{@link java.lang.Enum<E> <em>Java Enum</em>}' class.
 		 * <!-- begin-user-doc -->

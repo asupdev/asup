@@ -17,6 +17,7 @@ import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionConfig;
 import org.asup.db.core.QConnectionCredentials;
+import org.asup.db.core.QConnectionDescription;
 import org.asup.db.core.QConnectionManager;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.core.QDatabaseCoreFactory;
@@ -101,6 +102,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass connectionCredentialsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass connectionDescriptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -469,6 +477,24 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 */
 	public EClass getConnectionCredentials() {
 		return connectionCredentialsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConnectionDescription() {
+		return connectionDescriptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnectionDescription_Schemas() {
+		return (EAttribute)connectionDescriptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -857,6 +883,9 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		connectionCredentialsEClass = createEClass(CONNECTION_CREDENTIALS);
 
+		connectionDescriptionEClass = createEClass(CONNECTION_DESCRIPTION);
+		createEAttribute(connectionDescriptionEClass, CONNECTION_DESCRIPTION__SCHEMAS);
+
 		connectionManagerEClass = createEClass(CONNECTION_MANAGER);
 
 		databaseContainerEClass = createEClass(DATABASE_CONTAINER);
@@ -1043,6 +1072,10 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(catalogMetaDataEClass, theSQLTablesPackage.getTable(), "getTable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getConnectionDescription(), "connectionDescription", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(catalogMetaDataEClass, theSQLTablesPackage.getViewTable(), "getView", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "schema", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "table", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1065,6 +1098,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		addEOperation(connectionEClass, this.getCatalogGenerationStrategy(), "getCatalogGenerationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(connectionEClass, this.getCatalogMetaData(), "getCatalogMetaData", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(connectionEClass, this.getConnectionDescription(), "getConnectionDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(connectionEClass, this.getPreparedStatement(), "prepareStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "sql", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1092,6 +1127,9 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		initEAttribute(getConnectionConfig_Persistent(), ecorePackage.getEBoolean(), "persistent", null, 0, 1, QConnectionConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectionCredentialsEClass, QConnectionCredentials.class, "ConnectionCredentials", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(connectionDescriptionEClass, QConnectionDescription.class, "ConnectionDescription", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConnectionDescription_Schemas(), ecorePackage.getEString(), "schemas", null, 0, -1, QConnectionDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectionManagerEClass, QConnectionManager.class, "ConnectionManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

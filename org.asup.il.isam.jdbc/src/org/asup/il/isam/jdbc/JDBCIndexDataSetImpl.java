@@ -15,8 +15,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QDatabaseManager;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QString;
 import org.asup.il.isam.AccessMode;
@@ -29,15 +29,16 @@ import org.eclipse.datatools.modelbase.sql.tables.Table;
 public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImpl<DS> implements QIndexDataSet<DS> {
 
 	private QIndex _index;
-	private QBufferedDataDef<?>[] _fields;
 	
-	protected JDBCIndexDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqkObjectNameHelper, Table table, QIndex index, AccessMode accessMode, DS dataStruct) {
-		super(databaseConnection, sqkObjectNameHelper, table, accessMode, dataStruct);
-		
-		_index = index;		
-		_fields = new QBufferedDataDef<?>[_index.getColumns().size()];
+	protected JDBCIndexDataSetImpl(QConnection databaseConnection, SQLObjectNameHelper sqkObjectNameHelper, Table table, AccessMode accessMode, DS dataStruct) {
+		super(databaseConnection, sqkObjectNameHelper, table, accessMode, dataStruct);		
+						
 	}
 
+	protected void init(QIndex index) {
+		_index = index;
+	}
+	
 	@Override
 	public boolean chain(QBufferedData[] keyList) {
 		_opSet = OpSet.CHAIN;
@@ -85,6 +86,37 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 	public void reade(Object key) {
 		Object[] keyList = { key };
 		reade(keyList);
+	}
+
+
+	@Override
+	public boolean readp() {
+
+		if(_opDir == OpDir.F) {
+			for(int i=0; i<_keySet.length; i++) {
+				QIndexColumn indexColumn = _index.getColumns().get(i);
+				if(indexColumn.getName().equals(QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME))
+					_keySet[i] = rrn;
+				else
+					_keySet[i] = record.getElement(indexColumn.getName());
+						
+			}
+			_opSet = OpSet.SETLL;
+		}
+		
+		_opRead = OpRead.READP;
+		_keyRead = null;
+
+		// read previous record
+		try {
+			_prepareAccess();
+			return _readNext();
+
+		} catch (SQLException e) {
+			_isEndOfData = true;
+		}
+
+		return false;
 	}
 
 	@Override
@@ -216,19 +248,19 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		
 		for(int i=0; i<keySet.length; i++) {
 			
-			QBufferedDataDef<?> definition = _fields[i];
+			QIndexColumn indexColumn = _index.getColumns().get(i); 
 			
 			// append field
-			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumns.get(i).getName()+getSQLObjectNameHelper().getIdentifierQuoteString());
+			if(indexColumn.isNumeric())
+				sbFields.append("digits("+getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumns.get(i).getName()+getSQLObjectNameHelper().getIdentifierQuoteString()+")");
 			else 
-				sbFields.append("cast("+getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumns.get(i).getName()+getSQLObjectNameHelper().getIdentifierQuoteString()+" as CHARACTER)");
+				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumns.get(i).getName()+getSQLObjectNameHelper().getIdentifierQuoteString());
 			
 			// append value
-			sbValues.append(keySet[i].toString());
+			sbValues.append("000000000"+keySet[i].toString());
 			
 			if(i+1<keySet.length)
-				sbFields.append("+");
+				sbFields.append(" concat ");
 		}		
 		if(_keySet.length >1) 	
 			sbFields.append(")");
@@ -273,7 +305,7 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 		
 		for(int i=0; i<keyRead.length; i++) {
 
-			QBufferedDataDef<?> definition = _fields[i];
+			QIndexColumn indexColumn = indexColumns.get(i);
 			
 			String value = null;
 			// append value
@@ -288,10 +320,10 @@ public class JDBCIndexDataSetImpl<DS extends QDataStruct> extends JDBCDataSetImp
 				sbWhere.append(" and ");
 			
 			// append field
-			if(definition instanceof org.asup.il.data.QCharacterDef) 
-				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumns.get(i).getName()+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'"+value+"'");
-			else 
-				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumns.get(i).getName()+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);						
+			if(indexColumn.isNumeric())
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumn.getName()+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);			
+			else 						
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString()+indexColumn.getName()+getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'"+value+"'");				
 		}
 	}
 }

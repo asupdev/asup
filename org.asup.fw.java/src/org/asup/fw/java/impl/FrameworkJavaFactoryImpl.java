@@ -113,16 +113,16 @@ public class FrameworkJavaFactoryImpl extends EFactoryImpl implements QFramework
 				return createJavaIteratorFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_MAP:
 				return createJavaMapFromString(eDataType, initialValue);
-			case QFrameworkJavaPackage.JAVA_PROPERTIES:
-				return createJavaPropertiesFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_OUTPUT_STREAM:
 				return createJavaOutputStreamFromString(eDataType, initialValue);
+			case QFrameworkJavaPackage.JAVA_PROPERTIES:
+				return createJavaPropertiesFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_RUNNABLE:
 				return createJavaRunnableFromString(eDataType, initialValue);
-			case QFrameworkJavaPackage.JAVA_TYPE:
-				return createJavaTypeFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_THROWABLE:
 				return createJavaThrowableFromString(eDataType, initialValue);
+			case QFrameworkJavaPackage.JAVA_TYPE:
+				return createJavaTypeFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_URI:
 				return createJavaURIFromString(eDataType, initialValue);
 			case QFrameworkJavaPackage.JAVA_URL:
@@ -160,16 +160,16 @@ public class FrameworkJavaFactoryImpl extends EFactoryImpl implements QFramework
 				return convertJavaIteratorToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_MAP:
 				return convertJavaMapToString(eDataType, instanceValue);
-			case QFrameworkJavaPackage.JAVA_PROPERTIES:
-				return convertJavaPropertiesToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_OUTPUT_STREAM:
 				return convertJavaOutputStreamToString(eDataType, instanceValue);
+			case QFrameworkJavaPackage.JAVA_PROPERTIES:
+				return convertJavaPropertiesToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_RUNNABLE:
 				return convertJavaRunnableToString(eDataType, instanceValue);
-			case QFrameworkJavaPackage.JAVA_TYPE:
-				return convertJavaTypeToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_THROWABLE:
 				return convertJavaThrowableToString(eDataType, instanceValue);
+			case QFrameworkJavaPackage.JAVA_TYPE:
+				return convertJavaTypeToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_URI:
 				return convertJavaURIToString(eDataType, instanceValue);
 			case QFrameworkJavaPackage.JAVA_URL:

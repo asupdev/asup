@@ -18,11 +18,12 @@ package org.asup.il.isam;
  * <ul>
  *   <li>{@link org.asup.il.isam.QIndexColumn#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QIndexColumn#isDescend <em>Descend</em>}</li>
+ *   <li>{@link org.asup.il.isam.QIndexColumn#isNumeric <em>Numeric</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndexColumn()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface QIndexColumn {
@@ -77,5 +78,31 @@ public interface QIndexColumn {
 	 * @generated
 	 */
 	void setDescend(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Numeric</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Numeric</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Numeric</em>' attribute.
+	 * @see #setNumeric(boolean)
+	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndexColumn_Numeric()
+	 * @model
+	 * @generated
+	 */
+	boolean isNumeric();
+
+	/**
+	 * Sets the value of the '{@link org.asup.il.isam.QIndexColumn#isNumeric <em>Numeric</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Numeric</em>' attribute.
+	 * @see #isNumeric()
+	 * @generated
+	 */
+	void setNumeric(boolean value);
 
 } // QIndexColumn

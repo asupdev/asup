@@ -23,7 +23,7 @@ import java.util.List;
  * </p>
  *
  * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndex()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface QIndex {

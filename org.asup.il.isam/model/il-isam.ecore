@@ -134,6 +134,19 @@
       </eGenericType>
       <eParameters name="dataSetTerm" lowerBound="1" eType="#//DataSetTerm"/>
     </eOperations>
+    <eOperations name="createDataSet" lowerBound="1">
+      <eGenericType eClassifier="#//DataSet">
+        <eTypeArguments eTypeParameter="#//IsamFactory/createDataSet.1/DS"/>
+      </eGenericType>
+      <eTypeParameters name="DS">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+      </eTypeParameters>
+      <eParameters name="dataStruct" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//IsamFactory/createDataSet.1/DS"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eOperations name="createDataSetTerm" lowerBound="1" eType="#//DataSetTerm">
       <eParameters name="type" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaType"/>
       <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
@@ -144,13 +157,13 @@
       <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
     </eTypeParameters>
     <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="setgt">
-      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="setll">
-      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eGenericSuperTypes eClassifier="#//DataSet">
       <eTypeArguments eTypeParameter="#//TableDataSet/DS"/>
@@ -168,13 +181,14 @@
     <eLiterals name="ReadPrior" value="40" literal="READP"/>
     <eLiterals name="ReadPriorEqual" value="50" literal="READPE"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Index">
+  <eClassifiers xsi:type="ecore:EClass" name="Index" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//IndexColumn" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IndexColumn">
+  <eClassifiers xsi:type="ecore:EClass" name="IndexColumn" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="descend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeric" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

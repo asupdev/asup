@@ -62,8 +62,6 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 		switch (eClass.getClassifierID()) {
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM: return (EObject)createDataSetTerm();
 			case QIntegratedLanguageIsamPackage.KEY_LIST_TERM: return (EObject)createKeyListTerm();
-			case QIntegratedLanguageIsamPackage.INDEX: return (EObject)createIndex();
-			case QIntegratedLanguageIsamPackage.INDEX_COLUMN: return (EObject)createIndexColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -129,26 +127,6 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	public QKeyListTerm createKeyListTerm() {
 		KeyListTermImpl keyListTerm = new KeyListTermImpl();
 		return keyListTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QIndex createIndex() {
-		IndexImpl index = new IndexImpl();
-		return index;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QIndexColumn createIndexColumn() {
-		IndexColumnImpl indexColumn = new IndexColumnImpl();
-		return indexColumn;
 	}
 
 	/**

@@ -27,7 +27,7 @@ public interface QTableDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model required="true" relativeRecordNumberRequired="true"
 	 * @generated
 	 */
-	boolean chain(Object relativeRecordNumber);
+	boolean chain(int relativeRecordNumber);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,7 +35,7 @@ public interface QTableDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model relativeRecordNumberRequired="true"
 	 * @generated
 	 */
-	void setgt(Object relativeRecordNumber);
+	void setgt(int relativeRecordNumber);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -43,6 +43,6 @@ public interface QTableDataSet<DS extends QDataStruct> extends QDataSet<DS> {
 	 * @model relativeRecordNumberRequired="true"
 	 * @generated
 	 */
-	void setll(Object relativeRecordNumber);
+	void setll(int relativeRecordNumber);
 
 } // QTableDataSet

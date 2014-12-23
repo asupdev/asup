@@ -13,9 +13,11 @@ package org.asup.il.isam.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
@@ -29,8 +31,11 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 
 	private QConnection databaseConnection;
 	private SQLObjectNameHelper sqlObjectNameHelper;
+	@SuppressWarnings("unused")
 	private AccessMode accessMode;
-	private DS record;
+	protected DS record;
+	protected int rrn;
+	private List<QBufferedData> elements;
 
 	private Table table;
 	private QIndicator found;
@@ -51,7 +56,7 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 
 	private boolean _isOpen;
 
-	private OpDir _opDir;
+	protected OpDir _opDir;
 	protected OpSet _opSet;
 	protected OpRead _opRead;
 
@@ -71,12 +76,13 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 		this.table = table;
 		this.accessMode = accessMode;
 		this.record = record;
+		this.elements = record.getElements();
 	}
 
 	protected SQLObjectNameHelper getSQLObjectNameHelper() {
 		return this.sqlObjectNameHelper;
 	}
-	
+
 	@Override
 	public DS get() {
 		return this.record;
@@ -99,7 +105,6 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 	@Override
 	public void open() {
 		_reset();
-		_opSet = OpSet.SETLL;
 		_isOpen = true;
 	}
 
@@ -133,16 +138,6 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 	public boolean readp(QIndicator endOfRecord) {
 		readp();
 		endOfRecord.eval(_isEndOfData);
-
-		return false;
-	}
-
-	@Override
-	public boolean readp() {
-		assert _isOpen;
-
-		_opRead = OpRead.READP;
-		_keyRead = null;
 
 		return false;
 	}
@@ -209,10 +204,7 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 		_buildQuerySelect();
 
 		if (_statement == null) {
-			if (accessMode == AccessMode.INPUT)
-				_statement = databaseConnection.createStatement();
-			else
-				_statement = databaseConnection.createStatement(true);
+			_statement = databaseConnection.createStatement(true);
 		}
 		if (_result != null)
 			_result.close();
@@ -229,9 +221,13 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 		_isEndOfData = false;
 		if (_result.next()) {
 
-			for (int x = 1; record.getElements().size() > x; x++) {
-				record.getElement(x).accept(evaluator.set(_result.getString(x)));
-			}
+			int c = 1;
+			for (QBufferedData bufferedData : this.elements) {
+				bufferedData.accept(evaluator.set(_result.getString(c)));
+				c++;
+			}			
+			rrn = _result.getInt(c);
+			System.out.println(_result.getString(c++));
 			_opSet = null;
 			return true;
 		}
@@ -245,7 +241,7 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 		_queySelect = new StringBuffer();
 
 		// SELECT
-		_queySelect.append("SELECT " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) + ".*");
+		_queySelect.append("SELECT " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) + ".*, digits(QASRRN)");
 
 		// FROM
 		_queySelect.append(" FROM " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table));
@@ -256,7 +252,7 @@ public abstract class JDBCDataSetImpl<DS extends QDataStruct> implements QDataSe
 
 		// ORDER
 		String orderBy = buildOrderBy(_opDir);
-		if(orderBy != null && !orderBy.isEmpty())
+		if (orderBy != null && !orderBy.isEmpty())
 			_queySelect.append(" ORDER BY " + buildOrderBy(_opDir));
 	}
 

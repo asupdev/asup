@@ -26,12 +26,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link org.asup.il.isam.impl.IndexColumnImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.asup.il.isam.impl.IndexColumnImpl#isDescend <em>Descend</em>}</li>
+ *   <li>{@link org.asup.il.isam.impl.IndexColumnImpl#isNumeric <em>Numeric</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIndexColumn {
+public abstract class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIndexColumn {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +72,26 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 	 * @ordered
 	 */
 	protected boolean descend = DESCEND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isNumeric() <em>Numeric</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNumeric()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NUMERIC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNumeric() <em>Numeric</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNumeric()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean numeric = NUMERIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,6 +159,27 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNumeric() {
+		return numeric;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNumeric(boolean newNumeric) {
+		boolean oldNumeric = numeric;
+		numeric = newNumeric;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageIsamPackage.INDEX_COLUMN__NUMERIC, oldNumeric, numeric));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -145,6 +187,8 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 				return getName();
 			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__DESCEND:
 				return isDescend();
+			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__NUMERIC:
+				return isNumeric();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +206,9 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 				return;
 			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__DESCEND:
 				setDescend((Boolean)newValue);
+				return;
+			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__NUMERIC:
+				setNumeric((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -181,6 +228,9 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__DESCEND:
 				setDescend(DESCEND_EDEFAULT);
 				return;
+			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__NUMERIC:
+				setNumeric(NUMERIC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,6 +247,8 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__DESCEND:
 				return descend != DESCEND_EDEFAULT;
+			case QIntegratedLanguageIsamPackage.INDEX_COLUMN__NUMERIC:
+				return numeric != NUMERIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,6 +267,8 @@ public class IndexColumnImpl extends MinimalEObjectImpl.Container implements QIn
 		result.append(name);
 		result.append(", descend: ");
 		result.append(descend);
+		result.append(", numeric: ");
+		result.append(numeric);
 		result.append(')');
 		return result.toString();
 	}

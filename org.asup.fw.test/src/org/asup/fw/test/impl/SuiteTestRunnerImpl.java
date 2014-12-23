@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SuiteTestRunnerImpl extends TestRunnerImpl implements QSuiteTestRunner {
+public abstract class SuiteTestRunnerImpl extends TestRunnerImpl implements QSuiteTestRunner {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

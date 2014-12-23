@@ -36,10 +36,12 @@ import org.asup.db.core.QCatalogContainer;
 import org.asup.db.core.QCatalogGenerationStrategy;
 import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
+import org.asup.db.core.QConnectionDescription;
 import org.asup.db.core.QDatabaseContainer;
 import org.asup.db.syntax.QQueryParser;
 import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.fw.core.QContext;
+import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 
 public class BaseConnectionImpl implements QConnection, Connection {
@@ -170,9 +172,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		
 		this.catalogConnections.clear();
 		this.currentCatalogConnection = null;
-		this.virtualCatalog = null;
-		
-		getContext().close();
+		this.virtualCatalog = null;		
 	}
 
 	@Override
@@ -437,5 +437,27 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public QConnectionDescription getConnectionDescription() {
+		
+		QConnectionDescription connectionDescription = getContext().get(QConnectionDescription.class);
+		if(connectionDescription == null) {
+
+			final List<String> schemas = new ArrayList<String>();
+			for(Schema schema: getCatalogMetaData().getSchemas()) 
+				schemas.add(schema.getName());
+
+			connectionDescription = new QConnectionDescription() {
+								
+				@Override
+				public List<String> getSchemas() {
+					return schemas;
+				}
+			};
+		}
+		
+		return connectionDescription;
 	}
 }

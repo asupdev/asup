@@ -8,6 +8,7 @@
 package org.asup.fw.test;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,10 +23,10 @@ import java.util.List;
  * </p>
  *
  * @see org.asup.fw.test.QFrameworkTestPackage#getTestRunner()
- * @model abstract="true"
+ * @model abstract="true" superTypes="org.asup.fw.test.CallableTest"
  * @generated
  */
-public interface QTestRunner {
+public interface QTestRunner extends Callable<QTestResult> {
 	/**
 	 * Returns the value of the '<em><b>Test Listeners</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.fw.test.QTestListener}.
@@ -41,13 +42,5 @@ public interface QTestRunner {
 	 * @generated
 	 */
 	List<QTestListener> getTestListeners();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void runTest();
 
 } // QTestRunner
