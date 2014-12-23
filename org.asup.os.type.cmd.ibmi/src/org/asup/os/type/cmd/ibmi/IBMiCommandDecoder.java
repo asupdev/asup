@@ -173,7 +173,9 @@ public class IBMiCommandDecoder {
 				counter++;
 			}
 		}
-				
+		
+		result = result.trim();
+		
 		if (parenthesis) result += ")";
 		
 		return result;
