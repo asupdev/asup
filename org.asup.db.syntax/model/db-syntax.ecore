@@ -287,7 +287,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExecuteStatement" eSuperTypes="#//BindingStatement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="statement" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="FetchPosition">
       <eLiterals name="NEXT" literal="NEXT"/>
@@ -315,11 +315,12 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="using" eType="#//dbl/UsingType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="IsolationLevel">
-      <eLiterals name="SERIALIZABLE" literal="SERIALIZABLE"/>
-      <eLiterals name="NO_COMMIT" value="1"/>
-      <eLiterals name="READ_UNCOMMITTED" value="2"/>
-      <eLiterals name="READ_COMMITTED" value="3"/>
-      <eLiterals name="REPEATABLE_READ" value="4"/>
+      <eLiterals name="NONE" value="10" literal="NONE"/>
+      <eLiterals name="SERIALIZABLE" value="20" literal="SERIALIZABLE"/>
+      <eLiterals name="NO_COMMIT" value="30"/>
+      <eLiterals name="READ_UNCOMMITTED" value="40"/>
+      <eLiterals name="READ_COMMITTED" value="50"/>
+      <eLiterals name="REPEATABLE_READ" value="60"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MultipleRowFetchClause">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="descriptor" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -339,19 +340,21 @@
     <eClassifiers xsi:type="ecore:EClass" name="OpenStatement" eSuperTypes="#//BindingStatement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="cursor" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="using" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usingType" eType="#//dbl/OpenType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usingType" eType="#//dbl/OpenUsingType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="OpenType">
-      <eLiterals name="VARIABLE" literal="VARIABLE"/>
-      <eLiterals name="DESCRIPTOR" value="1"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="OpenUsingType">
+      <eLiterals name="NONE" value="10" literal="NONE"/>
+      <eLiterals name="DESCRIPTOR" value="20"/>
+      <eLiterals name="VARIABLE" value="30" literal="VARIABLE"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="UsingType">
-      <eLiterals name="NAMES" literal="NAMES"/>
-      <eLiterals name="SYSTEM_NAMES" value="1"/>
-      <eLiterals name="LABELS" value="2"/>
-      <eLiterals name="ANY" value="3"/>
-      <eLiterals name="BOTH" value="4"/>
-      <eLiterals name="ALL" value="5"/>
+      <eLiterals name="NONE" value="10" literal="NONE"/>
+      <eLiterals name="NAMES" value="20" literal="names"/>
+      <eLiterals name="SYSTEM_NAMES" value="30"/>
+      <eLiterals name="LABELS" value="40"/>
+      <eLiterals name="ANY" value="50"/>
+      <eLiterals name="BOTH" value="60"/>
+      <eLiterals name="ALL" value="70"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrepareStatement" eSuperTypes="#//BindingStatement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" lowerBound="1"

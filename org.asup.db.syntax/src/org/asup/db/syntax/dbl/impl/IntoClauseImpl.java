@@ -61,7 +61,7 @@ public class IntoClauseImpl extends EObjectImpl implements QIntoClause {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final UsingType USING_EDEFAULT = UsingType.NAMES;
+	protected static final UsingType USING_EDEFAULT = UsingType.NONE;
 
 	/**
 	 * The cached value of the '{@link #getUsing() <em>Using</em>}' attribute.

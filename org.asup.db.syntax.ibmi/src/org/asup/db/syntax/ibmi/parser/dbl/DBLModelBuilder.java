@@ -15,6 +15,7 @@ import org.asup.db.syntax.dbl.CursorType;
 import org.asup.db.syntax.dbl.FetchPosition;
 import org.asup.db.syntax.dbl.IsolationLevel;
 import org.asup.db.syntax.dbl.OpenType;
+import org.asup.db.syntax.dbl.OpenUsingType;
 import org.asup.db.syntax.dbl.QCloseStatement;
 import org.asup.db.syntax.dbl.QDeclareCursorStatement;
 import org.asup.db.syntax.dbl.QDescribeStatement;
@@ -546,6 +547,7 @@ public class DBLModelBuilder {
 
 	private QBindingStatement manageOpenStatement(Tree tree) {
 		QOpenStatement openStatement = DblFactoryImpl.eINSTANCE.createOpenStatement();
+		openStatement.setUsingType(OpenUsingType.NONE);
 		
 		Tree fieldToken = null;
 		
@@ -561,7 +563,7 @@ public class DBLModelBuilder {
 				break;
 			
 			case DBLLexer.USING:
-				openStatement.setUsingType(OpenType.VARIABLE);
+				openStatement.setUsingType(OpenUsingType.VARIABLE);
 				
 				Tree variableToken = fieldToken.getChild(0);
 				
@@ -572,7 +574,7 @@ public class DBLModelBuilder {
 				break;
 			
 			case DBLLexer.USING_DESCRIPTOR:
-				openStatement.setUsingType(OpenType.DESCRIPTOR);
+				openStatement.setUsingType(OpenUsingType.DESCRIPTOR);
 				
 				Tree childToken = fieldToken.getChild(0);
 				
@@ -614,7 +616,7 @@ public class DBLModelBuilder {
 		Tree statementToken = tree.getChild(0);
 		
 		if (statementToken != null && statementToken.getType() == DBLLexer.STATEMENT) {
-			executeStatement.setStatement(statementToken.getChild(0).getText());
+			executeStatement.setStatementName(statementToken.getChild(0).getText());
 		}
 
 		return executeStatement;

@@ -12,7 +12,7 @@ import org.asup.db.syntax.QDatabaseSyntaxPackage;
 import org.asup.db.syntax.dbl.CursorType;
 import org.asup.db.syntax.dbl.FetchPosition;
 import org.asup.db.syntax.dbl.IsolationLevel;
-import org.asup.db.syntax.dbl.OpenType;
+import org.asup.db.syntax.dbl.OpenUsingType;
 import org.asup.db.syntax.dbl.QCloseStatement;
 import org.asup.db.syntax.dbl.QDblFactory;
 import org.asup.db.syntax.dbl.QDblPackage;
@@ -159,7 +159,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum openTypeEEnum = null;
+	private EEnum openUsingTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -366,7 +366,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExecuteStatement_Statement() {
+	public EAttribute getExecuteStatement_StatementName() {
 		return (EAttribute)executeStatementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -645,8 +645,8 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getOpenType() {
-		return openTypeEEnum;
+	public EEnum getOpenUsingType() {
+		return openUsingTypeEEnum;
 	}
 
 	/**
@@ -702,7 +702,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		createEAttribute(executeImmediateStatementEClass, EXECUTE_IMMEDIATE_STATEMENT__QUERY);
 
 		executeStatementEClass = createEClass(EXECUTE_STATEMENT);
-		createEAttribute(executeStatementEClass, EXECUTE_STATEMENT__STATEMENT);
+		createEAttribute(executeStatementEClass, EXECUTE_STATEMENT__STATEMENT_NAME);
 
 		fetchStatementEClass = createEClass(FETCH_STATEMENT);
 		createEAttribute(fetchStatementEClass, FETCH_STATEMENT__CURSOR_NAME);
@@ -742,7 +742,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		fetchPositionEEnum = createEEnum(FETCH_POSITION);
 		isolationLevelEEnum = createEEnum(ISOLATION_LEVEL);
 		rwOperationEEnum = createEEnum(RW_OPERATION);
-		openTypeEEnum = createEEnum(OPEN_TYPE);
+		openUsingTypeEEnum = createEEnum(OPEN_USING_TYPE);
 		usingTypeEEnum = createEEnum(USING_TYPE);
 	}
 
@@ -805,7 +805,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		initEAttribute(getExecuteImmediateStatement_Query(), theEcorePackage.getEString(), "query", null, 0, 1, QExecuteImmediateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(executeStatementEClass, QExecuteStatement.class, "ExecuteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExecuteStatement_Statement(), theEcorePackage.getEString(), "statement", null, 0, 1, QExecuteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExecuteStatement_StatementName(), theEcorePackage.getEString(), "statementName", null, 0, 1, QExecuteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fetchStatementEClass, QFetchStatement.class, "FetchStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFetchStatement_CursorName(), theEcorePackage.getEString(), "cursorName", null, 1, 1, QFetchStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -830,7 +830,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		initEClass(openStatementEClass, QOpenStatement.class, "OpenStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOpenStatement_Cursor(), theEcorePackage.getEString(), "cursor", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOpenStatement_Using(), theEcorePackage.getEString(), "using", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOpenStatement_UsingType(), this.getOpenType(), "usingType", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOpenStatement_UsingType(), this.getOpenUsingType(), "usingType", null, 0, 1, QOpenStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(prepareStatementEClass, QPrepareStatement.class, "PrepareStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPrepareStatement_From(), theEcorePackage.getEString(), "from", null, 1, 1, QPrepareStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -857,6 +857,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		addEEnumLiteral(fetchPositionEEnum, FetchPosition.RELATIVE);
 
 		initEEnum(isolationLevelEEnum, IsolationLevel.class, "IsolationLevel");
+		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.NONE);
 		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.SERIALIZABLE);
 		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.NO_COMMIT);
 		addEEnumLiteral(isolationLevelEEnum, IsolationLevel.READ_UNCOMMITTED);
@@ -867,11 +868,13 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		addEEnumLiteral(rwOperationEEnum, RWOperation.READ_ONLY);
 		addEEnumLiteral(rwOperationEEnum, RWOperation.READ_WRITE);
 
-		initEEnum(openTypeEEnum, OpenType.class, "OpenType");
-		addEEnumLiteral(openTypeEEnum, OpenType.VARIABLE);
-		addEEnumLiteral(openTypeEEnum, OpenType.DESCRIPTOR);
+		initEEnum(openUsingTypeEEnum, OpenUsingType.class, "OpenUsingType");
+		addEEnumLiteral(openUsingTypeEEnum, OpenUsingType.NONE);
+		addEEnumLiteral(openUsingTypeEEnum, OpenUsingType.DESCRIPTOR);
+		addEEnumLiteral(openUsingTypeEEnum, OpenUsingType.VARIABLE);
 
 		initEEnum(usingTypeEEnum, UsingType.class, "UsingType");
+		addEEnumLiteral(usingTypeEEnum, UsingType.NONE);
 		addEEnumLiteral(usingTypeEEnum, UsingType.NAMES);
 		addEEnumLiteral(usingTypeEEnum, UsingType.SYSTEM_NAMES);
 		addEEnumLiteral(usingTypeEEnum, UsingType.LABELS);

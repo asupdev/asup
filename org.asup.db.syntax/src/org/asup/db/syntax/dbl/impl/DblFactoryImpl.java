@@ -94,8 +94,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 				return createIsolationLevelFromString(eDataType, initialValue);
 			case QDblPackage.RW_OPERATION:
 				return createRWOperationFromString(eDataType, initialValue);
-			case QDblPackage.OPEN_TYPE:
-				return createOpenTypeFromString(eDataType, initialValue);
+			case QDblPackage.OPEN_USING_TYPE:
+				return createOpenUsingTypeFromString(eDataType, initialValue);
 			case QDblPackage.USING_TYPE:
 				return createUsingTypeFromString(eDataType, initialValue);
 			default:
@@ -119,8 +119,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 				return convertIsolationLevelToString(eDataType, instanceValue);
 			case QDblPackage.RW_OPERATION:
 				return convertRWOperationToString(eDataType, instanceValue);
-			case QDblPackage.OPEN_TYPE:
-				return convertOpenTypeToString(eDataType, instanceValue);
+			case QDblPackage.OPEN_USING_TYPE:
+				return convertOpenUsingTypeToString(eDataType, instanceValue);
 			case QDblPackage.USING_TYPE:
 				return convertUsingTypeToString(eDataType, instanceValue);
 			default:
@@ -323,8 +323,8 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OpenType createOpenTypeFromString(EDataType eDataType, String initialValue) {
-		OpenType result = OpenType.get(initialValue);
+	public OpenUsingType createOpenUsingTypeFromString(EDataType eDataType, String initialValue) {
+		OpenUsingType result = OpenUsingType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -334,7 +334,7 @@ public class DblFactoryImpl extends EFactoryImpl implements QDblFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertOpenTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertOpenUsingTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -17,7 +17,7 @@ import org.asup.db.syntax.QBindingStatement;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.db.syntax.dbl.QExecuteStatement#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.QExecuteStatement#getStatementName <em>Statement Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +27,29 @@ import org.asup.db.syntax.QBindingStatement;
  */
 public interface QExecuteStatement extends QBindingStatement {
 	/**
-	 * Returns the value of the '<em><b>Statement</b></em>' attribute.
+	 * Returns the value of the '<em><b>Statement Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Statement</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Statement Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Statement</em>' attribute.
-	 * @see #setStatement(String)
-	 * @see org.asup.db.syntax.dbl.QDblPackage#getExecuteStatement_Statement()
+	 * @return the value of the '<em>Statement Name</em>' attribute.
+	 * @see #setStatementName(String)
+	 * @see org.asup.db.syntax.dbl.QDblPackage#getExecuteStatement_StatementName()
 	 * @model
 	 * @generated
 	 */
-	String getStatement();
+	String getStatementName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QExecuteStatement#getStatement <em>Statement</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.db.syntax.dbl.QExecuteStatement#getStatementName <em>Statement Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Statement</em>' attribute.
-	 * @see #getStatement()
+	 * @param value the new value of the '<em>Statement Name</em>' attribute.
+	 * @see #getStatementName()
 	 * @generated
 	 */
-	void setStatement(String value);
+	void setStatementName(String value);
 
 } // QExecuteStatement

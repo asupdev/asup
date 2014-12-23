@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.db.syntax.dbl.impl.ExecuteStatementImpl#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.asup.db.syntax.dbl.impl.ExecuteStatementImpl#getStatementName <em>Statement Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,24 +33,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ExecuteStatementImpl extends BindingStatementImpl implements QExecuteStatement {
 	/**
-	 * The default value of the '{@link #getStatement() <em>Statement</em>}' attribute.
+	 * The default value of the '{@link #getStatementName() <em>Statement Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatement()
+	 * @see #getStatementName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String STATEMENT_EDEFAULT = null;
+	protected static final String STATEMENT_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getStatement() <em>Statement</em>}' attribute.
+	 * The cached value of the '{@link #getStatementName() <em>Statement Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatement()
+	 * @see #getStatementName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String statement = STATEMENT_EDEFAULT;
+	protected String statementName = STATEMENT_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +76,8 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getStatement() {
-		return statement;
+	public String getStatementName() {
+		return statementName;
 	}
 
 	/**
@@ -85,11 +85,11 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStatement(String newStatement) {
-		String oldStatement = statement;
-		statement = newStatement;
+	public void setStatementName(String newStatementName) {
+		String oldStatementName = statementName;
+		statementName = newStatementName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.EXECUTE_STATEMENT__STATEMENT, oldStatement, statement));
+			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.EXECUTE_STATEMENT__STATEMENT_NAME, oldStatementName, statementName));
 	}
 
 	/**
@@ -100,8 +100,8 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QDblPackage.EXECUTE_STATEMENT__STATEMENT:
-				return getStatement();
+			case QDblPackage.EXECUTE_STATEMENT__STATEMENT_NAME:
+				return getStatementName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -114,8 +114,8 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QDblPackage.EXECUTE_STATEMENT__STATEMENT:
-				setStatement((String)newValue);
+			case QDblPackage.EXECUTE_STATEMENT__STATEMENT_NAME:
+				setStatementName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,8 +129,8 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QDblPackage.EXECUTE_STATEMENT__STATEMENT:
-				setStatement(STATEMENT_EDEFAULT);
+			case QDblPackage.EXECUTE_STATEMENT__STATEMENT_NAME:
+				setStatementName(STATEMENT_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -144,8 +144,8 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QDblPackage.EXECUTE_STATEMENT__STATEMENT:
-				return STATEMENT_EDEFAULT == null ? statement != null : !STATEMENT_EDEFAULT.equals(statement);
+			case QDblPackage.EXECUTE_STATEMENT__STATEMENT_NAME:
+				return STATEMENT_NAME_EDEFAULT == null ? statementName != null : !STATEMENT_NAME_EDEFAULT.equals(statementName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -160,8 +160,8 @@ public class ExecuteStatementImpl extends BindingStatementImpl implements QExecu
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (statement: ");
-		result.append(statement);
+		result.append(" (statementName: ");
+		result.append(statementName);
 		result.append(')');
 		return result.toString();
 	}

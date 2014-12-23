@@ -15,14 +15,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Open Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Open Using Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.asup.db.syntax.dbl.QDblPackage#getOpenType()
+ * @see org.asup.db.syntax.dbl.QDblPackage#getOpenUsingType()
  * @model
  * @generated
  */
-public enum OpenType implements Enumerator {
+public enum OpenUsingType implements Enumerator {
 	/**
 	 * The '<em><b>NONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -31,7 +31,9 @@ public enum OpenType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NONE(10, "NONE", "NONE"), /**
+	NONE(10, "NONE", "NONE"),
+
+	/**
 	 * The '<em><b>DESCRIPTOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,7 +41,9 @@ public enum OpenType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DESCRIPTOR(20, "DESCRIPTOR", "DESCRIPTOR"), /**
+	DESCRIPTOR(20, "DESCRIPTOR", "DESCRIPTOR"),
+
+	/**
 	 * The '<em><b>VARIABLE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,35 +99,35 @@ public enum OpenType implements Enumerator {
 	public static final int VARIABLE_VALUE = 30;
 
 	/**
-	 * An array of all the '<em><b>Open Type</b></em>' enumerators.
+	 * An array of all the '<em><b>Open Using Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final OpenType[] VALUES_ARRAY =
-		new OpenType[] {
+	private static final OpenUsingType[] VALUES_ARRAY =
+		new OpenUsingType[] {
 			NONE,
 			DESCRIPTOR,
 			VARIABLE,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Open Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Open Using Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<OpenType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<OpenUsingType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Open Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Open Using Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static OpenType get(String literal) {
+	public static OpenUsingType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			OpenType result = VALUES_ARRAY[i];
+			OpenUsingType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -132,14 +136,14 @@ public enum OpenType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Open Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Open Using Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static OpenType getByName(String name) {
+	public static OpenUsingType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			OpenType result = VALUES_ARRAY[i];
+			OpenUsingType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -148,12 +152,12 @@ public enum OpenType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Open Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Open Using Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static OpenType get(int value) {
+	public static OpenUsingType get(int value) {
 		switch (value) {
 			case NONE_VALUE: return NONE;
 			case DESCRIPTOR_VALUE: return DESCRIPTOR;
@@ -189,7 +193,7 @@ public enum OpenType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private OpenType(int value, String name, String literal) {
+	private OpenUsingType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -233,4 +237,4 @@ public enum OpenType implements Enumerator {
 		return literal;
 	}
 	
-} //OpenType
+} //OpenUsingType
