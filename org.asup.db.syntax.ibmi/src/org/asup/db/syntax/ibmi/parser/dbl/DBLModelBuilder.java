@@ -616,7 +616,7 @@ public class DBLModelBuilder {
 		Tree statementToken = tree.getChild(0);
 		
 		if (statementToken != null && statementToken.getType() == DBLLexer.STATEMENT) {
-			executeStatement.setStatement(statementToken.getChild(0).getText());
+			executeStatement.setStatementName(statementToken.getChild(0).getText());
 		}
 
 		return executeStatement;

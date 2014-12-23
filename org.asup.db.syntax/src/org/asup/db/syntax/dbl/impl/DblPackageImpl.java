@@ -366,7 +366,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExecuteStatement_Statement() {
+	public EAttribute getExecuteStatement_StatementName() {
 		return (EAttribute)executeStatementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -702,7 +702,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		createEAttribute(executeImmediateStatementEClass, EXECUTE_IMMEDIATE_STATEMENT__QUERY);
 
 		executeStatementEClass = createEClass(EXECUTE_STATEMENT);
-		createEAttribute(executeStatementEClass, EXECUTE_STATEMENT__STATEMENT);
+		createEAttribute(executeStatementEClass, EXECUTE_STATEMENT__STATEMENT_NAME);
 
 		fetchStatementEClass = createEClass(FETCH_STATEMENT);
 		createEAttribute(fetchStatementEClass, FETCH_STATEMENT__CURSOR_NAME);
@@ -805,7 +805,7 @@ public class DblPackageImpl extends EPackageImpl implements QDblPackage {
 		initEAttribute(getExecuteImmediateStatement_Query(), theEcorePackage.getEString(), "query", null, 0, 1, QExecuteImmediateStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(executeStatementEClass, QExecuteStatement.class, "ExecuteStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExecuteStatement_Statement(), theEcorePackage.getEString(), "statement", null, 0, 1, QExecuteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExecuteStatement_StatementName(), theEcorePackage.getEString(), "statementName", null, 0, 1, QExecuteStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fetchStatementEClass, QFetchStatement.class, "FetchStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFetchStatement_CursorName(), theEcorePackage.getEString(), "cursorName", null, 1, 1, QFetchStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

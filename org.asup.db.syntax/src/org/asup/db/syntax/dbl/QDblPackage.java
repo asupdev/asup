@@ -212,13 +212,13 @@ public interface QDblPackage extends EPackage {
 	int EXECUTE_STATEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Statement</b></em>' attribute.
+	 * The feature id for the '<em><b>Statement Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXECUTE_STATEMENT__STATEMENT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
+	int EXECUTE_STATEMENT__STATEMENT_NAME = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Execute Statement</em>' class.
@@ -734,15 +734,15 @@ public interface QDblPackage extends EPackage {
 	EClass getExecuteStatement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QExecuteStatement#getStatement <em>Statement</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QExecuteStatement#getStatementName <em>Statement Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Statement</em>'.
-	 * @see org.asup.db.syntax.dbl.QExecuteStatement#getStatement()
+	 * @return the meta object for the attribute '<em>Statement Name</em>'.
+	 * @see org.asup.db.syntax.dbl.QExecuteStatement#getStatementName()
 	 * @see #getExecuteStatement()
 	 * @generated
 	 */
-	EAttribute getExecuteStatement_Statement();
+	EAttribute getExecuteStatement_StatementName();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QFetchStatement <em>Fetch Statement</em>}'.
@@ -1218,12 +1218,12 @@ public interface QDblPackage extends EPackage {
 		EClass EXECUTE_STATEMENT = eINSTANCE.getExecuteStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Statement</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Statement Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EXECUTE_STATEMENT__STATEMENT = eINSTANCE.getExecuteStatement_Statement();
+		EAttribute EXECUTE_STATEMENT__STATEMENT_NAME = eINSTANCE.getExecuteStatement_StatementName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.FetchStatementImpl <em>Fetch Statement</em>}' class.
