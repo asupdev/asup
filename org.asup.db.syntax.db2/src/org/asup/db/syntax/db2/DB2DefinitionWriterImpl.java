@@ -1,11 +1,13 @@
 package org.asup.db.syntax.db2;
 
-import org.asup.db.core.QTableColumnDef;
-import org.asup.db.core.QTableDef;
+import org.asup.db.core.*;
 import org.asup.db.syntax.base.BaseDefinitionWriterImpl;
 import org.eclipse.datatools.modelbase.sql.constraints.Index;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.schema.impl.SchemaImpl;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+import org.eclipse.datatools.modelbase.sql.tables.impl.TableImpl;
 
 public class DB2DefinitionWriterImpl extends BaseDefinitionWriterImpl {
 
@@ -69,9 +71,54 @@ public class DB2DefinitionWriterImpl extends BaseDefinitionWriterImpl {
 		return result.toString();
 	}
 
+	public String createIndex(Table table, String indexName, QIndexDef index) {
+		StringBuffer result = new StringBuffer("CREATE ");
+		if (index.isUnique())
+			result.append("UNIQUE ");
+		
+		
+		result.append("INDEX " + getQualifiedNameInSQLFormat(asTable(table.getSchema().getName(), indexName)));
+		result.append(" ON " + getQualifiedNameInSQLFormat(table) + " (");
+
+		boolean first = true;
+
+		for (QIndexColumnDef column : index.getColumns()) {
+
+			if (!first)
+				result.append(", ");
+
+			result.append(getNameInSQLFormat(column));
+
+			if (column.getOrdering() == OrderingType.DESCEND)
+				result.append(" DESC");
+
+			first = false;
+		}
+		result.append(")");
+		return result.toString();
+	}	
+	
+
+
+	private Table asTable(final String schemaName, final String indexName) {
+		return new TableImpl() {
+			public Schema getSchema() {
+				return new SchemaImpl() {
+					public String getName() {
+						return schemaName;
+					}
+				};
+			}
+			public String getName() {
+				return indexName;
+			}
+		};
+	}
+
+
 	@Override
 	public String dropIndex(Index index) {
-		return "DROP INDEX " + getNameInSQLFormat(index);
+		return "DROP INDEX " + getQualifiedNameInSQLFormat(asTable(index.getSchema().getName(), index.getName()));
 	}
 
 	@Override
