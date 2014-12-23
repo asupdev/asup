@@ -43,7 +43,7 @@ public class SetTransactionStatementImpl extends BindingStatementImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final IsolationLevel ISOLATION_LEVEL_EDEFAULT = IsolationLevel.SERIALIZABLE;
+	protected static final IsolationLevel ISOLATION_LEVEL_EDEFAULT = IsolationLevel.NONE;
 
 	/**
 	 * The cached value of the '{@link #getIsolationLevel() <em>Isolation Level</em>}' attribute.

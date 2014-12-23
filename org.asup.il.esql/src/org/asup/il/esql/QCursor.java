@@ -8,6 +8,7 @@
 package org.asup.il.esql;
 
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QString;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +36,22 @@ public interface QCursor extends QESqlObject {
 	 * @generated
 	 */
 	void open();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void openUsingDescriptor(QString descriptorName);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void openUsingVariable(QString variable);
 
 	/**
 	 * <!-- begin-user-doc -->

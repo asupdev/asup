@@ -7,7 +7,7 @@
  */
 package org.asup.db.syntax.dbl.impl;
 
-import org.asup.db.syntax.dbl.OpenType;
+import org.asup.db.syntax.dbl.OpenUsingType;
 import org.asup.db.syntax.dbl.QDblPackage;
 import org.asup.db.syntax.dbl.QOpenStatement;
 import org.asup.db.syntax.impl.BindingStatementImpl;
@@ -79,7 +79,7 @@ public class OpenStatementImpl extends BindingStatementImpl implements QOpenStat
 	 * @generated
 	 * @ordered
 	 */
-	protected static final OpenType USING_TYPE_EDEFAULT = OpenType.VARIABLE;
+	protected static final OpenUsingType USING_TYPE_EDEFAULT = OpenUsingType.NONE;
 
 	/**
 	 * The cached value of the '{@link #getUsingType() <em>Using Type</em>}' attribute.
@@ -89,7 +89,7 @@ public class OpenStatementImpl extends BindingStatementImpl implements QOpenStat
 	 * @generated
 	 * @ordered
 	 */
-	protected OpenType usingType = USING_TYPE_EDEFAULT;
+	protected OpenUsingType usingType = USING_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,7 +157,7 @@ public class OpenStatementImpl extends BindingStatementImpl implements QOpenStat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OpenType getUsingType() {
+	public OpenUsingType getUsingType() {
 		return usingType;
 	}
 
@@ -166,8 +166,8 @@ public class OpenStatementImpl extends BindingStatementImpl implements QOpenStat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUsingType(OpenType newUsingType) {
-		OpenType oldUsingType = usingType;
+	public void setUsingType(OpenUsingType newUsingType) {
+		OpenUsingType oldUsingType = usingType;
 		usingType = newUsingType == null ? USING_TYPE_EDEFAULT : newUsingType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.OPEN_STATEMENT__USING_TYPE, oldUsingType, usingType));
@@ -206,7 +206,7 @@ public class OpenStatementImpl extends BindingStatementImpl implements QOpenStat
 				setUsing((String)newValue);
 				return;
 			case QDblPackage.OPEN_STATEMENT__USING_TYPE:
-				setUsingType((OpenType)newValue);
+				setUsingType((OpenUsingType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -467,6 +467,12 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 
 		addEOperation(cursorEClass, null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(cursorEClass, null, "openUsingDescriptor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getString(), "descriptorName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(cursorEClass, null, "openUsingVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getString(), "variable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(cursorEClass, null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(cursorTermEClass, QCursorTerm.class, "CursorTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

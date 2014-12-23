@@ -24,6 +24,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum IsolationLevel implements Enumerator {
 	/**
+	 * The '<em><b>NONE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(10, "NONE", "NONE"), /**
 	 * The '<em><b>SERIALIZABLE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31,7 +39,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SERIALIZABLE(0, "SERIALIZABLE", "SERIALIZABLE"),
+	SERIALIZABLE(20, "SERIALIZABLE", "SERIALIZABLE"),
 
 	/**
 	 * The '<em><b>NO COMMIT</b></em>' literal object.
@@ -41,7 +49,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NO_COMMIT(1, "NO_COMMIT", "NO_COMMIT"),
+	NO_COMMIT(30, "NO_COMMIT", "NO_COMMIT"),
 
 	/**
 	 * The '<em><b>READ UNCOMMITTED</b></em>' literal object.
@@ -51,7 +59,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	READ_UNCOMMITTED(2, "READ_UNCOMMITTED", "READ_UNCOMMITTED"),
+	READ_UNCOMMITTED(40, "READ_UNCOMMITTED", "READ_UNCOMMITTED"),
 
 	/**
 	 * The '<em><b>READ COMMITTED</b></em>' literal object.
@@ -61,7 +69,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	READ_COMMITTED(3, "READ_COMMITTED", "READ_COMMITTED"),
+	READ_COMMITTED(50, "READ_COMMITTED", "READ_COMMITTED"),
 
 	/**
 	 * The '<em><b>REPEATABLE READ</b></em>' literal object.
@@ -71,7 +79,22 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REPEATABLE_READ(4, "REPEATABLE_READ", "REPEATABLE_READ");
+	REPEATABLE_READ(60, "REPEATABLE_READ", "REPEATABLE_READ");
+
+	/**
+	 * The '<em><b>NONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 10;
 
 	/**
 	 * The '<em><b>SERIALIZABLE</b></em>' literal value.
@@ -86,7 +109,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SERIALIZABLE_VALUE = 0;
+	public static final int SERIALIZABLE_VALUE = 20;
 
 	/**
 	 * The '<em><b>NO COMMIT</b></em>' literal value.
@@ -101,7 +124,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NO_COMMIT_VALUE = 1;
+	public static final int NO_COMMIT_VALUE = 30;
 
 	/**
 	 * The '<em><b>READ UNCOMMITTED</b></em>' literal value.
@@ -116,7 +139,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int READ_UNCOMMITTED_VALUE = 2;
+	public static final int READ_UNCOMMITTED_VALUE = 40;
 
 	/**
 	 * The '<em><b>READ COMMITTED</b></em>' literal value.
@@ -131,7 +154,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int READ_COMMITTED_VALUE = 3;
+	public static final int READ_COMMITTED_VALUE = 50;
 
 	/**
 	 * The '<em><b>REPEATABLE READ</b></em>' literal value.
@@ -146,7 +169,7 @@ public enum IsolationLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REPEATABLE_READ_VALUE = 4;
+	public static final int REPEATABLE_READ_VALUE = 60;
 
 	/**
 	 * An array of all the '<em><b>Isolation Level</b></em>' enumerators.
@@ -156,6 +179,7 @@ public enum IsolationLevel implements Enumerator {
 	 */
 	private static final IsolationLevel[] VALUES_ARRAY =
 		new IsolationLevel[] {
+			NONE,
 			SERIALIZABLE,
 			NO_COMMIT,
 			READ_UNCOMMITTED,
@@ -211,6 +235,7 @@ public enum IsolationLevel implements Enumerator {
 	 */
 	public static IsolationLevel get(int value) {
 		switch (value) {
+			case NONE_VALUE: return NONE;
 			case SERIALIZABLE_VALUE: return SERIALIZABLE;
 			case NO_COMMIT_VALUE: return NO_COMMIT;
 			case READ_UNCOMMITTED_VALUE: return READ_UNCOMMITTED;

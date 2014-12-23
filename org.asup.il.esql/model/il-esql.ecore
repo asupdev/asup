@@ -8,6 +8,12 @@
       <eParameters name="target" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//BufferedData"/>
     </eOperations>
     <eOperations name="open"/>
+    <eOperations name="openUsingDescriptor">
+      <eParameters name="descriptorName" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//String"/>
+    </eOperations>
+    <eOperations name="openUsingVariable">
+      <eParameters name="variable" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//String"/>
+    </eOperations>
     <eOperations name="close"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CursorTerm" eSuperTypes="#//ESqlTerm">

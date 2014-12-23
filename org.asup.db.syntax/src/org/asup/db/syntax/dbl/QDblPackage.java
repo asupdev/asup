@@ -575,14 +575,14 @@ public interface QDblPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link org.asup.db.syntax.dbl.OpenType <em>Open Type</em>}' enum.
+	 * The meta object id for the '{@link org.asup.db.syntax.dbl.OpenUsingType <em>Open Using Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.db.syntax.dbl.OpenType
-	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenType()
+	 * @see org.asup.db.syntax.dbl.OpenUsingType
+	 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenUsingType()
 	 * @generated
 	 */
-	int OPEN_TYPE = 15;
+	int OPEN_USING_TYPE = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.UsingType <em>Using Type</em>}' enum.
@@ -1064,14 +1064,14 @@ public interface QDblPackage extends EPackage {
 	EEnum getRWOperation();
 
 	/**
-	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.OpenType <em>Open Type</em>}'.
+	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.OpenUsingType <em>Open Using Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Open Type</em>'.
-	 * @see org.asup.db.syntax.dbl.OpenType
+	 * @return the meta object for enum '<em>Open Using Type</em>'.
+	 * @see org.asup.db.syntax.dbl.OpenUsingType
 	 * @generated
 	 */
-	EEnum getOpenType();
+	EEnum getOpenUsingType();
 
 	/**
 	 * Returns the meta object for enum '{@link org.asup.db.syntax.dbl.UsingType <em>Using Type</em>}'.
@@ -1488,14 +1488,14 @@ public interface QDblPackage extends EPackage {
 		EEnum RW_OPERATION = eINSTANCE.getRWOperation();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.OpenType <em>Open Type</em>}' enum.
+		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.OpenUsingType <em>Open Using Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.db.syntax.dbl.OpenType
-		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenType()
+		 * @see org.asup.db.syntax.dbl.OpenUsingType
+		 * @see org.asup.db.syntax.dbl.impl.DblPackageImpl#getOpenUsingType()
 		 * @generated
 		 */
-		EEnum OPEN_TYPE = eINSTANCE.getOpenType();
+		EEnum OPEN_USING_TYPE = eINSTANCE.getOpenUsingType();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.UsingType <em>Using Type</em>}' enum.
