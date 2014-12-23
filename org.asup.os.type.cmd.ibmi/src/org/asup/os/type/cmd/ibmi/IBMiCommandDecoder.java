@@ -228,7 +228,7 @@ public class IBMiCommandDecoder {
 		if (special != null) {
  
 			for (QSpecialElement specialElem : special.getElements()) {
-				if (specialElem.getName().equals(value)) {
+				if (specialElem.getValue().equals(value)) {
 					result = specialElem.getName();
 					break;
 				}
