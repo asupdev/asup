@@ -204,7 +204,9 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QBreak statement) {
 		
-		write(statement);
+		QBreak newBreak = QIntegratedLanguageFlowFactory.eINSTANCE.createBreak();
+
+		write(newBreak);
 
 		return false;
 	}
@@ -212,7 +214,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QCall statement) {
 		
-		write(statement);
+		QCall newCall = QIntegratedLanguageFlowFactory.eINSTANCE.createCall();		
+		newCall.setProgram(statement.getProgram());
+		
+		write(newCall);
 
 		return false;
 	}
@@ -220,7 +225,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QCommandExec statement) {
 		
-		write(statement);
+		QCommandExec newCommandRxec = QIntegratedLanguageFlowFactory.eINSTANCE.createCommandExec();		
+		newCommandRxec.setStatement(statement.getStatement());
+		
+		write(newCommandRxec);
 
 		return false;
 	}
@@ -228,7 +236,9 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QContinue statement) {
 		
-		write(statement);
+		QContinue newContinue = QIntegratedLanguageFlowFactory.eINSTANCE.createContinue();
+		
+		write(newContinue);
 
 		return false;
 	}
@@ -236,7 +246,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QEval statement) {
 		
-		write(statement);
+		QEval newEval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+		newEval.setAssignment(statement.getAssignment());
+		
+		write(newEval);
 
 		return false;
 	}
@@ -244,7 +257,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QProcedureExec statement) {
 		
-		write(statement);
+		QProcedureExec newProcedureExec = QIntegratedLanguageFlowFactory.eINSTANCE.createProcedureExec();
+		newProcedureExec.setProcedure(statement.getProcedure());
+		
+		write(newProcedureExec);
 
 		return false;
 	}
@@ -252,7 +268,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QJump statement) {
 		
-		write(statement);
+		QJump newJump = QIntegratedLanguageFlowFactory.eINSTANCE.createJump();
+		newJump.setLabel(statement.getLabel());
+		
+		write(newJump);
 
 		return false;
 	}
@@ -260,7 +279,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QLabel statement) {
 		
-		write(statement);
+		QLabel newLabel = QIntegratedLanguageFlowFactory.eINSTANCE.createLabel();
+		newLabel.setName(statement.getName());
+		
+		write(newLabel);
 
 		return false;
 	}
@@ -268,7 +290,11 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QMethodExec statement) {
 		
-		write(statement);
+		QMethodExec newMethodExec = QIntegratedLanguageFlowFactory.eINSTANCE.createMethodExec();
+		newMethodExec.setMethod(statement.getMethod());
+		newMethodExec.setObject(statement.getObject());
+		
+		write(newMethodExec);
 
 		return false;
 	}
@@ -276,7 +302,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QReturn statement) {
 		
-		write(statement);
+		QReturn newReturn = QIntegratedLanguageFlowFactory.eINSTANCE.createReturn();
+		newReturn.setValue(statement.getValue());
+		
+		write(newReturn);
 
 		return false;
 	}
@@ -295,7 +324,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QSQLExec statement) {
 		
-		write(statement);
+		QSQLExec newSQLExec = QIntegratedLanguageFlowFactory.eINSTANCE.createSQLExec();
+		newSQLExec.setStatement(statement.getStatement());
+		
+		write(newSQLExec);
 
 		return false;
 	}
