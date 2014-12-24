@@ -289,7 +289,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	
 	/* Utility methods*/
 	
-	private QStatement cloneStatement(QStatement statement) {
+	protected QStatement cloneStatement(QStatement statement) {
 
 		if (statement instanceof QBreak) {
 			
