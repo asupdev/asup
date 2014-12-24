@@ -37,10 +37,12 @@ import org.asup.il.flow.impl.StatementVisitorImpl;
 
 public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	
-	private QBlock target;
+	private QBlock origin;
+	private QBlock target;	
 	
-	public RPJStatementRewriter(QBlock target) {
-		this.target = target;
+	public RPJStatementRewriter(QBlock origin) {
+		this.origin = origin;
+		this.target = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();		
 	}	
 
 	protected abstract RPJStatementRewriter copy(QBlock block);
@@ -56,14 +58,17 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QBlock statement) {
 		
-		QBlock newBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-		
-		RPJStatementRewriter newRewriter = copy(newBlock);
-		statement.accept(newRewriter);
-		
-		write(newBlock);
-		
-		return false;
+		if (statement !=  origin) {
+			
+			RPJStatementRewriter newRewriter = copy(statement);			
+			statement.accept(newRewriter);
+			QBlock newBlock = newRewriter.getTarget();
+			write(newBlock);
+			return false;
+		} else {
+			//statement.accept(this);
+			return true;
+		}		
 	}
 	
 	@Override
@@ -74,11 +79,14 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		newFor.setCondition(statement.getCondition());
 		newFor.setIncrement(statement.getIncrement());
 		
-		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-		newFor.setBody(newBody);
+		if (statement.getBody() instanceof QBlock) {
 		
-		RPJStatementRewriter newRewriter = copy(newBody);
-		statement.accept(newRewriter);
+			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
+			statement.accept(newRewriter);
+			newFor.setBody(newRewriter.getTarget());
+		} else {
+			newFor.setBody(statement.getBody());
+		}
 		
 		write(newFor);
 		
@@ -91,11 +99,14 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		QUntil newUntil = QIntegratedLanguageFlowFactory.eINSTANCE.createUntil();
 		newUntil.setCondition(statement.getCondition());
 		
-		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-		newUntil.setBody(newBody);
-		
-		RPJStatementRewriter newRewriter = copy(newBody);
-		statement.accept(newRewriter);
+		if (statement.getBody() instanceof QBlock) {
+			
+			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
+			statement.accept(newRewriter);
+			newUntil.setBody(newRewriter.getTarget());
+		} else {
+			newUntil.setBody(statement.getBody());
+		}
 		
 		write(newUntil);
 		
@@ -108,11 +119,14 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		QWhile newWhile = QIntegratedLanguageFlowFactory.eINSTANCE.createWhile();
 		newWhile.setCondition(statement.getCondition());
 		
-		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-		newWhile.setBody(newBody);
-		
-		RPJStatementRewriter newRewriter = copy(newBody);
-		statement.accept(newRewriter);
+		if (statement.getBody() instanceof QBlock) {
+			
+			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
+			statement.accept(newRewriter);
+			newWhile.setBody(newRewriter.getTarget());
+		} else {
+			newWhile.setBody(statement.getBody());
+		}
 		
 		write(newWhile);
 		
@@ -125,18 +139,25 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		QIf newIf = QIntegratedLanguageFlowFactory.eINSTANCE.createIf();
 		newIf.setCondition(statement.getCondition());
 		
-		QBlock thenBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-		newIf.setThen(thenBlock);
-		
-		RPJStatementRewriter newRewriter = copy(thenBlock);
-		statement.getThen().accept(newRewriter);
+		if (statement.getThen() instanceof QBlock) {
+			
+			RPJStatementRewriter newRewriter = copy((QBlock)statement.getThen());
+			statement.accept(newRewriter);
+			newIf.setThen(newRewriter.getTarget());
+		} else {
+			newIf.setThen(statement.getThen());
+		}
 				
 		if(statement.getElse() != null) {
-			QBlock elseBlock = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-			newIf.setElse(elseBlock);
 			
-			newRewriter = copy(elseBlock);
-			statement.getElse().accept(newRewriter);
+			if (statement.getElse() instanceof QBlock) {
+				
+				RPJStatementRewriter newRewriter = copy((QBlock)statement.getElse());
+				statement.accept(newRewriter);
+				newIf.setElse(newRewriter.getTarget());
+			} else {
+				newIf.setElse(statement.getElse());
+			}
 		}
 		
 		write(newIf);
@@ -149,23 +170,28 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		
 		QMonitor newMonitor = QIntegratedLanguageFlowFactory.eINSTANCE.createMonitor();
 
-		QBlock newBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-		newMonitor.setBody(newBody);
-		
-		RPJStatementRewriter newRewriter = copy(newBody);
-		statement.accept(newRewriter);
+		if (statement.getBody() instanceof QBlock) {
+			
+			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
+			statement.accept(newRewriter);
+			newMonitor.setBody(newRewriter.getTarget());
+		} else {
+			newMonitor.setBody(statement.getBody());
+		}
 		
 		for(QOnError onError: statement.getOnErrors()) {
 
 			QOnError newOnError = QIntegratedLanguageFlowFactory.eINSTANCE.createOnError();
 			newOnError.setError(onError.getError());
 			
-			QBlock newErrorBody = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
-			newOnError.setBody(newErrorBody);
-			
-			newRewriter = copy(newErrorBody);
-			onError.getBody().accept(newRewriter);			
-			
+			if (onError.getBody() instanceof QBlock) {
+				
+				RPJStatementRewriter newRewriter = copy((QBlock)onError.getBody());
+				onError.getBody().accept(newRewriter);
+				newOnError.setBody(newRewriter.getTarget());
+			} else {
+				newOnError.setBody(statement.getBody());
+			}
 		}
 				
 		write(newMonitor);
@@ -258,7 +284,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QRoutineExec statement) {
 		
-		write(statement);
+		QRoutineExec newRoutineExec = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutineExec();
+		newRoutineExec.setRoutine(statement.getRoutine());
+		
+		write(newRoutineExec);
 
 		return false;
 	}
