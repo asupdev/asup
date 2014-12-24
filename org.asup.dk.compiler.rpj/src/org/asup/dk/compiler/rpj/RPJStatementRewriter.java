@@ -82,10 +82,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		if (statement.getBody() instanceof QBlock) {
 		
 			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
-			statement.accept(newRewriter);
+			statement.getBody().accept(newRewriter);
 			newFor.setBody(newRewriter.getTarget());
 		} else {
-			newFor.setBody(statement.getBody());
+			newFor.setBody(cloneStatement(statement.getBody()));
 		}
 		
 		write(newFor);
@@ -102,10 +102,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		if (statement.getBody() instanceof QBlock) {
 			
 			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
-			statement.accept(newRewriter);
+			statement.getBody().accept(newRewriter);
 			newUntil.setBody(newRewriter.getTarget());
 		} else {
-			newUntil.setBody(statement.getBody());
+			newUntil.setBody(cloneStatement(statement.getBody()));
 		}
 		
 		write(newUntil);
@@ -122,10 +122,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		if (statement.getBody() instanceof QBlock) {
 			
 			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
-			statement.accept(newRewriter);
+			statement.getBody().accept(newRewriter);
 			newWhile.setBody(newRewriter.getTarget());
 		} else {
-			newWhile.setBody(statement.getBody());
+			newWhile.setBody(cloneStatement(statement.getBody()));
 		}
 		
 		write(newWhile);
@@ -142,10 +142,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		if (statement.getThen() instanceof QBlock) {
 			
 			RPJStatementRewriter newRewriter = copy((QBlock)statement.getThen());
-			statement.accept(newRewriter);
+			statement.getThen().accept(newRewriter);
 			newIf.setThen(newRewriter.getTarget());
 		} else {
-			newIf.setThen(statement.getThen());
+			newIf.setThen(cloneStatement(statement.getThen()));
 		}
 				
 		if(statement.getElse() != null) {
@@ -153,10 +153,10 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 			if (statement.getElse() instanceof QBlock) {
 				
 				RPJStatementRewriter newRewriter = copy((QBlock)statement.getElse());
-				statement.accept(newRewriter);
+				statement.getElse().accept(newRewriter);
 				newIf.setElse(newRewriter.getTarget());
 			} else {
-				newIf.setElse(statement.getElse());
+				newIf.setElse(cloneStatement(statement.getElse()));
 			}
 		}
 		
@@ -169,29 +169,20 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	public boolean visit(QMonitor statement) {
 		
 		QMonitor newMonitor = QIntegratedLanguageFlowFactory.eINSTANCE.createMonitor();
-
-		if (statement.getBody() instanceof QBlock) {
 			
-			RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
-			statement.accept(newRewriter);
-			newMonitor.setBody(newRewriter.getTarget());
-		} else {
-			newMonitor.setBody(statement.getBody());
-		}
+		RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
+		statement.getBody().accept(newRewriter);
+		newMonitor.setBody(newRewriter.getTarget());		
 		
 		for(QOnError onError: statement.getOnErrors()) {
 
 			QOnError newOnError = QIntegratedLanguageFlowFactory.eINSTANCE.createOnError();
 			newOnError.setError(onError.getError());
+	
+			newRewriter = copy((QBlock)onError.getBody());
+			onError.getBody().accept(newRewriter);
+			newOnError.setBody(newRewriter.getTarget());
 			
-			if (onError.getBody() instanceof QBlock) {
-				
-				RPJStatementRewriter newRewriter = copy((QBlock)onError.getBody());
-				onError.getBody().accept(newRewriter);
-				newOnError.setBody(newRewriter.getTarget());
-			} else {
-				newOnError.setBody(statement.getBody());
-			}
 		}
 				
 		write(newMonitor);
@@ -204,20 +195,15 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QBreak statement) {
 		
-		QBreak newBreak = QIntegratedLanguageFlowFactory.eINSTANCE.createBreak();
-
-		write(newBreak);
-
+		write(cloneStatement(statement));
+		
 		return false;
 	}
 
 	@Override
 	public boolean visit(QCall statement) {
 		
-		QCall newCall = QIntegratedLanguageFlowFactory.eINSTANCE.createCall();		
-		newCall.setProgram(statement.getProgram());
-		
-		write(newCall);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -225,20 +211,14 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QCommandExec statement) {
 		
-		QCommandExec newCommandRxec = QIntegratedLanguageFlowFactory.eINSTANCE.createCommandExec();		
-		newCommandRxec.setStatement(statement.getStatement());
-		
-		write(newCommandRxec);
-
+		write(cloneStatement(statement));
 		return false;
 	}
 
 	@Override
 	public boolean visit(QContinue statement) {
 		
-		QContinue newContinue = QIntegratedLanguageFlowFactory.eINSTANCE.createContinue();
-		
-		write(newContinue);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -246,10 +226,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QEval statement) {
 		
-		QEval newEval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
-		newEval.setAssignment(statement.getAssignment());
-		
-		write(newEval);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -257,10 +234,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QProcedureExec statement) {
 		
-		QProcedureExec newProcedureExec = QIntegratedLanguageFlowFactory.eINSTANCE.createProcedureExec();
-		newProcedureExec.setProcedure(statement.getProcedure());
-		
-		write(newProcedureExec);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -268,10 +242,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QJump statement) {
 		
-		QJump newJump = QIntegratedLanguageFlowFactory.eINSTANCE.createJump();
-		newJump.setLabel(statement.getLabel());
-		
-		write(newJump);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -279,10 +250,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QLabel statement) {
 		
-		QLabel newLabel = QIntegratedLanguageFlowFactory.eINSTANCE.createLabel();
-		newLabel.setName(statement.getName());
-		
-		write(newLabel);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -290,22 +258,15 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QMethodExec statement) {
 		
-		QMethodExec newMethodExec = QIntegratedLanguageFlowFactory.eINSTANCE.createMethodExec();
-		newMethodExec.setMethod(statement.getMethod());
-		newMethodExec.setObject(statement.getObject());
+		write(cloneStatement(statement));
 		
-		write(newMethodExec);
-
 		return false;
 	}
 
 	@Override
 	public boolean visit(QReturn statement) {
 		
-		QReturn newReturn = QIntegratedLanguageFlowFactory.eINSTANCE.createReturn();
-		newReturn.setValue(statement.getValue());
-		
-		write(newReturn);
+		write(cloneStatement(statement));
 
 		return false;
 	}
@@ -313,23 +274,87 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QRoutineExec statement) {
 		
-		QRoutineExec newRoutineExec = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutineExec();
-		newRoutineExec.setRoutine(statement.getRoutine());
+		write(cloneStatement(statement));
 		
-		write(newRoutineExec);
-
 		return false;
 	}
 
 	@Override
 	public boolean visit(QSQLExec statement) {
 		
-		QSQLExec newSQLExec = QIntegratedLanguageFlowFactory.eINSTANCE.createSQLExec();
-		newSQLExec.setStatement(statement.getStatement());
-		
-		write(newSQLExec);
+		write(cloneStatement(statement));
 
 		return false;
 	}
+	
+	/* Utility methods*/
+	
+	private QStatement cloneStatement(QStatement statement) {
+
+		if (statement instanceof QBreak) {
+			
+			return QIntegratedLanguageFlowFactory.eINSTANCE.createBreak();
+
+		} else if (statement instanceof QCall) {
+			
+			QCall newCall = (QCall)QIntegratedLanguageFlowFactory.eINSTANCE.createCall();		
+			newCall.setProgram(((QCall)statement).getProgram());			
+			return newCall;
+		} else if (statement instanceof QCommandExec) {
+			
+			QCommandExec newCommandExec = QIntegratedLanguageFlowFactory.eINSTANCE.createCommandExec();		
+			newCommandExec.setStatement(((QCommandExec)statement).getStatement());
+			return newCommandExec;
+		} else if (statement instanceof QContinue) {
+			
+			QContinue newContinue = QIntegratedLanguageFlowFactory.eINSTANCE.createContinue();
+			return newContinue;
+		} else if (statement instanceof QEval) {
+			
+			QEval newEval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+			newEval.setAssignment(((QEval)statement).getAssignment());
+			return newEval;
+		} else if (statement instanceof QProcedureExec) {
+			
+			QProcedureExec newProcedureExec = QIntegratedLanguageFlowFactory.eINSTANCE.createProcedureExec();
+			newProcedureExec.setProcedure(((QProcedureExec)statement).getProcedure());
+			return newProcedureExec;
+		} else if (statement instanceof QJump) {
+			
+			QJump newJump = QIntegratedLanguageFlowFactory.eINSTANCE.createJump();
+			newJump.setLabel(((QJump)statement).getLabel());
+			return newJump;
+		} else if (statement instanceof QLabel) {
+			
+			QLabel newLabel = QIntegratedLanguageFlowFactory.eINSTANCE.createLabel();
+			newLabel.setName(((QLabel)statement).getName());
+			return newLabel;
+		} else if (statement instanceof QMethodExec) {
+			
+			QMethodExec newMethodExec = QIntegratedLanguageFlowFactory.eINSTANCE.createMethodExec();
+			newMethodExec.setMethod(((QMethodExec)statement).getMethod());
+			newMethodExec.setObject(((QMethodExec)statement).getObject());
+			return newMethodExec;
+		} else if (statement instanceof QReturn) {
+			
+			QReturn newReturn = QIntegratedLanguageFlowFactory.eINSTANCE.createReturn();
+			newReturn.setValue(((QReturn)statement).getValue());
+			return newReturn;
+		} else if (statement instanceof QRoutineExec) {
+			
+			QRoutineExec newRoutineExec = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutineExec();
+			newRoutineExec.setRoutine(((QRoutineExec)statement).getRoutine());
+			return newRoutineExec;
+		} else if (statement instanceof QSQLExec) {
+			
+			QSQLExec newSQLExec = QIntegratedLanguageFlowFactory.eINSTANCE.createSQLExec();
+			newSQLExec.setStatement(((QSQLExec)statement).getStatement());
+			return newSQLExec;
+		}
+		return null;
+	}
+		
+		
+	
 
 }
