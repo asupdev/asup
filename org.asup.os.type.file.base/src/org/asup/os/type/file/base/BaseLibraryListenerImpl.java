@@ -26,6 +26,7 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
+import org.asup.os.core.resources.ResourceEventType;
 import org.asup.os.type.lib.QLibrary;
 import org.eclipse.datatools.modelbase.sql.schema.Schema;
 
@@ -44,6 +45,9 @@ public class BaseLibraryListenerImpl extends ServiceImpl implements QResourceLis
 	@Override
 	public void handleEvent(QResourceEvent<QLibrary> event) {
 
+		if(event.getType() != ResourceEventType.PRE_SAVE && event.getType() != ResourceEventType.PRE_DELETE)
+			return;
+		
 		QLibrary library = event.getSource();
 		QJob job = event.getResource().getJob();
 

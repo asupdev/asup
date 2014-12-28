@@ -54,14 +54,14 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	}
 
 	@Override
-	public int length() {
+	public int getLength() {
 		return trimR().length();
 	}
 
 	@Override
-	public int size() {
+	public int getSize() {
 		// TODO Auto-generated method stub
-		return super.size();
+		return super.getSize();
 	}
 
 	@Override

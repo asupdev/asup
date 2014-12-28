@@ -66,8 +66,8 @@ public class NIODataStructImpl extends NIOAbstractDataStruct {
 		this._elements.put(name, element);
 
 		if (_dynamicLength) {
-			if(position+element.size() >= _length)
-				_length = position+element.size();
+			if(position+element.getSize() >= _length)
+				_length = position+element.getSize();
 			else
 				System.err.println("Unexpected condition: mzt47gafdg7n0tcw");
 		}

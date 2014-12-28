@@ -130,7 +130,7 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
-				pkTableComColumnDef.setName(TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
+				pkTableComColumnDef.setName(TABLE_COLUMN_RELATIVE_RECORD_NUMBER_NAME);
 
 				tableDef.getColumns().add(pkTableComColumnDef);
 			}
@@ -192,11 +192,11 @@ public class BaseDatabaseManagerImpl extends DatabaseManagerImpl {
 				
 				QTableColumnDef pkTableComColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 				pkTableComColumnDef.setDataType(DatabaseDataType.IDENTITY);
-				pkTableComColumnDef.setName(TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME);
+				pkTableComColumnDef.setName(TABLE_COLUMN_RELATIVE_RECORD_NUMBER_NAME);
 				
 				viewDef.getColumns().add(pkTableComColumnDef);
 
-				String fieldName = QDatabaseManager.TABLE_COLUMN_RECORD_RELATIVE_NUMBER_NAME;
+				String fieldName = QDatabaseManager.TABLE_COLUMN_RELATIVE_RECORD_NUMBER_NAME;
 				
 				// column list
 				querySelect.getColumnList().add(StatementHelper.createColumnExpression(fieldName));

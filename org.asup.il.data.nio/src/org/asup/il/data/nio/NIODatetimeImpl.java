@@ -62,7 +62,7 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 	}*/
 
 	@Override
-	public int length() {
+	public int getLength() {
 		
 		int length = 0;
 		
@@ -109,8 +109,8 @@ public class NIODatetimeImpl extends NIOBufferedDataImpl implements QDatetime {
 	}
 
 	@Override
-	public int size() {
-		return length();
+	public int getSize() {
+		return getLength();
 	}
 
 	@Override

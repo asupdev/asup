@@ -77,7 +77,7 @@ public class ResourceSetReaderImpl<T extends QObjectNameable> extends ResourceRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public T lookup(String library, String name) {
+	public T lookup(String container, String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -88,7 +88,7 @@ public class ResourceSetReaderImpl<T extends QObjectNameable> extends ResourceRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean exists(String library, String name) {
+	public boolean exists(String container, String name) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -99,7 +99,7 @@ public class ResourceSetReaderImpl<T extends QObjectNameable> extends ResourceRe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QObjectIterator<T> find(String library, String nameFilter) {
+	public QObjectIterator<T> find(String container, String nameFilter) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

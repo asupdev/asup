@@ -1,0 +1,179 @@
+package org.asup.il.isam.jdbc;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.asup.il.data.QString;
+import org.asup.il.isam.OperationDirection;
+import org.asup.il.isam.OperationRead;
+import org.asup.il.isam.OperationSet;
+import org.asup.il.isam.QIndex;
+import org.asup.il.isam.QIndexColumn;
+import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.tables.Table;
+
+public class JDBCAccessHelper {
+
+	private SQLObjectNameHelper sqlObjectNameHelper = new SQLObjectNameHelper();
+
+	protected SQLObjectNameHelper getSQLObjectNameHelper() {
+		return this.sqlObjectNameHelper;
+	}
+
+	public String buildSelect(Table table, QIndex index, OperationSet opSet, Object[] keySet, OperationRead opRead, Object[] keyRead) {
+
+		StringBuffer querySelect = new StringBuffer();
+
+		querySelect.append("SELECT " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) + ".*, digits(QASRRN)");
+
+		querySelect.append(" FROM " + getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table));
+
+		if (keySet != null || keyRead != null)
+			querySelect.append(" WHERE " + buildWhere(opSet, keySet, opRead, keyRead, index));
+
+		OperationDirection opDir = (opRead == OperationRead.READ_PRIOR || opRead == OperationRead.READ_PRIOR_EQUAL) ? OperationDirection.BACKWARD : OperationDirection.FORWARD;
+		String orderBy = buildOrderBy(opDir, index);
+		if (orderBy != null && !orderBy.isEmpty())
+			querySelect.append(" ORDER BY " + buildOrderBy(opDir, index));
+
+		return querySelect.toString();
+	}
+
+	public String buildWhere(OperationSet opSet, Object[] keySet, OperationRead opRead, Object[] keyRead, QIndex index) {
+
+		StringBuffer sbWhere = new StringBuffer();
+
+		if (keySet == null || keySet.length <= 0)
+			return sbWhere.toString();
+
+		if (opSet.equals(OperationSet.SET_LOWER_LIMIT) || opSet.equals(OperationSet.SET_GREATER_THAN) || (opSet.equals(OperationSet.CHAIN) && !opRead.equals(OperationRead.CHAIN))) {
+			buildWhereSet(opSet, keySet, opRead, keyRead, sbWhere, index);
+		}
+
+		if (opRead.equals(OperationRead.CHAIN)) {
+			buildWhereChain(opSet, keySet, opRead, keyRead, sbWhere, index);
+		}
+
+		if (opRead.equals(OperationRead.READ) || opRead.equals(OperationRead.READ_EQUAL) || opRead.equals(OperationRead.READ_PRIOR) || opRead.equals(OperationRead.READ_EQUAL)) {
+			buildWhereRead(opSet, keySet, opRead, keyRead, sbWhere, index);
+		}
+
+		return sbWhere.toString();
+	}
+
+	public String buildOrderBy(OperationDirection dir, QIndex index) {
+
+		StringBuffer sbOrderBy = new StringBuffer();
+
+		for (QIndexColumn indexColumn : index.getColumns()) {
+			if (sbOrderBy.length() != 0)
+				sbOrderBy.append(", ");
+
+			sbOrderBy.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString());
+			if (dir == OperationDirection.BACKWARD) {
+				if(indexColumn.getDirection() != OperationDirection.BACKWARD)
+					sbOrderBy.append(" DESC");
+			}
+			else {
+				if(indexColumn.getDirection() == OperationDirection.BACKWARD)
+					sbOrderBy.append(" DESC");
+			}
+		}
+		return sbOrderBy.toString();
+	}
+
+	private void buildWhereSet(OperationSet opSet, Object[] keySet, OperationRead opRead, Object[] keyRead, StringBuffer sbWhere, QIndex index) {
+
+		StringBuffer sbFields = new StringBuffer();
+		StringBuffer sbValues = new StringBuffer();
+
+		if (keySet.length > 1)
+			sbFields.append("(");
+
+		for (int i = 0; i < keySet.length; i++) {
+
+			QIndexColumn indexColumn = index.getColumns().get(i);
+			
+			// append field
+			if (indexColumn.isNumeric()) {
+				sbFields.append("digits(" + getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString() + ")");
+
+				// append value
+				byte[] bytes = new byte[indexColumn.getLength() - keySet[i].toString().length()];
+				Arrays.fill(bytes, (byte) 48);
+				sbValues.append(new String(bytes) + keySet[i].toString());
+			} else {
+				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString());
+
+				// append value
+				byte[] bytes = new byte[indexColumn.getLength() - keySet[i].toString().length()];
+				Arrays.fill(bytes, (byte) 32);
+				sbValues.append(keySet[i].toString() + new String(bytes));
+			}
+
+			if (i + 1 < keySet.length)
+				sbFields.append(" concat ");
+		}
+		if (keySet.length > 1)
+			sbFields.append(")");
+
+		if (sbWhere.length() > 0)
+			sbWhere.append(" and ");
+
+		// pointer lower
+		if (opSet.equals(OperationSet.SET_LOWER_LIMIT) || opSet.equals(OperationSet.CHAIN)) {
+
+			// reader backward
+			if (opRead.equals(OperationRead.READ_PRIOR) || opRead.equals(OperationRead.READ_PRIOR_EQUAL))
+				sbWhere.append(sbFields).append("<'").append(sbValues).append("'");
+
+			// reader forward
+			else
+				sbWhere.append(sbFields).append(">='").append(sbValues).append("'");
+		}
+
+		// pointer greater
+		if (opSet.equals(OperationSet.SET_GREATER_THAN)) {
+			// reader backward
+			if (opRead.equals(OperationRead.READ_PRIOR) || opRead.equals(OperationRead.READ_PRIOR_EQUAL))
+				sbWhere.append(sbFields).append("<='").append(sbValues).append("'");
+
+			// reader forward
+			else
+				sbWhere.append(sbFields).append(">'").append(sbValues).append("'");
+		}
+	}
+
+	private void buildWhereChain(OperationSet opSet, Object[] keySet, OperationRead opRead, Object[] keyRead, StringBuffer sbWhere, QIndex index) {
+		buildWhereRead(opSet, keySet, opRead, keyRead, sbWhere, index);
+	}
+
+	private void buildWhereRead(OperationSet opSet, Object[] keySet, OperationRead opRead, Object[] keyRead, StringBuffer sbWhere, QIndex index) {
+
+		if (keyRead == null)
+			return;
+
+		List<QIndexColumn> indexColumns = index.getColumns();
+
+		for (int i = 0; i < keyRead.length; i++) {
+
+			QIndexColumn indexColumn = indexColumns.get(i);
+
+			String value = null;
+			// append value
+			if (keyRead[i] instanceof QString) {
+				value = ((QString) keyRead[i]).toString();
+			} else
+				value = keyRead[i].toString();
+
+			if (sbWhere.length() > 0)
+				sbWhere.append(" and ");
+
+			// append field
+			if (indexColumn.isNumeric())
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);
+			else
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'" + value + "'");
+		}
+	}
+}

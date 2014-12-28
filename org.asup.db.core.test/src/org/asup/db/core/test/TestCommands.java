@@ -77,19 +77,24 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	}
 
 	private void printTestResult(QTestResult testResult) {
+		
+		System.out.println();
 		System.out.println(testResult);
-		StringBuffer resultString = new StringBuffer();
+
 		int failedNr = 0;
-		int successNr = 0;		
+		int successNr = 0;
+		
 		for (QAssertionResult assertionResult : testResult.getAssertResults()) {
 			if (AssertionState.SUCCESS.equals(assertionResult.getAssertionState())) {
 				successNr++;
 			} else {
 				failedNr++;
 			}
-			resultString.append("\t" + assertionResult + "\n");
+			System.out.println("\t" + assertionResult);
 		}
-		System.out.println(resultString + "\nSuccess: " + successNr + " failed: " + failedNr);
+		System.out.println("Success: " + successNr);
+		if(failedNr >0)
+			System.err.println("Failed: " + failedNr);
 	}
 
 	@Test(category = "DBSYNTAX", object = "TRANSLATE")

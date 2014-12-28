@@ -7,7 +7,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QCharacterDef;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDecimalDef;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.QHexadecimal;
@@ -221,7 +221,7 @@ public class MessageDescriptionChanger {
 		}
 	}
 
-	public static class MessageFile extends QDataStructDelegator {
+	public static class MessageFile extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -247,7 +247,7 @@ public class MessageDescriptionChanger {
 		SAME, OTHER
 	}
 
-	public static class MessageDataFieldsFormat extends QDataStructDelegator {
+	public static class MessageDataFieldsFormat extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
 		public QEnum<DataTypeEnum, QHexadecimal> dataType;
@@ -296,7 +296,7 @@ public class MessageDescriptionChanger {
 		NAME
 	}
 
-	public static class MaximumReplyLength extends QDataStructDelegator {
+	public static class MaximumReplyLength extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(binaryType = BinaryType.SHORT)
 		public QBinary length;
@@ -315,7 +315,7 @@ public class MessageDescriptionChanger {
 		SAME, NONE, OTHER
 	}
 
-	public static class SpecialReplyValue extends QDataStructDelegator {
+	public static class SpecialReplyValue extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 32)
 		public QCharacter originalFromValue;
@@ -327,7 +327,7 @@ public class MessageDescriptionChanger {
 		SAME, NONE, OTHER
 	}
 
-	public static class RangeOfReplyValues extends QDataStructDelegator {
+	public static class RangeOfReplyValues extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 32)
 		public QCharacter lowerValue;
@@ -340,7 +340,7 @@ public class MessageDescriptionChanger {
 	}
 
 	public static class RelationshipForValidReplies extends
-			QDataStructDelegator {
+			QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
 		public QEnum<RelationalOperatorEnum, QHexadecimal> relationalOperator;
@@ -370,7 +370,7 @@ public class MessageDescriptionChanger {
 		SAME, NONE, OTHER
 	}
 
-	public static class DefaultProgramToCall extends QDataStructDelegator {
+	public static class DefaultProgramToCall extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter name;
@@ -395,7 +395,7 @@ public class MessageDescriptionChanger {
 		JOBDMP, OTHER
 	}
 
-	public static class AlertOptions extends QDataStructDelegator {
+	public static class AlertOptions extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
 		public QEnum<AlertTypeEnum, QCharacter> alertType;

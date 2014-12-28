@@ -47,12 +47,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	}
 
 	@Override
-	public int length() {
+	public int getLength() {
 		return _length;
 	}
 
 	@Override
-	public int size() {
+	public int getSize() {
 		return _length;
 	}
 

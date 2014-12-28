@@ -14,13 +14,6 @@ import java.util.List;
  * A representation of the model object '<em><b>Index</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.asup.il.isam.QIndex#getColumns <em>Columns</em>}</li>
- *   <li>{@link org.asup.il.isam.QIndex#getName <em>Name</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndex()
  * @model interface="true" abstract="true"
@@ -28,45 +21,15 @@ import java.util.List;
  */
 public interface QIndex {
 	/**
-	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link org.asup.il.isam.QIndexColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Columns</em>' containment reference list.
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndex_Columns()
-	 * @model containment="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
 	List<QIndexColumn> getColumns();
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndex_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QIndex#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 } // QIndex

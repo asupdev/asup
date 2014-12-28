@@ -19,4 +19,12 @@ package org.asup.il.esql;
  * @generated
  */
 public interface QStatement extends QESqlObject {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void execute();
 } // QStatement

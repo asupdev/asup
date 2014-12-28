@@ -99,7 +99,7 @@ public class DB2DefinitionWriterImpl extends BaseDefinitionWriterImpl {
 	}	
 	
 
-
+	// TODO ?!?
 	private Table asTable(final String schemaName, final String indexName) {
 		return new TableImpl() {
 			public Schema getSchema() {

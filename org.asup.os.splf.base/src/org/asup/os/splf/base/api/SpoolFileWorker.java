@@ -9,7 +9,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
@@ -65,7 +65,7 @@ public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 		objectWriter.flush();
 	}
 
-	public static class SCELTAFILEPER extends QDataStructDelegator {
+	public static class SCELTAFILEPER extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10, value = "*CURRENT")
 		public QEnum<UTENTEEnum, QCharacter> utente;
@@ -107,7 +107,7 @@ public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 		}
 	}
 
-	public static class NOMELAVORO extends QDataStructDelegator {
+	public static class NOMELAVORO extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QCharacter nomeGenerico;
@@ -129,12 +129,12 @@ public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 		ALL, OTHER
 	}
 
-	public static class PERIODODITEMPO extends QDataStructDelegator {
+	public static class PERIODODITEMPO extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		public PERIODODITEMPO.ORAEDATAINIZIALI oraEDataIniziali;
 		public PERIODODITEMPO.ORAEDATAFINALI oraEDataFinali;
 
-		public static class ORAEDATAINIZIALI extends QDataStructDelegator {
+		public static class ORAEDATAINIZIALI extends QDataStructWrapper {
 			private static final long serialVersionUID = 1L;
 			@DataDef(datetimeType = DatetimeType.TIME, value = "*AVAIL")
 			public QEnum<ORADIINIZIOEnum, QDatetime> oraDiInizio;
@@ -152,7 +152,7 @@ public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 			}
 		}
 
-		public static class ORAEDATAFINALI extends QDataStructDelegator {
+		public static class ORAEDATAFINALI extends QDataStructWrapper {
 			private static final long serialVersionUID = 1L;
 			@DataDef(datetimeType = DatetimeType.TIME, value = "*AVAIL")
 			public QEnum<ORADIFINEEnum, QDatetime> oraDiFine;

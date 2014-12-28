@@ -43,8 +43,7 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 	@SuppressWarnings({ "unchecked" })
 	@Override
-	public <T> T getAdapter(QContext context, Object adaptableObject,
-			Class<T> adapterType) {
+	public <T> T getAdapter(QContext context, Object adaptableObject, Class<T> adapterType) {
 
 		T adaptee = null;
 
@@ -110,8 +109,7 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 		return tableDef;
 	}
 
-	private QViewDef adaptDatabaseFileToViewDef(QContext context,
-			QLogicalFile file) {
+	private QViewDef adaptDatabaseFileToViewDef(QContext context, QLogicalFile file) {
 
 		if (file.getCreationStatement() == null)
 			return null;
@@ -154,8 +152,7 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 		int i = 1;
 		for (QFileFormatKey fileFormatKey : databaseFileFormat.getKeys()) {
-			QIndexColumnDef indexColumnDef = QDatabaseCoreFactory.eINSTANCE
-					.createIndexColumnDef();
+			QIndexColumnDef indexColumnDef = QDatabaseCoreFactory.eINSTANCE.createIndexColumnDef();
 			indexColumnDef.setName(fileFormatKey.getName());
 			indexColumnDef.setSequence(i);
 			if (fileFormatKey.isDescend())
@@ -172,8 +169,7 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 
 	private QTableColumnDef adaptDataDefToTableColumnDef(QDataDef<?> dataDef) {
 
-		QTableColumnDef tableColumnDef = QDatabaseCoreFactory.eINSTANCE
-				.createTableColumnDef();
+		QTableColumnDef tableColumnDef = QDatabaseCoreFactory.eINSTANCE.createTableColumnDef();
 
 		switch (dataDef.getDataDefType()) {
 		case ADAPTER:

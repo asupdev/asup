@@ -26,6 +26,27 @@ import org.eclipse.jdt.core.dom.Type;
 public class JDTDataStructureWriter extends JDTNamedNodeWriter {
 
 	@SuppressWarnings("unchecked")
+	public JDTDataStructureWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name, String superClassName, boolean serializable, boolean statik) {
+		super(root, compilationUnit, compilationSetup, name);
+
+		if (superClassName != null) {
+			writeImport(compilationSetup.getBasePackage()+"."+superClassName);
+
+			// super type
+			Type superType = getAST().newSimpleType(getAST().newName(superClassName));
+			getTarget().setSuperclassType(superType);
+
+			// serializable
+			if (serializable)
+				writeFieldSerializer();
+
+		}
+
+		if (statik)
+			getTarget().modifiers().add(getAST().newModifier(Modifier.ModifierKeyword.STATIC_KEYWORD));
+	}
+
+	@SuppressWarnings("unchecked")
 	public JDTDataStructureWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name, Class<?> superClass, boolean statik) {
 		super(root, compilationUnit, compilationSetup, name);
 

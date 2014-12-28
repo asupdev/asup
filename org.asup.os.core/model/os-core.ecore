@@ -556,19 +556,19 @@
         <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable"/>
       </eTypeParameters>
       <eOperations name="exists" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="find">
         <eGenericType eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectIterator">
           <eTypeArguments eTypeParameter="#//resources/ResourceSetReader/T"/>
         </eGenericType>
-        <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="nameFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="lookup">
         <eGenericType eTypeParameter="#//resources/ResourceSetReader/T"/>
-        <eParameters name="library" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="containers" lowerBound="1"

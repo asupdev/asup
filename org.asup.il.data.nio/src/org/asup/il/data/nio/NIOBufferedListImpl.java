@@ -47,7 +47,7 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), size());
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), getSize());
 	}
 	
 /*	@Override
@@ -119,7 +119,7 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 
 	@Override
 	public void movea(QArray<?> value, boolean clear) {		
-		NIOBufferHelper.movel(getBuffer(), getPosition(), value.size(), value.asBytes(), false, (byte) 32);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), false, (byte) 32);
 
 	}
 

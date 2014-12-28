@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.asup.fw.test.impl.TestResultImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link org.asup.fw.test.impl.TestResultImpl#isFailed <em>Failed</em>}</li>
  *   <li>{@link org.asup.fw.test.impl.TestResultImpl#getObject <em>Object</em>}</li>
+ *   <li>{@link org.asup.fw.test.impl.TestResultImpl#getRunner <em>Runner</em>}</li>
  *   <li>{@link org.asup.fw.test.impl.TestResultImpl#getTime <em>Time</em>}</li>
  * </ul>
  * </p>
@@ -109,6 +110,26 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 	 * @ordered
 	 */
 	protected String object = OBJECT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRunner() <em>Runner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRunner()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RUNNER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRunner() <em>Runner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRunner()
+	 * @generated
+	 * @ordered
+	 */
+	protected String runner = RUNNER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTime() <em>Time</em>}' attribute.
@@ -196,6 +217,27 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRunner() {
+		return runner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRunner(String newRunner) {
+		String oldRunner = runner;
+		runner = newRunner;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QFrameworkTestPackage.TEST_RESULT__RUNNER, oldRunner, runner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public long getTime() {
 		return time;
 	}
@@ -275,6 +317,8 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 				return isFailed();
 			case QFrameworkTestPackage.TEST_RESULT__OBJECT:
 				return getObject();
+			case QFrameworkTestPackage.TEST_RESULT__RUNNER:
+				return getRunner();
 			case QFrameworkTestPackage.TEST_RESULT__TIME:
 				return getTime();
 		}
@@ -303,6 +347,9 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 			case QFrameworkTestPackage.TEST_RESULT__OBJECT:
 				setObject((String)newValue);
 				return;
+			case QFrameworkTestPackage.TEST_RESULT__RUNNER:
+				setRunner((String)newValue);
+				return;
 			case QFrameworkTestPackage.TEST_RESULT__TIME:
 				setTime((Long)newValue);
 				return;
@@ -330,6 +377,9 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 			case QFrameworkTestPackage.TEST_RESULT__OBJECT:
 				setObject(OBJECT_EDEFAULT);
 				return;
+			case QFrameworkTestPackage.TEST_RESULT__RUNNER:
+				setRunner(RUNNER_EDEFAULT);
+				return;
 			case QFrameworkTestPackage.TEST_RESULT__TIME:
 				setTime(TIME_EDEFAULT);
 				return;
@@ -353,6 +403,8 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 				return failed != FAILED_EDEFAULT;
 			case QFrameworkTestPackage.TEST_RESULT__OBJECT:
 				return OBJECT_EDEFAULT == null ? object != null : !OBJECT_EDEFAULT.equals(object);
+			case QFrameworkTestPackage.TEST_RESULT__RUNNER:
+				return RUNNER_EDEFAULT == null ? runner != null : !RUNNER_EDEFAULT.equals(runner);
 			case QFrameworkTestPackage.TEST_RESULT__TIME:
 				return time != TIME_EDEFAULT;
 		}
@@ -375,6 +427,8 @@ public class TestResultImpl extends EObjectImpl implements QTestResult {
 		result.append(failed);
 		result.append(", object: ");
 		result.append(object);
+		result.append(", runner: ");
+		result.append(runner);
 		result.append(", time: ");
 		result.append(time);
 		result.append(')');

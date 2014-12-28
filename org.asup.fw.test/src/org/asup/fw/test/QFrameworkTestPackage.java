@@ -409,13 +409,22 @@ public interface QFrameworkTestPackage extends EPackage {
 	int TEST_RESULT__OBJECT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Runner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST_RESULT__RUNNER = 4;
+
+	/**
 	 * The feature id for the '<em><b>Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RESULT__TIME = 4;
+	int TEST_RESULT__TIME = 5;
 
 	/**
 	 * The number of structural features of the '<em>Test Result</em>' class.
@@ -424,7 +433,7 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_RESULT_FEATURE_COUNT = 5;
+	int TEST_RESULT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.fw.test.impl.UnitTestRunnerImpl <em>Unit Test Runner</em>}' class.
@@ -640,6 +649,17 @@ public interface QFrameworkTestPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTestResult_Object();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QTestResult#getRunner <em>Runner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Runner</em>'.
+	 * @see org.asup.fw.test.QTestResult#getRunner()
+	 * @see #getTestResult()
+	 * @generated
+	 */
+	EAttribute getTestResult_Runner();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.fw.test.QTestResult#getTime <em>Time</em>}'.
@@ -897,6 +917,14 @@ public interface QFrameworkTestPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEST_RESULT__OBJECT = eINSTANCE.getTestResult_Object();
+
+		/**
+		 * The meta object literal for the '<em><b>Runner</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST_RESULT__RUNNER = eINSTANCE.getTestResult_Runner();
 
 		/**
 		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.

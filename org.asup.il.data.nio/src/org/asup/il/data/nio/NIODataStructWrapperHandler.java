@@ -15,28 +15,28 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QData;
-import org.asup.il.data.QDataDelegator;
 import org.asup.il.data.QDataStruct;
-import org.asup.il.data.QDataStructDelegator;
 import org.asup.il.data.QDataVisitor;
 
-public class NIODataStructWrapper extends NIOAbstractDataStruct implements QDataDelegator<QDataStruct> {
+public class NIODataStructWrapperHandler extends NIOAbstractDataStruct {
 
 	private static final long serialVersionUID = 1L;
 
-	private QDataStructDelegator _wrapped;
+	private QDataStruct _wrapped;
 	private boolean _dynamicLength;
 
-	public NIODataStructWrapper() {
+	private List<QBufferedData> cachedElements = null;
+	
+	public NIODataStructWrapperHandler() {
 		super();
 	}
 	
-	public NIODataStructWrapper(int length, QDataStructDelegator delegator) {
+	public NIODataStructWrapperHandler(int length, QDataStruct wrapped) {
 		super(length);
 		
-		this._wrapped = delegator;
+		this._wrapped = wrapped;
 		this._dynamicLength = (length == 0 ? true : false);
 	}
 
@@ -75,20 +75,31 @@ public class NIODataStructWrapper extends NIOAbstractDataStruct implements QData
 	@Override
 	public List<QBufferedData> getElements() {
 		
-		List<QBufferedData> elements = new ArrayList<>();
-		try {
-			for (Field field: _wrapped.getClass().getFields()) {
-				elements.add((QBufferedData) field.get(_wrapped));
+		if(cachedElements == null) {
+			synchronized (this) {
+				if(cachedElements == null) {
+					cachedElements = new ArrayList<>();
+					
+					try {
+						for (Field field: _wrapped.getClass().getFields()) {
+							cachedElements.add((QBufferedData) field.get(_wrapped));
+						}
+					} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
+
+				}
 			}
-		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e) {
-			e.printStackTrace();
 		}
 		
-		return elements;
+		return cachedElements;
 	}
 
 	protected void addElement(String name, QBufferedData element, int position) {
 
+		if(this.cachedElements != null) 
+			throw new FrameworkCoreUnexpectedConditionException("abmg8u9r7asr8v8cbx");
+		
 		try {
 			Field field = _wrapped.getClass().getField(name);
 			if(field == null)
@@ -97,8 +108,8 @@ public class NIODataStructWrapper extends NIOAbstractDataStruct implements QData
 			field.set(_wrapped, element);
 	
 			if (_dynamicLength) {
-				if(position+element.size() >= _length)
-					_length = position+element.size();
+				if(position+element.getSize() >= _length)
+					_length = position+element.getSize();
 				else
 					System.err.println("Unexpected condition: mzt47cn9tre7n0tcw");
 			}
@@ -108,11 +119,12 @@ public class NIODataStructWrapper extends NIOAbstractDataStruct implements QData
 		}			
 	}
 
+	/*
 	@Override
-	public QData getDelegate() {
+	public QBufferedData getDelegate() {
 		return _wrapped;
 	}
-
+*/
 	@Override
 	public void accept(QDataVisitor visitor) {
 		visitor.visit(_wrapped);

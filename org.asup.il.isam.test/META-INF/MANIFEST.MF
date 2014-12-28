@@ -8,4 +8,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.fw.test,
  org.asup.il.isam,
  org.asup.db.core
-Export-Package: org.asup.il.isam.test
+Export-Package: org.asup.il.isam.test,
+ org.asup.il.isam.test.file.dbf,
+ org.asup.il.isam.test.runner

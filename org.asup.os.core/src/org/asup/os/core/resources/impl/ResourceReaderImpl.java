@@ -29,8 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link org.asup.os.core.resources.impl.ResourceReaderImpl#getContainer
- * <em>Container</em>}</li>
+ *   <li>{@link org.asup.os.core.resources.impl.ResourceReaderImpl#getContainer <em>Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,18 +37,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class ResourceReaderImpl<T extends QObjectNameable> extends ResourceImpl<T> implements QResourceReader<T> {
 	/**
-	 * The default value of the '{@link #getContainer() <em>Container</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getContainer() <em>Container</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getContainer()
 	 * @generated
 	 * @ordered
 	 */
 	protected static final String CONTAINER_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getContainer() <em>Container</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getContainer() <em>Container</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getContainer()
 	 * @generated
 	 * @ordered
@@ -58,7 +55,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ResourceReaderImpl() {
@@ -67,7 +63,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -77,7 +72,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getContainer() {
@@ -86,7 +80,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setContainer(String newContainer) {
@@ -98,7 +91,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean exists(String name) {
@@ -109,7 +101,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public QObjectIterator<T> find(String nameFilter) {
@@ -130,7 +121,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public T lookup(String name) {
@@ -141,7 +131,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public QLocker<T> getLocker() {
@@ -152,71 +141,65 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-			return getContainer();
+			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+				return getContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-			setContainer((String) newValue);
-			return;
+			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+				setContainer((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-			setContainer(CONTAINER_EDEFAULT);
-			return;
+			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+				setContainer(CONTAINER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
-			return CONTAINER_EDEFAULT == null ? container != null : !CONTAINER_EDEFAULT.equals(container);
+			case QOperatingSystemResourcesPackage.RESOURCE_READER__CONTAINER:
+				return CONTAINER_EDEFAULT == null ? container != null : !CONTAINER_EDEFAULT.equals(container);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (container: ");

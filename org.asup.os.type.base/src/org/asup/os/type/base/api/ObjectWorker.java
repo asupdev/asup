@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -124,7 +124,7 @@ public class ObjectWorker {
 	}
 
 
-	public static class Object extends QDataStructDelegator {
+	public static class Object extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 10)
 		public QEnum<NameGenericEnum, QCharacter> nameGeneric;

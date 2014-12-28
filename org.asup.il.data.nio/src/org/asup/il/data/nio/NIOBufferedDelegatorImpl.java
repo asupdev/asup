@@ -171,8 +171,8 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public int length() {
-		return _delegate.length();
+	public int getLength() {
+		return _delegate.getLength();
 	}
 
 	@Override
@@ -309,8 +309,8 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public int size() {
-		return _delegate.size();
+	public int getSize() {
+		return _delegate.getSize();
 	}
 
 	@Override

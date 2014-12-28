@@ -18,7 +18,7 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDataTerm;
 import org.asup.os.type.file.QPrinterFile;
 import org.asup.os.type.file.QPrinterFileFormat;
@@ -43,7 +43,7 @@ public class JDTPrinterFileWriter extends JDTNamedNodeWriter {
 			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 			elements.addAll(printerFileFormat.getFields());
 
-			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), printerFileFormat.getName(), QDataStructDelegator.class,
+			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), printerFileFormat.getName(), QDataStructWrapper.class,
 					true);
 			dataStructureWriter.writeElements(elements);
 		}

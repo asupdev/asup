@@ -19,12 +19,12 @@ public class NIOPointerImpl extends NIOBufferedDataImpl implements QPointer {
 	}
 
 	@Override
-	public int length() {
+	public int getLength() {
 		return 22;
 	}
 
 	@Override
-	public int size() {
+	public int getSize() {
 		return 22;
 	}
 

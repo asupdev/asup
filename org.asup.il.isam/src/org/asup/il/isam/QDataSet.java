@@ -7,7 +7,6 @@
  */
 package org.asup.il.isam;
 
-import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QIndicator;
 
 
@@ -21,7 +20,7 @@ import org.asup.il.data.QIndicator;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QDataSet<DS extends QDataStruct> {
+public interface QDataSet<R extends QRecord> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,14 +40,26 @@ public interface QDataSet<DS extends QDataStruct> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Consente la cancellazione di un record dal dataset, applicabile solo alla modalita' di accesso "Update".
-	 * Il record cancellato deve prima essere in stato di lock conseguente a un'operazione di lettura.
-	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void close(QIndicator error);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	void delete();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void delete(QIndicator error);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,7 +75,23 @@ public interface QDataSet<DS extends QDataStruct> {
 	 * @model kind="operation"
 	 * @generated
 	 */
+	boolean isEqual();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
 	boolean isFound();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean onError();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,6 +107,14 @@ public interface QDataSet<DS extends QDataStruct> {
 	 * @model
 	 * @generated
 	 */
+	void open(QIndicator error);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	boolean read();
 
 	/**
@@ -88,7 +123,23 @@ public interface QDataSet<DS extends QDataStruct> {
 	 * @model
 	 * @generated
 	 */
-	boolean read(QIndicator endOfRecord);
+	boolean read(QIndicator endOfData);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean read(QIndicator endOfData, Boolean lock);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean read(QIndicator endOfData, Boolean lock, QIndicator error);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,7 +155,23 @@ public interface QDataSet<DS extends QDataStruct> {
 	 * @model
 	 * @generated
 	 */
-	boolean readp(QIndicator endOfRecord);
+	boolean readp(QIndicator beginningOfData);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean readp(QIndicator beginningOfData, Boolean lock);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean readp(QIndicator beginningOfData, Boolean lock, QIndicator error);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,7 +187,23 @@ public interface QDataSet<DS extends QDataStruct> {
 	 * @model
 	 * @generated
 	 */
+	void unlock(QIndicator error);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void update();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void update(QIndicator error);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,9 +216,17 @@ public interface QDataSet<DS extends QDataStruct> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void write(QIndicator error);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
 	 */
-	DS get();
+	R get();
 
 } // QDataSet

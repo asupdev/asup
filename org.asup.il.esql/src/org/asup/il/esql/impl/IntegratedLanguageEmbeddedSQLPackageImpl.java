@@ -492,6 +492,8 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 
 		initEClass(statementEClass, QStatement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		addEOperation(statementEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(statementTermEClass, QStatementTerm.class, "StatementTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStatementTerm_HostVariable(), ecorePackage.getEString(), "hostVariable", null, 1, 1, QStatementTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

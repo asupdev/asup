@@ -9,7 +9,7 @@ package org.asup.il.data;
 
 import java.util.List;
 
-public abstract class QDataStructDelegator implements QDataStruct, QBufferedDataDelegator {
+public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDelegator {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -35,8 +35,6 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 		return delegate.asString();
 	}
 
-
-	
 	@Override
 	public void cat(QString factor1) {
 		delegate.cat(factor1);		
@@ -178,6 +176,7 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 		return delegate.ge(value);
 	}
 
+	@Override
 	public QDataStruct getDelegate() {
 		return this.delegate;
 	}
@@ -255,8 +254,8 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 	}
 
 	@Override
-	public int length() {
-		return delegate.length();
+	public int getLength() {
+		return delegate.getLength();
 	}
 
 	@Override
@@ -425,8 +424,8 @@ public abstract class QDataStructDelegator implements QDataStruct, QBufferedData
 	}
 
 	@Override
-	public int size() {
-		return delegate.size();
+	public int getSize() {
+		return delegate.getSize();
 	}
 
 	@Override

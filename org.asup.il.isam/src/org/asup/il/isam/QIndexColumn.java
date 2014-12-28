@@ -13,96 +13,50 @@ package org.asup.il.isam;
  * A representation of the model object '<em><b>Index Column</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.asup.il.isam.QIndexColumn#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.il.isam.QIndexColumn#isDescend <em>Descend</em>}</li>
- *   <li>{@link org.asup.il.isam.QIndexColumn#isNumeric <em>Numeric</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndexColumn()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface QIndexColumn {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndexColumn_Name()
-	 * @model required="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QIndexColumn#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	void setName(String value);
+	OperationDirection getDirection();
 
 	/**
-	 * Returns the value of the '<em><b>Descend</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Descend</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Descend</em>' attribute.
-	 * @see #setDescend(boolean)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndexColumn_Descend()
-	 * @model
-	 * @generated
-	 */
-	boolean isDescend();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QIndexColumn#isDescend <em>Descend</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Descend</em>' attribute.
-	 * @see #isDescend()
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	void setDescend(boolean value);
+	int getLength();
 
 	/**
-	 * Returns the value of the '<em><b>Numeric</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Numeric</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Numeric</em>' attribute.
-	 * @see #setNumeric(boolean)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getIndexColumn_Numeric()
-	 * @model
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	boolean isNumeric();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QIndexColumn#isNumeric <em>Numeric</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Numeric</em>' attribute.
-	 * @see #isNumeric()
-	 * @generated
-	 */
-	void setNumeric(boolean value);
 
 } // QIndexColumn

@@ -39,18 +39,24 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		return INIT;
 	}
 
+	@Override
+	public int getLength() {
+		return _precision;
+	}
+
+	@Override
+	public int getSize() {
+		return _precision;
+	}
+
+	@Override
+	public int getPrecision() {
+		return _precision;
+	}
+
+	@Override
 	public int getScale() {
 		return _scale;
-	}
-
-	@Override
-	public int length() {
-		return _precision;
-	}
-
-	@Override
-	public int size() {
-		return _precision;
 	}
 
 	@Override

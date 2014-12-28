@@ -28,7 +28,6 @@ import org.asup.il.core.QTerm;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Entry;
-import org.asup.il.data.annotation.FileDef;
 import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
@@ -40,9 +39,10 @@ import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUnit;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
-import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.il.isam.QTableDataSet;
+import org.asup.il.isam.QKSDataSet;
+import org.asup.il.isam.QRRDataSet;
+import org.asup.il.isam.annotation.DataSetDef;
 import org.asup.os.type.pgm.rpj.RPJServiceSupport;
 import org.eclipse.jdt.core.dom.ArrayCreation;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
@@ -188,17 +188,17 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, FileDef.class, "fileName", dataSet.getFileName());
-			writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
+			writeAnnotation(field, DataSetDef.class, "name", dataSet.getFileName());
+			writeAnnotation(field, DataSetDef.class, "userOpen", dataSet.isUserOpen());
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 			String className = null;
 			if (dataSet.isKeyedAccess()) {
-				writeImport(QIndexDataSet.class);
-				className = QIndexDataSet.class.getSimpleName();
+				writeImport(QKSDataSet.class);
+				className = QKSDataSet.class.getSimpleName();
 			} else {
-				writeImport(QTableDataSet.class);
-				className = QTableDataSet.class.getSimpleName();
+				writeImport(QRRDataSet.class);
+				className = QRRDataSet.class.getSimpleName();
 			}
 
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));

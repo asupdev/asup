@@ -7,10 +7,7 @@
  */
 package org.asup.il.isam;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
-import java.util.List;
-import org.asup.il.data.QDataStruct;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -26,25 +23,17 @@ public interface QIsamFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" dataSetTermRequired="true"
+	 * @model required="true" containerRequired="true" wrapperRequired="true"
 	 * @generated
 	 */
-	QDataSet<?> createDataSet(QDataSetTerm dataSetTerm);
+	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" dataStructRequired="true"
+	 * @model required="true" containerRequired="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<DS extends QDataStruct> QDataSet<DS> createDataSet(Class<DS> dataStruct);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model required="true" typeDataType="org.asup.fw.java.JavaType" typeRequired="true" annotationsDataType="org.asup.fw.java.JavaAnnotation" annotationsRequired="true" annotationsMany="true"
-	 * @generated
-	 */
-	QDataSetTerm createDataSetTerm(Type type, List<Annotation> annotations);
+	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper);
 
 } // QIsamFactory

@@ -14,6 +14,7 @@ package org.asup.dk.compiler.rpj;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -23,7 +24,6 @@ import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
-import org.asup.fw.core.QContextID;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -35,12 +35,14 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceReader;
+import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.file.QFileSingleFormat;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class RPJCallableUnitLinker {
 
@@ -162,20 +164,13 @@ public class RPJCallableUnitLinker {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	private void linkFileSingleFormat(QDataSetTerm dataSet, QFileSingleFormat<?> fileSingleFormat) {
 
 		if (dataSet.getFormatName() == null)
 			dataSet.setFormatName(fileSingleFormat.getFileFormat().getName());
 
-		if (fileSingleFormat instanceof QLogicalFile && fileSingleFormat.getFileFormat().isEmpty()) {
-			QLogicalFile logicalFile = (QLogicalFile) fileSingleFormat;
-			fileSingleFormat = (QFileSingleFormat<?>) getFile(logicalFile.getTables().get(0));
-
-			if (fileSingleFormat == null)
-				throw new OperatingSystemRuntimeException("File not found: " + logicalFile);
-		}
-
-		Class<?> linkedClass = loadClass(null, fileSingleFormat);
+		Class<?> linkedClass = loadClass(fileSingleFormat);
 		if (linkedClass == null)
 			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + fileSingleFormat.getName());
 
@@ -187,8 +182,20 @@ public class RPJCallableUnitLinker {
 
 			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
 
-			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(fileSingleFormat.getFileFormat().getFields());
-			dataStructDef.getElements().addAll(elements);
+			if (fileSingleFormat instanceof QLogicalFile && fileSingleFormat.getFileFormat().isEmpty()) {
+				QLogicalFile logicalFile = (QLogicalFile) fileSingleFormat;
+				
+				for(String table: logicalFile.getTables()) {
+					QDatabaseFile superTable = (QDatabaseFile) getFile(table);
+
+					if (superTable == null)
+						throw new OperatingSystemRuntimeException("File not found: " + table);
+
+					dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(superTable.getFileFormat().getFields()));					
+				}
+			}
+			else
+				dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(fileSingleFormat.getFileFormat().getFields()));
 
 			dataSet.setRecord(dataStructDef);
 		}
@@ -203,7 +210,7 @@ public class RPJCallableUnitLinker {
 		return file;
 	}
 
-	public Class<?> loadClass(QContextID contextID, QFile file) {
+	public Class<?> loadClass(QFile file) {
 
 		// TODO
 		QLibrary library = libraryReader.lookup(file.getLibrary());
@@ -215,7 +222,7 @@ public class RPJCallableUnitLinker {
 		Class<?> linkedClass = compilationUnit.getContext().loadClass(address);
 
 		if (linkedClass == null) {
-			address = "asup:/omac/" + file.getLibrary() + "/" + file.getApplication() + ".file." + file.getName();
+			address = "asup:/omac/" + file.getLibrary() + "/" +file.getApplication() + ".file." + file.getName();
 			linkedClass = compilationUnit.getContext().loadClass(address);
 		}
 

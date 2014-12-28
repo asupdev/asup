@@ -141,15 +141,39 @@ public abstract class E4ContextImpl extends  ContextImpl {
 	}
 
 	@SuppressWarnings("unchecked")
-	private <T> T searchAdapter(IEclipseContext eclipseContext, Object adaptable,  Class<T> adapterType) {
+	private <T> T searchAdapter(IEclipseContext eclipseContext, Object adaptable, Class<T> adapterType) {
 		
 		T adaptee = null;
 
 		Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) eclipseContext.get(ADAPTER_FACTORIES_NAME);
-		if(adapterFactories == null)
-			return null;
+		if(!adapterFactories.isEmpty()) {
+			adaptee = searchAdapter(adaptable, adaptable.getClass().getInterfaces(), adapterFactories, adapterType);
+			
+			if(adaptee != null)
+				return adaptee;
+			
+			Class<?> superClass = adaptable.getClass().getSuperclass();
+			if(superClass != Object.class)
+				adaptee = searchAdapter(adaptable, superClass.getInterfaces(), adapterFactories, adapterType);
+		}
 		
-		for(Class<?> _interface: adaptable.getClass().getInterfaces()) {
+		if(adaptee != null)
+			return adaptee;
+		
+		// search on parent
+		IEclipseContext parentContext = eclipseContext.getParent();
+		if(parentContext != null)
+			adaptee = searchAdapter(parentContext, adaptable, adapterType);
+		
+		return adaptee;
+	}
+	
+	private <T> T searchAdapter(Object adaptable, Class<?> interfaces[], Map<Class<?>, List<QAdapterFactory>> adapterFactories, Class<T> adapterType) {
+
+		
+		T adaptee = null;
+		
+		for(Class<?> _interface: interfaces) {
 			
 			List<QAdapterFactory> factories = adapterFactories.get(_interface);
 			if(factories != null) {				
@@ -159,17 +183,13 @@ public abstract class E4ContextImpl extends  ContextImpl {
 					if(adaptee != null)
 						break;
 				}
-			}
+			}						
+
 			if(adaptee != null)
 				break;
-		}
-		if(adaptee != null)
-			return adaptee;
 		
-		// search on parent
-		IEclipseContext parentContext = eclipseContext.getParent();
-		if(parentContext != null)
-			adaptee = searchAdapter(parentContext, adaptable, adapterType);
+			adaptee = searchAdapter(adaptable, _interface.getInterfaces(), adapterFactories, adapterType);
+		}
 		
 		return adaptee;
 	}

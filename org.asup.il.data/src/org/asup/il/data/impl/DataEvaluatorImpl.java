@@ -46,7 +46,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	private Object object = null;
+	protected Object object = null;
 	
 	/**
 	 * <!-- begin-user-doc -->

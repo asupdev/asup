@@ -128,7 +128,6 @@ public abstract class DataTermVisitorImpl extends MinimalEObjectImpl.Container i
 	 * @generated NOT
 	 */
 	public boolean visit(QMultipleAtomicDataTerm<?> term) {
-		term.accept(this);
 		return true;
 	}
 
@@ -138,7 +137,6 @@ public abstract class DataTermVisitorImpl extends MinimalEObjectImpl.Container i
 	 * @generated NOT
 	 */
 	public boolean visit(QMultipleCompoundDataTerm<?> term) {
-		term.accept(this);
 		return true;
 	}
 
@@ -148,7 +146,6 @@ public abstract class DataTermVisitorImpl extends MinimalEObjectImpl.Container i
 	 * @generated NOT
 	 */
 	public boolean visit(QUnaryAtomicDataTerm<?> term) {
-		term.accept(this);
 		return true;
 	}
 
@@ -158,7 +155,6 @@ public abstract class DataTermVisitorImpl extends MinimalEObjectImpl.Container i
 	 * @generated NOT
 	 */
 	public boolean visit(QUnaryCompoundDataTerm<?> term) {
-		term.accept(this);
 		return true;
 	}
 	

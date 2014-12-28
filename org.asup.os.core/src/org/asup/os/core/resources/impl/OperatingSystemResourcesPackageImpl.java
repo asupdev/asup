@@ -647,11 +647,11 @@ public class OperatingSystemResourcesPackageImpl extends EPackageImpl implements
 		initEAttribute(getResourceSetReader_Containers(), ecorePackage.getEString(), "containers", null, 1, -1, QResourceSetReader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = addEOperation(resourceSetReaderEClass, ecorePackage.getEBoolean(), "exists", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "library", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(resourceSetReaderEClass, null, "find", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "library", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "nameFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theOperatingSystemOmacPackage.getObjectIterator());
 		g2 = createEGenericType(resourceSetReaderEClass_T);
@@ -659,7 +659,7 @@ public class OperatingSystemResourcesPackageImpl extends EPackageImpl implements
 		initEOperation(op, g1);
 
 		op = addEOperation(resourceSetReaderEClass, null, "lookup", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "library", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(resourceSetReaderEClass_T);
 		initEOperation(op, g1);

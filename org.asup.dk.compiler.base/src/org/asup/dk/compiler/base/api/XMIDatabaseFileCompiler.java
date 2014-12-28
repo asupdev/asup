@@ -78,11 +78,8 @@ public class XMIDatabaseFileCompiler {
 			if(!(qFile instanceof QDatabaseFile))
 				continue;
 
-			QDatabaseFile databaseFile = (QDatabaseFile) qFile;
-			if(databaseFile.getDatabaseFormat().isEmpty())
-				continue;
-			
 			try {
+				QDatabaseFile databaseFile = (QDatabaseFile) qFile;
 				createJavaFile(databaseFile, library);
 			}
 			catch(Exception e) {
@@ -112,7 +109,7 @@ public class XMIDatabaseFileCompiler {
 		QCompilationSetup setup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();		
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
-		
+				
 		compilerManager.writeDatabaseFile(compilationUnit, setup, output);
 
 		output.close();		

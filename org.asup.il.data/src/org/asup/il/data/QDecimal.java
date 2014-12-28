@@ -37,4 +37,20 @@ public interface QDecimal extends QNumeric {
 	 */
 	void eval(BigDecimal value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	int getPrecision();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	int getScale();
+
 } // QDecimal

@@ -79,7 +79,7 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 		if (externalFile.getFormat() == null)
 			externalFile.setFormat(databaseFile.getDatabaseFormat().getName());
 
-		Class<?> linkedClass = callableUnitLinker.loadClass(null, file);
+		Class<?> linkedClass = callableUnitLinker.loadClass(file);
 		if (linkedClass == null)
 			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + externalFile);
 

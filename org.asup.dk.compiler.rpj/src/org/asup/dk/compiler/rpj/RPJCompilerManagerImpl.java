@@ -40,6 +40,7 @@ import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProgram;
+import org.asup.il.isam.QRecordWrapper;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
@@ -47,6 +48,7 @@ import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QDisplayFile;
 import org.asup.os.type.file.QFile;
+import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPrinterFile;
 import org.asup.os.type.module.QModuleManager;
 import org.eclipse.emf.common.util.URI;
@@ -251,7 +253,20 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		QDatabaseFile databaseFile = (QDatabaseFile) compilationUnit.getRoot();
 
-		JDTDatabaseFileWriter databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
+		JDTDatabaseFileWriter databaseFileWriter = null;
+		
+		if(databaseFile instanceof QLogicalFile) {
+			QLogicalFile logicalFile = (QLogicalFile) databaseFile;
+			
+			if(databaseFile.getDatabaseFormat().isEmpty()) {				
+				String table = logicalFile.getTables().get(0);				
+				databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), table);
+			} 
+		}
+
+		if(databaseFileWriter == null) 
+			databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), QRecordWrapper.class);			
+		
 		databaseFileWriter.writeDatabaseFile(databaseFile);
 
 		databaseFileWriter.writeOutputStream(output);

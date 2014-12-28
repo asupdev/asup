@@ -31,6 +31,7 @@ public class BaseUnitTestRunner extends UnitTestRunnerImpl {
 	    Test test = testClass.getAnnotation(Test.class);
 		testResult.setCategory(test.category());
 		testResult.setObject(test.object());
+		testResult.setRunner(testClass.getSimpleName());
 
 		QTestAsserter testAsserter = new BaseTestAsserterImpl(testResult, getTestListeners());
 	    context.set(QTestAsserter.class, testAsserter);

@@ -22,7 +22,7 @@ import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QDataFactory;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIndicator;
@@ -163,8 +163,8 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	}
 
 	public QDecimal qLen(QBufferedData bufferedData) {
-		QDecimal decimal = qDF.createDecimal(5, 8, DecimalType.ZONED, true);
-		decimal.eval(bufferedData.length());
+		QDecimal decimal = qDF.createDecimal(5, 0, DecimalType.ZONED, true);
+		decimal.eval(bufferedData.getLength());
 		return decimal;
 	}
 
@@ -252,7 +252,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return null;
 	}
 	
-	public static class ProgramStatus extends QDataStructDelegator {
+	public static class ProgramStatus extends QDataStructWrapper {
 
 		private static final long serialVersionUID = 1L;
 
@@ -261,7 +261,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	}
 	
 
-	public static class Indicators extends QDataStructDelegator {
+	public static class Indicators extends QDataStructWrapper {
 
 		private static final long serialVersionUID = 1L;
 

@@ -21,6 +21,7 @@ import java.util.List;
  *   <li>{@link org.asup.fw.test.QTestResult#getCategory <em>Category</em>}</li>
  *   <li>{@link org.asup.fw.test.QTestResult#isFailed <em>Failed</em>}</li>
  *   <li>{@link org.asup.fw.test.QTestResult#getObject <em>Object</em>}</li>
+ *   <li>{@link org.asup.fw.test.QTestResult#getRunner <em>Runner</em>}</li>
  *   <li>{@link org.asup.fw.test.QTestResult#getTime <em>Time</em>}</li>
  * </ul>
  * </p>
@@ -82,6 +83,32 @@ public interface QTestResult {
 	 * @generated
 	 */
 	void setObject(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Runner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Runner</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Runner</em>' attribute.
+	 * @see #setRunner(String)
+	 * @see org.asup.fw.test.QFrameworkTestPackage#getTestResult_Runner()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getRunner();
+
+	/**
+	 * Sets the value of the '{@link org.asup.fw.test.QTestResult#getRunner <em>Runner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Runner</em>' attribute.
+	 * @see #getRunner()
+	 * @generated
+	 */
+	void setRunner(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Time</b></em>' attribute.

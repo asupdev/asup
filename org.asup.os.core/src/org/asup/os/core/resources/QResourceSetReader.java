@@ -48,25 +48,25 @@ public interface QResourceSetReader<T extends QObjectNameable> extends QResource
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model libraryRequired="true" nameRequired="true"
+	 * @model containerRequired="true" nameRequired="true"
 	 * @generated
 	 */
-	T lookup(String library, String name);
+	T lookup(String container, String name);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" libraryRequired="true" nameRequired="true"
+	 * @model required="true" containerRequired="true" nameRequired="true"
 	 * @generated
 	 */
-	boolean exists(String library, String name);
+	boolean exists(String container, String name);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model libraryRequired="true"
+	 * @model containerRequired="true"
 	 * @generated
 	 */
-	QObjectIterator<T> find(String library, String nameFilter);
+	QObjectIterator<T> find(String container, String nameFilter);
 
 } // QResourceCrossReader

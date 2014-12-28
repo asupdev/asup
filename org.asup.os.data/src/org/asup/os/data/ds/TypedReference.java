@@ -8,11 +8,11 @@
 package org.asup.os.data.ds;
 
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.os.type.QTypedObject;
 
-public class TypedReference<T extends QTypedObject> extends QDataStructDelegator {
+public class TypedReference<T extends QTypedObject> extends QDataStructWrapper {
 
 	/**
 	 * 

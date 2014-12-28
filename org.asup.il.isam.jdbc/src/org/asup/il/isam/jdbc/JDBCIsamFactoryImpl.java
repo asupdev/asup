@@ -10,9 +10,6 @@
  */
 package org.asup.il.isam.jdbc;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,39 +17,30 @@ import java.util.List;
 import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionDescription;
-import org.asup.db.syntax.QNameHelper;
-import org.asup.il.data.QData;
+import org.asup.db.core.QDatabaseManager;
 import org.asup.il.data.QDataFactory;
-import org.asup.il.data.QDataStruct;
-import org.asup.il.data.QDataStructDef;
-import org.asup.il.data.annotation.FileDef;
 import org.asup.il.isam.AccessMode;
-import org.asup.il.isam.QDataSet;
-import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.OperationDirection;
 import org.asup.il.isam.QIndex;
-import org.asup.il.isam.QIndexDataSet;
-import org.asup.il.isam.QIntegratedLanguageIsamFactory;
+import org.asup.il.isam.QIndexColumn;
 import org.asup.il.isam.QIsamFactory;
-import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
+import org.asup.il.isam.QKSDataSet;
+import org.asup.il.isam.QRRDataSet;
+import org.asup.il.isam.QRecord;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCIsamFactoryImpl implements QIsamFactory {
 
 	private QConnection connection;
-	private SQLObjectNameHelper sqlObjectNameHelper;
-	@SuppressWarnings("unused")
-	private QNameHelper nameHelper;
 	private QDataFactory dataFactory;
+ 
 	
-	public JDBCIsamFactoryImpl(QConnection connection, SQLObjectNameHelper sqlObjectNameHelper, QNameHelper nameHelper, QDataFactory dataFactory) { 
-
+	public JDBCIsamFactoryImpl(QConnection connection, QDataFactory dataFactory) { 
 		this.connection = connection;
-		this.sqlObjectNameHelper = sqlObjectNameHelper;
-		this.nameHelper = nameHelper;
 		this.dataFactory = dataFactory;
 	}
 
-	@Override
+/*	@Override
 	public QDataSet<?> createDataSet(QDataSetTerm dataSetTerm) {
 
 		try {
@@ -60,36 +48,66 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			if(table == null)
 				return null;
 			
-			QDataStruct dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
+			QRecord dataStruct = dataFactory.createData(dataSetTerm.getRecord(), true);
 			
 			if(dataSetTerm.isKeyedAccess()) {			
 				QIndex index = connection.getContext().getAdapter(dataStruct, QIndex.class);
-				JDBCIndexDataSetImpl<QDataStruct> jdbcIndexDataSetImpl = new JDBCIndexDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
-				jdbcIndexDataSetImpl.init(index);
+				JDBCKeySequencedDataSetImpl<QRecord> jdbcIndexDataSetImpl = new JDBCKeySequencedDataSetImpl<QRecord>(connection, sqlObjectNameHelper, table, index, dataStruct, AccessMode.UPDATE, dataSetTerm.isUserOpen());
 				
 				return jdbcIndexDataSetImpl;
 			}
 			else {
-				return new JDBCTableDataSetImpl<QDataStruct>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+				QIndex index = TABLE_INDEX_RELATIVE_RECORD_NUMBER;
+				return new JDBCRelativeRecordDataSetImpl<QRecord>(connection, sqlObjectNameHelper, table, index, dataStruct, AccessMode.INPUT, dataSetTerm.isUserOpen());
 			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
+
 
 	@Override
-	public <DS extends QDataStruct> QDataSet<DS> createDataSet(Class<DS> klass) {
+	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper) {
+
 
 		try {
-			Table table = getTable(klass.getSimpleName());
+			Table table = getTable(container, wrapper.getSimpleName());
 			if(table == null)
 				return null;
 			
-			DS dataStruct = dataFactory.createDataStruct(klass, 0, true);
+			R record = this.dataFactory.createDataStruct(wrapper, 0, true);
+			
+			QIndex index = record.getIndex();
+			if(index == null)
+				index = TABLE_INDEX_RELATIVE_RECORD_NUMBER;
+			
+			return new JDBCKeySequencedDataSetImpl<R>(connection, table, index, record, AccessMode.INPUT, false);
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 
-			return new JDBCTableDataSetImpl<DS>(connection, sqlObjectNameHelper, table, AccessMode.UPDATE, dataStruct);
+	}
+
+	@Override
+	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper) {
+
+		try {
+			Table table = getTable(container, wrapper.getSimpleName());
+			if(table == null)
+				return null;
+			
+			R record = this.dataFactory.createDataStruct(wrapper, 0, true);
+			
+			QIndex index = record.getIndex();
+			if(index == null)
+				index = TABLE_INDEX_RELATIVE_RECORD_NUMBER;
+			
+			return new JDBCRelativeRecordDataSetImpl<R>(connection, table, index, record, AccessMode.INPUT, false);
 			
 		}
 		catch(Exception e) {
@@ -99,8 +117,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Override
+/*	@Override
 	public QDataSetTerm createDataSetTerm(Type type, List<Annotation> annotations) {
 
 		// annotations
@@ -121,13 +138,13 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		else
 			klass = (Class<? extends QData>) type;
 
-		if(QIndexDataSet.class.isAssignableFrom(klass))
+		if(QKSDataSet.class.isAssignableFrom(klass))
 			dataSetTerm.setKeyedAccess(true);
 
 		for(Annotation annotation: annotations) {
-			if(annotation instanceof FileDef) {
-				FileDef fileDef = (FileDef)annotation;
-				dataSetTerm.setFileName(fileDef.fileName());
+			if(annotation instanceof DataSetDef) {
+				DataSetDef fileDef = (DataSetDef)annotation;
+				dataSetTerm.setFileName(fileDef.name());
 				dataSetTerm.setUserOpen(fileDef.userOpen());
 			}
 		}
@@ -144,14 +161,58 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 		
 		return dataSetTerm;
-	}
-
-	public Table getTable(String name) throws SQLException {
+	}*/
+	public Table getTable(String container, String name) throws SQLException {
+		
 		
 		QCatalogMetaData catalogMetaData = connection.getCatalogMetaData();
 		
-		QConnectionDescription connectionDescription = connection.getConnectionDescription();
-		
-		return catalogMetaData.getTable(connectionDescription, name);
+		if(container == null) {
+			QConnectionDescription connectionDescription = connection.getConnectionDescription();				
+			return catalogMetaData.getTable(connectionDescription, name);
+		}
+		else {
+			return catalogMetaData.getTable(container, name);
+		}
 	}
+	
+	
+	private static final QIndex TABLE_INDEX_RELATIVE_RECORD_NUMBER = new QIndex() {
+
+		List<QIndexColumn> columns = new ArrayList<QIndexColumn>();
+
+		@Override
+		public List<QIndexColumn> getColumns() {
+			
+			if(this.columns.isEmpty()) {
+				synchronized (this.columns) {
+					QIndexColumn indexColumn = new QIndexColumn() {
+
+						@Override
+						public String getName() {
+							return QDatabaseManager.TABLE_COLUMN_RELATIVE_RECORD_NUMBER_NAME;
+						}
+
+						@Override
+						public OperationDirection getDirection() {
+							return OperationDirection.FORWARD;
+						}
+
+						@Override
+						public boolean isNumeric() {
+							return true;
+						}
+
+						@Override
+						public int getLength() {
+							return QDatabaseManager.TABLE_COLUMN_RELATIVE_RECORD_NUMBER_LENGTH;
+						}
+						
+					};
+					this.columns.add(indexColumn);
+				}
+			}			
+			return this.columns;
+		}
+	};
 }

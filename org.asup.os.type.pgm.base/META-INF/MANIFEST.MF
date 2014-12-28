@@ -8,6 +8,7 @@ Export-Package: org.asup.os.type.pgm.base
 Require-Bundle: org.asup.os.type.pgm;visibility:=reexport,
  org.asup.os.data,
  org.asup.il.isam,
- org.asup.fw.util
+ org.asup.fw.util,
+ org.asup.os.type.file
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

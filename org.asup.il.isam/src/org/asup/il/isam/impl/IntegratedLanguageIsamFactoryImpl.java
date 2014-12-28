@@ -7,7 +7,6 @@
  */
 package org.asup.il.isam.impl;
 
-import org.asup.il.data.QBufferedData;
 import org.asup.il.isam.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -77,12 +76,14 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 		switch (eDataType.getClassifierID()) {
 			case QIntegratedLanguageIsamPackage.ACCESS_MODE:
 				return createAccessModeFromString(eDataType, initialValue);
+			case QIntegratedLanguageIsamPackage.OPERATION_DIRECTION:
+				return createOperationDirectionFromString(eDataType, initialValue);
 			case QIntegratedLanguageIsamPackage.OPERATION_SET:
 				return createOperationSetFromString(eDataType, initialValue);
 			case QIntegratedLanguageIsamPackage.OPERATION_READ:
 				return createOperationReadFromString(eDataType, initialValue);
-			case QIntegratedLanguageIsamPackage.KEY_VALUE:
-				return createKeyValueFromString(eDataType, initialValue);
+			case QIntegratedLanguageIsamPackage.KEY_LIST:
+				return createKeyListFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -98,12 +99,14 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 		switch (eDataType.getClassifierID()) {
 			case QIntegratedLanguageIsamPackage.ACCESS_MODE:
 				return convertAccessModeToString(eDataType, instanceValue);
+			case QIntegratedLanguageIsamPackage.OPERATION_DIRECTION:
+				return convertOperationDirectionToString(eDataType, instanceValue);
 			case QIntegratedLanguageIsamPackage.OPERATION_SET:
 				return convertOperationSetToString(eDataType, instanceValue);
 			case QIntegratedLanguageIsamPackage.OPERATION_READ:
 				return convertOperationReadToString(eDataType, instanceValue);
-			case QIntegratedLanguageIsamPackage.KEY_VALUE:
-				return convertKeyValueToString(eDataType, instanceValue);
+			case QIntegratedLanguageIsamPackage.KEY_LIST:
+				return convertKeyListToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -154,6 +157,26 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OperationDirection createOperationDirectionFromString(EDataType eDataType, String initialValue) {
+		OperationDirection result = OperationDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOperationDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OperationSet createOperationSetFromString(EDataType eDataType, String initialValue) {
 		OperationSet result = OperationSet.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -194,8 +217,8 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QBufferedData[] createKeyValueFromString(EDataType eDataType, String initialValue) {
-		return (QBufferedData[])super.createFromString(initialValue);
+	public Object[] createKeyListFromString(EDataType eDataType, String initialValue) {
+		return (Object[])super.createFromString(initialValue);
 	}
 
 	/**
@@ -203,7 +226,7 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertKeyValueToString(EDataType eDataType, Object instanceValue) {
+	public String convertKeyListToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

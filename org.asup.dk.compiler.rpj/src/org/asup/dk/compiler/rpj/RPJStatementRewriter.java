@@ -170,7 +170,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 		
 		QMonitor newMonitor = QIntegratedLanguageFlowFactory.eINSTANCE.createMonitor();
 			
-		RPJStatementRewriter newRewriter = copy((QBlock)statement.getBody());
+		RPJStatementRewriter newRewriter = copy(statement.getBody());
 		statement.getBody().accept(newRewriter);
 		newMonitor.setBody(newRewriter.getTarget());		
 		
@@ -179,7 +179,7 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 			QOnError newOnError = QIntegratedLanguageFlowFactory.eINSTANCE.createOnError();
 			newOnError.setError(onError.getError());
 	
-			newRewriter = copy((QBlock)onError.getBody());
+			newRewriter = copy(onError.getBody());
 			onError.getBody().accept(newRewriter);
 			newOnError.setBody(newRewriter.getTarget());
 			

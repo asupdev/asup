@@ -360,8 +360,17 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTestResult_Time() {
+	public EAttribute getTestResult_Runner() {
 		return (EAttribute)testResultEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTestResult_Time() {
+		return (EAttribute)testResultEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -483,6 +492,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		createEAttribute(testResultEClass, TEST_RESULT__CATEGORY);
 		createEAttribute(testResultEClass, TEST_RESULT__FAILED);
 		createEAttribute(testResultEClass, TEST_RESULT__OBJECT);
+		createEAttribute(testResultEClass, TEST_RESULT__RUNNER);
 		createEAttribute(testResultEClass, TEST_RESULT__TIME);
 
 		testRunnerEClass = createEClass(TEST_RUNNER);
@@ -669,6 +679,7 @@ public class FrameworkTestPackageImpl extends EPackageImpl implements QFramework
 		initEAttribute(getTestResult_Category(), ecorePackage.getEString(), "category", null, 0, 1, QTestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestResult_Failed(), ecorePackage.getEBoolean(), "failed", "false", 0, 1, QTestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestResult_Object(), ecorePackage.getEString(), "object", null, 0, 1, QTestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTestResult_Runner(), ecorePackage.getEString(), "runner", null, 1, 1, QTestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTestResult_Time(), ecorePackage.getELong(), "time", null, 0, 1, QTestResult.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testRunnerEClass, QTestRunner.class, "TestRunner", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

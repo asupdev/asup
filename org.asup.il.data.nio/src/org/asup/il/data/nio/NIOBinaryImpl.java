@@ -54,14 +54,7 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 
 
 	@Override
-	public int length() {		
-		return size();
-	}
-
-
-	@Override
-	public int size() {
-
+	public int getLength() {
 		switch (_type) {
 		case BYTE:
 			return 1;
@@ -75,6 +68,12 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 		
 		throw new FrameworkCoreRuntimeException("Unexpected condition");
 	}
+
+
+	@Override
+	public int getSize() {
+		return getLength();
+	}
 	
 	@Override
 	public Number readNumber() {
@@ -82,7 +81,7 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 		ByteBuffer byteBuffer = getBuffer();
 		int position = getPosition();
 		
-		NIOBufferHelper.prepare(byteBuffer, position, size());
+		NIOBufferHelper.prepare(byteBuffer, position, getSize());
 		switch (_type) {
 		case BYTE:
 			return byteBuffer.get(position);
@@ -103,7 +102,7 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 		ByteBuffer buffer = getBuffer();
 		int position = getPosition();
 		
-		NIOBufferHelper.prepare(buffer, position, size());
+		NIOBufferHelper.prepare(buffer, position, getSize());
 		switch (_type) {
 		case BYTE:
 			buffer.put(getPosition(), (byte) number.intValue());

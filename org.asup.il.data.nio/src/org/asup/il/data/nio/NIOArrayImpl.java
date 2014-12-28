@@ -22,56 +22,55 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 
 	private D[] _elements;
 	private NIOBufferedDataImpl _model;
-	
+
 	public NIOArrayImpl() {
 		super();
 	}
-	
-	@SuppressWarnings({ "unchecked"})
+
+	@SuppressWarnings({ "unchecked" })
 	public NIOArrayImpl(NIOBufferedDataImpl model, int dimension) {
 		super();
 		this._model = model;
-		this._elements = (D[])Array.newInstance(model.getClass(), dimension);	
+		this._elements = (D[]) Array.newInstance(model.getClass(), dimension);
 	}
 
 	@Override
 	public void clear() {
-		NIOBufferHelper.clear(getBuffer(), getPosition(), size(), getFiller());
+		NIOBufferHelper.clear(getBuffer(), getPosition(), getSize(), getFiller());
 	}
-	
+
 	@Override
 	public int capacity() {
 		return _elements.length;
 	}
-	
+
 	@Override
 	public int count() {
 		return capacity();
 	}
 
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public D get(int index) {
-		
-		D element = _elements[index-1];
-		if(element == null) {
+
+		D element = _elements[index - 1];
+		if (element == null) {
 			element = (D) _model.copy();
-			int position = _model.size() * (index - 1);
+			int position = _model.getSize() * (index - 1);
 			slice(element, position);
-			_elements[index-1] = element;
+			_elements[index - 1] = element;
 		}
 		return element;
 	}
 
 	@Override
-	public int length() {
-		return _elements.length * _model.length();
+	public int getLength() {
+		return _elements.length * _model.getLength();
 	}
 
 	@Override
-	public int size() {
-		return _elements.length * _model.size();
+	public int getSize() {
+		return _elements.length * _model.getSize();
 	}
 
 	@Override
@@ -87,12 +86,12 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 	@Override
 	public void sorta() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public void eval(QArray<D> value) {		
-		movea(value, true);		
+	public void eval(QArray<D> value) {
+		movea(value, true);
 	}
 
 	@Override
@@ -145,5 +144,5 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 }

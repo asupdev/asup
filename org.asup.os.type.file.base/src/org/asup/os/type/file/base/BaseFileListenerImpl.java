@@ -29,7 +29,7 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
-import org.asup.os.core.resources.QResourceReader;
+import org.asup.os.core.resources.ResourceEventType;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
@@ -53,18 +53,21 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 	@Override
 	public void handleEvent(QResourceEvent<QFile> event) {
 
+		if(event.getType() != ResourceEventType.PRE_SAVE && event.getType() != ResourceEventType.PRE_DELETE)
+			return;
+		
 		QJob job = event.getResource().getJob();
 
 		QFile file = event.getSource();
-		file.setLibrary(((QResourceReader<QFile>) event.getResource()).getContainer());
+//		file.setLibrary(((QResourceReader<QFile>) event.getResource()).getContainer());
 
 		QContext jobContext = job.getContext();
 		QConnection connection = jobContext.getAdapter(job, QConnection.class);
 
 		Schema schema = connection.getCatalogMetaData().getSchema(file.getLibrary());
-
 		if (schema == null)
 			throw new OperatingSystemRuntimeException("Schema not found: " + file.getLibrary());
+
 
 		switch (event.getType()) {
 		case PRE_SAVE:

@@ -34,7 +34,7 @@ import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataDef;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructDef;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
@@ -181,7 +181,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
 				JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(
-						unaryCompoundDataTerm), QDataStructDelegator.class, true);
+						unaryCompoundDataTerm), QDataStructWrapper.class, true);
 				dataStructureWriter.writeDataStructure(unaryCompoundDataTerm.getDefinition());
 			} else {
 
@@ -217,7 +217,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
 				JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(
-						multipleCompoundDataTerm), QDataStructDelegator.class, true);
+						multipleCompoundDataTerm), QDataStructWrapper.class, true);
 				dataStructureWriter.writeDataStructure(multipleCompoundDataTerm.getDefinition());
 			} else {
 				if (isOverridden(multipleCompoundDataTerm)) {
@@ -418,6 +418,10 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			writeAnnotation(node, DataDef.class, "formulas", dataDef.getFormulas());
 	}
 
+	public void writeAnnotation(ASTNode node, Class<?> annotationKlass) {
+		writeAnnotation(node, annotationKlass, null, null);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public void writeAnnotation(ASTNode node, Class<?> annotationKlass, String key, Object value) {
 
@@ -425,7 +429,17 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 		NormalAnnotation annotation = null;
 
-		if (node instanceof FieldDeclaration) {
+		if (node instanceof EnumDeclaration) {
+			EnumDeclaration enumDeclaration = (EnumDeclaration) node;
+			annotation = findAnnotation(enumDeclaration.modifiers(), annotationKlass);
+
+			if (annotation == null) {
+				annotation = getAST().newNormalAnnotation();
+				annotation.setTypeName(getAST().newName(annotationKlass.getSimpleName()));
+				enumDeclaration.modifiers().add(annotation);
+			}
+		}
+		else if (node instanceof FieldDeclaration) {
 			FieldDeclaration field = (FieldDeclaration) node;
 			annotation = findAnnotation(field.modifiers(), annotationKlass);
 
@@ -446,38 +460,40 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		} else
 			throw new RuntimeException("Unexpected runtime exception 5k43jwh45j8srkf");
 
-		MemberValuePair memberValuePair = getAST().newMemberValuePair();
-		memberValuePair.setName(getAST().newSimpleName(key));
-		if (value instanceof Number) {
-			memberValuePair.setValue(getAST().newNumberLiteral(value.toString()));
-			annotation.values().add(memberValuePair);
-		} else if (value instanceof Boolean) {
-			memberValuePair.setValue(getAST().newBooleanLiteral((boolean) value));
-			annotation.values().add(memberValuePair);
-		} else if (value instanceof String) {
-			StringLiteral stringLiteral = getAST().newStringLiteral();
-			stringLiteral.setLiteralValue((String) value);
-			memberValuePair.setValue(stringLiteral);
-			annotation.values().add(memberValuePair);
-		} else if (value instanceof Enum) {
-			Enum<?> enumValue = (Enum<?>) value;
-			String enumName = enumValue.getClass().getSimpleName() + "." + ((Enum<?>) value).name();
-			memberValuePair.setValue(getAST().newName(enumName.split("\\.")));
-			annotation.values().add(memberValuePair);
-		} else if (value instanceof List) {
-			List<String> listValues = (List<String>) value;
-
-			ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
-			for (String listValue : listValues) {
+		if(key != null) {
+			MemberValuePair memberValuePair = getAST().newMemberValuePair();
+			memberValuePair.setName(getAST().newSimpleName(key));
+			if (value instanceof Number) {
+				memberValuePair.setValue(getAST().newNumberLiteral(value.toString()));
+				annotation.values().add(memberValuePair);
+			} else if (value instanceof Boolean) {
+				memberValuePair.setValue(getAST().newBooleanLiteral((boolean) value));
+				annotation.values().add(memberValuePair);
+			} else if (value instanceof String) {
 				StringLiteral stringLiteral = getAST().newStringLiteral();
-				stringLiteral.setLiteralValue(listValue);
-				arrayInitializer.expressions().add(stringLiteral);
-			}
-
-			memberValuePair.setValue(arrayInitializer);
-			annotation.values().add(memberValuePair);
-		} else
-			throw new RuntimeException("Unexpected runtime exception k7548j4s67vo4kk");
+				stringLiteral.setLiteralValue((String) value);
+				memberValuePair.setValue(stringLiteral);
+				annotation.values().add(memberValuePair);
+			} else if (value instanceof Enum) {
+				Enum<?> enumValue = (Enum<?>) value;
+				String enumName = enumValue.getClass().getSimpleName() + "." + ((Enum<?>) value).name();
+				memberValuePair.setValue(getAST().newName(enumName.split("\\.")));
+				annotation.values().add(memberValuePair);
+			} else if (value instanceof List) {
+				List<String> listValues = (List<String>) value;
+	
+				ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
+				for (String listValue : listValues) {
+					StringLiteral stringLiteral = getAST().newStringLiteral();
+					stringLiteral.setLiteralValue(listValue);
+					arrayInitializer.expressions().add(stringLiteral);
+				}
+	
+				memberValuePair.setValue(arrayInitializer);
+				annotation.values().add(memberValuePair);
+			} else
+				throw new RuntimeException("Unexpected runtime exception k7548j4s67vo4kk");
+		}
 	}
 
 	private NormalAnnotation findAnnotation(List<?> modifiers, Class<?> annotationKlass) {

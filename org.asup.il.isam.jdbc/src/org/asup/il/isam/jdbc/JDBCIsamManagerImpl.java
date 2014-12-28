@@ -14,33 +14,39 @@ package org.asup.il.isam.jdbc;
 import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
-import org.asup.db.syntax.QNameHelper;
-import org.asup.db.syntax.QNameHelperRegistry;
+import org.asup.fw.core.QAdapterFactory;
+import org.asup.fw.core.QApplication;
 import org.asup.fw.core.QContextProvider;
+import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
-import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.constraints.Index;
 
 public class JDBCIsamManagerImpl extends ServiceImpl implements QIsamManager {
 
 	@Inject
-	private QDataManager dataManager;
+	private QApplication application;
 	@Inject
-	private QNameHelperRegistry nameHelperRegistry;
+	private QDataManager dataManager;
+	
+	@ServiceRegistration
+	public void init() {		
+
+		QAdapterFactory adapterFactory = new JDBCIsamAdatpterFactoryImpl();		
+		application.getContext().registerAdapterFactory(adapterFactory, Index.class);
+	}
 	
 	@Override
 	public QIsamFactory createFactory(QContextProvider contextProvider) {
 				
 		QConnection connection = contextProvider.getContext().getAdapter(contextProvider, QConnection.class);
+		
 		QDataFactory dataFactory = dataManager.createFactory(contextProvider);
-		
-		SQLObjectNameHelper sqlObjectNameHelper = new SQLObjectNameHelper();
-		QNameHelper nameHelper = nameHelperRegistry.lookup("*JOB");
-		
-		return new JDBCIsamFactoryImpl(connection, sqlObjectNameHelper, nameHelper, dataFactory);
+
+		return new JDBCIsamFactoryImpl(connection, dataFactory);
 	}
 
 }

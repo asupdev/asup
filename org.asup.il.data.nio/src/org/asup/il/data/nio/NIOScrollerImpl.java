@@ -59,7 +59,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 		if (_lastIndex == index)
 			return _model;
 		
-		int size = _model.size();
+		int size = _model.getSize();
 		int position = size * (index - 1);
 		slice(_model, position);
 
@@ -69,13 +69,13 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 	}
 
 	@Override
-	public int length() {
-		return _dimension * _model.length();
+	public int getLength() {
+		return _dimension * _model.getLength();
 	}
 
 	@Override
-	public int size() {
-		return _dimension * _model.size();
+	public int getSize() {
+		return _dimension * _model.getSize();
 	}
 
 	@Override

@@ -30,7 +30,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	private NIOBufferedDataImpl _parent;
 	private int _position;
-	
+
 	private transient ByteBuffer _buffer;
 
 	public NIOBufferedDataImpl() {
@@ -63,8 +63,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 			_position = tempPosition;
 			oos.close();
 
-			ByteArrayInputStream bais = new ByteArrayInputStream(
-					baos.toByteArray());
+			ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 			ObjectInputStream ois = new ObjectInputStream(bais);
 			copy = (NIOBufferedDataImpl) ois.readObject();
 			ois.close();
@@ -80,11 +79,10 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 		// TODO synchronize
 		if (_parent != null || _buffer != null)
-			throw new FrameworkCoreRuntimeException(
-					"Unexpected condition: dmn8432m75n030");
+			throw new FrameworkCoreRuntimeException("Unexpected condition: dmn8432m75n030");
 
 		_parent = null;
-		_buffer = ByteBuffer.allocate(size());
+		_buffer = ByteBuffer.allocate(getSize());
 
 		// TODO performances
 		clear();
@@ -95,13 +93,11 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		NIOBufferedDataImpl nioBufferedData = getNIOBufferedDataImpl(target);
 
 		if (nioBufferedData == null)
-			throw new FrameworkCoreRuntimeException(
-					"No buffer reference found: " + target.getClass());
+			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
 
 		// TODO synchronize
 		if (nioBufferedData._buffer != null)
-			throw new FrameworkCoreRuntimeException(
-					"Unexpected condition: dmn8432m75n031");
+			throw new FrameworkCoreRuntimeException("Unexpected condition: dmn8432m75n031");
 
 		nioBufferedData._parent = this;
 		nioBufferedData._buffer = null;
@@ -116,8 +112,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		NIOBufferedDataImpl nioBufferedData = getNIOBufferedDataImpl(target);
 
 		if (nioBufferedData == null)
-			throw new FrameworkCoreRuntimeException(
-					"No buffer reference found: " + target.getClass());
+			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
 
 		// TODO synchronize
 		if (_parent != null)
@@ -130,15 +125,15 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public void clear() {
-		NIOBufferHelper.clear(getBuffer(), getPosition(), size(), getFiller());
+		NIOBufferHelper.clear(getBuffer(), getPosition(), getSize(), getFiller());
 	}
 
 	@Override
 	public boolean isEmpty() {
-		
+
 		byte[] bytes = asBytes();
-		for(int i=0; i<bytes.length; i++) {
-			if(bytes[i] != getFiller())
+		for (int i = 0; i < bytes.length; i++) {
+			if (bytes[i] != getFiller())
 				return false;
 		}
 		return true;
@@ -148,7 +143,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	public boolean isNull() {
 		return getBuffer() == null;
 	}
-	
+
 	public ByteBuffer getBuffer() {
 
 		// TODO synchronize
@@ -185,8 +180,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		stream.writeInt(_position);
 	}
 
-	private void readObject(ObjectInputStream stream) throws IOException,
-			ClassNotFoundException {
+	private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
 
 		int length = stream.readInt();
 		byte[] array = new byte[length];
@@ -214,7 +208,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), size());
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), getSize());
 	}
 
 	@Override
@@ -244,8 +238,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public void move(QBufferedData value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), size(),
-				value.asBytes(), clear, getFiller());
+		NIOBufferHelper.move(getBuffer(), getPosition(), getSize(), value.asBytes(), clear, getFiller());
 	}
 
 	@Override
@@ -297,59 +290,57 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), size(),
-				value.asBytes(), clear, getFiller());
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getSize(), value.asBytes(), clear, getFiller());
 	}
-	
+
 	@Override
 	public String toString() {
 		return new String(asBytes());
 	}
-	
+
 	@Override
 	public String asString() {
 		return toString();
 	}
-	
 
 	@Override
-	public boolean eq(QDataEvaluator  value) {
+	public boolean eq(QDataEvaluator value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void eval(QDataEvaluator  value) {
+	public void eval(QDataEvaluator value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public boolean ge(QDataEvaluator  value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean gt(QDataEvaluator  value) {
+	public boolean ge(QDataEvaluator value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean le(QDataEvaluator  value) {
+	public boolean gt(QDataEvaluator value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean lt(QDataEvaluator  value) {
+	public boolean le(QDataEvaluator value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean ne(QDataEvaluator  value) {
+	public boolean lt(QDataEvaluator value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean ne(QDataEvaluator value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -357,24 +348,24 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void move(QDataEvaluator value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void move(QDataEvaluator value, boolean clear) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void movel(QDataEvaluator value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void movel(QDataEvaluator value, boolean clear) {
 		// TODO Auto-generated method stub
-		
-	}	
+
+	}
 }

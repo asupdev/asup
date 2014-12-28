@@ -15,7 +15,7 @@ import javax.inject.Inject;
 
 import org.asup.fw.util.QListUtil;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataStructDelegator;
+import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QEnum;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
@@ -62,7 +62,7 @@ public class LibraryListEntryAdder {
 
 	}
 
-	public static class LibraryListPosition extends QDataStructDelegator {
+	public static class LibraryListPosition extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;
 		@DataDef(length = 1)
 		public QEnum<ListPositionEnum, QCharacter> listPosition;

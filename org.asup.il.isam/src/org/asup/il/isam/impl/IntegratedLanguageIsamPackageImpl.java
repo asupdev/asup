@@ -8,24 +8,24 @@
 package org.asup.il.isam.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
-import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
-import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.isam.OperationRead;
 import org.asup.il.isam.OperationSet;
 import org.asup.il.isam.AccessMode;
+import org.asup.il.isam.OperationDirection;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QIndex;
 import org.asup.il.isam.QIndexColumn;
-import org.asup.il.isam.QIndexDataSet;
 import org.asup.il.isam.QIntegratedLanguageIsamFactory;
 import org.asup.il.isam.QIntegratedLanguageIsamPackage;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
 import org.asup.il.isam.QKeyListTerm;
-import org.asup.il.isam.QTableDataSet;
+import org.asup.il.isam.QKSDataSet;
+import org.asup.il.isam.QRRDataSet;
+import org.asup.il.isam.QRecord;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -70,7 +70,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass indexDataSetEClass = null;
+	private EClass ksDataSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,7 +91,14 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tableDataSetEClass = null;
+	private EClass recordEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rrDataSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,6 +126,13 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum operationDirectionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum operationSetEEnum = null;
 
 	/**
@@ -133,7 +147,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType keyValueEDataType = null;
+	private EDataType keyListEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -258,17 +272,8 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSetTerm_InfoStruct() {
-		return (EAttribute)dataSetTermEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDataSetTerm_Record() {
-		return (EReference)dataSetTermEClass.getEStructuralFeatures().get(5);
+		return (EReference)dataSetTermEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -277,7 +282,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EAttribute getDataSetTerm_UserOpen() {
-		return (EAttribute)dataSetTermEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)dataSetTermEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -312,8 +317,8 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIndexDataSet() {
-		return indexDataSetEClass;
+	public EClass getKSDataSet() {
+		return ksDataSetEClass;
 	}
 
 	/**
@@ -339,8 +344,17 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTableDataSet() {
-		return tableDataSetEClass;
+	public EClass getRecord() {
+		return recordEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRRDataSet() {
+		return rrDataSetEClass;
 	}
 
 	/**
@@ -357,24 +371,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIndex_Columns() {
-		return (EReference)indexEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIndex_Name() {
-		return (EAttribute)indexEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIndexColumn() {
 		return indexColumnEClass;
 	}
@@ -384,35 +380,17 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIndexColumn_Name() {
-		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIndexColumn_Descend() {
-		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIndexColumn_Numeric() {
-		return (EAttribute)indexColumnEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getAccessMode() {
 		return accessModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getOperationDirection() {
+		return operationDirectionEEnum;
 	}
 
 	/**
@@ -438,8 +416,8 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getKeyValue() {
-		return keyValueEDataType;
+	public EDataType getKeyList() {
+		return keyListEDataType;
 	}
 
 	/**
@@ -477,7 +455,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__FILE_NAME);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__FORMAT_NAME);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__KEYED_ACCESS);
-		createEAttribute(dataSetTermEClass, DATA_SET_TERM__INFO_STRUCT);
 		createEReference(dataSetTermEClass, DATA_SET_TERM__RECORD);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__USER_OPEN);
 
@@ -485,30 +462,28 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		createEAttribute(keyListTermEClass, KEY_LIST_TERM__NAME);
 		createEAttribute(keyListTermEClass, KEY_LIST_TERM__KEY_FIELDS);
 
-		indexDataSetEClass = createEClass(INDEX_DATA_SET);
+		ksDataSetEClass = createEClass(KS_DATA_SET);
+
+		indexEClass = createEClass(INDEX);
+
+		indexColumnEClass = createEClass(INDEX_COLUMN);
 
 		isamManagerEClass = createEClass(ISAM_MANAGER);
 
 		isamFactoryEClass = createEClass(ISAM_FACTORY);
 
-		tableDataSetEClass = createEClass(TABLE_DATA_SET);
+		recordEClass = createEClass(RECORD);
 
-		indexEClass = createEClass(INDEX);
-		createEReference(indexEClass, INDEX__COLUMNS);
-		createEAttribute(indexEClass, INDEX__NAME);
-
-		indexColumnEClass = createEClass(INDEX_COLUMN);
-		createEAttribute(indexColumnEClass, INDEX_COLUMN__NAME);
-		createEAttribute(indexColumnEClass, INDEX_COLUMN__DESCEND);
-		createEAttribute(indexColumnEClass, INDEX_COLUMN__NUMERIC);
+		rrDataSetEClass = createEClass(RR_DATA_SET);
 
 		// Create enums
 		accessModeEEnum = createEEnum(ACCESS_MODE);
+		operationDirectionEEnum = createEEnum(OPERATION_DIRECTION);
 		operationSetEEnum = createEEnum(OPERATION_SET);
 		operationReadEEnum = createEEnum(OPERATION_READ);
 
 		// Create data types
-		keyValueEDataType = createEDataType(KEY_VALUE);
+		keyListEDataType = createEDataType(KEY_LIST);
 	}
 
 	/**
@@ -537,34 +512,34 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		// Obtain other dependent packages
 		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
 		QIntegratedLanguageCorePackage theIntegratedLanguageCorePackage = (QIntegratedLanguageCorePackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageCorePackage.eNS_URI);
-		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 
 		// Create type parameters
-		ETypeParameter dataSetEClass_DS = addETypeParameter(dataSetEClass, "DS");
-		ETypeParameter indexDataSetEClass_DS = addETypeParameter(indexDataSetEClass, "DS");
-		ETypeParameter tableDataSetEClass_DS = addETypeParameter(tableDataSetEClass, "DS");
+		ETypeParameter dataSetEClass_R = addETypeParameter(dataSetEClass, "R");
+		ETypeParameter ksDataSetEClass_R = addETypeParameter(ksDataSetEClass, "R");
+		ETypeParameter rrDataSetEClass_R = addETypeParameter(rrDataSetEClass, "R");
 
 		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataStruct());
-		dataSetEClass_DS.getEBounds().add(g1);
-		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataStruct());
-		indexDataSetEClass_DS.getEBounds().add(g1);
-		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataStruct());
-		tableDataSetEClass_DS.getEBounds().add(g1);
+		EGenericType g1 = createEGenericType(this.getRecord());
+		dataSetEClass_R.getEBounds().add(g1);
+		g1 = createEGenericType(this.getRecord());
+		ksDataSetEClass_R.getEBounds().add(g1);
+		g1 = createEGenericType(this.getRecord());
+		rrDataSetEClass_R.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		dataSetTermEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getTerm());
 		keyListTermEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getTerm());
 		g1 = createEGenericType(this.getDataSet());
-		EGenericType g2 = createEGenericType(indexDataSetEClass_DS);
+		EGenericType g2 = createEGenericType(ksDataSetEClass_R);
 		g1.getETypeArguments().add(g2);
-		indexDataSetEClass.getEGenericSuperTypes().add(g1);
+		ksDataSetEClass.getEGenericSuperTypes().add(g1);
 		isamManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
+		recordEClass.getESuperTypes().add(theIntegratedLanguageDataPackage.getDataStruct());
 		g1 = createEGenericType(this.getDataSet());
-		g2 = createEGenericType(tableDataSetEClass_DS);
+		g2 = createEGenericType(rrDataSetEClass_R);
 		g1.getETypeArguments().add(g2);
-		tableDataSetEClass.getEGenericSuperTypes().add(g1);
+		rrDataSetEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(dataSetEClass, QDataSet.class, "DataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -573,32 +548,72 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 
 		addEOperation(dataSetEClass, null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		EOperation op = addEOperation(dataSetEClass, null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(dataSetEClass, null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataSetEClass, null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "isEndOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "isEqual", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "isFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "onError", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataSetEClass, null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(dataSetEClass, null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "read", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "read", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "read", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "read", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "read", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "readp", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "readp", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfRecord", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "readp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "readp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataSetEClass, null, "unlock", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(dataSetEClass, null, "unlock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(dataSetEClass, null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(dataSetEClass, null, "update", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataSetEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(dataSetEClass, null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(dataSetEClass, null, "get", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(dataSetEClass_DS);
+		g1 = createEGenericType(dataSetEClass_R);
 		initEOperation(op, g1);
 
 		initEClass(dataSetTermEClass, QDataSetTerm.class, "DataSetTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -606,7 +621,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getDataSetTerm_FileName(), ecorePackage.getEString(), "fileName", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_FormatName(), ecorePackage.getEString(), "formatName", null, 0, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_KeyedAccess(), ecorePackage.getEBoolean(), "keyedAccess", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSetTerm_InfoStruct(), ecorePackage.getEString(), "infoStruct", null, 0, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataSetTerm_Record(), theIntegratedLanguageDataPackage.getDataStructDef(), null, "record", null, 0, 1, QDataSetTerm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_UserOpen(), ecorePackage.getEBoolean(), "userOpen", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -614,51 +628,273 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getKeyListTerm_Name(), ecorePackage.getEString(), "name", null, 1, 1, QKeyListTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getKeyListTerm_KeyFields(), ecorePackage.getEString(), "keyFields", null, 1, -1, QKeyListTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(indexDataSetEClass, QIndexDataSet.class, "IndexDataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ksDataSetEClass, QKSDataSet.class, "KSDataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(indexDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getKeyValue(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getKeyValue(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "key", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getKeyValue(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "key", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getKeyValue(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "key", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
-		ETypeParameter t1 = addETypeParameter(op, "E");
-		g1 = createEGenericType(theFrameworkJavaPackage.getJavaEnum());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(t1);
-		addEParameter(op, g1, "key", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getKeyValue(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "key", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(indexDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
-		t1 = addETypeParameter(op, "E");
-		g1 = createEGenericType(theFrameworkJavaPackage.getJavaEnum());
-		t1.getEBounds().add(g1);
-		g1 = createEGenericType(t1);
-		addEParameter(op, g1, "key", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "reade", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "endOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, ecorePackage.getEBoolean(), "readpe", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "beginningOfData", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getData(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "keyField", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(ksDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getKeyList(), "keyList", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(indexEClass, QIndex.class, "Index", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(indexEClass, this.getIndexColumn(), "getColumns", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(indexColumnEClass, QIndexColumn.class, "IndexColumn", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(indexColumnEClass, ecorePackage.getEString(), "getName", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(indexColumnEClass, this.getOperationDirection(), "getDirection", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(indexColumnEClass, ecorePackage.getEInt(), "getLength", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(indexColumnEClass, ecorePackage.getEBoolean(), "isNumeric", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(isamManagerEClass, QIsamManager.class, "IsamManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -667,55 +903,97 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 
 		initEClass(isamFactoryEClass, QIsamFactory.class, "IsamFactory", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(isamFactoryEClass, null, "createDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getDataSetTerm(), "dataSetTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getDataSet());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		op = addEOperation(isamFactoryEClass, null, "createDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
-		t1 = addETypeParameter(op, "DS");
-		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataStruct());
+		op = addEOperation(isamFactoryEClass, null, "createKeySequencedDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		ETypeParameter t1 = addETypeParameter(op, "R");
+		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "dataStruct", 1, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getDataSet());
+		addEParameter(op, g1, "wrapper", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getKSDataSet());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
-		op = addEOperation(isamFactoryEClass, this.getDataSetTerm(), "createDataSetTerm", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFrameworkJavaPackage.getJavaType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFrameworkJavaPackage.getJavaAnnotation(), "annotations", 1, -1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(isamFactoryEClass, null, "createRelativeRecordDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "R");
+		g1 = createEGenericType(this.getRecord());
+		t1.getEBounds().add(g1);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "wrapper", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getRRDataSet());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
-		initEClass(tableDataSetEClass, QTableDataSet.class, "TableDataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(recordEClass, QRecord.class, "Record", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(tableDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(recordEClass, this.getIndex(), "getIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(rrDataSetEClass, QRRDataSet.class, "RRDataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(rrDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(tableDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(rrDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(rrDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(rrDataSetEClass, ecorePackage.getEBoolean(), "chain", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "notFound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBooleanObject(), "lock", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(rrDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(tableDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(rrDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(rrDataSetEClass, null, "setgt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(rrDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(indexEClass, QIndex.class, "Index", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIndex_Columns(), this.getIndexColumn(), null, "columns", null, 0, -1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndex_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = addEOperation(rrDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(indexColumnEClass, QIndexColumn.class, "IndexColumn", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIndexColumn_Name(), ecorePackage.getEString(), "name", null, 1, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndexColumn_Descend(), ecorePackage.getEBoolean(), "descend", null, 0, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIndexColumn_Numeric(), ecorePackage.getEBoolean(), "numeric", null, 0, 1, QIndexColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = addEOperation(rrDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(rrDataSetEClass, null, "setll", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "relativeRecordNumber", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessModeEEnum, AccessMode.class, "AccessMode");
 		addEEnumLiteral(accessModeEEnum, AccessMode.INPUT);
 		addEEnumLiteral(accessModeEEnum, AccessMode.OUTPUT);
 		addEEnumLiteral(accessModeEEnum, AccessMode.UPDATE);
+
+		initEEnum(operationDirectionEEnum, OperationDirection.class, "OperationDirection");
+		addEEnumLiteral(operationDirectionEEnum, OperationDirection.FORWARD);
+		addEEnumLiteral(operationDirectionEEnum, OperationDirection.BACKWARD);
 
 		initEEnum(operationSetEEnum, OperationSet.class, "OperationSet");
 		addEEnumLiteral(operationSetEEnum, OperationSet.CHAIN);
@@ -730,7 +1008,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		addEEnumLiteral(operationReadEEnum, OperationRead.READ_PRIOR_EQUAL);
 
 		// Initialize data types
-		initEDataType(keyValueEDataType, QBufferedData[].class, "KeyValue", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(keyListEDataType, Object[].class, "KeyList", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

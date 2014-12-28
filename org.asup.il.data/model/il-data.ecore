@@ -88,8 +88,8 @@
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
     </eOperations>
     <eOperations name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="length" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eOperations name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="getLength" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="getSize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BufferDef">
     <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
@@ -423,7 +423,7 @@
       <eTypeParameters name="D">
         <eBounds eClassifier="#//DataStruct"/>
       </eTypeParameters>
-      <eParameters name="classDelegator">
+      <eParameters name="wrapper">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//DataFactory/createDataStruct.1/D"/>
         </eGenericType>
@@ -854,6 +854,8 @@
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     </eOperations>
+    <eOperations name="getPrecision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="getScale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DecimalDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="precision" lowerBound="1"

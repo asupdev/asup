@@ -7,32 +7,66 @@
     <eLiterals name="Update" value="30" literal="U"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSet" abstract="true" interface="true">
-    <eTypeParameters name="DS">
-      <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//Record"/>
     </eTypeParameters>
     <eOperations name="clear"/>
     <eOperations name="close"/>
+    <eOperations name="close">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="delete"/>
     <eOperations name="delete">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Consente la cancellazione di un record dal dataset, applicabile solo alla modalita' di accesso &quot;Update&quot;.&#xA;Il record cancellato deve prima essere in stato di lock conseguente a un'operazione di lettura."/>
-      </eAnnotations>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="isEndOfData" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isEqual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isFound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="onError" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="open"/>
+    <eOperations name="open">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
     <eOperations name="read" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="read" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="endOfRecord" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="read" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="read" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="readp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="readp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="endOfRecord" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="readp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="unlock"/>
+    <eOperations name="unlock">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
     <eOperations name="update"/>
+    <eOperations name="update">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
     <eOperations name="write"/>
+    <eOperations name="write">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
     <eOperations name="get" lowerBound="1">
-      <eGenericType eTypeParameter="#//DataSet/DS"/>
+      <eGenericType eTypeParameter="#//DataSet/R"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSetTerm" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
@@ -51,7 +85,6 @@
         <details key="documentation" value="Imposta il tipo di accesso al data set."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="infoStruct" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStructDef"
         transient="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userOpen" lowerBound="1"
@@ -61,65 +94,280 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="KeyValue" instanceClassName="org.asup.il.data.QBufferedData[]"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="KeyList" instanceTypeName="Object[]"/>
   <eClassifiers xsi:type="ecore:EClass" name="KeyListTerm" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyFields" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IndexDataSet" abstract="true" interface="true">
-    <eTypeParameters name="DS">
-      <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KSDataSet" abstract="true" interface="true">
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//Record"/>
     </eTypeParameters>
     <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
-    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
-    <eOperations name="reade">
-      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="reade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="endOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
     </eOperations>
-    <eOperations name="readpe">
-      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="readpe" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="beginningOfData" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="setll">
-      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
     </eOperations>
     <eOperations name="setll">
-      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="setll">
-      <eTypeParameters name="E">
-        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
-      </eTypeParameters>
-      <eParameters name="key" lowerBound="1">
-        <eGenericType eTypeParameter="#//IndexDataSet/setll.2/E"/>
-      </eParameters>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="setgt">
-      <eParameters name="keyList" lowerBound="1" eType="#//KeyValue"/>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
     </eOperations>
     <eOperations name="setgt">
-      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="setgt">
-      <eTypeParameters name="E">
-        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
-      </eTypeParameters>
-      <eParameters name="key" lowerBound="1">
-        <eGenericType eTypeParameter="#//IndexDataSet/setgt.2/E"/>
-      </eParameters>
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Data"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="keyList" lowerBound="1" eType="#//KeyList"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eGenericSuperTypes eClassifier="#//DataSet">
-      <eTypeArguments eTypeParameter="#//IndexDataSet/DS"/>
+      <eTypeArguments eTypeParameter="#//KSDataSet/R"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Index" abstract="true" interface="true">
+    <eOperations name="getColumns" upperBound="-1" eType="#//IndexColumn"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexColumn" abstract="true" interface="true">
+    <eOperations name="getName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getDirection" lowerBound="1" eType="#//OperationDirection"/>
+    <eOperations name="getLength" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="isNumeric" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsamManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
@@ -128,46 +376,98 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsamFactory" abstract="true" interface="true">
-    <eOperations name="createDataSet" lowerBound="1">
-      <eGenericType eClassifier="#//DataSet">
-        <eTypeArguments/>
+    <eOperations name="createKeySequencedDataSet" lowerBound="1">
+      <eGenericType eClassifier="#//KSDataSet">
+        <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet/R"/>
       </eGenericType>
-      <eParameters name="dataSetTerm" lowerBound="1" eType="#//DataSetTerm"/>
-    </eOperations>
-    <eOperations name="createDataSet" lowerBound="1">
-      <eGenericType eClassifier="#//DataSet">
-        <eTypeArguments eTypeParameter="#//IsamFactory/createDataSet.1/DS"/>
-      </eGenericType>
-      <eTypeParameters name="DS">
-        <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+      <eTypeParameters name="R">
+        <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="dataStruct" lowerBound="1">
+      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
-          <eTypeArguments eTypeParameter="#//IsamFactory/createDataSet.1/DS"/>
+          <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet/R"/>
         </eGenericType>
       </eParameters>
     </eOperations>
-    <eOperations name="createDataSetTerm" lowerBound="1" eType="#//DataSetTerm">
-      <eParameters name="type" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaType"/>
-      <eParameters name="annotations" lowerBound="1" upperBound="-1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaAnnotation"/>
+    <eOperations name="createRelativeRecordDataSet" lowerBound="1">
+      <eGenericType eClassifier="#//RRDataSet">
+        <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet/R"/>
+      </eGenericType>
+      <eTypeParameters name="R">
+        <eBounds eClassifier="#//Record"/>
+      </eTypeParameters>
+      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="wrapper" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet/R"/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableDataSet" abstract="true" interface="true">
-    <eTypeParameters name="DS">
-      <eBounds eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Record" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct">
+    <eOperations name="getIndex" eType="#//Index"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RRDataSet" abstract="true" interface="true">
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//Record"/>
     </eTypeParameters>
     <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
     <eOperations name="setgt">
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
     <eOperations name="setll">
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="setll">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="equal" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
     <eGenericSuperTypes eClassifier="#//DataSet">
-      <eTypeArguments eTypeParameter="#//TableDataSet/DS"/>
+      <eTypeArguments eTypeParameter="#//RRDataSet/R"/>
     </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationDirection">
+    <eLiterals name="Forward" value="10" literal="F"/>
+    <eLiterals name="Backward" value="20" literal="B"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperationSet">
     <eLiterals name="Chain" value="10" literal="CHAIN"/>
@@ -180,15 +480,5 @@
     <eLiterals name="ReadEqual" value="30" literal="READE"/>
     <eLiterals name="ReadPrior" value="40" literal="READP"/>
     <eLiterals name="ReadPriorEqual" value="50" literal="READPE"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Index" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//IndexColumn" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IndexColumn" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numeric" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -14,7 +14,6 @@ import org.asup.db.syntax.QDatabaseSyntaxFactory;
 import org.asup.db.syntax.dbl.CursorType;
 import org.asup.db.syntax.dbl.FetchPosition;
 import org.asup.db.syntax.dbl.IsolationLevel;
-import org.asup.db.syntax.dbl.OpenType;
 import org.asup.db.syntax.dbl.OpenUsingType;
 import org.asup.db.syntax.dbl.QCloseStatement;
 import org.asup.db.syntax.dbl.QDeclareCursorStatement;

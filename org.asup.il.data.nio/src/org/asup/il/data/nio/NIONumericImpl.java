@@ -188,7 +188,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 
 	@Override
-	public int length() {
+	public int getLength() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -245,7 +245,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public void move(String value, boolean clear) {
-		NIOBufferHelper.move(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
+		NIOBufferHelper.move(getBuffer(), getPosition(), getSize(), value.getBytes(), clear, getFiller());
 	}
 
 	@Override
@@ -260,7 +260,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public void movel(String value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), size(), value.getBytes(), clear, getFiller());
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getSize(), value.getBytes(), clear, getFiller());
 	}
 
 	@Override
@@ -354,7 +354,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	public abstract Number readNumber();
 
 	@Override
-	public int size() {
+	public int getSize() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
