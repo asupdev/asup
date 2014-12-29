@@ -34,8 +34,7 @@ public class DBSyntaxHelper {
 		"^[\\s]*[dD][eE][cC][lL][aA][rR][eE][\\s]*.*", /*DECLARE*/
 		"^[\\s]*[dD][eE][sS][cC][rR][iI][bB][eE][\\s]*.*", /*DESCRIBE*/
 		"^[\\s]*[fF][eE][tT][cC][hH].*[fF][rR][oO][mM][\\s][\\s]*.*", /*FETCH FROM*/
-		"^[\\s]*[cC][lL][oO][sS][eE][\\s]*.*", /*CLOSE*/
-		
+		"^[\\s]*[cC][lL][oO][sS][eE][\\s]*.*" /*CLOSE*/		
 	};
 	
 
@@ -71,7 +70,7 @@ public class DBSyntaxHelper {
 		boolean result = false;
 		
 		for (int i = 0; i < dblRegex.length; i++) {
-			if (statement.matches(ddlRegex[i])) {
+			if (statement.matches(dblRegex[i])) {
 				result = true;
 				break;
 			}
@@ -86,6 +85,9 @@ public class DBSyntaxHelper {
 
 	}
 	
-	
+	public static void main(String[] args) {
+		// Test
+		System.out.println(isDBLStatement("DECLARE c1 CURSOR FOR (SELECT A, B, C FROM FILE)"));
+	}
 	
 }
