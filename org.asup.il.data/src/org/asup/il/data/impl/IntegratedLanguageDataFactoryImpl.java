@@ -22,7 +22,8 @@ import org.asup.il.data.QBufferDef;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacterDef;
 import org.asup.il.data.QDataDictionary;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataReader;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDatetimeDef;
 import org.asup.il.data.QDecimalDef;
@@ -106,8 +107,9 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageDataPackage.BUFFER_DEF: return (EObject)createBufferDef();
 			case QIntegratedLanguageDataPackage.CHARACTER_DEF: return (EObject)createCharacterDef();
 			case QIntegratedLanguageDataPackage.DATA_DICTIONARY: return (EObject)createDataDictionary();
-			case QIntegratedLanguageDataPackage.DATA_EVALUATOR: return (EObject)createDataEvaluator();
+			case QIntegratedLanguageDataPackage.DATA_READER: return (EObject)createDataReader();
 			case QIntegratedLanguageDataPackage.DATA_STRUCT_DEF: return (EObject)createDataStructDef();
+			case QIntegratedLanguageDataPackage.DATA_WRITER: return (EObject)createDataWriter();
 			case QIntegratedLanguageDataPackage.DATETIME_DEF: return (EObject)createDatetimeDef();
 			case QIntegratedLanguageDataPackage.DECIMAL_DEF: return (EObject)createDecimalDef();
 			case QIntegratedLanguageDataPackage.FLOATING_DEF: return (EObject)createFloatingDef();
@@ -255,9 +257,19 @@ public class IntegratedLanguageDataFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDataEvaluator createDataEvaluator() {
-		DataEvaluatorImpl dataEvaluator = new DataEvaluatorImpl();
-		return dataEvaluator;
+	public QDataReader createDataReader() {
+		DataReaderImpl dataReader = new DataReaderImpl();
+		return dataReader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDataWriter createDataWriter() {
+		DataWriterImpl dataWriter = new DataWriterImpl();
+		return dataWriter;
 	}
 
 	/**

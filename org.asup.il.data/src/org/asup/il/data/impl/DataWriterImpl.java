@@ -14,7 +14,7 @@ import org.asup.il.data.QBinary;
 import org.asup.il.data.QBoolean;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDecimal;
@@ -32,14 +32,14 @@ import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Data Evaluator</b></em>'.
+ * An implementation of the model object '<em><b>Data Writer</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator {
+public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,7 +53,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataEvaluatorImpl() {
+	protected DataWriterImpl() {
 		super();
 	}
 
@@ -64,7 +64,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QIntegratedLanguageDataPackage.Literals.DATA_EVALUATOR;
+		return QIntegratedLanguageDataPackage.Literals.DATA_WRITER;
 	}
 
 	/**
@@ -72,7 +72,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDataEvaluator set(int value) {
+	public QDataWriter set(int value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -83,7 +83,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QDataEvaluator set(String value) {
+	public QDataWriter set(String value) {
 		this.object = value;
 		return this;
 	}
@@ -93,7 +93,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QDataEvaluator set(QSpecialElement value) {
+	public QDataWriter set(QSpecialElement value) {
 		this.object = value.getValue();
 		return this;
 	}
@@ -103,7 +103,7 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QDataEvaluator set(QBufferedData value) {
+	public QDataWriter set(QBufferedData value) {
 		this.object = value;
 		return this;
 	}
@@ -219,4 +219,4 @@ public class DataEvaluatorImpl extends DataVisitorImpl implements QDataEvaluator
 		}
 
 	}
-} //DataEvaluatorImpl
+} //DataWriterImpl

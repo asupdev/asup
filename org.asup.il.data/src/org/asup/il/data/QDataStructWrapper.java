@@ -126,7 +126,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public boolean eq(QDataEvaluator  value) {
+	public boolean eq(QDataWriter  value) {
 		return delegate.eq(value);
 	}
 
@@ -152,7 +152,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public void eval(QDataEvaluator  value) {
+	public void eval(QDataWriter  value) {
 		delegate.eval(value);
 	}
 
@@ -172,7 +172,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public boolean ge(QDataEvaluator  value) {
+	public boolean ge(QDataWriter  value) {
 		return delegate.ge(value);
 	}
 
@@ -212,7 +212,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 	
 	@Override
-	public boolean gt(QDataEvaluator  value) {
+	public boolean gt(QDataWriter  value) {
 		return delegate.gt(value);
 	}
 	
@@ -249,7 +249,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public boolean le(QDataEvaluator  value) {
+	public boolean le(QDataWriter  value) {
 		return delegate.le(value);
 	}
 
@@ -274,7 +274,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public boolean lt(QDataEvaluator  value) {
+	public boolean lt(QDataWriter  value) {
 		return delegate.lt(value);
 	}
 	@Override
@@ -409,7 +409,7 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public boolean ne(QDataEvaluator  value) {
+	public boolean ne(QDataWriter  value) {
 		return delegate.ne(value);
 	}
 
@@ -449,22 +449,22 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
-	public void move(QDataEvaluator value) {
+	public void move(QDataWriter value) {
 		delegate.move(value);
 	}
 
 	@Override
-	public void move(QDataEvaluator value, boolean clear) {
+	public void move(QDataWriter value, boolean clear) {
 		delegate.move(value, clear);		
 	}
 
 	@Override
-	public void movel(QDataEvaluator value) {
+	public void movel(QDataWriter value) {
 		delegate.movel(value);
 	}
 
 	@Override
-	public void movel(QDataEvaluator value, boolean clear) {
+	public void movel(QDataWriter value, boolean clear) {
 		delegate.movel(value, clear);		
 	}
 }

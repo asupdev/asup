@@ -11,9 +11,10 @@ import org.asup.fw.test.annotation.TestStarted;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QRRDataSet;
 import org.asup.il.isam.test.file.dbf.BRARTI0F;
+import org.asup.il.isam.test.file.dbf.BRENTI0F;
 
 @Test(category = "ILISAM", object = "RRDS")
-public class ReadRRDS_readp {
+public class RRDS_read {
 
 	@Inject
 	private QTestAsserter testAsserter;
@@ -23,7 +24,10 @@ public class ReadRRDS_readp {
 	@TestStarted
 	public void doTest() throws SQLException, IOException {
 
+
 		testBRARTI();
+		
+		testBRENTI();
 	}
 
 	private void testBRARTI() {
@@ -34,32 +38,26 @@ public class ReadRRDS_readp {
 
 		testAsserter.resetTime();
 		int count = 0;
-		brarti0f.setgt(Integer.MAX_VALUE);
-		while (brarti0f.readp())
+		while (brarti0f.read())
 			count++;
 		testAsserter.assertEquals("Items count", 9574, count);
 
 		brarti0f.close();
+	}
+	
+	private void testBRENTI() {
 
-		brarti0f.open();
+		QRRDataSet<BRENTI0F> brenti0f = isamFactory.createRelativeRecordDataSet(null, BRENTI0F.class);
+
+		brenti0f.open();
 
 		testAsserter.resetTime();
-		boolean first = true;
-		while (brarti0f.read()) {
+		int count = 0;
+		while (brenti0f.read())
+			count++;
+		testAsserter.assertEquals("Customers count", 33198, count);
 
-			if (first && brarti0f.get().açarti.eq("00104600138")) {
-				first = false;
-
-				brarti0f.readp();
-				brarti0f.readp();
-				brarti0f.readp();
-
-				brarti0f.read();
-				testAsserter.assertEquals("Item code", "00104400069", brarti0f.get().açarti.trimR());
-			}
-		}
-
-		brarti0f.close();
+		brenti0f.close();
+		
 	}
-
 }

@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
@@ -179,13 +179,13 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public boolean eq(QDataEvaluator value) {
+	public boolean eq(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void eval(QDataEvaluator value) {
+	public void eval(QDataWriter value) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -197,7 +197,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public boolean ge(QDataEvaluator value) {
+	public boolean ge(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -209,7 +209,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public boolean gt(QDataEvaluator value) {
+	public boolean gt(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -221,7 +221,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public boolean le(QDataEvaluator value) {
+	public boolean le(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -233,7 +233,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public boolean lt(QDataEvaluator value) {
+	public boolean lt(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -245,7 +245,7 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 	}
 
 	@Override
-	public boolean ne(QDataEvaluator value) {
+	public boolean ne(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}

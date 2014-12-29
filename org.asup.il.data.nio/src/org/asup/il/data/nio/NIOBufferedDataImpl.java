@@ -21,7 +21,7 @@ import java.nio.ByteBuffer;
 import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
 
 public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBufferedData {
@@ -304,67 +304,67 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	}
 
 	@Override
-	public boolean eq(QDataEvaluator value) {
+	public boolean eq(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void eval(QDataEvaluator value) {
+	public void eval(QDataWriter value) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public boolean ge(QDataEvaluator value) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean gt(QDataEvaluator value) {
+	public boolean ge(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean le(QDataEvaluator value) {
+	public boolean gt(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean lt(QDataEvaluator value) {
+	public boolean le(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean ne(QDataEvaluator value) {
+	public boolean lt(QDataWriter value) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void move(QDataEvaluator value) {
+	public boolean ne(QDataWriter value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void move(QDataWriter value) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void move(QDataEvaluator value, boolean clear) {
+	public void move(QDataWriter value, boolean clear) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void movel(QDataEvaluator value) {
+	public void movel(QDataWriter value) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void movel(QDataEvaluator value, boolean clear) {
+	public void movel(QDataWriter value, boolean clear) {
 		// TODO Auto-generated method stub
 
 	}

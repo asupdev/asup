@@ -13,7 +13,7 @@ import org.asup.il.isam.QKSDataSet;
 import org.asup.il.isam.test.file.dbf.BRARTI2L;
 
 @Test(category = "ILISAM", object = "KSDS")
-public class ReadKSDS_read {
+public class KSDS_read {
 
 	@Inject
 	private QTestAsserter testAsserter;
@@ -29,23 +29,29 @@ public class ReadKSDS_read {
 
 	private void testBRARTI() {
 
-		QKSDataSet<BRARTI2L> brarti0f = isamFactory.createKeySequencedDataSet(null, BRARTI2L.class);
+		QKSDataSet<BRARTI2L> brarti2l = isamFactory.createKeySequencedDataSet(null, BRARTI2L.class);
 
-		brarti0f.open();
-
+		brarti2l.open();
 		testAsserter.resetTime();
+		
 		int count = 0;
-		brarti0f.setll("ART");
-		while (brarti0f.reade("ART"))
+		brarti2l.setll("ART");
+		while (brarti2l.reade("ART"))
 			count++;
 		testAsserter.assertEquals("Items ART count", 827, count);
 
 		count = 0;
-		brarti0f.setll("BPP");
-		while (brarti0f.reade("BPP"))
+		brarti2l.setgt(new Object[] {"ART", "EM-057"});
+		while (brarti2l.reade("ART"))
+			count++;
+		testAsserter.assertEquals("Items TIAR=ART and ARTI>EM-057 count", 500, count);
+
+		count = 0;
+		brarti2l.setll("BPP");
+		while (brarti2l.reade("BPP"))
 			count++;
 		testAsserter.assertEquals("Items BPP count", 171, count);
 
-		brarti0f.close();
+		brarti2l.close();
 	}
 }

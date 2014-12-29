@@ -92,7 +92,7 @@ public interface QMoveable {
 	 * @model
 	 * @generated
 	 */
-	void move(QDataEvaluator value);
+	void move(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,7 +100,7 @@ public interface QMoveable {
 	 * @model clearRequired="true"
 	 * @generated
 	 */
-	void move(QDataEvaluator value, boolean clear);
+	void move(QDataWriter value, boolean clear);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,7 +204,7 @@ public interface QMoveable {
 	 * @model
 	 * @generated
 	 */
-	void movel(QDataEvaluator value);
+	void movel(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,7 +212,7 @@ public interface QMoveable {
 	 * @model clearRequired="true"
 	 * @generated
 	 */
-	void movel(QDataEvaluator value, boolean clear);
+	void movel(QDataWriter value, boolean clear);
 
 	/**
 	 * <!-- begin-user-doc -->

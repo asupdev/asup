@@ -27,7 +27,7 @@ import org.asup.fw.core.QContext;
 import org.asup.fw.core.QContextProvider;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -67,7 +67,7 @@ public class BaseCallableInjector {
 	}
 
 	
-	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	private QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 
 	public <C> C makeCallable(QJob job, QActivationGroup activationGroup, Class<C> klass) {
 
@@ -167,12 +167,12 @@ public class BaseCallableInjector {
 						QList<?> array = (QList<?>) data;
 						int i = 1;
 						for (String value : dataDef.values()) {
-							array.get(i).accept(evaluator.set(value));
+							array.get(i).accept(dataWriter.set(value));
 							i++;
 						}
 					} else {
 						if (!dataDef.value().isEmpty())
-							data.accept(evaluator.set(dataDef.value()));
+							data.accept(dataWriter.set(dataDef.value()));
 					}
 
 				}

@@ -54,7 +54,8 @@ public class JDBCAccessHelper {
 			buildWhereChain(opSet, keySet, opRead, keyRead, sbWhere, index);
 		}
 
-		if (opRead.equals(OperationRead.READ) || opRead.equals(OperationRead.READ_EQUAL) || opRead.equals(OperationRead.READ_PRIOR) || opRead.equals(OperationRead.READ_EQUAL)) {
+		if (opRead.equals(OperationRead.READ) || opRead.equals(OperationRead.READ_EQUAL) || 
+			opRead.equals(OperationRead.READ_PRIOR) || opRead.equals(OperationRead.READ_PRIOR_EQUAL)) {
 			buildWhereRead(opSet, keySet, opRead, keyRead, sbWhere, index);
 		}
 
@@ -69,7 +70,9 @@ public class JDBCAccessHelper {
 			if (sbOrderBy.length() != 0)
 				sbOrderBy.append(", ");
 
-			sbOrderBy.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString());
+			String indexColumnName = indexColumn.getName().replaceAll("ç", "§").toUpperCase();
+			
+			sbOrderBy.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumnName + getSQLObjectNameHelper().getIdentifierQuoteString());
 			if (dir == OperationDirection.BACKWARD) {
 				if(indexColumn.getDirection() != OperationDirection.BACKWARD)
 					sbOrderBy.append(" DESC");
@@ -93,17 +96,20 @@ public class JDBCAccessHelper {
 		for (int i = 0; i < keySet.length; i++) {
 
 			QIndexColumn indexColumn = index.getColumns().get(i);
+			String indexColumnName = indexColumn.getName().replaceAll("ç", "§").toUpperCase();
 			
 			// append field
 			if (indexColumn.isNumeric()) {
-				sbFields.append("digits(" + getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString() + ")");
+
+				sbFields.append("digits(" + getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumnName + getSQLObjectNameHelper().getIdentifierQuoteString() + ")");
 
 				// append value
 				byte[] bytes = new byte[indexColumn.getLength() - keySet[i].toString().length()];
 				Arrays.fill(bytes, (byte) 48);
 				sbValues.append(new String(bytes) + keySet[i].toString());
 			} else {
-				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString());
+				
+				sbFields.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumnName + getSQLObjectNameHelper().getIdentifierQuoteString());
 
 				// append value
 				byte[] bytes = new byte[indexColumn.getLength() - keySet[i].toString().length()];
@@ -158,7 +164,8 @@ public class JDBCAccessHelper {
 		for (int i = 0; i < keyRead.length; i++) {
 
 			QIndexColumn indexColumn = indexColumns.get(i);
-
+			String indexColumnName = indexColumn.getName().replaceAll("ç", "§").toUpperCase();
+			
 			String value = null;
 			// append value
 			if (keyRead[i] instanceof QString) {
@@ -171,9 +178,9 @@ public class JDBCAccessHelper {
 
 			// append field
 			if (indexColumn.isNumeric())
-				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumnName + getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append(value);
 			else
-				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumn.getName() + getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'" + value + "'");
+				sbWhere.append(getSQLObjectNameHelper().getIdentifierQuoteString() + indexColumnName + getSQLObjectNameHelper().getIdentifierQuoteString()).append("=").append("'" + value + "'");
 		}
 	}
 }

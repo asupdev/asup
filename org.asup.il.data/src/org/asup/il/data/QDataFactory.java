@@ -86,7 +86,7 @@ public interface QDataFactory {
 	 * @model required="true" lengthRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	<D extends QDataStruct> D createDataStruct(Class<D> classDelegator, int length, boolean initialize);
+	<D extends QDataStruct> D createDataStruct(Class<D> wrapper, int length, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->

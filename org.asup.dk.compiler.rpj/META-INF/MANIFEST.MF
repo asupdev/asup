@@ -17,7 +17,9 @@ Require-Bundle: org.asup.dk.compiler,
  org.asup.os.type.pgm,
  org.asup.os.type.msgf,
  org.asup.dk.source,
- org.asup.fw.util
+ org.asup.fw.util,
+ org.asup.db.syntax
 Export-Package: org.asup.dk.compiler.rpj,
+ org.asup.dk.compiler.rpj.dbl,
  org.asup.dk.compiler.rpj.writer
 Bundle-ActivationPolicy: lazy

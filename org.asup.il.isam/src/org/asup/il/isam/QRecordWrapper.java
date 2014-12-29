@@ -87,7 +87,7 @@ public abstract class QRecordWrapper extends QDataStructWrapper implements QReco
 								
 								@Override
 								public String getName() {
-									return field.getName().replaceAll("ç", "§").toUpperCase();
+									return field.getName();
 								}
 
 								@Override

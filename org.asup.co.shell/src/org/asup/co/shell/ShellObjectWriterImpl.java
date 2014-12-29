@@ -19,7 +19,7 @@ import org.asup.fw.util.QStringUtil;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContainer;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataTerm;
@@ -51,7 +51,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 	private QDataContainer dataContainer = null;
 	private QDataFactory dataFactory = null;
 	
-	private QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+	private QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 	
 	@Override
 	public synchronized void write(QObject object) throws IOException {
@@ -70,7 +70,7 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			for(QDataTerm<?> dataTerm: dataContainer.getTerms()) {				
 				QData data = dataContainer.getData(dataTerm);
 				if(data instanceof QString) {
-					data.accept(evaluator.set(stringUtil.firstToUpper(dataTerm.getName())));
+					data.accept(dataWriter.set(stringUtil.firstToUpper(dataTerm.getName())));
 					streamWrite(data + "|");
 				}
 				else if(data instanceof QNumeric) {
@@ -96,26 +96,26 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 			} 
 			else if (value instanceof QObjectNameable) {
 				QObjectNameable qValue = (QObjectNameable) value;
-				data.accept(evaluator.set(qValue.getName()));
+				data.accept(dataWriter.set(qValue.getName()));
 				streamWrite(data + "|");
 			}
 			else if (value instanceof QObject) {
 				QObject qValue = (QObject) value;
-				data.accept(evaluator.set(qValue.toString()));
+				data.accept(dataWriter.set(qValue.toString()));
 				streamWrite(data + "|");				
 			}
 			else if (value instanceof Enumerator) {
 				Enumerator eEnumerator = (Enumerator) value;
-				data.accept(evaluator.set(eEnumerator.getName()));
+				data.accept(dataWriter.set(eEnumerator.getName()));
 				streamWrite(data + "|");
 			}
 			else if (value instanceof Number) {
 				QCharacter character = dataFactory.createCharacter(dataTerm.getName().length(), false, true);
-				character.accept(evaluator.set(value.toString()));
+				character.accept(dataWriter.set(value.toString()));
 				streamWrite(character + "|");
 			} 
 			else {
-				data.accept(evaluator.set(value.toString()));
+				data.accept(dataWriter.set(value.toString()));
 				streamWrite(data + "|");
 			}
 		}

@@ -11,7 +11,7 @@ import java.util.List;
 
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
@@ -645,7 +645,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void move(QDataEvaluator value) {
+	public void move(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -656,7 +656,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void move(QDataEvaluator value, boolean clear) {
+	public void move(QDataWriter value, boolean clear) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -799,7 +799,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void movel(QDataEvaluator value) {
+	public void movel(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -810,7 +810,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void movel(QDataEvaluator value, boolean clear) {
+	public void movel(QDataWriter value, boolean clear) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -876,7 +876,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean eq(QDataEvaluator value) {
+	public boolean eq(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -898,7 +898,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void eval(QDataEvaluator value) {
+	public void eval(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -920,7 +920,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ge(QDataEvaluator value) {
+	public boolean ge(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -942,7 +942,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean gt(QDataEvaluator value) {
+	public boolean gt(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -975,7 +975,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean le(QDataEvaluator value) {
+	public boolean le(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -997,7 +997,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean lt(QDataEvaluator value) {
+	public boolean lt(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1019,7 +1019,7 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ne(QDataEvaluator value) {
+	public boolean ne(QDataWriter value) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

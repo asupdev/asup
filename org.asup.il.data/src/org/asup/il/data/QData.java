@@ -52,7 +52,7 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	boolean eq(QDataEvaluator value);
+	boolean eq(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	void eval(QDataEvaluator value);
+	void eval(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -84,7 +84,7 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	boolean ge(QDataEvaluator value);
+	boolean ge(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -100,7 +100,7 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	boolean gt(QDataEvaluator value);
+	boolean gt(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,7 +124,7 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	boolean le(QDataEvaluator value);
+	boolean le(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,7 +140,7 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	boolean lt(QDataEvaluator value);
+	boolean lt(QDataWriter value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,6 +156,6 @@ public interface QData extends Serializable {
 	 * @model
 	 * @generated
 	 */
-	boolean ne(QDataEvaluator value);
+	boolean ne(QDataWriter value);
 
 } // QData

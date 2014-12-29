@@ -21,7 +21,7 @@ import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDelegator;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
 
 public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QBufferedData, QBufferedDataDelegator {
@@ -102,7 +102,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public boolean eq(QDataEvaluator  value) {
+	public boolean eq(QDataWriter  value) {
 		return _delegate.eq(value);
 	}
 
@@ -117,7 +117,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public void eval(QDataEvaluator value) {
+	public void eval(QDataWriter value) {
 		_delegate.eval(value);		
 	}
 
@@ -127,7 +127,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public boolean ge(QDataEvaluator  value) {
+	public boolean ge(QDataWriter  value) {
 		return _delegate.ge(value);
 	}
 
@@ -142,7 +142,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public boolean gt(QDataEvaluator  value) {
+	public boolean gt(QDataWriter  value) {
 		return _delegate.gt(value);
 	}
 
@@ -166,7 +166,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public boolean le(QDataEvaluator  value) {
+	public boolean le(QDataWriter  value) {
 		return _delegate.le(value);
 	}
 
@@ -181,7 +181,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public boolean lt(QDataEvaluator  value) {
+	public boolean lt(QDataWriter  value) {
 		return _delegate.lt(value);
 	}
 
@@ -300,7 +300,7 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	}
 
 	@Override
-	public boolean ne(QDataEvaluator  value) {
+	public boolean ne(QDataWriter  value) {
 		return _delegate.ne(value);
 	}
 
@@ -320,22 +320,22 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	
 
 	@Override
-	public void move(QDataEvaluator value) {
+	public void move(QDataWriter value) {
 		_delegate.move(value);		
 	}
 
 	@Override
-	public void move(QDataEvaluator value, boolean clear) {
+	public void move(QDataWriter value, boolean clear) {
 		_delegate.move(value, clear);
 	}
 
 	@Override
-	public void movel(QDataEvaluator value) {
+	public void movel(QDataWriter value) {
 		_delegate.movel(value);		
 	}
 
 	@Override
-	public void movel(QDataEvaluator value, boolean clear) {
+	public void movel(QDataWriter value, boolean clear) {
 		_delegate.movel(value, clear);		
 	}
 }

@@ -21,7 +21,7 @@ import org.asup.fw.test.annotation.Test;
 import org.asup.fw.test.annotation.TestStarted;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QCharacter;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataStructWrapper;
@@ -112,9 +112,9 @@ public class TestDataStructure {
 		testAsserter.assertEquals("Movel elements", true, true);
 
 
-		QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator(); 
+		QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter(); 
 		for(QCharacter multElement: dataStruct.multiple) {
-			character.accept(evaluator.set(multElement));
+			character.accept(dataWriter.set(multElement));
 		}
 		testAsserter.assertEquals("Evaluation elements", true, true);
 	}

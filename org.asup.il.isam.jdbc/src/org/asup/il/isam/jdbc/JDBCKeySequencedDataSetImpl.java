@@ -315,7 +315,7 @@ public class JDBCKeySequencedDataSetImpl<R extends QRecord> extends JDBCDataSetI
 	@Override
 	public void setgt(Object[] keyList, QIndicator found, QIndicator error) {
 
-		setKeySet(OperationSet.SET_LOWER_LIMIT, keyList);
+		setKeySet(OperationSet.SET_GREATER_THAN, keyList);
 
 		if (found != null)
 			found.eval(isFound());

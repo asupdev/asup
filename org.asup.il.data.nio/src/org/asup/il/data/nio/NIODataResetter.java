@@ -3,7 +3,7 @@ package org.asup.il.data.nio;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QList;
 import org.asup.il.data.QMultipleAtomicDataTerm;
@@ -16,11 +16,11 @@ import org.asup.il.data.impl.DataTermVisitorImpl;
 public class NIODataResetter extends DataTermVisitorImpl {
 
 	private QData data;
-	private QDataEvaluator evaluator;
+	private QDataWriter dataWriter;
 	
-	public NIODataResetter(QData data, QDataEvaluator evaluator) {
+	public NIODataResetter(QData data, QDataWriter dataWriter) {
 		this.data = data;
-		this.evaluator = evaluator;
+		this.dataWriter = dataWriter;
 	}
 
 	@Override
@@ -41,17 +41,17 @@ public class NIODataResetter extends DataTermVisitorImpl {
 				
 				// set default at current index
 				if(specialElement.isUnary()) {
-					list.get(i).accept(evaluator.set(specialElement));
+					list.get(i).accept(dataWriter.set(specialElement));
 				}
 				else {
 					// set default from current index to remaining
 					for(int e=i; e<=list.capacity(); e++) {
-						list.get(e).accept(evaluator.set(specialElement));
+						list.get(e).accept(dataWriter.set(specialElement));
 					}
 				}
 			}
 			else
-				data.accept(evaluator.set(value));
+				data.accept(dataWriter.set(value));
 
 			i++;
 		}
@@ -73,17 +73,17 @@ public class NIODataResetter extends DataTermVisitorImpl {
 			QSpecialElement specialElement = getSpecialElement(term, value);
 			if(specialElement != null) {
 				if(specialElement.isUnary()) {
-					list.get(i).accept(evaluator.set(specialElement));
+					list.get(i).accept(dataWriter.set(specialElement));
 				}
 				else {
 					for(int e=i; e<=list.capacity(); e++) {
-						list.get(e).accept(evaluator.set(specialElement));
+						list.get(e).accept(dataWriter.set(specialElement));
 					}
 				}
 				_return = false;
 			}
 			else
-				data.accept(evaluator.set(value));
+				data.accept(dataWriter.set(value));
 			
 			i++;
 		}
@@ -93,7 +93,7 @@ public class NIODataResetter extends DataTermVisitorImpl {
 			for(QStruct<?> struct: list) {
 				// childs
 				for(QDataTerm<?> child: term.getDefinition().getElements()) {
-					NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()),evaluator);
+					NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()),dataWriter);
 					child.accept(childResetter);
 				}
 			}
@@ -112,9 +112,9 @@ public class NIODataResetter extends DataTermVisitorImpl {
 		
 		QSpecialElement specialElement = getSpecialElement(term, term.getDefault());
 		if(specialElement != null) 
-			data.accept(evaluator.set(specialElement));
+			data.accept(dataWriter.set(specialElement));
 		else
-			data.accept(evaluator.set(term.getDefault()));
+			data.accept(dataWriter.set(term.getDefault()));
 		
 		return true;
 	}
@@ -129,18 +129,18 @@ public class NIODataResetter extends DataTermVisitorImpl {
 		if(term.getDefault() != null) {
 			QSpecialElement specialElement = getSpecialElement(term, term.getDefault());
 			if(specialElement != null) { 
-				struct.accept(evaluator.set(specialElement));
+				struct.accept(dataWriter.set(specialElement));
 				_return = false;
 			}
 			else
-				data.accept(evaluator.set(term.getDefault()));
+				data.accept(dataWriter.set(term.getDefault()));
 		}
 		
 		if(_return) {
 
 			// childs
 			for(QDataTerm<?> child: term.getDefinition().getElements()) {
-				NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()), evaluator);
+				NIODataResetter childResetter = new NIODataResetter(struct.getElement(child.getName()), dataWriter);
 				child.accept(childResetter);
 			}
 

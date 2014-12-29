@@ -13,22 +13,22 @@ import org.asup.il.core.QSpecialElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Data Evaluator</b></em>'.
+ * A representation of the model object '<em><b>Data Writer</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataEvaluator()
+ * @see org.asup.il.data.QIntegratedLanguageDataPackage#getDataWriter()
  * @model
  * @generated
  */
-public interface QDataEvaluator extends QDataVisitor {
+public interface QDataWriter extends QDataVisitor {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	QDataEvaluator set(int value);
+	QDataWriter set(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public interface QDataEvaluator extends QDataVisitor {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	QDataEvaluator set(String value);
+	QDataWriter set(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public interface QDataEvaluator extends QDataVisitor {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	QDataEvaluator set(QSpecialElement value);
+	QDataWriter set(QSpecialElement value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,6 +52,6 @@ public interface QDataEvaluator extends QDataVisitor {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
-	QDataEvaluator set(QBufferedData value);
+	QDataWriter set(QBufferedData value);
 
-} // QDataEvaluator
+} // QDataWriter

@@ -19,7 +19,7 @@ import java.util.Map;
 import org.asup.il.core.QNode;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -37,13 +37,13 @@ public class NIODataContainerImpl extends DataContainerImpl implements Serializa
 	
 	private Map<String, QData> datas;
 
-	private QDataEvaluator evaluator;
+	private QDataWriter dataWriter;
 	
 	protected NIODataContainerImpl(QDataFactory dataFactory, List<QDataTerm<?>> dataTerms) {
 		this.dataFactory = dataFactory;
 		this.dataTerms = dataTerms;
 		this.datas = new HashMap<String, QData>();
-		this.evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+		this.dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class NIODataContainerImpl extends DataContainerImpl implements Serializa
 		if (dataTerm == null) return false;
 		
 		QData data = dataFactory.createData(dataTerm, true);
-		NIODataResetter resetter = new NIODataResetter(data,evaluator);
+		NIODataResetter resetter = new NIODataResetter(data,dataWriter);
 		dataTerm.accept(resetter);
 		try {
 			result =  !getData(dataTerm).toString().equals(data.toString());
@@ -178,7 +178,7 @@ public class NIODataContainerImpl extends DataContainerImpl implements Serializa
 			datas.put(dataTerm.getName(), data);
 		}
 
-		NIODataResetter resetter = new NIODataResetter(data, evaluator);
+		NIODataResetter resetter = new NIODataResetter(data, dataWriter);
 		dataTerm.accept(resetter);
 
 	}

@@ -49,6 +49,14 @@ public interface QConnection extends QContextID, QContextProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.db.core.DatabaseException" sqlRequired="true" nativeRequired="true" updatableRequired="true"
+	 * @generated
+	 */
+	QPreparedStatement prepareStatement(String sql, boolean native_, boolean updatable) throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.db.core.DatabaseException"
 	 * @generated
 	 */
@@ -77,6 +85,14 @@ public interface QConnection extends QContextID, QContextProvider {
 	 * @generated
 	 */
 	QStatement createStatement(boolean native_) throws SQLException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" exceptions="org.asup.db.core.DatabaseException" nativeRequired="true" updatableRequired="true"
+	 * @generated
+	 */
+	QStatement createStatement(boolean native_, boolean updatable) throws SQLException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -184,7 +184,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="eval">
       <eTypeParameters name="E">
@@ -195,7 +195,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="eval">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="ge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eTypeParameters name="E">
@@ -206,7 +206,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="ge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="gt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eTypeParameters name="E">
@@ -217,7 +217,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="gt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="isEmpty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="le" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -229,7 +229,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="le" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="lt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eTypeParameters name="E">
@@ -240,7 +240,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="lt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="ne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eTypeParameters name="E">
@@ -251,7 +251,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="ne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="DataArray" instanceTypeName="D[]"/>
@@ -337,20 +337,6 @@
         <eTypeArguments/>
       </eTypeArguments>
     </eGenericSuperTypes>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataEvaluator" eSuperTypes="#//DataVisitor">
-    <eOperations name="set" eType="#//DataEvaluator">
-      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eOperations>
-    <eOperations name="set" eType="#//DataEvaluator">
-      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eOperations>
-    <eOperations name="set" eType="#//DataEvaluator">
-      <eParameters name="value" lowerBound="1" eType="ecore:EClass ../../org.asup.il.core/model/il-core.ecore#//SpecialElement"/>
-    </eOperations>
-    <eOperations name="set" eType="#//DataEvaluator">
-      <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
-    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataFactory" abstract="true" interface="true">
     <eOperations name="createArray" lowerBound="1">
@@ -537,6 +523,7 @@
       <eParameters name="container" lowerBound="1" eType="#//DataContainer"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataReader" eSuperTypes="#//DataVisitor"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataStruct" abstract="true" interface="true">
     <eGenericSuperTypes eClassifier="#//String"/>
     <eGenericSuperTypes eClassifier="#//Struct">
@@ -816,6 +803,20 @@
       </eParameters>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataWriter" eSuperTypes="#//DataVisitor">
+    <eOperations name="set" eType="#//DataWriter">
+      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="set" eType="#//DataWriter">
+      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="set" eType="#//DataWriter">
+      <eParameters name="value" lowerBound="1" eType="ecore:EClass ../../org.asup.il.core/model/il-core.ecore#//SpecialElement"/>
+    </eOperations>
+    <eOperations name="set" eType="#//DataWriter">
+      <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Datetime" abstract="true" interface="true"
       eSuperTypes="#//BufferedData">
     <eOperations name="eval">
@@ -1078,10 +1079,10 @@
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="move">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="move">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="move">
@@ -1145,10 +1146,10 @@
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="movel">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
     </eOperations>
     <eOperations name="movel">
-      <eParameters name="value" eType="#//DataEvaluator"/>
+      <eParameters name="value" eType="#//DataWriter"/>
       <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="movel">

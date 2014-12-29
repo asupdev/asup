@@ -11,18 +11,14 @@
  */
 package org.asup.il.isam.jdbc;
 
-import java.net.URI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.sql.Statement;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QDatabaseManager;
 import org.asup.db.core.QStatement;
-import org.asup.il.data.QBufferedData;
-import org.asup.il.data.QDataEvaluator;
 import org.asup.il.data.QIndicator;
-import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.OperationDirection;
 import org.asup.il.isam.OperationRead;
@@ -31,14 +27,13 @@ import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QIndex;
 import org.asup.il.isam.QIndexColumn;
 import org.asup.il.isam.QRecord;
-import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 @SuppressWarnings("unused")
 public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> {
 
 	private QConnection databaseConnection;
-	private JDBCAccessHelper jdbcIndexHelper;
+	private JDBCAccessHelper jdbcAccessHelper;
 
 	private Table table;
 	private QIndex index;
@@ -47,7 +42,8 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	private AccessMode accessMode;
 	private boolean userOpen;
 
-	private JDBCDataEvaluatorImpl evaluator;
+	private JDBCDataReaderImpl dataReader;
+	private JDBCDataWriterImpl dataWriter;
 
 	private boolean open;
 	private boolean found;
@@ -73,13 +69,14 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		this.accessMode = accessMode;
 		this.userOpen = userOpen;
 
-		this.jdbcIndexHelper = new JDBCAccessHelper();
-		this.evaluator = new JDBCDataEvaluatorImpl();
+		this.jdbcAccessHelper = new JDBCAccessHelper();
+		this.dataReader = new JDBCDataReaderImpl();
+		this.dataWriter = new JDBCDataWriterImpl();
+
+		init();
 
 		if (!userOpen)
 			open(null);
-
-		init();
 	}
 
 	protected Object[] buildKeySet() {
@@ -214,7 +211,10 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		init();
 
 		try {
-			statement = databaseConnection.createStatement(true);
+			if(this.accessMode == AccessMode.INPUT)
+				statement = databaseConnection.createStatement(true);
+			else
+				statement = databaseConnection.createStatement(true, true);
 			
 			this.open = true;
 		} catch (SQLException e) {
@@ -232,10 +232,11 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		if (this.resultSet != null)
 			this.resultSet.close();
 		
-		String querySelect = jdbcIndexHelper.buildSelect(table, index, opSet, keySet, opRead, keyRead);
+		String querySelect = jdbcAccessHelper.buildSelect(table, index, opSet, keySet, opRead, keyRead);
 
 		this.resultSet = this.statement.executeQuery(querySelect);
-		this.evaluator.set(this.resultSet);
+		this.dataReader.set(this.resultSet);
+		this.dataWriter.set(this.resultSet);
 	}
 
 	@Override
@@ -298,7 +299,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		}
 			
 		try {
-			this.record.accept(this.evaluator);
+			this.record.accept(this.dataReader);
 			this.rrn = this.resultSet.getInt(record.getElements().size()+1);
 			
 			this.found = true;
@@ -428,8 +429,36 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	
 	@Override
 	public void write(QIndicator error) {
+
+		this.error = false;
+		this.equal = false;
 		
-		// TODO
+		try {
+			if(this.resultSet == null) {
+				String querySelect = "SELECT "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) + ".*, digits(QASRRN) FROM "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) +" ORDER BY QASRRN";
+				this.resultSet = this.statement.executeQuery(querySelect);
+				
+				this.dataReader.set(this.resultSet);
+				this.dataWriter.set(this.resultSet);
+
+			}			
+			
+			this.resultSet.moveToInsertRow();			
+			this.record.accept(this.dataWriter);
+			this.resultSet.insertRow();
+
+			this.resultSet.moveToCurrentRow();
+
+//			this.resultSet.last();
+			
+			this.rrn = this.resultSet.getInt(record.getElements().size()+1);
+			
+			this.found = true;
+			this.endOfData = false;
+
+		} catch (SQLException e) {
+			handleSQLException(e);
+		}
 		
 		if(error != null)
 			error.eval(onError());

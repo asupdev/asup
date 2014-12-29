@@ -40,7 +40,7 @@ import org.asup.il.data.QAdapter;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContainer;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QEnum;
@@ -141,7 +141,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		QDataContainer dataContainer = dataManager.createDataContainer(job, arrayTerms);
 		callableCommand.setDataContainer(dataContainer);
 
-		QDataEvaluator evaluator = QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator();
+		QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 
 		// assign values
 		for (QCommandParameter commandParameter : qCommand.getParameters()) {
@@ -181,7 +181,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 			QData data = null;
 			if (value.isEmpty() == false || defaults) {
-				data = assignValue(dataTerm, dataContainer, evaluator, value, variables, defaults);
+				data = assignValue(dataTerm, dataContainer, dataWriter, value, variables, defaults);
 			}
 
 			// required
@@ -191,7 +191,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		return callableCommand;
 	}
 
-	private QData assignValue(QDataTerm<?> dataTerm, QDataContainer dataContainer, QDataEvaluator evaluator, String value, Map<String, Object> variables, boolean defaults)
+	private QData assignValue(QDataTerm<?> dataTerm, QDataContainer dataContainer, QDataWriter writer, String value, Map<String, Object> variables, boolean defaults)
 			throws OperatingSystemException {
 
 		String tokValue = null;
@@ -254,7 +254,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 						// resolveSpecialValue(multipleAtomicDataTerm,
 						// tokValue);
 
-						assignValue(evaluator, listItem, tokValue);
+						assignValue(writer, listItem, tokValue);
 
 						counter++;
 					}
@@ -265,7 +265,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 				for (int i = 1; i < capacity; i++) {
 					QData listItem = listAtomic.get(i);
-					assignValue(evaluator, listItem, "");
+					assignValue(writer, listItem, "");
 				}
 
 			}
@@ -308,9 +308,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					((QScroller<?>) data).absolute(i);
 
 				if (isSpecialValue(dataTerm, tmpValue)) {
-					assignValue(evaluator, data, resolveSpecialValue(dataTerm, tmpValue));
+					assignValue(writer, data, resolveSpecialValue(dataTerm, tmpValue));
 				} else
-					buildStructValue(multipleCompoundDataDef, dataContainer, evaluator, tmpValue, variables, defaults);
+					buildStructValue(multipleCompoundDataDef, dataContainer, writer, tmpValue, variables, defaults);
 
 				i++;
 			}
@@ -352,7 +352,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				tokValue = value;
 			}
 
-			assignValue(evaluator, data, tokValue);
+			assignValue(writer, data, tokValue);
 
 			dbgString = unaryAtomicDataTerm.toString();
 
@@ -377,9 +377,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			// assignValue(struct, structValue);
 
 			if (isSpecialValue(dataTerm, value)) {
-				assignValue(evaluator, data, resolveSpecialValue(dataTerm, value));
+				assignValue(writer, data, resolveSpecialValue(dataTerm, value));
 			} else
-				buildStructValue(unaryCompoundDataDef, dataContainer, evaluator, value, variables, defaults);
+				buildStructValue(unaryCompoundDataDef, dataContainer, writer, value, variables, defaults);
 
 			dbgString = unaryCompoundDataTerm.toString();
 
@@ -431,7 +431,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		return defValue;
 	}
 
-	private String buildStructValue(QCompoundDataDef<?> compoundDataDef, QDataContainer dataContext, QDataEvaluator evaluator, String parmValue, Map<String, Object> variables, boolean defaults)
+	private String buildStructValue(QCompoundDataDef<?> compoundDataDef, QDataContainer dataContext, QDataWriter writer, String parmValue, Map<String, Object> variables, boolean defaults)
 			throws OperatingSystemException {
 
 		String structValue = "";
@@ -447,7 +447,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			for (int j = values.length; j > 0; j--) {
 
 				// Recursive Call
-				QData assignValue = assignValue(compoundDataDef.getElements().get(j - 1), dataContext, evaluator, values[values.length - j], variables, defaults);
+				QData assignValue = assignValue(compoundDataDef.getElements().get(j - 1), dataContext, writer, values[values.length - j], variables, defaults);
 
 				// assignValue(struct.getElement(j), assignValue.toString());
 				if (assignValue instanceof QString)
@@ -478,7 +478,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				}
 
 				// Recursive Call
-				QData assignValue = assignValue(elementIterator.next(), dataContext, evaluator, tmpValue, variables, defaults);
+				QData assignValue = assignValue(elementIterator.next(), dataContext, writer, tmpValue, variables, defaults);
 				if (assignValue instanceof QString)
 					structValue += ((QString) assignValue).asString();
 				else
@@ -685,7 +685,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 	}
 
-	private void assignValue(QDataEvaluator evaluator, QData data, Object value) {
+	private void assignValue(QDataWriter writer, QData data, Object value) {
 
 		if (data instanceof QEnum) {
 			QEnum<?, ?> enumerator = (QEnum<?, ?>) data;
@@ -700,7 +700,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			QAdapter adapter = (QAdapter) data;
 			adapter.eval(value);
 		} else {
-			data.accept(evaluator.set(value.toString()));
+			data.accept(writer.set(value.toString()));
 		}
 	}
 

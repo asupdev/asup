@@ -81,13 +81,22 @@ public interface QIntegratedLanguageDataFactory extends EFactory {
 	QDataDictionary createDataDictionary();
 
 	/**
-	 * Returns a new object of class '<em>Data Evaluator</em>'.
+	 * Returns a new object of class '<em>Data Reader</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Evaluator</em>'.
+	 * @return a new object of class '<em>Data Reader</em>'.
 	 * @generated
 	 */
-	QDataEvaluator createDataEvaluator();
+	QDataReader createDataReader();
+
+	/**
+	 * Returns a new object of class '<em>Data Writer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Writer</em>'.
+	 * @generated
+	 */
+	QDataWriter createDataWriter();
 
 	/**
 	 * Returns a new object of class '<em>Data Struct Def</em>'.

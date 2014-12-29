@@ -10,19 +10,18 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QString;
-import org.asup.il.data.impl.DataEvaluatorImpl;
+import org.asup.il.data.impl.DataReaderImpl;
 
-public class JDBCDataEvaluatorImpl extends DataEvaluatorImpl {
+public class JDBCDataReaderImpl extends DataReaderImpl {
 
 	private static DecimalFormat[][] decimalFormats = new DecimalFormat[32][9]; 
 	
-	public JDBCDataEvaluatorImpl set(ResultSet resultSet) {
+	public JDBCDataReaderImpl set(ResultSet resultSet) {
 		
 		super.object = resultSet;
 		
 		return this;		
 	}
-
 
 	@Override
 	public boolean visit(QDataStruct data) {

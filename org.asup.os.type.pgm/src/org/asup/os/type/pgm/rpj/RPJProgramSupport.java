@@ -20,7 +20,7 @@ import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataEvaluator;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDatetime;
@@ -61,12 +61,12 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return numeric;
 	}
 	
-	public QDataEvaluator qAll(QNumeric numeric) {
-		return 	QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator().set(numeric);
+	public QDataWriter qAll(QNumeric numeric) {
+		return 	QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
 	}
 	
-	public QDataEvaluator qAll(QString string) {
-		return 	QIntegratedLanguageDataFactory.eINSTANCE.createDataEvaluator().set(string);
+	public QDataWriter qAll(QString string) {
+		return 	QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
 	}
 	
 	public QIndicator qBox(boolean boo) {

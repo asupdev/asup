@@ -14,9 +14,11 @@ import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
-import org.asup.il.isam.test.runner.ReadKSDS_read;
-import org.asup.il.isam.test.runner.ReadRRDS_read;
-import org.asup.il.isam.test.runner.ReadRRDS_readp;
+import org.asup.il.isam.test.runner.KSDS_read;
+import org.asup.il.isam.test.runner.KSDS_readp;
+import org.asup.il.isam.test.runner.KSDS_write;
+import org.asup.il.isam.test.runner.RRDS_read;
+import org.asup.il.isam.test.runner.RRDS_readp;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 
 public class TestCommands extends AbstractCommandProviderImpl {
@@ -48,18 +50,27 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 		try {
 			// RRDS
-			testRunner = testManager.prepareRunner(testContext, ReadRRDS_read.class);
+/*			testRunner = testManager.prepareRunner(testContext, RRDS_read.class);
 			testResult = testRunner.call();
 			printTestResult(testResult);
 
-			testRunner = testManager.prepareRunner(testContext, ReadRRDS_readp.class);
+			testRunner = testManager.prepareRunner(testContext, RRDS_readp.class);
 			testResult = testRunner.call();
 			printTestResult(testResult);
 			
 			// KSDS
-			testRunner = testManager.prepareRunner(testContext, ReadKSDS_read.class);
+			testRunner = testManager.prepareRunner(testContext, KSDS_read.class);
 			testResult = testRunner.call();
 			printTestResult(testResult);
+			
+			testRunner = testManager.prepareRunner(testContext, KSDS_readp.class);
+			testResult = testRunner.call();
+			printTestResult(testResult);*/
+			
+			testRunner = testManager.prepareRunner(testContext, KSDS_write.class);
+			testResult = testRunner.call();
+			printTestResult(testResult);
+			
 		} finally {
 			// TODO remove and listen context.close()
 			connection.close();
