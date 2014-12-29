@@ -128,10 +128,8 @@ public class BaseCallableInjector {
 			// System.out.println(field);
 
 			// TODO
-			if (field.getName().startsWith("$SWITCH_TABLE")) {
-				System.err.println(field.getName());
+			if (field.getName().startsWith("$SWITCH_TABLE"))
 				continue;
-			}
 
 			Type type = field.getGenericType();
 
