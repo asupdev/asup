@@ -42,13 +42,13 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	
 	/*************** Public static methods definitions */
 	public static String FETCH_METHOD = "SINGLE_FETCH_METHOD";
+	public static String SET_TRANSACTION_METHOD = "SET_TRANSACTION_METHOD";
 	
 	/*************** Public static parameters definitions */
 	
 	public static String NONE = "NONE";
 	
-	public static interface FETCH_POSITION {
-	    String NONE = "NONE";
+	public static interface FETCH_POSITION {	    
 	    String NEXT = "NEXT";
 	    String PRIOR = "PRIOR";
 	    String FIRST = "FIRST";
@@ -58,6 +58,21 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	    String CURRENT = "CURRENT";
 	    String RELATIVE = "RELATIVE";
 	}
+	
+	public static interface ISOLATION_LEVEL {	    
+	    String SERIALIZABLE = "SERIALIZABLE";
+	    String NO_COMMIT = "NO_COMMIT";
+	    String READ_UNCOMMITTED = "READ_UNCOMMITTED";
+	    String READ_COMMITTED = "READ_COMMITTED";
+	    String REPEATABLE_READ = "REPEATABLE_READ";	    
+	}
+	
+	public static interface READ_OPERATION {	    
+	    String READ_ONLY = "READ_ONLY";
+	    String READ_WRITE = "READ_WRITE";	    	   
+	}
+	
+	
 	
 	
 
@@ -235,7 +250,7 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		
 		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
 		
-		methodExec.setMethod(DBLStatementRewriter.FETCH_METHOD);
+		methodExec.setMethod(FETCH_METHOD);
 		
 		/*
 		 * FETCH_METHOD parameter list:
@@ -260,34 +275,34 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 			
 			switch (bindingStatement.getPosition()) {
 			case AFTER:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.AFTER);
+				methodExec.getParameters().add(FETCH_POSITION.AFTER);
 				break;
 			case BEFORE:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.BEFORE);
+				methodExec.getParameters().add(FETCH_POSITION.BEFORE);
 				break;
 			case CURRENT:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.CURRENT);
+				methodExec.getParameters().add(FETCH_POSITION.CURRENT);
 				break;
 			case FIRST:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.FIRST);
+				methodExec.getParameters().add(FETCH_POSITION.FIRST);
 				break;
 			case LAST:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.LAST);
+				methodExec.getParameters().add(FETCH_POSITION.LAST);
 				break;
 			case NEXT:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.NEXT);
+				methodExec.getParameters().add(FETCH_POSITION.NEXT);
 				break;
 			case PRIOR:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.PRIOR);
+				methodExec.getParameters().add(FETCH_POSITION.PRIOR);
 				break;
 			case RELATIVE:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.RELATIVE);
+				methodExec.getParameters().add(FETCH_POSITION.RELATIVE);
 				if (bindingStatement.getRelativePosition() != null) {
 					relativePosition = bindingStatement.getRelativePosition();
 				}
 				break;
 			default:
-				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.NONE);
+				methodExec.getParameters().add(NONE);
 				break;
 			
 			}
@@ -338,9 +353,7 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 			
 		}
 		
-		
-		
-		return null;
+		return methodExec;
 	}
 
 	private QStatement manageCloseStatement(QCloseStatement bindingStatement) {
@@ -360,9 +373,63 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	}
 
 	private QStatement manageSetTransactionStatement(QSetTransactionStatement bindingStatement) {
-		System.out.println("Manage SET");
+		System.out.println("Manage SET TRANSACTION");
 		
-		return null;
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		
+		methodExec.setMethod(SET_TRANSACTION_METHOD);
+		methodExec.setObject(null);
+		
+		/*
+		 * SET_TRANSACTION parameter list:
+		 * 1) Isolation level
+		 * 2) Read operation 
+		 */
+		
+		switch (bindingStatement.getIsolationLevel()) {
+		case NONE:
+			methodExec.getParameters().add(NONE);
+			break;
+		case NO_COMMIT:
+			methodExec.getParameters().add(ISOLATION_LEVEL.NO_COMMIT);
+			break;
+		case READ_COMMITTED:
+			methodExec.getParameters().add(ISOLATION_LEVEL.READ_COMMITTED);
+			break;
+		case READ_UNCOMMITTED:
+			methodExec.getParameters().add(ISOLATION_LEVEL.READ_UNCOMMITTED);
+			break;
+		case REPEATABLE_READ:
+			methodExec.getParameters().add(ISOLATION_LEVEL.REPEATABLE_READ);
+			break;
+		case SERIALIZABLE:
+			methodExec.getParameters().add(ISOLATION_LEVEL.SERIALIZABLE);
+			break;
+		default:
+			methodExec.getParameters().add(NONE);
+			break;
+		}
+
+		if (bindingStatement.getRwOperation() != null) {
+			
+			switch (bindingStatement.getRwOperation()) {
+			case READ_ONLY:
+				methodExec.getParameters().add(READ_OPERATION.READ_ONLY);
+				break;
+			case READ_WRITE:
+				methodExec.getParameters().add(READ_OPERATION.READ_WRITE);
+				break;
+			default:
+				methodExec.getParameters().add(NONE);
+				break;
+			}
+			
+		} else {
+			methodExec.getParameters().add(NONE);
+		}
+		
+		
+		return methodExec;
 	}
 
 
