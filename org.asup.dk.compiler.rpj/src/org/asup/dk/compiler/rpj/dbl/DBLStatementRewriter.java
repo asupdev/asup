@@ -12,6 +12,7 @@ import org.asup.db.syntax.dbl.QDeclareCursorStatement;
 import org.asup.db.syntax.dbl.QDescribeStatement;
 import org.asup.db.syntax.dbl.QExecuteStatement;
 import org.asup.db.syntax.dbl.QFetchStatement;
+import org.asup.db.syntax.dbl.QIntoClause;
 import org.asup.db.syntax.dbl.QMultipleRowFetchClause;
 import org.asup.db.syntax.dbl.QOpenStatement;
 import org.asup.db.syntax.dbl.QPrepareStatement;
@@ -43,6 +44,7 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	/*************** Public static methods definitions */
 	public static String FETCH_METHOD = "SINGLE_FETCH_METHOD";
 	public static String SET_TRANSACTION_METHOD = "SET_TRANSACTION_METHOD";
+	public static String PREPARE_METHOD = "PREPARE_METHOD";
 	
 	/*************** Public static parameters definitions */
 	
@@ -70,6 +72,15 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	public static interface READ_OPERATION {	    
 	    String READ_ONLY = "READ_ONLY";
 	    String READ_WRITE = "READ_WRITE";	    	   
+	}
+	
+	public static interface USING {	    
+	    String NAMES = "NAMES";
+	    String LABELS = "LABELS";
+	    String ANY = "ANY";
+	    String BOTH = "BOTH";
+	    String ALL = "ALL";
+	    String SYSTEM_NAMES = "SYSTEM_NAMES";
 	}
 	
 	
@@ -200,8 +211,62 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 	private QStatement managePrepareStatement(QPrepareStatement bindingStatement) {
 		System.out.println("Manage PREPARE");
+				
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
 		
-		return null;
+		methodExec.setMethod(PREPARE_METHOD);
+		methodExec.setObject(null); //TODO: null?
+		
+		/*
+		 * PREPARE_METHOD parameter list:
+		 * 1) Statement name
+		 * 2) Into
+		 * 3) Using 
+		 * 4) From 
+		 *  
+		 */
+		
+		// Par 1
+		methodExec.getParameters().add(bindingStatement.getStatementName());
+		
+		// Par 2 and 3
+		if (bindingStatement.getInto() != null) {
+			QIntoClause intoClause = bindingStatement.getInto();
+			methodExec.getParameters().add(intoClause.getDescriptorName());
+			
+			switch (intoClause.getUsing()) {
+			case ALL:
+				methodExec.getParameters().add(USING.ALL);
+				break;
+			case ANY:
+				methodExec.getParameters().add(USING.ANY);
+				break;
+			case BOTH:
+				methodExec.getParameters().add(USING.BOTH);
+				break;
+			case LABELS:
+				methodExec.getParameters().add(USING.LABELS);
+				break;
+			case NAMES:
+				methodExec.getParameters().add(USING.NAMES);
+				break;
+			case NONE:
+				methodExec.getParameters().add(NONE);
+				break;
+			case SYSTEM_NAMES:
+				methodExec.getParameters().add(USING.SYSTEM_NAMES);
+				break;
+			default:
+				methodExec.getParameters().add(NONE);
+				break;
+			}
+			
+		} else {
+			methodExec.getParameters().add(NONE);
+			methodExec.getParameters().add(NONE);
+		}
+		
+		return methodExec;
 	}
 
 	private QStatement manageDeclareCursorStatement(QDeclareCursorStatement bindingStatement) {
