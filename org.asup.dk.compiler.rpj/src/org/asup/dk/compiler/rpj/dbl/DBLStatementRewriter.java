@@ -45,6 +45,7 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	public static String FETCH_METHOD = "SINGLE_FETCH_METHOD";
 	public static String SET_TRANSACTION_METHOD = "SET_TRANSACTION_METHOD";
 	public static String PREPARE_METHOD = "PREPARE_METHOD";
+	public static String DESCRIBE_METHOD = "DESCRIBE_METHOD";
 	
 	/*************** Public static parameters definitions */
 	
@@ -231,40 +232,49 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		
 		// Par 2 and 3
 		if (bindingStatement.getInto() != null) {
+			// Par 2
 			QIntoClause intoClause = bindingStatement.getInto();
 			methodExec.getParameters().add(intoClause.getDescriptorName());
 			
-			switch (intoClause.getUsing()) {
-			case ALL:
-				methodExec.getParameters().add(USING.ALL);
-				break;
-			case ANY:
-				methodExec.getParameters().add(USING.ANY);
-				break;
-			case BOTH:
-				methodExec.getParameters().add(USING.BOTH);
-				break;
-			case LABELS:
-				methodExec.getParameters().add(USING.LABELS);
-				break;
-			case NAMES:
-				methodExec.getParameters().add(USING.NAMES);
-				break;
-			case NONE:
+			// Par 3
+			if (intoClause.getUsing() != null) {
+				switch (intoClause.getUsing()) {
+				case ALL:
+					methodExec.getParameters().add(USING.ALL);
+					break;
+				case ANY:
+					methodExec.getParameters().add(USING.ANY);
+					break;
+				case BOTH:
+					methodExec.getParameters().add(USING.BOTH);
+					break;
+				case LABELS:
+					methodExec.getParameters().add(USING.LABELS);
+					break;
+				case NAMES:
+					methodExec.getParameters().add(USING.NAMES);
+					break;
+				case NONE:
+					methodExec.getParameters().add(NONE);
+					break;
+				case SYSTEM_NAMES:
+					methodExec.getParameters().add(USING.SYSTEM_NAMES);
+					break;
+				default:
+					methodExec.getParameters().add(NONE);
+					break;
+				}
+			} else {
 				methodExec.getParameters().add(NONE);
-				break;
-			case SYSTEM_NAMES:
-				methodExec.getParameters().add(USING.SYSTEM_NAMES);
-				break;
-			default:
-				methodExec.getParameters().add(NONE);
-				break;
 			}
 			
 		} else {
 			methodExec.getParameters().add(NONE);
 			methodExec.getParameters().add(NONE);
 		}
+		
+		// Par 4
+		methodExec.getParameters().add(bindingStatement.getFrom());
 		
 		return methodExec;
 	}
@@ -307,7 +317,60 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	private QStatement manageDescribeStatement(QDescribeStatement bindingStatement) {
 		System.out.println("Manage DESCRIBE");
 		
-		return null;
+QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		
+		methodExec.setMethod(DESCRIBE_METHOD);
+		methodExec.setObject(null); //TODO: null?
+		
+		/*
+		 * PREPARE_METHOD parameter list:
+		 * 1) Statement name
+		 * 2) Into variable
+		 * 3) Using  
+		 *  
+		 */
+		
+		// Par 1
+		methodExec.getParameters().add(bindingStatement.getStatementName());
+		
+		// Par 2 		
+		QIntoClause intoClause = bindingStatement.getInto();
+		methodExec.getParameters().add(intoClause.getDescriptorName());
+		
+		// Par 3
+		if (intoClause.getUsing() != null) {	
+			switch (intoClause.getUsing()) {
+			case ALL:
+				methodExec.getParameters().add(USING.ALL);
+				break;
+			case ANY:
+				methodExec.getParameters().add(USING.ANY);
+				break;
+			case BOTH:
+				methodExec.getParameters().add(USING.BOTH);
+				break;
+			case LABELS:
+				methodExec.getParameters().add(USING.LABELS);
+				break;
+			case NAMES:
+				methodExec.getParameters().add(USING.NAMES);
+				break;
+			case NONE:
+				methodExec.getParameters().add(NONE);
+				break;
+			case SYSTEM_NAMES:
+				methodExec.getParameters().add(USING.SYSTEM_NAMES);
+				break;
+			default:
+				methodExec.getParameters().add(NONE);
+				break;
+			}
+		} else {			
+			methodExec.getParameters().add(NONE);
+		}
+
+		
+		return methodExec;
 	}
 
 	private QStatement manageFetchStatement(QFetchStatement bindingStatement) {
