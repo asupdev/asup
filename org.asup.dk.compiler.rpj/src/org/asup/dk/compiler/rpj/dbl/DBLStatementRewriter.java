@@ -146,6 +146,7 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	}
 
 	private QStatement manageOpenStatement(QOpenStatement bindingStatement) {
+		System.out.println("Manage OPEN");
 
 		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
 		

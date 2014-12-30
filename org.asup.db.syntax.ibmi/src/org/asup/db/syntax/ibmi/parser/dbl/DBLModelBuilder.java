@@ -71,6 +71,7 @@ public class DBLModelBuilder {
 			parserResult.setBindingStatement(convertModel(tree.getChild(0), queryStrings));
 			
 		} catch (RecognitionException e) {
+			e.printStackTrace();
 			throw new SQLException(e);
 		}
 
@@ -439,7 +440,7 @@ public class DBLModelBuilder {
 		}
 		
 		// Manage query in field FOR
-		if (queryString.length > 0) {
+		if (queryString != null && queryString.length > 0) {
 			declareCursorStatement.setForStatementName("");
 			declareCursorStatement.setForQuery(queryString[0]);
 		}
@@ -599,7 +600,7 @@ public class DBLModelBuilder {
 		}
 		
 		// Manage query in field FOR
-		if (queryString.length > 0) {
+		if (queryString!= null && queryString.length > 0) {
 			executeImmediateStatement.setVariable("");
 			executeImmediateStatement.setQuery(queryString[0]);
 		}
