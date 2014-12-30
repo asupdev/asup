@@ -12,10 +12,12 @@ import org.asup.db.syntax.dbl.QDeclareCursorStatement;
 import org.asup.db.syntax.dbl.QDescribeStatement;
 import org.asup.db.syntax.dbl.QExecuteStatement;
 import org.asup.db.syntax.dbl.QFetchStatement;
+import org.asup.db.syntax.dbl.QMultipleRowFetchClause;
 import org.asup.db.syntax.dbl.QOpenStatement;
 import org.asup.db.syntax.dbl.QPrepareStatement;
 import org.asup.db.syntax.dbl.QSetTransactionStatement;
 import org.asup.db.syntax.util.DBSyntaxHelper;
+import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.rpj.RPJStatementRewriter;
 import org.asup.il.esql.CursorType;
@@ -36,6 +38,26 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	private QCallableUnit callableUnit;	
 	private QBindingParser bindingParser;
 	private QQueryParser queryParser;
+	
+	
+	/*************** Public static methods definitions */
+	public static String FETCH_METHOD = "SINGLE_FETCH_METHOD";
+	
+	/*************** Public static parameters definitions */
+	
+	public static String NONE = "NONE";
+	
+	public static interface FETCH_POSITION {
+	    String NONE = "NONE";
+	    String NEXT = "NEXT";
+	    String PRIOR = "PRIOR";
+	    String FIRST = "FIRST";
+	    String LAST = "LAST";
+	    String BEFORE = "BEFORE";
+	    String AFTER = "AFTER";
+	    String CURRENT = "CURRENT";
+	    String RELATIVE = "RELATIVE";
+	}
 	
 	
 
@@ -210,6 +232,113 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 	private QStatement manageFetchStatement(QFetchStatement bindingStatement) {
 		System.out.println("Manage FETCH");
+		
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		
+		methodExec.setMethod(DBLStatementRewriter.FETCH_METHOD);
+		
+		/*
+		 * FETCH_METHOD parameter list:
+		 * 1) CursorName
+		 * 2) FetchPosition
+		 * 3) RelativePosition 
+		 * 4) Into variable
+		 * 5) For rows 
+		 * 6) Descriptor
+		 *  
+		 */
+		
+		String cursorName = bindingStatement.getCursorName();
+		
+		if (lookupCursor(cursorName) != null) {	
+			methodExec.setObject(cursorName);
+		}
+
+		String relativePosition = DBLStatementRewriter.NONE;
+		
+		if (bindingStatement.getPosition() != null) {
+			
+			switch (bindingStatement.getPosition()) {
+			case AFTER:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.AFTER);
+				break;
+			case BEFORE:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.BEFORE);
+				break;
+			case CURRENT:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.CURRENT);
+				break;
+			case FIRST:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.FIRST);
+				break;
+			case LAST:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.LAST);
+				break;
+			case NEXT:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.NEXT);
+				break;
+			case PRIOR:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.PRIOR);
+				break;
+			case RELATIVE:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.RELATIVE);
+				if (bindingStatement.getRelativePosition() != null) {
+					relativePosition = bindingStatement.getRelativePosition();
+				}
+				break;
+			default:
+				methodExec.getParameters().add(DBLStatementRewriter.FETCH_POSITION.NONE);
+				break;
+			
+			}
+			
+			methodExec.getParameters().add(relativePosition);
+			
+		}
+		
+		
+		if (bindingStatement.getInto() != null) {
+			
+			// Single fetch or Multiple Row Fetch?
+			if (bindingStatement.getMultipleRowClause() != null) {
+				// Multiple row fetch
+				
+				
+				
+				// Into
+				methodExec.getParameters().add(bindingStatement.getInto());
+				
+				QMultipleRowFetchClause multipleRowClause = bindingStatement.getMultipleRowClause();
+				
+				// Rows number
+				methodExec.getParameters().add(multipleRowClause.getRowsNumber());
+				
+				// Descriptor
+				if (multipleRowClause.getDescriptor() != null) {
+					methodExec.getParameters().add(multipleRowClause.getDescriptor());
+				} else {
+					methodExec.getParameters().add(NONE);
+				}
+			} else {
+				// Single row fetch
+				
+				// Into
+				methodExec.getParameters().add(bindingStatement.getInto());
+				
+				// Rows number & descriptor
+				methodExec.getParameters().add(NONE);
+				methodExec.getParameters().add(NONE);
+			}
+			
+		} else {
+			// Into not defined			
+			methodExec.getParameters().add(NONE);
+			methodExec.getParameters().add(NONE);
+			methodExec.getParameters().add(NONE);
+			
+		}
+		
+		
 		
 		return null;
 	}
