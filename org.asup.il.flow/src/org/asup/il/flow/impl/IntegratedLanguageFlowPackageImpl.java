@@ -527,15 +527,6 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EReference getCallableUnit_DataSection() {
-		return (EReference)callableUnitEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCallableUnit_FileSection() {
 		return (EReference)callableUnitEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -544,7 +535,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCallableUnit_FlowSection() {
+	public EReference getCallableUnit_FileSection() {
 		return (EReference)callableUnitEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -553,8 +544,17 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCallableUnit_SetupSection() {
+	public EReference getCallableUnit_FlowSection() {
 		return (EReference)callableUnitEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallableUnit_SetupSection() {
+		return (EReference)callableUnitEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1383,10 +1383,10 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		createEAttribute(callEClass, CALL__PARAMETERS);
 
 		callableUnitEClass = createEClass(CALLABLE_UNIT);
+		createEReference(callableUnitEClass, CALLABLE_UNIT__SETUP_SECTION);
 		createEReference(callableUnitEClass, CALLABLE_UNIT__DATA_SECTION);
 		createEReference(callableUnitEClass, CALLABLE_UNIT__FILE_SECTION);
 		createEReference(callableUnitEClass, CALLABLE_UNIT__FLOW_SECTION);
-		createEReference(callableUnitEClass, CALLABLE_UNIT__SETUP_SECTION);
 
 		commandExecEClass = createEClass(COMMAND_EXEC);
 		createEAttribute(commandExecEClass, COMMAND_EXEC__STATEMENT);
@@ -1608,10 +1608,10 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getCall_Parameters(), ecorePackage.getEString(), "parameters", null, 0, -1, QCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callableUnitEClass, QCallableUnit.class, "CallableUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCallableUnit_SetupSection(), this.getSetupSection(), null, "setupSection", null, 0, 1, QCallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallableUnit_DataSection(), this.getDataSection(), null, "dataSection", null, 0, 1, QCallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallableUnit_FileSection(), this.getFileSection(), null, "fileSection", null, 0, 1, QCallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallableUnit_FlowSection(), this.getFlowSection(), null, "flowSection", null, 0, 1, QCallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCallableUnit_SetupSection(), this.getSetupSection(), null, "setupSection", null, 0, 1, QCallableUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(commandExecEClass, QCommandExec.class, "CommandExec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommandExec_Statement(), ecorePackage.getEString(), "statement", null, 1, 1, QCommandExec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1682,11 +1682,11 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEClass(moduleEClass, QModule.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(monitorEClass, QMonitor.class, "Monitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMonitor_Body(), this.getBlock(), null, "body", null, 0, 1, QMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMonitor_Body(), this.getStatement(), null, "body", null, 0, 1, QMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMonitor_OnErrors(), this.getOnError(), null, "onErrors", null, 0, -1, QMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(onErrorEClass, QOnError.class, "OnError", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOnError_Body(), this.getBlock(), null, "body", null, 0, 1, QOnError.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOnError_Body(), this.getStatement(), null, "body", null, 0, 1, QOnError.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOnError_Error(), ecorePackage.getEString(), "error", null, 0, 1, QOnError.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterListEClass, QParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1855,7 +1855,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 
 		initEClass(unitEClass, QUnit.class, "Unit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnit_Name(), ecorePackage.getEString(), "name", null, 0, 1, QUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUnit_Main(), this.getBlock(), null, "main", null, 0, 1, QUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUnit_Main(), this.getStatement(), null, "main", null, 0, 1, QUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unitSectionEClass, QUnitSection.class, "UnitSection", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -17,7 +17,6 @@ import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.dk.compiler.rpj.RPJExpressionNormalizer;
 import org.asup.il.data.QData;
 import org.asup.il.data.annotation.ModuleDef;
-import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUnit;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
 import org.eclipse.jdt.core.dom.AST;
@@ -112,10 +111,7 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 		RPJExpressionNormalizer expressionNormalizer = getCompilationUnit().getContext().make(RPJExpressionNormalizer.class);
 
 		// main
-		if (unit.getMain() != null) {
-			for (QStatement statement : unit.getMain().getStatements()) {
-				statement.accept(expressionNormalizer);
-			}
-		}
+		if (unit.getMain() != null) 
+			unit.getMain().accept(expressionNormalizer);
 	}
 }

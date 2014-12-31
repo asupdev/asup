@@ -17,13 +17,13 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallableUnit" abstract="true" eSuperTypes="#//Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="setupSection" eType="#//SetupSection"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSection" eType="#//DataSection"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileSection" eType="#//FileSection"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowSection" eType="#//FlowSection"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="setupSection" eType="#//SetupSection"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommandExec" eSuperTypes="#//Invoke">
@@ -131,13 +131,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//CallableUnit"/>
   <eClassifiers xsi:type="ecore:EClass" name="Monitor" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Block"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onErrors" upperBound="-1"
         eType="#//OnError" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OnError" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Block"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Statement"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="error" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -327,7 +327,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Unit" abstract="true" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//NamedNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//Block"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="main" eType="#//Statement"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitSection" abstract="true"/>

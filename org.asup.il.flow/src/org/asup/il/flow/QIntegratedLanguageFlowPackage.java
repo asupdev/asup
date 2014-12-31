@@ -435,13 +435,22 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int CALLABLE_UNIT__MAIN = UNIT__MAIN;
 
 	/**
+	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLABLE_UNIT__SETUP_SECTION = UNIT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Data Section</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALLABLE_UNIT__DATA_SECTION = UNIT_FEATURE_COUNT + 0;
+	int CALLABLE_UNIT__DATA_SECTION = UNIT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>File Section</b></em>' containment reference.
@@ -450,7 +459,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALLABLE_UNIT__FILE_SECTION = UNIT_FEATURE_COUNT + 1;
+	int CALLABLE_UNIT__FILE_SECTION = UNIT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Flow Section</b></em>' containment reference.
@@ -459,16 +468,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALLABLE_UNIT__FLOW_SECTION = UNIT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CALLABLE_UNIT__SETUP_SECTION = UNIT_FEATURE_COUNT + 3;
+	int CALLABLE_UNIT__FLOW_SECTION = UNIT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Callable Unit</em>' class.
@@ -983,6 +983,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int MODULE__MAIN = CALLABLE_UNIT__MAIN;
 
 	/**
+	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__SETUP_SECTION = CALLABLE_UNIT__SETUP_SECTION;
+
+	/**
 	 * The feature id for the '<em><b>Data Section</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1008,15 +1017,6 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODULE__FLOW_SECTION = CALLABLE_UNIT__FLOW_SECTION;
-
-	/**
-	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULE__SETUP_SECTION = CALLABLE_UNIT__SETUP_SECTION;
 
 	/**
 	 * The number of structural features of the '<em>Module</em>' class.
@@ -1166,6 +1166,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int PROCEDURE__MAIN = CALLABLE_UNIT__MAIN;
 
 	/**
+	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE__SETUP_SECTION = CALLABLE_UNIT__SETUP_SECTION;
+
+	/**
 	 * The feature id for the '<em><b>Data Section</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1191,15 +1200,6 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROCEDURE__FLOW_SECTION = CALLABLE_UNIT__FLOW_SECTION;
-
-	/**
-	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCEDURE__SETUP_SECTION = CALLABLE_UNIT__SETUP_SECTION;
 
 	/**
 	 * The feature id for the '<em><b>Entry</b></em>' containment reference.
@@ -1293,6 +1293,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int PROGRAM__MAIN = CALLABLE_UNIT__MAIN;
 
 	/**
+	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__SETUP_SECTION = CALLABLE_UNIT__SETUP_SECTION;
+
+	/**
 	 * The feature id for the '<em><b>Data Section</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1318,15 +1327,6 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROGRAM__FLOW_SECTION = CALLABLE_UNIT__FLOW_SECTION;
-
-	/**
-	 * The feature id for the '<em><b>Setup Section</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROGRAM__SETUP_SECTION = CALLABLE_UNIT__SETUP_SECTION;
 
 	/**
 	 * The feature id for the '<em><b>Entry</b></em>' containment reference.

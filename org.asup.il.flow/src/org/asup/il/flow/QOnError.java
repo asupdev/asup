@@ -37,12 +37,12 @@ public interface QOnError extends QNode {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference.
-	 * @see #setBody(QBlock)
+	 * @see #setBody(QStatement)
 	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getOnError_Body()
 	 * @model containment="true"
 	 * @generated
 	 */
-	QBlock getBody();
+	QStatement getBody();
 
 	/**
 	 * Sets the value of the '{@link org.asup.il.flow.QOnError#getBody <em>Body</em>}' containment reference.
@@ -52,7 +52,7 @@ public interface QOnError extends QNode {
 	 * @see #getBody()
 	 * @generated
 	 */
-	void setBody(QBlock value);
+	void setBody(QStatement value);
 
 	/**
 	 * Returns the value of the '<em><b>Error</b></em>' attribute.

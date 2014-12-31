@@ -197,6 +197,7 @@ public abstract class StatementVisitorImpl extends MinimalEObjectImpl.Container 
 	 * @generated NOT
 	 */
 	public void endVisit(QStatement statement) {
+		
 		try {
 			@SuppressWarnings("unchecked")
 			Method method = getMethod("endVisit", (Class<QNode>) statement.getClass());

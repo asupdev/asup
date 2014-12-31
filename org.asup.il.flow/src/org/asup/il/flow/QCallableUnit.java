@@ -16,10 +16,10 @@ package org.asup.il.flow;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.il.flow.QCallableUnit#getSetupSection <em>Setup Section</em>}</li>
  *   <li>{@link org.asup.il.flow.QCallableUnit#getDataSection <em>Data Section</em>}</li>
  *   <li>{@link org.asup.il.flow.QCallableUnit#getFileSection <em>File Section</em>}</li>
  *   <li>{@link org.asup.il.flow.QCallableUnit#getFlowSection <em>Flow Section</em>}</li>
- *   <li>{@link org.asup.il.flow.QCallableUnit#getSetupSection <em>Setup Section</em>}</li>
  * </ul>
  * </p>
  *

@@ -35,12 +35,11 @@ import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QParameterList;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
-import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUnit;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
-import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QKSDataSet;
+import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QRRDataSet;
 import org.asup.il.isam.annotation.DataSetDef;
 import org.asup.os.type.pgm.rpj.RPJServiceSupport;
@@ -75,20 +74,16 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(getCallableUnitInfo());
 
 		// main
-		if (callableUnit.getMain() != null) {
-			for (QStatement statement : callableUnit.getMain().getStatements()) {
-				statement.accept(callableUnitAnalyzer);
-			}
-		}
+		if (callableUnit.getMain() != null) 
+			callableUnit.getMain().accept(callableUnitAnalyzer);
 
 		// flow section
 		if (callableUnit.getFlowSection() != null) {
 
 			// routines
 			for (QRoutine routine : callableUnit.getFlowSection().getRoutines()) {
-				for (QStatement statement : routine.getMain().getStatements()) {
-					statement.accept(callableUnitAnalyzer);
-				}
+				if(routine.getMain() != null)
+					routine.getMain().accept(callableUnitAnalyzer);
 			}
 		}
 
@@ -285,9 +280,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			statementWriter.getBlocks().push(block);
 
-			for (QStatement statement : routine.getMain().getStatements()) {
-				statement.accept(statementWriter);
-			}
+			routine.getMain().accept(statementWriter);
 
 			statementWriter.getBlocks().pop();
 		}

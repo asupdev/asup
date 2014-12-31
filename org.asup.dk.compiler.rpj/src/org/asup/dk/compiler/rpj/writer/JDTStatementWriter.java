@@ -48,7 +48,6 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutineExec;
 import org.asup.il.flow.QSQLExec;
-import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUntil;
 import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
@@ -466,9 +465,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		// -> try
 		TryStatement tryStatement = ast.newTryStatement();
 		blocks.push(tryStatement.getBody());
-		for (QStatement child : statement.getBody().getStatements()) {
-			child.accept(this);
-		}
+		if(statement.getBody() != null)
+			statement.getBody().accept(this);
 
 		// catch
 		CatchClause catchClause = ast.newCatchClause();
@@ -511,10 +509,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				// -> Case
 				Block caseBlock = ast.newBlock();
 				blocks.push(caseBlock);
-
-				for (QStatement child : error.getBody().getStatements()) {
-					child.accept(this);
-				}
+				
+				if(error.getBody() != null)
+					error.getBody().accept(this);
 
 				// copy case block to switch statement
 				for (int i = 0; i < caseBlock.statements().size(); i++) {

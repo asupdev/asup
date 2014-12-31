@@ -10,10 +10,10 @@ package org.asup.il.flow.impl;
 import java.util.Collection;
 import java.util.List;
 
-import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.flow.QMonitor;
 import org.asup.il.flow.QOnError;
+import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QStatementVisitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -47,7 +47,7 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 	 * @generated
 	 * @ordered
 	 */
-	protected QBlock body;
+	protected QStatement body;
 	/**
 	 * The cached value of the '{@link #getOnErrors() <em>On Errors</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -86,7 +86,7 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QBlock getBody() {
+	public QStatement getBody() {
 		return body;
 	}
 
@@ -95,8 +95,8 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBody(QBlock newBody, NotificationChain msgs) {
-		QBlock oldBody = body;
+	public NotificationChain basicSetBody(QStatement newBody, NotificationChain msgs) {
+		QStatement oldBody = body;
 		body = newBody;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QIntegratedLanguageFlowPackage.MONITOR__BODY, oldBody, newBody);
@@ -110,7 +110,7 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBody(QBlock newBody) {
+	public void setBody(QStatement newBody) {
 		if (newBody != body) {
 			NotificationChain msgs = null;
 			if (body != null)
@@ -178,7 +178,7 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.MONITOR__BODY:
-				setBody((QBlock)newValue);
+				setBody((QStatement)newValue);
 				return;
 			case QIntegratedLanguageFlowPackage.MONITOR__ON_ERRORS:
 				getOnErrors().clear();
@@ -197,7 +197,7 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.MONITOR__BODY:
-				setBody((QBlock)null);
+				setBody((QStatement)null);
 				return;
 			case QIntegratedLanguageFlowPackage.MONITOR__ON_ERRORS:
 				getOnErrors().clear();
@@ -233,13 +233,13 @@ public class MonitorImpl extends StatementImpl implements QMonitor {
 
 		if(visitor.visit(this)) {
 
-			getBody().accept(visitor);
+			if(getBody() != null)
+				getBody().accept(visitor);
 
 			for(QOnError error: getOnErrors()) {
-				QBlock errorBody = error.getBody();
-				if (errorBody != null) {
+				QStatement errorBody = error.getBody();
+				if (errorBody != null)
 					errorBody.accept(visitor);
-				}
 			}
 		}
 

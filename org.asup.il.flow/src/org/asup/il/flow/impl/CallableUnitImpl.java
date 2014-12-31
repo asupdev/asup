@@ -26,16 +26,25 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.il.flow.impl.CallableUnitImpl#getSetupSection <em>Setup Section</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.CallableUnitImpl#getDataSection <em>Data Section</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.CallableUnitImpl#getFileSection <em>File Section</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.CallableUnitImpl#getFlowSection <em>Flow Section</em>}</li>
- *   <li>{@link org.asup.il.flow.impl.CallableUnitImpl#getSetupSection <em>Setup Section</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit {
+	/**
+	 * The cached value of the '{@link #getSetupSection() <em>Setup Section</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSetupSection()
+	 * @generated
+	 * @ordered
+	 */
+	protected QSetupSection setupSection;
 	/**
 	 * The cached value of the '{@link #getDataSection() <em>Data Section</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -63,15 +72,6 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 	 * @ordered
 	 */
 	protected QFlowSection flowSection;
-	/**
-	 * The cached value of the '{@link #getSetupSection() <em>Setup Section</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSetupSection()
-	 * @generated
-	 * @ordered
-	 */
-	protected QSetupSection setupSection;
 	/**
 	 * 
 	 */
@@ -275,14 +275,14 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
+				return basicSetSetupSection(null, msgs);
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__DATA_SECTION:
 				return basicSetDataSection(null, msgs);
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FILE_SECTION:
 				return basicSetFileSection(null, msgs);
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FLOW_SECTION:
 				return basicSetFlowSection(null, msgs);
-			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
-				return basicSetSetupSection(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -295,14 +295,14 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
+				return getSetupSection();
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__DATA_SECTION:
 				return getDataSection();
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FILE_SECTION:
 				return getFileSection();
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FLOW_SECTION:
 				return getFlowSection();
-			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
-				return getSetupSection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -315,6 +315,9 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
+				setSetupSection((QSetupSection)newValue);
+				return;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__DATA_SECTION:
 				setDataSection((QDataSection)newValue);
 				return;
@@ -323,9 +326,6 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 				return;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FLOW_SECTION:
 				setFlowSection((QFlowSection)newValue);
-				return;
-			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
-				setSetupSection((QSetupSection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,6 +339,9 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
+				setSetupSection((QSetupSection)null);
+				return;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__DATA_SECTION:
 				setDataSection((QDataSection)null);
 				return;
@@ -347,9 +350,6 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 				return;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FLOW_SECTION:
 				setFlowSection((QFlowSection)null);
-				return;
-			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
-				setSetupSection((QSetupSection)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -363,14 +363,14 @@ public abstract class CallableUnitImpl extends UnitImpl implements QCallableUnit
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
+				return setupSection != null;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__DATA_SECTION:
 				return dataSection != null;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FILE_SECTION:
 				return fileSection != null;
 			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__FLOW_SECTION:
 				return flowSection != null;
-			case QIntegratedLanguageFlowPackage.CALLABLE_UNIT__SETUP_SECTION:
-				return setupSection != null;
 		}
 		return super.eIsSet(featureID);
 	}
