@@ -41,7 +41,7 @@ import org.asup.il.flow.impl.IntegratedLanguageFlowFactoryImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+ 
 public class DBLStatementRewriter extends RPJStatementRewriter {
 
 	private QCallableUnit callableUnit;
