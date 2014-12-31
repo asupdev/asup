@@ -41,7 +41,7 @@ import org.asup.il.flow.impl.IntegratedLanguageFlowFactoryImpl;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
- 
+
 public class DBLStatementRewriter extends RPJStatementRewriter {
 
 	private QCallableUnit callableUnit;
@@ -372,9 +372,9 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 		String cursorName = bindingStatement.getCursorName();
 
-//		if (lookupCursor(cursorName) != null) {
+		// if (lookupCursor(cursorName) != null) {
 		methodExec.setObject(cursorName);
-//		}
+		// }
 
 		String relativePosition = DBLStatementRewriter.NONE;
 
@@ -467,11 +467,11 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 		String cursorName = bindingStatement.getCursor();
 
-//		if (lookupCursor(cursorName) != null) {
+		// if (lookupCursor(cursorName) != null) {
 
-			methodExec.setMethod("close");
-			methodExec.setObject(cursorName);
-//		}
+		methodExec.setMethod("close");
+		methodExec.setObject(cursorName);
+		// }
 
 		return methodExec;
 	}

@@ -24,6 +24,8 @@ options {
 	output=AST;
 	ASTLabelType=CommonTree;
 }
+
+
 tokens {
   ALIAS_NAME;
   ALL; 
@@ -115,6 +117,12 @@ import java.util.ArrayList;
 @lexer::header {
 package org.asup.db.syntax.ibmi.parser.dbl;
 
+}
+
+@rulecatch {
+    catch (RecognitionException exc) {
+        throw exc;        
+    }
 }
 
 /*
@@ -481,11 +489,13 @@ blob_type
   : BLOB
   | BYTEA -> BLOB
   ;
+
 /*
 ===============================================================================
   SQL statement (Start Symbol)
 ===============================================================================
 */
+
 sql
   : statement EOF
   ;

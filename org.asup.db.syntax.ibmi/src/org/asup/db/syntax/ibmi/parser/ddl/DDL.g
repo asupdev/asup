@@ -116,6 +116,12 @@ package org.asup.db.syntax.ibmi.parser.ddl;
 
 }
 
+@rulecatch {
+    catch (RecognitionException exc) {
+        throw exc;        
+    }
+}
+
 /*
 ===============================================================================
   Tokens for Case Insensitive Keywords
