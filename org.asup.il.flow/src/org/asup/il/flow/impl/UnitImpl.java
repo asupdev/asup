@@ -8,8 +8,8 @@
 package org.asup.il.flow.impl;
 
 import org.asup.il.core.impl.NamedNodeImpl;
-import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
+import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUnit;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,14 +18,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Unit</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Unit</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.il.flow.impl.UnitImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.asup.il.flow.impl.UnitImpl#getMain <em>Main</em>}</li>
+ * <li>{@link org.asup.il.flow.impl.UnitImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.asup.il.flow.impl.UnitImpl#getMain <em>Main</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,8 +33,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -44,8 +43,8 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -53,14 +52,14 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMain() <em>Main</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getMain() <em>Main</em>}' containment
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getMain()
 	 * @generated
 	 * @ordered
 	 */
-	protected QBlock main;
+	protected QStatement main;
 
 	/**
 	 * 
@@ -68,8 +67,8 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected UnitImpl() {
@@ -77,8 +76,8 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -87,8 +86,8 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -96,8 +95,8 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
@@ -108,138 +107,142 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public QBlock getMain() {
+	public QStatement getMain() {
 		return main;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetMain(QBlock newMain, NotificationChain msgs) {
-		QBlock oldMain = main;
+	public NotificationChain basicSetMain(QStatement newMain, NotificationChain msgs) {
+		QStatement oldMain = main;
 		main = newMain;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QIntegratedLanguageFlowPackage.UNIT__MAIN, oldMain, newMain);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setMain(QBlock newMain) {
+	public void setMain(QStatement newMain) {
 		if (newMain != main) {
 			NotificationChain msgs = null;
 			if (main != null)
-				msgs = ((InternalEObject)main).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QIntegratedLanguageFlowPackage.UNIT__MAIN, null, msgs);
+				msgs = ((InternalEObject) main).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QIntegratedLanguageFlowPackage.UNIT__MAIN, null, msgs);
 			if (newMain != null)
-				msgs = ((InternalEObject)newMain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QIntegratedLanguageFlowPackage.UNIT__MAIN, null, msgs);
+				msgs = ((InternalEObject) newMain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QIntegratedLanguageFlowPackage.UNIT__MAIN, null, msgs);
 			msgs = basicSetMain(newMain, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageFlowPackage.UNIT__MAIN, newMain, newMain));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QIntegratedLanguageFlowPackage.UNIT__MAIN:
-				return basicSetMain(null, msgs);
+		case QIntegratedLanguageFlowPackage.UNIT__MAIN:
+			return basicSetMain(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QIntegratedLanguageFlowPackage.UNIT__NAME:
-				return getName();
-			case QIntegratedLanguageFlowPackage.UNIT__MAIN:
-				return getMain();
+		case QIntegratedLanguageFlowPackage.UNIT__NAME:
+			return getName();
+		case QIntegratedLanguageFlowPackage.UNIT__MAIN:
+			return getMain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QIntegratedLanguageFlowPackage.UNIT__NAME:
-				setName((String)newValue);
-				return;
-			case QIntegratedLanguageFlowPackage.UNIT__MAIN:
-				setMain((QBlock)newValue);
-				return;
+		case QIntegratedLanguageFlowPackage.UNIT__NAME:
+			setName((String) newValue);
+			return;
+		case QIntegratedLanguageFlowPackage.UNIT__MAIN:
+			setMain((QStatement) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageFlowPackage.UNIT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case QIntegratedLanguageFlowPackage.UNIT__MAIN:
-				setMain((QBlock)null);
-				return;
+		case QIntegratedLanguageFlowPackage.UNIT__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case QIntegratedLanguageFlowPackage.UNIT__MAIN:
+			setMain((QStatement) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageFlowPackage.UNIT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case QIntegratedLanguageFlowPackage.UNIT__MAIN:
-				return main != null;
+		case QIntegratedLanguageFlowPackage.UNIT__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case QIntegratedLanguageFlowPackage.UNIT__MAIN:
+			return main != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
@@ -248,4 +251,4 @@ public abstract class UnitImpl extends NamedNodeImpl implements QUnit {
 		return result.toString();
 	}
 
-} //UnitImpl
+} // UnitImpl

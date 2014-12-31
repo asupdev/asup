@@ -38,12 +38,12 @@ public interface QMonitor extends QStatement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Body</em>' containment reference.
-	 * @see #setBody(QBlock)
+	 * @see #setBody(QStatement)
 	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getMonitor_Body()
 	 * @model containment="true"
 	 * @generated
 	 */
-	QBlock getBody();
+	QStatement getBody();
 
 	/**
 	 * Sets the value of the '{@link org.asup.il.flow.QMonitor#getBody <em>Body</em>}' containment reference.
@@ -53,7 +53,7 @@ public interface QMonitor extends QStatement {
 	 * @see #getBody()
 	 * @generated
 	 */
-	void setBody(QBlock value);
+	void setBody(QStatement value);
 
 	/**
 	 * Returns the value of the '<em><b>On Errors</b></em>' containment reference list.

@@ -62,12 +62,12 @@ public interface QUnit extends QNamedNode {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Main</em>' containment reference.
-	 * @see #setMain(QBlock)
+	 * @see #setMain(QStatement)
 	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getUnit_Main()
 	 * @model containment="true"
 	 * @generated
 	 */
-	QBlock getMain();
+	QStatement getMain();
 
 	/**
 	 * Sets the value of the '{@link org.asup.il.flow.QUnit#getMain <em>Main</em>}' containment reference.
@@ -77,6 +77,6 @@ public interface QUnit extends QNamedNode {
 	 * @see #getMain()
 	 * @generated
 	 */
-	void setMain(QBlock value);
+	void setMain(QStatement value);
 
 } // QUnit
