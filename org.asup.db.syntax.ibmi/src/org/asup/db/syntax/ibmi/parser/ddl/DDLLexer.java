@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 DDL.g 2014-12-15 16:53:34
+// $ANTLR 3.5.1 DDL.g 2014-12-30 18:17:58
 
 package org.asup.db.syntax.ibmi.parser.ddl;
 
@@ -351,7 +351,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "A"
 	public final void mA() throws RecognitionException {
 		try {
-			// DDL.g:125:2: ( 'A' | 'a' )
+			// DDL.g:131:2: ( 'A' | 'a' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
@@ -374,7 +374,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "B"
 	public final void mB() throws RecognitionException {
 		try {
-			// DDL.g:127:2: ( 'B' | 'b' )
+			// DDL.g:133:2: ( 'B' | 'b' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -397,7 +397,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "C"
 	public final void mC() throws RecognitionException {
 		try {
-			// DDL.g:129:2: ( 'C' | 'c' )
+			// DDL.g:135:2: ( 'C' | 'c' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
@@ -420,7 +420,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "D"
 	public final void mD() throws RecognitionException {
 		try {
-			// DDL.g:131:2: ( 'D' | 'd' )
+			// DDL.g:137:2: ( 'D' | 'd' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
@@ -443,7 +443,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "E"
 	public final void mE() throws RecognitionException {
 		try {
-			// DDL.g:133:2: ( 'E' | 'e' )
+			// DDL.g:139:2: ( 'E' | 'e' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
@@ -466,7 +466,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "F"
 	public final void mF() throws RecognitionException {
 		try {
-			// DDL.g:135:2: ( 'F' | 'f' )
+			// DDL.g:141:2: ( 'F' | 'f' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
@@ -489,7 +489,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "G"
 	public final void mG() throws RecognitionException {
 		try {
-			// DDL.g:137:2: ( 'G' | 'g' )
+			// DDL.g:143:2: ( 'G' | 'g' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
@@ -512,7 +512,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "H"
 	public final void mH() throws RecognitionException {
 		try {
-			// DDL.g:139:2: ( 'H' | 'h' )
+			// DDL.g:145:2: ( 'H' | 'h' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='H'||input.LA(1)=='h' ) {
@@ -535,7 +535,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "I"
 	public final void mI() throws RecognitionException {
 		try {
-			// DDL.g:141:2: ( 'I' | 'i' )
+			// DDL.g:147:2: ( 'I' | 'i' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
@@ -558,7 +558,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "J"
 	public final void mJ() throws RecognitionException {
 		try {
-			// DDL.g:143:2: ( 'J' | 'j' )
+			// DDL.g:149:2: ( 'J' | 'j' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='J'||input.LA(1)=='j' ) {
@@ -581,7 +581,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "K"
 	public final void mK() throws RecognitionException {
 		try {
-			// DDL.g:145:2: ( 'K' | 'k' )
+			// DDL.g:151:2: ( 'K' | 'k' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='K'||input.LA(1)=='k' ) {
@@ -604,7 +604,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "L"
 	public final void mL() throws RecognitionException {
 		try {
-			// DDL.g:147:2: ( 'L' | 'l' )
+			// DDL.g:153:2: ( 'L' | 'l' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
@@ -627,7 +627,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "M"
 	public final void mM() throws RecognitionException {
 		try {
-			// DDL.g:149:2: ( 'M' | 'm' )
+			// DDL.g:155:2: ( 'M' | 'm' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
@@ -650,7 +650,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "N"
 	public final void mN() throws RecognitionException {
 		try {
-			// DDL.g:151:2: ( 'N' | 'n' )
+			// DDL.g:157:2: ( 'N' | 'n' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
@@ -673,7 +673,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "O"
 	public final void mO() throws RecognitionException {
 		try {
-			// DDL.g:153:2: ( 'O' | 'o' )
+			// DDL.g:159:2: ( 'O' | 'o' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
@@ -696,7 +696,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "P"
 	public final void mP() throws RecognitionException {
 		try {
-			// DDL.g:155:2: ( 'P' | 'p' )
+			// DDL.g:161:2: ( 'P' | 'p' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
@@ -719,7 +719,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "Q"
 	public final void mQ() throws RecognitionException {
 		try {
-			// DDL.g:157:2: ( 'Q' | 'q' )
+			// DDL.g:163:2: ( 'Q' | 'q' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='Q'||input.LA(1)=='q' ) {
@@ -742,7 +742,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "R"
 	public final void mR() throws RecognitionException {
 		try {
-			// DDL.g:159:2: ( 'R' | 'r' )
+			// DDL.g:165:2: ( 'R' | 'r' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
@@ -765,7 +765,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "S"
 	public final void mS() throws RecognitionException {
 		try {
-			// DDL.g:161:2: ( 'S' | 's' )
+			// DDL.g:167:2: ( 'S' | 's' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
@@ -788,7 +788,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "T"
 	public final void mT() throws RecognitionException {
 		try {
-			// DDL.g:163:2: ( 'T' | 't' )
+			// DDL.g:169:2: ( 'T' | 't' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
@@ -811,7 +811,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "U"
 	public final void mU() throws RecognitionException {
 		try {
-			// DDL.g:165:2: ( 'U' | 'u' )
+			// DDL.g:171:2: ( 'U' | 'u' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
@@ -834,7 +834,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "V"
 	public final void mV() throws RecognitionException {
 		try {
-			// DDL.g:167:2: ( 'V' | 'v' )
+			// DDL.g:173:2: ( 'V' | 'v' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='V'||input.LA(1)=='v' ) {
@@ -857,7 +857,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "W"
 	public final void mW() throws RecognitionException {
 		try {
-			// DDL.g:169:2: ( 'W' | 'w' )
+			// DDL.g:175:2: ( 'W' | 'w' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='W'||input.LA(1)=='w' ) {
@@ -880,7 +880,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "X"
 	public final void mX() throws RecognitionException {
 		try {
-			// DDL.g:171:2: ( 'X' | 'x' )
+			// DDL.g:177:2: ( 'X' | 'x' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -903,7 +903,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "Y"
 	public final void mY() throws RecognitionException {
 		try {
-			// DDL.g:173:2: ( 'Y' | 'y' )
+			// DDL.g:179:2: ( 'Y' | 'y' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
@@ -926,7 +926,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "Z"
 	public final void mZ() throws RecognitionException {
 		try {
-			// DDL.g:175:2: ( 'Z' | 'z' )
+			// DDL.g:181:2: ( 'Z' | 'z' )
 			// DDL.g:
 			{
 			if ( input.LA(1)=='Z'||input.LA(1)=='z' ) {
@@ -951,8 +951,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = AS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:181:4: ( A S )
-			// DDL.g:181:6: A S
+			// DDL.g:187:4: ( A S )
+			// DDL.g:187:6: A S
 			{
 			mA(); 
 
@@ -974,8 +974,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ALIAS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:182:7: ( A L I A S )
-			// DDL.g:182:9: A L I A S
+			// DDL.g:188:7: ( A L I A S )
+			// DDL.g:188:9: A L I A S
 			{
 			mA(); 
 
@@ -1003,8 +1003,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ALL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:183:5: ( A L L )
-			// DDL.g:183:7: A L L
+			// DDL.g:189:5: ( A L L )
+			// DDL.g:189:7: A L L
 			{
 			mA(); 
 
@@ -1028,8 +1028,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ALLOW;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:184:7: ( A L L O W )
-			// DDL.g:184:10: A L L O W
+			// DDL.g:190:7: ( A L L O W )
+			// DDL.g:190:10: A L L O W
 			{
 			mA(); 
 
@@ -1057,8 +1057,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = AND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:185:5: ( A N D )
-			// DDL.g:185:7: A N D
+			// DDL.g:191:5: ( A N D )
+			// DDL.g:191:7: A N D
 			{
 			mA(); 
 
@@ -1082,8 +1082,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ASC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:186:5: ( A S C )
-			// DDL.g:186:7: A S C
+			// DDL.g:192:5: ( A S C )
+			// DDL.g:192:7: A S C
 			{
 			mA(); 
 
@@ -1107,8 +1107,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:187:4: ( B Y )
-			// DDL.g:187:6: B Y
+			// DDL.g:193:4: ( B Y )
+			// DDL.g:193:6: B Y
 			{
 			mB(); 
 
@@ -1130,8 +1130,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CALL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:188:5: ( C A L L )
-			// DDL.g:188:7: C A L L
+			// DDL.g:194:5: ( C A L L )
+			// DDL.g:194:7: C A L L
 			{
 			mC(); 
 
@@ -1157,8 +1157,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CASE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:189:6: ( C A S E )
-			// DDL.g:189:8: C A S E
+			// DDL.g:195:6: ( C A S E )
+			// DDL.g:195:8: C A S E
 			{
 			mC(); 
 
@@ -1184,8 +1184,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CASCADE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:190:9: ( C A S C A D E )
-			// DDL.g:190:12: C A S C A D E
+			// DDL.g:196:9: ( C A S C A D E )
+			// DDL.g:196:12: C A S C A D E
 			{
 			mC(); 
 
@@ -1217,8 +1217,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CHARACTER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:191:11: ( C H A R A C T E R )
-			// DDL.g:191:13: C H A R A C T E R
+			// DDL.g:197:11: ( C H A R A C T E R )
+			// DDL.g:197:13: C H A R A C T E R
 			{
 			mC(); 
 
@@ -1254,8 +1254,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COALESCE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:192:10: ( C O A L E S C E )
-			// DDL.g:192:12: C O A L E S C E
+			// DDL.g:198:10: ( C O A L E S C E )
+			// DDL.g:198:12: C O A L E S C E
 			{
 			mC(); 
 
@@ -1289,8 +1289,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COLUMN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:193:9: ( C O L U M N )
-			// DDL.g:193:11: C O L U M N
+			// DDL.g:199:9: ( C O L U M N )
+			// DDL.g:199:11: C O L U M N
 			{
 			mC(); 
 
@@ -1320,8 +1320,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COUNT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:194:7: ( C O U N T )
-			// DDL.g:194:9: C O U N T
+			// DDL.g:200:7: ( C O U N T )
+			// DDL.g:200:9: C O U N T
 			{
 			mC(); 
 
@@ -1349,8 +1349,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CREATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:195:8: ( C R E A T E )
-			// DDL.g:195:10: C R E A T E
+			// DDL.g:201:8: ( C R E A T E )
+			// DDL.g:201:10: C R E A T E
 			{
 			mC(); 
 
@@ -1380,8 +1380,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COMMIT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:196:8: ( C O M M I T )
-			// DDL.g:196:11: C O M M I T
+			// DDL.g:202:8: ( C O M M I T )
+			// DDL.g:202:11: C O M M I T
 			{
 			mC(); 
 
@@ -1411,8 +1411,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COMMITTED;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:197:11: ( C O M M I T T E D )
-			// DDL.g:197:14: C O M M I T T E D
+			// DDL.g:203:11: ( C O M M I T T E D )
+			// DDL.g:203:14: C O M M I T T E D
 			{
 			mC(); 
 
@@ -1448,8 +1448,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CONNECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:198:9: ( C O N N E C T )
-			// DDL.g:198:12: C O N N E C T
+			// DDL.g:204:9: ( C O N N E C T )
+			// DDL.g:204:12: C O N N E C T
 			{
 			mC(); 
 
@@ -1481,8 +1481,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CONNECTION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:199:12: ( C O N N E C T I O N )
-			// DDL.g:199:14: C O N N E C T I O N
+			// DDL.g:205:12: ( C O N N E C T I O N )
+			// DDL.g:205:14: C O N N E C T I O N
 			{
 			mC(); 
 
@@ -1520,8 +1520,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CROSS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:200:7: ( C R O S S )
-			// DDL.g:200:9: C R O S S
+			// DDL.g:206:7: ( C R O S S )
+			// DDL.g:206:9: C R O S S
 			{
 			mC(); 
 
@@ -1549,8 +1549,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CUBE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:201:6: ( C U B E )
-			// DDL.g:201:8: C U B E
+			// DDL.g:207:6: ( C U B E )
+			// DDL.g:207:8: C U B E
 			{
 			mC(); 
 
@@ -1576,8 +1576,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CURRENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:202:9: ( C U R R E N T )
-			// DDL.g:202:12: C U R R E N T
+			// DDL.g:208:9: ( C U R R E N T )
+			// DDL.g:208:12: C U R R E N T
 			{
 			mC(); 
 
@@ -1609,8 +1609,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DEFAULT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:203:9: ( D E F A U L T )
-			// DDL.g:203:11: D E F A U L T
+			// DDL.g:209:9: ( D E F A U L T )
+			// DDL.g:209:11: D E F A U L T
 			{
 			mD(); 
 
@@ -1642,8 +1642,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DESC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:204:6: ( D E S C )
-			// DDL.g:204:8: D E S C
+			// DDL.g:210:6: ( D E S C )
+			// DDL.g:210:8: D E S C
 			{
 			mD(); 
 
@@ -1669,8 +1669,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DISTINCT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:205:10: ( D I S T I N C T )
-			// DDL.g:205:12: D I S T I N C T
+			// DDL.g:211:10: ( D I S T I N C T )
+			// DDL.g:211:12: D I S T I N C T
 			{
 			mD(); 
 
@@ -1704,8 +1704,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DISCONNECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:206:12: ( D I S C O N N E C T )
-			// DDL.g:206:14: D I S C O N N E C T
+			// DDL.g:212:12: ( D I S C O N N E C T )
+			// DDL.g:212:14: D I S C O N N E C T
 			{
 			mD(); 
 
@@ -1743,8 +1743,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DROP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:207:6: ( D R O P )
-			// DDL.g:207:8: D R O P
+			// DDL.g:213:6: ( D R O P )
+			// DDL.g:213:8: D R O P
 			{
 			mD(); 
 
@@ -1770,8 +1770,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = END;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:208:5: ( E N D )
-			// DDL.g:208:7: E N D
+			// DDL.g:214:5: ( E N D )
+			// DDL.g:214:7: E N D
 			{
 			mE(); 
 
@@ -1795,8 +1795,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ELSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:209:6: ( E L S E )
-			// DDL.g:209:8: E L S E
+			// DDL.g:215:6: ( E L S E )
+			// DDL.g:215:8: E L S E
 			{
 			mE(); 
 
@@ -1822,8 +1822,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = EXCEPT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:210:8: ( E X C E P T )
-			// DDL.g:210:10: E X C E P T
+			// DDL.g:216:8: ( E X C E P T )
+			// DDL.g:216:10: E X C E P T
 			{
 			mE(); 
 
@@ -1853,8 +1853,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = EXCLUSIVE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:211:10: ( E X C L U S I V E )
-			// DDL.g:211:13: E X C L U S I V E
+			// DDL.g:217:10: ( E X C L U S I V E )
+			// DDL.g:217:13: E X C L U S I V E
 			{
 			mE(); 
 
@@ -1890,8 +1890,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = EXTERNAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:212:10: ( E X T E R N A L )
-			// DDL.g:212:12: E X T E R N A L
+			// DDL.g:218:10: ( E X T E R N A L )
+			// DDL.g:218:12: E X T E R N A L
 			{
 			mE(); 
 
@@ -1925,8 +1925,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FALSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:213:7: ( F A L S E )
-			// DDL.g:213:9: F A L S E
+			// DDL.g:219:7: ( F A L S E )
+			// DDL.g:219:9: F A L S E
 			{
 			mF(); 
 
@@ -1954,8 +1954,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FIRST;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:214:7: ( F I R S T )
-			// DDL.g:214:9: F I R S T
+			// DDL.g:220:7: ( F I R S T )
+			// DDL.g:220:9: F I R S T
 			{
 			mF(); 
 
@@ -1983,8 +1983,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FOR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:215:6: ( F O R )
-			// DDL.g:215:9: F O R
+			// DDL.g:221:6: ( F O R )
+			// DDL.g:221:9: F O R
 			{
 			mF(); 
 
@@ -2008,8 +2008,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FORMAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:216:8: ( F O R M A T )
-			// DDL.g:216:10: F O R M A T
+			// DDL.g:222:8: ( F O R M A T )
+			// DDL.g:222:10: F O R M A T
 			{
 			mF(); 
 
@@ -2039,8 +2039,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FULL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:217:6: ( F U L L )
-			// DDL.g:217:8: F U L L
+			// DDL.g:223:6: ( F U L L )
+			// DDL.g:223:8: F U L L
 			{
 			mF(); 
 
@@ -2066,8 +2066,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FROM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:218:6: ( F R O M )
-			// DDL.g:218:8: F R O M
+			// DDL.g:224:6: ( F R O M )
+			// DDL.g:224:8: F R O M
 			{
 			mF(); 
 
@@ -2093,8 +2093,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = GROUP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:219:7: ( G R O U P )
-			// DDL.g:219:9: G R O U P
+			// DDL.g:225:7: ( G R O U P )
+			// DDL.g:225:9: G R O U P
 			{
 			mG(); 
 
@@ -2122,8 +2122,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = HAVING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:220:8: ( H A V I N G )
-			// DDL.g:220:10: H A V I N G
+			// DDL.g:226:8: ( H A V I N G )
+			// DDL.g:226:10: H A V I N G
 			{
 			mH(); 
 
@@ -2153,8 +2153,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = HOLD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:221:6: ( H O L D )
-			// DDL.g:221:9: H O L D
+			// DDL.g:227:6: ( H O L D )
+			// DDL.g:227:9: H O L D
 			{
 			mH(); 
 
@@ -2180,8 +2180,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = IN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:222:4: ( I N )
-			// DDL.g:222:6: I N
+			// DDL.g:228:4: ( I N )
+			// DDL.g:228:6: I N
 			{
 			mI(); 
 
@@ -2203,8 +2203,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INDEX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:223:7: ( I N D E X )
-			// DDL.g:223:9: I N D E X
+			// DDL.g:229:7: ( I N D E X )
+			// DDL.g:229:9: I N D E X
 			{
 			mI(); 
 
@@ -2232,8 +2232,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INNER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:224:7: ( I N N E R )
-			// DDL.g:224:9: I N N E R
+			// DDL.g:230:7: ( I N N E R )
+			// DDL.g:230:9: I N N E R
 			{
 			mI(); 
 
@@ -2261,8 +2261,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INSERT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:225:8: ( I N S E R T )
-			// DDL.g:225:10: I N S E R T
+			// DDL.g:231:8: ( I N S E R T )
+			// DDL.g:231:10: I N S E R T
 			{
 			mI(); 
 
@@ -2292,8 +2292,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INTERSECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:226:11: ( I N T E R S E C T )
-			// DDL.g:226:13: I N T E R S E C T
+			// DDL.g:232:11: ( I N T E R S E C T )
+			// DDL.g:232:13: I N T E R S E C T
 			{
 			mI(); 
 
@@ -2329,8 +2329,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INTO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:227:6: ( I N T O )
-			// DDL.g:227:8: I N T O
+			// DDL.g:233:6: ( I N T O )
+			// DDL.g:233:8: I N T O
 			{
 			mI(); 
 
@@ -2356,8 +2356,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = IS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:228:4: ( I S )
-			// DDL.g:228:6: I S
+			// DDL.g:234:4: ( I S )
+			// DDL.g:234:6: I S
 			{
 			mI(); 
 
@@ -2379,8 +2379,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ISOLATION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:229:11: ( I S O L A T I O N )
-			// DDL.g:229:13: I S O L A T I O N
+			// DDL.g:235:11: ( I S O L A T I O N )
+			// DDL.g:235:13: I S O L A T I O N
 			{
 			mI(); 
 
@@ -2416,8 +2416,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = JOIN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:230:6: ( J O I N )
-			// DDL.g:230:8: J O I N
+			// DDL.g:236:6: ( J O I N )
+			// DDL.g:236:8: J O I N
 			{
 			mJ(); 
 
@@ -2443,8 +2443,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LAST;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:231:6: ( L A S T )
-			// DDL.g:231:8: L A S T
+			// DDL.g:237:6: ( L A S T )
+			// DDL.g:237:8: L A S T
 			{
 			mL(); 
 
@@ -2470,8 +2470,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LEFT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:232:6: ( L E F T )
-			// DDL.g:232:8: L E F T
+			// DDL.g:238:6: ( L E F T )
+			// DDL.g:238:8: L E F T
 			{
 			mL(); 
 
@@ -2497,8 +2497,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LEVEL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:233:7: ( L E V E L )
-			// DDL.g:233:10: L E V E L
+			// DDL.g:239:7: ( L E V E L )
+			// DDL.g:239:10: L E V E L
 			{
 			mL(); 
 
@@ -2526,8 +2526,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LIKE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:234:6: ( L I K E )
-			// DDL.g:234:8: L I K E
+			// DDL.g:240:6: ( L I K E )
+			// DDL.g:240:8: L I K E
 			{
 			mL(); 
 
@@ -2553,8 +2553,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LIMIT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:235:7: ( L I M I T )
-			// DDL.g:235:9: L I M I T
+			// DDL.g:241:7: ( L I M I T )
+			// DDL.g:241:9: L I M I T
 			{
 			mL(); 
 
@@ -2582,8 +2582,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LOCATION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:236:10: ( L O C A T I O N )
-			// DDL.g:236:12: L O C A T I O N
+			// DDL.g:242:10: ( L O C A T I O N )
+			// DDL.g:242:12: L O C A T I O N
 			{
 			mL(); 
 
@@ -2617,8 +2617,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LOCK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:237:6: ( L O C K )
-			// DDL.g:237:9: L O C K
+			// DDL.g:243:6: ( L O C K )
+			// DDL.g:243:9: L O C K
 			{
 			mL(); 
 
@@ -2644,8 +2644,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = MODE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:238:6: ( M O D E )
-			// DDL.g:238:9: M O D E
+			// DDL.g:244:6: ( M O D E )
+			// DDL.g:244:9: M O D E
 			{
 			mM(); 
 
@@ -2671,8 +2671,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:239:6: ( N A M E )
-			// DDL.g:239:9: N A M E
+			// DDL.g:245:6: ( N A M E )
+			// DDL.g:245:9: N A M E
 			{
 			mN(); 
 
@@ -2698,8 +2698,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NATIONAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:240:10: ( N A T I O N A L )
-			// DDL.g:240:12: N A T I O N A L
+			// DDL.g:246:10: ( N A T I O N A L )
+			// DDL.g:246:12: N A T I O N A L
 			{
 			mN(); 
 
@@ -2733,8 +2733,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NATURAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:241:9: ( N A T U R A L )
-			// DDL.g:241:11: N A T U R A L
+			// DDL.g:247:9: ( N A T U R A L )
+			// DDL.g:247:11: N A T U R A L
 			{
 			mN(); 
 
@@ -2766,8 +2766,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:242:3: ( N O )
-			// DDL.g:242:5: N O
+			// DDL.g:248:3: ( N O )
+			// DDL.g:248:5: N O
 			{
 			mN(); 
 
@@ -2789,8 +2789,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:243:5: ( N O T )
-			// DDL.g:243:7: N O T
+			// DDL.g:249:5: ( N O T )
+			// DDL.g:249:7: N O T
 			{
 			mN(); 
 
@@ -2814,8 +2814,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NULL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:244:6: ( N U L L )
-			// DDL.g:244:8: N U L L
+			// DDL.g:250:6: ( N U L L )
+			// DDL.g:250:8: N U L L
 			{
 			mN(); 
 
@@ -2841,8 +2841,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NULLIF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:245:8: ( N U L L I F )
-			// DDL.g:245:10: N U L L I F
+			// DDL.g:251:8: ( N U L L I F )
+			// DDL.g:251:10: N U L L I F
 			{
 			mN(); 
 
@@ -2872,8 +2872,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:246:4: ( O N )
-			// DDL.g:246:6: O N
+			// DDL.g:252:4: ( O N )
+			// DDL.g:252:6: O N
 			{
 			mO(); 
 
@@ -2895,8 +2895,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ONLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:247:5: ( O N L Y )
-			// DDL.g:247:7: O N L Y
+			// DDL.g:253:5: ( O N L Y )
+			// DDL.g:253:7: O N L Y
 			{
 			mO(); 
 
@@ -2922,8 +2922,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = OUTER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:248:7: ( O U T E R )
-			// DDL.g:248:9: O U T E R
+			// DDL.g:254:7: ( O U T E R )
+			// DDL.g:254:9: O U T E R
 			{
 			mO(); 
 
@@ -2951,8 +2951,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = OR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:249:4: ( O R )
-			// DDL.g:249:6: O R
+			// DDL.g:255:4: ( O R )
+			// DDL.g:255:6: O R
 			{
 			mO(); 
 
@@ -2974,8 +2974,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ORDER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:250:7: ( O R D E R )
-			// DDL.g:250:9: O R D E R
+			// DDL.g:256:7: ( O R D E R )
+			// DDL.g:256:9: O R D E R
 			{
 			mO(); 
 
@@ -3003,8 +3003,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = PRECISION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:251:11: ( P R E C I S I ON )
-			// DDL.g:251:13: P R E C I S I ON
+			// DDL.g:257:11: ( P R E C I S I ON )
+			// DDL.g:257:13: P R E C I S I ON
 			{
 			mP(); 
 
@@ -3038,8 +3038,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = READ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:252:6: ( R E A D )
-			// DDL.g:252:9: R E A D
+			// DDL.g:258:6: ( R E A D )
+			// DDL.g:258:9: R E A D
 			{
 			mR(); 
 
@@ -3065,8 +3065,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = RELEASE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:253:9: ( R E L E A S E )
-			// DDL.g:253:11: R E L E A S E
+			// DDL.g:259:9: ( R E L E A S E )
+			// DDL.g:259:11: R E L E A S E
 			{
 			mR(); 
 
@@ -3098,8 +3098,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = RENAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:254:8: ( R E N A M E )
-			// DDL.g:254:11: R E N A M E
+			// DDL.g:260:8: ( R E N A M E )
+			// DDL.g:260:11: R E N A M E
 			{
 			mR(); 
 
@@ -3129,8 +3129,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = REPEATABLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:255:12: ( R E P E A T A B L E )
-			// DDL.g:255:14: R E P E A T A B L E
+			// DDL.g:261:12: ( R E P E A T A B L E )
+			// DDL.g:261:14: R E P E A T A B L E
 			{
 			mR(); 
 
@@ -3168,8 +3168,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = REPLACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:256:9: ( R E P L A C E )
-			// DDL.g:256:12: R E P L A C E
+			// DDL.g:262:9: ( R E P L A C E )
+			// DDL.g:262:12: R E P L A C E
 			{
 			mR(); 
 
@@ -3201,8 +3201,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = RESET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:257:7: ( R E S E T )
-			// DDL.g:257:10: R E S E T
+			// DDL.g:263:7: ( R E S E T )
+			// DDL.g:263:10: R E S E T
 			{
 			mR(); 
 
@@ -3230,8 +3230,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = RESTRICT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:258:9: ( R E S T R I C T )
-			// DDL.g:258:12: R E S T R I C T
+			// DDL.g:264:9: ( R E S T R I C T )
+			// DDL.g:264:12: R E S T R I C T
 			{
 			mR(); 
 
@@ -3265,8 +3265,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = RIGHT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:259:7: ( R I G H T )
-			// DDL.g:259:9: R I G H T
+			// DDL.g:265:7: ( R I G H T )
+			// DDL.g:265:9: R I G H T
 			{
 			mR(); 
 
@@ -3294,8 +3294,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ROLLBACK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:260:9: ( R O L L B A C K )
-			// DDL.g:260:12: R O L L B A C K
+			// DDL.g:266:9: ( R O L L B A C K )
+			// DDL.g:266:12: R O L L B A C K
 			{
 			mR(); 
 
@@ -3329,8 +3329,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ROLLUP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:261:8: ( R O L L U P )
-			// DDL.g:261:10: R O L L U P
+			// DDL.g:267:8: ( R O L L U P )
+			// DDL.g:267:10: R O L L U P
 			{
 			mR(); 
 
@@ -3360,8 +3360,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:262:5: ( S E T )
-			// DDL.g:262:7: S E T
+			// DDL.g:268:5: ( S E T )
+			// DDL.g:268:7: S E T
 			{
 			mS(); 
 
@@ -3385,8 +3385,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SELECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:263:8: ( S E L E C T )
-			// DDL.g:263:10: S E L E C T
+			// DDL.g:269:8: ( S E L E C T )
+			// DDL.g:269:10: S E L E C T
 			{
 			mS(); 
 
@@ -3416,8 +3416,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SHARE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:264:7: ( S H A R E )
-			// DDL.g:264:10: S H A R E
+			// DDL.g:270:7: ( S H A R E )
+			// DDL.g:270:10: S H A R E
 			{
 			mS(); 
 
@@ -3445,8 +3445,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SERIALIZABLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:265:15: ( S E R I A L I Z A B L E )
-			// DDL.g:265:18: S E R I A L I Z A B L E
+			// DDL.g:271:15: ( S E R I A L I Z A B L E )
+			// DDL.g:271:18: S E R I A L I Z A B L E
 			{
 			mS(); 
 
@@ -3488,8 +3488,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SQL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:266:4: ( S Q L )
-			// DDL.g:266:6: S Q L
+			// DDL.g:272:4: ( S Q L )
+			// DDL.g:272:6: S Q L
 			{
 			mS(); 
 
@@ -3513,8 +3513,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SYSTEM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:267:8: ( S Y S T E M )
-			// DDL.g:267:10: S Y S T E M
+			// DDL.g:273:8: ( S Y S T E M )
+			// DDL.g:273:10: S Y S T E M
 			{
 			mS(); 
 
@@ -3544,8 +3544,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TABLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:268:7: ( T A B L E )
-			// DDL.g:268:9: T A B L E
+			// DDL.g:274:7: ( T A B L E )
+			// DDL.g:274:9: T A B L E
 			{
 			mT(); 
 
@@ -3573,8 +3573,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = THEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:269:6: ( T H E N )
-			// DDL.g:269:8: T H E N
+			// DDL.g:275:6: ( T H E N )
+			// DDL.g:275:8: T H E N
 			{
 			mT(); 
 
@@ -3600,8 +3600,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:270:4: ( T O )
-			// DDL.g:270:7: T O
+			// DDL.g:276:4: ( T O )
+			// DDL.g:276:7: T O
 			{
 			mT(); 
 
@@ -3623,8 +3623,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TRANSACTION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:271:13: ( T R A N S A C T I O N )
-			// DDL.g:271:15: T R A N S A C T I O N
+			// DDL.g:277:13: ( T R A N S A C T I O N )
+			// DDL.g:277:15: T R A N S A C T I O N
 			{
 			mT(); 
 
@@ -3664,8 +3664,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TRUE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:272:6: ( T R U E )
-			// DDL.g:272:8: T R U E
+			// DDL.g:278:6: ( T R U E )
+			// DDL.g:278:8: T R U E
 			{
 			mT(); 
 
@@ -3691,8 +3691,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = UNCOMMITTED;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:273:13: ( U N C O M M I T T E D )
-			// DDL.g:273:16: U N C O M M I T T E D
+			// DDL.g:279:13: ( U N C O M M I T T E D )
+			// DDL.g:279:16: U N C O M M I T T E D
 			{
 			mU(); 
 
@@ -3732,8 +3732,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = UNION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:274:7: ( U N I O N )
-			// DDL.g:274:9: U N I O N
+			// DDL.g:280:7: ( U N I O N )
+			// DDL.g:280:9: U N I O N
 			{
 			mU(); 
 
@@ -3761,8 +3761,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = UNIQUE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:275:8: ( U N I Q U E )
-			// DDL.g:275:10: U N I Q U E
+			// DDL.g:281:8: ( U N I Q U E )
+			// DDL.g:281:10: U N I Q U E
 			{
 			mU(); 
 
@@ -3792,8 +3792,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = UNKNOWN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:276:9: ( U N K N O W N )
-			// DDL.g:276:11: U N K N O W N
+			// DDL.g:282:9: ( U N K N O W N )
+			// DDL.g:282:11: U N K N O W N
 			{
 			mU(); 
 
@@ -3825,8 +3825,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = USING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:277:7: ( U S I N G )
-			// DDL.g:277:9: U S I N G
+			// DDL.g:283:7: ( U S I N G )
+			// DDL.g:283:9: U S I N G
 			{
 			mU(); 
 
@@ -3854,8 +3854,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = USER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:278:6: ( U S E R )
-			// DDL.g:278:8: U S E R
+			// DDL.g:284:6: ( U S E R )
+			// DDL.g:284:8: U S E R
 			{
 			mU(); 
 
@@ -3881,8 +3881,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = VALUES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:279:8: ( V A L U E S )
-			// DDL.g:279:10: V A L U E S
+			// DDL.g:285:8: ( V A L U E S )
+			// DDL.g:285:10: V A L U E S
 			{
 			mV(); 
 
@@ -3912,8 +3912,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = VARYING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:280:9: ( V A R Y I N G )
-			// DDL.g:280:11: V A R Y I N G
+			// DDL.g:286:9: ( V A R Y I N G )
+			// DDL.g:286:11: V A R Y I N G
 			{
 			mV(); 
 
@@ -3945,8 +3945,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = WHEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:281:6: ( W H E N )
-			// DDL.g:281:8: W H E N
+			// DDL.g:287:6: ( W H E N )
+			// DDL.g:287:8: W H E N
 			{
 			mW(); 
 
@@ -3972,8 +3972,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = WHERE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:282:7: ( W H E R E )
-			// DDL.g:282:9: W H E R E
+			// DDL.g:288:7: ( W H E R E )
+			// DDL.g:288:9: W H E R E
 			{
 			mW(); 
 
@@ -4001,8 +4001,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = WITH;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:283:6: ( W I T H )
-			// DDL.g:283:8: W I T H
+			// DDL.g:289:6: ( W I T H )
+			// DDL.g:289:8: W I T H
 			{
 			mW(); 
 
@@ -4028,8 +4028,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = WORK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:284:6: ( W O R K )
-			// DDL.g:284:9: W O R K
+			// DDL.g:290:6: ( W O R K )
+			// DDL.g:290:9: W O R K
 			{
 			mW(); 
 
@@ -4055,8 +4055,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = WRITE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:285:6: ( W R I T E )
-			// DDL.g:285:8: W R I T E
+			// DDL.g:291:6: ( W R I T E )
+			// DDL.g:291:8: W R I T E
 			{
 			mW(); 
 
@@ -4084,8 +4084,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = VIEW;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:286:6: ( V I E W )
-			// DDL.g:286:8: V I E W
+			// DDL.g:292:6: ( V I E W )
+			// DDL.g:292:8: V I E W
 			{
 			mV(); 
 
@@ -4111,8 +4111,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ZONE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:287:6: ( Z O N E )
-			// DDL.g:287:8: Z O N E
+			// DDL.g:293:6: ( Z O N E )
+			// DDL.g:293:8: Z O N E
 			{
 			mZ(); 
 
@@ -4138,8 +4138,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BOOLEAN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:293:9: ( B O O L E A N )
-			// DDL.g:293:11: B O O L E A N
+			// DDL.g:299:9: ( B O O L E A N )
+			// DDL.g:299:11: B O O L E A N
 			{
 			mB(); 
 
@@ -4171,8 +4171,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BOOL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:294:6: ( B O O L )
-			// DDL.g:294:8: B O O L
+			// DDL.g:300:6: ( B O O L )
+			// DDL.g:300:8: B O O L
 			{
 			mB(); 
 
@@ -4198,8 +4198,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BIT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:295:5: ( B I T )
-			// DDL.g:295:7: B I T
+			// DDL.g:301:5: ( B I T )
+			// DDL.g:301:7: B I T
 			{
 			mB(); 
 
@@ -4223,8 +4223,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = VARBIT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:296:8: ( V A R B I T )
-			// DDL.g:296:10: V A R B I T
+			// DDL.g:302:8: ( V A R B I T )
+			// DDL.g:302:10: V A R B I T
 			{
 			mV(); 
 
@@ -4254,8 +4254,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INT1;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:297:6: ( I N T '1' )
-			// DDL.g:297:8: I N T '1'
+			// DDL.g:303:6: ( I N T '1' )
+			// DDL.g:303:8: I N T '1'
 			{
 			mI(); 
 
@@ -4280,8 +4280,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INT2;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:298:6: ( I N T '2' )
-			// DDL.g:298:8: I N T '2'
+			// DDL.g:304:6: ( I N T '2' )
+			// DDL.g:304:8: I N T '2'
 			{
 			mI(); 
 
@@ -4306,8 +4306,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INT4;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:299:6: ( I N T '4' )
-			// DDL.g:299:8: I N T '4'
+			// DDL.g:305:6: ( I N T '4' )
+			// DDL.g:305:8: I N T '4'
 			{
 			mI(); 
 
@@ -4332,8 +4332,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INT8;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:300:6: ( I N T '8' )
-			// DDL.g:300:8: I N T '8'
+			// DDL.g:306:6: ( I N T '8' )
+			// DDL.g:306:8: I N T '8'
 			{
 			mI(); 
 
@@ -4358,8 +4358,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TINYINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:301:9: ( T I N Y I N T )
-			// DDL.g:301:11: T I N Y I N T
+			// DDL.g:307:9: ( T I N Y I N T )
+			// DDL.g:307:11: T I N Y I N T
 			{
 			mT(); 
 
@@ -4391,8 +4391,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SMALLINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:302:10: ( S M A L L I N T )
-			// DDL.g:302:12: S M A L L I N T
+			// DDL.g:308:10: ( S M A L L I N T )
+			// DDL.g:308:12: S M A L L I N T
 			{
 			mS(); 
 
@@ -4426,8 +4426,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:303:5: ( I N T )
-			// DDL.g:303:7: I N T
+			// DDL.g:309:5: ( I N T )
+			// DDL.g:309:7: I N T
 			{
 			mI(); 
 
@@ -4451,8 +4451,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INTEGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:304:9: ( I N T E G E R )
-			// DDL.g:304:11: I N T E G E R
+			// DDL.g:310:9: ( I N T E G E R )
+			// DDL.g:310:11: I N T E G E R
 			{
 			mI(); 
 
@@ -4484,8 +4484,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BIGINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:305:8: ( B I G I N T )
-			// DDL.g:305:10: B I G I N T
+			// DDL.g:311:8: ( B I G I N T )
+			// DDL.g:311:10: B I G I N T
 			{
 			mB(); 
 
@@ -4515,8 +4515,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FLOAT4;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:306:8: ( F L O A T '4' )
-			// DDL.g:306:10: F L O A T '4'
+			// DDL.g:312:8: ( F L O A T '4' )
+			// DDL.g:312:10: F L O A T '4'
 			{
 			mF(); 
 
@@ -4545,8 +4545,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FLOAT8;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:307:8: ( F L O A T '8' )
-			// DDL.g:307:10: F L O A T '8'
+			// DDL.g:313:8: ( F L O A T '8' )
+			// DDL.g:313:10: F L O A T '8'
 			{
 			mF(); 
 
@@ -4575,8 +4575,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = REAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:308:6: ( R E A L )
-			// DDL.g:308:8: R E A L
+			// DDL.g:314:6: ( R E A L )
+			// DDL.g:314:8: R E A L
 			{
 			mR(); 
 
@@ -4602,8 +4602,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = FLOAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:309:7: ( F L O A T )
-			// DDL.g:309:9: F L O A T
+			// DDL.g:315:7: ( F L O A T )
+			// DDL.g:315:9: F L O A T
 			{
 			mF(); 
 
@@ -4631,8 +4631,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DOUBLE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:310:8: ( D O U B L E )
-			// DDL.g:310:10: D O U B L E
+			// DDL.g:316:8: ( D O U B L E )
+			// DDL.g:316:10: D O U B L E
 			{
 			mD(); 
 
@@ -4662,8 +4662,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NUMERIC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:311:9: ( N U M E R I C )
-			// DDL.g:311:11: N U M E R I C
+			// DDL.g:317:9: ( N U M E R I C )
+			// DDL.g:317:11: N U M E R I C
 			{
 			mN(); 
 
@@ -4695,8 +4695,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DECIMAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:312:9: ( D E C I M A L )
-			// DDL.g:312:11: D E C I M A L
+			// DDL.g:318:9: ( D E C I M A L )
+			// DDL.g:318:11: D E C I M A L
 			{
 			mD(); 
 
@@ -4728,8 +4728,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DEC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:313:6: ( D E C )
-			// DDL.g:313:8: D E C
+			// DDL.g:319:6: ( D E C )
+			// DDL.g:319:8: D E C
 			{
 			mD(); 
 
@@ -4753,8 +4753,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = CHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:314:6: ( C H A R )
-			// DDL.g:314:8: C H A R
+			// DDL.g:320:6: ( C H A R )
+			// DDL.g:320:8: C H A R
 			{
 			mC(); 
 
@@ -4780,8 +4780,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = VARCHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:315:9: ( V A R C H A R )
-			// DDL.g:315:11: V A R C H A R
+			// DDL.g:321:9: ( V A R C H A R )
+			// DDL.g:321:11: V A R C H A R
 			{
 			mV(); 
 
@@ -4813,8 +4813,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NCHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:316:7: ( N C H A R )
-			// DDL.g:316:9: N C H A R
+			// DDL.g:322:7: ( N C H A R )
+			// DDL.g:322:9: N C H A R
 			{
 			mN(); 
 
@@ -4842,8 +4842,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NVARCHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:317:10: ( N V A R C H A R )
-			// DDL.g:317:12: N V A R C H A R
+			// DDL.g:323:10: ( N V A R C H A R )
+			// DDL.g:323:12: N V A R C H A R
 			{
 			mN(); 
 
@@ -4877,8 +4877,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DATE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:318:6: ( D A T E )
-			// DDL.g:318:8: D A T E
+			// DDL.g:324:6: ( D A T E )
+			// DDL.g:324:8: D A T E
 			{
 			mD(); 
 
@@ -4904,8 +4904,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TIME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:319:6: ( T I M E )
-			// DDL.g:319:8: T I M E
+			// DDL.g:325:6: ( T I M E )
+			// DDL.g:325:8: T I M E
 			{
 			mT(); 
 
@@ -4931,8 +4931,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TIMETZ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:320:8: ( T I M E T Z )
-			// DDL.g:320:10: T I M E T Z
+			// DDL.g:326:8: ( T I M E T Z )
+			// DDL.g:326:10: T I M E T Z
 			{
 			mT(); 
 
@@ -4962,8 +4962,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TIMESTAMP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:321:11: ( T I M E S T A M P )
-			// DDL.g:321:13: T I M E S T A M P
+			// DDL.g:327:11: ( T I M E S T A M P )
+			// DDL.g:327:13: T I M E S T A M P
 			{
 			mT(); 
 
@@ -4999,8 +4999,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TIMESTAMPTZ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:322:13: ( T I M E S T A M P T Z )
-			// DDL.g:322:15: T I M E S T A M P T Z
+			// DDL.g:328:13: ( T I M E S T A M P T Z )
+			// DDL.g:328:15: T I M E S T A M P T Z
 			{
 			mT(); 
 
@@ -5040,8 +5040,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = TEXT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:323:6: ( T E X T )
-			// DDL.g:323:8: T E X T
+			// DDL.g:329:6: ( T E X T )
+			// DDL.g:329:8: T E X T
 			{
 			mT(); 
 
@@ -5067,8 +5067,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BINARY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:324:8: ( B I N A R Y )
-			// DDL.g:324:10: B I N A R Y
+			// DDL.g:330:8: ( B I N A R Y )
+			// DDL.g:330:10: B I N A R Y
 			{
 			mB(); 
 
@@ -5098,8 +5098,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = VARBINARY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:325:11: ( V A R B I N A R Y )
-			// DDL.g:325:13: V A R B I N A R Y
+			// DDL.g:331:11: ( V A R B I N A R Y )
+			// DDL.g:331:13: V A R B I N A R Y
 			{
 			mV(); 
 
@@ -5135,8 +5135,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BLOB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:326:6: ( B L O B )
-			// DDL.g:326:8: B L O B
+			// DDL.g:332:6: ( B L O B )
+			// DDL.g:332:8: B L O B
 			{
 			mB(); 
 
@@ -5162,8 +5162,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BYTEA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:327:7: ( B Y T E A )
-			// DDL.g:327:9: B Y T E A
+			// DDL.g:333:7: ( B Y T E A )
+			// DDL.g:333:9: B Y T E A
 			{
 			mB(); 
 
@@ -5191,8 +5191,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = INET4;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:328:7: ( I N E T '4' )
-			// DDL.g:328:9: I N E T '4'
+			// DDL.g:334:7: ( I N E T '4' )
+			// DDL.g:334:9: I N E T '4'
 			{
 			mI(); 
 
@@ -5219,8 +5219,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = ASSIGN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1147:9: ( ':=' )
-			// DDL.g:1147:11: ':='
+			// DDL.g:1153:9: ( ':=' )
+			// DDL.g:1153:11: ':='
 			{
 			match(":="); 
 
@@ -5240,8 +5240,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = EQUAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1148:8: ( '=' )
-			// DDL.g:1148:10: '='
+			// DDL.g:1154:8: ( '=' )
+			// DDL.g:1154:10: '='
 			{
 			match('='); 
 			}
@@ -5260,8 +5260,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = SEMI_COLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1149:12: ( ';' )
-			// DDL.g:1149:15: ';'
+			// DDL.g:1155:12: ( ';' )
+			// DDL.g:1155:15: ';'
 			{
 			match(';'); 
 			}
@@ -5280,8 +5280,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1150:7: ( ',' )
-			// DDL.g:1150:9: ','
+			// DDL.g:1156:7: ( ',' )
+			// DDL.g:1156:9: ','
 			{
 			match(','); 
 			}
@@ -5300,7 +5300,7 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NOT_EQUAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1151:12: ( '<>' | '!=' | '~=' | '^=' )
+			// DDL.g:1157:12: ( '<>' | '!=' | '~=' | '^=' )
 			int alt1=4;
 			switch ( input.LA(1) ) {
 			case '<':
@@ -5330,28 +5330,28 @@ public class DDLLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// DDL.g:1151:14: '<>'
+					// DDL.g:1157:14: '<>'
 					{
 					match("<>"); 
 
 					}
 					break;
 				case 2 :
-					// DDL.g:1151:21: '!='
+					// DDL.g:1157:21: '!='
 					{
 					match("!="); 
 
 					}
 					break;
 				case 3 :
-					// DDL.g:1151:28: '~='
+					// DDL.g:1157:28: '~='
 					{
 					match("~="); 
 
 					}
 					break;
 				case 4 :
-					// DDL.g:1151:34: '^='
+					// DDL.g:1157:34: '^='
 					{
 					match("^="); 
 
@@ -5373,8 +5373,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LTH;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1152:5: ( '<' )
-			// DDL.g:1152:7: '<'
+			// DDL.g:1158:5: ( '<' )
+			// DDL.g:1158:7: '<'
 			{
 			match('<'); 
 			}
@@ -5393,8 +5393,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1153:5: ( '<=' )
-			// DDL.g:1153:7: '<='
+			// DDL.g:1159:5: ( '<=' )
+			// DDL.g:1159:7: '<='
 			{
 			match("<="); 
 
@@ -5414,8 +5414,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = GTH;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1154:7: ( '>' )
-			// DDL.g:1154:9: '>'
+			// DDL.g:1160:7: ( '>' )
+			// DDL.g:1160:9: '>'
 			{
 			match('>'); 
 			}
@@ -5434,8 +5434,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = GEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1155:7: ( '>=' )
-			// DDL.g:1155:9: '>='
+			// DDL.g:1161:7: ( '>=' )
+			// DDL.g:1161:9: '>='
 			{
 			match(">="); 
 
@@ -5455,8 +5455,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = LEFT_PAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1156:12: ( '(' )
-			// DDL.g:1156:15: '('
+			// DDL.g:1162:12: ( '(' )
+			// DDL.g:1162:15: '('
 			{
 			match('('); 
 			}
@@ -5475,8 +5475,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = RIGHT_PAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1157:13: ( ')' )
-			// DDL.g:1157:15: ')'
+			// DDL.g:1163:13: ( ')' )
+			// DDL.g:1163:15: ')'
 			{
 			match(')'); 
 			}
@@ -5495,8 +5495,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1158:7: ( '+' )
-			// DDL.g:1158:9: '+'
+			// DDL.g:1164:7: ( '+' )
+			// DDL.g:1164:9: '+'
 			{
 			match('+'); 
 			}
@@ -5515,8 +5515,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1159:7: ( '-' )
-			// DDL.g:1159:9: '-'
+			// DDL.g:1165:7: ( '-' )
+			// DDL.g:1165:9: '-'
 			{
 			match('-'); 
 			}
@@ -5535,8 +5535,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = MULTIPLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1160:9: ( '*' )
-			// DDL.g:1160:11: '*'
+			// DDL.g:1166:9: ( '*' )
+			// DDL.g:1166:11: '*'
 			{
 			match('*'); 
 			}
@@ -5555,8 +5555,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DIVIDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1161:9: ( '/' )
-			// DDL.g:1161:11: '/'
+			// DDL.g:1167:9: ( '/' )
+			// DDL.g:1167:11: '/'
 			{
 			match('/'); 
 			}
@@ -5575,8 +5575,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = MODULAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1162:9: ( '%' )
-			// DDL.g:1162:11: '%'
+			// DDL.g:1168:9: ( '%' )
+			// DDL.g:1168:11: '%'
 			{
 			match('%'); 
 			}
@@ -5595,8 +5595,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = DOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1163:5: ( '.' )
-			// DDL.g:1163:7: '.'
+			// DDL.g:1169:5: ( '.' )
+			// DDL.g:1169:7: '.'
 			{
 			match('.'); 
 			}
@@ -5615,10 +5615,10 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1164:8: ( ( Digit )+ )
-			// DDL.g:1164:10: ( Digit )+
+			// DDL.g:1170:8: ( ( Digit )+ )
+			// DDL.g:1170:10: ( Digit )+
 			{
-			// DDL.g:1164:10: ( Digit )+
+			// DDL.g:1170:10: ( Digit )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -5665,7 +5665,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "Digit"
 	public final void mDigit() throws RecognitionException {
 		try {
-			// DDL.g:1167:7: ( '0' .. '9' )
+			// DDL.g:1173:7: ( '0' .. '9' )
 			// DDL.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -5690,14 +5690,14 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = REAL_NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1168:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+			// DDL.g:1174:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
 			int alt9=3;
 			alt9 = dfa9.predict(input);
 			switch (alt9) {
 				case 1 :
-					// DDL.g:1168:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+					// DDL.g:1174:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
 					{
-					// DDL.g:1168:9: ( '0' .. '9' )+
+					// DDL.g:1174:9: ( '0' .. '9' )+
 					int cnt3=0;
 					loop3:
 					while (true) {
@@ -5731,7 +5731,7 @@ public class DDLLexer extends Lexer {
 					}
 
 					match('.'); 
-					// DDL.g:1168:25: ( '0' .. '9' )*
+					// DDL.g:1174:25: ( '0' .. '9' )*
 					loop4:
 					while (true) {
 						int alt4=2;
@@ -5760,7 +5760,7 @@ public class DDLLexer extends Lexer {
 						}
 					}
 
-					// DDL.g:1168:37: ( EXPONENT )?
+					// DDL.g:1174:37: ( EXPONENT )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0=='E'||LA5_0=='e') ) {
@@ -5768,7 +5768,7 @@ public class DDLLexer extends Lexer {
 					}
 					switch (alt5) {
 						case 1 :
-							// DDL.g:1168:37: EXPONENT
+							// DDL.g:1174:37: EXPONENT
 							{
 							mEXPONENT(); 
 
@@ -5780,10 +5780,10 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DDL.g:1169:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+					// DDL.g:1175:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
 					{
 					match('.'); 
-					// DDL.g:1169:13: ( '0' .. '9' )+
+					// DDL.g:1175:13: ( '0' .. '9' )+
 					int cnt6=0;
 					loop6:
 					while (true) {
@@ -5816,7 +5816,7 @@ public class DDLLexer extends Lexer {
 						cnt6++;
 					}
 
-					// DDL.g:1169:25: ( EXPONENT )?
+					// DDL.g:1175:25: ( EXPONENT )?
 					int alt7=2;
 					int LA7_0 = input.LA(1);
 					if ( (LA7_0=='E'||LA7_0=='e') ) {
@@ -5824,7 +5824,7 @@ public class DDLLexer extends Lexer {
 					}
 					switch (alt7) {
 						case 1 :
-							// DDL.g:1169:25: EXPONENT
+							// DDL.g:1175:25: EXPONENT
 							{
 							mEXPONENT(); 
 
@@ -5836,9 +5836,9 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// DDL.g:1170:9: ( '0' .. '9' )+ EXPONENT
+					// DDL.g:1176:9: ( '0' .. '9' )+ EXPONENT
 					{
-					// DDL.g:1170:9: ( '0' .. '9' )+
+					// DDL.g:1176:9: ( '0' .. '9' )+
 					int cnt8=0;
 					loop8:
 					while (true) {
@@ -5891,7 +5891,7 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1173:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+			// DDL.g:1179:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0=='/') ) {
@@ -5925,11 +5925,11 @@ public class DDLLexer extends Lexer {
 
 			switch (alt13) {
 				case 1 :
-					// DDL.g:1173:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+					// DDL.g:1179:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 					{
 					match("//"); 
 
-					// DDL.g:1173:14: (~ ( '\\n' | '\\r' ) )*
+					// DDL.g:1179:14: (~ ( '\\n' | '\\r' ) )*
 					loop10:
 					while (true) {
 						int alt10=2;
@@ -5958,7 +5958,7 @@ public class DDLLexer extends Lexer {
 						}
 					}
 
-					// DDL.g:1173:28: ( '\\r' )?
+					// DDL.g:1179:28: ( '\\r' )?
 					int alt11=2;
 					int LA11_0 = input.LA(1);
 					if ( (LA11_0=='\r') ) {
@@ -5966,7 +5966,7 @@ public class DDLLexer extends Lexer {
 					}
 					switch (alt11) {
 						case 1 :
-							// DDL.g:1173:28: '\\r'
+							// DDL.g:1179:28: '\\r'
 							{
 							match('\r'); 
 							}
@@ -5979,11 +5979,11 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DDL.g:1174:9: '/*' ( options {greedy=false; } : . )* '*/'
+					// DDL.g:1180:9: '/*' ( options {greedy=false; } : . )* '*/'
 					{
 					match("/*"); 
 
-					// DDL.g:1174:14: ( options {greedy=false; } : . )*
+					// DDL.g:1180:14: ( options {greedy=false; } : . )*
 					loop12:
 					while (true) {
 						int alt12=2;
@@ -6004,7 +6004,7 @@ public class DDLLexer extends Lexer {
 
 						switch (alt12) {
 						case 1 :
-							// DDL.g:1174:42: .
+							// DDL.g:1180:42: .
 							{
 							matchAny(); 
 							}
@@ -6036,8 +6036,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = Identifier;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1182:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | CHAR_SPECIAL )* )
-			// DDL.g:1182:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | CHAR_SPECIAL )*
+			// DDL.g:1188:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | CHAR_SPECIAL )* )
+			// DDL.g:1188:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | Digit | CHAR_SPECIAL )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -6047,7 +6047,7 @@ public class DDLLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// DDL.g:1182:29: ( 'a' .. 'z' | 'A' .. 'Z' | Digit | CHAR_SPECIAL )*
+			// DDL.g:1188:29: ( 'a' .. 'z' | 'A' .. 'Z' | Digit | CHAR_SPECIAL )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -6090,7 +6090,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "Control_Characters"
 	public final void mControl_Characters() throws RecognitionException {
 		try {
-			// DDL.g:1192:37: ( '\\u0001' .. '\\u001F' )
+			// DDL.g:1198:37: ( '\\u0001' .. '\\u001F' )
 			// DDL.g:
 			{
 			if ( (input.LA(1) >= '\u0001' && input.LA(1) <= '\u001F') ) {
@@ -6113,7 +6113,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "Extended_Control_Characters"
 	public final void mExtended_Control_Characters() throws RecognitionException {
 		try {
-			// DDL.g:1194:37: ( '\\u0080' .. '\\u009F' )
+			// DDL.g:1200:37: ( '\\u0080' .. '\\u009F' )
 			// DDL.g:
 			{
 			if ( (input.LA(1) >= '\u0080' && input.LA(1) <= '\u009F') ) {
@@ -6138,7 +6138,7 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = Character_String_Literal;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1195:5: ( Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote | Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote )
+			// DDL.g:1201:5: ( Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote | Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote )
 			int alt17=2;
 			int LA17_0 = input.LA(1);
 			if ( (LA17_0=='\'') ) {
@@ -6156,11 +6156,11 @@ public class DDLLexer extends Lexer {
 
 			switch (alt17) {
 				case 1 :
-					// DDL.g:1195:7: Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote
+					// DDL.g:1201:7: Quote ( ESC_SEQ |~ ( '\\\\' | Quote ) )* Quote
 					{
 					mQuote(); 
 
-					// DDL.g:1195:13: ( ESC_SEQ |~ ( '\\\\' | Quote ) )*
+					// DDL.g:1201:13: ( ESC_SEQ |~ ( '\\\\' | Quote ) )*
 					loop15:
 					while (true) {
 						int alt15=3;
@@ -6174,14 +6174,14 @@ public class DDLLexer extends Lexer {
 
 						switch (alt15) {
 						case 1 :
-							// DDL.g:1195:15: ESC_SEQ
+							// DDL.g:1201:15: ESC_SEQ
 							{
 							mESC_SEQ(); 
 
 							}
 							break;
 						case 2 :
-							// DDL.g:1195:25: ~ ( '\\\\' | Quote )
+							// DDL.g:1201:25: ~ ( '\\\\' | Quote )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -6205,11 +6205,11 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DDL.g:1197:7: Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote
+					// DDL.g:1203:7: Double_Quote ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )* Double_Quote
 					{
 					mDouble_Quote(); 
 
-					// DDL.g:1197:20: ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )*
+					// DDL.g:1203:20: ( ESC_SEQ |~ ( '\\\\' | Double_Quote ) )*
 					loop16:
 					while (true) {
 						int alt16=3;
@@ -6223,14 +6223,14 @@ public class DDLLexer extends Lexer {
 
 						switch (alt16) {
 						case 1 :
-							// DDL.g:1197:22: ESC_SEQ
+							// DDL.g:1203:22: ESC_SEQ
 							{
 							mESC_SEQ(); 
 
 							}
 							break;
 						case 2 :
-							// DDL.g:1197:32: ~ ( '\\\\' | Double_Quote )
+							// DDL.g:1203:32: ~ ( '\\\\' | Double_Quote )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -6269,8 +6269,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = Quote;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1201:3: ( '\\'' )
-			// DDL.g:1201:5: '\\''
+			// DDL.g:1207:3: ( '\\'' )
+			// DDL.g:1207:5: '\\''
 			{
 			match('\''); 
 			}
@@ -6289,8 +6289,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = Double_Quote;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1203:3: ( '\"' )
-			// DDL.g:1203:5: '\"'
+			// DDL.g:1209:3: ( '\"' )
+			// DDL.g:1209:5: '\"'
 			{
 			match('\"'); 
 			}
@@ -6307,8 +6307,8 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "EXPONENT"
 	public final void mEXPONENT() throws RecognitionException {
 		try {
-			// DDL.g:1206:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-			// DDL.g:1206:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+			// DDL.g:1212:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+			// DDL.g:1212:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 				input.consume();
@@ -6318,7 +6318,7 @@ public class DDLLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// DDL.g:1206:22: ( '+' | '-' )?
+			// DDL.g:1212:22: ( '+' | '-' )?
 			int alt18=2;
 			int LA18_0 = input.LA(1);
 			if ( (LA18_0=='+'||LA18_0=='-') ) {
@@ -6341,7 +6341,7 @@ public class DDLLexer extends Lexer {
 
 			}
 
-			// DDL.g:1206:33: ( '0' .. '9' )+
+			// DDL.g:1212:33: ( '0' .. '9' )+
 			int cnt19=0;
 			loop19:
 			while (true) {
@@ -6386,7 +6386,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "HEX_DIGIT"
 	public final void mHEX_DIGIT() throws RecognitionException {
 		try {
-			// DDL.g:1208:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+			// DDL.g:1214:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
 			// DDL.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -6409,7 +6409,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "ESC_SEQ"
 	public final void mESC_SEQ() throws RecognitionException {
 		try {
-			// DDL.g:1211:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
+			// DDL.g:1217:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
 			int alt20=3;
 			int LA20_0 = input.LA(1);
 			if ( (LA20_0=='\\') ) {
@@ -6464,7 +6464,7 @@ public class DDLLexer extends Lexer {
 
 			switch (alt20) {
 				case 1 :
-					// DDL.g:1211:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+					// DDL.g:1217:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
 					{
 					match('\\'); 
 					if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -6478,14 +6478,14 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DDL.g:1212:9: UNICODE_ESC
+					// DDL.g:1218:9: UNICODE_ESC
 					{
 					mUNICODE_ESC(); 
 
 					}
 					break;
 				case 3 :
-					// DDL.g:1213:9: OCTAL_ESC
+					// DDL.g:1219:9: OCTAL_ESC
 					{
 					mOCTAL_ESC(); 
 
@@ -6503,7 +6503,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "OCTAL_ESC"
 	public final void mOCTAL_ESC() throws RecognitionException {
 		try {
-			// DDL.g:1217:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+			// DDL.g:1223:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
 			int alt21=3;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0=='\\') ) {
@@ -6561,7 +6561,7 @@ public class DDLLexer extends Lexer {
 
 			switch (alt21) {
 				case 1 :
-					// DDL.g:1217:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+					// DDL.g:1223:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '3') ) {
@@ -6591,7 +6591,7 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// DDL.g:1218:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+					// DDL.g:1224:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
@@ -6613,7 +6613,7 @@ public class DDLLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// DDL.g:1219:9: '\\\\' ( '0' .. '7' )
+					// DDL.g:1225:9: '\\\\' ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
@@ -6638,8 +6638,8 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "UNICODE_ESC"
 	public final void mUNICODE_ESC() throws RecognitionException {
 		try {
-			// DDL.g:1223:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-			// DDL.g:1223:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+			// DDL.g:1229:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+			// DDL.g:1229:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
 			{
 			match('\\'); 
 			match('u'); 
@@ -6663,7 +6663,7 @@ public class DDLLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// DDL.g:1228:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '&' | '*' | '/' | '=' | '>' | '<' | '+' | '-' | '!' | '\\\\' | '%' | ':' ) )
+			// DDL.g:1234:3: ( ( '\\u00A7' | '$' | '_' | '.' | '^' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '?' | ',' | '\\u00a3' | '&' | '*' | '/' | '=' | '>' | '<' | '+' | '-' | '!' | '\\\\' | '%' | ':' ) )
 			// DDL.g:
 			{
 			if ( (input.LA(1) >= '!' && input.LA(1) <= '\"')||(input.LA(1) >= '$' && input.LA(1) <= '&')||(input.LA(1) >= '*' && input.LA(1) <= '/')||input.LA(1)==':'||(input.LA(1) >= '<' && input.LA(1) <= '?')||input.LA(1)=='\\'||(input.LA(1) >= '^' && input.LA(1) <= '_')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
@@ -6688,8 +6688,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = Space;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1264:7: ( ' ' )
-			// DDL.g:1264:9: ' '
+			// DDL.g:1270:7: ( ' ' )
+			// DDL.g:1270:9: ' '
 			{
 			match(' '); 
 
@@ -6711,10 +6711,10 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = White_Space;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1268:13: ( ( Control_Characters | Extended_Control_Characters )+ )
-			// DDL.g:1268:15: ( Control_Characters | Extended_Control_Characters )+
+			// DDL.g:1274:13: ( ( Control_Characters | Extended_Control_Characters )+ )
+			// DDL.g:1274:15: ( Control_Characters | Extended_Control_Characters )+
 			{
-			// DDL.g:1268:15: ( Control_Characters | Extended_Control_Characters )+
+			// DDL.g:1274:15: ( Control_Characters | Extended_Control_Characters )+
 			int cnt22=0;
 			loop22:
 			while (true) {
@@ -6766,8 +6766,8 @@ public class DDLLexer extends Lexer {
 		try {
 			int _type = BAD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// DDL.g:1272:5: ( . )
-			// DDL.g:1272:7: .
+			// DDL.g:1278:5: ( . )
+			// DDL.g:1278:7: .
 			{
 			matchAny(); 
 
@@ -8052,7 +8052,7 @@ public class DDLLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1167:1: REAL_NUMBER : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
+			return "1173:1: REAL_NUMBER : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
 		}
 	}
 

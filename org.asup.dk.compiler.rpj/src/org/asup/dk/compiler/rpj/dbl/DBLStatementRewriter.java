@@ -18,12 +18,12 @@ import org.asup.db.syntax.dbl.QOpenStatement;
 import org.asup.db.syntax.dbl.QPrepareStatement;
 import org.asup.db.syntax.dbl.QSetTransactionStatement;
 import org.asup.db.syntax.util.DBSyntaxHelper;
-import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.rpj.RPJStatementRewriter;
 import org.asup.il.esql.CursorType;
 import org.asup.il.esql.QCursorTerm;
 import org.asup.il.esql.QIntegratedLanguageEmbeddedSQLFactory;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QMethodExec;
@@ -216,7 +216,14 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
 		
 		methodExec.setMethod(PREPARE_METHOD);
-		methodExec.setObject(null); //TODO: null?
+		
+		//TODO: statementName is correct as method object?
+		String statementName = bindingStatement.getStatementName();
+		if (lookupStatement(statementName) != null){
+			methodExec.setObject(statementName); 
+		} else {
+			methodExec.setObject(null);
+		}
 		
 		/*
 		 * PREPARE_METHOD parameter list:
@@ -593,6 +600,23 @@ QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMetho
 		}	
 		return result;
 	}
+	
+	private QStatementTerm lookupStatement(String StatementName) {		
+		
+		QStatementTerm result = null;
+		ListIterator<QStatementTerm> listIterator = callableUnit.getFileSection().getStatements().listIterator();
+		QStatementTerm statementTerm = null;
+		while (listIterator.hasNext()) {
+			statementTerm = listIterator.next();
+			if (statementTerm.getName().equalsIgnoreCase(StatementName)) {
+				result = statementTerm;
+				break;
+			}
+		}	
+		return result;
+	}
+	
+	
 	
 	private boolean isSelectIntoStatement(String statement) {
 		
