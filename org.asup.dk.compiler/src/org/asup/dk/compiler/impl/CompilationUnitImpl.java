@@ -14,6 +14,8 @@ import org.asup.dk.compiler.QDevelopmentKitCompilerPackage;
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
@@ -69,6 +71,17 @@ public abstract class CompilationUnitImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 */
 	public CaseSensitiveType getCaseSensitive() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QCursorTerm getCursor(String name, boolean deep) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -196,6 +209,17 @@ public abstract class CompilationUnitImpl extends MinimalEObjectImpl.Container i
 	 * @generated NOT
 	 */
 	public abstract QRoutine getRoutine(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QStatementTerm getStatement(String name, boolean deep) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

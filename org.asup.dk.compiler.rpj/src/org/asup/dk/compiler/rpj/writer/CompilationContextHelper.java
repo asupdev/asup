@@ -17,6 +17,7 @@ import java.util.Date;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QBlockExpression;
@@ -168,8 +169,15 @@ public class CompilationContextHelper {
 
 			QNamedNode namedNode = compilationUnit.getNamedNode(compoundTermExpression.getValue(), true);
 			QDataTerm<?> dataTerm = getDataTerm(namedNode);
-			if (dataTerm != null)
-				return dataTerm.getDefinition().getJavaClass();
+			if (dataTerm != null) {
+				
+				if(dataTerm instanceof QMultipleAtomicDataTerm) {
+					QMultipleAtomicDataTerm<?> multipleDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
+					return multipleDataTerm.getDefinition().getArgument().getJavaClass();
+				}
+				else
+					return dataTerm.getDefinition().getJavaClass();
+			}
 
 			break;
 		case LOGICAL:

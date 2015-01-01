@@ -320,7 +320,8 @@ public class IfImpl extends StatementImpl implements QIf {
 		
 		if(visitor.visit(this)) {
 			
-			getThen().accept(visitor);
+			if(getThen() != null)
+				getThen().accept(visitor);
 			
 			if(getElse() != null)
 				getElse().accept(visitor);			

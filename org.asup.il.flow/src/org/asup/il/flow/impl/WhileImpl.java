@@ -57,10 +57,8 @@ public class WhileImpl extends IterationImpl implements QWhile {
 		
 		if(visitor.visit(this)) {
 
-			if(getBody() == null)
-				visitor.toString();
-
-			getBody().accept(visitor);
+			if(getBody() != null)
+				getBody().accept(visitor);
 		}
 		
 		visitor.endVisit(this);

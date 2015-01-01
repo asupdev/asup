@@ -27,7 +27,7 @@ public interface QCursor extends QESqlObject {
 	 * @model targetRequired="true"
 	 * @generated
 	 */
-	void fetch(QBufferedData target);
+	void next(QBufferedData target);
 
 	/**
 	 * <!-- begin-user-doc -->

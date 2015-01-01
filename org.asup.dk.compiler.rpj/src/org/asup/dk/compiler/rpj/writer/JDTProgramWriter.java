@@ -18,6 +18,8 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
+import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
@@ -44,15 +46,12 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 
 	public void writeProgram(QProgram program) throws IOException {
 
-		// analyze callable unit
-		analyzeCallableUnit(program);
-
 		// refactoring callable unit
 		refactCallableUnit(program);
 
-		// analyze callable unit
-		analyzeCallableUnit(program);
-
+		// unit info
+		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(program);
+		
 		// modules
 		List<String> modules = new ArrayList<>();
 		if (program.getSetupSection() != null) {
@@ -67,7 +66,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		// Program annotation
 		writeProgramAnnotation(program);
 
-		writeSupportFields();
+		writeSupportFields(callableUnitInfo);
 
 		writeModuleFields(modules);
 
@@ -77,16 +76,15 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		if (program.getFileSection() != null) {
 			writeDataSets(program.getFileSection().getDataSets());
 			writeKeyLists(program.getFileSection().getKeyLists());
-			// TODO
-			// writeStatements
-			// wtiteCursors
+			writeCursors(program.getFileSection().getCursors());
+			writeStatements(program.getFileSection().getStatements());
 		}
 
 		if (program.getEntry() != null)
 			writeEntry(program.getEntry(), "qEntry");
 
 		// labels
-		writeLabels(getCallableUnitInfo().getLabels().keySet());
+		writeLabels(callableUnitInfo.getLabels().keySet());
 
 		// main
 		if (program.getMain() != null) {

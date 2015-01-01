@@ -165,9 +165,9 @@ public class BlockImpl extends StatementImpl implements QBlock {
 		if(visitor.visit(this)) {
 			
 			// childs
-			for(QStatement child: getStatements()) {
+			for(QStatement child: getStatements()) 
 				child.accept(visitor);
-			}
+			
 		}
 		visitor.endVisit(this);			
 	}

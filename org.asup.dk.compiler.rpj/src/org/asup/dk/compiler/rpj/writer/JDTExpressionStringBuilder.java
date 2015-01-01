@@ -166,7 +166,10 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
 
-			writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
+			if (this.target != null && Integer.class.isAssignableFrom(this.target))
+				writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
+			else
+				writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
 
 		}
 		// dataSet
@@ -282,14 +285,16 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		// plus, minus, multiple ..
 		else if (expression.getRightOperand() != null) {
 
-			builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand()));
+			Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
+			builder.setTarget(target);
 			builder.clear();
 			expression.getLeftOperand().accept(builder);
 			buffer.append(builder.getResult());
 
 			buffer.append(toJavaPrimitive(expression.getOperator()));
 
-			builder.setTarget(CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand()));
+			target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
+			builder.setTarget(target);
 			builder.clear();
 			expression.getRightOperand().accept(builder);
 			buffer.append(builder.getResult());

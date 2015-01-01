@@ -300,22 +300,13 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	int STATEMENT_TERM__NAME = ESQL_TERM__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Host Variable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATEMENT_TERM__HOST_VARIABLE = ESQL_TERM_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Statement Term</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATEMENT_TERM_FEATURE_COUNT = ESQL_TERM_FEATURE_COUNT + 1;
+	int STATEMENT_TERM_FEATURE_COUNT = ESQL_TERM_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.esql.QESqlManager <em>ESql Manager</em>}' class.
@@ -521,17 +512,6 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	EClass getStatementTerm();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.esql.QStatementTerm#getHostVariable <em>Host Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Host Variable</em>'.
-	 * @see org.asup.il.esql.QStatementTerm#getHostVariable()
-	 * @see #getStatementTerm()
-	 * @generated
-	 */
-	EAttribute getStatementTerm_HostVariable();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.esql.QESqlManager <em>ESql Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -712,14 +692,6 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass STATEMENT_TERM = eINSTANCE.getStatementTerm();
-
-		/**
-		 * The meta object literal for the '<em><b>Host Variable</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STATEMENT_TERM__HOST_VARIABLE = eINSTANCE.getStatementTerm_HostVariable();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.esql.QESqlManager <em>ESql Manager</em>}' class.

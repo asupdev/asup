@@ -232,7 +232,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public boolean visit(QEval statement) {
 
 		Block block = blocks.peek();
-
+		
 		QAssignmentExpression assignmentExpression = expressionParser.parseAssignment(statement.getAssignment());
 		MethodInvocation methodInvocation = buildAssignmentMethod(assignmentExpression);
 
@@ -263,18 +263,19 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		block.statements().add(ifSt);
 
 		// then
-		Block thenBlock = null;
-		if (ifSt.getThenStatement() instanceof Block)
-			thenBlock = (Block) ifSt.getThenStatement();
-		else {
-			thenBlock = ast.newBlock();
-			ifSt.setThenStatement(thenBlock);
-		}
+		if(statement.getThen() != null) {
+			Block thenBlock = null;
+			if (ifSt.getThenStatement() instanceof Block)
+				thenBlock = (Block) ifSt.getThenStatement();
+			else {
+				thenBlock = ast.newBlock();
+				ifSt.setThenStatement(thenBlock);
+			}
 
-		// walk then
-		blocks.push(thenBlock);
-		statement.getThen().accept(this);
-		blocks.pop();
+			blocks.push(thenBlock);
+			statement.getThen().accept(this);
+			blocks.pop();
+		}
 
 		// else
 		if (statement.getElse() != null) {

@@ -7,7 +7,6 @@
  */
 package org.asup.dk.compiler.impl;
 
-import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.EntryType;
 import org.asup.dk.compiler.QCompilationSetup;
@@ -22,20 +21,13 @@ import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
+import org.asup.il.esql.QIntegratedLanguageEmbeddedSQLPackage;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.isam.QIntegratedLanguageIsamPackage;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
 import org.asup.os.type.module.QOperatingSystemModulePackage;
 import org.asup.os.type.pgm.QOperatingSystemProgramPackage;
-import org.eclipse.datatools.modelbase.sql.accesscontrol.SQLAccessControlPackage;
-import org.eclipse.datatools.modelbase.sql.constraints.SQLConstraintsPackage;
-import org.eclipse.datatools.modelbase.sql.datatypes.SQLDataTypesPackage;
-import org.eclipse.datatools.modelbase.sql.expressions.SQLExpressionsPackage;
-import org.eclipse.datatools.modelbase.sql.routines.SQLRoutinesPackage;
-import org.eclipse.datatools.modelbase.sql.schema.SQLSchemaPackage;
-import org.eclipse.datatools.modelbase.sql.statements.SQLStatementsPackage;
-import org.eclipse.datatools.modelbase.sql.tables.SQLTablesPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -154,19 +146,10 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		isInited = true;
 
 		// Initialize simple dependencies
-		QDatabaseCorePackage.eINSTANCE.eClass();
 		QIntegratedLanguageFlowPackage.eINSTANCE.eClass();
 		QOperatingSystemFilePackage.eINSTANCE.eClass();
 		QOperatingSystemModulePackage.eINSTANCE.eClass();
 		QOperatingSystemProgramPackage.eINSTANCE.eClass();
-		SQLConstraintsPackage.eINSTANCE.eClass();
-		SQLTablesPackage.eINSTANCE.eClass();
-		SQLSchemaPackage.eINSTANCE.eClass();
-		SQLExpressionsPackage.eINSTANCE.eClass();
-		SQLDataTypesPackage.eINSTANCE.eClass();
-		SQLStatementsPackage.eINSTANCE.eClass();
-		SQLRoutinesPackage.eINSTANCE.eClass();
-		SQLAccessControlPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDevelopmentKitCompilerPackage.createPackageContents();
@@ -355,6 +338,7 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
+		QIntegratedLanguageEmbeddedSQLPackage theIntegratedLanguageEmbeddedSQLPackage = (QIntegratedLanguageEmbeddedSQLPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageEmbeddedSQLPackage.eNS_URI);
 		QIntegratedLanguageIsamPackage theIntegratedLanguageIsamPackage = (QIntegratedLanguageIsamPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageIsamPackage.eNS_URI);
 		QIntegratedLanguageDataPackage theIntegratedLanguageDataPackage = (QIntegratedLanguageDataPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageDataPackage.eNS_URI);
 		QIntegratedLanguageFlowPackage theIntegratedLanguageFlowPackage = (QIntegratedLanguageFlowPackage)EPackage.Registry.INSTANCE.getEPackage(QIntegratedLanguageFlowPackage.eNS_URI);
@@ -388,6 +372,10 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, ecorePackage.getEString(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(compilationUnitEClass, this.getCaseSensitiveType(), "getCaseSensitive", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageEmbeddedSQLPackage.getCursorTerm(), "getCursor", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(compilationUnitEClass, this.getCompilationUnit(), "getChildCompilationUnits", 0, -1, IS_UNIQUE, IS_ORDERED);
 
@@ -433,6 +421,10 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		addEOperation(compilationUnitEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getRoot", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilationUnitEClass, theIntegratedLanguageFlowPackage.getRoutine(), "getRoutine", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageEmbeddedSQLPackage.getStatementTerm(), "getStatement", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 

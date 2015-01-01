@@ -315,15 +315,6 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStatementTerm_HostVariable() {
-		return (EAttribute)statementTermEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getESqlManager() {
 		return eSqlManagerEClass;
 	}
@@ -403,7 +394,6 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		statementEClass = createEClass(STATEMENT);
 
 		statementTermEClass = createEClass(STATEMENT_TERM);
-		createEAttribute(statementTermEClass, STATEMENT_TERM__HOST_VARIABLE);
 
 		eSqlManagerEClass = createEClass(ESQL_MANAGER);
 
@@ -462,7 +452,7 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 
 		initEClass(cursorEClass, QCursor.class, "Cursor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(cursorEClass, null, "fetch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(cursorEClass, null, "next", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageDataPackage.getBufferedData(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(cursorEClass, null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -492,10 +482,10 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 
 		initEClass(statementEClass, QStatement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(statementEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(statementEClass, null, "prepare", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageDataPackage.getString(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(statementTermEClass, QStatementTerm.class, "StatementTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStatementTerm_HostVariable(), ecorePackage.getEString(), "hostVariable", null, 1, 1, QStatementTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eSqlManagerEClass, QESqlManager.class, "ESqlManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

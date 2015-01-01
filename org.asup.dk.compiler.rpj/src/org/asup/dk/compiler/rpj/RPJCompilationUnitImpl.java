@@ -26,6 +26,8 @@ import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
+import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QEntry;
 import org.asup.il.flow.QEntryParameter;
@@ -46,6 +48,8 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 	private List<QDataSetTerm> dataSets;
 	private List<QKeyListTerm> keyLists;
+	private List<QCursorTerm> cursors;
+	private List<QStatementTerm> statements;
 	private List<QRoutine> routines;
 	private List<QProcedure> procedures;
 	private List<QPrototype<?>> prototypes;
@@ -63,6 +67,8 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			if (callableUnit.getFileSection() != null) {
 				dataSets = callableUnit.getFileSection().getDataSets();
 				keyLists = callableUnit.getFileSection().getKeyLists();
+				cursors = callableUnit.getFileSection().getCursors();
+				statements = callableUnit.getFileSection().getStatements();
 			}
 
 			if (callableUnit.getFlowSection() != null) {
@@ -76,6 +82,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			dataSets = new ArrayList<QDataSetTerm>();
 		if (keyLists == null)
 			keyLists = new ArrayList<QKeyListTerm>();
+		if(cursors == null)
+			cursors = new ArrayList<QCursorTerm>();
+		if(statements == null)
+			statements = new ArrayList<QStatementTerm>();		
 		if (routines == null)
 			routines = new ArrayList<QRoutine>();
 		if (procedures == null)
@@ -93,8 +103,8 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		for (QDataSetTerm d : dataSets) {
 
 			if (equalsTermName(d.getFormatName(), name) || equalsTermName(d.getFileName(), name)) {
-
 				dataSetTerm = d;
+				break;
 			}
 
 		}
@@ -282,6 +292,61 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	}
 
 	@Override
+	public QCursorTerm getCursor(String name, boolean deep) {
+
+		QCursorTerm cursorTerm = null;
+
+		for (QCursorTerm c: cursors) {
+
+			if (equalsTermName(c.getName(), name)) {
+				cursorTerm = c;
+				break;
+			}
+
+		}
+
+		// deep search
+		if (cursorTerm == null && deep) {
+			for (QCompilationUnit compilationUnit : compilationUnits) {
+				cursorTerm = compilationUnit.getCursor(name, true);
+
+				if (cursorTerm != null)
+					break;
+			}
+		}
+
+		return cursorTerm;
+	}
+
+	@Override
+	public QStatementTerm getStatement(String name, boolean deep) {
+
+
+		QStatementTerm statementTerm = null;
+
+		for (QStatementTerm s: statements) {
+
+			if (equalsTermName(s.getName(), name)) {
+				statementTerm = s;
+				break;
+			}
+
+		}
+
+		// deep search
+		if (statementTerm == null && deep) {
+			for (QCompilationUnit compilationUnit : compilationUnits) {
+				statementTerm = compilationUnit.getStatement(name, true);
+
+				if (statementTerm != null)
+					break;
+			}
+		}
+
+		return statementTerm;
+	}
+
+	@Override
 	public QNamedNode getNamedNode(String name, boolean deep) {
 
 		QNamedNode namedNode = null;
@@ -319,13 +384,18 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (namedNode != null)
 			return namedNode;
 
-		// module
-		namedNode = getModule(name, deep);
+		// cursor
+		namedNode = getCursor(name, deep);
 		if (namedNode != null)
 			return namedNode;
 
-		// prototype
-		namedNode = getPrototype(name, deep);
+		// statement
+		namedNode = getStatement(name, deep);
+		if (namedNode != null)
+			return namedNode;
+		
+		// module
+		namedNode = getModule(name, deep);
 		if (namedNode != null)
 			return namedNode;
 

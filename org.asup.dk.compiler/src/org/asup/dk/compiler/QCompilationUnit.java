@@ -11,6 +11,8 @@ import java.util.List;
 import org.asup.fw.core.QContextProvider;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
@@ -44,6 +46,14 @@ public interface QCompilationUnit extends QContextProvider {
 	 * @generated
 	 */
 	CaseSensitiveType getCaseSensitive();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QCursorTerm getCursor(String name, boolean deep);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +142,14 @@ public interface QCompilationUnit extends QContextProvider {
 	 * @generated
 	 */
 	QRoutine getRoutine(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QStatementTerm getStatement(String name, boolean deep);
 
 	/**
 	 * <!-- begin-user-doc -->

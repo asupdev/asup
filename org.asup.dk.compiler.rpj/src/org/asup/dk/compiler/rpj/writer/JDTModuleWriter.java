@@ -15,6 +15,8 @@ import java.io.IOException;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
+import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.ModuleDef;
@@ -25,8 +27,8 @@ import org.asup.il.flow.QRoutine;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
 import org.asup.os.type.pgm.rpj.RPJServiceSupport;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
-import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public class JDTModuleWriter extends JDTCallableUnitWriter {
 
@@ -37,21 +39,18 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 	@SuppressWarnings("unchecked")
 	public void writeModule(QModule module) throws IOException {
 
-		// analyze callable unit
-		analyzeCallableUnit(module);
-
 		// refactoring callable unit
 		refactCallableUnit(module);
 
 		// analyze callable unit
-		analyzeCallableUnit(module);
+		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(module);
 
 		// modules
 		for (String childModule : module.getSetupSection().getModules()) {
 			writeImport(childModule);
 		}
 
-		writeSupportFields();
+		writeSupportFields(callableUnitInfo);
 		// TODO
 		if(module.getName().equals("£JAX")){
 			writeImport(QData.class);
@@ -79,7 +78,7 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 			writeKeyLists(module.getFileSection().getKeyLists());
 
 		// labels
-		writeLabels(getCallableUnitInfo().getLabels().keySet());
+		writeLabels(callableUnitInfo.getLabels().keySet());
 
 		// main
 		if (module.getMain() != null) {

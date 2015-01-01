@@ -33,7 +33,10 @@ import org.asup.dk.compiler.rpj.RPJStatementRewriter;
 import org.asup.il.esql.CursorType;
 import org.asup.il.esql.QCursorTerm;
 import org.asup.il.esql.QIntegratedLanguageEmbeddedSQLFactory;
+import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QCallableUnit;
+import org.asup.il.flow.QFileSection;
+import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.QSQLExec;
 import org.asup.il.flow.QStatement;
@@ -48,26 +51,28 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	private QBindingParser bindingParser;
 	private QQueryParser queryParser;
 
-	/*************** Public static methods definitions */
-	public static String FETCH_METHOD = "SINGLE_FETCH_METHOD";
+	public static interface STATEMENT_METHOD {
+		String PREPARE = "prepare";		
+	}
+
+	public static interface CURSOR_METHOD {
+		String NEXT = "next";
+		String PRIOR = "prior";
+		String FIRST = "first";
+		String LAST = "last";
+		String BEFORE = "before";
+		String AFTER = "after";
+		String CURRENT = "current";
+		String RELATIVE = "realative";
+	}
+
 	public static String SET_TRANSACTION_METHOD = "SET_TRANSACTION_METHOD";
-	public static String PREPARE_METHOD = "PREPARE_METHOD";
 	public static String DESCRIBE_METHOD = "DESCRIBE_METHOD";
 
 	/*************** Public static parameters definitions */
 
-	public static String NONE = "NONE";
+	public static String NONE = "*NULL";
 
-	public static interface FETCH_POSITION {
-		String NEXT = "NEXT";
-		String PRIOR = "PRIOR";
-		String FIRST = "FIRST";
-		String LAST = "LAST";
-		String BEFORE = "BEFORE";
-		String AFTER = "AFTER";
-		String CURRENT = "CURRENT";
-		String RELATIVE = "RELATIVE";
-	}
 
 	public static interface ISOLATION_LEVEL {
 		String SERIALIZABLE = "SERIALIZABLE";
@@ -107,39 +112,33 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	@Override
 	public boolean visit(QSQLExec statement) {
 
-		QStatement rewritedStatement = null;
+		
 
 		String dblString = statement.getStatement();
 
 		if (DBSyntaxHelper.isDBLStatement(dblString)) {
 
-			if (isSelectIntoStatement(dblString)) {
-
-				try {
+			QStatement rewritedStatement = null;
+			
+			try {
+				
+				if (isSelectIntoStatement(dblString))
 					rewritedStatement = manageSelectIntoStatement(dblString);
-				} catch (SQLException e) {
-					// TODO TODO Manage parse error
-					e.printStackTrace();
-				}
-
-			} else {
-
-				try {
-
+				else
 					rewritedStatement = manageDBLStametemnt(dblString);
-
-				} catch (SQLException e) {
-					// TODO Manage parse error
-					e.printStackTrace();
-				}
-
+				
+			} catch (SQLException e) {
+				// TODO TODO Manage parse error
+				e.printStackTrace();
 			}
-		}
 
-		if (rewritedStatement != null)
-			write(rewritedStatement);
-		else
+			if (rewritedStatement != null)
+				write(rewritedStatement);
+			
+		} else {
+			System.err.println(statement);
 			write((QStatement) EcoreUtil.copy((EObject) statement));
+		}
 
 		return false;
 	}
@@ -156,18 +155,25 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 			if (bindingStatement instanceof QSetTransactionStatement) {
 				result = manageSetTransactionStatement((QSetTransactionStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QExecuteStatement) {
 				result = manageExecuteStatement((QExecuteStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QOpenStatement) {
 				result = manageOpenStatement((QOpenStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QPrepareStatement) {
 				result = managePrepareStatement((QPrepareStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QDeclareCursorStatement) {
 				result = manageDeclareCursorStatement((QDeclareCursorStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QDescribeStatement) {
 				result = manageDescribeStatement((QDescribeStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QFetchStatement) {
 				result = manageFetchStatement((QFetchStatement) bindingStatement);
+
 			} else if (bindingStatement instanceof QCloseStatement) {
 				result = manageCloseStatement((QCloseStatement) bindingStatement);
 			}
@@ -179,45 +185,76 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		return result;
 	}
 
-	// DBL statement mamge methods
+	private QStatement manageDeclareCursorStatement(QDeclareCursorStatement bindingStatement) {
 
-	private QStatement manageExecuteStatement(QExecuteStatement bindingStatement) {
-		System.out.println("Manage EXECUTE");
+		QCursorTerm cursorTerm = QIntegratedLanguageEmbeddedSQLFactory.eINSTANCE.createCursorTerm();
+		cursorTerm.setName(bindingStatement.getCursorName());
+		switch (bindingStatement.getCursorType()) {
+		case DYNSCROLL:
+			cursorTerm.setCursorType(CursorType.DYNAMIC_SCROLL);
+			break;
+		case NOTSCROLL:
+			cursorTerm.setCursorType(CursorType.NOT_SCROLLABLE);
+			break;
+		case SCROLL:
+			cursorTerm.setCursorType(CursorType.SCROLLABLE);
+			break;
+		default:
+			break;
+		}
+		cursorTerm.setHold(bindingStatement.isHold());
+		cursorTerm.setSql(bindingStatement.getForQuery());
+
+		QFileSection fileSection = this.callableUnit.getFileSection();
+		if (fileSection == null) {
+			fileSection = QIntegratedLanguageFlowFactory.eINSTANCE.createFileSection();
+			this.callableUnit.setFileSection(fileSection);
+		}
+
+		fileSection.getCursors().add(cursorTerm);
 
 		return null;
 	}
 
 	private QStatement manageOpenStatement(QOpenStatement bindingStatement) {
-		System.out.println("Manage OPEN");
 
 		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
-
-		String cursorName = bindingStatement.getCursor();
-
-		// if (lookupCursor(cursorName) != null) {
-
+		methodExec.setObject(bindingStatement.getCursor());
 		methodExec.setMethod("open");
-		methodExec.setObject(cursorName);
-		// }
+
+		return methodExec;
+	}
+
+	private QStatement manageCloseStatement(QCloseStatement bindingStatement) {
+
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		methodExec.setObject(bindingStatement.getCursor());
+		methodExec.setMethod("close");
 
 		return methodExec;
 	}
 
 	private QStatement managePrepareStatement(QPrepareStatement bindingStatement) {
-		System.out.println("Manage PREPARE");
+
+		QStatementTerm statementTerm = getStatementTerm(bindingStatement.getStatementName());
+		if (statementTerm == null) {
+			statementTerm = QIntegratedLanguageEmbeddedSQLFactory.eINSTANCE.createStatementTerm();
+			statementTerm.setName(bindingStatement.getStatementName());
+
+			QFileSection fileSection = this.callableUnit.getFileSection();
+			if (fileSection == null) {
+				fileSection = QIntegratedLanguageFlowFactory.eINSTANCE.createFileSection();
+				this.callableUnit.setFileSection(fileSection);
+			}
+
+			fileSection.getStatements().add(statementTerm);
+		}
 
 		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
 
-		methodExec.setMethod(PREPARE_METHOD);
-		methodExec.setObject(null); // TODO: null?
-
-		/*
-		 * PREPARE_METHOD parameter list: 1) Statement name 2) Into 3) Using 4)
-		 * From
-		 */
-
-		// Par 1
-		methodExec.getParameters().add(bindingStatement.getStatementName());
+		methodExec.setObject(bindingStatement.getStatementName());
+		methodExec.setMethod(STATEMENT_METHOD.PREPARE);
+		methodExec.getParameters().add(bindingStatement.getFrom().substring(1));
 
 		// Par 2 and 3
 		if (bindingStatement.getInto() != null) {
@@ -253,52 +290,94 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 					methodExec.getParameters().add(NONE);
 					break;
 				}
-			} else {
-				methodExec.getParameters().add(NONE);
 			}
 
-		} else {
-			methodExec.getParameters().add(NONE);
-			methodExec.getParameters().add(NONE);
 		}
-
-		// Par 4
-		methodExec.getParameters().add(bindingStatement.getFrom());
 
 		return methodExec;
 	}
 
-	private QStatement manageDeclareCursorStatement(QDeclareCursorStatement bindingStatement) {
-		System.out.println("Manage DECLARE CURSOR");
+	private QStatement manageFetchStatement(QFetchStatement bindingStatement) {
 
-		QCursorTerm cursorTerm = QIntegratedLanguageEmbeddedSQLFactory.eINSTANCE.createCursorTerm();
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		methodExec.setObject(bindingStatement.getCursorName());
 
-		// Name
-		cursorTerm.setName(bindingStatement.getCursorName());
+		if (bindingStatement.getPosition() != null) {
 
-		// Cursor type
-		switch (bindingStatement.getCursorType()) {
-		case DYNSCROLL:
-			cursorTerm.setCursorType(CursorType.DYNAMIC_SCROLL);
-			break;
-		case NOTSCROLL:
-			cursorTerm.setCursorType(CursorType.NOT_SCROLLABLE);
-			break;
-		case SCROLL:
-			cursorTerm.setCursorType(CursorType.SCROLLABLE);
-			break;
-		default:
-			break;
+			switch (bindingStatement.getPosition()) {
+			case AFTER:
+				methodExec.setMethod(CURSOR_METHOD.AFTER);
+				break;
+			case BEFORE:
+				methodExec.setMethod(CURSOR_METHOD.BEFORE);
+				break;
+			case CURRENT:
+				methodExec.setMethod(CURSOR_METHOD.CURRENT);
+				break;
+			case FIRST:
+				methodExec.setMethod(CURSOR_METHOD.FIRST);
+				break;
+			case LAST:
+				methodExec.setMethod(CURSOR_METHOD.LAST);
+				break;
+			case NEXT:
+				methodExec.setMethod(CURSOR_METHOD.NEXT);
+				break;
+			case PRIOR:
+				methodExec.setMethod(CURSOR_METHOD.PRIOR);
+				break;
+			case RELATIVE:
+				methodExec.setMethod(CURSOR_METHOD.RELATIVE);
+				if (bindingStatement.getRelativePosition() != null)
+					methodExec.getParameters().add(bindingStatement.getRelativePosition());
+				break;
+			}
+		} else
+			methodExec.setMethod(CURSOR_METHOD.NEXT);
+
+		if (bindingStatement.getInto() != null) {
+
+			// Single fetch or Multiple Row Fetch?
+			if (bindingStatement.getMultipleRowClause() != null) {
+
+				// Into
+				methodExec.getParameters().add(bindingStatement.getInto());
+
+				QMultipleRowFetchClause multipleRowClause = bindingStatement.getMultipleRowClause();
+
+				// Rows number
+				methodExec.getParameters().add(multipleRowClause.getRowsNumber());
+
+				if (multipleRowClause.getDescriptor() != null)
+					methodExec.getParameters().add(multipleRowClause.getDescriptor());
+			}
+			// Single row fetch
+			else {
+
+				// Into
+				methodExec.getParameters().add(bindingStatement.getInto().substring(1));
+			}
+
 		}
 
-		// Hold
-		cursorTerm.setHold(bindingStatement.isHold());
+		return methodExec;
+	}
 
-		// SQL
-		cursorTerm.setSql(bindingStatement.getForQuery());
-
-		// Register cursor
-		callableUnit.getFileSection().getCursors().add(cursorTerm);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	private QStatement manageExecuteStatement(QExecuteStatement bindingStatement) {
+		System.out.println("Manage EXECUTE");
 
 		return null;
 	}
@@ -358,124 +437,6 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		return methodExec;
 	}
 
-	private QStatement manageFetchStatement(QFetchStatement bindingStatement) {
-		System.out.println("Manage FETCH");
-
-		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
-
-		methodExec.setMethod(FETCH_METHOD);
-
-		/*
-		 * FETCH_METHOD parameter list: 1) CursorName 2) FetchPosition 3)
-		 * RelativePosition 4) Into variable 5) For rows 6) Descriptor
-		 */
-
-		String cursorName = bindingStatement.getCursorName();
-
-		// if (lookupCursor(cursorName) != null) {
-		methodExec.setObject(cursorName);
-		// }
-
-		String relativePosition = DBLStatementRewriter.NONE;
-
-		if (bindingStatement.getPosition() != null) {
-
-			switch (bindingStatement.getPosition()) {
-			case AFTER:
-				methodExec.getParameters().add(FETCH_POSITION.AFTER);
-				break;
-			case BEFORE:
-				methodExec.getParameters().add(FETCH_POSITION.BEFORE);
-				break;
-			case CURRENT:
-				methodExec.getParameters().add(FETCH_POSITION.CURRENT);
-				break;
-			case FIRST:
-				methodExec.getParameters().add(FETCH_POSITION.FIRST);
-				break;
-			case LAST:
-				methodExec.getParameters().add(FETCH_POSITION.LAST);
-				break;
-			case NEXT:
-				methodExec.getParameters().add(FETCH_POSITION.NEXT);
-				break;
-			case PRIOR:
-				methodExec.getParameters().add(FETCH_POSITION.PRIOR);
-				break;
-			case RELATIVE:
-				methodExec.getParameters().add(FETCH_POSITION.RELATIVE);
-				if (bindingStatement.getRelativePosition() != null) {
-					relativePosition = bindingStatement.getRelativePosition();
-				}
-				break;
-			default:
-				methodExec.getParameters().add(NONE);
-				break;
-
-			}
-
-			methodExec.getParameters().add(relativePosition);
-
-		}
-
-		if (bindingStatement.getInto() != null) {
-
-			// Single fetch or Multiple Row Fetch?
-			if (bindingStatement.getMultipleRowClause() != null) {
-				// Multiple row fetch
-
-				// Into
-				methodExec.getParameters().add(bindingStatement.getInto());
-
-				QMultipleRowFetchClause multipleRowClause = bindingStatement.getMultipleRowClause();
-
-				// Rows number
-				methodExec.getParameters().add(multipleRowClause.getRowsNumber());
-
-				// Descriptor
-				if (multipleRowClause.getDescriptor() != null) {
-					methodExec.getParameters().add(multipleRowClause.getDescriptor());
-				} else {
-					methodExec.getParameters().add(NONE);
-				}
-			} else {
-				// Single row fetch
-
-				// Into
-				methodExec.getParameters().add(bindingStatement.getInto());
-
-				// Rows number & descriptor
-				methodExec.getParameters().add(NONE);
-				methodExec.getParameters().add(NONE);
-			}
-
-		} else {
-			// Into not defined
-			methodExec.getParameters().add(NONE);
-			methodExec.getParameters().add(NONE);
-			methodExec.getParameters().add(NONE);
-
-		}
-
-		return methodExec;
-	}
-
-	private QStatement manageCloseStatement(QCloseStatement bindingStatement) {
-		System.out.println("Manage CLOSE");
-
-		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
-
-		String cursorName = bindingStatement.getCursor();
-
-		// if (lookupCursor(cursorName) != null) {
-
-		methodExec.setMethod("close");
-		methodExec.setObject(cursorName);
-		// }
-
-		return methodExec;
-	}
-
 	private QStatement manageSetTransactionStatement(QSetTransactionStatement bindingStatement) {
 		System.out.println("Manage SET TRANSACTION");
 
@@ -506,9 +467,6 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 			break;
 		case SERIALIZABLE:
 			methodExec.getParameters().add(ISOLATION_LEVEL.SERIALIZABLE);
-			break;
-		default:
-			methodExec.getParameters().add(NONE);
 			break;
 		}
 
@@ -548,18 +506,18 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		return null;
 	}
 
-	// Utility methods
+	private QStatementTerm getStatementTerm(String name) {
 
-	/*
-	 * private QCursorTerm lookupCursor(String cursorName) {
-	 * 
-	 * QCursorTerm result = null; ListIterator<QCursorTerm> listIterator =
-	 * callableUnit.getFileSection().getCursors().listIterator(); QCursorTerm
-	 * cursorTerm = null; while (listIterator.hasNext()) { cursorTerm =
-	 * listIterator.next(); if
-	 * (cursorTerm.getName().equalsIgnoreCase(cursorName)) { result =
-	 * cursorTerm; break; } } return result; }
-	 */
+		if (this.callableUnit.getFileSection() == null)
+			return null;
+
+		for (QStatementTerm statementTerm : this.callableUnit.getFileSection().getStatements()) {
+			if (statementTerm.getName().equalsIgnoreCase(name))
+				return statementTerm;
+		}
+
+		return null;
+	}
 
 	private boolean isSelectIntoStatement(String statement) {
 

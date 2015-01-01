@@ -16,6 +16,8 @@ import java.io.IOException;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
+import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QProcedure;
@@ -35,14 +37,11 @@ public class JDTProcedureWriter extends JDTCallableUnitWriter {
 	@SuppressWarnings("unchecked")
 	public void writeProcedure(QProcedure procedure) throws IOException {
 
-		// analyze callable unit
-		analyzeCallableUnit(procedure);
-
 		// refactoring callable unit
 		refactCallableUnit(procedure);
 
 		// analyze callable unit
-		analyzeCallableUnit(procedure);
+		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(procedure);
 
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
@@ -64,7 +63,7 @@ public class JDTProcedureWriter extends JDTCallableUnitWriter {
 			writeDataFields(procedure.getDataSection());
 
 		// labels
-		writeLabels(getCallableUnitInfo().getLabels().keySet());
+		writeLabels(callableUnitInfo.getLabels().keySet());
 
 		// main
 		if (procedure.getMain() != null) {

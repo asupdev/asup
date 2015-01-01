@@ -18,7 +18,6 @@ import java.util.List;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
-import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
@@ -29,6 +28,12 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.ModuleDef;
+import org.asup.il.esql.CursorType;
+import org.asup.il.esql.QCursor;
+import org.asup.il.esql.QCursorTerm;
+import org.asup.il.esql.QStatement;
+import org.asup.il.esql.QStatementTerm;
+import org.asup.il.esql.annotation.CursorDef;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QEntryParameter;
@@ -62,31 +67,9 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
+	
 	public JDTCallableUnitWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
-	}
-
-	public void analyzeCallableUnit(QCallableUnit callableUnit) {
-
-		getCallableUnitInfo().reset();
-
-		// analyze statement
-		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(getCallableUnitInfo());
-
-		// main
-		if (callableUnit.getMain() != null) 
-			callableUnit.getMain().accept(callableUnitAnalyzer);
-
-		// flow section
-		if (callableUnit.getFlowSection() != null) {
-
-			// routines
-			for (QRoutine routine : callableUnit.getFlowSection().getRoutines()) {
-				if(routine.getMain() != null)
-					routine.getMain().accept(callableUnitAnalyzer);
-			}
-		}
-
 	}
 
 	@SuppressWarnings("unchecked")
@@ -258,9 +241,53 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		getTarget().bodyDeclarations().add(field);
 	}
 
+
+	@SuppressWarnings("unchecked")
+	public void writeCursors(List<QCursorTerm> cursors) {
+
+		writeImport(QCursor.class);
+		writeImport(CursorType.class);
+
+		for (QCursorTerm cursorTerm : cursors) {
+
+			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+			FieldDeclaration field = getAST().newFieldDeclaration(variable);
+			if(cursorTerm.isHold())
+				writeAnnotation(field, CursorDef.class, "hold", cursorTerm.isHold());
+			writeAnnotation(field, CursorDef.class, "type", cursorTerm.getCursorType());
+			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(QCursor.class.getSimpleName()));
+			field.setType(dataSetType);
+			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(cursorTerm.getName())));
+			getTarget().bodyDeclarations().add(field);
+		}
+
+	}
+
+
+	@SuppressWarnings("unchecked")
+	public void writeStatements(List<QStatementTerm> statements) {
+
+		writeImport(QStatement.class);
+
+		for (QStatementTerm statementTerm : statements) {
+
+			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+			FieldDeclaration field = getAST().newFieldDeclaration(variable);
+			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(QStatement.class.getSimpleName()));
+			field.setType(dataSetType);
+			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(statementTerm.getName())));
+			getTarget().bodyDeclarations().add(field);
+		}
+
+	}
+	
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QRoutine routine) {
-
+		
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
@@ -273,7 +300,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		methodDeclaration.setBody(block);
 
 		if (routine.getMain() != null) {
-
+			
 			// write java AST
 			JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
 			statementWriter.setAST(getAST());
@@ -457,7 +484,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		// main
 		if (callableUnit.getFlowSection() != null) {
-			for (QUnit unit : callableUnit.getFlowSection().getRoutines()) {
+			for (QUnit unit : callableUnit.getFlowSection().getRoutines()) {				
 				refactUnit(unit);
 			}
 		}

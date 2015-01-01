@@ -12,18 +12,48 @@
  */
 package org.asup.dk.compiler.rpj;
 
+import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
+import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
 public class RPJCallableUnitAnalyzer extends StatementVisitorImpl {
 
 	private RPJCallableUnitInfo programInfo;
 
-	public RPJCallableUnitAnalyzer(RPJCallableUnitInfo programInfo) {
+	private RPJCallableUnitAnalyzer(RPJCallableUnitInfo programInfo) {
 		this.programInfo = programInfo;
 	}
 
+	public static RPJCallableUnitInfo analyzeCallableUnit(QCallableUnit callableUnit) {
+
+		RPJCallableUnitInfo callableUnitInfo = new RPJCallableUnitInfo();
+		
+		// analyze statement
+		RPJCallableUnitAnalyzer callableUnitAnalyzer = new RPJCallableUnitAnalyzer(callableUnitInfo);
+
+		// main
+		if (callableUnit.getMain() != null) 
+			callableUnit.getMain().accept(callableUnitAnalyzer);
+
+		// flow section
+		if (callableUnit.getFlowSection() != null) {
+
+			// routines
+			for (QRoutine routine : callableUnit.getFlowSection().getRoutines()) {
+				if(routine.getMain() != null)
+					routine.getMain().accept(callableUnitAnalyzer);
+			}
+		}
+
+		if(callableUnit.getFileSection() != null && !callableUnit.getFileSection().getStatements().isEmpty())
+			callableUnitInfo.containsSQLInstruction(true);
+
+		return callableUnitInfo;
+	}
+
+	
 	@Override
 	public boolean visit(QJump statement) {
 
@@ -48,5 +78,4 @@ public class RPJCallableUnitAnalyzer extends StatementVisitorImpl {
 
 		return super.visit(statement);
 	}
-
 }

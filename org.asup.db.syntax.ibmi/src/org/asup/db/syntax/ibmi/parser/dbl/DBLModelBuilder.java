@@ -131,11 +131,27 @@ public class DBLModelBuilder {
 	private QBindingStatement manageCloseStatement(Tree tree) {
 		QCloseStatement closeStatement =  DblFactoryImpl.eINSTANCE.createCloseStatement();
 		
-		Tree cursorToken = tree.getChild(0);
+/*		Tree cursorToken = tree.getChild(0);
 		
 		if (cursorToken != null && cursorToken.getType()==DBLLexer.STATEMENT) { 				
 			closeStatement.setCursor(cursorToken.getChild(0).getText());
+		}*/
+		
+		Tree fieldToken = null;
+		
+		for (int i = 0; i < tree.getChildCount(); i++) {
+			fieldToken = tree.getChild(i);
+		
+			switch (fieldToken.getType()) {
+			
+			case DBLLexer.CURSOR:
+				
+				closeStatement.setCursor(fieldToken.getChild(0).getText());
+				
+				break;
+			}
 		}
+
 		
 		return closeStatement;
 	}

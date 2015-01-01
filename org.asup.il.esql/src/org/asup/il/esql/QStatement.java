@@ -7,6 +7,8 @@
  */
 package org.asup.il.esql;
 
+import org.asup.il.data.QString;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -26,5 +28,5 @@ public interface QStatement extends QESqlObject {
 	 * @model
 	 * @generated
 	 */
-	void execute();
+	void prepare(QString from);
 } // QStatement

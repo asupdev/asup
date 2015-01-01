@@ -18,9 +18,18 @@ import java.util.Map;
 public class RPJCallableUnitInfo {
 
 	private Map<String, Label> labels;
+	private boolean containsSQLStatement = false;
+	
+	public void containsSQLInstruction(boolean containsSQLStatement) {
+		this.containsSQLStatement = containsSQLStatement;
+	}
 
 	public RPJCallableUnitInfo() {
 		reset();
+	}
+
+	public boolean containsSQLStatement() {
+		return this.containsSQLStatement;
 	}
 
 	public Map<String, Label> getLabels() {
@@ -29,6 +38,7 @@ public class RPJCallableUnitInfo {
 
 	public void reset() {
 		this.labels = new HashMap<String, RPJCallableUnitInfo.Label>();
+		this.containsSQLStatement = false;
 	}
 
 	public static class Label {

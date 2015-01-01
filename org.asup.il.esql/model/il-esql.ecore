@@ -4,7 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="CommunicationArea" eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cursor" abstract="true" interface="true"
       eSuperTypes="#//ESqlObject">
-    <eOperations name="fetch">
+    <eOperations name="next">
       <eParameters name="target" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//BufferedData"/>
     </eOperations>
     <eOperations name="open"/>
@@ -36,12 +36,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true"
       eSuperTypes="#//ESqlObject">
-    <eOperations name="execute"/>
+    <eOperations name="prepare">
+      <eParameters name="from" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//String"/>
+    </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StatementTerm" eSuperTypes="#//ESqlTerm">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostVariable" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatementTerm" eSuperTypes="#//ESqlTerm"/>
   <eClassifiers xsi:type="ecore:EClass" name="ESqlManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createFactory" lowerBound="1" eType="#//ESqlFactory">

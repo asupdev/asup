@@ -188,16 +188,20 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		linkCompilationUnit(compilationUnits, compilationUnit);
 	}
 
-	private List<QCompilationUnit> prepareContexts(QJob job, Map<String, QCompilationUnit> globalContexts, QCallableUnit unit, CaseSensitiveType caseSensitive) {
+	private List<QCompilationUnit> prepareContexts(QJob job, Map<String, QCompilationUnit> globalContexts, QCallableUnit callableUnit, CaseSensitiveType caseSensitive) {
 
 		List<QCompilationUnit> moduleContexts = new ArrayList<QCompilationUnit>();
-		prepareDefaultContext(moduleContexts, job, caseSensitive);
+		loadModule(job, moduleContexts, caseSensitive, "*RPJ");
 
-		if (unit.getSetupSection() == null)
+		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(callableUnit);
+		if(callableUnitInfo.containsSQLStatement())
+			loadModule(job, moduleContexts, caseSensitive, "*SQL");
+		
+		if (callableUnit.getSetupSection() == null)
 			return moduleContexts;
 
 		QResourceReader<org.asup.os.type.module.QModule> moduleReader = moduleManager.getResourceReader(job, Scope.LIBRARY_LIST);
-		for (String moduleName : unit.getSetupSection().getModules()) {
+		for (String moduleName : callableUnit.getSetupSection().getModules()) {
 
 			QCompilationUnit moduleContext = globalContexts.get(moduleName);
 
@@ -239,10 +243,9 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		return moduleContexts;
 	}
 
-	private void prepareDefaultContext(List<QCompilationUnit> compilationUnits, QJob job, CaseSensitiveType caseSensitive) {
-
+	private void loadModule(QJob job, List<QCompilationUnit> moduleContexts, CaseSensitiveType caseSensitive, String moduleName) {
 		try {
-			URL entry = FrameworkUtil.getBundle(this.getClass()).getEntry("./ASUP-INF/modules.xmi");
+			URL entry = FrameworkUtil.getBundle(this.getClass()).getEntry("./modules/"+moduleName.replaceAll("\\*", "q")+".xmi");
 			Resource resource = resourceSet.createResource(URI.createURI(entry.toString()));
 			resource.load(Collections.EMPTY_MAP);
 
@@ -253,14 +256,15 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 				// add *RPJ module
 				QCompilationUnit moduleContext = createCompilationUnit(job, new HashMap<String, QCompilationUnit>(), module, caseSensitive);
-				compilationUnits.add(moduleContext);
+				moduleContexts.add(moduleContext);
 			}
 
 		} catch (Exception e) {
-			System.out.println("Error on loading resource ./ASUP-INF/modules.xmi");
+			System.out.println("Error loading module: "+moduleName);
 		}
+		
 	}
-
+	
 	@Override
 	public void writeDatabaseFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 

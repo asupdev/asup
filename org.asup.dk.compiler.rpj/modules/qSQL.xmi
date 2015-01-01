@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<il-flow:Module
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:il-data="http://www.asup.org/il/data"
+    xmlns:il-flow="http://www.asup.org/il/flow"
+    xsi:schemaLocation="http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/il/flow ../../org.asup.il.flow/model/il-flow.ecore"
+    name="*SQL">
+  <dataSection>
+    <datas xsi:type="il-data:UnaryCompoundDataTerm"
+        name="SQLCA">
+      <definition
+          xsi:type="il-data:DataStructDef">
+        <elements
+            xsi:type="il-data:UnaryAtomicDataTerm"
+            name="SQLAID">
+          <definition
+              xsi:type="il-data:CharacterDef"
+              length="8"/>
+        </elements>
+        <elements
+            xsi:type="il-data:UnaryAtomicDataTerm"
+            name="SQLCABC">
+          <definition
+              xsi:type="il-data:BinaryDef"
+              type="INTEGER"/>
+        </elements>
+        <elements
+            xsi:type="il-data:UnaryAtomicDataTerm"
+            name="SQLCOD">
+          <definition
+              xsi:type="il-data:BinaryDef"
+              type="INTEGER"/>
+        </elements>
+      </definition>
+    </datas>
+  </dataSection>
+</il-flow:Module>

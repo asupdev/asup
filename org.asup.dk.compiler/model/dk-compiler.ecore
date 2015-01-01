@@ -7,6 +7,10 @@
       <eParameters name="target" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="getCaseSensitive" lowerBound="1" eType="#//CaseSensitiveType"/>
+    <eOperations name="getCursor" lowerBound="1" eType="ecore:EClass ../../org.asup.il.esql/model/il-esql.ecore#//CursorTerm">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="getChildCompilationUnits" upperBound="-1" eType="#//CompilationUnit"/>
     <eOperations name="getDataSet" lowerBound="1" eType="ecore:EClass ../../org.asup.il.isam/model/il-isam.ecore#//DataSetTerm">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -47,6 +51,10 @@
     </eOperations>
     <eOperations name="getRoot" lowerBound="1" eType="ecore:EClass ../../org.asup.il.core/model/il-core.ecore#//NamedNode"/>
     <eOperations name="getRoutine" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Routine">
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getStatement" lowerBound="1" eType="ecore:EClass ../../org.asup.il.esql/model/il-esql.ecore#//StatementTerm">
       <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="deep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
