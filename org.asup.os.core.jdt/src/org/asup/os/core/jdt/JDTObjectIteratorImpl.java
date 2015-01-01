@@ -22,18 +22,17 @@ public class JDTObjectIteratorImpl<T extends QObjectNameable> implements QObject
 
 	private Class<T> klass;
 	private Iterator<T> iterator;
-	private String namePrefix;
+
 	private T nextObject = null;
 	private QResourceEvent<T> resourceEvent;
-	
-	public JDTObjectIteratorImpl(Class<T> klass, Iterator<T> iterator, String namePrefix, QResourceEvent<T> resourceEvent) {
+
+	public JDTObjectIteratorImpl(Class<T> klass, Iterator<T> iterator, QResourceEvent<T> resourceEvent) {
 		this.klass = klass;
 		this.iterator = iterator;
 		this.resourceEvent = resourceEvent;
-		this.namePrefix = namePrefix;
 		doNext();
 	}
-	
+
 	@Override
 	public void close() {
 		this.iterator = null;
@@ -47,9 +46,10 @@ public class JDTObjectIteratorImpl<T extends QObjectNameable> implements QObject
 	@Override
 	public T next() {
 		T object = nextObject;
+
 		doNext();
-		
-		if(object != null)
+
+		if (object != null)
 			resourceEvent.getResource().fireEvent(resourceEvent, ResourceEventType.POST_LOAD, object);
 
 		return object;
@@ -61,28 +61,17 @@ public class JDTObjectIteratorImpl<T extends QObjectNameable> implements QObject
 	}
 
 	private void doNext() {
-		
+
 		nextObject = null;
-		while(iterator.hasNext()) {
+		while (iterator.hasNext()) {
 			T eObject = iterator.next();
-			if(klass.isInstance(eObject)) {
-				T tempObject = klass.cast(eObject);
-				if(namePrefix == null) {
-					nextObject = tempObject;
-					break;
-				}
-				else if(namePrefix.endsWith("*")) {
-					
-					if(tempObject.getName().startsWith(namePrefix.substring(0, namePrefix.length()-1))) {
-						nextObject = tempObject;
-						break;
-					}
-				}
-				else if(tempObject.getName().equals(namePrefix)) {
-					nextObject = tempObject;
-					break;
-				}
-			}
+
+			if (!klass.isInstance(eObject))
+				continue;
+
+			T tempObject = klass.cast(eObject);
+			nextObject = tempObject;
+			break;
 		}
 	}
 }

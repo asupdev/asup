@@ -141,7 +141,7 @@ public abstract class SourceManagerImpl extends ServiceImpl implements QSourceMa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public <T extends QObjectNameable> List<QSourceEntry> listObjectEntries(QJob job, String library, Class<T> type) {
+	public <T extends QObjectNameable> List<QSourceEntry> listObjectEntries(QJob job, String library, Class<T> type, String nameFilter) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

@@ -317,6 +317,7 @@ public class DevelopmentKitSourcePackageImpl extends EPackageImpl implements QDe
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "nameFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(sourceManagerEClass, this.getSourceEntry(), "listChildEntries", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);

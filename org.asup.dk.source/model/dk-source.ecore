@@ -91,6 +91,7 @@
           <eTypeArguments eTypeParameter="#//SourceManager/listObjectEntries/T"/>
         </eGenericType>
       </eParameters>
+      <eParameters name="nameFilter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="listChildEntries" upperBound="-1" eType="#//SourceEntry">
       <eParameters name="job" lowerBound="1" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>

@@ -57,11 +57,11 @@ public class JDTResourceReaderImpl<T extends QObjectNameable> extends ResourceRe
 	@Override
 	public QObjectIterator<T> find(String nameFilter) {
 		
-		List<QSourceEntry> entries = sourceManager.listObjectEntries(getJob(), getContainer(), klass);
+		List<QSourceEntry> entries = sourceManager.listObjectEntries(getJob(), getContainer(), klass, nameFilter);
 		if(entries == null)
 			entries = new ArrayList<>();
 		
-		return new JDTObjectIteratorImpl<T>(klass, new JDTSourceIterator(emfConverter, entries.iterator()), nameFilter, resourceEvent);
+		return new JDTObjectIteratorImpl<T>(klass, new JDTSourceIterator(emfConverter, entries.iterator()), resourceEvent);
 	}
 	
 	@Override

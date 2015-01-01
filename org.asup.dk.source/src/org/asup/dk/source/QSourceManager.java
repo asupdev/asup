@@ -91,7 +91,7 @@ public interface QSourceManager extends QService {
 	 * @model jobRequired="true" libraryRequired="true" typeRequired="true"
 	 * @generated
 	 */
-	<T extends QObjectNameable> List<QSourceEntry> listObjectEntries(QJob job, String library, Class<T> type);
+	<T extends QObjectNameable> List<QSourceEntry> listObjectEntries(QJob job, String library, Class<T> type, String nameFilter);
 
 	/**
 	 * <!-- begin-user-doc -->
