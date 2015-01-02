@@ -50,7 +50,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 		try {
 			// RRDS
-/*			testRunner = testManager.prepareRunner(testContext, RRDS_read.class);
+			testRunner = testManager.prepareRunner(testContext, RRDS_read.class);
 			testResult = testRunner.call();
 			printTestResult(testResult);
 
@@ -65,7 +65,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 			
 			testRunner = testManager.prepareRunner(testContext, KSDS_readp.class);
 			testResult = testRunner.call();
-			printTestResult(testResult);*/
+			printTestResult(testResult);
 			
 			testRunner = testManager.prepareRunner(testContext, KSDS_write.class);
 			testResult = testRunner.call();

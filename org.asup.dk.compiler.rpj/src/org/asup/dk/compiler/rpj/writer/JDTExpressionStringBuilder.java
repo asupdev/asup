@@ -22,6 +22,7 @@ import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QDatetime;
 import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -166,7 +167,11 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
 
-			if (this.target != null && Integer.class.isAssignableFrom(this.target))
+			if (this.target == null)
+				writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
+			else if (this.target != null && Integer.class.isAssignableFrom(this.target))
+				writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
+			else if (this.target != null && String.class.isAssignableFrom(this.target))
 				writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
 			else
 				writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
@@ -192,6 +197,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 				Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();
 
 				// parameters
+				JDTExpressionStringBuilder parameterBuilder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
 				boolean first = true;
 				for (QExpression element : expression.getElements()) {
 
@@ -201,8 +207,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 					QEntryParameter<?> entryParameter = entryParameters.next();
 					QTerm parameterDelegate = entryParameter.getDelegate();
 
-					JDTExpressionStringBuilder parameterBuilder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
-
+					parameterBuilder.clear();
 					if (parameterDelegate instanceof QDataTerm) {
 						QDataTerm<?> dataTerm = (QDataTerm<?>) parameterDelegate;
 						if (dataTerm.isConstant())
@@ -210,6 +215,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 						else
 							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());
 					} else if (parameterDelegate instanceof QDataSetTerm) {
+						System.err.println("Unexpected condition: 5avsx746we8dhds53gsd8");
 						parameterBuilder.setTarget(QDataSet.class);
 					}
 
@@ -232,7 +238,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 				}
 			} else {
 				if (!expression.getElements().isEmpty())
-					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + namedNode.getName());
+					throw new IntegratedLanguageExpressionRuntimeException("Invalid parameters number binding  procedure: " + namedNode.getName());
 			}
 
 			value.append(")");
@@ -634,11 +640,17 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(".asDouble()");
 		} else if (target.isAssignableFrom(Date.class)) {
 			buffer.append(value);
-			buffer.append(".getTime()");
+			buffer.append(".asTime()");
 		} else if (target.isAssignableFrom(Object.class)) {
 			buffer.append(value);
 			buffer.append(".asObject()");
-		} else if (QData.class.isAssignableFrom(target)) {
+		}
+		else if (QDatetime.class.isAssignableFrom(target)) {
+			buffer.append("qRPJ.qBox(" + value + ")");
+			buffer.append(value);
+			buffer.append(".asDatetime()");
+		}
+		else if (QData.class.isAssignableFrom(target)) {
 			buffer.append("qRPJ.qBox(" + value + ")");
 		} else
 			System.err.println("Unexpected condition: xm4tnfdgs78f87mxz");

@@ -37,17 +37,20 @@ import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFor;
 import org.asup.il.flow.QIf;
+import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QIteration;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
 import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.QMonitor;
 import org.asup.il.flow.QOnError;
+import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProcedureExec;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutineExec;
 import org.asup.il.flow.QSQLExec;
+import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUntil;
 import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
@@ -263,7 +266,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		block.statements().add(ifSt);
 
 		// then
-		if(statement.getThen() != null) {
+		if (statement.getThen() != null) {
 			Block thenBlock = null;
 			if (ifSt.getThenStatement() instanceof Block)
 				thenBlock = (Block) ifSt.getThenStatement();
@@ -466,15 +469,15 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		// -> try
 		TryStatement tryStatement = ast.newTryStatement();
 		blocks.push(tryStatement.getBody());
-		if(statement.getBody() != null)
+		if (statement.getBody() != null)
 			statement.getBody().accept(this);
 
 		// catch
-		CatchClause catchClause = ast.newCatchClause();
+		CatchClause catchClause = ast.newCatchClause();		
 		SingleVariableDeclaration exceptionDeclaration = ast.newSingleVariableDeclaration();
-		exceptionDeclaration.setName(ast.newSimpleName("e"));
 		Type exception = ast.newSimpleType(ast.newSimpleName(OperatingSystemRuntimeException.class.getSimpleName()));
 		exceptionDeclaration.setType(exception);
+		exceptionDeclaration.setName(ast.newSimpleName("e"));		
 		catchClause.setException(exceptionDeclaration);
 		tryStatement.catchClauses().add(catchClause);
 
@@ -487,6 +490,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 		methodInvocation.setExpression(ast.newSimpleName("e"));
 		methodInvocation.setName(ast.newSimpleName("toString"));
+
 		switchStatement.setExpression(methodInvocation);
 
 		blocks.peek().statements().add(switchStatement);
@@ -510,8 +514,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				// -> Case
 				Block caseBlock = ast.newBlock();
 				blocks.push(caseBlock);
-				
-				if(error.getBody() != null)
+
+				if (error.getBody() != null)
 					error.getBody().accept(this);
 
 				// copy case block to switch statement
@@ -519,12 +523,11 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 					switchStatement.statements().add(caseBlock.statements().remove(i));
 				}
 
+				BreakStatement switchBreak = ast.newBreakStatement();
+				caseBlock.statements().add(switchBreak);
+
 				// <- case
 				blocks.pop();
-
-				// Case break
-				BreakStatement switchBreak = ast.newBreakStatement();
-				switchStatement.statements().add(switchBreak);
 			}
 		}
 
@@ -545,10 +548,16 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		Block block = blocks.peek();
 
-		ReturnStatement returnSt = ast.newReturnStatement();
-		block.statements().add(returnSt);
+		if (isParentProcedure(statement)) {
+			ReturnStatement returnSt = ast.newReturnStatement();
+			block.statements().add(returnSt);
+		} else {
+			QEval eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+			eval.setAssignment("*INRT=*ON");
+			visit(eval);
+		}
 
-		return super.visit(statement);
+		return false;
 	}
 
 	@Override
@@ -699,5 +708,17 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		methodInvocation.arguments().add(p, expression);
 
 		return methodInvocation;
+	}
+
+	private boolean isParentProcedure(QStatement statement) {
+
+		QNode parent = statement.getParent();
+		while (parent != null) {
+			if (parent instanceof QProcedure)
+				return true;
+			parent = parent.getParent();
+		}
+		
+		return false;
 	}
 }

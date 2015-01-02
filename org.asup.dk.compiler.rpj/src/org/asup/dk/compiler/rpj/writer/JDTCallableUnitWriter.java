@@ -484,7 +484,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		// main
 		if (callableUnit.getFlowSection() != null) {
-			for (QUnit unit : callableUnit.getFlowSection().getRoutines()) {				
+			for (QUnit unit : callableUnit.getFlowSection().getRoutines()) {
 				refactUnit(unit);
 			}
 		}

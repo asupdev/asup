@@ -20,9 +20,9 @@ import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
-import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataStructWrapper;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIndicator;
@@ -126,10 +126,22 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	}
 
-	public QDatetime qDiff(QDatetime op1, QDatetime op2, String format) {
+	public QDatetime qAdddur(QDatetime op1, QDecimal op2, String format) {
 		return null;
 	}
 
+	public QDatetime qSubdur(QDatetime op1, QDecimal op2, String format) {
+		return null;
+	}
+	
+	public QDecimal qDiff(QDatetime op1, QDatetime op2, String format) {
+		return null;
+	}
+
+	public void qDisplay(QString text) {
+		System.out.println(text);
+	}
+	
 	public QString qEditc(QNumeric numeric, String format) {
 		return null;
 	}
@@ -156,6 +168,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return null;
 	}
 
+	public QDecimal qInt(QString string) {
+		return qBox(Integer.parseInt(string.trimR()));
+	}
+	
 	public void qJump(Enum<?> label) {
 	}
 
@@ -168,6 +184,12 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return decimal;
 	}
 
+	public QDecimal qLen(String string) {
+		QDecimal decimal = qDF.createDecimal(5, 0, DecimalType.ZONED, true);
+		decimal.eval(string.length());
+		return decimal;
+	}
+	
 	public <D extends QBufferedData> Integer qLookup(D argument,
 			QArray<D> array, Integer startIndex, Integer numElements) {
 
@@ -196,7 +218,11 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QDecimal qStatus() {
 		return qSTATUS.qStatus;
 	}
-
+	public QString qReplace(String replacement, String source, Integer from, Integer length) {
+		
+		return null;
+	}
+			
 	public QString qSubst(QString source, Integer from) {
 		return null;
 	}
@@ -219,6 +245,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		// TODO
 	}
 	
+	public QString qTrim(String source) {
+		return qTrim(qBox(source));
+	}
+	
 	public QString qTrim(QString source) {
 
 		String str = source.trim();
@@ -229,6 +259,11 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	}
 
+	
+	public QString qTriml(String source) {
+		return qTriml(qBox(source));
+	}
+	
 	public QString qTriml(QString source) {
 
 		String str = source.trimL();
@@ -238,7 +273,11 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return character;
 
 	}
-
+	
+	public QString qTrimr(String source) {
+		return qTrimr(qBox(source));
+	}
+	
 	public QString qTrimr(QString source) {
 
 		String str = source.trimR();
@@ -335,6 +374,16 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		public QIndicator qIN43;
 		@Overlay(name = "IN", position = "44")
 		public QIndicator qIN44;
+		@Overlay(name = "IN", position = "45")
+		public QIndicator qIN45;
+		@Overlay(name = "IN", position = "46")
+		public QIndicator qIN46;
+		@Overlay(name = "IN", position = "47")
+		public QIndicator qIN47;
+		@Overlay(name = "IN", position = "48")
+		public QIndicator qIN48;
+		@Overlay(name = "IN", position = "49")
+		public QIndicator qIN49;
 		@Overlay(name = "IN", position = "50")
 		public QIndicator qIN50;
 		@Overlay(name = "IN", position = "51")

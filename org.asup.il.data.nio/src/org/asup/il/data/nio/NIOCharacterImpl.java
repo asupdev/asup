@@ -375,4 +375,10 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	protected byte getFiller() {
 		return INIT;
 	}
+
+	@Override
+	public void xlate(QString from, QString to, QString target) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -347,4 +347,9 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	public String trimR() {
 		return current().trimR();
 	}
+
+	@Override
+	public void xlate(QString from, QString to, QString target) {
+		current().xlate(from, to, target);
+	}
 }

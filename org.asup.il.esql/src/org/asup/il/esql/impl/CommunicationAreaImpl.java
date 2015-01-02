@@ -480,6 +480,17 @@ public class CommunicationAreaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void xlate(QString from, QString to, QString target) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public byte[] asBytes() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

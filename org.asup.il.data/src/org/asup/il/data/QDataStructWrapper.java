@@ -467,4 +467,8 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	public void movel(QDataWriter value, boolean clear) {
 		delegate.movel(value, clear);		
 	}
+
+	public void xlate(QString from, QString to, QString target) {
+		delegate.xlate(from, to, target);
+	}
 }

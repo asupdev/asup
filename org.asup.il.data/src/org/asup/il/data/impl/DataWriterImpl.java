@@ -193,12 +193,16 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	private void visitNumericData(QNumeric numeric) {
+		
 		if(object instanceof QBufferedData) {
 			numeric.eval((QBufferedData)object);	
 		}		
 		else {
 			try {
-				numeric.eval(Double.parseDouble(object.toString()));
+				if(!object.toString().isEmpty())
+					numeric.eval(Double.parseDouble(object.toString()));
+				else
+					numeric.clear();
 			}
 			catch(Exception e) {
 				e.printStackTrace();

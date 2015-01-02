@@ -22,6 +22,7 @@ import org.asup.il.data.QAtomicDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleAtomicBufferedDataDef;
 import org.asup.il.data.QMultipleDataTerm;
+import org.asup.il.expr.AtomicType;
 import org.asup.il.expr.QAssignmentExpression;
 import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QExpression;
@@ -82,7 +83,7 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 	@Override
 	public boolean visit(QMethodExec statement) {
-
+		
 		// program
 		QTermExpression expression = expressionParser.parseTerm(statement.getObject());
 		expression.accept(expressionBuilder.reset());
@@ -124,6 +125,7 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 		QMultipleDataTerm<?> multipleDataTerm = (QMultipleDataTerm<?>) dataTerm;
 
 		// search QArray<QNumeric>.eval(0)
+		// search QArray<QString>.eval('')
 		QExpression rightExpression = assignmentExpression.getRightOperand();
 		switch (rightExpression.getExpressionType()) {
 		case ARITHMETIC:
@@ -143,12 +145,32 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 				break;
 			case INDICATOR:
 				break;
+			case STRING:
+				if (multipleDataTerm.getDefinition() instanceof QMultipleAtomicBufferedDataDef<?>) {
+					if (((QMultipleAtomicBufferedDataDef<?>) multipleDataTerm.getDefinition()).getArgument().getJavaClass().equals(String.class)) {
+						try {
+							if (atomicTermExpression.getValue().isEmpty()) {							
+								atomicTermExpression.setType(AtomicType.SPECIAL);
+								atomicTermExpression.setValue("*BLANKS");
+
+								RPJExpressionStringBuilder expressionStringBuilder = new RPJExpressionStringBuilder();
+								expressionStringBuilder.visit(assignmentExpression);
+								statement.setAssignment(expressionStringBuilder.getResult());
+							}
+						} catch (NumberFormatException e) {
+							System.err.println(e);
+						}
+					}
+				}
+
+				break;
 			case INTEGER:
 				if (multipleDataTerm.getDefinition() instanceof QMultipleAtomicBufferedDataDef<?>) {
 					if (((QMultipleAtomicBufferedDataDef<?>) multipleDataTerm.getDefinition()).getArgument().getJavaClass().equals(Integer.class)) {
 						try {
 							int i = Integer.parseInt(atomicTermExpression.getValue());
 							if (i == 0) {
+								atomicTermExpression.setType(AtomicType.SPECIAL);
 								atomicTermExpression.setValue("*ZEROS");
 
 								RPJExpressionStringBuilder expressionStringBuilder = new RPJExpressionStringBuilder();
@@ -170,8 +192,6 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 					System.err.println("d684350dgfsd6654");
 				break;
 			case SPECIAL:
-				break;
-			case STRING:
 				break;
 			}
 			break;

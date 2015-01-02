@@ -301,4 +301,12 @@ public interface QString extends QBufferedData {
 	 * @generated
 	 */
 	String trimR();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model fromRequired="true" toRequired="true" targetRequired="true"
+	 * @generated
+	 */
+	void xlate(QString from, QString to, QString target);
 } // QString
