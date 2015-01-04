@@ -54,6 +54,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="delegate" containment="true">
       <eGenericType eTypeParameter="#//EntryParameter/T"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passingType" lowerBound="1"
         eType="#//PassingType" defaultValueLiteral="REF"/>
   </eClassifiers>

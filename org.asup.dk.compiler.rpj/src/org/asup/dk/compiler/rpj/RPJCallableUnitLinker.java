@@ -30,6 +30,7 @@ import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QFileSection;
+import org.asup.il.flow.QSetupSection;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
@@ -38,10 +39,13 @@ import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QFileManager;
+import org.asup.os.type.file.QFileMultiFormat;
 import org.asup.os.type.file.QFileSingleFormat;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
+import org.asup.os.type.module.QModule;
+import org.asup.os.type.module.QModuleManager;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class RPJCallableUnitLinker {
@@ -53,14 +57,18 @@ public class RPJCallableUnitLinker {
 	@Inject
 	private QFileManager fileManager;
 	@Inject
+	private QModuleManager moduleManager;
+	@Inject
 	private QLibraryManager libraryManager;
 
 	private QResourceReader<QFile> fileReader;
+	private QResourceReader<QModule> moduleReader;
 	private QResourceReader<QLibrary> libraryReader;
 
 	@PostConstruct
 	public void init() {
 		this.fileReader = fileManager.getResourceReader(job, Scope.LIBRARY_LIST);
+		this.moduleReader = moduleManager.getResourceReader(job, Scope.LIBRARY_LIST);
 		this.libraryReader = libraryManager.getLibraryReader(job);
 	}
 
@@ -130,6 +138,39 @@ public class RPJCallableUnitLinker {
 
 	}
 
+	public void linkModules() {
+
+		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
+			return;
+
+		QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
+
+		QSetupSection setupSection = callableUnit.getSetupSection();
+		if (setupSection == null)
+			return;
+
+		for (String moduleName : setupSection.getModules()) {
+			
+			QModule module = getModule(moduleName);
+			if (module == null)
+				throw new OperatingSystemRuntimeException("Module not found: " + moduleName);
+			
+			Class<?> linkedClass = loadClass(module);
+			if (linkedClass == null)
+				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + module);
+
+			QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
+			compilerLinker.setLinkedClass(linkedClass);
+			
+			org.asup.il.flow.QModule flowModule = compilationUnit.getModule(moduleName, false); 
+			if(flowModule != null)
+				compilationUnit.getModule(moduleName, false).getFacets().add(compilerLinker);
+			else
+				throw new OperatingSystemRuntimeException("Module not found: " + moduleName);
+		}
+
+	}
+
 	public void linkFiles() {
 
 		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
@@ -158,9 +199,21 @@ public class RPJCallableUnitLinker {
 
 			linkFileSingleFormat(dataSet, fileSingleFormat);
 		} else {
-			// TODO
-			System.err.println("File multiformat found: " + file);
+			QFileMultiFormat<?> fileMultiFormat = (QFileMultiFormat<?>) file;
+			linkFileMultipleFormat(dataSet, fileMultiFormat);
 		}
+
+	}
+
+	private void linkFileMultipleFormat(QDataSetTerm dataSet, QFileMultiFormat<?> fileMultiFormat) {
+
+		Class<?> linkedClass = loadClass(fileMultiFormat);
+		if (linkedClass == null)
+			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + fileMultiFormat.getName());
+
+
+		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
+		compilerLinker.setLinkedClass(linkedClass);
 
 	}
 
@@ -181,20 +234,20 @@ public class RPJCallableUnitLinker {
 		if (dataSet.getRecord() == null) {
 
 			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
-
+			dataStructDef.setPrefix(dataSet.getPrefix());
+			
 			if (fileSingleFormat instanceof QLogicalFile && fileSingleFormat.getFileFormat().isEmpty()) {
 				QLogicalFile logicalFile = (QLogicalFile) fileSingleFormat;
-				
-				for(String table: logicalFile.getTables()) {
+
+				for (String table : logicalFile.getTables()) {
 					QDatabaseFile superTable = (QDatabaseFile) getFile(table);
 
 					if (superTable == null)
 						throw new OperatingSystemRuntimeException("File not found: " + table);
 
-					dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(superTable.getFileFormat().getFields()));					
+					dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(superTable.getFileFormat().getFields()));
 				}
-			}
-			else
+			} else
 				dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(fileSingleFormat.getFileFormat().getFields()));
 
 			dataSet.setRecord(dataStructDef);
@@ -222,7 +275,7 @@ public class RPJCallableUnitLinker {
 		Class<?> linkedClass = compilationUnit.getContext().loadClass(address);
 
 		if (linkedClass == null) {
-			address = "asup:/omac/" + file.getLibrary() + "/" +file.getApplication() + ".file." + file.getName();
+			address = "asup:/omac/" + file.getLibrary() + "/" + file.getApplication() + ".file." + file.getName();
 			linkedClass = compilationUnit.getContext().loadClass(address);
 		}
 
@@ -236,6 +289,46 @@ public class RPJCallableUnitLinker {
 					throw new OperatingSystemRuntimeException("Master library not found: " + library);
 
 				address = "asup:/omac/" + masterLibrary.getName() + "/" + file.getApplication() + ".file." + file.getName();
+				linkedClass = compilationUnit.getContext().loadClass(address);
+			}
+		}
+
+		return linkedClass;
+	}
+
+	public QModule getModule(String name) {
+
+		QModule module = moduleReader.lookup(name);
+
+		return module;
+	}
+	
+	public Class<?> loadClass(QModule module) {
+
+		// TODO
+		QLibrary library = libraryReader.lookup(module.getLibrary());
+
+		String pathURI = library.getPackageURI().toString().replaceAll("/", ".") + "module/";
+		URI packageURI = library.getPackageURI().resolve(module.getPackageInfoURI());
+
+		String address = "asup:/omac/" + pathURI + packageURI.toString().replaceAll("/", ".") + "." + module.getName();
+		Class<?> linkedClass = compilationUnit.getContext().loadClass(address);
+
+		if (linkedClass == null) {
+			address = "asup:/omac/" + module.getLibrary() + "/" + module.getApplication() + ".module." + module.getName();
+			linkedClass = compilationUnit.getContext().loadClass(address);
+		}
+
+		// search on parent library
+		if (linkedClass == null) {
+
+			if (library.getParentLibrary() != null) {
+
+				QLibrary masterLibrary = libraryReader.lookup(library.getParentLibrary());
+				if (masterLibrary == null)
+					throw new OperatingSystemRuntimeException("Master library not found: " + library);
+
+				address = "asup:/omac/" + masterLibrary.getName() + "/" + module.getApplication() + ".module." + module.getName();
 				linkedClass = compilationUnit.getContext().loadClass(address);
 			}
 		}

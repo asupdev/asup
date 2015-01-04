@@ -20,7 +20,6 @@
       <eBounds eClassifier="#//BufferedData"/>
     </eTypeParameters>
     <eOperations name="asArray" lowerBound="1" eType="#//DataArray"/>
-    <eOperations name="sorta"/>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1">
         <eGenericType eClassifier="#//Array">
@@ -126,6 +125,7 @@
     <eTypeParameters name="D">
       <eBounds eClassifier="#//BufferedData"/>
     </eTypeParameters>
+    <eOperations name="sorta"/>
     <eGenericSuperTypes eClassifier="#//List">
       <eTypeArguments eTypeParameter="#//BufferedList/D"/>
     </eGenericSuperTypes>
@@ -1567,6 +1567,11 @@
     </eOperations>
     <eOperations name="cat">
       <eParameters name="factor1" lowerBound="1" eType="#//String"/>
+      <eParameters name="factor2" lowerBound="1" eType="#//String"/>
+      <eParameters name="space" lowerBound="1" eType="#//Numeric"/>
+    </eOperations>
+    <eOperations name="cat">
+      <eParameters name="factor1" lowerBound="1" eType="#//String"/>
       <eParameters name="factor2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="space" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
@@ -1658,6 +1663,11 @@
     <eOperations name="xlate">
       <eParameters name="from" lowerBound="1" eType="#//String"/>
       <eParameters name="to" lowerBound="1" eType="#//String"/>
+      <eParameters name="target" lowerBound="1" eType="#//String"/>
+    </eOperations>
+    <eOperations name="xlate">
+      <eParameters name="from" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="to" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="target" lowerBound="1" eType="#//String"/>
     </eOperations>
   </eClassifiers>

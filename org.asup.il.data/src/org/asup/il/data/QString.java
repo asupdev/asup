@@ -68,6 +68,14 @@ public interface QString extends QBufferedData {
 	 * @model factor1Required="true" factor2Required="true" spaceRequired="true"
 	 * @generated
 	 */
+	void cat(QString factor1, QString factor2, QNumeric space);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model factor1Required="true" factor2Required="true" spaceRequired="true"
+	 * @generated
+	 */
 	void cat(QString factor1, String factor2, int space);
 
 	/**
@@ -309,4 +317,12 @@ public interface QString extends QBufferedData {
 	 * @generated
 	 */
 	void xlate(QString from, QString to, QString target);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model fromRequired="true" toRequired="true" targetRequired="true"
+	 * @generated
+	 */
+	void xlate(String from, String to, QString target);
 } // QString

@@ -16,7 +16,7 @@ import org.asup.il.data.QDataStruct;
  *
  *
  * @see org.asup.il.esql.QIntegratedLanguageEmbeddedSQLPackage#getDescriptorArea()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface QDescriptorArea extends QDataStruct {

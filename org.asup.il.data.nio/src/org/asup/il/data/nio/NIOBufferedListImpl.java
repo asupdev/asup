@@ -15,11 +15,12 @@ import java.util.Iterator;
 
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QBufferedList;
 import org.asup.il.data.QDataVisitor;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 
-public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBufferedDataImpl implements QList<D>, QBufferedData {
+public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBufferedDataImpl implements QBufferedList<D>, QBufferedData {
 
 	private static final long serialVersionUID = 1L;
 
@@ -210,6 +211,13 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	@Override
 	public void eval(QList<D> value) {
 		value.eval(this);
+	}
+
+
+	@Override
+	public void sorta() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

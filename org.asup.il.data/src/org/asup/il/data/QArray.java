@@ -32,15 +32,6 @@ public interface QArray<D extends QBufferedData> extends QBufferedList<D> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void sorta();
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */

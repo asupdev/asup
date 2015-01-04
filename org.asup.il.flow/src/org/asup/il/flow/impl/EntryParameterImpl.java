@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.il.flow.impl.EntryParameterImpl#getDelegate <em>Delegate</em>}</li>
+ *   <li>{@link org.asup.il.flow.impl.EntryParameterImpl#isNullable <em>Nullable</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.EntryParameterImpl#getPassingType <em>Passing Type</em>}</li>
  * </ul>
  * </p>
@@ -42,6 +43,26 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 	 * @ordered
 	 */
 	protected T delegate;
+
+	/**
+	 * The default value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNullable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NULLABLE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isNullable() <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNullable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean nullable = NULLABLE_EDEFAULT;
 
 	/**
 	 * 
@@ -135,6 +156,27 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isNullable() {
+		return nullable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNullable(boolean newNullable) {
+		boolean oldNullable = nullable;
+		nullable = newNullable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__NULLABLE, oldNullable, nullable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PassingType getPassingType() {
 		return passingType;
 	}
@@ -175,6 +217,8 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE:
 				return getDelegate();
+			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__NULLABLE:
+				return isNullable();
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__PASSING_TYPE:
 				return getPassingType();
 		}
@@ -192,6 +236,9 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE:
 				setDelegate((T)newValue);
+				return;
+			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__NULLABLE:
+				setNullable((Boolean)newValue);
 				return;
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__PASSING_TYPE:
 				setPassingType((PassingType)newValue);
@@ -211,6 +258,9 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE:
 				setDelegate((T)null);
 				return;
+			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__NULLABLE:
+				setNullable(NULLABLE_EDEFAULT);
+				return;
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__PASSING_TYPE:
 				setPassingType(PASSING_TYPE_EDEFAULT);
 				return;
@@ -228,6 +278,8 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 		switch (featureID) {
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__DELEGATE:
 				return delegate != null;
+			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__NULLABLE:
+				return nullable != NULLABLE_EDEFAULT;
 			case QIntegratedLanguageFlowPackage.ENTRY_PARAMETER__PASSING_TYPE:
 				return passingType != PASSING_TYPE_EDEFAULT;
 		}
@@ -244,7 +296,9 @@ public class EntryParameterImpl<T extends QTerm> extends NamedNodeImpl implement
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (passingType: ");
+		result.append(" (nullable: ");
+		result.append(nullable);
+		result.append(", passingType: ");
 		result.append(passingType);
 		result.append(')');
 		return result.toString();

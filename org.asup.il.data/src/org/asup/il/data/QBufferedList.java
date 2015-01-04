@@ -19,4 +19,12 @@ package org.asup.il.data;
  * @generated
  */
 public interface QBufferedList<D extends QBufferedData> extends QList<D>, QBufferedData {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void sorta();
 } // QBufferedList

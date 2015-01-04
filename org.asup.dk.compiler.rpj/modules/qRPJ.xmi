@@ -3,10 +3,11 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:il-core="http://www.asup.org/il/core"
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:il-flow="http://www.asup.org/il/flow"
     xmlns:il-isam="http://www.asup.org/il/isam"
-    xsi:schemaLocation="http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/il/flow ../../org.asup.il.flow/model/il-flow.ecore http://www.asup.org/il/isam ../../org.asup.il.isam/model/il-isam.ecore"
+    xsi:schemaLocation="http://www.asup.org/il/core ../../org.asup.il.core/model/il-core.ecore http://www.asup.org/il/data ../../org.asup.il.data/model/il-data.ecore http://www.asup.org/il/flow ../../org.asup.il.flow/model/il-flow.ecore http://www.asup.org/il/isam ../../org.asup.il.isam/model/il-isam.ecore"
     name="*RPJ">
   <dataSection>
     <datas xsi:type="il-data:UnaryCompoundDataTerm"
@@ -614,6 +615,64 @@
       <definition
           xsi:type="il-data:DataStructDef"/>
     </datas>
+    <datas xsi:type="il-data:UnaryCompoundDataTerm"
+        name="*DATE">
+      <definition
+          xsi:type="il-data:DataStructDef">
+        <elements
+            xsi:type="il-data:UnaryAtomicDataTerm"
+            name="UYEAR4">
+          <definition
+              xsi:type="il-data:DecimalDef"
+              precision="4"/>
+        </elements>
+        <elements
+            xsi:type="il-data:UnaryAtomicDataTerm"
+            name="UYEAR">
+          <facets
+              xsi:type="il-core:Overlay"
+              name="UYEAR4"/>
+          <definition
+              xsi:type="il-data:DecimalDef"
+              precision="2"/>
+        </elements>
+      </definition>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKA">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKB">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKC">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKD">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKE">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKF">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INLR">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
     <datas xsi:type="il-data:UnaryAtomicDataTerm"
         name="*INOF">
       <definition
@@ -625,7 +684,92 @@
           xsi:type="il-data:IndicatorDef"/>
     </datas>
     <datas xsi:type="il-data:UnaryAtomicDataTerm"
-        name="*INLR">
+        name="*INKG">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKH">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKI">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKJ">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKK">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKL">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKM">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKN">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKP">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKQ">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKR">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKS">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKT">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKU">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKV">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKW">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKX">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INKY">
       <definition
           xsi:type="il-data:IndicatorDef"/>
     </datas>
@@ -952,13 +1096,10 @@
         <parameters>
           <delegate
               xsi:type="il-data:MultipleAtomicDataTerm"
-              name="array">
+              name="list">
             <definition
-                xsi:type="il-data:ArrayDef"
-                dimension="-1">
-              <argument
-                  xsi:type="il-data:BufferDef"/>
-            </definition>
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
           </delegate>
         </parameters>
       </entry>
@@ -1055,13 +1196,10 @@
         <parameters>
           <delegate
               xsi:type="il-data:MultipleAtomicDataTerm"
-              name="array">
+              name="list">
             <definition
-                xsi:type="il-data:ArrayDef"
-                dimension="-1">
-              <argument
-                  xsi:type="il-data:BufferDef"/>
-            </definition>
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
           </delegate>
         </parameters>
         <parameters>
@@ -1084,6 +1222,21 @@
             <definition
                 xsi:type="il-data:NumericDef"/>
           </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%open">
+        <definition
+            xsi:type="il-data:IndicatorDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-isam:DataSetTerm"
+              fileName="dataSet"/>
         </parameters>
       </entry>
     </prototypes>
@@ -1223,6 +1376,27 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%size">
+        <definition
+            xsi:type="il-data:DecimalDef"
+            precision="5"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="expression"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%status">
         <definition
             xsi:type="il-data:IndicatorDef"/>
@@ -1236,6 +1410,53 @@
             xsi:type="il-data:CharacterDef"
             varying="true"/>
       </delegate>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:MultipleAtomicDataTerm"
+          name="%subarr">
+        <definition
+            xsi:type="il-data:ArrayDef"
+            dimension="-1">
+          <argument
+              xsi:type="il-data:BufferDef"/>
+        </definition>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:MultipleAtomicDataTerm"
+              name="array">
+            <definition
+                xsi:type="il-data:ArrayDef"
+                dimension="-1">
+              <argument
+                  xsi:type="il-data:BufferDef"/>
+            </definition>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="start"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="elements"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
     </prototypes>
     <prototypes>
       <delegate

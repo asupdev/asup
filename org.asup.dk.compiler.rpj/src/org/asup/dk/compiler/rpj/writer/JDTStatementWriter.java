@@ -258,8 +258,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		if (CompilationContextHelper.isPrimitive(compilationUnit, condition))
 			expression = buildExpression(ast, condition, Boolean.class);
-		else
-			expression = buildExpression(ast, condition, null);
+		else {
+			expression = buildExpression(ast, condition, Boolean.class);
+		}
+//			expression = buildExpression(ast, condition, null);
 
 		ifSt.setExpression(expression);
 
@@ -342,7 +344,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		QPrototype<?> prototype = compilationUnit.getPrototype(statement.getProcedure(), true);
 		if (prototype == null)
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure: " + statement.getProcedure());
+			throw new IntegratedLanguageExpressionRuntimeException("Binding error: " + statement.getProcedure());
 
 		methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(prototype.getName())));
 
@@ -380,6 +382,14 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 						methodInvocation.arguments().add(jdtExpression);
 					}
 				} else
+					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
+			}
+			
+			while(entryParameters.hasNext()) {
+				QEntryParameter<?> entryParameter = entryParameters.next();
+				if(entryParameter.isNullable())
+					methodInvocation.arguments().add(ast.newNullLiteral());
+				else
 					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
 			}
 		}
@@ -651,6 +661,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		if (routine.isChild() && routine.getParent() != compilationUnit.getRoot()) {
 			QNode parent = routine.getParent();
 			if (parent instanceof QNamedNode) {
+				// invoke on module
 				String qualifiedParent = compilationUnit.getQualifiedName((QNamedNode) parent);
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(qualifiedParent), null));
 			} else

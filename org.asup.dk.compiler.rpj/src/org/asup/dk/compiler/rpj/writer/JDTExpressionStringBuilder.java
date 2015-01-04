@@ -13,6 +13,7 @@ package org.asup.dk.compiler.rpj.writer;
 
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,7 @@ import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetime;
@@ -146,7 +148,10 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 		// datSrtuct
 		if (namedNode instanceof QUnaryCompoundDataTerm) {
-			buffer.append(compilationUnit.getQualifiedName(namedNode));
+			if (this.target != null)
+				System.out.println(namedNode);
+
+			this.buffer.append(compilationUnit.getQualifiedName(namedNode));
 		}
 		// array
 		else if (namedNode instanceof QMultipleDataTerm) {
@@ -173,16 +178,18 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 				writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
 			else if (this.target != null && String.class.isAssignableFrom(this.target))
 				writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
+			else if (this.target != null && Boolean.class.isAssignableFrom(this.target))
+				writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
 			else
 				writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
 
 		}
 		// dataSet
 		else if (namedNode instanceof QDataSetTerm) {
-			buffer.append(compilationUnit.getQualifiedName(namedNode));
-			buffer.append(".get");
-			buffer.append("(");
-			buffer.append(")");
+			this.buffer.append(compilationUnit.getQualifiedName(namedNode));
+			this.buffer.append(".get");
+			this.buffer.append("(");
+			this.buffer.append(")");
 		}
 		// prototype
 		else if (namedNode instanceof QPrototype) {
@@ -215,7 +222,6 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 						else
 							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());
 					} else if (parameterDelegate instanceof QDataSetTerm) {
-						System.err.println("Unexpected condition: 5avsx746we8dhds53gsd8");
 						parameterBuilder.setTarget(QDataSet.class);
 					}
 
@@ -243,9 +249,13 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			value.append(")");
 
-			writeValue(prototype.getDelegate().getDefinition().getDataClass(), target, value.toString());
+			writeValue(prototype.getDelegate().getDefinition().getDataClass(), this.target, value.toString());
 		} else if (namedNode instanceof QUnaryAtomicDataTerm<?>) {
-			buffer.append(compilationUnit.getQualifiedName(namedNode));
+
+			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) namedNode;
+
+			writeValue(unaryAtomicDataTerm.getDefinition().getDataClass(), this.target, compilationUnit.getQualifiedName(namedNode));
+
 		} else
 			System.err.println("Unexpected condition: xm4t609543m487mxz");
 
@@ -612,9 +622,18 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(value);
 			return;
 		}
+
+		// TODO remove?
+		// Hexadecimal
 		if (source.isAssignableFrom(QHexadecimal.class)) {
 			buffer.append(value);
-		} else if (target.isAssignableFrom(String.class)) {
+		} 
+		// Specials
+		else if (source.isAssignableFrom(Enum.class) && this.target.isAssignableFrom(QBufferedData.class)) {
+			buffer.append(value);
+		} 
+		
+		else if (target.isAssignableFrom(String.class)) {
 			buffer.append(value);
 			buffer.append(".asString()");
 		} else if (target.isAssignableFrom(Byte.class)) {
@@ -644,13 +663,14 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		} else if (target.isAssignableFrom(Object.class)) {
 			buffer.append(value);
 			buffer.append(".asObject()");
-		}
-		else if (QDatetime.class.isAssignableFrom(target)) {
+		} else if (target.isAssignableFrom(List.class)) {
+			buffer.append(value);
+			buffer.append(".asObject()");
+		} else if (QDatetime.class.isAssignableFrom(target)) {
 			buffer.append("qRPJ.qBox(" + value + ")");
 			buffer.append(value);
 			buffer.append(".asDatetime()");
-		}
-		else if (QData.class.isAssignableFrom(target)) {
+		} else if (QData.class.isAssignableFrom(target)) {
 			buffer.append("qRPJ.qBox(" + value + ")");
 		} else
 			System.err.println("Unexpected condition: xm4tnfdgs78f87mxz");

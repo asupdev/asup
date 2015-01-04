@@ -62,9 +62,7 @@ public class IntegratedLanguageEmbeddedSQLFactoryImpl extends EFactoryImpl imple
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QIntegratedLanguageEmbeddedSQLPackage.COMMUNICATION_AREA: return (EObject)createCommunicationArea();
 			case QIntegratedLanguageEmbeddedSQLPackage.CURSOR_TERM: return (EObject)createCursorTerm();
-			case QIntegratedLanguageEmbeddedSQLPackage.DESCRIPTOR_AREA: return (EObject)createDescriptorArea();
 			case QIntegratedLanguageEmbeddedSQLPackage.STATEMENT_TERM: return (EObject)createStatementTerm();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -110,29 +108,9 @@ public class IntegratedLanguageEmbeddedSQLFactoryImpl extends EFactoryImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCommunicationArea createCommunicationArea() {
-		CommunicationAreaImpl communicationArea = new CommunicationAreaImpl();
-		return communicationArea;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QCursorTerm createCursorTerm() {
 		CursorTermImpl cursorTerm = new CursorTermImpl();
 		return cursorTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public QDescriptorArea createDescriptorArea() {
-		DescriptorAreaImpl descriptorArea = new DescriptorAreaImpl();
-		return descriptorArea;
 	}
 
 	/**

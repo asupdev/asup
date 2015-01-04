@@ -22,6 +22,7 @@ import org.asup.il.data.QDataStructDef;
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getFormatName <em>Format Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#isKeyedAccess <em>Keyed Access</em>}</li>
+ *   <li>{@link org.asup.il.isam.QDataSetTerm#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#isUserOpen <em>User Open</em>}</li>
  * </ul>
@@ -138,6 +139,32 @@ public interface QDataSetTerm extends QTerm {
 	 * @generated
 	 */
 	void setKeyedAccess(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Prefix</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefix</em>' attribute.
+	 * @see #setPrefix(String)
+	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getDataSetTerm_Prefix()
+	 * @model
+	 * @generated
+	 */
+	String getPrefix();
+
+	/**
+	 * Sets the value of the '{@link org.asup.il.isam.QDataSetTerm#getPrefix <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prefix</em>' attribute.
+	 * @see #getPrefix()
+	 * @generated
+	 */
+	void setPrefix(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Record</b></em>' containment reference.

@@ -272,8 +272,17 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataSetTerm_Prefix() {
+		return (EAttribute)dataSetTermEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getDataSetTerm_Record() {
-		return (EReference)dataSetTermEClass.getEStructuralFeatures().get(4);
+		return (EReference)dataSetTermEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -282,7 +291,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EAttribute getDataSetTerm_UserOpen() {
-		return (EAttribute)dataSetTermEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)dataSetTermEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -455,6 +464,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__FILE_NAME);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__FORMAT_NAME);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__KEYED_ACCESS);
+		createEAttribute(dataSetTermEClass, DATA_SET_TERM__PREFIX);
 		createEReference(dataSetTermEClass, DATA_SET_TERM__RECORD);
 		createEAttribute(dataSetTermEClass, DATA_SET_TERM__USER_OPEN);
 
@@ -562,6 +572,8 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 
 		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "isFound", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "isOpen", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		addEOperation(dataSetEClass, ecorePackage.getEBoolean(), "onError", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(dataSetEClass, null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -621,6 +633,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getDataSetTerm_FileName(), ecorePackage.getEString(), "fileName", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_FormatName(), ecorePackage.getEString(), "formatName", null, 0, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_KeyedAccess(), ecorePackage.getEBoolean(), "keyedAccess", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSetTerm_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataSetTerm_Record(), theIntegratedLanguageDataPackage.getDataStructDef(), null, "record", null, 0, 1, QDataSetTerm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_UserOpen(), ecorePackage.getEBoolean(), "userOpen", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

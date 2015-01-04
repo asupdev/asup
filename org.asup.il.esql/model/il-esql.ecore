@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esql" nsURI="http://www.asup.org/il/esql" nsPrefix="il-esql">
-  <eClassifiers xsi:type="ecore:EClass" name="CommunicationArea" eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationArea" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cursor" abstract="true" interface="true"
       eSuperTypes="#//ESqlObject">
     <eOperations name="next">
@@ -27,7 +28,8 @@
     <eLiterals name="Scrollable" value="20" literal="SCROLL"/>
     <eLiterals name="DynamicScroll" value="30" literal="DYNSCROLL"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DescriptorArea" eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DescriptorArea" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct"/>
   <eClassifiers xsi:type="ecore:EClass" name="ESqlObject" abstract="true" interface="true">
     <eOperations name="getCommunicationArea" lowerBound="1" eType="#//CommunicationArea"/>
   </eClassifiers>

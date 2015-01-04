@@ -67,10 +67,10 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	QIntegratedLanguageEmbeddedSQLPackage eINSTANCE = org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.esql.impl.CommunicationAreaImpl <em>Communication Area</em>}' class.
+	 * The meta object id for the '{@link org.asup.il.esql.QCommunicationArea <em>Communication Area</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.il.esql.impl.CommunicationAreaImpl
+	 * @see org.asup.il.esql.QCommunicationArea
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getCommunicationArea()
 	 * @generated
 	 */
@@ -234,10 +234,10 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	int CURSOR_TERM_FEATURE_COUNT = ESQL_TERM_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.esql.impl.DescriptorAreaImpl <em>Descriptor Area</em>}' class.
+	 * The meta object id for the '{@link org.asup.il.esql.QDescriptorArea <em>Descriptor Area</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.il.esql.impl.DescriptorAreaImpl
+	 * @see org.asup.il.esql.QDescriptorArea
 	 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getDescriptorArea()
 	 * @generated
 	 */
@@ -574,10 +574,10 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.asup.il.esql.impl.CommunicationAreaImpl <em>Communication Area</em>}' class.
+		 * The meta object literal for the '{@link org.asup.il.esql.QCommunicationArea <em>Communication Area</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.esql.impl.CommunicationAreaImpl
+		 * @see org.asup.il.esql.QCommunicationArea
 		 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getCommunicationArea()
 		 * @generated
 		 */
@@ -636,10 +636,10 @@ public interface QIntegratedLanguageEmbeddedSQLPackage extends EPackage {
 		EAttribute CURSOR_TERM__STATEMENT_NAME = eINSTANCE.getCursorTerm_StatementName();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.il.esql.impl.DescriptorAreaImpl <em>Descriptor Area</em>}' class.
+		 * The meta object literal for the '{@link org.asup.il.esql.QDescriptorArea <em>Descriptor Area</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.il.esql.impl.DescriptorAreaImpl
+		 * @see org.asup.il.esql.QDescriptorArea
 		 * @see org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLPackageImpl#getDescriptorArea()
 		 * @generated
 		 */

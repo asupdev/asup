@@ -610,13 +610,22 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int ENTRY_PARAMETER__DELEGATE = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_PARAMETER__NULLABLE = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Passing Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_PARAMETER__PASSING_TYPE = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 1;
+	int ENTRY_PARAMETER__PASSING_TYPE = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Entry Parameter</em>' class.
@@ -625,7 +634,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_PARAMETER_FEATURE_COUNT = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 2;
+	int ENTRY_PARAMETER_FEATURE_COUNT = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Assignment</b></em>' attribute.
@@ -1943,6 +1952,17 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	EReference getEntryParameter_Delegate();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.flow.QEntryParameter#isNullable <em>Nullable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nullable</em>'.
+	 * @see org.asup.il.flow.QEntryParameter#isNullable()
+	 * @see #getEntryParameter()
+	 * @generated
+	 */
+	EAttribute getEntryParameter_Nullable();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.flow.QEntryParameter#getPassingType <em>Passing Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2996,6 +3016,14 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTRY_PARAMETER__DELEGATE = eINSTANCE.getEntryParameter_Delegate();
+
+		/**
+		 * The meta object literal for the '<em><b>Nullable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTRY_PARAMETER__NULLABLE = eINSTANCE.getEntryParameter_Nullable();
 
 		/**
 		 * The meta object literal for the '<em><b>Passing Type</b></em>' attribute feature.

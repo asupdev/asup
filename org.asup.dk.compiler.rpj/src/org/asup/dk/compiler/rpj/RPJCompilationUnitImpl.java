@@ -82,10 +82,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			dataSets = new ArrayList<QDataSetTerm>();
 		if (keyLists == null)
 			keyLists = new ArrayList<QKeyListTerm>();
-		if(cursors == null)
+		if (cursors == null)
 			cursors = new ArrayList<QCursorTerm>();
-		if(statements == null)
-			statements = new ArrayList<QStatementTerm>();		
+		if (statements == null)
+			statements = new ArrayList<QStatementTerm>();
 		if (routines == null)
 			routines = new ArrayList<QRoutine>();
 		if (procedures == null)
@@ -160,11 +160,23 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		// search on dataSet
 		if (dataTerm == null) {
 			for (QDataSetTerm dataSetTerm : dataSets) {
-
-				if (dataSetTerm.getRecord() == null)
+				QCompoundDataDef<?> compoundDataDef = dataSetTerm.getRecord();
+				if (compoundDataDef == null)
 					continue;
 
-				dataTerm = findData(dataSetTerm.getRecord().getElements(), name, null, 0);
+				if (compoundDataDef.getPrefix() != null) {
+					String[] tokens = compoundDataDef.getPrefix().split("\\:");
+					String pfx = tokens[0];
+					int pos = 1;
+					if (tokens.length > 1)
+						pos = Integer.parseInt(tokens[1]);
+					else
+						pos = pfx.length();
+					
+					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, pfx, pos);					
+				}
+				else
+					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, null, 0);
 
 				if (dataTerm != null)
 					break;
@@ -296,7 +308,7 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 		QCursorTerm cursorTerm = null;
 
-		for (QCursorTerm c: cursors) {
+		for (QCursorTerm c : cursors) {
 
 			if (equalsTermName(c.getName(), name)) {
 				cursorTerm = c;
@@ -321,10 +333,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	@Override
 	public QStatementTerm getStatement(String name, boolean deep) {
 
-
 		QStatementTerm statementTerm = null;
 
-		for (QStatementTerm s: statements) {
+		for (QStatementTerm s : statements) {
 
 			if (equalsTermName(s.getName(), name)) {
 				statementTerm = s;
@@ -364,8 +375,13 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (namedNode != null)
 			return namedNode;
 
-		// dataTerms
-		namedNode = getDataTerm(name, deep);
+		// cursor
+		namedNode = getCursor(name, deep);
+		if (namedNode != null)
+			return namedNode;
+
+		// statement
+		namedNode = getStatement(name, deep);
 		if (namedNode != null)
 			return namedNode;
 
@@ -384,18 +400,13 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (namedNode != null)
 			return namedNode;
 
-		// cursor
-		namedNode = getCursor(name, deep);
+		// module
+		namedNode = getModule(name, deep);
 		if (namedNode != null)
 			return namedNode;
 
-		// statement
-		namedNode = getStatement(name, deep);
-		if (namedNode != null)
-			return namedNode;
-		
-		// module
-		namedNode = getModule(name, deep);
+		// dataTerms
+		namedNode = getDataTerm(name, deep);
 		if (namedNode != null)
 			return namedNode;
 
@@ -433,7 +444,7 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 		QDataTerm<?> dataTerm = null;
 		for (QDataTerm<?> child : dataTerms) {
-
+			
 			String childName = null;
 			if (prefix != null)
 				childName = prefix + child.getName().substring(position);
@@ -474,6 +485,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (name == null)
 			return null;
 
+		// reserved keywords
+		if(name.equalsIgnoreCase("INT"))
+			name = "_INT";
+		
 		StringBuffer nameBuffer = new StringBuffer();
 
 		boolean firstToUpper = false;
@@ -539,14 +554,14 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		StringBuffer s = new StringBuffer(name.length());
 		CharacterIterator it = new StringCharacterIterator(name);
 		for (char ch = it.first(); ch != CharacterIterator.DONE; ch = it.next()) {
-			if (it.getIndex() == 0) {
+			if (ch == '§')
+				s.append('ç');
+			else if (it.getIndex() == 0) {
 				s.append(String.valueOf(ch).toUpperCase());
 			} else {
-				if (ch == '§')
-					s.append('ç');
-				else
-					s.append(ch);
+				s.append(ch);
 			}
+
 		}
 		name = s.toString();
 

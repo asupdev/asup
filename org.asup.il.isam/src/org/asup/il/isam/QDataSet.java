@@ -88,6 +88,14 @@ public interface QDataSet<R extends QRecord> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isOpen();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */

@@ -19,6 +19,7 @@ import org.asup.il.core.QTerm;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.il.flow.QEntryParameter#getDelegate <em>Delegate</em>}</li>
+ *   <li>{@link org.asup.il.flow.QEntryParameter#isNullable <em>Nullable</em>}</li>
  *   <li>{@link org.asup.il.flow.QEntryParameter#getPassingType <em>Passing Type</em>}</li>
  * </ul>
  * </p>
@@ -53,6 +54,32 @@ public interface QEntryParameter<T extends QTerm> extends QNamedNode {
 	 * @generated
 	 */
 	void setDelegate(T value);
+
+	/**
+	 * Returns the value of the '<em><b>Nullable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nullable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nullable</em>' attribute.
+	 * @see #setNullable(boolean)
+	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getEntryParameter_Nullable()
+	 * @model
+	 * @generated
+	 */
+	boolean isNullable();
+
+	/**
+	 * Sets the value of the '{@link org.asup.il.flow.QEntryParameter#isNullable <em>Nullable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nullable</em>' attribute.
+	 * @see #isNullable()
+	 * @generated
+	 */
+	void setNullable(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Passing Type</b></em>' attribute.

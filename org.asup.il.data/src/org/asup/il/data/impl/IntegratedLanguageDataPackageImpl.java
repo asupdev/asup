@@ -2531,8 +2531,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		addEOperation(arrayEClass, this.getDataArray(), "asArray", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(arrayEClass, null, "sorta", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = addEOperation(arrayEClass, null, "eval", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getArray());
 		g2 = createEGenericType(arrayEClass_D);
@@ -2584,6 +2582,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEOperation(bufferedDataDefEClass, ecorePackage.getEInt(), "getLength", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bufferedListEClass, QBufferedList.class, "BufferedList", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(bufferedListEClass, null, "sorta", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(characterEClass, QCharacter.class, "Character", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3751,6 +3751,11 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(stringEClass, null, "cat", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getString(), "factor1", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getString(), "factor2", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getNumeric(), "space", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(stringEClass, null, "cat", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getString(), "factor1", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "factor2", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "space", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3847,6 +3852,11 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(stringEClass, null, "xlate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getString(), "from", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getString(), "to", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getString(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(stringEClass, null, "xlate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "from", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "to", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getString(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(stringDefEClass, QStringDef.class, "StringDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

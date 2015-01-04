@@ -166,6 +166,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	}
 
 	@Override
+	public void cat(QString factor1, QString factor2, QNumeric space) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void cat(QString factor1, String factor2, int space) {
 		// TODO Auto-generated method stub
 		
@@ -378,6 +384,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void xlate(QString from, QString to, QString target) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void xlate(String from, String to, QString target) {
 		// TODO Auto-generated method stub
 		
 	}

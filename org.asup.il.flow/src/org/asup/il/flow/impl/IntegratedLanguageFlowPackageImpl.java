@@ -643,8 +643,17 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEntryParameter_PassingType() {
+	public EAttribute getEntryParameter_Nullable() {
 		return (EAttribute)entryParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntryParameter_PassingType() {
+		return (EAttribute)entryParameterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1401,6 +1410,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 
 		entryParameterEClass = createEClass(ENTRY_PARAMETER);
 		createEReference(entryParameterEClass, ENTRY_PARAMETER__DELEGATE);
+		createEAttribute(entryParameterEClass, ENTRY_PARAMETER__NULLABLE);
 		createEAttribute(entryParameterEClass, ENTRY_PARAMETER__PASSING_TYPE);
 
 		evalEClass = createEClass(EVAL);
@@ -1633,6 +1643,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEClass(entryParameterEClass, QEntryParameter.class, "EntryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(entryParameterEClass_T);
 		initEReference(getEntryParameter_Delegate(), g1, null, "delegate", null, 0, 1, QEntryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntryParameter_Nullable(), ecorePackage.getEBoolean(), "nullable", null, 0, 1, QEntryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntryParameter_PassingType(), this.getPassingType(), "passingType", "REF", 1, 1, QEntryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(evalEClass, QEval.class, "Eval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

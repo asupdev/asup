@@ -195,6 +195,11 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	}
 
 	@Override
+	public boolean isOpen() {
+		return this.open;
+	}
+
+	@Override
 	public boolean onError() {
 		
 		return this.error;

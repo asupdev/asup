@@ -18,6 +18,7 @@ import java.util.List;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
 import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.fw.core.annotation.Supported;
@@ -31,6 +32,7 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
+import org.asup.os.core.OperatingSystemRuntimeException;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
@@ -42,6 +44,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		super(root, compilationUnit, compilationSetup, name);
 
 		writeImport(Program.class);
+		writeImport(OperatingSystemRuntimeException.class);
 	}
 
 	public void writeProgram(QProgram program) throws IOException {
@@ -59,7 +62,16 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 				loadModules(modules, module);
 
 			for (String module : modules) {
-				writeImport(module);
+				
+				QModule flowModule = getCompilationUnit().getModule(module, true);
+				if(flowModule == null)
+					throw new IOException("Invalid module: "+module);
+					
+				QCompilerLinker compilerLinker = flowModule.getFacet(QCompilerLinker.class);
+				if(compilerLinker != null)
+					writeImport(compilerLinker.getLinkedClass());
+				else				
+					writeImport(module);
 			}
 		}
 

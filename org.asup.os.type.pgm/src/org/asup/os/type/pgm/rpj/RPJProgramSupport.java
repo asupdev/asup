@@ -53,26 +53,81 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	@DataDef
 	public QIndicator qINLR;
 	@DataDef
+	public QIndicator qINKA;
+	@DataDef
+	public QIndicator qINKB;
+	@DataDef
+	public QIndicator qINKC;
+	@DataDef
+	public QIndicator qINKD;
+	@DataDef
+	public QIndicator qINKE;
+	@DataDef
+	public QIndicator qINKF;
+	@DataDef
+	public QIndicator qINKG;
+	@DataDef
+	public QIndicator qINKH;
+	@DataDef
+	public QIndicator qINKI;
+	@DataDef
+	public QIndicator qINKJ;
+	@DataDef
+	public QIndicator qINKK;
+	@DataDef
+	public QIndicator qINKL;
+	@DataDef
+	public QIndicator qINKM;
+	@DataDef
+	public QIndicator qINKN;
+	@DataDef
+	public QIndicator qINKP;
+	@DataDef
+	public QIndicator qINKQ;
+	@DataDef
+	public QIndicator qINKR;
+	@DataDef
+	public QIndicator qINKS;
+	@DataDef
+	public QIndicator qINKT;
+	@DataDef
+	public QIndicator qINKU;
+	@DataDef
+	public QIndicator qINKV;
+	@DataDef
+	public QIndicator qINKW;
+	@DataDef
+	public QIndicator qINKX;
+	@DataDef
+	public QIndicator qINKY;
+	@DataDef
 	public ProgramStatus qSTATUS;
+	@DataDef
+	public Date qDATE;
 	@DataDef
 	public Specials qSP;
 
 	public QNumeric qAbs(QNumeric numeric) {
 		return numeric;
 	}
-	
+
 	public QDataWriter qAll(QNumeric numeric) {
-		return 	QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
+		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
 	}
-	
+
 	public QDataWriter qAll(QString string) {
-		return 	QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
+		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
 	}
-	
-	public QIndicator qBox(boolean boo) {
+
+	/*
+	public QBufferedData qBox(Enum<?> label) {
+		return null;
+	}*/
+
+	public QIndicator qBox(boolean boolean_) {
 
 		QIndicator qIndicator = qDF.createIndicator(true);
-		qIndicator.eval(boo);
+		qIndicator.eval(boolean_);
 
 		return qIndicator;
 	}
@@ -87,8 +142,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	public QCharacter qBox(String character) {
 
-		QCharacter qCharacter = qDF.createCharacter(character.length(), false,
-				true);
+		QCharacter qCharacter = qDF.createCharacter(character.length(), false, true);
 		qCharacter.eval(character);
 
 		return qCharacter;
@@ -101,16 +155,16 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public void qCall(String program, QData[] parameters) {
 		programManager.callProgram(contextID, null, program.trim(), parameters);
 	}
-	
+
 	public QString qChar(QNumeric numeric) {
 		return qBox(numeric.asString());
 	}
-	
+
 	public QString qChar(int number) {
-		
+
 		QCharacter character = qDF.createCharacter(19, true, true);
 		character.eval(Integer.toString(number));
-		
+
 		return character;
 	}
 
@@ -133,7 +187,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QDatetime qSubdur(QDatetime op1, QDecimal op2, String format) {
 		return null;
 	}
-	
+
 	public QDecimal qDiff(QDatetime op1, QDatetime op2, String format) {
 		return null;
 	}
@@ -141,7 +195,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public void qDisplay(QString text) {
 		System.out.println(text);
 	}
-	
+
 	public QString qEditc(QNumeric numeric, String format) {
 		return null;
 	}
@@ -160,6 +214,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return qBox(dataSet.isEndOfData());
 	}
 
+	public QIndicator qOpen(QDataSet<?> dataSet) {
+		return qBox(dataSet.isOpen());
+	}
+
 	public QIndicator qError() {
 		return null;
 	}
@@ -171,7 +229,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QDecimal qInt(QString string) {
 		return qBox(Integer.parseInt(string.trimR()));
 	}
-	
+
 	public void qJump(Enum<?> label) {
 	}
 
@@ -189,19 +247,37 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		decimal.eval(string.length());
 		return decimal;
 	}
+
+	public QDecimal qSize(QBufferedData bufferedData) {
+		QDecimal decimal = qDF.createDecimal(5, 0, DecimalType.ZONED, true);
+		decimal.eval(bufferedData.getSize());
+		return decimal;
+	}
 	
-	public <D extends QBufferedData> Integer qLookup(D argument,
-			QArray<D> array, Integer startIndex, Integer numElements) {
+	public QDecimal qLookup(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 
 		if (numElements == null)
-			numElements = array.capacity();
+			numElements = list.capacity();
 
 		for (int i = startIndex; i >= numElements; i++) {
-			if (array.get(i).equals(argument))
-				return i;
+			if (list.get(i).eq(argument))
+				return qBox(i);
 		}
 
-		return -1;
+		return qBox(-1);
+	}
+
+	public QDecimal qLookup(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+
+		if (numElements == null)
+			numElements = list.capacity();
+
+		for (int i = startIndex; i >= numElements; i++) {
+			if (list.get(i).equals(argument))
+				return qBox(i);
+		}
+
+		return qBox(-1);
 	}
 
 	public QDecimal qRem(QNumeric ope1, QNumeric ope2) {
@@ -218,18 +294,23 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QDecimal qStatus() {
 		return qSTATUS.qStatus;
 	}
+
 	public QString qReplace(String replacement, String source, Integer from, Integer length) {
-		
+
 		return null;
 	}
-			
+
+	public QArray<?> qSubarr(QArray<?> array, int start, int elements) {
+		return null;
+	}
+
 	public QString qSubst(QString source, Integer from) {
 		return null;
 	}
 
-	public QString qSubst(QString source, Integer from, Integer to) {
+	public QString qSubst(QString source, Integer from, Integer length) {
 
-		String str = source.toString().substring(from - 1, from - 1 + to);
+		String str = source.toString().substring(from - 1, from - 1 + length);
 
 		QString string = qDF.createCharacter(str.length(), false, true);
 		string.eval(str);
@@ -244,11 +325,11 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public void qTime(QNumeric datetime) {
 		// TODO
 	}
-	
+
 	public QString qTrim(String source) {
 		return qTrim(qBox(source));
 	}
-	
+
 	public QString qTrim(QString source) {
 
 		String str = source.trim();
@@ -259,11 +340,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	}
 
-	
 	public QString qTriml(String source) {
 		return qTriml(qBox(source));
 	}
-	
+
 	public QString qTriml(QString source) {
 
 		String str = source.trimL();
@@ -273,11 +353,11 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return character;
 
 	}
-	
+
 	public QString qTrimr(String source) {
 		return qTrimr(qBox(source));
 	}
-	
+
 	public QString qTrimr(QString source) {
 
 		String str = source.trimR();
@@ -290,15 +370,26 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QString qXlate(String oldString, String newString, QString source) {
 		return null;
 	}
-	
+
 	public static class ProgramStatus extends QDataStructWrapper {
 
 		private static final long serialVersionUID = 1L;
 
-		@DataDef(length=5)
+		@DataDef(length = 5)
 		public QDecimal qStatus;
 	}
-	
+
+	public static class Date extends QDataStructWrapper {
+
+		private static final long serialVersionUID = 1L;
+
+		@DataDef(length = 4)
+		public QDecimal uyear4;
+
+		@DataDef(length = 2)
+		@Overlay(position = "1")
+		public QDecimal uyear;
+	}
 
 	public static class Indicators extends QDataStructWrapper {
 
@@ -396,12 +487,61 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		public QIndicator qIN54;
 		@Overlay(name = "IN", position = "55")
 		public QIndicator qIN55;
+		@Overlay(name = "IN", position = "56")
+		public QIndicator qIN56;
+		@Overlay(name = "IN", position = "57")
+		public QIndicator qIN57;
+		@Overlay(name = "IN", position = "58")
+		public QIndicator qIN58;
+		@Overlay(name = "IN", position = "59")
+		public QIndicator qIN59;
 		@Overlay(name = "IN", position = "60")
 		public QIndicator qIN60;
+		@Overlay(name = "IN", position = "61")
+		public QIndicator qIN61;
+		@Overlay(name = "IN", position = "62")
+		public QIndicator qIN62;
+		@Overlay(name = "IN", position = "63")
+		public QIndicator qIN63;
+		@Overlay(name = "IN", position = "64")
+		public QIndicator qIN64;
+		@Overlay(name = "IN", position = "65")
+		public QIndicator qIN65;
+		@Overlay(name = "IN", position = "66")
+		public QIndicator qIN66;
+		@Overlay(name = "IN", position = "67")
+		public QIndicator qIN67;
+		@Overlay(name = "IN", position = "68")
+		public QIndicator qIN68;
+		@Overlay(name = "IN", position = "69")
+		public QIndicator qIN69;
+		@Overlay(name = "IN", position = "70")
+		public QIndicator qIN70;
+		@Overlay(name = "IN", position = "71")
+		public QIndicator qIN71;
+		@Overlay(name = "IN", position = "72")
+		public QIndicator qIN72;
+		@Overlay(name = "IN", position = "73")
+		public QIndicator qIN73;
+		@Overlay(name = "IN", position = "74")
+		public QIndicator qIN74;
+		@Overlay(name = "IN", position = "75")
+		public QIndicator qIN75;
+		@Overlay(name = "IN", position = "76")
+		public QIndicator qIN76;
+		@Overlay(name = "IN", position = "77")
+		public QIndicator qIN77;
+		@Overlay(name = "IN", position = "78")
+		public QIndicator qIN78;
+		@Overlay(name = "IN", position = "79")
+		public QIndicator qIN79;
+		@Overlay(name = "IN", position = "80")
+		public QIndicator qIN80;
 		@Overlay(name = "IN", position = "81")
 		public QIndicator qIN81;
 		@Overlay(name = "IN", position = "90")
 		public QIndicator qIN90;
+
 		public QIndicator get(Integer index) {
 			return null;
 		}
@@ -410,7 +550,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 			return null;
 		}
 	}
-	
+
 	public static enum Specials {
 		ALL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
 

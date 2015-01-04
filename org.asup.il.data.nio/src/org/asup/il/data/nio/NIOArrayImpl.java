@@ -84,12 +84,6 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 	}
 
 	@Override
-	public void sorta() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void eval(QArray<D> value) {
 		movea(value, true);
 	}

@@ -16,7 +16,7 @@ import org.asup.il.data.QDataStruct;
  *
  *
  * @see org.asup.il.esql.QIntegratedLanguageEmbeddedSQLPackage#getCommunicationArea()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface QCommunicationArea extends QDataStruct {

@@ -448,7 +448,7 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		eSqlManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(communicationAreaEClass, QCommunicationArea.class, "CommunicationArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(communicationAreaEClass, QCommunicationArea.class, "CommunicationArea", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cursorEClass, QCursor.class, "Cursor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -471,7 +471,7 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		initEAttribute(getCursorTerm_Sql(), ecorePackage.getEString(), "sql", null, 0, 1, QCursorTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCursorTerm_StatementName(), ecorePackage.getEString(), "statementName", null, 0, 1, QCursorTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(descriptorAreaEClass, QDescriptorArea.class, "DescriptorArea", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(descriptorAreaEClass, QDescriptorArea.class, "DescriptorArea", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(eSqlObjectEClass, QESqlObject.class, "ESqlObject", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

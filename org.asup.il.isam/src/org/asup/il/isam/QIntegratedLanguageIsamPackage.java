@@ -140,13 +140,22 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int DATA_SET_TERM__KEYED_ACCESS = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SET_TERM__PREFIX = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Record</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM__RECORD = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 4;
+	int DATA_SET_TERM__RECORD = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>User Open</b></em>' attribute.
@@ -155,7 +164,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM__USER_OPEN = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 5;
+	int DATA_SET_TERM__USER_OPEN = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Data Set Term</em>' class.
@@ -164,7 +173,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 6;
+	int DATA_SET_TERM_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.impl.KeyListTermImpl <em>Key List Term</em>}' class.
@@ -468,6 +477,17 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	EAttribute getDataSetTerm_KeyedAccess();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QDataSetTerm#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see org.asup.il.isam.QDataSetTerm#getPrefix()
+	 * @see #getDataSetTerm()
+	 * @generated
+	 */
+	EAttribute getDataSetTerm_Prefix();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,6 +734,14 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SET_TERM__KEYED_ACCESS = eINSTANCE.getDataSetTerm_KeyedAccess();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SET_TERM__PREFIX = eINSTANCE.getDataSetTerm_Prefix();
 
 		/**
 		 * The meta object literal for the '<em><b>Record</b></em>' containment reference feature.

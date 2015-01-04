@@ -34,6 +34,8 @@ import org.asup.il.esql.QCursorTerm;
 import org.asup.il.esql.QStatement;
 import org.asup.il.esql.QStatementTerm;
 import org.asup.il.esql.annotation.CursorDef;
+import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
+import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QEntryParameter;
@@ -48,11 +50,15 @@ import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QRRDataSet;
 import org.asup.il.isam.annotation.DataSetDef;
 import org.asup.os.type.pgm.rpj.RPJServiceSupport;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ArrayCreation;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
 import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
+import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -232,7 +238,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			QNamedNode namedNode = getCompilationUnit().getNamedNode(keyField, true);
 			String qualifiedName = getCompilationUnit().getQualifiedName(namedNode);
-			arrayInitializer.expressions().add(getAST().newName(getCompilationUnit().normalizeTermName(qualifiedName).split("\\.")));
+			arrayInitializer.expressions().add(buildExpression(qualifiedName));
 		}
 		arrayCreation.setInitializer(arrayInitializer);
 
@@ -307,7 +313,13 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			statementWriter.getBlocks().push(block);
 
-			routine.getMain().accept(statementWriter);
+			if(routine.getMain() instanceof QBlock) {
+				QBlock qBlock = (QBlock) routine.getMain();
+				for(org.asup.il.flow.QStatement qStatement: qBlock.getStatements())
+					qStatement.accept(statementWriter);
+			}
+			else
+				routine.getMain().accept(statementWriter);
 
 			statementWriter.getBlocks().pop();
 		}
@@ -538,4 +550,20 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		
 		return returnStatement;
 	}
+	
+	private Expression buildExpression(String expression) {
+
+		ASTParser parser = ASTParser.newParser(AST.JLS8);
+		parser.setKind(ASTParser.K_EXPRESSION);
+
+		parser.setSource(expression.toCharArray());
+		ASTNode node = parser.createAST(null);
+		if (node.getLength() == 0)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: " + expression);
+
+		Expression jdtExpression = (Expression) node;
+
+		return (Expression) ASTNode.copySubtree(getAST(), jdtExpression);
+	}
+
 }

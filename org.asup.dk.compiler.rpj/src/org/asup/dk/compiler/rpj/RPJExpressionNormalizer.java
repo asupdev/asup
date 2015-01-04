@@ -185,7 +185,7 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 				break;
 			case NAME:
 				QAtomicDataTerm<?> atomicDataTerm = (QAtomicDataTerm<?>) compilationUnit.getDataTerm(atomicTermExpression.getValue(), true);
-				;
+
 				if (atomicDataTerm != null) {
 					atomicDataTerm.toString();
 				} else

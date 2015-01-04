@@ -27,15 +27,6 @@ public interface QIntegratedLanguageEmbeddedSQLFactory extends EFactory {
 	QIntegratedLanguageEmbeddedSQLFactory eINSTANCE = org.asup.il.esql.impl.IntegratedLanguageEmbeddedSQLFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Communication Area</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Communication Area</em>'.
-	 * @generated
-	 */
-	QCommunicationArea createCommunicationArea();
-
-	/**
 	 * Returns a new object of class '<em>Cursor Term</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43,15 +34,6 @@ public interface QIntegratedLanguageEmbeddedSQLFactory extends EFactory {
 	 * @generated
 	 */
 	QCursorTerm createCursorTerm();
-
-	/**
-	 * Returns a new object of class '<em>Descriptor Area</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Descriptor Area</em>'.
-	 * @generated
-	 */
-	QDescriptorArea createDescriptorArea();
 
 	/**
 	 * Returns a new object of class '<em>Statement Term</em>'.
