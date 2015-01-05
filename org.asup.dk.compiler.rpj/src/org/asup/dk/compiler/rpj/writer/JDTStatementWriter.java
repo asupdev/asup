@@ -450,8 +450,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			MethodInvocation methodInvocation = ast.newMethodInvocation();
 			methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(statement.getMethod())));
 
-			if (statement.getObject() != null)
+			if (statement.getObject() != null) {
+								
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
+			}
 
 			if (statement.getParameters() != null) {
 				for (String parameter : statement.getParameters()) {

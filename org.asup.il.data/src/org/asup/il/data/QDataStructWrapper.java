@@ -491,4 +491,12 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 		delegate.xlate(from, to, target);
 	}
 
+	public void cat(QString factor1, QNumeric space) {
+		delegate.cat(factor1, space);
+	}
+
+	public void cat(String factor1, QNumeric space) {
+		delegate.cat(factor1, space);
+	}
+
 }

@@ -272,6 +272,11 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return null;
 	}
 	
+	public QIndicator qTestn(QString string) {
+		// TODO
+		return null;
+	}
+
 	public QDecimal qLen(QBufferedData bufferedData) {
 		QDecimal decimal = qDF.createDecimal(5, 0, DecimalType.ZONED, true);
 		decimal.eval(bufferedData.getLength());

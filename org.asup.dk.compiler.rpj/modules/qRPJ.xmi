@@ -1989,5 +1989,25 @@
         </parameters>
       </entry>
     </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%testn">
+        <definition
+            xsi:type="il-data:IndicatorDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              like=""
+              name="string"
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
   </flowSection>
 </il-flow:Module>

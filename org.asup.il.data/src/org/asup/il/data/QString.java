@@ -153,6 +153,22 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model factor1Required="true" spaceRequired="true"
+	 * @generated
+	 */
+	void cat(QString factor1, QNumeric space);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model factor1Required="true" spaceRequired="true"
+	 * @generated
+	 */
+	void cat(String factor1, QNumeric space);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model factor1Required="true"
 	 * @generated
 	 */

@@ -140,7 +140,19 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	@Override
+	public void cat(QString factor1, QNumeric space) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cat(String factor1, QNumeric space) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	public void cat(String factor1, String factor2, int space) {
 		// TODO Auto-generated method stub

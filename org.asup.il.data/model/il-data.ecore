@@ -1621,6 +1621,14 @@
     </eOperations>
     <eOperations name="cat">
       <eParameters name="factor1" lowerBound="1" eType="#//String"/>
+      <eParameters name="space" lowerBound="1" eType="#//Numeric"/>
+    </eOperations>
+    <eOperations name="cat">
+      <eParameters name="factor1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="space" lowerBound="1" eType="#//Numeric"/>
+    </eOperations>
+    <eOperations name="cat">
+      <eParameters name="factor1" lowerBound="1" eType="#//String"/>
     </eOperations>
     <eOperations name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

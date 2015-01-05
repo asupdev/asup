@@ -359,6 +359,11 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	}
 
 	@Override
+	public void xlate(String from, String to, QString target) {
+		current().xlate(from, to, target);
+	}
+
+	@Override
 	public void xlate(QString from, QString to, QString target) {
 		current().xlate(from, to, target);
 	}
@@ -369,7 +374,12 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	}
 
 	@Override
-	public void xlate(String from, String to, QString target) {
-		current().xlate(from, to, target);
+	public void cat(QString factor1, QNumeric space) {
+		current().cat(factor1, space);
+	}
+
+	@Override
+	public void cat(String factor1, QNumeric space) {
+		current().cat(factor1, space);		
 	}
 }

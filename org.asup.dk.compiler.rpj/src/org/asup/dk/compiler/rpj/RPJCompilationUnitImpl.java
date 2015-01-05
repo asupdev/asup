@@ -446,11 +446,12 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		for (QDataTerm<?> child : dataTerms) {
 			
 			String childName = null;
-			if (prefix != null)
+			if (prefix != null) {
 				childName = prefix + child.getName().substring(position);
+			}
 			else
 				childName = child.getName();
-
+			
 			if (equalsTermName(childName, name)) {
 				dataTerm = child;
 			} else if (equalsTermName(getQualifiedName(child), name)) {
@@ -461,11 +462,11 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 				if (compoundDataDef.getPrefix() != null) {
 					String[] tokens = compoundDataDef.getPrefix().split("\\:");
 					String pfx = tokens[0];
-					int pos = 1;
+					int pos = 0;
 					if (tokens.length > 1)
 						pos = Integer.parseInt(tokens[1]);
 					else
-						pos = pfx.length();
+						pos = 0;
 
 					dataTerm = findData(compoundDataDef.getElements(), name, pfx, pos);
 				} else
