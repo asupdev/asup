@@ -14,6 +14,7 @@ import org.asup.fw.core.impl.PluginImpl;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
 import org.asup.il.expr.QArithmeticExpression;
 import org.asup.il.expr.QAssignmentExpression;
+import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QIntegratedLanguageExpressionPackage;
 import org.asup.il.expr.QPredicateExpression;
@@ -108,6 +109,17 @@ public abstract class ExpressionParserImpl extends PluginImpl implements QExpres
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageExpressionPackage.EXPRESSION_PARSER__CONFIG, newConfig, newConfig));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QExpression parseExpression(String expression) throws IntegratedLanguageExpressionRuntimeException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

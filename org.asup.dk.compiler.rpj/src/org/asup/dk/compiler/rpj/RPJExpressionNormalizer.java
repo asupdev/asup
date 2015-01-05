@@ -11,10 +11,6 @@
  */
 package org.asup.dk.compiler.rpj;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
@@ -27,12 +23,8 @@ import org.asup.il.expr.QAssignmentExpression;
 import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
-import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QTermExpression;
-import org.asup.il.flow.QCall;
 import org.asup.il.flow.QEval;
-import org.asup.il.flow.QIf;
-import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 
 public class RPJExpressionNormalizer extends StatementVisitorImpl {
@@ -41,66 +33,6 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 	private QCompilationUnit compilationUnit;
 	@Inject
 	private QExpressionParser expressionParser;
-
-	private RPJExpressionStringBuilder expressionBuilder;
-
-	@PostConstruct
-	public void init() {
-		this.expressionBuilder = compilationUnit.getContext().make(RPJExpressionStringBuilder.class);
-	}
-
-	@Override
-	public boolean visit(QCall statement) {
-
-		// program
-		QTermExpression expression = expressionParser.parseTerm(statement.getProgram());
-		expression.accept(expressionBuilder.reset());
-		statement.setProgram(expressionBuilder.getResult());
-
-		// parameters
-		List<String> parameters = new ArrayList<>();
-		for (String parameter : statement.getParameters()) {
-			expression = expressionParser.parseTerm(parameter);
-			expression.accept(expressionBuilder.reset());
-			parameters.add(expressionBuilder.getResult());
-		}
-		statement.getParameters().clear();
-		statement.getParameters().addAll(parameters);
-
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QIf statement) {
-
-		// program
-		QPredicateExpression expression = expressionParser.parsePredicate(statement.getCondition());
-		expression.accept(expressionBuilder.reset());
-		statement.setCondition(expressionBuilder.getResult());
-
-		return super.visit(statement);
-	}
-
-	@Override
-	public boolean visit(QMethodExec statement) {
-		
-		// program
-		QTermExpression expression = expressionParser.parseTerm(statement.getObject());
-		expression.accept(expressionBuilder.reset());
-		statement.setObject(expressionBuilder.getResult());
-
-		// parameters
-		List<String> parameters = new ArrayList<>();
-		for (String parameter : statement.getParameters()) {
-			expression = expressionParser.parseTerm(parameter);
-			expression.accept(expressionBuilder.reset());
-			parameters.add(expressionBuilder.getResult());
-		}
-		statement.getParameters().clear();
-		statement.getParameters().addAll(parameters);
-
-		return super.visit(statement);
-	}
 
 	@Override
 	public boolean visit(QEval statement) {

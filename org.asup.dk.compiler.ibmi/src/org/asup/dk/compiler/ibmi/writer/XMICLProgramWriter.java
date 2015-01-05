@@ -68,7 +68,7 @@ public class XMICLProgramWriter {
 
 		private Stack<QIf> ifStack;
 
-		CLBlock(){
+		CLBlock() {
 			block = QIntegratedLanguageFlowFactory.eINSTANCE.createBlock();
 			ifStack = new Stack<QIf>();
 		}
@@ -86,22 +86,18 @@ public class XMICLProgramWriter {
 		}
 	}
 
-
 	private ParserInterface<?> clParser;
 	private ParserInterface<?> commandParser;
 
-//	private QExpressionParser expressionParser;
+	// private QExpressionParser expressionParser;
 	private QProgram flowProgram;
 	private ListIterator<CLRow> rowIterator;
-
 
 	public XMICLProgramWriter(QProgram flowProgram) {
 		this.flowProgram = flowProgram;
 		clParser = ParserFactory.getInstance().getParser(ScriptType.CL);
 		commandParser = ParserFactory.getInstance().getParser(ScriptType.CL_COMMAND);
 	}
-
-
 
 	public QProgram writeProgram(StringBuffer source) throws IOException, OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
 
@@ -124,13 +120,11 @@ public class XMICLProgramWriter {
 		return flowProgram;
 	}
 
-	private void analizeRow(CLBlock block, CLRow row)
-			throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
+	private void analizeRow(CLBlock block, CLRow row) throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
 
 		if (row.getLabel() != null) {
 			// Manage Labels
-			QLabel labelStatement = QIntegratedLanguageFlowFactory.eINSTANCE
-					.createLabel();
+			QLabel labelStatement = QIntegratedLanguageFlowFactory.eINSTANCE.createLabel();
 			labelStatement.setName(row.getLabel().getText());
 
 			block.getBlock().getStatements().add(labelStatement);
@@ -146,8 +140,7 @@ public class XMICLProgramWriter {
 		}
 	}
 
-	private QStatement analizeCommand(CLBlock block, CLCommand clCmd, boolean clearIfStack)
-			throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
+	private QStatement analizeCommand(CLBlock block, CLCommand clCmd, boolean clearIfStack) throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
 
 		QStatement result = null;
 
@@ -155,17 +148,13 @@ public class XMICLProgramWriter {
 			if (clearIfStack)
 				block.clearIfStack();
 			manageDCLCommand(clCmd);
-		}
-		else if ("PGM".equalsIgnoreCase(clCmd.getName())) {
+		} else if ("PGM".equalsIgnoreCase(clCmd.getName())) {
 
 			managePGMCommand(clCmd);
 
-
-		}
-		else if ("ENDPGM".equalsIgnoreCase(clCmd.getName())) {
+		} else if ("ENDPGM".equalsIgnoreCase(clCmd.getName())) {
 			// TODO end status (SETON *INLR?)
-		}
-		else  if ("MONMSG".equalsIgnoreCase(clCmd.getName())){
+		} else if ("MONMSG".equalsIgnoreCase(clCmd.getName())) {
 			if (clearIfStack)
 				block.clearIfStack();
 			buildMONMSGStatement(block, clCmd);
@@ -182,14 +171,13 @@ public class XMICLProgramWriter {
 				block.clearIfStack();
 			result = buildStatementFOR(clCmd);
 		} else if ("IF".equalsIgnoreCase(clCmd.getName())) {
-			//block.getIfStack().clear();
+			// block.getIfStack().clear();
 			result = buildIFStatement(block, clCmd);
-			//block.getIfStack().add((QIf)result);
+			// block.getIfStack().add((QIf)result);
 
 		} else if ("ELSE".equalsIgnoreCase(clCmd.getName())) {
 
 			buildELSEStatement(block, clCmd);
-
 
 		} else if ("GOTO".equalsIgnoreCase(clCmd.getName())) {
 			if (clearIfStack)
@@ -252,8 +240,7 @@ public class XMICLProgramWriter {
 				jumpStatement.setLabel(label);
 				result = jumpStatement;
 			}
-		}
-		else if("CHGVAR".equalsIgnoreCase(clCmd.getName())) {
+		} else if ("CHGVAR".equalsIgnoreCase(clCmd.getName())) {
 			if (clearIfStack)
 				block.clearIfStack();
 
@@ -276,18 +263,17 @@ public class XMICLProgramWriter {
 			}
 
 			String left = varParm;
-			if(left.startsWith("&"))
+			if (left.startsWith("&"))
 				left = removeFirstChar(left);
 
 			String right = valueParm;
-			if(right.startsWith("&"))
+			if (right.startsWith("&"))
 				right = removeFirstChar(right);
 
 			String expression = left + "=" + right;
 			eval.setAssignment(expression);
 			result = eval;
-		}
-		else {
+		} else {
 			if (clearIfStack)
 				block.clearIfStack();
 
@@ -310,10 +296,8 @@ public class XMICLProgramWriter {
 			condValue = clCmd.getParm("COND").getValue().getText();
 		}
 
-
-//		untilStatement.setCondition(expressionParser.parseLogic(condValue));
+		// untilStatement.setCondition(expressionParser.parseLogic(condValue));
 		untilStatement.setCondition(condValue);
-
 
 		CLBlock untilBlock = new CLBlock();
 		buildBlock(untilBlock);
@@ -334,9 +318,8 @@ public class XMICLProgramWriter {
 			condition = clCmd.getParm("COND").getValue().getText();
 		}
 
-//		ifStatement.setCondition(expressionParser.parseLogic(condition));
+		// ifStatement.setCondition(expressionParser.parseLogic(condition));
 		ifStatement.setCondition(condition);
-
 
 		// Get THEN value (positional or not)
 		String thenValue = null;
@@ -356,8 +339,7 @@ public class XMICLProgramWriter {
 
 		if (thenValue != null) {
 
-			if ("DO".equalsIgnoreCase(thenValue)
-					|| "(DO)".equalsIgnoreCase(thenValue)) {
+			if ("DO".equalsIgnoreCase(thenValue) || "(DO)".equalsIgnoreCase(thenValue)) {
 				CLBlock ifBlock = new CLBlock();
 
 				buildBlock(ifBlock);
@@ -370,9 +352,9 @@ public class XMICLProgramWriter {
 				if ("IF".equalsIgnoreCase(thenValue)) {
 					/*
 					 * Example:
-					 *
+					 * 
 					 * IF COND() IF....
-					 *
+					 * 
 					 * cut clCmd at second IF
 					 */
 
@@ -407,7 +389,7 @@ public class XMICLProgramWriter {
 			cmdValue = clCmd.getPositionalParm(0).getValue().getText();
 
 			if (cmdValue.startsWith("(") && cmdValue.endsWith("")) {
-				cmdValue = cmdValue.substring(1, cmdValue.length()-1);
+				cmdValue = cmdValue.substring(1, cmdValue.length() - 1);
 			} else {
 				cmdValue = clCmd.getText().trim().substring("ELSE".length()).trim();
 			}
@@ -416,22 +398,19 @@ public class XMICLProgramWriter {
 			cmdValue = clCmd.getParm("CMD").getValue().getText();
 		}
 
-
-		if ("DO".equalsIgnoreCase(cmdValue)
-				|| "(DO)".equalsIgnoreCase(cmdValue)) {
+		if ("DO".equalsIgnoreCase(cmdValue) || "(DO)".equalsIgnoreCase(cmdValue)) {
 			CLBlock elseBlock = new CLBlock();
 			buildBlock(elseBlock);
 
 			block.getIfStack().peek().setElse(elseBlock.getBlock());
 			block.clearIfStack();
 
+		} else if (cmdValue.trim().startsWith("IF")) {
+			CLCommand elseIf = (CLCommand) commandParser.parse(cmdValue + "\n");
 
-		} else if (cmdValue.trim().startsWith("IF")){
-				CLCommand elseIf = (CLCommand) commandParser.parse(cmdValue + "\n");
-
-				QIf lastIf = block.getIfStack().peek();
-				QIf result = buildIFStatement(block, elseIf);
-				lastIf.setElse(result);
+			QIf lastIf = block.getIfStack().peek();
+			QIf result = buildIFStatement(block, elseIf);
+			lastIf.setElse(result);
 
 		} else {
 			CLCommand thenCmd = (CLCommand) commandParser.parse(cmdValue + "\n");
@@ -458,7 +437,7 @@ public class XMICLProgramWriter {
 			cmpdtaValue = clCmd.getPositionalParm(1).getValue().getText();
 
 			if (cmpdtaValue.startsWith("(") && cmpdtaValue.endsWith("")) {
-				cmpdtaValue = cmpdtaValue.substring(1, cmpdtaValue.length()-1);
+				cmpdtaValue = cmpdtaValue.substring(1, cmpdtaValue.length() - 1);
 			}
 		} else if (clCmd.getParm("CMPDTA") != null) {
 			cmpdtaValue = clCmd.getParm("CMPDTA").getValue().getText();
@@ -470,13 +449,11 @@ public class XMICLProgramWriter {
 			execValue = clCmd.getPositionalParm(1).getValue().getText();
 
 			if (execValue.startsWith("(") && execValue.endsWith("")) {
-				execValue = execValue.substring(1, execValue.length()-1);
+				execValue = execValue.substring(1, execValue.length() - 1);
 			}
 		} else if (clCmd.getParm("EXEC") != null) {
 			execValue = clCmd.getParm("EXEC").getValue().getText();
 		}
-
-
 
 		// Link MONMSG to relative command
 		List<QStatement> statementsList = block.getBlock().getStatements();
@@ -489,9 +466,7 @@ public class XMICLProgramWriter {
 
 			if (execValue != null) {
 
-				if ("DO".equalsIgnoreCase(execValue)
-					||
-					"(DO)".equalsIgnoreCase(msgIDValue)) {
+				if ("DO".equalsIgnoreCase(execValue) || "(DO)".equalsIgnoreCase(msgIDValue)) {
 
 					CLBlock execCLBlock = new CLBlock();
 					buildBlock(execCLBlock);
@@ -505,29 +480,15 @@ public class XMICLProgramWriter {
 				}
 			}
 
-
 			// Control is the MONMSG command is related to an allowed command
-			QStatement lastCommand = statementsList.get(statementsList.size()-1);
+			QStatement lastCommand = statementsList.get(statementsList.size() - 1);
 
-			if (lastCommand instanceof QWhile
-				||
-				lastCommand instanceof QUntil
-				||
-				lastCommand instanceof QFor
-				||
-				lastCommand instanceof QJump
-				||
-				lastCommand instanceof QBreak
-				||
-				lastCommand instanceof QContinue
-				||
-				lastCommand instanceof QReturn
-				)
-			{
-					throw new IntegratedLanguageExpressionException("MONMSG after a forbidden command");
+			if (lastCommand instanceof QWhile || lastCommand instanceof QUntil || lastCommand instanceof QFor || lastCommand instanceof QJump || lastCommand instanceof QBreak
+					|| lastCommand instanceof QContinue || lastCommand instanceof QReturn) {
+				throw new IntegratedLanguageExpressionException("MONMSG after a forbidden command");
 			}
 
-			//Manage MONMSG command only if an EXEC is defined
+			// Manage MONMSG command only if an EXEC is defined
 
 			if (execValue != null) {
 
@@ -535,7 +496,7 @@ public class XMICLProgramWriter {
 
 					// Add a new onError node at existing monitor
 
-					QMonitor lastMonitor = (QMonitor)lastCommand;
+					QMonitor lastMonitor = (QMonitor) lastCommand;
 
 					QOnError onError = QIntegratedLanguageFlowFactory.eINSTANCE.createOnError();
 					if (execBlock != null) {
@@ -569,19 +530,19 @@ public class XMICLProgramWriter {
 
 					monitorStatement.getOnErrors().add(onError);
 
-					// Erase last command il block command list and add new monitorStatement as last command
-					//statementsList.remove(statementsList.size()-1);
+					// Erase last command il block command list and add new
+					// monitorStatement as last command
+					// statementsList.remove(statementsList.size()-1);
 					statementsList.add(monitorStatement);
 				}
 			}
 		} else {
 			/*
-			 *  Case 2: MONMSG after first PGM statement (program MONMSG).
-			 *
-			 *  Manage MONMSG only if:
-			 *
-			 *     - An EXEC action is defined
-			 *     - and action is a GOTO statement.
+			 * Case 2: MONMSG after first PGM statement (program MONMSG).
+			 * 
+			 * Manage MONMSG only if:
+			 * 
+			 * - An EXEC action is defined - and action is a GOTO statement.
 			 */
 
 			QBlock execBlock = null;
@@ -621,8 +582,7 @@ public class XMICLProgramWriter {
 	}
 
 	private QFor buildStatementFOR(CLCommand clCmd) throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
-		QFor forStatement = QIntegratedLanguageFlowFactory.eINSTANCE
-				.createFor();
+		QFor forStatement = QIntegratedLanguageFlowFactory.eINSTANCE.createFor();
 
 		// Read params
 		String varValue = null;
@@ -651,22 +611,22 @@ public class XMICLProgramWriter {
 			byValue = clCmd.getParm("BY").getValue().getText();
 		}
 
-		//TODO: manage DOWNTO
+		// TODO: manage DOWNTO
 
-//		QExpression fromValueExpr = expressionParser.parseTerm(fromValue);
+		// QExpression fromValueExpr = expressionParser.parseTerm(fromValue);
 		forStatement.setInitialization(fromValue);
 
 		if (byValue != null) {
-//			QExpression byValueExpr = expressionParser.parseTerm(byValue);
+			// QExpression byValueExpr = expressionParser.parseTerm(byValue);
 			forStatement.setIncrement(byValue);
 		} else {
-//			QExpression byValueExpr = expressionParser.parseTerm("1");
+			// QExpression byValueExpr = expressionParser.parseTerm("1");
 			forStatement.setIncrement("1");
 		}
 
-//		QExpression conditionExpr = expressionParser.parseLogic(varValue + " < " + toValue);
+		// QExpression conditionExpr = expressionParser.parseLogic(varValue +
+		// " < " + toValue);
 		forStatement.setCondition(varValue + " < " + toValue);
-
 
 		CLBlock forBlock = new CLBlock();
 		buildBlock(forBlock);
@@ -677,8 +637,7 @@ public class XMICLProgramWriter {
 
 	private QWhile buildDOWHILEStatement(CLCommand clCmd) throws IntegratedLanguageExpressionException {
 
-		QWhile whileStatement = QIntegratedLanguageFlowFactory.eINSTANCE
-				.createWhile();
+		QWhile whileStatement = QIntegratedLanguageFlowFactory.eINSTANCE.createWhile();
 
 		// Read params
 		String condValue = null;
@@ -688,7 +647,7 @@ public class XMICLProgramWriter {
 			condValue = clCmd.getParm("COND").getValue().getText();
 		}
 
-//		whileStatement.setCondition(expressionParser.parseLogic(condValue));
+		// whileStatement.setCondition(expressionParser.parseLogic(condValue));
 		whileStatement.setCondition(condValue);
 
 		CLBlock whileBlock = new CLBlock();
@@ -699,21 +658,18 @@ public class XMICLProgramWriter {
 
 	}
 
-	private void buildBlock(CLBlock block)
-			throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
+	private void buildBlock(CLBlock block) throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
 
 		int i = 0;
 		while (rowIterator.hasNext()) {
 
 			CLRow row = rowIterator.next();
-			if (row.getCommand() != null
-					&& row.getCommand().getName().equalsIgnoreCase("ENDDO")) {
+			if (row.getCommand() != null && row.getCommand().getName().equalsIgnoreCase("ENDDO")) {
 				break;
 			} else {
 				System.out.println(i++ + ":" + row.getText());
 				analizeRow(block, row);
 			}
-
 
 		}
 
@@ -742,7 +698,7 @@ public class XMICLProgramWriter {
 
 			StringTokenizer tokenizer = new StringTokenizer(parms, " ");
 
-			while(tokenizer.hasMoreTokens()) {
+			while (tokenizer.hasMoreTokens()) {
 				String parm = tokenizer.nextToken();
 				entry.getParameters().add(parm);
 			}
@@ -756,10 +712,10 @@ public class XMICLProgramWriter {
 		// Create DataTerm
 		QUnaryAtomicDataTerm<QUnaryAtomicDataDef<?>> unaryDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryAtomicDataTerm();
 
-		// Read mandatory parms
 		String varName = null;
 		String varType = null;
 		String varLength = null;
+		String varValue = null;
 
 		if (clCmd.getPositionalParms().size() > 0) {
 			varName = clCmd.getPositionalParm(0).getValue().getText();
@@ -781,11 +737,17 @@ public class XMICLProgramWriter {
 			varType = clCmd.getParm("TYPE").getValue().getText().trim();
 		}
 
-		if(varLength == null) {
+		if (varLength == null) {
 			varLength = clCmd.getParm("LEN").getValue().getText().trim();
 		}
 
+		if(clCmd.getParm("VALUE") != null)
+			varValue = clCmd.getParm("VALUE").getValue().getText().trim();
+		
 		unaryDataTerm.setName(varName);
+		
+		if(varValue != null)
+			unaryDataTerm.setDefault(varValue);
 
 		// Create DataDef
 
@@ -798,11 +760,19 @@ public class XMICLProgramWriter {
 
 		if (varType.equalsIgnoreCase("*DEC")) {
 			decimalDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createDecimalDef();
+
+			if (varLength != null) {
+				String[] tokens = varLength.split(" ");
+				decimalDefinition.setPrecision(Integer.parseInt(tokens[0]));
+				if (tokens.length > 1)
+					decimalDefinition.setScale(Integer.parseInt(tokens[1]));
+			}
+
 			dataDef = (QUnaryAtomicDataDef<QDecimal>) decimalDefinition;
 		} else if (varType.equalsIgnoreCase("*CHAR")) {
 			characterDefinition = QIntegratedLanguageDataFactory.eINSTANCE.createCharacterDef();
 
-			if(varLength != null)
+			if (varLength != null)
 				characterDefinition.setLength(Integer.parseInt(varLength));
 
 			dataDef = (QUnaryAtomicDataDef<QCharacter>) characterDefinition;
@@ -822,27 +792,25 @@ public class XMICLProgramWriter {
 
 		/*
 		 * else if (varType.equalsIgnoreCase("*PTR")) {
-		 *
+		 * 
 		 * }
 		 */
 
 		else {
-			throw new OperatingSystemRuntimeException(
-					"Unknown DCL variable type: " + varType);
+			throw new OperatingSystemRuntimeException("Unknown DCL variable type: " + varType);
 		}
-
+		
 		unaryDataTerm.setDefinition(dataDef);
 
 		flowProgram.getDataSection().getDatas().add(unaryDataTerm);
 	}
-	
-	
+
 	public static String removeFirstChar(String str) {
-		if(str.length() == 0)
+		if (str.length() == 0)
 			return str;
-		if(str.length() == 1)
+		if (str.length() == 1)
 			return "";
-		
+
 		return str.substring(1);
 	}
 }

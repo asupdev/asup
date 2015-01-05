@@ -362,7 +362,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();
 
 			for (String parameter : statement.getParameters()) {
-				QTermExpression expression = expressionParser.parseTerm(parameter);
+
+				QExpression expression = expressionParser.parseExpression(parameter);
+							
 				if (entryParameters.hasNext()) {
 					QEntryParameter<?> entryParameter = entryParameters.next();
 					QTerm parameterDelegate = entryParameter.getDelegate();
@@ -454,10 +456,9 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			if (statement.getParameters() != null) {
 				for (String parameter : statement.getParameters()) {
 
-					QTermExpression expression = expressionParser.parseTerm(parameter);
+					QExpression expression = expressionParser.parseExpression(parameter);								
 					Expression jdtExpression = buildExpression(ast, expression, null);
 					methodInvocation.arguments().add(jdtExpression);
-
 				}
 			}
 

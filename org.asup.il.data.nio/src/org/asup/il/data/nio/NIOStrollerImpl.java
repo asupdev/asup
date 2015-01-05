@@ -98,6 +98,16 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	}
 
 	@Override
+	public void cat(QString factor1, Number space) {
+		current().cat(factor1, space);
+	}
+
+	@Override
+	public void cat(String factor1, Number space) {
+		current().cat(factor1, space);		
+	}
+
+	@Override
 	public <E extends Enum<E>> boolean eq(E value) {
 		return current().eq(value);
 	}

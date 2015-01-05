@@ -21,7 +21,6 @@ import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
-import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetime;
@@ -97,13 +96,16 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			break;
 		case HEXADECIMAL:
 			value = expression.getValue();
-			if (value.startsWith("X'")) {
-				value = value.substring(2);
-				value = "0x" + value.substring(0, value.length() - 1);
-				value = "\"" + value + "\"";
-			}
 
-			source = QHexadecimal.class;
+			if (value.startsWith("X'") || value.startsWith("x'")) {
+				value = value.substring(2);
+				value = value.substring(0, value.length() - 1);
+				source = QHexadecimal.class;
+				value = "(byte) 0x" + value;				
+			}
+			else
+				throw new IntegratedLanguageExpressionRuntimeException("Invalid hexadecimal: " + expression.getValue());
+			
 			break;
 		case SPECIAL:
 			source = Enum.class;
@@ -629,7 +631,8 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(value);
 		} 
 		// Specials
-		else if (source.isAssignableFrom(Enum.class) && this.target.isAssignableFrom(QBufferedData.class)) {
+//		else if (source.isAssignableFrom(Enum.class) && this.target.isAssignableFrom(QBufferedData.class)) {
+		else if (source.isAssignableFrom(Enum.class) && !this.target.isAssignableFrom(Boolean.class)) {
 			buffer.append(value);
 		} 
 		

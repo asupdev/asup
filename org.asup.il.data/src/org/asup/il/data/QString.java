@@ -137,6 +137,22 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model factor1Required="true" spaceType="org.asup.fw.java.JavaNumber" spaceRequired="true"
+	 * @generated
+	 */
+	void cat(QString factor1, Number space);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model factor1Required="true" spaceType="org.asup.fw.java.JavaNumber" spaceRequired="true"
+	 * @generated
+	 */
+	void cat(String factor1, Number space);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model factor1Required="true"
 	 * @generated
 	 */

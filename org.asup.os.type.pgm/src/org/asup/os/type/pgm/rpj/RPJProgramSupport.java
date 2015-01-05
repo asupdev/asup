@@ -29,6 +29,7 @@ import org.asup.il.data.QIndicator;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
+import org.asup.il.data.QPointer;
 import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.isam.QDataSet;
@@ -176,19 +177,27 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return null;
 	}
 
+	public QDecimal qDec(QString string, int precision, int scale) {
+		return null;
+	}
+
+	public QDecimal qDec(String string, int precision, int scale) {
+		return null;
+	}
+	
 	public void qCommand(String statement) {
 
 	}
 
-	public QDatetime qAdddur(QDatetime op1, QDecimal op2, String format) {
+	public QDatetime qAdddur(QDatetime op1, QDecimal op2, Enum<?> format) {
 		return null;
 	}
 
-	public QDatetime qSubdur(QDatetime op1, QDecimal op2, String format) {
+	public QDatetime qSubdur(QDatetime op1, QDecimal op2, Enum<?> format) {
 		return null;
 	}
 
-	public QDecimal qDiff(QDatetime op1, QDatetime op2, String format) {
+	public QDecimal qDiff(QDatetime op1, QDatetime op2, Enum<?> format) {
 		return null;
 	}
 
@@ -218,12 +227,19 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return qBox(dataSet.isOpen());
 	}
 
+	public QIndicator qEqual(QDataSet<?> dataSet) {
+		return qBox(dataSet.onError());
+	}
 	public QIndicator qError() {
 		return null;
 	}
+	
+	public QIndicator qError(QDataSet<?> dataSet) {
+		return qBox(dataSet.onError());
+	}
 
-	public QIndicator qFound() {
-		return null;
+	public QIndicator qFound(QDataSet<?> dataSet) {
+		return qBox(dataSet.isFound());
 	}
 
 	public QDecimal qInt(QString string) {
@@ -236,6 +252,26 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public void qLabel(Enum<?> name) {
 	}
 
+	public Object qAddr(QBufferedData bufferedData) {
+		return null;
+	}
+	
+	public QPointer qAlloc(QNumeric size) {
+		return null;
+	}
+	
+	public QPointer qAlloc(Integer size) {
+		return null;
+	}
+	
+	public QPointer qRealloc(QPointer pointer, QNumeric size) {
+		return null;
+	}
+	
+	public QPointer qRealloc(QPointer pointer, Integer size) {
+		return null;
+	}
+	
 	public QDecimal qLen(QBufferedData bufferedData) {
 		QDecimal decimal = qDF.createDecimal(5, 0, DecimalType.ZONED, true);
 		decimal.eval(bufferedData.getLength());
@@ -255,6 +291,46 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	}
 	
 	public QDecimal qLookup(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
+	}
+
+	public QDecimal qLookup(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
+	}
+	
+	public QDecimal qLookuplt(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
+	}
+
+	public QDecimal qLookuplt(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
+	}
+	
+	public QDecimal qLookuple(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.LE, argument, list, startIndex, numElements);
+	}
+
+	public QDecimal qLookuple(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.LE, argument, list, startIndex, numElements);
+	}
+	
+	public QDecimal qLookupgt(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.GT, argument, list, startIndex, numElements);
+	}
+
+	public QDecimal qLookupgt(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.GT, argument, list, startIndex, numElements);
+	}
+	
+	public QDecimal qLookupge(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
+	}
+
+	public QDecimal qLookupge(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
+	}
+	
+	private QDecimal qLookup(LookupOperator operator, Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 
 		if (numElements == null)
 			numElements = list.capacity();
@@ -267,7 +343,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		return qBox(-1);
 	}
 
-	public QDecimal qLookup(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
+	private QDecimal qLookup(LookupOperator operator, QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 
 		if (numElements == null)
 			numElements = list.capacity();
@@ -283,7 +359,15 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QDecimal qRem(QNumeric ope1, QNumeric ope2) {
 		return null;
 	}
+	
+	// TODO double byte?
+	public QDecimal qScan(byte argument, QString source, Integer start) {
 
+		int position = source.toString().indexOf(argument, start) + 1;
+
+		return qBox(position);
+	}
+	
 	public QDecimal qScan(String argument, QString source, Integer start) {
 
 		int position = source.toString().indexOf(argument, start) + 1;
@@ -541,7 +625,25 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		public QIndicator qIN81;
 		@Overlay(name = "IN", position = "90")
 		public QIndicator qIN90;
-
+		@Overlay(name = "IN", position = "91")
+		public QIndicator qIN91;
+		@Overlay(name = "IN", position = "92")
+		public QIndicator qIN92;
+		@Overlay(name = "IN", position = "93")
+		public QIndicator qIN93;
+		@Overlay(name = "IN", position = "94")
+		public QIndicator qIN94;
+		@Overlay(name = "IN", position = "95")
+		public QIndicator qIN95;
+		@Overlay(name = "IN", position = "96")
+		public QIndicator qIN96;
+		@Overlay(name = "IN", position = "97")
+		public QIndicator qIN97;
+		@Overlay(name = "IN", position = "98")
+		public QIndicator qIN98;
+		@Overlay(name = "IN", position = "99")
+		public QIndicator qIN99;
+		
 		public QIndicator get(Integer index) {
 			return null;
 		}
@@ -563,4 +665,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		}
 	}
 
+	private static enum LookupOperator {
+		EQ, LT, LE, GT, GE;
+	}
 }

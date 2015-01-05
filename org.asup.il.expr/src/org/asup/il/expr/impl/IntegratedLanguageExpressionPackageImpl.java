@@ -804,6 +804,10 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 
 		initEClass(expressionParserEClass, QExpressionParser.class, "ExpressionParser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		op = addEOperation(expressionParserEClass, this.getExpression(), "parseExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "expression", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getILExpressionRuntimeException());
+
 		op = addEOperation(expressionParserEClass, this.getArithmeticExpression(), "parseArithmetic", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "expression", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getILExpressionRuntimeException());

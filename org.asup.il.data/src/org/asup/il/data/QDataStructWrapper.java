@@ -106,6 +106,21 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	}
 
 	@Override
+	public void cat(QString factor1, QString factor2, QNumeric space) {
+		delegate.cat(factor1, factor2, space);
+	}
+
+	@Override
+	public void cat(QString factor1, Number space) {
+		delegate.cat(factor1, space);		
+	}
+
+	@Override
+	public void cat(String factor1, Number space) {
+		delegate.cat(factor1, space);		
+	}
+
+	@Override
 	public void clear() {
 		delegate.clear();
 	}
@@ -474,11 +489,6 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	@Override
 	public void xlate(String from, String to, QString target) {
 		delegate.xlate(from, to, target);
-	}
-
-	@Override
-	public void cat(QString factor1, QString factor2, QNumeric space) {
-		delegate.cat(factor1, factor2, space);
 	}
 
 }

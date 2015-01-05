@@ -14,6 +14,7 @@ package org.asup.il.expr.base;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
 import org.asup.il.expr.QArithmeticExpression;
 import org.asup.il.expr.QAssignmentExpression;
+import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QTermExpression;
 import org.asup.il.expr.base.util.CLExpressionHelper;
@@ -48,5 +49,10 @@ public class CLExpressionParserImpl extends ExpressionParserImpl {
 	@Override
 	public QTermExpression parseTerm(String expression) throws IntegratedLanguageExpressionRuntimeException {
 		return expressionBuilder.buildAsTerm(expression);
+	}
+	
+	@Override
+	public QExpression parseExpression(String expression) throws IntegratedLanguageExpressionRuntimeException {
+		return expressionBuilder.buildAsExpression(expression);
 	}
 }

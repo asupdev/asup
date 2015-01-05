@@ -14,4 +14,20 @@ package org.asup.il.data;
  * <!-- end-user-doc -->
  */
 public interface QCharacter extends QString {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" valueRequired="true"
+	 * @generated
+	 */
+	boolean eq(byte value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(byte value);
 }

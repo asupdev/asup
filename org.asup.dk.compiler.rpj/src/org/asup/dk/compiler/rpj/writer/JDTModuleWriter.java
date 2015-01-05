@@ -17,18 +17,11 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
 import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
-import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
-import org.asup.os.type.pgm.rpj.RPJProgramSupport;
-import org.asup.os.type.pgm.rpj.RPJServiceSupport;
-import org.eclipse.jdt.core.dom.FieldDeclaration;
-import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
-import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public class JDTModuleWriter extends JDTCallableUnitWriter {
 
@@ -36,7 +29,6 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 		super(root, compilationUnit, compilationSetup, name);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void writeModule(QModule module) throws IOException {
 
 		// refactoring callable unit
@@ -51,20 +43,6 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 		}
 
 		writeSupportFields(callableUnitInfo);
-		// TODO
-		if(module.getName().equals("£JAX")){
-			writeImport(QData.class);
-			writeImport(RPJProgramSupport.class);
-
-			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
-			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, ModuleDef.class, "name", "*JAX");
-			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
-			field.setType(getAST().newSimpleType(getAST().newName(RPJServiceSupport.class.getSimpleName())));
-			variable.setName(getAST().newSimpleName("qJAX"));
-			getTarget().bodyDeclarations().add(field);
-		}
-
 
 		writeModuleFields(module.getSetupSection().getModules());
 

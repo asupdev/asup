@@ -12,6 +12,7 @@
 package org.asup.il.data.nio;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
@@ -44,6 +45,11 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public void eval(String value) {
 		movel(value, true);
+	}
+
+	@Override
+	public void eval(byte value) {		
+		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, new byte[] {value}, true, INIT);
 	}
 
 	@Override
@@ -123,6 +129,18 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		return trimR(toString());
 	}
 
+	@Override
+	public void cat(QString factor1, Number space) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cat(String factor1, Number space) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	@Override
 	public void cat(String factor1, String factor2, int space) {
 		// TODO Auto-generated method stub
@@ -220,6 +238,11 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public boolean ge(String value) {
 		return trimR().compareTo(trimR(value))>=0;
+	}
+
+	@Override
+	public boolean eq(byte value) {
+		return Arrays.equals(asBytes(), new byte[] {value});
 	}
 
 	@Override

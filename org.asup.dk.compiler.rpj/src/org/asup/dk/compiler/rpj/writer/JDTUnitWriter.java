@@ -20,6 +20,7 @@ import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.flow.QUnit;
 import org.asup.os.type.pgm.rpj.RPJDatabaseSupport;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
+import org.asup.os.type.pgm.rpj.RPJServiceSupport;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.BodyDeclaration;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
@@ -82,6 +83,19 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 
 		}
 
+		// TODO
+		String name = getCompilationUnit().getRoot().getName();
+		if(name.equalsIgnoreCase("£JAX") || name.equalsIgnoreCase("£J03")){
+			writeImport(RPJServiceSupport.class);
+
+			variable = getAST().newVariableDeclarationFragment();
+			field = getAST().newFieldDeclaration(variable);
+			writeAnnotation(field, ModuleDef.class, "name", "*JAX");
+			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+			field.setType(getAST().newSimpleType(getAST().newName(RPJServiceSupport.class.getSimpleName())));
+			variable.setName(getAST().newSimpleName("qJAX"));
+			getTarget().bodyDeclarations().add(field);
+		}
 	}
 
 	public void refactUnit(QUnit unit) {

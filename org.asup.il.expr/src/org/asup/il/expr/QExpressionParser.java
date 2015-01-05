@@ -27,6 +27,14 @@ public interface QExpressionParser extends QPlugin, QService {
 	 * @model exceptions="org.asup.il.expr.ILExpressionRuntimeException" expressionRequired="true"
 	 * @generated
 	 */
+	QExpression parseExpression(String expression) throws IntegratedLanguageExpressionRuntimeException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.il.expr.ILExpressionRuntimeException" expressionRequired="true"
+	 * @generated
+	 */
 	QAssignmentExpression parseAssignment(String expression) throws IntegratedLanguageExpressionRuntimeException;
 
 	/**

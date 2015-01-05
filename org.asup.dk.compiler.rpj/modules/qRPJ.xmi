@@ -802,6 +802,18 @@
         <definition
             xsi:type="il-data:PointerDef"/>
       </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="expression"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+      </entry>
     </prototypes>
     <prototypes>
       <delegate
@@ -858,6 +870,27 @@
               name="expression">
             <definition
                 xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%alloc">
+        <definition
+            xsi:type="il-data:PointerDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="size"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
           </delegate>
         </parameters>
       </entry>
@@ -957,6 +990,47 @@
               xsi:type="il-data:UnaryAtomicDataTerm"
               constant="true"
               name="start"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%dec">
+        <definition
+            xsi:type="il-data:DecimalDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="expression"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="precision"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="scale"
               default="">
             <definition
                 xsi:type="il-data:NumericDef"/>
@@ -1122,10 +1196,32 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%equal">
+        <definition
+            xsi:type="il-data:IndicatorDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-isam:DataSetTerm"
+              fileName="dataSet"/>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%error">
         <definition
             xsi:type="il-data:IndicatorDef"/>
       </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-isam:DataSetTerm"
+              fileName="dataSet"/>
+        </parameters>
+      </entry>
     </prototypes>
     <prototypes>
       <delegate
@@ -1134,6 +1230,13 @@
         <definition
             xsi:type="il-data:IndicatorDef"/>
       </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-isam:DataSetTerm"
+              fileName="dataSet"/>
+        </parameters>
+      </entry>
     </prototypes>
     <prototypes>
       <delegate
@@ -1171,7 +1274,7 @@
               default=""
               mandatory="true">
             <definition
-                xsi:type="il-data:BufferDef"/>
+                xsi:type="il-data:StringDef"/>
           </delegate>
         </parameters>
       </entry>
@@ -1180,6 +1283,202 @@
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="%lookup">
+        <definition
+            xsi:type="il-data:NumericDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="argument"
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:MultipleAtomicDataTerm"
+              name="list">
+            <definition
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="startIndex"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="numElements"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%lookuplt">
+        <definition
+            xsi:type="il-data:NumericDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="argument"
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:MultipleAtomicDataTerm"
+              name="list">
+            <definition
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="startIndex"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="numElements"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%lookuple">
+        <definition
+            xsi:type="il-data:NumericDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="argument"
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:MultipleAtomicDataTerm"
+              name="list">
+            <definition
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="startIndex"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="numElements"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%lookupgt">
+        <definition
+            xsi:type="il-data:NumericDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="argument"
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:MultipleAtomicDataTerm"
+              name="list">
+            <definition
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="startIndex"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="numElements"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%lookupge">
         <definition
             xsi:type="il-data:NumericDef"/>
       </delegate>
@@ -1248,6 +1547,35 @@
             xsi:type="il-data:DecimalDef"
             precision="3"/>
       </delegate>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%realloc">
+        <definition
+            xsi:type="il-data:PointerDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="pointer">
+            <definition
+                xsi:type="il-data:PointerDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="size"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
     </prototypes>
     <prototypes>
       <delegate
@@ -1461,47 +1789,6 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
-          name="%subst">
-        <definition
-            xsi:type="il-data:StringDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="string"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              constant="true"
-              name="start"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:NumericDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              constant="true"
-              name="length"
-              default="">
-            <definition
-                xsi:type="il-data:NumericDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%subdur">
         <definition
             xsi:type="il-data:DatetimeDef"/>
@@ -1536,6 +1823,47 @@
               mandatory="true">
             <definition
                 xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%subst">
+        <definition
+            xsi:type="il-data:StringDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="string"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="start"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="length"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
           </delegate>
         </parameters>
       </entry>
