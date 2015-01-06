@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -158,7 +159,7 @@ public class MethodExecImpl extends InvokeImpl implements QMethodExec {
 	 */
 	public List<String> getParameters() {
 		if (parameters == null) {
-			parameters = new EDataTypeUniqueEList<String>(String.class, this, QIntegratedLanguageFlowPackage.METHOD_EXEC__PARAMETERS);
+			parameters = new EDataTypeEList<String>(String.class, this, QIntegratedLanguageFlowPackage.METHOD_EXEC__PARAMETERS);
 		}
 		return parameters;
 	}

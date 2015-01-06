@@ -91,7 +91,7 @@ public interface QMethodExec extends QInvoke {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' attribute list.
 	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getMethodExec_Parameters()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	List<String> getParameters();

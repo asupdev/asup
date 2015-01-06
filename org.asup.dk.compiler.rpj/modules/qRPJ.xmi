@@ -1542,6 +1542,26 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%paddr">
+        <definition
+            xsi:type="il-data:PointerDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="expression"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%parms">
         <definition
             xsi:type="il-data:DecimalDef"
