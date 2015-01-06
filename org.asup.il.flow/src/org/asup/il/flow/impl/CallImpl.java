@@ -17,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -116,7 +117,7 @@ public class CallImpl extends InvokeImpl implements QCall {
 	 */
 	public List<String> getParameters() {
 		if (parameters == null) {
-			parameters = new EDataTypeUniqueEList<String>(String.class, this, QIntegratedLanguageFlowPackage.CALL__PARAMETERS);
+			parameters = new EDataTypeEList<String>(String.class, this, QIntegratedLanguageFlowPackage.CALL__PARAMETERS);
 		}
 		return parameters;
 	}

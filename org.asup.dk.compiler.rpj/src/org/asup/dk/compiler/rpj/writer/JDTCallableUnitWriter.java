@@ -59,6 +59,7 @@ import org.eclipse.jdt.core.dom.Block;
 import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.Expression;
+import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -477,7 +478,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
 
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
-			parameterVariable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataTerm.getName())));
+			parameterVariable.setName(getAST().newSimpleName("arg_"+getCompilationUnit().normalizeTermName(dataTerm.getName())));
 			Type type = getJavaType(dataTerm);
 			parameterVariable.setType(type);
 
@@ -488,6 +489,21 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
+		
+		for (String parameterName : parameterList.getParameters()) {
+			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
+			
+			MethodInvocation methodInvocation = getAST().newMethodInvocation();
+			methodInvocation.setName(getAST().newSimpleName("assign"));
+					
+			methodInvocation.setExpression(getAST().newSimpleName("arg_"+getCompilationUnit().normalizeTermName(dataTerm.getName())));
+
+			methodInvocation.arguments().add(getAST().newName(getCompilationUnit().getQualifiedName(dataTerm).split("\\.")));
+
+
+			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+			block.statements().add(expressionStatement);
+		}
 	}
 
 	public void refactCallableUnit(QCallableUnit callableUnit) {

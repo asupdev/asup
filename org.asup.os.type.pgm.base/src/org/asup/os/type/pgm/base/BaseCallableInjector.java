@@ -125,7 +125,7 @@ public class BaseCallableInjector {
 
 			field.setAccessible(true);
 
-			// System.out.println(field);
+			System.out.println(field);
 
 			// TODO
 			if (field.getName().startsWith("$SWITCH_TABLE"))
@@ -209,6 +209,9 @@ public class BaseCallableInjector {
 			QFile file = fileManager.getOverriddenFile(job, fileDef.name());
 			if (file == null)
 				file = fileReader.lookup(fileDef.name());
+			
+			if(file == null)
+				return;
 			
 			if (QKSDataSet.class.isAssignableFrom(klass)) {
 				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), klass);

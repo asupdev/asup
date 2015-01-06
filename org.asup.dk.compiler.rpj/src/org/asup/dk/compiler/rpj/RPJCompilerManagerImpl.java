@@ -69,13 +69,13 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	private QSourceManager sourceManager;
 
 	private ResourceSet resourceSet = new ResourceSetImpl();
-
+	private Map<String, QCompilationUnit> globalContexts = new HashMap<>();
+	
 	@Override
 	public QCompilationUnit createChildCompilationUnit(QCompilationUnit master, QProcedure procedure) {
 
 		QJob job = master.getContext().get(QJob.class);
 
-		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
 		List<QCompilationUnit> moduleContexts = prepareContexts(job, globalContexts, procedure, master.getCaseSensitive());
 		moduleContexts.add(master);
 
@@ -125,14 +125,12 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	@Override
 	public QCompilationUnit createCompilationUnit(QJob job, QModule module, CaseSensitiveType caseSensitive) {
 
-		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
 		return createCompilationUnit(job, globalContexts, module, caseSensitive);
 	}
 
 	@Override
 	public QCompilationUnit createCompilationUnit(QJob job, QProgram program, CaseSensitiveType caseSensitive) {
 
-		Map<String, QCompilationUnit> globalContexts = new HashMap<>();
 		List<QCompilationUnit> moduleContexts = prepareContexts(job, globalContexts, program, caseSensitive);
 
 		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createChildContext(program.getName()), program, moduleContexts, caseSensitive);

@@ -119,7 +119,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 			address = program.getAddress(); 
 		// Program
 		else				
-			address = "asup:/omac/"+program.getLibrary()+"/"+program.getApplication()+".pgm."+program.getName();
+			address = "asup:/omac/com.smeup.erp.gen.pgm/com.smeup.erp.gen.pgm."+program.getApplication()+"."+program.getName();
 
 		Class<?> klass = job.getContext().loadClass(address);
 		

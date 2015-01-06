@@ -14,7 +14,9 @@ package org.asup.dk.compiler.rpj;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationUnit;
@@ -53,6 +55,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	private List<QRoutine> routines;
 	private List<QProcedure> procedures;
 	private List<QPrototype<?>> prototypes;
+
+	private Map<String, QDataTerm<?>> cachedTerms = new HashMap<String, QDataTerm<?>>();
+	private Map<String, QPrototype<?>> cachedPrototypes = new HashMap<String, QPrototype<?>>();
 
 	public RPJCompilationUnitImpl(QContext context, QNamedNode root, List<QCompilationUnit> compilationUnits, CaseSensitiveType caseSensitive) {
 
@@ -151,7 +156,22 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	@Override
 	public QDataTerm<?> getDataTerm(String name, boolean deep) {
 
-		QDataTerm<?> dataTerm = null;
+		QDataTerm<?> dataTerm = cachedTerms.get(name);
+		if (dataTerm != null)
+			return dataTerm;
+
+		// deep search by prefix
+		if (dataTerm == null && deep) {
+
+			for (QCompilationUnit compilationUnit : compilationUnits) {
+				if (name.toUpperCase().startsWith(compilationUnit.getRoot().getName())) {
+					dataTerm = compilationUnit.getDataTerm(name, true);
+
+					if (dataTerm != null)
+						break;
+				}
+			}
+		}
 
 		// search on dataTermContainer
 		if (dataTerm == null && ((QCallableUnit) getRoot()).getDataSection() != null)
@@ -172,10 +192,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 						pos = Integer.parseInt(tokens[1]);
 					else
 						pos = pfx.length();
-					
-					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, pfx, pos);					
-				}
-				else
+
+					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, pfx, pos);
+				} else
 					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, null, 0);
 
 				if (dataTerm != null)
@@ -185,14 +204,22 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 		// deep search
 		if (dataTerm == null && deep) {
-			for (QCompilationUnit compilationUnit : compilationUnits) {
 
-				dataTerm = compilationUnit.getDataTerm(name, true);
+			if (dataTerm == null) {
+				for (QCompilationUnit compilationUnit : compilationUnits) {
+					if (name.toUpperCase().startsWith(compilationUnit.getRoot().getName()))
+						continue;
 
-				if (dataTerm != null)
-					break;
+					dataTerm = compilationUnit.getDataTerm(name, true);
+
+					if (dataTerm != null)
+						break;
+				}
 			}
 		}
+
+		if (dataTerm != null)
+			cachedTerms.put(name, dataTerm);
 
 		return dataTerm;
 	}
@@ -255,7 +282,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	@Override
 	public QPrototype<?> getPrototype(String name, boolean deep) {
 
-		QPrototype<?> prototype = null;
+		QPrototype<?> prototype = cachedPrototypes.get(name);
+		if (prototype != null)
+			return prototype;
 
 		for (QPrototype<?> p : prototypes) {
 			if (equalsTermName(p.getName(), name)) {
@@ -273,6 +302,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 					break;
 			}
 		}
+
+		if (prototype != null)
+			cachedPrototypes.put(name, prototype);
 
 		return prototype;
 	}
@@ -360,55 +392,82 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	@Override
 	public QNamedNode getNamedNode(String name, boolean deep) {
 
+		String order = null;
+		
+		// search optimization
+		
+		// data
+		if (name.startsWith("*"))
+			order = "EDPMCSFK";
+		// prototype
+		else if (name.startsWith("%"))
+			order = "EPDMCSFK";
+		// other
+		else
+			order = "EMCSFKPD";
+		
+		QNamedNode namedNode = getNamedNode(name, deep, order);
+		
+		return namedNode;		
+	}
+
+	private QNamedNode getNamedNode(String name, boolean deep, String order) {
+
 		QNamedNode namedNode = null;
 
-		if (getRoot() instanceof QProcedure) {
-			QProcedure qProcedure = (QProcedure) getRoot();
+		for (char c : order.toCharArray()) {
 
-			for (QEntryParameter<?> entryParameter : qProcedure.getEntry().getParameters()) {
-				if (equalsTermName(entryParameter.getName(), name)) {
-					namedNode = entryParameter;
-					break;
+			switch (c) {
+
+			// entry
+			case 'E':
+				if (getRoot() instanceof QProcedure) {
+					QProcedure qProcedure = (QProcedure) getRoot();
+
+					for (QEntryParameter<?> entryParameter : qProcedure.getEntry().getParameters()) {
+						if (equalsTermName(entryParameter.getName(), name)) {
+							namedNode = entryParameter;
+							break;
+						}
+					}
 				}
+
+				break;
+			// dataTerm
+			case 'D':
+				namedNode = getDataTerm(name, deep);
+				break;
+			// prototype
+			case 'P':
+				namedNode = getPrototype(name, deep);
+				break;
+			// module
+			case 'M':
+				namedNode = getModule(name, deep);
+				break;
+			// cursor
+			case 'C':
+				namedNode = getCursor(name, deep);
+				break;
+			// statement
+			case 'S':
+				namedNode = getStatement(name, deep);
+				break;
+			// file
+			case 'F':
+				namedNode = getDataSet(name, deep);
+				break;
+			// keyList
+			case 'K':
+				namedNode = getKeyList(name, deep);
+				break;
+
 			}
+
+			if (namedNode != null)
+				break;
+
 		}
-		if (namedNode != null)
-			return namedNode;
-
-		// cursor
-		namedNode = getCursor(name, deep);
-		if (namedNode != null)
-			return namedNode;
-
-		// statement
-		namedNode = getStatement(name, deep);
-		if (namedNode != null)
-			return namedNode;
-
-		// prototypes
-		namedNode = getPrototype(name, deep);
-		if (namedNode != null)
-			return namedNode;
-
-		// dataSets
-		namedNode = getDataSet(name, deep);
-		if (namedNode != null)
-			return namedNode;
-
-		// keyList
-		namedNode = getKeyList(name, deep);
-		if (namedNode != null)
-			return namedNode;
-
-		// module
-		namedNode = getModule(name, deep);
-		if (namedNode != null)
-			return namedNode;
-
-		// dataTerms
-		namedNode = getDataTerm(name, deep);
-		if (namedNode != null)
-			return namedNode;
 
 		return namedNode;
 	}
@@ -444,14 +503,13 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 		QDataTerm<?> dataTerm = null;
 		for (QDataTerm<?> child : dataTerms) {
-			
+
 			String childName = null;
 			if (prefix != null) {
 				childName = prefix + child.getName().substring(position);
-			}
-			else
+			} else
 				childName = child.getName();
-			
+
 			if (equalsTermName(childName, name)) {
 				dataTerm = child;
 			} else if (equalsTermName(getQualifiedName(child), name)) {
@@ -487,9 +545,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			return null;
 
 		// reserved keywords
-		if(name.equalsIgnoreCase("INT"))
+		if (name.equalsIgnoreCase("INT"))
 			name = "_INT";
-		
+
 		StringBuffer nameBuffer = new StringBuffer();
 
 		boolean firstToUpper = false;

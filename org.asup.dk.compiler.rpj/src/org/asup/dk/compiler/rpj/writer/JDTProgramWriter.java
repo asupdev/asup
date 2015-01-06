@@ -29,6 +29,7 @@ import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QModule;
+import org.asup.il.flow.QParameterList;
 import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
@@ -49,12 +50,13 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 
 	public void writeProgram(QProgram program) throws IOException {
 
+		System.out.println(program);
 		// refactoring callable unit
 		refactCallableUnit(program);
 
 		// unit info
 		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(program);
-		
+
 		// modules
 		List<String> modules = new ArrayList<>();
 		if (program.getSetupSection() != null) {
@@ -62,15 +64,15 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 				loadModules(modules, module);
 
 			for (String module : modules) {
-				
+
 				QModule flowModule = getCompilationUnit().getModule(module, true);
-				if(flowModule == null)
-					throw new IOException("Invalid module: "+module);
-					
+				if (flowModule == null)
+					throw new IOException("Invalid module: " + module);
+
 				QCompilerLinker compilerLinker = flowModule.getFacet(QCompilerLinker.class);
-				if(compilerLinker != null)
+				if (compilerLinker != null)
 					writeImport(compilerLinker.getLinkedClass());
-				else				
+				else
 					writeImport(module);
 			}
 		}
@@ -94,6 +96,27 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 
 		if (program.getEntry() != null)
 			writeEntry(program.getEntry(), "qEntry");
+		else {
+			for (String module : modules) {
+
+				QModule flowModule = getCompilationUnit().getModule(module, true);
+				if (flowModule == null)
+					throw new IOException("Invalid module: " + module);
+				
+				QParameterList parameterList = null;
+				for(QParameterList pl: flowModule.getFlowSection().getParameterLists()) {
+					if(pl.getName().equals("*ENTRY")) {
+						parameterList = pl;						
+						break;
+					}
+				}
+				
+				if(parameterList != null) {
+					writeEntry(parameterList, "qEntry");
+					break;
+				}
+			}
+		}
 
 		// labels
 		writeLabels(callableUnitInfo.getLabels().keySet());
@@ -111,6 +134,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 
 			// routines
 			for (QRoutine routine : program.getFlowSection().getRoutines()) {
+				System.out.println("\t" + routine);
 				writeRoutine(routine);
 			}
 

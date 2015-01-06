@@ -101,15 +101,17 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 				value = value.substring(2);
 				value = value.substring(0, value.length() - 1);
 				source = QHexadecimal.class;
-				value = "(byte) 0x" + value;				
-			}
-			else
+				value = "(byte) 0x" + value;
+			} else
 				throw new IntegratedLanguageExpressionRuntimeException("Invalid hexadecimal: " + expression.getValue());
-			
+
 			break;
 		case SPECIAL:
 			source = Enum.class;
-			value = "qRPJ.qSP." + stringUtil.removeFirstChar(expression.getValue()).toUpperCase();
+			if (expression.getValue().equalsIgnoreCase("*OMIT"))
+				value = "null";
+			else
+				value = "qRPJ.qSP." + stringUtil.removeFirstChar(expression.getValue()).toUpperCase();
 			break;
 		case STRING:
 
@@ -629,13 +631,14 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		// Hexadecimal
 		if (source.isAssignableFrom(QHexadecimal.class)) {
 			buffer.append(value);
-		} 
+		}
 		// Specials
-//		else if (source.isAssignableFrom(Enum.class) && this.target.isAssignableFrom(QBufferedData.class)) {
+		// else if (source.isAssignableFrom(Enum.class) &&
+		// this.target.isAssignableFrom(QBufferedData.class)) {
 		else if (source.isAssignableFrom(Enum.class) && !this.target.isAssignableFrom(Boolean.class)) {
 			buffer.append(value);
-		} 
-		
+		}
+
 		else if (target.isAssignableFrom(String.class)) {
 			buffer.append(value);
 			buffer.append(".asString()");

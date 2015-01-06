@@ -64,7 +64,7 @@ public interface QCall extends QInvoke {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters</em>' attribute list.
 	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getCall_Parameters()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	List<String> getParameters();

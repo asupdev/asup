@@ -255,6 +255,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public Object qAddr(QBufferedData bufferedData) {
 		return null;
 	}
+
+	public Object qPaddr(QString string) {
+		return null;
+	}
 	
 	public QPointer qAlloc(QNumeric size) {
 		return null;
@@ -399,14 +403,17 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	public QString qSubst(QString source, Integer from, Integer length) {
 
-		String str = source.toString().substring(from - 1, from - 1 + length);
+		return qSubst(source.toString(), from, length);
+	}
+	public QString qSubst(String source, Integer from, Integer length) {
+
+		String str = source.substring(from - 1, from - 1 + length);
 
 		QString string = qDF.createCharacter(str.length(), false, true);
 		string.eval(str);
 
 		return string;
 	}
-
 	public QNumeric qTime(QDatetime datetime) {
 		return null;
 	}
