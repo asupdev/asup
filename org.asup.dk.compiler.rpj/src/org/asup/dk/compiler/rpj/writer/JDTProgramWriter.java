@@ -93,10 +93,14 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 			writeCursors(program.getFileSection().getCursors());
 			writeStatements(program.getFileSection().getStatements());
 		}
+		// TODO
+		QRoutine qRoutine = getCompilationUnit().getRoutine("£INIZI", true);
 
-		if (program.getEntry() != null)
+		if (program.getEntry() != null) {
+			if (qRoutine != null)
+				writeInit("qInit");
 			writeEntry(program.getEntry(), "qEntry");
-		else {
+		} else {
 			for (String module : modules) {
 
 				QModule flowModule = getCompilationUnit().getModule(module, true);
@@ -112,6 +116,8 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 				}
 				
 				if(parameterList != null) {
+					if (qRoutine != null)
+						writeInit("qInit");
 					writeEntry(parameterList, "qEntry");
 					break;
 				}

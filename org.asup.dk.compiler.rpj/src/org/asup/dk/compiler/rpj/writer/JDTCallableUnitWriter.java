@@ -71,6 +71,7 @@ import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+import javax.annotation.PostConstruct;
 
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
@@ -458,6 +459,33 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
+	}
+	@SuppressWarnings("unchecked")
+	public void writeInit(String name) {
+		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
+		getTarget().bodyDeclarations().add(methodDeclaration);
+
+		methodDeclaration.setName(getAST().newSimpleName(name));
+		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+		MarkerAnnotation entryAnnotation = getAST().newMarkerAnnotation();
+		entryAnnotation.setTypeName(getAST().newSimpleName(PostConstruct.class.getSimpleName()));
+		writeImport(PostConstruct.class);
+		methodDeclaration.modifiers().add(entryAnnotation);
+		Block block = getAST().newBlock();
+		methodDeclaration.setBody(block);
+		// TODO
+		// *INZSR
+		MethodInvocation methodInvocation = getAST().newMethodInvocation();
+		methodInvocation.setName(getAST().newSimpleName("qINZSR"));
+		methodInvocation.setExpression(getAST().newSimpleName("£mub"));
+		ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+		block.statements().add(expressionStatement);
+		// £INIZI
+		methodInvocation = getAST().newMethodInvocation();
+		methodInvocation.setName(getAST().newSimpleName("£inizi"));
+		expressionStatement = getAST().newExpressionStatement(methodInvocation);
+		block.statements().add(expressionStatement);
 	}
 
 	@SuppressWarnings("unchecked")
