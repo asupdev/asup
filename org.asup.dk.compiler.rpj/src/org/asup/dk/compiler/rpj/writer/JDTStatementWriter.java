@@ -37,7 +37,6 @@ import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFor;
 import org.asup.il.flow.QIf;
-import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QIteration;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
@@ -235,7 +234,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public boolean visit(QEval statement) {
 
 		Block block = blocks.peek();
-		
+
 		QAssignmentExpression assignmentExpression = expressionParser.parseAssignment(statement.getAssignment());
 		MethodInvocation methodInvocation = buildAssignmentMethod(assignmentExpression);
 
@@ -261,7 +260,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		else {
 			expression = buildExpression(ast, condition, Boolean.class);
 		}
-//			expression = buildExpression(ast, condition, null);
+		// expression = buildExpression(ast, condition, null);
 
 		ifSt.setExpression(expression);
 
@@ -364,7 +363,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			for (String parameter : statement.getParameters()) {
 
 				QExpression expression = expressionParser.parseExpression(parameter);
-							
+
 				if (entryParameters.hasNext()) {
 					QEntryParameter<?> entryParameter = entryParameters.next();
 					QTerm parameterDelegate = entryParameter.getDelegate();
@@ -386,10 +385,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				} else
 					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
 			}
-			
-			while(entryParameters.hasNext()) {
+
+			while (entryParameters.hasNext()) {
 				QEntryParameter<?> entryParameter = entryParameters.next();
-				if(entryParameter.isNullable())
+				if (entryParameter.isNullable())
 					methodInvocation.arguments().add(ast.newNullLiteral());
 				else
 					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
@@ -451,14 +450,14 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(statement.getMethod())));
 
 			if (statement.getObject() != null) {
-								
+
 				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
 			}
 
 			if (statement.getParameters() != null) {
 				for (String parameter : statement.getParameters()) {
 
-					QExpression expression = expressionParser.parseExpression(parameter);								
+					QExpression expression = expressionParser.parseExpression(parameter);
 					Expression jdtExpression = buildExpression(ast, expression, null);
 					methodInvocation.arguments().add(jdtExpression);
 				}
@@ -486,11 +485,11 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			statement.getBody().accept(this);
 
 		// catch
-		CatchClause catchClause = ast.newCatchClause();		
+		CatchClause catchClause = ast.newCatchClause();
 		SingleVariableDeclaration exceptionDeclaration = ast.newSingleVariableDeclaration();
 		Type exception = ast.newSimpleType(ast.newSimpleName(OperatingSystemRuntimeException.class.getSimpleName()));
 		exceptionDeclaration.setType(exception);
-		exceptionDeclaration.setName(ast.newSimpleName("e"));		
+		exceptionDeclaration.setName(ast.newSimpleName("e"));
 		catchClause.setException(exceptionDeclaration);
 		tryStatement.catchClauses().add(catchClause);
 
@@ -561,14 +560,14 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		Block block = blocks.peek();
 
-		if (isParentProcedure(statement)) {
-			ReturnStatement returnSt = ast.newReturnStatement();
-			block.statements().add(returnSt);
-		} else {
-			QEval eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
-			eval.setAssignment("*INRT=*ON");
-			visit(eval);
-		}
+		// if (isParentProcedure(statement)) {
+		ReturnStatement returnSt = ast.newReturnStatement();
+		block.statements().add(returnSt);
+		/*
+		 * } else { QEval eval =
+		 * QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+		 * eval.setAssignment("*INRT=*ON"); visit(eval); }
+		 */
 
 		return false;
 	}
@@ -724,6 +723,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		return methodInvocation;
 	}
 
+	@SuppressWarnings("unused")
 	private boolean isParentProcedure(QStatement statement) {
 
 		QNode parent = statement.getParent();
@@ -732,7 +732,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				return true;
 			parent = parent.getParent();
 		}
-		
+
 		return false;
 	}
 }
