@@ -41,6 +41,7 @@
     <eOperations name="prepare">
       <eParameters name="from" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//String"/>
     </eOperations>
+    <eOperations name="execute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StatementTerm" eSuperTypes="#//ESqlTerm"/>
   <eClassifiers xsi:type="ecore:EClass" name="ESqlManager" abstract="true" interface="true"

@@ -78,6 +78,9 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	@Override
 	public Number readNumber() {
+		
+		System.out.println(new String(asBytes()));
+		
 		return Double.parseDouble(new String(asBytes()));
 	}
 
@@ -88,7 +91,7 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	@Override
 	public int compareNumber(Number value) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return new BigDecimal(readNumber().toString()).compareTo(new BigDecimal(value.toString()));	
 	}
 }

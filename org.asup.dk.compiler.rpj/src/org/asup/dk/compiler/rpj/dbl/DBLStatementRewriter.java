@@ -21,6 +21,7 @@ import org.asup.db.syntax.QQueryParser;
 import org.asup.db.syntax.dbl.QCloseStatement;
 import org.asup.db.syntax.dbl.QDeclareCursorStatement;
 import org.asup.db.syntax.dbl.QDescribeStatement;
+import org.asup.db.syntax.dbl.QExecuteImmediateStatement;
 import org.asup.db.syntax.dbl.QExecuteStatement;
 import org.asup.db.syntax.dbl.QFetchStatement;
 import org.asup.db.syntax.dbl.QIntoClause;
@@ -28,6 +29,7 @@ import org.asup.db.syntax.dbl.QMultipleRowFetchClause;
 import org.asup.db.syntax.dbl.QOpenStatement;
 import org.asup.db.syntax.dbl.QPrepareStatement;
 import org.asup.db.syntax.dbl.QSetTransactionStatement;
+import org.asup.db.syntax.dml.QExtendedQuerySelect;
 import org.asup.db.syntax.util.DBSyntaxHelper;
 import org.asup.dk.compiler.rpj.RPJStatementRewriter;
 import org.asup.il.esql.CursorType;
@@ -41,18 +43,23 @@ import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.QSQLExec;
 import org.asup.il.flow.QStatement;
 import org.asup.il.flow.impl.IntegratedLanguageFlowFactoryImpl;
+import org.eclipse.datatools.modelbase.sql.query.QueryExpressionBody;
+import org.eclipse.datatools.modelbase.sql.query.QuerySelectStatement;
+import org.eclipse.datatools.modelbase.sql.query.ValueExpressionVariable;
+import org.eclipse.datatools.modelbase.sql.statements.SQLStatement;
 import org.eclipse.datatools.sqltools.parsers.sql.query.SQLQueryParseResult;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class DBLStatementRewriter extends RPJStatementRewriter {
-
+	
 	private QCallableUnit callableUnit;
 	private QBindingParser bindingParser;
 	private QQueryParser queryParser;
 
 	public static interface STATEMENT_METHOD {
-		String PREPARE = "prepare";		
+		String PREPARE = "prepare";
+		String EXECUTE = "execute";
 	}
 
 	public static interface CURSOR_METHOD {
@@ -66,13 +73,15 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		String RELATIVE = "realative";
 	}
 
-	public static String SET_TRANSACTION_METHOD = "SET_TRANSACTION_METHOD";
-	public static String DESCRIBE_METHOD = "DESCRIBE_METHOD";
+	public static final String SET_TRANSACTION_METHOD = "SET_TRANSACTION_METHOD";
+	public static final String DESCRIBE_METHOD = "DESCRIBE_METHOD";
 
+	public static final String EXECUTE_IMMEDIATE_METHOD = "%execute";
+	public static final String SELECT_METHOD = "%select";
+	
 	/*************** Public static parameters definitions */
 
-	public static String NONE = "*NULL";
-
+	public static final String NONE = "*OMIT";
 
 	public static interface ISOLATION_LEVEL {
 		String SERIALIZABLE = "SERIALIZABLE";
@@ -112,21 +121,19 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 	@Override
 	public boolean visit(QSQLExec statement) {
 
-		
-
 		String dblString = statement.getStatement();
 
 		if (DBSyntaxHelper.isDBLStatement(dblString)) {
 
 			QStatement rewritedStatement = null;
-			
+
 			try {
-				
+
 				if (isSelectIntoStatement(dblString))
 					rewritedStatement = manageSelectIntoStatement(dblString);
 				else
 					rewritedStatement = manageDBLStametemnt(dblString);
-				
+
 			} catch (SQLException e) {
 				// TODO TODO Manage parse error
 				e.printStackTrace();
@@ -134,7 +141,7 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 			if (rewritedStatement != null)
 				write(rewritedStatement);
-			
+
 		} else {
 			System.err.println(statement);
 			write((QStatement) EcoreUtil.copy((EObject) statement));
@@ -159,6 +166,8 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 			} else if (bindingStatement instanceof QExecuteStatement) {
 				result = manageExecuteStatement((QExecuteStatement) bindingStatement);
 
+			} else if (bindingStatement instanceof QExecuteImmediateStatement) {
+				result = manageExecuteImmediateStatement((QExecuteImmediateStatement) bindingStatement);
 			} else if (bindingStatement instanceof QOpenStatement) {
 				result = manageOpenStatement((QOpenStatement) bindingStatement);
 
@@ -363,23 +372,23 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 		return methodExec;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	private QStatement manageExecuteStatement(QExecuteStatement bindingStatement) {
-		System.out.println("Manage EXECUTE");
 
-		return null;
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		methodExec.setObject(bindingStatement.getStatementName());
+		methodExec.setMethod(STATEMENT_METHOD.EXECUTE);
+
+		return methodExec;
+	}
+
+	private QStatement manageExecuteImmediateStatement(QExecuteImmediateStatement bindingStatement) {
+
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		methodExec.setObject("*SQL");
+		methodExec.setMethod(EXECUTE_IMMEDIATE_METHOD);
+		methodExec.getParameters().add(bindingStatement.getVariable());
+
+		return methodExec;
 	}
 
 	private QStatement manageDescribeStatement(QDescribeStatement bindingStatement) {
@@ -493,17 +502,49 @@ public class DBLStatementRewriter extends RPJStatementRewriter {
 
 	private QStatement manageSelectIntoStatement(String dblString) throws SQLException {
 
-		System.out.println("Manage SELECT INTO");
-
+		// Extract into values
 		SQLQueryParseResult parseQueryResult = queryParser.parseQuery(dblString);
+
+		String[] into = null;
 
 		if (parseQueryResult != null) {
 
-		} else {
-			// TODO: manage parser error
+			SQLStatement sqlStatement = parseQueryResult.getSQLStatement();
+			if (sqlStatement instanceof QuerySelectStatement) {
+				QuerySelectStatement selectStatement = (QuerySelectStatement) sqlStatement;
+
+				QueryExpressionBody query = selectStatement.getQueryExpr().getQuery();
+				if (query instanceof QExtendedQuerySelect) {
+					QExtendedQuerySelect extendedQuery = (QExtendedQuerySelect) query;
+
+					if (extendedQuery.getIntoClause().size() > 0) {
+						into = new String[extendedQuery.getIntoClause().size()];
+
+						for (int i = 0; i < extendedQuery.getIntoClause().size(); i++) {
+
+							ValueExpressionVariable elem = (ValueExpressionVariable) extendedQuery.getIntoClause().get(i);
+							into[i] = elem.getName();
+						}
+					}
+				}
+
+			}
+
 		}
 
-		return null;
+		// Create method call
+		QMethodExec methodExec = IntegratedLanguageFlowFactoryImpl.eINSTANCE.createMethodExec();
+		methodExec.setObject("*SQL");
+		methodExec.setMethod(SELECT_METHOD);
+
+		methodExec.getParameters().add(dblString);
+		
+		String intoValue = new String();
+		for (String value : into)
+			intoValue += value + " ";
+		methodExec.getParameters().add(intoValue);
+
+		return methodExec;
 	}
 
 	private QStatementTerm getStatementTerm(String name) {

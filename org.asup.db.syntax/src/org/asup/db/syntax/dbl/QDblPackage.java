@@ -184,22 +184,13 @@ public interface QDblPackage extends EPackage {
 	int EXECUTE_IMMEDIATE_STATEMENT__VARIABLE = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Query</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXECUTE_IMMEDIATE_STATEMENT__QUERY = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Execute Immediate Statement</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXECUTE_IMMEDIATE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 2;
+	int EXECUTE_IMMEDIATE_STATEMENT_FEATURE_COUNT = QDatabaseSyntaxPackage.BINDING_STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.syntax.dbl.impl.ExecuteStatementImpl <em>Execute Statement</em>}' class.
@@ -713,17 +704,6 @@ public interface QDblPackage extends EPackage {
 	EAttribute getExecuteImmediateStatement_Variable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.db.syntax.dbl.QExecuteImmediateStatement#getQuery <em>Query</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Query</em>'.
-	 * @see org.asup.db.syntax.dbl.QExecuteImmediateStatement#getQuery()
-	 * @see #getExecuteImmediateStatement()
-	 * @generated
-	 */
-	EAttribute getExecuteImmediateStatement_Query();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.db.syntax.dbl.QExecuteStatement <em>Execute Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1198,14 +1178,6 @@ public interface QDblPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EXECUTE_IMMEDIATE_STATEMENT__VARIABLE = eINSTANCE.getExecuteImmediateStatement_Variable();
-
-		/**
-		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXECUTE_IMMEDIATE_STATEMENT__QUERY = eINSTANCE.getExecuteImmediateStatement_Query();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.syntax.dbl.impl.ExecuteStatementImpl <em>Execute Statement</em>}' class.

@@ -14,6 +14,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.lang.reflect.WildcardType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -58,7 +59,7 @@ public class BaseCallableInjector {
 	private QFileManager fileManager;
 	@Inject
 	private QJob job;
-	
+
 	private QResourceReader<QFile> fileReader;
 
 	@PostConstruct
@@ -66,7 +67,6 @@ public class BaseCallableInjector {
 		this.fileReader = fileManager.getResourceReader(job, Scope.LIBRARY_LIST);
 	}
 
-	
 	private QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 
 	public <C> C makeCallable(QJob job, QActivationGroup activationGroup, Class<C> klass) {
@@ -125,7 +125,7 @@ public class BaseCallableInjector {
 
 			field.setAccessible(true);
 
-			System.out.println(field);
+			// System.out.println(field);
 
 			// TODO
 			if (field.getName().startsWith("$SWITCH_TABLE"))
@@ -140,7 +140,11 @@ public class BaseCallableInjector {
 			} else
 				fieldKlass = (Class<?>) type;
 
-			if (field.getAnnotation(ModuleDef.class) != null) {
+			if (QDataFactory.class.isAssignableFrom(fieldKlass)) {
+				field.set(callable, dataFactory);
+			}
+			// Module
+			else if (field.getAnnotation(ModuleDef.class) != null) {
 				ModuleDef moduleDef = field.getAnnotation(ModuleDef.class);
 				Object callableModule = sharedModules.get(moduleDef.name());
 				if (callableModule == null) {
@@ -148,11 +152,16 @@ public class BaseCallableInjector {
 					sharedModules.put(moduleDef.name(), callableModule);
 				}
 				field.set(callable, callableModule);
-			} else if (QDataFactory.class.isAssignableFrom(fieldKlass)) {
-				field.set(callable, dataFactory);
-			} else if (QDataSet.class.isAssignableFrom(fieldKlass)) {
-				injectDataSet(job, dataFactory, callable, (Class<QRecord>) fieldKlass, field);
-			} else if (QData.class.isAssignableFrom(fieldKlass)) {
+			}
+			// DataSet
+			else if (QDataSet.class.isAssignableFrom(fieldKlass)) {
+
+				ParameterizedType pType = (ParameterizedType) type;
+				if (!(pType.getActualTypeArguments()[0] instanceof WildcardType))
+					injectDataSet(job, dataFactory, callable, (Class<QDataSet<QRecord>>) fieldKlass, (Class<QRecord>) pType.getActualTypeArguments()[0], field);
+			}
+			// Data
+			else if (QData.class.isAssignableFrom(fieldKlass)) {
 
 				QDataDef<?> dataType = dataFactory.createDataDef(type, Arrays.asList(field.getAnnotations()));
 				QData data = dataFactory.createData(dataType, true);
@@ -176,7 +185,9 @@ public class BaseCallableInjector {
 				}
 
 				field.set(callable, data);
-			} else if (field.getAnnotation(Inject.class) != null) {
+			}
+			// @Injection
+			else if (field.getAnnotation(Inject.class) != null) {
 				Object object = jobContext.get(fieldKlass);
 				if (object == null) {
 					field.setAccessible(false);
@@ -193,7 +204,7 @@ public class BaseCallableInjector {
 		return callable;
 	}
 
-	private void injectDataSet(QJob job, QDataFactory dataFactory, Object callable, Class<QRecord> klass, Field field) throws IllegalArgumentException, IllegalAccessException {
+	private void injectDataSet(QJob job, QDataFactory dataFactory, Object callable, Class<QDataSet<QRecord>> fieldKlass, Class<QRecord> recordKlass, Field field) throws IllegalArgumentException, IllegalAccessException {
 
 		QIsamFactory isamFactory = job.getContext().get(QIsamFactory.class);
 		if (isamFactory == null) {
@@ -209,15 +220,14 @@ public class BaseCallableInjector {
 			QFile file = fileManager.getOverriddenFile(job, fileDef.name());
 			if (file == null)
 				file = fileReader.lookup(fileDef.name());
-			
-			if(file == null)
+
+			if (file == null)
 				return;
-			
-			if (QKSDataSet.class.isAssignableFrom(klass)) {
-				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), klass);
-			}
-			else {
-				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), klass);
+
+			if (QKSDataSet.class.isAssignableFrom(fieldKlass)) {
+				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), recordKlass);
+			} else {
+				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass);
 			}
 
 			field.set(callable, dataSet);

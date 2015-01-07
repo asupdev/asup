@@ -485,6 +485,8 @@ public class IntegratedLanguageEmbeddedSQLPackageImpl extends EPackageImpl imple
 		op = addEOperation(statementEClass, null, "prepare", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageDataPackage.getString(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(statementEClass, null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(statementTermEClass, QStatementTerm.class, "StatementTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(eSqlManagerEClass, QESqlManager.class, "ESqlManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

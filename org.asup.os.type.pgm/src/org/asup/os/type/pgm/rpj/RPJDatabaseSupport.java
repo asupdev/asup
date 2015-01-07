@@ -13,8 +13,10 @@ package org.asup.os.type.pgm.rpj;
 
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructWrapper;
+import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.os.type.pgm.impl.CallableProgramImpl;
 
@@ -22,7 +24,14 @@ public class RPJDatabaseSupport extends CallableProgramImpl {
 
 	@DataDef
 	public SQLCA sqlca;
+	
+	public void qExecute(QString statement) {
 
+	}
+	
+	public void qSelect(QString statement, QBufferedData into) {
+
+	}
 
 	public static class SQLCA extends QDataStructWrapper {
 		private static final long serialVersionUID = 1L;

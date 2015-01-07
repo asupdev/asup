@@ -29,4 +29,12 @@ public interface QStatement extends QESqlObject {
 	 * @generated
 	 */
 	void prepare(QString from);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void execute();
 } // QStatement

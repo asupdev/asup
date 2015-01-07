@@ -114,10 +114,6 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		if (nioBufferedData == null)
 			throw new FrameworkCoreRuntimeException("No buffer reference found: " + target.getClass());
 
-		// TODO synchronize
-		if (_parent != null)
-			System.err.println("Unexpected condition: zsdg789zgsm07");
-
 		nioBufferedData._parent = null;
 		nioBufferedData._buffer = getBuffer();
 		nioBufferedData._position = getPosition();

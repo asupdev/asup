@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.asup.db.syntax.dbl.impl.ExecuteImmediateStatementImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link org.asup.db.syntax.dbl.impl.ExecuteImmediateStatementImpl#getQuery <em>Query</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,26 +51,6 @@ public class ExecuteImmediateStatementImpl extends BindingStatementImpl implemen
 	 * @ordered
 	 */
 	protected String variable = VARIABLE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String QUERY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getQuery() <em>Query</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected String query = QUERY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,34 +97,11 @@ public class ExecuteImmediateStatementImpl extends BindingStatementImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getQuery() {
-		return query;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setQuery(String newQuery) {
-		String oldQuery = query;
-		query = newQuery;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__QUERY, oldQuery, query));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__VARIABLE:
 				return getVariable();
-			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__QUERY:
-				return getQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,9 +116,6 @@ public class ExecuteImmediateStatementImpl extends BindingStatementImpl implemen
 		switch (featureID) {
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__VARIABLE:
 				setVariable((String)newValue);
-				return;
-			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__QUERY:
-				setQuery((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,9 +132,6 @@ public class ExecuteImmediateStatementImpl extends BindingStatementImpl implemen
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__VARIABLE:
 				setVariable(VARIABLE_EDEFAULT);
 				return;
-			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__QUERY:
-				setQuery(QUERY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -196,8 +146,6 @@ public class ExecuteImmediateStatementImpl extends BindingStatementImpl implemen
 		switch (featureID) {
 			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__VARIABLE:
 				return VARIABLE_EDEFAULT == null ? variable != null : !VARIABLE_EDEFAULT.equals(variable);
-			case QDblPackage.EXECUTE_IMMEDIATE_STATEMENT__QUERY:
-				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,8 +162,6 @@ public class ExecuteImmediateStatementImpl extends BindingStatementImpl implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (variable: ");
 		result.append(variable);
-		result.append(", query: ");
-		result.append(query);
 		result.append(')');
 		return result.toString();
 	}

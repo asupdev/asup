@@ -16,15 +16,16 @@ import org.asup.il.data.QIndicator;
 public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
 
 	private static final long serialVersionUID = 1L;
-	private static byte INIT = (byte) 32;
-
+	protected static byte OFF = (byte) 32;
+	protected static byte ON = (byte) 49;
+	
 	public NIOIndicatorImpl() {
 		super(1);
 	}
 
 	@Override
 	public boolean asBoolean() {
-		return asBytes()[0] != INIT;
+		return asBytes()[0] != OFF;
 	}
 
 	@Override
@@ -58,22 +59,6 @@ public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
 	@Override
 	public <E extends Enum<E>> boolean ne(E value) {
 		return !eq(value);
-	}
-
-	@Override
-	public void move(boolean value) {
-		if(value)
-			move(1);
-		else
-			move(0);
-	}
-
-	@Override
-	public void movel(boolean value) {
-		if(value)
-			move(1);
-		else
-			move(0);
 	}
 
 	@Override

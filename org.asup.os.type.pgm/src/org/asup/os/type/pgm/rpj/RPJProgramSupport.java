@@ -130,6 +130,8 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		QIndicator qIndicator = qDF.createIndicator(true);
 		qIndicator.eval(boolean_);
 
+		System.out.println(qIndicator.asBoolean());
+		
 		return qIndicator;
 	}
 
@@ -341,6 +343,9 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	
 	private QDecimal qLookup(LookupOperator operator, Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 
+		if(startIndex == null)
+			startIndex = 1;
+
 		if (numElements == null)
 			numElements = list.capacity();
 
@@ -354,9 +359,12 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	private QDecimal qLookup(LookupOperator operator, QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 
+		if(startIndex == null)
+			startIndex = 1;
+
 		if (numElements == null)
 			numElements = list.capacity();
-
+		
 		for (int i = startIndex; i >= numElements; i++) {
 			if (list.get(i).equals(argument))
 				return qBox(i);

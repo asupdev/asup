@@ -89,7 +89,10 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	
 	@Override
 	public void movel(boolean value) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), _length, new byte[] { 49 }, true, (byte) 49);
+		if(value)
+			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, new byte[] { NIOIndicatorImpl.ON }, true, NIOIndicatorImpl.OFF);
+		else
+			NIOBufferHelper.movel(getBuffer(), getPosition(), _length, new byte[] { NIOIndicatorImpl.OFF }, true, NIOIndicatorImpl.OFF);
 	}
 
 	@Override

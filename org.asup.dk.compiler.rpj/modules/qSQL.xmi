@@ -36,4 +36,50 @@
       </definition>
     </datas>
   </dataSection>
+  <flowSection>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%execute"/>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="statement"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%execute"/>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="query"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="into"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:BufferDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+  </flowSection>
 </il-flow:Module>

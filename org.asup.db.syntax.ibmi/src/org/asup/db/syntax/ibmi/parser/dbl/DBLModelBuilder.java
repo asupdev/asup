@@ -618,7 +618,6 @@ public class DBLModelBuilder {
 		// Manage query in field FOR
 		if (queryString!= null && queryString.length > 0) {
 			executeImmediateStatement.setVariable("");
-			executeImmediateStatement.setQuery(queryString[0]);
 		}
 
 		return executeImmediateStatement;

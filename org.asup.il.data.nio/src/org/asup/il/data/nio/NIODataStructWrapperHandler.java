@@ -110,8 +110,6 @@ public class NIODataStructWrapperHandler extends NIOAbstractDataStruct {
 			if (_dynamicLength) {
 				if(position+element.getSize() >= _length)
 					_length = position+element.getSize();
-				else
-					System.err.println("Unexpected condition: mzt47cn9tre7n0tcw");
 			}
 
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException | NoSuchFieldException e) {
