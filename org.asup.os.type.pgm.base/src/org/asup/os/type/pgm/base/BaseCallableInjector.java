@@ -221,8 +221,10 @@ public class BaseCallableInjector {
 			if (file == null)
 				file = fileReader.lookup(fileDef.name());
 
-			if (file == null)
+			if (file == null) {
+				System.err.println("File not found: "+fileDef.name());
 				return;
+			}
 
 			if (QKSDataSet.class.isAssignableFrom(fieldKlass)) {
 				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), recordKlass);

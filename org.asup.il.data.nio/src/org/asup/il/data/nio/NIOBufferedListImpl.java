@@ -119,8 +119,21 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 
 
 	@Override
-	public void movea(QArray<?> value, boolean clear) {		
-		NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), false, (byte) 32);
+	public void movea(QArray<?> value, boolean clear) {
+		if(getSize() == value.getSize())
+			NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), false, (byte) 32);
+		else {
+
+			int i = 1;
+			for(QBufferedData elementTarget: this) {
+				
+				if(value.capacity()>=i)					
+					elementTarget.eval(value.get(i));
+				else
+					elementTarget.clear();
+				i++;
+			}
+		}
 
 	}
 

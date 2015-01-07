@@ -129,8 +129,6 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 		QIndicator qIndicator = qDF.createIndicator(true);
 		qIndicator.eval(boolean_);
-
-		System.out.println(qIndicator.asBoolean());
 		
 		return qIndicator;
 	}
@@ -349,7 +347,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		if (numElements == null)
 			numElements = list.capacity();
 
-		for (int i = startIndex; i >= numElements; i++) {
+		for (int i = startIndex; i <= numElements; i++) {
 			if (list.get(i).eq(argument))
 				return qBox(i);
 		}
@@ -365,8 +363,8 @@ public class RPJProgramSupport extends CallableProgramImpl {
 		if (numElements == null)
 			numElements = list.capacity();
 		
-		for (int i = startIndex; i >= numElements; i++) {
-			if (list.get(i).equals(argument))
+		for (int i = startIndex; i <= numElements; i++) {
+			if (list.get(i).toString().equals(argument.toString()))
 				return qBox(i);
 		}
 
@@ -411,7 +409,7 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	public QString qSubst(QString source, Integer from, Integer length) {
 
-		return qSubst(source.toString(), from, length);
+		return qSubst(source.asString(), from, length);
 	}
 	public QString qSubst(String source, Integer from, Integer length) {
 

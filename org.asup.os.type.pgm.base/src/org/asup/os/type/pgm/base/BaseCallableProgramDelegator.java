@@ -9,6 +9,7 @@
  */
 package org.asup.os.type.pgm.base;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -33,51 +34,53 @@ public class BaseCallableProgramDelegator extends CallableProgramImpl implements
 
 	@Override
 	public void open() {
-		
+
 		try {
-			if(this.open != null)
-				this.open.invoke(delegate, (Object[])null);
-		} 
-		catch (Exception e) {
+			if (this.open != null)
+				this.open.invoke(delegate, (Object[]) null);
+		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e.getMessage());
-		} 
-		finally {
+		} finally {
 			this.isOpen = true;
 		}
 	}
 
 	@Override
-	public void call() {		
+	public void call() {
 		try {
-			if(this.entry != null) {
-				if(getQEntry().length>0) {
-					Object[] params = (Object[])getQEntry();
+			if (this.entry != null) {
+				if (getQEntry().length > 0) {
+					Object[] params = (Object[]) getQEntry();
+
+					try {
+						Field £mubField = delegate.getClass().getField("£mub");
+						Object £mub = £mubField.get(delegate);
+						Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
+						Object £pdspr = £mu_£pds_1.getClass().getField("£pdspr").get(£mu_£pds_1);
+						£pdspr.getClass().getMethod("eval", Integer.TYPE).invoke(£pdspr, new Object[] { params.length });
+					} catch (NoSuchFieldException e) {
+					}
 					this.entry.invoke(delegate, params);
-				}
-				else
+				} else
 					this.entry.invoke(delegate, new Object[] {});
-			}
-			else
+			} else
 				this.entry.invoke(delegate, new Object[0]);
-		} 
-		catch (InvocationTargetException e) {
+		} catch (InvocationTargetException e) {
 			throw new OperatingSystemRuntimeException(e.getTargetException());
 		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e);
-		} 
+		}
 	}
 
 	@Override
 	public void close() {
-		
+
 		try {
-			if(this.close != null)
-				this.close.invoke(delegate, (Object[])null);
-		} 
-		catch (Exception e) {
+			if (this.close != null)
+				this.close.invoke(delegate, (Object[]) null);
+		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e.getMessage());
-		} 
-		finally {
+		} finally {
 			this.isOpen = false;
 		}
 	}

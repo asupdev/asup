@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 import org.asup.il.data.QDecimal;
+import org.asup.il.data.nio.jtopen.AS400ZonedDecimal;
 
 public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
@@ -78,20 +79,26 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	@Override
 	public Number readNumber() {
-		
-		System.out.println(new String(asBytes()));
-		
-		return Double.parseDouble(new String(asBytes()));
+
+		AS400ZonedDecimal zoned = new AS400ZonedDecimal(getPrecision(), getScale());
+		zoned.setUseDouble(true);
+
+		return zoned.toDouble(asBytes());
 	}
 
 	@Override
 	public void writeNumber(Number number) {
-		move(number.toString(), true);
+		
+		AS400ZonedDecimal zoned = new AS400ZonedDecimal(getPrecision(), getScale());
+		zoned.setUseDouble(true);
+		byte[] bytes = zoned.toBytes(number.doubleValue());
+		
+		NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
 	}
 
 	@Override
 	public int compareNumber(Number value) {
 		
-		return new BigDecimal(readNumber().toString()).compareTo(new BigDecimal(value.toString()));	
+		return Double.compare(asDouble(), value.doubleValue());
 	}
 }

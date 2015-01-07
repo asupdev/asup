@@ -43,10 +43,11 @@ public class JDBCDataReaderImpl extends DataReaderImpl {
 				else if(bufferedData instanceof QDecimal) {
 					QDecimal decimal = (QDecimal) bufferedData;
 
-					BigDecimal bigDecimal = resultSet.getBigDecimal(c);										
-					bufferedData.move(formatBigDecimal(bigDecimal, decimal), true);
+/*					BigDecimal bigDecimal = resultSet.getBigDecimal(c);
+					decimal.eval(bigDecimal);
+					bufferedData.move(formatBigDecimal(bigDecimal, decimal), true);*/
 					
-//					decimal.eval(resultSet.getDouble(c));
+					decimal.eval(resultSet.getDouble(c));
 				}
 				else {
 					bufferedData.movel(resultSet.getObject(c).toString(), true);

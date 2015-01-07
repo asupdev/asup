@@ -29,8 +29,6 @@ public class RPJServiceSupport extends CallableProgramImpl {
 
 		StringBuffer nameBuffer = new StringBuffer();
 		String a = "";
-		boolean firstToUpper = false;
-		boolean allToUpper = false;
 		
 		for(char c: arg1.toCharArray()) {
 			if(c=='|') {
@@ -59,11 +57,7 @@ public class RPJServiceSupport extends CallableProgramImpl {
 				nameBuffer.append(a);
 			}
 			else {
-				if(firstToUpper || allToUpper) 
-					nameBuffer.append(Character.toUpperCase(c));
-				else
-					nameBuffer.append(Character.toLowerCase(c));
-				firstToUpper = false;
+				nameBuffer.append(c);
 			}
 		}
 		value.eval(nameBuffer.toString());

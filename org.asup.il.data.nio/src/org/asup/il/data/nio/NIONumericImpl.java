@@ -10,7 +10,12 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	public NIONumericImpl() {
 		super();
 	}
-	
+
+	@Override
+	public void clear() {
+		eval(0);
+	}
+
 	@Override
 	public double asDouble() {
 		return readNumber().doubleValue();
@@ -40,25 +45,25 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public QNumeric divide(int value) {
-		eval(asLong()/value);
+		eval(asDouble()/value);
 		return this;
 	}
 	
 	@Override
 	public QNumeric divide(long value) {
-		eval(asLong()/value);
+		eval(asDouble()/value);
 		return this;
 	}
 
 	@Override
 	public QNumeric divide(QNumeric value) {
-		eval(asLong()/value.asLong());
+		eval(asDouble()/value.asDouble());
 		return this;
 	}
 	
 	@Override
 	public QNumeric divide(short value) {
-		eval(asLong()/value);
+		eval(asDouble()/value);
 		return this;
 	}
 
@@ -74,7 +79,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public boolean eq(QNumeric value) {
-		return compareNumber(value.asLong()) == 0;
+		return compareNumber(value.asDouble()) == 0;
 	}
 
 	@Override
@@ -123,7 +128,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public void eval(QNumeric value) {
-		writeNumber(value.asLong());		
+		writeNumber(value.asDouble());		
 	}
 
 	@Override
@@ -143,7 +148,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public boolean ge(QNumeric value) {
-		return compareNumber(value.asLong()) >= 0;
+		return compareNumber(value.asDouble()) >= 0;
 	}
 
 	protected <E extends Enum<E>> Integer getPrimitive(E value) {
@@ -168,7 +173,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public boolean gt(QNumeric value) {
-		return compareNumber(value.asLong()) > 0;
+		return compareNumber(value.asDouble()) > 0;
 	}
 
 	@Override
@@ -183,7 +188,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public boolean le(QNumeric value) {
-		return compareNumber(value.asLong()) <= 0;
+		return compareNumber(value.asDouble()) <= 0;
 	}
 
 
@@ -206,30 +211,30 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public boolean lt(QNumeric value) {
-		return compareNumber(value.asLong()) < 0;
+		return compareNumber(value.asDouble()) < 0;
 	}
 
 	@Override
 	public QNumeric minus(int value) {
-		eval(asLong()-value);
+		eval(asDouble()-value);
 		return this;
 	}
 	
 	@Override
 	public QNumeric minus(long value) {
-		eval(asLong()-value);
+		eval(asDouble()-value);
 		return this;
 	}
 
 	@Override
 	public QNumeric minus(QNumeric value) {
-		eval(asLong()-value.asLong());
+		eval(asDouble()-value.asDouble());
 		return this;
 	}
 
 	@Override
 	public QNumeric minus(short value) {
-		eval(asLong()-value);
+		eval(asDouble()-value);
 		return this;
 	}
 
@@ -265,25 +270,25 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public QNumeric mult(int value) {
-		eval(asLong()-value);
+		eval(asDouble()-value);
 		return this;
 	}
 
 	@Override
 	public QNumeric mult(long value) {
-		eval(asLong()-value);
+		eval(asDouble()-value);
 		return this;
 	}
 
 	@Override
 	public QNumeric mult(QNumeric value) {
-		eval(asLong()-value.asLong());
+		eval(asDouble()-value.asDouble());
 		return this;
 	}
 
 	@Override
 	public QNumeric mult(short value) {
-		eval(asLong()*value);
+		eval(asDouble()*value);
 		return this;
 	}
 
@@ -304,25 +309,25 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	
 	@Override
 	public QNumeric plus(int value) {
-		eval(asLong()+value);
+		eval(asDouble()+value);
 		return this;
 	}
 
 	@Override
 	public QNumeric plus(long value) {
-		eval(asLong()+value);
+		eval(asDouble()+value);
 		return this;
 	}
 
 	@Override
 	public QNumeric plus(QNumeric value) {
-		eval(asLong()+value.asLong());
+		eval(asDouble()+value.asDouble());
 		return this;
 	}
 
 	@Override
 	public QNumeric plus(short value) {
-		eval(asLong()+value);
+		eval(asDouble()+value);
 		return this;
 	}
 	

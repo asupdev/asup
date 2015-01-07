@@ -224,8 +224,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void cat(String factor1, QString factor2) {
-		// TODO Auto-generated method stub
-		
+		eval(factor1+factor2.trimR());
 	}
 
 	@Override
@@ -391,6 +390,10 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 			return "";
 		else if(value.name().equals("LOVAL"))
 			return "";
+		else if(value.name().equals("ON"))
+			return "1";
+		else if(value.name().equals("OFF"))
+			return " ";
 		return null;
 	}	
 	

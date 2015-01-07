@@ -39,7 +39,9 @@ import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QEntryParameter;
+import org.asup.il.flow.QModule;
 import org.asup.il.flow.QParameterList;
+import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.QUnit;
@@ -71,6 +73,7 @@ import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
+
 import javax.annotation.PostConstruct;
 
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
@@ -461,31 +464,56 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		methodDeclaration.setBody(block);
 	}
 	@SuppressWarnings("unchecked")
-	public void writeInit(String name) {
+	public void writeInit() {
+		
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
-		methodDeclaration.setName(getAST().newSimpleName(name));
-		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+		methodDeclaration.setName(getAST().newSimpleName("qInit"));
 
 		MarkerAnnotation entryAnnotation = getAST().newMarkerAnnotation();
 		entryAnnotation.setTypeName(getAST().newSimpleName(PostConstruct.class.getSimpleName()));
 		writeImport(PostConstruct.class);
 		methodDeclaration.modifiers().add(entryAnnotation);
+
+		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
+						
 		// TODO
-		// *INZSR
-		MethodInvocation methodInvocation = getAST().newMethodInvocation();
-		methodInvocation.setName(getAST().newSimpleName("qINZSR"));
-		methodInvocation.setExpression(getAST().newSimpleName("£mub"));
-		ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
-		block.statements().add(expressionStatement);
+		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
+		if(qInzsr == null)
+			System.err.println("Unexpected condition: sdifb02xb67er23c21");
+		
+		if(qInzsr.getParent() instanceof QModule) {
+			MethodInvocation methodInvocation = getAST().newMethodInvocation();
+			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+			methodInvocation.setExpression(getAST().newSimpleName("£mub"));
+			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+			block.statements().add(expressionStatement);
+		}
+		else if(qInzsr.getParent() instanceof QProgram) {
+			MethodInvocation methodInvocation = getAST().newMethodInvocation();
+			methodInvocation.setExpression(getAST().newThisExpression());
+			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+			block.statements().add(expressionStatement);			
+		}
+		else
+			System.err.println("Unexpected condition: sdifb02xb67er23c23");
+		
 		// £INIZI
-		methodInvocation = getAST().newMethodInvocation();
-		methodInvocation.setName(getAST().newSimpleName("£inizi"));
-		expressionStatement = getAST().newExpressionStatement(methodInvocation);
-		block.statements().add(expressionStatement);
+		QRoutine £inizi = getCompilationUnit().getRoutine("£INIZI", false);
+		if (£inizi != null) {
+			MethodInvocation methodInvocation = getAST().newMethodInvocation();
+			methodInvocation = getAST().newMethodInvocation();
+			methodInvocation.setExpression(getAST().newThisExpression());
+			methodInvocation.setName(getAST().newSimpleName("£inizi"));
+			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+			block.statements().add(expressionStatement);			
+		}
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -495,12 +523,13 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
 		methodDeclaration.setName(getAST().newSimpleName(name));
-		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 		MarkerAnnotation entryAnnotation = getAST().newMarkerAnnotation();
 		entryAnnotation.setTypeName(getAST().newSimpleName(Entry.class.getSimpleName()));
 		writeImport(Entry.class);
 		methodDeclaration.modifiers().add(entryAnnotation);
+
+		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 		for (String parameterName : parameterList.getParameters()) {
 			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
