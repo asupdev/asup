@@ -488,7 +488,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		
 		if(qInzsr.getParent() instanceof QModule) {
 			MethodInvocation methodInvocation = getAST().newMethodInvocation();
-			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+//			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
 			methodInvocation.setExpression(getAST().newSimpleName("£mub"));
 			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 			block.statements().add(expressionStatement);
