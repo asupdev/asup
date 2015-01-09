@@ -15,6 +15,9 @@ package org.asup.dk.compiler.rpj.writer;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
@@ -27,7 +30,6 @@ import org.asup.il.core.QTerm;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Entry;
-import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.esql.CursorType;
 import org.asup.il.esql.QCursor;
 import org.asup.il.esql.QCursorTerm;
@@ -74,7 +76,6 @@ import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-import javax.annotation.PostConstruct;
 
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
@@ -134,7 +135,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void writeModuleFields(List<String> modules) {
+	public void writeModuleFields(List<String> modules, boolean public_) {
 
 		for (String module : modules) {
 
@@ -142,8 +143,16 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, ModuleDef.class, "name", moduleName);
-			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+			// writeAnnotation(field, ModuleDef.class, "name", moduleName);
+			writeAnnotation(field, Inject.class);
+//			writeAnnotation(field, Named.class, "value", moduleName);
+			
+			if(public_)
+				field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+			else
+				field.modifiers().add(getAST().newModifier(ModifierKeyword.PRIVATE_KEYWORD));
+			
 			field.setType(getAST().newSimpleType(getAST().newName(moduleName)));
 
 			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(module)));
@@ -481,13 +490,12 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 						
-		// TODO
 		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
-		if(qInzsr != null){
+		if(qInzsr != null) {
+			
 			if(qInzsr.getParent() instanceof QModule) {
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
-//				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
-				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
+				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
 				methodInvocation.setExpression(getAST().newSimpleName("£mub"));
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
@@ -501,10 +509,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			}
 			else
 				System.err.println("Unexpected condition: sdifb02xb67er23c23");
-		}else{
-			System.err.println("Unexpected condition: sdifb02xb67er23c21");
-		}
-		
+		}		
 		
 		// £INIZI
 		QRoutine £inizi = getCompilationUnit().getRoutine("£INIZI", false);

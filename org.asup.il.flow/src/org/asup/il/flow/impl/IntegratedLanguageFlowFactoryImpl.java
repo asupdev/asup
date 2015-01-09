@@ -121,6 +121,7 @@ public class IntegratedLanguageFlowFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageFlowPackage.PROCEDURE_EXEC: return (EObject)createProcedureExec();
 			case QIntegratedLanguageFlowPackage.PROGRAM: return (EObject)createProgram();
 			case QIntegratedLanguageFlowPackage.PROTOTYPE: return (EObject)createPrototype();
+			case QIntegratedLanguageFlowPackage.RESET: return (EObject)createReset();
 			case QIntegratedLanguageFlowPackage.RETURN: return (EObject)createReturn();
 			case QIntegratedLanguageFlowPackage.ROUTINE: return (EObject)createRoutine();
 			case QIntegratedLanguageFlowPackage.ROUTINE_EXEC: return (EObject)createRoutineExec();
@@ -405,6 +406,16 @@ public class IntegratedLanguageFlowFactoryImpl extends EFactoryImpl implements Q
 	public <DT extends QDataTerm<?>> QPrototype<DT> createPrototype() {
 		PrototypeImpl<DT> prototype = new PrototypeImpl<DT>();
 		return prototype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QReset createReset() {
+		ResetImpl reset = new ResetImpl();
+		return reset;
 	}
 
 	/**

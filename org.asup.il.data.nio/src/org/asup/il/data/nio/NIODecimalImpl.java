@@ -98,7 +98,16 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	@Override
 	public int compareNumber(Number value) {
+
+		double d1 = 0;
+		try {
+			d1 = asDouble();
+		}
+		catch(NumberFormatException e) {
+			
+		}
+		double d2 = value.doubleValue();
 		
-		return Double.compare(asDouble(), value.doubleValue());
+		return Double.compare(d1, d2);
 	}
 }

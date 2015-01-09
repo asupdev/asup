@@ -117,7 +117,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 34;
+	int STATEMENT = 35;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.BlockImpl <em>Block</em>}' class.
@@ -183,7 +183,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getUnit()
 	 * @generated
 	 */
-	int UNIT = 36;
+	int UNIT = 37;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.CallableUnitImpl <em>Callable Unit</em>}' class.
@@ -303,7 +303,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getReturn()
 	 * @generated
 	 */
-	int RETURN = 29;
+	int RETURN = 30;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.WhileImpl <em>While</em>}' class.
@@ -313,7 +313,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getWhile()
 	 * @generated
 	 */
-	int WHILE = 39;
+	int WHILE = 40;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.ForImpl <em>For</em>}' class.
@@ -514,7 +514,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getUnitSection()
 	 * @generated
 	 */
-	int UNIT_SECTION = 37;
+	int UNIT_SECTION = 38;
 
 	/**
 	 * The number of structural features of the '<em>Unit Section</em>' class.
@@ -1411,6 +1411,34 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int PROTOTYPE_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.flow.impl.ResetImpl <em>Reset</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.flow.impl.ResetImpl
+	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getReset()
+	 * @generated
+	 */
+	int RESET = 29;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__OBJECT = INVOKE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Reset</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET_FEATURE_COUNT = INVOKE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1436,7 +1464,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getRoutine()
 	 * @generated
 	 */
-	int ROUTINE = 30;
+	int ROUTINE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1482,7 +1510,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getRoutineExec()
 	 * @generated
 	 */
-	int ROUTINE_EXEC = 31;
+	int ROUTINE_EXEC = 32;
 
 	/**
 	 * The feature id for the '<em><b>Routine</b></em>' attribute.
@@ -1510,7 +1538,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getSetupSection()
 	 * @generated
 	 */
-	int SETUP_SECTION = 32;
+	int SETUP_SECTION = 33;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1583,7 +1611,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getSQLExec()
 	 * @generated
 	 */
-	int SQL_EXEC = 33;
+	int SQL_EXEC = 34;
 
 	/**
 	 * The feature id for the '<em><b>Statement</b></em>' attribute.
@@ -1611,7 +1639,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getStatementVisitor()
 	 * @generated
 	 */
-	int STATEMENT_VISITOR = 35;
+	int STATEMENT_VISITOR = 36;
 
 	/**
 	 * The number of structural features of the '<em>Statement Visitor</em>' class.
@@ -1630,7 +1658,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getUntil()
 	 * @generated
 	 */
-	int UNTIL = 38;
+	int UNTIL = 39;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -1695,7 +1723,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getEvalOperator()
 	 * @generated
 	 */
-	int EVAL_OPERATOR = 40;
+	int EVAL_OPERATOR = 41;
 
 
 	/**
@@ -1706,7 +1734,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getPassingType()
 	 * @generated
 	 */
-	int PASSING_TYPE = 41;
+	int PASSING_TYPE = 42;
 
 
 	/**
@@ -2505,6 +2533,27 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPrototype_Entry();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.flow.QReset <em>Reset</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reset</em>'.
+	 * @see org.asup.il.flow.QReset
+	 * @generated
+	 */
+	EClass getReset();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.flow.QReset#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Object</em>'.
+	 * @see org.asup.il.flow.QReset#getObject()
+	 * @see #getReset()
+	 * @generated
+	 */
+	EAttribute getReset_Object();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.flow.QReturn <em>Return</em>}'.
@@ -3466,6 +3515,24 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROTOTYPE__ENTRY = eINSTANCE.getPrototype_Entry();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.flow.impl.ResetImpl <em>Reset</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.flow.impl.ResetImpl
+		 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getReset()
+		 * @generated
+		 */
+		EClass RESET = eINSTANCE.getReset();
+
+		/**
+		 * The meta object literal for the '<em><b>Object</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESET__OBJECT = eINSTANCE.getReset_Object();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.flow.impl.ReturnImpl <em>Return</em>}' class.

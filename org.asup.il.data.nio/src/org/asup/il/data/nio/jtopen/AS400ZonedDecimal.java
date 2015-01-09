@@ -492,7 +492,7 @@ public class AS400ZonedDecimal implements AS400DataType {
 		} else {
 			text = "EXC_LOW_NIBBLE_NOT_VALID";
 		}
-		System.err.println("Byte sequence is not valid for a field of type 'zoned decimal': "+ fieldBytes);
+//		System.err.println("Byte sequence is not valid for a field of type 'zoned decimal': "+ fieldBytes);
 		throw new NumberFormatException(text);
 	}
 

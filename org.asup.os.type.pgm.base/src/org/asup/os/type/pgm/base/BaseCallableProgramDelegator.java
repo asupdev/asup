@@ -13,6 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.asup.il.data.QData;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.type.pgm.QCallableProgramDelegator;
 import org.asup.os.type.pgm.impl.CallableProgramImpl;
@@ -46,25 +47,32 @@ public class BaseCallableProgramDelegator extends CallableProgramImpl implements
 	}
 
 	@Override
-	public void call() {
+	public QData[] call() {
 		try {
-			if (this.entry != null) {
-				if (getQEntry().length > 0) {
-					Object[] params = (Object[]) getQEntry();
+			
+			QData[] params = getQEntry();
+			
+			if (params != null) {
+				
+				try {
+					Field £mubField = delegate.getClass().getField("£mub");
+					Object £mub = £mubField.get(delegate);
+					Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
+					Object £pdspr = £mu_£pds_1.getClass().getField("£pdspr").get(£mu_£pds_1);
+					£pdspr.getClass().getMethod("eval", Integer.TYPE).invoke(£pdspr, new Object[] { params.length });
+				} catch (NoSuchFieldException e) {
+				}
 
-					try {
-						Field £mubField = delegate.getClass().getField("£mub");
-						Object £mub = £mubField.get(delegate);
-						Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
-						Object £pdspr = £mu_£pds_1.getClass().getField("£pdspr").get(£mu_£pds_1);
-						£pdspr.getClass().getMethod("eval", Integer.TYPE).invoke(£pdspr, new Object[] { params.length });
-					} catch (NoSuchFieldException e) {
-					}
-					this.entry.invoke(delegate, params);
+				if (getQEntry().length > 0) {
+					this.entry.invoke(delegate, (Object[]) params);					
 				} else
-					this.entry.invoke(delegate, new Object[] {});
+					this.entry.invoke(delegate, (Object[]) params);
+//					this.entry.invoke(delegate, new Object[] {});
+				
 			} else
 				this.entry.invoke(delegate, new Object[0]);
+			
+			return params;
 		} catch (InvocationTargetException e) {
 			throw new OperatingSystemRuntimeException(e.getTargetException());
 		} catch (Exception e) {

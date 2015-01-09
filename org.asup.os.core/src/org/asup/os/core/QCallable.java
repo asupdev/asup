@@ -7,6 +7,10 @@
  */
 package org.asup.os.core;
 
+import java.util.concurrent.Callable;
+
+import org.asup.il.data.QData;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,15 +20,15 @@ package org.asup.os.core;
  *
  * @see org.asup.os.core.QOperatingSystemCorePackage#getCallable()
  * @model interface="true" abstract="true"
- * @generated
+ * @generated NOT
  */
-public interface QCallable {
+public interface QCallable extends Callable<QData[]>{
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void call();
+	QData[] call();
 
 } // QCallable

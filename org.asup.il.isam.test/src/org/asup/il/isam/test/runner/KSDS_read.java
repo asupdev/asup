@@ -36,8 +36,10 @@ public class KSDS_read {
 		
 		int count = 0;
 		brarti2l.setll("ART");
-		while (brarti2l.reade("ART"))
+		while (brarti2l.reade("ART")) {
+			System.out.println(brarti2l.get());
 			count++;
+		}
 		testAsserter.assertEquals("Items ART count", 827, count);
 
 		count = 0;
@@ -48,8 +50,10 @@ public class KSDS_read {
 
 		count = 0;
 		brarti2l.setll("BPP");
-		while (brarti2l.reade("BPP"))
+		while (brarti2l.reade("ART")) {
+			System.out.println(brarti2l.get());
 			count++;
+		}
 		testAsserter.assertEquals("Items BPP count", 171, count);
 
 		brarti2l.close();

@@ -17,11 +17,14 @@ import java.util.Stack;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QUnaryCompoundDataTerm;
+import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
 import org.asup.il.expr.QAssignmentExpression;
 import org.asup.il.expr.QExpression;
@@ -46,6 +49,7 @@ import org.asup.il.flow.QOnError;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProcedureExec;
 import org.asup.il.flow.QPrototype;
+import org.asup.il.flow.QReset;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutineExec;
 import org.asup.il.flow.QSQLExec;
@@ -674,6 +678,74 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		block.statements().add(expressionStatement);
 
 		return super.visit(statement);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean visit(QReset statement) {
+
+		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(statement.getObject(), true);
+		if (dataTerm == null)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid statement: " + statement);
+
+		try {
+			Block block = blocks.peek();
+
+
+			
+			if(dataTerm.getDataTermType().isUnary()) {
+				QUnaryDataTerm<?> unaryDataTerm = (QUnaryDataTerm<?>) dataTerm;
+				if(unaryDataTerm.getDefault() == null || unaryDataTerm.getDefault().isEmpty()) {
+					
+					if(unaryDataTerm.getDataTermType().isAtomic())
+						throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4533");
+					
+					QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) unaryDataTerm;
+					
+					for(QDataTerm<?> element: unaryCompoundDataTerm.getDefinition().getElements()) {
+						
+						if(element.getDataTermType().isMultiple())
+							throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg1233");
+						
+						QUnaryDataTerm<?> unaryDataElement = (QUnaryDataTerm<?>)element;
+						if(unaryDataElement.getDefault() == null || unaryDataElement.getDefault().isEmpty()) 
+							continue;						
+						
+						MethodInvocation methodInvocation = ast.newMethodInvocation();
+						methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(element.getName()), null));
+						methodInvocation.setName(ast.newSimpleName("clear"));
+						QExpression expression = expressionParser.parseExpression(unaryDataElement.getDefault());
+						Expression jdtExpression = buildExpression(ast, expression, null);
+						methodInvocation.arguments().add(jdtExpression);
+						
+						ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
+						block.statements().add(expressionStatement);
+					}
+										
+				}
+				else {
+					MethodInvocation methodInvocation = ast.newMethodInvocation();
+					methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
+
+					methodInvocation.setName(ast.newSimpleName("clear"));
+
+					QExpression expression = expressionParser.parseExpression(unaryDataTerm.getDefault());
+					Expression jdtExpression = buildExpression(ast, expression, null);
+					methodInvocation.arguments().add(jdtExpression);
+					
+					ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
+					block.statements().add(expressionStatement);
+				}
+			}
+			else 
+				throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
+			
+
+			return super.visit(statement);
+		} catch (Exception e) {
+			throw new OperatingSystemRuntimeException(e);
+		}
+
 	}
 
 	@SuppressWarnings("unchecked")

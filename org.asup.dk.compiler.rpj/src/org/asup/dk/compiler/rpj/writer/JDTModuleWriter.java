@@ -44,7 +44,7 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 
 		writeSupportFields(callableUnitInfo);
 
-		writeModuleFields(module.getSetupSection().getModules());
+		writeModuleFields(module.getSetupSection().getModules(), true);
 
 		if (module.getFileSection() != null)
 			writeDataSets(module.getFileSection().getDataSets());

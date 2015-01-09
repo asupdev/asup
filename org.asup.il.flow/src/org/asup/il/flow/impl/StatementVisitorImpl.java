@@ -18,6 +18,7 @@ import org.asup.il.flow.QContinue;
 import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFor;
 import org.asup.il.flow.QProcedureExec;
+import org.asup.il.flow.QReset;
 import org.asup.il.flow.QIf;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.flow.QJump;
@@ -336,6 +337,24 @@ public abstract class StatementVisitorImpl extends MinimalEObjectImpl.Container 
 	 * @generated NOT
 	 */
 	public boolean visit(QWhile statement) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void endVisit(QReset statement) {
+		return;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean visit(QReset statement) {
 		return true;
 	}
 

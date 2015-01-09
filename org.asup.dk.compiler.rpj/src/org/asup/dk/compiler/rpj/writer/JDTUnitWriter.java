@@ -11,12 +11,13 @@
  */
 package org.asup.dk.compiler.rpj.writer;
 
+import javax.inject.Inject;
+
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.dk.compiler.rpj.RPJExpressionNormalizer;
 import org.asup.il.data.QData;
-import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.flow.QUnit;
 import org.asup.os.type.pgm.rpj.RPJDatabaseSupport;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
@@ -63,7 +64,11 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 		
 		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 		FieldDeclaration field = getAST().newFieldDeclaration(variable);
-		writeAnnotation(field, ModuleDef.class, "name", "*RPJ");
+		
+//		writeAnnotation(field, ModuleDef.class, "name", "*RPJ");
+		writeAnnotation(field, Inject.class);
+//		writeAnnotation(field, Named.class, "value", "*RPJ");
+
 		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 		field.setType(getAST().newSimpleType(getAST().newName(RPJProgramSupport.class.getSimpleName())));
 		variable.setName(getAST().newSimpleName("qRPJ"));
@@ -75,7 +80,11 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 			
 			variable = getAST().newVariableDeclarationFragment();
 			field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, ModuleDef.class, "name", "*SQL");
+			
+//			writeAnnotation(field, ModuleDef.class, "name", "*SQL");
+			writeAnnotation(field, Inject.class);
+//			writeAnnotation(field, Named.class, "value", "*SQL");
+			
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 			field.setType(getAST().newSimpleType(getAST().newName(RPJDatabaseSupport.class.getSimpleName())));
 			variable.setName(getAST().newSimpleName("qSQL"));
@@ -90,7 +99,11 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 
 			variable = getAST().newVariableDeclarationFragment();
 			field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, ModuleDef.class, "name", "*JAX");
+			
+//			writeAnnotation(field, ModuleDef.class, "name", "*JAX");
+			writeAnnotation(field, Inject.class);
+//			writeAnnotation(field, Named.class, "value", "*JAX");
+			
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 			field.setType(getAST().newSimpleType(getAST().newName(RPJServiceSupport.class.getSimpleName())));
 			variable.setName(getAST().newSimpleName("qJAX"));

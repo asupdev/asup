@@ -34,9 +34,8 @@ import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.isam.QDataSet;
 import org.asup.os.type.pgm.QProgramManager;
-import org.asup.os.type.pgm.impl.CallableProgramImpl;
 
-public class RPJProgramSupport extends CallableProgramImpl {
+public class RPJProgramSupport {
 
 	@Inject
 	public QDataFactory qDF;
@@ -463,7 +462,8 @@ public class RPJProgramSupport extends CallableProgramImpl {
 	public QString qTrimr(QString source) {
 
 		String str = source.trimR();
-		QCharacter character = qDF.createCharacter(str.length(), false, true);
+		int length = str.length();
+		QCharacter character = qDF.createCharacter(length, false, true);
 		character.eval(str);
 
 		return character;
@@ -685,5 +685,10 @@ public class RPJProgramSupport extends CallableProgramImpl {
 
 	private static enum LookupOperator {
 		EQ, LT, LE, GT, GE;
+	}
+
+	public boolean isOff(int i) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

@@ -265,6 +265,22 @@ public interface QStatementVisitor {
 	 * @model
 	 * @generated
 	 */
+	void endVisit(QReset statement);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean visit(QReset statement);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	boolean visit(QIf statement);
 
 	/**

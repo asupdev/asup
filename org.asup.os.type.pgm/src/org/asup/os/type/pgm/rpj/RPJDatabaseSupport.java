@@ -18,9 +18,8 @@ import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
-import org.asup.os.type.pgm.impl.CallableProgramImpl;
 
-public class RPJDatabaseSupport extends CallableProgramImpl {
+public class RPJDatabaseSupport {
 
 	@DataDef
 	public SQLCA sqlca;

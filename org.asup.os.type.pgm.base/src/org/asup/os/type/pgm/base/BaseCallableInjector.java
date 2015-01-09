@@ -25,16 +25,17 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContext;
+import org.asup.fw.core.QContextID;
 import org.asup.fw.core.QContextProvider;
+import org.asup.fw.core.QService;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
-import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataManager;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.annotation.DataDef;
-import org.asup.il.data.annotation.ModuleDef;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
@@ -144,15 +145,15 @@ public class BaseCallableInjector {
 				field.set(callable, dataFactory);
 			}
 			// Module
-			else if (field.getAnnotation(ModuleDef.class) != null) {
-				ModuleDef moduleDef = field.getAnnotation(ModuleDef.class);
-				Object callableModule = sharedModules.get(moduleDef.name());
-				if (callableModule == null) {
-					callableModule = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
-					sharedModules.put(moduleDef.name(), callableModule);
-				}
-				field.set(callable, callableModule);
-			}
+			/*
+			 * else if (field.getAnnotation(ModuleDef.class) != null) {
+			 * ModuleDef moduleDef = field.getAnnotation(ModuleDef.class);
+			 * Object callableModule = sharedModules.get(moduleDef.name()); if
+			 * (callableModule == null) { callableModule =
+			 * injectData(fieldKlass, dataFactory, job, activationGroup,
+			 * sharedModules); sharedModules.put(moduleDef.name(),
+			 * callableModule); } field.set(callable, callableModule); }
+			 */
 			// DataSet
 			else if (QDataSet.class.isAssignableFrom(fieldKlass)) {
 
@@ -188,7 +189,23 @@ public class BaseCallableInjector {
 			}
 			// @Injection
 			else if (field.getAnnotation(Inject.class) != null) {
-				Object object = jobContext.get(fieldKlass);
+
+				Object object = null;
+
+				if (QService.class.isAssignableFrom(fieldKlass)) {
+					object = jobContext.get(fieldKlass);
+				} else if (QJob.class.isAssignableFrom(fieldKlass)) {
+					object = job;
+				} else if (QContextID.class.isAssignableFrom(fieldKlass)) {
+					object = job;
+				} else {
+					object = sharedModules.get(fieldKlass.getSimpleName());
+					if (object == null) {
+						object = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
+						sharedModules.put(fieldKlass.getSimpleName(), object);
+					}
+				}
+
 				if (object == null) {
 					field.setAccessible(false);
 					throw new OperatingSystemRuntimeException("Unknown field type: " + type);
@@ -204,7 +221,8 @@ public class BaseCallableInjector {
 		return callable;
 	}
 
-	private void injectDataSet(QJob job, QDataFactory dataFactory, Object callable, Class<QDataSet<QRecord>> fieldKlass, Class<QRecord> recordKlass, Field field) throws IllegalArgumentException, IllegalAccessException {
+	private void injectDataSet(QJob job, QDataFactory dataFactory, Object callable, Class<QDataSet<QRecord>> fieldKlass, Class<QRecord> recordKlass, Field field) throws IllegalArgumentException,
+			IllegalAccessException {
 
 		QIsamFactory isamFactory = job.getContext().get(QIsamFactory.class);
 		if (isamFactory == null) {
@@ -222,7 +240,7 @@ public class BaseCallableInjector {
 				file = fileReader.lookup(fileDef.name());
 
 			if (file == null) {
-				System.err.println("File not found: "+fileDef.name());
+				System.err.println("File not found: " + fileDef.name());
 				return;
 			}
 

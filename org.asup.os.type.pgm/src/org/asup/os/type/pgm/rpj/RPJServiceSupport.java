@@ -16,16 +16,13 @@ import javax.inject.Inject;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QIndicator;
-import org.asup.os.type.pgm.impl.CallableProgramImpl;
 
-public class RPJServiceSupport extends CallableProgramImpl {
+public class RPJServiceSupport {
 
 	@Inject
 	private QDataFactory qDF;
 	
 	public QCharacter p_rxsos(String arg1, String arg2){
-
-		QCharacter value = qDF.createCharacter(32766, true, true);
 
 		StringBuffer nameBuffer = new StringBuffer();
 		String a = "";
@@ -60,7 +57,9 @@ public class RPJServiceSupport extends CallableProgramImpl {
 				nameBuffer.append(c);
 			}
 		}
-		value.eval(nameBuffer.toString());
+		String string = nameBuffer.toString();
+		QCharacter value = qDF.createCharacter(string.length(), true, true);
+		value.eval(string);
 		
 		return value; 
 	}

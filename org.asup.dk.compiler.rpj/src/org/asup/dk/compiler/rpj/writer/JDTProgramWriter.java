@@ -82,7 +82,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 
 		writeSupportFields(callableUnitInfo);
 
-		writeModuleFields(modules);
+		writeModuleFields(modules, false);
 
 		if (program.getDataSection() != null)
 			writeDataFields(program.getDataSection());
@@ -189,7 +189,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		memberValuePair.setValue(stringLiteral);
 		programAnnotation.values().add(memberValuePair);
 
-		getTarget().modifiers().add(programAnnotation);
+		getTarget().modifiers().add(0, programAnnotation);
 	}
 
 	private void loadModules(Collection<String> modules, String module) {

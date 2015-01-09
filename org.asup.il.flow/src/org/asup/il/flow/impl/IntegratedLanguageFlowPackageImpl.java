@@ -43,6 +43,7 @@ import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProcedureExec;
 import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
+import org.asup.il.flow.QReset;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.QRoutineExec;
@@ -267,6 +268,13 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass prototypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1111,6 +1119,24 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getReset() {
+		return resetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReset_Object() {
+		return (EAttribute)resetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReturn() {
 		return returnEClass;
 	}
@@ -1484,6 +1510,9 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		createEReference(prototypeEClass, PROTOTYPE__DELEGATE);
 		createEReference(prototypeEClass, PROTOTYPE__ENTRY);
 
+		resetEClass = createEClass(RESET);
+		createEAttribute(resetEClass, RESET__OBJECT);
+
 		returnEClass = createEClass(RETURN);
 		createEAttribute(returnEClass, RETURN__VALUE);
 
@@ -1592,6 +1621,7 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		procedureExecEClass.getESuperTypes().add(this.getInvoke());
 		programEClass.getESuperTypes().add(this.getCallableUnit());
 		prototypeEClass.getESuperTypes().add(theIntegratedLanguageCorePackage.getTerm());
+		resetEClass.getESuperTypes().add(this.getInvoke());
 		returnEClass.getESuperTypes().add(this.getStatement());
 		routineEClass.getESuperTypes().add(this.getUnit());
 		routineExecEClass.getESuperTypes().add(this.getInvoke());
@@ -1723,6 +1753,9 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(prototypeEClass_DT);
 		initEReference(getPrototype_Delegate(), g1, null, "delegate", null, 0, 1, QPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPrototype_Entry(), this.getEntry(), null, "entry", null, 0, 1, QPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resetEClass, QReset.class, "Reset", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReset_Object(), ecorePackage.getEString(), "object", null, 0, 1, QReset.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(returnEClass, QReturn.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReturn_Value(), ecorePackage.getEString(), "value", null, 1, 1, QReturn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1863,6 +1896,12 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(statementVisitorEClass, ecorePackage.getEBoolean(), "visit", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getWhile(), "statement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(statementVisitorEClass, null, "endVisit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getReset(), "statement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(statementVisitorEClass, ecorePackage.getEBoolean(), "visit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getReset(), "statement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(unitEClass, QUnit.class, "Unit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnit_Name(), ecorePackage.getEString(), "name", null, 0, 1, QUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

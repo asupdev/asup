@@ -63,6 +63,7 @@ public class JDBCDataReaderImpl extends DataReaderImpl {
 		return false;
 	}
 
+	@SuppressWarnings("unused")
 	private String formatBigDecimal(BigDecimal bigDecimal, QDecimal decimal) {
 		
 		DecimalFormat decimalFormat = decimalFormats[decimal.getPrecision()][decimal.getScale()];

@@ -31,8 +31,7 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	@Override
 	public byte[] asBytes() {
-		// TODO Auto-generated method stub
-		return super.asBytes();
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), getSize());
 	}
 
 	@Override
@@ -60,7 +59,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	@Override
 	public int getSize() {
-		// TODO Auto-generated method stub
 		return super.getSize();
 	}
 
@@ -331,7 +329,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	@Override
 	public String asString() {
-		// TODO Auto-generated method stub
 		return trimR();
 	}
 

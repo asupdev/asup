@@ -22,6 +22,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.asup.db.core.QViewDef;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
@@ -41,6 +42,7 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProgram;
 import org.asup.il.isam.QRecordWrapper;
+import org.asup.il.isam.annotation.Query;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
@@ -57,6 +59,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.jdt.core.dom.MemberValuePair;
+import org.eclipse.jdt.core.dom.NormalAnnotation;
+import org.eclipse.jdt.core.dom.StringLiteral;
 import org.osgi.framework.FrameworkUtil;
 
 public class RPJCompilerManagerImpl extends CompilerManagerImpl {
@@ -265,6 +270,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void writeDatabaseFile(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
@@ -275,10 +281,30 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		if(databaseFile instanceof QLogicalFile) {
 			QLogicalFile logicalFile = (QLogicalFile) databaseFile;
 			
+			QViewDef viewDef = compilationUnit.getContext().getAdapter(logicalFile, QViewDef.class);
+			
 			if(databaseFile.getDatabaseFormat().isEmpty()) {				
 				String table = logicalFile.getTables().get(0);				
 				databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), table);
-			} 
+			}
+			
+			if(viewDef != null) {
+
+				databaseFileWriter.writeImport(Query.class);
+				
+				// @Query("SELECT * FROM TABLE")
+				NormalAnnotation programAnnotation = databaseFileWriter.getAST().newNormalAnnotation();
+				programAnnotation.setTypeName(databaseFileWriter.getAST().newSimpleName(Query.class.getSimpleName()));
+				MemberValuePair memberValuePair = databaseFileWriter.getAST().newMemberValuePair();
+				memberValuePair.setName(databaseFileWriter.getAST().newSimpleName("value"));
+				StringLiteral stringLiteral = databaseFileWriter.getAST().newStringLiteral();
+				stringLiteral.setLiteralValue(viewDef.getQuerySelect());
+				memberValuePair.setValue(stringLiteral);
+				programAnnotation.values().add(memberValuePair);
+
+				databaseFileWriter.getTarget().modifiers().add(0, programAnnotation);
+
+			}
 		}
 
 		if(databaseFileWriter == null) 

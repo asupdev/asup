@@ -52,7 +52,7 @@ public class JDTProcedureWriter extends JDTCallableUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
-		writeModuleFields(procedure.getSetupSection().getModules());
+		writeModuleFields(procedure.getSetupSection().getModules(), false);
 
 		if (procedure.getFileSection() != null) {
 			writeDataSets(procedure.getFileSection().getDataSets());

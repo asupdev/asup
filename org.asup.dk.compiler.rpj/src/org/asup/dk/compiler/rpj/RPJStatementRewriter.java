@@ -27,6 +27,7 @@ import org.asup.il.flow.QMethodExec;
 import org.asup.il.flow.QMonitor;
 import org.asup.il.flow.QOnError;
 import org.asup.il.flow.QProcedureExec;
+import org.asup.il.flow.QReset;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutineExec;
 import org.asup.il.flow.QSQLExec;
@@ -250,6 +251,14 @@ public abstract class RPJStatementRewriter extends StatementVisitorImpl {
 
 		write((QStatement) EcoreUtil.copy((EObject) statement));
 
+		return false;
+	}
+
+	@Override
+	public boolean visit(QReset statement) {
+
+		write((QStatement) EcoreUtil.copy((EObject) statement));
+		
 		return false;
 	}
 
