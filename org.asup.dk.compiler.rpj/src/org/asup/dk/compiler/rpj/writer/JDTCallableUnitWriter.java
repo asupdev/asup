@@ -483,26 +483,28 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 						
 		// TODO
 		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
-		if(qInzsr == null)
+		if(qInzsr != null){
+			if(qInzsr.getParent() instanceof QModule) {
+				MethodInvocation methodInvocation = getAST().newMethodInvocation();
+//				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
+				methodInvocation.setExpression(getAST().newSimpleName("£mub"));
+				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+				block.statements().add(expressionStatement);
+			}
+			else if(qInzsr.getParent() instanceof QProgram) {
+				MethodInvocation methodInvocation = getAST().newMethodInvocation();
+				methodInvocation.setExpression(getAST().newThisExpression());
+				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+				block.statements().add(expressionStatement);			
+			}
+			else
+				System.err.println("Unexpected condition: sdifb02xb67er23c23");
+		}else{
 			System.err.println("Unexpected condition: sdifb02xb67er23c21");
+		}
 		
-		if(qInzsr.getParent() instanceof QModule) {
-			MethodInvocation methodInvocation = getAST().newMethodInvocation();
-//			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
-			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
-			methodInvocation.setExpression(getAST().newSimpleName("£mub"));
-			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
-			block.statements().add(expressionStatement);
-		}
-		else if(qInzsr.getParent() instanceof QProgram) {
-			MethodInvocation methodInvocation = getAST().newMethodInvocation();
-			methodInvocation.setExpression(getAST().newThisExpression());
-			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
-			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
-			block.statements().add(expressionStatement);			
-		}
-		else
-			System.err.println("Unexpected condition: sdifb02xb67er23c23");
 		
 		// £INIZI
 		QRoutine £inizi = getCompilationUnit().getRoutine("£INIZI", false);
