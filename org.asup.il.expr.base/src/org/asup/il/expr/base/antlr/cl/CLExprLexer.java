@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLExpr.g 2014-10-20 15:45:12
+// $ANTLR 3.5.1 CLExpr.g 2015-01-10 10:51:41
 
   package org.asup.il.expr.base.antlr.cl;
 
@@ -115,23 +115,42 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:190:8: ( '\\'' (~ ( '\\'' | '\\r' | '\\n' ) )* '\\'' )
-			// CLExpr.g:191:2: '\\'' (~ ( '\\'' | '\\r' | '\\n' ) )* '\\''
+			int c;
+
+			// CLExpr.g:191:2: ( '\\'' ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )* '\\'' )
+			// CLExpr.g:191:4: '\\'' ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )* '\\''
 			{
 			match('\''); 
-			// CLExpr.g:192:9: (~ ( '\\'' | '\\r' | '\\n' ) )*
+			 StringBuilder b = new StringBuilder(); 
+			// CLExpr.g:193:2: ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )*
 			loop1:
 			while (true) {
-				int alt1=2;
+				int alt1=3;
 				int LA1_0 = input.LA(1);
-				if ( ((LA1_0 >= '\u0000' && LA1_0 <= '\t')||(LA1_0 >= '\u000B' && LA1_0 <= '\f')||(LA1_0 >= '\u000E' && LA1_0 <= '&')||(LA1_0 >= '(' && LA1_0 <= '\uFFFF')) ) {
-					alt1=1;
+				if ( (LA1_0=='\'') ) {
+					int LA1_1 = input.LA(2);
+					if ( (LA1_1=='\'') ) {
+						alt1=1;
+					}
+
+				}
+				else if ( ((LA1_0 >= '\u0000' && LA1_0 <= '\t')||(LA1_0 >= '\u000B' && LA1_0 <= '\f')||(LA1_0 >= '\u000E' && LA1_0 <= '&')||(LA1_0 >= '(' && LA1_0 <= '\uFFFF')) ) {
+					alt1=2;
 				}
 
 				switch (alt1) {
 				case 1 :
-					// CLExpr.g:
+					// CLExpr.g:193:4: '\\'' '\\''
 					{
+					match('\''); 
+					match('\''); 
+					 b.appendCodePoint('\'');
+					}
+					break;
+				case 2 :
+					// CLExpr.g:194:4: c=~ ( '\\'' | '\\r' | '\\n' )
+					{
+					c= input.LA(1);
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
 					}
@@ -140,6 +159,7 @@ public class CLExprLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
+					 b.appendCodePoint(c);
 					}
 					break;
 
@@ -149,6 +169,7 @@ public class CLExprLexer extends Lexer {
 			}
 
 			match('\''); 
+			 setText(b.toString()); 
 			}
 
 			state.type = _type;
@@ -165,7 +186,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = OR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:196:5: ( '!' | ( '*' O R ) )
+			// CLExpr.g:200:5: ( '!' | ( '*' O R ) )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='!') ) {
@@ -183,16 +204,16 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// CLExpr.g:196:8: '!'
+					// CLExpr.g:200:8: '!'
 					{
 					match('!'); 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:196:14: ( '*' O R )
+					// CLExpr.g:200:14: ( '*' O R )
 					{
-					// CLExpr.g:196:14: ( '*' O R )
-					// CLExpr.g:196:15: '*' O R
+					// CLExpr.g:200:14: ( '*' O R )
+					// CLExpr.g:200:15: '*' O R
 					{
 					match('*'); 
 					mO(); 
@@ -219,7 +240,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = AND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:197:6: ( '&' | ( '*' A N D ) )
+			// CLExpr.g:201:6: ( '&' | ( '*' A N D ) )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='&') ) {
@@ -237,16 +258,16 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt3) {
 				case 1 :
-					// CLExpr.g:197:9: '&'
+					// CLExpr.g:201:9: '&'
 					{
 					match('&'); 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:197:15: ( '*' A N D )
+					// CLExpr.g:201:15: ( '*' A N D )
 					{
-					// CLExpr.g:197:15: ( '*' A N D )
-					// CLExpr.g:197:16: '*' A N D
+					// CLExpr.g:201:15: ( '*' A N D )
+					// CLExpr.g:201:16: '*' A N D
 					{
 					match('*'); 
 					mA(); 
@@ -275,11 +296,11 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = NOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:198:5: ( ( '*' N O T ) )
-			// CLExpr.g:198:7: ( '*' N O T )
+			// CLExpr.g:202:5: ( ( '*' N O T ) )
+			// CLExpr.g:202:7: ( '*' N O T )
 			{
-			// CLExpr.g:198:7: ( '*' N O T )
-			// CLExpr.g:198:8: '*' N O T
+			// CLExpr.g:202:7: ( '*' N O T )
+			// CLExpr.g:202:8: '*' N O T
 			{
 			match('*'); 
 			mN(); 
@@ -306,7 +327,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = EQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:199:4: ( '=' | ( '*' E Q ) )
+			// CLExpr.g:203:4: ( '=' | ( '*' E Q ) )
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='=') ) {
@@ -324,16 +345,16 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt4) {
 				case 1 :
-					// CLExpr.g:199:6: '='
+					// CLExpr.g:203:6: '='
 					{
 					match('='); 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:199:13: ( '*' E Q )
+					// CLExpr.g:203:13: ( '*' E Q )
 					{
-					// CLExpr.g:199:13: ( '*' E Q )
-					// CLExpr.g:199:14: '*' E Q
+					// CLExpr.g:203:13: ( '*' E Q )
+					// CLExpr.g:203:14: '*' E Q
 					{
 					match('*'); 
 					mE(); 
@@ -360,7 +381,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:200:4: ( '>' | ( '*' G T ) )
+			// CLExpr.g:204:4: ( '>' | ( '*' G T ) )
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( (LA5_0=='>') ) {
@@ -378,16 +399,16 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt5) {
 				case 1 :
-					// CLExpr.g:200:6: '>'
+					// CLExpr.g:204:6: '>'
 					{
 					match('>'); 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:200:12: ( '*' G T )
+					// CLExpr.g:204:12: ( '*' G T )
 					{
-					// CLExpr.g:200:12: ( '*' G T )
-					// CLExpr.g:200:13: '*' G T
+					// CLExpr.g:204:12: ( '*' G T )
+					// CLExpr.g:204:13: '*' G T
 					{
 					match('*'); 
 					mG(); 
@@ -414,7 +435,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:201:4: ( '<' | ( '*' L T ) )
+			// CLExpr.g:205:4: ( '<' | ( '*' L T ) )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0=='<') ) {
@@ -432,16 +453,16 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt6) {
 				case 1 :
-					// CLExpr.g:201:8: '<'
+					// CLExpr.g:205:8: '<'
 					{
 					match('<'); 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:201:14: ( '*' L T )
+					// CLExpr.g:205:14: ( '*' L T )
 					{
-					// CLExpr.g:201:14: ( '*' L T )
-					// CLExpr.g:201:15: '*' L T
+					// CLExpr.g:205:14: ( '*' L T )
+					// CLExpr.g:205:15: '*' L T
 					{
 					match('*'); 
 					mL(); 
@@ -468,8 +489,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = GTEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:202:6: ( '*' G E )
-			// CLExpr.g:202:8: '*' G E
+			// CLExpr.g:206:6: ( '*' G E )
+			// CLExpr.g:206:8: '*' G E
 			{
 			match('*'); 
 			mG(); 
@@ -492,8 +513,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = LTEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:203:6: ( '*' L E )
-			// CLExpr.g:203:8: '*' L E
+			// CLExpr.g:207:6: ( '*' L E )
+			// CLExpr.g:207:8: '*' L E
 			{
 			match('*'); 
 			mL(); 
@@ -516,7 +537,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = NE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:204:8: ( '^=' | '*' N E )
+			// CLExpr.g:208:8: ( '^=' | '*' N E )
 			int alt7=2;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0=='^') ) {
@@ -534,14 +555,14 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt7) {
 				case 1 :
-					// CLExpr.g:204:11: '^='
+					// CLExpr.g:208:11: '^='
 					{
 					match("^="); 
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:204:18: '*' N E
+					// CLExpr.g:208:18: '*' N E
 					{
 					match('*'); 
 					mN(); 
@@ -566,7 +587,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = NG;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:205:9: ( '^>' | '*' N G )
+			// CLExpr.g:209:9: ( '^>' | '*' N G )
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='^') ) {
@@ -584,14 +605,14 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt8) {
 				case 1 :
-					// CLExpr.g:205:12: '^>'
+					// CLExpr.g:209:12: '^>'
 					{
 					match("^>"); 
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:205:19: '*' N G
+					// CLExpr.g:209:19: '*' N G
 					{
 					match('*'); 
 					mN(); 
@@ -616,7 +637,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = NL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:206:9: ( '^<' | '*' N L )
+			// CLExpr.g:210:9: ( '^<' | '*' N L )
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='^') ) {
@@ -634,14 +655,14 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt9) {
 				case 1 :
-					// CLExpr.g:206:12: '^<'
+					// CLExpr.g:210:12: '^<'
 					{
 					match("^<"); 
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:206:19: '*' N L
+					// CLExpr.g:210:19: '*' N L
 					{
 					match('*'); 
 					mN(); 
@@ -666,8 +687,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:208:6: ( '+' )
-			// CLExpr.g:208:8: '+'
+			// CLExpr.g:212:6: ( '+' )
+			// CLExpr.g:212:8: '+'
 			{
 			match('+'); 
 			}
@@ -686,8 +707,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:209:7: ( '-' )
-			// CLExpr.g:209:9: '-'
+			// CLExpr.g:213:7: ( '-' )
+			// CLExpr.g:213:9: '-'
 			{
 			match('-'); 
 			}
@@ -706,8 +727,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = MULT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:210:6: ( '*' )
-			// CLExpr.g:210:8: '*'
+			// CLExpr.g:214:6: ( '*' )
+			// CLExpr.g:214:8: '*'
 			{
 			match('*'); 
 			}
@@ -726,8 +747,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = DIV;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:211:5: ( '/' )
-			// CLExpr.g:211:7: '/'
+			// CLExpr.g:215:5: ( '/' )
+			// CLExpr.g:215:7: '/'
 			{
 			match('/'); 
 			}
@@ -746,7 +767,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = CAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:213:9: ( '!!' | ( '*' C A T ) )
+			// CLExpr.g:217:9: ( '!!' | ( '*' C A T ) )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='!') ) {
@@ -764,17 +785,17 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt10) {
 				case 1 :
-					// CLExpr.g:213:11: '!!'
+					// CLExpr.g:217:11: '!!'
 					{
 					match("!!"); 
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:213:18: ( '*' C A T )
+					// CLExpr.g:217:18: ( '*' C A T )
 					{
-					// CLExpr.g:213:18: ( '*' C A T )
-					// CLExpr.g:213:19: '*' C A T
+					// CLExpr.g:217:18: ( '*' C A T )
+					// CLExpr.g:217:19: '*' C A T
 					{
 					match('*'); 
 					mC(); 
@@ -803,7 +824,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = BCAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:214:9: ( '!>' | ( '*' B C A T ) )
+			// CLExpr.g:218:9: ( '!>' | ( '*' B C A T ) )
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0=='!') ) {
@@ -821,17 +842,17 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt11) {
 				case 1 :
-					// CLExpr.g:214:11: '!>'
+					// CLExpr.g:218:11: '!>'
 					{
 					match("!>"); 
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:214:18: ( '*' B C A T )
+					// CLExpr.g:218:18: ( '*' B C A T )
 					{
-					// CLExpr.g:214:18: ( '*' B C A T )
-					// CLExpr.g:214:19: '*' B C A T
+					// CLExpr.g:218:18: ( '*' B C A T )
+					// CLExpr.g:218:19: '*' B C A T
 					{
 					match('*'); 
 					mB(); 
@@ -862,7 +883,7 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = TCAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:215:9: ( '!<' | ( '*' T C A T ) )
+			// CLExpr.g:219:9: ( '!<' | ( '*' T C A T ) )
 			int alt12=2;
 			int LA12_0 = input.LA(1);
 			if ( (LA12_0=='!') ) {
@@ -880,17 +901,17 @@ public class CLExprLexer extends Lexer {
 
 			switch (alt12) {
 				case 1 :
-					// CLExpr.g:215:11: '!<'
+					// CLExpr.g:219:11: '!<'
 					{
 					match("!<"); 
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:215:18: ( '*' T C A T )
+					// CLExpr.g:219:18: ( '*' T C A T )
 					{
-					// CLExpr.g:215:18: ( '*' T C A T )
-					// CLExpr.g:215:19: '*' T C A T
+					// CLExpr.g:219:18: ( '*' T C A T )
+					// CLExpr.g:219:19: '*' T C A T
 					{
 					match('*'); 
 					mT(); 
@@ -921,12 +942,12 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = TERM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:217:6: ( LETTER ( LETTER | DIGIT )* )
-			// CLExpr.g:217:8: LETTER ( LETTER | DIGIT )*
+			// CLExpr.g:221:6: ( LETTER ( LETTER | DIGIT )* )
+			// CLExpr.g:221:8: LETTER ( LETTER | DIGIT )*
 			{
 			mLETTER(); 
 
-			// CLExpr.g:217:15: ( LETTER | DIGIT )*
+			// CLExpr.g:221:15: ( LETTER | DIGIT )*
 			loop13:
 			while (true) {
 				int alt13=2;
@@ -971,10 +992,10 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = INTEGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:219:9: ( ( DIGIT )+ )
-			// CLExpr.g:220:2: ( DIGIT )+
+			// CLExpr.g:223:9: ( ( DIGIT )+ )
+			// CLExpr.g:224:2: ( DIGIT )+
 			{
-			// CLExpr.g:220:2: ( DIGIT )+
+			// CLExpr.g:224:2: ( DIGIT )+
 			int cnt14=0;
 			loop14:
 			while (true) {
@@ -1023,10 +1044,10 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = FLOAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:224:2: ( ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+ )
-			// CLExpr.g:224:4: ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+
+			// CLExpr.g:228:2: ( ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+ )
+			// CLExpr.g:228:4: ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+
 			{
-			// CLExpr.g:224:4: ( '0' .. '9' )*
+			// CLExpr.g:228:4: ( '0' .. '9' )*
 			loop15:
 			while (true) {
 				int alt15=2;
@@ -1057,7 +1078,7 @@ public class CLExprLexer extends Lexer {
 
 			mDIGIT_SPECIAL(); 
 
-			// CLExpr.g:224:30: ( '0' .. '9' )+
+			// CLExpr.g:228:30: ( '0' .. '9' )+
 			int cnt16=0;
 			loop16:
 			while (true) {
@@ -1106,8 +1127,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = OPEN_BRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:228:2: ( '(' )
-			// CLExpr.g:229:2: '('
+			// CLExpr.g:232:2: ( '(' )
+			// CLExpr.g:233:2: '('
 			{
 			match('('); 
 			}
@@ -1126,8 +1147,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = CLOSE_BRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:233:2: ( ')' )
-			// CLExpr.g:234:2: ')'
+			// CLExpr.g:237:2: ( ')' )
+			// CLExpr.g:238:2: ')'
 			{
 			match(')'); 
 			}
@@ -1146,8 +1167,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = BINARY_FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:238:2: ( '%' B I N A R Y )
-			// CLExpr.g:239:2: '%' B I N A R Y
+			// CLExpr.g:242:2: ( '%' B I N A R Y )
+			// CLExpr.g:243:2: '%' B I N A R Y
 			{
 			match('%'); 
 			mB(); 
@@ -1178,8 +1199,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = SST_FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:243:2: ( '%' S S T )
-			// CLExpr.g:244:2: '%' S S T
+			// CLExpr.g:247:2: ( '%' S S T )
+			// CLExpr.g:248:2: '%' S S T
 			{
 			match('%'); 
 			mS(); 
@@ -1204,8 +1225,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = SWITCH_FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:248:2: ( '%' S W I T C H )
-			// CLExpr.g:249:2: '%' S W I T C H
+			// CLExpr.g:252:2: ( '%' S W I T C H )
+			// CLExpr.g:253:2: '%' S W I T C H
 			{
 			match('%'); 
 			mS(); 
@@ -1236,8 +1257,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = SWITCH_VALUE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:253:2: ( ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) )
-			// CLExpr.g:254:2: ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' )
+			// CLExpr.g:257:2: ( ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) )
+			// CLExpr.g:258:2: ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' )
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '1')||input.LA(1)=='X'||input.LA(1)=='x' ) {
 				input.consume();
@@ -1317,7 +1338,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// CLExpr.g:259:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | CHAR_SPECIAL ) )
+			// CLExpr.g:263:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | CHAR_SPECIAL ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='\"'||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||input.LA(1)=='?'||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
@@ -1340,7 +1361,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// CLExpr.g:264:3: ( ( '\\u00A7' | '_' | '.' | '/' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '\\u00a3' | '?' | '+' | '-' | ',' | '$' ) )
+			// CLExpr.g:268:3: ( ( '\\u00A7' | '_' | '.' | '/' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '\\u00a3' | '?' | '+' | '-' | ',' | '$' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='\"'||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||input.LA(1)=='?'||input.LA(1)=='_'||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
@@ -1363,7 +1384,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// CLExpr.g:287:3: ( ( '0' .. '9' ) )
+			// CLExpr.g:291:3: ( ( '0' .. '9' ) )
 			// CLExpr.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1386,7 +1407,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "DIGIT_SPECIAL"
 	public final void mDIGIT_SPECIAL() throws RecognitionException {
 		try {
-			// CLExpr.g:292:3: ( ( ',' | '.' ) )
+			// CLExpr.g:296:3: ( ( ',' | '.' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)==','||input.LA(1)=='.' ) {
@@ -1409,7 +1430,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "A"
 	public final void mA() throws RecognitionException {
 		try {
-			// CLExpr.g:295:11: ( ( 'a' | 'A' ) )
+			// CLExpr.g:299:11: ( ( 'a' | 'A' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
@@ -1432,7 +1453,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "B"
 	public final void mB() throws RecognitionException {
 		try {
-			// CLExpr.g:296:11: ( ( 'b' | 'B' ) )
+			// CLExpr.g:300:11: ( ( 'b' | 'B' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -1455,7 +1476,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "C"
 	public final void mC() throws RecognitionException {
 		try {
-			// CLExpr.g:297:11: ( ( 'c' | 'C' ) )
+			// CLExpr.g:301:11: ( ( 'c' | 'C' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
@@ -1478,7 +1499,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "D"
 	public final void mD() throws RecognitionException {
 		try {
-			// CLExpr.g:298:11: ( ( 'd' | 'D' ) )
+			// CLExpr.g:302:11: ( ( 'd' | 'D' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
@@ -1501,7 +1522,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "E"
 	public final void mE() throws RecognitionException {
 		try {
-			// CLExpr.g:299:11: ( ( 'e' | 'E' ) )
+			// CLExpr.g:303:11: ( ( 'e' | 'E' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
@@ -1524,7 +1545,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "F"
 	public final void mF() throws RecognitionException {
 		try {
-			// CLExpr.g:300:11: ( ( 'f' | 'F' ) )
+			// CLExpr.g:304:11: ( ( 'f' | 'F' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
@@ -1547,7 +1568,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "G"
 	public final void mG() throws RecognitionException {
 		try {
-			// CLExpr.g:301:11: ( ( 'g' | 'G' ) )
+			// CLExpr.g:305:11: ( ( 'g' | 'G' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
@@ -1570,7 +1591,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "H"
 	public final void mH() throws RecognitionException {
 		try {
-			// CLExpr.g:302:11: ( ( 'h' | 'H' ) )
+			// CLExpr.g:306:11: ( ( 'h' | 'H' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='H'||input.LA(1)=='h' ) {
@@ -1593,7 +1614,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "I"
 	public final void mI() throws RecognitionException {
 		try {
-			// CLExpr.g:303:11: ( ( 'i' | 'I' ) )
+			// CLExpr.g:307:11: ( ( 'i' | 'I' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
@@ -1616,7 +1637,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "J"
 	public final void mJ() throws RecognitionException {
 		try {
-			// CLExpr.g:304:11: ( ( 'j' | 'J' ) )
+			// CLExpr.g:308:11: ( ( 'j' | 'J' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='J'||input.LA(1)=='j' ) {
@@ -1639,7 +1660,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "K"
 	public final void mK() throws RecognitionException {
 		try {
-			// CLExpr.g:305:11: ( ( 'k' | 'K' ) )
+			// CLExpr.g:309:11: ( ( 'k' | 'K' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='K'||input.LA(1)=='k' ) {
@@ -1662,7 +1683,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "L"
 	public final void mL() throws RecognitionException {
 		try {
-			// CLExpr.g:306:11: ( ( 'l' | 'L' ) )
+			// CLExpr.g:310:11: ( ( 'l' | 'L' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
@@ -1685,7 +1706,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "M"
 	public final void mM() throws RecognitionException {
 		try {
-			// CLExpr.g:307:11: ( ( 'm' | 'M' ) )
+			// CLExpr.g:311:11: ( ( 'm' | 'M' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
@@ -1708,7 +1729,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "N"
 	public final void mN() throws RecognitionException {
 		try {
-			// CLExpr.g:308:11: ( ( 'n' | 'N' ) )
+			// CLExpr.g:312:11: ( ( 'n' | 'N' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
@@ -1731,7 +1752,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "O"
 	public final void mO() throws RecognitionException {
 		try {
-			// CLExpr.g:309:11: ( ( 'o' | 'O' ) )
+			// CLExpr.g:313:11: ( ( 'o' | 'O' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
@@ -1754,7 +1775,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "P"
 	public final void mP() throws RecognitionException {
 		try {
-			// CLExpr.g:310:11: ( ( 'p' | 'P' ) )
+			// CLExpr.g:314:11: ( ( 'p' | 'P' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
@@ -1777,7 +1798,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "Q"
 	public final void mQ() throws RecognitionException {
 		try {
-			// CLExpr.g:311:11: ( ( 'q' | 'Q' ) )
+			// CLExpr.g:315:11: ( ( 'q' | 'Q' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='Q'||input.LA(1)=='q' ) {
@@ -1800,7 +1821,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "R"
 	public final void mR() throws RecognitionException {
 		try {
-			// CLExpr.g:312:11: ( ( 'r' | 'R' ) )
+			// CLExpr.g:316:11: ( ( 'r' | 'R' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
@@ -1823,7 +1844,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "S"
 	public final void mS() throws RecognitionException {
 		try {
-			// CLExpr.g:313:11: ( ( 's' | 'S' ) )
+			// CLExpr.g:317:11: ( ( 's' | 'S' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
@@ -1846,7 +1867,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "T"
 	public final void mT() throws RecognitionException {
 		try {
-			// CLExpr.g:314:11: ( ( 't' | 'T' ) )
+			// CLExpr.g:318:11: ( ( 't' | 'T' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
@@ -1869,7 +1890,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "U"
 	public final void mU() throws RecognitionException {
 		try {
-			// CLExpr.g:315:11: ( ( 'u' | 'U' ) )
+			// CLExpr.g:319:11: ( ( 'u' | 'U' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
@@ -1892,7 +1913,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "V"
 	public final void mV() throws RecognitionException {
 		try {
-			// CLExpr.g:316:11: ( ( 'v' | 'V' ) )
+			// CLExpr.g:320:11: ( ( 'v' | 'V' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='V'||input.LA(1)=='v' ) {
@@ -1915,7 +1936,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "W"
 	public final void mW() throws RecognitionException {
 		try {
-			// CLExpr.g:317:11: ( ( 'w' | 'W' ) )
+			// CLExpr.g:321:11: ( ( 'w' | 'W' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='W'||input.LA(1)=='w' ) {
@@ -1938,7 +1959,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "X"
 	public final void mX() throws RecognitionException {
 		try {
-			// CLExpr.g:318:11: ( ( 'x' | 'X' ) )
+			// CLExpr.g:322:11: ( ( 'x' | 'X' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -1961,7 +1982,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "Y"
 	public final void mY() throws RecognitionException {
 		try {
-			// CLExpr.g:319:11: ( ( 'y' | 'Y' ) )
+			// CLExpr.g:323:11: ( ( 'y' | 'Y' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
@@ -1984,7 +2005,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "Z"
 	public final void mZ() throws RecognitionException {
 		try {
-			// CLExpr.g:320:11: ( ( 'z' | 'Z' ) )
+			// CLExpr.g:324:11: ( ( 'z' | 'Z' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='Z'||input.LA(1)=='z' ) {
@@ -2009,8 +2030,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:324:2: ( ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' ) )
-			// CLExpr.g:324:5: ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' )
+			// CLExpr.g:328:2: ( ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' ) )
+			// CLExpr.g:328:5: ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 				input.consume();

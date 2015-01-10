@@ -68,6 +68,9 @@ public class CLExpressionHelper implements ExpressionHelper {
 		case CLExprLexer.SST_FUN:
 		case CLExprLexer.BINARY_FUN:
 		case CLExprLexer.SWITCH_FUN:
+		case CLExprLexer.CAT:
+		case CLExprLexer.BCAT:
+		case CLExprLexer.TCAT:	
 			expressionType = ExpressionType.COMPOUND;
 		break;
 		}

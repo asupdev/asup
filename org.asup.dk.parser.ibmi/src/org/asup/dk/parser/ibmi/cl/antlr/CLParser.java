@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CL.g 2014-12-19 11:49:55
+// $ANTLR 3.5.1 CL.g 2015-01-10 12:21:59
 
   package org.asup.dk.parser.ibmi.cl.antlr;
 
@@ -506,7 +506,7 @@ public class CLParser extends Parser {
 			stream_CR.add(CR13);
 
 			// AST REWRITE
-			// elements: command, label
+			// elements: label, command
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -567,7 +567,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "label"
-	// CL.g:110:1: label : ( WS )* LABEL ;
+	// CL.g:110:1: label : ( WS )* LABEL -> ^( LABEL[$LABEL.text.substring(0, $LABEL.text.length()-1)] ) ;
 	public final CLParser.label_return label() throws RecognitionException {
 		CLParser.label_return retval = new CLParser.label_return();
 		retval.start = input.LT(1);
@@ -579,15 +579,14 @@ public class CLParser extends Parser {
 
 		CommonTree WS14_tree=null;
 		CommonTree LABEL15_tree=null;
+		RewriteRuleTokenStream stream_WS=new RewriteRuleTokenStream(adaptor,"token WS");
+		RewriteRuleTokenStream stream_LABEL=new RewriteRuleTokenStream(adaptor,"token LABEL");
 
 		try {
-			// CL.g:110:7: ( ( WS )* LABEL )
-			// CL.g:110:9: ( WS )* LABEL
+			// CL.g:110:7: ( ( WS )* LABEL -> ^( LABEL[$LABEL.text.substring(0, $LABEL.text.length()-1)] ) )
+			// CL.g:111:2: ( WS )* LABEL
 			{
-			root_0 = (CommonTree)adaptor.nil();
-
-
-			// CL.g:110:9: ( WS )*
+			// CL.g:111:2: ( WS )*
 			loop7:
 			while (true) {
 				int alt7=2;
@@ -598,11 +597,10 @@ public class CLParser extends Parser {
 
 				switch (alt7) {
 				case 1 :
-					// CL.g:110:10: WS
+					// CL.g:111:3: WS
 					{
-					WS14=(Token)match(input,WS,FOLLOW_WS_in_label259); 
-					WS14_tree = (CommonTree)adaptor.create(WS14);
-					adaptor.addChild(root_0, WS14_tree);
+					WS14=(Token)match(input,WS,FOLLOW_WS_in_label261);  
+					stream_WS.add(WS14);
 
 					}
 					break;
@@ -612,9 +610,33 @@ public class CLParser extends Parser {
 				}
 			}
 
-			LABEL15=(Token)match(input,LABEL,FOLLOW_LABEL_in_label263); 
-			LABEL15_tree = (CommonTree)adaptor.create(LABEL15);
-			adaptor.addChild(root_0, LABEL15_tree);
+			LABEL15=(Token)match(input,LABEL,FOLLOW_LABEL_in_label265);  
+			stream_LABEL.add(LABEL15);
+
+			// AST REWRITE
+			// elements: LABEL
+			// token labels: 
+			// rule labels: retval
+			// token list labels: 
+			// rule list labels: 
+			// wildcard labels: 
+			retval.tree = root_0;
+			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+			root_0 = (CommonTree)adaptor.nil();
+			// 111:14: -> ^( LABEL[$LABEL.text.substring(0, $LABEL.text.length()-1)] )
+			{
+				// CL.g:111:17: ^( LABEL[$LABEL.text.substring(0, $LABEL.text.length()-1)] )
+				{
+				CommonTree root_1 = (CommonTree)adaptor.nil();
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LABEL, (LABEL15!=null?LABEL15.getText():null).substring(0, (LABEL15!=null?LABEL15.getText():null).length()-1)), root_1);
+				adaptor.addChild(root_0, root_1);
+				}
+
+			}
+
+
+			retval.tree = root_0;
 
 			}
 
@@ -646,7 +668,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "command"
-	// CL.g:113:1: command : cmd_name ( ( WS )+ pos_parm )* ( ( WS )+ parm )* ( WS )* -> ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* ) ;
+	// CL.g:114:1: command : cmd_name ( ( WS )+ pos_parm )* ( ( WS )+ parm )* ( WS )* -> ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* ) ;
 	public final CLParser.command_return command() throws RecognitionException {
 		CLParser.command_return retval = new CLParser.command_return();
 		retval.start = input.LT(1);
@@ -669,24 +691,24 @@ public class CLParser extends Parser {
 		RewriteRuleSubtreeStream stream_cmd_name=new RewriteRuleSubtreeStream(adaptor,"rule cmd_name");
 
 		try {
-			// CL.g:114:3: ( cmd_name ( ( WS )+ pos_parm )* ( ( WS )+ parm )* ( WS )* -> ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* ) )
-			// CL.g:115:3: cmd_name ( ( WS )+ pos_parm )* ( ( WS )+ parm )* ( WS )*
+			// CL.g:115:3: ( cmd_name ( ( WS )+ pos_parm )* ( ( WS )+ parm )* ( WS )* -> ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* ) )
+			// CL.g:116:3: cmd_name ( ( WS )+ pos_parm )* ( ( WS )+ parm )* ( WS )*
 			{
-			pushFollow(FOLLOW_cmd_name_in_command278);
+			pushFollow(FOLLOW_cmd_name_in_command287);
 			cmd_name16=cmd_name();
 			state._fsp--;
 
 			stream_cmd_name.add(cmd_name16.getTree());
-			// CL.g:115:12: ( ( WS )+ pos_parm )*
+			// CL.g:116:12: ( ( WS )+ pos_parm )*
 			loop9:
 			while (true) {
 				int alt9=2;
 				alt9 = dfa9.predict(input);
 				switch (alt9) {
 				case 1 :
-					// CL.g:115:13: ( WS )+ pos_parm
+					// CL.g:116:13: ( WS )+ pos_parm
 					{
-					// CL.g:115:13: ( WS )+
+					// CL.g:116:13: ( WS )+
 					int cnt8=0;
 					loop8:
 					while (true) {
@@ -698,9 +720,9 @@ public class CLParser extends Parser {
 
 						switch (alt8) {
 						case 1 :
-							// CL.g:115:14: WS
+							// CL.g:116:14: WS
 							{
-							WS17=(Token)match(input,WS,FOLLOW_WS_in_command282);  
+							WS17=(Token)match(input,WS,FOLLOW_WS_in_command291);  
 							stream_WS.add(WS17);
 
 							}
@@ -714,7 +736,7 @@ public class CLParser extends Parser {
 						cnt8++;
 					}
 
-					pushFollow(FOLLOW_pos_parm_in_command286);
+					pushFollow(FOLLOW_pos_parm_in_command295);
 					pos_parm18=pos_parm();
 					state._fsp--;
 
@@ -727,16 +749,16 @@ public class CLParser extends Parser {
 				}
 			}
 
-			// CL.g:115:30: ( ( WS )+ parm )*
+			// CL.g:116:30: ( ( WS )+ parm )*
 			loop11:
 			while (true) {
 				int alt11=2;
 				alt11 = dfa11.predict(input);
 				switch (alt11) {
 				case 1 :
-					// CL.g:115:31: ( WS )+ parm
+					// CL.g:116:31: ( WS )+ parm
 					{
-					// CL.g:115:31: ( WS )+
+					// CL.g:116:31: ( WS )+
 					int cnt10=0;
 					loop10:
 					while (true) {
@@ -748,9 +770,9 @@ public class CLParser extends Parser {
 
 						switch (alt10) {
 						case 1 :
-							// CL.g:115:32: WS
+							// CL.g:116:32: WS
 							{
-							WS19=(Token)match(input,WS,FOLLOW_WS_in_command292);  
+							WS19=(Token)match(input,WS,FOLLOW_WS_in_command301);  
 							stream_WS.add(WS19);
 
 							}
@@ -764,7 +786,7 @@ public class CLParser extends Parser {
 						cnt10++;
 					}
 
-					pushFollow(FOLLOW_parm_in_command296);
+					pushFollow(FOLLOW_parm_in_command305);
 					parm20=parm();
 					state._fsp--;
 
@@ -777,7 +799,7 @@ public class CLParser extends Parser {
 				}
 			}
 
-			// CL.g:115:44: ( WS )*
+			// CL.g:116:44: ( WS )*
 			loop12:
 			while (true) {
 				int alt12=2;
@@ -788,9 +810,9 @@ public class CLParser extends Parser {
 
 				switch (alt12) {
 				case 1 :
-					// CL.g:115:45: WS
+					// CL.g:116:45: WS
 					{
-					WS21=(Token)match(input,WS,FOLLOW_WS_in_command301);  
+					WS21=(Token)match(input,WS,FOLLOW_WS_in_command310);  
 					stream_WS.add(WS21);
 
 					}
@@ -812,20 +834,20 @@ public class CLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 115:50: -> ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* )
+			// 116:50: -> ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* )
 			{
-				// CL.g:115:53: ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* )
+				// CL.g:116:53: ^( COMMAND[$command.text] cmd_name ( pos_parm )* ( parm )* )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(COMMAND, input.toString(retval.start,input.LT(-1))), root_1);
 				adaptor.addChild(root_1, stream_cmd_name.nextTree());
-				// CL.g:115:87: ( pos_parm )*
+				// CL.g:116:87: ( pos_parm )*
 				while ( stream_pos_parm.hasNext() ) {
 					adaptor.addChild(root_1, stream_pos_parm.nextTree());
 				}
 				stream_pos_parm.reset();
 
-				// CL.g:115:99: ( parm )*
+				// CL.g:116:99: ( parm )*
 				while ( stream_parm.hasNext() ) {
 					adaptor.addChild(root_1, stream_parm.nextTree());
 				}
@@ -869,7 +891,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "cmd_name"
-	// CL.g:118:1: cmd_name : TOKEN -> ^( CMD_NAME[$TOKEN.text] ) ;
+	// CL.g:119:1: cmd_name : TOKEN -> ^( CMD_NAME[$TOKEN.text] ) ;
 	public final CLParser.cmd_name_return cmd_name() throws RecognitionException {
 		CLParser.cmd_name_return retval = new CLParser.cmd_name_return();
 		retval.start = input.LT(1);
@@ -882,10 +904,10 @@ public class CLParser extends Parser {
 		RewriteRuleTokenStream stream_TOKEN=new RewriteRuleTokenStream(adaptor,"token TOKEN");
 
 		try {
-			// CL.g:119:3: ( TOKEN -> ^( CMD_NAME[$TOKEN.text] ) )
-			// CL.g:120:3: TOKEN
+			// CL.g:120:3: ( TOKEN -> ^( CMD_NAME[$TOKEN.text] ) )
+			// CL.g:121:3: TOKEN
 			{
-			TOKEN22=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_cmd_name337);  
+			TOKEN22=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_cmd_name346);  
 			stream_TOKEN.add(TOKEN22);
 
 			// AST REWRITE
@@ -899,9 +921,9 @@ public class CLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 120:9: -> ^( CMD_NAME[$TOKEN.text] )
+			// 121:9: -> ^( CMD_NAME[$TOKEN.text] )
 			{
-				// CL.g:120:12: ^( CMD_NAME[$TOKEN.text] )
+				// CL.g:121:12: ^( CMD_NAME[$TOKEN.text] )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CMD_NAME, (TOKEN22!=null?TOKEN22.getText():null)), root_1);
@@ -943,7 +965,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "pos_parm"
-	// CL.g:123:1: pos_parm : ( TOKEN -> ^( POS_PAR[$TOKEN.text] ) | PAREN -> ^( POS_PAR[$PAREN.text] ) | STRING -> ^( POS_PAR[$STRING.text] ) | fun );
+	// CL.g:124:1: pos_parm : ( TOKEN -> ^( POS_PAR[$TOKEN.text] ) | PAREN -> ^( POS_PAR[$PAREN.text] ) | STRING -> ^( POS_PAR[$STRING.text] ) | fun );
 	public final CLParser.pos_parm_return pos_parm() throws RecognitionException {
 		CLParser.pos_parm_return retval = new CLParser.pos_parm_return();
 		retval.start = input.LT(1);
@@ -963,7 +985,7 @@ public class CLParser extends Parser {
 		RewriteRuleTokenStream stream_TOKEN=new RewriteRuleTokenStream(adaptor,"token TOKEN");
 
 		try {
-			// CL.g:124:3: ( TOKEN -> ^( POS_PAR[$TOKEN.text] ) | PAREN -> ^( POS_PAR[$PAREN.text] ) | STRING -> ^( POS_PAR[$STRING.text] ) | fun )
+			// CL.g:125:3: ( TOKEN -> ^( POS_PAR[$TOKEN.text] ) | PAREN -> ^( POS_PAR[$PAREN.text] ) | STRING -> ^( POS_PAR[$STRING.text] ) | fun )
 			int alt13=4;
 			switch ( input.LA(1) ) {
 			case TOKEN:
@@ -993,9 +1015,9 @@ public class CLParser extends Parser {
 			}
 			switch (alt13) {
 				case 1 :
-					// CL.g:125:3: TOKEN
+					// CL.g:126:3: TOKEN
 					{
-					TOKEN23=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_pos_parm359);  
+					TOKEN23=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_pos_parm368);  
 					stream_TOKEN.add(TOKEN23);
 
 					// AST REWRITE
@@ -1009,9 +1031,9 @@ public class CLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 125:10: -> ^( POS_PAR[$TOKEN.text] )
+					// 126:10: -> ^( POS_PAR[$TOKEN.text] )
 					{
-						// CL.g:125:13: ^( POS_PAR[$TOKEN.text] )
+						// CL.g:126:13: ^( POS_PAR[$TOKEN.text] )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POS_PAR, (TOKEN23!=null?TOKEN23.getText():null)), root_1);
@@ -1026,9 +1048,9 @@ public class CLParser extends Parser {
 					}
 					break;
 				case 2 :
-					// CL.g:127:3: PAREN
+					// CL.g:128:3: PAREN
 					{
-					PAREN24=(Token)match(input,PAREN,FOLLOW_PAREN_in_pos_parm375);  
+					PAREN24=(Token)match(input,PAREN,FOLLOW_PAREN_in_pos_parm384);  
 					stream_PAREN.add(PAREN24);
 
 					// AST REWRITE
@@ -1042,9 +1064,9 @@ public class CLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 127:9: -> ^( POS_PAR[$PAREN.text] )
+					// 128:9: -> ^( POS_PAR[$PAREN.text] )
 					{
-						// CL.g:127:12: ^( POS_PAR[$PAREN.text] )
+						// CL.g:128:12: ^( POS_PAR[$PAREN.text] )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POS_PAR, (PAREN24!=null?PAREN24.getText():null)), root_1);
@@ -1059,9 +1081,9 @@ public class CLParser extends Parser {
 					}
 					break;
 				case 3 :
-					// CL.g:129:3: STRING
+					// CL.g:130:3: STRING
 					{
-					STRING25=(Token)match(input,STRING,FOLLOW_STRING_in_pos_parm390);  
+					STRING25=(Token)match(input,STRING,FOLLOW_STRING_in_pos_parm399);  
 					stream_STRING.add(STRING25);
 
 					// AST REWRITE
@@ -1075,9 +1097,9 @@ public class CLParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 129:10: -> ^( POS_PAR[$STRING.text] )
+					// 130:10: -> ^( POS_PAR[$STRING.text] )
 					{
-						// CL.g:129:13: ^( POS_PAR[$STRING.text] )
+						// CL.g:130:13: ^( POS_PAR[$STRING.text] )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POS_PAR, (STRING25!=null?STRING25.getText():null)), root_1);
@@ -1092,12 +1114,12 @@ public class CLParser extends Parser {
 					}
 					break;
 				case 4 :
-					// CL.g:131:3: fun
+					// CL.g:132:3: fun
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_fun_in_pos_parm405);
+					pushFollow(FOLLOW_fun_in_pos_parm414);
 					fun26=fun();
 					state._fsp--;
 
@@ -1135,7 +1157,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "fun"
-	// CL.g:134:1: fun : FUN PAREN -> ^( POS_PAR[$fun.text] ) ;
+	// CL.g:135:1: fun : FUN PAREN -> ^( POS_PAR[$fun.text] ) ;
 	public final CLParser.fun_return fun() throws RecognitionException {
 		CLParser.fun_return retval = new CLParser.fun_return();
 		retval.start = input.LT(1);
@@ -1151,13 +1173,13 @@ public class CLParser extends Parser {
 		RewriteRuleTokenStream stream_PAREN=new RewriteRuleTokenStream(adaptor,"token PAREN");
 
 		try {
-			// CL.g:135:3: ( FUN PAREN -> ^( POS_PAR[$fun.text] ) )
-			// CL.g:136:3: FUN PAREN
+			// CL.g:136:3: ( FUN PAREN -> ^( POS_PAR[$fun.text] ) )
+			// CL.g:137:3: FUN PAREN
 			{
-			FUN27=(Token)match(input,FUN,FOLLOW_FUN_in_fun420);  
+			FUN27=(Token)match(input,FUN,FOLLOW_FUN_in_fun429);  
 			stream_FUN.add(FUN27);
 
-			PAREN28=(Token)match(input,PAREN,FOLLOW_PAREN_in_fun422);  
+			PAREN28=(Token)match(input,PAREN,FOLLOW_PAREN_in_fun431);  
 			stream_PAREN.add(PAREN28);
 
 			// AST REWRITE
@@ -1171,9 +1193,9 @@ public class CLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 136:13: -> ^( POS_PAR[$fun.text] )
+			// 137:13: -> ^( POS_PAR[$fun.text] )
 			{
-				// CL.g:136:16: ^( POS_PAR[$fun.text] )
+				// CL.g:137:16: ^( POS_PAR[$fun.text] )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POS_PAR, input.toString(retval.start,input.LT(-1))), root_1);
@@ -1215,7 +1237,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "parm"
-	// CL.g:139:1: parm : parm_name parm_value -> ^( PAR[$parm.text] parm_name parm_value ) ;
+	// CL.g:140:1: parm : parm_name parm_value -> ^( PAR[$parm.text] parm_name parm_value ) ;
 	public final CLParser.parm_return parm() throws RecognitionException {
 		CLParser.parm_return retval = new CLParser.parm_return();
 		retval.start = input.LT(1);
@@ -1229,15 +1251,15 @@ public class CLParser extends Parser {
 		RewriteRuleSubtreeStream stream_parm_value=new RewriteRuleSubtreeStream(adaptor,"rule parm_value");
 
 		try {
-			// CL.g:140:3: ( parm_name parm_value -> ^( PAR[$parm.text] parm_name parm_value ) )
-			// CL.g:141:3: parm_name parm_value
+			// CL.g:141:3: ( parm_name parm_value -> ^( PAR[$parm.text] parm_name parm_value ) )
+			// CL.g:142:3: parm_name parm_value
 			{
-			pushFollow(FOLLOW_parm_name_in_parm444);
+			pushFollow(FOLLOW_parm_name_in_parm453);
 			parm_name29=parm_name();
 			state._fsp--;
 
 			stream_parm_name.add(parm_name29.getTree());
-			pushFollow(FOLLOW_parm_value_in_parm446);
+			pushFollow(FOLLOW_parm_value_in_parm455);
 			parm_value30=parm_value();
 			state._fsp--;
 
@@ -1253,9 +1275,9 @@ public class CLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 141:24: -> ^( PAR[$parm.text] parm_name parm_value )
+			// 142:24: -> ^( PAR[$parm.text] parm_name parm_value )
 			{
-				// CL.g:141:27: ^( PAR[$parm.text] parm_name parm_value )
+				// CL.g:142:27: ^( PAR[$parm.text] parm_name parm_value )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PAR, input.toString(retval.start,input.LT(-1))), root_1);
@@ -1299,7 +1321,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "parm_name"
-	// CL.g:144:2: parm_name : TOKEN -> ^( PAR_NAME[$TOKEN.text] ) ;
+	// CL.g:145:2: parm_name : TOKEN -> ^( PAR_NAME[$TOKEN.text] ) ;
 	public final CLParser.parm_name_return parm_name() throws RecognitionException {
 		CLParser.parm_name_return retval = new CLParser.parm_name_return();
 		retval.start = input.LT(1);
@@ -1312,10 +1334,10 @@ public class CLParser extends Parser {
 		RewriteRuleTokenStream stream_TOKEN=new RewriteRuleTokenStream(adaptor,"token TOKEN");
 
 		try {
-			// CL.g:145:3: ( TOKEN -> ^( PAR_NAME[$TOKEN.text] ) )
-			// CL.g:146:3: TOKEN
+			// CL.g:146:3: ( TOKEN -> ^( PAR_NAME[$TOKEN.text] ) )
+			// CL.g:147:3: TOKEN
 			{
-			TOKEN31=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_parm_name473);  
+			TOKEN31=(Token)match(input,TOKEN,FOLLOW_TOKEN_in_parm_name482);  
 			stream_TOKEN.add(TOKEN31);
 
 			// AST REWRITE
@@ -1329,9 +1351,9 @@ public class CLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 146:9: -> ^( PAR_NAME[$TOKEN.text] )
+			// 147:9: -> ^( PAR_NAME[$TOKEN.text] )
 			{
-				// CL.g:146:12: ^( PAR_NAME[$TOKEN.text] )
+				// CL.g:147:12: ^( PAR_NAME[$TOKEN.text] )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PAR_NAME, (TOKEN31!=null?TOKEN31.getText():null)), root_1);
@@ -1373,7 +1395,7 @@ public class CLParser extends Parser {
 
 
 	// $ANTLR start "parm_value"
-	// CL.g:149:2: parm_value : PAREN -> ^( PAR_VALUE[$PAREN.text] ) ;
+	// CL.g:150:2: parm_value : PAREN -> ^( PAR_VALUE[$PAREN.text] ) ;
 	public final CLParser.parm_value_return parm_value() throws RecognitionException {
 		CLParser.parm_value_return retval = new CLParser.parm_value_return();
 		retval.start = input.LT(1);
@@ -1386,10 +1408,10 @@ public class CLParser extends Parser {
 		RewriteRuleTokenStream stream_PAREN=new RewriteRuleTokenStream(adaptor,"token PAREN");
 
 		try {
-			// CL.g:150:3: ( PAREN -> ^( PAR_VALUE[$PAREN.text] ) )
-			// CL.g:151:3: PAREN
+			// CL.g:151:3: ( PAREN -> ^( PAR_VALUE[$PAREN.text] ) )
+			// CL.g:152:3: PAREN
 			{
-			PAREN32=(Token)match(input,PAREN,FOLLOW_PAREN_in_parm_value496);  
+			PAREN32=(Token)match(input,PAREN,FOLLOW_PAREN_in_parm_value505);  
 			stream_PAREN.add(PAREN32);
 
 			// AST REWRITE
@@ -1403,9 +1425,9 @@ public class CLParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 151:9: -> ^( PAR_VALUE[$PAREN.text] )
+			// 152:9: -> ^( PAR_VALUE[$PAREN.text] )
 			{
-				// CL.g:151:12: ^( PAR_VALUE[$PAREN.text] )
+				// CL.g:152:12: ^( PAR_VALUE[$PAREN.text] )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PAR_VALUE, (PAREN32!=null?PAREN32.getText():null)), root_1);
@@ -1662,7 +1684,7 @@ public class CLParser extends Parser {
 		}
 		@Override
 		public String getDescription() {
-			return "()* loopback of 115:12: ( ( WS )+ pos_parm )*";
+			return "()* loopback of 116:12: ( ( WS )+ pos_parm )*";
 		}
 	}
 
@@ -1716,7 +1738,7 @@ public class CLParser extends Parser {
 		}
 		@Override
 		public String getDescription() {
-			return "()* loopback of 115:30: ( ( WS )+ parm )*";
+			return "()* loopback of 116:30: ( ( WS )+ parm )*";
 		}
 	}
 
@@ -1733,23 +1755,23 @@ public class CLParser extends Parser {
 	public static final BitSet FOLLOW_WS_in_command_row228 = new BitSet(new long[]{0x0000000001800000L});
 	public static final BitSet FOLLOW_command_in_command_row232 = new BitSet(new long[]{0x0000000000000800L});
 	public static final BitSet FOLLOW_CR_in_command_row234 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WS_in_label259 = new BitSet(new long[]{0x0000000001004000L});
-	public static final BitSet FOLLOW_LABEL_in_label263 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_cmd_name_in_command278 = new BitSet(new long[]{0x0000000001000002L});
-	public static final BitSet FOLLOW_WS_in_command282 = new BitSet(new long[]{0x0000000001C22000L});
-	public static final BitSet FOLLOW_pos_parm_in_command286 = new BitSet(new long[]{0x0000000001000002L});
-	public static final BitSet FOLLOW_WS_in_command292 = new BitSet(new long[]{0x0000000001800000L});
-	public static final BitSet FOLLOW_parm_in_command296 = new BitSet(new long[]{0x0000000001000002L});
-	public static final BitSet FOLLOW_WS_in_command301 = new BitSet(new long[]{0x0000000001000002L});
-	public static final BitSet FOLLOW_TOKEN_in_cmd_name337 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TOKEN_in_pos_parm359 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PAREN_in_pos_parm375 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_pos_parm390 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_fun_in_pos_parm405 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FUN_in_fun420 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_PAREN_in_fun422 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parm_name_in_parm444 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_parm_value_in_parm446 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TOKEN_in_parm_name473 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PAREN_in_parm_value496 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WS_in_label261 = new BitSet(new long[]{0x0000000001004000L});
+	public static final BitSet FOLLOW_LABEL_in_label265 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_cmd_name_in_command287 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_WS_in_command291 = new BitSet(new long[]{0x0000000001C22000L});
+	public static final BitSet FOLLOW_pos_parm_in_command295 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_WS_in_command301 = new BitSet(new long[]{0x0000000001800000L});
+	public static final BitSet FOLLOW_parm_in_command305 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_WS_in_command310 = new BitSet(new long[]{0x0000000001000002L});
+	public static final BitSet FOLLOW_TOKEN_in_cmd_name346 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TOKEN_in_pos_parm368 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PAREN_in_pos_parm384 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_pos_parm399 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_fun_in_pos_parm414 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FUN_in_fun429 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_PAREN_in_fun431 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parm_name_in_parm453 = new BitSet(new long[]{0x0000000000020000L});
+	public static final BitSet FOLLOW_parm_value_in_parm455 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TOKEN_in_parm_name482 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PAREN_in_parm_value505 = new BitSet(new long[]{0x0000000000000002L});
 }

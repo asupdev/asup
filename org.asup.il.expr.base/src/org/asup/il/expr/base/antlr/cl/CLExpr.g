@@ -152,7 +152,7 @@ value	:
 
 	VAR
 	|
-	STRING -> STRING[$STRING.text.substring(1, $STRING.text.length()-1)]
+	STRING
 	|
 	TERM
 	|
@@ -187,10 +187,14 @@ VAR	:
 	'&' TERM
 	;
 
-STRING	:
+STRING
+	: '\''
+   	{ StringBuilder b = new StringBuilder(); }
+	( '\'' '\''         { b.appendCodePoint('\'');}
+	| c=~('\''|'\r'|'\n')  { b.appendCodePoint(c);}
+	)*
 	'\''
-        ~('\''|'\r'|'\n')*
-    	'\''
+	{ setText(b.toString()); }
   ;
 
 OR 	: 	'!' | ('*' O R);

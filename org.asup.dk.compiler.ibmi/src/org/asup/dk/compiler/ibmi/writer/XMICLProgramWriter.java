@@ -667,7 +667,7 @@ public class XMICLProgramWriter {
 			if (row.getCommand() != null && row.getCommand().getName().equalsIgnoreCase("ENDDO")) {
 				break;
 			} else {
-				System.out.println(i++ + ":" + row.getText());
+				//System.out.println(i++ + ":" + row.getText());
 				analizeRow(block, row);
 			}
 
@@ -743,6 +743,11 @@ public class XMICLProgramWriter {
 
 		if(clCmd.getParm("VALUE") != null)
 			varValue = clCmd.getParm("VALUE").getValue().getText().trim();
+		
+		// Delete initial &
+		if (varName.startsWith("&")) {
+			varName = removeFirstChar(varName);
+		}
 		
 		unaryDataTerm.setName(varName);
 		

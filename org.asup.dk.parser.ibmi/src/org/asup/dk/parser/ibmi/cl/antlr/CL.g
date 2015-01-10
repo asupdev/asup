@@ -107,7 +107,8 @@ command_row:
 	(label)? (WS)* command CR ->^(ROW[$command_row.text] (label)? command)
   ;
 
-label : (WS)* LABEL
+label : 
+	(WS)* LABEL -> ^(LABEL[$LABEL.text.substring(0, $LABEL.text.length()-1)])
   ;
 
 command
