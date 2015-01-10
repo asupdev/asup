@@ -660,7 +660,6 @@ public class XMICLProgramWriter {
 
 	private void buildBlock(CLBlock block) throws OperatingSystemRuntimeException, IntegratedLanguageExpressionException {
 
-		int i = 0;
 		while (rowIterator.hasNext()) {
 
 			CLRow row = rowIterator.next();

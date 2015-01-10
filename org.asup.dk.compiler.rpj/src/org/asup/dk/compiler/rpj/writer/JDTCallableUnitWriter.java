@@ -64,6 +64,7 @@ import org.eclipse.jdt.core.dom.EnumConstantDeclaration;
 import org.eclipse.jdt.core.dom.EnumDeclaration;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.ExpressionStatement;
+import org.eclipse.jdt.core.dom.FieldAccess;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -76,10 +77,8 @@ import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
-
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
-	
 	public JDTCallableUnitWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
 	}
@@ -146,13 +145,13 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			// writeAnnotation(field, ModuleDef.class, "name", moduleName);
 			writeAnnotation(field, Inject.class);
-//			writeAnnotation(field, Named.class, "value", moduleName);
-			
-			if(public_)
+			// writeAnnotation(field, Named.class, "value", moduleName);
+
+			if (public_)
 				field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 			else
 				field.modifiers().add(getAST().newModifier(ModifierKeyword.PRIVATE_KEYWORD));
-			
+
 			field.setType(getAST().newSimpleType(getAST().newName(moduleName)));
 
 			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(module)));
@@ -261,7 +260,6 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		getTarget().bodyDeclarations().add(field);
 	}
 
-
 	@SuppressWarnings("unchecked")
 	public void writeCursors(List<QCursorTerm> cursors) {
 
@@ -272,7 +270,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			if(cursorTerm.isHold())
+			if (cursorTerm.isHold())
 				writeAnnotation(field, CursorDef.class, "hold", cursorTerm.isHold());
 			writeAnnotation(field, CursorDef.class, "type", cursorTerm.getCursorType());
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
@@ -284,7 +282,6 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		}
 
 	}
-
 
 	@SuppressWarnings("unchecked")
 	public void writeStatements(List<QStatementTerm> statements) {
@@ -304,10 +301,10 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		}
 
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QRoutine routine) {
-		
+
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
@@ -320,19 +317,18 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		methodDeclaration.setBody(block);
 
 		if (routine.getMain() != null) {
-			
+
 			// write java AST
 			JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
 			statementWriter.setAST(getAST());
 
 			statementWriter.getBlocks().push(block);
 
-			if(routine.getMain() instanceof QBlock) {
+			if (routine.getMain() instanceof QBlock) {
 				QBlock qBlock = (QBlock) routine.getMain();
-				for(org.asup.il.flow.QStatement qStatement: qBlock.getStatements())
+				for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements())
 					qStatement.accept(statementWriter);
-			}
-			else
+			} else
 				routine.getMain().accept(statementWriter);
 
 			statementWriter.getBlocks().pop();
@@ -405,9 +401,9 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		if (prototype.getDelegate() != null) {
 			ReturnStatement returnStatement = getAST().newReturnStatement();
-		
-//			returnStatement.setExpression(getAST().newNullLiteral());
-//			block.statements().add(returnStatement);
+
+			// returnStatement.setExpression(getAST().newNullLiteral());
+			// block.statements().add(returnStatement);
 			block.statements().add(getReturnStatement(returnStatement, prototype, methodDeclaration));
 		}
 
@@ -472,9 +468,10 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 	}
+
 	@SuppressWarnings("unchecked")
 	public void writeInit() {
-		
+
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
 
@@ -489,28 +486,26 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
-						
+
 		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
-		if(qInzsr != null) {
-			
-			if(qInzsr.getParent() instanceof QModule) {
+		if (qInzsr != null) {
+
+			if (qInzsr.getParent() instanceof QModule) {
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
 				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
 				methodInvocation.setExpression(getAST().newSimpleName("£mub"));
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
-			}
-			else if(qInzsr.getParent() instanceof QProgram) {
+			} else if (qInzsr.getParent() instanceof QProgram) {
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
 				methodInvocation.setExpression(getAST().newThisExpression());
 				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
-				block.statements().add(expressionStatement);			
-			}
-			else
+				block.statements().add(expressionStatement);
+			} else
 				System.err.println("Unexpected condition: sdifb02xb67er23c23");
-		}		
-		
+		}
+
 		// £INIZI
 		QRoutine £inizi = getCompilationUnit().getRoutine("£INIZI", false);
 		if (£inizi != null) {
@@ -519,7 +514,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			methodInvocation.setExpression(getAST().newThisExpression());
 			methodInvocation.setName(getAST().newSimpleName("£inizi"));
 			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
-			block.statements().add(expressionStatement);			
+			block.statements().add(expressionStatement);
 		}
 
 	}
@@ -543,7 +538,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
 
 			SingleVariableDeclaration parameterVariable = getAST().newSingleVariableDeclaration();
-			parameterVariable.setName(getAST().newSimpleName("arg_"+getCompilationUnit().normalizeTermName(dataTerm.getName())));
+			parameterVariable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataTerm.getName())));
 			Type type = getJavaType(dataTerm);
 			parameterVariable.setType(type);
 
@@ -554,21 +549,45 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
-		
+
 		for (String parameterName : parameterList.getParameters()) {
 			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
-			
+
 			MethodInvocation methodInvocation = getAST().newMethodInvocation();
 			methodInvocation.setName(getAST().newSimpleName("assign"));
+
+			methodInvocation.setExpression(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataTerm.getName())));
+
+			
+			FieldAccess targetAccess = getAST().newFieldAccess();
+			targetAccess.setExpression(getAST().newThisExpression());
+			
+			String[] fieldNames = getCompilationUnit().getQualifiedName(dataTerm).split("\\.");
+			for(int i=0; i<fieldNames.length; i++) {
+
+				targetAccess.setName(getAST().newSimpleName(fieldNames[i]));
+				
+				if(i<fieldNames.length-1) {
+					FieldAccess childAccess = getAST().newFieldAccess();
+					childAccess.setExpression(targetAccess);
+					targetAccess = childAccess;
 					
-			methodInvocation.setExpression(getAST().newSimpleName("arg_"+getCompilationUnit().normalizeTermName(dataTerm.getName())));
-
-			methodInvocation.arguments().add(getAST().newName(getCompilationUnit().getQualifiedName(dataTerm).split("\\.")));
-
+				}
+			}
+									
+			methodInvocation.arguments().add(targetAccess);
 
 			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 			block.statements().add(expressionStatement);
 		}
+		
+		// this.main
+		MethodInvocation mainInvocation = getAST().newMethodInvocation();
+		mainInvocation.setExpression(getAST().newThisExpression());
+		mainInvocation.setName(getAST().newSimpleName("main"));
+		
+		ExpressionStatement mainStatement = getAST().newExpressionStatement(mainInvocation);
+		block.statements().add(mainStatement);
 	}
 
 	public void refactCallableUnit(QCallableUnit callableUnit) {
@@ -582,53 +601,53 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			}
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
-	private ReturnStatement getReturnStatement(ReturnStatement returnStatement, QPrototype<?> prototype, MethodDeclaration methodDeclaration){
-		
+	private ReturnStatement getReturnStatement(ReturnStatement returnStatement, QPrototype<?> prototype, MethodDeclaration methodDeclaration) {
+
 		String namePrototype = getCompilationUnit().normalizeTermName(prototype.getName());
 		MethodInvocation methodInvocation = getAST().newMethodInvocation();
-		switch (namePrototype){
+		switch (namePrototype) {
 		case "p_rxatt":
 			writeImport(RPJServiceSupport.class);
 			methodInvocation.setExpression(getAST().newName("qJAX"));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
-			for(Object entryParameter : methodDeclaration.parameters()) {
-					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
-					methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
+			for (Object entryParameter : methodDeclaration.parameters()) {
+				SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
+				methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
 			}
-			
+
 			returnStatement.setExpression(methodInvocation);
-		break;
+			break;
 		case "p_rxsos":
 			writeImport(RPJServiceSupport.class);
 			methodInvocation.setExpression(getAST().newName("qJAX"));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
-			for(Object entryParameter : methodDeclaration.parameters()) {
-					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
-					methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
+			for (Object entryParameter : methodDeclaration.parameters()) {
+				SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
+				methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
 			}
-			
+
 			returnStatement.setExpression(methodInvocation);
-		break;
+			break;
 		case "p_rxlate":
 			writeImport(RPJServiceSupport.class);
 			methodInvocation.setExpression(getAST().newName("qJAX"));
 			methodInvocation.setName(getAST().newSimpleName(namePrototype));
-			for(Object entryParameter : methodDeclaration.parameters()) {
-					SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
-					methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
+			for (Object entryParameter : methodDeclaration.parameters()) {
+				SingleVariableDeclaration singleVariableDeclaration = (SingleVariableDeclaration) entryParameter;
+				methodInvocation.arguments().add(getAST().newSimpleName(singleVariableDeclaration.getName().toString()));
 			}
-			
+
 			returnStatement.setExpression(methodInvocation);
-		break;
+			break;
 		default:
 			returnStatement.setExpression(getAST().newNullLiteral());
 		}
-		
+
 		return returnStatement;
 	}
-	
+
 	private Expression buildExpression(String expression) {
 
 		ASTParser parser = ASTParser.newParser(AST.JLS8);

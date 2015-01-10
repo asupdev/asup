@@ -71,6 +71,7 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="refresh"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompilationSetup">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

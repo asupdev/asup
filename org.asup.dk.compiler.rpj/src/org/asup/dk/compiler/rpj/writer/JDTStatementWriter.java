@@ -23,6 +23,7 @@ import org.asup.il.core.QNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
@@ -40,6 +41,7 @@ import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFor;
 import org.asup.il.flow.QIf;
+import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QIteration;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
@@ -52,7 +54,6 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QReset;
 import org.asup.il.flow.QReturn;
 import org.asup.il.flow.QRoutineExec;
-import org.asup.il.flow.QSQLExec;
 import org.asup.il.flow.QStatement;
 import org.asup.il.flow.QUntil;
 import org.asup.il.flow.QWhile;
@@ -230,7 +231,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		ContinueStatement continueSt = ast.newContinueStatement();
 		block.statements().add(continueSt);
 
-		return super.visit(statement);
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -245,7 +246,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 		block.statements().add(expressionStatement);
 
-		return super.visit(statement);
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -564,22 +565,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 		Block block = blocks.peek();
 
-		// if (isParentProcedure(statement)) {
 		ReturnStatement returnSt = ast.newReturnStatement();
 		block.statements().add(returnSt);
-		/*
-		 * } else { QEval eval =
-		 * QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
-		 * eval.setAssignment("*INRT=*ON"); visit(eval); }
-		 */
 
 		return false;
-	}
-
-	@Override
-	public boolean visit(QSQLExec statement) {
-		// TODO Auto-generated method stub
-		return super.visit(statement);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -680,7 +669,6 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		return super.visit(statement);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean visit(QReset statement) {
 
@@ -688,64 +676,53 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		if (dataTerm == null)
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid statement: " + statement);
 
-		try {
-			Block block = blocks.peek();
+		if (dataTerm.getDataTermType().isMultiple())
+			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
 
+		switch (dataTerm.getDataTermType()) {
+		case MULTIPLE_ATOMIC:
+		case MULTIPLE_COMPOUND:
+			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4533");
 
-			
-			if(dataTerm.getDataTermType().isUnary()) {
-				QUnaryDataTerm<?> unaryDataTerm = (QUnaryDataTerm<?>) dataTerm;
-				if(unaryDataTerm.getDefault() == null || unaryDataTerm.getDefault().isEmpty()) {
-					
-					if(unaryDataTerm.getDataTermType().isAtomic())
-						throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4533");
-					
-					QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) unaryDataTerm;
-					
-					for(QDataTerm<?> element: unaryCompoundDataTerm.getDefinition().getElements()) {
-						
-						if(element.getDataTermType().isMultiple())
-							throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg1233");
-						
-						QUnaryDataTerm<?> unaryDataElement = (QUnaryDataTerm<?>)element;
-						if(unaryDataElement.getDefault() == null || unaryDataElement.getDefault().isEmpty()) 
-							continue;						
-						
-						MethodInvocation methodInvocation = ast.newMethodInvocation();
-						methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(element.getName()), null));
-						methodInvocation.setName(ast.newSimpleName("clear"));
-						QExpression expression = expressionParser.parseExpression(unaryDataElement.getDefault());
-						Expression jdtExpression = buildExpression(ast, expression, null);
-						methodInvocation.arguments().add(jdtExpression);
-						
-						ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
-						block.statements().add(expressionStatement);
-					}
-										
-				}
-				else {
-					MethodInvocation methodInvocation = ast.newMethodInvocation();
-					methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
+		case UNARY_ATOMIC:
+			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;
+			if (unaryAtomicDataTerm.getDefault() == null || unaryAtomicDataTerm.getDefault().isEmpty())
+				throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4538");
 
-					methodInvocation.setName(ast.newSimpleName("clear"));
+			QEval eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+			if (unaryAtomicDataTerm.getDefinition().getJavaClass().isAssignableFrom(String.class))
+				eval.setAssignment(statement.getObject() + "=" + "'" + unaryAtomicDataTerm.getDefault() + "'");
+			else
+				eval.setAssignment(statement.getObject() + "=" + unaryAtomicDataTerm.getDefault());
+			eval.accept(this);
 
-					QExpression expression = expressionParser.parseExpression(unaryDataTerm.getDefault());
-					Expression jdtExpression = buildExpression(ast, expression, null);
-					methodInvocation.arguments().add(jdtExpression);
-					
-					ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
-					block.statements().add(expressionStatement);
-				}
+			break;
+		case UNARY_COMPOUND:
+			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) dataTerm;
+			if (unaryCompoundDataTerm.getDefault() != null)
+				throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg3833");
+
+			for (QDataTerm<?> element : unaryCompoundDataTerm.getDefinition().getElements()) {
+
+				if (element.getDataTermType().isMultiple())
+					throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg7733");
+
+				QUnaryDataTerm<?> unaryDataElement = (QUnaryDataTerm<?>) element;
+				if (unaryDataElement.getDefault() == null || unaryDataElement.getDefault().isEmpty())
+					continue;
+
+				eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+				if (unaryDataElement.getDefinition().getJavaClass().isAssignableFrom(String.class))
+					eval.setAssignment(element.getName() + "=" + "'" + unaryDataElement.getDefault() + "'");
+				else
+					eval.setAssignment(element.getName() + "=" + unaryDataElement.getDefault());
+				eval.accept(this);
 			}
-			else 
-				throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
-			
 
-			return super.visit(statement);
-		} catch (Exception e) {
-			throw new OperatingSystemRuntimeException(e);
+			break;
 		}
 
+		return false;
 	}
 
 	@SuppressWarnings("unchecked")

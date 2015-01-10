@@ -93,31 +93,10 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 			writeCursors(program.getFileSection().getCursors());
 			writeStatements(program.getFileSection().getStatements());
 		}
+		
 		writeInit();
 
-		if (program.getEntry() != null) {
-			writeEntry(program.getEntry(), "qEntry");
-		} else {
-			for (String module : modules) {
-
-				QModule flowModule = getCompilationUnit().getModule(module, true);
-				if (flowModule == null)
-					throw new IOException("Invalid module: " + module);
-				
-				QParameterList parameterList = null;
-				for(QParameterList pl: flowModule.getFlowSection().getParameterLists()) {
-					if(pl.getName().equals("*ENTRY")) {
-						parameterList = pl;						
-						break;
-					}
-				}
-				
-				if(parameterList != null) {
-					writeEntry(parameterList, "qEntry");
-					break;
-				}
-			}
-		}
+		writeEntry(program, modules);
 
 		// labels
 		writeLabels(callableUnitInfo.getLabels().keySet());
@@ -148,6 +127,33 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		if (program.getDataSection() != null) {
 			for (QDataTerm<?> dataTerm : program.getDataSection().getDatas()) {
 				writeInnerTerm(dataTerm);
+			}
+		}
+	}
+	
+	public void writeEntry(QProgram program, List<String> modules) throws IOException {
+
+		if (program.getEntry() != null) {
+			writeEntry(program.getEntry(), "qEntry");
+		} else {
+			for (String module : modules) {
+
+				QModule flowModule = getCompilationUnit().getModule(module, true);
+				if (flowModule == null)
+					throw new IOException("Invalid module: " + module);
+
+				QParameterList parameterList = null;
+				for (QParameterList pl : flowModule.getFlowSection().getParameterLists()) {
+					if (pl.getName().equals("*ENTRY")) {
+						parameterList = pl;
+						break;
+					}
+				}
+
+				if (parameterList != null) {
+					writeEntry(parameterList, "qEntry");
+					break;
+				}
 			}
 		}
 	}

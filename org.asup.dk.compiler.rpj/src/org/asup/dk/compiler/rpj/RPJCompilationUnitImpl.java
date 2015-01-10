@@ -101,6 +101,13 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	}
 
 	@Override
+	public void refresh() {
+		this.cachedTerms = new HashMap<String, QDataTerm<?>>();
+		this.cachedPrototypes = new HashMap<String, QPrototype<?>>();
+
+	}
+
+	@Override
 	public QDataSetTerm getDataSet(String name, boolean deep) {
 
 		QDataSetTerm dataSetTerm = null;

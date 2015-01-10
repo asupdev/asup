@@ -175,4 +175,12 @@ public interface QCompilationUnit extends QContextProvider {
 	 */
 	String normalizeTypeName(QDataTerm<?> dataTerm);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
+
 } // QCompilationUnit
