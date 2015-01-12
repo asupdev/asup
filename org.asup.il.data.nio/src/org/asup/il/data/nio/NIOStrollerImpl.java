@@ -23,7 +23,7 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 
 	@Override
 	public String asString() {
-		absolute(1);
+//		absolute(1);
 		return current().asString();
 	}
 
@@ -140,6 +140,11 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	@Override
 	public void eval(String value) {
 		current().eval(value);
+	}
+
+	@Override
+	public void eval(QStroller<D> value) {
+		value.eval(this);
 	}
 
 	@Override

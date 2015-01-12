@@ -180,8 +180,8 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 				QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
-				JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(
-						unaryCompoundDataTerm), QDataStructWrapper.class, true);
+				JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(unaryCompoundDataTerm),
+						QDataStructWrapper.class, true);
 				dataStructureWriter.writeDataStructure(unaryCompoundDataTerm.getDefinition());
 			} else {
 
@@ -216,8 +216,8 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 				QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
-				JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(
-						multipleCompoundDataTerm), QDataStructWrapper.class, true);
+				JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit()
+						.normalizeTypeName(multipleCompoundDataTerm), QDataStructWrapper.class, true);
 				dataStructureWriter.writeDataStructure(multipleCompoundDataTerm.getDefinition());
 			} else {
 				if (isOverridden(multipleCompoundDataTerm)) {
@@ -421,7 +421,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 	public void writeAnnotation(ASTNode node, Class<?> annotationKlass) {
 		writeAnnotation(node, annotationKlass, null, null);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public void writeAnnotation(ASTNode node, Class<?> annotationKlass, String key, Object value) {
 
@@ -438,8 +438,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				annotation.setTypeName(getAST().newName(annotationKlass.getSimpleName()));
 				enumDeclaration.modifiers().add(annotation);
 			}
-		}
-		else if (node instanceof FieldDeclaration) {
+		} else if (node instanceof FieldDeclaration) {
 			FieldDeclaration field = (FieldDeclaration) node;
 			annotation = findAnnotation(field.modifiers(), annotationKlass);
 
@@ -460,7 +459,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		} else
 			throw new RuntimeException("Unexpected runtime exception 5k43jwh45j8srkf");
 
-		if(key != null) {
+		if (key != null) {
 			MemberValuePair memberValuePair = getAST().newMemberValuePair();
 			memberValuePair.setName(getAST().newSimpleName(key));
 			if (value instanceof Number) {
@@ -481,14 +480,14 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				annotation.values().add(memberValuePair);
 			} else if (value instanceof List) {
 				List<String> listValues = (List<String>) value;
-	
+
 				ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
 				for (String listValue : listValues) {
 					StringLiteral stringLiteral = getAST().newStringLiteral();
 					stringLiteral.setLiteralValue(listValue);
 					arrayInitializer.expressions().add(stringLiteral);
 				}
-	
+
 				memberValuePair.setValue(arrayInitializer);
 				annotation.values().add(memberValuePair);
 			} else

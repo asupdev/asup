@@ -78,6 +78,7 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 			case QIntegratedLanguageCorePackage.FORMAT: return (EObject)createFormat();
 			case QIntegratedLanguageCorePackage.OVERLAY: return (EObject)createOverlay();
 			case QIntegratedLanguageCorePackage.RANGE: return (EObject)createRange();
+			case QIntegratedLanguageCorePackage.REMAP: return (EObject)createRemap();
 			case QIntegratedLanguageCorePackage.SPECIAL: return (EObject)createSpecial();
 			case QIntegratedLanguageCorePackage.SPECIAL_ELEMENT: return (EObject)createSpecialElement();
 			case QIntegratedLanguageCorePackage.SUBJECT: return (EObject)createSubject();
@@ -189,6 +190,16 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	public QRange createRange() {
 		RangeImpl range = new RangeImpl();
 		return range;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QRemap createRemap() {
+		RemapImpl remap = new RemapImpl();
+		return remap;
 	}
 
 	/**

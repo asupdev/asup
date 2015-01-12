@@ -93,7 +93,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 			writeCursors(program.getFileSection().getCursors());
 			writeStatements(program.getFileSection().getStatements());
 		}
-		
+
 		writeInit();
 
 		writeEntry(program, modules);
@@ -130,7 +130,7 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 			}
 		}
 	}
-	
+
 	public void writeEntry(QProgram program, List<String> modules) throws IOException {
 
 		if (program.getEntry() != null) {

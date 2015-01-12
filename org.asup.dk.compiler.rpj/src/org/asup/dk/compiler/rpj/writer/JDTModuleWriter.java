@@ -15,6 +15,7 @@ import java.io.IOException;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.rpj.RPJCallableUnitAnalyzer;
 import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.il.data.QDataTerm;
@@ -38,13 +39,28 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(module);
 
 		// modules
+
 		for (String childModule : module.getSetupSection().getModules()) {
-			writeImport(childModule);
+
+			QModule flowModule = getCompilationUnit().getModule(childModule, true);
+			if (flowModule == null)
+				throw new IOException("Invalid module: " + module);
+
+			QCompilerLinker compilerLinker = flowModule.getFacet(QCompilerLinker.class);
+			if (compilerLinker != null)
+				writeImport(compilerLinker.getLinkedClass());
+			else
+				writeImport(childModule);
 		}
+
+		/*
+		 * for (String childModule : module.getSetupSection().getModules()) {
+		 * writeImport(childModule); }
+		 */
 
 		writeSupportFields(callableUnitInfo);
 
-		writeModuleFields(module.getSetupSection().getModules(), true);
+		writeModuleFields(module.getSetupSection().getModules(), false);
 
 		if (module.getFileSection() != null)
 			writeDataSets(module.getFileSection().getDataSets());

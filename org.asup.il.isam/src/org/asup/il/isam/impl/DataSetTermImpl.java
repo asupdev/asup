@@ -8,6 +8,7 @@
 package org.asup.il.isam.impl;
 
 import org.asup.il.core.impl.TermImpl;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSetTerm;
@@ -136,7 +137,7 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * @generated
 	 * @ordered
 	 */
-	protected QDataStructDef record;
+	protected QCompoundDataTerm<QDataStructDef> record;
 	/**
 	 * The default value of the '{@link #isUserOpen() <em>User Open</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -289,7 +290,7 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QDataStructDef getRecord() {
+	public QCompoundDataTerm<QDataStructDef> getRecord() {
 		return record;
 	}
 
@@ -298,8 +299,8 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRecord(QDataStructDef newRecord, NotificationChain msgs) {
-		QDataStructDef oldRecord = record;
+	public NotificationChain basicSetRecord(QCompoundDataTerm<QDataStructDef> newRecord, NotificationChain msgs) {
+		QCompoundDataTerm<QDataStructDef> oldRecord = record;
 		record = newRecord;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD, oldRecord, newRecord);
@@ -313,7 +314,7 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRecord(QDataStructDef newRecord) {
+	public void setRecord(QCompoundDataTerm<QDataStructDef> newRecord) {
 		if (newRecord != record) {
 			NotificationChain msgs = null;
 			if (record != null)
@@ -393,6 +394,7 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -412,7 +414,7 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 				setPrefix((String)newValue);
 				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD:
-				setRecord((QDataStructDef)newValue);
+				setRecord((QCompoundDataTerm<QDataStructDef>)newValue);
 				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__USER_OPEN:
 				setUserOpen((Boolean)newValue);
@@ -445,7 +447,7 @@ public class DataSetTermImpl extends TermImpl implements QDataSetTerm {
 				setPrefix(PREFIX_EDEFAULT);
 				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__RECORD:
-				setRecord((QDataStructDef)null);
+				setRecord((QCompoundDataTerm<QDataStructDef>)null);
 				return;
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM__USER_OPEN:
 				setUserOpen(USER_OPEN_EDEFAULT);

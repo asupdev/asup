@@ -10,6 +10,7 @@ package org.asup.dk.compiler.impl;
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.EntryType;
 import org.asup.dk.compiler.QCompilationSetup;
+import org.asup.dk.compiler.QCompilationTrashcan;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QCompilerManager;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -56,6 +58,13 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass compilationSetupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compilationTrashcanEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +189,15 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCompilationUnit_Trashcan() {
+		return (EReference)compilationUnitEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCompilationSetup() {
 		return compilationSetupEClass;
 	}
@@ -200,6 +218,24 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 	 */
 	public EAttribute getCompilationSetup_EntryType() {
 		return (EAttribute)compilationSetupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompilationTrashcan() {
+		return compilationTrashcanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCompilationTrashcan_DataTerms() {
+		return (EReference)compilationTrashcanEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -294,10 +330,14 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 
 		// Create classes and their features
 		compilationUnitEClass = createEClass(COMPILATION_UNIT);
+		createEReference(compilationUnitEClass, COMPILATION_UNIT__TRASHCAN);
 
 		compilationSetupEClass = createEClass(COMPILATION_SETUP);
 		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__BASE_PACKAGE);
 		createEAttribute(compilationSetupEClass, COMPILATION_SETUP__ENTRY_TYPE);
+
+		compilationTrashcanEClass = createEClass(COMPILATION_TRASHCAN);
+		createEReference(compilationTrashcanEClass, COMPILATION_TRASHCAN__DATA_TERMS);
 
 		compilerManagerEClass = createEClass(COMPILER_MANAGER);
 
@@ -366,6 +406,7 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(compilationUnitEClass, QCompilationUnit.class, "CompilationUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompilationUnit_Trashcan(), this.getCompilationTrashcan(), null, "trashcan", null, 0, 1, QCompilationUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(compilationUnitEClass, ecorePackage.getEBoolean(), "equalsTermName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "source", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -445,6 +486,12 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		initEClass(compilationSetupEClass, QCompilationSetup.class, "CompilationSetup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompilationSetup_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompilationSetup_EntryType(), this.getEntryType(), "entryType", null, 0, 1, QCompilationSetup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compilationTrashcanEClass, QCompilationTrashcan.class, "CompilationTrashcan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theIntegratedLanguageDataPackage.getDataTerm());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEReference(getCompilationTrashcan_DataTerms(), g1, null, "dataTerms", null, 0, -1, QCompilationTrashcan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compilerManagerEClass, QCompilerManager.class, "CompilerManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

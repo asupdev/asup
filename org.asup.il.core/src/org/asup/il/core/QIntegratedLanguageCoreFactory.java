@@ -90,6 +90,15 @@ public interface QIntegratedLanguageCoreFactory extends EFactory {
 	QRange createRange();
 
 	/**
+	 * Returns a new object of class '<em>Remap</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Remap</em>'.
+	 * @generated
+	 */
+	QRemap createRemap();
+
+	/**
 	 * Returns a new object of class '<em>Special</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

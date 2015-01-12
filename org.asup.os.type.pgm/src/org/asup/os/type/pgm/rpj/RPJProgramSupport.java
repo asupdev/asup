@@ -208,6 +208,10 @@ public class RPJProgramSupport {
 		return null;
 	}
 
+	public QString qEditc(int numeric, String format) {
+		return null;
+	}
+	
 	public QString qEditw(QNumeric numeric, String format) {
 		return null;
 	}
@@ -306,6 +310,10 @@ public class RPJProgramSupport {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
 	
+	public QDecimal qLookup(String argument, QList<QCharacter> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
+	}
+	
 	public QDecimal qLookuplt(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
 	}
@@ -336,6 +344,22 @@ public class RPJProgramSupport {
 
 	public QDecimal qLookupge(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
+	}
+	
+	private QDecimal qLookup(LookupOperator operator, String argument, QList<QCharacter> list, Integer startIndex, Integer numElements) {
+
+		if(startIndex == null)
+			startIndex = 1;
+
+		if (numElements == null)
+			numElements = list.capacity();
+
+		for (int i = startIndex; i <= numElements; i++) {
+			if (list.get(i).eq(argument))
+				return qBox(i);
+		}
+
+		return qBox(-1);
 	}
 	
 	private QDecimal qLookup(LookupOperator operator, Specials argument, QList<?> list, Integer startIndex, Integer numElements) {

@@ -19,6 +19,7 @@ import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QFacet;
+import org.asup.il.data.DataDefType;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QDataDef;
@@ -122,8 +123,18 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 				// multiple
 				else {
 					QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
-					if (termTo.getDefinition() != null)
-						multipleAtomicBufferedDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) termTo.getDefinition());
+					if (termTo.getDefinition() != null) {
+						if(termTo.getDefinition().getDataDefType() == DataDefType.ARRAY) {
+							QMultipleAtomicBufferedDataDef<?> multipleDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
+							multipleAtomicBufferedDataDef.setArgument(multipleDataDef.getArgument());
+						}
+						else if(termTo.getDefinition().getDataDefType() == DataDefType.DATA_STRUCT) {
+							// TODO
+							System.err.println(termTo);
+						}
+						else
+							multipleAtomicBufferedDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) termTo.getDefinition());
+					}
 
 					multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
 				}
@@ -236,7 +247,9 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 
 			dataTerm.accept(visitor);
 			term.getDefinition().getElements().remove(dataTerm);
-			term.getDefinition().getElements().add(visitor.getDataTerm());
+			
+			if(visitor.getDataTerm() != null)
+				term.getDefinition().getElements().add(visitor.getDataTerm());
 		}
 
 		return false;

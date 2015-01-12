@@ -89,7 +89,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTermContainer()
 	 * @generated
 	 */
-	int TERM_CONTAINER = 18;
+	int TERM_CONTAINER = 19;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.DictionaryImpl <em>Dictionary</em>}' class.
@@ -109,7 +109,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTerm()
 	 * @generated
 	 */
-	int TERM = 17;
+	int TERM = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.AtomicTermImpl <em>Atomic Term</em>}' class.
@@ -546,6 +546,43 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int RANGE_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.RemapImpl <em>Remap</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.RemapImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRemap()
+	 * @generated
+	 */
+	int REMAP = 14;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMAP__NAME = FACET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMAP__INDEX = FACET_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Remap</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REMAP_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialImpl <em>Special</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -553,7 +590,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecial()
 	 * @generated
 	 */
-	int SPECIAL = 14;
+	int SPECIAL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Class Delegate</b></em>' attribute.
@@ -590,7 +627,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecialElement()
 	 * @generated
 	 */
-	int SPECIAL_ELEMENT = 15;
+	int SPECIAL_ELEMENT = 16;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -654,7 +691,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSubject()
 	 * @generated
 	 */
-	int SUBJECT = 16;
+	int SUBJECT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -700,7 +737,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 19;
+	int VERB = 20;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -746,7 +783,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getUnaryTerm()
 	 * @generated
 	 */
-	int UNARY_TERM = 20;
+	int UNARY_TERM = 21;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -774,7 +811,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
 	 * @generated
 	 */
-	int NAMEABLE = 21;
+	int NAMEABLE = 22;
 
 	/**
 	 * The number of structural features of the '<em>Nameable</em>' class.
@@ -793,7 +830,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversionStatus()
 	 * @generated
 	 */
-	int CONVERSION_STATUS = 22;
+	int CONVERSION_STATUS = 23;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.FormatType <em>Format Type</em>}' enum.
@@ -803,7 +840,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFormatType()
 	 * @generated
 	 */
-	int FORMAT_TYPE = 23;
+	int FORMAT_TYPE = 24;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QAtomicTerm <em>Atomic Term</em>}'.
@@ -1109,6 +1146,38 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRange_Min();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.core.QRemap <em>Remap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Remap</em>'.
+	 * @see org.asup.il.core.QRemap
+	 * @generated
+	 */
+	EClass getRemap();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.core.QRemap#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.asup.il.core.QRemap#getName()
+	 * @see #getRemap()
+	 * @generated
+	 */
+	EAttribute getRemap_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.core.QRemap#getIndex <em>Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Index</em>'.
+	 * @see org.asup.il.core.QRemap#getIndex()
+	 * @see #getRemap()
+	 * @generated
+	 */
+	EAttribute getRemap_Index();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.core.QRange#getMax <em>Max</em>}'.
@@ -1612,6 +1681,32 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RANGE__MIN = eINSTANCE.getRange_Min();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.core.impl.RemapImpl <em>Remap</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.core.impl.RemapImpl
+		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRemap()
+		 * @generated
+		 */
+		EClass REMAP = eINSTANCE.getRemap();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REMAP__NAME = eINSTANCE.getRemap_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REMAP__INDEX = eINSTANCE.getRemap_Index();
 
 		/**
 		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.

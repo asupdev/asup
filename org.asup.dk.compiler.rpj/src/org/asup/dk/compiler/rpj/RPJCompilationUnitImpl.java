@@ -20,6 +20,7 @@ import java.util.Map;
 
 import org.asup.dk.compiler.CaseSensitiveType;
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.dk.compiler.impl.CompilationUnitImpl;
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
@@ -39,6 +40,7 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.eclipse.emf.ecore.EObject;
 
 public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
@@ -65,7 +67,8 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		this.compilationUnits = compilationUnits;
 		this.caseSensitive = caseSensitive;
 		this.root = root;
-
+		this.setTrashcan(QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationTrashcan());
+		
 		if (root instanceof QCallableUnit) {
 			QCallableUnit callableUnit = (QCallableUnit) root;
 
@@ -187,7 +190,17 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		// search on dataSet
 		if (dataTerm == null) {
 			for (QDataSetTerm dataSetTerm : dataSets) {
-				QCompoundDataDef<?> compoundDataDef = dataSetTerm.getRecord();
+				
+				QCompoundDataTerm<?> compoundDataTerm = dataSetTerm.getRecord();
+				if(compoundDataTerm == null)
+					continue;
+				
+				if(equalsTermName(compoundDataTerm.getName(), name)) {
+					dataTerm = compoundDataTerm;
+					break;
+				}
+				
+				QCompoundDataDef<?> compoundDataDef = compoundDataTerm.getDefinition();
 				if (compoundDataDef == null)
 					continue;
 
@@ -200,9 +213,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 					else
 						pos = pfx.length();
 
-					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, pfx, pos);
+					dataTerm = findData(compoundDataDef.getElements(), name, pfx, pos);
 				} else
-					dataTerm = findData(dataSetTerm.getRecord().getElements(), name, null, 0);
+					dataTerm = findData(compoundDataDef.getElements(), name, null, 0);
 
 				if (dataTerm != null)
 					break;
@@ -498,8 +511,11 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			}
 
 			if (node != getRoot()) {
-				QNamedNode namedChildNode = (QNamedNode) node;
-				name = normalizeTermName(namedChildNode.getName()) + "." + name;
+				// no record name
+				if(!(((EObject)node).eContainer() instanceof QDataSetTerm)) {
+					QNamedNode namedChildNode = (QNamedNode) node;
+					name = normalizeTermName(namedChildNode.getName()) + "." + name;					
+				}
 			}
 		}
 

@@ -72,10 +72,20 @@
       </eParameters>
     </eOperations>
     <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trashcan" eType="#//CompilationTrashcan"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompilationSetup">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entryType" eType="#//EntryType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompilationTrashcan">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataTerms" upperBound="-1"
+        containment="true">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataTerm">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompilerManager" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="createChildCompilationUnit" lowerBound="1" eType="#//CompilationUnit">

@@ -180,7 +180,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		callableUnitLinker.linkExternalDatas();
 
 		callableUnitLinker.linkLikeDatas();
-
+		
 		callableUnitLinker.linkOverlayDatas();
 
 	}

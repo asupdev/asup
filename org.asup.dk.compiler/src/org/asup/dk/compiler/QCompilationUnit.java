@@ -25,12 +25,44 @@ import org.asup.il.isam.QKeyListTerm;
  * A representation of the model object '<em><b>Compilation Unit</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.asup.dk.compiler.QCompilationUnit#getTrashcan <em>Trashcan</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationUnit()
  * @model abstract="true"
  * @generated
  */
 public interface QCompilationUnit extends QContextProvider {
+	/**
+	 * Returns the value of the '<em><b>Trashcan</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Trashcan</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trashcan</em>' containment reference.
+	 * @see #setTrashcan(QCompilationTrashcan)
+	 * @see org.asup.dk.compiler.QDevelopmentKitCompilerPackage#getCompilationUnit_Trashcan()
+	 * @model containment="true"
+	 * @generated
+	 */
+	QCompilationTrashcan getTrashcan();
+
+	/**
+	 * Sets the value of the '{@link org.asup.dk.compiler.QCompilationUnit#getTrashcan <em>Trashcan</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Trashcan</em>' containment reference.
+	 * @see #getTrashcan()
+	 * @generated
+	 */
+	void setTrashcan(QCompilationTrashcan value);
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

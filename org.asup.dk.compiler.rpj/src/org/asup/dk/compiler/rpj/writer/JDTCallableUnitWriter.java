@@ -12,6 +12,7 @@
  */
 package org.asup.dk.compiler.rpj.writer;
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
@@ -177,7 +178,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 	}
 
 	@SuppressWarnings("unchecked")
-	public void writeDataSets(List<QDataSetTerm> dataSets) {
+	public void writeDataSets(List<QDataSetTerm> dataSets) throws IOException {
 
 		writeImport(QDataSet.class);
 
@@ -208,16 +209,28 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 				if (compilerLinker != null) {
 					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getName().split("\\."))));
 				} else {
-					String argument = dataSet.getFileName();
-					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+					if(dataSet.getRecord() != null)
+						compilerLinker = dataSet.getRecord().getFacet(QCompilerLinker.class);
+					
+					if (compilerLinker != null) {
+						String argument = dataSet.getRecord().getName();
+						parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+					}
+					else {
+						String argument = dataSet.getFileName();
+						parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+					}
 				}
 
 			}
 
 			field.setType(parType);
-			if (dataSet.getFormatName() != null)
-				variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataSet.getFormatName())));
+			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataSet.getName())));
+			
 			getTarget().bodyDeclarations().add(field);
+			
+			if(dataSet.getRecord() != null && dataSet.getRecord().getFacet(QCompilerLinker.class) != null)
+				writeInnerTerm(dataSet.getRecord());
 		}
 
 	}
@@ -316,23 +329,24 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
-		if (routine.getMain() != null) {
+		if (routine.getMain() == null) 
+			return;
 
-			// write java AST
-			JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
-			statementWriter.setAST(getAST());
+		// write java AST
+		JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
+		statementWriter.setAST(getAST());
 
-			statementWriter.getBlocks().push(block);
+		statementWriter.getBlocks().push(block);
 
-			if (routine.getMain() instanceof QBlock) {
-				QBlock qBlock = (QBlock) routine.getMain();
-				for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements())
-					qStatement.accept(statementWriter);
-			} else
-				routine.getMain().accept(statementWriter);
+		if (routine.getMain() instanceof QBlock) {
+			QBlock qBlock = (QBlock) routine.getMain();
+			for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements())
+				qStatement.accept(statementWriter);
+		} else
+			routine.getMain().accept(statementWriter);
 
-			statementWriter.getBlocks().pop();
-		}
+		statementWriter.getBlocks().pop();
+
 
 	}
 
@@ -551,31 +565,38 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		methodDeclaration.setBody(block);
 
 		for (String parameterName : parameterList.getParameters()) {
-			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
 
 			MethodInvocation methodInvocation = getAST().newMethodInvocation();
 			methodInvocation.setName(getAST().newSimpleName("assign"));
 
-			methodInvocation.setExpression(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataTerm.getName())));
+			methodInvocation.setExpression(getAST().newSimpleName(getCompilationUnit().normalizeTermName(parameterName)));
 
 			
-			FieldAccess targetAccess = getAST().newFieldAccess();
-			targetAccess.setExpression(getAST().newThisExpression());
-			
-			String[] fieldNames = getCompilationUnit().getQualifiedName(dataTerm).split("\\.");
-			for(int i=0; i<fieldNames.length; i++) {
 
-				targetAccess.setName(getAST().newSimpleName(fieldNames[i]));
-				
-				if(i<fieldNames.length-1) {
-					FieldAccess childAccess = getAST().newFieldAccess();
-					childAccess.setExpression(targetAccess);
-					targetAccess = childAccess;
-					
-				}
+			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
+			
+			String qualifiedName = getCompilationUnit().getQualifiedName(dataTerm);
+			String[] fieldNames = qualifiedName.split("\\.");
+			if(fieldNames.length>1) {
+				methodInvocation.arguments().add(buildExpression(qualifiedName));
 			}
-									
-			methodInvocation.arguments().add(targetAccess);
+			else {
+				FieldAccess targetAccess = getAST().newFieldAccess();
+				targetAccess.setExpression(getAST().newThisExpression());
+
+				for(int i=0; i<fieldNames.length; i++) {
+	
+					targetAccess.setName(getAST().newSimpleName(fieldNames[i]));
+					
+					if(i<fieldNames.length-1) {
+						FieldAccess childAccess = getAST().newFieldAccess();
+						childAccess.setExpression(targetAccess);
+						targetAccess = childAccess;
+						
+					}
+				}
+				methodInvocation.arguments().add(targetAccess);
+			}
 
 			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 			block.statements().add(expressionStatement);

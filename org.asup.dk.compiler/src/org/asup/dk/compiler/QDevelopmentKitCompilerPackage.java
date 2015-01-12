@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,13 +74,22 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	int COMPILATION_UNIT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Trashcan</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_UNIT__TRASHCAN = QFrameworkCorePackage.CONTEXT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Compilation Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPILATION_UNIT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_PROVIDER_FEATURE_COUNT + 0;
+	int COMPILATION_UNIT_FEATURE_COUNT = QFrameworkCorePackage.CONTEXT_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.
@@ -119,6 +129,34 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	int COMPILATION_SETUP_FEATURE_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilationTrashcanImpl <em>Compilation Trashcan</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.dk.compiler.impl.CompilationTrashcanImpl
+	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationTrashcan()
+	 * @generated
+	 */
+	int COMPILATION_TRASHCAN = 2;
+
+	/**
+	 * The feature id for the '<em><b>Data Terms</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_TRASHCAN__DATA_TERMS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Compilation Trashcan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPILATION_TRASHCAN_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.UnitConverterImpl <em>Unit Converter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +164,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getUnitConverter()
 	 * @generated
 	 */
-	int UNIT_CONVERTER = 3;
+	int UNIT_CONVERTER = 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.UnitConverterRegistryImpl <em>Unit Converter Registry</em>}' class.
@@ -136,7 +174,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getUnitConverterRegistry()
 	 * @generated
 	 */
-	int UNIT_CONVERTER_REGISTRY = 4;
+	int UNIT_CONVERTER_REGISTRY = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.EntryType <em>Entry Type</em>}' enum.
@@ -146,7 +184,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getEntryType()
 	 * @generated
 	 */
-	int ENTRY_TYPE = 6;
+	int ENTRY_TYPE = 7;
 
 	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.CaseSensitiveType <em>Case Sensitive Type</em>}' enum.
@@ -156,7 +194,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCaseSensitiveType()
 	 * @generated
 	 */
-	int CASE_SENSITIVE_TYPE = 7;
+	int CASE_SENSITIVE_TYPE = 8;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationUnit <em>Compilation Unit</em>}'.
@@ -169,6 +207,17 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	EClass getCompilationUnit();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.dk.compiler.QCompilationUnit#getTrashcan <em>Trashcan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Trashcan</em>'.
+	 * @see org.asup.dk.compiler.QCompilationUnit#getTrashcan()
+	 * @see #getCompilationUnit()
+	 * @generated
+	 */
+	EReference getCompilationUnit_Trashcan();
+
+	/**
 	 * The meta object id for the '{@link org.asup.dk.compiler.impl.CompilerManagerImpl <em>Compiler Manager</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,7 +225,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilerManager()
 	 * @generated
 	 */
-	int COMPILER_MANAGER = 2;
+	int COMPILER_MANAGER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -287,7 +336,7 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilerLinker()
 	 * @generated
 	 */
-	int COMPILER_LINKER = 5;
+	int COMPILER_LINKER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Linked Class</b></em>' attribute.
@@ -338,6 +387,27 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompilationSetup_EntryType();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.dk.compiler.QCompilationTrashcan <em>Compilation Trashcan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Compilation Trashcan</em>'.
+	 * @see org.asup.dk.compiler.QCompilationTrashcan
+	 * @generated
+	 */
+	EClass getCompilationTrashcan();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.dk.compiler.QCompilationTrashcan#getDataTerms <em>Data Terms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Terms</em>'.
+	 * @see org.asup.dk.compiler.QCompilationTrashcan#getDataTerms()
+	 * @see #getCompilationTrashcan()
+	 * @generated
+	 */
+	EReference getCompilationTrashcan_DataTerms();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.dk.compiler.QUnitConverter <em>Unit Converter</em>}'.
@@ -443,6 +513,14 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 		EClass COMPILATION_UNIT = eINSTANCE.getCompilationUnit();
 
 		/**
+		 * The meta object literal for the '<em><b>Trashcan</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPILATION_UNIT__TRASHCAN = eINSTANCE.getCompilationUnit_Trashcan();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilationSetupImpl <em>Compilation Setup</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -467,6 +545,24 @@ public interface QDevelopmentKitCompilerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPILATION_SETUP__ENTRY_TYPE = eINSTANCE.getCompilationSetup_EntryType();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.CompilationTrashcanImpl <em>Compilation Trashcan</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.dk.compiler.impl.CompilationTrashcanImpl
+		 * @see org.asup.dk.compiler.impl.DevelopmentKitCompilerPackageImpl#getCompilationTrashcan()
+		 * @generated
+		 */
+		EClass COMPILATION_TRASHCAN = eINSTANCE.getCompilationTrashcan();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Terms</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPILATION_TRASHCAN__DATA_TERMS = eINSTANCE.getCompilationTrashcan_DataTerms();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.dk.compiler.impl.UnitConverterImpl <em>Unit Converter</em>}' class.

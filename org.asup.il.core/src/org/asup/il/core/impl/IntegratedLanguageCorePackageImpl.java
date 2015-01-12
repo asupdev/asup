@@ -27,6 +27,7 @@ import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
 import org.asup.il.core.QOverlay;
 import org.asup.il.core.QRange;
+import org.asup.il.core.QRemap;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.QSubject;
@@ -148,6 +149,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass rangeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass remapEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -549,6 +557,33 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRemap() {
+		return remapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRemap_Name() {
+		return (EAttribute)remapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRemap_Index() {
+		return (EAttribute)remapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getRange_Max() {
 		return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
 	}
@@ -805,6 +840,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEAttribute(rangeEClass, RANGE__MAX);
 		createEAttribute(rangeEClass, RANGE__MIN);
 
+		remapEClass = createEClass(REMAP);
+		createEAttribute(remapEClass, REMAP__NAME);
+		createEAttribute(remapEClass, REMAP__INDEX);
+
 		specialEClass = createEClass(SPECIAL);
 		createEAttribute(specialEClass, SPECIAL__CLASS_DELEGATE);
 		createEReference(specialEClass, SPECIAL__ELEMENTS);
@@ -890,6 +929,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		namedNodeEClass.getESuperTypes().add(this.getNode());
 		namedNodeEClass.getESuperTypes().add(this.getNameable());
 		rangeEClass.getESuperTypes().add(this.getFacet());
+		remapEClass.getESuperTypes().add(this.getFacet());
 		specialEClass.getESuperTypes().add(this.getFacet());
 		specialElementEClass.getESuperTypes().add(this.getNamedNode());
 		subjectEClass.getESuperTypes().add(this.getTerm());
@@ -960,6 +1000,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(rangeEClass, QRange.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRange_Max(), ecorePackage.getEString(), "max", "1", 1, 1, QRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRange_Min(), ecorePackage.getEString(), "min", null, 1, 1, QRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(remapEClass, QRemap.class, "Remap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRemap_Name(), ecorePackage.getEString(), "name", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRemap_Index(), ecorePackage.getEString(), "index", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specialEClass, QSpecial.class, "Special", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecial_ClassDelegate(), ecorePackage.getEString(), "classDelegate", null, 0, 1, QSpecial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

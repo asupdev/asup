@@ -14,7 +14,6 @@ package org.asup.dk.compiler.rpj;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
-import org.asup.il.data.QAtomicDataTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleAtomicBufferedDataDef;
 import org.asup.il.data.QMultipleDataTerm;
@@ -116,12 +115,11 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 				}
 				break;
 			case NAME:
-				QAtomicDataTerm<?> atomicDataTerm = (QAtomicDataTerm<?>) compilationUnit.getDataTerm(atomicTermExpression.getValue(), true);
+				dataTerm = compilationUnit.getDataTerm(atomicTermExpression.getValue(), true);
 
-				if (atomicDataTerm != null) {
-					atomicDataTerm.toString();
-				} else
+				if (dataTerm == null)
 					System.err.println("d684350dgfsd6654");
+				
 				break;
 			case SPECIAL:
 				break;

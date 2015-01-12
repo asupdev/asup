@@ -87,8 +87,12 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStructDef"
-        transient="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record" transient="true"
+        containment="true">
+      <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//CompoundDataTerm">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStructDef"/>
+      </eGenericType>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userOpen" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

@@ -1703,6 +1703,13 @@
     <eTypeParameters name="D">
       <eBounds eClassifier="#//DataStruct"/>
     </eTypeParameters>
+    <eOperations name="eval">
+      <eParameters name="value" lowerBound="1">
+        <eGenericType eClassifier="#//Stroller">
+          <eTypeArguments eTypeParameter="#//Stroller/D"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eGenericSuperTypes eClassifier="#//Scroller">
       <eTypeArguments eTypeParameter="#//Stroller/D"/>
     </eGenericSuperTypes>

@@ -471,7 +471,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 			block.statements().add(expressionStatement);
 
-			return super.visit(statement);
+			return false;
 		} catch (Exception e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
@@ -492,6 +492,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		// catch
 		CatchClause catchClause = ast.newCatchClause();
 		SingleVariableDeclaration exceptionDeclaration = ast.newSingleVariableDeclaration();
+		
 		Type exception = ast.newSimpleType(ast.newSimpleName(OperatingSystemRuntimeException.class.getSimpleName()));
 		exceptionDeclaration.setType(exception);
 		exceptionDeclaration.setName(ast.newSimpleName("e"));

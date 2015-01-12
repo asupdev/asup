@@ -36,6 +36,15 @@ public interface QDevelopmentKitCompilerFactory extends EFactory {
 	QCompilationSetup createCompilationSetup();
 
 	/**
+	 * Returns a new object of class '<em>Compilation Trashcan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compilation Trashcan</em>'.
+	 * @generated
+	 */
+	QCompilationTrashcan createCompilationTrashcan();
+
+	/**
 	 * Returns a new object of class '<em>Compiler Linker</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3885,6 +3885,12 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		initEClass(strollerEClass, QStroller.class, "Stroller", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		op = addEOperation(strollerEClass, null, "eval", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStroller());
+		g2 = createEGenericType(strollerEClass_D);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(strollerDefEClass, QStrollerDef.class, "StrollerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStrollerDef_Length(), ecorePackage.getEInt(), "length", null, 0, 1, QStrollerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

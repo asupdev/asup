@@ -14,7 +14,6 @@ package org.asup.dk.compiler.rpj;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -24,6 +23,9 @@ import org.asup.dk.compiler.DevelopmentKitCompilerRuntimeException;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
+import org.asup.il.core.QDerived;
+import org.asup.il.core.QIntegratedLanguageCoreFactory;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
@@ -46,6 +48,7 @@ import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 import org.asup.os.type.module.QModule;
 import org.asup.os.type.module.QModuleManager;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 public class RPJCallableUnitLinker {
@@ -113,7 +116,32 @@ public class RPJCallableUnitLinker {
 		}
 
 	}
+	
+	@SuppressWarnings("unused")
+	private void linkRemapDatas() {
 
+		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
+			return;
+
+		QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
+
+		QDataSection dataSection = callableUnit.getDataSection();
+		if (dataSection == null)
+			return;
+
+		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(dataSection.getDatas());
+
+		RPJDataRemapRefactor dataRemapVisitor = new RPJDataRemapRefactor(compilationUnit);
+		for (QDataTerm<?> dataTerm : dataTerms) {
+			dataRemapVisitor.reset();
+
+			dataTerm.accept(dataRemapVisitor);
+			dataSection.getDatas().remove(dataTerm);
+			dataSection.getDatas().add(dataRemapVisitor.getDataTerm());
+		}
+
+	}
+	
 	public void linkOverlayDatas() {
 
 		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
@@ -217,7 +245,6 @@ public class RPJCallableUnitLinker {
 
 	}
 
-	@SuppressWarnings("unchecked")
 	private void linkFileSingleFormat(QDataSetTerm dataSet, QFileSingleFormat<?> fileSingleFormat) {
 
 		if (dataSet.getFormatName() == null)
@@ -227,14 +254,19 @@ public class RPJCallableUnitLinker {
 		if (linkedClass == null)
 			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + fileSingleFormat.getName());
 
-		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
+		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();		
 		compilerLinker.setLinkedClass(linkedClass);
-		dataSet.getFacets().add(compilerLinker);
 
+		
 		if (dataSet.getRecord() == null) {
 
+			QCompoundDataTerm<QDataStructDef> compoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
+			compoundDataTerm.setName(dataSet.getFormatName());
+			
 			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
 			dataStructDef.setPrefix(dataSet.getPrefix());
+			
+			compoundDataTerm.setDefinition(dataStructDef);
 			
 			if (fileSingleFormat instanceof QLogicalFile && fileSingleFormat.getFileFormat().isEmpty()) {
 				QLogicalFile logicalFile = (QLogicalFile) fileSingleFormat;
@@ -245,13 +277,60 @@ public class RPJCallableUnitLinker {
 					if (superTable == null)
 						throw new OperatingSystemRuntimeException("File not found: " + table);
 
-					dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(superTable.getFileFormat().getFields()));
-				}
-			} else
-				dataStructDef.getElements().addAll((Collection<? extends QDataTerm<?>>) EcoreUtil.copyAll(fileSingleFormat.getFileFormat().getFields()));
+					for(QDataTerm<?> element: superTable.getFileFormat().getFields()) {
+						
+						element = (QDataTerm<?>) EcoreUtil.copy((EObject)element);
 
-			dataSet.setRecord(dataStructDef);
+						QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
+						element.getFacets().add(derived);
+
+						dataStructDef.getElements().add(element);	
+					}
+					
+				}
+			} else {
+
+				for(QDataTerm<?> element: fileSingleFormat.getFileFormat().getFields()) {
+					
+					element = (QDataTerm<?>) EcoreUtil.copy((EObject)element);
+
+					QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
+					element.getFacets().add(derived);
+
+					dataStructDef.getElements().add(element);	
+				}
+
+			}
+
+			dataSet.setRecord(compoundDataTerm);
+			
+
+			QCompoundDataTerm<?> dataRecord = (QCompoundDataTerm<?>) this.compilationUnit.getDataTerm(dataSet.getFormatName(), false);
+			if(dataRecord != null && !(((EObject)dataRecord).eContainer() instanceof QDataSetTerm)) {				
+				compoundDataTerm.getFacets().add(compilerLinker);
+
+				RPJDataRemapRefactor dataRemapVisitor = new RPJDataRemapRefactor(compilationUnit);
+				List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(dataRecord.getDefinition().getElements());
+				for (QDataTerm<?> dataTerm : elements) {
+					dataRemapVisitor.reset();
+					dataTerm.accept(dataRemapVisitor);
+					if(dataRemapVisitor.getDataTerm() == null)
+						dataRecord.getDefinition().getElements().remove(dataTerm);
+				}
+
+				if(dataRecord.getDefinition().getElements().size() != 1)
+					throw new DevelopmentKitCompilerRuntimeException("Invalid remap: " + dataSet);
+
+				compoundDataTerm.getDefinition().getElements().addAll(dataRecord.getDefinition().getElements());
+				
+				this.compilationUnit.getTrashcan().getDataTerms().add(dataRecord);
+			}
+			else {
+				dataSet.getFacets().add(compilerLinker);				
+			}
+
 		}
+		
 	}
 
 	public QFile getFile(String name) {
