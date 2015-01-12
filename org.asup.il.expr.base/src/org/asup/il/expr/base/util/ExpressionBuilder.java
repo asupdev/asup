@@ -271,7 +271,7 @@ public class ExpressionBuilder {
 		
 		ExpressionType expressionType = expressionHelper.getExpressionType(node);
 		switch (expressionType) {
-		case ARITHMETIC:
+		case ARITHMETIC:		
 			QArithmeticExpression arithmeticExpression = QIntegratedLanguageExpressionFactory.eINSTANCE.createArithmeticExpression();
 			
 			if(node.getChild(0) != null)
@@ -282,6 +282,7 @@ public class ExpressionBuilder {
 			
 			expression = arithmeticExpression;
 			break;
+	
 		case ATOMIC:
 			QAtomicTermExpression atomicTermExpression = QIntegratedLanguageExpressionFactory.eINSTANCE.createAtomicTermExpression();
 

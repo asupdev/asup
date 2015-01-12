@@ -315,11 +315,12 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(builder.getResult());
 
 			buffer.append(toJavaPrimitive(expression.getOperator()));
-
+			
 			target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
 			builder.setTarget(target);
 			builder.clear();
 			expression.getRightOperand().accept(builder);
+			
 			buffer.append(builder.getResult());
 		}
 		// negate
@@ -523,11 +524,13 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		case POWER:
 			result = "^";
 			break;
-		case BCAT:
-			break;
 		case MODULAR:
 			break;
+		case BCAT:
+			result = ".trim()+";
+			break;		
 		case TCAT:
+			result = ".trim()+";
 			break;
 		default:
 			break;

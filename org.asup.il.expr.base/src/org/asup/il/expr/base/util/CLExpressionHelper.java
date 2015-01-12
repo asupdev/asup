@@ -39,6 +39,10 @@ public class CLExpressionHelper implements ExpressionHelper {
 		case CLExprLexer.MULT:
 		case CLExprLexer.DIV:
 		case CLExprLexer.NEGATE:
+		case CLExprLexer.CAT:
+		case CLExprLexer.BCAT:
+		case CLExprLexer.TCAT:	
+			
 			expressionType = ExpressionType.ARITHMETIC;
 		break;
 
@@ -67,10 +71,7 @@ public class CLExpressionHelper implements ExpressionHelper {
 
 		case CLExprLexer.SST_FUN:
 		case CLExprLexer.BINARY_FUN:
-		case CLExprLexer.SWITCH_FUN:
-		case CLExprLexer.CAT:
-		case CLExprLexer.BCAT:
-		case CLExprLexer.TCAT:	
+		case CLExprLexer.SWITCH_FUN:			
 			expressionType = ExpressionType.COMPOUND;
 		break;
 		}
@@ -119,6 +120,12 @@ public class CLExpressionHelper implements ExpressionHelper {
 			return ArithmeticOperator.DIVIDE;
 		case CLExprLexer.NEGATE:
 			return ArithmeticOperator.NEGATE;
+		case CLExprLexer.CAT:
+			return ArithmeticOperator.PLUS;
+		case CLExprLexer.BCAT:
+			return ArithmeticOperator.BCAT;
+		case CLExprLexer.TCAT:	
+			return ArithmeticOperator.TCAT;				
 		default:
 			System.err.println(node.getType());
 			return null;
