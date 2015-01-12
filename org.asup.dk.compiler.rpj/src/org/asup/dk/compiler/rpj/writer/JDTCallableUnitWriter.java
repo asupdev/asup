@@ -511,7 +511,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			} else {
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
 				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
-				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(qInzsr)));
+				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName((QNamedNode)qInzsr.getParent())));
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
 			}
