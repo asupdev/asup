@@ -42,9 +42,7 @@ import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QEntryParameter;
-import org.asup.il.flow.QModule;
 import org.asup.il.flow.QParameterList;
-import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.QUnit;
@@ -504,20 +502,19 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
 		if (qInzsr != null) {
 
-			if (qInzsr.getParent() instanceof QModule) {
-				MethodInvocation methodInvocation = getAST().newMethodInvocation();
-				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
-				methodInvocation.setExpression(getAST().newSimpleName("£mub"));
-				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
-				block.statements().add(expressionStatement);
-			} else if (qInzsr.getParent() instanceof QProgram) {
+			if (qInzsr.getParent() == getCompilationUnit().getRoot()) {
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
 				methodInvocation.setExpression(getAST().newThisExpression());
-				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().getQualifiedName(qInzsr)));
+				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
-			} else
-				System.err.println("Unexpected condition: sdifb02xb67er23c23");
+			} else {
+				MethodInvocation methodInvocation = getAST().newMethodInvocation();
+				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
+				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(qInzsr)));
+				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+				block.statements().add(expressionStatement);
+			}
 		}
 
 		// £INIZI
