@@ -492,6 +492,38 @@ public class RPJProgramSupport {
 
 		return character;
 	}
+	
+	public QString qBCat(String string1, String string2) {
+		return qBCat(qBox(string1), qBox(string1));
+	}
+	
+	public QString qBCat(QString string1, QString string2) {
+
+		String str = string1.trimR() + " " + string2.asString();
+		int length = str.length();
+		QCharacter character = qDF.createCharacter(length, false, true);
+		character.eval(str);
+
+		return character;
+	}
+	
+	public QString qTCat(String string1, String string2) {
+		return qTCat(qBox(string1), qBox(string1));
+	}
+	
+	public QString qTCat(QString string1, QString string2) {
+
+		String str = string1.trimR() + string2.asString();
+		int length = str.length();
+		QCharacter character = qDF.createCharacter(length, false, true);
+		character.eval(str);
+
+		return character;
+	}
+
+
+	
+	
 
 	public QString qXlate(String oldString, String newString, QString source) {
 		return null;
