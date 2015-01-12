@@ -447,6 +447,15 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				annotation.setTypeName(getAST().newName(annotationKlass.getSimpleName()));
 				field.modifiers().add(annotation);
 			}
+		} else if (node instanceof EnumConstantDeclaration) {
+			EnumConstantDeclaration field = (EnumConstantDeclaration) node;
+			annotation = findAnnotation(field.modifiers(), annotationKlass);
+
+			if (annotation == null) {
+				annotation = getAST().newNormalAnnotation();
+				annotation.setTypeName(getAST().newName(annotationKlass.getSimpleName()));
+				field.modifiers().add(annotation);
+			}
 		} else if (node instanceof SingleVariableDeclaration) {
 			SingleVariableDeclaration field = (SingleVariableDeclaration) node;
 			annotation = findAnnotation(field.modifiers(), annotationKlass);
