@@ -11,8 +11,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ArithmeticOperator">
     <eLiterals name="Plus" value="1" literal="PLUS"/>
-    <eLiterals name="BCat" value="2" literal="BCAT"/>
-    <eLiterals name="TCat" value="3" literal="TCAT"/>
     <eLiterals name="Minus" value="4" literal="MINUS"/>
     <eLiterals name="Mult" value="5" literal="MULT"/>
     <eLiterals name="Divide" value="6" literal="DIV"/>

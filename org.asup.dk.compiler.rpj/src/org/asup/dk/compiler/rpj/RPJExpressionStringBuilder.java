@@ -103,6 +103,34 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 	@Override
 	public boolean visit(QArithmeticExpression expression) {
 
+		/*
+		if(expression.getOperator() == ArithmeticOperator.BCAT) {
+			
+			QCompoundTermExpression compoundTermExpression = QIntegratedLanguageExpressionFactory.eINSTANCE.createCompoundTermExpression();
+			compoundTermExpression.setFunction(true);
+			compoundTermExpression.setValue("%bcat");
+			
+			compoundTermExpression.getElements().add(expression.getLeftOperand());
+			compoundTermExpression.getElements().add(expression.getRightOperand());
+			
+			compoundTermExpression.accept(this);
+			return false;
+		}
+
+		if(expression.getOperator() == ArithmeticOperator.TCAT) {
+			
+			QCompoundTermExpression compoundTermExpression = QIntegratedLanguageExpressionFactory.eINSTANCE.createCompoundTermExpression();
+			compoundTermExpression.setFunction(true);
+			compoundTermExpression.setValue("%tcat");
+			
+			compoundTermExpression.getElements().add(expression.getLeftOperand());
+			compoundTermExpression.getElements().add(expression.getRightOperand());
+			
+			compoundTermExpression.accept(this);
+			return false;
+		}
+		*/
+
 		if (expression.getOperator() == ArithmeticOperator.NEGATE) {
 			result += "-";
 			expression.getLeftOperand().accept(this);
@@ -112,12 +140,7 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 			expression.getLeftOperand().accept(this);
 
 			switch (expression.getOperator()) {
-			case BCAT:
-				result += "|>";
-				break;
-			case TCAT:
-				result += ">|";
-				break;
+			
 			case DIVIDE:
 				result += "/";
 				break;

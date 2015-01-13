@@ -321,50 +321,21 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		}
 		// plus, minus, multiple, cat ..
 		else if (expression.getRightOperand() != null) {
+										
+			Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
+			builder.setTarget(target);
+			builder.clear();
+			expression.getLeftOperand().accept(builder);
+			buffer.append(builder.getResult());
 
-			if (expression.getOperator() == ArithmeticOperator.BCAT || expression.getOperator() == ArithmeticOperator.TCAT) {
-
-				// Manage BCAT e TCAT operator (CAT is managed as +)
-				if (expression.getOperator() == ArithmeticOperator.BCAT) {
-					buffer.append("qRPJ.qBCat(");
-				} else {
-					buffer.append("qRPJ.qTCat(");
-				}
-
-				Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
-				builder.setTarget(target);
-				builder.clear();
-				expression.getLeftOperand().accept(builder);
-				buffer.append(builder.getResult());
-
-				buffer.append(",");
-
-				target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
-				builder.setTarget(target);
-				builder.clear();
-				expression.getRightOperand().accept(builder);
-
-				buffer.append(builder.getResult());
-
-				buffer.append(")");
-
-			} else {
-
-				Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
-				builder.setTarget(target);
-				builder.clear();
-				expression.getLeftOperand().accept(builder);
-				buffer.append(builder.getResult());
-
-				buffer.append(toJavaPrimitive(expression.getOperator()));
-
-				target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
-				builder.setTarget(target);
-				builder.clear();
-				expression.getRightOperand().accept(builder);
-
-				buffer.append(builder.getResult());
-			}
+			buffer.append(toJavaPrimitive(expression.getOperator()));
+			
+			target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
+			builder.setTarget(target);
+			builder.clear();
+			expression.getRightOperand().accept(builder);
+			
+			buffer.append(builder.getResult());			
 		}
 		// negate
 		else {
@@ -568,14 +539,6 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			result = "^";
 			break;
 		case MODULAR:
-			break;
-		case BCAT:
-			result = " +";
-			break;
-		case TCAT:
-			result = "+";
-			break;
-		default:
 			break;
 		}
 

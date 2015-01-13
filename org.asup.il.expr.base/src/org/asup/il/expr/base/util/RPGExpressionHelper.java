@@ -210,4 +210,9 @@ public class RPGExpressionHelper implements ExpressionHelper {
 	public String normalizeText(String text) {
 		return text;
 	}
+
+	@Override
+	public String getFunctionName(Tree node) {
+		return normalizeText(node.getText());
+	}
 }

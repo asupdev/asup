@@ -37,4 +37,6 @@ public interface ExpressionHelper {
 	public Tree parse(String expression);
 	
 	public String normalizeText(String text);
+	
+	public String getFunctionName(Tree node);
 }

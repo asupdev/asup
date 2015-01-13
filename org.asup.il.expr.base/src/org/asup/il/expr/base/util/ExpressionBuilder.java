@@ -306,10 +306,9 @@ public class ExpressionBuilder {
 			QCompoundTermExpression compoundTermExpression = QIntegratedLanguageExpressionFactory.eINSTANCE.createCompoundTermExpression();
 			
 			compoundTermExpression.setFunction(expressionHelper.isFunction(node));
-			compoundTermExpression.setSpecial(expressionHelper.isSpecial(node));
-			text = expressionHelper.normalizeText(node.getText());
+			compoundTermExpression.setSpecial(expressionHelper.isSpecial(node));		
+			compoundTermExpression.setValue(expressionHelper.getFunctionName(node));
 			
-			compoundTermExpression.setValue(text);
 			for (int i = 0; i < node.getChildCount(); i++) 
 				compoundTermExpression.getElements().add(buildChildExpression(node.getChild(i)));				
 						
