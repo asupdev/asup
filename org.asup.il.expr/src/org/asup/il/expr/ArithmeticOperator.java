@@ -34,26 +34,6 @@ public enum ArithmeticOperator implements Enumerator {
 	PLUS(1, "Plus", "PLUS"),
 
 	/**
-	 * The '<em><b>BCat</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BCAT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	BCAT(2, "BCat", "BCAT"),
-
-	/**
-	 * The '<em><b>TCat</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TCAT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	TCAT(3, "TCat", "TCAT"),
-
-	/**
 	 * The '<em><b>Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,36 +107,6 @@ public enum ArithmeticOperator implements Enumerator {
 	 * @ordered
 	 */
 	public static final int PLUS_VALUE = 1;
-
-	/**
-	 * The '<em><b>BCat</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>BCat</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #BCAT
-	 * @model name="BCat" literal="BCAT"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int BCAT_VALUE = 2;
-
-	/**
-	 * The '<em><b>TCat</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>TCat</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #TCAT
-	 * @model name="TCat" literal="TCAT"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int TCAT_VALUE = 3;
 
 	/**
 	 * The '<em><b>Minus</b></em>' literal value.
@@ -257,8 +207,6 @@ public enum ArithmeticOperator implements Enumerator {
 	private static final ArithmeticOperator[] VALUES_ARRAY =
 		new ArithmeticOperator[] {
 			PLUS,
-			BCAT,
-			TCAT,
 			MINUS,
 			MULT,
 			DIVIDE,
@@ -316,8 +264,6 @@ public enum ArithmeticOperator implements Enumerator {
 	public static ArithmeticOperator get(int value) {
 		switch (value) {
 			case PLUS_VALUE: return PLUS;
-			case BCAT_VALUE: return BCAT;
-			case TCAT_VALUE: return TCAT;
 			case MINUS_VALUE: return MINUS;
 			case MULT_VALUE: return MULT;
 			case DIVIDE_VALUE: return DIVIDE;

@@ -896,8 +896,6 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 		// Initialize enums and add enum literals
 		initEEnum(arithmeticOperatorEEnum, ArithmeticOperator.class, "ArithmeticOperator");
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.PLUS);
-		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.BCAT);
-		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.TCAT);
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.MINUS);
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.MULT);
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.DIVIDE);

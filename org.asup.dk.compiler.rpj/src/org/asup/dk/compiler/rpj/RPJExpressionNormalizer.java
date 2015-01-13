@@ -45,12 +45,20 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 		// dataTerm
 		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(leftExpression.getValue(), true);
-		if (dataTerm == null)
+		if (dataTerm == null)  
 			return super.visit(statement);
 
 		// unary
-		if (dataTerm.getDataTermType().isUnary())
-			return super.visit(statement);
+		if (dataTerm.getDataTermType().isUnary()) {
+
+			/*
+			RPJExpressionStringBuilder expressionStringBuilder = new RPJExpressionStringBuilder();
+			expressionStringBuilder.visit(assignmentExpression);
+			statement.setAssignment(expressionStringBuilder.getResult());
+			*/
+			
+			return false;
+		}			
 
 		// multiple
 		QMultipleDataTerm<?> multipleDataTerm = (QMultipleDataTerm<?>) dataTerm;
