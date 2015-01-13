@@ -1,4 +1,4 @@
- /**
+/**
  *  Copyright (c) 2012, 2014 Sme.UP and others.
  *  All rights reserved. This program and the accompanying materials
  *  are made available under the terms of the Eclipse Public License v1.0
@@ -21,10 +21,12 @@ import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
+import org.asup.il.data.QArray;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QHexadecimal;
+import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
@@ -129,7 +131,19 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			value = compilationUnit.getQualifiedName(namedNode);
 
-			if (namedNode instanceof QDataTerm) {
+			if (namedNode instanceof QMultipleAtomicDataTerm<?>) {
+				QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) namedNode;
+				
+				if (this.target != null) {
+					if(this.target.isAssignableFrom(QArray.class)) 
+						source = multipleAtomicDataTerm.getDefinition().getDataClass();						
+					else
+						source = multipleAtomicDataTerm.getDefinition().getArgument().getDataClass();
+				}
+				else
+					source = multipleAtomicDataTerm.getDefinition().getDataClass();
+				
+			} else if (namedNode instanceof QDataTerm) {
 				QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
 				source = dataTerm.getDefinition().getDataClass();
 			}
@@ -258,9 +272,9 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) namedNode;
 
-			if(unaryAtomicDataTerm.getDefinition() == null)
+			if (unaryAtomicDataTerm.getDefinition() == null)
 				System.out.println(unaryAtomicDataTerm);
-			
+
 			writeValue(unaryAtomicDataTerm.getDefinition().getDataClass(), this.target, compilationUnit.getQualifiedName(namedNode));
 
 		} else
@@ -307,48 +321,48 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		}
 		// plus, minus, multiple, cat ..
 		else if (expression.getRightOperand() != null) {
-			
-			if(expression.getOperator() == ArithmeticOperator.BCAT || expression.getOperator() == ArithmeticOperator.TCAT) {
-				
-				//Manage BCAT e TCAT operator (CAT is managed as +)
+
+			if (expression.getOperator() == ArithmeticOperator.BCAT || expression.getOperator() == ArithmeticOperator.TCAT) {
+
+				// Manage BCAT e TCAT operator (CAT is managed as +)
 				if (expression.getOperator() == ArithmeticOperator.BCAT) {
 					buffer.append("qRPJ.qBCat(");
 				} else {
 					buffer.append("qRPJ.qTCat(");
 				}
-				
+
 				Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
 				builder.setTarget(target);
 				builder.clear();
 				expression.getLeftOperand().accept(builder);
 				buffer.append(builder.getResult());
-				
+
 				buffer.append(",");
-				
+
 				target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
 				builder.setTarget(target);
 				builder.clear();
 				expression.getRightOperand().accept(builder);
-				
+
 				buffer.append(builder.getResult());
-						
-				buffer.append(")");		
-				
+
+				buffer.append(")");
+
 			} else {
-				
+
 				Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
 				builder.setTarget(target);
 				builder.clear();
 				expression.getLeftOperand().accept(builder);
 				buffer.append(builder.getResult());
-	
+
 				buffer.append(toJavaPrimitive(expression.getOperator()));
-				
+
 				target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
 				builder.setTarget(target);
 				builder.clear();
 				expression.getRightOperand().accept(builder);
-				
+
 				buffer.append(builder.getResult());
 			}
 		}
@@ -557,7 +571,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			break;
 		case BCAT:
 			result = " +";
-			break;		
+			break;
 		case TCAT:
 			result = "+";
 			break;
@@ -666,11 +680,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		// Hexadecimal
 		if (source.isAssignableFrom(QHexadecimal.class)) {
 			buffer.append(value);
-		}
-		// Specials
-		// else if (source.isAssignableFrom(Enum.class) &&
-		// this.target.isAssignableFrom(QBufferedData.class)) {
-		else if (source.isAssignableFrom(Enum.class) && !this.target.isAssignableFrom(Boolean.class)) {
+		} else if (source.isAssignableFrom(Enum.class) && !this.target.isAssignableFrom(Boolean.class)) {
 			buffer.append(value);
 		}
 

@@ -483,20 +483,44 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 		delegate.movel(value, clear);		
 	}
 
+	@Override
 	public void xlate(QString from, QString to, QString target) {
 		delegate.xlate(from, to, target);
 	}
+	
 	@Override
 	public void xlate(String from, String to, QString target) {
 		delegate.xlate(from, to, target);
 	}
 
+	@Override
+	public void xlate(byte from, String to, QString target) {
+		delegate.xlate(from, to, target);
+	}
+
+	@Override
 	public void cat(QString factor1, QNumeric space) {
 		delegate.cat(factor1, space);
 	}
 
+	@Override
 	public void cat(String factor1, QNumeric space) {
 		delegate.cat(factor1, space);
 	}
 
+	public boolean eq(QHexadecimal value) {
+		return delegate.eq(value);
+	}
+
+	public boolean ne(QHexadecimal value) {
+		return delegate.ne(value);
+	}
+
+	public boolean eq(byte value) {
+		return delegate.eq(value);
+	}
+
+	public void eval(byte value) {
+		delegate.eval(value);
+	}
 }

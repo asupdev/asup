@@ -196,6 +196,14 @@ public interface QString extends QBufferedData {
 	 * @model valueRequired="true"
 	 * @generated
 	 */
+	boolean eq(QHexadecimal value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
 	void eval(String value);
 
 	/**
@@ -313,6 +321,14 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	boolean ne(QHexadecimal value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -357,4 +373,12 @@ public interface QString extends QBufferedData {
 	 * @generated
 	 */
 	void xlate(String from, String to, QString target);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model fromRequired="true" toRequired="true" targetRequired="true"
+	 * @generated
+	 */
+	void xlate(byte from, String to, QString target);
 } // QString

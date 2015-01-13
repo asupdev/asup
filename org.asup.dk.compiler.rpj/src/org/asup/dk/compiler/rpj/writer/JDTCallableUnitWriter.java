@@ -169,7 +169,6 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 				continue;
 
 			dataTerm = getCompilationUnit().getDataTerm(dataTerm.getName(), true);
-
 			writePublicField(dataTerm, false);
 		}
 

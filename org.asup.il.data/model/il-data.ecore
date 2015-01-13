@@ -532,7 +532,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataReader" eSuperTypes="#//DataVisitor"/>
   <eClassifiers xsi:type="ecore:EClass" name="DataStruct" abstract="true" interface="true">
-    <eGenericSuperTypes eClassifier="#//String"/>
+    <eGenericSuperTypes eClassifier="#//Character"/>
     <eGenericSuperTypes eClassifier="#//Struct">
       <eTypeArguments eClassifier="#//BufferedData"/>
     </eGenericSuperTypes>
@@ -1636,6 +1636,9 @@
     <eOperations name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="value" lowerBound="1" eType="#//String"/>
     </eOperations>
+    <eOperations name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" lowerBound="1" eType="#//Hexadecimal"/>
+    </eOperations>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
@@ -1679,6 +1682,9 @@
     <eOperations name="ne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="value" lowerBound="1" eType="#//String"/>
     </eOperations>
+    <eOperations name="ne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" lowerBound="1" eType="#//Hexadecimal"/>
+    </eOperations>
     <eOperations name="out"/>
     <eOperations name="trim" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="trimL" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1690,6 +1696,11 @@
     </eOperations>
     <eOperations name="xlate">
       <eParameters name="from" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="to" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="target" lowerBound="1" eType="#//String"/>
+    </eOperations>
+    <eOperations name="xlate">
+      <eParameters name="from" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
       <eParameters name="to" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="target" lowerBound="1" eType="#//String"/>
     </eOperations>

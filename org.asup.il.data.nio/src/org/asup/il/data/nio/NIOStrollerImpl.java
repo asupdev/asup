@@ -5,6 +5,7 @@ import java.util.List;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataStruct;
+import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 import org.asup.il.data.QStroller;
@@ -374,6 +375,11 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	}
 
 	@Override
+	public void xlate(byte from, String to, QString target) {
+		current().xlate(from, to, target);		
+	}
+
+	@Override
 	public void cat(QString factor1, QString factor2, QNumeric space) {
 		current().cat(factor1, factor2, space);
 	}
@@ -386,5 +392,25 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	@Override
 	public void cat(String factor1, QNumeric space) {
 		current().cat(factor1, space);		
+	}
+
+	@Override
+	public boolean eq(QHexadecimal value) {
+		return current().eq(value);
+	}
+
+	@Override
+	public boolean ne(QHexadecimal value) {
+		return current().ne(value);
+	}
+
+	@Override
+	public boolean eq(byte value) {
+		return current().eq(value);
+	}
+
+	@Override
+	public void eval(byte value) {
+		current().eval(value);
 	}
 }

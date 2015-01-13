@@ -176,6 +176,10 @@ public class RPJProgramSupport {
 		return null;
 	}
 
+	public QDecimal qDec(QNumeric numeric, int precision, int scale) {
+		return null;
+	}
+	
 	public QDecimal qDec(QString string, int precision, int scale) {
 		return null;
 	}
@@ -183,7 +187,7 @@ public class RPJProgramSupport {
 	public QDecimal qDec(String string, int precision, int scale) {
 		return null;
 	}
-	
+
 	public void qCommand(String statement) {
 
 	}
@@ -255,11 +259,11 @@ public class RPJProgramSupport {
 	public void qLabel(Enum<?> name) {
 	}
 
-	public Object qAddr(QBufferedData bufferedData) {
+	public QPointer qAddr(QBufferedData bufferedData) {
 		return null;
 	}
 
-	public Object qPaddr(QString string) {
+	public QPointer qPaddr(QString string) {
 		return null;
 	}
 	
@@ -426,6 +430,13 @@ public class RPJProgramSupport {
 		return null;
 	}
 
+	public QString qSubst(QArray<QCharacter> source, Integer from) {
+		return null;
+	}
+	public QString qSubst(QArray<QCharacter> source, Integer from, Integer to) {
+		return null;
+	}
+	
 	public QString qSubst(QString source, Integer from) {
 		return null;
 	}
@@ -522,6 +533,9 @@ public class RPJProgramSupport {
 	}
 
 
+	public QString qStr(QPointer source, int length) {
+		return null;
+	}
 	
 	
 

@@ -17,6 +17,7 @@ import java.util.Arrays;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 
@@ -250,6 +251,13 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	}
 
 	@Override
+	public boolean eq(QHexadecimal value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
 	public boolean ge(String value) {
 		return trimR().compareTo(trimR(value))>=0;
 	}
@@ -277,6 +285,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public boolean ne(String value) {
 		return !eq(value);
+	}
+
+	@Override
+	public boolean ne(QHexadecimal value) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -431,6 +445,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void xlate(String from, String to, QString target) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void xlate(byte from, String to, QString target) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1767,7 +1767,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_STRUCT_FEATURE_COUNT = STRING_FEATURE_COUNT + 0;
+	int DATA_STRUCT_FEATURE_COUNT = CHARACTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
