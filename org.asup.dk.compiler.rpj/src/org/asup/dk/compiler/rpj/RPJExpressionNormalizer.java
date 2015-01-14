@@ -18,6 +18,7 @@ import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleAtomicBufferedDataDef;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.expr.AtomicType;
+import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
 import org.asup.il.expr.QAssignmentExpression;
 import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QExpression;
@@ -45,8 +46,8 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 
 		// dataTerm
 		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(leftExpression.getValue(), true);
-		if (dataTerm == null)  
-			return super.visit(statement);
+		if (dataTerm == null)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid data term: "+leftExpression.getValue());
 
 		// unary
 		if (dataTerm.getDataTermType().isUnary()) {

@@ -196,12 +196,15 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			for (QDataSetTerm dataSetTerm : dataSets) {
 
 				QExternalFile externalFile = dataSetTerm.getFacet(QExternalFile.class);
-				
+									
 				if (externalFile == null && dataSetTerm.getFormatName() != null && !dataSetTerm.getFormatName().isEmpty()) {
 					renamedDataSet.add(dataSetTerm);
 					continue;
 				}
 				
+				if(externalFile != null && externalFile.getFormat() == null)
+					continue;
+
 				if (externalFile != null && !externalFile.getFormat().equals(dataSetTerm.getFormatName())) {
 					renamedDataSet.add(dataSetTerm);
 					continue;
@@ -722,5 +725,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	@Override
 	public List<QCompilationUnit> getChildCompilationUnits() {
 		return new ArrayList<QCompilationUnit>(compilationUnits);
+	}
+
+	@Override
+	public void close() {
+		getContext().close();
 	}
 }

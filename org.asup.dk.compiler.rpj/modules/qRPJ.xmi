@@ -898,6 +898,66 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%bcat">
+        <definition
+            xsi:type="il-data:StringDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="secondString"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="string"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%cat">
+        <definition
+            xsi:type="il-data:StringDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="secondString"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="string"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%char">
         <definition
             xsi:type="il-data:StringDef"/>
@@ -993,6 +1053,23 @@
               default="">
             <definition
                 xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%dealloc"/>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="size"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:PointerDef"/>
           </delegate>
         </parameters>
       </entry>
@@ -1719,6 +1796,16 @@
                 xsi:type="il-data:NumericDef"/>
           </delegate>
         </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="length"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
       </entry>
     </prototypes>
     <prototypes>
@@ -1912,6 +1999,36 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%tcat">
+        <definition
+            xsi:type="il-data:StringDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="secondString"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="string"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%time">
         <definition
             xsi:type="il-data:DatetimeDef"/>
@@ -2043,96 +2160,6 @@
               xsi:type="il-data:UnaryAtomicDataTerm"
               like=""
               name="string"
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="%cat">
-        <definition
-            xsi:type="il-data:StringDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="secondString"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="string"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="%tcat">
-        <definition
-            xsi:type="il-data:StringDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="secondString"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="string"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="%bcat">
-        <definition
-            xsi:type="il-data:StringDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="secondString"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="string"
-              default=""
               mandatory="true">
             <definition
                 xsi:type="il-data:StringDef"/>

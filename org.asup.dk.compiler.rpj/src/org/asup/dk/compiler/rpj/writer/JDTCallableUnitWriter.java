@@ -202,6 +202,10 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			if (dataSet.getFileName().equals("PRT198"))
 				parType.typeArguments().add(getAST().newWildcardType());
+			else if (dataSet.getFileName().equals("PRT132"))
+				parType.typeArguments().add(getAST().newWildcardType());
+			else if (dataSet.getFileName().equals("PRT80"))
+				parType.typeArguments().add(getAST().newWildcardType());
 			else {
 				QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
 				if (compilerLinker != null) {
@@ -487,34 +491,36 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
-		
 		// redefined record dataSet
-		if(getCompilationUnit().getRoot() instanceof QCallableUnit) {
-			
-			QCallableUnit callableUnit = (QCallableUnit)getCompilationUnit().getRoot();
-			if(callableUnit.getFileSection() != null) {
-				for(QDataSetTerm dataSetTerm: callableUnit.getFileSection().getDataSets()) {
+		if (getCompilationUnit().getRoot() instanceof QCallableUnit) {
+
+			QCallableUnit callableUnit = (QCallableUnit) getCompilationUnit().getRoot();
+			if (callableUnit.getFileSection() != null) {
+				for (QDataSetTerm dataSetTerm : callableUnit.getFileSection().getDataSets()) {
+
+					if(dataSetTerm.getRecord() == null)
+						continue;
 					
-					for(QDataTerm<?> element: dataSetTerm.getRecord().getElements()) {
+					for (QDataTerm<?> element : dataSetTerm.getRecord().getElements()) {
 						QRemap remap = element.getFacet(QRemap.class);
-						if(remap == null)
+						if (remap == null)
 							continue;
-						
+
 						MethodInvocation methodInvocation = getAST().newMethodInvocation();
 						methodInvocation.setName(getAST().newSimpleName("assign"));
-						
+
 						QDataTerm<?> remapDataTerm = getCompilationUnit().getDataTerm(remap.getName(), true);
-						if(remapDataTerm == null)
+						if (remapDataTerm == null)
 							throw new IntegratedLanguageExpressionRuntimeException("Invalid term: " + remap);
 
-						if(getCompilationUnit().equalsTermName(element.getName(), remapDataTerm.getName()))
+						if (getCompilationUnit().equalsTermName(element.getName(), remapDataTerm.getName()))
 							continue;
-						
-						if(remap.getIndex() == null || remap.getIndex().isEmpty())
+
+						if (remap.getIndex() == null || remap.getIndex().isEmpty())
 							methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(remapDataTerm)));
 						else
-							methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(remapDataTerm)+".get("+Integer.parseInt(remap.getIndex())+")"));
-						
+							methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(remapDataTerm) + ".get(" + Integer.parseInt(remap.getIndex()) + ")"));
+
 						methodInvocation.arguments().add(buildExpression(getCompilationUnit().getQualifiedName(element)));
 						ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 						block.statements().add(expressionStatement);
@@ -523,7 +529,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 				}
 			}
 		}
-		
+
 		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
 		if (qInzsr != null) {
 

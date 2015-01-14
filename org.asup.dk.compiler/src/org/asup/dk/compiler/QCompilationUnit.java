@@ -215,4 +215,12 @@ public interface QCompilationUnit extends QContextProvider {
 	 */
 	void refresh();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void close();
+
 } // QCompilationUnit

@@ -112,6 +112,8 @@ public class XMIDatabaseFileCompiler {
 				
 		compilerManager.writeDatabaseFile(compilationUnit, setup, output);
 
-		output.close();		
+		output.close();
+		
+		compilationUnit.close();
 	}
 }

@@ -54,6 +54,7 @@ public class JDTFileMemberManagerImpl extends FileMemberManagerImpl {
 				Resource resource = resSet.createResource(URI.createURI(fileEntry.getLocation().toString()));
 				resource.load(entry.getInputStream(), null);
 				members.add((QFileMember) resource.getContents().get(0));
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

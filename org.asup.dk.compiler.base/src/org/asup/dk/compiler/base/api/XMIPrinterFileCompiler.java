@@ -109,6 +109,7 @@ public class XMIPrinterFileCompiler {
 		
 		compilerManager.writePrinterFile(compilationUnit, setup, output);
 		
-		output.close();		
+		output.close();	
+		compilationUnit.close();
 	}
 }

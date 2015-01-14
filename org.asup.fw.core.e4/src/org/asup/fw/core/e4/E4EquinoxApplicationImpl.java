@@ -64,7 +64,7 @@ public class E4EquinoxApplicationImpl implements IApplication {
 		Resource resource = resourceSet.getResource(uri, true);
 		resource.load(Collections.EMPTY_MAP);				
 		application = (QApplication) resource.getContents().get(0);
-
+		
 	    System.out.println("Starting "+application);
 	    
     	BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();

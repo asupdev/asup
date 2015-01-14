@@ -111,7 +111,7 @@ public class XMIDisplayFileCompiler {
 		
 		compilerManager.writeDisplayFile(compilationUnit, setup, output);
 		
-		
 		output.close();		
+		compilationUnit.close();
 	}
 }

@@ -22,6 +22,7 @@ import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
+import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
 import org.asup.os.type.file.QExternalFile;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -82,7 +83,7 @@ public class RPJDataLikeRefactor extends RPJAbstractDataRefactor {
 		if (term.getLike() != null) {
 			QDataTerm<?> like = getCompilationContext().getDataTerm(term.getLike(), true);
 			if (like == null)
-				throw new RuntimeException("Unexpected condition: 4m8x7t8764xm04372");
+				throw new IntegratedLanguageExpressionRuntimeException("Invalid data term: "+term.getLike());
 
 			QCompilerLinker compilerLinker = like.getFacet(QCompilerLinker.class);
 			if (compilerLinker != null && term.getFacet(QExternalFile.class) == null)

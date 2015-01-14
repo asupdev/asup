@@ -105,6 +105,8 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 
 	protected QDataTerm<?> buildMultipleDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
 
+		QDataTerm<?> dataTerm = null;
+		
 		if (termFrom.getDataTermType().isAtomic()) {
 
 			// term
@@ -122,24 +124,29 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 				}
 				// multiple
 				else {
-					QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
+					
 					if (termTo.getDefinition() != null) {
 						
 						switch (termTo.getDataTermType()) {
 						case MULTIPLE_ATOMIC:
+							QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
 							QMultipleAtomicBufferedDataDef<?> multipleDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
 							multipleAtomicBufferedDataDef.setArgument(multipleDataDef.getArgument());
+							multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
 							break;
 						case UNARY_ATOMIC:
+							multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
 							multipleAtomicBufferedDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) termTo.getDefinition());
+							multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
 							break;
 						case UNARY_COMPOUND:
+							throw new FrameworkCoreUnexpectedConditionException("gfsd779sfff79q4375v");							
+							
 						case MULTIPLE_COMPOUND:
 							throw new FrameworkCoreUnexpectedConditionException("bt7v8q45q4v5bq4375v");
 						}						
 					}
-
-					multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
+					
 				}
 			} else {
 				QListDef<?> listDef = (QListDef<?>) EcoreUtil.copy((EObject) termTo.getDefinition());
@@ -147,7 +154,6 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 				multipleAtomicDataTerm.setDefinition(listDef);
 			}
 
-			return multipleAtomicDataTerm;
 		} else {
 
 			// term
@@ -159,9 +165,9 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 			copyCompoundDataDef((QCompoundDataDef<?>) termFrom.getDefinition(), multipleCompoundDataDef);
 			multipleCompoundDataTerm.setDefinition(multipleCompoundDataDef);
 
-			return multipleCompoundDataTerm;
 		}
 
+		return dataTerm;
 	}
 
 	private void copyDataTerm(QDataTerm<?> dataTerm, QDataTerm<?> dataTermTo) {

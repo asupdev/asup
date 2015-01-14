@@ -287,6 +287,10 @@ public class RPJProgramSupport {
 		return null;
 	}
 	
+	public void qDealloc(QPointer pointer) {
+		// TODO
+	}
+	
 	public QIndicator qTestn(QString string) {
 		// TODO
 		return null;
@@ -406,17 +410,49 @@ public class RPJProgramSupport {
 		return null;
 	}
 	
-	// TODO double byte?
+	public QDecimal qScan(byte argument, QString source) {
+		return qScan(argument, source, null, null);
+	}
+	
 	public QDecimal qScan(byte argument, QString source, Integer start) {
+		return qScan(argument, source, start, null);
+	}
+	
+	// TODO double byte?
+	public QDecimal qScan(byte argument, QString source, Integer start, Integer length) {
 
-		int position = source.toString().indexOf(argument, start) + 1;
+		if(start == null)
+			start = 1;
+		
+		int position = 0;
+		
+		if(length != null)
+			position = qSubst(source, 1, length).asString().indexOf(argument, start-1) + 1;
+		else
+			position = source.asString().indexOf(argument, start-1) + 1;
 
 		return qBox(position);
 	}
 	
+	public QDecimal qScan(String argument, QString source) {
+		return qScan(argument, source, null, null);
+	}
+	
 	public QDecimal qScan(String argument, QString source, Integer start) {
+		return qScan(argument, source, start, null);
+	}
+	
+	public QDecimal qScan(String argument, QString source, Integer start, Integer length) {
 
-		int position = source.toString().indexOf(argument, start) + 1;
+		if(start == null)
+			start = 1;
+		
+		int position = 0;
+		
+		if(length != null)
+			position = qSubst(source, 1, length).asString().indexOf(argument, start-1) + 1;
+		else
+			position = source.asString().indexOf(argument, start-1) + 1;
 
 		return qBox(position);
 	}

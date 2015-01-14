@@ -253,9 +253,10 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 			URL entry = FrameworkUtil.getBundle(this.getClass()).getEntry("./modules/"+moduleName.replaceAll("\\*", "q")+".xmi");
 			Resource resource = resourceSet.createResource(URI.createURI(entry.toString()));
 			resource.load(Collections.EMPTY_MAP);
-
+			
 			// type check
 			EObject eObject = resource.getContents().get(0);
+			
 			if (eObject instanceof QModule) {
 				QModule module = (QModule) eObject;
 

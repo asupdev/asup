@@ -37,7 +37,7 @@ public class EMFConverter {
         resource.load(stream, Collections.EMPTY_MAP);
 
         EObject eObject = resource.getContents().get(0);
-
+        
         return eObject;
     }
     

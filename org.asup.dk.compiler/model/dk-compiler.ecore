@@ -72,6 +72,7 @@
       </eParameters>
     </eOperations>
     <eOperations name="refresh"/>
+    <eOperations name="close"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="trashcan" eType="#//CompilationTrashcan"
         containment="true"/>
   </eClassifiers>

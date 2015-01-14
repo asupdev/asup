@@ -24,7 +24,9 @@ public abstract class AbstractCommandProviderImpl extends ServiceImpl implements
 			e.printStackTrace();
 		}
 
-		return resource.getContents().get(0);
+		EObject eObject = resource.getContents().get(0);
+		
+		return eObject;
 	}
 
 	@Override

@@ -131,7 +131,7 @@ public class CLUnitConverterImpl extends UnitConverterImpl {
 			Resource resource = new XMIResourceImpl();
 			resource.load(source.getInputStream(), null);
 			QFileMember qFileMember = (QFileMember) resource.getContents().get(0);
-
+			
 			src = loadMember(qFileMember);
 
 		}
