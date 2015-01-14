@@ -18,7 +18,9 @@ import org.asup.db.core.QCatalogMetaData;
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QConnectionDescription;
 import org.asup.db.core.QDatabaseManager;
+import org.asup.il.data.IntegratedLanguageDataRuntimeException;
 import org.asup.il.data.QDataFactory;
+import org.asup.il.data.QDataStruct;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.OperationDirection;
 import org.asup.il.isam.QIndex;
@@ -105,6 +107,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		return createKeySequencedDataSet(container, wrapper, AccessMode.INPUT);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper, AccessMode accessMode) {
 		try {
@@ -112,7 +115,11 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			if (table == null)
 				return null;
 
-			R record = this.dataFactory.createDataStruct(wrapper, 0, true);
+			R record = null;
+			if (wrapper.isAssignableFrom(QDataStruct.class))
+				record = (R) this.dataFactory.createDataStruct((Class<QDataStruct>) wrapper, 0, true);
+			else
+				throw new IntegratedLanguageDataRuntimeException("Invalid record class: "+wrapper);
 
 			QIndex index = record.getIndex();
 			if (index == null)
@@ -132,6 +139,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		return createRelativeRecordDataSet(container, wrapper, AccessMode.INPUT);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode) {
 
@@ -140,8 +148,12 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 			if (table == null)
 				return null;
 
-			R record = this.dataFactory.createDataStruct(wrapper, 0, true);
-
+			R record = null;
+			if (wrapper.isAssignableFrom(QDataStruct.class))
+				record = (R) this.dataFactory.createDataStruct((Class<QDataStruct>) wrapper, 0, true);
+			else
+				throw new IntegratedLanguageDataRuntimeException("Invalid record class: "+wrapper);
+			
 			QIndex index = record.getIndex();
 			if (index == null)
 				index = TABLE_INDEX_RELATIVE_RECORD_NUMBER;

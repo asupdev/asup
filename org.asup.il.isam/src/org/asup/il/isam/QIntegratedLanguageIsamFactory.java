@@ -45,6 +45,15 @@ public interface QIntegratedLanguageIsamFactory extends EFactory {
 	QKeyListTerm createKeyListTerm();
 
 	/**
+	 * Returns a new object of class '<em>Record Def</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Record Def</em>'.
+	 * @generated
+	 */
+	QRecordDef createRecordDef();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

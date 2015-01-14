@@ -8,8 +8,6 @@
 package org.asup.il.isam;
 
 import org.asup.il.core.QTerm;
-import org.asup.il.data.QCompoundDataTerm;
-import org.asup.il.data.QDataStructDef;
 
 /**
  * <!-- begin-user-doc -->
@@ -176,12 +174,12 @@ public interface QDataSetTerm extends QTerm {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Record</em>' containment reference.
-	 * @see #setRecord(QCompoundDataTerm)
+	 * @see #setRecord(QRecordDef)
 	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getDataSetTerm_Record()
 	 * @model containment="true" transient="true"
 	 * @generated
 	 */
-	QCompoundDataTerm<QDataStructDef> getRecord();
+	QRecordDef getRecord();
 
 	/**
 	 * Sets the value of the '{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}' containment reference.
@@ -191,7 +189,7 @@ public interface QDataSetTerm extends QTerm {
 	 * @see #getRecord()
 	 * @generated
 	 */
-	void setRecord(QCompoundDataTerm<QDataStructDef> value);
+	void setRecord(QRecordDef value);
 
 	/**
 	 * Returns the value of the '<em><b>User Open</b></em>' attribute.

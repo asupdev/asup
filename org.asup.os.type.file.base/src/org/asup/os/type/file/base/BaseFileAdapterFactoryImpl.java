@@ -204,6 +204,8 @@ public class BaseFileAdapterFactoryImpl implements QAdapterFactory {
 			break;
 		case DATA_STRUCT:
 			return null;
+		case STRUCT:
+			return null;
 		case DATETIME:
 			QDatetimeDef datetimeDef = (QDatetimeDef) dataDef;
 			switch (datetimeDef.getType()) {

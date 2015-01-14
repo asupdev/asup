@@ -331,6 +331,7 @@
     <eLiterals name="Scroller" value="150" literal="SCROLLER"/>
     <eLiterals name="String" value="160" literal="STRING"/>
     <eLiterals name="Stroller" value="170" literal="STROLLER"/>
+    <eLiterals name="Struct" value="180" literal="STRUCT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataDelegator" abstract="true" interface="true">
     <eTypeParameters name="D">

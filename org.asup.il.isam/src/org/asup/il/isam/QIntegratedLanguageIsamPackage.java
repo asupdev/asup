@@ -342,7 +342,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD_FEATURE_COUNT = QIntegratedLanguageDataPackage.DATA_STRUCT_FEATURE_COUNT + 0;
+	int RECORD_FEATURE_COUNT = QIntegratedLanguageDataPackage.STRUCT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.QRRDataSet <em>RR Data Set</em>}' class.
@@ -364,6 +364,70 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int RR_DATA_SET_FEATURE_COUNT = DATA_SET_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.isam.impl.RecordDefImpl <em>Record Def</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.impl.RecordDefImpl
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getRecordDef()
+	 * @generated
+	 */
+	int RECORD_DEF = 10;
+
+	/**
+	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF__FORMULAS = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__FORMULAS;
+
+	/**
+	 * The feature id for the '<em><b>Class Delegator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF__CLASS_DELEGATOR = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__CLASS_DELEGATOR;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF__ELEMENTS = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF__PREFIX = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__PREFIX;
+
+	/**
+	 * The feature id for the '<em><b>Qualified</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF__QUALIFIED = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__QUALIFIED;
+
+	/**
+	 * The number of structural features of the '<em>Record Def</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF_FEATURE_COUNT = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,7 +435,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getAccessMode()
 	 * @generated
 	 */
-	int ACCESS_MODE = 10;
+	int ACCESS_MODE = 11;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationDirection <em>Operation Direction</em>}' enum.
@@ -381,7 +445,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationDirection()
 	 * @generated
 	 */
-	int OPERATION_DIRECTION = 11;
+	int OPERATION_DIRECTION = 12;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationSet <em>Operation Set</em>}' enum.
@@ -391,7 +455,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationSet()
 	 * @generated
 	 */
-	int OPERATION_SET = 12;
+	int OPERATION_SET = 13;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationRead <em>Operation Read</em>}' enum.
@@ -401,7 +465,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationRead()
 	 * @generated
 	 */
-	int OPERATION_READ = 13;
+	int OPERATION_READ = 14;
 
 	/**
 	 * The meta object id for the '<em>Key List</em>' data type.
@@ -410,7 +474,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyList()
 	 * @generated
 	 */
-	int KEY_LIST = 14;
+	int KEY_LIST = 15;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QDataSet <em>Data Set</em>}'.
@@ -590,6 +654,16 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRRDataSet();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QRecordDef <em>Record Def</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Record Def</em>'.
+	 * @see org.asup.il.isam.QRecordDef
+	 * @generated
+	 */
+	EClass getRecordDef();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QIndex <em>Index</em>}'.
@@ -834,6 +908,16 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RR_DATA_SET = eINSTANCE.getRRDataSet();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.impl.RecordDefImpl <em>Record Def</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.impl.RecordDefImpl
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getRecordDef()
+		 * @generated
+		 */
+		EClass RECORD_DEF = eINSTANCE.getRecordDef();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.QIndex <em>Index</em>}' class.

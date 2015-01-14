@@ -18,8 +18,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.il.core.QFacet;
-import org.asup.il.data.DataDefType;
 import org.asup.il.data.QBufferedDataDef;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QDataDef;
@@ -124,16 +124,19 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 				else {
 					QMultipleAtomicBufferedDataDef<?> multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
 					if (termTo.getDefinition() != null) {
-						if(termTo.getDefinition().getDataDefType() == DataDefType.ARRAY) {
+						
+						switch (termTo.getDataTermType()) {
+						case MULTIPLE_ATOMIC:
 							QMultipleAtomicBufferedDataDef<?> multipleDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
 							multipleAtomicBufferedDataDef.setArgument(multipleDataDef.getArgument());
-						}
-						else if(termTo.getDefinition().getDataDefType() == DataDefType.DATA_STRUCT) {
-							// TODO
-							System.err.println(termTo);
-						}
-						else
+							break;
+						case UNARY_ATOMIC:
 							multipleAtomicBufferedDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) termTo.getDefinition());
+							break;
+						case UNARY_COMPOUND:
+						case MULTIPLE_COMPOUND:
+							throw new FrameworkCoreUnexpectedConditionException("bt7v8q45q4v5bq4375v");
+						}						
 					}
 
 					multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);

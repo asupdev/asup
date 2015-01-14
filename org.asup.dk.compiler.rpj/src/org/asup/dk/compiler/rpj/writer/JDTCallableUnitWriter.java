@@ -27,6 +27,7 @@ import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.il.core.QConversion;
 import org.asup.il.core.QNamedNode;
+import org.asup.il.core.QRemap;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataTerm;
@@ -204,30 +205,19 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			else {
 				QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
 				if (compilerLinker != null) {
-					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getName().split("\\."))));
+					writeImport(compilerLinker.getLinkedClass());
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getSimpleName())));
 				} else {
-					if(dataSet.getRecord() != null)
-						compilerLinker = dataSet.getRecord().getFacet(QCompilerLinker.class);
-					
-					if (compilerLinker != null) {
-						String argument = dataSet.getRecord().getName();
-						parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-					}
-					else {
-						String argument = dataSet.getFileName();
-						parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-					}
+					String argument = dataSet.getFileName();
+					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
 				}
 
 			}
 
 			field.setType(parType);
 			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataSet.getName())));
-			
+
 			getTarget().bodyDeclarations().add(field);
-			
-			if(dataSet.getRecord() != null && dataSet.getRecord().getFacet(QCompilerLinker.class) != null)
-				writeInnerTerm(dataSet.getRecord());
 		}
 
 	}
@@ -326,7 +316,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
-		if (routine.getMain() == null) 
+		if (routine.getMain() == null)
 			return;
 
 		// write java AST
@@ -343,7 +333,6 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			routine.getMain().accept(statementWriter);
 
 		statementWriter.getBlocks().pop();
-
 
 	}
 
@@ -498,6 +487,43 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		Block block = getAST().newBlock();
 		methodDeclaration.setBody(block);
 
+		
+		// redefined record dataSet
+		if(getCompilationUnit().getRoot() instanceof QCallableUnit) {
+			
+			QCallableUnit callableUnit = (QCallableUnit)getCompilationUnit().getRoot();
+			if(callableUnit.getFileSection() != null) {
+				for(QDataSetTerm dataSetTerm: callableUnit.getFileSection().getDataSets()) {
+					
+					for(QDataTerm<?> element: dataSetTerm.getRecord().getElements()) {
+						QRemap remap = element.getFacet(QRemap.class);
+						if(remap == null)
+							continue;
+						
+						MethodInvocation methodInvocation = getAST().newMethodInvocation();
+						methodInvocation.setName(getAST().newSimpleName("assign"));
+						
+						QDataTerm<?> remapDataTerm = getCompilationUnit().getDataTerm(remap.getName(), true);
+						if(remapDataTerm == null)
+							throw new IntegratedLanguageExpressionRuntimeException("Invalid term: " + remap);
+
+						if(getCompilationUnit().equalsTermName(element.getName(), remapDataTerm.getName()))
+							continue;
+						
+						if(remap.getIndex() == null || remap.getIndex().isEmpty())
+							methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(remapDataTerm)));
+						else
+							methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(remapDataTerm)+".get("+Integer.parseInt(remap.getIndex())+")"));
+						
+						methodInvocation.arguments().add(buildExpression(getCompilationUnit().getQualifiedName(element)));
+						ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+						block.statements().add(expressionStatement);
+
+					}
+				}
+			}
+		}
+		
 		QRoutine qInzsr = getCompilationUnit().getRoutine("*INZSR", true);
 		if (qInzsr != null) {
 
@@ -510,7 +536,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			} else {
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
 				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
-				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName((QNamedNode)qInzsr.getParent())));
+				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName((QNamedNode) qInzsr.getParent())));
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
 			}
@@ -522,7 +548,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			MethodInvocation methodInvocation = getAST().newMethodInvocation();
 			methodInvocation = getAST().newMethodInvocation();
 			methodInvocation.setExpression(getAST().newThisExpression());
-			methodInvocation.setName(getAST().newSimpleName("£inizi"));
+			methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(£inizi.getName())));
 			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 			block.statements().add(expressionStatement);
 		}
@@ -567,28 +593,25 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			methodInvocation.setExpression(getAST().newSimpleName(getCompilationUnit().normalizeTermName(parameterName)));
 
-			
-
 			QDataTerm<?> dataTerm = getCompilationUnit().getDataTerm(parameterName, true);
-			
+
 			String qualifiedName = getCompilationUnit().getQualifiedName(dataTerm);
 			String[] fieldNames = qualifiedName.split("\\.");
-			if(fieldNames.length>1) {
+			if (fieldNames.length > 1) {
 				methodInvocation.arguments().add(buildExpression(qualifiedName));
-			}
-			else {
+			} else {
 				FieldAccess targetAccess = getAST().newFieldAccess();
 				targetAccess.setExpression(getAST().newThisExpression());
 
-				for(int i=0; i<fieldNames.length; i++) {
-	
+				for (int i = 0; i < fieldNames.length; i++) {
+
 					targetAccess.setName(getAST().newSimpleName(fieldNames[i]));
-					
-					if(i<fieldNames.length-1) {
+
+					if (i < fieldNames.length - 1) {
 						FieldAccess childAccess = getAST().newFieldAccess();
 						childAccess.setExpression(targetAccess);
 						targetAccess = childAccess;
-						
+
 					}
 				}
 				methodInvocation.arguments().add(targetAccess);
@@ -597,12 +620,12 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 			block.statements().add(expressionStatement);
 		}
-		
+
 		// this.main
 		MethodInvocation mainInvocation = getAST().newMethodInvocation();
 		mainInvocation.setExpression(getAST().newThisExpression());
 		mainInvocation.setName(getAST().newSimpleName("main"));
-		
+
 		ExpressionStatement mainStatement = getAST().newExpressionStatement(mainInvocation);
 		block.statements().add(mainStatement);
 	}

@@ -26,6 +26,7 @@ import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QKSDataSet;
 import org.asup.il.isam.QRRDataSet;
 import org.asup.il.isam.QRecord;
+import org.asup.il.isam.QRecordDef;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -99,6 +100,13 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass rrDataSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recordDefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -371,6 +379,15 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRecordDef() {
+		return recordDefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIndex() {
 		return indexEClass;
 	}
@@ -486,6 +503,8 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 
 		rrDataSetEClass = createEClass(RR_DATA_SET);
 
+		recordDefEClass = createEClass(RECORD_DEF);
+
 		// Create enums
 		accessModeEEnum = createEEnum(ACCESS_MODE);
 		operationDirectionEEnum = createEEnum(OPERATION_DIRECTION);
@@ -545,11 +564,18 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		ksDataSetEClass.getEGenericSuperTypes().add(g1);
 		isamManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
-		recordEClass.getESuperTypes().add(theIntegratedLanguageDataPackage.getDataStruct());
+		g1 = createEGenericType(theIntegratedLanguageDataPackage.getStruct());
+		g2 = createEGenericType(theIntegratedLanguageDataPackage.getBufferedData());
+		g1.getETypeArguments().add(g2);
+		recordEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getDataSet());
 		g2 = createEGenericType(rrDataSetEClass_R);
 		g1.getETypeArguments().add(g2);
 		rrDataSetEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theIntegratedLanguageDataPackage.getUnaryCompoundDataDef());
+		g2 = createEGenericType(this.getRecord());
+		g1.getETypeArguments().add(g2);
+		recordDefEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(dataSetEClass, QDataSet.class, "DataSet", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -634,10 +660,7 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		initEAttribute(getDataSetTerm_FormatName(), ecorePackage.getEString(), "formatName", null, 0, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_KeyedAccess(), ecorePackage.getEBoolean(), "keyedAccess", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(theIntegratedLanguageDataPackage.getCompoundDataTerm());
-		g2 = createEGenericType(theIntegratedLanguageDataPackage.getDataStructDef());
-		g1.getETypeArguments().add(g2);
-		initEReference(getDataSetTerm_Record(), g1, null, "record", null, 0, 1, QDataSetTerm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSetTerm_Record(), this.getRecordDef(), null, "record", null, 0, 1, QDataSetTerm.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSetTerm_UserOpen(), ecorePackage.getEBoolean(), "userOpen", null, 1, 1, QDataSetTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(keyListTermEClass, QKeyListTerm.class, "KeyListTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1030,6 +1053,8 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "found", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "equal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theIntegratedLanguageDataPackage.getIndicator(), "error", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(recordDefEClass, QRecordDef.class, "RecordDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(accessModeEEnum, AccessMode.class, "AccessMode");

@@ -3965,6 +3965,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEEnumLiteral(dataDefTypeEEnum, DataDefType.SCROLLER);
 		addEEnumLiteral(dataDefTypeEEnum, DataDefType.STRING);
 		addEEnumLiteral(dataDefTypeEEnum, DataDefType.STROLLER);
+		addEEnumLiteral(dataDefTypeEEnum, DataDefType.STRUCT);
 
 		initEEnum(dataTermTypeEEnum, DataTermType.class, "DataTermType");
 		addEEnumLiteral(dataTermTypeEEnum, DataTermType.UNARY_ATOMIC);

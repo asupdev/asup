@@ -87,12 +87,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="record" transient="true"
-        containment="true">
-      <eGenericType eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//CompoundDataTerm">
-        <eTypeArguments eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//DataStructDef"/>
-      </eGenericType>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="#//RecordDef"
+        transient="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userOpen" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -441,9 +437,17 @@
       <eParameters name="accessMode" eType="#//AccessMode"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Record" abstract="true" interface="true"
-      eSuperTypes="../../org.asup.il.data/model/il-data.ecore#//DataStruct">
+  <eClassifiers xsi:type="ecore:EClass" name="Record" abstract="true" interface="true">
     <eOperations name="getIndex" eType="#//Index"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Struct">
+      <eTypeArguments eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//BufferedData"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="externalName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//UnaryCompoundDataDef">
+      <eTypeArguments eClassifier="#//Record"/>
+    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RRDataSet" abstract="true" interface="true">
     <eTypeParameters name="R">

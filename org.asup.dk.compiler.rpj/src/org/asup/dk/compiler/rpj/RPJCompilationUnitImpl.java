@@ -25,6 +25,7 @@ import org.asup.dk.compiler.impl.CompilationUnitImpl;
 import org.asup.fw.core.QContext;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QNode;
+import org.asup.il.core.QRemap;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
@@ -40,6 +41,7 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.os.type.file.QExternalFile;
 import org.eclipse.emf.ecore.EObject;
 
 public class RPJCompilationUnitImpl extends CompilationUnitImpl {
@@ -68,7 +70,7 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		this.caseSensitive = caseSensitive;
 		this.root = root;
 		this.setTrashcan(QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationTrashcan());
-		
+
 		if (root instanceof QCallableUnit) {
 			QCallableUnit callableUnit = (QCallableUnit) root;
 
@@ -187,38 +189,38 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (dataTerm == null && ((QCallableUnit) getRoot()).getDataSection() != null)
 			dataTerm = findData(((QCallableUnit) getRoot()).getDataSection().getDatas(), name, null, 0);
 
-		// search on dataSet
+		// search on primary dataSet
 		if (dataTerm == null) {
+			
+			List<QDataSetTerm> renamedDataSet = new ArrayList<QDataSetTerm>();
 			for (QDataSetTerm dataSetTerm : dataSets) {
+
+				QExternalFile externalFile = dataSetTerm.getFacet(QExternalFile.class);
 				
-				QCompoundDataTerm<?> compoundDataTerm = dataSetTerm.getRecord();
-				if(compoundDataTerm == null)
+				if (externalFile == null && dataSetTerm.getFormatName() != null && !dataSetTerm.getFormatName().isEmpty()) {
+					renamedDataSet.add(dataSetTerm);
 					continue;
-				
-				if(equalsTermName(compoundDataTerm.getName(), name)) {
-					dataTerm = compoundDataTerm;
-					break;
 				}
 				
-				QCompoundDataDef<?> compoundDataDef = compoundDataTerm.getDefinition();
-				if (compoundDataDef == null)
+				if (externalFile != null && !externalFile.getFormat().equals(dataSetTerm.getFormatName())) {
+					renamedDataSet.add(dataSetTerm);
 					continue;
-
-				if (compoundDataDef.getPrefix() != null) {
-					String[] tokens = compoundDataDef.getPrefix().split("\\:");
-					String pfx = tokens[0];
-					int pos = 1;
-					if (tokens.length > 1)
-						pos = Integer.parseInt(tokens[1]);
-					else
-						pos = pfx.length();
-
-					dataTerm = findData(compoundDataDef.getElements(), name, pfx, pos);
-				} else
-					dataTerm = findData(compoundDataDef.getElements(), name, null, 0);
+				}
+				
+				dataTerm = findDataTerm(dataSetTerm, name);
 
 				if (dataTerm != null)
 					break;
+			}
+
+			// search on renamed dataSet
+			if(dataTerm == null) {
+				for (QDataSetTerm dataSetTerm : renamedDataSet) {
+					
+					dataTerm = findDataTerm(dataSetTerm, name);
+					if (dataTerm != null)
+						break;
+				}
 			}
 		}
 
@@ -244,6 +246,30 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		return dataTerm;
 	}
 
+	private QDataTerm<?> findDataTerm(QDataSetTerm dataSetTerm, String name) {
+		
+		QCompoundDataDef<?> compoundDataDef = dataSetTerm.getRecord();
+		if (compoundDataDef == null)
+			return null;
+
+		QDataTerm<?> dataTerm = null;
+
+		if (compoundDataDef.getPrefix() != null) {
+			String[] tokens = compoundDataDef.getPrefix().split("\\:");
+			String pfx = tokens[0];
+			int pos = 1;
+			if (tokens.length > 1)
+				pos = Integer.parseInt(tokens[1]);
+			else
+				pos = pfx.length();
+
+			dataTerm = findData(compoundDataDef.getElements(), name, pfx, pos);
+		} else
+			dataTerm = findData(compoundDataDef.getElements(), name, null, 0);
+
+		return dataTerm;
+	}
+	
 	@Override
 	public QProcedure getProcedure(String name, boolean deep) {
 
@@ -413,9 +439,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	public QNamedNode getNamedNode(String name, boolean deep) {
 
 		String order = null;
-		
+
 		// search optimization
-		
+
 		// data
 		if (name.startsWith("*"))
 			order = "EDPMCSFK";
@@ -425,10 +451,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		// other
 		else
 			order = "EMCSFKPD";
-		
+
 		QNamedNode namedNode = getNamedNode(name, deep, order);
-		
-		return namedNode;		
+
+		return namedNode;
 	}
 
 	private QNamedNode getNamedNode(String name, boolean deep, String order) {
@@ -512,9 +538,9 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 			if (node != getRoot()) {
 				// no record name
-				if(!(((EObject)node).eContainer() instanceof QDataSetTerm)) {
+				if (!(((EObject) node).eContainer() instanceof QDataSetTerm)) {
 					QNamedNode namedChildNode = (QNamedNode) node;
-					name = normalizeTermName(namedChildNode.getName()) + "." + name;					
+					name = normalizeTermName(namedChildNode.getName()) + "." + name;
 				}
 			}
 		}
@@ -528,10 +554,17 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		for (QDataTerm<?> child : dataTerms) {
 
 			String childName = null;
-			if (prefix != null) {
-				childName = prefix + child.getName().substring(position);
+
+			// remap
+			if (child.getFacet(QRemap.class) != null) {
+				QRemap remap = child.getFacet(QRemap.class);
+				childName = remap.getName();
 			} else
 				childName = child.getName();
+
+			// prefix
+			if (prefix != null)
+				childName = prefix + childName.substring(position);
 
 			if (equalsTermName(childName, name)) {
 				dataTerm = child;

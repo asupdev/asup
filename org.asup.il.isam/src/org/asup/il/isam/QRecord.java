@@ -7,7 +7,8 @@
  */
 package org.asup.il.isam;
 
-import org.asup.il.data.QDataStruct;
+import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QStruct;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ import org.asup.il.data.QDataStruct;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QRecord extends QDataStruct {
+public interface QRecord extends QStruct<QBufferedData> {
 
 	/**
 	 * <!-- begin-user-doc -->

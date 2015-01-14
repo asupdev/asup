@@ -25,25 +25,31 @@ import org.asup.dk.compiler.QCompilerLinker;
 import org.asup.dk.compiler.QDevelopmentKitCompilerFactory;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
+import org.asup.il.core.QRemap;
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QCompoundDataTerm;
-import org.asup.il.data.QDataStructDef;
 import org.asup.il.data.QDataTerm;
-import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QFileSection;
 import org.asup.il.flow.QSetupSection;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QIntegratedLanguageIsamFactory;
+import org.asup.il.isam.QRecordDef;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.type.file.QDatabaseFile;
+import org.asup.os.type.file.QDatabaseFileFormat;
+import org.asup.os.type.file.QExternalFile;
 import org.asup.os.type.file.QFile;
+import org.asup.os.type.file.QFileFormat;
 import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.file.QFileMultiFormat;
 import org.asup.os.type.file.QFileSingleFormat;
 import org.asup.os.type.file.QLogicalFile;
+import org.asup.os.type.file.QOperatingSystemFileFactory;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 import org.asup.os.type.module.QModule;
@@ -222,10 +228,16 @@ public class RPJCallableUnitLinker {
 		if (file == null)
 			throw new OperatingSystemRuntimeException("File not found: " + dataSet.getFileName());
 
-		if (file instanceof QFileSingleFormat<?>) {
+		QExternalFile externalFile = QOperatingSystemFileFactory.eINSTANCE.createExternalFile();
+		externalFile.setName(file.getName());
+		dataSet.getFacets().add(externalFile);
+		
+		if (file instanceof QFileSingleFormat<?>) {			
 			QFileSingleFormat<?> fileSingleFormat = (QFileSingleFormat<?>) file;
-
-			linkFileSingleFormat(dataSet, fileSingleFormat);
+			
+			externalFile.setFormat(fileSingleFormat.getFileFormat().getName());
+			
+			linkFileSingleFormat(dataSet, fileSingleFormat, externalFile);
 		} else {
 			QFileMultiFormat<?> fileMultiFormat = (QFileMultiFormat<?>) file;
 			linkFileMultipleFormat(dataSet, fileMultiFormat);
@@ -233,6 +245,47 @@ public class RPJCallableUnitLinker {
 
 	}
 
+	private void linkFileSingleFormat(QDataSetTerm dataSet, QFileSingleFormat<?> fileSingleFormat, QExternalFile externalFile) {
+		
+		
+		if (dataSet.getFormatName() == null)
+			dataSet.setFormatName(fileSingleFormat.getFileFormat().getName());
+
+		QRecordDef recordDef = dataSet.getRecord();
+		if (recordDef == null) {				
+			recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
+			recordDef.setPrefix(dataSet.getPrefix());
+			dataSet.setRecord(recordDef);
+		}
+		
+		linkExternalFile(dataSet, recordDef.getElements(), externalFile);
+
+		// redefine record
+		QCompoundDataTerm<?> dataRecord = (QCompoundDataTerm<?>) this.compilationUnit.getDataTerm(dataSet.getFormatName(), false);
+		if(dataRecord != null) {
+			
+			for(QDataTerm<?> element: dataRecord.getDefinition().getElements()) {
+				
+				QRemap remap = element.getFacet(QRemap.class);
+				if(remap == null)
+					continue;
+				
+				for(QDataTerm<?> recordElement: recordDef.getElements()) {
+					if(this.compilationUnit.equalsTermName(recordElement.getName(), element.getName())) {
+						recordElement.getFacets().add(remap);
+						break;
+					}
+				}
+				
+			}
+			
+			// remove redefined record
+			this.compilationUnit.getTrashcan().getDataTerms().add(dataRecord);
+
+		}
+
+	}
+	
 	private void linkFileMultipleFormat(QDataSetTerm dataSet, QFileMultiFormat<?> fileMultiFormat) {
 
 		Class<?> linkedClass = loadClass(fileMultiFormat);
@@ -245,94 +298,61 @@ public class RPJCallableUnitLinker {
 
 	}
 
-	private void linkFileSingleFormat(QDataSetTerm dataSet, QFileSingleFormat<?> fileSingleFormat) {
+	public void linkExternalFile(QTerm term, List<QDataTerm<?>> target, QExternalFile externalFile) {
+		
+		if (externalFile.getName().startsWith("*"))
+			return;
 
-		if (dataSet.getFormatName() == null)
-			dataSet.setFormatName(fileSingleFormat.getFileFormat().getName());
+		QFile file = getFile(externalFile.getName());
 
-		Class<?> linkedClass = loadClass(fileSingleFormat);
+		if (file == null)
+			throw new OperatingSystemRuntimeException("File not found: " + externalFile.getName());
+
+		QDatabaseFile databaseFile = (QDatabaseFile) file;
+
+		if (externalFile.getFormat() == null)
+			externalFile.setFormat(databaseFile.getDatabaseFormat().getName());
+
+		Class<?> linkedClass = loadClass(file);
 		if (linkedClass == null)
-			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + fileSingleFormat.getName());
+			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + externalFile);
 
-		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();		
+		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
 		compilerLinker.setLinkedClass(linkedClass);
+		term.getFacets().add(compilerLinker);
 
 		
-		if (dataSet.getRecord() == null) {
+		QDatabaseFileFormat databaseFileFormat = databaseFile.getDatabaseFormat();
+		if (databaseFile instanceof QLogicalFile && databaseFileFormat.isEmpty()) {
+			QLogicalFile logicalFile = (QLogicalFile) databaseFile;
 
-			QCompoundDataTerm<QDataStructDef> compoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
-			compoundDataTerm.setName(dataSet.getFormatName());
-			
-			QDataStructDef dataStructDef = QIntegratedLanguageDataFactory.eINSTANCE.createDataStructDef();
-			dataStructDef.setPrefix(dataSet.getPrefix());
-			
-			compoundDataTerm.setDefinition(dataStructDef);
-			
-			if (fileSingleFormat instanceof QLogicalFile && fileSingleFormat.getFileFormat().isEmpty()) {
-				QLogicalFile logicalFile = (QLogicalFile) fileSingleFormat;
+			for (String table : logicalFile.getTables()) {
+				QDatabaseFile superTable = (QDatabaseFile) getFile(table);
 
-				for (String table : logicalFile.getTables()) {
-					QDatabaseFile superTable = (QDatabaseFile) getFile(table);
+				if (superTable == null)
+					throw new OperatingSystemRuntimeException("File not found: " + table);
 
-					if (superTable == null)
-						throw new OperatingSystemRuntimeException("File not found: " + table);
-
-					for(QDataTerm<?> element: superTable.getFileFormat().getFields()) {
-						
-						element = (QDataTerm<?>) EcoreUtil.copy((EObject)element);
-
-						QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
-						element.getFacets().add(derived);
-
-						dataStructDef.getElements().add(element);	
-					}
-					
-				}
-			} else {
-
-				for(QDataTerm<?> element: fileSingleFormat.getFileFormat().getFields()) {
-					
-					element = (QDataTerm<?>) EcoreUtil.copy((EObject)element);
-
-					QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
-					element.getFacets().add(derived);
-
-					dataStructDef.getElements().add(element);	
-				}
-
+				appendElements(target, superTable.getFileFormat());
 			}
-
-			dataSet.setRecord(compoundDataTerm);
+		} else {
 			
-
-			QCompoundDataTerm<?> dataRecord = (QCompoundDataTerm<?>) this.compilationUnit.getDataTerm(dataSet.getFormatName(), false);
-			if(dataRecord != null && !(((EObject)dataRecord).eContainer() instanceof QDataSetTerm)) {				
-				compoundDataTerm.getFacets().add(compilerLinker);
-
-				RPJDataRemapRefactor dataRemapVisitor = new RPJDataRemapRefactor(compilationUnit);
-				List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>(dataRecord.getDefinition().getElements());
-				for (QDataTerm<?> dataTerm : elements) {
-					dataRemapVisitor.reset();
-					dataTerm.accept(dataRemapVisitor);
-					if(dataRemapVisitor.getDataTerm() == null)
-						dataRecord.getDefinition().getElements().remove(dataTerm);
-				}
-
-				if(dataRecord.getDefinition().getElements().size() != 1)
-					throw new DevelopmentKitCompilerRuntimeException("Invalid remap: " + dataSet);
-
-				compoundDataTerm.getDefinition().getElements().addAll(dataRecord.getDefinition().getElements());
-				
-				this.compilationUnit.getTrashcan().getDataTerms().add(dataRecord);
-			}
-			else {
-				dataSet.getFacets().add(compilerLinker);				
-			}
-
+			appendElements(target, databaseFileFormat);
 		}
-		
-	}
+	} 
+	
+	private void appendElements(List<QDataTerm<?>> target, QFileFormat<?> fileFormat) {
 
+		for(QDataTerm<?> element: fileFormat.getFields()) {
+			
+			element = (QDataTerm<?>) EcoreUtil.copy((EObject)element);
+
+			QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
+			element.getFacets().add(derived);
+
+			target.add(element);	
+		}
+	}
+	
 	public QFile getFile(String name) {
 
 		QFile file = fileManager.getOverriddenFile(job, name);

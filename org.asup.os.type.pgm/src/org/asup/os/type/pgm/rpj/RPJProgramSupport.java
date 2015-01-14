@@ -253,6 +253,10 @@ public class RPJProgramSupport {
 		return qBox(Integer.parseInt(string.trimR()));
 	}
 
+	public QDecimal qInt(Integer numeric) {
+		return qBox(numeric);
+	}
+	
 	public void qJump(Enum<?> label) {
 	}
 
