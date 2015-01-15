@@ -166,6 +166,8 @@ value
 
 filler	:
 		FILLER STRING -> ^(BI_FUNCTION[$FILLER.text] STRING)
+		|
+		FILLER HEX -> ^(BI_FUNCTION[$FILLER.text] HEX)
 	;
 
 special	:
