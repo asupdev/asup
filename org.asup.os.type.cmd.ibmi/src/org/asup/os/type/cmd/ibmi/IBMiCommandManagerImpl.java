@@ -64,6 +64,7 @@ import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.jobs.QJobManager;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceSetReader;
+import org.asup.os.type.cmd.CommandParameterOrder;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommand;
 import org.asup.os.type.cmd.QCommandParameter;
@@ -129,7 +130,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		// prepare data terms
 		Map<String, QDataTerm<?>> dataTerms = new HashMap<String, QDataTerm<?>>();
 		List<QDataTerm<?>> arrayTerms = new ArrayList<>();
-		for (QCommandParameter commandParameter : qCommand.getParameters()) {
+		for (QCommandParameter commandParameter : qCommand.getParameters(CommandParameterOrder.POSITION)) {
 
 			// data term
 			QDataTerm<?> dataTerm = commandParameter.getDataTerm();
@@ -144,7 +145,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 		QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 
 		// assign values
-		for (QCommandParameter commandParameter : qCommand.getParameters()) {
+		for (QCommandParameter commandParameter : qCommand.getParameters(CommandParameterOrder.POSITION)) {
 
 			CLParameter clParameter = clCommand.getParm(commandParameter.getName());
 

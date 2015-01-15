@@ -4,12 +4,13 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.asup.il.data.QBufferedDataDelegator;
 import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.isam.annotation.Descend;
 import org.asup.il.isam.annotation.Index;
 
-public abstract class QRecordWrapper extends QDataStructWrapper implements QRecord {
+public abstract class QRecordWrapper extends QDataStructWrapper implements QRecord, QBufferedDataDelegator {
 
 	private static final long serialVersionUID = 1L;
 

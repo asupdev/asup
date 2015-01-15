@@ -154,6 +154,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 				multipleAtomicDataTerm.setDefinition(listDef);
 			}
 
+			dataTerm = multipleAtomicDataTerm;
 		} else {
 
 			// term
@@ -165,6 +166,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 			copyCompoundDataDef((QCompoundDataDef<?>) termFrom.getDefinition(), multipleCompoundDataDef);
 			multipleCompoundDataTerm.setDefinition(multipleCompoundDataDef);
 
+			dataTerm = multipleCompoundDataTerm;
 		}
 
 		return dataTerm;

@@ -35,9 +35,6 @@ import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.jobs.QJobManager;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommandManager;
-import org.asup.os.type.pgm.QCallableProgram;
-import org.asup.os.type.pgm.QProgramManager;
-import org.asup.os.type.pgm.QProgramStatus;
 
 @Program(name = "QWTCCSBJ")
 public class JobSubmitter {
@@ -49,64 +46,43 @@ public class JobSubmitter {
 	@Inject
 	private QJobLogManager jobLogManager;
 	@Inject
-	private QProgramManager programManager;
-	@Inject
-	private QProgramStatus programStatus;
-	@Inject
 	private QCommandManager commandManager;
 
 	@Entry
-	public void main(
-			@ToDo @DataDef(length = 20000) QCharacter commandToRun,
-			@ToDo @DataDef(length = 10) QEnum<JobNameEnum, QCharacter> jobName,
-			@ToDo @DataDef(qualified = true) JobDescription jobDescription,
-			@ToDo @DataDef(qualified = true) JobQueue jobQueue,
-			@ToDo @DataDef(length = 1) QEnum<JobPriorityonJOBQEnum, QCharacter> jobPriorityonJOBQ,
-			@ToDo @DataDef(length = 1) QEnum<OutputPriorityonOUTQEnum, QCharacter> outputPriorityonOUTQ,
-			@ToDo @DataDef(length = 10) QEnum<PrintDeviceEnum, QCharacter> printDevice,
-			@ToDo @DataDef(qualified = true) OutputQueue outputQueue,
-			@ToDo @DataDef(length = 10) QEnum<UserEnum, QCharacter> user,
-			@ToDo @DataDef(length = 15) QEnum<AccountingCodeEnum, QCharacter> accountingCode,
-			@ToDo @DataDef(length = 30) QEnum<PrintTextEnum, QCharacter> printText,
-			@ToDo @DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
-			@ToDo @DataDef(length = 3000) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand,
-			@ToDo @DataDef(length = 10) QEnum<SystemLibraryListEnum, QCharacter> systemLibraryList,
+	public void main(@ToDo @DataDef(length = 20000) QCharacter commandToRun, @ToDo @DataDef(length = 10) QEnum<JobNameEnum, QCharacter> jobName,
+			@ToDo @DataDef(qualified = true) JobDescription jobDescription, @ToDo @DataDef(qualified = true) JobQueue jobQueue,
+			@ToDo @DataDef(length = 1) QEnum<JobPriorityonJOBQEnum, QCharacter> jobPriorityonJOBQ, @ToDo @DataDef(length = 1) QEnum<OutputPriorityonOUTQEnum, QCharacter> outputPriorityonOUTQ,
+			@ToDo @DataDef(length = 10) QEnum<PrintDeviceEnum, QCharacter> printDevice, @ToDo @DataDef(qualified = true) OutputQueue outputQueue,
+			@ToDo @DataDef(length = 10) QEnum<UserEnum, QCharacter> user, @ToDo @DataDef(length = 15) QEnum<AccountingCodeEnum, QCharacter> accountingCode,
+			@ToDo @DataDef(length = 30) QEnum<PrintTextEnum, QCharacter> printText, @ToDo @DataDef(length = 80) QEnum<RoutingDataEnum, QCharacter> routingData,
+			@ToDo @DataDef(length = 3000) QEnum<RequestDataOrCommandEnum, QCharacter> requestDataOrCommand, @ToDo @DataDef(length = 10) QEnum<SystemLibraryListEnum, QCharacter> systemLibraryList,
 			@ToDo @DataDef(length = 10) QEnum<CurrentLibraryEnum, QCharacter> currentLibrary,
 			@ToDo @DataDef(dimension = 250, length = 10) QEnum<InitialLibraryListEnum, QScroller<QCharacter>> initialLibraryList,
-			@ToDo @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup,
-			@ToDo MessageLogging messageLogging,
-			@ToDo @DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands,
-			@ToDo @DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
+			@ToDo @DataDef(length = 10) QEnum<InitialASPGroupEnum, QCharacter> initialASPGroup, @ToDo MessageLogging messageLogging,
+			@ToDo @DataDef(length = 1) QEnum<LogCLProgramCommandsEnum, QCharacter> logCLProgramCommands, @ToDo @DataDef(length = 10) QEnum<JobLogOutputEnum, QCharacter> jobLogOutput,
 			@ToDo @DataDef(binaryType = BinaryType.SHORT) QEnum<JobMessageQueueMaximumSizeEnum, QBinary> jobMessageQueueMaximumSize,
 			@ToDo @DataDef(length = 10) QEnum<JobMessageQueueFullActionEnum, QCharacter> jobMessageQueueFullAction,
-			@ToDo @DataDef(length = 1) QEnum<InquiryMessageReplyEnum, QCharacter> inquiryMessageReply,
-			@ToDo @DataDef(length = 1) QEnum<HoldOnJobQueueEnum, QCharacter> holdOnJobQueue,
+			@ToDo @DataDef(length = 1) QEnum<InquiryMessageReplyEnum, QCharacter> inquiryMessageReply, @ToDo @DataDef(length = 1) QEnum<HoldOnJobQueueEnum, QCharacter> holdOnJobQueue,
 			@ToDo @DataDef(datetimeType = DatetimeType.DATE) QEnum<ScheduleDateEnum, QDatetime> scheduleDate,
-			@ToDo @DataDef(datetimeType = DatetimeType.TIME) QEnum<ScheduleTimeEnum, QDatetime> scheduleTime,
-			@ToDo @DataDef(datetimeType = DatetimeType.DATE) QEnum<JobDateEnum, QDatetime> jobDate,
-			@ToDo @DataDef(length = 8) QEnum<JobSwitchesEnum, QCharacter> jobSwitches,
-			@ToDo @DataDef(length = 1) QEnum<AllowDisplayByWRKSBMJOBEnum, QCharacter> allowDisplayByWRKSBMJOB,
-			@ToDo @DataDef(qualified = true) SubmittedFor submittedFor,
-			@ToDo @DataDef(qualified = true) MessageQueue messageQueue,
-			@ToDo @DataDef(qualified = true) SortSequence sortSequence,
-			@ToDo @DataDef(length = 3) QEnum<LanguageIDEnum, QCharacter> languageID,
-			@ToDo @DataDef(length = 2) QEnum<CountryOrRegionIDEnum, QCharacter> countryOrRegionID,
+			@ToDo @DataDef(datetimeType = DatetimeType.TIME) QEnum<ScheduleTimeEnum, QDatetime> scheduleTime, @ToDo @DataDef(datetimeType = DatetimeType.DATE) QEnum<JobDateEnum, QDatetime> jobDate,
+			@ToDo @DataDef(length = 8) QEnum<JobSwitchesEnum, QCharacter> jobSwitches, @ToDo @DataDef(length = 1) QEnum<AllowDisplayByWRKSBMJOBEnum, QCharacter> allowDisplayByWRKSBMJOB,
+			@ToDo @DataDef(qualified = true) SubmittedFor submittedFor, @ToDo @DataDef(qualified = true) MessageQueue messageQueue, @ToDo @DataDef(qualified = true) SortSequence sortSequence,
+			@ToDo @DataDef(length = 3) QEnum<LanguageIDEnum, QCharacter> languageID, @ToDo @DataDef(length = 2) QEnum<CountryOrRegionIDEnum, QCharacter> countryOrRegionID,
 			@ToDo @DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetIDEnum, QBinary> codedCharacterSetID,
 			@ToDo @DataDef(length = 1) QEnum<CopyEnvironmentVariablesEnum, QCharacter> copyEnvironmentVariables,
-			@ToDo @DataDef(length = 1) QEnum<AllowMultipleThreadsEnum, QCharacter> allowMultipleThreads,
-			@ToDo @DataDef(length = 10) QEnum<SpooledFileActionEnum, QCharacter> spooledFileAction) {
+			@ToDo @DataDef(length = 1) QEnum<AllowMultipleThreadsEnum, QCharacter> allowMultipleThreads, @ToDo @DataDef(length = 10) QEnum<SpooledFileActionEnum, QCharacter> spooledFileAction) {
 
 		Map<String, Object> variables = null;
-		QCallableProgram caller = programManager.getCaller(job,
-				programStatus.getCallableProgram());
+		// QCallableProgram caller = programManager.getCaller(job,
+		// programStatus.getCallableProgram());
 
-		if (caller != null)
-			variables = null; // caller.getVariables();
+		// if (caller != null)
+		// variables = null; // caller.getVariables();
 
 		try {
 			// Job spawn
 			QJob childJob = jobManager.create(job);
-			
+
 			switch (jobName.asEnum()) {
 			// TODO
 			case JOBD:
@@ -116,7 +92,6 @@ public class JobSubmitter {
 					childJob.setJobName(jobName.asData().trimR());
 				break;
 			}
-			
 
 			// add message to queue
 			job.getMessages().add(Integer.toString(childJob.getJobNumber()));
@@ -137,8 +112,7 @@ public class JobSubmitter {
 		private String commandString;
 		private Map<String, Object> variables;
 
-		protected SubmittedCommand(QJob qJob, String commandString,
-				Map<String, Object> variables) {
+		protected SubmittedCommand(QJob qJob, String commandString, Map<String, Object> variables) {
 			this.qJob = qJob;
 			this.commandString = commandString;
 			this.variables = variables;
@@ -149,8 +123,7 @@ public class JobSubmitter {
 
 			try {
 				// execute command
-				QCallableCommand callableCommand = commandManager
-						.prepareCommand(qJob, commandString, variables, true);
+				QCallableCommand callableCommand = commandManager.prepareCommand(qJob, commandString, variables, true);
 				commandManager.executeCommand(qJob, callableCommand);
 			} catch (OperatingSystemException e) {
 				throw new OperatingSystemRuntimeException(null, e);
