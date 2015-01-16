@@ -54,6 +54,8 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
+import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QRecordWrapper;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ArrayInitializer;
@@ -161,6 +163,15 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			variable.setInitializer(getAST().newNullLiteral());
 
 		getTarget().bodyDeclarations().add(field);
+	}
+
+	public void writeInnerRecord(QDataSetTerm dataSet) throws IOException {
+		QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
+
+		JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(dataSet.getFileName()),
+				QRecordWrapper.class, true);
+		dataStructureWriter.writeDataStructure(dataSet.getRecord());
+
 	}
 
 	@SuppressWarnings("unchecked")

@@ -115,6 +115,10 @@ public class RPJProgramSupport {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
 	}
 
+	public QDataWriter qAll(byte numeric) {
+		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
+	}
+	
 	public QDataWriter qAll(QString string) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
 	}

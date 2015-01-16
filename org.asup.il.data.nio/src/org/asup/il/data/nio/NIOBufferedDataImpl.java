@@ -364,4 +364,9 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public String s() {
+		return asString();
+	}
 }

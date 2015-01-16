@@ -77,5 +77,4 @@ public class NIOAdapterImpl extends NIOBufferedDelegatorImpl implements QAdapter
 			}
 		}
 	}
-
 }

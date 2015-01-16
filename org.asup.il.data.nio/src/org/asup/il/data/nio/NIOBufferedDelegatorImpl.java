@@ -338,4 +338,10 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 	public void movel(QDataWriter value, boolean clear) {
 		_delegate.movel(value, clear);		
 	}
+
+	@Override
+	public String s() {
+		return _delegate.s();
+	}
+
 }

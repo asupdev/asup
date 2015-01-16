@@ -78,4 +78,12 @@ public interface QBufferedData extends QData, QMoveable {
 	 */
 	int getSize();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	String s();
+
 } // QBufferedData

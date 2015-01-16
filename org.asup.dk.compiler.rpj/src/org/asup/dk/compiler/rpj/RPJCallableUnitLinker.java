@@ -122,7 +122,7 @@ public class RPJCallableUnitLinker {
 		}
 
 	}
-	
+
 	@SuppressWarnings("unused")
 	private void linkRemapDatas() {
 
@@ -147,7 +147,7 @@ public class RPJCallableUnitLinker {
 		}
 
 	}
-	
+
 	public void linkOverlayDatas() {
 
 		if (!(compilationUnit.getRoot() instanceof QCallableUnit))
@@ -184,20 +184,20 @@ public class RPJCallableUnitLinker {
 			return;
 
 		for (String moduleName : setupSection.getModules()) {
-			
+
 			QModule module = getModule(moduleName);
 			if (module == null)
 				throw new OperatingSystemRuntimeException("Module not found: " + moduleName);
-			
+
 			Class<?> linkedClass = loadClass(module);
 			if (linkedClass == null)
 				throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + module);
 
 			QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
 			compilerLinker.setLinkedClass(linkedClass);
-			
-			org.asup.il.flow.QModule flowModule = compilationUnit.getModule(moduleName, false); 
-			if(flowModule != null)
+
+			org.asup.il.flow.QModule flowModule = compilationUnit.getModule(moduleName, false);
+			if (flowModule != null)
 				compilationUnit.getModule(moduleName, false).getFacets().add(compilerLinker);
 			else
 				throw new OperatingSystemRuntimeException("Module not found: " + moduleName);
@@ -225,73 +225,96 @@ public class RPJCallableUnitLinker {
 
 		QFile file = getFile(dataSet.getFileName());
 
-		if (file == null)
-			throw new OperatingSystemRuntimeException("File not found: " + dataSet.getFileName());
+		// TODO retrieve type (internal=true)
+		if (file == null) {
+			linkInternalDataSet(dataSet);
+		} else {
+			linkExternalDataSet(dataSet, file);
+		}
+
+	}
+
+	private void linkExternalDataSet(QDataSetTerm dataSet, QFile file) {
 
 		QExternalFile externalFile = QOperatingSystemFileFactory.eINSTANCE.createExternalFile();
 		externalFile.setName(file.getName());
 		dataSet.getFacets().add(externalFile);
-		
-		if (file instanceof QFileSingleFormat<?>) {			
+
+		if (file instanceof QFileSingleFormat<?>) {
 			QFileSingleFormat<?> fileSingleFormat = (QFileSingleFormat<?>) file;
-			
+
 			externalFile.setFormat(fileSingleFormat.getFileFormat().getName());
-			
+
 			linkFileSingleFormat(dataSet, fileSingleFormat, externalFile);
 		} else {
 			QFileMultiFormat<?> fileMultiFormat = (QFileMultiFormat<?>) file;
 			linkFileMultipleFormat(dataSet, fileMultiFormat);
 		}
+	}
 
+	private void linkInternalDataSet(QDataSetTerm dataSet) {
+
+		QRecordDef recordDef = dataSet.getRecord();
+		if (recordDef == null) {
+			recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
+			dataSet.setRecord(recordDef);
+		}
+
+		// redefine record
+		QCompoundDataTerm<?> dataRecord = (QCompoundDataTerm<?>) this.compilationUnit.getDataTerm(dataSet.getFileName(), false);
+		if (dataRecord == null)
+			return;
+
+		recordDef.getElements().addAll(dataRecord.getDefinition().getElements());
+
+		// remove redefined record
+		this.compilationUnit.getTrashcan().getDataTerms().add(dataRecord);
 	}
 
 	private void linkFileSingleFormat(QDataSetTerm dataSet, QFileSingleFormat<?> fileSingleFormat, QExternalFile externalFile) {
-		
-		
+
 		if (dataSet.getFormatName() == null)
 			dataSet.setFormatName(fileSingleFormat.getFileFormat().getName());
 
 		QRecordDef recordDef = dataSet.getRecord();
-		if (recordDef == null) {				
+		if (recordDef == null) {
 			recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
 			recordDef.setPrefix(dataSet.getPrefix());
 			dataSet.setRecord(recordDef);
 		}
-		
+
 		linkExternalFile(dataSet, recordDef.getElements(), externalFile);
 
 		// redefine record
 		QCompoundDataTerm<?> dataRecord = (QCompoundDataTerm<?>) this.compilationUnit.getDataTerm(dataSet.getFormatName(), false);
-		if(dataRecord != null) {
-			
-			for(QDataTerm<?> element: dataRecord.getDefinition().getElements()) {
-				
-				QRemap remap = element.getFacet(QRemap.class);
-				if(remap == null)
-					continue;
-				
-				for(QDataTerm<?> recordElement: recordDef.getElements()) {
-					if(this.compilationUnit.equalsTermName(recordElement.getName(), element.getName())) {
-						recordElement.getFacets().add(remap);
-						break;
-					}
+		if (dataRecord == null)
+			return;
+
+		for (QDataTerm<?> element : dataRecord.getDefinition().getElements()) {
+
+			QRemap remap = element.getFacet(QRemap.class);
+			if (remap == null)
+				continue;
+
+			for (QDataTerm<?> recordElement : recordDef.getElements()) {
+				if (this.compilationUnit.equalsTermName(recordElement.getName(), element.getName())) {
+					recordElement.getFacets().add(remap);
+					break;
 				}
-				
 			}
-			
-			// remove redefined record
-			this.compilationUnit.getTrashcan().getDataTerms().add(dataRecord);
 
 		}
 
+		// remove redefined record
+		this.compilationUnit.getTrashcan().getDataTerms().add(dataRecord);
+
 	}
-	
+
 	private void linkFileMultipleFormat(QDataSetTerm dataSet, QFileMultiFormat<?> fileMultiFormat) {
 
 		Class<?> linkedClass = loadClass(fileMultiFormat);
 		if (linkedClass == null)
 			throw new DevelopmentKitCompilerRuntimeException("Linked class not found: " + fileMultiFormat.getName());
-
 
 		QCompilerLinker compilerLinker = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilerLinker();
 		compilerLinker.setLinkedClass(linkedClass);
@@ -299,7 +322,7 @@ public class RPJCallableUnitLinker {
 	}
 
 	public void linkExternalFile(QTerm term, List<QDataTerm<?>> target, QExternalFile externalFile) {
-		
+
 		if (externalFile.getName().startsWith("*"))
 			return;
 
@@ -321,7 +344,6 @@ public class RPJCallableUnitLinker {
 		compilerLinker.setLinkedClass(linkedClass);
 		term.getFacets().add(compilerLinker);
 
-		
 		QDatabaseFileFormat databaseFileFormat = databaseFile.getDatabaseFormat();
 		if (databaseFile instanceof QLogicalFile && databaseFileFormat.isEmpty()) {
 			QLogicalFile logicalFile = (QLogicalFile) databaseFile;
@@ -335,25 +357,25 @@ public class RPJCallableUnitLinker {
 				appendElements(target, superTable.getFileFormat());
 			}
 		} else {
-			
+
 			appendElements(target, databaseFileFormat);
 		}
-	} 
-	
+	}
+
 	private void appendElements(List<QDataTerm<?>> target, QFileFormat<?> fileFormat) {
 
-		for(QDataTerm<?> element: fileFormat.getFields()) {
-			
-			element = (QDataTerm<?>) EcoreUtil.copy((EObject)element);
+		for (QDataTerm<?> element : fileFormat.getFields()) {
+
+			element = (QDataTerm<?>) EcoreUtil.copy((EObject) element);
 
 			QDerived derived = QIntegratedLanguageCoreFactory.eINSTANCE.createDerived();
 			element.getFacets().add(derived);
 
-			target.add(element);	
+			target.add(element);
 		}
 	}
-	
-	public QFile getFile(String name) {
+
+	private QFile getFile(String name) {
 
 		QFile file = fileManager.getOverriddenFile(job, name);
 		if (file == null)
@@ -362,7 +384,7 @@ public class RPJCallableUnitLinker {
 		return file;
 	}
 
-	public Class<?> loadClass(QFile file) {
+	private Class<?> loadClass(QFile file) {
 
 		// TODO
 		QLibrary library = libraryReader.lookup(file.getLibrary());
@@ -395,14 +417,14 @@ public class RPJCallableUnitLinker {
 		return linkedClass;
 	}
 
-	public QModule getModule(String name) {
+	private QModule getModule(String name) {
 
 		QModule module = moduleReader.lookup(name);
 
 		return module;
 	}
-	
-	public Class<?> loadClass(QModule module) {
+
+	private Class<?> loadClass(QModule module) {
 
 		// TODO
 		QLibrary library = libraryReader.lookup(module.getLibrary());

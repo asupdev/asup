@@ -200,6 +200,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 
+			QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
+			
 			if (dataSet.getFileName().equals("PRT198"))
 				parType.typeArguments().add(getAST().newWildcardType());
 			else if (dataSet.getFileName().equals("PRT132"))
@@ -207,7 +209,7 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			else if (dataSet.getFileName().equals("PRT80"))
 				parType.typeArguments().add(getAST().newWildcardType());
 			else {
-				QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
+
 				if (compilerLinker != null) {
 					writeImport(compilerLinker.getLinkedClass());
 					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getSimpleName())));
@@ -222,6 +224,9 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataSet.getName())));
 
 			getTarget().bodyDeclarations().add(field);
+			
+			if (compilerLinker == null && dataSet.getRecord() != null)
+				writeInnerRecord(dataSet);
 		}
 
 	}

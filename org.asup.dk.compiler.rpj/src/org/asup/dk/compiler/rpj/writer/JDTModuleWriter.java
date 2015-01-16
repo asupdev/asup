@@ -23,11 +23,14 @@ import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
+import org.asup.os.core.OperatingSystemRuntimeException;
 
 public class JDTModuleWriter extends JDTCallableUnitWriter {
 
 	public JDTModuleWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
+		
+		writeImport(OperatingSystemRuntimeException.class);
 	}
 
 	public void writeModule(QModule module) throws IOException {
@@ -39,7 +42,6 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(module);
 
 		// modules
-
 		for (String childModule : module.getSetupSection().getModules()) {
 
 			QModule flowModule = getCompilationUnit().getModule(childModule, true);

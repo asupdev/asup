@@ -133,16 +133,15 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 			if (namedNode instanceof QMultipleAtomicDataTerm<?>) {
 				QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) namedNode;
-				
+
 				if (this.target != null) {
-					if(this.target.isAssignableFrom(QArray.class)) 
-						source = multipleAtomicDataTerm.getDefinition().getDataClass();						
+					if (this.target.isAssignableFrom(QArray.class))
+						source = multipleAtomicDataTerm.getDefinition().getDataClass();
 					else
 						source = multipleAtomicDataTerm.getDefinition().getArgument().getDataClass();
-				}
-				else
+				} else
 					source = multipleAtomicDataTerm.getDefinition().getDataClass();
-				
+
 			} else if (namedNode instanceof QDataTerm) {
 				QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
 				source = dataTerm.getDefinition().getDataClass();
@@ -321,7 +320,7 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		}
 		// plus, minus, multiple, cat ..
 		else if (expression.getRightOperand() != null) {
-										
+
 			Class<?> target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getLeftOperand());
 			builder.setTarget(target);
 			builder.clear();
@@ -329,13 +328,13 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(builder.getResult());
 
 			buffer.append(toJavaPrimitive(expression.getOperator()));
-			
+
 			target = CompilationContextHelper.getJavaClass(compilationUnit, expression.getRightOperand());
 			builder.setTarget(target);
 			builder.clear();
 			expression.getRightOperand().accept(builder);
-			
-			buffer.append(builder.getResult());			
+
+			buffer.append(builder.getResult());
 		}
 		// negate
 		else {
@@ -360,6 +359,22 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 	public boolean visit(QBooleanExpression expression) {
 
 		if (expression.getOperand() != null) {
+			
+			if(expression.getOperand() instanceof QAtomicTermExpression) {
+				
+				QAtomicTermExpression atomicTermExpression = (QAtomicTermExpression) expression.getOperand();
+				if(atomicTermExpression.isSpecial() && !atomicTermExpression.isFunction()) {
+					if(atomicTermExpression.getValue().equalsIgnoreCase("*ON")){
+						buffer.append("true");
+						return false;
+					}
+					else if(atomicTermExpression.getValue().equalsIgnoreCase("*OFF")){
+						buffer.append("false");
+						return false;						
+					}
+				}
+			}
+			
 			JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
 			builder.setTarget(Boolean.class);
 			/*
@@ -649,13 +664,10 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
 		else if (target.isAssignableFrom(String.class)) {
 			buffer.append(value);
-			buffer.append(".asString()");
-		} else if (target.isAssignableFrom(Byte.class)) {
-			buffer.append(value);
-			buffer.append(".asInteger()");
+			buffer.append(".s()");
 		} else if (target.isAssignableFrom(Integer.class)) {
 			buffer.append(value);
-			buffer.append(".asInteger()");
+			buffer.append(".i()");
 		} else if (target.isAssignableFrom(Boolean.class)) {
 			buffer.append(value);
 			buffer.append(".asBoolean()");
@@ -664,16 +676,19 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(".asShort()");
 		} else if (target.isAssignableFrom(Long.class)) {
 			buffer.append(value);
-			buffer.append(".asLong()");
+			buffer.append(".l()");
 		} else if (target.isAssignableFrom(Float.class)) {
 			buffer.append(value);
 			buffer.append(".asFloat()");
 		} else if (target.isAssignableFrom(Double.class)) {
 			buffer.append(value);
-			buffer.append(".asDouble()");
+			buffer.append(".d()");
 		} else if (target.isAssignableFrom(Date.class)) {
 			buffer.append(value);
 			buffer.append(".asTime()");
+		} else if (target.isAssignableFrom(Byte.class)) {
+			buffer.append(value);
+			buffer.append(".asInteger()");
 		} else if (target.isAssignableFrom(Object.class)) {
 			buffer.append(value);
 			buffer.append(".asObject()");

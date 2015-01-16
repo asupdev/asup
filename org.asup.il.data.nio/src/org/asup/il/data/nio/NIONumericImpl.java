@@ -370,4 +370,25 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	}
 
 	public abstract void writeNumber(Number number);
+
+	@Override
+	public double d() {
+		return asDouble();
+	}
+
+	@Override
+	public int i() {
+		return asInteger();
+	}
+
+	@Override
+	public long l() {
+		return asLong();
+	}
+
+	@Override
+	protected byte getFiller() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
