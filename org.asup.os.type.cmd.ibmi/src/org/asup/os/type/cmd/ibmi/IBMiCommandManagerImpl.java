@@ -32,6 +32,7 @@ import org.asup.dk.parser.ibmi.cl.model.pgm.CLParameter;
 import org.asup.dk.parser.ibmi.cl.model.pgm.CLPositionalParameter;
 import org.asup.dk.parser.ibmi.cl.model.pgm.CLRow;
 import org.asup.fw.core.QContextID;
+import org.asup.il.core.FormatType;
 import org.asup.il.core.QFormat;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
@@ -348,7 +349,14 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					throw new OperatingSystemException(exc);
 				}
 
-				tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
+				QFormat format = dataTerm.getFacet(QFormat.class);
+				if (format != null && format.getType() == FormatType.COMMAND_STRING) {
+					// Manage values in command string format (not detected by AntLR parser)
+					tokValue = paramComp.getText();
+					
+				} else { 
+					tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
+				}				
 			} else {
 				tokValue = value;
 			}
