@@ -16,7 +16,7 @@ import org.asup.il.core.QFormat;
 
 public class FormatHelper {
 		
-	private static String COMMAND_STRING_REGEX			="[A-Z][A-Z0-9\\$£@()&]{0,255}";  
+	private static String COMMAND_STRING_REGEX			="[A-Z][A-Z0-9\\$£@()&./\\s_*]{0,255}";  
 	private static String COMMUNICATION_STRING_REGEX	="[A-Z\\$£@][A-Z0-9\\$£@]*";
 	private static String GENERIC_STRING_REGEX 			="[^*]{1,255}$|([^*]{1,254}[*$])";
 	private static String NAME_STRING_REGEX				="[A-Z\\$£@*][A-Z0-9\\$£@_.]{1,32768}";
