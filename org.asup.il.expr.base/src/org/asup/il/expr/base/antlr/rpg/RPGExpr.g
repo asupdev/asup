@@ -257,7 +257,7 @@ FILLER	: '*ALL'
 BI_FUN  :	'%'TERM
 		;
 
-INDICATOR : ('*IN' (LETTER | DIGIT )*)
+INDICATOR : ('*' I N (LETTER | DIGIT )*)
 	;
 	
 ARRAY_INDICATOR	: '*IN('
