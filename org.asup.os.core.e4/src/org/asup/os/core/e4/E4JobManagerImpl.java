@@ -51,6 +51,8 @@ public class E4JobManagerImpl extends JobManagerImpl {
 		this.systemManager = (E4SystemManagerImpl) systemManager;
 		this.resourceFactory = resourceFactory;
 		this.activeJobs = new HashMap<String, QJob>();
+		
+		new E4JobCloser(this).start();
 	}
 
 	@PostConstruct
