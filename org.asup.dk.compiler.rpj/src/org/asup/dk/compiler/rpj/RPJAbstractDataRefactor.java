@@ -31,6 +31,7 @@ import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
+import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QUnaryAtomicBufferedDataDef;
 import org.asup.il.data.QUnaryAtomicDataDef;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -103,9 +104,9 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 		}
 	}
 
-	protected QDataTerm<?> buildMultipleDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
+	protected QMultipleDataTerm<?> buildMultipleDataTerm(QDataTerm<?> termTo, QDataTerm<?> termFrom) {
 
-		QDataTerm<?> dataTerm = null;
+		QMultipleDataTerm<?> dataTerm = null;
 		
 		if (termFrom.getDataTermType().isAtomic()) {
 
@@ -121,6 +122,8 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 					QMultipleAtomicBufferedDataDef<?> multipleAtomicDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
 					multipleAtomicDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition()));
 					multipleAtomicDataTerm.setDefinition(multipleAtomicDataDef);
+					
+					dataTerm = multipleAtomicDataTerm;
 				}
 				// multiple
 				else {
@@ -133,28 +136,43 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 							QMultipleAtomicBufferedDataDef<?> multipleDataDef = (QMultipleAtomicBufferedDataDef<?>) termTo.getDefinition();
 							multipleAtomicBufferedDataDef.setArgument(multipleDataDef.getArgument());
 							multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
+							
+							dataTerm = multipleAtomicDataTerm;
 							break;
 						case UNARY_ATOMIC:
 							multipleAtomicBufferedDataDef = (QMultipleAtomicBufferedDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition());
 							multipleAtomicBufferedDataDef.setArgument((QUnaryAtomicBufferedDataDef<?>) termTo.getDefinition());
 							multipleAtomicDataTerm.setDefinition(multipleAtomicBufferedDataDef);
+							
+							dataTerm = multipleAtomicDataTerm;
 							break;
 						case UNARY_COMPOUND:
-							throw new FrameworkCoreUnexpectedConditionException("gfsd779sfff79q4375v");							
-							
+							QMultipleCompoundDataTerm<QMultipleCompoundDataDef<?>> multipleCompoundDataTerm = QIntegratedLanguageDataFactory.eINSTANCE.createMultipleCompoundDataTerm();
+							copyDataTerm(termTo, multipleCompoundDataTerm);
+
+							// definition
+							QMultipleCompoundDataDef<?> multipleCompoundDataDef = QIntegratedLanguageDataFactory.eINSTANCE.createStrollerDef();
+							copyCompoundDataDef((QCompoundDataDef<?>) termTo.getDefinition(), multipleCompoundDataDef);
+							multipleCompoundDataTerm.setDefinition(multipleCompoundDataDef);
+
+							dataTerm = multipleCompoundDataTerm;							
+							break;
 						case MULTIPLE_COMPOUND:
 							throw new FrameworkCoreUnexpectedConditionException("bt7v8q45q4v5bq4375v");
 						}						
 					}
+					else
+						dataTerm = multipleAtomicDataTerm;
 					
 				}
 			} else {
 				QListDef<?> listDef = (QListDef<?>) EcoreUtil.copy((EObject) termTo.getDefinition());
 				listDef.setArgument((QUnaryAtomicDataDef<?>) EcoreUtil.copy((EObject) termFrom.getDefinition()));
 				multipleAtomicDataTerm.setDefinition(listDef);
+				
+				dataTerm = multipleAtomicDataTerm;
 			}
 
-			dataTerm = multipleAtomicDataTerm;
 		} else {
 
 			// term

@@ -22,7 +22,9 @@ import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.il.isam.QPrintTerm;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -334,6 +336,17 @@ public abstract class CompilationUnitImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDisplayTerm getDisplay(String name, boolean deep) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public abstract QModule getModule(String name, boolean deep);
@@ -344,6 +357,17 @@ public abstract class CompilationUnitImpl extends MinimalEObjectImpl.Container i
 	 * @generated NOT
 	 */
 	public abstract QNamedNode getNamedNode(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QPrintTerm getPrinter(String name, boolean deep) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

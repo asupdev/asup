@@ -33,6 +33,8 @@ import org.asup.il.data.QPointer;
 import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.isam.QDataSet;
+import org.asup.il.isam.QDisplay;
+import org.asup.il.isam.QPrint;
 import org.asup.os.type.pgm.QProgramManager;
 
 public class RPJProgramSupport {
@@ -101,6 +103,24 @@ public class RPJProgramSupport {
 	@DataDef
 	public QIndicator qINKY;
 	@DataDef
+	public QIndicator qINU1;
+	@DataDef
+	public QIndicator qINU2;
+	@DataDef
+	public QIndicator qINU3;
+	@DataDef
+	public QIndicator qINU4;
+	@DataDef
+	public QIndicator qINU5;
+	@DataDef
+	public QIndicator qINU6;
+	@DataDef
+	public QIndicator qINU7;
+	@DataDef
+	public QIndicator qINU8;
+	@DataDef
+	public QIndicator qINU9;
+	@DataDef
 	public ProgramStatus qSTATUS;
 	@DataDef
 	public Date qDATE;
@@ -111,6 +131,10 @@ public class RPJProgramSupport {
 		return numeric;
 	}
 
+	public QNumeric qAbs(Integer numeric) {
+		return qBox(numeric);
+	}
+	
 	public QDataWriter qAll(QNumeric numeric) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
 	}
@@ -120,6 +144,10 @@ public class RPJProgramSupport {
 	}
 	
 	public QDataWriter qAll(QString string) {
+		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
+	}
+	
+	public QDataWriter qAll(String string) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
 	}
 
@@ -152,6 +180,15 @@ public class RPJProgramSupport {
 		return qCharacter;
 	}
 
+
+	public QCharacter qBox(byte character) {
+
+		QCharacter qCharacter = qDF.createCharacter(1, false, true);
+		qCharacter.eval(character);
+
+		return qCharacter;
+	}
+	
 	public void qCall(QString program, QData[] parameters) {
 		programManager.callProgram(contextID, null, program.trimR(), parameters);
 	}
@@ -238,6 +275,14 @@ public class RPJProgramSupport {
 		return qBox(dataSet.isOpen());
 	}
 
+	public QIndicator qOpen(QDisplay<?> display) {
+		return qBox(display.isOpen());
+	}
+
+	public QIndicator qOpen(QPrint<?> print) {
+		return qBox(print.isOpen());
+	}
+	
 	public QIndicator qEqual(QDataSet<?> dataSet) {
 		return qBox(dataSet.onError());
 	}
@@ -592,14 +637,17 @@ public class RPJProgramSupport {
 		return character;
 	}
 
-	public QString qStr(QPointer source, int length) {
+	public QString qStr(QPointer source, Integer length) {
 		return null;
 	}
 	
 	public QString qXlate(String oldString, String newString, QString source) {
 		return null;
 	}
-
+	
+	public void qXfoot(QArray<QDecimal> list, QNumeric target) {
+	}
+	
 	public static class ProgramStatus extends QDataStructWrapper {
 
 		private static final long serialVersionUID = 1L;
@@ -624,6 +672,7 @@ public class RPJProgramSupport {
 
 		private static final long serialVersionUID = 1L;
 
+		
 		@Overlay(name = "IN", position = "01")
 		public QIndicator qIN01;
 		@Overlay(name = "IN", position = "02")
@@ -644,6 +693,24 @@ public class RPJProgramSupport {
 		public QIndicator qIN09;
 		@Overlay(name = "IN", position = "10")
 		public QIndicator qIN10;
+		@Overlay(name = "IN", position = "11")
+		public QIndicator qIN11;
+		@Overlay(name = "IN", position = "12")
+		public QIndicator qIN12;
+		@Overlay(name = "IN", position = "13")
+		public QIndicator qIN13;
+		@Overlay(name = "IN", position = "14")
+		public QIndicator qIN14;
+		@Overlay(name = "IN", position = "15")
+		public QIndicator qIN15;
+		@Overlay(name = "IN", position = "16")
+		public QIndicator qIN16;
+		@Overlay(name = "IN", position = "17")
+		public QIndicator qIN17;
+		@Overlay(name = "IN", position = "18")
+		public QIndicator qIN18;
+		@Overlay(name = "IN", position = "19")
+		public QIndicator qIN19;
 		@Overlay(name = "IN", position = "20")
 		public QIndicator qIN20;
 		@Overlay(name = "IN", position = "21")
@@ -768,6 +835,22 @@ public class RPJProgramSupport {
 		public QIndicator qIN80;
 		@Overlay(name = "IN", position = "81")
 		public QIndicator qIN81;
+		@Overlay(name = "IN", position = "82")
+		public QIndicator qIN82;
+		@Overlay(name = "IN", position = "83")
+		public QIndicator qIN83;
+		@Overlay(name = "IN", position = "84")
+		public QIndicator qIN84;
+		@Overlay(name = "IN", position = "85")
+		public QIndicator qIN85;
+		@Overlay(name = "IN", position = "86")
+		public QIndicator qIN86;
+		@Overlay(name = "IN", position = "87")
+		public QIndicator qIN87;
+		@Overlay(name = "IN", position = "88")
+		public QIndicator qIN88;
+		@Overlay(name = "IN", position = "89")
+		public QIndicator qIN89;
 		@Overlay(name = "IN", position = "90")
 		public QIndicator qIN90;
 		@Overlay(name = "IN", position = "91")
@@ -799,12 +882,16 @@ public class RPJProgramSupport {
 	}
 
 	public static enum Specials {
-		ALL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
+		NULL, ALL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
 
 		public boolean asBoolean() {
 			return this.toString().equals("ON");
 		}
 
+		public boolean b() {
+			return this.asBoolean();
+		}
+		
 		public String asString() {
 			return this.toString();
 		}

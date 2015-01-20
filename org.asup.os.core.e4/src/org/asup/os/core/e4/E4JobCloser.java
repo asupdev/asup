@@ -17,7 +17,6 @@ import java.util.Iterator;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.QOperatingSystemCoreHelper;
 import org.asup.os.core.jobs.JobStatus;
-import org.asup.os.core.jobs.JobType;
 import org.asup.os.core.jobs.QJob;
 
 
@@ -44,15 +43,18 @@ public class E4JobCloser extends Thread {
 			QJob tmpJob  = null;
 			while(iterator.hasNext()) {
 				tmpJob = iterator.next();
-				if (tmpJob.getJobStatus() == JobStatus.ACTIVE) {
+				
+				
+				switch (tmpJob.getJobStatus()) {
+				case ACTIVE:
+
 					Date creationDate = tmpJob.getCreationInfo().getCreationDate();
 					Date now = QOperatingSystemCoreHelper.now();
 					
 					long seconds = (now.getTime()-creationDate.getTime())/1000;
 					
-					// 1 day
-					if(seconds>60*60*24) {
-
+					// 1 hour
+					if(seconds>60*60) {
 						try {
 							jobManager.updateStatus(tmpJob, JobStatus.END);
 							tmpJob.getContext().close();							
@@ -60,7 +62,23 @@ public class E4JobCloser extends Thread {
 							System.err.println(e.getMessage());
 						}
 					}
-				}				
+
+					break;
+				case END:
+					break;
+				case END_OF_JOB:
+					break;
+				case EVENT_WAITING:
+					break;
+				case LOCK_WAITING:
+					break;
+				case MESSAGE_WAITING:
+					break;
+				case RUN:
+					break;
+				case TIME_WAITING:
+					break;
+				}
 			}
 		}		
 	}	

@@ -528,4 +528,14 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	public String s() {
 		return delegate.s();
 	}
+
+	@Override
+	public boolean ge(QHexadecimal value) {
+		return delegate.ge(value);
+	}
+
+	@Override
+	public boolean le(QHexadecimal value) {
+		return delegate.le(value);
+	}
 }

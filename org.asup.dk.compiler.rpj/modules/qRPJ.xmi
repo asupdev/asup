@@ -773,6 +773,51 @@
       <definition
           xsi:type="il-data:IndicatorDef"/>
     </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU1">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU2">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU3">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU4">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU5">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU6">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU7">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU8">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
+    <datas xsi:type="il-data:UnaryAtomicDataTerm"
+        name="*INU9">
+      <definition
+          xsi:type="il-data:IndicatorDef"/>
+    </datas>
   </dataSection>
   <flowSection>
     <prototypes>
@@ -2109,6 +2154,52 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%testn">
+        <definition
+            xsi:type="il-data:IndicatorDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              like=""
+              name="string"
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%xfoot"/>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:MultipleAtomicDataTerm"
+              name="list">
+            <definition
+                xsi:type="il-data:ListDef"
+                dimension="-1"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="target"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%xlate">
         <definition
             xsi:type="il-data:StringDef"/>
@@ -2141,26 +2232,6 @@
               xsi:type="il-data:UnaryAtomicDataTerm"
               name="length"
               default="">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="%testn">
-        <definition
-            xsi:type="il-data:IndicatorDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              like=""
-              name="string"
-              mandatory="true">
             <definition
                 xsi:type="il-data:StringDef"/>
           </delegate>

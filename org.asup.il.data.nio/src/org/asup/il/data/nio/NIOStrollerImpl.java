@@ -413,4 +413,14 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	public void eval(byte value) {
 		current().eval(value);
 	}
+
+	@Override
+	public boolean ge(QHexadecimal value) {
+		return current().ge(value);
+	}
+
+	@Override
+	public boolean le(QHexadecimal value) {
+		return current().le(value);
+	}
 }

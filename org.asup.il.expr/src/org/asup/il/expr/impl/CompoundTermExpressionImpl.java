@@ -155,7 +155,14 @@ public class CompoundTermExpressionImpl extends TermExpressionImpl implements QC
 	 * @generated NOT
 	 */
 	public void accept(QExpressionVisitor visitor) {
-		visitor.visit(this);
+		
+		if(visitor.visit(this)) {
+			
+			for(QExpression child: getElements())
+				child.accept(visitor);
+		}
+		
+		visitor.endVisit(this);
 	}
 
 	/**

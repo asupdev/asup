@@ -73,6 +73,12 @@ public class JDTModuleWriter extends JDTCallableUnitWriter {
 		if (module.getFileSection() != null)
 			writeKeyLists(module.getFileSection().getKeyLists());
 
+		if (module.getFileSection() != null)
+			writeDisplays(module.getFileSection().getDisplays());
+
+		if (module.getFileSection() != null)
+			writePrinters(module.getFileSection().getPrinters());
+		
 		// labels
 		writeLabels(callableUnitInfo.getLabels().keySet());
 

@@ -92,6 +92,9 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 			writeKeyLists(program.getFileSection().getKeyLists());
 			writeCursors(program.getFileSection().getCursors());
 			writeStatements(program.getFileSection().getStatements());
+			writeDisplays(program.getFileSection().getDisplays());
+			writePrinters(program.getFileSection().getPrinters());
+
 		}
 
 		writeInit();

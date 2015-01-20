@@ -42,6 +42,7 @@ import org.asup.il.flow.QModule;
 import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QProgram;
 import org.asup.il.isam.QRecordWrapper;
+import org.asup.il.isam.annotation.Format;
 import org.asup.il.isam.annotation.Query;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
@@ -281,16 +282,16 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		
 		if(databaseFile instanceof QLogicalFile) {
 			QLogicalFile logicalFile = (QLogicalFile) databaseFile;
-			
-			QViewDef viewDef = compilationUnit.getContext().getAdapter(logicalFile, QViewDef.class);
-			
+						
 			if(databaseFile.getDatabaseFormat().isEmpty()) {				
 				String table = logicalFile.getTables().get(0);				
 				databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), table);
 			}
+			else
+				databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), QRecordWrapper.class);
 			
+			QViewDef viewDef = compilationUnit.getContext().getAdapter(logicalFile, QViewDef.class);
 			if(viewDef != null) {
-
 				databaseFileWriter.writeImport(Query.class);
 				
 				// @Query("SELECT * FROM TABLE")
@@ -307,9 +308,22 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 			}
 		}
+		else
+			databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), QRecordWrapper.class);
+			
+		
+		// @Format("BRARTIR")
+		databaseFileWriter.writeImport(Format.class);
+		NormalAnnotation programAnnotation = databaseFileWriter.getAST().newNormalAnnotation();
+		programAnnotation.setTypeName(databaseFileWriter.getAST().newSimpleName(Format.class.getSimpleName()));
+		MemberValuePair memberValuePair = databaseFileWriter.getAST().newMemberValuePair();
+		memberValuePair.setName(databaseFileWriter.getAST().newSimpleName("value"));
+		StringLiteral stringLiteral = databaseFileWriter.getAST().newStringLiteral();
+		stringLiteral.setLiteralValue(databaseFile.getFileFormat().getName());
+		memberValuePair.setValue(stringLiteral);
+		programAnnotation.values().add(memberValuePair);
 
-		if(databaseFileWriter == null) 
-			databaseFileWriter = new JDTDatabaseFileWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName(), QRecordWrapper.class);			
+		databaseFileWriter.getTarget().modifiers().add(0, programAnnotation);
 		
 		databaseFileWriter.writeDatabaseFile(databaseFile);
 

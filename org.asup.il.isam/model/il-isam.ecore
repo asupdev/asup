@@ -70,15 +70,13 @@
       <eGenericType eTypeParameter="#//DataSet/R"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSetTerm" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSetTerm" eSuperTypes="#//FileTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessMode" lowerBound="1"
         eType="#//AccessMode" defaultValueLiteral="I">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Imposta il tipo di accesso al data set."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="formatName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyedAccess" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -87,6 +85,74 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Display" abstract="true" interface="true">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eTypeParameters>
+    <eOperations name="chain">
+      <eParameters name="format" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="chain">
+      <eParameters name="format" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="close"/>
+    <eOperations name="close">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="get" lowerBound="1">
+      <eGenericType eTypeParameter="#//Display/D"/>
+    </eOperations>
+    <eOperations name="isOpen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="open"/>
+    <eOperations name="open">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="readc">
+      <eParameters name="format" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="show">
+      <eParameters name="format" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="update">
+      <eParameters name="format" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="write">
+      <eParameters name="format" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayTerm" eSuperTypes="#//FileTerm"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FileTerm" abstract="true" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Term">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="#//RecordDef"
         transient="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="userOpen" lowerBound="1"
@@ -437,6 +503,24 @@
       <eParameters name="accessMode" eType="#//AccessMode"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Print" abstract="true" interface="true">
+    <eTypeParameters name="D">
+      <eBounds eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eTypeParameters>
+    <eOperations name="close"/>
+    <eOperations name="close">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="isOpen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="open"/>
+    <eOperations name="open">
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="get" lowerBound="1">
+      <eGenericType eTypeParameter="#//Print/D"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrintTerm" eSuperTypes="#//FileTerm"/>
   <eClassifiers xsi:type="ecore:EClass" name="Record" abstract="true" interface="true">
     <eOperations name="getIndex" eType="#//Index"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Struct">
@@ -457,6 +541,13 @@
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
+      <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="chain" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="notFound" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
     </eOperations>
@@ -482,9 +573,40 @@
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
       <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
+      <eParameters name="found" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+      <eParameters name="error" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Indicator"/>
+    </eOperations>
+    <eOperations name="setgt">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="keyField" lowerBound="1">
+        <eGenericType eTypeParameter="#//RRDataSet/setgt.6/E"/>
+      </eParameters>
     </eOperations>
     <eOperations name="setll">
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="setll">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="keyField" lowerBound="1">
+        <eGenericType eTypeParameter="#//RRDataSet/setll.1/E"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="setll">
+      <eParameters name="keyField" lowerBound="1" eType="ecore:EClass ../../org.asup.il.data/model/il-data.ecore#//Numeric"/>
     </eOperations>
     <eOperations name="setll">
       <eParameters name="relativeRecordNumber" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -503,6 +625,14 @@
     </eOperations>
     <eGenericSuperTypes eClassifier="#//DataSet">
       <eTypeArguments eTypeParameter="#//RRDataSet/R"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SMDataSet" abstract="true" interface="true">
+    <eTypeParameters name="R">
+      <eBounds eClassifier="#//Record"/>
+    </eTypeParameters>
+    <eGenericSuperTypes eClassifier="#//RRDataSet">
+      <eTypeArguments eTypeParameter="#//SMDataSet/R"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OperationDirection">

@@ -39,7 +39,7 @@ import org.asup.os.type.file.QFile;
 import org.asup.os.type.lib.QLibrary;
 import org.asup.os.type.lib.QLibraryManager;
 
-@Program(name="QASCRTXB")
+@Program(name = "QASCRTXB")
 public class XMIDatabaseFileCompiler {
 
 	@Inject
@@ -52,47 +52,61 @@ public class XMIDatabaseFileCompiler {
 	private QJob job;
 	@Inject
 	private QLibraryManager libraryManager;
-	
+
 	@Entry
 	public void main(TypedReference<QDatabaseFile> file) throws IOException {
-		
+
 		// file
 		QResourceReader<QFile> fileReader = null;
 		Scope scope = Scope.get(file.library.trimR());
 		if (scope != null)
 			fileReader = resourceFactory.getResourceReader(job, QFile.class, scope);
 		else
-			fileReader = resourceFactory.getResourceReader(job,	QFile.class, file.library.trimR());
-		
-		QObjectIterator<QFile> files = null;		
-		if(file.name.trimR().equals("*ALL"))
+			fileReader = resourceFactory.getResourceReader(job, QFile.class, file.library.trimR());
+
+		QObjectIterator<QFile> files = null;
+		if (file.name.trimR().equals("*ALL"))
 			files = fileReader.find(null);
 		else
 			files = fileReader.find(file.name.trimR());
 
-		QResourceReader<QLibrary> libraryReader = libraryManager.getLibraryReader(job); 
+		QResourceReader<QLibrary> libraryReader = libraryManager.getLibraryReader(job);
 		QLibrary library = libraryReader.lookup(file.library.trimR());
-		
-		while(files.hasNext()) {
+
+		while (files.hasNext()) {
 			QFile qFile = files.next();
-			if(!(qFile instanceof QDatabaseFile))
+			if (!(qFile instanceof QDatabaseFile))
 				continue;
 
+			//  exclude dictionary
+			// TODO retrieve *DICT
+			if(qFile.getName().startsWith("DIZ_"))
+				continue;
+			
+			QDatabaseFile databaseFile = (QDatabaseFile) qFile;
+
+			// exclude source file
+			// TODO retrieve *SRC *DATA
 			try {
-				QDatabaseFile databaseFile = (QDatabaseFile) qFile;
-				createJavaFile(databaseFile, library);
+				if (databaseFile.getFileFormat().getFields().size() == 3 && 
+					databaseFile.getFileFormat().getFields().get(0).getName().equalsIgnoreCase("SRCSEQ"))
+					continue;
+			} catch (NullPointerException e) {
 			}
-			catch(Exception e) {
+
+			try {
+				createJavaFile(databaseFile, library);
+			} catch (Exception e) {
 				System.err.println(e);
 			}
 		}
 
 	}
-	
+
 	private void createJavaFile(QDatabaseFile file, QLibrary library) throws IOException, OperatingSystemException {
 
-		if(file.getApplication() == null)
-			throw new OperatingSystemException("Invalid file application: "+file);
+		if (file.getApplication() == null)
+			throw new OperatingSystemException("Invalid file application: " + file);
 
 		// create java source
 		QSourceEntry libraryEntry = sourceManager.getLibraryEntry(job, file.getLibrary());
@@ -105,15 +119,15 @@ public class XMIDatabaseFileCompiler {
 		// compilation unit
 		QCompilationUnit compilationUnit = compilerManager.createCompilationUnit(job, file, CaseSensitiveType.LOWER);
 
-		// compilation setup			
-		QCompilationSetup setup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();		
+		// compilation setup
+		QCompilationSetup setup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 		setup.setBasePackage(packageURI.toString().replaceAll("/", "."));
-				
+
 		compilerManager.writeDatabaseFile(compilationUnit, setup, output);
 
 		output.close();
-		
+
 		compilationUnit.close();
 	}
 }

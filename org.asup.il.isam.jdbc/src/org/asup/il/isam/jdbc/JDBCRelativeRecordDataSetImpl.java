@@ -15,6 +15,7 @@ import java.sql.SQLException;
 
 import org.asup.db.core.QConnection;
 import org.asup.il.data.QIndicator;
+import org.asup.il.data.QNumeric;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.OperationRead;
 import org.asup.il.isam.OperationSet;
@@ -118,5 +119,47 @@ public class JDBCRelativeRecordDataSetImpl<R extends QRecord> extends JDBCDataSe
 		
 		if(error != null)
 			error.eval(onError());		
+	}
+
+	@Override
+	public boolean chain(QNumeric relativeRecordNumber) {
+		return chain(relativeRecordNumber.asInteger());
+	}
+
+	@Override
+	public void setll(QNumeric relativeRecordNumber) {
+		setll(relativeRecordNumber.asInteger());		
+	}
+
+	@Override
+	public boolean chain(QNumeric relativeRecordNumber, QIndicator notFound) {
+		return chain(relativeRecordNumber.asInteger(), notFound);
+	}
+
+	@Override
+	public void setgt(QNumeric relativeRecordNumber) {
+		setgt(relativeRecordNumber.asInteger());
+	}
+
+	@Override
+	public void setgt(QNumeric relativeRecordNumber, QIndicator found) {
+		setgt(relativeRecordNumber.asInteger(), found);
+	}
+
+	@Override
+	public void setgt(QNumeric relativeRecordNumber, QIndicator found, QIndicator error) {
+		setgt(relativeRecordNumber.asInteger(), found, error);		
+	}
+
+	@Override
+	public <E extends Enum<E>> void setll(E keyField) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> void setgt(E keyField) {
+		// TODO Auto-generated method stub
+		
 	}
 } // QTableDataSetImpl

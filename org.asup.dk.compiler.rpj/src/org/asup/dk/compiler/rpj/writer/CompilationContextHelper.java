@@ -154,9 +154,18 @@ public class CompilationContextHelper {
 
 				QNamedNode namedNode = compilationUnit.getNamedNode(atomicTermExpression.getValue(), true);
 				QDataTerm<?> dataTerm = getDataTerm(namedNode);
-				if (dataTerm != null)
-					return dataTerm.getDefinition().getJavaClass();
+				if (dataTerm != null) {
 
+					if(dataTerm instanceof QMultipleAtomicDataTerm) {
+						QMultipleAtomicDataTerm<?> multipleDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
+						return multipleDataTerm.getDefinition().getArgument().getJavaClass();
+					}
+					else
+						return dataTerm.getDefinition().getJavaClass();
+
+				}
+
+				
 				break;
 			}
 			break;

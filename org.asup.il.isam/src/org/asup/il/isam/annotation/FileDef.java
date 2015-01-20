@@ -17,7 +17,7 @@ import org.asup.il.data.annotation.DataType;
 @DataType
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface DataSetDef {
+public @interface FileDef {
 	
 	String name();
 	boolean userOpen() default false;

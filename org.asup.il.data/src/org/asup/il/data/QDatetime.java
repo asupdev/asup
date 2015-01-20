@@ -31,9 +31,17 @@ public interface QDatetime extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model
 	 * @generated
 	 */
-	long getTime();
+	long asTime();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	long t();
 
 } // QDatetime

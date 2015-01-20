@@ -68,4 +68,9 @@ public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
 		else
 			eval(false);
 	}
+
+	@Override
+	public boolean b() {
+		return asBoolean();
+	}
 }

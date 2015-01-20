@@ -23,6 +23,7 @@ import org.asup.il.core.QNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QUnaryAtomicDataTerm;
 import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
@@ -60,6 +61,8 @@ import org.asup.il.flow.QWhile;
 import org.asup.il.flow.impl.StatementVisitorImpl;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
+import org.asup.il.isam.QPrintTerm;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.dom.AST;
@@ -85,6 +88,7 @@ import org.eclipse.jdt.core.dom.SwitchCase;
 import org.eclipse.jdt.core.dom.SwitchStatement;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.Type;
+import org.eclipse.jdt.core.dom.TypeLiteral;
 import org.eclipse.jdt.core.dom.WhileStatement;
 
 public class JDTStatementWriter extends StatementVisitorImpl {
@@ -134,7 +138,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public void endVisit(QWhile statement) {
 
 		blocks.pop();
-
+		
 		super.endVisit(statement);
 	}
 
@@ -386,7 +390,8 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 					} else if (parameterDelegate instanceof QDataSetTerm) {
 						Expression jdtExpression = buildExpression(ast, expression, QDataSet.class);
 						methodInvocation.arguments().add(jdtExpression);
-					}
+					} else
+						throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
 				} else
 					throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + statement.getProcedure());
 			}
@@ -411,6 +416,14 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public boolean visit(QJump statement) {
 
 		Block block = blocks.peek();
+
+		// dummy break
+		if (isParentFor(statement)) {
+			IfStatement ifSt = ast.newIfStatement();
+			ifSt.setExpression(ast.newBooleanLiteral(false));
+			ifSt.setThenStatement(ast.newBreakStatement());
+			block.statements().add(ifSt);
+		}
 
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 		methodInvocation.setExpression(ast.newSimpleName("qRPJ"));
@@ -449,27 +462,53 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public boolean visit(QMethodExec statement) {
 
 		try {
-			Block block = blocks.peek();
-
-			MethodInvocation methodInvocation = ast.newMethodInvocation();
-			methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(statement.getMethod())));
 
 			if (statement.getObject() != null) {
 
-				methodInvocation.setExpression(buildExpression(ast, expressionParser.parseTerm(statement.getObject()), null));
-			}
+				Block block = blocks.peek();
 
-			if (statement.getParameters() != null) {
-				for (String parameter : statement.getParameters()) {
+				MethodInvocation methodInvocation = ast.newMethodInvocation();
+				methodInvocation.setName(ast.newSimpleName(compilationUnit.normalizeTermName(statement.getMethod())));
 
-					QExpression expression = expressionParser.parseExpression(parameter);
-					Expression jdtExpression = buildExpression(ast, expression, null);
-					methodInvocation.arguments().add(jdtExpression);
+				QNamedNode namedNode = compilationUnit.getNamedNode(statement.getObject(), true);
+
+				// display and print
+				if ((namedNode != null && (namedNode.getParent() instanceof QDisplayTerm || namedNode.getParent() instanceof QPrintTerm))) {
+
+					methodInvocation.setExpression(ast.newName(compilationUnit.getQualifiedName((QNamedNode) namedNode.getParent())));
+
+					TypeLiteral typeLiteral = ast.newTypeLiteral();
+					String fileName = compilationUnit.normalizeTypeName(((QNamedNode) namedNode.getParent()).getName());
+					String formatName = compilationUnit.normalizeTypeName(namedNode.getName());
+					typeLiteral.setType(ast.newSimpleType(ast.newName(new String[] { fileName, formatName })));
+
+					methodInvocation.arguments().add(typeLiteral);
+
+				} 
+				else {
+					methodInvocation.setExpression(buildExpression(ast, expressionParser.parseExpression(statement.getObject()), null));
 				}
-			}
+				
+				if (statement.getParameters() != null) {
+					for (String parameter : statement.getParameters()) {
 
-			ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
-			block.statements().add(expressionStatement);
+						QExpression expression = expressionParser.parseExpression(parameter);
+						Expression jdtExpression = buildExpression(ast, expression, null);
+						methodInvocation.arguments().add(jdtExpression);
+					}
+				}
+
+				ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
+				block.statements().add(expressionStatement);
+
+			} 
+			else {
+				QProcedureExec procedureExec = QIntegratedLanguageFlowFactory.eINSTANCE.createProcedureExec();
+				procedureExec.setProcedure(statement.getMethod());
+				procedureExec.getParameters().addAll(statement.getParameters());
+				visit(procedureExec);
+			}
+			
 
 			return false;
 		} catch (Exception e) {
@@ -492,7 +531,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		// catch
 		CatchClause catchClause = ast.newCatchClause();
 		SingleVariableDeclaration exceptionDeclaration = ast.newSingleVariableDeclaration();
-		
+
 		Type exception = ast.newSimpleType(ast.newSimpleName(OperatingSystemRuntimeException.class.getSimpleName()));
 		exceptionDeclaration.setType(exception);
 		exceptionDeclaration.setName(ast.newSimpleName("e"));
@@ -567,7 +606,17 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		Block block = blocks.peek();
 
 		ReturnStatement returnSt = ast.newReturnStatement();
-		block.statements().add(returnSt);
+
+		if (isParentProcedure(statement)) {
+			block.statements().add(returnSt);
+		} else {
+			// dummy condition
+			IfStatement ifSt = ast.newIfStatement();
+			ifSt.setExpression(ast.newBooleanLiteral(true));
+			ifSt.setThenStatement(returnSt);
+
+			block.statements().add(ifSt);
+		}
 
 		return false;
 	}
@@ -673,24 +722,56 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	@Override
 	public boolean visit(QReset statement) {
 
-		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(statement.getObject(), true);
+		QTermExpression termExpression = expressionParser.parseTerm(statement.getObject());
+		if(termExpression == null)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid statement: " + statement);
+		
+		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(termExpression.getValue(), true);
 		if (dataTerm == null)
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid statement: " + statement);
 
-		if (dataTerm.getDataTermType().isMultiple())
-			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
+//		if (dataTerm.getDataTermType().isMultiple())
+//			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
 
 		switch (dataTerm.getDataTermType()) {
 		case MULTIPLE_ATOMIC:
+			QMultipleAtomicDataTerm<?> multipleAtomicDataTerm = (QMultipleAtomicDataTerm<?>) dataTerm;
+			if (multipleAtomicDataTerm.getDefault() == null || multipleAtomicDataTerm.getDefault().isEmpty()) {
+
+				QMethodExec methodExec = QIntegratedLanguageFlowFactory.eINSTANCE.createMethodExec();
+				methodExec.setObject(statement.getObject());
+				methodExec.setMethod("clear");
+				methodExec.accept(this);
+				
+				break;
+			}
+
+			QEval eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+			if (multipleAtomicDataTerm.getDefinition().getJavaClass().isAssignableFrom(String.class))
+				eval.setAssignment(statement.getObject() + "=" + "'" + multipleAtomicDataTerm.getDefault() + "'");
+			else
+				eval.setAssignment(statement.getObject() + "=" + multipleAtomicDataTerm.getDefault());
+			eval.accept(this);
+
+			break;
+			
 		case MULTIPLE_COMPOUND:
 			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4533");
 
 		case UNARY_ATOMIC:
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) dataTerm;
-			if (unaryAtomicDataTerm.getDefault() == null || unaryAtomicDataTerm.getDefault().isEmpty())
-				throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4538");
+			if (unaryAtomicDataTerm.getDefault() == null || unaryAtomicDataTerm.getDefault().isEmpty()) {
 
-			QEval eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
+				QMethodExec methodExec = QIntegratedLanguageFlowFactory.eINSTANCE.createMethodExec();
+				methodExec.setObject(statement.getObject());
+				methodExec.setMethod("clear");
+				methodExec.accept(this);
+				
+				break;
+
+			}
+
+			eval = QIntegratedLanguageFlowFactory.eINSTANCE.createEval();
 			if (unaryAtomicDataTerm.getDefinition().getJavaClass().isAssignableFrom(String.class))
 				eval.setAssignment(statement.getObject() + "=" + "'" + unaryAtomicDataTerm.getDefault() + "'");
 			else
@@ -700,8 +781,16 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			break;
 		case UNARY_COMPOUND:
 			QUnaryCompoundDataTerm<?> unaryCompoundDataTerm = (QUnaryCompoundDataTerm<?>) dataTerm;
-			if (unaryCompoundDataTerm.getDefault() != null)
-				throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg3833");
+			if (unaryCompoundDataTerm.getDefault() != null) {
+
+				QMethodExec methodExec = QIntegratedLanguageFlowFactory.eINSTANCE.createMethodExec();
+				methodExec.setObject(statement.getObject());
+				methodExec.setMethod("clear");
+				methodExec.accept(this);
+				
+				break;
+
+			}
 
 			for (QDataTerm<?> element : unaryCompoundDataTerm.getDefinition().getElements()) {
 
@@ -773,12 +862,23 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		return methodInvocation;
 	}
 
-	@SuppressWarnings("unused")
 	private boolean isParentProcedure(QStatement statement) {
 
 		QNode parent = statement.getParent();
 		while (parent != null) {
 			if (parent instanceof QProcedure)
+				return true;
+			parent = parent.getParent();
+		}
+
+		return false;
+	}
+
+	private boolean isParentFor(QStatement statement) {
+
+		QNode parent = statement.getParent();
+		while (parent != null) {
+			if (parent instanceof QFor)
 				return true;
 			parent = parent.getParent();
 		}

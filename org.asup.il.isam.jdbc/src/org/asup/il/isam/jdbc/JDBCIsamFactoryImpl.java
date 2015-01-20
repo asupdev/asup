@@ -116,7 +116,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 				return null;
 
 			R record = null;
-			if (wrapper.isAssignableFrom(QDataStruct.class))
+			if (QDataStruct.class.isAssignableFrom(wrapper))
 				record = (R) this.dataFactory.createDataStruct((Class<QDataStruct>) wrapper, 0, true);
 			else
 				throw new IntegratedLanguageDataRuntimeException("Invalid record class: "+wrapper);
@@ -149,7 +149,7 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 				return null;
 
 			R record = null;
-			if (wrapper.isAssignableFrom(QDataStruct.class))
+			if (QDataStruct.class.isAssignableFrom(wrapper))
 				record = (R) this.dataFactory.createDataStruct((Class<QDataStruct>) wrapper, 0, true);
 			else
 				throw new IntegratedLanguageDataRuntimeException("Invalid record class: "+wrapper);

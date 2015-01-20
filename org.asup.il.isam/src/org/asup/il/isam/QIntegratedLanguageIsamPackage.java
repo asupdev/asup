@@ -85,6 +85,61 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int DATA_SET_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.isam.impl.FileTermImpl <em>File Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.impl.FileTermImpl
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getFileTerm()
+	 * @generated
+	 */
+	int FILE_TERM = 4;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_TERM__FACETS = QIntegratedLanguageCorePackage.TERM__FACETS;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_TERM__FILE_NAME = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Record</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_TERM__RECORD = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>User Open</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_TERM__USER_OPEN = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>File Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_TERM_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.isam.impl.DataSetTermImpl <em>Data Set Term</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,16 +156,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM__FACETS = QIntegratedLanguageCorePackage.TERM__FACETS;
-
-	/**
-	 * The feature id for the '<em><b>Access Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SET_TERM__ACCESS_MODE = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 0;
+	int DATA_SET_TERM__FACETS = FILE_TERM__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>File Name</b></em>' attribute.
@@ -119,34 +165,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM__FILE_NAME = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Format Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SET_TERM__FORMAT_NAME = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Keyed Access</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SET_TERM__KEYED_ACCESS = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SET_TERM__PREFIX = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 4;
+	int DATA_SET_TERM__FILE_NAME = FILE_TERM__FILE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Record</b></em>' containment reference.
@@ -155,7 +174,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM__RECORD = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 5;
+	int DATA_SET_TERM__RECORD = FILE_TERM__RECORD;
 
 	/**
 	 * The feature id for the '<em><b>User Open</b></em>' attribute.
@@ -164,7 +183,43 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM__USER_OPEN = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 6;
+	int DATA_SET_TERM__USER_OPEN = FILE_TERM__USER_OPEN;
+
+	/**
+	 * The feature id for the '<em><b>Access Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SET_TERM__ACCESS_MODE = FILE_TERM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Format Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SET_TERM__FORMAT_NAME = FILE_TERM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Keyed Access</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SET_TERM__KEYED_ACCESS = FILE_TERM_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SET_TERM__PREFIX = FILE_TERM_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Data Set Term</em>' class.
@@ -173,7 +228,81 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SET_TERM_FEATURE_COUNT = QIntegratedLanguageCorePackage.TERM_FEATURE_COUNT + 7;
+	int DATA_SET_TERM_FEATURE_COUNT = FILE_TERM_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.isam.QDisplay <em>Display</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.QDisplay
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getDisplay()
+	 * @generated
+	 */
+	int DISPLAY = 2;
+
+	/**
+	 * The number of structural features of the '<em>Display</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.isam.impl.DisplayTermImpl <em>Display Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.impl.DisplayTermImpl
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getDisplayTerm()
+	 * @generated
+	 */
+	int DISPLAY_TERM = 3;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_TERM__FACETS = FILE_TERM__FACETS;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_TERM__FILE_NAME = FILE_TERM__FILE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Record</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_TERM__RECORD = FILE_TERM__RECORD;
+
+	/**
+	 * The feature id for the '<em><b>User Open</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_TERM__USER_OPEN = FILE_TERM__USER_OPEN;
+
+	/**
+	 * The number of structural features of the '<em>Display Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISPLAY_TERM_FEATURE_COUNT = FILE_TERM_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.impl.KeyListTermImpl <em>Key List Term</em>}' class.
@@ -183,7 +312,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyListTerm()
 	 * @generated
 	 */
-	int KEY_LIST_TERM = 2;
+	int KEY_LIST_TERM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -229,7 +358,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKSDataSet()
 	 * @generated
 	 */
-	int KS_DATA_SET = 3;
+	int KS_DATA_SET = 6;
 
 	/**
 	 * The number of structural features of the '<em>KS Data Set</em>' class.
@@ -248,7 +377,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIsamManager()
 	 * @generated
 	 */
-	int ISAM_MANAGER = 6;
+	int ISAM_MANAGER = 9;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.QIsamFactory <em>Isam Factory</em>}' class.
@@ -258,7 +387,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIsamFactory()
 	 * @generated
 	 */
-	int ISAM_FACTORY = 7;
+	int ISAM_FACTORY = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.QIndex <em>Index</em>}' class.
@@ -268,7 +397,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndex()
 	 * @generated
 	 */
-	int INDEX = 4;
+	int INDEX = 7;
 
 	/**
 	 * The number of structural features of the '<em>Index</em>' class.
@@ -287,7 +416,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getIndexColumn()
 	 * @generated
 	 */
-	int INDEX_COLUMN = 5;
+	int INDEX_COLUMN = 8;
 
 	/**
 	 * The number of structural features of the '<em>Index Column</em>' class.
@@ -326,6 +455,80 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int ISAM_FACTORY_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.isam.QPrint <em>Print</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.QPrint
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getPrint()
+	 * @generated
+	 */
+	int PRINT = 11;
+
+	/**
+	 * The number of structural features of the '<em>Print</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.isam.impl.PrintTermImpl <em>Print Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.impl.PrintTermImpl
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getPrintTerm()
+	 * @generated
+	 */
+	int PRINT_TERM = 12;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_TERM__FACETS = FILE_TERM__FACETS;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_TERM__FILE_NAME = FILE_TERM__FILE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Record</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_TERM__RECORD = FILE_TERM__RECORD;
+
+	/**
+	 * The feature id for the '<em><b>User Open</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_TERM__USER_OPEN = FILE_TERM__USER_OPEN;
+
+	/**
+	 * The number of structural features of the '<em>Print Term</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT_TERM_FEATURE_COUNT = FILE_TERM_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.il.isam.QRecord <em>Record</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,7 +536,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getRecord()
 	 * @generated
 	 */
-	int RECORD = 8;
+	int RECORD = 13;
 
 	/**
 	 * The number of structural features of the '<em>Record</em>' class.
@@ -352,16 +555,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getRRDataSet()
 	 * @generated
 	 */
-	int RR_DATA_SET = 9;
-
-	/**
-	 * The number of structural features of the '<em>RR Data Set</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RR_DATA_SET_FEATURE_COUNT = DATA_SET_FEATURE_COUNT + 0;
+	int RR_DATA_SET = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.impl.RecordDefImpl <em>Record Def</em>}' class.
@@ -371,7 +565,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getRecordDef()
 	 * @generated
 	 */
-	int RECORD_DEF = 10;
+	int RECORD_DEF = 14;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.
@@ -419,13 +613,50 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	int RECORD_DEF__QUALIFIED = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF__QUALIFIED;
 
 	/**
+	 * The feature id for the '<em><b>External Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECORD_DEF__EXTERNAL_NAME = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Record Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD_DEF_FEATURE_COUNT = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 0;
+	int RECORD_DEF_FEATURE_COUNT = QIntegratedLanguageDataPackage.UNARY_COMPOUND_DATA_DEF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>RR Data Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RR_DATA_SET_FEATURE_COUNT = DATA_SET_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.isam.QSMDataSet <em>SM Data Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.isam.QSMDataSet
+	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getSMDataSet()
+	 * @generated
+	 */
+	int SM_DATA_SET = 16;
+
+	/**
+	 * The number of structural features of the '<em>SM Data Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SM_DATA_SET_FEATURE_COUNT = RR_DATA_SET_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.AccessMode <em>Access Mode</em>}' enum.
@@ -435,7 +666,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getAccessMode()
 	 * @generated
 	 */
-	int ACCESS_MODE = 11;
+	int ACCESS_MODE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationDirection <em>Operation Direction</em>}' enum.
@@ -445,7 +676,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationDirection()
 	 * @generated
 	 */
-	int OPERATION_DIRECTION = 12;
+	int OPERATION_DIRECTION = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationSet <em>Operation Set</em>}' enum.
@@ -455,7 +686,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationSet()
 	 * @generated
 	 */
-	int OPERATION_SET = 13;
+	int OPERATION_SET = 19;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.isam.OperationRead <em>Operation Read</em>}' enum.
@@ -465,7 +696,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getOperationRead()
 	 * @generated
 	 */
-	int OPERATION_READ = 14;
+	int OPERATION_READ = 20;
 
 	/**
 	 * The meta object id for the '<em>Key List</em>' data type.
@@ -474,7 +705,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getKeyList()
 	 * @generated
 	 */
-	int KEY_LIST = 15;
+	int KEY_LIST = 21;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QDataSet <em>Data Set</em>}'.
@@ -506,17 +737,6 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataSetTerm_AccessMode();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QDataSetTerm#getFileName <em>File Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>File Name</em>'.
-	 * @see org.asup.il.isam.QDataSetTerm#getFileName()
-	 * @see #getDataSetTerm()
-	 * @generated
-	 */
-	EAttribute getDataSetTerm_FileName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QDataSetTerm#getFormatName <em>Format Name</em>}'.
@@ -552,26 +772,67 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	EAttribute getDataSetTerm_Prefix();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}'.
+	 * Returns the meta object for class '{@link org.asup.il.isam.QDisplay <em>Display</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Display</em>'.
+	 * @see org.asup.il.isam.QDisplay
+	 * @generated
+	 */
+	EClass getDisplay();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QDisplayTerm <em>Display Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Display Term</em>'.
+	 * @see org.asup.il.isam.QDisplayTerm
+	 * @generated
+	 */
+	EClass getDisplayTerm();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QFileTerm <em>File Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>File Term</em>'.
+	 * @see org.asup.il.isam.QFileTerm
+	 * @generated
+	 */
+	EClass getFileTerm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QFileTerm#getFileName <em>File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Name</em>'.
+	 * @see org.asup.il.isam.QFileTerm#getFileName()
+	 * @see #getFileTerm()
+	 * @generated
+	 */
+	EAttribute getFileTerm_FileName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.il.isam.QFileTerm#getRecord <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Record</em>'.
-	 * @see org.asup.il.isam.QDataSetTerm#getRecord()
-	 * @see #getDataSetTerm()
+	 * @see org.asup.il.isam.QFileTerm#getRecord()
+	 * @see #getFileTerm()
 	 * @generated
 	 */
-	EReference getDataSetTerm_Record();
+	EReference getFileTerm_Record();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QDataSetTerm#isUserOpen <em>User Open</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QFileTerm#isUserOpen <em>User Open</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>User Open</em>'.
-	 * @see org.asup.il.isam.QDataSetTerm#isUserOpen()
-	 * @see #getDataSetTerm()
+	 * @see org.asup.il.isam.QFileTerm#isUserOpen()
+	 * @see #getFileTerm()
 	 * @generated
 	 */
-	EAttribute getDataSetTerm_UserOpen();
+	EAttribute getFileTerm_UserOpen();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QKeyListTerm <em>Key List Term</em>}'.
@@ -636,6 +897,26 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	EClass getIsamFactory();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QPrint <em>Print</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Print</em>'.
+	 * @see org.asup.il.isam.QPrint
+	 * @generated
+	 */
+	EClass getPrint();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QPrintTerm <em>Print Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Print Term</em>'.
+	 * @see org.asup.il.isam.QPrintTerm
+	 * @generated
+	 */
+	EClass getPrintTerm();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QRecord <em>Record</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -656,6 +937,16 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	EClass getRRDataSet();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.il.isam.QSMDataSet <em>SM Data Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>SM Data Set</em>'.
+	 * @see org.asup.il.isam.QSMDataSet
+	 * @generated
+	 */
+	EClass getSMDataSet();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QRecordDef <em>Record Def</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -664,6 +955,17 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRecordDef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.isam.QRecordDef#getExternalName <em>External Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>External Name</em>'.
+	 * @see org.asup.il.isam.QRecordDef#getExternalName()
+	 * @see #getRecordDef()
+	 * @generated
+	 */
+	EAttribute getRecordDef_ExternalName();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.isam.QIndex <em>Index</em>}'.
@@ -786,14 +1088,6 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		EAttribute DATA_SET_TERM__ACCESS_MODE = eINSTANCE.getDataSetTerm_AccessMode();
 
 		/**
-		 * The meta object literal for the '<em><b>File Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_SET_TERM__FILE_NAME = eINSTANCE.getDataSetTerm_FileName();
-
-		/**
 		 * The meta object literal for the '<em><b>Format Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -818,12 +1112,50 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		EAttribute DATA_SET_TERM__PREFIX = eINSTANCE.getDataSetTerm_Prefix();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.QDisplay <em>Display</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.QDisplay
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getDisplay()
+		 * @generated
+		 */
+		EClass DISPLAY = eINSTANCE.getDisplay();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.impl.DisplayTermImpl <em>Display Term</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.impl.DisplayTermImpl
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getDisplayTerm()
+		 * @generated
+		 */
+		EClass DISPLAY_TERM = eINSTANCE.getDisplayTerm();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.impl.FileTermImpl <em>File Term</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.impl.FileTermImpl
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getFileTerm()
+		 * @generated
+		 */
+		EClass FILE_TERM = eINSTANCE.getFileTerm();
+
+		/**
+		 * The meta object literal for the '<em><b>File Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILE_TERM__FILE_NAME = eINSTANCE.getFileTerm_FileName();
+
+		/**
 		 * The meta object literal for the '<em><b>Record</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DATA_SET_TERM__RECORD = eINSTANCE.getDataSetTerm_Record();
+		EReference FILE_TERM__RECORD = eINSTANCE.getFileTerm_Record();
 
 		/**
 		 * The meta object literal for the '<em><b>User Open</b></em>' attribute feature.
@@ -831,7 +1163,7 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DATA_SET_TERM__USER_OPEN = eINSTANCE.getDataSetTerm_UserOpen();
+		EAttribute FILE_TERM__USER_OPEN = eINSTANCE.getFileTerm_UserOpen();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.impl.KeyListTermImpl <em>Key List Term</em>}' class.
@@ -890,6 +1222,26 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		EClass ISAM_FACTORY = eINSTANCE.getIsamFactory();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.QPrint <em>Print</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.QPrint
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getPrint()
+		 * @generated
+		 */
+		EClass PRINT = eINSTANCE.getPrint();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.impl.PrintTermImpl <em>Print Term</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.impl.PrintTermImpl
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getPrintTerm()
+		 * @generated
+		 */
+		EClass PRINT_TERM = eINSTANCE.getPrintTerm();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.QRecord <em>Record</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -910,6 +1262,16 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		EClass RR_DATA_SET = eINSTANCE.getRRDataSet();
 
 		/**
+		 * The meta object literal for the '{@link org.asup.il.isam.QSMDataSet <em>SM Data Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.isam.QSMDataSet
+		 * @see org.asup.il.isam.impl.IntegratedLanguageIsamPackageImpl#getSMDataSet()
+		 * @generated
+		 */
+		EClass SM_DATA_SET = eINSTANCE.getSMDataSet();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.impl.RecordDefImpl <em>Record Def</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -918,6 +1280,14 @@ public interface QIntegratedLanguageIsamPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECORD_DEF = eINSTANCE.getRecordDef();
+
+		/**
+		 * The meta object literal for the '<em><b>External Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECORD_DEF__EXTERNAL_NAME = eINSTANCE.getRecordDef_ExternalName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.isam.QIndex <em>Index</em>}' class.

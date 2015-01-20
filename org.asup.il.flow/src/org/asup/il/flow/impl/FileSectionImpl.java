@@ -15,7 +15,9 @@ import org.asup.il.esql.QStatementTerm;
 import org.asup.il.flow.QFileSection;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.il.isam.QPrintTerm;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -34,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getKeyLists <em>Key Lists</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getCursors <em>Cursors</em>}</li>
  *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getDisplays <em>Displays</em>}</li>
+ *   <li>{@link org.asup.il.flow.impl.FileSectionImpl#getPrinters <em>Printers</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +81,25 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 	 * @ordered
 	 */
 	protected EList<QStatementTerm> statements;
+
+	/**
+	 * The cached value of the '{@link #getDisplays() <em>Displays</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisplays()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QDisplayTerm> displays;
+	/**
+	 * The cached value of the '{@link #getPrinters() <em>Printers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrinters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<QPrintTerm> printers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +173,30 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public List<QDisplayTerm> getDisplays() {
+		if (displays == null) {
+			displays = new EObjectContainmentEList<QDisplayTerm>(QDisplayTerm.class, this, QIntegratedLanguageFlowPackage.FILE_SECTION__DISPLAYS);
+		}
+		return displays;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<QPrintTerm> getPrinters() {
+		if (printers == null) {
+			printers = new EObjectContainmentEList<QPrintTerm>(QPrintTerm.class, this, QIntegratedLanguageFlowPackage.FILE_SECTION__PRINTERS);
+		}
+		return printers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -161,6 +208,10 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				return ((InternalEList<?>)getCursors()).basicRemove(otherEnd, msgs);
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
 				return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__DISPLAYS:
+				return ((InternalEList<?>)getDisplays()).basicRemove(otherEnd, msgs);
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__PRINTERS:
+				return ((InternalEList<?>)getPrinters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,6 +232,10 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				return getCursors();
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
 				return getStatements();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__DISPLAYS:
+				return getDisplays();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__PRINTERS:
+				return getPrinters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +265,14 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				getStatements().clear();
 				getStatements().addAll((Collection<? extends QStatementTerm>)newValue);
 				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__DISPLAYS:
+				getDisplays().clear();
+				getDisplays().addAll((Collection<? extends QDisplayTerm>)newValue);
+				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__PRINTERS:
+				getPrinters().clear();
+				getPrinters().addAll((Collection<? extends QPrintTerm>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -234,6 +297,12 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
 				getStatements().clear();
 				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__DISPLAYS:
+				getDisplays().clear();
+				return;
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__PRINTERS:
+				getPrinters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -254,6 +323,10 @@ public class FileSectionImpl extends UnitSectionImpl implements QFileSection {
 				return cursors != null && !cursors.isEmpty();
 			case QIntegratedLanguageFlowPackage.FILE_SECTION__STATEMENTS:
 				return statements != null && !statements.isEmpty();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__DISPLAYS:
+				return displays != null && !displays.isEmpty();
+			case QIntegratedLanguageFlowPackage.FILE_SECTION__PRINTERS:
+				return printers != null && !printers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
