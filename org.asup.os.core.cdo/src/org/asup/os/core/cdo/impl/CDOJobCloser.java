@@ -47,7 +47,7 @@ public class CDOJobCloser extends Thread {
 			CDOQuery query = jobManager.getTransaction().createQuery("sql", queryString.toString());
 		    
 		    //query.setParameter("end", JobStatus.END_VALUE);
-			query.setParameter("end", JobStatus.ACTIVE_VALUE);
+			query.setParameter("end", JobStatus.END_VALUE);
 		    
 			CloseableIterator<QJob> jobs = query.getResultAsync(QJob.class);		
 			while(jobs.hasNext()) {
