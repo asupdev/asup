@@ -62,6 +62,12 @@ public class JDTProcedureWriter extends JDTCallableUnitWriter {
 		if (procedure.getDataSection() != null)
 			writeDataFields(procedure.getDataSection());
 
+		if (procedure.getFileSection() != null)
+			writeDisplays(procedure.getFileSection().getDisplays());
+
+		if (procedure.getFileSection() != null)
+			writePrinters(procedure.getFileSection().getPrinters());
+
 		// labels
 		writeLabels(callableUnitInfo.getLabels().keySet());
 

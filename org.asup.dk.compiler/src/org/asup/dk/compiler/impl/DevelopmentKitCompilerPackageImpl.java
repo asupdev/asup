@@ -432,6 +432,10 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageIsamPackage.getDisplayTerm(), "getDisplay", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(compilationUnitEClass, theIntegratedLanguageIsamPackage.getKeyListTerm(), "getKeyList", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -441,6 +445,10 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(compilationUnitEClass, theIntegratedLanguageCorePackage.getNamedNode(), "getNamedNode", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(compilationUnitEClass, theIntegratedLanguageIsamPackage.getPrintTerm(), "getPrinter", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "deep", 0, 1, IS_UNIQUE, IS_ORDERED);
 

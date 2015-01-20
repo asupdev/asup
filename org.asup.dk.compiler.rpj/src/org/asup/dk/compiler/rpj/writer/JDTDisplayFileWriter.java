@@ -13,15 +13,19 @@
 package org.asup.dk.compiler.rpj.writer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
-import org.asup.il.data.QDataStructWrapper;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QDataTerm;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
+import org.asup.il.isam.QIntegratedLanguageIsamFactory;
+import org.asup.il.isam.QRecordDef;
 import org.asup.os.type.file.QDisplayFile;
-import org.asup.os.type.file.QDisplayFileFormat;
+import org.asup.os.type.file.QFileFormat;
+import org.asup.os.type.file.QFileFormatField;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jdt.core.dom.Modifier;
 
 public class JDTDisplayFileWriter extends JDTNamedNodeWriter {
@@ -37,14 +41,23 @@ public class JDTDisplayFileWriter extends JDTNamedNodeWriter {
 	}
 
 	public void writeDisplayFile(QDisplayFile displayFile) throws IOException {
+		
+		for (QFileFormat<?> fileFormat : displayFile.getFileFormats()) {
 
-		for (QDisplayFileFormat displayFileFormat : displayFile.getDisplayFormats()) {
-
-			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
-			elements.addAll(displayFileFormat.getFields());
-
-			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), displayFileFormat.getName(), QDataStructWrapper.class, true);
-			dataStructureWriter.writeElements(elements);
+			QCompoundDataTerm<QRecordDef> formatTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
+			formatTerm.setName(fileFormat.getName());
+							
+			QRecordDef formatDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
+			for (QFileFormatField field : fileFormat.getFields()) {
+				formatDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject)field));
+			}
+			formatTerm.setDefinition(formatDef);
+			
+			writePublicField(formatTerm, false);
+			writeInnerTerm(formatTerm);
+			
+//			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), displayFile.getName(), QRecordWrapper.class, false);
+//			dataStructureWriter.writeDataStructure(displayDef);
 		}
 
 	}

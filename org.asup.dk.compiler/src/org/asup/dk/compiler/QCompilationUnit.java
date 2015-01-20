@@ -18,7 +18,9 @@ import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.il.isam.QPrintTerm;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,6 +119,14 @@ public interface QCompilationUnit extends QContextProvider {
 	 * @model required="true" nameRequired="true"
 	 * @generated
 	 */
+	QDisplayTerm getDisplay(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
 	QKeyListTerm getKeyList(String name, boolean deep);
 
 	/**
@@ -134,6 +144,14 @@ public interface QCompilationUnit extends QContextProvider {
 	 * @generated
 	 */
 	QNamedNode getNamedNode(String name, boolean deep);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 * @generated
+	 */
+	QPrintTerm getPrinter(String name, boolean deep);
 
 	/**
 	 * <!-- begin-user-doc -->

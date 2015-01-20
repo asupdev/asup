@@ -182,7 +182,14 @@ public class BlockExpressionImpl extends ExpressionImpl implements QBlockExpress
 	 * @generated NOT
 	 */
 	public void accept(QExpressionVisitor visitor) {
-		visitor.visit(this);
+		
+		if(visitor.visit(this)) {
+			
+			if(getExpression() != null)
+				getExpression().accept(visitor);
+		}
+		
+		visitor.endVisit(this);
 	}
 
 	@Override

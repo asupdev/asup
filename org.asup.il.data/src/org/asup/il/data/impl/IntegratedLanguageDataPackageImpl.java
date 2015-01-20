@@ -2595,6 +2595,12 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(characterEClass, null, "eval", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEByte(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(characterEClass, ecorePackage.getEBoolean(), "ge", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHexadecimal(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(characterEClass, ecorePackage.getEBoolean(), "le", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getHexadecimal(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(characterDefEClass, QCharacterDef.class, "CharacterDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCharacterDef_Length(), ecorePackage.getEInt(), "length", null, 1, 1, QCharacterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCharacterDef_Varying(), ecorePackage.getEBoolean(), "varying", null, 0, 1, QCharacterDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3183,7 +3189,9 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(datetimeEClass, null, "eval", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(datetimeEClass, ecorePackage.getELong(), "getTime", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(datetimeEClass, ecorePackage.getELong(), "asTime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(datetimeEClass, ecorePackage.getELong(), "t", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(datetimeDefEClass, QDatetimeDef.class, "DatetimeDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDatetimeDef_Type(), this.getDatetimeType(), "type", null, 1, 1, QDatetimeDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3260,6 +3268,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		initEClass(indicatorEClass, QIndicator.class, "Indicator", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(indicatorEClass, ecorePackage.getEBoolean(), "asBoolean", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(indicatorEClass, ecorePackage.getEBoolean(), "b", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(indicatorEClass, ecorePackage.getEBoolean(), "eq", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);

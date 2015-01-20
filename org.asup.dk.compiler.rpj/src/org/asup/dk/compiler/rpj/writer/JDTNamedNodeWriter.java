@@ -54,7 +54,7 @@ import org.asup.il.data.QUnaryCompoundDataTerm;
 import org.asup.il.data.QUnaryDataTerm;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Special;
-import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QRecordDef;
 import org.asup.il.isam.QRecordWrapper;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
@@ -165,12 +165,12 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		getTarget().bodyDeclarations().add(field);
 	}
 
-	public void writeInnerRecord(QDataSetTerm dataSet) throws IOException {
+	public void writeInnerRecord(String name, QRecordDef recordDef) throws IOException {
 		QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
-		JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(dataSet.getFileName()),
-				QRecordWrapper.class, true);
-		dataStructureWriter.writeDataStructure(dataSet.getRecord());
+		JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), compilationSetup, getCompilationUnit().normalizeTypeName(name), QRecordWrapper.class,
+				true);
+		dataStructureWriter.writeDataStructure(recordDef);
 
 	}
 
@@ -374,7 +374,13 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		 * 
 		 * }
 		 */
-		else if (QDataStructDef.class.isAssignableFrom(klassDef)) {
+		else if (QRecordDef.class.isAssignableFrom(klassDef)) {
+			QRecordDef recordDef = (QRecordDef) dataDef;
+
+			if (recordDef.isQualified())
+				writeAnnotation(node, DataDef.class, "qualified", recordDef.isQualified());
+
+		} else if (QDataStructDef.class.isAssignableFrom(klassDef)) {
 			QDataStructDef dataStructureDef = (QDataStructDef) dataDef;
 
 			if (dataStructureDef.isQualified())
@@ -596,7 +602,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			compilerLinker = dataTerm.getFacet(QCompilerLinker.class);
 			if (compilerLinker != null) {
 
-				Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
+				Class<?> linkedClass = compilerLinker.getLinkedClass();
 
 				if (isOverridden(unaryCompoundDataTerm)) {
 					String qualifiedName = getCompilationUnit().getQualifiedName(dataTerm);

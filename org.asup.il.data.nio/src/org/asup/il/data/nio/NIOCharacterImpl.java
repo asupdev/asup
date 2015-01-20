@@ -230,8 +230,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void cat(QString factor1, QString factor2) {
-		// TODO Auto-generated method stub
-		
+		eval(factor1.asString()+factor2.asString());
 	}
 
 	@Override
@@ -402,6 +401,8 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 			return "";
 		else if(value.name().equals("BLANK"))
 			return "";
+		else if(value.name().equals("HIVAL"))
+			return "1";
 		else if(value.name().equals("LOVAL"))
 			return "";
 		else if(value.name().equals("ON"))
@@ -453,5 +454,17 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	public void xlate(byte from, String to, QString target) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public boolean ge(QHexadecimal value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean le(QHexadecimal value) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

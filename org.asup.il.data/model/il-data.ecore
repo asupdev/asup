@@ -140,6 +140,12 @@
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
     </eOperations>
+    <eOperations name="ge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" lowerBound="1" eType="#//Hexadecimal"/>
+    </eOperations>
+    <eOperations name="le" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" lowerBound="1" eType="#//Hexadecimal"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CharacterDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" lowerBound="1"
@@ -831,7 +837,8 @@
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
-    <eOperations name="getTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eOperations name="asTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eOperations name="t" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatetimeDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DatetimeType"/>
@@ -963,6 +970,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Indicator" abstract="true" interface="true"
       eSuperTypes="#//String">
     <eOperations name="asBoolean" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="b" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>

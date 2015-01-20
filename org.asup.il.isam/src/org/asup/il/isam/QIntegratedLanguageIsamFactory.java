@@ -36,6 +36,15 @@ public interface QIntegratedLanguageIsamFactory extends EFactory {
 	QDataSetTerm createDataSetTerm();
 
 	/**
+	 * Returns a new object of class '<em>Display Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Display Term</em>'.
+	 * @generated
+	 */
+	QDisplayTerm createDisplayTerm();
+
+	/**
 	 * Returns a new object of class '<em>Key List Term</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43,6 +52,15 @@ public interface QIntegratedLanguageIsamFactory extends EFactory {
 	 * @generated
 	 */
 	QKeyListTerm createKeyListTerm();
+
+	/**
+	 * Returns a new object of class '<em>Print Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Print Term</em>'.
+	 * @generated
+	 */
+	QPrintTerm createPrintTerm();
 
 	/**
 	 * Returns a new object of class '<em>Record Def</em>'.

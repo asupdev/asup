@@ -314,7 +314,17 @@ public class ArithmeticExpressionImpl extends ExpressionImpl implements QArithme
 	 * @generated NOT
 	 */
 	public void accept(QExpressionVisitor visitor) {
-		visitor.visit(this);
+		
+		if(visitor.visit(this)) {
+			
+			if(getLeftOperand() != null)
+				getLeftOperand().accept(visitor);
+			
+			if(getRightOperand() != null)
+				getRightOperand().accept(visitor);			
+		}
+		
+		visitor.endVisit(this);
 	}
 
 	/**

@@ -11,6 +11,7 @@ package org.asup.os.type.pgm.base;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -36,12 +37,14 @@ import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.annotation.DataDef;
+import org.asup.il.data.annotation.Program;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
 import org.asup.il.isam.QKSDataSet;
 import org.asup.il.isam.QRecord;
-import org.asup.il.isam.annotation.DataSetDef;
+import org.asup.il.isam.QSMDataSet;
+import org.asup.il.isam.annotation.FileDef;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
@@ -78,7 +81,12 @@ public class BaseCallableInjector {
 
 		try {
 			Map<String, Object> sharedModules = new HashMap<>();
-			callable = injectData(klass, dataFactory, job, activationGroup, sharedModules);
+			try {
+				callable = injectData(klass, dataFactory, job, activationGroup, sharedModules);
+			} catch (IllegalArgumentException | SecurityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} catch (InstantiationException | IllegalAccessException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}
@@ -216,6 +224,36 @@ public class BaseCallableInjector {
 			field.setAccessible(false);
 		}
 
+		try {
+			Field £mubField = callable.getClass().getDeclaredField("£mub");
+			if (£mubField != null) {
+				try {
+					£mubField.setAccessible(true);
+
+					Object £mub = £mubField.get(callable);
+					Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
+
+					Object £pdsnp = £mu_£pds_1.getClass().getField("£pdsnp").get(£mu_£pds_1);
+//					if (£pdsnp.toString().trim().isEmpty()) {
+						String programName = callable.getClass().getSimpleName();
+						Program program = callable.getClass().getAnnotation(Program.class);
+						if (program != null)
+							programName = program.name();
+
+						£pdsnp.getClass().getMethod("eval", String.class).invoke(£pdsnp, new Object[] { programName });
+					
+				} catch (NoSuchFieldException | InvocationTargetException | NoSuchMethodException e) {
+					e.printStackTrace();
+				} finally {
+					£mubField.setAccessible(false);
+				}
+			}
+
+		} catch (NoSuchFieldException | SecurityException e1) {
+			// TODO Auto-generated catch block
+			// e1.printStackTrace();
+		}
+
 		jobContext.invoke(callable, PostConstruct.class);
 
 		return callable;
@@ -230,7 +268,7 @@ public class BaseCallableInjector {
 			job.getContext().set(QIsamFactory.class, isamFactory);
 		}
 
-		DataSetDef fileDef = field.getAnnotation(DataSetDef.class);
+		FileDef fileDef = field.getAnnotation(FileDef.class);
 		if (fileDef != null) {
 
 			QDataSet<QRecord> dataSet = null;
@@ -239,6 +277,9 @@ public class BaseCallableInjector {
 			if (file == null)
 				file = fileReader.lookup(fileDef.name());
 
+			if (file == null)
+				file = fileReader.lookup(recordKlass.getSimpleName());
+			
 			if (file == null) {
 				System.err.println("File not found: " + fileDef.name());
 				return;
@@ -246,6 +287,8 @@ public class BaseCallableInjector {
 
 			if (QKSDataSet.class.isAssignableFrom(fieldKlass)) {
 				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), recordKlass);
+			} else if (QSMDataSet.class.isAssignableFrom(fieldKlass)) {
+				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass);
 			} else {
 				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass);
 			}

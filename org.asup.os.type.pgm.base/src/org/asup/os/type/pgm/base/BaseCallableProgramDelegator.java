@@ -49,29 +49,41 @@ public class BaseCallableProgramDelegator extends CallableProgramImpl implements
 	@Override
 	public QData[] call() {
 		try {
-			
-			QData[] params = getQEntry();
-			
-			if (params != null) {
-				
-				try {
-					Field £mubField = delegate.getClass().getField("£mub");
-					Object £mub = £mubField.get(delegate);
-					Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
-					Object £pdspr = £mu_£pds_1.getClass().getField("£pdspr").get(£mu_£pds_1);
-					£pdspr.getClass().getMethod("eval", Integer.TYPE).invoke(£pdspr, new Object[] { params.length });
-				} catch (NoSuchFieldException e) {
-				}
 
+			QData[] params = getQEntry();
+
+			if (params != null) {
+
+				try {
+					Field £mubField = delegate.getClass().getDeclaredField("£mub");
+					if (£mubField != null) {
+						try {
+							£mubField.setAccessible(true);
+
+							Object £mub = £mubField.get(delegate);
+							Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
+
+							Object £pdspr = £mu_£pds_1.getClass().getField("£pdspr").get(£mu_£pds_1);
+							£pdspr.getClass().getMethod("eval", Integer.TYPE).invoke(£pdspr, new Object[] { params.length });
+
+						} catch (NoSuchFieldException e) {
+							e.printStackTrace();
+						} finally {
+							£mubField.setAccessible(false);
+						}
+					}
+				} catch (Exception e) {
+
+				}
 				if (getQEntry().length > 0) {
-					this.entry.invoke(delegate, (Object[]) params);					
+					this.entry.invoke(delegate, (Object[]) params);
 				} else
 					this.entry.invoke(delegate, (Object[]) params);
-//					this.entry.invoke(delegate, new Object[] {});
-				
+				// this.entry.invoke(delegate, new Object[] {});
+
 			} else
 				this.entry.invoke(delegate, new Object[0]);
-			
+
 			return params;
 		} catch (InvocationTargetException e) {
 			throw new OperatingSystemRuntimeException(e.getTargetException());

@@ -40,7 +40,10 @@ import org.asup.il.flow.QProcedure;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
+import org.asup.il.isam.QFileTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.il.isam.QPrintTerm;
 import org.asup.os.type.file.QExternalFile;
 import org.eclipse.emf.ecore.EObject;
 
@@ -56,6 +59,8 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	private List<QKeyListTerm> keyLists;
 	private List<QCursorTerm> cursors;
 	private List<QStatementTerm> statements;
+	private List<QDisplayTerm> displays;
+	private List<QPrintTerm> printers;
 	private List<QRoutine> routines;
 	private List<QProcedure> procedures;
 	private List<QPrototype<?>> prototypes;
@@ -79,6 +84,8 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 				keyLists = callableUnit.getFileSection().getKeyLists();
 				cursors = callableUnit.getFileSection().getCursors();
 				statements = callableUnit.getFileSection().getStatements();
+				displays = callableUnit.getFileSection().getDisplays();
+				printers = callableUnit.getFileSection().getPrinters();
 			}
 
 			if (callableUnit.getFlowSection() != null) {
@@ -96,6 +103,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			cursors = new ArrayList<QCursorTerm>();
 		if (statements == null)
 			statements = new ArrayList<QStatementTerm>();
+		if (displays == null)
+			displays = new ArrayList<QDisplayTerm>();
+		if (printers == null)
+			printers = new ArrayList<QPrintTerm>();
 		if (routines == null)
 			routines = new ArrayList<QRoutine>();
 		if (procedures == null)
@@ -172,7 +183,11 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (dataTerm != null)
 			return dataTerm;
 
-		// deep search by prefix
+		// search on dataTermContainer
+		if (dataTerm == null && ((QCallableUnit) getRoot()).getDataSection() != null)
+			dataTerm = findData(((QCallableUnit) getRoot()).getDataSection().getDatas(), name, null, 0);
+
+		// deep search on module
 		if (dataTerm == null && deep) {
 
 			for (QCompilationUnit compilationUnit : compilationUnits) {
@@ -183,52 +198,6 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 						break;
 				}
 			}
-		}
-
-		// search on dataTermContainer
-		if (dataTerm == null && ((QCallableUnit) getRoot()).getDataSection() != null)
-			dataTerm = findData(((QCallableUnit) getRoot()).getDataSection().getDatas(), name, null, 0);
-
-		// search on primary dataSet
-		if (dataTerm == null) {
-			
-			List<QDataSetTerm> renamedDataSet = new ArrayList<QDataSetTerm>();
-			for (QDataSetTerm dataSetTerm : dataSets) {
-
-				QExternalFile externalFile = dataSetTerm.getFacet(QExternalFile.class);
-									
-				if (externalFile == null && dataSetTerm.getFormatName() != null && !dataSetTerm.getFormatName().isEmpty()) {
-					renamedDataSet.add(dataSetTerm);
-					continue;
-				}
-				
-				if(externalFile != null && externalFile.getFormat() == null)
-					continue;
-
-				if (externalFile != null && !externalFile.getFormat().equals(dataSetTerm.getFormatName())) {
-					renamedDataSet.add(dataSetTerm);
-					continue;
-				}
-				
-				dataTerm = findDataTerm(dataSetTerm, name);
-
-				if (dataTerm != null)
-					break;
-			}
-
-			// search on renamed dataSet
-			if(dataTerm == null) {
-				for (QDataSetTerm dataSetTerm : renamedDataSet) {
-					
-					dataTerm = findDataTerm(dataSetTerm, name);
-					if (dataTerm != null)
-						break;
-				}
-			}
-		}
-
-		// deep search
-		if (dataTerm == null && deep) {
 
 			if (dataTerm == null) {
 				for (QCompilationUnit compilationUnit : compilationUnits) {
@@ -243,15 +212,126 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			}
 		}
 
+		// search on dataSet
+		if (dataTerm == null) {
+
+			List<QDataSetTerm> renamedFiles = new ArrayList<QDataSetTerm>();
+
+			for (QDataSetTerm dataSetTerm : dataSets) {
+
+				QExternalFile externalFile = dataSetTerm.getFacet(QExternalFile.class);
+
+				if (externalFile == null && dataSetTerm.getFormatName() != null && !dataSetTerm.getFormatName().isEmpty()) {
+					renamedFiles.add(dataSetTerm);
+					continue;
+				}
+
+				if (externalFile != null && !externalFile.getFormat().equals(dataSetTerm.getFormatName())) {
+					renamedFiles.add(dataSetTerm);
+					continue;
+				}
+
+				// search on primary dataSet
+				dataTerm = findDataTerm(dataSetTerm.getRecord(), name);
+
+				if (dataTerm != null)
+					break;
+			}
+
+			// search on renamed dataSet
+			if (dataTerm == null) {
+				for (QDataSetTerm dataSetTerm : renamedFiles) {
+
+					dataTerm = findDataTerm(dataSetTerm.getRecord(), name);
+					if (dataTerm != null)
+						break;
+				}
+			}
+
+		}
+
+		// search on display
+		if (dataTerm == null) {
+			for (QDisplayTerm displayTerm : displays) {
+
+				dataTerm = findDataTerm(displayTerm.getRecord(), name);
+				if (dataTerm != null)
+					break;
+			}
+		}
+
+		// search on printers
+		if (dataTerm == null) {
+			for (QPrintTerm printTerm : printers) {
+
+				dataTerm = findDataTerm(printTerm.getRecord(), name);
+				if (dataTerm != null)
+					break;
+			}
+		}
+
 		if (dataTerm != null)
 			cachedTerms.put(name, dataTerm);
 
 		return dataTerm;
 	}
 
-	private QDataTerm<?> findDataTerm(QDataSetTerm dataSetTerm, String name) {
-		
-		QCompoundDataDef<?> compoundDataDef = dataSetTerm.getRecord();
+	@Override
+	public QDisplayTerm getDisplay(String name, boolean deep) {
+
+		QDisplayTerm displayTerm = null;
+
+		for (QDisplayTerm d : displays) {
+
+			if (equalsTermName(d.getFileName(), name)) {
+				displayTerm = d;
+				break;
+			}
+
+		}
+
+		// deep search
+		if (displayTerm == null && deep) {
+			for (QCompilationUnit compilationUnit : compilationUnits) {
+				displayTerm = compilationUnit.getDisplay(name, true);
+
+				if (displayTerm != null)
+					break;
+			}
+		}
+
+		return displayTerm;
+	}
+
+	@Override
+	public QPrintTerm getPrinter(String name, boolean deep) {
+
+		QPrintTerm printerTerm = null;
+
+		for (QPrintTerm d : printers) {
+
+			if (equalsTermName(d.getFileName(), name)) {
+				printerTerm = d;
+				break;
+			}
+
+		}
+
+		// deep search
+		if (printerTerm == null && deep) {
+			for (QCompilationUnit compilationUnit : compilationUnits) {
+				printerTerm = compilationUnit.getPrinter(name, true);
+
+				if (printerTerm != null)
+					break;
+			}
+		}
+
+		return printerTerm;
+	}
+
+	private QDataTerm<?> findDataTerm(QCompoundDataDef<?> compoundDataDef, String name) {
+
 		if (compoundDataDef == null)
 			return null;
 
@@ -272,7 +352,7 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 		return dataTerm;
 	}
-	
+
 	@Override
 	public QProcedure getProcedure(String name, boolean deep) {
 
@@ -505,6 +585,10 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			// file
 			case 'F':
 				namedNode = getDataSet(name, deep);
+				if (namedNode == null)
+					namedNode = getDisplay(name, deep);
+				if (namedNode == null)
+					namedNode = getPrinter(name, deep);
 				break;
 			// keyList
 			case 'K':
@@ -533,7 +617,7 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 
 			if (node instanceof QMultipleCompoundDataTerm) {
 				name = "current()." + name;
-			} else if (node instanceof QDataSetTerm) {
+			} else if (node instanceof QFileTerm) {
 				name = "get()." + name;
 			} else if (node instanceof QEntry) {
 				name = "qEN." + name;
@@ -559,9 +643,12 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 			String childName = null;
 
 			// remap
-			if (child.getFacet(QRemap.class) != null) {
-				QRemap remap = child.getFacet(QRemap.class);
-				childName = remap.getName();
+			QRemap remap = child.getFacet(QRemap.class);
+			if (remap != null) {
+				if (remap.getIndex() != null && !remap.getIndex().isEmpty())
+					childName = remap.getName();
+				else
+					childName = remap.getName();
 			} else
 				childName = child.getName();
 

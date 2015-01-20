@@ -12,7 +12,9 @@ import java.util.List;
 import org.asup.il.esql.QCursorTerm;
 import org.asup.il.esql.QStatementTerm;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.il.isam.QPrintTerm;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +28,8 @@ import org.asup.il.isam.QKeyListTerm;
  *   <li>{@link org.asup.il.flow.QFileSection#getKeyLists <em>Key Lists</em>}</li>
  *   <li>{@link org.asup.il.flow.QFileSection#getCursors <em>Cursors</em>}</li>
  *   <li>{@link org.asup.il.flow.QFileSection#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.asup.il.flow.QFileSection#getDisplays <em>Displays</em>}</li>
+ *   <li>{@link org.asup.il.flow.QFileSection#getPrinters <em>Printers</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,4 +102,36 @@ public interface QFileSection extends QUnitSection {
 	 * @generated
 	 */
 	List<QStatementTerm> getStatements();
+
+	/**
+	 * Returns the value of the '<em><b>Displays</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.il.isam.QDisplayTerm}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Displays</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Displays</em>' containment reference list.
+	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getFileSection_Displays()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QDisplayTerm> getDisplays();
+
+	/**
+	 * Returns the value of the '<em><b>Printers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.asup.il.isam.QPrintTerm}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Printers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Printers</em>' containment reference list.
+	 * @see org.asup.il.flow.QIntegratedLanguageFlowPackage#getFileSection_Printers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	List<QPrintTerm> getPrinters();
 } // QDataSetSection

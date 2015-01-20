@@ -30,4 +30,20 @@ public interface QCharacter extends QString {
 	 * @generated
 	 */
 	void eval(byte value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	boolean ge(QHexadecimal value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	boolean le(QHexadecimal value);
 }

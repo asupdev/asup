@@ -47,8 +47,10 @@ import org.asup.il.expr.RelationalOperator;
 import org.asup.il.expr.impl.ExpressionVisitorImpl;
 import org.asup.il.flow.QEntryParameter;
 import org.asup.il.flow.QPrototype;
-import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplayTerm;
+import org.asup.il.isam.QFileTerm;
+import org.asup.il.isam.QPrint;
 
 public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 
@@ -208,6 +210,20 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			this.buffer.append("(");
 			this.buffer.append(")");
 		}
+		// display
+		else if (namedNode instanceof QDisplayTerm) {
+			this.buffer.append(compilationUnit.getQualifiedName(namedNode));
+			this.buffer.append(".get");
+			this.buffer.append("(");
+			this.buffer.append(")");
+		}
+		// print
+		else if (namedNode instanceof QPrint) {
+			this.buffer.append(compilationUnit.getQualifiedName(namedNode));
+			this.buffer.append(".get");
+			this.buffer.append("(");
+			this.buffer.append(")");
+		}
 		// prototype
 		else if (namedNode instanceof QPrototype) {
 			QPrototype<?> prototype = (QPrototype<?>) namedNode;
@@ -238,8 +254,8 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 							parameterBuilder.setTarget(dataTerm.getDefinition().getJavaClass());
 						else
 							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());
-					} else if (parameterDelegate instanceof QDataSetTerm) {
-						parameterBuilder.setTarget(QDataSet.class);
+					} else if (parameterDelegate instanceof QFileTerm) {
+						parameterBuilder.setTarget(QFileTerm.class);
 					}
 
 					element.accept(parameterBuilder);
@@ -359,22 +375,21 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 	public boolean visit(QBooleanExpression expression) {
 
 		if (expression.getOperand() != null) {
-			
-			if(expression.getOperand() instanceof QAtomicTermExpression) {
-				
+
+			if (expression.getOperand() instanceof QAtomicTermExpression) {
+
 				QAtomicTermExpression atomicTermExpression = (QAtomicTermExpression) expression.getOperand();
-				if(atomicTermExpression.isSpecial() && !atomicTermExpression.isFunction()) {
-					if(atomicTermExpression.getValue().equalsIgnoreCase("*ON")){
+				if (atomicTermExpression.isSpecial() && !atomicTermExpression.isFunction()) {
+					if (atomicTermExpression.getValue().equalsIgnoreCase("*ON")) {
 						buffer.append("true");
 						return false;
-					}
-					else if(atomicTermExpression.getValue().equalsIgnoreCase("*OFF")){
+					} else if (atomicTermExpression.getValue().equalsIgnoreCase("*OFF")) {
 						buffer.append("false");
-						return false;						
+						return false;
 					}
 				}
 			}
-			
+
 			JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
 			builder.setTarget(Boolean.class);
 			/*
@@ -670,25 +685,19 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append(".i()");
 		} else if (target.isAssignableFrom(Boolean.class)) {
 			buffer.append(value);
-			buffer.append(".asBoolean()");
-		} else if (target.isAssignableFrom(Short.class)) {
-			buffer.append(value);
-			buffer.append(".asShort()");
+			buffer.append(".b()");
 		} else if (target.isAssignableFrom(Long.class)) {
 			buffer.append(value);
 			buffer.append(".l()");
-		} else if (target.isAssignableFrom(Float.class)) {
-			buffer.append(value);
-			buffer.append(".asFloat()");
 		} else if (target.isAssignableFrom(Double.class)) {
 			buffer.append(value);
 			buffer.append(".d()");
 		} else if (target.isAssignableFrom(Date.class)) {
 			buffer.append(value);
-			buffer.append(".asTime()");
+			buffer.append(".t()");
 		} else if (target.isAssignableFrom(Byte.class)) {
 			buffer.append(value);
-			buffer.append(".asInteger()");
+			buffer.append(".i()");
 		} else if (target.isAssignableFrom(Object.class)) {
 			buffer.append(value);
 			buffer.append(".asObject()");
@@ -702,6 +711,6 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		} else if (QData.class.isAssignableFrom(target)) {
 			buffer.append("qRPJ.qBox(" + value + ")");
 		} else
-			System.err.println("Unexpected condition: xm4tnfdgs78f87mxz");
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid unboxing: " + value);
 	}
 }

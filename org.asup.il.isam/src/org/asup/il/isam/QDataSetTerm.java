@@ -7,7 +7,6 @@
  */
 package org.asup.il.isam;
 
-import org.asup.il.core.QTerm;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,12 +17,9 @@ import org.asup.il.core.QTerm;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getAccessMode <em>Access Mode</em>}</li>
- *   <li>{@link org.asup.il.isam.QDataSetTerm#getFileName <em>File Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getFormatName <em>Format Name</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#isKeyedAccess <em>Keyed Access</em>}</li>
  *   <li>{@link org.asup.il.isam.QDataSetTerm#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}</li>
- *   <li>{@link org.asup.il.isam.QDataSetTerm#isUserOpen <em>User Open</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,7 +27,7 @@ import org.asup.il.core.QTerm;
  * @model
  * @generated
  */
-public interface QDataSetTerm extends QTerm {
+public interface QDataSetTerm extends QFileTerm {
 
 	/**
 	 * Returns the value of the '<em><b>Access Mode</b></em>' attribute.
@@ -61,32 +57,6 @@ public interface QDataSetTerm extends QTerm {
 	 * @generated
 	 */
 	void setAccessMode(AccessMode value);
-
-	/**
-	 * Returns the value of the '<em><b>File Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>File Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>File Name</em>' attribute.
-	 * @see #setFileName(String)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getDataSetTerm_FileName()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getFileName();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QDataSetTerm#getFileName <em>File Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>File Name</em>' attribute.
-	 * @see #getFileName()
-	 * @generated
-	 */
-	void setFileName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Format Name</b></em>' attribute.
@@ -164,55 +134,4 @@ public interface QDataSetTerm extends QTerm {
 	 * @generated
 	 */
 	void setPrefix(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Record</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Record</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Record</em>' containment reference.
-	 * @see #setRecord(QRecordDef)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getDataSetTerm_Record()
-	 * @model containment="true" transient="true"
-	 * @generated
-	 */
-	QRecordDef getRecord();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QDataSetTerm#getRecord <em>Record</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Record</em>' containment reference.
-	 * @see #getRecord()
-	 * @generated
-	 */
-	void setRecord(QRecordDef value);
-
-	/**
-	 * Returns the value of the '<em><b>User Open</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Imposta il tipo di accesso al data set.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>User Open</em>' attribute.
-	 * @see #setUserOpen(boolean)
-	 * @see org.asup.il.isam.QIntegratedLanguageIsamPackage#getDataSetTerm_UserOpen()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isUserOpen();
-
-	/**
-	 * Sets the value of the '{@link org.asup.il.isam.QDataSetTerm#isUserOpen <em>User Open</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>User Open</em>' attribute.
-	 * @see #isUserOpen()
-	 * @generated
-	 */
-	void setUserOpen(boolean value);
 } // QDataSetTerm

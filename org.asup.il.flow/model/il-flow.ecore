@@ -82,6 +82,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
         eType="ecore:EClass ../../org.asup.il.esql/model/il-esql.ecore#//StatementTerm"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="displays" upperBound="-1"
+        eType="ecore:EClass ../../org.asup.il.isam/model/il-isam.ecore#//DisplayTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="printers" upperBound="-1"
+        eType="ecore:EClass ../../org.asup.il.isam/model/il-isam.ecore#//PrintTerm"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowSection" eSuperTypes="#//UnitSection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterLists" upperBound="-1"

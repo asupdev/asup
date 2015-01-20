@@ -39,6 +39,8 @@ import org.asup.il.esql.QStatement;
 import org.asup.il.esql.QStatementTerm;
 import org.asup.il.esql.annotation.CursorDef;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
+import org.asup.il.expr.QExpression;
+import org.asup.il.expr.QExpressionParser;
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QDataSection;
@@ -49,10 +51,15 @@ import org.asup.il.flow.QRoutine;
 import org.asup.il.flow.QUnit;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDataSetTerm;
+import org.asup.il.isam.QDisplay;
+import org.asup.il.isam.QDisplayTerm;
 import org.asup.il.isam.QKSDataSet;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.il.isam.QPrint;
+import org.asup.il.isam.QPrintTerm;
 import org.asup.il.isam.QRRDataSet;
-import org.asup.il.isam.annotation.DataSetDef;
+import org.asup.il.isam.QSMDataSet;
+import org.asup.il.isam.annotation.FileDef;
 import org.asup.os.type.pgm.rpj.RPJServiceSupport;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
@@ -79,8 +86,12 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
+	private QExpressionParser expressionParser;
+
 	public JDTCallableUnitWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
+
+		expressionParser = getCompilationUnit().getContext().get(QExpressionParser.class);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -184,49 +195,55 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
 			FieldDeclaration field = getAST().newFieldDeclaration(variable);
-			writeAnnotation(field, DataSetDef.class, "name", dataSet.getFileName());
-			writeAnnotation(field, DataSetDef.class, "userOpen", dataSet.isUserOpen());
+			writeAnnotation(field, FileDef.class, "name", dataSet.getFileName());
+			writeAnnotation(field, FileDef.class, "userOpen", dataSet.isUserOpen());
 			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
 			String className = null;
+			QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
+
 			if (dataSet.isKeyedAccess()) {
 				writeImport(QKSDataSet.class);
 				className = QKSDataSet.class.getSimpleName();
 			} else {
-				writeImport(QRRDataSet.class);
-				className = QRRDataSet.class.getSimpleName();
+
+				// exclude source file
+				// TODO retrieve *SRC *DATA
+				try {
+					if (dataSet.getRecord().getElements().size() == 3 && dataSet.getRecord().getElements().get(0).getName().equalsIgnoreCase("SRCSEQ")) {
+
+						writeImport(QSMDataSet.class);
+						className = QSMDataSet.class.getSimpleName();
+
+					} else {
+						writeImport(QRRDataSet.class);
+						className = QRRDataSet.class.getSimpleName();
+					}
+				} catch (NullPointerException e) {
+					writeImport(QRRDataSet.class);
+					className = QRRDataSet.class.getSimpleName();
+				}
+
 			}
 
 			Type dataSetType = getAST().newSimpleType(getAST().newSimpleName(className));
 			ParameterizedType parType = getAST().newParameterizedType(dataSetType);
 
-			QCompilerLinker compilerLinker = dataSet.getFacet(QCompilerLinker.class);
-			
-			if (dataSet.getFileName().equals("PRT198"))
-				parType.typeArguments().add(getAST().newWildcardType());
-			else if (dataSet.getFileName().equals("PRT132"))
-				parType.typeArguments().add(getAST().newWildcardType());
-			else if (dataSet.getFileName().equals("PRT80"))
-				parType.typeArguments().add(getAST().newWildcardType());
-			else {
-
-				if (compilerLinker != null) {
-					writeImport(compilerLinker.getLinkedClass());
-					parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getSimpleName())));
-				} else {
-					String argument = dataSet.getFileName();
-					parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
-				}
-
+			if (compilerLinker != null) {
+				writeImport(compilerLinker.getLinkedClass());
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getSimpleName())));
+			} else {
+				String argument = dataSet.getFileName();
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
 			}
 
 			field.setType(parType);
 			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(dataSet.getName())));
 
 			getTarget().bodyDeclarations().add(field);
-			
+
 			if (compilerLinker == null && dataSet.getRecord() != null)
-				writeInnerRecord(dataSet);
+				writeInnerRecord(dataSet.getFileName(), dataSet.getRecord());
 		}
 
 	}
@@ -258,9 +275,9 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		ArrayInitializer arrayInitializer = getAST().newArrayInitializer();
 		for (String keyField : keyList.getKeyFields()) {
 
-			QNamedNode namedNode = getCompilationUnit().getNamedNode(keyField, true);
-			String qualifiedName = getCompilationUnit().getQualifiedName(namedNode);
-			arrayInitializer.expressions().add(buildExpression(qualifiedName));
+			QExpression expression = expressionParser.parseExpression(keyField);
+			Expression jdtExpression = buildExpression(getAST(), expression, null);
+			arrayInitializer.expressions().add(jdtExpression);
 		}
 		arrayCreation.setInitializer(arrayInitializer);
 
@@ -307,6 +324,88 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			field.setType(dataSetType);
 			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(statementTerm.getName())));
 			getTarget().bodyDeclarations().add(field);
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public void writeDisplays(List<QDisplayTerm> displays) throws IOException {
+
+		writeImport(QDisplay.class);
+
+		for (QDisplayTerm display : displays) {
+
+			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+			FieldDeclaration field = getAST().newFieldDeclaration(variable);
+			writeAnnotation(field, FileDef.class, "name", display.getFileName());
+			writeAnnotation(field, FileDef.class, "userOpen", display.isUserOpen());
+			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+			String className = null;
+			QCompilerLinker compilerLinker = display.getFacet(QCompilerLinker.class);
+
+			writeImport(QDisplay.class);
+			className = QDisplay.class.getSimpleName();
+
+			Type displayType = getAST().newSimpleType(getAST().newSimpleName(className));
+			ParameterizedType parType = getAST().newParameterizedType(displayType);
+
+			if (compilerLinker != null) {
+				writeImport(compilerLinker.getLinkedClass());
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getSimpleName())));
+			} else {
+				String argument = display.getFileName();
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+			}
+
+			field.setType(parType);
+			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(display.getName())));
+
+			getTarget().bodyDeclarations().add(field);
+
+			if (compilerLinker == null && display.getRecord() != null)
+				writeInnerRecord(display.getFileName(), display.getRecord());
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public void writePrinters(List<QPrintTerm> printers) throws IOException {
+
+		writeImport(QPrint.class);
+
+		for (QPrintTerm printer : printers) {
+
+			VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+			FieldDeclaration field = getAST().newFieldDeclaration(variable);
+			writeAnnotation(field, FileDef.class, "name", printer.getFileName());
+			writeAnnotation(field, FileDef.class, "userOpen", printer.isUserOpen());
+			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+			String className = null;
+			QCompilerLinker compilerLinker = printer.getFacet(QCompilerLinker.class);
+
+			writeImport(QPrint.class);
+			className = QPrint.class.getSimpleName();
+
+			Type printerType = getAST().newSimpleType(getAST().newSimpleName(className));
+			ParameterizedType parType = getAST().newParameterizedType(printerType);
+
+			if (compilerLinker != null) {
+				writeImport(compilerLinker.getLinkedClass());
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newName(compilerLinker.getLinkedClass().getSimpleName())));
+			} else {
+				String argument = printer.getFileName();
+				parType.typeArguments().add(getAST().newSimpleType(getAST().newSimpleName(argument)));
+			}
+
+			field.setType(parType);
+			variable.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(printer.getName())));
+
+			getTarget().bodyDeclarations().add(field);
+
+			if (compilerLinker == null && printer.getRecord() != null)
+				writeInnerRecord(printer.getFileName(), printer.getRecord());
 		}
 
 	}
@@ -499,13 +598,15 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		// redefined record dataSet
 		if (getCompilationUnit().getRoot() instanceof QCallableUnit) {
 
+//			getCompilationUnit().refresh();
+			
 			QCallableUnit callableUnit = (QCallableUnit) getCompilationUnit().getRoot();
 			if (callableUnit.getFileSection() != null) {
 				for (QDataSetTerm dataSetTerm : callableUnit.getFileSection().getDataSets()) {
 
-					if(dataSetTerm.getRecord() == null)
+					if (dataSetTerm.getRecord() == null)
 						continue;
-					
+
 					for (QDataTerm<?> element : dataSetTerm.getRecord().getElements()) {
 						QRemap remap = element.getFacet(QRemap.class);
 						if (remap == null)
@@ -545,6 +646,17 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
 			} else {
+				MethodInvocation methodInvocation = getAST().newMethodInvocation();
+				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
+				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName((QNamedNode) qInzsr.getParent())));
+				ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+				block.statements().add(expressionStatement);
+			}
+		} else {
+
+			qInzsr = getCompilationUnit().getRoutine("£MU_INZSR", true);
+			if (qInzsr != null) {
+
 				MethodInvocation methodInvocation = getAST().newMethodInvocation();
 				methodInvocation.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(qInzsr.getName())));
 				methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName((QNamedNode) qInzsr.getParent())));
@@ -714,4 +826,23 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		return (Expression) ASTNode.copySubtree(getAST(), jdtExpression);
 	}
 
+	private Expression buildExpression(AST ast, QExpression expression, Class<?> target) {
+
+		ASTParser parser = ASTParser.newParser(AST.JLS8);
+		parser.setKind(ASTParser.K_EXPRESSION);
+
+		JDTExpressionStringBuilder builder = getCompilationUnit().getContext().make(JDTExpressionStringBuilder.class);
+		builder.setTarget(target);
+		expression.accept(builder);
+		String value = builder.getResult();
+
+		parser.setSource(value.toCharArray());
+		ASTNode node = parser.createAST(null);
+		if (node.getLength() == 0)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: " + value);
+
+		Expression jdtExpression = (Expression) node;
+
+		return (Expression) ASTNode.copySubtree(ast, jdtExpression);
+	}
 }

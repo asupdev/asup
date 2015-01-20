@@ -701,13 +701,31 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int FILE_SECTION__STATEMENTS = UNIT_SECTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Displays</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SECTION__DISPLAYS = UNIT_SECTION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Printers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_SECTION__PRINTERS = UNIT_SECTION_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>File Section</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_SECTION_FEATURE_COUNT = UNIT_SECTION_FEATURE_COUNT + 4;
+	int FILE_SECTION_FEATURE_COUNT = UNIT_SECTION_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.FlowSectionImpl <em>Flow Section</em>}' class.
@@ -2077,6 +2095,28 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	EReference getFileSection_Statements();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.flow.QFileSection#getDisplays <em>Displays</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Displays</em>'.
+	 * @see org.asup.il.flow.QFileSection#getDisplays()
+	 * @see #getFileSection()
+	 * @generated
+	 */
+	EReference getFileSection_Displays();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.asup.il.flow.QFileSection#getPrinters <em>Printers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Printers</em>'.
+	 * @see org.asup.il.flow.QFileSection#getPrinters()
+	 * @see #getFileSection()
+	 * @generated
+	 */
+	EReference getFileSection_Printers();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.flow.QFlowSection <em>Flow Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3141,6 +3181,22 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FILE_SECTION__STATEMENTS = eINSTANCE.getFileSection_Statements();
+
+		/**
+		 * The meta object literal for the '<em><b>Displays</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_SECTION__DISPLAYS = eINSTANCE.getFileSection_Displays();
+
+		/**
+		 * The meta object literal for the '<em><b>Printers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_SECTION__PRINTERS = eINSTANCE.getFileSection_Printers();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.flow.impl.FlowSectionImpl <em>Flow Section</em>}' class.

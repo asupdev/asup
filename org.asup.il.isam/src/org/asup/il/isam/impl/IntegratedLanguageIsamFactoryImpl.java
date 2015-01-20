@@ -60,7 +60,9 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QIntegratedLanguageIsamPackage.DATA_SET_TERM: return (EObject)createDataSetTerm();
+			case QIntegratedLanguageIsamPackage.DISPLAY_TERM: return (EObject)createDisplayTerm();
 			case QIntegratedLanguageIsamPackage.KEY_LIST_TERM: return (EObject)createKeyListTerm();
+			case QIntegratedLanguageIsamPackage.PRINT_TERM: return (EObject)createPrintTerm();
 			case QIntegratedLanguageIsamPackage.RECORD_DEF: return (EObject)createRecordDef();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -128,9 +130,29 @@ public class IntegratedLanguageIsamFactoryImpl extends EFactoryImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QDisplayTerm createDisplayTerm() {
+		DisplayTermImpl displayTerm = new DisplayTermImpl();
+		return displayTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QKeyListTerm createKeyListTerm() {
 		KeyListTermImpl keyListTerm = new KeyListTermImpl();
 		return keyListTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QPrintTerm createPrintTerm() {
+		PrintTermImpl printTerm = new PrintTermImpl();
+		return printTerm;
 	}
 
 	/**

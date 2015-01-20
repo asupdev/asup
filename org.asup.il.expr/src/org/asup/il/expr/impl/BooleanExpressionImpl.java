@@ -188,6 +188,13 @@ public class BooleanExpressionImpl extends PredicateExpressionImpl implements QB
 	 * @generated NOT
 	 */
 	public void accept(QExpressionVisitor visitor) {
-		visitor.visit(this);
+		
+		if(visitor.visit(this)) {
+			
+			if(getOperand() != null)
+				getOperand().accept(visitor);
+		}
+		
+		visitor.endVisit(this);
 	}
 } //BooleanExpressionImpl

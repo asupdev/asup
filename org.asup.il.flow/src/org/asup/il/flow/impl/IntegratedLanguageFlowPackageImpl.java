@@ -732,6 +732,24 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFileSection_Displays() {
+		return (EReference)fileSectionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFileSection_Printers() {
+		return (EReference)fileSectionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFlowSection() {
 		return flowSectionEClass;
 	}
@@ -1447,6 +1465,8 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		createEReference(fileSectionEClass, FILE_SECTION__KEY_LISTS);
 		createEReference(fileSectionEClass, FILE_SECTION__CURSORS);
 		createEReference(fileSectionEClass, FILE_SECTION__STATEMENTS);
+		createEReference(fileSectionEClass, FILE_SECTION__DISPLAYS);
+		createEReference(fileSectionEClass, FILE_SECTION__PRINTERS);
 
 		flowSectionEClass = createEClass(FLOW_SECTION);
 		createEReference(flowSectionEClass, FLOW_SECTION__PARAMETER_LISTS);
@@ -1684,6 +1704,8 @@ public class IntegratedLanguageFlowPackageImpl extends EPackageImpl implements Q
 		initEReference(getFileSection_KeyLists(), theIntegratedLanguageIsamPackage.getKeyListTerm(), null, "keyLists", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFileSection_Cursors(), theIntegratedLanguageEmbeddedSQLPackage.getCursorTerm(), null, "cursors", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFileSection_Statements(), theIntegratedLanguageEmbeddedSQLPackage.getStatementTerm(), null, "statements", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFileSection_Displays(), theIntegratedLanguageIsamPackage.getDisplayTerm(), null, "displays", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFileSection_Printers(), theIntegratedLanguageIsamPackage.getPrintTerm(), null, "printers", null, 0, -1, QFileSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowSectionEClass, QFlowSection.class, "FlowSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlowSection_ParameterLists(), this.getParameterList(), null, "parameterLists", null, 0, -1, QFlowSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

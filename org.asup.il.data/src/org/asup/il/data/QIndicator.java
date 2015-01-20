@@ -32,6 +32,14 @@ public interface QIndicator extends QString {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean b();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
