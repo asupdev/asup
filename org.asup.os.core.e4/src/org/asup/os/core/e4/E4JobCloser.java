@@ -55,12 +55,10 @@ public class E4JobCloser extends Thread {
 
 						try {
 							jobManager.updateStatus(tmpJob, JobStatus.END);
-							tmpJob.getContext().close();
+							tmpJob.getContext().close();							
 						} catch (OperatingSystemException e) {
 							System.err.println(e.getMessage());
 						}
-						
-						
 					}
 				}				
 			}
