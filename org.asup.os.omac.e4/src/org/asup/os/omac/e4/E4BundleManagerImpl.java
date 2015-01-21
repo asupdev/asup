@@ -342,7 +342,6 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 				resource = resourceSet.createResource(URI.createURI(entry.toString()));
 				resource.load(Collections.EMPTY_MAP);
 				
-				resource.unload();
 			}
 			catch(Exception e) {
 				e.printStackTrace();
@@ -351,7 +350,6 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 	
 			// type check
 			EObject eObject = resource.getContents().get(0);
-			resource.unload();
 			
 			if(eObject instanceof QObjectContainer) {
 				QObjectContainer<?> objectContainer = (QObjectContainer<?>)eObject;
