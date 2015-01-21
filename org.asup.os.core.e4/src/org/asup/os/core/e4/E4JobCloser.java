@@ -57,12 +57,10 @@ public class E4JobCloser extends Thread {
 					if(seconds>60*60) {
 						try {
 							jobManager.updateStatus(tmpJob, JobStatus.END);
-							tmpJob.getContext().close();
+							tmpJob.getContext().close();							
 						} catch (OperatingSystemException e) {
 							System.err.println(e.getMessage());
 						}
-						
-						
 					}
 
 					break;
