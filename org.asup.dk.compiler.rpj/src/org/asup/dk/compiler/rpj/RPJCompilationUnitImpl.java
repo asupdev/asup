@@ -114,12 +114,39 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		if (prototypes == null)
 			prototypes = new ArrayList<QPrototype<?>>();
 
+		refresh();
 	}
 
 	@Override
 	public void refresh() {
+
 		this.cachedTerms = new HashMap<String, QDataTerm<?>>();
 		this.cachedPrototypes = new HashMap<String, QPrototype<?>>();
+
+		for (QCompilationUnit compilationUnit : compilationUnits) {
+			if (compilationUnit.getRoot() instanceof QCallableUnit) {
+				QCallableUnit callableUnit = (QCallableUnit) compilationUnit.getRoot();
+				if (callableUnit.getDataSection() == null)
+					continue;
+
+				for (QDataTerm<?> dataTerm : callableUnit.getDataSection().getDatas()) {
+					if (!dataTerm.getName().startsWith(callableUnit.getName()))
+						continue;
+
+					cachedTerms.put(normalizeTermName(dataTerm.getName()), dataTerm);
+
+					if (dataTerm instanceof QCompoundDataTerm<?>) {
+						QCompoundDataTerm<?> compoundDataTerm = (QCompoundDataTerm<?>) dataTerm;
+
+						if (compoundDataTerm.getDefinition().isQualified())
+							continue;
+
+						for (QDataTerm<?> element : compoundDataTerm.getDefinition().getElements())
+							cachedTerms.put(normalizeTermName(element.getName()), element);
+					}
+				}
+			}
+		}
 
 	}
 
@@ -179,10 +206,11 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 	@Override
 	public QDataTerm<?> getDataTerm(String name, boolean deep) {
 
-		QDataTerm<?> dataTerm = cachedTerms.get(name);
+		QDataTerm<?> dataTerm = cachedTerms.get(normalizeTermName(name));
 		if (dataTerm != null)
 			return dataTerm;
 
+		
 		// search on dataTermContainer
 		if (dataTerm == null && ((QCallableUnit) getRoot()).getDataSection() != null)
 			dataTerm = findData(((QCallableUnit) getRoot()).getDataSection().getDatas(), name, null, 0);
@@ -271,7 +299,7 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 		}
 
 		if (dataTerm != null)
-			cachedTerms.put(name, dataTerm);
+			cachedTerms.put(normalizeTermName(name), dataTerm);
 
 		return dataTerm;
 	}

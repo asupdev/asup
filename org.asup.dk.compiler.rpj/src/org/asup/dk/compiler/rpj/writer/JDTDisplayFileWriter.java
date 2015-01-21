@@ -41,23 +41,20 @@ public class JDTDisplayFileWriter extends JDTNamedNodeWriter {
 	}
 
 	public void writeDisplayFile(QDisplayFile displayFile) throws IOException {
-		
-		for (QFileFormat<?> fileFormat : displayFile.getFileFormats()) {
+
+		for (QFileFormat<?> fileFormat : displayFile.getDisplayFormats()) {
 
 			QCompoundDataTerm<QRecordDef> formatTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
 			formatTerm.setName(fileFormat.getName());
-							
+
 			QRecordDef formatDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
 			for (QFileFormatField field : fileFormat.getFields()) {
-				formatDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject)field));
+				formatDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject) field));
 			}
 			formatTerm.setDefinition(formatDef);
-			
+
 			writePublicField(formatTerm, false);
 			writeInnerTerm(formatTerm);
-			
-//			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), displayFile.getName(), QRecordWrapper.class, false);
-//			dataStructureWriter.writeDataStructure(displayDef);
 		}
 
 	}

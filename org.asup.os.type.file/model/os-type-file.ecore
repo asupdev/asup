@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="file" nsURI="http://www.asup.org/os/type/file" nsPrefix="os-type-file">
-  <eClassifiers xsi:type="ecore:EClass" name="DatabaseFile" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="DatabaseFile" abstract="true" eSuperTypes="#//File">
     <eStructuralFeatures xsi:type="ecore:EReference" name="databaseFormat" eType="#//DatabaseFileFormat"
         containment="true"/>
-    <eGenericSuperTypes eClassifier="#//FileSingleFormat">
-      <eTypeArguments eClassifier="#//DatabaseFileFormat"/>
-    </eGenericSuperTypes>
-    <eGenericSuperTypes eClassifier="#//FileMembered"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseFileField" eSuperTypes="#//FileFormatField"/>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseFileFormat">
@@ -20,12 +16,9 @@
       <eTypeArguments eClassifier="#//DatabaseFileField"/>
     </eGenericSuperTypes>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DisplayFile">
+  <eClassifiers xsi:type="ecore:EClass" name="DisplayFile" eSuperTypes="#//File">
     <eStructuralFeatures xsi:type="ecore:EReference" name="displayFormats" upperBound="-1"
         eType="#//DisplayFileFormat" containment="true"/>
-    <eGenericSuperTypes eClassifier="#//FileMultiFormat">
-      <eTypeArguments eClassifier="#//DisplayFileFormat"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DisplayFileField" eSuperTypes="#//FileFormatField"/>
   <eClassifiers xsi:type="ecore:EClass" name="DisplayFileFormat">
@@ -110,40 +103,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="FileMembered" abstract="true" interface="true">
     <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileMultiFormat" abstract="true" interface="true"
-      eSuperTypes="#//File">
-    <eTypeParameters name="FF">
-      <eBounds eClassifier="#//FileFormat">
-        <eTypeArguments/>
-      </eBounds>
-    </eTypeParameters>
-    <eOperations name="getFileFormats" upperBound="-1">
-      <eGenericType eTypeParameter="#//FileMultiFormat/FF"/>
-    </eOperations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileSingleFormat" abstract="true" interface="true"
-      eSuperTypes="#//File">
-    <eTypeParameters name="FF">
-      <eBounds eClassifier="#//FileFormat">
-        <eTypeArguments/>
-      </eBounds>
-    </eTypeParameters>
-    <eOperations name="getFileFormat">
-      <eGenericType eTypeParameter="#//FileSingleFormat/FF"/>
-    </eOperations>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogicalFile" eSuperTypes="#//DatabaseFile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="creationStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tables" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhysicalFile" eSuperTypes="#//DatabaseFile"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PrinterFile">
+  <eClassifiers xsi:type="ecore:EClass" name="PrinterFile" eSuperTypes="#//File">
     <eStructuralFeatures xsi:type="ecore:EReference" name="printerFormats" upperBound="-1"
         eType="#//PrinterFileFormat" containment="true"/>
-    <eGenericSuperTypes eClassifier="#//FileMultiFormat">
-      <eTypeArguments eClassifier="#//PrinterFileFormat"/>
-    </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrinterFileFormat">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"

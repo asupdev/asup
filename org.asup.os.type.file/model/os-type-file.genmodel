@@ -4,7 +4,7 @@
     modelDirectory="/org.asup.os.type.file/src" modelPluginID="org.asup.os.type.file"
     modelName="As.UP Operating System File" rootExtendsInterface="" rootImplementsInterface=""
     suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type/model/os-type.genmodel#//type"
+    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.il.expr/model/il-expr.genmodel#//expr"
     interfaceNamePattern="Q{0}">
   <foreignModel>os-type-file.ecore</foreignModel>
   <genPackages prefix="OperatingSystemFile" basePackage="org.asup.os.type" disposableProviderFactory="true"
@@ -14,24 +14,30 @@
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//DatabaseFileField"/>
     <genClasses ecoreClass="os-type-file.ecore#//DatabaseFileFormat">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//DatabaseFileFormat/formatKeys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//DatabaseFileFormat/fields"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//DatabaseFileFormat/keys"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//DatabaseFileFormat/unique"/>
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//DisplayFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//DisplayFile/displayFormats"/>
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//DisplayFileField"/>
-    <genClasses ecoreClass="os-type-file.ecore#//DisplayFileFormat"/>
+    <genClasses ecoreClass="os-type-file.ecore#//DisplayFileFormat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//DisplayFileFormat/fields"/>
+    </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//ExternalFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//ExternalFile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//ExternalFile/format"/>
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//File">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//File/dictionary"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//File/getClassURI"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//File/getPackageInfoURI"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-type-file.ecore#//FileFormat">
       <genTypeParameters ecoreTypeParameter="os-type-file.ecore#//FileFormat/F"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//FileFormat/fields"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//FileFormat/name"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//FileFormat/getFields"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//FileFormat/isEmpty"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-type-file.ecore#//FileFormatField"/>
     <genClasses ecoreClass="os-type-file.ecore#//FileFormatKey">
@@ -78,14 +84,25 @@
     <genClasses image="false" ecoreClass="os-type-file.ecore#//FileMembered">
       <genOperations ecoreOperation="os-type-file.ecore#//FileMembered/getName"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="os-type-file.ecore#//FileMultiFormat"/>
-    <genClasses image="false" ecoreClass="os-type-file.ecore#//FileSingleFormat"/>
-    <genClasses ecoreClass="os-type-file.ecore#//LogicalFile"/>
+    <genClasses image="false" ecoreClass="os-type-file.ecore#//FileMultiFormat">
+      <genTypeParameters ecoreTypeParameter="os-type-file.ecore#//FileMultiFormat/FF"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//FileMultiFormat/getFileFormats"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="os-type-file.ecore#//FileSingleFormat">
+      <genTypeParameters ecoreTypeParameter="os-type-file.ecore#//FileSingleFormat/FF"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//FileSingleFormat/getFileFormat"/>
+    </genClasses>
+    <genClasses ecoreClass="os-type-file.ecore#//LogicalFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//LogicalFile/creationStatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//LogicalFile/tables"/>
+    </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//PhysicalFile"/>
     <genClasses ecoreClass="os-type-file.ecore#//PrinterFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//PrinterFile/printerFormats"/>
     </genClasses>
-    <genClasses ecoreClass="os-type-file.ecore#//PrinterFileFormat"/>
+    <genClasses ecoreClass="os-type-file.ecore#//PrinterFileFormat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-file.ecore#//PrinterFileFormat/fields"/>
+    </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//PrinterFileField"/>
     <genClasses ecoreClass="os-type-file.ecore#//SourceFile"/>
   </genPackages>

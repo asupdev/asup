@@ -52,7 +52,7 @@ public class JDTDatabaseFileWriter extends JDTDataStructureWriter {
 
 		writeElements(elements);		
 		
-		writeIndex(databaseFile.getFileFormat().getKeys(), databaseFile.getDatabaseFormat().isUnique());
+		writeIndex(databaseFile.getDatabaseFormat().getKeys(), databaseFile.getDatabaseFormat().isUnique());
 	}
 	
 

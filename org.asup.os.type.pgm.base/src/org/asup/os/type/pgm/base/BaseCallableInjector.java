@@ -128,6 +128,9 @@ public class BaseCallableInjector {
 	private <C> C injectData(Class<C> klass, QDataFactory dataFactory, QJob job, QActivationGroup activationGroup, Map<String, Object> sharedModules) throws IllegalArgumentException,
 			IllegalAccessException, InstantiationException {
 
+		if(klass.getAnnotation(Program.class) != null)
+			System.out.println(klass);
+		
 		C callable = klass.newInstance();
 		QContext jobContext = job.getContext();
 		for (Field field : klass.getDeclaredFields()) {
@@ -209,6 +212,7 @@ public class BaseCallableInjector {
 				} else {
 					object = sharedModules.get(fieldKlass.getSimpleName());
 					if (object == null) {
+						System.out.println("\t"+fieldKlass);
 						object = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
 						sharedModules.put(fieldKlass.getSimpleName(), object);
 					}
@@ -253,6 +257,9 @@ public class BaseCallableInjector {
 			// TODO Auto-generated catch block
 			// e1.printStackTrace();
 		}
+
+		if(callable.getClass().getAnnotation(Program.class) == null)
+			return callable;
 
 		jobContext.invoke(callable, PostConstruct.class);
 

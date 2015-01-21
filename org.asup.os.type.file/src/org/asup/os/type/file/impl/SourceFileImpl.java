@@ -47,6 +47,6 @@ public class SourceFileImpl extends FileImpl implements QSourceFile {
 
 	@Override
 	public String getAttribute() {
-		return null;
+		return "PF-SRC";
 	}
 } //SourceFileImpl

@@ -166,7 +166,13 @@ public class RPJProgramSupport {
 
 	public QDecimal qBox(Integer decimal) {
 
-		QDecimal qDecimal = qDF.createDecimal(10, 0, DecimalType.ZONED, true);
+		QDecimal qDecimal = null;
+		
+		if(decimal >= 0 && decimal <= 9)
+			qDecimal = qDF.createDecimal(1, 0, DecimalType.ZONED, true);
+		else
+			qDecimal = qDF.createDecimal(10, 0, DecimalType.ZONED, true);
+		
 		qDecimal.eval(decimal);
 
 		return qDecimal;

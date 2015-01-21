@@ -30,6 +30,7 @@ import org.asup.os.core.resources.QResourceEvent;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceListener;
 import org.asup.os.core.resources.ResourceEventType;
+import org.asup.os.type.file.QDatabaseFile;
 import org.asup.os.type.file.QFile;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QPhysicalFile;
@@ -53,12 +54,18 @@ public class BaseFileListenerImpl extends ServiceImpl implements QResourceListen
 	@Override
 	public void handleEvent(QResourceEvent<QFile> event) {
 
+		QFile file = event.getSource();
+		
+		if(!(file instanceof QDatabaseFile))
+			return;
+		
+			
 		if(event.getType() != ResourceEventType.PRE_SAVE && event.getType() != ResourceEventType.PRE_DELETE)
 			return;
 		
 		QJob job = event.getResource().getJob();
 
-		QFile file = event.getSource();
+
 //		file.setLibrary(((QResourceReader<QFile>) event.getResource()).getContainer());
 
 		QContext jobContext = job.getContext();

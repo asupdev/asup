@@ -31,8 +31,6 @@ import org.asup.os.type.file.QFileMember;
 import org.asup.os.type.file.QFileMemberManager;
 import org.asup.os.type.file.QFileMemberRow;
 import org.asup.os.type.file.QFileMembered;
-import org.asup.os.type.file.QFileMultiFormat;
-import org.asup.os.type.file.QFileSingleFormat;
 import org.asup.os.type.file.QLogicalFile;
 import org.asup.os.type.file.QOperatingSystemFileFactory;
 import org.asup.os.type.file.QOperatingSystemFilePackage;
@@ -161,20 +159,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * @generated
 	 */
 	private EClass fileMemberedEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass fileMultiFormatEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass fileSingleFormatEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -591,24 +575,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFileMultiFormat() {
-		return fileMultiFormatEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFileSingleFormat() {
-		return fileSingleFormatEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getLogicalFile() {
 		return logicalFileEClass;
 	}
@@ -801,10 +767,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		fileMemberedEClass = createEClass(FILE_MEMBERED);
 
-		fileMultiFormatEClass = createEClass(FILE_MULTI_FORMAT);
-
-		fileSingleFormatEClass = createEClass(FILE_SINGLE_FORMAT);
-
 		logicalFileEClass = createEClass(LOGICAL_FILE);
 		createEAttribute(logicalFileEClass, LOGICAL_FILE__CREATION_STATEMENT);
 		createEAttribute(logicalFileEClass, LOGICAL_FILE__TABLES);
@@ -857,37 +819,19 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		// Create type parameters
 		ETypeParameter fileFormatEClass_F = addETypeParameter(fileFormatEClass, "F");
-		ETypeParameter fileMultiFormatEClass_FF = addETypeParameter(fileMultiFormatEClass, "FF");
-		ETypeParameter fileSingleFormatEClass_FF = addETypeParameter(fileSingleFormatEClass, "FF");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getFileFormatField());
 		fileFormatEClass_F.getEBounds().add(g1);
-		g1 = createEGenericType(this.getFileFormat());
-		EGenericType g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		fileMultiFormatEClass_FF.getEBounds().add(g1);
-		g1 = createEGenericType(this.getFileFormat());
-		g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		fileSingleFormatEClass_FF.getEBounds().add(g1);
 
 		// Add supertypes to classes
-		g1 = createEGenericType(this.getFileSingleFormat());
-		g2 = createEGenericType(this.getDatabaseFileFormat());
-		g1.getETypeArguments().add(g2);
-		databaseFileEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getFileMembered());
-		databaseFileEClass.getEGenericSuperTypes().add(g1);
+		databaseFileEClass.getESuperTypes().add(this.getFile());
 		databaseFileFieldEClass.getESuperTypes().add(this.getFileFormatField());
 		g1 = createEGenericType(this.getFileFormat());
-		g2 = createEGenericType(this.getDatabaseFileField());
+		EGenericType g2 = createEGenericType(this.getDatabaseFileField());
 		g1.getETypeArguments().add(g2);
 		databaseFileFormatEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getFileMultiFormat());
-		g2 = createEGenericType(this.getDisplayFileFormat());
-		g1.getETypeArguments().add(g2);
-		displayFileEClass.getEGenericSuperTypes().add(g1);
+		displayFileEClass.getESuperTypes().add(this.getFile());
 		displayFileFieldEClass.getESuperTypes().add(this.getFileFormatField());
 		g1 = createEGenericType(this.getFileFormat());
 		g2 = createEGenericType(this.getDisplayFileField());
@@ -908,14 +852,9 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		fileManagerEClass.getEGenericSuperTypes().add(g1);
 		fileMemberEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
 		fileMemberManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
-		fileMultiFormatEClass.getESuperTypes().add(this.getFile());
-		fileSingleFormatEClass.getESuperTypes().add(this.getFile());
 		logicalFileEClass.getESuperTypes().add(this.getDatabaseFile());
 		physicalFileEClass.getESuperTypes().add(this.getDatabaseFile());
-		g1 = createEGenericType(this.getFileMultiFormat());
-		g2 = createEGenericType(this.getPrinterFileFormat());
-		g1.getETypeArguments().add(g2);
-		printerFileEClass.getEGenericSuperTypes().add(g1);
+		printerFileEClass.getESuperTypes().add(this.getFile());
 		g1 = createEGenericType(this.getFileFormat());
 		g2 = createEGenericType(this.getPrinterFileField());
 		g1.getETypeArguments().add(g2);
@@ -1010,18 +949,6 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 		initEClass(fileMemberedEClass, QFileMembered.class, "FileMembered", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(fileMemberedEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(fileMultiFormatEClass, QFileMultiFormat.class, "FileMultiFormat", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(fileMultiFormatEClass, null, "getFileFormats", 0, -1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(fileMultiFormatEClass_FF);
-		initEOperation(op, g1);
-
-		initEClass(fileSingleFormatEClass, QFileSingleFormat.class, "FileSingleFormat", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(fileSingleFormatEClass, null, "getFileFormat", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(fileSingleFormatEClass_FF);
-		initEOperation(op, g1);
 
 		initEClass(logicalFileEClass, QLogicalFile.class, "LogicalFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLogicalFile_CreationStatement(), ecorePackage.getEString(), "creationStatement", null, 0, 1, QLogicalFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

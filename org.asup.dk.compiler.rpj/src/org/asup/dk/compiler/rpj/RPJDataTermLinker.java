@@ -33,9 +33,8 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 	public boolean visit(QMultipleCompoundDataTerm<?> term) {
 
 		QExternalFile externalFile = term.getFacet(QExternalFile.class);
-		if (externalFile != null) {
+		if (externalFile != null)
 			callableUnitLinker.linkExternalFile(term, term.getDefinition().getElements(), externalFile);
-		}
 
 		return false;
 	}
@@ -44,9 +43,8 @@ public class RPJDataTermLinker extends DataTermVisitorImpl {
 	public boolean visit(QUnaryCompoundDataTerm<?> term) {
 
 		QExternalFile externalFile = term.getFacet(QExternalFile.class);
-		if (externalFile != null) {
+		if (externalFile != null)
 			callableUnitLinker.linkExternalFile(term, term.getDefinition().getElements(), externalFile);
-		}
 
 		return false;
 	}

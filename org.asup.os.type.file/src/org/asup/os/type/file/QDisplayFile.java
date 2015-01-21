@@ -26,7 +26,7 @@ import java.util.List;
  * @model
  * @generated
  */
-public interface QDisplayFile extends QFileMultiFormat<QDisplayFileFormat> {
+public interface QDisplayFile extends QFile {
 
 	/**
 	 * Returns the value of the '<em><b>Display Formats</b></em>' containment reference list.

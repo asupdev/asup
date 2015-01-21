@@ -51,7 +51,7 @@ public abstract class RPJAbstractDataRefactor extends DataTermVisitorImpl {
 		this.compilationUnit = compilationUnit;
 	}
 
-	protected QCompilationUnit getCompilationContext() {
+	protected QCompilationUnit getCompilationUnit() {
 		return this.compilationUnit;
 	}
 

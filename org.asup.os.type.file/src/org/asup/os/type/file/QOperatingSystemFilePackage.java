@@ -148,88 +148,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	int FILE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.QFileSingleFormat <em>File Single Format</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.QFileSingleFormat
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileSingleFormat()
-	 * @generated
-	 */
-	int FILE_SINGLE_FORMAT = 17;
-
-	/**
-	 * The feature id for the '<em><b>Application</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__APPLICATION = FILE__APPLICATION;
-
-	/**
-	 * The feature id for the '<em><b>Library</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__LIBRARY = FILE__LIBRARY;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__NAME = FILE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__TEXT = FILE__TEXT;
-
-	/**
-	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__CREATION_INFO = FILE__CREATION_INFO;
-
-	/**
-	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__MEMORY_INFO = FILE__MEMORY_INFO;
-
-	/**
-	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT__FACETS = FILE__FACETS;
-
-	/**
-	 * The number of structural features of the '<em>File Single Format</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_SINGLE_FORMAT_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.impl.DatabaseFileImpl <em>Database File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,7 +164,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__APPLICATION = FILE_SINGLE_FORMAT__APPLICATION;
+	int DATABASE_FILE__APPLICATION = FILE__APPLICATION;
 
 	/**
 	 * The feature id for the '<em><b>Library</b></em>' attribute.
@@ -255,7 +173,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__LIBRARY = FILE_SINGLE_FORMAT__LIBRARY;
+	int DATABASE_FILE__LIBRARY = FILE__LIBRARY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -264,7 +182,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__NAME = FILE_SINGLE_FORMAT__NAME;
+	int DATABASE_FILE__NAME = FILE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -273,7 +191,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__TEXT = FILE_SINGLE_FORMAT__TEXT;
+	int DATABASE_FILE__TEXT = FILE__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
@@ -282,7 +200,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__CREATION_INFO = FILE_SINGLE_FORMAT__CREATION_INFO;
+	int DATABASE_FILE__CREATION_INFO = FILE__CREATION_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
@@ -291,7 +209,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__MEMORY_INFO = FILE_SINGLE_FORMAT__MEMORY_INFO;
+	int DATABASE_FILE__MEMORY_INFO = FILE__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -300,7 +218,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__FACETS = FILE_SINGLE_FORMAT__FACETS;
+	int DATABASE_FILE__FACETS = FILE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Database Format</b></em>' containment reference.
@@ -309,7 +227,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE__DATABASE_FORMAT = FILE_SINGLE_FORMAT_FEATURE_COUNT + 0;
+	int DATABASE_FILE__DATABASE_FORMAT = FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Database File</em>' class.
@@ -318,17 +236,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_FILE_FEATURE_COUNT = FILE_SINGLE_FORMAT_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.os.type.file.QFileMultiFormat <em>File Multi Format</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.os.type.file.QFileMultiFormat
-	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMultiFormat()
-	 * @generated
-	 */
-	int FILE_MULTI_FORMAT = 16;
+	int DATABASE_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.impl.DisplayFileImpl <em>Display File</em>}' class.
@@ -418,7 +326,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getLogicalFile()
 	 * @generated
 	 */
-	int LOGICAL_FILE = 18;
+	int LOGICAL_FILE = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.impl.PhysicalFileImpl <em>Physical File</em>}' class.
@@ -428,7 +336,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPhysicalFile()
 	 * @generated
 	 */
-	int PHYSICAL_FILE = 19;
+	int PHYSICAL_FILE = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.impl.PrinterFileImpl <em>Printer File</em>}' class.
@@ -438,7 +346,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPrinterFile()
 	 * @generated
 	 */
-	int PRINTER_FILE = 20;
+	int PRINTER_FILE = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.impl.ExternalFileImpl <em>External File</em>}' class.
@@ -758,7 +666,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__APPLICATION = FILE__APPLICATION;
+	int DISPLAY_FILE__APPLICATION = FILE__APPLICATION;
 
 	/**
 	 * The feature id for the '<em><b>Library</b></em>' attribute.
@@ -767,7 +675,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__LIBRARY = FILE__LIBRARY;
+	int DISPLAY_FILE__LIBRARY = FILE__LIBRARY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -776,7 +684,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__NAME = FILE__NAME;
+	int DISPLAY_FILE__NAME = FILE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -785,7 +693,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__TEXT = FILE__TEXT;
+	int DISPLAY_FILE__TEXT = FILE__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
@@ -794,7 +702,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__CREATION_INFO = FILE__CREATION_INFO;
+	int DISPLAY_FILE__CREATION_INFO = FILE__CREATION_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
@@ -803,7 +711,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__MEMORY_INFO = FILE__MEMORY_INFO;
+	int DISPLAY_FILE__MEMORY_INFO = FILE__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -812,79 +720,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_MULTI_FORMAT__FACETS = FILE__FACETS;
-
-	/**
-	 * The number of structural features of the '<em>File Multi Format</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILE_MULTI_FORMAT_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Application</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__APPLICATION = FILE_MULTI_FORMAT__APPLICATION;
-
-	/**
-	 * The feature id for the '<em><b>Library</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__LIBRARY = FILE_MULTI_FORMAT__LIBRARY;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__NAME = FILE_MULTI_FORMAT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__TEXT = FILE_MULTI_FORMAT__TEXT;
-
-	/**
-	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__CREATION_INFO = FILE_MULTI_FORMAT__CREATION_INFO;
-
-	/**
-	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__MEMORY_INFO = FILE_MULTI_FORMAT__MEMORY_INFO;
-
-	/**
-	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISPLAY_FILE__FACETS = FILE_MULTI_FORMAT__FACETS;
+	int DISPLAY_FILE__FACETS = FILE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Display Formats</b></em>' containment reference list.
@@ -893,7 +729,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISPLAY_FILE__DISPLAY_FORMATS = FILE_MULTI_FORMAT_FEATURE_COUNT + 0;
+	int DISPLAY_FILE__DISPLAY_FORMATS = FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Display File</em>' class.
@@ -902,7 +738,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISPLAY_FILE_FEATURE_COUNT = FILE_MULTI_FORMAT_FEATURE_COUNT + 1;
+	int DISPLAY_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1461,7 +1297,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__APPLICATION = FILE_MULTI_FORMAT__APPLICATION;
+	int PRINTER_FILE__APPLICATION = FILE__APPLICATION;
 
 	/**
 	 * The feature id for the '<em><b>Library</b></em>' attribute.
@@ -1470,7 +1306,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__LIBRARY = FILE_MULTI_FORMAT__LIBRARY;
+	int PRINTER_FILE__LIBRARY = FILE__LIBRARY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1479,7 +1315,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__NAME = FILE_MULTI_FORMAT__NAME;
+	int PRINTER_FILE__NAME = FILE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -1488,7 +1324,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__TEXT = FILE_MULTI_FORMAT__TEXT;
+	int PRINTER_FILE__TEXT = FILE__TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Creation Info</b></em>' containment reference.
@@ -1497,7 +1333,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__CREATION_INFO = FILE_MULTI_FORMAT__CREATION_INFO;
+	int PRINTER_FILE__CREATION_INFO = FILE__CREATION_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Memory Info</b></em>' containment reference.
@@ -1506,7 +1342,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__MEMORY_INFO = FILE_MULTI_FORMAT__MEMORY_INFO;
+	int PRINTER_FILE__MEMORY_INFO = FILE__MEMORY_INFO;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1515,7 +1351,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__FACETS = FILE_MULTI_FORMAT__FACETS;
+	int PRINTER_FILE__FACETS = FILE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Printer Formats</b></em>' containment reference list.
@@ -1524,7 +1360,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE__PRINTER_FORMATS = FILE_MULTI_FORMAT_FEATURE_COUNT + 0;
+	int PRINTER_FILE__PRINTER_FORMATS = FILE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Printer File</em>' class.
@@ -1533,7 +1369,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRINTER_FILE_FEATURE_COUNT = FILE_MULTI_FORMAT_FEATURE_COUNT + 1;
+	int PRINTER_FILE_FEATURE_COUNT = FILE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.file.impl.PrinterFileFormatImpl <em>Printer File Format</em>}' class.
@@ -1543,7 +1379,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPrinterFileFormat()
 	 * @generated
 	 */
-	int PRINTER_FILE_FORMAT = 21;
+	int PRINTER_FILE_FORMAT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1580,7 +1416,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getPrinterFileField()
 	 * @generated
 	 */
-	int PRINTER_FILE_FIELD = 22;
+	int PRINTER_FILE_FIELD = 20;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1689,7 +1525,7 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getSourceFile()
 	 * @generated
 	 */
-	int SOURCE_FILE = 23;
+	int SOURCE_FILE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Application</b></em>' attribute.
@@ -2110,26 +1946,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFileMembered();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.os.type.file.QFileMultiFormat <em>File Multi Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>File Multi Format</em>'.
-	 * @see org.asup.os.type.file.QFileMultiFormat
-	 * @generated
-	 */
-	EClass getFileMultiFormat();
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.os.type.file.QFileSingleFormat <em>File Single Format</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>File Single Format</em>'.
-	 * @see org.asup.os.type.file.QFileSingleFormat
-	 * @generated
-	 */
-	EClass getFileSingleFormat();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.file.QLogicalFile <em>Logical File</em>}'.
@@ -2582,26 +2398,6 @@ public interface QOperatingSystemFilePackage extends EPackage {
 		 * @generated
 		 */
 		EClass FILE_MEMBERED = eINSTANCE.getFileMembered();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.os.type.file.QFileMultiFormat <em>File Multi Format</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.os.type.file.QFileMultiFormat
-		 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileMultiFormat()
-		 * @generated
-		 */
-		EClass FILE_MULTI_FORMAT = eINSTANCE.getFileMultiFormat();
-
-		/**
-		 * The meta object literal for the '{@link org.asup.os.type.file.QFileSingleFormat <em>File Single Format</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.os.type.file.QFileSingleFormat
-		 * @see org.asup.os.type.file.impl.OperatingSystemFilePackageImpl#getFileSingleFormat()
-		 * @generated
-		 */
-		EClass FILE_SINGLE_FORMAT = eINSTANCE.getFileSingleFormat();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.file.impl.LogicalFileImpl <em>Logical File</em>}' class.

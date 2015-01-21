@@ -43,8 +43,7 @@ public class JDTPrinterFileWriter extends JDTNamedNodeWriter {
 			List<QDataTerm<?>> elements = new ArrayList<QDataTerm<?>>();
 			elements.addAll(printerFileFormat.getFields());
 
-			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), printerFileFormat.getName(), QDataStructWrapper.class,
-					true);
+			JDTDataStructureWriter dataStructureWriter = new JDTDataStructureWriter(this, getCompilationUnit(), getCompilationSetup(), printerFileFormat.getName(), QDataStructWrapper.class, true);
 			dataStructureWriter.writeElements(elements);
 		}
 

@@ -40,7 +40,7 @@ public class RPJDataLikeRefactor extends RPJAbstractDataRefactor {
 		// like
 		if (term.getLike() != null) {
 
-			QDataTerm<?> like = getCompilationContext().getDataTerm(term.getLike(), true);
+			QDataTerm<?> like = getCompilationUnit().getDataTerm(term.getLike(), true);
 			if (like == null)
 				throw new RuntimeException("Unexpected condition: 4m8x7t8764xm04370");
 
@@ -61,7 +61,7 @@ public class RPJDataLikeRefactor extends RPJAbstractDataRefactor {
 		// like
 		if (term.getLike() != null) {
 
-			QDataTerm<?> like = getCompilationContext().getDataTerm(term.getLike(), true);
+			QDataTerm<?> like = getCompilationUnit().getDataTerm(term.getLike(), true);
 			if (like == null)
 				throw new RuntimeException("Unexpected condition: 4m8x7t8764xm04371");
 
@@ -81,7 +81,7 @@ public class RPJDataLikeRefactor extends RPJAbstractDataRefactor {
 
 		// like
 		if (term.getLike() != null) {
-			QDataTerm<?> like = getCompilationContext().getDataTerm(term.getLike(), true);
+			QDataTerm<?> like = getCompilationUnit().getDataTerm(term.getLike(), true);
 			if (like == null)
 				throw new IntegratedLanguageExpressionRuntimeException("Invalid data term: "+term.getLike());
 
@@ -101,7 +101,7 @@ public class RPJDataLikeRefactor extends RPJAbstractDataRefactor {
 
 		// like
 		if (term.getLike() != null) {
-			QDataTerm<?> like = getCompilationContext().getDataTerm(term.getLike(), true);
+			QDataTerm<?> like = getCompilationUnit().getDataTerm(term.getLike(), true);
 			if (like == null)
 				throw new RuntimeException("Unexpected condition: 4m8x7t8764xm04373");
 
@@ -118,6 +118,6 @@ public class RPJDataLikeRefactor extends RPJAbstractDataRefactor {
 
 	@Override
 	public RPJAbstractDataRefactor copy() {
-		return new RPJDataLikeRefactor(getCompilationContext());
+		return new RPJDataLikeRefactor(getCompilationUnit());
 	}
 }

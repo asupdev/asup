@@ -207,10 +207,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 				className = QKSDataSet.class.getSimpleName();
 			} else {
 
-				// exclude source file
-				// TODO retrieve *SRC *DATA
 				try {
-					if (dataSet.getRecord().getElements().size() == 3 && dataSet.getRecord().getElements().get(0).getName().equalsIgnoreCase("SRCSEQ")) {
+					if (dataSet.getRecord().getElements().size() > 1 && dataSet.getRecord().getElements().get(0).getName().equalsIgnoreCase("SRCSEQ")) {
 
 						writeImport(QSMDataSet.class);
 						className = QSMDataSet.class.getSimpleName();

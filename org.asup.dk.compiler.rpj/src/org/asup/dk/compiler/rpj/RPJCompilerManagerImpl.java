@@ -184,6 +184,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		
 		callableUnitLinker.linkOverlayDatas();
 
+		callableUnitLinker.linkFormulas();
 	}
 
 	@Override
@@ -319,7 +320,7 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 		MemberValuePair memberValuePair = databaseFileWriter.getAST().newMemberValuePair();
 		memberValuePair.setName(databaseFileWriter.getAST().newSimpleName("value"));
 		StringLiteral stringLiteral = databaseFileWriter.getAST().newStringLiteral();
-		stringLiteral.setLiteralValue(databaseFile.getFileFormat().getName());
+		stringLiteral.setLiteralValue(databaseFile.getDatabaseFormat().getName());
 		memberValuePair.setValue(stringLiteral);
 		programAnnotation.values().add(memberValuePair);
 

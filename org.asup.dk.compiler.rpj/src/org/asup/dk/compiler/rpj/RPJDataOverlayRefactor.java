@@ -33,7 +33,7 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 		// overlay
 		QOverlay overlay = term.getFacet(QOverlay.class);
 		if (overlay != null) {
-			QDataTerm<?> overlayTerm = getCompilationContext().getDataTerm(overlay.getName(), true);
+			QDataTerm<?> overlayTerm = getCompilationUnit().getDataTerm(overlay.getName(), true);
 			if (overlayTerm == null)
 				throw new RuntimeException("Unexpected condition: 57as43534dftgasd8764xm0437");
 
@@ -54,7 +54,7 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 		// overlay
 		QOverlay overlay = term.getFacet(QOverlay.class);
 		if (overlay != null) {
-			QDataTerm<?> overlayTerm = getCompilationContext().getDataTerm(overlay.getName(), true);
+			QDataTerm<?> overlayTerm = getCompilationUnit().getDataTerm(overlay.getName(), true);
 			if (overlayTerm == null)
 				throw new RuntimeException("Unexpected condition: 57asdftgasd8764xm04372");
 
@@ -71,6 +71,6 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 
 	@Override
 	public RPJAbstractDataRefactor copy() {
-		return new RPJDataOverlayRefactor(getCompilationContext());
+		return new RPJDataOverlayRefactor(getCompilationUnit());
 	}
 }

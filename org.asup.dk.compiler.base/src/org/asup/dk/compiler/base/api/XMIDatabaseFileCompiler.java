@@ -85,15 +85,6 @@ public class XMIDatabaseFileCompiler {
 			
 			QDatabaseFile databaseFile = (QDatabaseFile) qFile;
 
-			// exclude source file
-			// TODO retrieve *SRC *DATA
-			try {
-				if (databaseFile.getFileFormat().getFields().size() == 3 && 
-					databaseFile.getFileFormat().getFields().get(0).getName().equalsIgnoreCase("SRCSEQ"))
-					continue;
-			} catch (NullPointerException e) {
-			}
-
 			try {
 				createJavaFile(databaseFile, library);
 			} catch (Exception e) {

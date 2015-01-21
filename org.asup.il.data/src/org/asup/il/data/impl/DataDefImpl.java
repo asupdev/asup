@@ -10,7 +10,6 @@ package org.asup.il.data.impl;
 import java.lang.String;
 import java.util.Collection;
 import java.util.List;
-
 import org.asup.il.data.DataDefType;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataDef;
