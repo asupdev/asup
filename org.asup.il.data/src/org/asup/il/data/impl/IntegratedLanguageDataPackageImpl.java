@@ -1599,6 +1599,15 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPointerDef_Target() {
+		return (EAttribute)pointerDefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getScroller() {
 		return scrollerEClass;
 	}
@@ -2018,6 +2027,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		pointerEClass = createEClass(POINTER);
 
 		pointerDefEClass = createEClass(POINTER_DEF);
+		createEAttribute(pointerDefEClass, POINTER_DEF__TARGET);
 
 		scrollerEClass = createEClass(SCROLLER);
 
@@ -2875,6 +2885,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, this.getPointer(), "createPointer", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBufferedData(), "target", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "initialize", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(dataFactoryEClass, null, "createScroller", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -3667,6 +3678,8 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(pointerEClass, this.getPointer(), "divide", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNumeric(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(pointerEClass, this.getBufferedData(), "getTarget", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = addEOperation(pointerEClass, this.getPointer(), "minus", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEShort(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3716,6 +3729,7 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, this.getNumeric(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pointerDefEClass, QPointerDef.class, "PointerDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPointerDef_Target(), ecorePackage.getEString(), "target", null, 0, 1, QPointerDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(scrollerEClass, QScroller.class, "Scroller", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

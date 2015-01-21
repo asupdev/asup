@@ -75,28 +75,6 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 		}
 	};
 
-	/*
-	 * @Override public QDataSet<?> createDataSet(QDataSetTerm dataSetTerm) {
-	 * 
-	 * try { Table table = getTable(dataSetTerm.getFileName()); if(table ==
-	 * null) return null;
-	 * 
-	 * QRecord dataStruct = dataFactory.createData(dataSetTerm.getRecord(),
-	 * true);
-	 * 
-	 * if(dataSetTerm.isKeyedAccess()) { QIndex index =
-	 * connection.getContext().getAdapter(dataStruct, QIndex.class);
-	 * JDBCKeySequencedDataSetImpl<QRecord> jdbcIndexDataSetImpl = new
-	 * JDBCKeySequencedDataSetImpl<QRecord>(connection, sqlObjectNameHelper,
-	 * table, index, dataStruct, AccessMode.UPDATE, dataSetTerm.isUserOpen());
-	 * 
-	 * return jdbcIndexDataSetImpl; } else { QIndex index =
-	 * TABLE_INDEX_RELATIVE_RECORD_NUMBER; return new
-	 * JDBCRelativeRecordDataSetImpl<QRecord>(connection, sqlObjectNameHelper,
-	 * table, index, dataStruct, AccessMode.INPUT, dataSetTerm.isUserOpen()); }
-	 * } catch(Exception e) { e.printStackTrace(); return null; } }
-	 */
-
 	public JDBCIsamFactoryImpl(QConnection connection, QDataFactory dataFactory) {
 		this.connection = connection;
 		this.dataFactory = dataFactory;

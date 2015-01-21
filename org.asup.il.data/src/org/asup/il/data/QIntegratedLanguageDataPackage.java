@@ -2590,13 +2590,22 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	int POINTER_DEF__FORMULAS = UNARY_ATOMIC_BUFFERED_DATA_DEF__FORMULAS;
 
 	/**
+	 * The feature id for the '<em><b>Target</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POINTER_DEF__TARGET = UNARY_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Pointer Def</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POINTER_DEF_FEATURE_COUNT = UNARY_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 0;
+	int POINTER_DEF_FEATURE_COUNT = UNARY_ATOMIC_BUFFERED_DATA_DEF_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Scroller</em>' class.
@@ -4079,6 +4088,17 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	EClass getPointerDef();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.il.data.QPointerDef#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target</em>'.
+	 * @see org.asup.il.data.QPointerDef#getTarget()
+	 * @see #getPointerDef()
+	 * @generated
+	 */
+	EAttribute getPointerDef_Target();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.data.QScroller <em>Scroller</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5222,6 +5242,14 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 		 * @generated
 		 */
 		EClass POINTER_DEF = eINSTANCE.getPointerDef();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POINTER_DEF__TARGET = eINSTANCE.getPointerDef_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.data.QScroller <em>Scroller</em>}' class.

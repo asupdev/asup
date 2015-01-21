@@ -25,7 +25,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	private static final long serialVersionUID = 1L;
 	private static byte INIT = (byte) 32;
-	private static String ENCODING = "ISO-8859-1";
+	protected static String ENCODING = "ISO-8859-1";
 
 	protected int _length;
 
@@ -120,17 +120,17 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public String trim() {
-		return toString().trim();
+		return asString().trim();
 	}
 
 	@Override
 	public String trimL() {
-		return trimL(toString());
+		return trimL(asString());
 	}
 
 	@Override
 	public String trimR() {
-		return trimR(toString());
+		return trimR(asString());
 	}
 
 	@Override
@@ -409,6 +409,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 			return "1";
 		else if(value.name().equals("OFF"))
 			return " ";
+		
 		return null;
 	}	
 	

@@ -216,11 +216,41 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 			string.eval((QString)object);	
 		}		
 		else if(object instanceof String) {
-			string.eval((String)object);
+			String s = (String) object;
+			
+			if(s.startsWith("*")) {
+				s = s.substring(1);
+				Specials special = Specials.valueOf(s);
+				if(special != null)
+					string.eval(special);
+				else
+					s.toString();
+			}
+			else
+				string.eval(s);
 		}
 		else {
+			if(object.toString().startsWith("*"))
+				object.toString();
+			
 			string.eval(object.toString());
 		}
 
+	}
+	
+	public static enum Specials {
+		NULL, ALL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
+
+		public boolean asBoolean() {
+			return this.toString().equals("ON");
+		}
+
+		public boolean b() {
+			return this.asBoolean();
+		}
+		
+		public String asString() {
+			return this.toString();
+		}
 	}
 } //DataWriterImpl

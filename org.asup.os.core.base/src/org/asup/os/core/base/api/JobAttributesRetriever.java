@@ -19,7 +19,7 @@ import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 
 @Program(name = "QCLRTVJA")
-public class JobAttributeRetriever {
+public class JobAttributesRetriever {
 
 	public @Entry void main(
 			@ToDo @DataDef(length = 10) QCharacter cLVarForJOB10,

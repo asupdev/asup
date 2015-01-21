@@ -134,7 +134,7 @@ public class RPJProgramSupport {
 	public QNumeric qAbs(Integer numeric) {
 		return qBox(numeric);
 	}
-	
+
 	public QDataWriter qAll(QNumeric numeric) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
 	}
@@ -142,37 +142,36 @@ public class RPJProgramSupport {
 	public QDataWriter qAll(byte numeric) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(numeric);
 	}
-	
+
 	public QDataWriter qAll(QString string) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
 	}
-	
+
 	public QDataWriter qAll(String string) {
 		return QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter().set(string);
 	}
 
 	/*
-	public QBufferedData qBox(Enum<?> label) {
-		return null;
-	}*/
+	 * public QBufferedData qBox(Enum<?> label) { return null; }
+	 */
 
 	public QIndicator qBox(boolean boolean_) {
 
 		QIndicator qIndicator = qDF.createIndicator(true);
 		qIndicator.eval(boolean_);
-		
+
 		return qIndicator;
 	}
 
 	public QDecimal qBox(Integer decimal) {
 
 		QDecimal qDecimal = null;
-		
-		if(decimal >= 0 && decimal <= 9)
+
+		if (decimal >= 0 && decimal <= 9)
 			qDecimal = qDF.createDecimal(1, 0, DecimalType.ZONED, true);
 		else
 			qDecimal = qDF.createDecimal(10, 0, DecimalType.ZONED, true);
-		
+
 		qDecimal.eval(decimal);
 
 		return qDecimal;
@@ -186,7 +185,6 @@ public class RPJProgramSupport {
 		return qCharacter;
 	}
 
-
 	public QCharacter qBox(byte character) {
 
 		QCharacter qCharacter = qDF.createCharacter(1, false, true);
@@ -194,7 +192,7 @@ public class RPJProgramSupport {
 
 		return qCharacter;
 	}
-	
+
 	public void qCall(QString program, QData[] parameters) {
 		programManager.callProgram(contextID, null, program.trimR(), parameters);
 	}
@@ -226,7 +224,7 @@ public class RPJProgramSupport {
 	public QDecimal qDec(QNumeric numeric, int precision, int scale) {
 		return null;
 	}
-	
+
 	public QDecimal qDec(QString string, int precision, int scale) {
 		return null;
 	}
@@ -262,7 +260,7 @@ public class RPJProgramSupport {
 	public QString qEditc(int numeric, String format) {
 		return null;
 	}
-	
+
 	public QString qEditw(QNumeric numeric, String format) {
 		return null;
 	}
@@ -288,16 +286,20 @@ public class RPJProgramSupport {
 	public QIndicator qOpen(QPrint<?> print) {
 		return qBox(print.isOpen());
 	}
-	
+
 	public QIndicator qEqual(QDataSet<?> dataSet) {
 		return qBox(dataSet.onError());
 	}
+
 	public QIndicator qError() {
 		return null;
 	}
-	
+
 	public QIndicator qError(QDataSet<?> dataSet) {
-		return qBox(dataSet.onError());
+		if(dataSet == null)
+			return qBox(true);
+		else
+			return qBox(dataSet.onError());
 	}
 
 	public QIndicator qFound(QDataSet<?> dataSet) {
@@ -311,7 +313,7 @@ public class RPJProgramSupport {
 	public QDecimal qInt(Integer numeric) {
 		return qBox(numeric);
 	}
-	
+
 	public void qJump(Enum<?> label) {
 	}
 
@@ -325,27 +327,27 @@ public class RPJProgramSupport {
 	public QPointer qPaddr(QString string) {
 		return null;
 	}
-	
+
 	public QPointer qAlloc(QNumeric size) {
 		return null;
 	}
-	
+
 	public QPointer qAlloc(Integer size) {
 		return null;
 	}
-	
+
 	public QPointer qRealloc(QPointer pointer, QNumeric size) {
 		return null;
 	}
-	
+
 	public QPointer qRealloc(QPointer pointer, Integer size) {
 		return null;
 	}
-	
+
 	public void qDealloc(QPointer pointer) {
 		// TODO
 	}
-	
+
 	public QIndicator qTestn(QString string) {
 		// TODO
 		return null;
@@ -368,7 +370,7 @@ public class RPJProgramSupport {
 		decimal.eval(bufferedData.getSize());
 		return decimal;
 	}
-	
+
 	public QDecimal qLookup(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
@@ -376,11 +378,11 @@ public class RPJProgramSupport {
 	public QDecimal qLookup(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
-	
+
 	public QDecimal qLookup(String argument, QList<QCharacter> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
-	
+
 	public QDecimal qLookuplt(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
 	}
@@ -388,7 +390,7 @@ public class RPJProgramSupport {
 	public QDecimal qLookuplt(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
 	}
-	
+
 	public QDecimal qLookuple(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LE, argument, list, startIndex, numElements);
 	}
@@ -396,7 +398,7 @@ public class RPJProgramSupport {
 	public QDecimal qLookuple(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LE, argument, list, startIndex, numElements);
 	}
-	
+
 	public QDecimal qLookupgt(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GT, argument, list, startIndex, numElements);
 	}
@@ -404,7 +406,7 @@ public class RPJProgramSupport {
 	public QDecimal qLookupgt(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GT, argument, list, startIndex, numElements);
 	}
-	
+
 	public QDecimal qLookupge(Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
 	}
@@ -412,10 +414,10 @@ public class RPJProgramSupport {
 	public QDecimal qLookupge(QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
 	}
-	
+
 	private QDecimal qLookup(LookupOperator operator, String argument, QList<QCharacter> list, Integer startIndex, Integer numElements) {
 
-		if(startIndex == null)
+		if (startIndex == null)
 			startIndex = 1;
 
 		if (numElements == null)
@@ -428,10 +430,10 @@ public class RPJProgramSupport {
 
 		return qBox(-1);
 	}
-	
+
 	private QDecimal qLookup(LookupOperator operator, Specials argument, QList<?> list, Integer startIndex, Integer numElements) {
 
-		if(startIndex == null)
+		if (startIndex == null)
 			startIndex = 1;
 
 		if (numElements == null)
@@ -447,12 +449,12 @@ public class RPJProgramSupport {
 
 	private QDecimal qLookup(LookupOperator operator, QBufferedData argument, QList<?> list, Integer startIndex, Integer numElements) {
 
-		if(startIndex == null)
+		if (startIndex == null)
 			startIndex = 1;
 
 		if (numElements == null)
 			numElements = list.capacity();
-		
+
 		for (int i = startIndex; i <= numElements; i++) {
 			if (list.get(i).toString().equals(argument.toString()))
 				return qBox(i);
@@ -464,50 +466,50 @@ public class RPJProgramSupport {
 	public QDecimal qRem(QNumeric ope1, QNumeric ope2) {
 		return null;
 	}
-	
+
 	public QDecimal qScan(byte argument, QString source) {
 		return qScan(argument, source, null, null);
 	}
-	
+
 	public QDecimal qScan(byte argument, QString source, Integer start) {
 		return qScan(argument, source, start, null);
 	}
-	
+
 	// TODO double byte?
 	public QDecimal qScan(byte argument, QString source, Integer start, Integer length) {
 
-		if(start == null)
+		if (start == null)
 			start = 1;
-		
+
 		int position = 0;
-		
-		if(length != null)
-			position = qSubst(source, 1, length).asString().indexOf(argument, start-1) + 1;
+
+		if (length != null)
+			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
 		else
-			position = source.asString().indexOf(argument, start-1) + 1;
+			position = source.asString().indexOf(argument, start - 1) + 1;
 
 		return qBox(position);
 	}
-	
+
 	public QDecimal qScan(String argument, QString source) {
 		return qScan(argument, source, null, null);
 	}
-	
+
 	public QDecimal qScan(String argument, QString source, Integer start) {
 		return qScan(argument, source, start, null);
 	}
-	
+
 	public QDecimal qScan(String argument, QString source, Integer start, Integer length) {
 
-		if(start == null)
+		if (start == null)
 			start = 1;
-		
+
 		int position = 0;
-		
-		if(length != null)
-			position = qSubst(source, 1, length).asString().indexOf(argument, start-1) + 1;
+
+		if (length != null)
+			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
 		else
-			position = source.asString().indexOf(argument, start-1) + 1;
+			position = source.asString().indexOf(argument, start - 1) + 1;
 
 		return qBox(position);
 	}
@@ -528,10 +530,11 @@ public class RPJProgramSupport {
 	public QString qSubst(QArray<QCharacter> source, Integer from) {
 		return null;
 	}
+
 	public QString qSubst(QArray<QCharacter> source, Integer from, Integer to) {
 		return null;
 	}
-	
+
 	public QString qSubst(QString source, Integer from) {
 		return null;
 	}
@@ -540,6 +543,7 @@ public class RPJProgramSupport {
 
 		return qSubst(source.asString(), from, length);
 	}
+
 	public QString qSubst(String source, Integer from, Integer length) {
 
 		String str = source.substring(from - 1, from - 1 + length);
@@ -549,6 +553,7 @@ public class RPJProgramSupport {
 
 		return string;
 	}
+
 	public QNumeric qTime(QDatetime datetime) {
 		return null;
 	}
@@ -598,11 +603,11 @@ public class RPJProgramSupport {
 
 		return character;
 	}
-	
+
 	public QString qCat(String string1, String string2) {
 		return qCat(qBox(string1), qBox(string1));
 	}
-	
+
 	public QString qCat(QString string1, QString string2) {
 
 		String str = string1.trimR() + " " + string2.asString();
@@ -613,11 +618,10 @@ public class RPJProgramSupport {
 		return character;
 	}
 
-	
 	public QString qBcat(String string1, String string2) {
 		return qBcat(qBox(string1), qBox(string1));
 	}
-	
+
 	public QString qBcat(QString string1, QString string2) {
 
 		String str = string1.trimR() + " " + string2.asString();
@@ -627,12 +631,12 @@ public class RPJProgramSupport {
 
 		return character;
 	}
-	
+
 	public QString qTcat(String string1, String string2) {
 		return qTcat(qBox(string1), qBox(string1));
-	
+
 	}
-		
+
 	public QString qTcat(QString string1, QString string2) {
 
 		String str = string1.trimR() + string2.asString();
@@ -644,16 +648,21 @@ public class RPJProgramSupport {
 	}
 
 	public QString qStr(QPointer source, Integer length) {
-		return null;
+		
+		if (source.getTarget() instanceof QString)
+			return (QString) source.getTarget();
+		else
+			return null;
+		
 	}
-	
+
 	public QString qXlate(String oldString, String newString, QString source) {
 		return null;
 	}
-	
+
 	public void qXfoot(QArray<QDecimal> list, QNumeric target) {
 	}
-	
+
 	public static class ProgramStatus extends QDataStructWrapper {
 
 		private static final long serialVersionUID = 1L;
@@ -678,7 +687,6 @@ public class RPJProgramSupport {
 
 		private static final long serialVersionUID = 1L;
 
-		
 		@Overlay(name = "IN", position = "01")
 		public QIndicator qIN01;
 		@Overlay(name = "IN", position = "02")
@@ -877,7 +885,7 @@ public class RPJProgramSupport {
 		public QIndicator qIN98;
 		@Overlay(name = "IN", position = "99")
 		public QIndicator qIN99;
-		
+
 		public QIndicator get(Integer index) {
 			return null;
 		}
@@ -897,7 +905,7 @@ public class RPJProgramSupport {
 		public boolean b() {
 			return this.asBoolean();
 		}
-		
+
 		public String asString() {
 			return this.toString();
 		}

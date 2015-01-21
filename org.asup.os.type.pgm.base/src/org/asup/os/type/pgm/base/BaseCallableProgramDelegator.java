@@ -75,6 +75,26 @@ public class BaseCallableProgramDelegator extends CallableProgramImpl implements
 				} catch (Exception e) {
 
 				}
+				
+				Field £qpdsqqField = null;
+				try {
+					£qpdsqqField = delegate.getClass().getDeclaredField("£mu_£pdsqq_1");
+						
+				} catch (Exception e) {
+					try {
+
+					if(£qpdsqqField == null && delegate.getClass().getSuperclass() != null)
+						£qpdsqqField = delegate.getClass().getSuperclass().getDeclaredField("£mu_£pdsqq_1");
+					} catch (Exception e2) {
+					}
+
+				}
+
+				if(£qpdsqqField != null) {
+					Object £qpdsqq = £qpdsqqField.get(delegate);
+					Object £qpdspr = £qpdsqq.getClass().getField("£qdspr").get(£qpdsqq);
+					£qpdspr.getClass().getMethod("eval", Integer.TYPE).invoke(£qpdspr, new Object[] { params.length });
+				}
 				if (getQEntry().length > 0) {
 					this.entry.invoke(delegate, (Object[]) params);
 				} else

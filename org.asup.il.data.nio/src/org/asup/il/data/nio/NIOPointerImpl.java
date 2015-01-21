@@ -8,8 +8,11 @@ public class NIOPointerImpl extends NIOBufferedDataImpl implements QPointer {
 
 	private static final long serialVersionUID = 1L;
 
-	public NIOPointerImpl() {
+	private QBufferedData target;
+	
+	public NIOPointerImpl(QBufferedData target) {
 		super();
+		this.target = target;
 	}
 
 	@Override
@@ -34,7 +37,7 @@ public class NIOPointerImpl extends NIOBufferedDataImpl implements QPointer {
 		return false;
 	}
 
-	@Override
+	@Override	
 	public <E extends Enum<E>> void eval(E value) {
 		// TODO Auto-generated method stub
 
@@ -230,6 +233,11 @@ public class NIOPointerImpl extends NIOBufferedDataImpl implements QPointer {
 	protected byte getFiller() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public QBufferedData getTarget() {
+		return this.target;
 	}
 
 }

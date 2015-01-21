@@ -124,15 +124,62 @@ public class BaseCallableInjector {
 		return entry;
 	}
 
-	@SuppressWarnings("unchecked")
 	private <C> C injectData(Class<C> klass, QDataFactory dataFactory, QJob job, QActivationGroup activationGroup, Map<String, Object> sharedModules) throws IllegalArgumentException,
 			IllegalAccessException, InstantiationException {
 
-		if(klass.getAnnotation(Program.class) != null)
+		if (klass.getAnnotation(Program.class) != null)
 			System.out.println(klass);
-		
+
 		C callable = klass.newInstance();
 		QContext jobContext = job.getContext();
+
+		injectFieldsData(klass, callable, dataFactory, jobContext, activationGroup, sharedModules);
+
+		try {
+			Field £mubField = callable.getClass().getDeclaredField("£mub");
+			if (£mubField != null) {
+				try {
+					£mubField.setAccessible(true);
+
+					Object £mub = £mubField.get(callable);
+					Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
+
+					Object £pdsnp = £mu_£pds_1.getClass().getField("£pdsnp").get(£mu_£pds_1);
+					// if (£pdsnp.toString().trim().isEmpty()) {
+					String programName = callable.getClass().getSimpleName();
+					Program program = callable.getClass().getAnnotation(Program.class);
+					if (program != null)
+						programName = program.name();
+
+					£pdsnp.getClass().getMethod("eval", String.class).invoke(£pdsnp, new Object[] { programName });
+
+				} catch (NoSuchFieldException | InvocationTargetException | NoSuchMethodException e) {
+					e.printStackTrace();
+				} finally {
+					£mubField.setAccessible(false);
+				}
+			}
+
+		} catch (NoSuchFieldException | SecurityException e1) {
+			// TODO Auto-generated catch block
+			// e1.printStackTrace();
+		}
+
+		if (callable.getClass().getAnnotation(Program.class) == null)
+			return callable;
+
+		jobContext.invoke(callable, PostConstruct.class);
+
+		return callable;
+	}
+
+	@SuppressWarnings("unchecked")
+	private void injectFieldsData(Class<?> klass, Object callable, QDataFactory dataFactory, QContext jobContext, QActivationGroup activationGroup, Map<String, Object> sharedModules)
+			throws IllegalArgumentException, IllegalAccessException, InstantiationException {
+
+		if (klass.getName().startsWith("com.smeup.erp.ovr.pgm"))
+			injectFieldsData(klass.getSuperclass(), callable, dataFactory, jobContext, activationGroup, sharedModules);
+
 		for (Field field : klass.getDeclaredFields()) {
 
 			field.setAccessible(true);
@@ -178,8 +225,9 @@ public class BaseCallableInjector {
 				QDataDef<?> dataType = dataFactory.createDataDef(type, Arrays.asList(field.getAnnotations()));
 				QData data = dataFactory.createData(dataType, true);
 
-				if (field.getAnnotation(DataDef.class) != null) {
-					DataDef dataDef = field.getAnnotation(DataDef.class);
+				DataDef dataDef = field.getAnnotation(DataDef.class);
+
+				if (dataDef != null) {
 
 					// default
 					if (data instanceof QList<?>) {
@@ -212,7 +260,7 @@ public class BaseCallableInjector {
 				} else {
 					object = sharedModules.get(fieldKlass.getSimpleName());
 					if (object == null) {
-						System.out.println("\t"+fieldKlass);
+						System.out.println("\t" + fieldKlass);
 						object = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
 						sharedModules.put(fieldKlass.getSimpleName(), object);
 					}
@@ -228,42 +276,6 @@ public class BaseCallableInjector {
 			field.setAccessible(false);
 		}
 
-		try {
-			Field £mubField = callable.getClass().getDeclaredField("£mub");
-			if (£mubField != null) {
-				try {
-					£mubField.setAccessible(true);
-
-					Object £mub = £mubField.get(callable);
-					Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
-
-					Object £pdsnp = £mu_£pds_1.getClass().getField("£pdsnp").get(£mu_£pds_1);
-//					if (£pdsnp.toString().trim().isEmpty()) {
-						String programName = callable.getClass().getSimpleName();
-						Program program = callable.getClass().getAnnotation(Program.class);
-						if (program != null)
-							programName = program.name();
-
-						£pdsnp.getClass().getMethod("eval", String.class).invoke(£pdsnp, new Object[] { programName });
-					
-				} catch (NoSuchFieldException | InvocationTargetException | NoSuchMethodException e) {
-					e.printStackTrace();
-				} finally {
-					£mubField.setAccessible(false);
-				}
-			}
-
-		} catch (NoSuchFieldException | SecurityException e1) {
-			// TODO Auto-generated catch block
-			// e1.printStackTrace();
-		}
-
-		if(callable.getClass().getAnnotation(Program.class) == null)
-			return callable;
-
-		jobContext.invoke(callable, PostConstruct.class);
-
-		return callable;
 	}
 
 	private void injectDataSet(QJob job, QDataFactory dataFactory, Object callable, Class<QDataSet<QRecord>> fieldKlass, Class<QRecord> recordKlass, Field field) throws IllegalArgumentException,
@@ -286,7 +298,7 @@ public class BaseCallableInjector {
 
 			if (file == null)
 				file = fileReader.lookup(recordKlass.getSimpleName());
-			
+
 			if (file == null) {
 				System.err.println("File not found: " + fileDef.name());
 				return;

@@ -11,6 +11,8 @@
  */
 package org.asup.il.data.nio;
 
+import java.io.UnsupportedEncodingException;
+
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QNumeric;
@@ -329,7 +331,11 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	@Override
 	public String asString() {
-		return trimR();
+		try {
+			return trimR(new String(asBytes(), ENCODING));
+		} catch (UnsupportedEncodingException e) {
+			return new String(asBytes());
+		}
 	}
 
 	@Override

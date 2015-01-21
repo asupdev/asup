@@ -476,6 +476,7 @@
       <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="createPointer" lowerBound="1" eType="#//Pointer">
+      <eParameters name="target" lowerBound="1" eType="#//BufferedData"/>
       <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="createScroller" lowerBound="1">
@@ -1467,6 +1468,7 @@
     <eOperations name="divide" eType="#//Pointer">
       <eParameters name="value" lowerBound="1" eType="#//Numeric"/>
     </eOperations>
+    <eOperations name="getTarget" eType="#//BufferedData"/>
     <eOperations name="minus" eType="#//Pointer">
       <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     </eOperations>
@@ -1517,6 +1519,7 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PointerDef">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eGenericSuperTypes eClassifier="#//UnaryAtomicBufferedDataDef">
       <eTypeArguments eClassifier="#//Pointer"/>
     </eGenericSuperTypes>

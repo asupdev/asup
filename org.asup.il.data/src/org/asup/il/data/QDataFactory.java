@@ -139,10 +139,10 @@ public interface QDataFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" initializeRequired="true"
+	 * @model required="true" targetRequired="true" initializeRequired="true"
 	 * @generated
 	 */
-	QPointer createPointer(boolean initialize);
+	QPointer createPointer(QBufferedData target, boolean initialize);
 
 	/**
 	 * <!-- begin-user-doc -->
