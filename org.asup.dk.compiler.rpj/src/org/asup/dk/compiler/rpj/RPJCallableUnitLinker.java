@@ -126,10 +126,10 @@ public class RPJCallableUnitLinker {
 			dataLikeVisitor.reset();
 
 			dataTerm.accept(dataLikeVisitor);
-			
-			if(dataLikeVisitor.getDataTerm() == null)
+
+			if (dataLikeVisitor.getDataTerm() == null)
 				"".toCharArray();
-			
+
 			dataSection.getDatas().remove(dataTerm);
 			dataSection.getDatas().add(dataLikeVisitor.getDataTerm());
 		}
@@ -154,9 +154,9 @@ public class RPJCallableUnitLinker {
 			dataFormulasResolver.reset();
 
 			dataTerm.accept(dataFormulasResolver);
-			if(dataFormulasResolver.getDataTerm() == null)
+			if (dataFormulasResolver.getDataTerm() == null)
 				"".toCharArray();
-			
+
 			dataSection.getDatas().remove(dataTerm);
 			dataSection.getDatas().add(dataFormulasResolver.getDataTerm());
 		}
@@ -181,10 +181,10 @@ public class RPJCallableUnitLinker {
 			dataOverlayVisitor.reset();
 
 			dataTerm.accept(dataOverlayVisitor);
-			
-			if(dataOverlayVisitor.getDataTerm() == null)
+
+			if (dataOverlayVisitor.getDataTerm() == null)
 				"".toCharArray();
-			
+
 			dataSection.getDatas().remove(dataTerm);
 			dataSection.getDatas().add(dataOverlayVisitor.getDataTerm());
 		}
@@ -235,14 +235,14 @@ public class RPJCallableUnitLinker {
 		if (fileSection == null)
 			return;
 
-		for (QDataSetTerm dataSetTerm : fileSection.getDataSets()) 
+		for (QDataSetTerm dataSetTerm : fileSection.getDataSets())
 			linkFileTerm(dataSetTerm);
 
-		for(QDisplayTerm displayTerm: fileSection.getDisplays()) {
+		for (QDisplayTerm displayTerm : fileSection.getDisplays()) {
 			linkFileTerm(displayTerm);
 		}
-		
-		for(QPrintTerm printerTerm: fileSection.getPrinters())
+
+		for (QPrintTerm printerTerm : fileSection.getPrinters())
 			linkFileTerm(printerTerm);
 	}
 
@@ -276,13 +276,13 @@ public class RPJCallableUnitLinker {
 			if (file instanceof QDatabaseFile) {
 				QDatabaseFile databaseFile = (QDatabaseFile) file;
 				linkDatabaseFormat((QDataSetTerm) fileTerm, databaseFile.getDatabaseFormat(), externalFile);
-			} else if(file instanceof QDisplayFile) {
+			} else if (file instanceof QDisplayFile) {
 
 				QRecordDef recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
 				fileTerm.setRecord(recordDef);
 
 				linkExternalFile(fileTerm, recordDef.getElements(), externalFile);
-			} else if(file instanceof QPrinterFile) {
+			} else if (file instanceof QPrinterFile) {
 
 				QRecordDef recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
 				fileTerm.setRecord(recordDef);
@@ -366,36 +366,36 @@ public class RPJCallableUnitLinker {
 				appendElements(target, databaseFileFormat);
 			}
 		} else if (file instanceof QDisplayFile) {
-			QDisplayFile displayFile = (QDisplayFile)file;
+			QDisplayFile displayFile = (QDisplayFile) file;
 
 			for (QFileFormat<?> fileFormat : displayFile.getDisplayFormats()) {
 
 				QCompoundDataTerm<QRecordDef> formatTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
 				formatTerm.setName(fileFormat.getName());
-								
+
 				QRecordDef recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
 				for (QFileFormatField field : fileFormat.getFields()) {
-					recordDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject)field));
+					recordDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject) field));
 				}
 				formatTerm.setDefinition(recordDef);
-				
+
 				target.add(formatTerm);
 			}
 
 		} else if (file instanceof QPrinterFile) {
-			QPrinterFile printerFile = (QPrinterFile)file;
+			QPrinterFile printerFile = (QPrinterFile) file;
 
 			for (QFileFormat<?> fileFormat : printerFile.getPrinterFormats()) {
 
 				QCompoundDataTerm<QRecordDef> formatTerm = QIntegratedLanguageDataFactory.eINSTANCE.createUnaryCompoundDataTerm();
 				formatTerm.setName(fileFormat.getName());
-								
+
 				QRecordDef recordDef = QIntegratedLanguageIsamFactory.eINSTANCE.createRecordDef();
 				for (QFileFormatField field : fileFormat.getFields()) {
-					recordDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject)field));
+					recordDef.getElements().add((QDataTerm<?>) EcoreUtil.copy((EObject) field));
 				}
 				formatTerm.setDefinition(recordDef);
-				
+
 				target.add(formatTerm);
 			}
 
@@ -438,7 +438,11 @@ public class RPJCallableUnitLinker {
 		// TODO
 		QLibrary library = libraryReader.lookup(file.getLibrary());
 
-		String pathURI = library.getPackageURI().toString().replaceAll("/", ".") + "file/";
+		String attribute = file.getAttribute();
+		if (attribute != null && (attribute.equals("PF") || attribute.equals("LF")))
+			attribute = "dbf";
+
+		String pathURI = library.getPackageURI().toString().replaceAll("/", ".") + "file." + attribute.toLowerCase() + "/";
 		URI packageURI = library.getPackageURI().resolve(file.getPackageInfoURI());
 
 		String address = "asup:/omac/" + pathURI + packageURI.toString().replaceAll("/", ".") + "." + file.getName();
