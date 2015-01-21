@@ -27,6 +27,7 @@ import org.asup.fw.core.impl.ContextImpl;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.InjectionException;
 import org.eclipse.emf.common.util.URI;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -34,10 +35,11 @@ import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.remoteserviceadmin.RemoteConstants;
 
-public abstract class E4ContextImpl extends  ContextImpl {
+@SuppressWarnings("restriction") 
+public abstract class E4ContextImpl extends ContextImpl {
 
 	private static final String ADAPTER_FACTORIES_NAME = "org.asup.fw.core.e4.context.adapterFactories";
-	
+
 	private static Boolean postConstruct = null;
 
 	private BundleContext bundleContext;
@@ -53,7 +55,7 @@ public abstract class E4ContextImpl extends  ContextImpl {
 	protected void initializeContext(IEclipseContext eclipseContext) {
 		eclipseContext.set(ADAPTER_FACTORIES_NAME, new HashMap<Class<?>, List<QAdapterFactory>>());
 	}
-	
+
 	@Override
 	public String getName() {
 		return this.name;
@@ -95,8 +97,13 @@ public abstract class E4ContextImpl extends  ContextImpl {
 	public <A extends Annotation> void invoke(Object object, Class<A> qualifier) throws FrameworkCoreRuntimeException {
 		try {
 			ContextInjectionFactory.invoke(object, qualifier, getEclipseContext());
-		} catch (Exception e) {
-			// e.printStackTrace();
+		} 
+		catch (InjectionException e) {
+			// TODO
+			e.toString();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -119,10 +126,10 @@ public abstract class E4ContextImpl extends  ContextImpl {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void close() throws FrameworkCoreRuntimeException {
-		
+
 		Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) getEclipseContext().get(ADAPTER_FACTORIES_NAME);
 		adapterFactories.clear();
-		
+
 		getEclipseContext().dispose();
 	}
 
@@ -131,97 +138,94 @@ public abstract class E4ContextImpl extends  ContextImpl {
 	public <T> T getAdapter(Object adaptable, Class<T> adapterType) {
 
 		T adaptee = searchAdapter(getEclipseContext(), adaptable, adapterType);
-		if(adaptee != null)
+		if (adaptee != null)
 			return adaptee;
 
 		if (adaptee == null && adapterType.isInstance(adaptable))
-			adaptee = (T) adaptable;		
+			adaptee = (T) adaptable;
 
 		return adaptee;
 	}
 
 	@SuppressWarnings("unchecked")
 	private <T> T searchAdapter(IEclipseContext eclipseContext, Object adaptable, Class<T> adapterType) {
-		
+
 		T adaptee = null;
 
 		Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) eclipseContext.get(ADAPTER_FACTORIES_NAME);
-		if(!adapterFactories.isEmpty()) {
+		if (!adapterFactories.isEmpty()) {
 			adaptee = searchAdapter(adaptable, adaptable.getClass().getInterfaces(), adapterFactories, adapterType);
-			
-			if(adaptee != null)
+
+			if (adaptee != null)
 				return adaptee;
-			
+
 			Class<?> superClass = adaptable.getClass().getSuperclass();
-			if(superClass != Object.class)
+			if (superClass != Object.class)
 				adaptee = searchAdapter(adaptable, superClass.getInterfaces(), adapterFactories, adapterType);
 		}
-		
-		if(adaptee != null)
+
+		if (adaptee != null)
 			return adaptee;
-		
+
 		// search on parent
 		IEclipseContext parentContext = eclipseContext.getParent();
-		if(parentContext != null)
+		if (parentContext != null)
 			adaptee = searchAdapter(parentContext, adaptable, adapterType);
-		
+
 		return adaptee;
 	}
-	
+
 	private <T> T searchAdapter(Object adaptable, Class<?> interfaces[], Map<Class<?>, List<QAdapterFactory>> adapterFactories, Class<T> adapterType) {
 
-		
 		T adaptee = null;
-		
-		for(Class<?> _interface: interfaces) {
-			
+
+		for (Class<?> _interface : interfaces) {
+
 			List<QAdapterFactory> factories = adapterFactories.get(_interface);
-			if(factories != null) {				
+			if (factories != null) {
 				// search adaptee on naturally registration order
-				for(QAdapterFactory adapterFactory: factories) {
+				for (QAdapterFactory adapterFactory : factories) {
 					adaptee = adapterFactory.getAdapter(this, adaptable, adapterType);
-					if(adaptee != null)
+					if (adaptee != null)
 						break;
 				}
-			}						
+			}
 
-			if(adaptee != null)
+			if (adaptee != null)
 				break;
-		
+
 			adaptee = searchAdapter(adaptable, _interface.getInterfaces(), adapterFactories, adapterType);
 		}
-		
+
 		return adaptee;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> void registerAdapterFactory(QAdapterFactory factory, Class<T> adapterType) {
-		
+
 		synchronized (adapterType) {
-			
+
 			Map<Class<?>, List<QAdapterFactory>> adapterFactories = (Map<Class<?>, List<QAdapterFactory>>) getEclipseContext().get(ADAPTER_FACTORIES_NAME);
-			
+
 			List<QAdapterFactory> factories = adapterFactories.get(adapterType);
-			if(factories == null) {
+			if (factories == null) {
 				factories = new ArrayList<QAdapterFactory>();
 				adapterFactories.put(adapterType, factories);
 			}
-			
+
 			factories.add(factory);
 		}
 	}
-
 
 	@Override
 	public QContext createChildContext(String name) throws FrameworkCoreRuntimeException {
 		return createChildContext(name, ContextInjectionStrategy.LOCAL);
 	}
-	
+
 	@Override
 	public QContext createChildContext(String name, ContextInjectionStrategy injectionStrategy) throws FrameworkCoreRuntimeException {
 
-		
 		switch (injectionStrategy) {
 		case LOCAL:
 			return createLocalContext(name);
@@ -234,20 +238,20 @@ public abstract class E4ContextImpl extends  ContextImpl {
 	}
 
 	private QContext createLocalContext(String name) throws FrameworkCoreRuntimeException {
-		
+
 		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-		
+
 		initializeContext(eclipseChildContext);
-		
+
 		QContext contextChild = new E4ContextChildImpl(bundleContext, eclipseChildContext, name);
-		
+
 		return contextChild;
 	}
-	
+
 	private QContext createRemoteContext(String name) throws FrameworkCoreRuntimeException {
 
 		IEclipseContext eclipseChildContext = getEclipseContext().createChild();
-		
+
 		// bind remote service
 		try {
 			for (ServiceReference<?> serviceReference : bundleContext.getAllServiceReferences(null, null)) {
@@ -275,10 +279,10 @@ public abstract class E4ContextImpl extends  ContextImpl {
 		}
 
 		initializeContext(eclipseChildContext);
-		
+
 		return new E4ContextChildImpl(bundleContext, eclipseChildContext, name);
 	}
-	
+
 	private boolean isActivePostConstruct() {
 
 		if (postConstruct == null) {
@@ -291,7 +295,7 @@ public abstract class E4ContextImpl extends  ContextImpl {
 
 		return postConstruct;
 	}
-	
+
 	public static class Dummy {
 
 		private boolean loaded = false;
