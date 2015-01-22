@@ -143,4 +143,13 @@ public class E4JobManagerImpl extends JobManagerImpl {
 	public List<QJob> getActiveJobs() {
 		return new ArrayList<QJob>(activeJobs.values());
 	}
+	
+
+	@Override
+	public void close(QJob job) throws OperatingSystemException {
+
+		this.activeJobs.remove(job.getJobID());
+		
+		job.getContext().close();
+	}
 }

@@ -1175,6 +1175,22 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		op = addEOperation(isamFactoryEClass, null, "createKeySequencedDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "R");
+		g1 = createEGenericType(this.getRecord());
+		t1.getEBounds().add(g1);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "wrapper", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAccessMode(), "accessMode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "userOpen", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getKSDataSet());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		op = addEOperation(isamFactoryEClass, null, "createRelativeRecordDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
 		t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
@@ -1199,6 +1215,22 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "wrapper", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAccessMode(), "accessMode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getRRDataSet());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(isamFactoryEClass, null, "createRelativeRecordDataSet", 1, 1, IS_UNIQUE, IS_ORDERED);
+		t1 = addETypeParameter(op, "R");
+		g1 = createEGenericType(this.getRecord());
+		t1.getEBounds().add(g1);
+		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEJavaClass());
+		g2 = createEGenericType(t1);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "wrapper", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAccessMode(), "accessMode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "userOpen", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getRRDataSet());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);

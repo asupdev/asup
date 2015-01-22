@@ -53,6 +53,17 @@ public abstract class JobManagerImpl extends ServiceImpl implements QJobManager 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void close(QJob job) throws OperatingSystemException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QContextID create(String user, String password) throws OperatingSystemException, OperatingSystemException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

@@ -203,4 +203,13 @@ public class CDOJobManagerImpl extends JobManagerImpl {
 			throw new OperatingSystemException(e);
 		}		
 	}
+
+	@Override
+	public void close(QJob job) throws OperatingSystemException {
+		QJob activeJob = this.activeJobs.get(job.getJobID());
+		if(activeJob != null)
+			this.activeJobs.remove(activeJob);
+		
+		job.getContext().close();
+	}
 }

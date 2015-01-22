@@ -27,6 +27,14 @@ public interface QJobManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model exceptions="org.asup.os.core.OperatingSystemException" jobRequired="true"
+	 * @generated
+	 */
+	void close(QJob job) throws OperatingSystemException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.os.core.OperatingSystemException" jobRequired="true" statusRequired="true"
 	 * @generated
 	 */

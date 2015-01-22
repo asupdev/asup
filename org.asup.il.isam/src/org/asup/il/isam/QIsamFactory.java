@@ -42,6 +42,14 @@ public interface QIsamFactory {
 	 * @model required="true" containerRequired="true" wrapperRequired="true"
 	 * @generated
 	 */
+	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper, AccessMode accessMode, boolean userOpen);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @generated
+	 */
 	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper);
 
 	/**
@@ -51,5 +59,13 @@ public interface QIsamFactory {
 	 * @generated
 	 */
 	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @generated
+	 */
+	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode, boolean userOpen);
 
 } // QIsamFactory

@@ -38,6 +38,7 @@ import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Program;
+import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QIsamFactory;
 import org.asup.il.isam.QIsamManager;
@@ -305,11 +306,11 @@ public class BaseCallableInjector {
 			}
 
 			if (QKSDataSet.class.isAssignableFrom(fieldKlass)) {
-				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), recordKlass);
+				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), recordKlass, AccessMode.UPDATE, fileDef.userOpen());
 			} else if (QSMDataSet.class.isAssignableFrom(fieldKlass)) {
-				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass);
+				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass, AccessMode.UPDATE, fileDef.userOpen());
 			} else {
-				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass);
+				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass, AccessMode.UPDATE, fileDef.userOpen());
 			}
 
 			field.set(callable, dataSet);

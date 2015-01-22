@@ -31,26 +31,25 @@ import org.asup.il.data.QString;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Data Writer</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Data Writer</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
 public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	protected Object object = null;
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DataWriterImpl() {
@@ -58,8 +57,8 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,8 +67,8 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public QDataWriter set(int value) {
@@ -79,8 +78,8 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public QDataWriter set(String value) {
@@ -89,8 +88,8 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public QDataWriter set(QSpecialElement value) {
@@ -99,15 +98,15 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public QDataWriter set(QBufferedData value) {
 		this.object = value;
 		return this;
 	}
-	
+
 	@Override
 	public boolean visit(QAdapter data) {
 		data.eval(object);
@@ -193,53 +192,49 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	}
 
 	private void visitNumericData(QNumeric numeric) {
-		
-		if(object instanceof QBufferedData) {
-			numeric.eval((QBufferedData)object);	
-		}		
-		else {
+
+		if (object instanceof QBufferedData) {
+			numeric.eval((QBufferedData) object);
+		} else {
 			try {
-				if(!object.toString().isEmpty())
+				if (!object.toString().isEmpty())
 					numeric.eval(Double.parseDouble(object.toString()));
 				else
 					numeric.clear();
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
 	}
-	
+
 	private void visitStringData(QString string) {
-		if(object instanceof QString) {
-			string.eval((QString)object);	
-		}		
-		else if(object instanceof String) {
+
+		if (object instanceof QString) {
+			string.eval((QString) object);
+		} else if (object instanceof String) {
 			String s = (String) object;
-			
-			if(s.startsWith("*")) {
-				s = s.substring(1);
-				Specials special = Specials.valueOf(s);
-				if(special != null)
+
+			if (s.startsWith("*")) {
+				try {
+					Specials special = Specials.valueOf(s.substring(1));
 					string.eval(special);
-				else
-					s.toString();
-			}
-			else
+				} catch (Exception e) {
+					string.eval(s);
+				}
+			} else
 				string.eval(s);
-		}
-		else {
-			if(object.toString().startsWith("*"))
+		} else {
+			if (object.toString().startsWith("*"))
 				object.toString();
-			
+
 			string.eval(object.toString());
 		}
 
 	}
-	
+
 	public static enum Specials {
-		NULL, ALL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
+		NULL, OFF, ON, ZERO, ZEROS, BLANK, BLANKS, LOVAL, HIVAL, MS;
 
 		public boolean asBoolean() {
 			return this.toString().equals("ON");
@@ -248,9 +243,9 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 		public boolean b() {
 			return this.asBoolean();
 		}
-		
+
 		public String asString() {
 			return this.toString();
 		}
 	}
-} //DataWriterImpl
+} // DataWriterImpl

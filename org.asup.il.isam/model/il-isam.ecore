@@ -473,6 +473,22 @@
       </eParameters>
       <eParameters name="accessMode" eType="#//AccessMode"/>
     </eOperations>
+    <eOperations name="createKeySequencedDataSet" lowerBound="1">
+      <eGenericType eClassifier="#//KSDataSet">
+        <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet.2/R"/>
+      </eGenericType>
+      <eTypeParameters name="R">
+        <eBounds eClassifier="#//Record"/>
+      </eTypeParameters>
+      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="wrapper" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet.2/R"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="accessMode" eType="#//AccessMode"/>
+      <eParameters name="userOpen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eOperations name="createRelativeRecordDataSet" lowerBound="1">
       <eGenericType eClassifier="#//RRDataSet">
         <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet/R"/>
@@ -501,6 +517,22 @@
         </eGenericType>
       </eParameters>
       <eParameters name="accessMode" eType="#//AccessMode"/>
+    </eOperations>
+    <eOperations name="createRelativeRecordDataSet" lowerBound="1">
+      <eGenericType eClassifier="#//RRDataSet">
+        <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet.2/R"/>
+      </eGenericType>
+      <eTypeParameters name="R">
+        <eBounds eClassifier="#//Record"/>
+      </eTypeParameters>
+      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="wrapper" lowerBound="1">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet.2/R"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="accessMode" eType="#//AccessMode"/>
+      <eParameters name="userOpen" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Print" abstract="true" interface="true">

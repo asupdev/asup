@@ -35,13 +35,12 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	private QConnection databaseConnection;
 	private JDBCAccessHelper jdbcAccessHelper;
 
-	private Table table;
 	private QIndex index;
 	private R record;
-
 	private AccessMode accessMode;
 	private boolean userOpen;
 
+	private JDBCTableProvider tableProvider;
 	private JDBCDataReaderImpl dataReader;
 	private JDBCDataWriterImpl dataWriter;
 
@@ -52,6 +51,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	private boolean endOfData;
 	private int rrn;
 
+	private Table currentTable;
 	protected OperationSet currentOpSet;
 	protected Object[] currentKeySet;
 	private OperationRead currentOpRead;
@@ -60,15 +60,17 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	private QStatement statement;
 	private ResultSet resultSet;
 
-	protected JDBCDataSetImpl(QConnection databaseConnection, Table table, QIndex index, R record, AccessMode accessMode, boolean userOpen) {
+	protected JDBCDataSetImpl(QConnection databaseConnection, JDBCTableProvider tableProvider, QIndex index, R record, AccessMode accessMode, boolean userOpen) {
 
 		this.databaseConnection = databaseConnection;
-		this.table = table;
+
 		this.index = index;
 		this.record = record;
 		this.accessMode = accessMode;
 		this.userOpen = userOpen;
 
+		this.tableProvider = tableProvider;
+		
 		this.jdbcAccessHelper = new JDBCAccessHelper();
 		this.dataReader = new JDBCDataReaderImpl();
 		this.dataWriter = new JDBCDataWriterImpl();
@@ -158,6 +160,8 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		this.endOfData = true;
 		this.rrn = 0;
 
+		this.currentTable = null;
+		
 		this.currentOpSet = null;
 		this.currentKeySet = null;
 
@@ -221,6 +225,8 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 			else
 				statement = databaseConnection.createStatement(true, true);
 			
+			this.currentTable = this.tableProvider.getTable(null, this.record.getClass().getSimpleName());
+			
 			this.open = true;
 		} catch (SQLException e) {
 			handleSQLException(e);
@@ -237,7 +243,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		if (this.resultSet != null)
 			this.resultSet.close();
 		
-		String querySelect = jdbcAccessHelper.buildSelect(table, index, opSet, keySet, opRead, keyRead);
+		String querySelect = jdbcAccessHelper.buildSelect(this.currentTable, index, opSet, keySet, opRead, keyRead);
 
 		this.resultSet = this.statement.executeQuery(querySelect);
 		this.dataReader.set(this.resultSet);
@@ -440,7 +446,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		
 		try {
 			if(this.resultSet == null) {
-				String querySelect = "SELECT "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) + ".*, digits(QASRRN) FROM "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table) +" ORDER BY QASRRN";
+				String querySelect = "SELECT "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) + ".*, digits(QASRRN) FROM "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) +" ORDER BY QASRRN";
 				this.resultSet = this.statement.executeQuery(querySelect);
 				
 				this.dataReader.set(this.resultSet);

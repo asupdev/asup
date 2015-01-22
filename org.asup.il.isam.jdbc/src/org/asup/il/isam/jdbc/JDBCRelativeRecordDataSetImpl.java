@@ -22,12 +22,11 @@ import org.asup.il.isam.OperationSet;
 import org.asup.il.isam.QIndex;
 import org.asup.il.isam.QRRDataSet;
 import org.asup.il.isam.QRecord;
-import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCRelativeRecordDataSetImpl<R extends QRecord> extends JDBCDataSetImpl<R> implements QRRDataSet<R> {
 
-	protected JDBCRelativeRecordDataSetImpl(QConnection databaseConnection, Table table, QIndex index, R record, AccessMode accessMode, boolean userOpen) {
-		super(databaseConnection, table, index, record, accessMode, userOpen);
+	protected JDBCRelativeRecordDataSetImpl(QConnection databaseConnection, JDBCTableProvider tableProvider, QIndex index, R record, AccessMode accessMode, boolean userOpen) {
+		super(databaseConnection, tableProvider, index, record, accessMode, userOpen);
 	}
 
 	@Override
