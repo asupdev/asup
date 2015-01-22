@@ -20,11 +20,16 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
+import org.asup.il.data.BinaryType;
+import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QDataStructWrapper;
+import org.asup.il.data.QEnum;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
+import org.asup.il.data.annotation.Special;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.core.output.QOperatingSystemOutputPackage;
@@ -40,7 +45,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 
-@Program(name = "QASSQLSTMR")
+@Program(name = "QSQSCHEM")
 public class SQLStatementRunner {
 
 	@Inject
@@ -50,9 +55,25 @@ public class SQLStatementRunner {
 	private QJob job;
 
 	@Entry
-	public void main(@DataDef(length = 512) QCharacter sql, @DataDef(length=1) QCharacter output) {
+	public void main(
+			@DataDef(length = 5000) QCharacter sql,
+			@DataDef(length = 10) QEnum<COMMITMENTCONTROLEnum, QCharacter> commitmentControl,
+			@DataDef(length = 10) QEnum<NAMINGEnum, QCharacter> naming,
+			@DataDef(length = 8) QEnum<DATEFORMATEnum, QCharacter> dateFormat,
+			@DataDef(length = 8) QCharacter dateSeparatorCharacter,
+			@DataDef(length = 8) QEnum<TIMEFORMATEnum, QCharacter> timeFormat,
+			@DataDef(length = 8) QCharacter timeSeparatorCharacter,
+			@DataDef(length = 10) QEnum<DEFAULTCOLLECTIONEnum, QCharacter> defaultCollection,
+			@DataDef(length = 10) QEnum<DECIMALPOINTEnum, QCharacter> decimalPoint,
+			@DataDef(qualified = true) QEnum<SORTSEQUENCEEnum, SORTSEQUENCE> sortSequence,
+			@DataDef(length = 10) QEnum<LANGUAGEIDEnum, QCharacter> languageId,
+			@DataDef(length = 10) QEnum<ALLOWCOPYOFDATAEnum, QCharacter> allowCopyOfData,
+			@DataDef(length = 10) QEnum<ALLOWBLOCKINGEnum, QCharacter> allowBlocking,
+			@DataDef(length = 10) QEnum<SQLRULESEnum, QCharacter> sQLRules,
+			DECIMALRESULTOPTIONS decimalResultOptions,
+			@DataDef(length = 1) QEnum<OUTPUTEnum, QCharacter> output) {
 
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job,  output.trimR());
+		QObjectWriter objectWriter = outputManager.getObjectWriter(job,  output.asData().trimR());
 		objectWriter.initialize();
 
 		QConnection databaseConnection = job.getContext().getAdapter(job, QConnection.class);
@@ -138,5 +159,77 @@ public class SQLStatementRunner {
 		}
 
 		return eClass;
+	}
+
+	public static enum COMMITMENTCONTROLEnum {
+		CHG, UR, CS, ALL, RS, NONE, NC, RR
+	}
+
+	public static enum NAMINGEnum {
+		SYS, SQL
+	}
+
+	public static enum DATEFORMATEnum {
+		JOB, USA, ISO, EUR, JIS, MDY, DMY, YMD, JUL
+	}
+
+	public static enum TIMEFORMATEnum {
+		HMS, USA, ISO, EUR, JIS
+	}
+
+	public static enum DEFAULTCOLLECTIONEnum {
+		NONE, OTHER
+	}
+
+	public static enum DECIMALPOINTEnum {
+		JOB, SYSVAL, PERIOD, COMMA
+	}
+
+	public static class SORTSEQUENCE extends QDataStructWrapper {
+		private static final long serialVersionUID = 1L;
+		@DataDef(length = 10)
+		public QCharacter name;
+		@DataDef(length = 10, value = "*LIBL")
+		public QEnum<LIBRARYEnum, QCharacter> library;
+
+		public static enum LIBRARYEnum {
+			LIBL, CURLIB, OTHER
+		}
+	}
+
+	public static enum SORTSEQUENCEEnum {
+		JOB, LANGIDUNQ, LANGIDSHR, HEX, OTHER
+	}
+
+	public static enum LANGUAGEIDEnum {
+		JOB, OTHER
+	}
+
+	public static enum ALLOWCOPYOFDATAEnum {
+		OPTIMIZE, YES, NO
+	}
+
+	public static enum ALLOWBLOCKINGEnum {
+		ALLREAD, NONE, READ
+	}
+
+	public static enum SQLRULESEnum {
+		DB2, STD
+	}
+
+	public static class DECIMALRESULTOPTIONS extends QDataStructWrapper {
+		private static final long serialVersionUID = 1L;
+		@DataDef(length = 2)
+		public QCharacter maximumPrecision;
+		@DataDef(length = 2)
+		public QCharacter maximumScale;
+		@DataDef(length = 2)
+		public QCharacter minimumDivideScale;
+	}
+
+	public static enum OUTPUTEnum {
+		@Special(value = "*")
+		TERM_STAR, @Special(value = "L")
+		PRINT
 	}
 }
