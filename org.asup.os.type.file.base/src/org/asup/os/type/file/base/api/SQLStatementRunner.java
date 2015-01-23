@@ -20,8 +20,6 @@ import javax.inject.Inject;
 
 import org.asup.db.core.QConnection;
 import org.asup.db.core.QStatement;
-import org.asup.il.data.BinaryType;
-import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QEnum;
